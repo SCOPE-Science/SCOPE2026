@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: A binary word with at most two ones becomes a palindrome after removing at most one pure-zero end block, giving palindromic length <=2; splitting just before the last one gives the bound 4. Palindromicity of all three ones requires a=d,b=c; two-palindrome factorization either contains a three-one palindromic core (b=c) or separates one and two ones, forcing b=a+d or c=a+d. If b!=c and both outer zero gaps exceed both inner gaps, any palindromic prefix and suffix containing a one is impossible, and at most three factors would require an impossible three-one central palindrome. Otherwise a palindromic prefix containing one or two ones followed by a <=2-marker suffix yields at most three factors. Counting four-factor configurations with max inner gap m>=1 and unequal inner gaps, external a,d=m+1+nonnegative, gives the rational generating function. Its dominant pole order 4 has coefficient 1/6, yielding n^3/36 and fraction 1/6. Independently computed word-level palindrome DP checked 2,401 four-gap quadruples (0..6) and every length-three-to-14 weight-three word and the generating function coefficients. Finite checks support, not replace, the all-gap proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frid et al. prove unbounded palindromic length along power-free infinite sequences; Ravsky bounds global binary maximum/mean. Neither entails E_n counts at fixed weight three."
+        ],
+        "reasoning": "A theorem for all binary words could dominate a fixed-weight result if it supplied a full distribution; these inspected papers instead give global extremal and infinite-word growth, not the sparse exact table.",
+        "searches": [
+          "Frid Puzynina Zamboni 2012 arXiv:1210.6179 main Theorems 1 and 2",
+          "Ravsky On the palindromic decomposition of binary words Theorems 1 and 2"
+        ]
+      },
+      "checked_sources": [
+        "Ravsky, J. Automata Languages Combinatorics 8 (2003), arXiv:1004.1278 (2010 posting), full PDF",
+        "Frid, Puzynina, Zamboni, arXiv:1210.6179 (2012), primary PDF",
+        "Helmut Prodinger, Journal of Integer Sequences 17 (2014), Article 14.6.2",
+        "OEIS A090701, global K(n) table",
+        "Resultary sparse palindrome query (2026-10-29)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "K(8)=4 is an implication about existence of some 8-bit word, but not the specific two weight-three examples or the exact all-n count. Infinite-word unboundedness is orthogonal to bounded sparse words."
+        ],
+        "reasoning": "The prior global problem implies no length-classification at three markers. Present result does not claim an improvement to K(n) or all-word averages; it is an exact sparse family.",
+        "searches": [
+          "Ravsky arXiv:1004.1278 Theorem 1, Table K(n), Theorem 2 average",
+          "Frid Puzynina Zamboni arXiv:1210.6179 introduction and Theorem 1",
+          "OEIS A090701"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Palindromic factorization as minimum number of contiguous palindrome blocks is the same invariant as in Ravsky and Frid et al.; no alternate normalization is used. Ravsky Theorem 1 treats K(n)=max over all 2^n words."
+        ],
+        "reasoning": "Compared equal invariant but different quantifiers: all words with exactly three ones and explicit gap classification, as opposed to maximization over all words or prefixes of infinite words.",
+        "searches": [
+          "Web: binary three ones palindromic length 4 zero gaps characterization generating function 1/6",
+          "Resultary: palindromic length binary words exactly three ones zero gap classification generating function maximal length four",
+          "Ravsky arXiv:1004.1278"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A090701 is max palindromic length K(n) across all words and includes K(8)=4, not E_n. Prodinger counts palindromes with restricted runs, not minimal palindrome partitions of arbitrary weight-three words."
+        ],
+        "reasoning": "Existing global maxima and counts of single palindromic words do not provide the four-tier gap classification or the four-piece factorization generating function.",
+        "searches": [
+          "OEIS A090701 (global K(n) sequence)",
+          "Ravsky 2003/2010 length-n max table",
+          "Prodinger 2014 Counting palindromes according to r-runs of ones using generating functions"
+        ]
+      },
+      "rationale": "PASS: The invariant of palindromic length is classical. Ravsky supplies global worst-case K(n) and averages over all binary words, not a complete gap-by-gap fixed-weight-three classification. Frid, Puzynina and Zamboni study lengths of factors of infinite words. The present exact stratification and 1/6 sparse-weight density were not in the inspected primary statements; the length-eight global maximum itself is prior and not separately claimed as new.",
+      "residual_risks": [
+        "A historically published fixed-weight-three lemma might exist under run-gap terminology despite targeted searches.",
+        "No formula is claimed for weight four or larger; E_n is labeled-word count, not reversal classes.",
+        "Ravsky global K(8)=4 is prior; first length-eight maximum is not itself claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING global K(n) and the existence of K(8)=4; NOT_COVERING fixed-weight-three all-gap classification",
+          "evidence": "Theorem 1 K(n)=floor(n/6)+floor((n+4)/6)+1 except n=11; Theorem 2 mean asymptotic, no E_n",
+          "identifier_or_url": "https://arxiv.org/abs/1004.1278",
+          "material_read": "9-page primary PDF, introduction and full theorem statements, global maximum/mean tables, proof structure",
+          "method": "Full original arXiv PDF inspected, including page-image screenshot",
+          "title": "On the palindromic decomposition of binary words",
+          "trigger": "Same fundamental palindromic length and global length-eight maximum"
+        },
+        {
+          "assessment": "INAPPLICABLE: its quantifiers run over factors of infinite words, not weight-three finite binary gap vectors",
+          "evidence": "Theorem 1: arbitrarily high palindromic length along k-power-free infinite words; cannot imply four-tier fixed-weight classification",
+          "identifier_or_url": "https://arxiv.org/abs/1210.6179",
+          "material_read": "Full-text primary PDF introduction, definitions, Theorem 1 and proof sections on k-power-free infinite words",
+          "method": "Original PDF reading and first-page visual inspection",
+          "title": "On minimal factorizations of words as products of palindromes",
+          "trigger": "Plausible broad palindromic factorization theorem"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC: enumeration of palindromic strings, not factorization length",
+          "evidence": "Journal of Integer Sequences 17 (2014), Article 14.6.2 counts actual palindromes by restricted 1-runs",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL17/Prodinger2/prod31.html",
+          "material_read": "Original journal full HTML abstract and statement",
+          "method": "Publication abstract and overview inspected",
+          "title": "Counting palindromes according to r-runs of ones using generating functions",
+          "trigger": "Potential exact generating-function table for sparse palindromes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Weight three is the first sparse binary class that exhibits the fourth palindromic factor and thus a motivated threshold rather than an arbitrary finite length slice. The sharp four-gap inequality, complete 1/2/3/4 case split, rational counting generating function and limiting one-sixth density give a full natural combinatorial classification not implied by a generic factorization algorithm or the prior global K(n) table. The result is self-contained but does not pretend to solve the full palindrome-factorization problem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every binary word w=0^a 1 0^b 1 0^c 1 0^d with four nonnegative zero gaps, the minimal number of nonempty contiguous palindromes is 1 if a=d and b=c; otherwise 2 iff b=c or b=a+d or c=a+d; otherwise 4 iff b!=c and min(a,d)>max(b,c); 3 otherwise. The maximal weight-three palindromic length is 4, first at n=8 for two words, and the count E_n of length-n weight-three words with length 4 has generating function 2z^8/((1-z)^2(1-z^3)(1-z^4)), so E_n/binom(n,3)->1/6.",
+  "limitations": [
+    "Only binary strings with exactly three ones, nonempty contiguous palindrome factors and literal labeled words are covered.",
+    "An earlier fixed-weight equivalent may exist unindexed; global palindromic length maximum at length 8 is already prior."
+  ],
+  "schema_version": 1
+}
