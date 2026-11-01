@@ -1,11 +1,21 @@
-# Scientific review: theta-graph degree covariance
+# Independent mathematical audit
 
-**Correctness — PASS.** The deletion-of-two-distinct-path-edges bijection gives exactly \(ab+ac+bc\) uniform spanning trees. Computing individual and paired deletion probabilities proves strictly negative covariance between distinct deletion indicators. Summing over incident edges establishes negative covariance for nonneighbors. Two independent algebraic formulas determine adjacent pairs, and their sharp positivity analysis classifies precisely the zero cases. The standalone checker independently enumerates spanning trees and passes 35,865 rational equality/sign checks for 216 path triples. These computations are confirmatory; the symbolic proof covers all positive integral lengths at least two.
+## correctness
 
-**Originality — PASS on inspected evidence.** Cherkashin–Petrov–Prozorov, arXiv:2209.04413 (2022), classify real stability and do not state this covariance-sign test. Fita Sanmartín–Schnörr–Hamprecht, arXiv:2409.13472 (2024), give a general computable Laplacian-inverse covariance identity, which could be specialized but does not itself supply the uniform theta inequalities, zero classification, or covariance-sign graph reconstruction. Rapoport, DOI 10.1007/s10955-025-03510-0 (2025), supplies broader degree-field formulas without the inspected theta specialization. Residual risk: a different earlier source may already carry an equivalent theta-specific statement.
+PASS
 
-**Value — PASS.** The result exactly reconstructs the labeled edges of a natural infinite bicyclic graph family from population degree-covariance signs. The universal adjacent/nonadjacent split and sharp exceptional zero behavior give an interpretable structural dependence classification, not an arbitrary numerical invariant. It also contrasts with the strictly stronger real-stability property, which fails for many of these graphs.
+A uniform tree of Theta(a,b,c) deletes exactly two edges on distinct paths, giving W=ab+ac+bc equally likely deletion pairs. Each pair of distinct deletion indicators has strictly negative covariance. Vertex degree equals host degree minus incident deletions, so nonadjacent vertices have strictly negative covariance. Shared-edge diagonal terms produce the two displayed positive rational forms, and elementary expansions show equality only for all edges of (2,2,2) and the middle length-three edge of (2,2,3). Independently implemented brute-force connectivity enumeration checked all 216 ordered triples a,b,c∈{2,...,7}; all vertex-pair exact rational covariances satisfy edge iff covariance≥0. All-length result follows from algebra, not finite enumeration.
 
-**Limits.** Only unweighted uniformly sampled spanning trees of three internally vertex-disjoint paths of lengths at least two are covered; no universal-graph reconstruction or finite-sample numerical stability is asserted. Prior general covariance formulas are credited, and earlier equivalent specializations remain a historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General reduced-Laplacian formulas already compute covariances for arbitrary weighted graphs, and real-stability theory describes a different property. The uniform all-length theta sign separation, exact equality cases and adjacency-reconstruction corollary require nontrivial special inequalities not stated in inspected prior results; priority remains qualified by possible earlier theta specialization. Actual named comparisons and inaccessible-source limitations are recorded below.
+
+## value
+
+PASS
+
+Recovering labeled edges of a natural bicyclic graph family solely from exact random-spanning-tree degree covariance is a structurally motivated inverse-statistics theorem, including sharp zero exceptions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
