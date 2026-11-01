@@ -1,13 +1,21 @@
-# Scientific review: fixed-dose endemic-incidence envelopes
+# Independent mathematical audit
 
-**Correctness (PASS).** The complete equilibrium claim is derived from renewal-reward identities, mass conservation, a strictly monotone actual-dose closure, and two global Hermite moment inequalities. The derivative of the endogenous dose-flow map is strictly positive for all admissible laws and all positive hazards, establishing unique stationary endemic equilibria. The two tangent quadratic envelopes are exact and imply sharp incidence bounds with explicit equality conditions. Standard-library verification (`CHECK.py`) tests moments, equilibrium balance, and numerous parameters, but it does not substitute for the proof of the infinite-law assertion.
+## correctness
 
-**Originality (PASS, limited to this particular theorem).** Yang–Saldaña–Scoglio already derive equilibrium transform dependence and vaccination thresholds for their non-Markovian SIRVS model at a *fixed vaccination hazard*. We claim neither that dependence nor the renewal stationary equations as novel. El Khalifi–Britton investigate heterogeneous/gradual waning and vaccination supply to maintain herd immunity, but not sharp **endemic-incidence** envelopes for a **fixed realized administered-dose flux** when only the first two moments and a support bound of all-or-nothing natural immunity are known. Classical Hermite two-moment bounds are standard tools; the new assertion is their simultaneous sharp propagation through the unique *endogenous* dose budget and its epidemiological phase constraints. Results-search comparisons did not locate an identical or stronger implication, but broader stochastic-order/epidemic-bound literature remains a residual publication-priority risk.
+PASS
 
-**Value (PASS).** Knowing only a bounded range, mean, and variance of natural-immunity duration is a natural partial-information situation. A public-health supply constraint generally specifies *administered doses*, not a per-eligible-person hazard, which changes with endemic recovered occupancy. The result yields computable, globally sharp best/worst-case stationary incidence without estimating a full duration distribution and quantifies a real epidemiological ambiguity at an admissible budget. This is substantially stronger than a mean-only qualitative comparison or a numerical special case.
+At endemic equilibrium S=1/R and I=aJ; naturally recovered class C=J B_T(v), B_T(v)=E[(1−e^(−vT))/v], and vaccine stock V=fb from actual administered-dose flow f=v(S+C). Hence K=1−1/R−fb>0, J=K/(a+B_T(v)), and G_T(v)=v[1/R+K B/(a+B)]=f. Its derivative 1/R+K[B²+a E(T e^(−vT))]/(a+B)²>0 gives the unique positive root. For fixed hazard the third derivative of g(t)=e^(−vt) is negative: the two Hermite quadratic interpolants at (ell,u) and (d,L) yield sharp pointwise and hence Laplace bounds simultaneously for all v, with unique endpoint two-atom laws. Propagating those bounds through monotone budget equations and B(v) decreasing yields v_nu+≤v_T≤v_nu- and J_nu+≤J_T≤J_nu- (and I=aJ). Independently checked endpoint moments, unique budget roots, and ordered incidence values J_-=0.1813468073, J_middle=0.1750958197, J_+=0.1700143310 for given parameters. Only stationary equilibrium, not dynamic stability, follows.
 
-**Closest primary literature.** Yang–Saldaña–Scoglio, arXiv:2303.15326, stationary renewal model and fixed-hazard equilibrium; El Khalifi–Britton, arXiv:2311.00592, supply and heterogeneous gradual waning; El Khalifi–Britton, arXiv:2211.09062, gradual waning benchmark. Comparisons concern the mathematical statements and constraints, not only paper titles.
+## originality
 
-**Limitations and risk.** Perfect protection, homogeneous mixing, vaccination eligibility of susceptible and recovered individuals, a constant stationary administered-dose budget, bounded all-or-nothing natural immunity and a strict endemic regime are assumed. Only stationary existence and uniqueness, not dynamic convergence, is proved. The atomic extremizers must be interpreted as weak-limit bounds if the underlying PDE is restricted to smooth densities. A more comprehensive related theorem or unpublished study may affect originality. Independent review is not represented as completed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Yang–Saldaña–Scoglio established the SIRVS renewal stationary equations for a fixed hazard, and Hermite two-moment inequalities are classical. This finding holds actual vaccine-dose flow fixed, recalibrates hazard for every distribution, and proves the resulting sharp incidence and prevalence envelopes. Neither inspected epidemiological theorem implies the combined fixed-dose extremizer result.
+
+## value
+
+PASS
+
+The actual administered vaccine-dose flow, rather than an assumed identical individual hazard, is a natural fixed policy resource; eligible population size responds to the immunity law. The theorem obtains computable sharp worst/best endemic incidence and prevalence when immunity duration is known only through support, mean and variance. The extremizers are explicit two-point laws, a meaningful information-limited optimal bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

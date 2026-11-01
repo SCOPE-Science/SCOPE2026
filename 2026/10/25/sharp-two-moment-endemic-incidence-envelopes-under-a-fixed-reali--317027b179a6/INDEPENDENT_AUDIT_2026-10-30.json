@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:00:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/sharp-two-moment-endemic-incidence-envelopes-under-a-fixed-reali--317027b179a6/RESULT.md",
+        "2026/10/25/sharp-two-moment-endemic-incidence-envelopes-under-a-fixed-reali--317027b179a6/CHECK.py"
+      ],
+      "rationale": "At endemic equilibrium S=1/R and I=aJ; naturally recovered class C=J B_T(v), B_T(v)=E[(1−e^(−vT))/v], and vaccine stock V=fb from actual administered-dose flow f=v(S+C). Hence K=1−1/R−fb>0, J=K/(a+B_T(v)), and G_T(v)=v[1/R+K B/(a+B)]=f. Its derivative 1/R+K[B²+a E(T e^(−vT))]/(a+B)²>0 gives the unique positive root. For fixed hazard the third derivative of g(t)=e^(−vt) is negative: the two Hermite quadratic interpolants at (ell,u) and (d,L) yield sharp pointwise and hence Laplace bounds simultaneously for all v, with unique endpoint two-atom laws. Propagating those bounds through monotone budget equations and B(v) decreasing yields v_nu+≤v_T≤v_nu- and J_nu+≤J_T≤J_nu- (and I=aJ). Independently checked endpoint moments, unique budget roots, and ordered incidence values J_-=0.1813468073, J_middle=0.1750958197, J_+=0.1700143310 for given parameters. Only stationary equilibrium, not dynamic stability, follows.",
+      "residual_risks": [
+        "Positive stationary endemic equilibria only; no proof of global attraction, transient bounds, breakthrough infections or network structure.",
+        "Atom endpoint attainment assumes general probability laws on [ell,L]."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yang–Saldaña–Scoglio provides a fixed-hazard SIRVS endemic formula; El Khalifi–Britton studies heterogeneous immunity and vaccination but no inspected sharp two-moment realized-dose incidence envelopes."
+        ],
+        "reasoning": "Existing epidemic renewal relationships imply some basic equations but not automatically the sharp endpoint distributions under endogenous dose calibration.",
+        "searches": [
+          "Yang Saldana Scoglio 2303.15326 stationary equilibrium",
+          "immunity waning heterogeneous vaccine El Khalifi Britton 2311.00592",
+          "epidemic SIRVS immunity duration two moment fixed administered dose endemic incidence sharp envelope"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2303.15326",
+        "https://arxiv.org/abs/2311.00592",
+        "https://arxiv.org/abs/2211.09062",
+        "2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Hermite bounds imply the fixed-hazard Laplace envelope but not by themselves the correct orientation after v_T adjusts; the monotonicity G_T and B_T arguments are essential."
+        ],
+        "reasoning": "The combined steady-state dose closure and moment-problem propagation give a conclusion absent from inspected baseline model results; claims of novel Hermite inequalities or original SIRVS balance are expressly excluded.",
+        "searches": [
+          "Yang et al 2303.15326 steady state formula",
+          "Hermite interpolation convex moment Laplace bounds",
+          "epidemic SIRVS immunity duration two moment fixed administered dose endemic incidence sharp envelope"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source non-Markovian model expresses stationary balance with a Laplace transform at fixed vaccination hazard. Here f=v(S+C) is held fixed while v is recomputed for every immunity law, producing a different optimization problem."
+        ],
+        "reasoning": "Equivalent stationary renewal-reward and Laplace formulations were matched explicitly; holding hazard fixed is not a substitute for holding realized vaccine doses fixed.",
+        "searches": [
+          "epidemic SIRVS immunity duration two moment fixed administered dose endemic incidence sharp envelope",
+          "SIRVS stationary Laplace immunity duration vaccination dose flow versus fixed hazard",
+          "arXiv:2303.15326"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A Resultary 2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb finding concerns another information-dependent vaccination model and threshold, not a two-moment fixed-dose extremal table."
+        ],
+        "reasoning": "The two-point Hermite extremal laws are classical moment methods, but no exact paired epidemic-budget endpoint values were found in the explored published table/database.",
+        "searches": [
+          "epidemic SIRVS immunity duration two moment fixed administered dose endemic incidence sharp envelope",
+          "Resultary semantic query: epidemic SIRVS immunity duration two moment fixed administered dose endemic incidence sharp envelope",
+          "moment bounds exponential Laplace support mean variance"
+        ]
+      },
+      "rationale": "Yang–Saldaña–Scoglio established the SIRVS renewal stationary equations for a fixed hazard, and Hermite two-moment inequalities are classical. This finding holds actual vaccine-dose flow fixed, recalibrates hazard for every distribution, and proves the resulting sharp incidence and prevalence envelopes. Neither inspected epidemiological theorem implies the combined fixed-dose extremizer result.",
+      "residual_risks": [
+        "Classical Chebyshev–Markov moment extremizer literature may already imply Laplace extremal laws; that technique is credited, not claimed as invention.",
+        "More general epidemiological fixed-dose risk bounds might have appeared in uninspected specialized optimization literature.",
+        "Strict continuous-duration-density formulations realize endpoints only as weak-limit extrema, not actual atoms."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior base model and fixed-hazard transform equilibrium; no inspected exact fixed administered dose sharp two-moment law.",
+          "evidence": "Yang–Saldaña–Scoglio (2023) steady-state formula involving immunity Laplace transform.",
+          "identifier_or_url": "https://arxiv.org/abs/2303.15326",
+          "material_read": "Full accessible arXiv PDF, endemic stationary equations, parameter definitions and relevant page screenshots.",
+          "method": "Full PDF mathematical comparison",
+          "title": "Generalized epidemic model incorporating non-Markovian infection processes and waning immunity",
+          "trigger": "same SIRVS non-Markovian stationary model"
+        },
+        {
+          "assessment": "Relevant but not confidently excluded as whole document; residual risk.",
+          "evidence": "El Khalifi–Britton (2023) heterogeneous waning and vaccination.",
+          "identifier_or_url": "https://arxiv.org/abs/2311.00592",
+          "material_read": "Bibliographic abstract and source reference, not complete full text.",
+          "method": "ArXiv search/abstract",
+          "title": "SIRS epidemics with individual heterogeneity of immunity waning",
+          "trigger": "immunity heterogeneity prior"
+        },
+        {
+          "assessment": "Different gradual waning perspective; no whole-document noncoverage assertion.",
+          "evidence": "El Khalifi–Britton (2022).",
+          "identifier_or_url": "https://arxiv.org/abs/2211.09062",
+          "material_read": "Bibliographic summary and citation, no full text inspected.",
+          "method": "Primary bibliographic search",
+          "title": "Extending SIRS epidemics to allow for gradual waning of immunity",
+          "trigger": "alternative waning model"
+        },
+        {
+          "assessment": "Different model, does not imply two-moment endpoint laws.",
+          "evidence": "Information-dependent feedback parameters and endemic burden.",
+          "identifier_or_url": "2026/10/4/SCOPE-information-dependent-vaccination-shifts-endemic-burden-at-a-fix--1a0e363384fb",
+          "material_read": "Published finding title and summary regarding information-dependent vaccination, not fixed realized dose.",
+          "method": "Resultary semantic search",
+          "title": "Resultary vaccination threshold finding",
+          "trigger": "same broad vaccination/endemic topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/sharp-two-moment-endemic-incidence-envelopes-under-a-fixed-reali--317027b179a6/RESULT.md"
+      ],
+      "rationale": "The actual administered vaccine-dose flow, rather than an assumed identical individual hazard, is a natural fixed policy resource; eligible population size responds to the immunity law. The theorem obtains computable sharp worst/best endemic incidence and prevalence when immunity duration is known only through support, mean and variance. The extremizers are explicit two-point laws, a meaningful information-limited optimal bound.",
+      "residual_risks": [
+        "Positive stationary endemic equilibria only; no proof of global attraction, transient bounds, breakthrough infections or network structure.",
+        "Atom endpoint attainment assumes general probability laws on [ell,L]."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Positive stationary endemic equilibria only; no proof of global attraction, transient bounds, breakthrough infections or network structure.",
+    "Atom endpoint attainment assumes general probability laws on [ell,L]."
+  ],
+  "schema_version": 1
+}
