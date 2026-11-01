@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness.** The face-lattice \(cd\)-index is reconstructed from the four rank-four flag coefficients, with the remaining coefficients following from Eulerian flag relations. Substituting the explicitly evaluated five gamma contributions from the published universal formula produces the two exact incidence identities. Their nonnegative summands follow from the four-dimensional minimum vertex/facet counts, minimum vertex valence, minimum edge-link polygon size, and minimum two-face polygon size. Equality is realized only by a simplex. Independent integer-only reconstruction of full face posets, flag \(h\)-vectors, \(cd\)-indices and both gamma coefficients passed for eight concrete four-polytopes. Risk: the universal gamma evaluation is used as a cited theorem rather than reproved in full; the finite tests are corroborative only.
+## correctness
 
-**Originality.** The motivating 2026 paper proves gamma-positivity but leaves coefficientwise simplex minimality as an explicit conjecture. It gives the universal \(cd\)-to-gamma transformation used here but not the dimension-four defect decomposition or strict equality result. The 2024 foundational Chow-functions paper concerns definition and general properties and does not present this classification. Related results about Eulerian \(Z\)-polynomials of three-dimensional polytopes concern a different polynomial and do not imply this theorem. Searches using augmented Chow terminology, stellahedral transforms, the candidate coefficients, and dual flag descriptions found no identified equivalent. The main residual risk is an unindexed or earlier implicit four-dimensional specialization; novelty is provisional pending independent literature review.
+PASS
 
-**Mathematical value.** The statement resolves the first genuinely two-coefficient instance of a current geometric simplex-minimality conjecture and explains the exact gap via local incidence excesses. The formula applies to all four-polytopes, with no smoothness, simplicity or rationality hypothesis; exact equality characterizes the simplex individually at each coefficient. It is a dimension-specific theorem, not a solution of the general conjecture.
+The rank-five cd-index of a four-polytope has coefficients c^4+(s-2)c^2d+(r-s)cdc+(v-2)dc^2+(m-e-r-v-s+4)d^2. The cited universal right-augmented-Chow cd-to-gamma map then gives gamma1=3s+2e-9 and gamma2=7m-7e-5r-6v-8s+23. Euler v-e+r-s=0 rewrites these as gamma1=26+4(v-5)+2(e-2v)+3(s-5) and 3(gamma2-43)=12(s-5)+27(e-2v)+4(m-3e)+17(m-3r). All five defects are nonnegative because every vertex degree >=4, edge link has >=3 polygonal faces, each two-face >=3 edges, and v,s>=5. Equality in gamma1 forces v=5, while equality in gamma2 forces s=5; either forces a 4-simplex.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Faustini–Ferroni–Piazza published the exact universal gamma-transform input, gamma positivity and a simplex-minimality conjecture, but the inspected paper did not prove its dimension-four case or state these incidence defect decompositions. The new result settles that dimensional case with two sharp coefficient gaps and equality classification, relying on and citing the existing Proposition 6.3.
+
+## value
+
+PASS
+
+This proves the first nontrivial four-dimensional case of a specifically stated coefficientwise simplex-minimality conjecture and identifies sharp nonnegative combinatorial gaps for both coefficients with equality only at the simplex. The incidence defects illuminate structural reasons for the lower bounds beyond a routine numerical evaluation on finitely many polytopes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
