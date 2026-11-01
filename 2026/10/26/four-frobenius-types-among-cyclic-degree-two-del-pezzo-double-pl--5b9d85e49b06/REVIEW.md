@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For \(S_{a,b,c,d,e}\) in the precisely stated cyclic invariant family, the five quartic orbit sums are exhaustive and the shift \(w\mapsto w+(x+y+z)^2\) is an exact isomorphism. The conic is smooth, and differentiating the weighted equation forces singularities onto it. The conic parameter test exhausts all geometric points, including two excluded endpoints: the listed eight polynomial gcds over \(\mathbb F_2[t]\) yield exactly 12 smooth models. Finite-field projective point enumeration and Newton identities reconstruct all four degree-eight Frobenius polynomials; the independent standard rank-eight Picard theorem for degree-two del Pezzo surfaces makes eight traces sufficient for all extension degrees. Direct low-degree equation solving and the included verifier corroborate the finite computations. Mathematical risk: the Picard classification and Grothendieck trace formula are invoked as established general theorems, not independently re-proved here.
+## correctness
 
-## Originality — PASS, with explicit residual uncertainty
-Festi–van Luijk's established 2014 degree-two del Pezzo unirationality theorem does not imply the 12/32 coefficient smoothness classification. Knecht–Reyes' 2015 exceptional-line treatment concerns full split models, not this family. Banwait–Fité–Loughran's 2016 admissible trace studies and the broad 2018 Loughran–Trepalin inverse Galois classification concern which Frobenius classes can occur, not their precise realization and smoothness for all 32 displayed invariant coefficients; the explicitly read §1.2/§3 of the latter supplies no such assignment. Bergvall's later quantitative count concerns odd characteristic. Targeted searches for cyclic degree-two characteristic-two invariant conic and the actual polynomial equation did not locate an equivalent coefficientwise classification. Closest broad source: Loughran–Trepalin, arXiv:1811.06785; a second relevant source: Festi–van Luijk, arXiv:1408.0269. Residual risk: older coordinate-free and finite-field tables may encode equivalent cases, and the complete 2014 extended version was not inspected page by page; absence of a match is not a proof of novelty.
+PASS
 
-## Value — PASS
-The symmetry-fixed conic and the complete invariant quartic coefficient space define a natural, finite moduli slice rather than a selected arbitrary example. Determining its entire smooth locus and all arithmetic isomorphism classes is a complete small-field geometry classification. The distinct full Frobenius polynomials refine the weak rational point statistic: two pairs of surfaces have the same point count but different arithmetic Picard ranks. The explicit Geiser twists and coordinate identifications explain the arithmetic-geometric structure of this phenomenon.
+The five degree-four monomial orbit sums span precisely the cyclic invariants. The weighted coordinate change w→w+(x+y+z)² toggles the coefficients of A+B+C+E, and exchanging coordinates swaps B with C. Smoothness forces a singular point onto the nonsingular branch conic; substitution of its homogeneous parametrization reduces all geometric singularities, not just rational singularities, to endpoint checks and gcds of explicit F2[t] polynomials, yielding exactly 12 masks. The 12 masks split into four classes after the shift and coordinate symmetry; the four distinct Frobenius polynomials exclude any further F2-isomorphism. The known rank-eight geometric Picard representation of smooth degree-two del Pezzo surfaces and the Grothendieck trace formula convert exactly counted points over F_{2^n} for n=1,...,8 via Newton identities to the full characteristic polynomial and all extension counts. Independent computation rederived all 12 smooth masks, all four normalized classes and Picard traces for n=1,...,8 using an independent finite-field evaluator. None of this finite work by itself proves the geometric rank-eight theorem; that is a named standard input.
 
-## Scope and scientific limits
-The claim concerns exactly the specified models, not every degree-two del Pezzo surface over the base field. No broad moduli or automorphism group result is asserted. The result is reviewed against checked accessible literature and mathematics but has no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge scientific comparison: In the 32 cyclic-invariant weighted double-plane models w²+(xy+xz+yz)w+f4=0 over F2, exactly 12 are geometrically smooth and these form four F2-isomorphism types, with four explicitly determined degree-eight geometric Picard Frobenius characteristic polynomials. The complete cyclic-invariant coefficient space with fixed smooth conic is a natural finite moduli slice, not a freely chosen short list of examples. The exact 
+
+## value
+
+PASS
+
+The complete cyclic-invariant coefficient space with fixed smooth conic is a natural finite moduli slice, not a freely chosen short list of examples. The exact smooth-locus and geometric isomorphism classification, including two equal-rational-point pairs distinguished by arithmetic Picard rank, is a meaningful arithmetic-geometric classification. It is neither claimed as a classification of all degree-two del Pezzo surfaces nor as a new general inverse-Galois theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

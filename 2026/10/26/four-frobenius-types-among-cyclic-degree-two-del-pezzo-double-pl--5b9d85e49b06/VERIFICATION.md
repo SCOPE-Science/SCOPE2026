@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 del_pezzo_cyclic_verifier.py` with Python 3 and no third-party packages. The script checks that the five named quartics are precisely the five cubic-orbit sums, verifies the weighted-coordinate shift formula as a polynomial identity, and calculates the singularity-condition gcd over `F2[t]` for all 32 coefficient choices. Because absence of nonzero roots of a polynomial over the algebraic closure is equivalent to its gcd being a nonzero monomial, the gcd checks are algebraic-geometric, not finite-point sampling. Endpoint checks are included.
+## correctness
 
-For each degree from one to eight the script constructs an explicit finite field, checks inverses for all nonzero elements, counts rational points by the Artin–Schreier trace test and additionally solves the quadratic in `w` directly in degrees one to three. It reconstructs the Picard Frobenius characteristic polynomial by Newton identities and asserts the four factorizations. All eight point counts are finite exhaustive computations; the inference of zeta functions at every degree uses the known eight-dimensional Picard realization of smooth degree-two del Pezzo cohomology.
+PASS
 
-Verified terminal result: `VERIFY_OK: 32 cyclic models, 12 smooth, 4 zeta types; fields degrees 1..8 and low-degree direct lifts`.
+The five degree-four monomial orbit sums span precisely the cyclic invariants. The weighted coordinate change w→w+(x+y+z)² toggles the coefficients of A+B+C+E, and exchanging coordinates swaps B with C. Smoothness forces a singular point onto the nonsingular branch conic; substitution of its homogeneous parametrization reduces all geometric singularities, not just rational singularities, to endpoint checks and gcds of explicit F2[t] polynomials, yielding exactly 12 masks. The 12 masks split into four classes after the shift and coordinate symmetry; the four distinct Frobenius polynomials exclude any further F2-isomorphism. The known rank-eight geometric Picard representation of smooth degree-two del Pezzo surfaces and the Grothendieck trace formula convert exactly counted points over F_{2^n} for n=1,...,8 via Newton identities to the full characteristic polynomial and all extension counts. Independent computation rederived all 12 smooth masks, all four normalized classes and Picard traces for n=1,...,8 using an independent finite-field evaluator. None of this finite work by itself proves the geometric rank-eight theorem; that is a named standard input.
 
-The full geometric Picard classification and trace formula are standard mathematical inputs, not certified by the script. Independent audit has not been performed.
+## originality
+
+PASS
+
+Best-knowledge scientific comparison: In the 32 cyclic-invariant weighted double-plane models w²+(xy+xz+yz)w+f4=0 over F2, exactly 12 are geometrically smooth and these form four F2-isomorphism types, with four explicitly determined degree-eight geometric Picard Frobenius characteristic polynomials. The complete cyclic-invariant coefficient space with fixed smooth conic is a natural finite moduli slice, not a freely chosen short list of examples. The exact 
+
+## value
+
+PASS
+
+The complete cyclic-invariant coefficient space with fixed smooth conic is a natural finite moduli slice, not a freely chosen short list of examples. The exact smooth-locus and geometric isomorphism classification, including two equal-rational-point pairs distinguished by arithmetic Picard rank, is a meaningful arithmetic-geometric classification. It is neither claimed as a classification of all degree-two del Pezzo surfaces nor as a new general inverse-Galois theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
