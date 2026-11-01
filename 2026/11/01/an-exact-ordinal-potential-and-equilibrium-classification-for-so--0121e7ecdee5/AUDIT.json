@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "All connected spanning cactus states are determined by retaining every bridge and omitting at most one edge per cycle. The unique block-cut path gives an exact additive shortest-distance increment over omitted cycle edges, hence endpoint payoff changes are independent and equal to q_endpoint(e)-alpha on deletion or alpha-q_endpoint(e) on addition. Therefore the stated cycle potential increases on every improving move and the tie-aware equilibrium product formula follows. Summing ordered pair distances gives the welfare identity and separate cycle maximization. The triangle-plus-two-stars family is checked analytically. The supplementary exact-rational script executed 1093 instances and 26710 state checks, including exhaustive subgraph completeness for 1526 small connected states. Computation does not replace the infinite-family proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Friedrich et al., Algorithmica 85 (2023), Theorem 4: unrestricted host class admits improving-response cycles.",
+        "Ibid., Theorem 9: for arbitrary hosts, all spanning trees are stable at small incentives and the full host is uniquely stable at sufficiently large incentives.",
+        "Ibid., Theorem 10: swap-maximal routing-cost spanning trees are stable for incentives up to n/3."
+      ],
+      "reasoning": "Theorems giving some stable networks or general parameter ranges do not imply identification of every equilibrium for every incentive and cactus host, nor finite improvement of every better-response sequence. The general non-potential example is on a broader domain but does not preclude a potential on the cactus subclass.",
+      "searches": [
+        "Social Distancing Network Creation Friedrich Gawendowicz Lenzner Melnichenko 2022 restricted host graph equilibrium",
+        "\"social distancing network creation\" \"block\" \"cycles\" \"host graph\"",
+        "\"cactus host\" \"network creation\" \"equilibria\" game"
+      ]
+    },
+    "checked_sources": [
+      "Friedrich et al. (2022), arXiv:2204.10423v1, https://arxiv.org/abs/2204.10423",
+      "Friedrich et al. (2022), ICALP 2022, https://doi.org/10.4230/LIPIcs.ICALP.2022.62",
+      "Friedrich et al. (2023), Algorithmica 85, https://doi.org/10.1007/s00453-022-01089-6",
+      "AMS MSC2020 91A43 games involving graphs, https://mathscinet.ams.org/mathscinet/msc/msc2020.html?t=91A07"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Friedrich et al., Algorithmica 85 (2023), after Theorem 9: a cycle host can have a unique stable state different from the welfare optimum.",
+        "Ibid., Theorems 4 and 7–15: existence and asymptotic efficiency claims on different quantifiers."
+      ],
+      "reasoning": "Published isolated-cycle inefficiency is a special case and explicitly excluded as novelty. Neither that example nor the general existence/approximation theorems yields the exact fixed-host all-alpha thresholds for every cycle, an ordinal potential for arbitrary cactus hosts, or the separable exact equilibrium and welfare optimization formulas. The proposed inference uses a separate block-cut-tree distance-additivity lemma.",
+      "searches": [
+        "\"social distancing network creation\" cycle equilibrium threshold",
+        "Improving response cycle absent for cactus social-distancing network formation: exact ordinal potential edge-deletion threshold",
+        "Social Distancing Network Creation Friedrich Gawendowicz Lenzner Melnichenko 2022 restricted host graph equilibrium"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Friedrich et al., arXiv:2204.10423v1, 2022-04-21, and Algorithmica DOI 10.1007/s00453-022-01089-6, Sections 1.1 and 3.1, use additive distance utility on connected host spanning subgraphs.",
+        "The Algorithmica text has no occurrence of cactus or unicyclic in its searchable body; it does explicitly discuss one isolated cycle host."
+      ],
+      "reasoning": "Equivalent forms include pairwise edge formation in an inverse network-creation game, additive shortest-path utility, or a blockwise discrete ordinal potential. The source model agrees with our utilities, but the inspected results are not the cycle-factorized exact potential and complete cactus equilibrium product theorem. Keyword nonmatches alone are not novelty proof.",
+      "searches": [
+        "Social Distancing Network Creation game on cactus host graphs: potential function and exact pairwise-stable subgraphs by cycle-block thresholds",
+        "Pairwise stable inverse network creation games with cactus graphs and additive distance utilities equilibrium counts",
+        "\"Social Distancing Network Creation\" ordinal potential graphs",
+        "\"inverse\" \"network creation game\" \"cactus\" potential",
+        "Exact ordinal potential, complete stable state counting and social welfare optimization for bilateral social-distancing network creation on any cactus host graph, based on independent edge deletion thresholds on cycles for every incentive parameter"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2022 ICALP and 2023 Algorithmica primary versions describe general network creation, cost and efficiency bounds, not a tabulation of all cactus-host equilibrium states.",
+        "The investigated mathematical research records returned other graph/cactus invariants but no exact social-distancing network-creation cactus table or count; no claim of exhaustive literature coverage follows."
+      ],
+      "reasoning": "The product factors are explicit endpoint distance shocks for each host cycle. Neither the closest source nor the relevant indexed results directly supply these numbers or a dominating all-cactus formula. An unrelated cactus graph invariant does not cover game equilibria.",
+      "searches": [
+        "\"cactus graphs\" \"pairwise stable\" \"network\" creation",
+        "Social Distancing Network Creation game on cactus host graphs: potential function and exact pairwise-stable subgraphs by cycle-block thresholds",
+        "Pairwise stable inverse network creation games with cactus graphs and additive distance utilities equilibrium counts",
+        "Exact ordinal potential, complete stable state counting and social welfare optimization for bilateral social-distancing network creation on any cactus host graph, based on independent edge deletion thresholds on cycles for every incentive parameter"
+      ]
+    },
+    "rationale": "The same 2022–2023 source defines the game and proves broad sufficient equilibrium regimes plus an unrestricted-host improvement cycle and a single-cycle inefficiency example. It does not supply an all-parameter cactus-host ordinal potential, complete stable-state product or separable welfare formulas. Direct statement/implication comparisons, variant-source metadata and targeted indexed searches found no dominating result. Previously known isolated-cycle observations are excluded; residual unindexed coverage remains possible.",
+    "residual_risks": [
+      "Independent systematic bibliographic review remains undone; a specialized unindexed exact cactus theorem could exist.",
+      "The motivating source has stronger general-range guarantees in other parameters, but those do not furnish all-alpha cactus state classification. The overlap assessment relies on the inspected accessible material."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The article establishes general sufficient equilibrium regimes and non-potential behavior on unrestricted hosts; it does not state the all-cactus potential/classification in the inspected material. Its cycle-specific inefficiency is prior art.",
+        "evidence": [
+          "2023 Algorithmica article DOI:10.1007/s00453-022-01089-6, especially Sections 1.1, 2.1 and 3.1–3.2"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00453-022-01089-6",
+        "material_read": "Full HTML model definition (Section 1.1), complete/general-host main results (Theorems 4, 7, 9, 10, 14–15), proofs/discussion of cycle-host examples, plus searchable-text checks for cactus and unicyclic",
+        "method": "Direct full-text section reading and source-level term comparison",
+        "title": "Social Distancing Network Creation",
+        "trigger": "Same game model and plausible broader coverage from a full-length primary work"
+      },
+      {
+        "assessment": "First publicly released 2022-04-21; establishes source model and scope. The later full-text article supplies the detailed theorem comparison.",
+        "evidence": [
+          "arXiv:2204.10423v1, 2022-04-21"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2204.10423",
+        "material_read": "Primary arXiv record title, authors, original public submission date and abstract",
+        "method": "Public arXiv listing metadata and comparison to later extended open-access article",
+        "title": "Social Distancing Network Creation",
+        "trigger": "Earliest verifiable version and source-date ownership"
+      },
+      {
+        "assessment": "Conference article public 2022-06-28, later than the arXiv preprint; same work, not an independent theorem covering the cactus claim.",
+        "evidence": [
+          "ICALP 2022, DOI:10.4230/LIPIcs.ICALP.2022.62"
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2022.62",
+        "material_read": "Primary proceedings record, date, abstract and bibliographic identifiers",
+        "method": "Proceedings HTML metadata inspection",
+        "title": "Social Distancing Network Creation",
+        "trigger": "Check intervening original conference publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0121e7ec-dee5-43c2-94f4-11aef5d1451a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result resolves an entire natural structural host class in a formation game shown to lack potential on unrestricted graphs: every unilateral/bilateral improvement terminates, equilibrium existence/counts are explicit for all parameters, and welfare optima and inefficiency are computable exactly. This is not a routine cycle-only example or generic finite enumeration; the cross-cycle block-additivity lemma is the structural mechanism.",
+    "status": "PASS"
+  }
+}
