@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The polar-decomposition witness satisfies the commutator identity and has exactly computable singular values. Orthogonal-corner Hilbert–Schmidt derivation control, the trace-class endpoint and bilinear complex interpolation give a dimension-free lower bound; duality covers every finite \(p\ge1\). The extracted finite-matrix checks supplement rather than establish the proof.
+## correctness
 
-**Originality — PASS, with documented priority limitations.** The 2017 Dykema--Krishnaswamy-Usha factorization theorem is qualitative and has no exact Schatten product minimum. The 2024 Marcoux--Radjavi--Zhang classification constrains square-zero factors rather than square-zero targets. Quantitative 2026 Schatten commutator and Schur estimates have different operator classes and extremal problems. The closest indexed finite-rank normal-target estimate does not imply a square-zero-target theorem. Later broad work accessible only by abstract, and unindexed ideal estimates, remain possible priority risks.
+PASS
 
-**Mathematical value — PASS.** The infimum of the factor-norm budget is a natural invariant in the single-commutator problem. The exact sharp constant holds simultaneously for all finite \(p\ge1\), ranks and Hilbert dimensions, with explicit equality cases. This is a nontrivial quantitative classification, not an alternate notation for qualitative commutator existence.
+For q=2p, polarization of T=JD with U=ran(T) orthogonal V=ran(T*) from T²=0 gives X=JD^(1/2), Y=(D^(1/2)-JD^(1/2)J*)/2, [X,Y]=T; their S_q norms multiply to 2^(1/q-1)||T||_p. The nonstandard lower estimate is the corner derivation ||[Z,A]||_{q′}≤2^(1−1/q)||Z||_{q/(q−2)}||A||_q, from the HS corner bound √2 and trace-class bound 2 via bilinear complex interpolation. Pair [W*,A] with B using the Schatten p norming functional, including W=J at p=1, to get the matching lower bound. No finite rank or separability restriction. Independently constructed 15 singular-value tests verify equality witnesses but not infinite-dimensional interpolation.
 
-**Scope:** square-zero targets only; not arbitrary nilpotents, non-Schatten targets, or mixed exponents. No independent scientific validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinct exact dimension-free sharp product norm for square-zero Schatten targets. Dykema–Krishnaswamy-Usha establish qualitative nilpotent commutator factorization, Marcoux–Radjavi–Zhang investigate commutators OF square-zero factors, and the published normal-target estimate concerns a disjoint target class. Exact constant in later broad 2026 work is a real unresolved historical-priority risk because its full text could not be lawfully obtained; this access limitation alone is not proof of nonoriginality or an automatic failure.
+
+## value
+
+PASS
+
+The product of Schatten norms required to realize a fixed nilpotent as a single commutator is a natural quantitative invariant beyond existence. Its exact universal constant across p, rank and dimension is mathematically motivated and not a routine rescaling of an earlier qualitative theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
