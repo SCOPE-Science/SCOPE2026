@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For d>=1 the line-intensity polynomial has degree <=2d and its two leading coefficients are independent of height. Thus 2d+1 first-line observations give the whole first trace, forcing equality of the two top coefficients, and 2d-1 second-line observations give the second trace. The rational quotient of two nonzero candidate polynomials is unimodular on both whole lines. Rational reflection identities force a nonzero imaginary period; only constant rational functions have periods, and the constant is unimodular. The zero case is handled by polynomial root counting. This proof covers arbitrary distinct nodes and lower-degree inputs. A 390-trial standard-library exact-arithmetic checker validates interpolation identities but is not used as an infinite/universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1907.09371 Theorem 4.2 provides general complex-polynomial phase retrieval with (2d+1)^2 value measurements.",
+        "arxiv:2308.05722 Theorem 1.1 rules out two-line uniqueness for a broad entire-function space containing exponentials, but does not concern fixed-degree polynomials.",
+        "arxiv:2403.16255 §2.3 Theorem 2.13 assumes continuous whole-line Hardy-space measurements."
+      ],
+      "reasoning": "The 2019 theorem covers a broader class of polynomial inputs but uses more measurements and does not imply the 4d all-grid two-line guarantee. The 2023 and 2024 theorems cover different function spaces or infinite measurement sets, hence do not dominate a finite sample theorem.",
+      "searches": [
+        "arxiv 1907.09371 Przybylek Siedlecki polynomial complex phaseless interpolation two distinct horizontal lines any nodes linear 4d",
+        "arxiv 2403.16255 Chalendar Partington phase retrieval two parallel lines finite degree polynomial sample 2d+1 2d-1",
+        "arxiv 1403.4769 Philipp Fourier derivative polynomial phase retrieval parallel lines",
+        "analytic polynomial P Q arbitrary 2d+1 samples first real line 2d-1 samples second parallel real line modulus uniqueness"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1907.09371v1 §4, Theorem 4.2: nonadaptive (2d+1)^2 radial/angular measurements, no arbitrary two-line 4d geometry.",
+      "arxiv:1302.5487v1 §2, Lemma 2.2 and Theorem 2.3: two lines meeting at irrational angle via two intersecting circles, hence not parallel.",
+      "arxiv:1403.4769v1 Theorem 1.1: (2d+1) value measurements and (2d-1) derivative measurements on one circle, not two line-only value families.",
+      "arxiv:2308.05722v1 Theorem 1.1: two parallel lines not sufficient for full entire-function space; this does not imply polynomial finite sampling.",
+      "arxiv:2403.16255v1 §2.3, Theorem 2.13: full-line measurements for Hardy H1 half-plane functions, not finite polynomial interpolation.",
+      "Other accessible earlier mathematical claims on two circles and on contracting spirals were compared at the statement level for overlap only; their proofs or evaluations were not revisited."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1302.5487 §2.2 assumes two *intersecting* lines at an irrational angle.",
+        "arxiv:1403.4769 Theorem 1.1 evaluates the derivative of the polynomial in its second measurement group.",
+        "arxiv:2403.16255 Theorem 2.13 concerns whole parallel-line traces of H^1 functions; a new finite interpolation argument is necessary for a 4d guarantee."
+      ],
+      "reasoning": "The new theorem independently shows a shared-top-coefficients interpolation identity and an exact 2d+1/2d-1 sampling count. The strongest related prior uniqueness results start after full traces are known; the crucial universal finite-data upgrade is neither stated nor implied by the sampled configurations of those prior theorems.",
+      "searches": [
+        "polynomial phase retrieval two parallel horizontal lines distinct real sample points 4N-4 universal injectivity",
+        "arxiv 1907.09371 Przybylek Siedlecki polynomial complex phaseless interpolation two distinct horizontal lines any nodes linear 4d",
+        "arxiv 2403.16255 Chalendar Partington phase retrieval two parallel lines finite degree polynomial sample 2d+1 2d-1",
+        "arxiv 1403.4769 Philipp Fourier derivative polynomial phase retrieval parallel lines"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Any two oriented parallel lines are affinely equivalent to two horizontal lines; source comparison uses affine invariance of polynomial degree.",
+        "Bodmann–Hammen arxiv:1302.5487 Lemma 2.2 has intersecting irrational-angle lines, which are not affine-equivalent to parallel lines.",
+        "Source arxiv:1907.09371 §4 measures on radial/angular grids, not parallel lines."
+      ],
+      "reasoning": "All equivalent reparameterizations of the claimed two-line construction preserve the fact that the lines are parallel and samples are arbitrary within each. Transverse-circle/line frames and Fourier-derivative measurements do not map to this configuration while preserving both degree and measurement type.",
+      "searches": [
+        "phaseless recovery complex polynomials from two parallel lines finite 4d samples degree d 2d+1 first line 2d-1 second line",
+        "polynomial phase retrieval two parallel horizontal lines distinct real sample points 4N-4 universal injectivity",
+        "arxiv 1907.09371 Przybylek Siedlecki polynomial complex phaseless interpolation two distinct horizontal lines any nodes linear 4d"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual targeted semantic searches surfaced finite-dimensional conjugate phase-retrieval and unrelated geometry results, but no matching universal two-parallel-line polynomial construction.",
+        "Accessible prior mathematical claims concerned either distinct concentric circles, finite point sets on two circles, or contracting spirals, rather than two parallel lines with arbitrary nodes."
+      ],
+      "reasoning": "No exact matching published theorem/table was identified. This is negative search evidence only; it cannot prove global uniqueness. The old claims address different geometric sampling families and are not being re-audited.",
+      "searches": [
+        "phaseless recovery complex polynomials from two parallel lines finite 4d samples degree d 2d+1 first line 2d-1 second line",
+        "finite sampling of analytic polynomials intensity two nonintersecting straight lines reflection rational function periodicity",
+        "analytic polynomial P Q arbitrary 2d+1 samples first real line 2d-1 samples second parallel real line modulus uniqueness"
+      ]
+    },
+    "rationale": "Direct comparison of statements and methods finds no earlier inspected theorem that entails arbitrary-node 2d+1 plus 2d-1 phaseless polynomial evaluations on two distinct parallel lines. Earlier 4d designs use transversally intersecting circles/lines or derivatives, while general polynomial interpolation uses quadratic sample counts. Full-line Hardy/entire uniqueness addresses different function spaces and infinite data. The comparison has residual priority risk for unlocated general frame results.",
+    "residual_risks": [
+      "An older unlocated universal phase-retrieval theorem for arbitrary value samples on two parallel lines might subsume the construction.",
+      "Some general structured low-redundancy frame results may conceal a reduction to this geometry, though no such implication was established in the inspected primary statements.",
+      "Historical priority is provisional; independent verification not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 4.2 gives (2d+1)^2 samples on radial/angular grids; not a 4d arbitrary-node two-parallel-line result.",
+        "evidence": [
+          "§4 Theorem 4.2: (2n+1)^2 evaluations; proof via angle Fourier transform then radial interpolation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.09371",
+        "material_read": "Accessible public full-text HTML: introduction, complexity setup, Section 4 Theorem 4.2 and the interpolation proof; the real-polynomial section was not reviewed exhaustively.",
+        "method": "Inspected mathematical theorem, sampled geometry, coefficient assumptions and construction; contrasted the number and placement of samples.",
+        "title": "A note on the complexity of a phaseless polynomial interpolation",
+        "trigger": "Direct predecessor on complex polynomial magnitude measurements and finite nonadaptive reconstruction"
+      },
+      {
+        "assessment": "Two geometric curves intersect transversally; Lemma 2.2 requires irrational intersection angle. It does not assert arbitrary sampling on parallel lines.",
+        "evidence": [
+          "§2 Lemma 2.2 explicitly requires intersecting lines at irrational angle.",
+          "§2 Theorem 2.3 samples two intersecting circles using equispaced nodes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1302.5487",
+        "material_read": "Accessible public full-text HTML: introduction, Section 2 Lemma 2.2 and Theorem 2.3, and their geometric proof steps; the later stability material was not exhaustively inspected.",
+        "method": "Compared underlying reflection geometry and node placement.",
+        "title": "Stable phase retrieval with low-redundancy frames",
+        "trigger": "Most closely related earlier low-redundancy exact 4d point-only phase retrieval"
+      },
+      {
+        "assessment": "One circular sample family evaluates polynomial, another evaluates its derivative. Neither the value-only restriction nor parallel arbitrary nodes follows from the stated theorem.",
+        "evidence": [
+          "Theorem 1.1: 2N-1 values of p and 2N-3 values of derivative p-prime on the unit circle."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4769",
+        "material_read": "Accessible public full-text HTML: introduction, Theorem 1.1, measurement formulas and decisive portions of its proof; the reconstruction-algorithm section was not exhaustively inspected.",
+        "method": "Compared signal degree, measurement functional, sampling set and proof.",
+        "title": "Phase Retrieval from 4N-4 Measurements",
+        "trigger": "Exact matching sample count for polynomial phase retrieval"
+      },
+      {
+        "assessment": "Two lines fail for broad entire-function classes containing exponentials; bounded-degree polynomials are a proper smaller family. No finite 4d interpolation theorem is asserted.",
+        "evidence": [
+          "Theorem 1.1: uniqueness iff vertical heights are not contained in an arithmetic progression; two heights always are."
+        ],
+        "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/blms.13134",
+        "material_read": "Accessible full publisher HTML: Theorem 1.1, Section 1 Gabor parallel-line discussion, relevant reflection argument in Section 2, and consequences in Section 3.",
+        "method": "Compared quantifiers over function class, sample sets, and arithmetic progression hypothesis.",
+        "title": "Arithmetic progressions and holomorphic phase retrieval",
+        "trigger": "Closest entire-function uniqueness obstruction on two parallel lines"
+      },
+      {
+        "assessment": "Theorem 2.13 assumes moduli on whole parallel lines and Hardy-space functions; §2.2 finite theorem uses circles and degree-bounded Blaschke products, not arbitrary two-line polynomial samples.",
+        "evidence": [
+          "§2.3 Theorem 2.13: moduli on iR and 1+iR (entire lines).",
+          "§2.2 Theorem 2.11: finite values on an interior circle for Blaschke products with additional conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2403.16255v3",
+        "material_read": "Accessible full public arXiv HTML: introduction, Section 2.2 Theorems 2.11–2.12, Section 2.3 Theorem 2.13 and relevant proof steps; unrelated subsections were not exhaustively inspected.",
+        "method": "Compared full-line Hardy-space uniqueness and finite Blaschke-circle sampling with polynomial finite parallel-line values.",
+        "title": "Phase retrieval on circles and lines",
+        "trigger": "Most directly related holomorphic phase retrieval and uniqueness along disjoint lines"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "68edbbb3-7d65-4ea1-86f2-5395bec40bf0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A fixed degree-d complex polynomial has d+1 complex coefficients but loses phase; arbitrary repeated line measurements alone cannot distinguish conjugate-reflected roots. Two separated parallel lines make exact recovery possible with 4d nonadaptive arbitrary-node intensity values, instead of the (2d+1)^2 radial/angular measurements in a direct earlier polynomial construction. The key mechanism is a two-coefficient redundancy between line traces, and the same interpolation map is exactly dimension-saturating on its natural 4d-dimensional ambient polynomial pair space. This is a geometrically natural full family of designs, not an unmotivated finite slice; nonlinear minimality and stability are explicitly unproved.",
+    "status": "PASS"
+  }
+}
