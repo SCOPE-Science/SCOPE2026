@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Execute `python3 paley17_verify.py` with standard Python 3. The implementation constructs quadratic residues of \(\mathbb F_{17}\), all faces of \(\operatorname{Cl}(P_{17})\), an explicit valid spanning tree, a maximal-tree presentation, and signed simplicial chain actions. It performs these checks without network access or third-party modules.
+## correctness
 
-The output of the completed execution was:
+PASS
 
-```
-PI1_T0_RELATOR_ELIMINATIONS_VERIFIED 52
-INTEGER_FREE_H2_RANK_BY_PI1_AND_EULER_VERIFIED 16
-ALL_AFFINE_LEFSCHETZ_CHARACTERS_VERIFIED 136
-PALEY17_WEDGE_AND_AFFINE_CHARACTER_VERIFIED
-```
+The Paley(17) residue graph has 17 vertices, 68 edges, 68 triangles and no 4-clique. A specified 16-edge spanning tree yields 52 generators with 68 triangular relators. An independently reimplemented legal unique-occurrence Tietze elimination removes all 52 generators and leaves 16 empty relators, proving pi1=1, not merely H1=0. Euler characteristic and Hurewicz–Whitehead imply a wedge of sixteen S2. Independent affine signed simplicial traces for all 136 maps equal 16, -1, or 0 on identity, nontrivial translations, and nontrivial multipliers; this matches the 17-point augmentation module. Graph diameter two gives the exact Rips barcode.
 
-Every triangular-relator substitution is recomputed and verified to eliminate a unique generator; all remaining relators are empty. A separate mod-two rank check confirms rank \(52\) for the triangle boundary. Graph diameter two and the absence of four-cliques are exhaustively checked. The symmetry check independently evaluates oriented chain traces for each of the 136 maps and matches the three predicted classes.
+## originality
 
-The program establishes the stated **finite** combinatorial certificate. The conversion of the trivial fundamental-group presentation and Euler characteristic to a sphere wedge, and of group characters to rational module isomorphism, uses standard mathematical theorems stated in `RESULT.md`. It does not calculate integral equivariant module extensions or prove a family-wide Paley graph theorem. Independent mathematical assessment is not included.
+PASS
+
+Cioabă–Guo–Ji–Mim explicitly verify H1 over real coefficients vanishes for Paley(17), and clique counts then give rational b2=16; these dimensions are covered and excluded as independent novelty. That result does not force trivial fundamental group or specify 136 affine character values. The legal Tietze sequence and complete character give a distinct homotopy and rational representation classification.
+
+## value
+
+PASS
+
+A nonabelian simply-connectedness certificate and full affine group module of a classical quadratic-residue flag complex are motivated invariants beyond known Betti counts. The order-17 case is a canonical finite benchmark and the barcode is a rigorous geometric corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
