@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+Every Gram diagonal is exactly \(Nw_k/K\), so the min/max eigenvalue quotient dominates the diagonal ratio. Strict monotonicity of that ratio on either side of \((n!)^{1/n}\) proves the unique radial optimum. At equality the constant basis vector must be a least-eigenvalue eigenvector, forcing all first \(n\) weighted angular moments to vanish; square Vandermonde unitarity then forces unit weights and an exact regular polygon. Stirling with the Poisson-mode maximum proves the stated pre-exponential coefficient. Independent recomputation of 694 finite assertions from the embedded script supplements, but cannot prove, the all-degree claim.
+The all-degree proof checks hypotheses \(n\ge1\), distinct positive-radius nodes and positive row weights, finite-Fock monomial normalization, strict radius balance and equality rigidity. At the endpoint \(n=1\), moment vanishing requires two equal-weight antipodal nodes, consistent with the formula. The logged 694 finite assertions supplement rather than replace the proof.
+
+## Originality — PASS (historical priority provisional)
+The closest exact-domain paper, Gröchenig–Ortega-Cerdà, arXiv:2109.11825, was read through its introduction, kernel definitions, interpolation/sampling sections and Proposition 6.4. It proves the absence of uniformly conditioned \(n+1\)-point sampling families but does not optimize a *single circular* positive-weight design, identify its only equality geometry, or supply the exact exponential coefficient. The already published two-ring analytic Fock kernel problem uses full-space normalized kernels and a different geometry, and the harmonic Fock cyclic example uses a different Hilbert space. Generic circular Vandermonde/DFT conditioning is an ingredient but does not determine the factorial Gaussian radial balance. Specialized equivalent results outside the inspected literature remain a historical priority risk.
+The closest primary paper is Gröchenig–Ortega-Cerdà, arXiv:2109.11825, specifically Proposition 6.4 and Sections 2 and 7. The classical Fourier/Vandermonde orthogonality underlying the construction is not presented as new. A remaining specialist-literature risk is an older, equivalent exact circular Gaussian design.
+
+## Value — PASS
+The focal paper proves a qualitative no-square-uniform-sampling theorem, motivating a precise finite-dimensional answer: among square designs restricted to a feasible single-radius sensor aperture, which placement and radius give the best numerical stability and how fast does that best stability deteriorate? This theorem solves the complete naturally parameterized circle geometry/positive-weight optimization, proves unique optimal design, and quantifies the unavoidable exponential loss including its exact polynomial prefactor. The conclusion is not an arbitrary parameter slice or a numerical table; it is a full all-degree classification of the physically natural one-ring regime.
+The result does not claim full-plane optimality, oversampling stability or the absence of previous equivalent formulations.
+
+Self-review: passed. Independent audit: not yet performed.
