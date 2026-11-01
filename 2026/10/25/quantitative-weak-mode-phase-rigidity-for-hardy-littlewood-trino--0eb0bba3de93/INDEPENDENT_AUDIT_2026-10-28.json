@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:14:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md full Fourier gamma identity and angular derivative estimates (1)–(5); Git blob 72586bd7910b074cd8fde8aadbe55e609f17d01d",
+        "Independent high-precision direct Fourier integral confirms gamma coefficient for k=2,3; phase integrations give 12 strict grid gaps at rho=r/3",
+        "Source tree 6fb39d2f933617e28e43f2700a370dec5bffd95d independently rebuilt from seven files"
+      ],
+      "rationale": "With a=p/2>2, Q=|1+e^{it}+rho e^{i phi}e^{iNt}|^2, differentiation twice in phi is valid at zeros. The cosine-power Fourier integral gives c=Gamma(p)/(Gamma(a+N)Gamma(a-N+1))<0 because a-N+1 is in (-1,0). Subtracting the rho-linear term from M_phi_phi, using |Q-A|<=5rho and |u|,|u_phi|<=2 bounds the remainder by 36a(a-1)9^(a-2)rho^2. Symmetry makes M_phi zero at phi=0 and pi; integrate error from nearest endpoint and sin phi>=2 min(phi,pi-phi)/pi to get strict derivative and matching 1±rho/r cosine-gap bounds for rho<r. Exact slope and high-k asymptotic follow by squeezing and the gamma-ratio law.",
+      "risk": [
+        "The explicit r is only a sufficient (very small) neighborhood; no global-in-rho monotonicity claim.",
+        "The high-degree asymptotic is strictly for infinitesimal rho, not uniformly positive rho."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pan et al. prove unit-coefficient aligned-versus-opposite phase comparison for all k.",
+          "Related published high-order phase theorem gives all-phase monotonicity at rho=1 for k>=23, not a positive rho-neighborhood for all k>=2."
+        ],
+        "reasoning": "These are strong prior results but do not yield a uniform explicit r_{k,p} near zero, or the first-order coefficient in that regime without additional perturbation analysis.",
+        "searches": [
+          "Pan et al. arXiv:2609.09740 theorem",
+          "Resultary 2026/10/11/SCOPE-global-coefficient-phase-rigidity-for-high-order-three-term-majo--ddd32718a69a",
+          "Hardy Littlewood three term idempotent majorant trinomials small coefficient amplitude phase monotonicity gamma ratio"
+        ]
+      },
+      "checked_sources": [
+        "All seven Git blobs including RESULT.md, verify_weak_mode.py and administrative files",
+        "Pan et al. arXiv:2609.09740 relevant primary statements",
+        "Krenedits arXiv:1006.0409v3 Boas-related passages",
+        "Resultary global coefficient phase theorem summary",
+        "Independent high precision gamma coefficient and 12 phase-grid comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior comparisons have rho=1 or coupled r and r^(k+2) coefficients; a change of variables cannot preserve simultaneously first two fixed coefficients and the weak third coefficient.",
+          "An explicit second-angular-derivative perturbation bound is needed to control all phi uniformly from rho=0."
+        ],
+        "reasoning": "The candidate is not a mere rewording of the prior unit-amplitude inequalities; its gamma coefficient is known background and its local quantitative uniform phase control is the surviving claim.",
+        "searches": [
+          "arXiv:2609.09740 unit-amplitude theorem",
+          "arXiv:1006.0409 Boas construction",
+          "Resultary k>=23 phase rigidity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical majorant defect compares 1+z±z^(k+2) at equal modulus one; weak-mode study fixes first two coefficients at one and lets the third approach zero.",
+          "Boas-related 1+r z±r^(k+2) z^(k+2) lets both perturbing modes shrink in a coupled way, not the same first-mode normalization."
+        ],
+        "reasoning": "Different coefficient amplitude constraints prevent direct implication. Fourier coefficient beta integral itself is classical and not separately novel.",
+        "searches": [
+          "Hardy Littlewood three term idempotent majorant trinomials small coefficient amplitude phase monotonicity gamma ratio",
+          "arXiv:2609.09740",
+          "arXiv:1006.0409",
+          "Resultary: global-coefficient-phase-rigidity k>=23"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published records identify discrete unit-amplitude sign effects and phase conditions, but no direct table or exact threshold for this weak-third-mode derivative was located."
+        ],
+        "reasoning": "The gamma quotient is classical tabulated Fourier analysis; only the all-phase small-amplitude inequality and threshold are under new review.",
+        "searches": [
+          "Hardy Littlewood three term idempotent majorant trinomials small coefficient amplitude phase monotonicity gamma ratio",
+          "Resultary: high-order phase rigidity and classical majorant slope records"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel part: Quantitative weak-mode phase rigidity for Hardy–Littlewood trinomials. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.",
+      "residual_risks": [
+        "An older Boas-style weak-amplitude uniform phase theorem might exist under another normalization; full historical survey incomplete.",
+        "Published high-order unit-amplitude result full text was not independently reread here, and only its indexed explicit domain was compared.",
+        "Near-zero amplitude result does not imply positive-amplitude uniform-in-k monotonicity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves unit-amplitude sign contrast, not all small-third-mode phase monotonicity.",
+          "evidence": [
+            "Pan–You–Wang–Zhou–Chen 2026 Theorem 1.1, rho=1"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09740",
+          "material_read": "Primary arXiv introduction and theorem statement plus available proof sections; abstract explicitly fixes rho=1.",
+          "method": "ArXiv article primary mathematical statement and quantifier comparison.",
+          "title": "Mockenhaupt's Three-Term Hardy–Littlewood Majorant Conjecture",
+          "trigger": "Closest 2026 sign-comparison result for same frequency and exponent interval"
+        },
+        {
+          "assessment": "Boas scales the first harmonic also, unlike the fixed first two coefficients in the assessed weak-mode limit.",
+          "evidence": [
+            "Krenedits 2010 introduction discusses 1+r z±r^(k+2) z^N"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1006.0409v3",
+          "material_read": "ArXiv primary introduction and applicable proof sections on Boas family; original PDF sections inspected where accessible.",
+          "method": "Open arXiv primary text reading.",
+          "title": "Three-term idempotent counterexamples in the Hardy–Littlewood majorant problem",
+          "trigger": "Historic small-amplitude Boas perturbation and degree examples"
+        },
+        {
+          "assessment": "Prior all-phase result at rho=1, k>=23; unread full text cannot be ruled out for additional small-rho results.",
+          "evidence": [
+            "Resultary indexed theorem summary for k>=23/rho=1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-coefficient-phase-rigidity-for-high-order-three-term-majo--ddd32718a69a",
+          "material_read": "Published Resultary record summary identifies k>=23 and unit third-mode modulus; complete manuscript not independently read here.",
+          "method": "Resultary full semantic search results, theorem scope comparison only.",
+          "title": "Global coefficient-phase rigidity for high-order three-term majorants",
+          "trigger": "Near-identical all-phase majorant question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Directly resolves a different coefficient regime than prior unit-amplitude sign-only theorems.",
+        "Quantitative 1-cos(phi) gap and high-degree perturbation invariant."
+      ],
+      "rationale": "For the natural three-frequency Hardy–Littlewood majorant family, the weak-third-harmonic boundary is mathematically motivated because unit-amplitude sign comparison is already known. This result supplies all-phase strict monotonicity with a quantitative finite-amplitude certificate across every degree k>=2 and a precise universal first-order gamma contrast and its large-degree law. The small sufficient radius limits numerical range but not the exact local result.",
+      "risk": [
+        "The result is local and the sufficient radius can become rapidly tiny; broader large-amplitude claims remain unproved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "All seven Git blobs including RESULT.md, verify_weak_mode.py and administrative files",
+    "Pan et al. arXiv:2609.09740 relevant primary statements",
+    "Krenedits arXiv:1006.0409v3 Boas-related passages",
+    "Resultary global coefficient phase theorem summary",
+    "Independent high precision gamma coefficient and 12 phase-grid comparisons"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The explicit r is only a sufficient (very small) neighborhood; no global-in-rho monotonicity claim.",
+    "The high-degree asymptotic is strictly for infinitesimal rho, not uniformly positive rho.",
+    "An older Boas-style weak-amplitude uniform phase theorem might exist under another normalization; full historical survey incomplete.",
+    "Published high-order unit-amplitude result full text was not independently reread here, and only its indexed explicit domain was compared.",
+    "Near-zero amplitude result does not imply positive-amplitude uniform-in-k monotonicity.",
+    "The result is local and the sufficient radius can become rapidly tiny; broader large-amplitude claims remain unproved."
+  ],
+  "residual_risks": [
+    "An older Boas-style weak-amplitude uniform phase theorem might exist under another normalization; full historical survey incomplete.",
+    "Published high-order unit-amplitude result full text was not independently reread here, and only its indexed explicit domain was compared.",
+    "Near-zero amplitude result does not imply positive-amplitude uniform-in-k monotonicity."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proves unit-amplitude sign contrast, not all small-third-mode phase monotonicity.",
+      "evidence": [
+        "Pan–You–Wang–Zhou–Chen 2026 Theorem 1.1, rho=1"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.09740",
+      "material_read": "Primary arXiv introduction and theorem statement plus available proof sections; abstract explicitly fixes rho=1.",
+      "method": "ArXiv article primary mathematical statement and quantifier comparison.",
+      "title": "Mockenhaupt's Three-Term Hardy–Littlewood Majorant Conjecture",
+      "trigger": "Closest 2026 sign-comparison result for same frequency and exponent interval"
+    },
+    {
+      "assessment": "Boas scales the first harmonic also, unlike the fixed first two coefficients in the assessed weak-mode limit.",
+      "evidence": [
+        "Krenedits 2010 introduction discusses 1+r z±r^(k+2) z^N"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/1006.0409v3",
+      "material_read": "ArXiv primary introduction and applicable proof sections on Boas family; original PDF sections inspected where accessible.",
+      "method": "Open arXiv primary text reading.",
+      "title": "Three-term idempotent counterexamples in the Hardy–Littlewood majorant problem",
+      "trigger": "Historic small-amplitude Boas perturbation and degree examples"
+    },
+    {
+      "assessment": "Prior all-phase result at rho=1, k>=23; unread full text cannot be ruled out for additional small-rho results.",
+      "evidence": [
+        "Resultary indexed theorem summary for k>=23/rho=1"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-global-coefficient-phase-rigidity-for-high-order-three-term-majo--ddd32718a69a",
+      "material_read": "Published Resultary record summary identifies k>=23 and unit third-mode modulus; complete manuscript not independently read here.",
+      "method": "Resultary full semantic search results, theorem scope comparison only.",
+      "title": "Global coefficient-phase rigidity for high-order three-term majorants",
+      "trigger": "Near-identical all-phase majorant question"
+    }
+  ]
+}

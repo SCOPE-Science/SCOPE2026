@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Execute `python verify_weak_mode.py` with Python 3 and SciPy installed. The observed output was:
+## correctness
 
-`VERIFY_OK gamma_integrals=4 phase_grid=32 linear_slopes=4 radius_bounds=4`
+PASS
 
-These checks compute the signed gamma quotient independently of the cosine integral for four degree/exponent pairs, verify four explicit positivity-radius parameters, sample 32 phase intervals, and check four weak-mode contrasts. The numerical tests use finite precision and are corroborative only. The uniform angular second-derivative inequality, exact beta integral, and gamma-ratio argument in RESULT.md supply the infinite proofs. At higher degrees the illustrative phase-grid amplitude exceeds the deliberately conservative certified threshold; this is not used to enlarge the proved parameter range.
+With a=p/2>2, Q=|1+e^{it}+rho e^{i phi}e^{iNt}|^2, differentiation twice in phi is valid at zeros. The cosine-power Fourier integral gives c=Gamma(p)/(Gamma(a+N)Gamma(a-N+1))<0 because a-N+1 is in (-1,0). Subtracting the rho-linear term from M_phi_phi, using |Q-A|<=5rho and |u|,|u_phi|<=2 bounds the remainder by 36a(a-1)9^(a-2)rho^2. Symmetry makes M_phi zero at phi=0 and pi; integrate error from nearest endpoint and sin phi>=2 min(phi,pi-phi)/pi to get strict derivative and matching 1±rho/r cosine-gap bounds for rho<r. Exact slope and high-k asymptotic follow by squeezing and the gamma-ratio law.
 
-The displayed phase response concerns the \(p\)-th power integral, not its positive \(p\)-th root, although strictly increasing transformations preserve its phase extrema. The exact contrast is taken first at \(\rho\downarrow0\), then at large degree with fixed fractional exponent; no interchange of these limits is claimed.
+## originality
+
+PASS
+
+Best-of-knowledge novel part: Quantitative weak-mode phase rigidity for Hardy–Littlewood trinomials. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+For the natural three-frequency Hardy–Littlewood majorant family, the weak-third-harmonic boundary is mathematically motivated because unit-amplitude sign comparison is already known. This result supplies all-phase strict monotonicity with a quantitative finite-amplitude certificate across every degree k>=2 and a precise universal first-order gamma contrast and its large-degree law. The small sufficient radius limits numerical range but not the exact local result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
