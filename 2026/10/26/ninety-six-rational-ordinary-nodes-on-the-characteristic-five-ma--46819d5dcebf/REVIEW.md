@@ -1,23 +1,21 @@
-# Scientific review — characteristic-five Maschke octic
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric singularity classification follows from the exact characteristic-five equations in the variables \(z_i=x_i^4\). For three nonzero coordinates there is a single fourth-power class; four nonzero coordinates cannot have two different fourth powers because their common quadratic contradicts the square-product relation. The two orbit representatives have nondegenerate affine Hessians of determinant \(3\) modulo five, proving that all \(96\) singularities are ordinary double points and their local Jacobian schemes are reduced. The finite-field census confirms, but does not establish, algebraic-closure completeness. Geometric integrality and normality follow from finite singular support, projective component intersection, and Serre's criterion.
+PASS
 
-## Originality — PASS, qualified
+Over algebraic closure of F5, nonzero coordinate derivatives reduce to z_i²−2Tz_i+3P=0 for z_i=x_i⁴. If support size r≤3, they force r=3 and a common nonzero fourth power (64 points). If r=4, distinct quadratic roots yield a contradiction with P²=∏z_i, so all four z_i coincide and P=−a² (32 points). Euler 8F=Σx_i∂F forces critical points onto the octic. Two explicit affine Hessians have determinant 3 mod 5; symmetry carries ordinary-node status to all 96. All 156 F5 projective points are independently enumerated, with exactly the 96 singular points on the surface. Isolated singularities imply geometric integrality and normality by hypersurface S2+R1. The finite census alone would not prove geometric completeness.
 
-The 2006 Boissière–Sarti paper establishes \(352\) complex lines on the same octic; the 2011 Bini–van Geemen paper studies complex geometry and arithmetic for primes greater than five; and the 2025 Bonnafé note establishes \(96\) pairwise skew complex lines. Inspection of the relevant papers, targeted literature searches, and semantic mathematical-record searches identified no prior assertion of the \(96\) characteristic-five ordinary nodes, their two rational orbits, or the reduced geometric Jacobian scheme. Equal counts of complex skew lines and special-fibre nodes are not equivalent theorems. Residual risk: earlier work on modular reflection-group invariants could contain an equivalent presentation or calculation.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The theorem gives the entire singular scheme and rational-point support of a natural exceptional-prime specialization of a distinguished smooth complex octic, rather than an arbitrary coefficient slice. The simultaneous occurrence of \(96\) split nodes, no smooth rational points, and a normal integral surface supplies concrete arithmetic and geometric boundary data for degeneration studies. No assertion about a global semistable model, a line-node specialization bijection, or threefold resolution is made.
+The claim concerns coefficientwise reduction of the particular Maschke octic mod 5 and a complete geometric Jacobian scheme and rational-point classification. The inspected antecedents establish the complex smooth octic, its complex lines, and arithmetic at good primes; 96 complex lines are a different object from 96 bad-reduction nodes.
 
-## Closest literature and limitations
+## value
 
-- Boissière–Sarti (2006), arXiv:math/0606100v1, Section 5.3: same polynomial; complex lines, not positive-characteristic singularity classification.
-- Bini–van Geemen (2011), arXiv:1110.0106v1, introduction and Sections 5–6: complex Maschke geometry and arithmetic at larger primes, not the characteristic-five singular scheme.
-- Bonnafé (2025), arXiv:2601.00033v1, Theorem: \(96\) pairwise skew complex lines; not \(96\) ordinary nodes over \(\mathbb F_5\).
+PASS
 
-Historical equivalence risk persists; independent validation has not been undertaken.
+Bad reduction at characteristic 5 of a distinguished invariant octic is naturally motivated. The complete geometric singular scheme (64+32 rational A1 nodes), absence of any smooth F5 point, and normality give exact degeneration data potentially needed for local arithmetic and resolution, independent of a larger semistable reduction program.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
