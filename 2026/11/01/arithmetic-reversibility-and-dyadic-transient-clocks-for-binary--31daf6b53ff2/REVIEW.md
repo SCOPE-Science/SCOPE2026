@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The theorem gives exact quantifiers for all integers \(n\ge7\) and times \(t\ge0\), with the cubic open-neighbor rule defined explicitly. The determinant of the two-layer Laurent matrix is the square of the fifth cyclotomic polynomial times a unit; local factorization at its simple characteristic roots \(0,1\) proves the zero-primary module is multiplication by \(\phi^2\) on a single \(\mathbb F_2[z]/\phi^e\) summand. The CRT and ideal-size argument give the exact rank, Jordan-block structure and first-entry populations. A separate scalar determinant calculation yields the fixed-space dimension. Independent Python and C++ matrix computations agree for each \(7\le n\le120\), and exhaustive enumeration of \(2^{20}\) labelled states on \(GP(10,3)\) verifies the finite exemplar. The general claim rests on proof, not enumeration.
+
+## Originality — PASS (qualified)
+A full inspection of the 2011 Gera–Stănică article on generalized Petersen spectra found the underlying two-layer Fourier matrix, but its conclusions concern real eigenvalues and do not imply the characteristic-two nilpotent Jordan form or exact first-entry distributions. The 2006 Zaidenberg convolution framework establishes relevant methods without this specialized calculation. Explicit comparison against known parity results on \(GP(n,2)\), prisms, Boolean-cube distance graphs and multipartite graphs separates the statements by graph family and algebraic local factors; an isolated isomorphism at a small parameter is not an all-family implication. Research-record searches did not identify a covering formulation. The remaining risk is unindexed binary cellular-automaton, Lights Out, or modular adjacency literature, and this has not undergone independent historical review.
+
+## Value — PASS
+This is an exact classification of a natural global dynamical invariant for an infinite family of well-studied cubic graphs. The nontrivial doubled fifth-cyclotomic determinant causes a sharp discontinuity: an invertible permutation off multiples of five, a one-step collapse at odd multiples of five, and arbitrarily long entry times proportional to \(n\) along \(n=5\cdot2^s\), with exponentially small initial periodic density. The theorem also determines each first-entry layer and fixed-space size rather than only a generic period bound. It remains intentionally limited to this dynamics and graph family; no unsupported claim about arbitrary primitive periods is made.
+
+Self-review: passed. Independent audit: not yet performed.
