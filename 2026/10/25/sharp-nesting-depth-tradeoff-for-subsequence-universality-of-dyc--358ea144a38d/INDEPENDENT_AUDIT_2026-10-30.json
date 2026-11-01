@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:00:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md at Git blob f834336306f33a337fb88ef6bd5ce3435809b791",
+        "Reconstructed exact Git tree a514547dca0fabaa55a648e5e70ea0d484890d5d",
+        "Independent direct calculation: Fresh exact greedy-arch scan versus direct all-binary-target subsequences for 2055 Dyck words semilength ≤8; 64 h,n minimum checks: DYCK_OK words 2055 min_pairs 64."
+      ],
+      "rationale": "The binary greedy-arch scan (store first unseen letter, close at first different letter) has number of complete arches equal to scattered-subsequence universality index iota; any length-iota binary word chooses its symbols arch by arch, while a target of length iota+1 is missing after the incomplete one-letter suffix. For each Dyck prefix define K arches, register L, height H≤h, parity J=K mod2, and R=prefix_length−B(K), B(2q)=2hq+2, B(2q+1)=2h(q+1). The six-case potential Φ(H,L,J) in actual RESULT.md satisfies R≤Φ by direct one-step transition inequalities, using reachable-state restrictions H=h⇒L=0 and H=h−1⇒L≠1. The final state H=0 has Φ≤0, proving semilength n≤h(k+1)/2 for odd k and n≤hk/2+1 for even k. Words (0^h1^h)^q and its appended 01 reach both bounds; partial final mountains prove the stated minimum-index n/h residue formula and height1 alternate case. Independent exhaustive n≤8 Dyck generation, direct target-subsequence tests, and exact greedy-index comparison yielded 2055 word checks and 64 min-pairs; finite tests do not establish arbitrary height, for which the displayed symbolic potential is decisive.",
+      "residual_risks": [
+        "Binary Dyck words only; h≥2 M_h(k) plus h=1 special case.",
+        "No enumeration of all equality words or mixed-alphabet generalization.",
+        "Finite checker cannot certify the potential inequalities at all heights; proof addresses them symbolically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barker et al full accessible HTML develops scattered-factor universality and arch factorization; no Dyck maximum-height extremal theorem was identified.",
+          "Schnoebelen–Veron analyzes arch factorization algorithms and compressed words, not a sharp nesting-height budget.",
+          "Mol–Rampersad–Shallit address bounded Dyck height and pattern avoidance, a distinct statistic."
+        ],
+        "reasoning": "General subsequence universality and Dyck avoidance results cover the component notions but not this coupled global extremal threshold. No stronger theorem found in inspected sources.",
+        "searches": [
+          "Dyck words nesting height subsequence universality index sharp maximal semilength arch factorization",
+          "Barker Fleischmann Harwardt Manea Nowotka arxiv:2003.04629",
+          "Schnoebelen Veron arxiv:2304.11932",
+          "Mol Rampersad Shallit arxiv:2301.06145"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md, actual check.py, REVIEW.md, AUDIT.json and tree",
+        "Barker et al arxiv:2003.04629 full HTML",
+        "Schnoebelen–Veron arxiv:2304.11932 PDF relevant sections",
+        "Mol–Rampersad–Shallit arxiv:2301.06145 abstract",
+        "Resultary exact insertion-radius and Dyck entropy related results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known greedy-arch identity only evaluates a given word; it does not bound its length under a height constraint.",
+          "The new potential controls all Dyck prefixes uniformly, and the construction proves sharpness."
+        ],
+        "reasoning": "Prior arch theory is a premise, not an implication covering the sharp universal h,k extremal lengths. The new result is not presented as inventing the greedy-arch factorization.",
+        "searches": [
+          "Dyck words nesting height subsequence universality index sharp maximal semilength arch factorization",
+          "arxiv:2003.04629 greedy arches",
+          "arxiv:2304.11932 algorithms universality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Binary scattered-subsequence universality index equals the greedy complete-arch count; for binary strings this equals the matching number of adjacent unequal-letter edges.",
+          "Height H is a global prefix-sum bound that is not respected by arbitrary independent words."
+        ],
+        "reasoning": "Equivalent words/path/matching formulations were considered; the sharp height-constrained optimization requires the six-state potential and explicit Dyck constructions, rather than following from the standard arch representation.",
+        "searches": [
+          "Dyck words nesting height subsequence universality index sharp maximal semilength arch factorization",
+          "Dyck height bound maximum word length fixed greedy arch count",
+          "binary universality as matching number of unequal adjacent edges"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published full-support insertion-radius result changes words by insertions; it does not bound semilength at bounded Dyck height.",
+          "The SCOPE proof supplies exact M_h(k) formulas for all positive integers rather than a finite table."
+        ],
+        "reasoning": "The searched published corpus contains related Dyck entropy/word universality findings but no table or formula directly determining M_h(k); an unindexed equivalent remains possible.",
+        "searches": [
+          "Dyck words nesting height subsequence universality index sharp maximal semilength arch factorization",
+          "Resultary exact full-support insertion radius subsequence universality",
+          "Dyck word height restricted k universality exact table"
+        ]
+      },
+      "rationale": "The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Different-language results on maximum binary path length at fixed transition-matching number, nested-parenthesis universality, or older Dyck/arch combinatorics could imply the same bounds. The searched primary articles do not yield a direct domination; search failure is not priority proof.",
+      "residual_risks": [
+        "Different-language results on maximum binary path length at fixed transition-matching number, nested-parenthesis universality, or older Dyck/arch combinatorics could imply the same bounds. The searched primary articles do not yield a direct domination; search failure is not priority proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Arch method is prior; inspected primary text does not state a Dyck-height extremal bound.",
+          "evidence": "Greedy complete-arch characterization of scattered-subsequence universality.",
+          "identifier_or_url": "arxiv:2003.04629",
+          "material_read": "Accessible full HTML including definitions and arch-factorization arguments",
+          "method": "arXiv full HTML inspected for Dyck or nesting statements",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational exact arch characterization, possible broader universal theorem"
+        },
+        {
+          "assessment": "Computational/arch factorization focus; the inspected relevant portions do not supply fixed-height Dyck extremal length.",
+          "evidence": "Arch decomposition and algorithms for subword universality.",
+          "identifier_or_url": "arxiv:2304.11932",
+          "material_read": "Open PDF with graphical page inspection; introduction and principal arch algorithm sections",
+          "method": "arXiv open PDF text and screenshot",
+          "title": "On arch factorization and subword universality for words and compressed words",
+          "trigger": "Potential general arch result implying height tradeoff"
+        },
+        {
+          "assessment": "Different pattern/repetition avoidance objective; retain unread-supplement priority uncertainty.",
+          "evidence": "Title and abstract focus on Dyck word pattern avoidance rather than binary scattered-subsequence universality.",
+          "identifier_or_url": "arxiv:2301.06145",
+          "material_read": "Abstract and available descriptions; full-text comparison incomplete",
+          "method": "arXiv metadata/abstract",
+          "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+          "trigger": "Same Dyck height language, possible stronger nesting bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE RESULT.md, actual check.py, REVIEW.md, AUDIT.json and tree",
+        "Barker et al arxiv:2003.04629 full HTML",
+        "Schnoebelen–Veron arxiv:2304.11932 PDF relevant sections",
+        "Mol–Rampersad–Shallit arxiv:2301.06145 abstract",
+        "Resultary exact insertion-radius and Dyck entropy related results"
+      ],
+      "rationale": "Nesting height is the standard stack-depth or Dyck-path amplitude parameter, while scattered-subsequence universality is a natural universality invariant. The theorem gives the exact global tradeoff at every height h and index k with explicit extremal words, sharpening algorithmic arch methods into a structural optimization linking path complexity and pattern coverage. This is an infinite exact classification, not a renamed arch-count algorithm.",
+      "residual_risks": [
+        "Binary Dyck words only; h≥2 M_h(k) plus h=1 special case.",
+        "No enumeration of all equality words or mixed-alphabet generalization.",
+        "Finite checker cannot certify the potential inequalities at all heights; proof addresses them symbolically."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary Dyck words only; h≥2 M_h(k) plus h=1 special case.",
+    "No enumeration of all equality words or mixed-alphabet generalization.",
+    "Finite checker cannot certify the potential inequalities at all heights; proof addresses them symbolically."
+  ],
+  "schema_version": 1
+}

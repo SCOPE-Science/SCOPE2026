@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The greedy arch count is the binary subsequence-universality index by the first-complete-arch argument. The six-state potential controls the adjusted prefix length under all admissible transitions; at a Dyck return its value is nonpositive. Explicit full-height mountain witnesses attain both parity cases. The attached independent finite dynamic program and complete small-Dyck census agree with the formula. This is an unbounded symbolic proof, not an inference from finite sampling.
+## correctness
 
-## Originality
-PASS, subject to ordinary bibliographic risk. The closest full primary works are Barker et al. (2020), which establishes arch factorization and general universality; Schnoebelen and Veron (2023), which studies arch algorithms and compressed inputs; Mol, Rampersad, and Shallit (2023), which studies bounded Dyck nesting height for repetition avoidance; and Adamson et al. (2023), which studies universal words in regular languages. None of those inspected results supplies the sharp global extremal height/index formula. An earlier general binary transition-edge representation alone does not imply the height-constrained extremal optimization without the potential proof. Equivalent results may exist under different language/path formulations.
+PASS
 
-## Mathematical value
-PASS. Height is the standard Dyck nesting-depth invariant, while the index measures coverage of all scattered binary patterns. The theorem supplies a sharp universal lower bound and an infinite exact extremal classification at every height and index; it quantifies a genuine tradeoff between context-free nesting complexity and scattered-pattern universality, not an arbitrary finite slice or a restatement of greedy-arch computation.
+The binary greedy-arch scan (store first unseen letter, close at first different letter) has number of complete arches equal to scattered-subsequence universality index iota; any length-iota binary word chooses its symbols arch by arch, while a target of length iota+1 is missing after the incomplete one-letter suffix. For each Dyck prefix define K arches, register L, height H≤h, parity J=K mod2, and R=prefix_length−B(K), B(2q)=2hq+2, B(2q+1)=2h(q+1). The six-case potential Φ(H,L,J) in actual RESULT.md satisfies R≤Φ by direct one-step transition inequalities, using reachable-state restrictions H=h⇒L=0 and H=h−1⇒L≠1. The final state H=0 has Φ≤0, proving semilength n≤h(k+1)/2 for odd k and n≤hk/2+1 for even k. Words (0^h1^h)^q and its appended 01 reach both bounds; partial final mountains prove the stated minimum-index n/h residue formula and height1 alternate case. Independent exhaustive n≤8 Dyck generation, direct target-subsequence tests, and exact greedy-index comparison yielded 2055 word checks and 64 min-pairs; finite tests do not establish arbitrary height, for which the displayed symbolic potential is decisive.
 
-## Scope and limits
-The proof is restricted to Dyck words over the fixed binary alphabet. It does not classify all extremizing words or determine the whole joint distribution. The claims have not received independent mathematical review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Different-language results on maximum binary path length at fixed transition-matching number, nested-parenthesis universality, or older Dyck/arch combinatorics could imply the same bounds. The searched primary articles do not yield a direct domination; search failure is not priority proof.
+
+## value
+
+PASS
+
+Nesting height is the standard stack-depth or Dyck-path amplitude parameter, while scattered-subsequence universality is a natural universality invariant. The theorem gives the exact global tradeoff at every height h and index k with explicit extremal words, sharpening algorithmic arch methods into a structural optimization linking path complexity and pattern coverage. This is an infinite exact classification, not a renamed arch-count algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
