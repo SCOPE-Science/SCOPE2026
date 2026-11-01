@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The claim concerns all integer \(k\ge4\), \(f\ge1\), with inclusive scale three. The orbit-barycenter triangulation follows by unique orbitwise-constant barycentric coordinates. The exact orbit diameter \(2\min(w,k-w)\) restricts the allowed types to four; their complete pairwise distance table yields two principal flag subcomplexes. Every auxiliary weight-one vertex is dominated by its weight-zero counterpart (and similarly for the complementary families), so both pieces collapse onto \(X_f\). The only special \(k=4\) edges are two independent bridge types per untouched suffix, with no triangle. Attaching \(2^{f+1}\) edges between two connected spaces adds \(2^{f+1}-1\) circles. Thus all quantifiers, boundary restrictions, and homotopy versus PL distinctions are supported by an unrestricted combinatorial proof. The two extracted Python programs additionally passed exact checks: 18 orbit-graph/Euler instances and eight full mod-two homology instances, including the \(f=0\) boundary as a control, not a novel claim.
+
+## Originality — PASS, qualified
+Galetto–Montaño–Wellner, arXiv:2606.20784, Theorem 6.2, identify ambient scale-three homology as a hyperoctahedral representation, not geometric \(S_k\)-fixed spaces. Feng, arXiv:2305.07084, Theorem 24, identifies the ambient homotopy type. Bendersky–Elia–Grbić, DOI:10.1017/prm.2026.10175, develop connectivity and cohomological invariants. The formerly addressed all-coordinate boundary case \(f=0\) is excluded; allowing untouched coordinates and the exact exponential bridge count are not consequences of that case. Statement-level comparisons against relevant indexed claims for other hypercube scales, orbit actions, and coordinate-symmetric Rips variants did not identify coverage. The plausible residual risk is an implicit but unindexed orbit-quotient calculation or a geometric fixed-locus statement outside the inspected articles; priority remains subject to human literature review.
+
+## Value — PASS
+This is a sharp qualitative phase transition for a natural two-parameter family of equivariant topological invariants. At four permuted coordinates the fixed locus contains \(2^{f+1}-1\) independent loops, while at five it disconnects without such loops. The example with \(f=4\) contains both seven-dimensional sphere homology and first homology in the same connected fixed locus, even though the ambient scale-three Rips homology is concentrated in other degrees. The theorem classifies actual fixed-space homotopy types for all untouched dimensions and distinguishes information inaccessible from ordinary ambient Betti numbers or rational representation data.
+
+## Closest work and limits
+The three closely relevant primary sources were materially inspected at their theorem statements and proof contexts; none gives the claimed subgroup fixed-locus theorem. The proof applies only to the specified full symmetric coordinate block and scale three, and the homotopy equivalences need not be equivariant under further symmetries. The independent-audit channel has no result.
+
+Self-review: passed. Independent audit: not yet performed.
