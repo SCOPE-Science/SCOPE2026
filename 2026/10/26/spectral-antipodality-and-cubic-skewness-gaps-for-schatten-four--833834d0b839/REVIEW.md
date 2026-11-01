@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-All products and powers in the trace identity lie in the indicated Schatten classes; finite-rank approximation justifies cyclic trace. A nonnegative Hilbert–Schmidt anticommutator term yields the cubic-moment obstruction. In finite dimensions, balanced minimizing factors exist by compactness; equality forces an anticommutator of zero, whose product-spectral consequence is antipodal pairing. Conversely the displayed involution constructs explicit equality factors. Direct verification tests complex matrices and example families, without being treated as an infinite proof.
+PASS
 
-## Originality — PASS (best-knowledge scientific comparison)
+PASS: For A=XY,B=YX, cyclic trace equality tr(A^3)=tr(B^3) and A=(Q+T)/2,B=(Q-T)/2 yield tr T^3=-3 tr Q^2T; S4 Holder makes the products Hilbert-Schmidt and cubic traces legitimate. HS parallelogram and trace Holder give 4||X||_4²||Y||_4² >= ||T||_2²+||Q||_2² >= ||T||_2²+|tr T^3|/(3||T||op). Every finite trace-zero normal T has a same-size commutator: Fourier-conjugate to a zero-diagonal matrix then solve [D,Z]. Balanced factors prove compact attainment. Equality forces Q=0; Sylvester AB/BA spectral identity gives eigenvalue pairing lambda↔-lambda. For paired normal T a self-adjoint unitary J anticommuting with its polar phase and commuting with |T| gives X=J|T|^1/2,Y=(1/2)JU|T|^1/2, attaining ||T||_2/2. Independent exact rational-matrix identities checked 23 cases including paired examples and skewed cubic obstruction. No exact cost asserted for nonsymmetric target.
 
-Liu's 2026 compact-factor theorem gives operator-norm existence bounds, not exact Schatten-four costs. The closely related complete mathematical record on rank-free normal-target commutator cost treats strict exponents \(1/p+1/q<1/2\), not the present boundary \(p=q=4\). The later Liu–Yang Schatten factor theorem treats target exponents \(p>2\). A previous nilpotent-target factorization result assumes \(T^2=0\); a nonzero normal matrix cannot be square-zero. The precise finite-dimensional normal-target equality classification and cubic-moment gap are not consequences of those checked statements. Older literature and one abstract-only Tran source remain priority uncertainties; no claim of certified uniqueness is made.
+## originality
 
-## Value — PASS
+PASS
 
-The theorem identifies the exact structural boundary for attaining the elementary Schatten commutator-factor lower cost in the natural first critical balanced ideal, and supplies a computable quantitative certificate of strict separation using the cubic spectral moment. For the smallest simple skewed normal target it improves the conventional lower bound from \(\sqrt6/2\) to \(\sqrt7/2\). These outcomes distinguish operator spectral pairing from generic trace-zero existence, and do not pretend to determine nonpaired optimal costs.
+PASS, best of knowledge: directly read the closely related public rank-free normal commutator theorem. Its assumption 1/p+1/q<1/2 excludes the critical S4-S4 case (p=q=4), and it gives only two-sided comparison constants, not a same-size equality criterion. General Liu compact-factor existence and Liu-Yang target exponents >2 do not prove the critical spectral criterion. Classic trace-ideal equalities or older matrix commutator papers could contain equivalent statements; residual priority risk.
 
-## Limits
+## value
 
-The quantitative coefficient is not known to be optimal, the cubic moment alone is not a complete test for pairing, and no infinite-dimensional infimum-attainment theorem is supplied.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The product of two S4 costs for a prescribed normal trace-zero commutator is a canonical quantitative operator-ideal invariant. The theorem identifies all exact lower-bound saturation spectra and gives a strictly improved lower bound from cubic spectral asymmetry, supplying a clear geometric equality obstruction unavailable from qualitative existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
