@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:58:19.783314Z",
+  "axes": {
+    "correctness": {
+      "rationale": "On Q=Z/kZ x {0,1}, hidden a toggles lanes; b swaps pair indices 0,1; c:i->-i; d:i->1-i; visible e swaps (0,0) and (1,0). Each map squares to identity. The visible c,d product rotates indices, with b conjugates generating S_k on hidden pairs. Nonempty pair unions are closed under hidden epsilon closure; conjugating the e split adds an arbitrary missing pair to any nonempty subset, inductively reaching all 2^k-1 subsets. A pair permutation sends a symmetric-difference index to the unique accepting pair 0, distinguishing any two; the original transition group is transitive and singleton final ensures its 2k states minimal. Both {P0} and {P1} map via e to {P0,P1}, so projected minimal transition not injective, hence non-permutation. Independent BFS of closures confirmed all subsets for k=2..8 (finite corroboration). The 2^k-1 upper bound holds for any permutation automaton with this erased matching.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoffmann Theorems 1-2 and Remark 1"
+        ],
+        "reasoning": "Hoffmann general upper bound covers inequality but NOT extremal five-involution existence; his seven-letter witness is outside full-hidden-matching regime and not involution-only.",
+        "searches": [
+          "Resultary semantic search: projection state complexity of deterministic undirected permutation automata erasing involutive letter full matching five letters",
+          "primary source https://arxiv.org/abs/2108.06976"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2108.06976",
+        "https://doi.org/10.1007/s00236-021-00402-0",
+        "Resultary actual semantic query: projection state complexity of deterministic undirected permutation automata erasing involutive letter full matching five letters",
+        "Assigned pinned Git RESULT.md and verification source at https://github.com/SCOPE-Science/SCOPE2026/tree/6dbe824b068db5293d6f8afe190986773fdf51ae/2026/10/26/five-involutive-letters-attain-the-sharp-projection-blow-up-at-e--54a818a89c74"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoffmann Theorem 1 vs Theorem 2",
+          "Kutrib DUFA definitions"
+        ],
+        "reasoning": "General sharp numeric upper bound and seven-letter witnesses under different parameter restrictions do not imply a family of five-letter all-involution minimal witnesses when all hidden pairs are moved. New pair-permutation and local splitting construction supplies missing implication.",
+        "searches": [
+          "Resultary semantic search: projection state complexity of deterministic undirected permutation automata erasing involutive letter full matching five letters",
+          "primary source https://arxiv.org/abs/2108.06976"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hoffmann Sections 3-5",
+          "Kutrib-Malcher-Schneider Section 2"
+        ],
+        "reasoning": "Equivalent hidden epsilon-closure subset automaton, permutation state complexity for an all-moved hidden involution, and undirected deterministic automata. Compared precisely with Hoffmann orbit parameters and Kutrib DUFA involutions.",
+        "searches": [
+          "Resultary semantic search: projection state complexity of deterministic undirected permutation automata erasing involutive letter full matching five letters",
+          "primary source https://arxiv.org/abs/2108.06976"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary fixed-hidden-alphabet-finite-projection-blowup--b068c755f7ab",
+          "Hoffmann 2021 examples"
+        ],
+        "reasoning": "No finite automaton database can give all k>=2 constant-five-letter construction without a uniform proof; checked Resultary projection/blowup entries concern finite-language nonpermutation automata.",
+        "searches": [
+          "Resultary semantic search: projection state complexity of deterministic undirected permutation automata erasing involutive letter full matching five letters",
+          "primary source https://arxiv.org/abs/2108.06976"
+        ]
+      },
+      "rationale": "Hoffmann 2021 establishes the numerical hidden-orbit upper bound and a seven-letter lower-bound construction on a parameter regime 0<2m+1<n, excluding full hidden matching. Those facts are prior. Here the construction attains full-matching endpoint using only five involutive letters and a minimal input, not implied by arbitrary permutation witnesses; his Remark 1 asks whether seven letters can be reduced. Kutrib et al DUFA operations do not give this erasure witness. Residual possible unindexed all-involution endpoint construction.",
+      "residual_risks": [
+        "Another equivalent five-involution construction might be unpublished or unindexed.",
+        "No claim of alphabet size minimality, odd input sizes or general projection upper-bound improvement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Upper bound prior; seven-letter witness requires fixed hidden states; no five-involution full-matching endpoint provided",
+          "evidence": "Theorem 1 hidden orbit upper; Theorem 2 hypothesis 0<2m+1<n; Remark 1 alphabet reduction question",
+          "identifier_or_url": "https://arxiv.org/abs/2108.06976",
+          "material_read": "Primary full text Sections 3-5, Theorems 1 and 2, Remark 1",
+          "method": "lawful arXiv primary text; relevant theorem hypotheses and discussion read",
+          "title": "State Complexity of Projection on Languages Recognized by Permutation Automata and Commuting Letters",
+          "trigger": "Exact known upper bound, potentially stronger witness"
+        },
+        {
+          "assessment": "Defines same-letter involutive actions and studies other language operations; not full-matching alphabet erasure family",
+          "evidence": "Section 2 DUFA definition and later operations",
+          "identifier_or_url": "https://doi.org/10.1007/s00236-021-00402-0",
+          "material_read": "Open-access primary definitions in Section 2 and operation results Sections 4 and 6",
+          "method": "lawful OA primary article, relevant sections read",
+          "title": "Finite automata with undirected state graphs",
+          "trigger": "Original deterministic undirected automaton operational class"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exponential deterministic blowup under erasure is a canonical automata complexity question. An explicit all-even-size extremal witness with a constant five-letter involution alphabet and fixed-point-free hidden matching is a motivated sharp boundary, not a tiny improvement or generic finite example; nonclosure of undirected class is an additional structural consequence.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every k>=2 there is a minimal 2k-state DUFA with five involutive letters, one erased fixed-point-free involution and one final state, whose projected language has exactly 2^k-1 minimal DFA states; projected language is not DUFA/permutation-recognizable.",
+  "limitations": [
+    "Even 2k input states k>=2, single erased matching involution; no smaller-alphabet optimality or multi-erasure theorem.",
+    "Another equivalent five-involution construction might be unpublished or unindexed.",
+    "No claim of alphabet size minimality, odd input sizes or general projection upper-bound improvement."
+  ],
+  "schema_version": 1
+}

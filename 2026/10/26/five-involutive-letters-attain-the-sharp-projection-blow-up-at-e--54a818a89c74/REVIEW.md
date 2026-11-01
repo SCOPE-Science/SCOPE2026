@@ -1,11 +1,21 @@
-# Scientific review: five involutive letters and projection blow-up
+# Independent mathematical audit
 
-**Correctness: PASS.** Each of the five actions is explicitly involutive. Three observable letters generate every permutation of hidden-pair indices, and the fourth grows any proper nonempty pair-index set by any selected omitted index. Therefore the projected subset automaton reaches all \(2^k-1\) nonempty pair unions. Permuting a differing pair to the accepting pair distinguishes every two reachable subsets. The original input automaton is minimal by transitivity and singleton acceptance. Hoffmann's hidden-orbit argument gives the matching upper bound. The checker independently verifies nine sizes and direct erasure semantics on 4095 words; finite results do not substitute for these quantified arguments.
+## correctness
 
-**Originality: PASS, subject to literature-indexing risk.** Hoffmann's 2021 projection result already proves the numerical upper bound for the more general permutation-automaton class, and this established fact is not claimed as new. His stated lower-bound family uses seven letters under \(0<2m+1<n\), excluding the full hidden-matching boundary. The presently verified five-letter, all-involution witnesses at that boundary are not implied by general sharpness with arbitrary permutations. Kutrib--Malcher--Schneider's 2021 open-access study defines DUFAs and examines other operations, not this erasure construction. Searches for matching full-hidden-involution constructions and relevant indexed prior results did not reveal one. An equivalent construction in literature not reached by the searches remains possible.
+PASS
 
-**Value: PASS.** State complexity under alphabet projection is an established quantitative problem because hidden events can cause exponential determinization blow-up. Attaining the exact bound under a strong symmetry restriction is a substantive boundary result: all input letters are involutions, the input automaton is minimal, the hidden partition has no singleton orbits, and the alphabet remains fixed at five letters as the state count grows. The projected language leaves the original subregular class. This is a complete extremal family, not an arbitrary finite census or a routine parameter increment.
+On Q=Z/kZ x {0,1}, hidden a toggles lanes; b swaps pair indices 0,1; c:i->-i; d:i->1-i; visible e swaps (0,0) and (1,0). Each map squares to identity. The visible c,d product rotates indices, with b conjugates generating S_k on hidden pairs. Nonempty pair unions are closed under hidden epsilon closure; conjugating the e split adds an arbitrary missing pair to any nonempty subset, inductively reaching all 2^k-1 subsets. A pair permutation sends a symmetric-difference index to the unique accepting pair 0, distinguishing any two; the original transition group is transitive and singleton final ensures its 2k states minimal. Both {P0} and {P1} map via e to {P0,P1}, so projected minimal transition not injective, hence non-permutation. Independent BFS of closures confirmed all subsets for k=2..8 (finite corroboration). The 2^k-1 upper bound holds for any permutation automaton with this erased matching.
 
-**Limitations.** No minimum-alphabet theorem, odd-state extension, or improvement to the general permutation-automaton upper bound is asserted. The witness is independently checkable as a mathematical construction but has not received external independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hoffmann 2021 establishes the numerical hidden-orbit upper bound and a seven-letter lower-bound construction on a parameter regime 0<2m+1<n, excluding full hidden matching. Those facts are prior. Here the construction attains full-matching endpoint using only five involutive letters and a minimal input, not implied by arbitrary permutation witnesses; his Remark 1 asks whether seven letters can be reduced. Kutrib et al DUFA operations do not give this erasure witness. Residual possible unindexed all-involution endpoint construction.
+
+## value
+
+PASS
+
+Exponential deterministic blowup under erasure is a canonical automata complexity question. An explicit all-even-size extremal witness with a constant five-letter involution alphabet and fixed-point-free hidden matching is a motivated sharp boundary, not a tiny improvement or generic finite example; nonclosure of undirected class is an additional structural consequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
