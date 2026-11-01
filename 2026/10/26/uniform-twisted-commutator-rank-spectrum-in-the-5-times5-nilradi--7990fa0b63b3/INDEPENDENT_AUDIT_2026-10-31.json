@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:53:48.810849Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Directly derived the 6-by-9 coefficient matrix from generic strictly upper triangular matrix multiplication. Four first-superdiagonal support masks normalized under diagonal similarity; the five remaining effective variables give a 16-stratum table, the top-right coordinate contributes q freely. Source symbolic pivot cases separate ranks 0..6 and count all q^5 local fibers for every support. Weighted mask sum gives seven exact polynomials, totals q^10 and pairs sum_R R_r q^(10-r)=q^10(5q^4-5q^2+1). Reimplemented matrix multiplication, field arithmetic and elimination independently, exhaustively checking all normalized higher-coordinate cases for q=2,3,4 and each lambda!=0, with exact rank histograms. Sampling finite fields does not prove all prime powers; generic pivot argument supplies the universal step.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang arXiv:2110.15570 Theorems 1.1–1.2 (unrestricted and semi-nilpotent); Goodwin–Röhrle arXiv:1209.1289 section3.4 (five components)."
+        ],
+        "reasoning": "Finite-field generating functions over all matrices and varieties with first matrix nilpotent do not directly dominate simultaneous nilradical flag-pair counts: the existence/multiplicity of compatible flags and rank stratum weights are additional incidence data. Goodwin–Röhrle components char0 cannot yield q-polynomial automatically.",
+        "searches": [
+          "Resultary semantic query: strictly upper triangular 5x5 twisted commuting XY=lambda YX finite field rank distribution flag quantum plane",
+          "web: finite field strictly upper triangular 5 by 5 q commutator rank distribution twisted q commuting nilradical"
+        ]
+      },
+      "checked_sources": [
+        "Goodwin–Röhrle arXiv:1209.1289 §3.4",
+        "Huang arXiv:2110.15570 Theorems 1.1–1.2",
+        "Kobal DOI 10.1016/j.laa.2005.01.028",
+        "Resultary semantic search for fixed-flag twisted commutator ranks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Goodwin–Röhrle 2012 §3.4 on commuting Borel nilradicals; Huang 2022 Algebraic Combinatorics 5, 583–592; Kobal 2005 DOI 10.1016/j.laa.2005.01.028 only bibliographic."
+        ],
+        "reasoning": "Prior untwisted component result supports the leading coefficient five but not lower-order finite counts, rank distribution or lambda-invariance; unrestricted twisted pair generating functions have extra degrees of freedom, so require nontrivial additional flag-incidence analysis. No inspected theorem entails the displayed seven polynomials.",
+        "searches": [
+          "Resultary semantic query: strictly upper triangular 5x5 twisted commuting XY=lambda YX finite field rank distribution flag quantum plane",
+          "web: finite field strictly upper triangular 5 by 5 q commutator rank distribution twisted q commuting nilradical"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang 2022 counts AB=zeta BA for unrestricted n-by-n A,B; package fixes the standard nilradical for both X,Y."
+        ],
+        "reasoning": "This point count is equivalently an F_q point census of fixed-complete-flag nilpotent quantum-plane representations. Unrestricted quantum-plane modules allow conjugation and arbitrary matrices, a distinct moduli/counting problem.",
+        "searches": [
+          "Resultary semantic query: strictly upper triangular 5x5 twisted commuting XY=lambda YX finite field rank distribution flag quantum plane",
+          "web: finite field strictly upper triangular 5 by 5 q commutator rank distribution twisted q commuting nilradical",
+          "web: quantum plane representation fixed flag upper triangular nilpotent pairs point count"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently computed ranks [2,6,24,128,320,352,192] for q=2, [3,24,162,1836,11340,22356,23328] for q=3 and [4,60,576,11136,124416,359424,552960] for q=4."
+        ],
+        "reasoning": "The 16 normalized support masks and seven R_r(q) polynomials constitute an exact natural table, not a preexisting finite-field database lookup. Targeted searches for the fixed flag count and polynomial did not locate one; this does not certify priority.",
+        "searches": [
+          "Resultary semantic query: strictly upper triangular 5x5 twisted commuting XY=lambda YX finite field rank distribution flag quantum plane",
+          "web: finite field strictly upper triangular 5 by 5 q commutator rank distribution twisted q commuting nilradical",
+          "web: 5q^4-5q^2+1 twisted nilradical commute"
+        ]
+      },
+      "rationale": "Goodwin and Röhrle determine five characteristic-zero irreducible components of the untwisted nilradical commuting variety; their geometric component count does not imply full finite-field rank strata or twisted-parameter independence. Huang counts unrestricted and semi-nilpotent quantum-plane pairs; fixed simultaneous flag constraints cannot be read off by conditioning only the first matrix. Kobal 2005 canonical forms might encode equivalent information, but complete text unavailable.",
+      "residual_risks": [
+        "Kobal 2005 primary full text inaccessible; exact triangular canonical form implications unknown.",
+        "No scheme-theoretic multiplicities, no nilradical dimension greater than five and no unrestricted-similarity count."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Five irreducible characteristic-zero components of untwisted commuting variety, but no fixed-flag finite-field rank polynomials or arbitrary twist.",
+          "evidence": "§3.4 classification lists exactly five components for the type A4 nilradical.",
+          "identifier_or_url": "https://arxiv.org/abs/1209.1289",
+          "material_read": "Full HTML primary paper, especially type A4 component classification and surrounding proofs in §3.4.",
+          "method": "Lawful public arXiv full HTML.",
+          "title": "On commuting varieties of nilradicals of Borel subalgebras of reductive Lie algebras",
+          "trigger": "Same A4 nilradical and commuting variety."
+        },
+        {
+          "assessment": "Theorems count unrestricted or first-nilpotent matrix pairs, not both matrices in one fixed complete flag; not direct coverage.",
+          "evidence": "Theorems 1.1 and 1.2 give generating functions for all pairs and semi-nilpotent pairs; no specified common nilradical.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.15570",
+          "material_read": "Primary full PDF including theorem statements on unrestricted and semi-nilpotent quantum-plane matrix counts and definitions.",
+          "method": "Lawful arXiv PDF, extracted text and rendered page.",
+          "title": "Counting on the variety of modules over the quantum plane",
+          "trigger": "Exact q-count of zeta-commuting matrix pairs; potential dominating count."
+        },
+        {
+          "assessment": "Inaccessible plausible source; mathematical equivalence not established or excluded.",
+          "evidence": "Kobal (2005), Linear Algebra and its Applications 403, 178–182; priority risk remains.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2005.01.028",
+          "material_read": "Title, bibliographic description, no primary full text.",
+          "method": "Preprint and OA search followed by authorized institutional retrieval, returning vpn_disconnected.",
+          "title": "Belitskii canonical form for 5×5 upper triangular matrices under upper triangular similarity",
+          "trigger": "Same dimension and triangular similarity, possible disguised count."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete arithmetic rank stratification of an intrinsically defined nilpotent flag algebra gives sharp kernel and representation-count information for every q and twist. The exact uniform q-polynomial distinguishes point counts from characteristic-zero component geometry; this is a motivated representation invariant, not a randomly selected finite matrix experiment.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite field F_q and nonzero lambda, the exact rank distribution of Y -> XY - lambda YX on strictly upper triangular 5x5 matrices is lambda-independent and yields pair count q^10(5q^4-5q^2+1).",
+  "limitations": [
+    "Both matrices must lie in the specified standard 10-dimensional nilradical, not all nilpotent or upper-triangular matrices.",
+    "No proof of geometric irreducibility or corresponding formula for larger dimensions."
+  ],
+  "schema_version": 1
+}
