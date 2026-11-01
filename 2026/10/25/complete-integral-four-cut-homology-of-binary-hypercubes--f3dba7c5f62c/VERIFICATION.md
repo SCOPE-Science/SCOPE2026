@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible integral and combinatorial checks
+# Independent mathematical audit
 
-The standalone `check_four_cut_hypercube.py` script requires Python 3.10 or newer and SymPy. Run it directly with `python3 check_four_cut_hypercube.py` from the extracted package.
+## correctness
 
-For \(Q_3\), the script enumerates all 38 connected induced four-sets, checks that their faces contain every triple, builds the full signed integral three-boundary matrix of size \(56\times38\), and obtains exactly 35 unit Smith entries and three zero entries. The signed two-boundary has rank 21. These calculations give the integral local group \(H_3(L(Q_3);\mathbb Z)=\mathbb Z^3\), with vanishing integral groups in degrees one and two.
+PASS
 
-The script independently enumerates four-sets and computes signed-boundary ranks modulo two for \(Q_3,Q_4,Q_5,Q_6\). The respective connected-four counts are 38, 280, 1360, 5360; the respective mod-two ranks of the three-boundary are 35, 255, 1231, 4831; and the predicted free ranks of the dual three-homology are 3, 25, 129, 529. It asserts all equalities and prints `FINITE_CHECKS_OK` if successful.
+For d>=4, the dual of ordinary four-cut complex has complete 2-skeleton and connected induced four-sets as tetrahedra. If an induced 5-set had every 4-subset connected it would have minimum degree 2 and force K_{2,3}, impossible in Q_d (two distinct cube vertices share at most two neighbors). The tetrahedra split as coordinate squares plus unique three-direction configurations in coordinate 3-cubes, giving f2+32f3. The square tetrahedral support collapses to the cubical 2-skeleton; the relative chain groups of non-square supports split over coordinate 3-cubes. An independently built signed local ∂3 for Q3 (56x38) had exactly 35 unit Smith diagonal entries and three zeros, furnishing integral H3 local Z3 and relative H3 Z4. The cubical 3-cell boundaries surject to H2(square-support), so the global exact sequence gives H3(dual)=Z^a with a=4f3-f2+f1-f0+1, H2(dual)=Z^b with b=binom(N,3)-binom(N,2)-28f3-2f2+f1, and no torsion. Combinatorial Alexander duality yields the two reduced integral groups in degrees N-6,N-5; positive lower-degree homology obstructs shellability. Independent full connected-four-set enumeration confirmed d=3,4,5 counts 38,280,1360, ranks (3,0),(25,200),(129,3264). The all-d proof is structural, not inferred from these cases.
 
-**Limits:** The finite-field checks alone cannot exclude odd torsion or prove an infinite-family theorem. Torsion-freeness and all-d validity follow from the integral local Smith computation, exact relative pair splitting, and the integral long exact sequence proved in the main text. This verification is not an independent audit.
+## originality
+
+PASS
+
+Bayer et al. establish the cut-complex framework and hereditary shellability results, so nonshellability by itself is prior-covered. A previously published Q3 ordinary four-cut homotopy type matches the boundary case; prior total three-cut Q4 and grid variants have different cut parameters. None inspected supplies the two global integral four-cut homology ranks for every Q_d, d>=4.
+
+## value
+
+PASS
+
+An exact infinite-family two-degree integral homology classification of a natural high-symmetry graph complex, including positive mixed ranks, torsion-freeness, and a structural cubical explanation, is a worthwhile mathematical invariant. It exceeds the already known nonshellability consequence and single Q3 calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
