@@ -1,11 +1,21 @@
-# Scientific review: exact small-target reset transition
+# Independent mathematical audit
 
-**Correctness — PASS.** The Brownian radial boundary-value solution determines the absorption transform, and the resetting renewal identity determines the mean. A controlled matched small-hole expansion identifies the competing diverging-rate saddle. A global rate-compactification argument rules out smaller mean from rates vanishing, remaining finite, or escaping with the wrong scaling; an implicit-function argument proves two equal global minimizers and the exact first correction. Standalone numerical and arithmetic checks passed. These checks do not replace analytic proof.
+## correctness
 
-**Originality — PASS in self-review.** Chen and Huang, arXiv:2109.11101 (2021), already derived the reset mean for a three-dimensional absorbing shell and numerically fitted the small-inner-radius discontinuous transition. The present new statements are the true exact asymptotic exponents, limiting constants, first correction and global-optimum justification. Pal and Prasad's arXiv:1812.03009 concerns one-dimensional interval resetting. Additional semantic overlap searches did not find coverage. Residual risk: a broader restart/narrow-target theorem may imply this precise specialized result; independent scholarly audit has not been performed.
+PASS
 
-**Scientific value — PASS.** The original authors explicitly fitted powers at this physical transition; proving their limiting values and first correction is a motivated refinement of a singular stochastic-optimization phase boundary. The two-scale global selection is structurally explanatory rather than a routine expansion.
+Independently checked the radial Dirichlet ODE uʺ+2uʹ/x=s u with absorbing boundary transforms u(c)=u(1)=1, exact u=[c sinh(a(1-x))+sinh(a(x-c))]/[x sinh(a(1-c))], a=sqrt(s), and renewal mean M=(1-u)/(s u); zero-rate m=(1-x²-c(1+c)(1/x−1))/6. With delta=c^(1/3), x=z delta, h=x sqrt(s), expansion u=(delta²/z)e^(−h)(1+h delta²/z+O(delta^4)) leads to F(z,h)=z³e^h/h² and delta² correction −z² e^h/h−z²/h². F is uniquely minimized at h=2; crossing with m→1/6 is Z. The exact equality correction, after cancellation, is K=1/3+1/(9e²). Reviewed proof of excluding s→0, bounded positive s, s→∞ with h→0 or ∞; only h≈2 can compete, so the implicit-function coexistence really is global. New independent high-precision nested root solving for c=10^-3,10^-4,10^-5 gave (z−Z)/c^(2/3)=0.36448,0.35556,0.35165 approaching K=0.34837. Numerical convergence is corroboration; rigorous global compactification and uniform expansions are supplied by the pinned proof.
 
-**Scope.** The theorem is small-inner-radius, three-dimensional, independently Poisson-reset, two-absorber asymptotics; neither finite-radius phase charts nor other dimensions are classified. No independent audit or validation is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact asymptotic critical exponents, constants, first correction and two-global-minima coexistence for the specific small-inner-hole transition refine the prior numeric first-order transition in the identical physical model.
+
+## value
+
+PASS
+
+The earlier physical result presents only fitted small-hole critical exponents and amplitudes, which can be misleading outside the asymptotic regime. Deriving Z,K, the −2/3 rate divergence, a global branch-selection theorem and the discontinuous coexistence mechanism answers a motivated unresolved quantitative question in stochastic resetting. The correction term discriminates the fitted exponent from the actual scaling and is not a routine textbook substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
