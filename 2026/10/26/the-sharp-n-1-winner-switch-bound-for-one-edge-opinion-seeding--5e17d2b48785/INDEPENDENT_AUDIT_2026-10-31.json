@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob eafdaac1ab7a21f1437a4f1835a760e11f3ba592",
+        "assigned verify.py blob 29b9e69f932a83d0862f4874bdaca48d88dbe3d0",
+        "independent_checks.py FJ exact rational checks"
+      ],
+      "rationale": "In an n-vertex nonnegative weighted directed unit-anchored FJ model, varying only edge a->b adds rank-one matrix t e_a(e_a-e_b)^T to I+L(0). Since the latter is a nonsingular M-matrix, H>=0 and x=H e_a has its unique positive maximum at a, implying d=x_a-x_b>0. Sherman-Morrison yields common increasing u=t/(1+dt) and each reduction score s_j sum_i [(I+L(t))^-1]_{ij}/n affine in u. Every strict winning affine score can win on at most one interval, bounding genuine strict switches by n-1. The constructed directed acyclic network with m=n-2 leaves has distinct, strictly increasing slopes and positive strictly ordered adjacent crossing abscissae T_0/2,T_0,...,T_{m-2},T_*; the adjacent crossing weighted-average property forces all n lines onto the upper envelope in turn. Delta, kappa and all opinions satisfy (0,1] rational bounds. Independently checked exact-rational arithmetic for all m=2..18 and direct matrix inverse at n=4,5; n=4 transitions 153/4,153/2,90156. Finite examples complement but do not prove the universal all-n assertion.",
+      "residual_risks": [
+        "Nonnegative fixed edge structure, one varied edge and strict winner convention are essential.",
+        "One edge varying monotonically is crucial to the common fractional-linear parameter."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sun-Zhang determine best one-node intervention at fixed weights. Shrinate-Tripathy study influence of two stubborn agents under edge changes in strongly connected graphs; no inspected broad result guarantees n strict winners in succession."
+        ],
+        "reasoning": "The fixed-instance optimality criterion is prior and acknowledged; its formulation does not imply either the sharp universal parametric bound or the constructive attainability with all n agents.",
+        "searches": [
+          "Sun-Zhang arXiv:2306.16847 sections 4.1-4.3",
+          "Shrinate-Tripathy arXiv:2412.20112",
+          "Resultary: Friedkin Johnsen single edge weight parametric optimal single agent seeding winner changes n-1 influence centrality"
+        ]
+      },
+      "checked_sources": [
+        "Sun & Zhang, Opinion Optimization in Directed Social Networks, arXiv:2306.16847v1 Theorem 4.1",
+        "Shrinate & Tripathy, arXiv:2412.20112",
+        "Resultary semantic query: Friedkin Johnsen single edge weight parametric optimal single agent seeding winner changes n-1 influence centrality"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.1 states maximize s_j times network column-sum centrality at a FIXED equilibrium. Rank-one inverse identity provides affine score geometry. The explicit acyclic family forces exactly n-1 unique winner transitions."
+        ],
+        "reasoning": "A fixed optimal-seed identity and general rank-one inverse are needed premises, but neither alone implies the existence of valid nonnegative FJ networks whose upper envelope uses every one of n score lines.",
+        "searches": [
+          "Sun-Zhang Theorem 4.1",
+          "Sherman-Morrison rank-one identity",
+          "Shrinate-Tripathy edge sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-seed mean reduction is s_j times column sum of (I+L)^-1; as one row-Laplacian edge varies, each candidate becomes one affine function of u=t/(1+dt)."
+        ],
+        "reasoning": "Compared equivalent rank-one inverse sensitivities and upper-envelope terminology, not title alone; general line-envelope bound gives <=n-1 once the special common parameter is proved, but does not automatically give realizability by a valid FJ network.",
+        "searches": [
+          "Resultary: Friedkin Johnsen single edge weight parametric optimal single agent seeding winner changes n-1 influence centrality",
+          "Friedkin Johnsen influence centrality one edge weight rank-one perturbation winner swaps",
+          "arXiv:2306.16847 Theorem 4.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent exact rational finite family spans m=2..18, including a four-vertex three-switch configuration; checked sources contained no matching extremal switch table."
+        ],
+        "reasoning": "The theorem is for all n and a parametric family, not an experimental table or a fixed optimization instance. The numerical examples are used to check the proof, not to assert originality of individual parameters.",
+        "searches": [
+          "Resultary: Friedkin Johnsen single edge weight parametric optimal single agent seeding winner changes n-1 influence centrality",
+          "arXiv:2306.16847 fixed-network numerical examples",
+          "arXiv:2609.13895 abstract"
+        ]
+      },
+      "rationale": "Qualified PASS for the sharp parametric switch count and explicit all-winner attaining family. Sun-Zhang Theorem 4.1 supplies the fixed-network column-sum seeding objective, which the claim openly uses; it does not bound changes under a continuously reweighted edge. Other edge-influence sources optimize a different set of agents/objectives. Generic upper-envelope facts are prior and not novelty by themselves; the exact FJ reduction and attaining construction supply the meaningful increment.",
+      "residual_risks": [
+        "A generic parametric FJ sensitivity theorem with a sharp attainment family may cover the result under another intervention language.",
+        "A 2026 edge-modification paper arXiv:2609.13895 was checked only at abstract level, not wholly excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FIXED_OPTIMUM_ONLY",
+          "evidence": "The fixed-weight optimizer maximizes innate opinion times column-sum centrality, with no one-edge parametric switch classification.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.16847",
+          "material_read": "Accessible complete author arXiv HTML; relevant Sections 4.1-4.3 and Theorem 4.1",
+          "method": "Web HTML full-text passage inspection",
+          "title": "Opinion Optimization in Directed Social Networks",
+          "trigger": "Exactly the same FJ mean-reduction objective"
+        },
+        {
+          "assessment": "DIFFERENT_OPTIMIZATION_TARGET",
+          "evidence": "Two stubborn agents and comparative influence under edge changes differ from variable choice among all n singleton innate-opinion interventions.",
+          "identifier_or_url": "https://arxiv.org/abs/2412.20112",
+          "material_read": "Accessible relevant introduction/model/comparison sections of arXiv text as previously inspected",
+          "method": "Web arXiv full-text sections",
+          "title": "Towards influence centrality: where to not add an edge in the network?",
+          "trigger": "Edge modification in related FJ dynamics"
+        },
+        {
+          "assessment": "UNREAD_PLAUSIBLE_SOURCE",
+          "evidence": "Potential sensitivity implication remains unverified and explicitly recorded.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.13895",
+          "material_read": "Abstract and source summary only; full paper not inspected",
+          "method": "Web abstract",
+          "title": "Influence Enhancement in Opinion Dynamics Using Edge Modification: A Kron Reduction-Based Approach",
+          "trigger": "Recent potentially broader edge-modification theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sherman-Morrison sensitivity proof",
+        "explicit acyclic attainment with rational opinions",
+        "Sun-Zhang fixed optimum characterization"
+      ],
+      "rationale": "The exact number of optimum intervention reversals is a natural parameter-sensitivity invariant for network opinion optimization. The nonreturn property is universal and its sharpness is realized by an explicit valid nonnegative network of every size n>=4 with all vertices winning in sequence. This is more informative than a generic line-envelope observation or a fixed-network calculation.",
+      "residual_risks": [
+        "Many switches occur at large weights in constructed examples; theorem does not optimize weight budget or cover multiple interventions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "One nonnegative edge varies from zero, fixed innate opinions, unit anchoring, strict unique winners; tie breaks alone do not count.",
+    "No claim for signed or time-varying edge weights, simultaneous edge changes or multi-seed selection.",
+    "Publication withheld pending semantic sanitization of potentially public administrative provenance; review is scientifically completed."
+  ],
+  "schema_version": 1
+}

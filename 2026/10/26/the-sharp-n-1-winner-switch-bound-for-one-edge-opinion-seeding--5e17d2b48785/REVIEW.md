@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The variable-edge inverse is a rank-one Sherman–Morrison update with strictly increasing common parameter; all seed gains are affine in it, establishing the general \(n-1\) upper bound. The explicit acyclic family has exact normalized gain lines, strictly increasing slopes, and strictly increasing adjacent crossings; the ordered-envelope lemma ensures each candidate is actually strictly best on an open interval. Positivity and admissibility of all weights and innate opinions are proved. Independent exact-rational matrix inversions for \(2\le m\le17\) agree with the formulas but are not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Sun–Zhang (2023), Theorem 4.1, identifies the best seeds on a fixed network; it does not bound or construct sequences of optimal-seed changes as a single weight varies. Shrinate–Tripathy (2024) studies changes in the influence of two fixed stubborn agents under reallocation in strongly connected networks; those results do not imply the sharp \(n-1\) switching phenomenon. Later fairness-oriented seeding is a different objective and graph model. Later edge-modification literature remains a residual risk, especially the inaccessible full text of arXiv:2609.13895. No examined source directly covers the exact sharp switch bound and its attainment.
+PASS
 
-**Mathematical value — PASS.** Reoptimizing one-node interventions after adding or strengthening a tie is a natural network-design sensitivity question. The theorem gives the exact worst-case number of policy changes and a constructive extremal example in the restrictive acyclic class. It disproves any network-independent bound on the number of winner reversals and rules out reentry of a strict winner. This is not just the matrix-inverse derivative or a numerical instance.
+In an n-vertex nonnegative weighted directed unit-anchored FJ model, varying only edge a->b adds rank-one matrix t e_a(e_a-e_b)^T to I+L(0). Since the latter is a nonsingular M-matrix, H>=0 and x=H e_a has its unique positive maximum at a, implying d=x_a-x_b>0. Sherman-Morrison yields common increasing u=t/(1+dt) and each reduction score s_j sum_i [(I+L(t))^-1]_{ij}/n affine in u. Every strict winning affine score can win on at most one interval, bounding genuine strict switches by n-1. The constructed directed acyclic network with m=n-2 leaves has distinct, strictly increasing slopes and positive strictly ordered adjacent crossing abscissae T_0/2,T_0,...,T_{m-2},T_*; the adjacent crossing weighted-average property forces all n lines onto the upper envelope in turn. Delta, kappa and all opinions satisfy (0,1] rational bounds. Independently checked exact-rational arithmetic for all m=2..18 and direct matrix inverse at n=4,5; n=4 transitions 153/4,153/2,90156. Finite examples complement but do not prove the universal all-n assertion.
 
-**Closest literature and limits.** The fixed-network seeding formula is borrowed openly from Sun–Zhang, and the rank-one inverse is classical. The work's nontrivial contribution is the attained all-vertices upper envelope with strictly ordered crossings. The findings are limited to single-seed, single-edge, nonnegative weighted FJ equilibrium, and strict-optimum changes. Unindexed equivalences are possible; later arXiv:2609.13895 could only be assessed through its abstract and bibliographic summaries.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for the sharp parametric switch count and explicit all-winner attaining family. Sun-Zhang Theorem 4.1 supplies the fixed-network column-sum seeding objective, which the claim openly uses; it does not bound changes under a continuously reweighted edge. Other edge-influence sources optimize a different set of agents/objectives. Generic upper-envelope facts are prior and not novelty by themselves; the exact FJ reduction and attaining construction supply the meaningful increment.
+
+## value
+
+PASS
+
+The exact number of optimum intervention reversals is a natural parameter-sensitivity invariant for network opinion optimization. The nonreturn property is universal and its sharpness is realized by an explicit valid nonnegative network of every size n>=4 with all vertices winning in sequence. This is more informative than a generic line-envelope observation or a fixed-network calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
