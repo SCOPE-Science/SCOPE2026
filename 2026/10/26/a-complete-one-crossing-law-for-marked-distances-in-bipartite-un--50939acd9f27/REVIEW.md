@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source theorem [1, Theorem 1.4] gives an exact probability for an embedded fixed path. Counting and subtracting its disjoint possibilities yields a properly normalized exact marked-distance law. The key difference identity factors explicitly as a positive denominator times a decreasing bracket. That identity proves global domination or a single tail reversal, with the one equal-support exception handled by a positive lower bound of two. The finite threshold and limiting sign follow from exact polynomial bounds. A standalone exact-rational checker passed 89,613 assertions, including independent small-graph spanning-tree enumeration; this checks calculations, not the infinite proof. The analytic argument covers every allowed integer parameter.
+PASS
 
-## Originality — PASS (historical priority not certified)
+The audited RESULT.md defines separate uniform labeled tree laws for each a, fixed total N and two marked vertices in the first part. Disjoint connecting-path events and the Ge–Dong prescribed-tree inclusion theorem give S_k(a)=(a-2)_(k-1)(N-a-1)_(k-1)/(a(N-a))^(k-1). I independently checked that the path mass telescopes to these tails and the identity f_j(v)-f_j(u)=(v-u)[uv-(u+v-N)(j+1)(N-j)]/[uv(N-u)(N-v)]. The bracket strictly decreases on the common positive support; hence S_k(v)/S_k(u) is unimodal, giving at most one positive-to-negative switch. The equal-support exception at N=2m,u=m,v=m+1 has all multipliers positive; all other H>0 pairs have earlier positive difference and later negative difference. Exact integer optimization of H gives first incomparable (11,6,7), fractions 1/420 and 17/2450. The N→∞ limit H/N²=1-3x/2 supports the claimed open x intervals, not equality at x=2/3. Independent rational checker tested complete admissible comparisons N≤90; these finite checks are corroboration, not the unbounded proof.
 
-Prior work [1,2] already supplies the path-inclusion formula and, after summing, the exact distance distribution. It is not new. The claimed addition is the full order trichotomy for *different bipartition sizes with fixed graph order*, including the exception, the single-crossing law, first incomparable order eleven, and the macroscopic transition. Direct reading of the relevant sections of [1,2,3], mathematical-result similarity queries, and title/formula/alias searches did not identify an implication establishing the classification. Other nearby results concern vertex degree–distance dependence on uniform Cayley trees or bipartite spanning-tree vertex degrees; these do not order the same-part marked distance tails. A general pre-existing monotonicity or likelihood-ratio result could subsume the new conclusion and remains a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The natural question is how a fixed graph order and a changing part imbalance affect distance between two marked vertices in a random spanning tree. The answer is not a simple monotonicity assertion: the more-imbalanced law can dominate, be dominated, or be incomparable, depending on a sharp integer inequality. The first finite obstruction and its two exact opposite-sign tail gaps are structurally motivated. The at-most-one-crossing and asymptotic phase boundary make the comparison reusable for threshold-level properties of graph distances; this is not a random parameter slice or a mere restatement of an existing enumeration.
+Best-of-knowledge original as the sharp full stochastic-order trichotomy and exact first incomparable size; the fixed-path inclusion and the marginal distance law are known and explicitly excluded from novelty. Resultary search found different complete-bipartite spanning-tree invariants, not the distance comparison.
 
-## Sources and limitations
+## value
 
-The counted-subtree input originates in Ge–Dong (arXiv:1904.07766), with a broader forest formula in Dong–Ge (arXiv:2103.05294). Archer–Shalev (arXiv:2301.00461) studies a different, scaling-limit level of description. The result only compares two fixed marks in the larger part of a complete bipartite uniform spanning tree; the case of other graphs and opposite-part marks is not covered. The novelty comparison cannot guarantee exhaustive historical priority. Independent validation is not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The distance law of two distinguished vertices under graph-part imbalance is a canonical random-spanning-tree observable. Its global stochastic-order trichotomy and first unavoidable crossing sharply separate orderability from incomparability; the limit x=2/3 gives a meaningful scaling transition. The contribution is a complete comparison classification rather than a restatement of the known exact marginal formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
