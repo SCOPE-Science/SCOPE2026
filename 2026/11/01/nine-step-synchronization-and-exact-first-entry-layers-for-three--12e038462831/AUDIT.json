@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "An initial color class of nonbridge vertices in a clique evolves monochromatically: all its members share the same state, and when at state 2, excluding oneself from the neighborhood does not affect the presence of blinking state 1. Hence the two bridge colors and the at most six initial nonbridge color cohorts yield an exact, size-independent dynamical quotient. Exhaustive deterministic enumeration of all 3^2(2^3-1)^2=441 admissible initial templates yields first synchronization at time 0..9 and exactly the stated ten 3-by-3 coefficient matrices, maximum 9. The four-block explicit 10-stage trace is an extremal witness for every pair of orders at least 2. Inclusion-exclusion counts onto maps from the labelled interior vertices to their nonempty supports, yielding the formulas for all a,b. A separate vertex-level C++ implementation checked all 1,185,921 colourings for a,b in 2..6, with matching counts. The proof is finite quotient enumeration after a proven exact reduction, not extrapolation from finite graph sizes. Neither program is independently externally audited.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The main 2014 path/low-degree-tree criterion is confined to trees; for a>=3 or b>=3 the bridge graph contains triangles.",
+        "The 2016 manuscript concerns trees and diameter-based bounds, without a sharp nine-layer finite graph enumeration.",
+        "A prior firefly result on complete split graphs, item 0b34df88-823b-46c8-a361-4e12fb01deb2, concerns a different edge set."
+      ],
+      "reasoning": "Generic synchronization under a graph perturbation, small-width hypotheses or tree degree conditions does not imply unconditional sharp nine-step synchrony for every initial color on the cyclic bridged-clique family or exact labelled counts. We checked these broader-looking claims by their graph hypotheses rather than title resemblance.",
+      "searches": [
+        "exact attraction basin counts and transient times synchronous discrete dynamics on complete multipartite graphs cyclic cellular automata",
+        "firefly cellular automaton three state joined cliques by a single bridge uniform synchronization bound time nine",
+        "arxiv:1407.1103",
+        "arxiv:1610.00837"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1407.1103",
+      "arxiv:1610.00837",
+      "2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2",
+      "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 and 2016 Lyu papers treat the same local inhibitory model but mainly path and tree constraints.",
+        "Complete bipartite 3-color firefly has all between-part edges instead of two internally complete sets with a single cross-edge.",
+        "Complete split 3-color firefly has all cross edges; the present graph has only one.",
+        "Bridged-clique 3-color Greenberg-Hastings excitation has a different local update and its results are not convertible by state renaming."
+      ],
+      "reasoning": "A graph-level isomorphism or relabeling cannot turn K_a--K_b (single bridge and two internal cliques) into generic K_{a,b} or complete split graphs. At a=b=2 the graph is the path P4, a known special case, so no new independent claim for that specific small graph is asserted. The all-size sharp cutoff and the ten exact first-entry formulas are not corollaries of the inspected known results. A converse implication is not claimed.",
+      "searches": [
+        "exact attraction basin counts and transient times synchronous discrete dynamics on complete multipartite graphs cyclic cellular automata",
+        "firefly cellular automaton three state joined cliques by a single bridge uniform synchronization bound time nine",
+        "3-color inhibitory oscillators barbell clique bridge first synchronization distribution",
+        "3-color firefly path 4 complete cliques edge joined 9 step synchronization"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Lyu 2014 exact three-color inhibitory firefly rule; path and low-degree-tree setting.",
+        "Lyu 2016 tree-local analysis of discrete firefly synchronization.",
+        "Published research-record searches under bridge clique, barbell, inhibitory firefly, three-state, and first-entry aliases returned no claim whose text gives the present statement."
+      ],
+      "reasoning": "The proposed result is equivalently the claim that every 441-state color-support template hits the diagonal within nine steps with the indicated hitting-time distribution; the initial supports and bridge colors are an exact quotient, not a new rule. Known synchronization on the path P4 (the a=b=2 case) only covers a single member; full bridged cliques contain cycles when at least one clique order is three. No inspected equivalent all-size formula was found. Database silence alone is not originality proof.",
+      "searches": [
+        "three-color firefly inhibitory cellular automata complete tripartite graph period attraction basin synchronous counts",
+        "firefly cellular automaton three state joined cliques by a single bridge uniform synchronization bound time nine",
+        "3-color inhibitory oscillators barbell clique bridge first synchronization distribution",
+        "3-color firefly path 4 complete cliques edge joined 9 step synchronization",
+        "arxiv:1407.1103",
+        "arxiv:1610.00837"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result 2026/10/4/SCOPE-zero-forcing-polynomial-of-bridge-barbells--5431b532d7f2 counts zero-forcing sets, not oscillator trajectories.",
+        "Published result 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 counts XOR/parity automata on multipartite graphs, not inhibitory firefly oscillators.",
+        "No matching ten-by-nine matrix of first-time synchronization counts was among the retrieved record summaries."
+      ],
+      "reasoning": "The near graph-family match is about zero forcing, and the near automata match uses linear mod-two parity. Their known exact tables concern different invariants and cannot imply the claimed 3-state nonlinear firefly counts. Unindexed mathematical tables remain possible.",
+      "searches": [
+        "firefly cellular automaton three state joined cliques by a single bridge uniform synchronization bound time nine",
+        "3-color inhibitory oscillators barbell clique bridge first synchronization distribution",
+        "3-color firefly path 4 complete cliques edge joined 9 step synchronization",
+        "three-color firefly inhibitory cellular automata complete tripartite graph period attraction basin synchronous counts"
+      ]
+    },
+    "rationale": "The specified inhibitory rule and its tree/path synchronization results were established by Lyu (arXiv:1407.1103; arXiv:1610.00837). Comparison of the inspected primary manuscript sections and the matched published/owned results identifies no theorem for two complete cliques joined by exactly one bridge with a nine-step all-input cutoff and the ten exact first-entry matrices. The previously reported 3-color results on complete bipartite or complete split graphs have different neighborhood structures; the earlier bridge-clique result applies to a different, excitatory transition rule. Only the new bridged-clique classification and distribution are asserted; possible unindexed equivalent work remains a priority risk.",
+    "residual_risks": [
+      "Unindexed earlier article, thesis or unpublished equivalent analysis could cover this exact graph/rule; database retrieval is not an exhaustive historical priority proof.",
+      "The explicit 441-template finite proof is reproducible but has not undergone a separate external mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Self-review, no inspected all-color bridge-barbell sharp-nine theorem or ten-layer census; tree conclusion includes the small P4 specialization only.",
+        "evidence": [
+          "arxiv:1407.1103; initial submitted 2014-07-04; introduction and path/tree theorem statements."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+        "material_read": "Accessible full-text HTML examined at definition, principal path and low-degree-tree theorems, width lemma and conclusions.",
+        "method": "Read the arXiv accessible text and compared local rule, graph hypotheses, quantifiers and exact synchronization-time outputs.",
+        "title": "Synchronization of finite-state pulse-coupled oscillators",
+        "trigger": "Introduces exactly the 3-color firefly update; plausible stronger general synchronization theorem."
+      },
+      {
+        "assessment": "Tree analysis does not cover cyclic members or establish the exact nine-step bound and matrix census.",
+        "evidence": [
+          "arxiv:1610.00837; initially submitted 2016-10-04; main time-complexity theorem for trees."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+        "material_read": "Accessible HTML inspected at introduction, stated main theorem, and relevant local tree arguments.",
+        "method": "Compared graph class (trees) and time complexity result with exact two-clique bridge graph and layer distribution.",
+        "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+        "trigger": "General synchronization time bounds for inhibitory firefly, including 3-color."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12e03846-2831-460b-8a09-fa3c650cf69a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The single bridge is a natural graph-theoretic bottleneck between otherwise completely connected communities. It is nontrivial that every initial 3-color inhibitory configuration globally synchronizes within a constant number of updates independent of both clique sizes, particularly in contrast with other graph families supporting asynchronous recurrent cycles. The exact ten-layer synchronization-time distribution, the sharp nine-step witness for every graph order, the symmetry N_1=N_3, and concentration at time two for growing cliques are natural quantitative dynamical invariants of a two-parameter infinite family and are not routine substitutions into a pre-existing formula.",
+    "status": "PASS"
+  }
+}
