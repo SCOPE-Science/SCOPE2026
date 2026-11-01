@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "From M’=s-kM and P’=kM, derive P=m+st-M. Direct stagewise solution yields integrated M for any order. Its source term is a symmetric constant minus s r_middle z_a z_b z_c; hence the exposure supply term depends only on the middle rate. Cumulative initial-stock hazards yield strict elimination to two max/two min candidates; exact signed gaps (a-b) z_a z_b (s z_c-m) and (b-c) z_b z_c (m-s z_a) prove all cases, ties and no other extrema for a>b>c>0 and m,s,h>0. Two-block comparison has no supply dependence even for unequal durations. Reproducibility checker independently tests stage integrations and exact rational boundaries with 22,058 assertions; finite checks are supplemental, not an all-domain proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chen and Adams, doi:10.1029/2005WR004540 (2006), sections 2.3 and 4, integrates rainfall runoff and pollutant buildup/washoff via derived distributions and storage controls.",
+        "Vaze and Chiew, doi:10.1029/2002WR001786 (2003), full experiments and conclusions show rain/runoff intensity and duration effects, without three-stage optimization.",
+        "Barbé, Cruise and Mo, doi:10.1111/j.1752-1688.1996.tb04049.x (1996), accessible abstract describes antecedent-dry-period buildup and runoff-volume power wash-off; full article inaccessible."
+      ],
+      "reasoning": "The inspected broad models study event pollutant loads, rainfall-runoff distributions and controls; none of the material read asserts a theorem covering the exact initial-stock-plus-concurrent-supply integrated pool mass permutation problem. Prior general transport or optimal scheduling could dominate the isolated theorem; full access to the older Barbé work was unavailable and is recorded as priority risk.",
+      "searches": [
+        "optimal order of three exponentially decaying rates constant inflow total cumulative output exposure scheduling",
+        "three rainfall pulses ordering pollutant wash-off continuous deposition first flush cumulative receiving water exposure optimal",
+        "A framework for urban storm water modeling and control analysis with analytical models Chen Adams 2006 section 2.3"
+      ]
+    },
+    "checked_sources": [
+      "Sartor and Boyd (1972), EPA-R2-72-081 (original report transcript, selected runoff/wash-off sections)",
+      "Vaze and Chiew (2003), doi:10.1029/2002WR001786 (complete publicly accessible publisher paper)",
+      "Chen and Adams (2006), doi:10.1029/2005WR004540 (complete publicly accessible publisher paper)",
+      "Soonthornnonda et al. (2008), doi:10.1016/j.scitotenv.2008.04.036 (full publicly accessible author manuscript text)",
+      "Barbé, Cruise and Mo (1996), doi:10.1111/j.1752-1688.1996.tb04049.x (abstract only)",
+      "OpenSWMM Engine technical reference, section 4.2 surface washoff (available HTML sections)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Soonthornnonda et al. doi:10.1016/j.scitotenv.2008.04.036 derives separate antecedent buildup and within-event washoff without positive constant addition to the washed stock during the storm.",
+        "Vaze and Chiew doi:10.1029/2002WR001786 is an experimental process study rather than a three-rate sequence extremum.",
+        "The present direct algebra shows a supply score depending only on the middle stage; this is the nontrivial source of switching and is absent from the compared claims."
+      ],
+      "reasoning": "Even if the same exponential mass-decay ODE occurs in the sources, solving it for one fixed rainfall trajectory or reporting terminal load does not state or immediately imply an optimized time-integrated receiving-pool exposure for all three-stage rate permutations. The theorem gives two precise ratios z_a and z_c and all strict/tied extremizers. This is a comparison of quantified mathematical implications, not titles. Historical priority still requires independent confirmation.",
+      "searches": [
+        "A washoff model for stormwater pollutants Soonthornnonda Christensen Liu Li 2008 equations first order",
+        "Study of pollutant washoff from small impervious experimental plots Vaze Chiew 2003 rainfall",
+        "exponential washoff model constant deposition rate three equal duration rate stages integrated received mass sharp order maximum middle"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sartor and Boyd, EPA-R2-72-081 (1972), establishes empirical exponential wash-off, not an optimal stage-order theorem.",
+        "Soonthornnonda et al., doi:10.1016/j.scitotenv.2008.04.036 (2008), section on rate-dependent event wash-off with initial surface loading.",
+        "A general variation-of-constants representation yields the stage expressions but does not on its own imply the two extremal-order switching classifications."
+      ],
+      "reasoning": "A linear wash-off law can be identified with a scalar stable driven ODE; the new statement concerns the extremizers of a time-integrated accumulated-output functional over all six equal-duration permutations. The prior exponential wash-off law, terminal event export, generic ODE solution, and monotone initial-stock rearrangement are not equivalent to the supply-driven max/min switch and two separate exact thresholds. General ordering theory remains a residual risk.",
+      "searches": [
+        "urban stormwater quality linear buildup exponential washoff time integrated pollutant load reordering rainfall intensity sequences",
+        "linear first order pollutant stock inflow outflow rate permutation three stages threshold initial load continuous supply",
+        "rearrangement inequality piecewise constant reaction rate linear ODE source integrated response permutation three"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Vaze and Chiew, doi:10.1029/2002WR001786, rainfall-intensity experiments and event pollutant load curves, not six-permutation data.",
+        "Chen and Adams, doi:10.1029/2005WR004540, calibrated pollutant-specific buildup/washoff parameters, not a table of the claimed ordering thresholds.",
+        "No identified exact numerical table of six permutations with simultaneous supply and integrated accumulated exported mass in the inspected papers."
+      ],
+      "reasoning": "Empirical rainfall run tables measure outputs of particular real events. The present six-permutation analytical classification is not a recomputation of any identified parameter table. Absence in searched collections is not a uniqueness proof.",
+      "searches": [
+        "piecewise constant wash off intensity three storm blocks exact threshold deposition initial buildup ordering",
+        "urban stormwater multiple rainfall intensity pulses time weighted cumulative pollutant export exact optimal order",
+        "stormwater quality linear buildup exponential washoff time integrated pollutant load reordering rainfall intensity sequences"
+      ]
+    },
+    "rationale": "Compared exact theorem and its two threshold implications against historical 1972 exponential pollutant wash-off, the first publicly dated 2003 experimental event-response literature, full open 2006 analytical stormwater-control treatment, and 2008 author-manuscript first-order washoff model. These treat initial buildup, fixed storm intensity/volume, event loads, or probabilistic management, but none of the inspected material states the six-permutation accumulated-pool exposure extrema under concurrent fresh supply. Separate general sequencing risk remains: this is best-knowledge originality, not independence or a database uniqueness certificate.",
+    "residual_risks": [
+      "Generic linear-control permutation scheduling or adjacent-swap rearrangement may imply the result without sharing its environmental terminology; earlier equivalence remains possible.",
+      "The 1996 Barbé–Cruise–Mo manuscript could not be read in full; abstract evidence alone cannot exclude stronger historical coverage.",
+      "The simplified common surface stock plus source does not identify with all implemented urban water quality models, including SWMM receiving-water treatment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "ESTABLISHES_BACKGROUND_NOT_THEOREM",
+        "evidence": "EPA-R2-72-081, November 1972, original wash-off formulas and experiments; no identified three-stage concurrent-supply accumulated-pool exposure ordering.",
+        "identifier_or_url": "https://nepis.epa.gov/Exe/ZyPURL.cgi?Dockey=9100TDJJ.TXT",
+        "material_read": "Original EPA report introductory overview and sections describing the exponentially decaying wash-off fraction and its dependence on runoff intensity.",
+        "method": "Lawful full-text transcript inspection.",
+        "title": "Water Pollution Aspects of Street Surface Contaminants",
+        "trigger": "Original runoff-intensity dependence of street contaminant wash-off."
+      },
+      {
+        "assessment": "NOT_IMPLYING_STAGE_PERMUTATION_CLASSIFICATION",
+        "evidence": "Vaze and Chiew, first published 19 June 2003; measured rainfall/runoff energy controls and event duration/load curves, no exact 3-stage linear dynamic supply optimization.",
+        "identifier_or_url": "https://doi.org/10.1029/2002WR001786",
+        "material_read": "Full open publisher article, introduction, field and laboratory experimental setup, runoff/energy comparisons, results and conclusions.",
+        "method": "Read original publisher HTML full text.",
+        "title": "Study of pollutant washoff from small impervious experimental plots",
+        "trigger": "Closest experimental event-shape and runoff intensity work; verified first public date."
+      },
+      {
+        "assessment": "RELATED_MODEL_NOT_COVERING_NEW_STAGE_ORDERING",
+        "evidence": "Soonthornnonda et al., 2008, within-event first-order depletion with initial antecedent surface mass; no simultaneous constant fresh supply and no all-order extremum for integrated cumulative export.",
+        "identifier_or_url": "https://doi.org/10.1016/j.scitotenv.2008.04.036",
+        "material_read": "Accessible full author-manuscript text: introduction, modeling equations and assumptions, calibration methodology, empirical results, discussion and conclusions.",
+        "method": "Read freely available author-posted manuscript text, compared model differential equations and claimed outcomes.",
+        "title": "A washoff model for stormwater pollutants",
+        "trigger": "Most directly related first-order surface-mass wash-off model."
+      },
+      {
+        "assessment": "BROADER_MODEL_DIFFERENT_OBJECTIVE_NOT_COVERING_NEW_CLASSIFICATION",
+        "evidence": "Chen and Adams, first published 23 June 2006; runoff-volume derived probability distributions, annual loads and treatment controls; not six equal-duration time-order permutations of a deterministic continuing-source stock.",
+        "identifier_or_url": "https://doi.org/10.1029/2005WR004540",
+        "material_read": "Full open publisher article, abstract, concepts and modeling framework, subsection 2.3 pollutant wash-off load model, equations and development, empirical calibration and closing conclusions.",
+        "method": "Read original publisher HTML full text with relevant subsection cross-check.",
+        "title": "A framework for urban storm water modeling and control analysis with analytical models",
+        "trigger": "Plausible broader analytic hydrological buildup-washoff and control framework."
+      },
+      {
+        "assessment": "MATERIAL_READ_INSUFFICIENT_FOR_FULL_NONCOVERAGE_CLAIM",
+        "evidence": "Barbé, Cruise and Mo, 1996, abstract of calibrated two-urban-basin model. Exact rate-sequencing results in unread portions cannot be ruled out.",
+        "identifier_or_url": "https://doi.org/10.1111/j.1752-1688.1996.tb04049.x",
+        "material_read": "Accessible abstract only (no accessible full text); described dry-time linear buildup and event runoff-volume power washoff, empirical watershed application.",
+        "method": "Bibliographic/abstract inspection; full article unavailable.",
+        "title": "Modeling the Buildup and Washoff of Pollutants on Urban Watersheds",
+        "trigger": "Plausible earlier coupled buildup/washoff treatment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "056749ef-0302-4cca-b14a-f9ecc779a53f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Time-integrated accumulation in an unflushed receiving pool is a natural proxy that discriminates early from late pollutant export. A complete six-permutation classification with two exact supply-to-initial-stock thresholds, exact boundary ties, independence from the intermediate rate, and a two-stage impossibility answers a nontrivial event-ordering question omitted from the cited fixed-event buildup/washoff studies. The model is deliberately idealized and carries no empirical exposure prediction or automatic management recommendation.",
+    "status": "PASS"
+  }
+}
