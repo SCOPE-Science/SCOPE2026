@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:08:47.750790Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen RESULT.md blob d665194c164cb0b28ab1349c2a25655ab2b8bf18",
+        "actual verify.py blob b065411b98ce6ed6c30fe9363d41863ca3154b73",
+        "independent_checks.py",
+        "independent_results.json"
+      ],
+      "rationale": "Independent reconstruction of the source two-stage update gives Y_(j+1)=Y_j-zY_(j-1)+z^2 U_j Y_(j-2) with fresh iid uniform U_j. The symmetric second-moment operator is A X A^T+(z^4/12)X_33 e1e1^T. The cubic Jury f(z)>0 controls mean convergence; the rank-one positive Lyapunov resolvent and symbolic exact identity 1-z^4 H/12=4q/[3(2-z)(z^2+2z+4)f] locate the sole mean-square crossing rho≈1.144476047, below delta≈1.201045931. For z≥rho but z<delta the adjoint eigenfunctional built from e3^T A^k is positive definite (observability matrix spans R^3) and proves nondecay/growth for every nonzero deterministic state. Exact-rational witness z=7/6; independent SymPy reconstruction verified full transfer and crossing algebra. Finite tests alone do not prove tail. Assumptions h=tau, exact arithmetic, newly reconstructed stages, iid uniform fractions and deterministic initial triple are essential.",
+      "residual_risks": [
+        "Finite experiments and exact checks do not alone establish infinite/uniform quantifiers; proof reconstructed from original RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+          "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+          "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+        ],
+        "reasoning": "Source Difonzo preprint proves finite-horizon convergence under regularity; Bochacik et al treat randomized ODE RK, and stochastic S-ROCK methods use Brownian forcing. None of these stronger-looking settings specializes to this exact algorithmic one-cell mean-square cutoff.",
+        "searches": [
+          "randomized Runge Kutta delay equation scalar pure lag one-step-per-delay mean square stability threshold polynomial stage uniform covariance",
+          "mean-square stability delay randomized Runge Kutta method deterministic delay independent uniform stages"
+        ]
+      },
+      "checked_sources": [
+        "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+        "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+        "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+          "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+          "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+        ],
+        "reasoning": "Original finite-time Lp error estimates cannot imply infinite-time mean-square stability for fixed h=tau; an ODE scalar stability region does not contain the three-state delay covariance operator.",
+        "searches": [
+          "randomized Runge Kutta delay equation scalar pure lag one-step-per-delay mean square stability threshold polynomial stage uniform covariance",
+          "mean-square stability delay randomized Runge Kutta method deterministic delay independent uniform stages"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+          "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+          "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+        ],
+        "reasoning": "Equivalent to a Schur spectral-radius criterion on a six-dimensional covariance recursion with positive rank-one feedback, not to an ordinary scalar randomized RK amplification factor.",
+        "searches": [
+          "randomized Runge Kutta delay equation scalar pure lag one-step-per-delay mean square stability threshold polynomial stage uniform covariance",
+          "mean-square stability delay randomized Runge Kutta method deterministic delay independent uniform stages"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+          "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+          "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+        ],
+        "reasoning": "No matching degree-seven covariance-transfer cutoff table identified in relevant Resultary semantic results or the inspected time-irregular delay RK primary manuscript. The polynomial is derived anew, not equated with novelty merely from no search hit.",
+        "searches": [
+          "randomized Runge Kutta delay equation scalar pure lag one-step-per-delay mean square stability threshold polynomial stage uniform covariance",
+          "mean-square stability delay randomized Runge Kutta method deterministic delay independent uniform stages"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Source Difonzo preprint proves finite-horizon convergence under regularity; Bochacik et al treat randomized ODE RK, and stochastic S-ROCK methods use Brownian forcing. None of these stronger-looking settings specializes to this exact algorithmic one-cell mean-square cutoff.",
+      "residual_risks": [
+        "Potential earlier randomized-delay RK stability analysis under alternative notation not exhaustively located",
+        "Source manuscript assumes freshly reconstructed delayed stages: replacing it with a reused stage would alter the recurrence",
+        "Finite symbolic and rational checks do not establish all-time stability without the Lyapunov/Jury proof"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Equations define fresh stage interpolation and finite-time Lp convergence; no all-time mean-square stability cutoff for a fixed one-cell pure-delay recurrence",
+          "evidence": [
+            "arXiv:2401.11658 equations 2.3-2.4; Theorem 4.3; Section 5"
+          ],
+          "identifier_or_url": "arXiv:2401.11658",
+          "material_read": "Full accessible original preprint: scheme (2.3)-(2.4), Theorem 4.3, numerical section and hypotheses",
+          "method": "Primary lawful open-access PDF parsed text with page-image inspection",
+          "title": "A randomized Runge–Kutta method for time-irregular delay differential equations",
+          "trigger": "Exact source algorithm and its delayed-stage rebuilding"
+        },
+        {
+          "assessment": "Ordinary scalar differential equation lacks delayed companion; does not directly imply degree-seven threshold",
+          "evidence": [
+            "arXiv:2006.12131 Section 5 cited by reviewed record; abstract scope"
+          ],
+          "identifier_or_url": "arXiv:2006.12131",
+          "material_read": "Bibliographic description, accessible introduction/stability description; not treated as full paper negative result",
+          "method": "Primary metadata/accessible text and focused literature searches",
+          "title": "Randomized Runge-Kutta Method: Stability and Convergence under Inexact Information",
+          "trigger": "Closest same-algorithm ODE stability family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "F. V. Difonzo et al., arXiv:2401.11658, sections 2 and 4, equations (2.3)-(2.4), https://arxiv.org/abs/2401.11658",
+        "T. Bochacik et al., arXiv:2006.12131, ordinary-equation randomized RK stability, https://arxiv.org/abs/2006.12131",
+        "Resultary 2026/9/20 exact stochastic delay law for randomized Gauss-Seidel (different algorithm)"
+      ],
+      "rationale": "A sharp one-cell randomized DDE stability frontier and a nonempty mean-stable/mean-square-unstable interval characterize a natural numerical stability failure beyond finite-time accuracy theory. This is a motivated analytic threshold, not simply an experiment or stability restatement.",
+      "residual_risks": [
+        "Only scalar pure delay, one cell per lag, independent uniform stage samples; not a method-wide adaptive-step result"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Potential earlier randomized-delay RK stability analysis under alternative notation not exhaustively located",
+    "Source manuscript assumes freshly reconstructed delayed stages: replacing it with a reused stage would alter the recurrence",
+    "Finite symbolic and rational checks do not establish all-time stability without the Lyapunov/Jury proof",
+    "Only scalar pure delay, one cell per lag, independent uniform stage samples; not a method-wide adaptive-step result",
+    "Existing METADATA.json and AUDIT.json contain a private operational provenance key scope_run_id; not all complete original Git blob bytes are locally materialized for verified privacy-neutral replacement. No exact-blob-guarded sanitized complete replacements with UTF-8 SHA-256 are staged, so publishing unchanged public administrative files would risk disclosure."
+  ],
+  "schema_version": 1
+}

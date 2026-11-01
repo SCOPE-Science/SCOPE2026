@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Direct substitution into the published delayed-stage update produces the three-state random companion matrix. Exact conditional covariance calculation yields a rank-one perturbation of the deterministic midpoint Lyapunov map. A cubic Jury calculation classifies mean dynamics, and the exact transfer-function identity reduces the second-moment boundary to a strictly monotone degree-seven crossing. The positive-definite adjoint eigenmatrix verifies nondecay and geometric divergence for nonzero deterministic starts. The bundled independent rational checker passed 239 reconstructions and identities, supplementary to the complete proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+Independent reconstruction of the source two-stage update gives Y_(j+1)=Y_j-zY_(j-1)+z^2 U_j Y_(j-2) with fresh iid uniform U_j. The symmetric second-moment operator is A X A^T+(z^4/12)X_33 e1e1^T. The cubic Jury f(z)>0 controls mean convergence; the rank-one positive Lyapunov resolvent and symbolic exact identity 1-z^4 H/12=4q/[3(2-z)(z^2+2z+4)f] locate the sole mean-square crossing rho≈1.144476047, below delta≈1.201045931. For z≥rho but z<delta the adjoint eigenfunctional built from e3^T A^k is positive definite (observability matrix spans R^3) and proves nondecay/growth for every nonzero deterministic state. Exact-rational witness z=7/6; independent SymPy reconstruction verified full transfer and crossing algebra. Finite tests alone do not prove tail. Assumptions h=tau, exact arithmetic, newly reconstructed stages, iid uniform fractions and deterministic initial triple are essential.
 
-The 2024 delay-integrator article treats finite-time convergence and specifies the source method. The closer 2020 randomized Runge–Kutta stability paper treats a scalar *ordinary* differential equation, not this delayed companion. Published nearby delay-stability and random-sampling results use materially different equations and noises. No direct covering statement emerged in targeted mathematical-record and literature searches, but broader stochastic recurrence results or insufficiently inspected papers may contain equivalent formulations. Full/partial material inspected and specific risks are documented in AUDIT.json.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A canonical pure-delay scalar benchmark has a sharp algebraic mean-square stability frontier, not merely a sufficient timestep restriction. The strict interval between mean and mean-square stability persists at the rational parameter \(z=7/6\) and isolates a practical question about long-time reliability of one-cell randomized delay integration. The source article does not resolve this coarse-step infinite-horizon question.
+Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Source Difonzo preprint proves finite-horizon convergence under regularity; Bochacik et al treat randomized ODE RK, and stochastic S-ROCK methods use Brownian forcing. None of these stronger-looking settings specializes to this exact algorithmic one-cell mean-square cutoff.
 
-## Limits
+## value
 
-Scalar pure-delayed linear feedback, one cell per lag, independent uniform stages, exact arithmetic, no claims for multi-cell methods or nonlinear delays. Publication priority requires independent verification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp one-cell randomized DDE stability frontier and a nonempty mean-stable/mean-square-unstable interval characterize a natural numerical stability failure beyond finite-time accuracy theory. This is a motivated analytic threshold, not simply an experiment or stability restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
