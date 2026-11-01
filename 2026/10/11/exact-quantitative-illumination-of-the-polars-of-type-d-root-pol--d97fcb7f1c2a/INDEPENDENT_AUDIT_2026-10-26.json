@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T18:59:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed theorem for every integer d>=3 with Q_d={x:|x_i|+|x_j|<=2}. Its vertices are exactly 2d axis vertices ±2e_i and 2^d cube corners eps∈{±1}^d: points with max absolute coordinate <=1 lie in cube, while coordinates 1<a<=2 admit the displayed convex interpolation with ±2e_i. Axis vertices are uniquely maximizers of coordinates; each corner is uniquely determined by its simultaneous active pair inequalities. Gauge is 1/2 the sum of the two largest coordinate absolute values. The strict source criterion from active facet normals is (A) s p_i>2+max_{j≠i}|p_j| for axis and (C) s_i p_i+s_j p_j>2 for every i<j at corner. There can be at most one illuminated axis and two illuminated corners; two corners must differ in one sign. Each source lighting two corners has two common coordinates with magnitudes >2, hence gauge>2. An axis+corner source has a>2+b and 2b>2 so gauge>(a+b)/2>2. Axis+two corners forces different distinguished indices and a further common magnitude >2, giving gauge>3. A single vertex is illuminated only by exterior gauge>1. Thus every source lighting k>=1 vertices has gauge>k; summing over finite sources covering all vertices gives total cost >2d+2^d. Near-vertex radial sources (1+epsilon)v each cost 1+epsilon and light every boundary point through the vertex-to-face condition, giving an infimum <=2d+2^d. Equality is an infimum, not a source configuration attaining the lower bound. The proof covers boundary signs, all d>=3 and affine images without equating polar invariants. Reconstructed the exact 1658-byte verify.py Git blob and obtained VERIFY_OK 8452; separately checked 10000 independent rational sources over d=3..7. Finite tests are diagnostics; universal conclusion rests on the analytical inequality casework.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kiss--de Wet Proposition 2.1 doubles the parameter for a product cylinder and Theorem 2.2 obtains IP(d)>=3*2^(d-1) via iteration; Q_d is not asserted to be such a cylinder. Theorem 3.4 lists only upper constructions for Archimedean bodies.",
+          "Bezdek--Litvak proves vein(K)<=ill(K) and general bounds but does not equate vein and ill on nonsmooth Q_d.",
+          "The related published type-D root-polytope result uses P_d=conv{±e_i±e_j} with gauge max(||x||_infty,||x||_1/2), whereas Q_d is a scaled polar with gauge half of the largest two coordinate magnitudes. These norms are not transported under polarity as an affine isomorphism in general."
+        ],
+        "reasoning": "No checked general theorem determines the claimed polar-family cost. The 24-cell self-polar dimension d=4 is a known overlapping special case, expressly excluded from any claim of firstness for that individual dimension. Neither cylinder/product arguments nor vertex index give the d=3 value 14 or all d>=5 automatically.",
+        "searches": [
+          "Kiss--de Wet 2012 Proposition 2.1, Theorem 2.2, Theorems 3.1--3.4",
+          "Bezdek--Litvak arXiv:1110.4334 Section 3 and Theorem 4.1",
+          "Bezdek--Khan arXiv:1602.06040 Section 4.1, Theorem 4.3 and Conjecture 4.2",
+          "Resultary semantic search: Exact quantitative illumination parameter of root polytope type D and polar cuboctahedron 24-cell index with signed axis vertices corners"
+        ]
+      },
+      "checked_sources": [
+        "Kiss and de Wet, Notes on the illumination parameters of convex polytopes (2012), DOI:10.55016/ojs/cdm.v7i1.62108, https://cdm.ucalgary.ca/article/download/62108/46729/177610",
+        "Bezdek and Khan, The geometry of homothetic covering and illumination (2016), arXiv:1602.06040, https://arxiv.org/pdf/1602.06040",
+        "Bezdek and Litvak, On the vertex index of convex bodies, arXiv:1110.4334, https://arxiv.org/pdf/1110.4334",
+        "Published research record Exact quantitative illumination of type-D_d root polytopes, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quantitative-illumination-of-type-d-d-root-polytopes--34479eff57ed/RESULT.md",
+        "Published research record Exact illumination numbers of five canonical parallelohedron representatives, https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE008/RESULT.md",
+        "Bezdek, Boroczky and Kiss, On the successive illumination parameters of convex bodies (2006), DOI:10.1007/s10998-006-0022-3",
+        "Swanepoel arXiv:math/0410144 (abstract inspected)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier type-D root family: ill(P_d)=2d(d-1), d=3 cuboctahedron 12, d=4 regular 24-cell 24. The formula does not by polarity imply ill(Q_d)=2^d+2d, except an overlap in self-dual d=4.",
+          "Published ordinary rhombic-dodecahedron illumination number 6 gives only I(K)<=ill(K), a lower bound 6, not exact 14.",
+          "Bezdek--Khan 2016 exact same quantitative invariant upper 12 is explicitly only conjectured and directly contradicted by a valid Q3=14 computation."
+        ],
+        "reasoning": "Relevant prior results do not logically cover the claimed exact Q_d evaluation. The new vertex-efficiency inequality compares each feasible source gauge against its actually covered vertices; general prior inequalities are insufficient to derive the sharp count, and the all-dimensional d>=3 result is not a renaming of the root-polytope theorem.",
+        "searches": [
+          "Read full public RESULT.md for Exact quantitative illumination of type-D_d root polytopes (published 2026-10-11)",
+          "Read full public RESULT.md for Exact illumination numbers of five canonical parallelohedron representatives (published 2026-09-08)",
+          "Bezdek--Khan 2016 Conjecture 4.2 and Theorem 4.3",
+          "Kiss--de Wet 2012 Theorems 2.2 and 3.4",
+          "Web recent search: illumination parameter conjecture 12 three dimensional centrally symmetric disproved"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same invariant is called IP(K), ill(K), quantitative illumination or sum-of-gauge-cost external illumination: Kiss--de Wet 2012 PDF p.59 definition; Bezdek--Khan 2016 PDF p.12 definition.",
+          "Kiss--de Wet 2012 investigates cube, octahedron, dodecahedron, icosahedron and centrally symmetric Archimedean examples, but contains no rhombic-dodecahedron calculation; searches inside full text found no rhombic entry.",
+          "Bezdek--Khan 2016 Conjecture 4.2 at PDF p.12 asserts ill(K)<=12 for all centrally symmetric 3D bodies; this is a conjecture, not a known bound."
+        ],
+        "reasoning": "Exact claim is a new family-specific equality for Q_d with d>=3, with d=3 yielding 14 for a Catalan solid. Earlier same-parameter bounds and conjectures are not logically equivalent to the equality. Failure to find an exact prior statement is not itself proof of historical firstness.",
+        "searches": [
+          "Resultary semantic search: Exact illumination parameter quantitative illumination cost of rhombic dodecahedron 14 weighted Minkowski gauge external light sources every vertex polar root polytope D_n pairwise sum",
+          "Web exact phrase: \"rhombic dodecahedron\" \"illumination parameter\" 14",
+          "Web exact: \"illumination parameter\" \"rhombic dodecahedron\" -SCOPE",
+          "Kiss--de Wet 2012 Sections 1--3 (public full PDF)",
+          "Bezdek--Khan 2016 Section 4.1 (arXiv full PDF)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2012 Table Theorem 3.4 lists cuboctahedron upper estimate 12 but no rhombic dodecahedron; cuboctahedron is polar-dual, not the same normed body.",
+          "The published ordinary-illumination table gives 6 directional sources for an explicit rhombic-dodecahedron representative, which is a different optimization problem.",
+          "Resultary returns the current polar-family finding itself plus a distinct root-family theorem; the same record is not independent prior evidence."
+        ],
+        "reasoning": "No checked exact table independently lists the weighted gauge-cost 14 or the formula 2^d+2d. Counting ordinary illuminating directions or transferring a dual-polytope count cannot replace the quantitative computation.",
+        "searches": [
+          "Kiss--de Wet 2012 Theorem 3.4 ten centrally symmetric Archimedean solids table PDF p.66",
+          "Resultary search same-gauge parameter rhombic dodecahedron 14 and counterexample to 3D conjecture 12",
+          "Public exact ordinary illumination of five parallelohedron representatives, full RESULT.md",
+          "Web: \"illumination parameter\" \"14\" \"rhombic\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete polar family: published 2012 and 2016 primary sources define exactly the weighted Minkowski-gauge illumination invariant and propose a three-dimensional upper bound 12, rather than calculating 14 for the rhombic dodecahedron. The 2012 Archimedean table gives the cuboctahedron (opposite polar) only an upper estimate 12. A separate published result determines the type-D root polytope gauge parameter, not its polar; the d=4 self-dual 24-cell is an overlapping case and is explicitly not claimed new. Published ordinary/fractional illumination studies optimize source count, not gauge-cost sum. The per-source strict efficiency obstruction and all-dimensional polar formula are not immediate corollaries of any checked stronger theorem. Priority remains limited by the named 2006 access gap and possible unindexed prior work.",
+      "residual_risks": [
+        "Unindexed or alternate-term literature on rhombic dodecahedron gauge illumination may contain equivalent work; search failure is not a historical certification.",
+        "2006 successive illumination parameters source was abstract-only and authorized Oxford access required manually connected VPN; no noncoverage inference from inaccessible full text.",
+        "The new polar-family result overlaps the previously published self-dual D4 24-cell case; this case alone is not novel.",
+        "A previously published counterexample to Kiss--de Wet/Bezdek--Khan 12 conjecture might exist outside searched literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact Q_d. It gives a 12 upper estimate for the distinct cuboctahedron, no rhombic-dodecahedron entry; 3*2^(d-1) is conjectured as universal best and is contradicted at d=3 by Q3=14.",
+          "evidence": [
+            "PDF pp.58--59 definition IP(K); pp.59--60 Proposition 2.1 and Theorem 2.2; p.66 Theorem 3.4 table; p.67 Conjecture 3.5"
+          ],
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/download/62108/46729/177610",
+          "material_read": "Public ten-page PDF, definitions and Sections 2--3 mathematical statements/proofs of Proposition 2.1, Theorems 2.2, 3.1--3.4, final table and Conjecture 3.5; checked whether rhombic dodecahedron occurs",
+          "method": "Read accessible publisher open-access PDF, inspected rendered page 66 and parsed relevant surrounding pages",
+          "title": "Notes on the illumination parameters of convex polytopes",
+          "trigger": "Exact same weighted illumination definition, canonical 3D solid tables and purported upper conjecture"
+        },
+        {
+          "assessment": "NOT_COVERING: p.12 states 12 as conjecture, not theorem. Other general estimates concern smooth convex bodies or weaker estimates, not exact Q_d.",
+          "evidence": [
+            "PDF p.12, Conjecture 4.2: all centrally symmetric three-dimensional bodies at most 12; definitions and bounds on p.12"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06040",
+          "material_read": "Full manuscript available; materially read introduction and Section 4.1 definitions, Theorem 4.1, Conjecture 4.2, Theorem 4.3 and related covering bounds; unrelated sections not asserted inspected",
+          "method": "Read open-access arXiv primary PDF, including screenshot of page 12",
+          "title": "The geometry of homothetic covering and illumination",
+          "trigger": "Exact same invariant and proposed universal 3D upper bound"
+        },
+        {
+          "assessment": "NOT_COVERING: different vertex-index functional, only comparison inequalities and lower/general bounds; no exact ill(Q_d).",
+          "evidence": [
+            "PDF pp.5--6, inequality vein(K)<=ill(K); pp.7--8, vein(K) 3D bounds, separate <=12 vertex-index conjecture"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1110.4334",
+          "material_read": "Accessible manuscript; Sections 1, 3 and relevant 3D Theorem 4.1 and Section 4 conjecture examined, including inequalities vein(K)<=ill(K)",
+          "method": "Open-access arXiv primary PDF full-text search and study of relevant passages",
+          "title": "On the vertex index of convex bodies",
+          "trigger": "Possible stronger or dual formulation determining illumination via vertex index"
+        },
+        {
+          "assessment": "Only covers opposite polar root polytope, not Q_d in general; self-dual D4 24-cell is known overlap.",
+          "evidence": [
+            "Theorem P_d conv{±e_i±e_j}, gauge max(||x||_infty,||x||_1/2), ill(P_d)=2d(d-1); Q_d is scaled polar and has different vertex counts when d≠4"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quantitative-illumination-of-type-d-d-root-polytopes--34479eff57ed/RESULT.md",
+          "material_read": "Complete published RESULT.md including theorem, gauge, all proof steps, relationships and limitations",
+          "method": "Read full public repository scientific file using connected GitHub read action",
+          "title": "Exact quantitative illumination of type-D_d root polytopes",
+          "trigger": "Same quantitative invariant and dual root-polytope object; potential prior stronger classification"
+        },
+        {
+          "assessment": "NOT_COVERING weighted gauge parameter: ordinary directional illumination 6 for a specific representative; quantitative infimum in question is a distinct, stronger objective.",
+          "evidence": [
+            "Representative table: rhombic dodecahedron has ordinary I=6; definitions optimize direction count and exclude gauge weighting"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/8/SCOPE008/RESULT.md",
+          "material_read": "Complete published RESULT.md theorem, finite certificate descriptions and limitations",
+          "method": "Read full public repository scientific file with connected GitHub read action",
+          "title": "Exact illumination numbers of five canonical parallelohedron representatives",
+          "trigger": "Rhombic dodecahedron appears in an exact illumination classification, possible coverage"
+        },
+        {
+          "assessment": "NO WHOLE-DOCUMENT NONCOVERAGE CLAIM. Abstract advertises spheres, cubes, cross-polytopes and successive variants, but possible uninspected relevant implications remain a priority risk.",
+          "evidence": [
+            "2006 Periodica Mathematica Hungarica 53 pp.71--82; abstract lists selected spheres/cubes/cross-polytopes; full text inaccessible without existing VPN authentication"
+          ],
+          "identifier_or_url": "doi:10.1007/s10998-006-0022-3",
+          "material_read": "Bibliographic metadata and abstract only; full text was not accessed",
+          "method": "Searched arXiv and lawful open-access routes for the same paper, then requested authorized institutional access, which returned vpn_disconnected",
+          "title": "On the successive illumination parameters of convex bodies",
+          "trigger": "Older same-family variants and possible historical exact quantitative evaluations"
+        },
+        {
+          "assessment": "General dimension-uniform upper growth and Steiner tree application; abstract does not assert the exact rhombic-dodecahedron or polar family value. No full-text negative claim.",
+          "evidence": [
+            "Swanepoel 2005 Mathematika 52, abstract B(d)=O(2^d d^2 log d) and Steiner degree bounds"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0410144",
+          "material_read": "Primary arXiv abstract and mathematical claims; full text not inspected",
+          "method": "Public arXiv metadata and journal abstract inspected",
+          "title": "Quantitative Illumination of Convex Bodies and Vertex Degrees of Geometric Steiner Minimal Trees",
+          "trigger": "Earlier general dominating quantitative illumination theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural, shape-specific exact invariant for the polars of type-D root polytopes is determined in all d>=3, with an explicit sharp source-efficiency obstruction and infimum construction. In d=3 Q3 is the rhombic dodecahedron and ill(Q3)=14, contradicting the precisely documented conjecture that all centrally symmetric 3D convex bodies have ill<=12. This distinguishes weighted quantitative illumination from the ordinary six-source illumination number and reveals nontrivial geometry of the polar rather than a table conversion. d=4 is an already known self-dual special case, but the d=3 counterexample and uniform d>=5 classification survive. No implication is asserted for universal upper bounds or unrelated norms.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim for d=2 or arbitrary non-type-D symmetric polytopes; infimum may not be attained.",
+    "No formal Lean or external expert attestation; finite exact integer and rational tests are diagnostics rather than full proof.",
+    "Best-of-knowledge novelty with specifically listed 2006 full-text access and unindexed priority risks. Known published D4 self-dual special case excluded from claimed new coverage.",
+    "No public privacy-sanitized source bundle supplied; scientific PASSED does not authorize publication."
+  ],
+  "schema_version": 1
+}
