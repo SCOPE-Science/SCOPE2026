@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The double-incidence edges identify a matching uniquely, and deleting its endpoints forces all remaining selected edges to run from an occupied original-vertex center to an unoccupied original vertex. The bijection proves every polynomial coefficient, and maximizing the oriented cut after matching deletion proves the extremal identity. A separate endpoint comparison proves the complete-graph maximum and counts all ordered balanced cuts. Direct brute force confirms all graphs through four vertices and 32 sampled five-vertex graphs, plus complete graphs through order five. These computations are finite corroboration, not a replacement for the general proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The closest foundational references define edge-open packing and describe induced-star components. The 2024 algorithmic and product-graph papers do not explicitly give the canonical full-subdivision matching/center generating function, matching-deletion maximum-cut identity, or complete-graph polynomial. Injective edge-coloring studies edge partitions instead of single-class enumeration. Searches under subdivision, incidence-graph, oriented-cut, matching-deletion, and injective-color-class aliases produced no stronger covering result. Potential unindexed prior formulations remain a priority risk, not a uniqueness guarantee.
+PASS
 
-## Mathematical value — PASS
-The theorem relates an edge-packing invariant to two classical but competing graph optimizations (matching deletion and maximum cut) for all simple base graphs. Its exact size polynomial and sharp labeled extremal census give structural and enumerative information in a natural infinite family; these are not isolated numerical recomputations.
+Every selected doubled subdivision incidence identifies one matching edge of the original graph, and different double-incidence vertices have disjoint original endpoints. After deleting these matched endpoints, selected single incidences have original centers C and opposite original endpoints in U, with no other restrictions. This is an invertible partition of all packings and proves the complete edge-size generating function for every finite simple G (empty/disconnected allowed). Maximizing selected incidences gives 2|M|+maxcut(G−V(M)); for K_n the endpoint maximum of f_n(k)=2k+floor((n−2k)^2/4) yields floor(n²/4) at n>=5 and balanced ordered cut extremizers, with separately evaluated n<=4 exceptions. A fresh conflict-graph subset enumerator checked each of 75 labelled simple graphs through 4 vertices and K5 coefficients (1,20,130,340,355,120,20), agreeing with the independently implemented matching/center formula. Enumeration supports, but is not a replacement for, the general bijection.
 
-## Boundaries
-Only one-subdivisions are covered, with no polynomial-time algorithm claimed. Small complete graphs have explicitly stated exceptions. Independent scrutiny of the proof and priority remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The induced-star structure and definition of edge-open packing are prior work; this result is assessed only for the canonical matching/center decomposition of arbitrary full one-subdivisions, the exact full generating function and matching-deletion max-cut formula, and the closed labelled K_n extremal count. Originality is best-of-knowledge, not a claim that the general induced-star observation is new.
+
+## value
+
+PASS
+
+An exact full generating polynomial for all one-subdivisions of arbitrary finite simple graphs, plus a matching-deletion maximum-cut reduction, links two classical graph optimization structures. The sharp labelled complete-graph extremal census has natural combinatorial use beyond isolated small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

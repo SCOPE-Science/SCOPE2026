@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The mathematical proof is a bijection and a discrete one-variable optimization, and so does not rely on code. Reproducible checks are supplied in two Python 3 standard-library files. `python3 verify_subdivision_general.py` calculates coefficient vectors using matching-plus-center enumeration and, separately, checks the third-edge constraint directly on all candidate edge subsets for every labeled graph with at most four vertices and 32 fixed-seed five-vertex graphs. It prints `ALL_CHECKS_OK`. `python3 verify_complete_subdivisions.py` compares the closed complete-graph polynomial with brute edge-subset checks for orders 2, 3, 4, 5, each yielding `MATCH True`.
+# Independent mathematical audit
 
-The maximum-degree 6 coefficient for the five-vertex complete graph equals 20, agreeing with the balanced ordered cut count. The general proof also explicitly covers edgeless graphs and the small complete graphs, avoiding assumptions of connectivity. These tests do not establish the infinite assertions on their own. No independent audit has been carried out.
+## correctness
+
+PASS
+
+Every selected doubled subdivision incidence identifies one matching edge of the original graph, and different double-incidence vertices have disjoint original endpoints. After deleting these matched endpoints, selected single incidences have original centers C and opposite original endpoints in U, with no other restrictions. This is an invertible partition of all packings and proves the complete edge-size generating function for every finite simple G (empty/disconnected allowed). Maximizing selected incidences gives 2|M|+maxcut(G−V(M)); for K_n the endpoint maximum of f_n(k)=2k+floor((n−2k)^2/4) yields floor(n²/4) at n>=5 and balanced ordered cut extremizers, with separately evaluated n<=4 exceptions. A fresh conflict-graph subset enumerator checked each of 75 labelled simple graphs through 4 vertices and K5 coefficients (1,20,130,340,355,120,20), agreeing with the independently implemented matching/center formula. Enumeration supports, but is not a replacement for, the general bijection.
+
+## originality
+
+PASS
+
+The induced-star structure and definition of edge-open packing are prior work; this result is assessed only for the canonical matching/center decomposition of arbitrary full one-subdivisions, the exact full generating function and matching-deletion max-cut formula, and the closed labelled K_n extremal count. Originality is best-of-knowledge, not a claim that the general induced-star observation is new.
+
+## value
+
+PASS
+
+An exact full generating polynomial for all one-subdivisions of arbitrary finite simple graphs, plus a matching-deletion maximum-cut reduction, links two classical graph optimization structures. The sharp labelled complete-graph extremal census has natural combinatorial use beyond isolated small examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
