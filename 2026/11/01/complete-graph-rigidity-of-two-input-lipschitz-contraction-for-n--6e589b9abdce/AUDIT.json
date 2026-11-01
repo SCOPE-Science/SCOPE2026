@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For the finite weighted \\(p\\)-heat ODE, continuous monotone flux gives globally defined unique \\(C^1\\) solutions by monotonicity and boundedness. The difference of two solutions satisfies the coordinate maximum/minimum principle, so vertex oscillation contracts on all graphs. On a complete graph, edge Lipschitz equals oscillation. On every connected noncomplete graph, an induced \\(j-i-k\\) path and graph-distance perturbation \\(h\\) force an initially tight \\(ij\\) edge. At \\(p>2\\), put background \\(R\\) only at \\(k\\) and take \\(\\varepsilon\\downarrow0\\) to obtain exact local rate \\(c_{ik}(p-1)R^{p-2}/m_i\\); as \\(R\\) grows this diverges. At \\(1<p<2\\), take equal background at \\(i,k\\) and generic distinct other backgrounds, giving \\(c_{ik}\\varepsilon^{p-2}/m_i+O(1)\\) and divergence. These bounds prove the supremal liminf is infinite. The verified standalone checker performs an exact rational \\(p=3\\) witness, 78 noncomplete weighted finite cases and 132 complete-graph integrated samples; experiments are explicitly not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mugnolo 2012 covers all finite/infinite graphs and establishes nonlinear order and vertex-norm stability, but does not supply an edge-gradient estimate on arbitrary noncomplete graphs.",
+        "Hua–Mugnolo 2014 extends time and large-time theory; the introduction and searched HTML have no universal topology criterion for two-solution edge-gradient stability.",
+        "Münch–Wojciechowski arXiv:1712.00875 (2017) is about linear Laplacian semigroups and Ollivier curvature."
+      ],
+      "reasoning": "General vertex comparison provides a strictly different invariant. Linear heat results apply to \\(p=2\\), explicitly excluded from the noncomplete rigidity. General graph existence/regularity does not imply failure of edge seminorm contractivity, let alone infinite normalized instantaneous rate.",
+      "searches": [
+        "parabolic p-Laplacian universal graph geometry characterization for Lipschitz contraction of difference of two solutions",
+        "nonlinear discrete p-Laplacian graph edge-Lipschitz seminorm stability between two solutions induced P3 path forces unbounded infinitesimal growth except complete graphs",
+        "arXiv:1207.1996 Proposition 3.9 semigroup order preserving supnorm contraction",
+        "arXiv:1410.1584 time regularity p-Laplace graphs"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.1996v3 full-text HTML (2012 initial public version verified on arXiv abstract page)",
+      "arXiv:1410.1584v1 full-text HTML",
+      "arXiv:1712.00875 abstract only",
+      "Scientific-publication web searches: nonlinear discrete p-heat, graph seminorm contraction, complete graph, induced P3",
+      "Mathematical research-record semantic searches: noncomplete graph, complete-graph rigidity, edge Lipschitz, two-input p-heat"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mugnolo 2012 Proposition 3.9 implies vertex oscillation contraction for differences, which proves the complete-graph direction because its edge seminorm equals oscillation.",
+        "The noncomplete necessity uses an induced P3 and a singular/high-contrast p-flux derivative; this construction is absent from the supporting comparison theorem.",
+        "Specialized previous graph p-heat results address trees and unit cycles, not arbitrary connected graphs with chords and mixed topology."
+      ],
+      "reasoning": "One direction is already implied by prior theory and explicitly credited. The original claim is the uniform noncomplete converse and infinite instantaneous rate for every positive weight assignment. The previous special-family cases are subsumed by the present claim, not vice versa; their proofs do not control additional graph incident edges. The new proof supplies the missing induced-path isolation.",
+      "searches": [
+        "\"p-heat\" \"Lipschitz\" \"two solutions\" graph",
+        "nonlinear p heat graph semigroup difference oscillation contraction versus edge Lipschitz norm complete graph weighted",
+        "arXiv:1207.1996 section 3 order preserving and ℓ∞ nonexpansivity",
+        "arXiv:1410.1584 full text term searches Lipschitz oscillation contractive"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1207.1996v3, Section 3, Proposition 3.9: graph semigroup is vertex-supnorm contractive and order preserving.",
+        "arXiv:1410.1584v1, §1: finite weighted p-heat generator, nonlinear contraction semigroups and time-regularity results."
+      ],
+      "reasoning": "The equivalent graph-geodesic Lipschitz seminorm on unit-edge graphs is the maximum over edges. Vertex supnorm/oscillation contractivity is different, since the graph edge-Lipschitz seminorm can be much smaller than oscillation; a noncomplete graph has missing pairs. No exact general two-input edge seminorm classification was found in the inspected primary work.",
+      "searches": [
+        "\"discrete p-Laplacian\" \"Lipschitz\" \"complete graphs\" \"contraction\"",
+        "\"nonlinear\" \"p-heat\" \"Lipschitz\" \"graphs\" \"nonexpansive\"",
+        "nonlinear graph p-heat Lipschitz stability between solutions graph complete graph finite all connected"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record searches returned related nonlinear p-Laplacian, graph Lipschitz-free space, and heat-gradient claims, not a graph-wide theorem with the same quantifiers.",
+        "This is a continuous-parameter and universal finite-graph statement, not an integer invariant for which a finite published table is decisive."
+      ],
+      "reasoning": "No exact table/catalogue giving the new theorem was identified. An exact finite computation, even if it included multiple small graphs, would not imply the universal induced-path and parameter-unbounded claims.",
+      "searches": [
+        "For every finite connected simple graph G and p != 2, nonlinear discrete p-Laplacian heat semigroup is a contraction in edge Lipschitz seminorm on differences between any two solutions if and only if G is complete; unbounded instantaneous Lipschitz expansion on noncomplete graphs.",
+        "Nonlinear discrete p-Laplacian graph edge-Lipschitz seminorm stability between two solutions induced P3 path forces unbounded infinitesimal growth except complete graphs"
+      ]
+    },
+    "rationale": "The novelty-bearing assertion is the all-connected-graph converse and arbitrarily large infinitesimal rate for nonlinear two-input edge Lipschitz stability, for independently positive vertex masses and edge conductances. Published vertex supnorm nonlinear semigroup contraction implies only the complete-graph sufficiency, not edge-gradient stability on arbitrary noncomplete graphs. Previous tree and cycle cases do not establish the general induced-path-localization argument. Targeted research-record and mathematical-literature searches found no equivalent general result, but unindexed coverage remains possible.",
+    "residual_risks": [
+      "An unindexed or synonymously formulated theorem on nonlinear seminorm dissipativity may already imply this all-graph classification.",
+      "An inaccessible full text outside the inspected nonlinear p-heat sources could yield stronger nonlinear coverage; the 2017 linear curvature paper was examined at abstract level only.",
+      "The result contains earlier special-family assertions as instances, but extends to every connected noncomplete graph and arbitrary positive parameter assignments."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides nonlinear order and vertex supnorm contraction; does not state the all-graph two-input edge-gradient rigidity or infinite normalized instantaneous obstruction in the inspected and searched material.",
+        "evidence": [
+          "Proposition 3.9 on order preservation and supnorm contraction.",
+          "Introduction and §2 define weighted graph p heat; §3 analyses semigroup contractivity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1207.1996v3",
+        "material_read": "Full-text HTML introduction/definitions, §3 Proposition 3.9 and proof, symmetry and edge-gradient passage in later sections; inspected graph and seminorm-related passages with full-text term searches.",
+        "method": "Open arXiv full-text HTML; read sections and compare operator, quantities and quantifiers; search Lipschitz, oscillation, order preserving, contractive and edge variation.",
+        "title": "Parabolic theory of the discrete p-Laplace operator",
+        "trigger": "Exact nonlinear weighted graph heat generator and known semigroup contractions"
+      },
+      {
+        "assessment": "Focuses on time regularity, global generators and long-time/finite extinction behavior. No theorem with a noncomplete graph edge-Lipschitz obstruction was located; abstract or snippets alone were not relied on.",
+        "evidence": [
+          "Introduction formula (1.3) matches the weighted generator.",
+          "Theorems 1.1–1.3 and section outline concern operator generation and temporal regularity."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1410.1584v1",
+        "material_read": "Full-text HTML introduction including Theorems 1.1–1.3, article outline and targeted HTML searches for relevant contraction and Lipschitz concepts.",
+        "method": "Read primary open-access full-text HTML and identify the actual finite graph generator, theorem topics and uses of Lipschitz language.",
+        "title": "Time regularity and long-time behavior of parabolic p-Laplace equations on infinite graphs",
+        "trigger": "Later general p-heat semigroup work that could dominate a finite-graph statement"
+      },
+      {
+        "assessment": "Its stated curvature/heat-gradient theorem is for a *linear graph Laplacian*, so it does not directly settle nonlinear p≠2 two-solution edge-gradient instability. No whole-document novelty exclusion is inferred from the abstract alone.",
+        "evidence": [
+          "The arXiv abstract explicitly connects Ollivier curvature to the linear Laplacian heat semigroup."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1712.00875",
+        "material_read": "ArXiv abstract and bibliographic page only; full paper not inspected.",
+        "method": "Compare advertised generator, exponent and theorem type from primary arXiv abstract.",
+        "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+        "trigger": "Potentially dominating linear graph-Lipschitz heat-gradient result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e589b9a-bdce-4f6d-9660-5c2958d3f903",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A motivated, complete structural classification of edge-Lipschitz *two-input* stability over every finite connected graph and every positive mass/conductance assignment, using graph completeness as an exact combinatorial criterion. It distinguishes vertex oscillation contraction from edge-gradient contractivity, and proves maximal-strength unbounded instantaneous growth for all other topologies. The induced-path isolation is a universal obstruction, not an arbitrary special graph slice; the theorem goes beyond known tree and cycle cases and supplies a natural theorem for stability analysis of nonlinear diffusion networks.",
+    "status": "PASS"
+  }
+}
