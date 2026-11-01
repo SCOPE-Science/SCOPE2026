@@ -1,0 +1,15 @@
+# Scientific review: three singularities in random kite widths
+
+## Correctness — PASS
+For every \(r>0\) and \(0<p\le q\), the support-function maximum over four stated vertices gives the exact three-branch width law. The branch-change angles and middle-branch critical angle have the asserted strict inequalities. The density follows by a one-variable change of variables and exact preimage multiplicities; no tail estimates or finite simulation enter the proof. In the ordered triple-peak region, the endpoint branches have one preimage each and the middle interior maximum has two, accounting for the singularity coefficients. Inverting their ordered height values reconstructs all three positive dimensions. The derivative computation also excludes hidden divergent critical points. The included numerical checker supplies independent spot checks of branch formulas, probability normalization, sharp singular limits and inversion.
+
+## Originality — PASS, provisional historical priority
+Akiyama and Kamae's full 2022 preprint introduces width deviation and specifically isolates the asymmetric kite as a numerical candidate for the unsolved four-gon problem; their computations concern width means and second moments rather than the complete width density or the singularity-based inverse. Kim, Yaskin and Zvavitch's accessible 2015 paper establishes projection-distribution tomography and general nonuniqueness, but no determination of the asymmetric kite class. A published tangential centrally symmetric polygon inverse theorem does not apply to a nonsymmetric kite; a separate parallelogram theorem does not apply because the candidate is not a parallelogram; a geometric-dilation theorem uses a different invariant. Relevant semantic and phrase searches found no dominating statement. Broad general-purpose polygon pushforward formulas and unindexed older specializations remain priority risks.
+
+## Value — PASS
+The kite class is mathematically singled out by a published unresolved extremal width-variance problem. The result upgrades the two-moment study to a complete, all-parameter width probability density with an exact critical-point phase diagram. More substantially, in an explicitly identified open region containing the published numerical extremal candidate, three observable square-root singularities determine the entire kite even though the projection directions are discarded. The doubled middle singularity distinguishes genuine interior optical criticality from the two axial peaks. This is a motivated restricted geometric-tomography result, not a general solution of the minimum-width-deviation quadrilateral problem.
+
+## Closest work and limits
+The phase and density formulas use elementary angular calculus; they do not establish a global inverse theorem for all kites. An exact population distribution, not finite noisy samples, is assumed. The identified singularities merge at phase boundaries. No independent expert review has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
