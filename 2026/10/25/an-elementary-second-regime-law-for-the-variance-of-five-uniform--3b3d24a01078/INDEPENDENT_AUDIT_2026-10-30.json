@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:57:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 18a625bd97944719cf8783ce7a716f16caa33c82",
+        "independent_checks.py direct contrast-cap integral and asymptotic coefficient test",
+        "Ali and Richards 1975 five-sample first-branch coefficient, via later attributed primary sources"
+      ],
+      "rationale": "For five iid U[0,1] variables with sample variance divisor four, orthogonal mean/contrast coordinates give F(y)=sqrt(5) integral_{||v||<=sqrt(4y)}(1-R(v))_+ dv over H={sum v_i=0}. Splitting (1-R)_+=1-R+(R-1)_+ recovers the known low branch plus correction. Two distinct positive ordered coordinate-difference violations v_i-v_j>1 require ||v||^2>=2/(2+q)>=2/3, where q<=1 is their Gram product; hence for 1/8<=y<=1/6 the 20 caps have disjoint interiors. Integrating the three-ball cross-sections yields the stated arccos/sqrt formula. The cap integral has exact onset 4096*pi*sqrt(10)/21*(y-1/8)^(7/2)+O((y-1/8)^(9/2)). Independent mpmath quadrature agrees at 1/8, .13, .14, and 1/6 (F_5(1/6)=0.96674377169081645); normalized onset ratio tends to one. Continuum proof is geometry and integration, not finite sampling.",
+      "residual_risks": [
+        "No claim for y>1/6, where multiple cap violations overlap.",
+        "Ali–Richards 1975 full text inaccessible; low-branch constant is explicitly inherited rather than new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Royen gives general Fourier-series/integral distributions for every n, rather than the claimed finite elementary primitive in the n=5 second interval.",
+          "Osan explicitly addresses all regimes for four observations and quotes low-regime five-observation coefficient."
+        ],
+        "reasoning": "A broad integral formula mathematically determines the CDF but does not itself supply the finite elementary second-regime expression, sharp fractional onset and first overlap geometry. Direct first-priority uncertainty remains for Ali–Richards.",
+        "searches": [
+          "Osan arXiv:2610.15174v1 n=4 full-support closed-form paper",
+          "Royen arXiv:0710.5749 Section 4 general sample variance",
+          "Royen arXiv:0810.1572 Theorem 1 general bounded-sample variance"
+        ]
+      },
+      "checked_sources": [
+        "Osan arXiv:2610.15174 2026 (abstract, cited scope and reported low branch)",
+        "Royen arXiv:0710.5749 (general theorem scope)",
+        "Royen arXiv:0810.1572 (general exact CDF)",
+        "Ali–Richards DOI:10.1007/BF02504647 (identified and access attempted, text unread)",
+        "Resultary five-sample second-regime search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Old polynomial applies through y<=1/8 and cannot be used uncorrected beyond it: new correction is >0.",
+          "Royen infinite Fourier representations are exact but not the stated elementary cap formula with onset coefficient."
+        ],
+        "reasoning": "Low-tail results and n=4 formulas are insufficient to imply the explicit entire 1/8..1/6 five-sample branch; primary 1975 body could not be ruled out because unread.",
+        "searches": [
+          "Ali and Richards 1975 via Osan Remark 2 and Royen 2007",
+          "Osan arXiv:2610.15174v1",
+          "Royen arXiv:0710.5749 and 0810.1572"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Variance CDF equals normalized volume of five-cube intersected with a diagonal radius-2sqrt(y) cylinder.",
+          "The 20 disjoint clipped caps yield an explicit finite arccos expression only up to first overlap y=1/6."
+        ],
+        "reasoning": "The original cube-cylinder geometry was searched as an alias; inherited low branch separated from the new post-threshold interval.",
+        "searches": [
+          "Resultary: variance of five independent uniform sample values second regime CDF 1/8 1/6 diagonal cylinder elementary cap correction Ali Richards Osan",
+          "Web: diagonal cylinder common content of N cube Ali Richards five variance second branch"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary records treat three-sample beta variance and unrelated finite-support variance bounds, not the five-uniform CDF interval.",
+          "Osan records exact old low piece but not a post-1/8 branch."
+        ],
+        "reasoning": "Comparisons distinguish distribution family, sample size, variance normalization and interval; negative searches do not certify priority.",
+        "searches": [
+          "Resultary: five uniform sample variance second regime 1/8 1/6 elementary formula n=5",
+          "Osan arXiv:2610.15174v1 discussion n=5",
+          "Ali–Richards 1975 DOI:10.1007/BF02504647"
+        ]
+      },
+      "rationale": "Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.",
+      "residual_risks": [
+        "Ali–Richards 1975 exact full text not available; authorized institutional access was disconnected. An explicit post-low calculation in an unseen section would dominate originality.",
+        "An uncatalogued geometric cube-cylinder derivation may be equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No observed n=5 second interval formula; uninspected full text leaves a risk",
+          "evidence": [
+            "Osan 2026 identifies n=4 full elementary distribution and quotes five-sample low coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.15174",
+          "material_read": "Primary public abstract and source-reported precise Remark 2 about n=5 low branch; full paper material was documented in submitted source but not newly read in this execution",
+          "method": "Compared exact sample size, low-regime coefficient and post-low correction",
+          "title": "Closed forms all the way up: the sample variance of four observations",
+          "trigger": "Most direct preceding closed-form distribution paper"
+        },
+        {
+          "assessment": "General transform/series not the same claimed closed expression",
+          "evidence": [
+            "Royen 2007 provides n-arbitrary distribution via Fourier methods."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0710.5749",
+          "material_read": "Primary theorem/Section 4 characterization reported with explicit Fourier series; abstract-level cross-check this execution",
+          "method": "Compare series representation with finite elementary primitive",
+          "title": "On the Laplace transform of some quadratic forms and the exact distribution of the sample variance from a gamma or uniform parent distribution",
+          "trigger": "Potential general dominating distribution law"
+        },
+        {
+          "assessment": "General exact Fourier distribution, no demonstrated finite n=5 middle primitive",
+          "evidence": [
+            "Royen 2008 offers broad bounded-parent variance formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0810.1572",
+          "material_read": "Primary abstract and theorem description; full text not newly read",
+          "method": "Compared theorem scope and representation class",
+          "title": "The exact distribution of the sample variance from bounded continuous random variables",
+          "trigger": "Potential broader exact uniform variance result"
+        },
+        {
+          "assessment": "High-priority unresolved historical-coverage risk; cannot infer noncoverage from snippets",
+          "evidence": [
+            "First low-regime constant attributed to Ali–Richards 1975 by later papers."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02504647",
+          "material_read": "Full primary text unavailable: lawful OA attempts and original publisher index offered no PDF; authorized institutional attempt reported VPN disconnected; examined later explicit attribution of low branch only",
+          "method": "Known source title, secondary attribution and reported coverage only; no full-document negative inference",
+          "title": "On a conjecture concerning the common content of an N-cube and a diagonal cylinder",
+          "trigger": "Original 1975 geometric study directly relevant to n=5 first and perhaps next regimes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Osan arXiv:2610.15174 motivates extending elementary regimes to n=5",
+        "RESULT.md complete interval CDF and first-overlap threshold"
+      ],
+      "rationale": "A complete exact, elementary second interval for the natural five-sample uniform unbiased-variance CDF fills a genuine boundary immediately past the known low branch and quantifies a nonanalytic 7/2 onset. It is a motivated adjacent regime, not a single evaluated probability or a claim to full-support closure.",
+      "residual_risks": [
+        "The next overlap regime y>1/6 remains unclassified by this result."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Full CDF claim ONLY 0<=y<=1/6 with new correction on 1/8..1/6. Historical 1975 complete source unread; assess best-of-knowledge.",
+  "schema_version": 1
+}
