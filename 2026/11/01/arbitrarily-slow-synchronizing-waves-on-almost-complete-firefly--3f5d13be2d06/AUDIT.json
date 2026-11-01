@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary \\(r\\ge1,a\\ge1,b\\ge0\\) with \\(n=a+b+1\\), the four displayed \\(3k,3k+1,3k+2,3(k+1)\\) configurations follow exactly by open-neighbor inhibition, and the final \\((2\\mid 2^{n-1}0)\\) state releases and synchronizes three steps later. All previous states are nonconstant. The graph cut argument gives \\(\\kappa=r+1\\), and Laplacian eigenspaces give \\(\\lambda_2=r+2-2\\cos(\\pi/n)\\). The two packaged direct checkers corroborate 32886 and 276360 actual step comparisons respectively; finite computations are not the unbounded proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lyu 2014 Theorem 2 bounds synchronization on paths, and Theorem 3 treats trees of maximum degree below the number of colors.",
+        "Lyu 2016 focuses on trees and establishes O(kappa * diameter) in the bounded-degree three-color setting; H_{r,n} is cyclic with maximum degree r+n-1.",
+        "The additional complete join changes each path vertex neighborhood, so the 2014 path theorem does not imply persistence of an explicit front."
+      ],
+      "reasoning": "The general rule, path traveling delays and finite-tree time bounds are prior art. The new induction shows the slow path front survives universal clique couplings, a statement neither cited theorem implies.",
+      "searches": [
+        "arxiv:1407.1103v1 full text, path theorem, relative-circle and branch analyses",
+        "arxiv:1610.00837v1 full text, introduction, finite-tree theorems and branch lemmas",
+        "3-state firefly cellular automata slow synchronization large minimum degree dense graphs long transient"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1407.1103v3",
+      "https://arxiv.org/abs/1610.00837",
+      "published-finding corpus published search results on fan graphs and coupled oscillator models",
+      "Comparable accessible mathematical claims: 08a45788-815d-4f97-a4d1-bf5ed04ccaaa; 0b34df88-823b-46c8-a361-4e12fb01deb2; 12e03846-2831-460b-8a09-fa3c650cf69a; e7d7e0b0-401e-4a81-a4ec-3e86ebf9f30a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The star firefly census permits nonsynchronizing colorings and has bounded first-synchronization times for conditional sync states.",
+        "The complete split result has an independent-set part with no internal path edges and a uniform six-step conditional cutoff.",
+        "The bridged-clique result has two dense blocks linked by one bridge and uniform nine-step synchronization.",
+        "The five-color friendship result uses different states, graph, and map.",
+        "Neither Lyu tree/path theorem covers dynamics on K_r vee P_n with large r and triangles."
+      ],
+      "reasoning": "The claimed delay diverges for a graph family with diameter two and edge density approaching one, unlike the bounded cutoffs of the closest available in-scope records. No known statement in the inspected sources implies this phenomenon via a graph reduction; the proof handles new edges explicitly.",
+      "searches": [
+        "own ledger claim 08a45788-815d-4f97-a4d1-bf5ed04ccaaa",
+        "own ledger claim 0b34df88-823b-46c8-a361-4e12fb01deb2",
+        "own ledger claim 12e03846-2831-460b-8a09-fa3c650cf69a",
+        "own ledger claim e7d7e0b0-401e-4a81-a4ec-3e86ebf9f30a",
+        "arxiv:1407.1103v1 and arxiv:1610.00837v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new claim concerns precisely the firefly map with blinking state 1, the join K_r vee P_n, an explicit 2^a 0 1^b front, and its exact first synchronization time.",
+        "published-finding corpus search for fan graphs returned published results on dissociation/zero-forcing polynomials rather than inhibitory dynamics; the queried dynamical near-clique equivalents were not represented in top hits."
+      ],
+      "reasoning": "Also searched wording involving apex fans, path joins, pinned inhibitory hubs and near-complete networks. Wording aliases do not establish coverage; no inspected exact equivalent was identified.",
+      "searches": [
+        "Exact 3(n-1) lower bound for firefly cellular automata on fan graphs (join of universal hub and path), chordal planar diameter two slow synchronization",
+        "firefly cellular automata worst-case synchronization time on fan graphs, diameter-two graphs, wave front moving one vertex every three updates",
+        "3-state firefly cellular automaton on join K_r vee P_n, pinned clique of phase 2 and traveling 0/1 wave; synchronization first time 3(n-1), dense high connectivity",
+        "\"firefly cellular automata\" \"fan graph\" synchronization",
+        "\"firefly cellular automata\" \"join\" \"path\" \"clique\" synchronization"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Top ranked published-finding corpus outputs include fan graph dissociation/zero forcing results and unrelated dynamical automata; no identical graph-plus-rule first-entry table or delay law was returned.",
+        "The compared mathematical records are about stars, complete split graphs, and bridged cliques, not the path-clique join slow wave."
+      ],
+      "reasoning": "No exact table or database already giving 3(n-1) in H_{r,n} was identified. The searches cannot establish absence from all unpublished or unindexed records.",
+      "searches": [
+        "three state Greenberg Hastings excitable automata fan graphs K1 join path primitive periodic orbits attractor basins transient synchronization exact",
+        "FCA 3 color inhibited pulse coupled oscillators synchronizing path with apex hub pinned in phase 2",
+        "3-state firefly cellular automaton on join K_r vee P_n, pinned clique of phase 2 and traveling 0/1 wave; synchronization first time 3(n-1), dense high connectivity",
+        "published published-finding corpus fan graph dissociation polynomial and zero forcing polynomial records",
+        "firefly cellular automata clique path join graph synchronization delay"
+      ]
+    },
+    "rationale": "The path time-bound and underlying firefly model are prior art, not claimed new. The explicit traveling front remains dynamically invariant despite connecting every path vertex to an arbitrarily large clique, giving a delay on high-connectivity near-complete graphs not implied by the inspected path/tree results or the closest available historical records. Indexed priority is qualified; unindexed equivalents remain possible.",
+    "residual_risks": [
+      "An unindexed or differently titled construction could have the same phase front on a clique-joined path.",
+      "The result is a constructed slow synchronizing orbit, not a statement of universal synchronization or sharp graph-wide worst case."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the rule, path/tree bounds, and conditions not satisfied by the clique-path join. Does not state the near-complete slow-wave construction.",
+        "evidence": [
+          "Definition 1 at source lines 57-64",
+          "Theorem 2 at lines 68-73",
+          "branch-width lemma at lines 193-215"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1407.1103v3",
+        "material_read": "Original model definition, Theorems 2-5, relative phase and branch-width discussions, relevant later sections and appendix passages.",
+        "method": "Full-text HTML reading plus targeted searches for fan, dense, complete graph and slow constructions.",
+        "title": "Synchronization of finite-state pulse-coupled oscillators",
+        "trigger": "Original three-color inhibitory update and path synchronization theorem"
+      },
+      {
+        "assessment": "The diameter-based time bounds are restricted to trees and bounded maximum degree. No theorem there covers the non-tree clique-joined path.",
+        "evidence": [
+          "Abstract/full text lines 0-6",
+          "finite-tree Theorem 1 and definition lines 19-55",
+          "branch-width context lines 61-78"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+        "material_read": "Full-text introduction, definition, finite-tree theorems, generalities and branch discussion, theorem statements and selected later proof sections.",
+        "method": "Textual full preprint viewed and in-document searches for fan and diameter statements.",
+        "title": "Time complexity of synchronization of discrete pulse-coupled oscillators on trees (preprint heading: Phase transition in firefly cellular automata on finite trees)",
+        "trigger": "Potential broader theorem imposing a diameter synchronization-time bound"
+      },
+      {
+        "assessment": "Studies dissociation sets and tribonacci counting, not the inhibitory firefly update or synchronization times.",
+        "evidence": [
+          "Published summary: dissociation sets avoid a binary 111 pattern; no dynamics in its claim."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-dissociation-polynomial-and-extremal-coefficients-of-fan-graphs--32a1b96e4b8b",
+        "material_read": "Published published-finding corpus title and summary only; not claimed full-paper coverage.",
+        "method": "Semantic result and parameter comparison",
+        "title": "Dissociation polynomial and extremal coefficients of fan graphs",
+        "trigger": "published-finding corpus returned a same graph family K_1 vee P_n"
+      },
+      {
+        "assessment": "Studies static zero forcing sets, not a three-color inhibitory oscillator or delay time.",
+        "evidence": [
+          "Published summary gives zero forcing polynomial conditions, which do not imply the constructed orbit."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-zero-forcing-polynomial-of-fan-graphs--f3b2c94da283",
+        "material_read": "Published published-finding corpus title and summary only; not claimed full-paper coverage.",
+        "method": "Semantic result and parameter comparison",
+        "title": "Zero forcing polynomial of fan graphs",
+        "trigger": "Another published-finding corpus hit on the exact fan graph structure"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3f5d13be-2d06-4254-879b-70d60e0991ae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result is a structurally motivated boundary for deterministic oscillator synchronization estimates: even a diameter-two chordal family with edge density and normalized vertex/algebraic connectivity tending to one contains a rigorously constructed \\(3(n-1)\\)-step synchronizing front. This shows dense connectivity does not force a uniform fast transient for every synchronizing start; it is not just a finite experiment or a renamed path theorem because every path vertex gains many inhibitory neighbors.",
+    "status": "PASS"
+  }
+}
