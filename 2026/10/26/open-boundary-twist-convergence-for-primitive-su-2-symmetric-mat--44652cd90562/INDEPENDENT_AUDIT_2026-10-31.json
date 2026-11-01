@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:12:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/open-boundary-twist-convergence-for-primitive-su-2-symmetric-mat--44652cd90562/RESULT.md",
+        "2026/10/26/open-boundary-twist-convergence-for-primitive-su-2-symmetric-mat--44652cd90562/VERIFICATION.md",
+        "independent_checks_results.json"
+      ],
+      "rationale": "Exact SU2 covariance transports each site rotation exp(i(4πj/L)S_z) to virtual conjugation; adjacent virtual factors leave a constant δ=4π/L insertion, with V_{4π}=I at the right endpoint. Primitive T0 has analytic simple leading eigenvalue λ(δ). Its derivative i Tr(ρG) vanishes because the unique virtual invariant fixed point ρ commutes with SU2 and every irreducible SU2 spin generator is traceless; hence λ=1+O(δ²). Uniform spectral gap suppresses subleading transfer, and the nonzero fixed boundary norm coefficient yields analytic boundary ratio 1+O(δ); λ(4π/L)^L=1+O(1/L). Independent spin-1 AKLT sample contraction with fixed superposed boundaries gives L|expectation−1| bounded (8.0 to 9.75 for L=20..320), only a finite sanity check.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5 in the revised 2025 source concerns gapped SO(3)-symmetric Hamiltonian ground states under PBCs; conclusion explicitly notes broad OBC proof is lacking.",
+          "The MPS canonical form theorem provides primitive transfer spectral isolation, not an explicit site-dependent twist limit for all fixed boundaries."
+        ],
+        "reasoning": "The PBC Hamiltonian theorem covers more Hamiltonians but does not logically subsume an OBC MPS statement with fixed edge data; conversely this claim does not prove a general Hamiltonian theorem.",
+        "searches": [
+          "arXiv:2506.02496v3 Theorem 5, Conclusions, Appendix C.2",
+          "arXiv:quant-ph/0608197v2",
+          "SU(2) symmetric primitive MPS open boundary squared twist expectation transfer asymptotic"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2506.02496v3 full HTML and appendix",
+        "arXiv:quant-ph/0608197 background",
+        "Resultary query: SU(2) symmetric primitive MPS open boundary squared twist expectation transfer asymptotic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Su et al. state their theorem/numerics are PBC-based and that rigorous wider OBC extension is lacking; the supplement gives only AKLT and Majumdar–Ghosh exact OBC.",
+          "SU(2) covariance and uniqueness of the full-rank invariant transfer state imply Tr(ρG)=0 and kill the first-order eigenvalue phase; this symmetry cancellation is the key needed extra argument."
+        ],
+        "reasoning": "The claimed OBC O(1/L) is not a formal corollary of the cited PBC statement. It is a specific structural consequence of exact covariance and primitive transfer plus nonvanishing boundary overlap; one must verify the boundary contraction and eigenvalue derivative.",
+        "searches": [
+          "arXiv:2506.02496v3 Theorem 5 and Conclusion lines 175–181",
+          "arXiv:quant-ph/0608197v2 transfer formalism"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Su–Zhang–Yao–Furusaki v3 theorem and OBC discussion use the same U² twist at angle 4π, but establish general theorem under periodic boundary conditions and OBC for specific exact models.",
+          "Pérez-García et al. transfer fixed point formalism is general antecedent, not a displayed global open O(L^-1) twist theorem."
+        ],
+        "reasoning": "Compared squared twist order parameter, Resta polarization, spin-chain LSM twist, MPS Berry phase and virtual spin insertion. Boundary condition and uniformity of tensor family must be kept explicit.",
+        "searches": [
+          "SU(2) symmetric primitive MPS open boundary squared twist expectation transfer asymptotic",
+          "arXiv:2506.02496v3",
+          "MPS open boundary virtual gauge twist slow polarization amplitude spectral transfer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The prior Appendix C.2 supplies explicit AKLT OBC matrices and O(L^-1) for a single MPS; this is covered as a special case, not claimed as new.",
+          "The new statement quantifies all primitive SU2 MPS tensors of fixed bond dimension and fixed boundary overlap, not an exact table."
+        ],
+        "reasoning": "A known special example does not cover the full class, although its matrix transfer computation motivates it.",
+        "searches": [
+          "SU(2) symmetric primitive MPS open boundary squared twist expectation transfer asymptotic",
+          "open boundary AKLT MPS squared twist 1/L finite L tables"
+        ]
+      },
+      "rationale": "The original spin-chain twist criterion assumes periodic boundaries and gives only particular AKLT/Majumdar–Ghosh open-boundary examples. The present conditional result covers every fixed-bond primitive exactly SU(2)-covariant MPS with fixed open-boundary overlaps. This transfer-eigenvalue argument is not displayed as such in the primary paper.",
+      "residual_risks": [
+        "A transfer-operator adiabatic or polarization theorem in earlier tensor-network literature may imply the same fixed-OBC conclusion under an equivalent normalization.",
+        "No uniform bounds in bond dimension, tensor families or vanishing boundary overlap."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The prior paper claims general PBC theorem and gives OBC for AKLT/MG; explicitly names extension to a broader OBC class as unproved.",
+          "evidence": [
+            "Conclusions paragraphs 177–181 and Appendix C.2 OBC AKLT formula."
+          ],
+          "identifier_or_url": "arXiv:2506.02496v3 (2025 revision), full HTML",
+          "material_read": "Entire available arXiv HTML, especially Theorem 5, Conclusion §§175–181 and Appendix C.2 §§375–399",
+          "method": "Web HTML opened; complete theorem and supplemental text inspected",
+          "title": "Identification of gapless phases by a twisting operator",
+          "trigger": "same U² observable, PBC theorem and explicit OBC examples"
+        },
+        {
+          "assessment": "MPS transfer formalism is background; it does not alone supply an inspected explicit U² open-boundary asymptotic.",
+          "evidence": [
+            "Classical primitive transfer and open boundary representation."
+          ],
+          "identifier_or_url": "arXiv:quant-ph/0608197v2 (2007)",
+          "material_read": "ArXiv abstract and standard canonical spectral framework as cited in source; full article not reread exhaustively in this run",
+          "method": "Primary bibliographic search and comparison",
+          "title": "Matrix Product State Representations",
+          "trigger": "canonical form, finite-dimensional transfer formalism"
+        },
+        {
+          "assessment": "Top matches concern unrelated representation/channel and ladder subjects; not substantive negative proof.",
+          "evidence": [
+            "Returned highest-ranked unrelated results; no matching MPS twist title."
+          ],
+          "identifier_or_url": "Resultary query: SU(2) symmetric primitive MPS open boundary squared twist expectation transfer asymptotic",
+          "material_read": "Ranked 25 published result titles/abstracts from semantic query",
+          "method": "Resultary search",
+          "title": "Resultary published SU2 MPS search",
+          "trigger": "possible equivalent published SCOPE finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/open-boundary-twist-convergence-for-primitive-su-2-symmetric-mat--44652cd90562/RESULT.md",
+        "arXiv:2506.02496v3"
+      ],
+      "rationale": "The squared-twist operator is an established diagnostic, and open-boundary computations are practically important. A general analytic O(L^-1) benchmark across the primitive finite-bond SU2-covariant MPS class with arbitrary fixed nonzero-overlap edge boundaries bridges illustrative AKLT/MG examples and broad Hamiltonian conjectures, without overclaiming either.",
+      "residual_risks": [
+        "Finite-bond primitive MPS is a restricted model class and the result is a standard transfer-perturbation consequence; a pre-existing broad transfer theorem could eliminate originality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A transfer-operator adiabatic or polarization theorem in earlier tensor-network literature may imply the same fixed-OBC conclusion under an equivalent normalization.",
+    "No uniform bounds in bond dimension, tensor families or vanishing boundary overlap.",
+    "Publication remains not_ready due unsanitized public provenance fields; scientific acceptability and publishability are separate."
+  ],
+  "schema_version": 1
+}

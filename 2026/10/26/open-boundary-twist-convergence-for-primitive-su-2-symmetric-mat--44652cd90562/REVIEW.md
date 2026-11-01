@@ -1,22 +1,21 @@
-# Scientific review — open-boundary twist convergence
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is conditional on a primitive normalized transfer matrix, exact \(SU(2)\) covariance, fixed boundaries, and a nonzero leading norm-transfer coefficient. Moving the physical twist to virtual indices gives a constant transfer insertion with \(\delta=4\pi/L\). The invariant virtual fixed point makes the first derivative of the dominant transfer eigenvalue vanish; consequently its \(L\)-th power differs from \(1\) by \(O(L^{-1})\). Analytic boundary coefficients contribute at most the same order. The proof establishes the stated rate but not its coefficient.
+PASS
 
-## Originality — PASS
+Exact SU2 covariance transports each site rotation exp(i(4πj/L)S_z) to virtual conjugation; adjacent virtual factors leave a constant δ=4π/L insertion, with V_{4π}=I at the right endpoint. Primitive T0 has analytic simple leading eigenvalue λ(δ). Its derivative i Tr(ρG) vanishes because the unique virtual invariant fixed point ρ commutes with SU2 and every irreducible SU2 spin generator is traceless; hence λ=1+O(δ²). Uniform spectral gap suppresses subleading transfer, and the nonzero fixed boundary norm coefficient yields analytic boundary ratio 1+O(δ); λ(4π/L)^L=1+O(1/L). Independent spin-1 AKLT sample contraction with fixed superposed boundaries gives L|expectation−1| bounded (8.0 to 9.75 for L=20..320), only a finite sanity check.
 
-The closest primary source is Su, Yao, and Furusaki, arXiv:2506.02496. It proves the periodic-boundary criterion and provides exact open-boundary AKLT and Majumdar–Ghosh examples; its discussion says a rigorous open-boundary argument for a broader class remains lacking. The present claim covers the specific primitive finite-bond SU(2)-covariant MPS class with fixed boundary vectors. The transfer-matrix and virtual-symmetry formalism is established background, not claimed as new. published-finding corpus and literature searches found no direct matching statement, but absence from a search is not a novelty proof.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives an analytic \(O(L^{-1})\) open-boundary benchmark for a widely used exact state representation and allows fixed edge-boundary vectors. It clarifies a useful subset of the open-boundary gap-diagnostic problem without claiming a theorem for all gapped chains.
+The original spin-chain twist criterion assumes periodic boundaries and gives only particular AKLT/Majumdar–Ghosh open-boundary examples. The present conditional result covers every fixed-bond primitive exactly SU(2)-covariant MPS with fixed open-boundary overlaps. This transfer-eigenvalue argument is not displayed as such in the primary paper.
 
-## Closest literature and limitations
+## value
 
-- Su, Yao, and Furusaki, “Identification of gapless phases by squaring a twist operator,” arXiv:2506.02496v1/v3: general periodic-boundary criterion and exact open-boundary examples.
-- Pérez-García, Verstraete, Wolf, and Cirac, “Matrix Product State Representations,” arXiv:quant-ph/0608197v2: standard MPS transfer and boundary formalism.
+PASS
 
-The estimate is tensor- and boundary-dependent and does not cover nonprimitive transfer matrices, noninjective symmetry-breaking MPS, or arbitrary open-boundary ground states.
+The squared-twist operator is an established diagnostic, and open-boundary computations are practically important. A general analytic O(L^-1) benchmark across the primitive finite-bond SU2-covariant MPS class with arbitrary fixed nonzero-overlap edge boundaries bridges illustrative AKLT/MG examples and broad Hamiltonian conjectures, without overclaiming either.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
