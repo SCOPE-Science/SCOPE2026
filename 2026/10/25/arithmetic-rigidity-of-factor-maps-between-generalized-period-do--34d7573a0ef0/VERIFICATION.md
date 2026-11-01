@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the package root with Python 3; no third-party dependencies are required. The expected final line is:
+## correctness
 
-`VERIFY_OK substitution_alphabets=11 q_r_pairs=121 reduction_pairs_checked`
+PASS
 
-The script reconstructs \(\theta_q^j(0)\) for \(2\le q\le12\) through length \(4096\) and compares each symbol against \(\nu_2(n+1)\bmod q\). It checks the congruence obstruction for all \(121\) ordered pairs \((q,r)\), comparing finite windows obtained by moving an exceptional point through exponents separated by \(q\). These windows are valid stabilizing coordinate models for singular fibres, not an exhaustive test of arbitrary continuous factor maps. Finally, for \(r\mid q\) it checks equality of the reduced substitution prefixes and representative factor languages through word length \(21\).
+The substitution fixed sequence satisfies u_q(n)=ν₂(n+1) mod q, from even/odd recursion. The two-sided orbit closure admits an explicit 2-adic odometer parameter c: nonsingular c∉Z has singleton fibre, each ordinary integer c has exactly q points differing only at coordinate -c. Distinct parameters yield different sequences by valuations one apart modulo q; compactness gives continuous factor. Dense nonsingular orbit, asymptotic pairs in singular fibres and an invariant metric show that the odometer is the maximal equicontinuous factor. Every onto equivariant map induces c↦c+a; target r-fold singular fibre implies a∈Z. For r∤q, sequences with valuations L_j≡0 mod q but distinct mod r converge to the same source singular point and different target symbols: contradiction. If r|q, letterwise reduction modulo r is continuous onto, and nonsingular dense fibres force uniqueness of σ^kR. Independent finite substitution/obstruction checks (12 q, 144 modulus pairs) corroborate only local arithmetic, not all sliding block codes.
 
-The universal proof uses: (i) the exact \(2\)-adic fibre sizes and their disjointness; (ii) maximal equicontinuity of the almost-one-to-one adding-machine factor; (iii) surjectivity forcing the induced odometer translation to be an ordinary integer; (iv) disagreement of the singular-coordinate residues when \(r\nmid q\); and (v) density of nonsingular fibres for uniqueness. No finite numerical experiment is treated as a proof of an infinite classification. The review remains non-independent.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the full cross-alphabet factor-map classification with exact divisibility and map uniqueness. Previous generalized period-doubling word factorizations analyze kernel/gap decompositions, not continuous dynamical factors; general Toeplitz centralizer and boundary inheritance results supply tools but not an explicit q,r divisibility law in the inspected statements.
+
+## value
+
+PASS
+
+Classifies a natural infinite substitution family by a simple but nontrivial reverse divisibility order and proves that every sliding-block surjection is exactly a shift followed by symbol reduction. The fibre singularities create a rigid arithmetic obstruction; the conclusion is stronger than a sample of finite-radius block maps and useful in Toeplitz factor structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

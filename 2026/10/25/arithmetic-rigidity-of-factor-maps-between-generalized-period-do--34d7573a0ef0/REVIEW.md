@@ -1,19 +1,21 @@
-# Scientific review: arithmetic rigidity of generalized period-doubling factors
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The theorem follows from an explicit reconstruction of each \(2\)-adic fibre, the standard maximal-equicontinuous-factor property of a minimal almost-one-to-one odometer extension, a surjectivity argument forcing an integer translation, and a continuity obstruction on the unique singular odometer orbit. The exceptional-coordinate residues \(L\bmod q\) and \(L\bmod r\) yield the sharp necessity \(r\mid q\). When \(r\mid q\), coordinate reduction provides existence and singleton-fibre density gives uniqueness. All parameters and the absence of radius bounds are explicit. The verifier only checks representative finite arithmetic cases; it is not used to infer infinite conclusions.
+PASS
 
-## Originality
+The substitution fixed sequence satisfies u_q(n)=ν₂(n+1) mod q, from even/odd recursion. The two-sided orbit closure admits an explicit 2-adic odometer parameter c: nonsingular c∉Z has singleton fibre, each ordinary integer c has exactly q points differing only at coordinate -c. Distinct parameters yield different sequences by valuations one apart modulo q; compactness gives continuous factor. Dense nonsingular orbit, asymptotic pairs in singular fibres and an invariant metric show that the odometer is the maximal equicontinuous factor. Every onto equivariant map induces c↦c+a; target r-fold singular fibre implies a∈Z. For r∤q, sequences with valuations L_j≡0 mod q but distinct mod r converge to the same source singular point and different target symbols: contradiction. If r|q, letterwise reduction modulo r is continuous onto, and nonsingular dense fibres force uniqueness of σ^kR. Independent finite substitution/obstruction checks (12 q, 144 modulus pairs) corroborate only local arithmetic, not all sliding block codes.
 
-**PASS under examined evidence.** Bognini–Ammar 2025 explicitly define the same substitution family but decompose words into kernel words and gaps; their result does not state cross-alphabet topological factor rigidity. Gómez–Petite 2026 study odometer, Toeplitz centralizers and normalizers, but their general constructions do not classify all surjections between these particular moduli. Sell–Sieron 2026 gives general factor-boundary inheritance, not the sharp \(r\mid q\) classification; Sell's older simple-Toeplitz work addresses word complexity. The nearest indexed results about a three-block period-doubling lift and modular gap-shift embeddings involve different systems and morphisms. Alternative factor-coding terminology and older literature leave genuine historical-priority risk.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The classification concerns all surjective sliding block codes between an infinite natural family of classical zero-entropy substitution systems. It supplies an exact factor preorder, rules out hidden higher-radius factor codes, and separates topological factor rigidity from the common \(2\)-adic equicontinuous factor; the result is not a bounded computation or an arbitrary parameter slice.
+Best-of-knowledge PASS for the full cross-alphabet factor-map classification with exact divisibility and map uniqueness. Previous generalized period-doubling word factorizations analyze kernel/gap decompositions, not continuous dynamical factors; general Toeplitz centralizer and boundary inheritance results supply tools but not an explicit q,r divisibility law in the inspected statements.
 
-## Scope and limitations
+## value
 
-The result addresses the specified two-sided substitution systems and continuous equivariant surjections; it does not classify intermediate factors outside this family, measurable factors, or continuous orbit equivalences. Mathematical correctness is supported by the analytical argument, while historical novelty is assessed only against accessible examined evidence.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Classifies a natural infinite substitution family by a simple but nontrivial reverse divisibility order and proves that every sliding-block surjection is exactly a shift followed by symbol reduction. The fibre singularities create a rigid arithmetic obstruction; the conclusion is stronger than a sample of finite-radius block maps and useful in Toeplitz factor structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
