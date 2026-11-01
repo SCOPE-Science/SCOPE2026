@@ -1,0 +1,19 @@
+# Scientific review of the quantitative Platonic diameter-partition spectra
+
+## Correctness — PASS
+
+The object is the **finite** set of vertices of one of the five regular three-dimensional convex polytopes. The claim is for every integer number of parts, with Euclidean chord distance and diameter normalization. Every vertex coordinate is specified and each squared-distance spectrum is checked exactly in the ordered field \(\mathbb Q(\sqrt5)\). Coloring the far-distance graph is equivalent to diameter partitioning at the corresponding threshold. Complete explicit colorings certify all upper bounds. Size obstructions certify the cube, octahedron and icosahedron lower bounds; the dodecahedron's two nontrivial obstructions are enumerated exhaustively rather than guessed: 12 admissible five-sets cannot form a four-class partition, and each of 820 disjoint pairs of admissible seven-sets has an inadmissible complementary six-set. The verifier checks all 19 coloring certificates and recomputes all finite counts with integer-exact arithmetic. Consequently every positive threshold and every integer number of parts are covered. No floating-point experiment is used as an infinite or exhaustive proof.
+
+## Originality — PASS, with priority risk
+
+The comparison is about **the full family of optimal quantitative ratios**, not merely the name of the underlying graph. Voronov, *A counterexample to Gale's conjecture in R³*, arXiv:2610.28828 (2026-10-20), proves a sharp obstruction for a different 101-point set, not these exact Platonic spectra. Hujter–Lángi, *On the multiple Borsuk numbers of sets*, arXiv:1206.0892 (2012), covers multicolorings of the **diameter graph** and symmetric finite sets; it does not give chromatic transitions across every pair-distance shell. Makai–Tarnai, *A colouring problem for the dodecahedral graph*, arXiv:1812.08453 (2018), establishes a five-coloring in which every dodecahedral face contains all five colors. Its same-colored classes are distant tetrahedral vertex sets, unlike the small-diameter classes here. Broader vertex-distance spectra, antipodal matchings, and previously known ordinary chromatic information do not alone determine the intermediate thresholds. Searches for synonymous terms and stronger formulas in the accessible literature and indexed research records identified no covering statement. Historical priority remains uncertain because specialized older distance-graph coloring tables could contain individual or multiple entries.
+
+## Mathematical value — PASS
+
+The ratio is an intrinsic quantitative refinement of Borsuk partitioning. The five Platonic solids form the canonical finite, highly symmetric, three-dimensional test family. The full classification exhibits distinct multiscale coloring behaviors: e.g. the dodecahedron jumps from ten to five to four to two parts at exact distance thresholds, while the icosahedron jumps directly from twelve to four to two. The four-part values give exact benchmark instances for the recent quantitative Gale question. The nontrivial dodecahedral 3-versus-4 obstruction is a complete finite combinatorial proof, not a tiny parameter variation or unsupported numerical observation. The finding does not assert a general theorem about arbitrary finite sets.
+
+## Limits and closest prior results
+
+The arXiv sources above have been inspected in substantive readable text; the first establishes a counterexample on a different object, the second investigates a different threshold/multicoloring invariant, and the third has an opposite face-coloring constraint. Searches cannot prove global historical uniqueness. The argument relies on a small exhaustive finite certificate reproducible in standard Python; it does not settle Gale's general conjecture or arbitrary 3D polytopes. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
