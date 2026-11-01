@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every fixed \(-1<\alpha<0\), the norm normalization and monomial coefficient matrix are reconstructed directly from the defining Bergman area integral and the differential Hilbert kernel. Uniform gamma-ratio estimates give the bulk squared-entry profile. The singular row sum is controlled with a total-variation Riemann-sum estimate and summable \(O(n^{\alpha-1})\) remainder. Integrating the resulting beta-prime density supplies the exact constant; removing the high-column tail loses at most \(O(1)\) even across the signed critical window. The compact-ratio/log-scale argument and quantitative ratio and endpoint tails establish weak convergence for all bounded continuous test functions, not only compactly supported ones. The infinite supercritical asymptotic is separately justified by summation of a uniformly summable remainder. The companion finite Python check completed successfully. No use is made of numerical enumeration as an infinite proof.
+## correctness
 
-## Originality — PASS subject to historical-priority limitations
-Li and Zhou, arXiv:2610.05672v1, §2, §3, §4 and Theorem 4.4, give the exact weighted differential Hilbert entries and a supercritical infinite Hilbert–Schmidt series, but no joint entry-energy distribution, beta-prime ratio law, or signed \(1/\log N\) critical-window finite-section crossover. Norrbo, arXiv:2610.00252v1, concerns the ordinary Hilbert matrix between logarithmically weighted spaces; Davis–Ghatage (1990) and Kalvoda–Šťovíček (2015) concern symmetric Bergman–Hilbert/Hankel spectral analysis. Their operators, parameters, and asserted asymptotics do not imply the present two-index distribution. Additional concept-level searches for equivalences, stronger coverage, and tables found no matching statement. However classical homogeneous-kernel asymptotic methods might implicitly subsume part of the calculation; priority cannot be certified without broader specialist examination. The supercritical \(1/\varepsilon\) formula is acknowledged as a consequence of analyzing the already published infinite series, and is not the principal novelty claim.
+PASS
 
-## Value — PASS
-The motivating differential Hilbert operator has a sharp boundedness/compactness threshold. Its finite sections exist on both sides, but the underlying infinite operator ceases to be bounded below the threshold. The principal result describes *where* their diverging squared matrix energy concentrates, in two independent natural coordinates, and gives a quantitative crossover including negative critical-window parameters. The universal beta-prime shape and sharp cutoff coefficient reveal more than membership or a single norm growth rate. The problem uses canonical orthonormal Bergman monomials, not arbitrary slices or interpolated examples; the result supplies a reproducible benchmark for finite-section endpoint analysis. It makes no unsupported inference about singular-value distributions.
+Reconstructed the exact monomial weights w_m(gamma) by beta integration and the matrix coefficient (n+1)/(n+k+1) from the integral kernel. Gamma ratio asymptotics give the uniform row summand Gamma(alpha+4+epsilon)Gamma(-alpha)n^(-1-epsilon)+O(n^(-2-epsilon)). Summing n up to N with epsilon=lambda/logN yields logN*Phi(lambda)+O(1), uniformly for bounded signed lambda. The truncated column k>N tail is O(1) because alpha<0; this handles the noncompact half of the compression. The two-dimensional limiting measure is obtained by k/n Riemann sums of x^(alpha+1)/(1+x)^2 and logarithmic n-sums; small/large x and near-end t tails control extension to all bounded continuous tests. The same row estimate summed to infinity with epsilon>0 gives 1/epsilon+O(1). Independent finite alpha=-1/2 computations at N=90,240,600 are consistent with an O(1) cutoff correction but cannot prove any limit.
 
-## Closest literature and limitations
-S. Li and M. Zhou (2026), arXiv:2610.05672v1, full §§2–4 inspected; D. Norrbo (2026), arXiv:2610.00252v1, full relevant endpoint analysis inspected; C. Davis and P. Ghatage (1990), DOI 10.4153/CMB-1990-010-7, finite symmetric Bergman–Hilbert spectral theorem inspected; T. Kalvoda and P. Šťovíček (2015), arXiv:1506.01064v1, §§1–4 inspected. Caveat: classical unindexed Mellin/homogeneous matrix results could give an equivalent formulation. One principal claim has been reviewed for all three axes; no independent scientific audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the joint logarithmic index-ratio distribution and the signed compact critical-window O(1) crossover. Li–Zhou provide boundedness/compactness/Schatten membership and the exact matrix coefficients used here; that prior work is not novel. Their accessible abstract gives no finite-section signed crossover or joint beta-prime law. Full Li–Zhou source unavailable in this run; this is explicitly a nonzero priority risk, not proof of coverage or grounds alone for an O FAIL.
+
+## value
+
+PASS
+
+The natural compactness/Schatten threshold creates a mathematically motivated signed 1/logN critical window. The theorem gives an exact crossover constant and a two-scale beta-prime energy distribution rather than re-testing known boundedness; it separates weak entrywise energy from singular values and identifies an explicit limiting probability profile after normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

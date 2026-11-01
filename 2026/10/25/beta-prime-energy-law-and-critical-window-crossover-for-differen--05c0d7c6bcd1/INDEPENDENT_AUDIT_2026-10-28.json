@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md exact matrix (4), gamma ratios (5), row estimate (9), cutoff and tightness estimates (10)–(13)",
+        "Private independent finite N calculations: for alpha=-0.5, C=5.89048622548 and finite compression deviations from C logN at N=90,240,600 are -13.08,-14.27,-15.00",
+        "The continuous beta-prime density integral is B(alpha+2,-alpha)=Gamma(alpha+2)Gamma(-alpha)"
+      ],
+      "rationale": "Reconstructed the exact monomial weights w_m(gamma) by beta integration and the matrix coefficient (n+1)/(n+k+1) from the integral kernel. Gamma ratio asymptotics give the uniform row summand Gamma(alpha+4+epsilon)Gamma(-alpha)n^(-1-epsilon)+O(n^(-2-epsilon)). Summing n up to N with epsilon=lambda/logN yields logN*Phi(lambda)+O(1), uniformly for bounded signed lambda. The truncated column k>N tail is O(1) because alpha<0; this handles the noncompact half of the compression. The two-dimensional limiting measure is obtained by k/n Riemann sums of x^(alpha+1)/(1+x)^2 and logarithmic n-sums; small/large x and near-end t tails control extension to all bounded continuous tests. The same row estimate summed to infinity with epsilon>0 gives 1/epsilon+O(1). Independent finite alpha=-1/2 computations at N=90,240,600 are consistent with an O(1) cutoff correction but cannot prove any limit.",
+      "risk": "The limiting measure is entrywise squared energy, not a singular-value/eigenvalue empirical distribution. Uniformity is on fixed compact lambda intervals, not growing windows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhou abstract gives full-operator boundedness/compactness/Schatten classes and exact boundary norm, but no finite-section energy law is stated; Norrbo is a nondifferential Hilbert operator; Kalvoda–Šťovíček is a symmetric weighted Hankel spectral family."
+        ],
+        "reasoning": "Broader operator-class membership and spectral results do not imply the specifically normalized two-index squared-entry weak limit or uniform signed critical-window finite-section constant without additional asymptotics.",
+        "searches": [
+          "Li Zhou The Differential Hilbert Operator Between Weighted Bergman Spaces arxiv:2610.05672",
+          "Norrbo The Hilbert Matrix Operator into Bergman Space arxiv:2610.00252",
+          "Kalvoda Stovicek weighted Hankel matrices 2015"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.05672",
+        "https://arxiv.org/abs/2610.00252",
+        "https://arxiv.org/pdf/1506.01064",
+        "https://doi.org/10.4153/CMB-1990-010-7",
+        "Resultary mathematical records (query: differential Hilbert operator weighted Bergman Hilbert Schmidt critical logarithmic finite sections beta prime distribution)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Zhou provide exact monomial matrix and infinite Hilbert–Schmidt sum for supercritical beta; the result appropriately credits these inputs."
+        ],
+        "reasoning": "The new claim quantifies N-dependent beta_N crossing the compactness boundary (also lambda<0) and distribution across row/column indices. That does not follow from compactness classes or a fixed-parameter infinite sum by a trivial substitution; uniform remainder and cutoff are needed.",
+        "searches": [
+          "arxiv:2610.05672 main boundedness compactness Schatten theorem",
+          "arxiv:1506.01064 weighted Hankel symmetric spectral theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The beta-prime law is the normalized square-energy kernel in column/row ratio x=k/n; the Phi(lambda) factor is the logarithmic Laplace transform of t=logn/logN."
+        ],
+        "reasoning": "Equivalent formulations include a discrete homogeneous-kernel energy measure, Riemann-sum scaling and signed-critical Hilbert–Schmidt Frobenius asymptotics. They require comparison beyond matching operator title.",
+        "searches": [
+          "differential Hilbert operator weighted Bergman Hilbert Schmidt critical logarithmic finite sections beta prime distribution",
+          "Hilbert homogeneous Hankel kernel Mellin beta prime row index ratio",
+          "weighted Bergman differential Hilbert finite section Frobenius logarithmic law"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Results concern unrelated Cesàro operators, weighted spectral filling and logarithmic Hilbert Copson models, not this squared-entry law."
+        ],
+        "reasoning": "No exact joint index-ratio distribution table was located; a negative search is not a novelty certificate.",
+        "searches": [
+          "\"beta prime\" \"differential Hilbert\" Bergman finite section",
+          "Resultary query: differential Hilbert operator weighted Bergman Hilbert Schmidt critical logarithmic finite sections beta prime distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the joint logarithmic index-ratio distribution and the signed compact critical-window O(1) crossover. Li–Zhou provide boundedness/compactness/Schatten membership and the exact matrix coefficients used here; that prior work is not novel. Their accessible abstract gives no finite-section signed crossover or joint beta-prime law. Full Li–Zhou source unavailable in this run; this is explicitly a nonzero priority risk, not proof of coverage or grounds alone for an O FAIL.",
+      "residual_risks": [
+        "The complete Oct 2026 Li–Zhou paper could contain a quantitative appendix absent from its abstract; lawful full text retrieval failed; no claim of full-document NOT_COVERING.",
+        "Classical Mellin/Carleman homogeneous-kernel literature could implicitly derive the same joint energy scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Accessible material covers Schatten/compactness and exact critical norm but not the specific signed finite-section law; complete text unread is material residual priority risk.",
+          "evidence": [
+            "arXiv abstract October 5 2026; failed lawful full-text access is not a scientific contradiction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.05672",
+          "material_read": "Complete arXiv abstract, core classification statements; full primary PDF inaccessible",
+          "method": "arXiv abstract; web HTML/PDF retrieval disabled; authorized institutional attempt returned vpn_disconnected",
+          "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+          "trigger": "Same operator and exact coefficients"
+        },
+        {
+          "assessment": "Symmetric Hankel spectral problem, distinct from asymmetric differential Hilbert squared-entry joint distribution.",
+          "evidence": [
+            "Spectral density and Mellin kernel; not a joint Frobenius entry law"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1506.01064",
+          "material_read": "Abstract, section 1 symmetric kernel and spectral operator definitions; primary PDF screenshot",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "A Family of Explicitly Diagonalizable Weighted Hankel Matrices Generalizing the Hilbert Matrix",
+          "trigger": "Potential homogeneous-kernel spectral domination"
+        },
+        {
+          "assessment": "Different matrix/operator and weight regime; exact implication not justified by a title match.",
+          "evidence": [
+            "Broader historical homogeneous-kernel literature risk remains"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.00252",
+          "material_read": "Abstract and bibliographic identification; full text not inspected",
+          "method": "arXiv bibliographic search",
+          "title": "The Hilbert Matrix Operator into the Bergman Space",
+          "trigger": "Related but nondifferential operator"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Quantitative O(1)-accurate Frobenius law holds on both sides of compactness threshold where the full operator may not be Hilbert–Schmidt",
+        "Joint two-scale measure reveals beta-prime index geometry not captured by a scalar membership criterion"
+      ],
+      "rationale": "The natural compactness/Schatten threshold creates a mathematically motivated signed 1/logN critical window. The theorem gives an exact crossover constant and a two-scale beta-prime energy distribution rather than re-testing known boundedness; it separates weak entrywise energy from singular values and identifies an explicit limiting probability profile after normalization.",
+      "risk": "Restricted to fixed alpha in (-1,0), square truncations, and bounded lambda; a full spectral distribution is not provided.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.05672",
+    "https://arxiv.org/abs/2610.00252",
+    "https://arxiv.org/pdf/1506.01064",
+    "https://doi.org/10.4153/CMB-1990-010-7",
+    "Resultary mathematical records (query: differential Hilbert operator weighted Bergman Hilbert Schmidt critical logarithmic finite sections beta prime distribution)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The limiting measure is entrywise squared energy, not a singular-value/eigenvalue empirical distribution. Uniformity is on fixed compact lambda intervals, not growing windows.",
+    "Restricted to fixed alpha in (-1,0), square truncations, and bounded lambda; a full spectral distribution is not provided.",
+    "The complete Oct 2026 Li–Zhou paper could contain a quantitative appendix absent from its abstract; lawful full text retrieval failed; no claim of full-document NOT_COVERING.",
+    "Classical Mellin/Carleman homogeneous-kernel literature could implicitly derive the same joint energy scaling."
+  ],
+  "residual_risks": [
+    "The complete Oct 2026 Li–Zhou paper could contain a quantitative appendix absent from its abstract; lawful full text retrieval failed; no claim of full-document NOT_COVERING.",
+    "Classical Mellin/Carleman homogeneous-kernel literature could implicitly derive the same joint energy scaling."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Accessible material covers Schatten/compactness and exact critical norm but not the specific signed finite-section law; complete text unread is material residual priority risk.",
+      "evidence": [
+        "arXiv abstract October 5 2026; failed lawful full-text access is not a scientific contradiction"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.05672",
+      "material_read": "Complete arXiv abstract, core classification statements; full primary PDF inaccessible",
+      "method": "arXiv abstract; web HTML/PDF retrieval disabled; authorized institutional attempt returned vpn_disconnected",
+      "title": "The Differential Hilbert Operator Between Weighted Bergman Spaces",
+      "trigger": "Same operator and exact coefficients"
+    },
+    {
+      "assessment": "Symmetric Hankel spectral problem, distinct from asymmetric differential Hilbert squared-entry joint distribution.",
+      "evidence": [
+        "Spectral density and Mellin kernel; not a joint Frobenius entry law"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/1506.01064",
+      "material_read": "Abstract, section 1 symmetric kernel and spectral operator definitions; primary PDF screenshot",
+      "method": "Primary arXiv PDF text and screenshot",
+      "title": "A Family of Explicitly Diagonalizable Weighted Hankel Matrices Generalizing the Hilbert Matrix",
+      "trigger": "Potential homogeneous-kernel spectral domination"
+    },
+    {
+      "assessment": "Different matrix/operator and weight regime; exact implication not justified by a title match.",
+      "evidence": [
+        "Broader historical homogeneous-kernel literature risk remains"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.00252",
+      "material_read": "Abstract and bibliographic identification; full text not inspected",
+      "method": "arXiv bibliographic search",
+      "title": "The Hilbert Matrix Operator into the Bergman Space",
+      "trigger": "Related but nondifferential operator"
+    }
+  ]
+}
