@@ -1,11 +1,21 @@
-# Scientific review of the one-Frobenius formula
+# Independent mathematical audit
 
-**Correctness (PASS).** The explicit change of variables \(u=(b+1)q+s\), \(z=q+v\) gives a complete bijection from coefficient pairs to residue seeds. The second entry of the seed spectrum follows from \((b+1)G=H+bA\). All residue ranges, boundary cases \(r=0\), \(r>b^2\), \(e=0\), and the equality case \(c=b,e=b-1\) are treated; strict inequalities prove the maximizing residue is unique. Independent exhaustive residue-pair and coin-change calculations agree for all described test ranges. The infinite conclusion uses the written algebraic proof.
+## correctness
 
-**Originality (PASS, bounded to inspected evidence).** The closest object-specific treatment [1] computes the ordinary Frobenius number and first Apéry representatives, whereas the theorem determines the second-representation threshold. General \(p\)-Apéry identities [2] do not evaluate these thresholds for the family. The full-text triple formulas in [3] describe a different Jacobsthal parameterization, and [4] concerns ordinary Frobenius numbers and genus. Targeted semantic-database and web queries identified no equivalent formula. Missing unindexed literature cannot be ruled out.
+PASS
 
-**Value (PASS).** The one-Frobenius invariant measures exactly how far unique representability can persist, a natural strengthening of the original Frobenius problem. The infinite cubic formula and unique extremizing congruence class give a sharp structural answer for a mathematically established numerical-semigroup family. Neither a small arbitrary slice nor a restatement of the zero-representation formula is involved.
+Fix residues modulo A and sort with multiplicity the weights uG+vH. The second weight W2(r) is the first N of that residue having two representations; g1=max_r W2(r)-A. Reduction u=(b+1)q+s, z=q+v uses (b+1)G=H+bA, giving sG+zH+qbA. Exact residue case division r=0,1..b^2,r>b^2 and subcases e=0 or e>0 yields all W2(r) and a unique maximizer r=A-2b. Substitution gives the cubic g1, one factorization there and at least two above. Independent direct dynamic-programming counts for every b=2..25 agree, including b=2 and the unique residue. The proof treats all b, not an extrapolated sequence.
 
-**Limitations.** The result covers \(p=1\), length-three generalized repunit generators with shift parameter equal to the base, not general \(p\) or arbitrary shift. It has not undergone independent validation, and originality assessment cannot exclude unindexed work.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison: The precise cubic and unique residue require explicit residue enumeration not contained in the checked generic theorems. No decisive prior mathematical implication was found.
+
+## value
+
+PASS
+
+The largest integer with at most one representation is a standard motivated extension of Frobenius theory, and this is a full infinite embedding-dimension-three generalized-repunit family. Exact second-Apéry thresholds and the unique residue are independently useful, not a substitution into the ordinary Frobenius formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

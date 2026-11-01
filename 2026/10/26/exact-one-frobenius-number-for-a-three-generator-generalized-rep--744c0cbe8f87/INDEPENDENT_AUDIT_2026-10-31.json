@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:56:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/exact-one-frobenius-number-for-a-three-generator-generalized-rep--744c0cbe8f87/RESULT.md",
+        "2026/10/26/exact-one-frobenius-number-for-a-three-generator-generalized-rep--744c0cbe8f87/verify.py"
+      ],
+      "rationale": "Fix residues modulo A and sort with multiplicity the weights uG+vH. The second weight W2(r) is the first N of that residue having two representations; g1=max_r W2(r)-A. Reduction u=(b+1)q+s, z=q+v uses (b+1)G=H+bA, giving sG+zH+qbA. Exact residue case division r=0,1..b^2,r>b^2 and subcases e=0 or e>0 yields all W2(r) and a unique maximizer r=A-2b. Substitution gives the cubic g1, one factorization there and at least two above. Independent direct dynamic-programming counts for every b=2..25 agree, including b=2 and the unique residue. The proof treats all b, not an extrapolated sequence.",
+      "residual_risks": [
+        "Dynamic programming is bounded; the all-b result rests on the residue-weight case proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Komatsu et al. treat a structured generalized Fibonacci/Jacobsthal triple with a different third-generator relation.",
+          "Branco et al. Theorem 22 and Liu et al. evaluate ordinary Frobenius/genus, not p=1 for this family."
+        ],
+        "reasoning": "A broader exact p-Frobenius triple classification could dominate this theorem, but the inspected formulas have different generator hypotheses and do not specialize here for b>=2.",
+        "searches": [
+          "one Frobenius generalized repunit numerical semigroup triples one representation formula",
+          "arXiv:2304.00443 generalized Fibonacci triple p Frobenius",
+          "arXiv:2306.10738 generalized repunit"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2112.01106 (full PDF)",
+        "arXiv:2207.08962 (primary abstract)",
+        "arXiv:2304.00443",
+        "arXiv:2306.10738",
+        "one Frobenius generalized repunit numerical semigroup triples one representation formula"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary Frobenius is greatest N with zero representations, while this result allows one representation; these are different invariants.",
+          "The Komatsu–Ying maximum over second p-Apéry thresholds is a general framework but leaves the difficult evaluation of W2(r) open for this triple."
+        ],
+        "reasoning": "The precise cubic and unique residue require explicit residue enumeration not contained in the checked generic theorems. No decisive prior mathematical implication was found.",
+        "searches": [
+          "one Frobenius generalized repunit numerical semigroup triples one representation formula",
+          "arXiv:2112.01106 Theorem 22",
+          "arXiv:2207.08962 p-Apéry formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Komatsu–Ying arXiv:2207.08962 uses g_p for at-most-p representations and a generic p-Apéry maximum.",
+          "Branco–Colaço–Ojeda arXiv:2112.01106 defines the exact same generalized repunit family and computes the ordinary Frobenius number."
+        ],
+        "reasoning": "The generic maximum identity and ordinary p=0 invariant do not evaluate the specific second-representation threshold and unique maximizer.",
+        "searches": [
+          "one Frobenius generalized repunit numerical semigroup triples one representation formula",
+          "one-Frobenius generalized repunit g1 second Apéry set",
+          "p-Frobenius at most one factorization"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct independent base b=2 gives g1(7,9,13)=38; b=3 gives g1(13,16,25)=124; no published all-b second-threshold table was identified."
+        ],
+        "reasoning": "Small computed values are not the claim; the all-b formula with uniquely maximizing residue is an exact natural invariant not located as a known table.",
+        "searches": [
+          "g1 semigroup <7,9,13> 38 <13,16,25> 124",
+          "one Frobenius generalized repunit numerical semigroup triples one representation formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison: The precise cubic and unique residue require explicit residue enumeration not contained in the checked generic theorems. No decisive prior mathematical implication was found.",
+      "residual_risks": [
+        "An unindexed second-Apéry table or p-Frobenius theorem for generalized repunits could contain this result.",
+        "Broader triple formulas were not all read from complete primary documents in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes ordinary Frobenius and Apéry of the family, not a second-representation/g1 evaluation in the inspected results.",
+          "evidence": [
+            "Theorem 22 explicitly denotes F(S), largest nonrepresentable integer, not g1."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2112.01106",
+          "material_read": "Full 16-page PDF; introduction, generator structure, Apéry construction, Theorems 6, 15 and 22 and later invariants.",
+          "method": "Primary arXiv PDF text and screenshot; direct theorem/parameter comparison.",
+          "title": "The Frobenius problem for generalized repunit numerical semigroups",
+          "trigger": "Exact same generated family; priority of p=1 classification"
+        },
+        {
+          "assessment": "Provides relevant framework, without verified closed evaluation for the particular generators.",
+          "evidence": [
+            "p-Frobenius is greatest N with at most p solutions; generic p-Apéry method."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.08962",
+          "material_read": "ArXiv abstract, generalized p-semigroup definition and indexed theorem scope; full article not reread here.",
+          "method": "Primary abstract and exact invariant comparison.",
+          "title": "p-numerical semigroups with p-symmetric properties",
+          "trigger": "General at-most-p definition and Apéry method"
+        },
+        {
+          "assessment": "Generator conditions do not directly cover (A,A+b,2A-1) for b>=2; full-document noncoverage not claimed.",
+          "evidence": [
+            "Generalized Jacobsthal/Fibonacci triples use different third-generator arithmetic."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.00443",
+          "material_read": "Open primary abstract/main theorem descriptions and relevant generator formula from accessible published sources; full document not reread in current run.",
+          "method": "Mathematical generator-parameter comparison of known formula.",
+          "title": "p-numerical semigroup of generalized Fibonacci triples",
+          "trigger": "Potential stronger p-Frobenius formula for three generators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2112.01106 (full PDF)",
+        "arXiv:2207.08962 (primary abstract)",
+        "arXiv:2304.00443"
+      ],
+      "rationale": "The largest integer with at most one representation is a standard motivated extension of Frobenius theory, and this is a full infinite embedding-dimension-three generalized-repunit family. Exact second-Apéry thresholds and the unique residue are independently useful, not a substitution into the ordinary Frobenius formula.",
+      "residual_risks": [
+        "An unindexed second-Apéry table or p-Frobenius theorem for generalized repunits could contain this result.",
+        "Broader triple formulas were not all read from complete primary documents in this execution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2112.01106 (full PDF)",
+    "arXiv:2207.08962 (primary abstract)",
+    "arXiv:2304.00443",
+    "arXiv:2306.10738",
+    "one Frobenius generalized repunit numerical semigroup triples one representation formula"
+  ],
+  "disposition": "passed",
+  "final_claim": "For b>=2, A=b^2+b+1, G=(b+1)^2=A+b, H=2A-1, the largest nonnegative N admitting at most one nonnegative coefficient representation as Ax+Gy+Hz is g_1=4b^3+2b^2-2, and the largest second-representation threshold uniquely occurs at residue A-2b modulo A.",
+  "limitations": [
+    "An unindexed second-Apéry table or p-Frobenius theorem for generalized repunits could contain this result.",
+    "Broader triple formulas were not all read from complete primary documents in this execution.",
+    "Dynamic programming is bounded; the all-b result rests on the residue-weight case proof."
+  ],
+  "schema_version": 1
+}
