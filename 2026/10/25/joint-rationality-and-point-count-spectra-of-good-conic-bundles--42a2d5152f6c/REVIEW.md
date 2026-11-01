@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact fiber counts show that the normalized point-count excess is the signed number of Frobenius-fixed singular fibers. The even-signed-permutation cycle index gives the unconditional series, and the three rational cycle types of Hernandez [1] and Yang [3] give the rational-tagged series. The boundary mass is the coefficient of a strictly positive combinatorial series. The referenced geometric-monodromy and Chebotarev statements are applicable to the fixed-\(n\), odd-characteristic, balanced sampling family. Exact finite enumeration over \(4\le n\le7\) confirms the symbolic identities, without being used as a proof for all \(n\).
+## correctness
 
-**Originality — PASS, qualified.** The closest source, Hernandez [1], gives the unweighted marginal rationality probability and all three cycle types, but does not determine the normalized point-count statistic, its full distribution, joint probability generating function, or the positive-density sharp boundary. Hassett–Hernandez [2] gives the geometric monodromy and moduli; Yang [3] gives the Galois-cohomological classification. Relevant available source text and mathematical records were compared by implication. A classical or unindexed weighted-cycle calculation could cover an equivalent statement; this possibility is not ruled out exhaustively.
+PASS
 
-**Value — PASS.** The rational-point count is a canonical arithmetic invariant of a surface; rationality is a canonical birational property. Their complete joint limiting law quantifies which point counts co-occur with rationality, beyond either marginal alone, for all \(n\ge4\). The sharp forbidden lower tail, with an explicitly attained threshold and positive limiting mass, is a structural restriction, not an arbitrary low-degree numerical slice.
+For each rational base fiber, the split pair of rational lines contributes +q compared with a smooth conic, the conjugate pair -q. Thus normalized excess is positive-minus-negative Frobenius fixed signed 1-cycles. Even-signed W(D_n) cycle-index projection yields F_n(z); restricting to the previously classified rational signed-cycle types gives R_n(z). The n>=4 sharp boundary S>=-2 on rational bundles follows from at most two negative 1-cycles, and the derangement coefficient is strictly positive. Independently enumerated signed permutations for n=4,5,6 and recomputed exact generating functions. The geometric-monodromy and rationality classification inputs are assumed from cited literature rather than re-proved.
 
-The result is restricted to the finite-type balanced parameter-space measure of [1], odd characteristic and fixed \(n\ge4\). The methods use known rationality, monodromy and equidistribution inputs. The verification enumerations do not certify infinite statements. Definitive priority determination and independent validation remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hernandez 2026 establishes the signed-cycle rationality classification, Weyl-group monodromy/Chebotarev application and the univariate rationality marginal; the extra fixed-singleton-weighted joint point-excess Laurent spectrum does not follow directly from the marginal. However full primary text and appendices were inaccessible despite open-access attempts and an authorized download attempt; cannot claim absence of such a result from that document. Best-of-knowledge PASS is qualified by substantial priority risk, with no positive evidence of stronger coverage.
+
+## value
+
+PASS
+
+The joint arithmetic/birational distribution for natural conic bundles gives correlations invisible to rationality alone and an exact lower point-count constraint with positive limiting mass; a natural useful computation once the published monodromy and signed-type classification are assumed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
