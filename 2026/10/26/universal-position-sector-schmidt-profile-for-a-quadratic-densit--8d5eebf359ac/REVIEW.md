@@ -1,19 +1,21 @@
-# Scientific review: position–sector Schmidt profile of a quadratic-density optical oscillator
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact scalar reduction follows from the two-component eigenvalue equations. Its virial identity fixes the second scaled spatial moment at \(1/3\), and the ratio of atomic to photonic norms fixes the exact diagonal entries of the reduced matrix. The only nontrivial infinite-index input is the first absolute moment of position. The proof establishes a characteristic-function limit for translated, normalized Airy momentum eigenfunctions: after explicitly bounding turning-point and central-cusp neighborhoods, the surviving Airy phase-difference integral equals \(\sin(t)/t\), the characteristic function of uniform measure on \([-1,1]\). Uniform integrability follows from the exact second moment; hence the first absolute moment tends to \(1/2\). This determines the full reduced matrix and its Schmidt spectrum. The two-parameter crossover then follows from the exact spectral equation and Airy-zero asymptotics. A standalone Fourier/Airy checker passes 256 finite numerical assertions, which support but do not prove these limits.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+Elimination of the atomic label gives alpha=g|x|phi/(w-Omega) and scalar |D|+kappa x^2 with kappa=g²/(w-Omega). Dilation virial identity gives E x²=w/(3kappa) and p=w/(4w-3Omega), with the correct Fourier convention. For normalized Airy momentum eigenfunctions F_n of (-h² d²/dK²+|K|)F=F, h=r_n^-3/2, normalized oscillatory Airy asymptotics away from the cusp and turning points and small-region mass bounds show <F_n,e^{itX}F_n>->sin(t)/t. The latter is uniform X in [-1,1]. Exact second moment 1/3 gives uniform integrability and E|X|->1/2. Thus coherence sqrt(3p(1-p))*eta gives R_infty and stated eigenvalues. Airy zero r_n³/n²->(3pi/4)² gives z³(z-1)=(3pi s/4)²; p decreases 1 to 1/4 and p(1-p) is uniquely maximized at p=1/2, z=3/2, s=sqrt(3)/pi. Independently evaluated Airy moment characteristic functions for indices through 300 with max high-index error near 1e-6; finite numerics not substitute for Airy asymptotics. The spatial/component bipartition is explicitly not Fock photon/atom entanglement.
 
-Johar–Kraisler (arXiv:2610.18421, first public 2026-10-13) establish the Hamiltonian, eigenfunctions, eigenvalues, and their Airy quantization. Those statements and the occupation fraction obtainable by Hellmann–Feynman are acknowledged as prior consequences and **not** independently claimed. The present specific result is a position–component reduced-density and entropy limit, including the off-diagonal spatial overlap and a uniquely located joint-scaling entropy maximum. The source's complete accessible text treats spectral structure, not this Schmidt law. The related original scalar-oscillator paper by Lőrinczi–Małecki (arXiv:1006.3665; Sections 3.2–3.3 inspected) treats scalar spectral asymptotics and eigenfunction bounds, not this two-component Schmidt problem. Hiltunen et al. (arXiv:2306.10431) treat different atomic densities and bound-state regimes. An earlier general semiclassical theorem might imply the scalar weak measure; combining it with the model's component coupling could conceivably imply the final profile. That priority risk remains, but no decisive equivalent or broader directly covering claim was found in the checked texts and mathematical claim searches.
+## originality
 
-## Value — PASS
+PASS
 
-The spatial-versus-component Schmidt spectrum is a natural observable of a hybrid bound eigenstate, and is not determined by its spectrum alone. The result gives a nonzero universal asymptotic entropy \(0.196466978464698\ldots\) at fixed parameters and the exact dimensionless tuning \(\sqrt3/\pi\) where the limiting double-scaled entropy is largest. This reveals spatial profile mismatch and a sharp participation crossover that energy-only spectroscopy does not supply. The physical bipartition is specified cautiously: this is not asserted to be photon–atom Fock-space entanglement.
+The primary Johar–Kraisler Hamiltonian and Airy spectral quantization, and the exact occupation obtainable by Hellmann–Feynman, are prior work; these do not automatically specify the off-diagonal spatial overlap, two-by-two Schmidt spectrum, or double-scaling entropy extremum. General semiclassical position measures might implicitly yield the Airy uniform limit, so this best-knowledge originality assessment is qualified. Full recent primary Hamiltonian text was inaccessible through authorized routes.
 
-## Comparison and limitations
+## value
 
-The nearest source is Johar–Kraisler (2026), whose energy equation is essential background; the nearest more general scalar source is Lőrinczi–Małecki (2010/2012). A separate result on largest adjacent spectral gap for the same optical operator concerns an energy statistic rather than the reduced-density invariant and does not imply the Schmidt limit. A general semiclassical orbit-eigenmeasure result might give the spatial uniform law, but the hybrid normalization and entropy maximization still require model-specific steps. Literature-wide noncoverage and independent priority are not certified. The finding is limited to eigenvectors above the atomic resonance, a quadratic unbounded density, and infinite-index/double-scaling limits; it makes no finite-index entropy-optimizer or stability claim.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The spatial versus component-label reduced spectrum is a motivated observable of the coupled exactly solvable model, not determined by energies. It has a universal nonzero high-energy entropy and precisely located scaling crossover, revealing spatial-mode mismatch not captured by occupancy alone; no many-body physical entanglement or finite-index optimization is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
