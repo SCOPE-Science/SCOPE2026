@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:52:10.956426Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Disjoint child subtrees give independent Bernoulli child truths, hence exact recursion b_{d+1}=P(Bin(n,b_d)>=ceil(nr)) for weak and >nr for strict, b0=1/2. For r≠1/2 the first tail tends to 0 or1 with a strict gap; Hoeffding propagates at each fixed depth. At central r, odd n has no tie and fair-binomial self-fixpoint b_d=1/2 exactly. Even n has first weak bias (1/2)*binom(n,n/2)/2^n ~ 1/sqrt(2pi n); triangular binomial CLT at the second layer gives Phi(sqrt(2/pi))=0.787531258..., a strict >1/2 limit, so Hoeffding forces all fixed subsequent depths to 1. Binomial reflection gives exact strict=1-weak for all n,d at r=1/2; minimal depth with parity nonconvergence is 2. Independent exact rational recursion for n=1..13, d=1..3 and numerical even n up to1280 verified symmetry/complement and approach to the correct Gaussian constant, without being used as infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "GNN work proves expressive power relative to modal logics, not distribution of truth at random independent leaves",
+          "Hierarchical voting recursion in cited model takes odd group sizes and thus no even central binomial tie probability"
+        ],
+        "reasoning": "Neither inspected prior theorem establishes all ratio threshold and all fixed-depth parity limits. A broad majority-gate probability recursion may imply the present formula as a specialization, so equivalent stronger coverage remains possible.",
+        "searches": [
+          "Logical Characterizations of GNNs with Mean Aggregation arXiv:2507.18145v1",
+          "Tradeoffs in Hierarchical Voting Systems arXiv:2110.02298",
+          "Majority Logic Pacuit-Salame"
+        ]
+      },
+      "checked_sources": [
+        "Schönherr-Lutz arXiv 2507.18145v1 full HTML",
+        "Hierarchical Voting Systems arXiv:2110.02298 abstract/model description",
+        "Pacuit-Salame 2006 Majority Logic",
+        "Resultary nested-majority tree parity phase query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Logical expressivity or a definition of majority modality does not state satisfaction frequencies under random label assignments",
+          "Odd-arity recursion has exact fair fixed point and cannot exhibit the even-arity tie perturbation"
+        ],
+        "reasoning": "The complete phase diagram requires a moving-parameter CLT at d2 plus gap propagation. These can be proved with standard tools, but are not visibly stated or implied as a direct corollary of inspected expressivity and odd-voting theorems.",
+        "searches": [
+          "Schönherr-Lutz arXiv:2507.18145v1 Sections 2-5",
+          "Pacuit-Salame Majority Logic 2006",
+          "Hierarchical Voting Systems arXiv:2110.02298"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ratio modalities M_>=r/M_>r are defined in Schönherr-Lutz full HTML",
+          "Recursive majority-on-trees coincides with binomial hierarchical-voting recursion when children independently report fair labels"
+        ],
+        "reasoning": "Compared logically nested ratio modal semantics to majority-of-majorities and hierarchical vote aggregation, including dependence on odd/even arity and explicit fair tie rules. The known recurrence is not a novel probabilistic model.",
+        "searches": [
+          "Resultary: nested majority modality random regular trees parity even branching central limit threshold majority probability phase diagram",
+          "Schönherr-Lutz arXiv:2507.18145",
+          "Hierarchical Voting Systems arXiv:2110.02298"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table of depth1,2,>=3 even branching limits with rho=Phi(sqrt(2/pi)) was found in inspected primary material",
+          "The table is reconstructed by a two-step CLT and Hoeffding argument"
+        ],
+        "reasoning": "An older explicit voting threshold table could reproduce this constant; absence from search is not a novelty proof. The user-facing theorem is the entire phase diagram, not just a numerical entry.",
+        "searches": [
+          "Schönherr-Lutz full-text formula section and appendices",
+          "Resultary recursive-majority phase search",
+          "Hierarchical Voting Systems arXiv:2110.02298"
+        ]
+      },
+      "rationale": "The ratio modalities and weak-majority logic are prior, as is binomial-recursive hierarchical majority voting. Schönherr-Lutz full accessible arXiv HTML treats GNN expressive equivalences and a nested strict-majority separating example, not random-tree satisfaction probability by branching parity. The hierarchical-voting study assumes odd group sizes, excluding the central even tie bias. This exact combined parity/ratio/depth phase classification is not a direct theorem in inspected antecedents, but could be an elementary consequence noted in older majority-of-majorities/recursive voting literature; best-of-knowledge PASS qualified.",
+      "residual_risks": [
+        "Classical recursive-voting and threshold-circuit literature may already encode this phase diagram or two-level constant under different terminology.",
+        "No claim about uniform continuous GNN implementation or general random graphs follows from the logic model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS semantics and expressive power, not this fair-random-regular-tree parity probability phase diagram",
+          "evidence": "Defines >=r and >r ratio modalities; theorems identify GNN expressive power and uniformity distinctions.",
+          "identifier_or_url": "https://arxiv.org/html/2507.18145v1",
+          "material_read": "Full accessible HTML: abstract, introductions, Section 2 ratio-modal semantics, result table, Sections 3-5 and appendix headings",
+          "method": "full open-access arXiv HTML",
+          "title": "Logical Characterizations of GNNs with Mean Aggregation",
+          "trigger": "Original ratio modal logic definition and nested-majority context"
+        },
+        {
+          "assessment": "COVERS odd-arity binomial voting recursion but not a verified even-branching critical tie law; full body access risk noted",
+          "evidence": "Model explicitly assumes odd committee sizes to avoid ties; no stated rho=Phi(sqrt(2/pi)) in accessible material.",
+          "identifier_or_url": "https://arxiv.org/abs/2110.02298",
+          "material_read": "Public abstract/model assumptions and Eq. (2) as cited; HTML full text inaccessible in this run",
+          "method": "arXiv abstract and primary model comparison; HTML inaccessible",
+          "title": "Tradeoffs in Hierarchical Voting Systems",
+          "trigger": "Closest binomial recursive majority-on-trees probability model"
+        },
+        {
+          "assessment": "Prior majority modality, not inspected as a random-tree asymptotic theorem",
+          "evidence": "Logical axiomatization rather than fair i.i.d. random-leaf asymptotics.",
+          "identifier_or_url": "https://pacuit.org/api/files/pubs/proceedings/majlog_sl_final.pdf",
+          "material_read": "Published abstract and cited original modal-operator definition; no new complete text inspection in this run",
+          "method": "original publication synopsis and semantic comparison",
+          "title": "Majority Logic: Axiomatization and Completeness",
+          "trigger": "Earlier weak majority modality semantics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete threshold and depth classification for a well-defined logical fragment, rather than arbitrary numerical boundary, isolates unique ratio 1/2 and exact earliest depth2 nonconvergence. The nontrivial Gaussian constant and depth3 saturation expose a meaningful tie-amplification mechanism relevant to nested majority logic and hierarchical voting, despite relying on classical probability ingredients.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independently fair leaf labels on complete n-ary directed trees and fixed modal depth d>=1, weak and strict iterated ratio-threshold modalities have deterministic limits 1 below r=1/2 and 0 above; at r=1/2 odd arities stay 1/2 while even arities yield 1/2 at d1, Phi(sqrt(2/pi)) at d2 and 1 at d>=3 for weak, with strict exact complementary probabilities.",
+  "limitations": [
+    "Only complete disjoint-subtree frames, independent fair leaf bits, fixed depth and fixed ratio as n increases.",
+    "No correlated leaves, varying depth, shared graph neighborhoods or heterogeneous branching."
+  ],
+  "schema_version": 1
+}
