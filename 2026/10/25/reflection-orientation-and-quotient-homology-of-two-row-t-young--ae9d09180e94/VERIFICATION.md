@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Run `python3 tyoung_reflection_verify.py` with Python 3.9 or later; no external dependencies are needed.
+## correctness
 
-The verifier independently enumerates all column-choice facets versus all complements of \(t\)-intervals, computes *complete* reduced mod-two Betti numbers via boundary ranks for each small instance, and evaluates signs of invariant oriented simplices including the empty simplex. It also computes weighted palindromic words directly and independently evaluates the coefficient of the proved generating function.
+PASS
 
-Passing output from the packaged script:
+For every t,L>=1, N=L+t, the equal-row t-Young facets are complements of the L+1 consecutive t-windows and reversal maps facet F_k to F_{L-k}. Alexander dual of binary words without a run of t ones provides signed reversal Lefschetz via invariant palindromes. Half-word rational generating function (1-(-z)^(c+1))/(1+(-1)^t z^(t+1)), c=floor((t-1)/2) for even N or floor(t/2) for odd N, produces tilde Lambda=(-1)^(q+1) when L=(t+1)q+r with r=0 or1 and zero for r>=2. By cited nonequivariant S^{2q+r-1} theorem when r=0,1, the integral homology action is (-1)^(q+r). Averaging and barycentric subdivision give the claimed rational quotient homology; fixed-space Euler characteristic follows simplicial Lefschetz. Independent exact facet and signed augmented face checks passed 71 (t,L) pairs with t=1..6, L=1..12, N<=17; unrestricted conclusion uses explicit half-word derivation.
 
-`PASS: facet derivations 60 mod-2 complete homology 60 signed chain Lefschetz 60 independent palindrome enumerations 255 symbolic parameter substitutions 67500`
+## originality
 
-These checks are finite evidence and do not certify the all-parameter theorem. The proof valid for arbitrary positive \(t,L\) is in RESULT.md. The sphere-rank input is Theorem 3.6 of arXiv:2511.13477v3, whose earliest public manuscript date is 2025-11-17. No external independent audit has been performed.
+PASS
+
+Navarra–Qureshi–Veer establish t-Young facets/Alexander-dual model and sphere-or-contractible nonequivariant classification, but not canonical order-reversal orientation or quotient homology. The signed palindromic sum is new technical input. Earlier SCOPE path reflection results concern other complexes; not same t-Young object. A hidden symmetry corollary in revised preprint remains residual.
+
+## value
+
+PASS
+
+Exact integral ±1 action on the sole possible homology lattice and reflection quotient rational homology for the full two-parameter equal-row family; zero/nonzero Euler and parity transition cannot be recovered from mere abstract sphere homotopy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
