@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The shortest lattice vector is primitive, the quotient lattice spacing is \(\det\Lambda/\|v\|_2\), and the covering radius is that spacing divided by twice the projected half-width. Their product identifies the deficit exactly with the area excess over the canonical inscribed parallelogram. For every point outside the normalized diamond, two disjoint opposite exterior triangles establish the optimal coefficient. The explicit symmetric hexagons realize equality for arbitrarily small positive deficits. All quantifiers, nondegeneracy conditions, and boundary choices have been checked. The 2,589 exact-rational computations are supplementary.
+
+**Originality — PASS, provisional historical priority.** Williams's Theorem 1 gives the underlying quotient inequality; the source's proof and extremal family were inspected and do not contain the quantitative uniform inclusion. The 2017 Rogers–Shephard account gives qualitative section–projection equality but not this sharp prescribed-parallelogram stability. Relevant published mathematical records on covering-radius interpolation, hexagon enclosure, and lattice transference concern different objects or parameters. Böröczky’s 2005 article was inspected in full text: it treats difference-body and simplex-extremal stability, not the chosen section–projection parallelogram deficit. Other older equivalences remain a possibility. Thus priority should not be represented as independently certified.
+
+**Mathematical value — PASS.** A scalar near-equality statement for a recent inequality is turned into an optimal, universal geometric rigidity estimate relative to a canonical, lattice-selected witness. The factor is explicit, affine invariant under the natural simultaneous changes of body and lattice, applies without smoothness or polygonality, and has a matching nontrivial hexagonal extremal family. The statement is a sharp global stability theorem, not merely another calculation of the base inequality.
+
+The scope is restricted to dimension two and the selected one-dimensional quotient. No independent mathematical audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
