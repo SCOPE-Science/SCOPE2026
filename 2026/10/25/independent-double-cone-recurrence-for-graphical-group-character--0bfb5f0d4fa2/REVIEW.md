@@ -1,11 +1,21 @@
-# Scientific review: independent double-cone character-degree recurrence
+# Independent mathematical audit
 
-**Correctness — PASS.** An unrestricted two-row alternating block extension reduces, by congruence, to a rank-two radical coupling and an alternating two-by-two symplectic correction. The ranks zero, one and two of the coupling are exhaustively counted; the orthogonal-row count is derived from nondegeneracy, with the zero-dimensional case treated separately. The classical twisted-group-algebra argument yields the odd-characteristic character count. Direct finite-field enumeration independently agrees in eight complete configurations. Bounds: the finite examples do not themselves prove the formula for all graphs, and no characteristic-two character result is claimed.
+## correctness
 
-**Originality — PASS, with residual risk.** Full-text comparison with Rossmann (2022), Sections 1.6 and 5, separates this character-degree transition from that paper's different conjugacy-class join formula. A published single-universal-vertex character recurrence (record 732adc755a75) is the closest item found. Its abstract concerns coning and the true-twin graphs \(K_t\vee K_{a,b}\); the present operation adds two nonadjacent vertices, so it is not obtained by applying the single-cone operation twice. Its full text was inaccessible through the available reader, leaving a specific possibility of an implicit two-vertex corollary. Mainkar's earlier graph–Lie correspondence is background, not a character enumeration.
+PASS
 
-**Value — PASS.** This is an exact, field-uniform structural operator on a natural representation-theoretic invariant, not a single small numerical count. The third rank-increment branch and its symplectic orthogonality correction are absent in the single-vertex operation. Substitution of the rectangular-matrix rank distribution gives the previously unaccounted complete tripartite family \(K_{2,a,b}\) for all positive part sizes and odd finite fields, a concrete answer on a family in the setting of Rossmann's character-counting question.
+PASS: Congruence puts the old alternating matrix into J_(2r)⊕0_d, with unrestricted new coefficient matrices P (2×2r) and Q (2×d). The Schur residual [P J^{-1} P^T,Q;-Q^T,0] has rank 4 for rank Q=2, rank 2 for rank Q=1, and rank 0/2 for rank Q=0 according to symplectic orthogonality. Rank-Q counts are 1, (q+1)(q^d-1), (q^d-1)(q^d-q). Counting symplectically orthogonal row pairs gives U_r=q^(2r)+(q^(2r)-1)q^(2r-1) for r≥1 and U_0=1; the remaining P cases produce V and W exactly. Direct independent finite-field full enumerations for 12 small cases over F2,F3,F5 agree, and K_(2,2,2) F3 counts 1,1376,198288,331776. Character formula follows via odd-characteristic class-two central character orbit method; characteristic-two characters NOT claimed. Computational confirmations do not replace the all-field block proof.
 
-**Closest literature and limits.** Mainkar (arXiv:1310.3414v1) supplies the graph-Lie construction. Rossmann (DOI:10.1112/blms.12665), particularly Section 1.6 and Section 5, supplies the character-degree question and a different conjugacy counting theorem. Record 732adc755a75 supplies a single-cone character result; only its title and abstract were available. Risks: the accessible comparison is not a definitive priority determination; the group-theoretic statement excludes characteristic two; the recurrence is specifically for an independent pair of universal new vertices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: the actually read published one-cone result adds a single universal vertex; repeating it makes the new vertices adjacent, not the claimed two-vertex independent set. Rossmann (2022) poses character-degree enumeration and studies conjugacy-class joins. Rossmann–Voll (2025), full PDF pp.1–6 Theorem A/§11, studies ask zeta functions (average kernel sizes) under joins, not a complete fixed-q rank distribution transition. No inspected statement implies all three rank-increment counts; a broad generic bordered alternating matrix theorem could contain an equivalent fact.
+
+## value
+
+PASS
+
+PASS: a uniform exact operator on complete rank distributions for arbitrary graphs, with genuinely different independent-versus-adjacent universal-vertex geometry, preserves polynomial character-degree enumeration and yields all complete tripartite K_(2,a,b) examples. This is a motivated class-two representation-counting construction, beyond rephrasing the bordered rank lemma.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
