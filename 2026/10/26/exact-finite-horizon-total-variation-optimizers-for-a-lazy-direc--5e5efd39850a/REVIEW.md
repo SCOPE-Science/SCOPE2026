@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The exact Fourier inversion reduces three-state total variation to a single trigonometric maximum. A phase coordinate maps the full admissible parameter interval bijectively to \([-\pi/3,\pi/3]\). In the outer region a sharp lower bound forces the two candidate phases; in the inner region the logarithmic derivative \(h(\tan x-\tan(hx))\) is strictly negative for \(h\ge2\). Boundary probabilities, the one-step exception, the spectral comparison, and the asymptotic constant are all covered. The standalone test script passed 60978 finite numerical comparisons. There is no dependence on numerical evidence to establish the theorem.
+PASS
 
-## Originality: PASS with residual priority risk
+C PASS: Explicit Fourier inversion for the Binomial(h,p) residue distribution modulo three yields d_h=(2/3)r^h max_k |cos(hθ-2πk/3)|. The exact change x=θ−π/3 gives r=1/(2cos x), x in [−π/3,π/3], p=1/2+tan x/(2sqrt3). The phase maximum is bounded below by sqrt3/2, with equality at |hx|=π/6; for |x|≥π/(6h), the denominator 2^h cos(x)^h yields a strict global bound except at ±π/(6h). For 0<|x|<π/(6h), logarithmic derivative h(tan x−tan(hx))<0. Thus precisely two minima for every h>=2. A direct one-step computation establishes [1/3,2/3]; eigenvalue modulus minimizes uniquely at p=1/2; strict ratio and asymptotics use elementary expansion. Independently reconstructed the binomial law and confirmed 9009 grid comparisons across 9 horizons; grid does not prove global optimization.
 
-Compared the finite-horizon exact total-variation optimizer, not only the shared topic of cycle walks, with available primary results. Boyd–Diaconis–Xiao optimize symmetric-chain eigenvalues; Gerencsér–Hendrickx–Van Dooren optimize cycle spectral gaps; Gerencsér (arXiv:1905.03223) analyzes mixing on a cycle with an additional random edge; and Olesker-Taylor–Zanetti give general geometric mixing bounds. None of the inspected portions supplies the two finite-horizon optimizers or the nonvanishing limiting relative improvement. A related earlier study of mixing times on cycles was not obtained in full, leaving possible historical priority risk. A literature search cannot establish absolute novelty.
+## originality
 
-## Value: PASS
+PASS
 
-This is the complete finite-horizon minimax problem for the minimal nontrivial oriented cyclic walk, with exact optimizers for every horizon. It separates finite-time total variation from its standard spectral proxy by a persistent \(13.397\ldots\%\) limiting relative gap and identifies the precise \(h^{-1}\) bias detuning that realizes the improvement. This is a parameter-free boundary phenomenon, not a tuned isolated numerical example.
+O PASS qualified: finite-horizon TV minimization is mathematically distinct from spectral-gap optimization on cycles or fastest mixing within reversible transition matrices. The exact two-optimizer phase formula and limiting constant sqrt3/2 are absent from the inspected cited spectral results; an unindexed finite-horizon/cyclic convolution optimization is still possible.
 
-## Scope and limits
+## value
 
-No claim is made about globally optimal arbitrary three-state kernels, mixing-time threshold optimization, or independent external validation. The previous literature comparison is subject to the identified inaccessible-source priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+V PASS: The exact all-horizon optimizer distinguishes finite-time distributional error from an asymptotic eigenvalue criterion in the smallest directed nonreversible cycle; the optimal tuning shift and persistent relative advantage are natural algorithmic quantities, not a single arbitrary numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

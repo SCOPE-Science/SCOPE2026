@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS: Explicit Fourier inversion for the Binomial(h,p) residue distribution modulo three yields d_h=(2/3)r^h max_k |cos(hθ-2πk/3)|. The exact change x=θ−π/3 gives r=1/(2cos x), x in [−π/3,π/3], p=1/2+tan x/(2sqrt3). The phase maximum is bounded below by sqrt3/2, with equality at |hx|=π/6; for |x|≥π/(6h), the denominator 2^h cos(x)^h yields a strict global bound except at ±π/(6h). For 0<|x|<π/(6h), logarithmic derivative h(tan x−tan(hx))<0. Thus precisely two minima for every h>=2. A direct one-step computation establishes [1/3,2/3]; eigenvalue modulus minimizes uniquely at p=1/2; strict ratio and asymptotics use elementary expansion. Independently reconstructed the binomial law and confirmed 9009 grid comparisons across 9 horizons; grid does not prove global optimization.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Boyd, Diaconis and Xiao (SIAM Review 2004), Fastest Mixing Markov Chain on a Graph: reversible/symmetric fastest spectral mixing objective, not nonreversible 3-cycle finite-horizon TV minimization.",
+          "Gerencsér, Hendrickx and Van Dooren (ECC 2015), Spectral gap of Markov chains on a cycle: optimizes spectral rate, not each finite horizon distributional total-variation distance."
+        ],
+        "reasoning": "General fastest-mixing theory optimizes spectral criteria or mixing-time bounds, not this constrained finite-horizon exact distributional objective. It need not imply the special formula without additional optimization.",
+        "searches": [
+          "lazy directed three-cycle Markov chain optimize exact total variation distance after fixed finite time vs spectral gap",
+          "fastest mixing cycle nonreversible transition matrix finite horizon"
+        ]
+      },
+      "checked_sources": [
+        "Boyd–Diaconis–Xiao (2004) spectral optimization",
+        "Gerencsér–Hendrickx–Van Dooren (2015) repository abstract",
+        "Gerencsér (2011) paper abstract",
+        "Resultary semantic search exact finite-horizon directed-triangle TV mixing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gerencsér, Hendrickx and Van Dooren (ECC 2015), Spectral gap of Markov chains on a cycle: optimizes spectral rate, not each finite horizon distributional total-variation distance.",
+          "The spectral-optimal p=1/2 is provably not any of the finite-TV minimizers p_h± for h>=2."
+        ],
+        "reasoning": "Because the optima differ for every h>=2, a theorem certifying p=1/2 for spectral relaxation cannot itself establish the proposed TV optimum; this mathematical contrast explains the non-implication.",
+        "searches": [
+          "lazy directed three-cycle Markov chain optimize exact total variation distance after fixed finite time vs spectral gap",
+          "spectral gap of Markov chains on a cycle Gerencser Hendrickx Van Dooren"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gerencsér, Hendrickx and Van Dooren (ECC 2015), Spectral gap of Markov chains on a cycle: optimizes spectral rate, not each finite horizon distributional total-variation distance.",
+          "The law is precisely Binomial(h,p) mod 3; this was checked against the three-frequency Fourier expression."
+        ],
+        "reasoning": "Alias search covers random clockwise binomial residues and cyclic convolution. The exact objective is a finite-horizon ℓ1 distance rather than SLEM/spectral gap.",
+        "searches": [
+          "lazy directed three-cycle Markov chain optimize exact total variation distance after fixed finite time vs spectral gap",
+          "Binomial h p mod 3 total variation closest uniform exact minimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Gerencsér (2011), Markov chain mixing time on cycles; accessible abstract gives Ω(n²) cycle mixing lower bound, not h-dependent three-state optimizer."
+        ],
+        "reasoning": "No identical all-horizon optimizer table was found; the 2011 full text was not accessible for complete comparison and remains a source risk.",
+        "searches": [
+          "lazy directed three-cycle Markov chain optimize exact total variation distance after fixed finite time vs spectral gap",
+          "Markov chain mixing time on cycles Gerencser 2011 exact finite 3 cycle"
+        ]
+      },
+      "rationale": "O PASS qualified: finite-horizon TV minimization is mathematically distinct from spectral-gap optimization on cycles or fastest mixing within reversible transition matrices. The exact two-optimizer phase formula and limiting constant sqrt3/2 are absent from the inspected cited spectral results; an unindexed finite-horizon/cyclic convolution optimization is still possible.",
+      "residual_risks": [
+        "The 2011 Gerencsér full article and possible unindexed exact binomial-mod-three TV calculations remain historical priority risks.",
+        "Only P_p=(1-p)I+pS and fixed integer horizons are covered; no optimum among all 3-state stochastic kernels or arbitrary mixing-time thresholds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different objective and reversible/symmetric transition regime.",
+          "evidence": "Boyd, Diaconis and Xiao (SIAM Review 2004), Fastest Mixing Markov Chain on a Graph: reversible/symmetric fastest spectral mixing objective, not nonreversible 3-cycle finite-horizon TV minimization.",
+          "identifier_or_url": "https://doi.org/10.1137/S0036144503423264",
+          "material_read": "Publisher abstract/overview and known spectral optimization problem; complete article not relied on.",
+          "method": "Read relevant published abstract/description.",
+          "title": "Fastest Mixing Markov Chain on a Graph",
+          "trigger": "Classical fastest-mixing spectral optimization"
+        },
+        {
+          "assessment": "Relevant to eigenvalue-rate optimization only in inspected material.",
+          "evidence": "Gerencsér, Hendrickx and Van Dooren (ECC 2015), Spectral gap of Markov chains on a cycle: optimizes spectral rate, not each finite horizon distributional total-variation distance.",
+          "identifier_or_url": "https://real.mtak.hu/173919/",
+          "material_read": "Repository abstract and result synopsis; primary PDF download attempt timed out.",
+          "method": "Read repository abstract; tried lawful primary PDF.",
+          "title": "Spectral gap of Markov chains on a cycle",
+          "trigger": "Same cycle class and fastest mixing parameter"
+        },
+        {
+          "assessment": "Plausible source not completely compared; retained as residual risk.",
+          "evidence": "Gerencsér (2011), Stochastic Processes and their Applications 121, 2553–2570: abstract on order-of-magnitude lower bounds.",
+          "identifier_or_url": "https://doi.org/10.1016/j.spa.2011.07.007",
+          "material_read": "Accessible bibliographic abstract identifying Ω(n²) cycle mixing lower bound; full article not accessed.",
+          "method": "Read abstract; no whole-article not-covering claim.",
+          "title": "Markov chain mixing time on cycles",
+          "trigger": "Potential general nonreversible-cycle mixing coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V PASS: The exact all-horizon optimizer distinguishes finite-time distributional error from an asymptotic eigenvalue criterion in the smallest directed nonreversible cycle; the optimal tuning shift and persistent relative advantage are natural algorithmic quantities, not a single arbitrary numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer h>=2, the lazy clockwise three-cycle P_p=(1-p)I+pS has exactly two finite-horizon TV minimizers p=1/2 ± tan(pi/(6h))/(2sqrt(3)); the minimum is sqrt(3)sec(pi/(6h))^h/(3*2^h); for h=1 the entire interval [1/3,2/3] minimizes.",
+  "limitations": [
+    "The h=1 minimizer is a continuum, not two points; p=0,1 allowed but not ergodic; no uniform optimum outside this one-parameter directed cycle."
+  ],
+  "schema_version": 1
+}
