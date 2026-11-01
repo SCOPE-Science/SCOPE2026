@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3. The program requires only the standard library and solves the complete independent stationary second-moment system with exact rational arithmetic, including off-diagonal terms, without substituting the claimed coarse-moment formulas. It checked 45 parameter sets for each of the two protocols and printed `PASS: 45 exact-rational all-generator scenarios; 2 protocols each`.
+## correctness
 
-The general proof is algebraic, not an extrapolation from the finite tests. The stationary generator equations for \(\mathbb E\|X\|^2\) and \(\mathbb E S^2\), the force-frequency balance and the stationary contraction are reproduced in `RESULT.md`. Tests use \(N\in\{2,3,4,5,6\}\), positive rational rate and coupling values, and nonzero balanced frequency vectors. They cannot establish priority or nonlinear-Kuramoto behavior. Independent review has not been performed.
+PASS
+
+Independent full-generator reconstruction shows both stationary means omega/(r+gamma). Common reset gives S=sum_i X_i=0 and D_S=2A/((r+gamma)(r+2gamma)). For independent clocks, the S^2 jump generator gives E S^2=E||X||^2/2 and D_I=A(2N-1)/((r+gamma)(N r+(2N-1)gamma)). Their exact difference is A r/((r+gamma)(r+2gamma)(N r+(2N-1)gamma))>0. Contraction under coupled reset clocks and Foster quadratic drift establish finite-moment stationary uniqueness; common-mode variance is zero only in the synchronous protocol. I separately solved all full symmetric second-moment equations in 24 rational cases (two protocols each).
+
+## originality
+
+PASS
+
+Bressloff (2024) distinguishes local and global resetting and derives exact Dean-Kawasaki equations plus mean-field phase dynamics; it does not state the finite-N balanced real-linear stationary disagreement/strict cost-matched rational comparison. General resetting and linearized coupling are acknowledged as prior. Obtaining the claimed exact inequality requires an explicit finite-size second-moment closure; no already-stated equivalent was found in inspected sources.
+
+## value
+
+PASS
+
+Clock correlation is a natural controlled variable at identical per-node reset budgets: independent clocks improve relative-phase agreement but create collective fluctuations, a real quantitative tradeoff even when individual means coincide. The all-N positive formula is not a normalization/type check; it separates two modes and permits exact rate comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

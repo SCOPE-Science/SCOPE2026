@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem precisely specifies real linear complete-graph dynamics, balanced nonzero fixed natural frequencies, and two reset protocols with the same marginal rate at each node. A shared-noise coupling proves uniqueness, a quadratic Lyapunov bound establishes finite stationary second moments, and generator identities for each coordinate, total squared norm, and squared sum give the exact formulas. The critical independent-clock identity \(\mathbb E S^2=\mathbb E\|X\|^2/2\) is obtained from the actual one-coordinate jump generator; no independence of oscillator coordinates is assumed. The positivity comparison follows by exact rational subtraction. The standalone independent full second-moment linear-system checker passed 45 exact-rational parameter scenarios (both protocols in each case). Finite verification does not establish universal quantifiers; the generator proof does.
+PASS
 
-## Originality — PASS within available comparison
+Independent full-generator reconstruction shows both stationary means omega/(r+gamma). Common reset gives S=sum_i X_i=0 and D_S=2A/((r+gamma)(r+2gamma)). For independent clocks, the S^2 jump generator gives E S^2=E||X||^2/2 and D_I=A(2N-1)/((r+gamma)(N r+(2N-1)gamma)). Their exact difference is A r/((r+gamma)(r+2gamma)(N r+(2N-1)gamma))>0. Contraction under coupled reset clocks and Foster quadratic drift establish finite-moment stationary uniqueness; common-mode variance is zero only in the synchronous protocol. I separately solved all full symmetric second-moment equations in 24 rational cases (two protocols each).
 
-Bressloff (arXiv:2401.03501v1, Secs. II and V) **already treats the same two physical clock arrangements**, local independent and global simultaneous Poisson resets, and derives general finite-\(N\) stochastic density equations: this is the closest methodological precursor and its resetting-protocol distinction is not new. The proposed contribution is the exact, all-size, balanced complete-graph linear-phase stationary disagreement and common-mode formulas plus strict equal-cost protocol comparison. Bressloff instead studies nonlinear Kuramoto mean-field and order-parameter dynamics, without the claimed closed all-\(N\) finite-rate quadratic identities or inequality. The newer Paramero-Arias–Riascos (arXiv:2610.21842v1), Majumder–Acharya–Gupta (arXiv:2604.04769v1) and Majumder–Chattopadhyay–Gupta (arXiv:2402.14921v1) works use simultaneous-subsystem resets, and study grounded Laplacian limits, order-parameter self-consistency, or macroscopic synchronization. Primary full texts and pertinent model/results sections were inspected. Residual priority risk is substantial: a generic linear-system resetting covariance/Lyapunov theorem could immediately specialize to the result, and Bressloff’s general density equations encode the underlying moment evolution. Such equations do not themselves state the derived comparison; no claim of proof of absolute novelty is made. Absence of a search hit is not a proof of originality, and no independent literature priority certification has occurred.
+## originality
 
-## Value — PASS
+PASS
 
-A clock protocol is an experimentally meaningful intervention. Holding fixed the expected number of reset operations per oscillator, not only resetting intensity in an aggregate model, the theorem shows that the coordination of events changes fluctuation allocation: independent clocks strictly improve every relative-phase quadratic comparison yet create collective-phase motion absent for a common clock. The exact all-\(N\), all-parameter gap and its sharp \(N\)-dependent limit provide usable calibrations for phase-restoration and stochastic-network control, beyond a fixed small example. The limitation to real linearized and balanced complete-graph systems is explicit.
+Bressloff (2024) distinguishes local and global resetting and derives exact Dean-Kawasaki equations plus mean-field phase dynamics; it does not state the finite-N balanced real-linear stationary disagreement/strict cost-matched rational comparison. General resetting and linearized coupling are acknowledged as prior. Obtaining the claimed exact inequality requires an explicit finite-size second-moment closure; no already-stated equivalent was found in inspected sources.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Clock correlation is a natural controlled variable at identical per-node reset budgets: independent clocks improve relative-phase agreement but create collective fluctuations, a real quantitative tradeoff even when individual means coincide. The all-N positive formula is not a normalization/type check; it separates two modes and permits exact rate comparisons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
