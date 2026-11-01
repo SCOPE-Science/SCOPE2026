@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducible finite checks
+# Independent mathematical audit
 
-This package uses exact integer and finite-set operations. No third-party modules, random trials, sampling, or timeouts are required for the stated certificate.
+## correctness
 
-Run:
+PASS
 
-```sh
-python3 verification/lcf_check.py --check-certificate verification/complete_certificate.json
-python3 verification/incidence_check.py --check-certificate verification/complete_certificate.json
-```
+For any k-vertex deletion set S of the 18-vertex cubic 27-edge graph, forest edge count implies 2k=9+e(S)+c≥10; equality k=5 forces deleted set independent and its complement a tree. Independently constructed the exact LCF edge set and checked all C(18,5)=8568 labeled subsets for complement acyclicity, yielding exactly 252 minimum sets. Independently enumerated every one-deletion/one-insertion neighbor pair; obtained 630 exchange edges, all degrees 5, components of orders 216 and six times 6, with each size-6 component K6. BFS over every vertex of the 216 component reproduced radius 6, diameter 7, the 108/108 eccentricity split, two exact distance vectors (1,5,14,37,56,71,32,0) and (1,5,14,36,52,69,37,2), and 108 diameter pairs. Pure bipartition states count 36 and exactly fill six small components. Parsed the actual complete_certificate.json two graph-automorphism generators and independently closed their subgroup to exactly 216 permutations. Completeness of finite enumeration follows because all 8568 possible k=5 subsets and every possible swap were explicitly checked; no infinite inference is made.
 
-The first checker constructs the graph from the stated LCF sequence and tests acyclicity with disjoint-set union. The second checker independently constructs the Pappus nine-point/nine-line incidence graph and tests acyclicity by leaf peeling. The latter also verifies an explicit eighteen-vertex isomorphism onto the LCF graph. Both test all 8568 five-vertex subsets and all legal single-vertex replacements. Both check their reconstructed complete vertex and edge lists against the enumerated certificate, and independently compute all shortest-path distances.
+## originality
 
-Reproduced facts: the graph has 18 vertices and 27 edges; the minimum decycling cardinality is 5 by the proved degree-count bound; 252 five-sets are decycling; the exchange graph has 630 edges, every state has degree 5, and there are six complete six-vertex components plus one connected 216-vertex component with 540 edges. The 216-state component has radius 6 and diameter 7, with 108 states in each eccentricity class and 108 unordered diameter pairs. The exhibited automorphism subgroup has 216 elements and orbits of sizes 36,108,108.
+PASS
 
-The certificate includes all 252 state masks and all 630 exchange edges indexed by the sorted state list. This is a complete finite certificate for the precise labeled graph and replacement rule. The checkers are ordinary mathematical programs, not independently issued proof certificates. They do not establish any generalization to other graphs or the absence of prior published equivalent results.
+PASS best of knowledge for the complete 252-state optimum-set exchange graph decomposition and metric data, not for the prior cubic bound or the general existence of disconnected FVS reconfiguration. A potentially same 18-vertex cubic example in Bousquet et al is a concrete substantial historical-priority risk: its full construction and any metric data were inaccessible due disconnected authorized VPN. The inspected theorem states disconnectivity only, which does not logically imply the seven-component counts or diameter, but no whole-document noncoverage is asserted.
+
+## value
+
+PASS
+
+Feedback-vertex-set exchange is a natural combinatorial reconfiguration invariant, and the Pappus graph is a canonical 18-vertex symmetric cubic incidence graph. Complete exhaustive counts, exact component structure and distance profile on its entire optimum solution space are independently useful finite classification results, even if disconnectedness for a possibly related graph was already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

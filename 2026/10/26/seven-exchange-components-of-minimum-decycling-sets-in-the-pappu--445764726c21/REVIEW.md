@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-A degree-count identity for any decycling set \(S\) gives \(2|S|=9+e(S)+c(P-S)\) with \(c(P-S)\ge1\). Hence five is a sharp lower bound; equality forces an independent deletion set and an induced tree complement. Two standalone and differently encoded finite enumerations inspect every one of the 8568 five-subsets, produce exactly 252 feasible subsets, compare identical sorted feasible masks and all 630 reconfiguration edges, and verify the seven components and both distance profiles. The certificate and executable checks are embedded, and the decoded programs were run. Nothing is inferred from partial enumeration or a timeout.
+## correctness
 
-## Originality — PASS, subject to recorded priority uncertainty
-Bau [1] provides the general decycling framework and lower bound; Nedela–Seifrtová–Škoviera [2] provide broad cubic-graph structural existence. Neither specifies the exact Pappus state space or its exchange graph. Bousquet et al. [3] directly study the same reconfiguration operation and prove existence of disconnected cubic examples at the same order and optimum size, but the accessible portions do not identify their example as Pappus or give this exact classification. The main claim is **not** the already known cubic bound nor generic disconnectedness: it is the exact \(216\sqcup 6\times6\) component classification, purity/mixed-side boundary, and sharp radius/diameter with distance profiles. Full-text access to [3] was not achieved; an unindexed equivalent computation is possible. These are publication-priority risks, not evidence of coverage.
+PASS
 
-## Mathematical value — PASS
-The paper [3] motivates connectivity of optimum feedback-vertex configurations in subcubic graphs, for which optimum-state reconfiguration can fail even when non-minimum states remain connected. The Pappus graph is an eighteen-vertex cubic symmetric incidence graph, making it a natural concrete benchmark. The exact six-island / one-core split identifies the obstructing pure-side solutions, while the two distinct core eccentricity classes quantify reachable optimal configurations. This is a natural complete finite classification rather than an arbitrary subcase or a restatement of the minimum cardinality.
+For any k-vertex deletion set S of the 18-vertex cubic 27-edge graph, forest edge count implies 2k=9+e(S)+c≥10; equality k=5 forces deleted set independent and its complement a tree. Independently constructed the exact LCF edge set and checked all C(18,5)=8568 labeled subsets for complement acyclicity, yielding exactly 252 minimum sets. Independently enumerated every one-deletion/one-insertion neighbor pair; obtained 630 exchange edges, all degrees 5, components of orders 216 and six times 6, with each size-6 component K6. BFS over every vertex of the 216 component reproduced radius 6, diameter 7, the 108/108 eccentricity split, two exact distance vectors (1,5,14,37,56,71,32,0) and (1,5,14,36,52,69,37,2), and 108 diameter pairs. Pure bipartition states count 36 and exactly fill six small components. Parsed the actual complete_certificate.json two graph-automorphism generators and independently closed their subgroup to exactly 216 permutations. Completeness of finite enumeration follows because all 8568 possible k=5 subsets and every possible swap were explicitly checked; no infinite inference is made.
 
-## Evidence and limits
-The package contains two independently implemented complete finite checks, the full enumerated state/edge certificate, and the underlying 2007, 2023 decycling and 2023 reconfiguration references. The exact status is self-review, not independent validation. See `RESULT.md` for hypotheses, proof, reproducibility and priority limitations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for the complete 252-state optimum-set exchange graph decomposition and metric data, not for the prior cubic bound or the general existence of disconnected FVS reconfiguration. A potentially same 18-vertex cubic example in Bousquet et al is a concrete substantial historical-priority risk: its full construction and any metric data were inaccessible due disconnected authorized VPN. The inspected theorem states disconnectivity only, which does not logically imply the seven-component counts or diameter, but no whole-document noncoverage is asserted.
+
+## value
+
+PASS
+
+Feedback-vertex-set exchange is a natural combinatorial reconfiguration invariant, and the Pappus graph is a canonical 18-vertex symmetric cubic incidence graph. Complete exhaustive counts, exact component structure and distance profile on its entire optimum solution space are independently useful finite classification results, even if disconnectedness for a possibly related graph was already known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
