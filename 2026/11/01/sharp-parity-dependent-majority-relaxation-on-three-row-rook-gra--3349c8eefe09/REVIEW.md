@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The exact reduction from \(3n\) vertex bits to eight initial column types is proved by row/column symmetry, and its recurrence reproduces each vertex's degree-\(n+1\) neighbor count. Two generated quantifier-free linear-integer counterexample formulas, with arbitrary unbounded strip width, were independently solved as unsatisfiable by the Z3 decision procedure, proving the claimed eventual-period upper bounds conditional on standard SMT solver soundness. Explicit all-width witnesses prove sharpness, and vertex-level and multinomial checkers agree on 299,584 labelled states. The exact census sum is a direct consequence of type-profile multiplicities.
+
+**Originality: PASS (qualified).** Goles–Olivos covers eventual period at most two and general bounds but not these exact three-row sharp transient cutoffs. The full-text sections inspected of arXiv:1405.2486 concern general/unimodular and random graphs, and of arXiv:1508.03519 concern general and module-sensitive voting times. The existing two-row matched-clique result uses \(K_2\square K_n\), and the isolated \(4\times4\) rook computation is not an infinite three-row theorem; neither implies the current eight-type expression or even-width four-step witnesses. Relevant alias/implication searches did not expose a stronger indexed claim, but this does not prove historical uniqueness. One original general threshold article was available only in bibliographic/abstract form.
+
+**Value: PASS.** This natural line-graph family \(L(K_{3,n})\) has increasing size and degree, yet a uniform sharp time cutoff, including a genuine odd/even jump and a delayed nonfixed recurrent layer in even widths. The census provides every exact first-entry/period count using polynomially many frequency profiles, with concrete examples that separate the period-one and period-two basins. The effect is not merely the general period-two theorem or a finite graph recomputation.
+
+The proof uses a reproducible machine-assisted Presburger decision rather than a printed human-readable solver-independent contradiction certificate. This is a genuine scientific verification limitation, not evidence of an independent audit. Wider rook boards, alternative ties and historical priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.

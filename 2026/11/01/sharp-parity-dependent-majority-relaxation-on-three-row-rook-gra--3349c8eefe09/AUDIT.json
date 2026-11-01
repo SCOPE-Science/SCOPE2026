@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "Every group of originally identical 3-bit column types evolves identically; the update is exactly a row sum less the local bit plus the two vertical bits. The eight-profile reduction and multinomial weight recover all labelled configurations. Two fully specified unbounded QF_LIA negations of the claimed iterate identities were checked unsatisfiable against libz3, yielding F^5=F^3 for all odd widths >=3 and F^6=F^4 for all even widths >=2. The parameterized 3-group trajectories realize 3 and 4 steps in the stated ranges. All 299,584 configurations for widths 2..6 were independently evolved at vertex level and matched to the profile census; the small even cases were exhaustive. Limit: solver soundness is trusted; no hand-written independent refutation of the SMT queries exists.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classic Goles-Olivos period-two theorem gives eventual least period at most 2 on finite symmetric threshold networks, but no specific uniform cutoff of 3/4 for L(K_{3,n}).",
+        "Benjamini et al., arXiv:1405.2486, introduction Section 1 and Sections 2-3, deal with infinite unimodular and random graphs; Kaaser et al., arXiv:1508.03519, Sections 1 and 3 analyze general O(|E|) and module-sensitive bounds."
+      ],
+      "reasoning": "General eventual period two is strictly weaker than a sharp uniform first-entry time, and broad general bounds do not provide the exact parity threshold or every layer count. The present proof separately establishes its strong identity F^5=F^3 (odd) or F^6=F^4 (even) and its sharpness.",
+      "searches": [
+        "arxiv:1405.2486v1",
+        "arxiv:1508.03519v1",
+        "majority dynamics general period two rook graph voting time symmetric modules"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1405.2486",
+      "https://arxiv.org/html/1508.03519v1",
+      "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+      "https://doi.org/10.1016/0012-365X(80)90121-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier two-row matched-clique orbit counts show a parity anomaly in K_2 square K_n but do not imply any 3-row threshold, witness, or eight-type sum.",
+        "General period-two implies only existence of a future t depending on the configuration; it does not imply t <=3/4 independently of n.",
+        "The full 2015 primary text contains generic clique constructions and a module bound, with no theorem identifying exact n-even four-step witnesses in three-row rook graphs."
+      ],
+      "reasoning": "The new claim has strong extra quantifiers (every n, every 3n-bit configuration, an explicit sharp t) and full state-count formulas. Prior cited implications stop at two-row or general eventual period two. No dominating result was encountered in the inspected material, but search failure is not uniqueness proof.",
+      "searches": [
+        "synchronous strict majority on Cartesian product K_2 square K_n rook graphs two-row exact first-entry period-two basins",
+        "sharp three-step versus four-step majority convergence on three-row rook strips K3 Cartesian Kn parity exact transient",
+        "parallel synchronous majority on line graphs of K3,n exact period two first entry time four",
+        "arxiv:1508.03519v1 majority voting time module"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The rook graph K_3 square K_n is the line graph of K_{3,n}; those are exactly graph-isomorphic representations of the current object.",
+        "The inspected arXiv:1508.03519 first sections concern general majority voting-time bounds and module reductions, not an eight-type all-layer count.",
+        "The exact earlier K_2 square K_n result has two rows, four initial column types, and a different neighbor threshold."
+      ],
+      "reasoning": "The line-graph and three-by-n rook descriptions are identical and were checked together. Earlier two-row matching-connected cliques do not contain the third row or the degree n+1 threshold; the former conclusions do not logically determine the unbounded four-step three-row witness.",
+      "searches": [
+        "synchronous majority dynamics rook graph 3 by n K3 Cartesian Kn exact phase period two transient",
+        "parallel synchronous majority on line graphs of K3,n exact period two first entry time four",
+        "\"rook graph\" \"majority dynamics\" period two",
+        "\"K_2\" \"K_n\" \"majority dynamics\" exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A directly comparable exact computation is known for the isolated 4-by-4 rook graph, not for the family with exactly three rows and arbitrary width.",
+        "Relevant similarity results concern parity automata on different graph families or majority dynamics on different objects."
+      ],
+      "reasoning": "An isolated square-board table is neither an exact expression for all three-by-n first-entry layers nor a uniform sharp bound in n. Similar database entries about rook-graph homology concern a different invariant.",
+      "searches": [
+        "synchronous majority dynamics rook graphs three rows arbitrary columns consensus counterexample",
+        "parallel majority rule rook graphs 3 x n sharp relaxation time",
+        "parallel majority rule rook graphs 3 x n sharp relaxation time"
+      ]
+    },
+    "rationale": "Closest general primary results establish eventual 2-periodicity, worst-time bounds or random-graph behavior but not the sharp three-row parity law. The accessible earlier two-row matched-clique claim has different adjacency and does not imply the three-row law. A finite 4x4 rook-graph table cannot determine the 3xn family or unbounded witnesses. Originality is best-knowledge conditional on inspected sources, not historical certification.",
+    "residual_risks": [
+      "Unindexed or differently named exact classifications of majority dynamics on K_3 square K_n could exist.",
+      "Original full text of the foundational 1980 short article was not available; only its abstract was inspected.",
+      "SMT unsatisfiability has not been independently checked by a second proof-producing solver."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS eventual period <=2, NOT the sharp three-row uniform entry cutoff or exact profile enumeration",
+        "evidence": [
+          "Definition (1.1), Theorem 1.1, Sections 2-3: finite period-two and random/unimodular results."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Full HTML introduction, Section 2 period-two theorem/proof, Section 3 random-graph results and full-page headings",
+        "method": "full HTML text inspected, theorem-by-theorem implications compared",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Broadest relevant classical extension of finite majority period two"
+      },
+      {
+        "assessment": "Generic voting-time and module bounds do not imply exact 3-row parity cutoff, full first-entry counts, or exact four-step witnesses",
+        "evidence": [
+          "Abstract; Section 3.1 Theorem 3.5 general bound; Section 3.2 influence of symmetry/families; Section 2 clique gadget discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1508.03519v1",
+        "material_read": "Full HTML text with abstract/introduction, section 2 clique examples, section 3 general bound and module/family reduction and their proofs",
+        "method": "full primary preprint HTML with targeted inspection of clique, module and complete graph claims",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Sharp-time theorem might dominate proposed constant-bound result"
+      },
+      {
+        "assessment": "Abstract asserts eventual fixed or 2-cycle for symmetric thresholds, but its full-text details were not inspected; treated as background only",
+        "evidence": [
+          "University research metadata: Discrete Mathematics volume 30 (1980), pages 187-189; abstract states period-two result."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Metadata and full abstract only; original article full text not accessed",
+        "method": "university bibliographic abstract and citation record",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original period-two theorem and its scope"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3349c8ee-fe09-4576-ba8a-b7389646f8e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural connected, increasing-degree graph L(K_{3,n}) has a sharp size-independent relaxation bound with a genuine parity split: all odd widths have largest first-entry time 3, whereas every even width >=6 has an explicit 4-step witness. The exact eight-type multinomial formula partitions all 2^(3n) labelled configurations by first entry and least period at polynomial profile cost. This reveals a nontrivial dynamical boundary not supplied by the general finite-graph period-two theorem.",
+    "status": "PASS"
+  }
+}
