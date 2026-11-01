@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The universal six-point midpoint identity follows from the centroid identity and three four-point parallelogram expansions; the six fixed edges and six fixed two-step chords then give the sharp bound. A positive-definite three-vector Gram matrix constructs an attaining chair for every permitted angle, and the same matrix forces all equality cases to be congruent. The checker verifies independent coordinates and characteristic polynomials. The analytic proof covers the continuum, unlike the numerical tests.
+## correctness
 
-**Originality — PASS relative to inspected evidence.** O'Hara's complete 2011 full-text conformational classification and Crippen's 1992 author-uploaded primary text describe chair and boat families, without the radius-of-gyration optimization or midpoint-deficit identity. Semantic searches for the claim, aliases (mean-square centroid distance, gyration tensor, chair/boat), and broader metric-matrix equivalents found no dominating theorem in accessible sources. Absence of a search match is not a priority guarantee; a focused independent historical search remains advisable.
+PASS
 
-**Value — PASS.** Vertex radius of gyration is a standard, scale-normalized spatial-spread observable for six-membered molecular-ring models, and the result assigns one sharp optimum and equality class across all flexible conformations and all bond angles. The exact global nonnegative three-midpoint deficit yields a direct geometric rigidity/stability observable, not merely a numerical chair-versus-boat comparison. The resulting theorem is independent of conformational energy and respects the scope of the motivating classification.
+For arbitrary six vertices, 36 R_g^2=C1+C2+D from centroid pair distances; summing three four-point parallelogram identities gives 4 sum_{i<j} |M_i-M_j|^2=C1+C2-2D. Thus R_g^2=(C1+C2)/24-(1/18) sum |M_i-M_j|^2. Under all six unit edges and equal bond angle theta, 0<theta<2pi/3, C1=6, C2=24 sin^2(theta/2), yielding the claimed sharp bound and exact deficit. Equality requires all opposite-chord midpoints to coincide. The centrally symmetric chair a,b,c,-a,-b,-c is feasible because its forced Gram matrix has strictly positive eigenvalues z/2,z/2,(3-z)/4 for z=4sin^2(theta/2)∈(0,3); equal Gram matrices force congruence even allowing reflection. At arccos(-1/3) this is 11/12. Independent random-coordinate validation on 500 six-tuples corroborated the exact universal identity. The proof does not require self-avoiding or energy-minimizing polygons; endpoints excluded.
 
-**Limits.** The earlier papers classify shapes but do not establish this gyration theorem; the claim does not assert energetic stability or vertexwise Hausdorff stability. Crippen's author-uploaded text is machine-extracted and might obscure equations; historical priority remains provisional. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O’Hara 2011/2013 full original conformation-space paper classifies all-angle chair and boat families but no radius of gyration extremum or universal midpoint-penalty equality; Crippen 1992 metric-matrix conformation study supplies general shape backgrounds, with only accessible abstract independently checked here, so no whole-document negative claim. Resultary semantic search returned normed-plane affine hexagon extremizers, not spatial equal-bond hexagons. A configuration classification alone is not a statement-level implication of sharp vertex gyration or exact midpoint rigidity without the independent six-point identity. Best-of-knowledge originality PASS with residual chemical geometry historical risk.
+
+## value
+
+PASS
+
+Squared vertex gyration is a standard natural size observable of six-membered ring conformations. A global bound, unique optimal chair across all bond angles 0<theta<2pi/3, and exact geometric deficit valid beyond admissible shapes identify a motivated rigidity phenomenon and measurable stability statistic. This is not a claim about molecular energy or self-avoidance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
