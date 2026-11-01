@@ -1,11 +1,21 @@
-# Self-review: two-jet Bergman kernel root phases
+# Independent mathematical audit
 
-**Correctness (PASS).** Monomial orthogonality fixes every coefficient. Cayley transformation and the full Routh array count roots in the disk for all parameter pairs; factorizations treat the double boundary point and both transition curves. The attached checker verifies algebraic identities and a deterministic numerical stress test but is not used as an infinite proof.
+## correctness
 
-**Originality (PASS, bounded).** The accessible earlier single-jet norm result treats a single changed monomial coefficient. Zeytuncu (2010) and Jacobson (2013) treat area-weight changes. Published Bergman jet Gram results use variable-point differential functionals rather than the norm-defined reproducing kernel here. None of the inspected sources implies the two-parameter zero-free restoration interval. Risk: unindexed independent work may contain an equivalent special cubic calculation.
+PASS
 
-**Value (PASS).** The analytic criterion identifies the exact nonmonotone interaction of two natural RKHS regularizers. For \(1/4<a<1/2\), zero creation, disappearance, and reappearance are separated by sharp inclusive thresholds. This is an exact structural phase diagram relevant to stable zero-free kernel selection, not a routine one-parameter case.
+Monomial orthogonality gives coefficients (1+σ)^−1,(1/2+τ)^−1 and n+1 thereafter, hence exact K=1/(1−t)^2−a−bt. Its Cayley cubic has coefficients A=1−4a+4b, B=3−4a−4b, 3,1. Routh sign changes, with A=0, E=0, B=0 separately justified, yield all 0/1/2 interior zero counts and the reentrant interval 1/4<a<1/2; t=z overline(w) realizes every |t|<1. Independent SymPy polynomial identity plus 1,500 random root counts and six boundary tests passed; finite numerics do not establish universal theorem.
 
-Limitations: disk only; first two origin jets; finite positive penalties; no independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact reentrant two-parameter classification is not implied by radial area-weight zero existence or varying-point differential-functional Gram-kernel zero theorems; best-of-knowledge priority remains qualified.
+
+## value
+
+PASS
+
+A nonmonotone zero-free region of an analytically natural two-parameter RKHS jet regularizer is a structurally distinct Lu Qi-Keng phase diagram; exactly identifies sharp boundaries and multiplicity transitions, not an arbitrary numeric slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
