@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "Exact verification of piecewise Feres branch weights against the enumerated complete graph yields reversible sine weights and two parallel parity paths. Both path resistances are 4 alpha^-2 log n + O(alpha^-2); parity-local weighted Poincare is O(alpha^-2). Variational upper/lower Rayleigh inequalities then yield 1-lambda2 ~ 2 alpha^2/log n with correct 2 pi^2 n^-2 constant. Finite branch-matrix and edge checks, stationarity, detailed balance and symmetric eigenvalues pass in the standalone checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feres--Zhang 2012 treats spectral gaps for cells with curved bump microstructures and curvature parameter K, not a shrinking rational triangular angle lattice.",
+        "Chumley et al. 2020 derive weak-scattering Legendre operator for smooth scattering microstructures, with a different operator family and smooth-angle scaling.",
+        "Vales 2022 arXiv:2212.00872 extends qualitative circular billiard mixing to other constant-curvature surfaces, without an angular spectral-gap estimate."
+      ],
+      "reasoning": "An estimate for a different family cannot subsume the asserted sharp constant without identifying the same finite operator and parameter correspondence; no such reduction occurs in the inspected theorems. General results on the existence of a spectral gap do not determine the asymptotic of this precise rational orbit.",
+      "searches": [
+        "random billiard rational triangle weak scattering singular Legendre diffusion two parity classes n^2 logarithmic relaxation",
+        "Feres Zhang 2012 spectral gap class random billiards",
+        "Feres--Zhang 2012 Theorem 1, Section 1.2 spectral-gap examples",
+        "Chumley--Feres--Garcia German 2020 §2.4 Legendre approximation"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2005.01892",
+      "https://www.math.wustl.edu/~feres/random_billiard.pdf",
+      "https://arxiv.org/abs/2212.00872",
+      "https://www.math.wustl.edu/~feres/spectralgapnew.pdf",
+      "https://arxiv.org/abs/2005.14318",
+      "https://people.math.umass.edu/~hongkun/small.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Feres identifies the rational finite-orbit dynamics and stationary sine law; he does not calculate the rational asymptotic second eigenvalue.",
+        "Both Vales accounts establish rational-vs-irrational qualitative mixing; they do not prescribe conditional relaxation inside a fixed rational class.",
+        "The new theorem is quantitatively different from global mixing and expressly does not assert the latter."
+      ],
+      "reasoning": "A theorem that the full process is nonmixing for rational parameter can coexist with exponential within-class lazy relaxation, so there is no implication conflict. The source formulas allow derivation of the new asymptotic, but do not themselves state it. The special half-grid class is geometrically natural yet the logarithmic constant requires a substantial calculation.",
+      "searches": [
+        "Feres random angle Markov operator finite rational orbit sin stationary angular chain gap asymptotic 2 pi squared over n squared log n",
+        "two parity angular strands circle triangular Feres billiard rare grazing transition conductance effective electrical network relaxation logarithm",
+        "Feres (2007) §§2.2,6",
+        "Vales and Pinto-de-Carvalho (2020) Theorem 3.11 and §4",
+        "Vales (2022) Main Theorem, §§3,6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Feres (2007), §2.2 explicitly identifies finite dihedral rational orbits; §6 gives a general Dirichlet variational formula and states that an explicit gap estimate is not extracted there.",
+        "2020 paper gives the same four angular maps, stationary sine law, and mixing criteria; no half-grid second eigenvalue or sharp constant is stated.",
+        "Direct comparison also searched for two-parity network, effective resistance, and inverse n^2 log n relaxation."
+      ],
+      "reasoning": "A general spectral-gap Rayleigh formula does not imply an evaluated asymptotic; the new result calculates a specific finite-class eigenvalue using a two-arm resistor reduction. The mixed periodicity of P_n and laziness are explicitly distinguished. Neither the exact leading constant nor the logarithmic scaling was located in inspected same-map sources.",
+      "searches": [
+        "Feres Vales Pinto de Carvalho rational-angle random billiard angular Markov chain θ=(j+1/2)π/n spectral gap n^-2 log n parity two-track bottleneck",
+        "rational Feres triangular scatterer angle α=π/n finite Markov chain reversible sine weighted cycle effective resistance spectral gap",
+        "Feres random angle Markov operator finite rational orbit sin stationary angular chain gap asymptotic 2 pi squared over n squared log n",
+        "two parity angular strands circle triangular Feres billiard rare grazing transition conductance effective electrical network relaxation logarithm",
+        "Feres 2007 §2.2 finite dihedral orbit; §6 Rayleigh variational formula",
+        "Vales--Pinto-de-Carvalho 2020 §3.1 branch maps and §4 circular billiard"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest indexed mathematical-record matches involved ellipsoidal billiards, circle Fourier shape resonances, and unrelated finite spectral gaps; none gives a table for these Feres half-grid matrices.",
+        "The tested n=7,8,9,12,20,40,80,120 eigenvalues were independently computed from the original branch definition in check_feres.py; they are not presented as previously published tables."
+      ],
+      "reasoning": "No exact matrix eigenvalue table or prior asymptotic specific to the displayed n-point angular orbit was identified; absence of a result in one index is not a uniqueness certificate.",
+      "searches": [
+        "Feres Vales Pinto de Carvalho rational-angle random billiard angular Markov chain θ=(j+1/2)π/n spectral gap n^-2 log n parity two-track bottleneck",
+        "rational Feres triangular scatterer angle α=π/n finite Markov chain reversible sine weighted cycle effective resistance spectral gap",
+        "spectral gap discrete sine invariant birth death chain doubled step plus reflecting swap endpoint Cheeger logarithmic n squared",
+        "Feres random map rational n finite Markov chain spectral gap asymptotic log n small angle"
+      ]
+    },
+    "rationale": "The inspected 2007 original Feres billiard chapter, 2020 circular embedding and 2022 constant-curvature extension identify the maps, finite rational dihedral orbits, invariant sine law and qualitative mixing but do not state this logarithmic n-dependent finite-class spectral gap or constant. The other inspected random-billiard spectral results use different curved microstructures/Legendre limits, and the indexed mathematical-record comparisons yielded no equivalent or strictly stronger theorem. Bibliographic priority remains a nonzero risk.",
+    "residual_risks": [
+      "Additional 2007–2026 billiard/finite weighted-cycle work could independently contain equivalent logarithmic gap behavior without using Feres model keywords.",
+      "The 2010 curved-cell paper was compared in accessible abstract/introduction only, not comprehensively all internal lemmas; geometry differs, but priority remains a residual risk.",
+      "Finite numerical eigenvalues are corroborative and not a substitute for analytical asymptotics."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS definition and qualitative rational-versus-irrational dynamics, NOT the sharp conditional second-eigenvalue asymptotic",
+        "evidence": [
+          "§3.1 gives T1..T4 and p1..p4; rational orbit dihedral finiteness; §4 says angular marginal equals Feres map."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.01892",
+        "material_read": "§3.1 four branch probabilities, invariant sine measure, rational orbit proposition, Theorem 3.11, §§4 and 6 circular law and mixing statements",
+        "method": "Open-access HTML: relevant sections and theorem statements read and cross-compared",
+        "title": "A Random Billiard Map in the Circle",
+        "trigger": "Exact same triangular reflection maps and circular-billiard application"
+      },
+      {
+        "assessment": "COVERS exact underlying random angle model and abstract gap variational principle, not the explicit n^-2/log n asymptotic; fully credited",
+        "evidence": [
+          "§2.2 identifies exactly the rational orbit; near p.32 the text explicitly says an estimate of the gap was not extracted from its theorem."
+        ],
+        "identifier_or_url": "https://www.math.wustl.edu/~feres/random_billiard.pdf",
+        "material_read": "§2.2 original four angular maps and rational dihedral classes; §6 finite/infinite Markov operator spectral theorem and gap variational formula, pp.7-9 and 31-32",
+        "method": "Author-hosted full PDF page images and parsed relevant substantial sections; inspected theorem and Dirichlet form",
+        "title": "Random Walks Derived from Billiards",
+        "trigger": "Original 2007 Feres source is stronger novelty candidate and contains spectral analysis"
+      },
+      {
+        "assessment": "Qualitative mixing iff irrational parameter, no finite-class eigenvalue asymptotic; not dominating",
+        "evidence": [
+          "Main Theorem/§6 says mixing iff alpha/pi irrational; no occurrence of spectral gap/eigenvalue."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2212.00872",
+        "material_read": "Introduction/Main Theorem, §3 random Markov chain, §4 circle map, §§5–6 ergodic and mixing theorems; relevant text inspected",
+        "method": "ArXiv full-text page as exposed through public abstract URL; searched spectral gap, eigenvalue, convergence rate",
+        "title": "Random circular billiards on surfaces of constant curvature: Pseudo integrability and mixing",
+        "trigger": "Same original Feres angle kernel applied to surfaces of constant curvature"
+      },
+      {
+        "assessment": "Different smooth/curved microstructure families and curvature K; not a finite rational triangular lattice spectral asymptotic",
+        "evidence": [
+          "Theorem 1 gives curvature K bounds and §§1–2 depict circular bumps and walls, not the triangular half-grid."
+        ],
+        "identifier_or_url": "https://www.math.wustl.edu/~feres/spectralgapnew.pdf",
+        "material_read": "Abstract, Introduction, Theorem 1 and curved-cell examples §§1.1–1.2, and §5 spectral-gap theorem statements",
+        "method": "Author-hosted PDF full page images and parsed substantive sections; searched triangle/microstructure/spectral gap",
+        "title": "Spectral gap for a class of random billiards",
+        "trigger": "Title and operator spectrum could cover the result more generally"
+      },
+      {
+        "assessment": "Different operator family with smooth Legendre diffusion scaling, not conditional half-grid n-point Feres scattering chain",
+        "evidence": [
+          "§2.4 estimates gamma_h ≈ 4h under smooth geometric weak-scattering assumptions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.14318",
+        "material_read": "Introduction, §2.4 Legendre approximation, pp.9–10 approximate gap formula, §4 relevant operator spectrum",
+        "method": "OA full PDF parsed relevant theorem and related-work passages and page images",
+        "title": "Knudsen Diffusivity in Random Billiards: Spectrum, Geometry, and Computation",
+        "trigger": "Directly related weak-scattering spectral-gap and Legendre approximations"
+      },
+      {
+        "assessment": "Studies curvature-parametrized smooth cells and spherical Laplacian limit, not the same finite rational reflection class; deeper full-text comparison residual risk",
+        "evidence": [
+          "Abstract states smooth scaled-curvature K microstructure and approximate spherical Laplacian eigenvalues."
+        ],
+        "identifier_or_url": "https://people.math.umass.edu/~hongkun/small.pdf",
+        "material_read": "Primary full-text abstract and introduction summary",
+        "method": "Author-hosted full-PDF search preview; abstract and key hypotheses inspected",
+        "title": "The Spectrum of the Billiard Laplacian of a Family of Random Billiards",
+        "trigger": "Plausible specific spectral result by same authors (2010)"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a369cb1-22d2-4119-bc13-aa1359f63f0f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2020 random circular billiard has natural finite invariant angle classes for rational triangular scattering. The exact class spectral gap measures relaxation that the previously qualitative mixing/nonmixing dichotomy does not quantify. An unanticipated logarithmic correction and sharp 2 pi^2 coefficient explain an arithmetic parity bottleneck from grazing angles, providing a structural benchmark rather than a routine isolated matrix evaluation.",
+    "status": "PASS"
+  }
+}
