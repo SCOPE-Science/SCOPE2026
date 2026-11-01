@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The polar section/projection identity reduces the inradius to (3-(a-b-c)^2)^(-1/2) for ordered absolute Haar-normal coordinates. The positive tail is evaluated by a directly integrable spherical polar-coordinate region, and the negative tail by an explicit curvilinear spherical triangle and Gauss–Bonnet; all factors, scales, and interval boundaries are accounted for. The collapsing triangle has tangent-plane area \\(9\\sqrt3/8\\) times \\( (1/\\sqrt3-t)^2\\), which yields the claimed first-order continuous differentiability but second-order non-differentiability radius threshold and \\(-256\\sqrt3/\\pi\\) second-derivative jump. The independent polygon-edge verifier passed 533 checks, including 500 geometrically reconstructed sections and 150000 sphere samples. The universal statement is proven analytically, not by finite tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Brazitikos–Pandis, arXiv:2606.07163, full text: extremal volumes of restricted sections.",
+        "Hmadi–Liakopoulos, arXiv:2609.27757, abstract: negative-moment random-projection inradius estimates, not an evaluated 3D section CDF.",
+        "Full RESULT.md of public exact octahedral section diameter law compares a different invariant."
+      ],
+      "reasoning": "Known sharp volume bounds, diameter distributions, and random-projection inradius estimates do not imply an exact section-inradius distribution. The diameter depends on a/c while inradius depends on a-b-c; choose normals with c=0 and varying b/a to see diameter stays 2 yet inradius varies.",
+      "searches": [
+        "random section octahedron inradius section and projection circumscribed cube",
+        "Random central plane section of three-dimensional octahedron l1 ball inradius distribution exact phase transition at sqrt(3/8), cube polar projection circumradius, spherical triangle parallel offset",
+        "On random diameters of convex bodies exact section distribution"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2606.07163",
+      "https://arxiv.org/abs/2609.27757",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-width-distribution-of-the-unit-edge-regular-octahedron--953206d3d8c4/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Public exact octahedral-projection-inradius formula has a different unit-normal deterministic radius and fails to equal ours on body-diagonal normals.",
+        "Public octahedral-section diameter formula uses smallest/largest absolute-coordinate ratio, while ours uses all three absolute coordinates.",
+        "Published octahedral width law is proportional to maximum absolute normal coordinate, not a planar-section inradius.",
+        "The two inradius distributions themselves differ at threshold 3/5, so the projection CDF cannot already be the claimed section CDF."
+      ],
+      "reasoning": "No cited source theorem implies the section CDF or smoothness jump. Equal values of a different statistic can correspond to different present radii; an exact CDF of that statistic is therefore insufficient.",
+      "searches": [
+        "Euclidean inradius of a random central plane section of the three-dimensional regular octahedron, complete CDF and second derivative transition",
+        "random projected cube circumradius distribution absolute a minus b minus c spherical signed sums",
+        "Random central plane section of three-dimensional octahedron l1 ball inradius distribution exact phase transition at sqrt(3/8), cube polar projection circumradius, spherical triangle parallel offset"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Exact polarity: inradius of O∩H equals reciprocal circumradius of projected cube; actual radius involves |a-b-c|.",
+        "Full RESULT.md of 2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5: polar involves cube *section*, not projection.",
+        "Evaluating both published and new exact CDFs at radius 3/5 gives about 0.18146 for projected-octahedron inradius versus about 0.77964 for section-octahedron inradius."
+      ],
+      "reasoning": "Polarity changes both body and operation. A theorem for octahedron projections does not determine octahedron sections: at U=(1,1,1)/sqrt(3), the projection inradius is 1/sqrt(2) and the section inradius sqrt(3/8). None of the found duality representations covers the statistic |a-b-c|.",
+      "searches": [
+        "Euclidean inradius of a random central plane section of the three-dimensional regular octahedron, complete CDF and second derivative transition",
+        "random projected cube circumradius distribution absolute a minus b minus c spherical signed sums",
+        "Exact Haar inradius law for planar slices of B_1^3, reciprocal circumradius of projected B_infinity^3 and CDF by Gauss Bonnet"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus matching records yielded octahedral projection inradius, section diameter, and directional width, but no section inradius table.",
+        "Public full RESULTS of three closest records independently inspected and their formulas compared."
+      ],
+      "reasoning": "No retrieved table asserts the CDF for the dual-projected-cube circumradius, its three-coordinate signed-sum formulation, or the second-derivative transition. Search incompleteness remains a historical-priority risk.",
+      "searches": [
+        "geometric probability inscribed circle radius central octahedron section cross-polytope",
+        "Distribution of minimum absolute signed coordinate sum |max(|u_i|)-other two| for u uniform sphere; spherical cube vertex projection radius",
+        "Exact distribution Haar random circumradius of orthogonal planar projection of a three-dimensional cube, or equivalently inradius of central planar section of regular octahedron, exact spherical probability"
+      ]
+    },
+    "rationale": "Full mathematical comparison of three very close published formulas confirms none covers the inverse circumradius of a *projected cube* or its CDF; the exact inradius of a *projected octahedron* instead gives inverse radius of a *cube section*. All indexed published-finding corpus and primary literature hits were implication-checked; abstract-only and unindexed earlier work are acknowledged residual historical-priority risks.",
+    "residual_risks": [
+      "Unindexed classical integral-geometric calculations may contain the same 3D distribution under a different name.",
+      "The full text of arXiv:2609.27757 could not be inspected; its abstract does not claim the exact distribution.",
+      "Semantic and bibliographic search coverage is incomplete and is not a proof of global novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: section volume extrema do not yield complete inradius law",
+        "evidence": [
+          "Primary classification 52A40, 52A38; treats section volume rather than inradius distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.07163",
+        "material_read": "Complete available arXiv HTML text, including introduction, statements, and section-volume arguments",
+        "method": "Opened arXiv full HTML and compared subject, invariants, and theorem statements",
+        "title": "Restricted Hyperplane Sections of the Cross-Polytope and the Simplex",
+        "trigger": "Direct 2026 literature on regular-crosspolytope section extrema"
+      },
+      {
+        "assessment": "NOT_COVERING: projection octahedron is polar to cube section; target is octahedron section polar to cube projection",
+        "evidence": [
+          "At the diagonal normal, projection and section inradii differ, 1/sqrt(2) versus sqrt(3/8)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-inradius-law-for-random-planar-projections-of-the-regular--5fbcddcea5e5/RESULT.md",
+        "material_read": "Full public RESULT.md, including theorem, polar proof, and detailed formulas",
+        "method": "Read complete raw GitHub RESULT.md through public repository connector",
+        "title": "Exact inradius law for random planar projections of the regular octahedron",
+        "trigger": "Closest published-finding corpus semantic hit: same body and term inradius"
+      },
+      {
+        "assessment": "NOT_COVERING: section diameter only depends on extreme normal coordinates, and cannot determine inradius",
+        "evidence": [
+          "Full RESULT.md shows diameter 2 sqrt(a²+c²)/(a+c) with a=smallest,c=largest; compare q=a-b-c for inradius."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-haar-diameter-law-for-central-sections-of-the-regular-octa--4948185eba2f/RESULT.md",
+        "material_read": "Full public RESULT.md, including exact coordinate formula and distribution",
+        "method": "Read complete raw GitHub RESULT.md and compared pointwise dependence on normal",
+        "title": "Exact Haar diameter law for central sections of the regular octahedron",
+        "trigger": "Same central octahedron sections and Haar measure, different radius invariant"
+      },
+      {
+        "assessment": "NOT_COVERING: width is a support-function statistic, not a section inradius",
+        "evidence": [
+          "In the cited normalization width=sqrt(2) max_i |U_i|; our inradius is (3-(a-b-c)^2)^(-1/2)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/11/SCOPE-exact-width-distribution-of-the-unit-edge-regular-octahedron--953206d3d8c4/RESULT.md",
+        "material_read": "Full public RESULT.md and proof",
+        "method": "Read complete raw GitHub RESULT.md and compared random width with random-section inradius",
+        "title": "Exact width distribution of the unit-edge regular octahedron",
+        "trigger": "Exact Haar octahedral geometric-probability law with an interior transition"
+      },
+      {
+        "assessment": "UNRESOLVED_HISTORICAL_PRIORITY: abstract only establishes probability bounds, with no accessible exact matching CDF",
+        "evidence": [
+          "Abstract describes polynomial deviation estimates, sharp median order and cube extremality; no exact regular-octahedron central-section CDF stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.27757",
+        "material_read": "Abstract and indexed bibliographic information only; full text could not be obtained",
+        "method": "Read abstract and attempted full-text HTML access",
+        "title": "Negative moments of the support function and applications to isotropic convex bodies",
+        "trigger": "General stochastic projection inradius bounds for the cube"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b2a962c9-f172-46e4-beba-d7a1988dec4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The largest disk in a randomly oriented central section is a natural geometric invariant. Its entire elementary distribution and the interior regularity transition distinguish this exact section problem from neighboring results about projected inradii, section diameters, and width laws. The non-C2 phase boundary geometrically records disappearance of an eightfold spherical region, giving a meaningful exact low-dimensional benchmark rather than a routine numerical slice.",
+    "status": "PASS"
+  }
+}
