@@ -1,15 +1,21 @@
-# Scientific assessment of the symmetric-edge mean-width loss
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph-root support functions follow by exact maximization over all signed roots; hence the width inequality and strict-event characterization hold without asymptotic approximations. Uniform ranks of independent continuous coordinates give the finite-dimensional probability. The joint upper/lower Gaussian extreme-value limit supplies four independent Gumbels with the correct logarithmic group-size shifts. The common Gaussian radial factor transfers the law to intrinsic spherical directions, and exact radial expectation factorization plus uniform-integrability bounds transfer the means. Independent-logistic integration evaluates the coefficient explicitly. The finite direct-vertex enumerations, exhaustive rank checks, and Gumbel numerical diagnostics all passed; they serve only as corroboration, not as proof of limits.
+## correctness
 
-## Originality — PASS, qualified
-The canonical symmetric-edge construction and the complete-bipartite facet/Ehrhart theory are due to Higashitani–Jochemko–Michałek and earlier graph-polytope work. D'Alì–Delucchi–Michałek provide a broader graph-polytope/metric geometry setting; Kabluchko–Litvak–Zaporozhets analyze Gaussian maxima in the mean widths of *regular*, rather than complete-bipartite, root polytopes. Related indexed records concern symmetric-edge inradii, normal cones/ellipsoids, the one-skeleton Laplacian, or graphical zonotopes. These known results do not state or imply the present explicit second-order complete-versus-bipartite width-gap law without an additional calculation. Full accessible primary documents were examined, and targeted literature and mathematical-record searches did not reveal a covering formula. The residual possibility of an equivalent earlier Gaussian-order-statistics or root-polytope formula remains acknowledged.
+PASS
 
-## Mathematical value — PASS
-Euclidean mean width is a standard geometric invariant of symmetric edge polytopes; deleting all same-part graph edges leaves their circumradius and leading mean width unchanged. The theorem isolates the exact second-order geometric cost of that deletion, identifies a nondegenerate limiting distribution with an atom and an imbalance-sensitive, explicitly evaluated coefficient, and gives the exact finite-dimensional probability of its appearance. This is a natural family-wide geometric distinction, not an arbitrary parameter slice or a mere finite table recomputation.
+PASS. For full A_{n-1} root polytope the support is global maximum minus global minimum; for K_{p,q} it is the larger of two cross-part ranges. A strict loss occurs precisely when the extremal ordered indices share a part, giving [p(p-1)+q(q-1)]/[n(n-1)]. Gaussian coordinate projection to H preserves all root dot products; four independent joint upper/lower Gumbel extremes with log alpha/log beta shifts give the stated nonnegative limiting loss with zero mass 2 alpha beta. The spherical radial factor is handled via chi radius independence and Slutsky; bounded Gaussian extreme moments and E chi_d/sqrt(d)->1 justify mean convergence. Gumbel max-stability plus difference-of-Gumbels logistic integration yield E D=-log(alpha beta)-1. At positive fixed limiting proportions the identical first-order 4 sqrt(2 log n)/sqrt(n) and circumradius sqrt 2 follow. The exact scale factors 2 a_n/sqrt(d) match the support/width convention.
 
-## Boundaries and residual risk
-The sharp asymptotics require both class proportions to remain positive. They do not address sparse parts, arbitrary graphs, or independent external validation. There may be an older equivalent theorem expressed solely as a relation between Gaussian sample extremes; no claim of exhaustive bibliographic uniqueness is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge: the new specific contribution is the sharp nonnegative four-Gumbel loss law, exact strict event, and evaluated imbalance-dependent scaled mean between two canonical graph-root polytopes. Facet/Ehrhart geometry and classical Gaussian extreme statistics are antecedents; their combination is not automatically a prior theorem for this pair of Euclidean widths.
+
+## value
+
+PASS
+
+PASS. Comparing two canonical graph-root bodies that share circumradius and first-order mean width makes the exact second-order loss a motivated geometric statistic. The nontrivial limiting zero atom, angular strict-event probability, and imbalance-dependent mean describe a genuine sharp distinction useful to stochastic geometry and graph polytopes, not merely a renamed extreme-value theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
