@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:56:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read exact `prism_morse_certificate.py` with explicit ORDERS, complete face enumeration, Hasse DAG acyclicity, and integer gradient-path boundary for n=3..8.",
+        "Independent F2 simplex enumeration from graph disjoint edges gave all six stated face counts and Betti groups.",
+        "For n=8, supplied signed matrix has primitive rank-one unit column and zero higher cells; for n=5 signed boundary vanishes."
+      ],
+      "rationale": "The assigned package defines M(P_n) as the simplicial complex of disjoint GRAPH EDGES, not perfect matchings and not the graph independent-set complex itself. The inspected complete Morse certificate supplies edge orders for n=3..8, enumerates every matching face, pairs Hasse covers by ordered toggles, and tests acyclicity of the entire directed Hasse graph. Critical counts are (one 0-cell plus respectively 6 cells degree1, 4 degree2, 2 degree2 plus 2 degree3, 12 degree3, 14 degree4, and 4 degree4 plus 8 degree5). At n=5 the complete 2x2 signed degree-3-to-2 Morse boundary is zero; at n=8 the 8x4 signed Morse boundary has rank one with a unit minor. Since pi_k of a wedge of k-spheres is Z^r for k>=2, these integral attaching maps cancel a primitive pair, yielding M(P_8)≃3 S4∨7 S5 and the other asserted wedges. The code explicitly determines every gradient path and signed boundary, so the finite statement is exhaustive. A separately written direct simplicial bitset boundary implementation recovered mod-2 reduced Betti vectors (6),(4),(2,2),(12),(14),(3,7) and face counts 31,107,341,1103,3543,11395 for n=3..8; mod-two corroborates but cannot alone certify integer wedge homotopy.",
+      "risks": [
+        "Finite n=3..8 only; no global ladder recurrence or all-n homotopy theorem is inferred.",
+        "Independent F2 ranks do not establish integral torsion-freeness; that depends on inspected signed Morse certificate and integral attaching argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer–Jelić Milutinović–Vega prove an outerplanar graph wedge theorem, but P_n is 3-regular whereas nonempty outerplanar graphs have a vertex of degree at most 2.",
+          "Agarwal–Basak pose ordinary matching complexes as future problem rather than solve their circular-ladder homotopy types."
+        ],
+        "reasoning": "An outerplanar result cannot imply these nonouterplanar prism cases; homology ranks alone also do not imply the two mixed-dimensional integral attaching-map calculations.",
+        "searches": [
+          "arXiv:2411.04601 outerplanar matching complexes",
+          "arXiv:2608.30601v2 full paper",
+          "Resultary: two-matching complex general graph wedge spheres"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2608.30601v2",
+        "https://arxiv.org/abs/2411.04601",
+        "Resultary ordinary matching prism and line-graph queries",
+        "Supplied `prism_morse_certificate.py` and `prism_f2_independent.py` source contents"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Agarwal–Basak determine independence and perfect matching homotopy; Problem 26 asks for ordinary matching complexes.",
+          "The supplied integral Morse boundary in n=8 has a primitive unit invariant factor, not implied by the prior homotopy ranks of different complexes."
+        ],
+        "reasoning": "No reviewed stronger result implies these four new ordinary matching complex sphere-wedge decompositions; previously known n=3 and n=4 are not claimed new.",
+        "searches": [
+          "arXiv:2608.30601v2 Sections 4,5,6",
+          "arXiv:2411.04601 title/abstract/theorem scope",
+          "Resultary: cylinder prism ordinary matching homotopy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary matching M(P_n)=Ind(line graph P_n) differs from Ind(P_n) and the perfect matching complex M_p(P_n), which the 2026 primary paper studies.",
+          "Known three-cube n=4 case is recognized as previously covered."
+        ],
+        "reasoning": "The exact graph and simplicial functor are specified to rule out false overlap from same-named ladder independence, perfect matching, Čech or cut-complex formulas.",
+        "searches": [
+          "Resultary: ordinary matching complex prism graph C_n Cartesian K2 5 6 7 8",
+          "Resultary: circular ladder ordinary matching complex line graph independence",
+          "arXiv:2608.30601v2 Main Theorem/Problem 26"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published cube ordinary matching result covers n=4.",
+          "Indexed matching-complex tabulations near these orders concern other graphs or different matching-capacity complexes."
+        ],
+        "reasoning": "These are exact natural finite invariants from an explicitly open-family question; searches did not reveal a covering P5–P8 table, but cannot certify global absence.",
+        "searches": [
+          "Resultary: pentagonal hexagonal heptagonal octagonal prism ordinary matching complex",
+          "Resultary: initial homotopy 2 S2 plus 2 S3, 3 S4 plus 7 S5",
+          "arXiv:2608.30601v2 Problem 26"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution: No reviewed stronger result implies these four new ordinary matching complex sphere-wedge decompositions; previously known n=3 and n=4 are not claimed new.",
+      "residual_risks": [
+        "Unindexed preprint or table of small ordinary prism matching complexes could contain one or more n=5..8 values.",
+        "Originality extends only to four new finite cases, not the infinite-family open problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper studies Ind(P_n) and M_p(P_n); ordinary M(P_n) is posed as open",
+          "evidence": [
+            "Section 6 Problem 26 explicitly calls for ordinary matching-complex homotopy.",
+            "Sections 4 and 5 have distinct vertex/face definitions."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2608.30601v2",
+          "material_read": "Full accessible HTML through Sections 1–6 including definitions, perfect matching theorems and Problem 26",
+          "method": "Primary whole-document theorem/definitions comparison",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complexes of Möbius and Circular Ladder Graphs",
+          "trigger": "Same graph family and matching-complex terminology"
+        },
+        {
+          "assessment": "Does not apply to 3-regular P_n; absence of an additional general theorem not claimed",
+          "evidence": [
+            "Every 3-regular prism graph fails outerplanar 2-degeneracy."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2411.04601",
+          "material_read": "Accessible bibliographic statement and outerplanar hypothesis, not verified full text in this run",
+          "method": "Hypothesis comparison",
+          "title": "Matching Complexes of Outerplanar Graphs",
+          "trigger": "Potential broad wedge-of-spheres theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural 3-regular prism family, matching-complex topology independently motivated by a published open problem.",
+        "Signed Morse attaching maps distinguish actual integral wedges from field Betti-rank observations."
+      ],
+      "rationale": "The first four nontrivial new members of an explicit open ordinary-matching complex family give reproducible INTEGRAL homotopy types, including the mixed-degree attaching phenomena at n=5 and n=8. These exact small prisms are natural baselines for any eventual uniform theorem; this is more than a routine Betti table but is not represented as a solution for all n.",
+      "risks": [
+        "Finite initial segment alone does not establish a recurrence, general planar wedge conjecture or exhaustive prism family classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

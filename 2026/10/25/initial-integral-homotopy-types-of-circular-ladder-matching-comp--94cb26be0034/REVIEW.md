@@ -1,19 +1,21 @@
-# Review of the integral circular-prism matching classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The claim has a fixed six-element parameter domain and an unambiguous simple-graph and simplicial-complex definition. The standalone certificate enumerates every simplex, verifies every matched Hasse edge and acyclicity on the complete directed incidence graph, and determines all critical cell dimensions. For \(n=5\) it computes the full zero integer \(2\times2\) boundary; for \(n=8\) the full \(8\times4\) boundary has one unit Smith factor. Standard homotopy classification of maps into wedges of spheres in their bottom nonzero dimension supplies the integral attaching-map conclusion. The independent direct \(\mathbf F_2\) boundary elimination cross-checks every face count and Betti rank. No results beyond \(n=8\) are inferred.
+PASS
 
-## Originality
+The assigned package defines M(P_n) as the simplicial complex of disjoint GRAPH EDGES, not perfect matchings and not the graph independent-set complex itself. The inspected complete Morse certificate supplies edge orders for n=3..8, enumerates every matching face, pairs Hasse covers by ordered toggles, and tests acyclicity of the entire directed Hasse graph. Critical counts are (one 0-cell plus respectively 6 cells degree1, 4 degree2, 2 degree2 plus 2 degree3, 12 degree3, 14 degree4, and 4 degree4 plus 8 degree5). At n=5 the complete 2x2 signed degree-3-to-2 Morse boundary is zero; at n=8 the 8x4 signed Morse boundary has rank one with a unit minor. Since pi_k of a wedge of k-spheres is Z^r for k>=2, these integral attaching maps cancel a primitive pair, yielding M(P_8)≃3 S4∨7 S5 and the other asserted wedges. The code explicitly determines every gradient path and signed boundary, so the finite statement is exhaustive. A separately written direct simplicial bitset boundary implementation recovered mod-2 reduced Betti vectors (6),(4),(2,2),(12),(14),(3,7) and face counts 31,107,341,1103,3543,11395 for n=3..8; mod-two corroborates but cannot alone certify integer wedge homotopy.
 
-**PASS under available evidence, with bibliographic risk.** Agarwal–Basak arXiv:2608.30601 poses ordinary matching-complex homotopy as an open problem, but determines independence and perfect-matching complexes rather than the present four integral types. Bayer–Jelić Milutinović–Vega arXiv:2411.04601 proves an outerplanar theorem; the cubic prisms here are not outerplanar. An earlier three-cube matching result covers the boundary \(n=4\), not \(5\le n\le8\). Neighboring circular-ladder cut complexes and Möbius-ladder matching complexes do not dominate this claim. Primary article material and relevant mathematical-record summaries were compared by implication as well as wording; some unindexed or inaccessible further results may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** These are four consecutive previously unclassified prism orders in a natural cubic planar graph family singled out by an explicit recent problem. The first new case \(n=5\) exhibits a mixed-dimensional integral homotopy type, while the later \(n=8\) requires a nonzero primitive integer Morse boundary; this gives structural information unavailable from ordinary Betti numbers and complements the known outerplanar wedge theorem. The finite cutoff is explicit and not misrepresented as a general conjecture solution.
+Best-of-knowledge original contribution: No reviewed stronger result implies these four new ordinary matching complex sphere-wedge decompositions; previously known n=3 and n=4 are not claimed new.
 
-## Limitations
+## value
 
-The work does not prove the general prism-family problem, a planar-graph theorem, or any inductive recurrence. Bibliographic novelty cannot be proven by search alone. Reproduction requires running the bundled programs; finite mod-two homology without the integral Morse certificate would not suffice.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first four nontrivial new members of an explicit open ordinary-matching complex family give reproducible INTEGRAL homotopy types, including the mixed-degree attaching phenomena at n=5 and n=8. These exact small prisms are natural baselines for any eventual uniform theorem; this is more than a routine Betti table but is not represented as a solution for all n.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
