@@ -1,0 +1,163 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T15:52:35.546505Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For each n=4,5,6,7,8, M_{2n} has rim edges i~i+1 and spokes i~i+n. A face of Ind_2 is a vertex set containing no induced connected triple, equivalently each selected vertex has at most one selected neighbor. The explicitly listed stage-ordered vertex toggles give 38,111,339,1022,3023 matched pairs on 78,232,685,2046,6078 nonempty faces. An independent implementation rebuilt all faces by enumerating two-edge triples, generated every Hasse covering edge, reversed exactly the matched edges, and topologically sorted the complete gradient DAG: 192,720,2556,8946,30384 cover edges, every vertex visited, zero cycles. Critical-cell distributions are {0:1,2:1}, {0:1,3:9}, {0:1,3:6}, {0:1,4:1}, {0:1,5:31}. Forman discrete Morse theory therefore gives genuine integral wedges S^2, 9 S^3, 6 S^3, S^4, 31 S^5: only one critical vertex and d-cells for d>=2, hence no nontrivial attaching maps. For the natural D_{2n} action, I independently computed the signed fixed-simplex Lefschetz sum for each of the 4n group elements, then used homology concentration to obtain each top-degree rational character and invariant dimension; all tables match the final claim. The independent checker tests every face and edge in these finite cases, not a larger-n recurrence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Agarwal–Basak main theorems concern ordinary Ind(M_2n) and M_p(M_2n) for all n, not Ind_2(M_2n).",
+          "Theorem list in Deshpande–Singh 2021 covers graph families other than Möbius ladders, with no general theorem transferring to all cubic antipodal ladders.",
+          "Carnero Bravo defines BI_3(G) by alpha(G[U])<3, not connected components of size <=2. Resultary 43048a124c95 proves the former on M_2n, with wedge ranks 1+binom(n+1,2), which are different invariants from the Ind_2 ranks 1,9,6,1,31."
+        ],
+        "reasoning": "The same graph family in prior universal results is not sufficient: the face functor matters. Neither bounded independence by induced independence number, nor ordinary independence, nor perfect matching implies the exact higher-independence homotopy and dihedral character. No stronger theorem in inspected primary sources dominates the five-value assertion.",
+        "searches": [
+          "Deshpande–Singh 2021 author-uploaded 3092-line full-text research article, Theorems 3.5, 3.8, 3.10, 4.6, 5.6",
+          "Agarwal–Basak arXiv:2608.30601v1 and v2 (ordinary Ind and perfect matching of Möbius and circular ladders)",
+          "Carnero Bravo arXiv:2602.21427v3, HTML §§3–5 bounded-independence and total-cut duality",
+          "Resultary: uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes, record 43048a124c95"
+        ]
+      },
+      "checked_sources": [
+        "Assigned full source package: RESULT.md, SLOGAN.txt, AUDIT.json, REVIEW.md, METADATA.json, VERIFICATION.md, check_matching.py, check_homology_symmetry.py, and both .out records at Git commit 359233893f22559a64d1a2a83158566d85606adf.",
+        "Source Git tree reconstructed from ten Git blob SHAs: d3786fee0c3a898af5dad341b52cf7816bae9c3e.",
+        "Independent finite checker /mnt/data/independent_mobius_ladder_checks.py enumerated all faces via forbidden connected triples; recomputed matching DAG, all five critical-cell signatures and dihedral Lefschetz traces; assertions passed.",
+        "Agarwal–Basak arXiv:2608.30601 v1 full accessible body and v2 abstract.",
+        "Deshpande–Singh arXiv:2001.05448/JRMS 2021 full author-uploaded text.",
+        "Carnero Bravo arXiv:2602.21427v3 full primary HTML.",
+        "Resultary published record 43048a124c95 complete RESULT.md; Resultary 156dc9567f6a search summary.",
+        "Resultary searches for Möbius two-independence and rational dihedral characters; targeted web searches for dissociation and exact parameter cases."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For a graph G with an edge, Ind(G) is a strict subcomplex of Ind_2(G); a perfect matching complex has edges of G as its vertices and a separate face criterion.",
+          "BI_3(G) includes all triples with at least one edge; Ind_2(G) excludes triples with two incident edges, hence the objects and their Alexander duals differ.",
+          "Agarwal–Basak periodic formula for ordinary independence ranks differs from the exact five r=2 ranks and carries no dihedral character for this r=2 problem.",
+          "Deshpande–Singh provides general Morse machinery but no explicit antipodal-cycle matching or all-five critical-cell enumeration."
+        ],
+        "reasoning": "No theorem read entails the five specific Ind_2 homotopy equivalences or character arrays without a new explicit finite certificate. General discrete Morse theory is a proof method, not prior computation of these graph-specific matchings. Prior exact Möbius total-cut results use alpha(G[U]) rather than connected-component size and cannot be substituted as the same invariant.",
+        "searches": [
+          "Agarwal–Basak arXiv:2608.30601 full v1 body §2–§5 and v2 abstract",
+          "Deshpande–Singh arXiv:2001.05448/JRMS 36 (2021) full author-uploaded text theorem index and §3–§5",
+          "Carnero Bravo arXiv:2602.21427v3 full HTML §3 definitions and §5, and Resultary 43048a124c95 complete RESULT.md",
+          "Resultary: two-independence dissociation complex Mobius ladder homotopy wedge spheres Wagner graph M_8 M_10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ind_2(G) allows precisely vertex sets whose induced components have at most 2 vertices; equivalently maximum induced degree <=1, forbidding connected induced triples (two-edge triples).",
+          "Deshpande–Singh 2021 defines the same Ind_r object; its listed theorems address complete multipartite, fully whiskered, paths, cycles and perfect m-ary trees, not antipodally augmented cycles.",
+          "Agarwal–Basak arXiv:2608.30601, §2 defines ordinary Ind(G) (no induced edges) and perfect matching complexes (vertices are edges of G), both different from Ind_2(G)."
+        ],
+        "reasoning": "Searches included dissociation, two-/2-independence, higher independence, induced maximum-degree <=1, Möbius ladder, Wagner graph, and parameter-specific values. The object is the established r=2 higher-independence complex, not ordinary graph independence or a matching complex. No inspected alternate formulation supplies the five asserted homotopy types or their dihedral characters; nonmatches in indexing are not proof of priority.",
+        "searches": [
+          "web: Möbius ladder two independence dissociation complex homotopy sphere wedge n8 n10 n12 n14 n16",
+          "web: higher independence complexes Mobius ladder dissociation homotopy character dihedral",
+          "web: \"Möbius ladder\" \"dissociation complex\"",
+          "Resultary: two-independence dissociation complex Mobius ladder homotopy wedge spheres Wagner graph M_8 M_10",
+          "Deshpande–Singh, arXiv:2001.05448 / JRMS 36 (2021), §2 definition of Ind_r"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 156dc9567f6a gives Ind_2(Petersen graph)≈S^3, on a different ten-vertex cubic graph.",
+          "Resultary 43048a124c95 computes total three-cut / BI_3 on Möbius ladders with a different face definition.",
+          "Resultary baaa00f0cf91 treats ordinary independence dihedral representation; MathWorld ordinary independence polynomials do not supply two-independence topology."
+        ],
+        "reasoning": "No inspected exact data table records the ordered five homotopy types and 4n rational character entries for each graph. Published topological and numerical tables found use different simplicial complexes; no matching exact database is known. This absence from searched sources is not itself a novelty proof.",
+        "searches": [
+          "web: \"Möbius ladder\" \"Ind_2\" homotopy",
+          "web: \"Wagner graph\" \"higher independence\" homotopy",
+          "web: \"Mobius ladder\" 2-independence Betti",
+          "Resultary: Petersen graph two independence complex Ind_2 dissociation complex wedge of spheres",
+          "Resultary: higher independence complex Möbius ladder dihedral character order 2 independent set"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for these exact five integral two-independence homotopy types and all rational dihedral character arrays. Agarwal–Basak treat ordinary Ind and perfect matching on the identical Möbius ladders; Deshpande–Singh treat the same r-independence functor but other graph families; Carnero Bravo and a published Möbius-ladder total-cut theorem concern bounded independence by alpha(G[U]) rather than induced-component size. A Petersen Ind_2 computation is a different cubic graph. General discrete Morse and Lefschetz theory are antecedent methods, not graph-specific results. No inspected implication dominating the five exact values and characters was found. This is a bounded priority assessment with the explicitly listed primary-text access and unindexed-results risks.",
+      "residual_risks": [
+        "A previously unindexed exact homotopy/dihedral census under dissociation or other synonyms could predate the finding; literature search does not certify worldwide priority.",
+        "The accessible v1 arXiv text for Agarwal–Basak was materially inspected, but the revised v2 primary HTML was not directly accessible here; its v2 abstract and reported theorem scope were checked. An uninspected appendix remains a residual bibliographic risk.",
+        "The results concern exactly n=4..8; the five cases do not prove periodicity or any all-n classification.",
+        "Rational characters do not yield integral equivariant homotopy types or torsion-module decompositions.",
+        "The certificate is an exhaustive finite discrete-Morse proof on each named graph, not a formal verification of program semantics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers ordinary independence and perfect-matching complexes, not the two-independence (dissociation) complex; cannot infer its five homotopy types or rational characters.",
+          "evidence": [
+            "arXiv:2608.30601 first posted 2026-08-31; §2 Definitions 1–2 and main theorem specify Ind and M_p; searched full text has no two-independence theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.30601",
+          "material_read": "Accessible full first-version HTML text surfaced at arXiv abstract URL, introduction, definitions, main theorem, Möbius-independence and perfect-matching sections; also reviewed updated v2 bibliographic abstract.",
+          "method": "Read the mathematical statements and face definitions, compare permitted faces and topological conclusions; search full text for higher/two-independence.",
+          "title": "The Homotopy Types of the Independence and Perfect Matching Complex of Möbius Ladder Graph",
+          "trigger": "Identical Möbius-ladder graph family and recent periodic homotopy classification"
+        },
+        {
+          "assessment": "Gives identical definition and powerful discrete-Morse techniques, but the stated classified families do not include Möbius ladders; no directly implication-dominating theorem found in inspected sections.",
+          "evidence": [
+            "JRMS 36 (2021) 53–71; listed results Theorems 3.5, 3.8, 3.10, 4.6, 5.6; entire indexed text contains no Möbius/ladder terms."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/351247805_Higher_independence_complexes_of_graphs_and_their_homotopy_types",
+          "material_read": "Author-uploaded full-text article in HTML extraction, abstract, introduction, result index and substantial theorem/proof sections on complete multipartite graphs, fully whiskered graphs, paths, cycles and perfect m-ary trees.",
+          "method": "Read theorem inventory and relevant structural proofs; searched the entire accessible text for Möbius and ladder terms.",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Exact definition of the complex and possible broader family theorem"
+        },
+        {
+          "assessment": "Different functor and no two-independence of antipodally matched cycles. Full-graph Möbius-ladder total-three-cut result uses this different bounded-independence object.",
+          "evidence": [
+            "arXiv 2602.21427v3, 2026-08-18, §§3–5; bounded independence uses induced independence-number bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.21427v3",
+          "material_read": "Full accessible primary HTML, abstract, definitions and theorems for bounded-independence/total-cut complexes and cycle-power and Cartesian-product classifications.",
+          "method": "Compared alpha(G[U])<d face criterion with max component size <=2; examined stated general theorems and listed graph families.",
+          "title": "Total cut complexes and their duals",
+          "trigger": "A broader topological graph-complex theory with Alexander duality, potentially confusing bounded and higher independence"
+        },
+        {
+          "assessment": "Does not subsume this claim; e.g. the n=5 total-cut rank 16 arises from a different complex than the audited Ind_2 n=5 rank 9.",
+          "evidence": [
+            "Resultary record 43048a124c95, Finding and Assumptions explicitly define BI_3 and total cut dual and all-n wedge ranks."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-sphere-wedge-homotopy-for-m-bius-ladder-total-three-cut--43048a124c95/RESULT.md",
+          "material_read": "Complete primary RESULT.md including definitions, proof, exact f-vector and Alexander dual arguments.",
+          "method": "Compared face predicates: BI_3 imposes alpha(G[U])<3; Ind_2 imposes components of G[U] size <=2.",
+          "title": "Uniform sphere-wedge homotopy for Möbius-ladder total three-cut complexes",
+          "trigger": "Exactly the same graph family with a published stronger all-n theorem in a closely named complex"
+        },
+        {
+          "assessment": "Relevant benchmark but Petersen graph is not the ten-vertex Möbius ladder; summary does not imply this family.",
+          "evidence": [
+            "Resultary record 156dc9567f6a reports Ind_2(Petersen)≈S^3 on 260 nonempty faces."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a",
+          "material_read": "Published Resultary title and short search summary, not full paper.",
+          "method": "Compare graph identity and given finite homotopy claim from search result.",
+          "title": "The 2-independence complex of the Petersen graph is a 3-sphere",
+          "trigger": "Exact same two-independence invariant on a highly symmetric cubic graph"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Möbius ladders are a natural symmetric cubic graph family, and higher-independence complexes are a standard topological refinement of ordinary independence. Five consecutive n values cover every modulo-4 class plus a first repetition, motivated by recent ordinary-independence periodic classification rather than an arbitrary numerical slice. Exact integral wedge decompositions and full D_{2n} rational homology characters are mathematically useful structural invariants not determined by face counts or ordinary independence; in particular M_10 has nine top spheres whereas the ten-vertex untwisted prism analogue was reported with a different rank. The finite complete classification is useful on its own, though no recurrence or all-n theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A previously unindexed exact homotopy/dihedral census under dissociation or other synonyms could predate the finding; literature search does not certify worldwide priority.",
+    "The accessible v1 arXiv text for Agarwal–Basak was materially inspected, but the revised v2 primary HTML was not directly accessible here; its v2 abstract and reported theorem scope were checked. An uninspected appendix remains a residual bibliographic risk.",
+    "The results concern exactly n=4..8; the five cases do not prove periodicity or any all-n classification.",
+    "Rational characters do not yield integral equivariant homotopy types or torsion-module decompositions.",
+    "The certificate is an exhaustive finite discrete-Morse proof on each named graph, not a formal verification of program semantics.",
+    "Public status files require removal of private source-run identifiers before importing any generated independent certificate.",
+    "METADATA.json first_public_date=2026-08-31 refers to antecedent Agarwal–Basak and is not evidence of first disclosure of this result.",
+    "No changes to scientific claim/proof are needed or authorized for a passed verdict."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review of five higher-independence homotopy types for Möbius ladders
+# Independent mathematical audit
 
-## Correctness — PASS
-Every case is a finite simplicial complex with a fully specified face predicate, ordered vertex-toggle matching, and a complete directed-Hasse-diagram acyclicity test. The embedded independent verifier enumerates faces using forbidden induced triples instead of the matching program's vertex-neighbor test. Across all five cases, it reproduces the face counts and predicted unique nonzero mod-two reduced homology, and its signed Lefschetz computations provide all dihedral character values. The integral homotopy claim does not infer wedges from finite Betti numbers: the acyclic matching leaves one critical vertex and only critical cells in a single dimension at least two, so discrete Morse CW theory gives the claimed wedge. The claim is finite, and every graph parameter in the statement is explicitly covered.
+## correctness
 
-## Originality — PASS, with bounded bibliographic risk
-The most relevant recent paper is Agarwal–Basak (arXiv:2608.30601, first posted August 31, 2026): its full revised text proves results for ordinary independence and perfect-matching complexes, not two-independence complexes. The 2021 higher-independence paper of Deshpande–Singh covers different families. Identified existing records about Möbius ladders address ordinary independence, perfect matching, ordinary matching, and cut complexes, with different face conditions. Searches included aliases “two-independence,” “higher independence,” and “dissociation complex,” parameter-specific ladders, characters, and possible stronger family theorems. No equivalence or dominating theorem was found in the material examined. This is not a proof of worldwide uniqueness; an unindexed or inaccessible prior result remains possible.
+PASS
 
-## Mathematical value — PASS
-The question is natural in light of the newly published ordinary-independence classification of highly symmetric cubic graphs. These are the full first four congruence classes under the motivating parameter's modulo-four behavior, plus the first repeated class, not an arbitrary choice of vertex counts. The sequence of homotopy dimensions and ranks shows that the higher-independence topology differs markedly from ordinary independence and distinguishes twisted and untwisted ten-vertex ladders. The complete rational dihedral character carries structural symmetry information that Betti numbers do not. The proof yields reproducible and usable finite baseline data for attempted longer-family structural analysis; it intentionally makes no unsupported extension beyond sixteen graph vertices.
+For each n=4,5,6,7,8, M_{2n} has rim edges i~i+1 and spokes i~i+n. A face of Ind_2 is a vertex set containing no induced connected triple, equivalently each selected vertex has at most one selected neighbor. The explicitly listed stage-ordered vertex toggles give 38,111,339,1022,3023 matched pairs on 78,232,685,2046,6078 nonempty faces. An independent implementation rebuilt all faces by enumerating two-edge triples, generated every Hasse covering edge, reversed exactly the matched edges, and topologically sorted the complete gradient DAG: 192,720,2556,8946,30384 cover edges, every vertex visited, zero cycles. Critical-cell distributions are {0:1,2:1}, {0:1,3:9}, {0:1,3:6}, {0:1,4:1}, {0:1,5:31}. Forman discrete Morse theory therefore gives genuine integral wedges S^2, 9 S^3, 6 S^3, S^4, 31 S^5: only one critical vertex and d-cells for d>=2, hence no nontrivial attaching maps. For the natural D_{2n} action, I independently computed the signed fixed-simplex Lefschetz sum for each of the 4n group elements, then used homology concentration to obtain each top-degree rational character and invariant dimension; all tables match the final claim. The independent checker tests every face and edge in these finite cases, not a larger-n recurrence.
 
-## Limits
-The programs certify finitely many exact cases; they do not supply an infinite-periodicity proof. The representation result is rational; integral equivariant decomposition is unproved. Bibliographic coverage is necessarily bounded and independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for these exact five integral two-independence homotopy types and all rational dihedral character arrays. Agarwal–Basak treat ordinary Ind and perfect matching on the identical Möbius ladders; Deshpande–Singh treat the same r-independence functor but other graph families; Carnero Bravo and a published Möbius-ladder total-cut theorem concern bounded independence by alpha(G[U]) rather than induced-component size. A Petersen Ind_2 computation is a different cubic graph. General discrete Morse and Lefschetz theory are antecedent methods, not graph-specific results. No inspected implication dominating the five exact values and characters was found. This is a bounded priority assessment with the explicitly listed primary-text access and unindexed-results risks.
+
+## value
+
+PASS
+
+Möbius ladders are a natural symmetric cubic graph family, and higher-independence complexes are a standard topological refinement of ordinary independence. Five consecutive n values cover every modulo-4 class plus a first repetition, motivated by recent ordinary-independence periodic classification rather than an arbitrary numerical slice. Exact integral wedge decompositions and full D_{2n} rational homology characters are mathematically useful structural invariants not determined by face counts or ordinary independence; in particular M_10 has nine top spheres whereas the ten-vertex untwisted prism analogue was reported with a different rank. The finite complete classification is useful on its own, though no recurrence or all-n theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
