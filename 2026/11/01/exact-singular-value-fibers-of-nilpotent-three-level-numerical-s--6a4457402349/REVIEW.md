@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** The known degree-three shadow moment criterion reduces each nilpotent shadow to the exact pair \((\kappa,\tau)\); every nilpotent is unitarily triangularizable. The resulting product-and-sum constraints yield a cubic inequality for \(r=\|A^2\|\), and an explicit triangular matrix realizes every permitted \(r\). The two nonzero squared singular values are recovered from their trace and determinant; an exact algebraic change of variables proves the square-root stability law. The proof includes zero-product and coincident-root endpoints. Independent finite checks exercise the determinantal identities and constructions but are not substitutes for proof.
+
+**Originality — PASS under accessible-literature comparison, with residual priority uncertainty.** The 2010 numerical-shadow trace criterion, the pre-existing rank-changing zero-third-moment example, and the 2026 rigidity classification are not claimed as new. The distinct statement here is the **complete attainable singular-value family for each fixed nonzero nilpotent shadow**, its exact endpoint cubic, all trace norms, and sharp stability exponent. Inspected full texts and targeted searches did not show this quantitative inverse-spectrum statement. A more general existing matrix-inverse theorem may implicitly cover it; absolute publication priority and independent assessment remain unestablished.
+
+**Mathematical value — PASS.** This solves a natural inverse problem raised by nonuniqueness of numerical shadows: precisely which singular spectra can be hidden within a fixed observable probability law? It also quantifies loss of singular-value identifiability as full-shadow rigidity is approached, supplies sharp extremizers, and separates the genuinely nonzero-third-moment regime from the known degenerate examples. The continuous spectrum of admissible data and sharp boundary exponent are structural, rather than an arbitrary isolated calculation.
+
+Closest sources: Johnson, arXiv:2610.29675v1, Sections 1–3; Dunkl et al., arXiv:1010.4189, Section VI; Gallay–Serre, arXiv:1009.1522, numerical-measure framework. The numerical-shadow criterion and basic nonuniqueness are previously published; the quantitative singular-spectrum fiber is the proposed addition.
+
+Self-review: passed. Independent audit: not yet performed.
