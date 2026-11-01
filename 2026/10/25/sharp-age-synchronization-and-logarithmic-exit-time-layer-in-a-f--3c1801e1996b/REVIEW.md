@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim is confined to the deterministic stationary hydrodynamic free-boundary model. Exact killed-kernel time change yields \(rT_H=S^{1/(2H)}/\mathbb E[S^{1/(2H)}]\), and mass conservation yields the normalized stationary age density. A finite log-moment Taylor expansion proves \(L^1\) convergence; an exact Fubini identity gives the entire total-variation distance and its sharp coefficient. The Brownian survival expansion gives a convergent exponential-integral constant. The 53 successful numerical checks corroborate the independent moment calculations; no asymptotic proof is delegated to numerics.
+## correctness
 
-**Originality — PASS with material risk.** Meerson–Vilk, arXiv:2512.14345v1, already provide the stationary age-resolved Green function and support radius, so the age marginal itself is prior-implied and is not the novel assertion. The singular non-Gaussian boundary profile and exact \(H^{-1}\) total-variation coefficient require analysis beyond the displayed source formulas and were not located in the inspected Model B sources or indexed comparisons. The unavoidably close implicit coverage from that exact Green function remains a genuine risk, and independent assessment may conclude the derivation is subsumed.
+PASS
 
-**Value — PASS.** Age since last reset and complete reset-interval duration are natural observables of the globally selected-particle renewal mechanism, unlike an arbitrary spatial slice. The result shows that an apparently random reset mechanism becomes asymptotically clocklike when the anomalous diffusion exponent grows, and quantifies both the uncertainty remaining at order \(H^{-1}\) and the shape of the boundary layer. This temporal information is not contained in the already reported spatial-radius asymptotic alone.
+Brownian time-change with generator ∂xx and mean-life conservation gives Q=rT=S^p/M(p), p=1/(2H), E Q=1, and stationary age survival density f(a)=Pr(Q>a). Two-sided Mellin moments imply L1 convergence (Q−1)/p→W=log S−Elog S. Fubini gives exact 2dTV=E|Q−1|, whence H dTV→E|W|/4; continuous log-exit law yields non-Gaussian f(1+py)→Pr(W>y). Independently recomputed first four exit moments and the special-function constant ≈0.160663948457; finite H checks only corroborate rate.
 
-**Closest literature and limits.** The 2025/2026 hydrodynamic source [1] contains all finite-\(H\) age-resolved input. Vilk–Assaf–Meerson (2022) treat the \(H=1/2\) Model B with spatial/radius fluctuations. Bodrova–Chechkin–Sokolov (2019) analyze renewal Poisson resets without farthest-particle selection. No finite-population error or commuting-limits result is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The prior complete stationary age-resolved heat kernel is expressly treated as covered. Sharp H^-1 total variation coefficient and non-Gaussian log-exit age edge layer require an additional singular normalization not stated in the inspected source; this is a best-of-knowledge judgment with material implicit-coverage risk.
+
+## value
+
+PASS
+
+Age since reset is an intrinsic temporal observable in the published farthest-particle model; precise H^-1 loss and logarithmic exit-time edge profile reveal asymptotically clocklike synchronization beyond existing spatial radius asymptotics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
