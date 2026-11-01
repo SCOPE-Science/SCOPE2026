@@ -1,112 +1,182 @@
 {
   "correctness": {
-    "rationale": "The norm identity is attained exactly for finite-group convolution. The absolute Dirichlet-kernel sum is partitioned at every kernel zero, giving an exact alternating telescoping identity; finite cosine sums yield the closed form. The asymptotic coefficient follows from the explicitly computed first-derivative jumps and the Fourier series of \\(B_2\\), with an \\(O_m(N^{-3})\\) remainder from the piecewise smooth second derivative. Replay matched 4205 exact finite cases and all tested residue classes; finite checks are corroborative, not the proof.",
+    "rationale": "At normalized counting measure, convolution by D_m/N has both endpoint norms equal N^{-1} Σ_{j=0}^{N−1}|D_m(j/N)|; ℓ∞ phase alignment and ℓ1 normalized point mass attain Young bounds. The sine quotient R_m(x)=sin(mπx)/sin(πx) changes sign only at x=k/m, with sign (−1)^k on (k/m,(k+1)/m); b_k=floor(kN/m) partitions j=1..N. The j=0 term |D_m(0)|=m equals |R_m(1)|, making telescoping exact even on zero-aligned meshes and at m=N. For m odd, R_m=1+2Σ_{r≤(m−1)/2} cos(2rπx); for even, R_m=2Σ_{r≤m/2} cos((2r−1)πx). Their geometric progression sums give exactly the stated A_{m,N}(M), including M=0,N. F_m=|R_m| is periodic C^0, smooth at 0=1, and has derivative jump J_k=2mπ csc(πk/m) at k/m; distributional twice integration gives \\hat F_m(n)=−(ΣJ_k e^{−2π i n k/m})/(4π²n²)+O_m(n^{-3}). Fourier aliasing and Σ_{ℓ≠0}e^{2πiℓt}/ℓ²=2π²B2({t}) yield the exact residue-class 1/N² correction and O_m(N^{-3}). Independent 65-digit high-precision checks matched 861 finite m≤N≤42 pairs to better than 2e−64 and tested 44 residue cases for 2≤m≤9 around N=750; such finite checks corroborate rather than prove the universal identities.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "The second-order formula uses m fixed and is not uniform when m grows with N.",
+    "No claim for 1<p<∞ operator norms or nonconsecutive frequency selections.",
+    "Experiments are finite consistency checks, not a proof of infinite parameter families.",
+    "General Bernoulli cusp-correction theorem is prior art; only its particular coefficient and the all-m exact finite formula are assembled here.",
+    "Historical-priority risk from unsearched older approximation-theory textbooks and the inaccessible 2006 Berrut PDF."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "arXiv:0707.3023 defines idempotent trigonometric polynomials and the Dirichlet kernel and studies concentration; its inspected full text does not give finite-cycle endpoint projection constants for arbitrary block length.",
-        "arXiv:0811.4576 explicitly formulates the finite-group problem on Z/qZ and finite-grid sums, but its stated quantities are concentration constants rather than the exact all-length projection norm."
+        "Jean-Paul Berrut and Manfred R. Trummer, Extrapolation quadrature from equispaced samples of functions with jumps, Numerical Algorithms 92 (2023) 65–88, DOI:10.1007/s11075-022-01462-0, §2 Theorem 2 (2022-12-19 OA).",
+        "Jean-Paul Berrut, A circular interpretation of the Euler–Maclaurin formula, J. Comput. Appl. Math. 189 (2006) 375–386, DOI:10.1016/j.cam.2005.02.015, §5 Theorem 3 as visible in indexed primary text (full PDF not accessible).",
+        "A. Bonami and Sz. Gy. Révész, Integral Concentration of idempotent trigonometric polynomials with gaps, arXiv:0707.3023v2, Eq. (8), Theorems 7/8.",
+        "A. Bonami and Sz. Gy. Révész, Concentration of the integral norm of idempotents, arXiv:0811.4576v1, finite-group formulation."
       ],
-      "reasoning": "The primary literature covers the ambient idempotent and finite-grid framework but asks different extremal questions. Its general setup does not imply the sign-block evaluation or the residue-specific second-order coefficient claimed here.",
+      "reasoning": "Berrut–Trummer Theorem 2 is a genuinely dominating general result for the second-order residue coefficient: plug in the m−1 first-derivative jumps of F_m at k/m and obtain exactly the displayed Bernoulli B2 sum. Hence this analytic mechanism is covered prior work. That quadrature theorem gives no finite exact N-sample closed trigonometric expression and does not imply the sign-block finite-cosine formula without separate Dirichlet-specific summation; Bonami–Révész study different concentration extrema.",
       "searches": [
-        "arXiv:0707.3023v1 full text",
-        "arXiv:0811.4576v1 full text",
-        "Lebesgue constant finite cyclic group Fourier projection Dirichlet kernel exact",
-        "discrete Lebesgue constant Dirichlet kernel cyclic group"
+        "web: generalized Euler Maclaurin trapezoidal rule piecewise smooth derivative jumps Bernoulli B2 singularities shift",
+        "web: A circular interpretation of Euler-Maclaurin formula Jean-Paul Berrut Theorem 3",
+        "OA: Berrut and Trummer 2022 §2 Theorem 2",
+        "web: Bonami Révész idempotent trigonometric polynomial cyclic group"
       ]
     },
     "checked_sources": [
-      "arXiv:0707.3023v1",
-      "arXiv:0811.4576v1",
-      "published-finding corpus:b176a6018242",
-      "targeted web searches for finite cyclic/discrete Lebesgue constants"
+      "Jean-Paul Berrut and Manfred R. Trummer, Extrapolation quadrature from equispaced samples of functions with jumps, Numerical Algorithms 92 (2023) 65–88, DOI:10.1007/s11075-022-01462-0, §2 Theorem 2 (2022-12-19 OA).",
+      "Jean-Paul Berrut, A circular interpretation of the Euler–Maclaurin formula, J. Comput. Appl. Math. 189 (2006) 375–386, DOI:10.1016/j.cam.2005.02.015, §5 Theorem 3 as visible in indexed primary text (full PDF not accessible).",
+      "A. Bonami and Sz. Gy. Révész, Integral Concentration of idempotent trigonometric polynomials with gaps, arXiv:0707.3023v2, Eq. (8), Theorems 7/8.",
+      "A. Bonami and Sz. Gy. Révész, Concentration of the integral norm of idempotents, arXiv:0811.4576v1, finite-group formulation.",
+      "Resultary/2026, Exact three-frequency Fourier projection norm on every cyclic group, published record b176a6018242, RESULT.md.",
+      "Resultary/2026, Exact four-frequency Fourier projection norm on every cyclic group, published record 6fefdbed98ba, RESULT.md.",
+      "Resultary semantic searches on exact finite cyclic Lebesgue constants and sampled Dirichlet kernels",
+      "Targeted public web searches under cyclic Fourier projection, sampled sine quotient, discrete Lebesgue constant, generalized jump Euler–Maclaurin"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The published m=3 claim explicitly says it does not assert a formula for four or more consecutive characters.",
-        "arXiv:0707.3023 gives the standard Dirichlet-kernel identity but no finite cyclic all-length endpoint evaluation.",
-        "arXiv:0811.4576 studies finite cyclic idempotent concentration and does not state this projection-norm formula."
+        "A. Bonami and Sz. Gy. Révész, Integral Concentration of idempotent trigonometric polynomials with gaps, arXiv:0707.3023v2, Eq. (8), Theorems 7/8.",
+        "A. Bonami and Sz. Gy. Révész, Concentration of the integral norm of idempotents, arXiv:0811.4576v1, finite-group formulation.",
+        "Resultary/2026, Exact three-frequency Fourier projection norm on every cyclic group, published record b176a6018242, RESULT.md.",
+        "Resultary/2026, Exact four-frequency Fourier projection norm on every cyclic group, published record 6fefdbed98ba, RESULT.md.",
+        "Jean-Paul Berrut and Manfred R. Trummer, Extrapolation quadrature from equispaced samples of functions with jumps, Numerical Algorithms 92 (2023) 65–88, DOI:10.1007/s11075-022-01462-0, §2 Theorem 2 (2022-12-19 OA)."
       ],
-      "reasoning": "Knowing the m=3 formula, or the general Dirichlet-kernel identity, does not determine the alternating floor blocks for arbitrary m nor the derivative-jump sum producing the periodic B2 coefficient. The new statement strictly subsumes the small-block computation rather than following from it.",
+      "reasoning": "The identity for Dirichlet kernels plus generic Young norm inequality and general multi-jump Euler–Maclaurin theorem implies the sampled norm setup and asymptotic coefficient after derivative calculation, but not the exact all-(m,N) sign-block sum explicitly: one needs the m−1 zero-boundaries and closed cosine progressions. Known m=3,m=4 examples are strict special cases. Thus O is best-of-knowledge for the assembled exact all-m invariant, while explicit novelty of the Bernoulli error mechanism is disclaimed.",
       "searches": [
-        "published-finding corpus:b176a6018242",
-        "arXiv:0707.3023v1",
-        "arXiv:0811.4576v1",
-        "Bernoulli B2 residue law sampled Dirichlet kernel consecutive projection"
+        "Resultary: Fourier idempotent trigonometric polynomial consecutive frequencies finite cyclic groups exact L1 norm residue",
+        "arXiv:0707.3023 Eq.(8), Thms 7/8",
+        "arXiv:0811.4576 finite-grid concentration definition",
+        "Berrut–Trummer 2022 Theorem 2 and published m=4 RESULT.md"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "published-finding corpus's closest exact projection hit was published-finding corpus:b176a6018242, whose stated domain is exactly three consecutive frequencies.",
-        "The equivalent sampled form is the normalized sum of the absolute sine ratio; targeted web searches did not return an all-m finite-cycle evaluation."
+        "Resultary/2026, Exact three-frequency Fourier projection norm on every cyclic group, published record b176a6018242, RESULT.md.",
+        "Resultary/2026, Exact four-frequency Fourier projection norm on every cyclic group, published record 6fefdbed98ba, RESULT.md.",
+        "A. Bonami and Sz. Gy. Révész, Integral Concentration of idempotent trigonometric polynomials with gaps, arXiv:0707.3023v2, Eq. (8), Theorems 7/8."
       ],
-      "reasoning": "The projection norm, the sampled Dirichlet-kernel L1 norm, and the absolute sine-ratio sum are mathematically identical, so all three aliases were checked. The closest hit fixes m=3; a fixed-m special case cannot imply the arbitrary-m formula or the Bernoulli coefficient for every zero pattern.",
+      "reasoning": "Convolution endpoint norm is exactly N^{-1} sum_{j=0}^{N-1}|sin(mπj/N)/sin(πj/N)| (j=0 interpreted m), so searched Fourier-projection norms, cyclic Lebesgue constants and sampled kernel L1 norms interchangeably. m=3 and m=4 statements are contained in this family but cannot imply m≥5; no independent exact full-m theorem was located.",
       "searches": [
-        "exact Fourier projection norm m consecutive characters every cyclic group Dirichlet kernel finite sum cotangent",
-        "exact sampled L1 norm Dirichlet kernel arbitrary length cyclic group",
-        "finite cyclic Lebesgue constant consecutive characters exact formula arbitrary m N",
-        "sum absolute sin(m pi j/N)/sin(pi j/N) exact",
-        "all length consecutive characters finite cyclic Fourier projection exact norm"
+        "Resultary: exact discrete Lebesgue constant cyclic finite group Z_N consecutive Fourier projection m characters L1 norm sampled Dirichlet kernel sine quotient",
+        "web: discrete Lebesgue constants Dirichlet kernel cyclic groups exact formula finite sums Fourier projection",
+        "web: absolute Dirichlet kernel samples exact sum N m cosecant partial Dirichlet Lebesgue constants"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "No retrieved published-finding corpus record or literature search result tabulated the all-m exact norm or its Bernoulli residue coefficient.",
-        "The closest database record was again the m=3 exact projection formula."
+        "Resultary/2026, Exact three-frequency Fourier projection norm on every cyclic group, published record b176a6018242, RESULT.md.",
+        "Resultary/2026, Exact four-frequency Fourier projection norm on every cyclic group, published record 6fefdbed98ba, RESULT.md.",
+        "Resultary exact self-match was excluded as a copied/current finding, not independent historical priority."
       ],
-      "reasoning": "The claim is an infinite symbolic family rather than a finite recomputation. No exact database or table with the asserted all-length values was located.",
+      "reasoning": "The m=3 and m=4 isolated formulas give exact finite tables for those subcases only; neither tabulates or algebraically supplies arbitrary m. The self-match is not prior art. No all-m symbolic table was identified; searches cannot prove nonexistence.",
       "searches": [
-        "fixed m cyclic Dirichlet kernel discrete L1 norm asymptotic Bernoulli polynomial residue N mod m",
-        "Dirichlet kernel finite cyclic projection norm residue class asymptotic",
-        "for all support lengths m and cyclic orders N exact endpoint norm consecutive Fourier projection floor kN/m partial cosine sums"
+        "Resultary queries covering exact cyclic Lebesgue constants and all block lengths",
+        "web: sum absolute sin(m pi j/N)/sin(pi j/N) exact",
+        "published Resultary 2026 m3 and m4 full RESULTS"
       ]
     },
-    "rationale": "The exact all-length finite-cycle endpoint formula and the Bernoulli residue coefficient were not implied by the closest inspected archive sources or by the published three-frequency special case. Equivalent-formulation published-finding corpus searches returned the three-frequency result as the closest match, and targeted literature searches did not identify a broader exact theorem. A residual terminology-indexing risk is explicitly retained.",
+    "rationale": "The all-m,N finite formula is not stated or implied by the inspected m=3/m=4 exact results or the concentration papers. The Bernoulli jump expansion is NOT independently novel: Berrut–Trummer 2022 Theorem 2 explicitly covers its general analytic mechanism, and elementary specialization yields the proposed coefficient. The originality judgment rests on the complete exact all-block finite norm evaluation and organized sampling law together, not on claiming a new Euler–Maclaurin principle. Residual risk: a classic finite cyclic Lebesgue-constant formula may already contain the all-m sign-block identity.",
     "residual_risks": [
-      "An equivalent sign-block formula may occur in older approximation-theory or numerical-Fourier literature under terminology not retrieved by the searches.",
-      "The general B2 sampling coefficient is an instance of a broader cusp/trapezoidal-error mechanism; the novelty asserted here is its exact specialization and integration with the all-m cyclic projection formula, not the Bernoulli Fourier series itself."
+      "2006 Berrut full text inaccessible; Oxford institutional retrieval returned vpn_disconnected after arXiv/OA attempts. 2022 OA rederives its relevant general coefficient, so absence alone is not treated as originality failure.",
+      "Earlier numerical-Fourier textbooks or old trigonometric-sum tables might present the all-m exact sign-block formula under a different name.",
+      "The all-m formula is an elementary specialization of classical identities; novelty and value derive from explicit universal organization, not difficulty or novelty of those identities."
     ],
     "source_inspections": [
       {
-        "assessment": "NOT_COVERING: establishes the continuous idempotent framework and uses Dirichlet kernels but does not state an all-m exact finite cyclic endpoint projection norm or Bernoulli residue law.",
-        "evidence": "ArXiv submission history gives v1 on 2007-07-20; the PDF lists Primary MSC 42A05 and defines the Dirichlet kernel as a finite exponential sum and sine quotient.",
-        "identifier_or_url": "arXiv:0707.3023v1",
-        "material_read": "ArXiv metadata and full-text PDF introduction through the Dirichlet-kernel definition and surrounding concentration results.",
-        "method": "Full-text PDF inspection, including the displayed definition of the Dirichlet kernel.",
+        "assessment": "Does not supply the exact normalized sampled L1 norm for every m,N; concentration constants and construction on the circle are different endpoints.",
+        "evidence": [
+          "Eq.(8) D_n(x)=e^{πi(n−1)x} sin(πnx)/sin(πx); Theorem 8 concerns concentration ratios, not exact cyclic projection norms."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0707.3023",
+        "material_read": "Parsed arXiv PDF introduction, Eq.(8) kernel identity on p.4, main Theorems 7–8 and targeted occurrences of sampled kernels; rendered p.2 checked. Not a line-by-line inspection of the 43-page proof.",
+        "method": "Primary arXiv PDF text search and rendered screenshot; theorem and definitions comparison.",
         "title": "Integral Concentration of idempotent trigonometric polynomials with gaps",
-        "trigger": "Same idempotent and Dirichlet-kernel objects; primary MSC 42A05."
+        "trigger": "Primary Dirichlet-kernel and idempotent concentration literature in the same 42A05 setting."
       },
       {
-        "assessment": "NOT_COVERING: the finite-group quantity is an idempotent concentration ratio, not the endpoint norm of the consecutive spectral projection, and no arbitrary-m exact projection formula is stated.",
-        "evidence": "The paper explicitly replaces integrals by finite grid sums and defines idempotents on Z/qZ; its theorem statements concern concentration levels.",
-        "identifier_or_url": "arXiv:0811.4576v1",
-        "material_read": "Full-text PDF abstract, introduction, and finite-group formulation on the grid Z/qZ.",
-        "method": "Full-text PDF inspection of the finite-grid definitions and stated concentration problem.",
+        "assessment": "Finite-group concentration of idempotents (an extremum over spectra or ratios) is not the endpoint norm of the fixed consecutive spectral projection and does not give an all-m formula.",
+        "evidence": [
+          "Abstract states finite Z/qZ idempotent concentration problem; Definition 20 defines Γ* concentration constants rather than exact P_{m,N} operator norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.4576",
+        "material_read": "Primary arXiv PDF abstract, introduction, Theorem 3, finite-group grid definition around printed p.17, and rendered p.9. Not all 23 pages examined.",
+        "method": "ArXiv PDF text search, theorem and finite-group parameter comparison, page-image check.",
         "title": "Concentration of the integral norm of idempotents",
-        "trigger": "Direct finite-cyclic treatment of idempotents on Z/qZ."
+        "trigger": "Explicit finite-cyclic idempotents and norm concentration could imply a projection constant."
       },
       {
-        "assessment": "SPECIAL_CASE_ONLY: fixes three consecutive frequencies and explicitly disclaims longer projections; it is recovered when m=3 but does not imply the arbitrary-m theorem.",
-        "evidence": "Its scope is m=3 and the displayed formula splits only N modulo 3.",
-        "identifier_or_url": "published-finding corpus:b176a6018242",
-        "material_read": "Published statement and complete result/proof package for the m=3 case.",
-        "method": "Statement-level and proof-level implication comparison.",
+        "assessment": "m=3 special case only; no universal m≥2 statement or generic second-order coefficient.",
+        "evidence": [
+          "Finding branches N mod 3; assumptions explicitly say it does not assert four or more consecutive characters."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-three-frequency-fourier-projection-norm-on-every-cyclic-gr--b176a6018242/RESULT.md",
+        "material_read": "Entire RESULT.md, including three residue formulas, proof, assumptions and limitations.",
+        "method": "Primary published GitHub result content read and logical implication comparison.",
         "title": "Exact three-frequency Fourier projection norm on every cyclic group",
-        "trigger": "Closest exact finite-cycle endpoint projection statement."
+        "trigger": "Exact same invariant, but m=3."
+      },
+      {
+        "assessment": "m=4 subcase; does not imply the all-m claim. Its local analysis is consistent with specialization of the general Bernoulli coefficient.",
+        "evidence": [
+          "Finding restricts every assertion to m=4; limitations explicitly say no claim for blocks longer than four."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-four-frequency-fourier-projection-norm-on-every-cyclic-gro--6fefdbed98ba/RESULT.md",
+        "material_read": "Entire RESULT.md including m=4 cotangent/cosecant formula, all three residue regimes and proof.",
+        "method": "Primary published GitHub result content read; evaluated its hypotheses and conclusion against all-m theorem.",
+        "title": "Exact four-frequency Fourier projection norm on every cyclic group",
+        "trigger": "Exact same invariant with next fixed block length, including residue asymptotics."
+      },
+      {
+        "assessment": "COVERS the general mechanism and, upon elementary substitution of first-derivative jumps at k/m, implies the second-order B2 coefficient. Does NOT give an exact all-m,N finite trigonometric norm formula.",
+        "evidence": [
+          "§2 Theorem 2 states a_ℓ=Σ_j B_ℓ(t_j)/ℓ! [f^{(ℓ−1)}(c_j−)−f^{(ℓ−1)}(c_j+)]; for ℓ=2 and jumps J_k=2mπ csc(πk/m), a_2=−mπ Σ_k csc(πk/m)B2({Nk/m})."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s11075-022-01462-0",
+        "material_read": "Complete accessible OA HTML §1–§3 including §2 Theorem 2 and formulas (4)–(6), proof discussion and exposition about nonconstant t_j.",
+        "method": "Primary open-access HTML theorem reading and direct specialization to F_m(x)=|sin(mπx)/sin πx|.",
+        "title": "Extrapolation quadrature from equispaced samples of functions with jumps",
+        "trigger": "A general Euler–Maclaurin formula may already imply the Bernoulli residual sampling term."
+      },
+      {
+        "assessment": "Likely general coverage of the Bernoulli cusp-correction mechanism; exact paper full text not inspected. Later 2022 open-access theorem makes that coverage mathematically explicit.",
+        "evidence": [
+          "Publisher indexed §5 describes Theorem 3 for Riemann sums of piecewise smooth functions with multiple jumps and Bernoulli polynomials. Full text unavailable through authorized institutional service."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2005.02.015",
+        "material_read": "Bibliographic record, accessible indexed primary webpage sections 1–5 through statement of Theorem 3, with full-text PDF inaccessible. Oxford institutional retrieval failed with disconnected VPN.",
+        "method": "Search-indexed publisher article sections and university OA metadata; authorized full-text attempt after arXiv and OA checks.",
+        "title": "A circular interpretation of the Euler–Maclaurin formula",
+        "trigger": "Original 2006 paper on multiple derivative jumps and Bernoulli-polynomial quadrature defects."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "Finite-group convolution equality, exact sign-block evaluation and standard Fourier aliasing produce the exact norm and fixed-m second-order law.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Inspected finite idempotent literature and m=3/m=4 special cases do not provide the all-block finite expression; older equivalent summations remain a risk.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Discrete Lebesgue norms are canonical, and all-length exact evaluation is an independently useful finite Fourier invariant.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "8f1466cb-a7af-4059-aa8f-c9876a9b7f03",
+  "scientific_scope": "all integers N≥m≥2 on Z_N with normalized counting measure, consecutive frequencies, endpoint ℓ1/ℓ∞ norms, and fixed-m asymptotics as N→∞",
   "value": {
-    "rationale": "The endpoint norm of a consecutive Fourier projection is the canonical discrete Lebesgue constant. A single all-length formula and a complete residue-class second-order law organize and extend isolated small-block evaluations, while reducing the exact computation for fixed m from an N-sample absolute sum to a bounded number of elementary trigonometric terms. The invariant and the finite-to-continuous sampling defect are mathematically natural and reusable.",
+    "rationale": "Endpoint operator norms of Fourier partial-sum projections on cyclic groups are canonical discrete Lebesgue constants. The exact all-m,N expression removes absolute values and replaces N sample terms by O(m²) finite-trigonometric arithmetic for each m, including complete zero-aligned arithmetic edge cases; a researcher seeking precise amplification on finite cyclic grids can use this fact directly. The residue formula explicitly quantifies nonmonotone sampling error for every fixed block and reveals sign changes (including the known m=4 special case). Although the B2 jump law is a standard consequence of generalized Euler–Maclaurin and the proof uses elementary trig, the combined exact symbolic family is a naturally motivated invariant rather than a one-off tiny parameter calculation. No claims for nonconsecutive spectra, interior ℓp norms, or m-dependent uniform error bounds.",
     "status": "PASS"
   }
 }
