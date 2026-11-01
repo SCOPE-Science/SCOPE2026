@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The stationary model, parameter domain, cross-covariance and autocovariance definitions, and reconstruction are given in RESULT.md. Exact-rational checks using `verify.py` construct independent 8-state transition matrices for 12 parameter settings, verify their stationary laws, evaluate 48 independently obtained moment expressions, and check all 12 inverse reconstructions. Both positive and negative environmental memory, independent environmental states, no local copying, and coincident memory parameters are included. The one-date nonidentifiability example is checked by matching all four joint probabilities.
+# Independent mathematical audit
 
-The general theorem is proved analytically and is not inferred from the finite test set. Only population-law identifiability is claimed: statistical uncertainty with finitely many field samples, observation errors, or an incorrect model is not quantified. A separate independent scientific audit has not been performed.
+## correctness
+
+PASS
+
+For environmental S_t∈{±1} with E S_t S_{t+h}=ρ^h, conditional patch means p+M_t satisfy M_t=λ M_{t−1}+(1−λ)aS_t. Conditional independence yields C0=a²(1−λ)(1+λρ)/((1+λ)(1−λρ))>0, C1/C0=(λ+ρ)/(1+λρ), and A1−C1=λ[p(1−p)−C0]. The bracket is E Var(X|entire S)>0 since 0<p−a<p+a<1; all inversion denominators therefore nonzero for specified λ∈[0,1), ρ∈(−1,1). This proves p=m and unique global reconstruction of λ,ρ,a. Independently exact-rational solved the stationary eight-state environment-and-patch Markov transition law in three cases and verified moments; the two distinct one-date models (a,λ,ρ)=(1/5,1/2,−2/7), (1/10,0,0) both give p=1/2, C0=1/100 and identical complete one-date two-bit law. Thus two dates are necessary and sufficient for two patches.
+
+## originality
+
+PASS
+
+A simple exact algebraic inversion for two site observations under one shared temporally correlated hidden binary Markov environment was not found in inspected Moran-effect occupancy/detection or stochastic-factor work. More general dynamic latent-factor identifiability results may imply the formulas as a special case; this is retained as a material originality risk rather than declared disproved.
+
+## value
+
+PASS
+
+Sharp minimal temporal sampling for a natural shared-environment binary occupancy model, with explicit exact recovery of environmental persistence separately from local retention and constructive one-date nonidentifiability. This is a meaningful structural identification result for ecology and time-series observation design.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
