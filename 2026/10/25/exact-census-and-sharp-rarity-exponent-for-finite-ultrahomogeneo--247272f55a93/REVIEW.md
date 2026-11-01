@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The finite component classification in Quinn-Gregson's Theorems 4.7 and 4.10 is specialized to regular cycle-rooted components with one branching profile per cycle length. A component has \(k\) cycle rotations and independent child permutations, giving its exact automorphism weight. Counting nonempty sets of equal components and multiplying over cycle lengths yields the displayed formal EGF. Each profile's list of layer sizes embeds into the set of integer partitions of its component size, so the unrestricted component-set majorant converges for any \(0<r<1\). Since all permutations satisfy ultrahomogeneity, the logarithmic growth of the EGF coefficient is exactly zero. Stirling gives \(\log\Pr(\mathrm{UH})/n\to-1\). An independent brute-force loop over all maps through six states matches the exact coefficient program; these finite tests are not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to priority risk
-Quinn-Gregson's 2026 monounary theorem classifies the underlying structures and is an explicit premise, but the inspected full text does not provide the weighted labelled EGF or the sharp logarithmic frequency. Liao's later note establishes different properties for multi-operation structures and tree oligomorphicity. An available complete published mathematical result counts **polymorphism-homogeneous** unary functions, a different extension property; its initial counts and asymptotic growth differ sharply from those established here. Searches for regular functional-digraph counts, exact initial coefficients and log-asymptotic equivalents returned no direct covering theorem. An unnoticed older equivalent census is still possible.
+PASS
 
-## Value — PASS
-The count and rate measure prevalence of a central model-theoretic extension property, a natural question left open by a structural classification. The global restriction forbidding distinct profiles at the same cycle length changes the enumerative species. The exact \(-1\) rate establishes extreme rarity yet makes a sharp comparison with the separately counted polymorphism-homogeneous class. The conclusion is restricted to a logarithmic asymptotic, not a precise prefactor.
+Finite Quinn-Gregson classification gives uniform rooted predecessor branching profiles for each cycle length. A connected k-cycle plus branches b_j has s=k sum ell_j points and aut order k prod_j(b_j!)^(k ell_j); nonempty multisets contribute exp(z^s/a)−1. At most p(m) profiles of total component size m via injective layer-size partition encoding. For each r<1 coefficientwise majorant exp(sum p(m)r^m) bounds u_n/n!≤K_r r^(-n); permutations give u_n≥n!, yielding log(u_n/n!)/n→0. Stirling gives exponent −1. Independently counted direct mapping profiles all n^n maps for n<=6, 1,4,15,100,575,5526. Valid n=0 convention; no sharp prefactor claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Premise is exactly the published structural classification; the independent weighted labelled species EGF and logarithmic rarity were not found in the full primary classification or nearby labelled polymorphism-homogeneous census, which counts a different extension property. Best-of-knowledge PASS with priority risk.
+
+## value
+
+PASS
+
+A natural labelled enumeration of structures with an established model-theoretic extension property, including exact EGF and exponential rarity, is useful beyond a restatement of structural classification. The global same-k profile restriction yields a nontrivial counting species.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
