@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every square must contain zero or two ones. The zero-only list is immediate; a square with two ones necessarily equals \((0^u1\,0^v)^2\), making the integer interval for \(u\) necessary and sufficient. The four-variable gap parameterization proves the aggregate generating function. The sharp lower/upper bounds and equality-case lists follow by integer inequalities with all parity cases specified. The package checker independently enumerates literal square strings for 2600 words and checks aggregate and extremal formulas over 302621 triples. The infinite claims rely on the proof, not on finite computation.
+PASS
 
-## Originality — PASS, with explicit priority limitations
+For w=0^a1 0^b1 0^c, every ordinary square has either zero ones (0^(2j), j<=floor(M/2)) or both ones and equals (0^u1 0^v)^2 with u+v=b, u<=a, v<=c. This proves D=floor(M/2)+[1+min(a,b,c,a+c-b)]_+. Inclusion-exclusion for runs with at least 2j zeros gives the first generating-function summand; the bijection b=u+v,a=u+r,c=v+s yields 1/((1-z)^2(1-z²)^2). Leading pole gives mean 7m/18+O(1); integer slack of M+2(T-1)<=m establishes sharp max, min and explicit even/odd maximizer families. New direct literal square-set enumeration for 1140 gap triples through m=17 reproduces D and full aggregate/extreme counts; not a substitute for the all-m proof.
 
-The earlier general distinct-square bounds and the \(k=2\) minority-letter upper bound are credited rather than claimed. The author presentation associated with Jonoska–Manea–Seki 2014 was inspected for its general conjecture, small-\(k\) cases and coefficient-gap lemmas; those displayed statements do not supply the per-word exact count, total generating function, sharp minimum or equality multiplicities. Li 2022 proves the general upper bound. Fazekas–Mammoliti–Mercaş–Simpson 2026 gives an exact two-marker treatment for the different notion of **Abelian** squares, whose pair constraints do not imply the ordinary-square count. No matching statement was identified in the searched record set; full proceedings text of 2014 was unavailable, which remains a priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is an all-length exact classification of the square-count statistic for a natural sparse binary family, directly motivated by the 2014 fixed-minority-letter question. It distinguishes structural occurrence constraints from mere global bounds, computes the full aggregate first moment, and counts all sharp upper-bound witnesses. The exact lower extreme differs significantly from the corresponding Abelian-square result, emphasizing a mathematically substantive distinction rather than a routine parameter substitution.
+Qualified PASS for complete pointwise ordinary-square count, rational full-length first moment, sharp minimum and exact max-equality census. Previously published minority-symbol upper bound is explicitly credited, and 2026 two-marker Abelian-square theorem is not equivalent.
 
-## Limitations
+## value
 
-This is a self-review, not independent mathematical verification. The statement concerns distinct literal contiguous ordinary square factors for words with exactly two ones, not individual occurrence counts or Abelian squares. The 2014 proceedings chapter was inaccessible in full and an earlier equivalent derivation remains possible. Finite checker runs do not prove all-length statements independently of the written argument.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact binary square factor counting with a fixed minority of two ones is a natural first nontrivial case motivated by known minority-k square bounds. The complete all-length ordinary square census, sharp lower extreme and explicit count of all upper extremizers give useful invariants not contained in the global inequality, and distinguish literal from Abelian squares.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

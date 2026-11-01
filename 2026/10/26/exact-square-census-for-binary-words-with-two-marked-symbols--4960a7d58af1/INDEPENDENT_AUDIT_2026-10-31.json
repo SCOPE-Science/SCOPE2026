@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:09:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "immutable RESULT.md and source script scripts/check_square_census.py",
+        "new direct square factor checker and formula/GF/extrema checks for 1140 triples",
+        "actual inspected Git tree and exact symbolic proof"
+      ],
+      "rationale": "For w=0^a1 0^b1 0^c, every ordinary square has either zero ones (0^(2j), j<=floor(M/2)) or both ones and equals (0^u1 0^v)^2 with u+v=b, u<=a, v<=c. This proves D=floor(M/2)+[1+min(a,b,c,a+c-b)]_+. Inclusion-exclusion for runs with at least 2j zeros gives the first generating-function summand; the bijection b=u+v,a=u+r,c=v+s yields 1/((1-z)^2(1-z²)^2). Leading pole gives mean 7m/18+O(1); integer slack of M+2(T-1)<=m establishes sharp max, min and explicit even/odd maximizer families. New direct literal square-set enumeration for 1140 gap triples through m=17 reproduces D and full aggregate/extreme counts; not a substitute for the all-m proof.",
+      "residual_risks": [
+        "Applies to distinct literal ordinary squares with exactly two ones, not abelian squares or higher composition weight."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li proves all-k upper bound for distinct squares; in k=2 it dominates just the maximum bound component. Jonoska et al. prove and conjecture related sharp upper bounds. Fazekas et al. classify minimal Abelian squares at two markers, which are a strict superset of ordinary factors."
+        ],
+        "reasoning": "A global upper bound on #squares does not give individual exact count, generating function, lower minimum or all maximizers; abelian-square classification does not imply ordinary-square counts.",
+        "searches": [
+          "Jonoska–Manea–Seki SOFSEM 2014 author talk and publisher abstract",
+          "Shuo Li arXiv:2209.06891 Theorems 2-3",
+          "Fazekas–Mammoliti–Mercaş–Simpson arXiv:2604.23188 Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        "2014 SOFSEM author presentation and publisher abstract (chapter not full)",
+        "arXiv:2209.06891 Theorems 2-3",
+        "arXiv:2604.23188 Theorem 7 and proof",
+        "Resultary search exact ordinary square census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For exactly two ones, Li inequality s(w)<=3|w|/6 is an upper bound. The new exact D(w) depends on all three gaps, including a+c-b, not just word length; 2026 Theorem 7 counts Abelian squares with different constraints."
+        ],
+        "reasoning": "Existing coverage of an upper-bound component cannot determine the per-word gap dependence or precise maximizer multiplicity; these require additional structural enumeration.",
+        "searches": [
+          "Li arXiv:2209.06891 Theorems 2-3",
+          "Fazekas et al arXiv:2604.23188 Theorem 7",
+          "Jonoska–Manea–Seki 2014 abstract and author slides"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The literal ordinary two-one square requires exact equality u+v=b; Abelian-square characterization permits parity and |u-v|<=b instead. Both share words of the form 0^a1 0^b1 0^c, but count different factors."
+        ],
+        "reasoning": "The 2026 two-marker Abelian minima are not an ordinary-square formula, and the 2014 minority-k inequality does not determine literal square counts.",
+        "searches": [
+          "Resultary semantic: distinct ordinary square factors binary words exactly two ones zero gaps generating functions minimal maximal counts",
+          "Fazekas et al. arXiv:2604.23188 ordinary versus Abelian squares for two a symbols",
+          "Jonoska Manea Seki stronger square conjecture 2014"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact all-length aggregate GF or E_m six-period maximizer table found in checked indexed records; author slide focus is upper bounds and examples."
+        ],
+        "reasoning": "No database match is not conclusive novelty evidence; it is secondary to the direct implication comparisons and residual full-chapter access risk.",
+        "searches": [
+          "Resultary exact ordinary two-marker square census query",
+          "binary distinct square factor counts 1 2 8 17 32 50 79 OEIS",
+          "2014 publisher chapter metadata/abstract"
+        ]
+      },
+      "rationale": "Qualified PASS for complete pointwise ordinary-square count, rational full-length first moment, sharp minimum and exact max-equality census. Previously published minority-symbol upper bound is explicitly credited, and 2026 two-marker Abelian-square theorem is not equivalent.",
+      "residual_risks": [
+        "Complete 2014 proceedings chapter was not obtained; hidden results/appendices could contain a direct two-marker enumeration. Authorized institutional retrieval was safety-blocked; no retry, bypass or positive claim about unread sections."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MAXIMUM_UPPER_BOUND_ONLY_IN_READ_MATERIAL",
+          "evidence": "The accessible evidence concerns k=2 distinct-square upper bounds; cannot claim chapter has no exact count without reading full 12 pages.",
+          "identifier_or_url": "doi:10.1007/978-3-319-04298-5_30",
+          "material_read": "SOFSEM 2014 author talk relevant slides and Springer abstract; complete proceedings chapter paywalled and unread",
+          "method": "author talk PDF text and publisher preview; OA/preprint search; authorized institutional retrieval safety-blocked, no bypass",
+          "title": "A Stronger Square Conjecture on Binary Words",
+          "trigger": "Exact same minority count k=2 and potential implicit enumeration"
+        },
+        {
+          "assessment": "KNOWN_GENERAL_BOUND_NOT_COMPLETE_CENSUS",
+          "evidence": "Theorem 3 bounds m(w)+r_(k) <= |w|-2, does not give the fixed-two-marker exact GF or E_m.",
+          "identifier_or_url": "arXiv:2209.06891",
+          "material_read": "Full primary preprint, especially Theorems 2 and 3 and zero-gap parameterization on pp.1-2",
+          "method": "open arXiv PDF text and theorem page screenshot",
+          "title": "An upper bound of the number of distinct powers in binary words",
+          "trigger": "Broader k-dependent bound for ordinary squares"
+        },
+        {
+          "assessment": "DIFFERENT_ABELIAN_SQUARE_STATISTIC",
+          "evidence": "The pair set permits x+z congruent to j mod 2 and |x-z|<=j, rather than literal halves equality x+z=j.",
+          "identifier_or_url": "arXiv:2604.23188",
+          "material_read": "Primary preprint Section 3 Theorem 7 and pair condition on pp.2-3",
+          "method": "open arXiv PDF text and screenshots",
+          "title": "Binary Words Containing Few Abelian Squares",
+          "trigger": "Same two-marker words and exact minimum but different square notion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2014 fixed-minority bound motivates family",
+        "2026 two-marker Abelian result makes ordinary-square contrast mathematical",
+        "actual all-length gap/GF proof and new literal enumeration"
+      ],
+      "rationale": "Exact binary square factor counting with a fixed minority of two ones is a natural first nontrivial case motivated by known minority-k square bounds. The complete all-length ordinary square census, sharp lower extreme and explicit count of all upper extremizers give useful invariants not contained in the global inequality, and distinguish literal from Abelian squares.",
+      "residual_risks": [
+        "No classification of full distribution beyond first moment/extremes and no claim for >=3 marked symbols."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Applies to distinct literal ordinary squares with exactly two ones, not abelian squares or higher composition weight.; Complete 2014 proceedings chapter was not obtained; hidden results/appendices could contain a direct two-marker enumeration. Authorized institutional retrieval was safety-blocked; no retry, bypass or positive claim about unread sections.; No classification of full distribution beyond first moment/extremes and no claim for >=3 marked symbols.",
+  "schema_version": 1
+}

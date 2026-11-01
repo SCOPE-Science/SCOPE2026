@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limitations
 
-Run `python3 scripts/check_square_census.py` using Python 3 and no dependencies. It directly enumerates all literal square factors for the 2600 words with \(0\le m\le23\), checks the separate combinatorial coefficients and maximum-attaining counts over 302621 triples with \(0\le m\le120\), and checks the two sharpness constructions for 500 more values of \(m\). All three checks succeeded before delivery.
+# Independent mathematical audit
 
-The proof of (1) is the literal square-root classification. The rational generating function follows by disjoint square types and an invertible four-parameter encoding. The extrema follow from the constraint \(M+2t\le m\), the lower-bound split at \(M=m/2\), and an exact slack classification. Only these symbolic steps establish claims for all \(m\); neither the checker nor a finite sampling log is an infinite proof.
+## correctness
 
-The earlier global inequality is attributed to the cited literature. Historical priority of the new exact refinements is assessed from the accessible sources only and is not independently certified.
+PASS
+
+For w=0^a1 0^b1 0^c, every ordinary square has either zero ones (0^(2j), j<=floor(M/2)) or both ones and equals (0^u1 0^v)^2 with u+v=b, u<=a, v<=c. This proves D=floor(M/2)+[1+min(a,b,c,a+c-b)]_+. Inclusion-exclusion for runs with at least 2j zeros gives the first generating-function summand; the bijection b=u+v,a=u+r,c=v+s yields 1/((1-z)^2(1-z²)^2). Leading pole gives mean 7m/18+O(1); integer slack of M+2(T-1)<=m establishes sharp max, min and explicit even/odd maximizer families. New direct literal square-set enumeration for 1140 gap triples through m=17 reproduces D and full aggregate/extreme counts; not a substitute for the all-m proof.
+
+## originality
+
+PASS
+
+Qualified PASS for complete pointwise ordinary-square count, rational full-length first moment, sharp minimum and exact max-equality census. Previously published minority-symbol upper bound is explicitly credited, and 2026 two-marker Abelian-square theorem is not equivalent.
+
+## value
+
+PASS
+
+Exact binary square factor counting with a fixed minority of two ones is a natural first nontrivial case motivated by known minority-k square bounds. The complete all-length ordinary square census, sharp lower extreme and explicit count of all upper extremizers give useful invariants not contained in the global inequality, and distinguish literal from Abelian squares.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
