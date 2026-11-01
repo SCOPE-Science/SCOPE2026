@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive effects (not assumed commuting), the identity \\(N=\\sum_j(\\lambda_jI-T)P_j(\\lambda_jI-T)\\succeq0\\) proves positivity. For adjacent nodes, their pairwise product polynomial is nonnegative on every outcome, hence \\(N\\succeq(T-\\lambda_iI)(\\lambda_{i+1}I-T)\\) in Loewner order. Continuous spectral hat effects attain the fixed-support scalar spectral bound. In the four-node optimization \\(E(a)<(1-a)^2/4\\) forces two interior nodes into opposite spectral bands. Their outer midpoint errors bound \\(u,v\\ge s_a\\), while the inner endpoint forces \\(\\|N\\|\\ge(s_a-a)(s_a+a)=E(a)\\). The symmetric support attains equality; strict monotonicity proves uniqueness. The endpoint \\(a=0\\) is included, while \\(a=1\\) is excluded. The full analytical argument is in RESULT.md. The packaged checker passed 3,957 deterministic grouped finite instances, including 450 noncommuting POVMs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mädler-Schmüdgen arxiv:2310.00957 Section 5 proves a matricial Richter-Tchakaloff exact-atom theorem for finite-dimensional Hermitian matrices; no fixed four-node minimax noise theorem for infinite-spectrum operators.",
+        "Curto et al. arxiv:2605.04392v1 Section 5, Example 5.10 proves an obstruction to exact finite-atomic \\((I,T,T^2)\\) representation, not the minimum positive norm error.",
+        "Pietrzycki-Stochel DOI 10.4153/S0008414X22000426 Theorem 1.1 says zero intrinsic noise characterizes spectral POVMs, without a sharp four-outcome positive lower bound."
+      ],
+      "reasoning": "Finite-dimensional atomic representations do not supply a four-atom uniform operator-norm approximation for an infinite continuum of spectral values. Zero-error rigidity does not yield the exact nonzero gap law, and known scalar quantizer optimizations inspected use different support families or constraints.",
+      "searches": [
+        "Operator-valued truncated moment problem Tchakaloff finite atomic support quantitative variance floor, moment matrices (I,T,T squared) best quadrature and optimal interpolation nodes",
+        "Operator norm optimal second-moment inflation for four atomic POVM representing a selfadjoint two-band observable with exact first moment; optimal spectral points and noise floor",
+        "On the Truncated Matricial Moment Problem. I arxiv:2310.00957",
+        "Two-moment characterization of spectral measures on the real line DOI:10.4153/S0008414X22000426"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2605.04392v1",
+      "https://arxiv.org/abs/2310.00957",
+      "https://arxiv.org/abs/quant-ph/0703036",
+      "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/twomoment-characterization-of-spectral-measures-on-the-real-line/688E707E017998F1C4970B43098B61F3",
+      "https://arxiv.org/html/1908.06077v2",
+      "https://link.springer.com/article/10.1007/s11785-024-01649-4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Massar arxiv:quant-ph/0703036 Section II equations (4)-(8) defines the same intrinsic noise and proves positivity, while the applications concern joint observables, not spectral two-band support optimization.",
+        "Ramezani-Kebrya et al. arxiv:1908.06077v2 Section 4.1 and Appendix E optimize gradient quantization bounds, including a different three-level normalized-coordinate optimum of 1/2.",
+        "Curto et al. DOI 10.1007/s11785-024-01649-4 published 2025-01-06, arxiv:2605.04392v1 Section 5 distinguishes exact moment existence from finite atomic support."
+      ],
+      "reasoning": "The already established positivity identity and classical hat interpolation are ingredients, not new claims. Neither yields the optimized algebraic gap-dependent four-outcome value without the new endpoint/midpoint minimax argument; no inspected primary result contains a stronger theorem with hypotheses that subsume the present precise statement.",
+      "searches": [
+        "Moment matching first and zeroth operators, optimal second moment inflation finite atomic positive-operator measure, exact quantitative obstruction, piecewise linear hat effects",
+        "NUQSGD non-uniform stochastic rounding optimize levels quantization minimax variance worst-case",
+        "\"operator-valued\" \"second moment\" \"finite outcomes\" minimal noise selfadjoint",
+        "Uncertainty Relations for Positive Operator Valued Measures arxiv:quant-ph/0703036 Sections II-III"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "No published-record result located with this two-band four-point algebraic envelope or unique codebook.",
+        "The published-record claim \"Exact fixed-profile range of variance relative to squared range\" fixes atom probabilities, unlike the optimized support and operator-first-moment constraints here.",
+        "NUQSGD arxiv:1908.06077v2 Sections 3.1,4.1, Appendix E develops classical adjacent-level stochastic rounding for normalized gradient vectors but does not state the two-band optimal support formula."
+      ],
+      "reasoning": "Classical unbiased adjacent-node interpolation coincides with the commuting special case of the noise functional; novelty is not asserted for this standard mechanism. The full proposed claim gives exact optimized support for the disconnected continuum plus a Loewner certificate excluding arbitrary noncommuting effects. Neither this conjunction nor a dominating two-band quantitative theorem was identified; absence of a search result is not proof of novelty.",
+      "searches": [
+        "Exact optimal four-outcome unbiased quantizer on disjoint symmetric intervals [-1,-a] union [a,1], minimal worst-case conditional variance (2-sqrt(1+3a^2))^2/9, unique support {-1,-s,s,1}",
+        "Four-level unbiased stochastic rounding for a disconnected set of source values: optimal minimax conditional variance for two symmetric intervals, unique codebook and gap dependent algebraic formula",
+        "\"minimax\" \"stochastic rounding\" \"disjoint intervals\" variance",
+        "\"unbiased quantization\" \"spectral gap\" \"variance\" four"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-record claim \"Outcome-minimal Fisher-symmetric POVMs for full spin-factor balls\" determines Fisher-symmetric outcome counts, not intrinsic noise for one self-adjoint two-band observable.",
+        "The published-record claim \"Boundary-layer mass-moment SOS sharp example\" concerns univariate moment-SOS certificates and a different boundary-layer invariant.",
+        "Accessible local prior-claim ledger checked for all claim text occurrences of finite atomic moment error, stochastic rounding, two-band support, and related aliases, with no matching statement."
+      ],
+      "reasoning": "These records specify distinct data (fixed weights, Fisher information or SOS certificate) and cannot bound the operator noise functional with exact first moment. Neither an exact four-level table nor a codebook formula was located; database coverage is nonexhaustive.",
+      "searches": [
+        "Discretization of selfadjoint observable by unbiased POVM with r outcomes, sharp minimal measurement noise, spectral interval and equal spacing minimax",
+        "Two-band spectral-gap four-level stochastic rounding minimax variance optimal codebook, equioscillation sqrt(1+3a^2)",
+        "Exact four-atomic operator-valued measure matching I and selfadjoint T on two-band spectrum K=[-1,-a] union [a,1], minimize spectral operator-norm second moment excess sum lambda_j^2 P_j - T^2, sharp optimal lambda_j=±1 and ±(2sqrt(1+3a^2)-1)/3"
+      ]
+    },
+    "rationale": "Searches of published records, accessible own earlier claim text, and the original primary papers found no equivalent or dominating exact four-outcome two-band norm-minimax intrinsic-noise theorem. Massar already defines the noise and proves positivity; Pietrzycki-Stochel characterize its vanishing; Curto et al. address exact finite-atomic moment representation; Mädler-Schmüdgen treat finite-dimensional exact atoms; NUQSGD handles distinct vector-gradient quantization optimizations. Novelty is best-knowledge with explicit residual risk, not an independence or priority certificate.",
+    "residual_risks": [
+      "An older theorem on optimal unbiased scalar level design with arbitrary disconnected supports might imply the codebook formula after reduction; historical search is nonexhaustive.",
+      "The operator positivity and adjacent-level randomization are pre-existing mechanisms; only the sharp optimized support and combined operator claim are asserted new.",
+      "Independent publication-priority and correctness validation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "EXACT finite-atom existence and nonexistence; does not compute or bound minimum second-moment excess for a fixed four-atom budget.",
+        "evidence": [
+          "Section 5 Example 5.10: (I,T,T²) with infinite distinct eigenvalues cannot have any exactly representing finite-atomic OVM.",
+          "Publisher first public online date 2025-01-06; arxiv preprint appeared later 2026-05-06."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.04392v1",
+        "material_read": "Section 5 including Propositions 5.3/5.5 and Example 5.10, Section 6 outline and operator-moment definitions; publication chronology checked at https://link.springer.com/article/10.1007/s11785-024-01649-4",
+        "method": "Lawfully accessible full-text HTML and publisher publication record.",
+        "title": "The Local Operator Moment Problem on the Real Line",
+        "trigger": "Most directly related 2025 operator-moment and finite-atomic existence paper."
+      },
+      {
+        "assessment": "Exact representation for finite-dimensional matrix moment functionals; no four-outcome quantitative infinite-spectrum noise law.",
+        "evidence": [
+          "Introduction specifies Hermitian q-by-q matrix functionals; Section 5 announces finite-atomic exact representation for those functionals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2310.00957",
+        "material_read": "Introduction, finite-dimensional setup and Section 5 Richter-Tchakaloff theorem statement as provided in the accessible full-text arXiv rendering.",
+        "method": "Accessible arXiv full-text HTML-rendered article.",
+        "title": "On the Truncated Matricial Moment Problem. I",
+        "trigger": "Potential domination from finite-atomic matrix moment theorem."
+      },
+      {
+        "assessment": "Establishes the noise operator definition, positivity and multiple-observable uncertainty comparisons, not optimal four-level two-band quantization.",
+        "evidence": [
+          "Section II equation (8): second outcome moment minus square of the first; equality (positivity) via sum of (M-mu_k)m_k(M-mu_k)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/quant-ph/0703036",
+        "material_read": "Complete Sections I-II and beginning of Section III, including equations (4)-(8), Naimark dilation and applications.",
+        "method": "Accessible arXiv HTML/text full research article.",
+        "title": "Uncertainty Relations for Positive Operator Valued Measures",
+        "trigger": "Direct alternative formulation as POVM intrinsic noise."
+      },
+      {
+        "assessment": "Theorem 1.1: vanishing variance characterizes a spectral POVM. No quantitative four-outcome lower or unique gap-optimized codebook.",
+        "evidence": [
+          "Theorem 1.1 and equation (1.2) explicitly identify zero intrinsic noise and spectrality."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/canadian-journal-of-mathematics/article/twomoment-characterization-of-spectral-measures-on-the-real-line/688E707E017998F1C4970B43098B61F3",
+        "material_read": "Introduction and Theorem 1.1, intrinsic-noise equation (1.2), discussion of zero-error spectrality and later theorem statements.",
+        "method": "Publisher accessible open-access full-text HTML.",
+        "title": "Two-moment characterization of spectral measures on the real line",
+        "trigger": "Potential stronger no-noise theorem using identical first two moments."
+      },
+      {
+        "assessment": "Develops adjacent-level random rounding and normalized gradient-vector worst-case bounds, distinct from a two-band exact four-outcome intrinsic-noise minimax theorem.",
+        "evidence": [
+          "Section 3.1 establishes mean-preserving adjacent-level rounding; Appendix E gives two-cell fixed-level LP optimum 1/2 under different normalized vector constraints."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1908.06077v2",
+        "material_read": "Section 3.1, Section 4.1 including general levels, and Appendix E optimal one-interior-level example.",
+        "method": "Lawfully accessible full-text HTML.",
+        "title": "NUQSGD: Provably Communication-efficient Data-parallel SGD via Nonuniform Quantization",
+        "trigger": "Classical arbitrary-level unbiased rounding could imply the proposed special quantizer."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01dd5174-460f-4ebc-8200-02b80db0ea3b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-band intrinsic-noise floor is a quantitative counterpart to the impossibility of exact finite-atomic reproduction of \\((I,T,T^2)\\) on an infinite spectrum. The precise optimal codebook and gap-dependent coefficient govern worst-state extra variance independently of spectral multiplicity. There is strict improvement over choosing the spectral band endpoints, and a polynomial Loewner certificate shows noncommuting measurements cannot improve the optimum. This is a natural complete finite-outcome moment problem, not a reparametrized existing constant or an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
