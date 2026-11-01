@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:21:18Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "All seven frozen Git blob IDs reconstruct source tree 7ea1d461d43dac6380e1a86d10b80335108d0a7c.",
+        "Independently coded full relation enumeration checks 2^(n*n) directed graphs for n<=4, including loops and dead ends.",
+        "The separation induction is reconstructed directly from Kripke modal truth definitions and covers n=1, all r>=0."
+      ],
+      "rationale": "PASS. Let T_0=empty, T_{r+1}=Pre(U_r), U_r={x:R(x) subseteq T_r}. Both sequences are increasing. Induction on i+j proves T_i intersect U_j=empty: a successor witnessing x in T_i and x in U_j belongs to T_j intersect U_{i-1}, a contradiction. If T_{r+1} differs from T_r, each prior T-step and each U-step is strict (otherwise a fixed point). Thus |T_{r+1}|>=r+1 and |U_r|>=r+1; disjointness yields n>=2r+2. Therefore stabilization by floor(n/2), and a terminal directed path of 2r+2 worlds witnesses the exact lower bound. Explicit recurrence on terminal distance d gives failure at stage j exactly for odd d<=2j-1. Independent exhaustive iteration over all directed relations for n=1..4 produced stabilization histograms {0:2}, {0:12,1:4}, {0:374,1:138}, {0:52056,1:12712,2:768}. This is an infinite combinatorial proof, not extrapolation from n<=4.",
+      "residual_risks": [
+        "Sharp witnesses require nonserial frames with terminal worlds. On serial frames every iteration is top from the start.",
+        "Unrestricted iterations on infinite frames or other formulas are not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General monotone finite fixpoint iteration yields at most n strict changes, while disjoint T/U sets improve to floor(n/2)."
+        ],
+        "reasoning": "Published modal mu-calculus bounded game semantics does not directly give this sharp factor-two bound from inspected descriptions; full content risk is noted.",
+        "searches": [
+          "Resultary: finite Kripke frame Box Diamond top iteration floor n over two stabilization sharp",
+          "web: Box Diamond top finite frames iteration stabilization half n",
+          "web: GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics Proposition 5 Lemma 2 2026",
+          "web: Bounded Game-Theoretic Semantics for Modal mu-Calculus"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2606.15437",
+        "https://doi.org/10.4230/LIPIcs.MFCS.2021.24"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The path witnesses give upper bounds on minimal size only; general lower bound needs disjoint growing T_{r+1},U_r."
+        ],
+        "reasoning": "Prior source abstract states an example alpha2/alpha3 first separated on six-world path; not enough to settle every r.",
+        "searches": [
+          "Resultary: finite Kripke frame Box Diamond top iteration floor n over two stabilization sharp",
+          "web: Box Diamond top finite frames iteration stabilization half n",
+          "web: GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics Proposition 5 Lemma 2 2026",
+          "web: Bounded Game-Theoretic Semantics for Modal mu-Calculus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Complement of (Box Diamond)^r top is the least sequence T_{r+1}=Pre({u:R(u)subseteq T_r}); this is a two-sided predecessor/attractor iteration."
+        ],
+        "reasoning": "Named source compares finite equivalence of alpha_r and alpha_{r+1}; direct statement-level overlap is the exact path construction, not a demonstrated all-r lower bound.",
+        "searches": [
+          "Resultary: finite Kripke frame Box Diamond top iteration floor n over two stabilization sharp",
+          "web: Box Diamond top finite frames iteration stabilization half n",
+          "web: GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics Proposition 5 Lemma 2 2026",
+          "web: Bounded Game-Theoretic Semantics for Modal mu-Calculus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The earlier SAT/DRAT finite indices r=1,2,3 are a bounded table; they cannot imply minimum frame size 2r+2 for all r."
+        ],
+        "reasoning": "Independent exhaustive counts for n<=4 are corroboration, not an infinite table.",
+        "searches": [
+          "Resultary: finite Kripke frame Box Diamond top iteration floor n over two stabilization sharp",
+          "web: Box Diamond top finite frames iteration stabilization half n",
+          "web: GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics Proposition 5 Lemma 2 2026",
+          "web: Bounded Game-Theoretic Semantics for Modal mu-Calculus"
+        ]
+      },
+      "rationale": "PASS, best knowledge: the prior Alpay–Başaran work describes paths separating neighboring iterates and selected small-index minima; the all-r lower bound and exact n/2 stabilization follow from the newly identified T_i/U_j separation invariant. Full text of that exact primary was not accessible in this run; the abstract does not prove its absence from appendices, so priority is qualified.",
+      "residual_risks": [
+        "Full closely related Alpay–Başaran arXiv source could contain an all-r proof not visible in its abstract; best-of-knowledge only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract directly covers small-index phenomenon but cannot establish absence of a stronger theorem in inaccessible main text.",
+          "evidence": "Alpay and Başaran (June 13, 2026), arXiv:2606.15437; abstract: alpha2 and alpha3 indistinguishable up to five worlds and separated by six-world path.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15437",
+          "material_read": "arXiv indexed abstract including six-world alpha2/alpha3 path and bounded certificates; full source inaccessible",
+          "method": "Web arXiv abstract; arXiv PDF and HTML attempts blocked; authorized institutional download returned storage-limit error",
+          "title": "GPU-Accelerated Search and Certification of Bounded Indistinguishability in Finite Kripke Semantics",
+          "trigger": "Exact same nested Box Diamond top formulas and finite separating frames"
+        },
+        {
+          "assessment": "No affirmative covering all-index half-world bound was found; claim of whole-text noncoverage not made.",
+          "evidence": "Bruse, Sälzer, Lange, MFCS 2021, finite convergence of mu-calculus fixpoints.",
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.MFCS.2021.24",
+          "material_read": "Title and indexed description only, not full paper",
+          "method": "Web topical search",
+          "title": "Finite Convergence of mu-Calculus Fixpoints on Genuinely Infinite Structures",
+          "trigger": "General finite convergence and fixpoint bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "PASS. Sharp stabilization speed is a natural exact invariant of a variable-free modal operator on arbitrary n-world frames. The two-sided separation lemma rules out half the naively possible iteration length and completely classifies the minimal separation size for every depth. Not a finite search or trivial renaming; relevant to finite-model semantics and fixpoint convergence.",
+        "PASS"
+      ],
+      "rationale": "PASS. Sharp stabilization speed is a natural exact invariant of a variable-free modal operator on arbitrary n-world frames. The two-sided separation lemma rules out half the naively possible iteration length and completely classifies the minimal separation size for every depth. Not a finite search or trivial renaming; relevant to finite-model semantics and fixpoint convergence.",
+      "residual_risks": [
+        "Full closely related Alpay–Başaran arXiv source could contain an all-r proof not visible in its abstract; best-of-knowledge only.",
+        "The result is for arbitrary directed frames including nonserial path endpoints, not universal modal axiom systems."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
