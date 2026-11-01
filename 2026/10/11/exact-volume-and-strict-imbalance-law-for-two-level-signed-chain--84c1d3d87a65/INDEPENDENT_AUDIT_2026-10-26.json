@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T20:58:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md blob 9218b9ce333a9b0c06c38e8a37c7eb8ca3d4983f",
+        "verify.py blob 01bef5d1c10de89562122045f9eccbc87599e2e9",
+        "seven-file source tree 041db32f1c051a7533e7c6749892e1bcac23cdde"
+      ],
+      "rationale": "Read the complete actual source RESULT.md, SLOGAN.txt and verifier. The halfspace definition fixes p,q≥1 and Euclidean coordinate normalization. Reflection y→−y turns pair sums into cross differences. Translating coordinates to [0,2], feasible span ≤1 contributes n+1 via ordered extrema. If span >1, both extrema must lie within one part, contributing p(p−1)∫s^{p−2}(2−s)^{q+1} and its symmetric term; terms with p or q=1 vanish. Change t=(2−s)/s yields positive factor 2^n/(1+t)^{n+1} and a numerator exactly even in d=(p−q)/2 with (a(a−1)+d²)cosh(−d log t)+(2a−1)d sinh(−d log t), a=n/2≥1. For t∈(0,1), monotonic in |d| is strict away from 0, establishing all p,q and both parities n, including p=q=1. The star evaluation follows by conditioning. For fixed p and q→∞ the q(q−1) term dominates; u=q(2−s)/2 gives normalized integrand u^{p+1}(1−u/q)^{q−2} dominated by u^{p+1}e^{−u/2} and convergence to Γ(p+2)=(p+1)!. No finite test is substituted for universal mathematics. Executed original Git-blob-verified verify.py: 36 p,q≤6 exact rational second integrations, 4≤n≤12 imbalance, seven independent SciPy halfspace/ConvexHull volumes. Additionally derived independent signed-orthant/Stanley formula (p!q!/n!)Σ binom(n,a+c) and verified exact equality for 49 (p,q)≤7. Source seven-blob Git tree was independently reconstructed and matches assigned 041db... exactly.",
+      "residual_risks": [
+        "Only odd/even integer n derived for all positive p,q, not fractional p or arbitrary signed posets.",
+        "Numerical convex hull checks are only corroborative up to n=5, and the additional 49 orthant identities are finite exact tests; universal validity relies on the reproduced analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Beck–Hlavacek arXiv:2311.04409v1 treats signed order Ehrhart coefficients and signed-chain defining properties in different sections; no general chain-volume computation for this family is stated.",
+          "Tsuchiya arXiv:1512.08332v2 Theorem 1.3 concerns conv(C(P)∪-C(Q)), not strip intersection.",
+          "D’Alì and coauthors develop symmetric edge and polar Ehrhart structure, not a continuous polar-volume identity.",
+          "Definition 7.10 of arXiv:2312.14088 is one-sided monotone poset Lipschitz, mathematically distinct from absolute graph Lipschitz constraints."
+        ],
+        "reasoning": "The considered stronger general formulations do not evaluate both the volume and the strict extremal law for the actual sign-invariant two-level body. A general volume algorithm or Stanley chain-polytope volume can calculate instances and can be specialized to a double sum, but no inspected prior theorem was found proving the ensuing fixed-size strict imbalance and fixed-part asymptotic. Primal volume under polarity is not known to equal polar volume.",
+        "searches": [
+          "Resultary: signed chain two-level polytope exact volume strict imbalance law order polytope graph signed chain",
+          "Resultary: signed chain polytope complete height two posets orthant chain-polytope volume factorial binomial sum",
+          "Resultary: polar symmetric edge polytope complete tripartite graph volume Ehrhart series",
+          "web: Beck Hlavacek signed poset polytopes signed chain polytope volume identity linear extensions 2023",
+          "web: volume Lipschitz polytope complete multipartite K1pq root graph signed chain 2024",
+          "web: signed chain chain polytope volume linear extensions",
+          "arXiv:2311.04409v1 §§3–6",
+          "arXiv:1512.08332v2 Theorem 1.3",
+          "arXiv:2312.14088v3 Definition 7.10"
+        ]
+      },
+      "checked_sources": [
+        "Beck & Hlavacek, Signed Poset Polytopes, arXiv:2311.04409v1, §§1,3–4,6",
+        "Gordon & Petrov, Combinatorics of the Lipschitz Polytope, arXiv:1608.06848",
+        "D’Alì–Delucchi–Michałek, Many Faces of Symmetric Edge Polytopes, EJC 29 (2022) P3.24",
+        "Tsuchiya, Volume, Facets and Dual Polytopes of Twinned Chain Polytopes, arXiv:1512.08332v2, Thm.1.3",
+        "D’Alì–Juhnke-Kubitzke–Koch, On a generalization of symmetric edge polytopes to regular matroids, arXiv:2307.04933v1, Proposition 5.1",
+        "Equivariant Hilbert and Ehrhart series under translative group actions, arXiv:2312.14088v3, Def.7.10",
+        "Resultary four semantic query result lists, exact current finding and related polytopes",
+        "Stanley ordinary chain-polytope volume equals linear-extension count divided by factorial, applied directly in an independent orthant proof"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source body has |x_i+y_j|≤1, with sign-orthant decomposition into two *ordinary* complete-height-two chain polytopes, whereas Beck–Hlavacek h-star triangulations primarily concern signed *order* polytopes.",
+          "The all-dimensional strict imbalance formula follows the actual new hyperbolic cosh/sinh positivity argument; none of the inspected prior primary theorems states this inequality for the same p,q volume.",
+          "The fixed-p asymptotic has a specific (p+1)! normalization and dominated gamma integral, absent from earlier compared graph-polar work."
+        ],
+        "reasoning": "Prior results imply the possibility of a computable exact volume and a classical orthant sum, but a statement that a polytope admits a triangulation or a general volume algorithm does not alone logically establish the comparative strict imbalance inequality and exact asymptotic. Without a prior proven all-parameter implication, judge the joint structural claim original at best of knowledge. The simple orthant reduction lowers the novelty of the volume identity considered in isolation and is explicitly acknowledged.",
+        "searches": [
+          "Resultary: rooted Lipschitz unit ball volume suspension of complete bipartite graph K_{p,q} explicit formula and optimal balance",
+          "Resultary: signed chain polytope complete height two posets orthant chain-polytope volume factorial binomial sum",
+          "Resultary: polar symmetric edge polytope complete tripartite graph volume Ehrhart series",
+          "web: Beck Hlavacek signed poset polytopes signed chain polytope volume identity linear extensions 2023",
+          "Beck–Hlavacek arXiv:2311.04409v1 Section 6",
+          "Tsuchiya arXiv:1512.08332v2 Theorem 1.3",
+          "Gordon–Petrov arXiv:1608.06848 main theorems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Reflection y→-y identifies the submitted C_{p,q} with rooted 1-Lipschitz potentials on apex join K_1*K_{p,q}; the graph root has n+1 vertices and polar equals the corresponding symmetric edge polytope under a fixed coordinate realization.",
+          "Gordon–Petrov arXiv:1608.06848 describes the general graph metric Lipschitz polytope, while D’Alì–Delucchi–Michałek EJC 29 (2022) studies symmetric edge polytopes and polarity.",
+          "Orthant-by-orthant decomposition yields the independent finite double sum (p!q!/n!) Σ_{a=0}^p Σ_{c=0}^q binom(p+q,a+c), derived with Stanley ordinary chain-polytope volume; 49 exact test pairs agree."
+        ],
+        "reasoning": "These are exact equivalent formulations, so a prior K_{1,p,q} polar-volume result, graph Lipschitz volume, or closed double-sum imbalance theorem would cover the finding despite different title. The inspected primary graph and polar papers state related structural/Ehrhart properties but do not give that exact two-parameter volume plus strict fixed-n inequality and fixed-p asymptotic. The orthant formula clarifies that basic volume follows a classical method; it does not by itself state or settle strict imbalance.",
+        "searches": [
+          "Resultary: rooted Lipschitz unit ball volume suspension of complete bipartite graph K_{p,q} explicit formula and optimal balance",
+          "Resultary: polar symmetric edge polytope complete tripartite graph volume Ehrhart series",
+          "web: Lipschitz polytope volume complete bipartite rooted",
+          "arXiv:1608.06848; K_{1,p,q} graph potentials and roots"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The accessible relevant Resultary records include the current matching title but not a separate evaluated all-parameter table of the same volume/imbalance fact.",
+          "The seven independent GitHub source files include exact samples 3, 14/3, 6, 41/5, 49/5, and no separate prior table establishing the full result.",
+          "The verified 49-case binomial formula is our algebraic check, not an independently published prior database."
+        ],
+        "reasoning": "No actual checked exact table covering arbitrary (p,q) and strict imbalance was located. Generic polytope databases or arbitrary Ehrhart algorithms could compute finitely many examples but do not make a theorem claiming monotonicity and asymptotic. Failed database search is explicitly a residual novelty risk.",
+        "searches": [
+          "Resultary: signed chain two-level polytope exact volume strict imbalance law order polytope graph signed chain",
+          "Resultary: signed chain polytope complete height two posets orthant chain-polytope volume factorial binomial sum",
+          "web: volume signed chain polytopes height two complete bipartite imbalance ratio",
+          "Resultary query four: polar symmetric edge polytope complete tripartite graph volume Ehrhart series"
+        ]
+      },
+      "rationale": "A best-of-knowledge comparison tested the identical rooted graph-Lipschitz ball and polar symmetric-edge formulations, not just signed-chain titles. Beck–Hlavacek give type-B signed-chain constructions and signed ORDER Ehrhart data but not this explicit entire two-level signed-chain Euclidean volume/strict imbalance/asymptotic. Gordon–Petrov give generic Lipschitz faces; D’Alì et al. evaluate primal symmetric edge families rather than the polar volume; Tsuchiya works with a different convex-hull operation. An independent sign-orthant decomposition reduces the unweighted volume to a binomial double sum via Stanley ordinary chain-polytope volumes, so one must not claim the absolute-volume formula by itself is inaccessible to classical methods. The surviving contribution is the exact strict redistribution/extremizer inequality for all fixed n and the normalized fixed-p asymptotic, jointly with the analytic evaluation. No stronger checked statement logically implies this triple. Residual priority risks are explicit; search absence is not proof of novelty.",
+      "residual_risks": [
+        "A separately published formula in rooted graph-Lipschitz, graph cut/Ehrhart, complete-tripartite or poset chain terminology could dominate the theorem although it was not identified by the checked searches.",
+        "Signed-chain terminology in the initiating paper has a convention-dependent two-chain description; mathematical claim has the explicit H-representation and does not require that terminology.",
+        "The all-parameter exact volume formula is easily reducible to a signed-orthant sum of Stanley classical chain-polytope volumes. Originality and value are therefore credited especially to the strict imbalance comparison and asymptotic, not an alleged new method for computing chain-polytope volumes.",
+        "Literature and unpublished/unindexed research are not exhaustively searchable; PASS means best-of-knowledge, not priority certification.",
+        "No claim is made about mixed signed posets, arbitrary graphs, Ehrhart coefficients or full polytope face structure."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The h-star computation and triangulation discussion in Sections 3–4 pertains to signed ORDER polytopes; Section 6 defines and studies signed CHAIN polytopes, antichains and Gorenstein properties. No evaluated all-(p,q) Euclidean volume, strict redistribution law or fixed-part asymptotic is stated. The present theorem explicitly defines its halfspace body to avoid ambiguity of signed-chain conventions.",
+          "evidence": [
+            "arXiv:2311.04409v1, pp.1–2 overview; Section 4 order-polytope h-star; Definitions 6.4–6.5 and propositions in Section 6 signed-chain description."
+          ],
+          "identifier_or_url": "arXiv:2311.04409v1; https://arxiv.org/pdf/2311.04409",
+          "material_read": "Full 18-page paper was available; read the introductory scope (pages 1–2), order-polytope sections and the signed-chain definitions and statements in Section 6, including the type-B conventions. PDF pages inspected visually and PDF text searched for volume/chain implications.",
+          "method": "arXiv full PDF text and page screenshot, not abstract-only.",
+          "title": "Signed Poset Polytopes",
+          "trigger": "Origin of signed chain terminology and possible general h-star/triangulation volume coverage."
+        },
+        {
+          "assessment": "Gives structure of general finite-metric Lipschitz polytopes and faces but does not supply a symbolic Euclidean coordinate-volume profile of the specific rooted K_{1,p,q} graph or its strict imbalance law.",
+          "evidence": [
+            "Gordon and Petrov, arXiv:1608.06848, introductory definitions and main face-structure theorems."
+          ],
+          "identifier_or_url": "arXiv:1608.06848; https://arxiv.org/pdf/1608.06848",
+          "material_read": "Full accessible PDF; introduction, face-theory statements, related graph metrics and combinatorial triangulation statements/theorems were inspected; targeted search for exact volume of the rooted complete-tripartite body.",
+          "method": "ArXiv PDF text and visual initial-page inspection.",
+          "title": "Combinatorics of the Lipschitz Polytope",
+          "trigger": "Coordinate reflection identifies the submitted body with a graph-metric unit Lipschitz ball rooted at the apex of K_{1,p,q}."
+        },
+        {
+          "assessment": "Studied volume statements concern symmetric edge polytopes themselves, not a general identity evaluating the Euclidean volume of their polar; no stronger K_{1,p,q} polar volume and strict redistribution theorem appears in the inspected sections.",
+          "evidence": [
+            "D’Alì–Delucchi–Michałek, EJC 29 (2022) P3.24, graph metric and polar comparisons, symmetric-edge Ehrhart/volume results."
+          ],
+          "identifier_or_url": "Electronic Journal of Combinatorics 29 (2022), P3.24; https://d-nb.info/1273981944/34",
+          "material_read": "The accessible full-text treatment of symmetric edge polytopes, sections on polarity/Lipschitz metric and graph-family volume claims was examined, with targeted searches for complete multipartite graph polars.",
+          "method": "Complete available primary full text/HTML and targeted terminology/volume searches.",
+          "title": "Many Faces of Symmetric Edge Polytopes",
+          "trigger": "The submitted Lipschitz ball is polar to the symmetric-edge polytope of the rooted graph, creating a possible dual-volume reduction."
+        },
+        {
+          "assessment": "Defines conv(C(P) union -C(Q)) for ordinary chain polytopes and evaluates that convex-hull volume using linear extensions; it is not the simultaneous strip intersection of C_{p,q}, and volume is not preserved by a polar operation. Its explicit statement therefore does not imply the current volume.",
+          "evidence": [
+            "Tsuchiya arXiv:1512.08332v2 Theorem 1.3, definition of the twinned chain polytope."
+          ],
+          "identifier_or_url": "arXiv:1512.08332v2; https://arxiv.org/pdf/1512.08332",
+          "material_read": "Ten-page source PDF examined; definition of twinned chain polytope, Theorem 1.3, examples and related facet definitions.",
+          "method": "Full arXiv PDF text; first-page screenshot and targeted theorem inspection.",
+          "title": "Volume, Facets and Dual Polytopes of Twinned Chain Polytopes",
+          "trigger": "A preceding theorem explicitly mentions chain-polytope volume and duality; a plausible equivalence to the intersection-of-strips body had to be tested."
+        },
+        {
+          "assessment": "Proposition 5.1 identifies polar lattice points with bounded graph cuts, an Ehrhart/structural interpretation; the inspected statement does not evaluate the continuous volume of K_{1,p,q} polars or prove strict imbalance monotonicity.",
+          "evidence": [
+            "Proposition 5.1, correspondence of polar lattice points and bounded cuts."
+          ],
+          "identifier_or_url": "arXiv:2307.04933v1; https://arxiv.org/html/2307.04933v1",
+          "material_read": "Accessible arXiv HTML, the section on graph polars, and Proposition 5.1 were inspected.",
+          "method": "Full online HTML and target proposition reading.",
+          "title": "On a generalization of symmetric edge polytopes to regular matroids",
+          "trigger": "A general theorem on the polar lattice points of graph-root polytopes could dominate the volume calculation."
+        },
+        {
+          "assessment": "The poset Lipschitz construction uses one-sided relations 0≤f(y)-f(x)≤1 and source normalization, not the absolute-value symmetric graph-Lipschitz ball in this finding; the theorem gives no exact K_{1,p,q} Euclidean-volume/imbalance profile.",
+          "evidence": [
+            "Definition 7.10 and surrounding discussion: ordered monotone Lipschitz constraints."
+          ],
+          "identifier_or_url": "arXiv:2312.14088v3; https://arxiv.org/pdf/2312.14088",
+          "material_read": "Accessible full PDF, relevant Definition 7.10 on poset Lipschitz functions and nearby Ehrhart statements, with a PDF page screenshot.",
+          "method": "ArXiv full PDF text and targeted visual page inspection.",
+          "title": "Equivariant Hilbert and Ehrhart series under translative group actions",
+          "trigger": "Section 7.10 treats poset Lipschitz polytopes and could be mistaken for the exact graph Lipschitz object."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Direct height-two poset and rooted graph-Lipschitz equivalence",
+        "Beck–Hlavacek signed-chain definitions and Gordon–Petrov Lipschitz models"
+      ],
+      "rationale": "The signed-chain H-representation is a natural two-level poset family and exactly a rooted graph-Lipschitz unit ball on K_{1,p,q}, making Euclidean volume a motivated two-parameter invariant. The exact complete classification of its extremal volume at fixed n is not merely a small computed number: strict balance minimum, star maximum and the explicit asymptotic profile quantify the effect of layer imbalance for arbitrarily high dimension. The strict inequality is a nontrivial positivity theorem, and researchers studying signed poset geometry, graph Lipschitz balls or convex-body volumes can use the exact p,q profile and extremizers. The volume formula alone admits a classical sign-orthant/Stanley reduction, so value rests on the combined sharp geometric inequality and asymptotic, not novelty of integration technique. This does not claim a general arbitrary signed-poset volume theorem or an Ehrhart formula.",
+      "residual_risks": [
+        "The result is specialized to complete two-level order structure, not arbitrary graphs.",
+        "The exact integral can be evaluated by known integration and ordinary chain-polytope techniques, so its mathematical interest comes principally from the rigorous sharp redistribution law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Natural scope only p,q≥1, n=p+q integer; Euclidean coordinate volume of explicitly defined halfspace body, not normalized lattice volume.",
+    "No general signed-poset/Ehrhart or arbitrary graph volume assertions.",
+    "Independent numerical and finite exact checks corroborate but do not establish all positive integer instances.",
+    "Scientific originality is best of knowledge with older graph-Lipschitz/polar volume priority risk.",
+    "No expert, formal proof assistant, or third-party scientific certification.",
+    "Source public operational metadata not sanitized; no publication authorized."
+  ],
+  "schema_version": 1
+}
