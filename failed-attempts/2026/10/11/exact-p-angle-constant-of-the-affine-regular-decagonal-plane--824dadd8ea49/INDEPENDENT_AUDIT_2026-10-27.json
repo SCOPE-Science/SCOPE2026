@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T04:08:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-p-angle-constant-of-the-affine-regular-decagonal-plane--824dadd8ea49/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-p-angle-constant-of-the-affine-regular-decagonal-plane--824dadd8ea49/verify.py",
+        "https://arxiv.org/pdf/2208.11239",
+        "/mnt/data/scope_worker01_20261027T0401Z/independent_decagon_results.json"
+      ],
+      "rationale": "In the stated real 2D norm N(s,t)=max(|s+t|,|rs+t|,r|s|,r|t|,|s+rt|) with r=(sqrt(5)-1)/2, I independently intersected all 45 pairs of signed facet lines and found precisely the ten declared primal vertices, and verified ten signed dual supports. For unit x,y let A=N(x+y), B=N(x-y). Choose norming facets f,g. Then A+rB=(f+rg)(x)+(f-rg)(y) <= ||f+rg||_*+||f-rg||_*. Exact Q(sqrt5) arithmetic over 100 ordered facet pairs attains the maximal value 3-r; flipping y gives rA+B<=3-r. Together with 0<=A,B<=2 these constrain (A,B) to the six-vertex polygon explicitly calculated independently. The strictly convex quadratic Q=A^2+B^2-(r/2)AB has maximal value 4 at polygon vertices (central vertex strictly below 4), yielding (A^2+B^2-4)/(2AB)<=r/4 for x != +/-y. The unit vertices x=(1,0), y=(0,1) have (A,B)=(2,r) and attain r/4=(sqrt5-1)/8. All universal steps follow from duality and convexity, not numerical sampling.",
+      "residual_risks": [
+        "The argument is specific to real dimension two and the given ten-facet norm; the source Yang--Li preprint declares dim(X)>2 globally, although its P-angle formula itself is well-defined and discussed in 2D.",
+        "The proof supplies one maximizing adjacent-vertex orbit, not a full classification of maximizing ordered pairs.",
+        "An exact finite facet calculation is exhaustive only because the polygon has ten actual signed supporting facets, which were separately reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Covering published theorem: rho_{X_n}(t)=max_{0<=j<=n}[q_j cos(j*pi/(2n)) + t q_{n-j} sin(j*pi/(2n))]-1 for EVERY n>=2 and every t>=0.",
+          "Its n=5 four-phase specialization states rho_{X_5}(t)=((sqrt5-1)/4)t for 0<=t<=phi^(-1)=r.",
+          "The same full text explicitly derives its dual extreme-support formula and the polar-rotation similarity of B_n*. Setting t=r supplies 3-r as above."
+        ],
+        "reasoning": "The general all-regular-even-polygon modulus theorem dominates the decagon weighted chord inequality by a duality equality, even though its title, invariant symbol and parameterization differ. The remaining P-angle numerical evaluation uses routine finite convex optimization. Neither statement needs a separate decagon-specific theorem to become established.",
+        "searches": [
+          "Resultary: Yang Li S_P P-angle regular n-gon Banach exact formula polygon convex hull chord inequalities decagon",
+          "Resultary: affine regular decagon Banach norm two chord map A=norm(x+y) B=norm(x-y) all pair feasible polygon smoothness James constant exact envelope",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2208.11239",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weighted-james-profile-of-the-affine-regular-decagonal-ban--49d9b7beb693/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-constant-birkhoff-chord-sum-on-the-affine-regular-decagon--5f0658af3f29/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-affine-regular-hexagonal-plane--81fa4d5de920/RESULT.md",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/commits?path=2026%2F10%2F11%2Fa-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f%2FRESULT.md",
+        "https://api.github.com/repos/SCOPE-Science/SCOPE2026/commits?path=2026%2F10%2F11%2Fexact-p-angle-constant-of-the-affine-regular-decagonal-plane--824dadd8ea49%2FRESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "M_r(X)=2(1+rho_{X*}(r)) follows from ||z||=max_{f in B*}f(z), with independent maximization over x,y, and compact convex extreme-point reduction.",
+          "Covering theorem at n=5 and t=r: rho_{X*}(r)=rho_X(r)=r^2/2, because X* is a rotated-scaled copy of X. Consequently sup(A+rB)=2+r^2=3-r, and likewise sup(rA+B)=3-r by y sign reversal.",
+          "Intersect the four box bounds and two weighted bounds; independent exact computation finds (0,0),(2,0),(2,r),(c,c),(r,2),(0,2), c=2sqrt5-3. The convex Q is <=4 at every vertex. Hence S_P<=r/4, with (x,y)=((1,0),(0,1)) giving equality."
+        ],
+        "reasoning": "Starting from the published stronger theorem, duality produces both claimed structural inequalities, and a deterministic six-vertex convexity calculation plus explicit witness produces the exact P-angle value. Therefore every final conclusion is mathematically covered, despite not being printed verbatim in the broader source.",
+        "searches": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weighted-james-profile-of-the-affine-regular-decagonal-ban--49d9b7beb693/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-constant-birkhoff-chord-sum-on-the-affine-regular-decagon--5f0658af3f29/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-affine-regular-hexagonal-plane--81fa4d5de920/RESULT.md",
+          "Resultary: P-angle constant general theory S_P equals function of James constant or von Neumann Jordan constant"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yang--Li Definition 3.1 gives S_P as a supremum of cos ang_P(x+y,x-y); writing A=||x+y|| and B=||x-y|| yields (A^2+B^2-4)/(2AB).",
+          "For every normed plane and t>=0, the weighted chord maximum over unit x,y equals 2(1+rho_{X*}(t)) by interchanging the two primal supports and two dual supports; no Hilbertian identification is needed for this identity.",
+          "The centered regular decagon is linearly isometric to its dual because its polar is the rotated/dilated regular decagon (polar identity explicitly given in covering RESULT.md §1)."
+        ],
+        "reasoning": "The relevant equivalent formulation is the dual classical modulus of smoothness at t=r, not merely another named P-angle constant. This identity converts the exact all-regular-polygon smoothness law into the complete weighted chord envelope in the assigned result.",
+        "searches": [
+          "Resultary: Exact P-angle constant affine regular decagonal normed plane Banach space polygonal unit ball p-angle cosine extremal pairs decagon",
+          "Resultary: affine regular decagon Banach norm two chord map A=norm(x+y) B=norm(x-y) all pair feasible polygon smoothness James constant exact envelope",
+          "Web: Yang Li P-angle constant S_P X Banach James constant regular polygons decagon exact relation 2022",
+          "https://arxiv.org/pdf/2208.11239"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary exact-match P-angle decagon record is the assigned record itself and is not independent evidence of coverage.",
+          "The already published exact four-phase decagonal smoothness profile is an exact table/formula from a stronger theorem; its breakpoint r and first branch provide rho(r)=r^2/2.",
+          "The same-object weighted James and Birkhoff chord-sum results are distinct extremal objectives and are not themselves claimed as covering tables."
+        ],
+        "reasoning": "There is no need to posit an unlocated standalone P-angle table. The checked exact modulus formula supplies the weighted intermediate invariant, and the residual quadratic evaluation is elementary.",
+        "searches": [
+          "Resultary: Yang Li S_P P-angle regular n-gon Banach exact formula polygon convex hull chord inequalities decagon",
+          "Web: P-angle constant regular decagon Banach space exact",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md"
+        ]
+      },
+      "rationale": "A separate published theorem on classical smoothness moduli of EVERY centered regular even-gonal Banach plane determines rho_{X_5}(t) at all t, including rho_{X_5}(r)=r^2/2 for r=(sqrt5-1)/2. The polar of a centered regular decagon is a rotation and uniform scaling of it, so X_5* is linearly isometric to X_5. By independent support-function exchange, M_r(X)=sup_{x,y in S_X}(||x+y||+r||x-y||)=sup_{f,g in S_{X*}}(||f+rg||_*+||f-rg||_*)=2(1+rho_{X*}(r))=2+r^2=3-r. Changing y to -y yields the symmetric weighted inequality. Thus the supposedly sharper structural result is an immediate exact corollary of the earlier full all-scale theorem. Standard convex optimization on the resulting six-vertex chord envelope and the adjacent-vertex witness then gives precisely the claimed S_P=(sqrt5-1)/8. This is complete mathematical implication, independent of whether the covering paper uses S_P terminology. The covering source was imported at 2026-10-11T13:11:02Z, versus the assigned result at 13:12:27Z; their Resultary public synchronization was the same 13:59:41Z, so public simultaneity versus original discovery priority remains a chronology qualification, not a reason to ignore the dominating published statement.",
+      "residual_risks": [
+        "The exact source-import order was 13:11:02Z for the covering smoothness theorem and 13:12:27Z for the assigned P-angle claim on 2026-10-11, but both appeared in the same Resultary reconciliation at 13:59:41Z. The current corpus implication is decisive; historical priority or independent discovery cannot be deduced solely from these timestamps.",
+        "Absolute novelty outside the checked corpus is not proven or required for this rejection, because a concrete mathematically dominating published result was inspected in full.",
+        "The published smoothness theorem is taken as a cited primary premise; the audit independently checked the precise at-r consequence and original decagonal norm arithmetic rather than completely re-proving its all-n all-t theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERING via exact dual weighted-sum/smoothness identity at t=r, followed by elementary convex polygon optimization.",
+          "evidence": "Published n=5 first branch rho(t)=((sqrt5-1)/4)t for 0<=t<=phi^-1 and B_n*=sec(beta)R_beta B_n imply rho_{X*}(r)=r^2/2. The support-duality equality then yields sharp M_r=3-r.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md",
+          "material_read": "Entire published RESULT.md: Finding, full all-n all-t theorem, dual reduction formula (1), polar rotation-isometry formula (2), chord identities, fixed-vertex proof, n=5 four-phase law, verification, references and scope limitations.",
+          "method": "GitHub connector fetch_file of Resultary/2026 RESULT.md; exact blob SHA 608339f78da9fbc57ce56e4d60383cd3f3d1d92b; GitHub commit-history read for original source/public synchronization dates.",
+          "title": "A scale-independent maximizing vertex pair for regular-polygon smoothness moduli",
+          "trigger": "Resultary semantic search returned an all-regular-polygon smoothness theorem on the same decagonal Banach plane with an exact four-phase profile and a dual-polygon argument."
+        },
+        {
+          "assessment": "DEFINING_NOT_COVERING alone: provides the definition and general bounds/comparisons but no independent exact decagonal value or all-decagon weighted chord envelope.",
+          "evidence": "Definition 3.1 takes sup of P-angle cosines on unit pairs; Theorem 4.1 relates it to modified von Neumann–Jordan constants by an inequality, not exact identification. Searches within the PDF for decagon and polygon returned no matches.",
+          "identifier_or_url": "https://arxiv.org/pdf/2208.11239",
+          "material_read": "Public 15-page arXiv PDF: §2 dimension convention and P-angle formula; §3 Definition 3.1, Proposition 3.3, Example 3.4, Theorem 3.5; §4 general inequalities and comparison with classical constants; §5 applications; references. Relevant pages visually checked through PDF screenshots.",
+          "method": "Open-access arXiv PDF full-text read via web open/find and screenshot of pages 4, 6, 7; no institutional access needed.",
+          "title": "New Geometric Constant Related to the P-angle Function in Banach Spaces",
+          "trigger": "Defining primary source for the exact invariant, standing dimensions, and general comparison theory."
+        },
+        {
+          "assessment": "RELATED_BUT_NOT_THE_DOMINATING_COMPARISON: optimizes a minimum at weighted inputs instead of the weighted sum of two unit chords; full profile does not trivially determine S_P.",
+          "evidence": "Its F(t)=sup min{N(x+ty),N(x-ty)} is a different optimization from sup(A+rB). Nevertheless both concern the exact same affine regular decagonal norm.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weighted-james-profile-of-the-affine-regular-decagonal-ban--49d9b7beb693/RESULT.md",
+          "material_read": "Complete published RESULT.md including exact two-branch min{||x+ty||,||x-ty||} law, all 1000 polyhedral support cases, witnesses, literature and limitations.",
+          "method": "GitHub connector fetch_file of Resultary/2026 RESULT.md; blob SHA b573e53389e02b6595e569fdf37575bcd48b495d.",
+          "title": "Exact weighted James profile of the affine-regular decagonal Banach plane",
+          "trigger": "Exact same normed plane and related extremal pairs; plausible alternative domination by James-type profiles."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING: the unit-pair condition x perpendicular_B y is a proper restriction; unrestricted weighted chord inequality does not follow solely from its identity.",
+          "evidence": "It proves N(x+y)+N(x-y)=(3sqrt5-1)/2 only when x is Birkhoff-James orthogonal to y, not for all unit pairs.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-constant-birkhoff-chord-sum-on-the-affine-regular-decagon--5f0658af3f29/RESULT.md",
+          "material_read": "Complete published RESULT.md, including Birkhoff-James orthogonality criterion, edge/vertex cases, exact constant and proof limitations.",
+          "method": "GitHub connector fetch_file of Resultary/2026 RESULT.md; blob SHA 9132e1f21efbeb7c7b59a7e87fafd93a39ae74bb.",
+          "title": "Constant Birkhoff chord-sum on the affine-regular decagon",
+          "trigger": "Same decagonal object and chord-sum identity could be mistaken for an unrestricted sum envelope."
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT: does not itself imply the decagonal P-angle evaluation.",
+          "evidence": "Hexagonal norm N(s,t)=max(|s|,|t|,|s-t|) gives 1/4 using A+B<=3, distinct from decagonal r/4 and the weighted envelope.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-p-angle-constant-of-the-affine-regular-hexagonal-plane--81fa4d5de920/RESULT.md",
+          "material_read": "Complete published RESULT.md: displayed norm, exact hexagonal P-angle proof, six-facet dual reduction, sharp witness and literature limitations.",
+          "method": "GitHub connector fetch_file of Resultary/2026 RESULT.md; blob SHA 0c6dc1ef3f1c78c2f83a2d5e6607b9d582540f37.",
+          "title": "Exact P-angle constant of the affine-regular hexagonal plane",
+          "trigger": "Same named invariant on another polygon; useful for determining whether a general all-polygon P-angle classification was already asserted."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-scale-independent-maximizing-vertex-pair-for-regular-polygon-s--bc87110eaa4f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weighted-james-profile-of-the-affine-regular-decagonal-ban--49d9b7beb693/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-constant-birkhoff-chord-sum-on-the-affine-regular-decagon--5f0658af3f29/RESULT.md",
+        "https://arxiv.org/pdf/2208.11239",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-p-angle-constant-of-the-affine-regular-decagonal-plane--824dadd8ea49/RESULT.md"
+      ],
+      "rationale": "The Yang--Li P-angle is a mathematically natural invariant and an exact decagonal benchmark could be of reference value. However this particular contribution is a narrow isolated constant whose asserted key structural chord inequality is exactly a single specialization of the already published all-regular-polygon classical smoothness modulus via elementary duality. After this specialization, the only further step is a standard convex quadratic check on six vertices and the obvious adjacent-vertex equality witness, not a new structural lemma, classification, or distinct motivated unknown. Its exact answer is already mechanically implied by stronger known mathematics, so it does not fill a genuinely independent mathematical gap under the stipulated value standard; educational convenience is not a separate research contribution.",
+      "residual_risks": [
+        "An explicit named-invariant corollary may still serve a useful expository purpose; that is not claimed worthless in all contexts, only insufficient as an independent research finding.",
+        "A genuinely new pair-classification, sharp stability theorem or arbitrary regular-polygon P-angle law could alter the value analysis, but none is contained in the audited final claim."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
