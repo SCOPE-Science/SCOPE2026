@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The occupancy-type feasibility criterion is reconstructed from selected-avoiding two-edge geodesics, and feasible type levels form an integer interval of width at least one in every claimed connected nontrivial layer. Each slide changes one vertex on each side, forcing the claimed partwise symmetric-difference lower bound. Direct source-to-target slides are scheduled without leaving the feasible interval, and all residual same-part exchanges admit explicit two-slide relays through a neighboring feasible level. The resulting route meets the lower bound exactly. The sharp diameter proof treats independently the three active upper bounds and constructs extremizers in every case, including odd larger-part sizes and the connected top-layer boundary. Exhaustive all-pairs BFS and a separate type/intersection census corroborate the argument without substituting for it.
+## correctness
 
-**Originality — PASS, qualified.** The October 16, 2026 initiating manuscript establishes type feasibility, connectivity and a nonsharp diameter bound for complete bipartite hosts, but does not give the all-pairs metric or the sharp three-term diameter. The exact shortest routes solve a strictly stronger extremal problem and give isometric embedding in ordinary token graphs. A token-graph automorphism paper and a supertoken metric paper do not cover visibility-constrained shortest paths. Searches for isometric layers, token-slide metrics, equivalent transport formulations and complete-bipartite visibility-layer diameters did not locate an equivalent result. Unindexed and unpublished competing work remains a priority risk.
+PASS
 
-**Value — PASS.** The theorem closes the exact-distance gap for a natural, arbitrary-cardinality reconfiguration family already studied for connectivity and bounds. It is a uniform exact metric plus sharp diameter classification for every connected layer, not a routine special-case numerical computation. It exposes geodesic preservation under a nontrivial hereditary feasibility constraint, and replaces a provably loose bound (eight versus four on a concrete balanced instance).
+For all m,n>=3 and connected layers k<=m+n-3 (also k=m+n-2 when min(m,n)=3), visibility condition is (a<=1 or b<n) and (b<=1 or a<m). Feasible A-population levels form an interval. Every slide alters one selected status per side, giving max of the two partwise symmetric differences as lower bound. Correct cross-part wrong tokens directly while staying in interval, then relay each residual same-part swap in two slides via adjacent feasible level; attains bound. Sharp diameter for k<=N-3 is min(2k,2(N-k-1),max(m,n)); connected top layer has diameter 3. If m,n>=4 top layer has mn isolated configurations. Independent all-pairs BFS on K3,3 K3,4 K4,4 corroborated all layers and boundary.
 
-The closest primary source is Fresán-Figueroa, Goldfeder and Lozano-Piña, arXiv:2610.24324v1, especially Theorems 4.2 and 4.6 and Proposition 4.7. Limits: both partite classes have size at least three; the disconnected top layer when both classes are at least four is excluded from the metric theorem; exhaustive verification covers finite sizes only. The 2023–2025 token literature considers adjacent but distinct questions. Independent assessment and comprehensive historical priority verification remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Original Fresán-Figueroa–Goldfeder–Lozano-Piña 2026 paper gives feasibility, connectivity and a loose upper bound, not exact all-pairs geodesics or sharp diameter. For disjoint balanced size-4 sets in K4,4 its bound is 8 versus exact distance 4. Unrestricted token graph results omit visibility restrictions.
+
+## value
+
+PASS
+
+Mutual visibility token-slide layers are a recently introduced natural reconfiguration graph class. The exact isometric embedding into the ordinary token graph and all-pairs distance reduce optimization to a closed expression; sharp diameters and disconnected top boundary give a full natural layer classification rather than a routine restatement of connectivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
