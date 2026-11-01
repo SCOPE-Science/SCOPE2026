@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducing the finite calculation
+# Independent mathematical audit
 
-Place `check.py` and `certificate.json` together and run `python3 check.py` (standard Python 3 only). The independent certificate check verifies that every listed function signature is derived by an allowed operation from earlier entries and that the resulting full sets are closed under all allowed operations. It then recomputes the nonmodal and one-modal-depth closures by a distinct enumeration routine.
+## correctness
 
-Expected output:
+PASS
 
-```
-EXACT_CLOSURE box 60 all_derivations_and_operations_valid
-EXACT_CLOSURE diamond 342 all_derivations_and_operations_valid
-GODEL_ONE_WORLD_FRAGMENTS_EXACT_OK 60 342
-DEPTH_ONE_NORMAL_FORM box 6 60 sharp
-DEPTH_ONE_NORMAL_FORM diamond 6 342 sharp
-```
+PASS. Gödel operations on one-world inputs select among 0,1,r,x, and the complete 11 weak-order types separate all resulting functions. Fetched the actual Git certificate.json blob 2218e59cdcf21e0772ed17b3324ed8e3033a7bbc and independently replayed its entire witness derivation/closure graph with separate JavaScript: six nonmodal signatures; 60 distinct box signatures with 10,800 binary operation closures, 342 diamond signatures with 350,892 binary closure checks, 402 valid derivations, and matching depth-one propositional closures. Hence exact finite proof of 60 and 342, not merely bounded formula-depth sampling. Diamond top=r yields box phi=(Diamond top -> phi), while x=1 prevents box-only naming r. Strict depth-one bound follows because 6<60,342.
 
-All numbers and identity checks use exact integer coordinates, not floating point. The complete eleven-case reduction is proved in `RESULT.md`; the attached enumeration certifies its finite consequences. This is a self-review finite verification only, not independent expert or formal-methods validation. No claim is made for unrestricted multiworld models.
+## originality
+
+PASS
+
+PASS best-of-knowledge for 60-element box-only singleton fragment and exact sharp one-step modal-depth classification. The 342-element free two-generated Gödel algebra is explicitly classical and is NOT credited as new; singleton diamond equivalence to that algebra is algebraic background.
+
+## value
+
+PASS
+
+PASS. Exact semantic expressivity classification for the smallest possible fuzzy Gödel modal frames isolates a substantive asymmetry: diamond can define box while box-only still has only 60 functions; the full 342-fragment collapse at depth one gives a sharp minimal model benchmark. The distinctive 60-element proper fragment and modal-depth filtration matter, not mere recounting of known 342.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
