@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The already known directional brightness identity reduces the probability problem exactly to the polynomial \(Y=\prod_i(1-U_i^2)\). Conditioning on one spherical coordinate gives the beta-half mixture and the density. A complete sphere-critical-point census yields six minima, twelve Morse saddles, and eight maxima; the local quadratic normal form and normalized area measure fix the logarithmic coefficient \(6/\pi\). The endpoint coefficients follow from local spherical-cap areas, and the moments from Dirichlet monomials. The standalone symbolic/numerical verifier passes. Numerical checks do not replace any infinite proof.
+
+**Originality — PASS, subject to priority risk.** The pointwise brightness law itself is prior published work and is not claimed. Full text of that result and of the separate axial-cubic random-brightness result was examined, along with the originating threefold-projection paper and relevant portions of the polyhedral density manuscript. The published pointwise formula determines the pushforward in principle, but the sources examined do not evaluate the non-axial Haar density, locate its twelve Morse saddles, or give the sharp interior logarithmic coefficient. No matching statement was returned by the recorded searches. An older calculation from geometric probability could still cover it, so this is not an independent priority certificate.
+
+**Mathematical value — PASS.** Smooth projection bodies typically exhibit different density transitions depending on critical-point geometry. The complete cubic brightness law gives a natural canonical example with a divergent but integrable logarithmic density spike, explicit coefficient, endpoint slopes, and rational moments; it distinguishes a tetrahedral cubic from the already studied axial family. The nontrivial saddle coefficient is not a mere parameter renaming or an arbitrary slice. The exact quadrature is a usable quantitative benchmark rather than an unsupported general theorem.
+
+Limits: special cubic family only; prior directional brightness calculation is stronger as pointwise data; density expressed by definite integral rather than elementary branches; historical priority remains provisional; no external audit is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
