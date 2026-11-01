@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The natural Mayer–Vietoris cover has literally the incidence graph as intersection. Its degree-two connecting map and degree-\(q\) inclusion are group-equivariant integral isomorphisms, with all coefficients and boundary cases \(q\ge3\) explicitly handled. The join chain orientation supplies the sign twist under permutations of parallel classes. The translation invariants follow by exact traces and finite-group rational transfer. The standalone verifier reconstructs all order-three faces and tests all \(432\) affine collineations. Remaining limit: finite testing alone does not certify the all-order statement; the universal argument is structural.
+## correctness
 
-## Originality — PASS (with residual risk)
-Two previously published same-object results explicitly establish the ordinary homotopy wedge and persistence, so neither is relabeled new. Their inspected full `RESULT.md` statements and proofs do not calculate group actions. An existing projective-plane incidence-cycle representation overlaps the lower-degree mechanism but does not imply the parallel-class augmentation module. An arXiv graph-power paper discusses different graph families and no matching equivariant theorem; the most relevant general bipartite relation article was accessible at abstract level only. The nontrivial sign-twisted integral module and the translation-quotient dimension are not consequences of nonequivariant sphere counts. Equivalent but unindexed work remains possible.
+PASS
 
-## Value — PASS
-The collineation module is a natural complete equivariant invariant, not an arbitrary finite slice or a tautological rank formula. It distinguishes parallel-class permutations and affine translations acting on high-degree classes, produces every rational character from finite incidence data, and gives the first threshold where translation quotient rational homology survives, at the smallest nontrivial higher order. This is a meaningful classification for all existing affine planes of order at least three, including non-Desarguesian examples.
+For any existing finite affine plane q>=3, the incidence graph has point-line distances: point-point=2, intersecting line-line=2, parallel line-line=4 and nonincident point-line=3. At inclusive scale2 the Rips complex K is U∪V, where U is the all-points simplex with line cones, V is the join B of q-vertex discrete parallel classes with point cones, and U∩V is literally the incidence graph G. The equivariant inclusions identify H_*(U)=0 in positive degrees and H_q(V)=H_q(B), while Mayer–Vietoris gives natural integral H2(K)=H1(G) and Hq(K)=Hq(B), other reduced homology zero. The top join orientation changes sign when two classes are permuted, proving the collineation integral lattice or(C)⊗tensor_C ker(Z[C]→Z). This has rank (q-1)^(q+1), while the cycle lattice H1(G) has rank (q-1)^2(q+1). The natural flags-to-vertices exact sequence gives chi2=f_fixed_flags-f_fixed_points-f_fixed_lines+1. Factor-permutation trace is sign(pi_g) times product over cycles O of (number of lines fixed by g^|O| in one representative class -1), proving chi_q. For AG(2,q), a nonzero translation fixes no points or flags and q parallel lines, so character averaging on T of order q² gives quotient b2=0 and bq=[(q-1)^(q+1)+(q²-1)(q-1)(-1)^q]/q²; this is 0 at q3 but positive for q>=4. Independently evaluated cycle ranks, tensor ranks and quotient expression for q=3,4,5,7 (and parity boundaries), with q4 bq quotient18, q5 quotient160. These are algebraic checks; the all-affine-plane theorem rests on exact cover and equivariant Mayer–Vietoris.
 
-## Scientific limits
-The claim does not provide a canonical equivariant sphere-wedge equivalence, does not compute integral quotient homology, and does not assert the existence of affine planes of forbidden orders. All new assertions are conditioned on the incidence axioms. Literature equivalence risk and abstract-only access are recorded in the structured assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution: The combinatorial cover is largely known; the surviving addition is precisely the integral equivariance, full character and orbit-quotient transition. This is a genuine extension, not a claim that ordinary topology was undiscovered.
+
+## value
+
+PASS
+
+Integral collineation modules and quotient Betti numbers are natural invariants of the full automorphism action on affine-plane incidence complexes, invisible to the previously known nonequivariant wedge. The orientation-twisted parallel-class tensor and translation-quotient transition q=3 versus q>=4 give mathematically explanatory structure for an infinite family and non-Desarguesian planes when they exist.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
