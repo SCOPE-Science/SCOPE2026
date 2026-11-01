@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof begins with the exact identity \(s'=s+Rs(1-s)\), which gives forward invariance, coordinate positivity and support of every invariant probability on the origin and the total-mass-one face. There the three product multipliers are positive with sum three; AM–GM makes the species product a strict Lyapunov function outside the equal-composition point and the boundary. All three relative open edges admit strict one-sided scalar drift, which excludes stationary mass there. The resulting five point masses are genuine fixed points. At \(\alpha=1\), the face map is exactly the identity. Finally normalized-product monotonicity forces every unequal strictly positive orbit toward the boundary as a set. The quantifiers and the case \(R=1\) are included; no numerical evidence is treated as an infinite proof.
+
+## Originality — PASS within inspected evidence
+The 2021 general polynomial discrete Lotka–Volterra model covers this map by the explicit rescaling \(u=Rx/(1+R)\), and its known invariant coordinate-face and bifurcation results are credited. Its inspected full text gives no equivalent classification of invariant Borel probabilities or critical-balance AM–GM product decay. The 2024 arXiv treatment of the unscaled map studies hyperchaos and torus bifurcations in other parameters. The similarly titled Baigent carrying-simplex article uses a rational, rather than Euler-polynomial, map, while the Baigent–Ching neutral May–Leonard work concerns a continuous-time flow. The discrete Ricker-type model also differs. Search results from the research-record database and relevant external literature did not identify a stronger implication covering this precise discrete theorem; this does not establish global novelty. Residual risk includes earlier unindexed Euler-discretization or zero-sum replicator results.
+
+## Mathematical value — PASS
+The balance \(\alpha+\beta=2\) is motivated by exact conservation of the species product and a continuum of interior periodic orbits in the underlying continuous-time May–Leonard system. The discrete result rigorously classifies **all** stationary laws on a natural compact invariant region for every step \(0<R\le1\), establishes a sharp parameter transition from five atomic extreme measures to arbitrary face measures at \(\alpha=1\), and proves boundary approach of all unequal initially positive compositions. This distinguishes true dynamical collapse from numerical simulations of the discrete model and determines its ergodic-state possibilities.
+
+## Scientific limits
+The proof is confined to the population simplex and its specified interactions and step size. It does not imply convergence to one fixed vertex or exhaust dynamics outside the invariant simplex. Some mathematical steps use classical AM–GM and stationarity, but their combination provides the complete natural-state classification; the generality of older integrable-map or replicator literature remains a priority risk. The included rational computations are consistency checks only.
+
+Self-review: passed. Independent audit: not yet performed.
