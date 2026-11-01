@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The local certificate comprises `verify.py` and `classification.csv`. Execute `python verify.py` with both files in one directory and Python 3.10 or newer. No external libraries or internet access are needed.
+## correctness
 
-The program enumerates the complete four-vertex de Bruijn transitions of all 256 elementary rules, constructs reachable and co-reachable pair-of-subset states for minimal forbidden words, computes strongly connected components, and classifies path growth through exact finite graph structure. It verifies the CSV classification, its 176/28/52 counts, the absence of polynomial cases, and the sharp finite forbidden-length cutoff of ten exactly at Rules 57, 99, 156 and 198.
+PASS
 
-For bounded but infinite first-offender languages, integer path-count vectors are advanced to their first identical recurrence state. Equality of the entire vector, rather than merely observed output counts, proves eventual periodicity. Their exact preperiods and periods verify the four formulas for all lengths and the maximum of two offenders per length.
+For any finite binary output word membership is exactly nonempty image of all four de Bruijn vertices under the labelled subset automaton. Factoriality makes minimal forbidden iff its (n-1)-prefix/suffix exist but the word does not. The productive paired-subset DFA with explicit first and last symbol recognizes unique offenders, including independent letter multiplicities. Strongly connected component structure rigorously differentiates finite, bounded one-cycle, two-cycle polynomial and branching-cycle exponential path growth for all lengths. Independent from-scratch graph reimplementation over all 256 truth tables reproduces exact 176/28/52 and longest acyclic 10 at 57,99,156,198, with no polynomial SCC chain in this family. Inspected full verify.py proves four eventual-periodic bounded forms by exact repeated entire transfer vectors, not finite sampling. Direct length<=9 enumerations corroborate but are not infinite proofs.
 
-As a separate consistency check, complete finite preimage-block enumeration is performed for all 256 rules and output lengths one through nine, comprising 2304 independent comparisons with the first-offender product automaton.
+## originality
 
-These computations certify a finite classification. They do not establish historical priority, provide a complete classification of larger-radius rules, or constitute an independent external audit.
+PASS
+
+Béal–Mignosi–Restivo–Sciortino establish minimal forbidden growth as a symbolic dynamical invariant in 2000, and Salo establishes general image SFT decidability and explicit forbidden words for certain elementary rules (e.g. 9,27,41,58). Neither inspected text supplies the entire 256-image first-offender growth gap or the four bounded infinite families. The finite DFA/SCC algorithm is standard, so originality is in the complete unexpected class census and exact counts, not the general graph theory. Earlier unpublished tabulations and the full Béal 2000 paper not accessible through the web remain residual risks.
+
+## value
+
+PASS
+
+The growth of minimal forbidden words is a natural symbolic dynamics complexity invariant. A complete exhaustive catalogue of all 256 binary radius-one image languages, including a gap ruling out polynomial offender proliferation and a sharp finite-length cutoff, resolves an interpretable structural classification not merely isolated machine outputs. The all-length graph certificates justify the finite theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

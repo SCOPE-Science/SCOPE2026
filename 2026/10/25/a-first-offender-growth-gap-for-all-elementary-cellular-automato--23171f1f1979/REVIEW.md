@@ -1,15 +1,21 @@
-# Review of the first-offender growth classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding is an exact, finite, exhaustive result. The four-pair de Bruijn graph faithfully accepts finite words of each one-step image. Factoriality makes the allowed-prefix/allowed-suffix criterion necessary and sufficient for minimal forbidden words. The two-letter-ended product graph is deterministic, uniquely represents each offender, and has at most 256 pair-of-subset vertices before reachability and productive trimming. The SCC criteria distinguish finite, bounded, polynomial, and exponential accepted-path counts; all cases are mutually exclusive and complete. Exhaustive enumeration finds no polynomial case among all 256 rules. Every finite cutoff is a longest path in a directed acyclic productive graph. Integer transfer-vector repetition proves each bounded all-length formula. Independent finite-block enumeration checks counts at lengths one through nine for all 256 rules. All reproduced checks completed successfully.
+PASS
 
-## Originality — PASS under inspected evidence
+For any finite binary output word membership is exactly nonempty image of all four de Bruijn vertices under the labelled subset automaton. Factoriality makes minimal forbidden iff its (n-1)-prefix/suffix exist but the word does not. The productive paired-subset DFA with explicit first and last symbol recognizes unique offenders, including independent letter multiplicities. Strongly connected component structure rigorously differentiates finite, bounded one-cycle, two-cycle polynomial and branching-cycle exponential path growth for all lengths. Independent from-scratch graph reimplementation over all 256 truth tables reproduces exact 176/28/52 and longest acyclic 10 at 57,99,156,198, with no polynomial SCC chain in this family. Inspected full verify.py proves four eventual-periodic bounded forms by exact repeated entire transfer vectors, not finite sampling. Direct length<=9 enumerations corroborate but are not infinite proofs.
 
-The closest primary literature includes Abram–Lagarias (arXiv:1207.5004, graph descriptions of sofic symbolic systems), Béal et al. (DOI:10.1006/aama.2000.0682, minimal-forbidden-word growth as an invariant), and Salo (DOI:10.1007/s11047-022-09935-w, especially Section 6.2 on SFT/proper-sofic images and explicit offenders for certain elementary rules). Those works provide constructions, decidability, and specific cases but the available substantive text does not state the 176/28/52 all-rule trichotomy, exclusion of polynomially unbounded counts, or four exact bounded sequence families. Literature searches and available related scientific records were compared by mathematical implication, including earlier one-step image and periodic-lifting claims. Lack of a matching search result is not itself proof of novelty. Earlier equivalent unpublished or unindexed classifications remain a priority risk; an older conceptual paper was not available in full for inspection.
+## originality
 
-## Value — PASS
+PASS
 
-The growth of minimal forbidden words is an established natural invariant used to distinguish symbolic dynamical systems up to conjugacy, not an arbitrary selected statistic. This all-rule theorem splits proper-sofic elementary images into two sharply different regimes: finite-width obstruction families versus exponentially proliferating minimal obstructions. It proves the absence of intermediate polynomial growth and gives an exact cutoff for every finite-type image. The four bounded cases and all 256 classification entries are replayable without third-party computation. The result is not claimed for larger-radius cellular automata.
+Béal–Mignosi–Restivo–Sciortino establish minimal forbidden growth as a symbolic dynamical invariant in 2000, and Salo establishes general image SFT decidability and explicit forbidden words for certain elementary rules (e.g. 9,27,41,58). Neither inspected text supplies the entire 256-image first-offender growth gap or the four bounded infinite families. The finite DFA/SCC algorithm is standard, so originality is in the complete unexpected class census and exact counts, not the general graph theory. Earlier unpublished tabulations and the full Béal 2000 paper not accessible through the web remain residual risks.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The growth of minimal forbidden words is a natural symbolic dynamics complexity invariant. A complete exhaustive catalogue of all 256 binary radius-one image languages, including a gap ruling out polynomial offender proliferation and a sharp finite-length cutoff, resolves an interpretable structural classification not merely isolated machine outputs. The all-length graph certificates justify the finite theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
