@@ -1,0 +1,178 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T00:56:31.813967Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/base_verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/verification_output.txt"
+      ],
+      "rationale": "For G=GP(8,3) with 16 vertices and 24 edges, the complete finite complex has f-vector (16,96,272,376,240,72,16,2), 1090 nonempty faces and 4272 Hasse covers. An independently implemented greedy matching yields 542 pairs, is acyclic on all faces, and leaves one critical 0-face, four critical 3-faces and one critical 4-face. Exact integer elimination gives Morse d4=(0,0,0,0), so H3=Z^4 and H4=Z and other positive homology vanishes. Independent full boundary-rank elimination modulo 3 yields (15,81,191,181,58,14,2), compatible with exact integral certificate. Independent oriented fixed-simplex traces for the eight powers of the canonical rotation give L=(-2,0,2,0,-2,0,2,0). A nonboundary degree-four mod-3 cycle transforms to minus itself modulo degree-five boundaries (and not plus), so the integral rank-one H4 action must be sign. Consequently chi3=1+chi4-L=(4,0,0,0,4,0,0,0), chi4=(1,-1,1,-1,1,-1,1,-1), giving the rational C8 decomposition 1 ⊕ sign ⊕ Q[x]/(x²+1). This is an exhaustive finite theorem for the stated graph, not a family extrapolation.",
+      "residual_risks": [
+        "Homology module decomposition is rational only; no full Aut(G) representation, integral C8-lattice classification or equivariant homotopy type is established.",
+        "Original verifier output alone was not taken as evidence; an independently written finite-complex/rank/Morse/character computation was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bıyıkoğlu–Civan, Example 3.9 in arXiv:1503.06018, derives Ind(GP(8,3)) homotopy equivalent to wedge of four 3-spheres and one 4-sphere; no cyclic action statement in the inspected relevant text.",
+          "Resultary integral-homotopy full RESULT proves the same nonequivariant type by an Alexander-dual Morse reduction; its theorem does not identify rotation traces.",
+          "Knill arXiv:2605.30799 describes graph symmetries and Lefschetz numbers of graph-level topology; only abstract was accessible, and full comparison remains a risk."
+        ],
+        "reasoning": "Nonequivariant wedge coverage is strong but not a stronger equivariant character theorem: a CW homotopy type without a specified equivariant equivalence cannot determine representation matrices/traces for an external graph automorphism. The ladder theorem is a different graph family. Full final 2019 publisher PDF and Knill full text could not be verified; their uncertainty is explicitly retained, not treated as full-document noncoverage.",
+        "searches": [
+          "Bıyıkoğlu–Civan arXiv:1503.06018 pp. 3 and 9-10 (Example 3.9); full extracted PDF keyword searches for automorphism/equivariant/Lefschetz",
+          "Bıyıkoğlu–Civan DOI 10.1216/JCA-2019-11-1-1 search and Project Euclid PDF access attempt",
+          "Resultary: Integral homotopy type of the Möbius–Kantor independence complex, full RESULT.md",
+          "Resultary: Dihedral rational homology representations of Möbius-ladder independence complexes, full RESULT.md",
+          "Knill arXiv:2605.30799 abstract and author OA PDF full-text attempt"
+        ]
+      },
+      "checked_sources": [
+        "Bıyıkoğlu–Civan (2015) arXiv:1503.06018v1, Example 3.9, full PDF relevant sections and text search",
+        "Bıyıkoğlu–Civan (2019) DOI:10.1216/JCA-2019-11-1-1, publisher abstract and final PDF access limit",
+        "Resultary/2026 Integral homotopy type of the Möbius–Kantor independence complex, full RESULT.md",
+        "Resultary/2026 Dihedral rational homology representations of Möbius-ladder independence complexes, full RESULT.md",
+        "Resultary/2026 Cyclic symmetry on Heawood independence homology, full RESULT.md",
+        "Knill (2026) arXiv:2605.30799, abstract and full-text access blockers",
+        "Resultary semantic exact/alias/equivariant searches and full published-finding target self-match exclusion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier same-object 2015 preprint explicitly states 4S^3 wedge S^4, determining Betti ranks (4,1) but not the rotation character.",
+          "The two H3 rational characters could vary while dimensions remain four; the signed Lefschetz and H4 action calculations are additional required data.",
+          "C8 representation output is distinct from C7 Heawood homology and from Möbius-ladder graphs; Möbius–Kantor matching complexes concern independent edges, not independent vertices."
+        ],
+        "reasoning": "Claim is not a corollary of previously established nonequivariant ranks, unlike the known base homotopy result. The action on H4 requires an independent orientation computation, and H3 follows from signed simplicial Lefschetz. Neither general Maschke theory nor graph-level Lefschetz data supplies these nontrivial graph-specific inputs.",
+        "searches": [
+          "arXiv:1503.06018 Example 3.9",
+          "Resultary integral Mobius–Kantor independence-homotopy full RESULT",
+          "Resultary Mobius-ladder dihedral independence-character full RESULT",
+          "Knill arXiv:2605.30799 graph Lefschetz abstract",
+          "Resultary C7 Heawood independence-homology full RESULT"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact-title result for the audited SCOPE work (self-match; exclude as independent preexisting coverage).",
+          "Resultary nearby full RESULT for Heawood independence homology computes a C7 action on another graph, not GP(8,3).",
+          "Resultary full RESULT for Mobius-ladder independence complexes concerns vertices Z/2n with antipodal spokes, not the 16-vertex generalized Petersen graph GP(8,3)."
+        ],
+        "reasoning": "Aliases GP(8,3), generalized Petersen, Möbius–Kantor, C8 rotation and cyclic equivariant independence homology were searched. Other graph/combinatorial functor character theorems do not furnish the action on this complex. The exact self-match is excluded; no independently sourced same-action character was located, subject to residual literature risk.",
+        "searches": [
+          "Resultary semantic: Möbius-Kantor graph independence complex homology cyclic automorphism Z8 action D8 character representation fixed point Euler Lefschetz",
+          "Resultary semantic: exact rational C8 character for independence complex generalized Petersen graph G(8,3) Möbius Kantor automorphism homology",
+          "Resultary semantic: equivariant homology Mobius Kantor GP 8 3 independence simplicial complex cyclic rotation order eight",
+          "Web: Möbius Kantor graph independence complex homology automorphism rotation cyclic action",
+          "Web: generalized Petersen G(8,3) independence complex equivariant homology C8 rotation",
+          "Web: full automorphism representation independence complex Mobius Kantor"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The checked graph identification G(8,3) and its order-eight rotation define the acting object but do not list equivariant homology characters.",
+          "Resultary indexed graph-specific homotopy type and matching-complex counts, while the only target character hit is the audited record itself."
+        ],
+        "reasoning": "No independent exact character database/table entry was found; ordinary graph symmetry tables and independence polynomial/Betti data do not contain the missing representation action. This is a bounded negative database comparison, not proof of priority.",
+        "searches": [
+          "Resultary searches with G(8,3)/Möbius–Kantor/cyclic character terms (24 hits in first result)",
+          "Web: Möbius-Kantor graph independence complex representation",
+          "Web: Möbius Kantor graph homology independence",
+          "MathWorld Möbius–Kantor Graph alias and automorphism data"
+        ]
+      },
+      "rationale": "Best-of-knowledge original equivariant refinement: earlier same-graph work fixes the nonequivariant wedge-of-spheres type but does not specify how the canonical order-eight rotation acts. Independently checked complete C8 characters are not implied by homology dimensions alone. The exact original finding appears as a self-match in the published Resultary index; this is not treated as independent prior evidence. No earlier inspected source establishes the target rational module decomposition.",
+      "residual_risks": [
+        "Full 2019 final journal text inaccessible through publisher security check; its 2015 primary precursor was read in relevant sections and establishes only the ordinary homotopy type there.",
+        "Knill 2026 same-graph Lefschetz full text unavailable via arXiv/author OA/institutional access (institutional VPN disconnected); an equivariant independence-complex remark cannot be excluded from abstract alone.",
+        "An unindexed equivalence under representation-theoretic or graph-alias terminology could exist; targeted searches are not proofs of priority.",
+        "The full graph automorphism group action could dominate the C8 character if independently published, but no such same-object statement was found."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BASE_HOMOTOPY_COVERED_EQUIVARIANT_NOT_SHOWN_IN_READ_MATERIAL",
+          "evidence": "Example 3.9 states Ind(GP(8,3)) has homotopy type wedge of four S^3 and S^4 for the perfect-prime graph argument. It provides no explicit C8 homology action in the read section.",
+          "identifier_or_url": "arXiv:1503.06018v1; https://arxiv.org/pdf/1503.06018",
+          "material_read": "43-page preprint PDF abstract/introduction and relevant Example 3.9 on PDF pages 8-9 (printed pp. 9-10) including graph figure and homotopy statement; full parsed PDF searched for automorphism, Lefschetz and equivariant terms; screenshots of pages 2 and 8 inspected.",
+          "method": "Direct PDF text and screenshot inspection through web access; primary open preprint.",
+          "title": "Castelnuovo-Mumford regularity of graphs",
+          "trigger": "Same GP(8,3) graph and exact ordinary independence homotopy theorem (precursor of 2019 paper)."
+        },
+        {
+          "assessment": "STRONG_BASE_RESULT_FINAL_JOURNAL_TEXT_ACCESS_LIMITED",
+          "evidence": "The precursor provides the nonequivariant wedge statement. Full final journal publication not independently checked for further equivariant remarks; retained as a material originality risk.",
+          "identifier_or_url": "DOI:10.1216/JCA-2019-11-1-1; https://doi.org/10.1216/JCA-2019-11-1-1",
+          "material_read": "Accessible publisher-indexed first-page text and abstract; publisher PDF iframe redirected to an additional-security-check page; no claim to have read the inaccessible full journal PDF.",
+          "method": "Publisher search result, DOI metadata, blocked full-text attempt; compared accessible precursor arXiv:1503.06018.",
+          "title": "Prime graphs, matchings and the Castelnuovo-Mumford regularity",
+          "trigger": "Later journal publication of the same-object primary result."
+        },
+        {
+          "assessment": "NONEQUIVARIANT_COVERAGE_ONLY",
+          "evidence": "Proves the wedge four S^3 plus S^4 via 8-vertex dual reduction; makes no equivariant C8 character or signed rotation statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-integral-homotopy-type-of-the-m-bius-kantor-independence-complex--b0d62cfde5f3/RESULT.md",
+          "material_read": "Entire RESULT.md including claim, Alexander-dual incidence-graph proof, critical-cell calculation, verification, scope, limitations and references.",
+          "method": "Read-only GitHub connector file at published Resultary repository.",
+          "title": "Integral homotopy type of the Möbius–Kantor independence complex",
+          "trigger": "Exact same graph, same simplicial functor, stronger integral homotopy calculation."
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Möbius ladder M_2n has cycle-plus-antipodal edges on 2n vertices; not the GP(8,3) graph with outer/inner edges and spokes. The theorem cannot specialize to this graph.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dihedral-rational-homology-representations-of-m-bius-ladder-inde--baaa00f0cf91/RESULT.md",
+          "material_read": "Entire RESULT.md including graph definition, theorem for all n, transfer matrices, character proof, prior work and limitations.",
+          "method": "Read-only GitHub connector full text.",
+          "title": "Dihedral rational homology representations of Möbius-ladder independence complexes",
+          "trigger": "Similar Mobius naming, 16-vertex special cases and cyclic/dihedral homology actions."
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_ACTION",
+          "evidence": "C7 on the 14-vertex Heawood graph gives 6-dimensional augmentation representation, not this C8 GP(8,3) representation.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-cyclic-symmetry-on-heawood-independence-homology--d926cd684526/RESULT.md",
+          "material_read": "Entire RESULT.md including graph incidence model, 7-cycle Lefschetz formula and cyclotomic module proof.",
+          "method": "Read-only GitHub connector full text.",
+          "title": "Cyclic symmetry on Heawood independence homology",
+          "trigger": "Closest analogous method for cyclic symmetry action on independence homology."
+        },
+        {
+          "assessment": "PLAUSIBLE_RELEVANCE_ACCESS_BLOCKED",
+          "evidence": "Abstract describes Cayley-group structures, graph topology and graph Lefschetz calculations, but neither full-text exclusion nor complete action-on-Ind(G) comparison is supported by accessible material.",
+          "identifier_or_url": "arXiv:2605.30799; https://arxiv.org/abs/2605.30799",
+          "material_read": "Full abstract, publication metadata, and author project-page description. ArXiv full PDF unavailable to reader; author-hosted full PDF exceeded web size ceiling (~16 MB); authorized institutional retrieval reported disconnected VPN. Full body NOT read.",
+          "method": "arXiv/OA attempts then authorized institutional retrieval (blocked by VPN), no bypass.",
+          "title": "Remarks about the Moebius-Kantor graph",
+          "trigger": "Highly relevant same graph and paper advertises Lefschetz numbers under its symmetries."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/1503.06018",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-integral-homotopy-type-of-the-m-bius-kantor-independence-complex--b0d62cfde5f3/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dihedral-rational-homology-representations-of-m-bius-ladder-inde--baaa00f0cf91/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/cyclic-symmetry-on-m-bius-kantor-independence-homology--1c198fd64c4e/RESULT.md"
+      ],
+      "rationale": "The canonical order-eight rotation is intrinsic to the G(8,3) model of a highly symmetric 16-vertex cubic graph. A full C8-character calculation distinguishes the negative action on its unique H4 generator and an order-four rational 2-dimensional summand of H3, data invisible to the already known 4-sphere Betti summary. This is a natural, bounded and independently useful equivariant invariant and gives a benchmark for future full automorphism-module calculations; it does not need to imply a larger theorem to matter.",
+      "residual_risks": [
+        "The classification is a single canonical cyclic subgroup of one graph; it is not the full order-96 automorphism representation.",
+        "The same-object nonequivariant homotopy type is previously known, and its determination is not claimed as new."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 2019 final journal text inaccessible through publisher security check; its 2015 primary precursor was read in relevant sections and establishes only the ordinary homotopy type there.",
+    "Knill 2026 same-graph Lefschetz full text unavailable via arXiv/author OA/institutional access (institutional VPN disconnected); an equivariant independence-complex remark cannot be excluded from abstract alone.",
+    "An unindexed equivalence under representation-theoretic or graph-alias terminology could exist; targeted searches are not proofs of priority.",
+    "The full graph automorphism group action could dominate the C8 character if independently published, but no such same-object statement was found.",
+    "The source-text corruption, invalid provenance date and public operational metadata were not repaired during this read-only scientific assessment; publication not ready."
+  ],
+  "schema_version": 1
+}
