@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify_twopuncture.py` in a directory containing that standalone script (only the Python standard library is needed). Expected successful final status is `TWO_PUNCTURE_JORDAN_ALL_CHECKS_PASSED`. The program constructs each twice-punctured cube from binary coordinate labels, performs independent characteristic-two bit-matrix multiplication and Gaussian rank elimination, and compares its successive nullities with those implied by the stated Jordan forms. It also independently iterates all labelled initial states for the smaller cubes, comparing measured entry times and primitive periods to the stated exact formulas.
+## correctness
 
-The recorded run verified 35 dimension-distance pairs in dimensions two through eight, totaling 3,514 matrix coordinates across cases; 65,736 state histories were independently checked by direct iteration in dimensions two through four. The verified output is supplied in `verification_output.txt`. In the full proof, the critical exhaustive-infinite argument is not the finite test, but the rank-half square-zero decomposition and two-rank perturbation identities established in `RESULT.md`.
+PASS
 
-**Unproved limits:** no claim is made about more than two deleted vertices, characteristic-odd fields, nonlinear excitable dynamics, or novelty against papers unavailable in full text. Independent audit: not yet performed.
+PASS: For the full cube, commuting coordinate flips give A²=(d mod 2)I in characteristic two, hence C=A+delta I is square-zero of rank N/2 from coordinate splitting. The deleted-vertex compression satisfies B²=delta I+aa^T+bb^T; truncated neighborhood columns have independent rank except the explicit d=2,h=2 case. Their Gram and feedback identities R²=(delta+e)R and Ba=eb, Bb=ea determine ranks of B, B² and shifted powers. These reconstruct exactly the listed J2(1), J3(0), J4(1), J1(0), J2(0) blocks and their multiplicities. Nilpotent-entry strata and kernels of (B-I)^{2^k} give exact finite-field periods. Independently reproduced GF2 rank/nullity profile for d=2..6 and every distance h, but the universal characteristic-two proof is algebraic and not inferred from finite cases.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge with elevated same-object archival risk: Published real adjacency spectra of twice-punctured cubes and additive cellular automata do not state, in material accessible this run, the characteristic-two Jordan chains and orbit census for all deletion distances. A 2026 Kim-Reiner-Schoenzeit paper has the exact twice-punctured cube object; only its abstract was accessible, and its full text remains a named priority uncertainty. This does not by itself imply the real-spectral statements cover finite-field Jordan modules, nor does it authorize a whole-document noncoverage claim.
+
+## value
+
+PASS
+
+PASS: Two missing nodes in a Boolean-cube network are a natural defect class; explicit Jordan blocks over finite fields sharply distinguish extinction, reversibility and primitive periods, yielding complete dynamics for every dimension and every q=2^f. The parity/adjacency classification is structurally informative rather than a small exhaustive table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

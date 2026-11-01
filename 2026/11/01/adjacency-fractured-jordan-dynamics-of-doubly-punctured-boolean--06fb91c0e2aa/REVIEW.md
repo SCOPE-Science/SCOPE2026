@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof checks the characteristic-two cube identity \(A^2=(d\bmod2)I\), derives a square-zero rank-half matrix, and proves its two-coordinate compression has unchanged rank except at the explicitly isolated two-dimensional exception. The exact rank-two feedback identities, their Gram matrix, and the compressed rank determine all primary Jordan blocks and their multiplicities. Fixed-space and nilpotent-kernel counting then produce the entire exact orbit/transient census. The included standalone verifier independently constructs the actual adjacency matrices and explicitly checks their nullities and microscopic trajectories. Residual risk: transcription mistakes or algebraic oversights beyond independently tested dimensions; tests alone would not prove the infinite family.
+PASS
 
-## Originality — PASS (qualified)
+PASS: For the full cube, commuting coordinate flips give A²=(d mod 2)I in characteristic two, hence C=A+delta I is square-zero of rank N/2 from coordinate splitting. The deleted-vertex compression satisfies B²=delta I+aa^T+bb^T; truncated neighborhood columns have independent rank except the explicit d=2,h=2 case. Their Gram and feedback identities R²=(delta+e)R and Ba=eb, Bb=ea determine ranks of B, B² and shifted powers. These reconstruct exactly the listed J2(1), J3(0), J4(1), J1(0), J2(0) blocks and their multiplicities. Nilpotent-entry strata and kernels of (B-I)^{2^k} give exact finite-field periods. Independently reproduced GF2 rank/nullity profile for d=2..6 and every distance h, but the universal characteristic-two proof is algebraic and not inferred from finite cases.
 
-Earlier real-spectral results concerning two-vertex perturbations and punctured hypercubes provide close geometric context but do not determine characteristic-two Jordan chain lengths or the complete synchronous linear dynamical census. The closest published comparable mathematical research record concerns the distance-two graph of the *unpunctured* cube, not this operator. Previously accessible calculations of a *single*-deleted vertex or *edge*-deleted hypercube do not imply the double-vertex Jordan transition. The explicit matrix identities expose a qualitatively new adjacency/dimension parity phenomenon. Residual risk: the original fact may appear elsewhere under a representation-theoretic formulation, including papers not indexed in accessible search.
+## originality
 
-## Value — PASS
+PASS
 
-The physically natural distinction between two adjacent and two nonadjacent failed sites produces four structurally different long-time dynamical regimes. A uniform theorem describes all dimensions, characteristic-two finite fields, transient layers, and primitive orbit counts. In particular, odd-dimensional adjacent deletions produce genuine four-cycles and complete reversibility, whereas nonadjacent deletions introduce nilpotent components; this has qualitative significance beyond a low-dimensional numerical example.
+PASS best-of-knowledge with elevated same-object archival risk: Published real adjacency spectra of twice-punctured cubes and additive cellular automata do not state, in material accessible this run, the characteristic-two Jordan chains and orbit census for all deletion distances. A 2026 Kim-Reiner-Schoenzeit paper has the exact twice-punctured cube object; only its abstract was accessible, and its full text remains a named priority uncertainty. This does not by itself imply the real-spectral statements cover finite-field Jordan modules, nor does it authorize a whole-document noncoverage claim.
 
-## Closest literature and limitations
+## value
 
-Dalfó–van Dam–Fiol (arXiv:1202.3313) and Kim–Reiner–Schoenzeit (arXiv:2608.27887) provide the nearest two-vertex spectral comparisons; their theorems treat real spectra and cospectrality, not finite-characteristic Jordan forms. Sutner (2001) studies decompositions of additive cellular automata. The result is limited to characteristic-two synchronous, unforced neighbor-sum updates and exactly two deleted vertices. Primary-literature and mathematical-record searches reduce but cannot eliminate hidden-coverage risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Two missing nodes in a Boolean-cube network are a natural defect class; explicit Jordan blocks over finite fields sharply distinguish extinction, reversibility and primitive periods, yielding complete dynamics for every dimension and every q=2^f. The parity/adjacency classification is structurally informative rather than a small exhaustive table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
