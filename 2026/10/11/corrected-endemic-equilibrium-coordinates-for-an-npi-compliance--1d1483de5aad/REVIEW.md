@@ -1,15 +1,15 @@
-# Same-model review
+# Mathematical assessment of the endemic-coordinate correction
 
 ## Correctness
-PASS. The first-coordinate contradiction is exact and independent of the other compartments. The corrected coordinates are obtained by solving the printed stationary equations in triangular order and are verified by exact symbolic substitution. The force-of-infection consistency equation is explicitly excluded from the proved portion, so no existence or uniqueness claim is smuggled into the result.
+The original seven-compartment equations imply the conditional coordinates obtained by solving the susceptible and exposed balances, then the four downstream linear balances. The first susceptible coordinate printed in Eq. (7) gives the exact residual \[-\frac{(1-\rho)\pi\theta}{\lambda^*+\mu}\], which is nonzero for positive compliance transfer and positive recruitment into the noncompliant susceptible class. The complete corrected family has zero residual in every printed compartment equation. The force-of-infection identity must still be imposed before a genuine positive endemic equilibrium exists.
 
 ## Originality
-PASS. The introducing article was inspected at the model, endemic coordinates, and Appendix A. Targeted DOI, exact-title, correction/erratum, endemic-equilibrium, and parameter-alias searches did not locate a published repair. The closest published findings concern different models and do not imply this source-specific coordinate correction. Published-finding searches by DOI and exact title did not yield a covering correction.
+The introducing article contains the exact vector field, but its displayed Eq. (7) does not equal its equilibrium when \(\theta>0\). Appendix A uses the ODE-consistent stationarity balance, so this is not an alternate convention. Targeted DOI, exact-title, erratum/corrigendum, published-record and related-compartment searches did not locate an independently published complete correction. The identical finding in the public research index is the same result, not an independent predecessor. Nearby mpox papers use different compartment structures. Publication priority remains best of knowledge only.
 
-## Value
-PASS. The discrepancy changes the endemic equilibrium that underlies stability and bifurcation analysis. Appendix A itself uses the ODE-consistent first-equation stationarity identity, showing that the issue reaches a central analytic step rather than a decorative display. The repaired coordinate family gives a concrete, falsifiable starting point for reanalysis without overclaiming downstream theorems.
+## Mathematical value
+The error changes the stated endemic base point used in the original paper's stability and bifurcation analysis. The corrected formula provides an exact checkable starting point for any reanalysis of that model without claiming the separate force-consistency equation has a positive solution or that the original downstream stability results are false. The mathematical steps are elementary, but the correction concerns a central source-specific analytic conclusion rather than a cosmetic typographical error.
 
-## Closest literature and limitations
-The closest primary source is the 2023 article itself; related mpox papers returned by exact-title/DOI searches use different model structures. The present result does not solve the scalar force-consistency equation and therefore does not assert existence, uniqueness, stability, or bifurcation direction for a corrected endemic state. Search coverage cannot exclude an unindexed correction.
+## Primary source and limitations
+R. T. Alqahtani, S. S. Musa and M. Inc, *AIMS Mathematics* 8 (2023), 14142–14166, DOI 10.3934/math.2023723: model Eq. (1), force Eq. (2), endemic Eq. (7), Appendix A, and Section 3.4.
 
-Same-model review: passed. Independent audit: not yet performed.
+The general existence, multiplicity, stability, and bifurcation structure of corrected endemic equilibria remains outside this result. An unindexed correction or private communication is not excluded.
