@@ -1,19 +1,21 @@
-# Scientific review: depth-three neighborhood shattering in threshold graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The rank-one/two/three recursion is an exact restatement of complete binary-tree shattering for finite *distinct* hypotheses; duplicate graph-neighborhood rows are removed. Every depth-three witness uses at most eight distinct centers and seven query vertices, so a minimal induced threshold obstruction has at most fifteen vertices. The creation-word encoding covers every threshold graph up to that order. Two separately implemented complete enumerations return identical order-by-order counts and exactly four deletion-minimal creation words, with distinct degree sequences. A third procedure constructs and checks eight leaf paths for each obstruction. The proof applies for arbitrarily large threshold graphs by the fifteen-vertex reduction. Its numerical input is a genuinely exhaustive finite certificate, not a statistical sample.
+PASS
 
-## Originality — PASS with residual risk
+The ordinary depth-three tree-shattering recursion is exact after deduplicating identical open-neighborhood rows. A depth-three witness retains at most 7 query vertices plus 8 distinct realizing centers, so every induced-minimal threshold obstruction has <=15 vertices. Iterating all 32767 creation words from orders 1..15 is exhaustive by the threshold creation characterization. Independently implemented full enumeration exactly reproduced rank-three positives (0,0,0,0,0,0,0,3,23,101,337,954,2426,5734,12878) and only the 3 listed eight-vertex and 1 listed nine-vertex deletion-minimal words. Independently regenerated complete 8-leaf depth-three trees match the stored certificate query structures/leaf centers; all one-vertex deletions were retested after restricting query domains. The three-case split-graph nesting argument rules out shattering any static 3-set, and direct checks verify VC<=2 on all four witnesses. These bounded exhaustive checks prove the global statement only together with the separate 15-vertex reduction, not by extrapolation.
 
-The closest graph-neighborhood literature studies static VC dimension, while the closest Littlestone literature gives general closure bounds. Neither inspected primary source states or entails an exact *induced-obstruction classification* for open-neighborhood Littlestone dimension three in threshold graphs. Searches also considered the synonymous tree-shattering rank, Shelah rank, stability terminology, and nearby threshold-graph identifying-code and zero-forcing results. No matching prior theorem or database table was identified. This supports a best-knowledge originality judgment, not absolute priority: unindexed or inaccessible literature could remain, especially under alternative terminology.
+## originality
 
-## Value — PASS
+PASS
 
-The four forbidden induced graphs provide an exact hereditary characterization of the first nontrivial adaptive-shattering threshold in an infinite, canonical graph class. The finite list gives a constant-size obstruction test, identifies sharp first possible order eight, and exhibits a strict VC-versus-Littlestone separation even for the restrictive threshold family. The number fifteen is forced by the eight hypothesis leaves plus seven queries in a depth-three tree; the numerical enumeration is not an arbitrary isolated census.
+The only claimed new result is the induced-minimal four-graph characterization of open-neighborhood Littlestone rank >=3 within finite threshold graphs. Cross-checked with broader graph VC literature, general Littlestone-closure theory, stable-graph/special-tree literature, published related threshold-graph findings and graph-class database parameters. No inspected source proved the four exact minimal obstructions or implied the explicit threshold case. This is best-of-knowledge originality, not absolute certification.
 
-## Relationship and limits
+## value
 
-Adler–Benediktsson–Macpherson (2020) treats VC dimension of open graph neighborhoods on Johnson and Hamming graphs. Ghazi–Golowich–Kumar–Manurangsi (2021) proves general Littlestone closure bounds. Coudert–Csikós–Ducoffe–Viennot (2024) computes closed-neighborhood VC dimension. These do not yield this threshold-graph forbidden-obstruction theorem. The result does not classify dimensions four and above, and priority could be affected by unidentified earlier work. Exact finite enumeration and witness files are provided for reproduction.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The claim exactly characterizes a natural adaptive learning/model-theory invariant on the canonical hereditary threshold-graph class. The four minimal induced obstructions give a concrete and usable structure theorem and a fixed-size certificate for failure of rank<=2, with the sharp first possible order eight and a strict separation from the static VC=2 bound. The proof-required finite census covers a mathematically forced cutoff, not an arbitrary slice, and an independent researcher could use precisely this obstruction basis in graph-class learning or stability arguments.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T14:53:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/RESULT.md",
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/exhaustive_threshold.cpp",
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/independent_threshold_check.py",
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/witnesses.json",
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/witness_checker.py",
+        "independently authored /mnt/data/scope_worker02_run_20261031T1443/independent_checks.py"
+      ],
+      "rationale": "The ordinary depth-three tree-shattering recursion is exact after deduplicating identical open-neighborhood rows. A depth-three witness retains at most 7 query vertices plus 8 distinct realizing centers, so every induced-minimal threshold obstruction has <=15 vertices. Iterating all 32767 creation words from orders 1..15 is exhaustive by the threshold creation characterization. Independently implemented full enumeration exactly reproduced rank-three positives (0,0,0,0,0,0,0,3,23,101,337,954,2426,5734,12878) and only the 3 listed eight-vertex and 1 listed nine-vertex deletion-minimal words. Independently regenerated complete 8-leaf depth-three trees match the stored certificate query structures/leaf centers; all one-vertex deletions were retested after restricting query domains. The three-case split-graph nesting argument rules out shattering any static 3-set, and direct checks verify VC<=2 on all four witnesses. These bounded exhaustive checks prove the global statement only together with the separate 15-vertex reduction, not by extrapolation.",
+      "residual_risks": [
+        "The exhaustive-census component relies on the stated exact recurrence and the complete 2^(n-1) word coverage; the independently implemented logic reproduces both.",
+        "A finite census alone is not a proof beyond 15 vertices; the constructive witness cutoff supplies that step."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghazi et al., Proposition 3 gives O(kd log k) aggregation upper bound without a threshold-graph induced-subgraph classification.",
+          "Malliaris et al., Theorem 5.6 preserves Ldim under sufficiently small epsilon-saturation, but does not compute Ldim<=2 for any threshold graph.",
+          "Threshold graphs being well-quasi-ordered implies any induced-hereditary subclass has a finite obstruction basis, but gives neither the minimum size eight nor these exact four representatives."
+        ],
+        "reasoning": "These general results provide definitions, boundedness/equivalence machinery or abstract finite-basis existence, not a theorem whose specialization forces the asserted forbidden graph list. An unlocated stronger structural formula for threshold-graph neighborhood Ldim remains a priority risk.",
+        "searches": [
+          "Littlestone dimension graph neighborhood systems forbidden induced subgraphs threshold graphs",
+          "Littlestone dimension threshold graphs open neighborhood VC dimension",
+          "Epsilon-saturation for stable graphs and Littlestone classes arXiv:2508.21807 Sections 3/5/10",
+          "Split permutation graphs threshold well-quasi-ordered induced subgraphs 2014"
+        ]
+      },
+      "checked_sources": [
+        "Ghazi, Golowich, Kumar, Manurangsi (2021), Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132, Prop. 3, https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+        "Adler, Benediktsson, Macpherson (2020), Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042, Thm. 1.1, https://arxiv.org/pdf/2007.16042",
+        "Coudert, Csikos, Ducoffe, Viennot (2024), Practical Computation of Graph VC-Dimension, SEA 2024, Lemma 4, DOI:10.4230/LIPIcs.SEA.2024.8",
+        "Malliaris, Medrano Martin del Campo, Moran (2025), Epsilon-saturation for stable graphs and Littlestone classes, arXiv:2508.21807, Def. 3.5, Fact 3.6, Thm. 5.6",
+        "Resultary published search: exact Littlestone dimension open neighborhoods threshold graph four minimal forbidden induced graphs depth three Shelah thicket rank (45 returned hits; none matched claim)",
+        "Resultary: Failed skew zero forcing at the false-twin-free boundary of threshold graphs (2026/10/4), different graph invariant",
+        "Resultary: All k-tuple total dominating sets of connected threshold graphs (2026/10/4), different graph invariant",
+        "ISGCI graphclasses.org database, public parameter index checked 2026-10-31 (no Littlestone parameter listed)",
+        "Split permutation graphs (2014), abstract notes threshold graphs well-quasi-ordered by induced subgraphs; generic finite-basis existence, not explicit four"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adler et al., Theorem 1.1 concerns open-neighborhood static VC on Johnson and Hamming graphs.",
+          "Coudert et al. specify closed-neighborhood static VC and give size/degree/matching/degeneracy bounds in Lemma 4.",
+          "The four independently checked threshold examples have VC<=2 and Ldim=3, showing static VC<=2 cannot imply the claimed forbidden-subgraph condition.",
+          "Ghazi aggregation inequalities and Malliaris saturation-preservation do not assert the exact four threshold types."
+        ],
+        "reasoning": "Static VC dimension and adaptive Littlestone dimension differ; the displayed counterexamples preclude the implication from VC<=2 to Ldim<=2. None of the compared theorem hypotheses specializes to an exact four-graph necessary-and-sufficient criterion.",
+        "searches": [
+          "Adler Benediktsson Macpherson arXiv:2007.16042 Theorem 1.1",
+          "Coudert Csikos Ducoffe Viennot SEA 2024 closed neighborhood VC dimension Lemma 4",
+          "Ghazi Golowich Kumar Manurangsi PMLR 132 Proposition 3",
+          "Malliaris Medrano Moran arXiv:2508.21807 special trees and epsilon saturation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ghazi et al., Definition 1 and Proposition 3, define adaptive binary query-tree shattering but study Boolean aggregations.",
+          "Malliaris et al., Definition 3.5, special trees for graphs impose disjoint internal-query and leaf-witness vertex sets, while the audited ordinary Ldim permits overlap; Fact 3.6 relates asymptotic stability to half graphs without enumerating these four small threshold obstructions."
+        ],
+        "reasoning": "Shelah tree rank/thicket dimension are pertinent alternate descriptions. The cited generic special-tree and closure statements do not identify the exact four threshold graph obstruction isomorphism types. Disjoint-special-tree results cannot simply be substituted for the ordinary, possibly overlapping, open-neighborhood shattering definition.",
+        "searches": [
+          "\"threshold graphs\" \"Littlestone dimension\" neighborhoods",
+          "\"threshold graph\" \"Shelah 2-rank\" induced subgraphs",
+          "\"threshold graphs\" \"thicket dimension\"",
+          "Littlestone dimension graph classes threshold cographs split graphs open neighborhoods",
+          "Resultary semantic query: exact Littlestone dimension open neighborhoods threshold graph four minimal forbidden induced graphs depth three Shelah thicket rank"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "ISGCI publicly lists threshold graphs and many graph parameters but not the Littlestone dimension or this four-item obstruction table.",
+          "The returned Resultary threshold-graph findings concern skew zero forcing and k-tuple total domination, not online tree shattering.",
+          "No matching table was found in inspected sources; this negative search is not proof of novelty."
+        ],
+        "reasoning": "The searched graph-class database and indexed related findings contain no identified exact rank-three threshold-obstruction list. Earlier small-graph census or nonindexed data could nevertheless reproduce the four graphs.",
+        "searches": [
+          "\"1101010\" \"1010110\" \"1010101\" \"11011011\" graph Littlestone",
+          "ISGCI https://www.graphclasses.org/ parameters index 2026-10-22",
+          "Resultary semantic search: threshold graph open neighborhood Littlestone depth three four forbidden graphs",
+          "GitHub repository text search \"Littlestone threshold forbidden neighborhoods\""
+        ]
+      },
+      "rationale": "The only claimed new result is the induced-minimal four-graph characterization of open-neighborhood Littlestone rank >=3 within finite threshold graphs. Cross-checked with broader graph VC literature, general Littlestone-closure theory, stable-graph/special-tree literature, published related threshold-graph findings and graph-class database parameters. No inspected source proved the four exact minimal obstructions or implied the explicit threshold case. This is best-of-knowledge originality, not absolute certification.",
+      "residual_risks": [
+        "The graph-theoretic use of Shelah 2-rank, online tree dimension, or thicket dimension may have a hidden exact threshold-graph specialization not indexed in available searches.",
+        "A complete small-threshold-graph data table not present in ISGCI could encode the four obstructions without naming Littlestone dimension.",
+        "The assessed novelty is the explicit necessary-and-sufficient four-graph list; generic finite-basis existence from well-quasi-order is established prior mathematics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_OF_EXACT_CLAIM",
+          "evidence": [
+            "Proposition 3 bounds Ldim of Boolean aggregations by O(kd log k); it does not classify threshold adjacency graphs or induced obstructions."
+          ],
+          "identifier_or_url": "https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+          "material_read": "Full accessible 11-page PDF text was available; introduction, Definition 1, Proposition 3 and its proof, Proposition 5 and related work were materially inspected.",
+          "method": "Publisher OA PDF text and rendered page 2",
+          "title": "Near-tight Closure Bounds for the Littlestone and Threshold Dimensions",
+          "trigger": "General direct Littlestone results with potentially stronger applicability"
+        },
+        {
+          "assessment": "NOT_COVERING_OF_EXACT_CLAIM",
+          "evidence": [
+            "Theorem 1.1 addresses ordinary VC=4,3 in Johnson/Hamming graphs, not adaptive rank in threshold graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Abstract, introduction, Theorem 1.1, definition of open neighborhood, and detailed proof subsections around the Johnson/Hamming bounds.",
+          "method": "ArXiv OA PDF text and rendered first page",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same open-neighborhood graph relation, possible dominating static theorem"
+        },
+        {
+          "assessment": "NOT_COVERING_OF_EXACT_CLAIM",
+          "evidence": [
+            "The invariant is static closed-neighborhood VC; the reported algorithm and upper bounds do not compute Ldim of threshold graphs."
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol301-sea2024/LIPIcs.SEA.2024.8/LIPIcs.SEA.2024.8.pdf",
+          "material_read": "Abstract, introduction and formal closed-neighborhood definition, Lemma 4 upper bounds, algorithm and experiment descriptions, and term searches for threshold graph.",
+          "method": "Publisher OA PDF text and first-page rendered image",
+          "title": "Practical Computation of Graph VC-Dimension",
+          "trigger": "Graph-neighborhood complexity computation, possible exhaustive graph class coverage"
+        },
+        {
+          "assessment": "NOT_COVERING_OF_EXACT_CLAIM",
+          "evidence": [
+            "Theorem 5.6 gives dimension preservation under epsilon-saturation, and Definition 3.5 defines disjoint special trees. No threshold-graph obstruction enumeration appears in inspected results."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2508.21807",
+          "material_read": "Introduction and contents, Definitions 3.3/3.5, Fact 3.6, Theorems 5.6 and 8.1, graph-case definitions and Lemma 10.8; PDF-wide search for threshold graph.",
+          "method": "ArXiv OA 30-page PDF text with rendered page 4",
+          "title": "Epsilon-saturation for stable graphs and Littlestone classes",
+          "trigger": "Most relevant modern stable graph and adaptive rank framework with Shelah-tree aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/four-forbidden-threshold-graphs-for-depth-three-neighborhood-sha--72712918f81f/RESULT.md",
+        "threshold-graph forbidden (P4,C4,2K2) characterization",
+        "PMLR 132 Ghazi et al. on Ldim",
+        "arXiv:2508.21807 on stable-graph tree rank"
+      ],
+      "rationale": "The claim exactly characterizes a natural adaptive learning/model-theory invariant on the canonical hereditary threshold-graph class. The four minimal induced obstructions give a concrete and usable structure theorem and a fixed-size certificate for failure of rank<=2, with the sharp first possible order eight and a strict separation from the static VC=2 bound. The proof-required finite census covers a mathematically forced cutoff, not an arbitrary slice, and an independent researcher could use precisely this obstruction basis in graph-class learning or stability arguments.",
+      "residual_risks": [
+        "Does not classify Ldim values >=4; value is the complete rank-two forbidden-subgraph boundary.",
+        "No independent downstream application is established, but the obstruction basis itself is a natural exact structural invariant."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ghazi, Golowich, Kumar, Manurangsi (2021), Near-tight Closure Bounds for the Littlestone and Threshold Dimensions, PMLR 132, Prop. 3, https://proceedings.mlr.press/v132/ghazi21a/ghazi21a.pdf",
+    "Adler, Benediktsson, Macpherson (2020), Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs, arXiv:2007.16042, Thm. 1.1, https://arxiv.org/pdf/2007.16042",
+    "Coudert, Csikos, Ducoffe, Viennot (2024), Practical Computation of Graph VC-Dimension, SEA 2024, Lemma 4, DOI:10.4230/LIPIcs.SEA.2024.8",
+    "Malliaris, Medrano Martin del Campo, Moran (2025), Epsilon-saturation for stable graphs and Littlestone classes, arXiv:2508.21807, Def. 3.5, Fact 3.6, Thm. 5.6",
+    "Resultary published search: exact Littlestone dimension open neighborhoods threshold graph four minimal forbidden induced graphs depth three Shelah thicket rank (45 returned hits; none matched claim)",
+    "Resultary: Failed skew zero forcing at the false-twin-free boundary of threshold graphs (2026/10/4), different graph invariant",
+    "Resultary: All k-tuple total dominating sets of connected threshold graphs (2026/10/4), different graph invariant",
+    "ISGCI graphclasses.org database, public parameter index checked 2026-10-31 (no Littlestone parameter listed)",
+    "Split permutation graphs (2014), abstract notes threshold graphs well-quasi-ordered by induced subgraphs; generic finite-basis existence, not explicit four"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each finite simple threshold graph G, Ldim of its open-neighborhood concept class is <=2 if and only if no induced F_1,F_2,F_3,F_4 occurs, where their threshold creation words are 1101010, 1010110, 1010101, 11011011. The sharp first positive order is eight; all threshold graphs have ordinary open-neighborhood VC dimension <=2.",
+  "limitations": [
+    "The graph-theoretic use of Shelah 2-rank, online tree dimension, or thicket dimension may have a hidden exact threshold-graph specialization not indexed in available searches.",
+    "A complete small-threshold-graph data table not present in ISGCI could encode the four obstructions without naming Littlestone dimension.",
+    "The assessed novelty is the explicit necessary-and-sufficient four-graph list; generic finite-basis existence from well-quasi-order is established prior mathematics.",
+    "Potentially public administrative source files contain private provenance fields, so publication is withheld pending complete sanitized guarded replacements."
+  ],
+  "schema_version": 1
+}
