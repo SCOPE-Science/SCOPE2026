@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The theorem is restricted to the exact 20-vertex labelled graph. Two algorithms implemented different Boolean update expressions and used independent whole-space methods (Kahn peeling versus direct iterates) to reproduce every one of the 1,048,576 transitions and all basin/entrance cells. A complete independent backtracking automorphism enumeration establishes the full 120-element group, and a separate matching-cut check confirms all 118 fixed states. The generator, independently checked transition data, group table and replay results are embedded. Exact bounded enumeration is a proof for this finite scope, not an argument for other graphs.
+
+**Originality — PASS (qualified).** Historical majority-dynamics literature already proves the period-one/two restriction. A 2004 threshold-automata paper primarily treats one-dimensional systems; a 2014 majority-dynamics paper concerns infinite/unimodular and random graphs; the 2023 certification paper gives general period and transient bounds. The closest previously recorded finite majority census concerns the Boolean four-cube, not the 20-vertex dodecahedron. Actual claim/alias searches of research records, primary sources, and graph-naming aliases yielded no result implying these exact numerical invariants. A previously unindexed dodecahedral computation remains a real priority risk, and failed searches alone do not establish novelty.
+
+**Value — PASS.** The dodecahedral skeleton is a canonical, vertex-transitive cubic graph and a natural finite testbed for nonlinear threshold voting. The exact stabilization cutoff, sharp distinction between the attraction of fixed points and two-cycles, and full geometric symmetry classification are natural invariants; the 118 fixed points also give a matching-cut enumeration and 59 complementary matching-cut partitions. This is a complete motivated classification, not a claim that arbitrary small-graph enumeration is inherently valuable.
+
+**Scientific limitations.** This result is finite and computationally certified by its included exhaustive code and data. It does not generalize any count to arbitrary cubic graphs, assert priority over unreachable historical tables, or substitute internal review for independent scientific validation.
+
+Self-review: passed. Independent audit: not yet performed.
