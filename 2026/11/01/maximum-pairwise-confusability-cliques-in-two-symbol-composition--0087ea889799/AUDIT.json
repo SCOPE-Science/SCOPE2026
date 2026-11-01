@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The proof establishes a direct if-and-only-if read-distance-two alternating-interval lemma, a conserved alternating incidence sum over a torsion-free group, a support-star dichotomy, and complete equality rigidity. Repeated read supports produce coordinate stars of size at most q; distinct supports share a read coordinate and give at most n+1, with equality exactly the deletion family of a full alternating predecessor. Counts include n=1 and the q=n+1 tie. All 20 small parameter graphs were independently enumerated in the included standalone script; finite enumeration supports but does not replace the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Banerjee et al. 2023 focus on error-correcting read-vector constructions; Sun–Ge 2024 give explicit clique coverings and redundancy bounds.",
+        "General q-ary Hamming equidistant codes could dominate this result only if both the read-map image and the full extremizer families were characterized; no such published primary theorem was found in the compared material."
+      ],
+      "reasoning": "The cited results concern stronger code bounds in some regimes, but these do not imply an exact maximum-clique count or equality classification. Clique covers and independent sets are different graph invariants. Residual risk: a general classification of distance-two cliques in a constrained Hamming embedding may imply this theorem.",
+      "searches": [
+        "single insertion reconstruction confusability graph maximum cliques all q words coordinates alternating deletion spheres; \"single-insertion reconstruction\" graph \"clique\" size; \"insertion\" \"reconstruction\" \"maximum clique\" strings",
+        "\"2-read\" \"clique\" Hamming graph distance two Sun Ge; \"composition read\" \"cliques\" \"q\" nanopore; \"read vector\" \"maximum clique\"",
+        "arXiv:2305.10214 channel and graph-theoretic bounds",
+        "arXiv:2403.11754 §IV clique covers"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2403.11754",
+      "https://arxiv.org/abs/2001.01376",
+      "https://arxiv.org/abs/2305.10214",
+      "Published record on exact finite-alphabet two-read single-deletion edge counts (distinct graph invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sun–Ge: the existence of cliques of certain sizes is supplied; no maximality/equality-rigidity theorem appears in the inspected relevant sections.",
+        "New key lemma: supports of read-distance-two neighbors of a base vertex cannot occupy the three edges of a triangle, by alternating-sum incidence conservation; repeated support yields source-coordinate stars."
+      ],
+      "reasoning": "Prior pair characterization implies the input-level form of graph edges, but a statement about edges alone does not imply the maximum-clique classification without the new global compatibility argument. The new upper bound n+1 and the competing q-star mechanism, with exact equality cases, strictly strengthen the known local construction.",
+      "searches": [
+        "\"2-read\" \"maximum clique\" strings; \"2-read\" \"clique number\" \"alternating\"; maximum clique all-alphabet distance-two graph of 2-read vectors equals max(q,n+1), coordinate Hamming stars or deletion descendants alternating words",
+        "single insertion reconstruction confusability graph maximum cliques all q words coordinates alternating deletion spheres; \"single-insertion reconstruction\" graph \"clique\" size; \"insertion\" \"reconstruction\" \"maximum clique\" strings",
+        "\"2-read\" \"clique\" Hamming graph distance two Sun Ge; \"composition read\" \"cliques\" \"q\" nanopore; \"read vector\" \"maximum clique\"",
+        "arXiv:2403.11754 Theorem 1 and Lemma 11",
+        "arXiv:2001.01376 §II definitions and single-insertion claims"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Sun–Ge 2024 Theorem 1: distance-two pairs are alternating interval exchanges; Lemma 11: selected cliques of size 2t+1 are constructed for a clique cover.",
+        "Cai et al. 2020: single-edit reconstruction code framework with read-ball intersection, but no classification of maximal pairwise read-distance-two cliques."
+      ],
+      "reasoning": "The edge criterion and the local alternating construction are equivalent to pieces of the proof, not to the claimed global all-q,n upper bound and all extremizers. The deletion/insertion overlap graph may be equivalent at the edge level to this two-read graph, but the inspected primary theorem concerns reconstruction-code bounds, not a sharp clique spectrum.",
+      "searches": [
+        "\"2-read\" \"maximum clique\" strings; \"2-read\" \"clique number\" \"alternating\"; maximum clique all-alphabet distance-two graph of 2-read vectors equals max(q,n+1), coordinate Hamming stars or deletion descendants alternating words",
+        "single insertion reconstruction confusability graph maximum cliques all q words coordinates alternating deletion spheres; \"single-insertion reconstruction\" graph \"clique\" size; \"insertion\" \"reconstruction\" \"maximum clique\" strings",
+        "arXiv:2403.11754 §§III–IV Theorem 1, Lemma 11",
+        "arXiv:2001.01376 overlap/reconstruction graph definitions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest published record gives an exact edge count for a two-read single-deletion graph, not maximum cliques of composition-read Hamming-distance-two graph.",
+        "Small-case counts in verify_read_cliques.py are generated by direct maximal-clique enumeration and are not drawn from a known table."
+      ],
+      "reasoning": "Edge counts and triangle counts for a different deletion-confusability graph do not imply this graph’s maximum cliques or their number; despite alternating-interval similarities, the vertex-adjacency conditions differ. No matching database row/table was located.",
+      "searches": [
+        "\"2-read\" \"maximum clique\" strings; \"2-read\" \"clique number\" \"alternating\"; maximum clique all-alphabet distance-two graph of 2-read vectors equals max(q,n+1), coordinate Hamming stars or deletion descendants alternating words",
+        "number of pairs 2-read vector Hamming distance 2 q ary words length n generating function; exact edge count q-ary 2-read Hamming distance exactly two graph alternating intervals nanopore Sun Ge 2024",
+        "relevant published research-record semantic search: q-ary two-read insertion/deletion graph clique extremizers maximum",
+        "Published research record: Exact edge count of the finite-alphabet two-read single-deletion reconstruction graph (different confusability graph)"
+      ]
+    },
+    "rationale": "Direct comparison of Sun–Ge 2024 full text (§§III–IV) isolates a known exact edge criterion and exhibited local cliques, but not a universal clique-number upper bound or complete classification/count of all maximum families. Cai et al. 2020 treat insertion/deletion read-ball overlap and redundancy. Banerjee et al. 2023 treat composition-read code bounds, chiefly binary longer windows. The proof here adds a torsion-free signed-incidence argument that forbids a triangular arrangement of read-error supports, followed by sharp equality rigidity. Four topic-specific database/primary-literature searches found no equivalent maximum clique theorem; an unlocated general clique result remains the principal originality risk.",
+    "residual_risks": [
+      "A more general theorem on constrained Hamming equidistant codes or insertion-reconstruction graph cliques might imply this classification without matching titles.",
+      "The inspected primary literature does not amount to an exhaustive guarantee of global novelty; inaccessible/unindexed sources could remain."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING exact maximum clique number, full extremizer classification and count; DOES_COVER edge characterization and existence of certain cliques.",
+        "evidence": [
+          "https://arxiv.org/abs/2403.11754 §§II, III, IV-B; Lemma 11; Construction 1; Lemmas 12–14"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.11754",
+        "material_read": "Full available arXiv HTML of §§I–IV, including read definition, exact distance-two pairs in Theorem 1, higher-distance structure in Theorems 2–3 and clique-cover construction and Lemma 11.",
+        "method": "Read web-served complete arXiv HTML, compared graph definitions and exact theorem statements.",
+        "title": "Bounds and Constructions of ℓ-Read Codes under the Hamming Metric",
+        "trigger": "Exact same two-symbol composition-read graph and alternating edge criterion."
+      },
+      {
+        "assessment": "NO_IDENTIFIED_COVERAGE of the maximum clique classification; the primary focus is reconstruction code redundancy and ball intersections.",
+        "evidence": [
+          "https://arxiv.org/abs/2001.01376 §§I–II and single-edit reconstruction discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2001.01376",
+        "material_read": "Available arXiv full HTML: introduction, §II problem/read-ball definitions, single-edit reconstruction formulation and reported main consequences; searched for explicit maximum-clique characterization.",
+        "method": "Read arXiv HTML and checked relevant definitions, contrasts with 2-read pair adjacency.",
+        "title": "Coding for Sequence Reconstruction for Single Edits",
+        "trigger": "Insertion and deletion reconstruction graphs might have the same pairwise edges."
+      },
+      {
+        "assessment": "NO_IDENTIFIED_COVERAGE of all-q exact 2-read maximum cliques; concerns different code parameters and in part longer windows.",
+        "evidence": [
+          "https://arxiv.org/abs/2305.10214 §§I–II and code constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2305.10214",
+        "material_read": "Available arXiv full HTML: introduction, channel definition, binary alphabet restrictions, coding theorems and graph-theoretic motivation.",
+        "method": "Read arXiv HTML primary text and compared window size/read alphabet and theorem claims.",
+        "title": "Error-Correcting Codes for Nanopore Sequencing",
+        "trigger": "Precursor formulation of the composition-read channel and confusability graphs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0087ea88-9799-43be-a350-ef4926cd4a63",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The finite-state composition-read channel is a natural DNA nanopore sensing model. The exact maximum clique number is a graph invariant controlling pairwise one-substitution confusion clusters; the theorem classifies all extremal configurations, reveals a sharp crossover when alphabet size meets word length, and provides exact labeled multiplicities. The result is structurally stronger than edge counts or one constructed clique and is not simply a finite sample or arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
