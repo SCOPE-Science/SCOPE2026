@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The rank-two complementary projection and reciprocal-polynomial identity classify every six-node equal-weight spherical design into two equilateral normal triples. An exact spherical absolute-product integral gives the shadow-variance expression. Squared cross-dot products form a fixed-sum three-vector ordered increasingly by majorization, and a strictly convex scalar kernel proves global strict monotonicity, including endpoint uniqueness. The attached program checks design identities, five direct sphere quadratures and endpoint constants. The finite program is supplemental; analytic steps prove the continuum theorem.
+
+**Originality: PASS with residual risks.** The motivating Minkowski-design paper establishes equal facet areas and global approximation rather than exact variance extrema. The later directional-kernel paper treats universal finite quadrature error rather than this constrained variance. An existing six-normal design volume formula already determines the normal family, but volume order does not imply random projected-area variance order. A published record computes the Platonic-body endpoint for a cube, not the sharp envelope across the continuous six-design family. General cosine-kernel covariance identities provide a method, not the extremal majorization conclusion. Inaccessible or unindexed literature may preempt the exact variance classification; checked source levels and residual priority risk are documented in AUDIT.json.
+
+**Value: PASS.** Spherical-design isotropy makes area averages identical, raising the natural question of how random projections fluctuate despite that fixed mean. The theorem exactly classifies this fluctuation across the smallest flexible six-node family of designs, including its sharp maximizing cube, non-Platonic minimizing configuration and equality rigidity. The interval is a substantive geometric distinction not obtainable from degree-two surface-tensor exactness alone.
+
+**Limitations.** Six distinct equal-weight normals in dimension three only; equal facet area \(2\pi/3\); random two-dimensional orthogonal shadows with Haar-uniform normals. No claim about arbitrary polytopes, unequal weights, independence, or all higher design strengths.
+
+Self-review: passed. Independent audit: not yet performed.
