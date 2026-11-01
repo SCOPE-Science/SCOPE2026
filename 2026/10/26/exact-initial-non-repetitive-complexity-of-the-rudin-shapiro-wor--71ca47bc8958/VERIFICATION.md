@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3.8 or newer. The script uses only standard-library data structures. No generated third-party data, files, network connection, probabilistic trials, or external solver are required.
+## correctness
 
-The script directly computes the binary Rudin–Shapiro symbols by counting overlapping adjacent `11` bits and independently obtains the same \(65{,}536\)-symbol prefix from the four-letter substitution. It constructs the complete eight-element two-letter language by an exhaustive substitution-closure algorithm, enumerates all 64 length-eight windows within the eight length-sixteen source-pair images, and confirms the even/odd parity factor sets have sizes 24 and 32 with no intersection.
+PASS
 
-For powers of two \(B=8,16,\ldots,1024\), it checks the exact dyadic five-block identities, verifies pairwise distinctness of all \(4B\) length-\(B+1\) factors beginning at indices below \(4B\), and verifies the length-\(B+1\) copy at \(4B\). It determines the first collision and earlier position directly for every length from 1 through 384, agreeing with the displayed formula. These finite reproductions corroborate the arithmetic and exhaustive certificate; the all-length conclusion is established in `RESULT.md` by the substitution congruence and block argument.
+The four-state 2-uniform substitution coding reproduces the parity of binary adjacent-11 counts. An exhaustive eight-letter certificate over the complete eight four-letter adjacent-pair types has even-start and odd-start sets of 24 and 32 factors with no overlap. Repeated binary factors of length B+1 have starts congruent modulo dyadic B via parity and substitution synchronization; block identity A,C,A,complement(C),A proves uniqueness before 4B and repetition at 4B. Explicit n<=8 handles the base. Independent direct first-repeat enumeration n=1..256 and parity-certificate computation corroborate the all-n proof. Ratio extrema follow from dyadic plateau endpoints.
 
-The work has not been subjected to an external independent audit; historical-priority assessment remains limited by the accessible prior literature.
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison: No identified prior theorem supplies those all-length first-repeat positions as a corollary.
+
+## value
+
+PASS
+
+This complete natural automatic-word invariant determines all dyadic plateaus, unique first-repeat predecessor and sharp normalized limits. It is a substantive word-specific synchronization result rather than finite first-factor tabulation or a substitution of the known Thue–Morse formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
