@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:51:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The radial moments are m_j=j!Gamma(beta)/Gamma(beta+j), and Fourier coefficients of f² yield the exact normalized quartic F_beta(A,B,C), U=2beta/(beta+1), V=3beta/(beta+2), W=6beta(beta+1)/((beta+2)(beta+3)). The unique phase-sensitive term 4sqrt(U)ACB² forces b² conjugate(a*c)>0 when all modes are nonzero. On faces A=0 or C=0, switching on the missing coordinate gives a positive first variation; on B=0 the B² derivative is twice a sum of strictly positive terms involving V-1 and 2V-W for beta>1, and pure B also admits an improving perturbation. Thus no boundary optimizer. At beta=infinity, the exact SOS identity 6-F_infinity=(2sqrt2 AC-B²)²+3B⁴+8A²B²+5A⁴ has a unique normalized zero A=B=0,C=1. Its quadratic coercivity, together with finite-weight coefficient error O(beta^-1)(A²+B²), localizes global optimizers at A=O(beta^-1), B²=O(beta^-1). The scaled excess is J(t,s)=24s-4s²+4sqrt2 ts-8t², whose completion squares gives a unique value 48 at (t,s)=(sqrt2,4), producing full (not merely subsequential) coefficient limits and excess. Independent SymPy expansion verifies exact SOS, strict derivative coefficients at beta>1, and unique J maximum. Diagnostic finite optimization is not used as an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorems are valid over larger function classes but only for contracted f(rz), r<=sqrt(p/q), or altered weights.",
+          "A sharp norm estimate for unrestricted functions would require an explicit undilated degree-two optimizer to imply the correction coefficient 48."
+        ],
+        "reasoning": "General function-space scope alone does not dominate the specified evaluated finite-degree sharp constant; any older sharp undilated coefficient inequality remains an explicit risk.",
+        "searches": [
+          "arXiv:1701.06897 Theorem 6 and Section 2.3",
+          "arXiv:2211.03655 Theorem 1",
+          "web: Bergman weighted disk degree two polynomial L4 L2 sharp extremizer"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT and verify.py, audit metadata and verification source package",
+        "Bayart et al. arXiv:1701.06897 primary PDF",
+        "Melentijević arXiv:2211.03655 full PDF",
+        "Resultary focused Bergman moment query",
+        "Independent SymPy fourth-moment SOS and scaled J quadratic completion"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dilation contraction f(rz) with r<=sqrt(p/q) bounds a different functional than the ratio evaluated at r=1.",
+          "The exact SOS localization exhibits a β^-2 *difference from the pure quadratic* absent in the stated general hypercontractive inequalities."
+        ],
+        "reasoning": "Neither prior theorem implies a unique asymptotic coefficient vector or exact beta^-2 excess by straightforward specialization; an additional finite-dimensional nonlinear maximization is needed.",
+        "searches": [
+          "arXiv:1701.06897 Theorem 6",
+          "arXiv:2211.03655 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both primary works concern analytic-function Bergman embeddings/hypercontractivity, but use a dilation f(rz) or altered target weight to obtain norm-one contractions.",
+          "The current constant optimizes an undilated same-measure fourth-power ratio over the fixed three-dimensional analytic subspace."
+        ],
+        "reasoning": "Same-measure vs dilated/weight-shift equivalence checked: the cited contraction theorems do not yield the exact coefficient-sensitive all-positive maximizing profile as stated.",
+        "searches": [
+          "arXiv:1701.06897 contractive Bergman inequalities",
+          "arXiv:2211.03655 weighted Bergman hypercontractivity",
+          "Resultary: sharp quadratic weighted Bergman L4 L2 fourth moments three monomial asymptotic hypercontractive"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary hits concern fourth moments in real Walsh chaos or other harmonic Bergman problems, not the same three complex monomials under radial probability measure."
+        ],
+        "reasoning": "No identified exact finite-degree K_beta formula/correction table. The new invariant is independently motivated, not claimed novel solely by lack of search hits.",
+        "searches": [
+          "Resultary: sharp quadratic weighted Bergman L4 L2 fourth moments three monomial asymptotic hypercontractive",
+          "web: quadratic Bergman fourth moment extremizer asymptotic"
+        ]
+      },
+      "rationale": "Primary Bayart et al. (2017) and Melentijević (2023) prove weighted Bergman contraction and *dilated* Lp→Lq inequalities for all analytic functions, not the nondilated same-measure degree-two polynomial extremizer profile or beta^-2 correction. A stronger sharp finite-degree embedding result in older coefficient literature might imply it, so historical priority is qualified; no exact match in targeted Resultary search.",
+      "residual_risks": [
+        "A pre-existing sharp finite-dimensional Bergman fourth-moment result may contain an equivalent evaluated beta^-2 correction.",
+        "The claim establishes the asymptotic unique coefficient limits but not uniqueness or an algebraic closed form for the finite beta optimum.",
+        "Symbolic SOS checks are exact finite algebra; they do not by themselves prove global asymptotic localization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives sharp dilated/global contractivity, not the evaluated same-measure degree-two undilated fourth moment.",
+          "evidence": [
+            "Theorem 6 Pr(f)=f(rz) contracting if r<=sqrt(p/q)",
+            "Section 2 broad Carleman-related inequalities"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1701.06897",
+          "material_read": "Primary PDF abstract, Introduction, Section 2 and Theorem 6 on P_r contractions; printed weight conventions and proof pages inspected",
+          "method": "arXiv primary PDF text and rendered pages",
+          "title": "Contractive inequalities for Bergman spaces and multiplicative Hankel forms",
+          "trigger": "closest broad Bergman contractivity result"
+        },
+        {
+          "assessment": "Sharp hypercontractive dilation scale r=sqrt(p/q), not optimization of K_beta with no dilation.",
+          "evidence": [
+            "Theorem 1 q>=2 and r=sqrt(p/q)",
+            "Weighted measure proportional to (1-|z|²)^(alpha-2)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2211.03655",
+          "material_read": "All five pages including introduction, Theorem 1 and proof methods; first theorem page rendered",
+          "method": "primary arXiv full text PDF",
+          "title": "Hypercontractive inequalities for weighted Bergman spaces",
+          "trigger": "exact standard radial power weight family and L2→L4 norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite-degree sharp Bergman embedding constant is a natural coefficient-sensitive analytic norm invariant, not a mere reparameterization of general contraction bounds. The theorem proves strict three-mode support at every weight and gives the first exact high-weight correction and unique asymptotic mixing profile, information genuinely finer than global dilation hypercontractivity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT and verify.py, audit metadata and verification source package",
+    "Bayart et al. arXiv:1701.06897 primary PDF",
+    "Melentijević arXiv:2211.03655 full PDF",
+    "Resultary focused Bergman moment query",
+    "Independent SymPy fourth-moment SOS and scaled J quadratic completion"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the same-probability-measure L4/L2 fourth-power norm ratio on span{1,z,z²} in the disk with radial weight (1-|z|²)^alpha, beta=alpha+2>1, every maximizer has all three coefficients nonzero and aligned phases, K_beta>W_beta=6beta(beta+1)/((beta+2)(beta+3)), K_beta-W_beta=48/beta²+o(beta^-2), and beta*|a|->sqrt2, beta*m1|b|²->4, normalized |c|sqrt(m2)->1.",
+  "limitations": "Only alpha>-1, standard radial power-weighted probability disk, analytic polynomials degree<=2. No finite-beta closed form or uniqueness of finite-beta magnitude triple.",
+  "schema_version": 1
+}
