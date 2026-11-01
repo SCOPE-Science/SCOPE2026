@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The equivariant deleted-product cell decomposition is explicit in all three degrees, with the two-cell orientation handled by an exterior-square decomposition. Farber–Hanbury's published maturity theorem supplies the precise first-homology representation. The Euler–Poincaré identity and semisimplicity then prove the entire rational two-summand module equality for all \(m,n\ge4\). An independent finite verifier reconstructs cubical boundaries and all representative signed traces at nine parameter pairs, including cases with both parts at least four. Computation is corroboration and is not treated as the uniform proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest original paper proves the necessary maturity and rank statements, not the independent \(S_m\times S_n\) representation. An earlier exact \(K_{3,n}\) integral module result covers the excluded three-vertex-part specialization, while an earlier \(K_{4,4}\) result covers rank and integral generation but not all two-factor characters. The 2026 representation study treats balanced bipartite graphs under diagonal relabeling, whose restriction cannot determine the full independent group action, and says nothing directly about unbalanced \(m,n\). Collision-allowing sink models are distinct topological spaces. Different presentations of the same equivariant representation could nevertheless exist in unindexed literature.
+PASS
 
-**Value — PASS.** The two-multiplicity-one external Specht summands give an infinite-family full symmetry classification and separate left-only from right-only antisymmetric homological structure. Rational Betti dimensions or diagonal relabeling character data cannot recover this independent product-group decomposition. Rectangular variation and disappearance of all full-group invariants are natural consequences. This is a motivated topological representation invariant, not a restatement of the homology rank.
+For two collision-free unordered points on the graph realization, the deleted-product two-cubical model is valid after the two-particle subdivision criterion; its C0, C1, C2 signed S_m×S_n modules were identified from edge/vertex incidence and the signed square interchange. Farber–Hanbury Proposition 22 says K_mn is mature for m,n≥3; invariants of the particle swap imply H1≅U_m⊠U_n. Substituting P_r=1+U_r, A_r=1+U_r+V_r and B_r=U_r+W_r into [H2]=[C2]−[C1]+[C0]+[H1]−[H0] cancels all but V_m⊠W_n+W_m⊠V_n. Semisimplicity over Q converts the equality of characters to an isomorphism. Independent symbolic coefficient cancellation checked the general formal identity, not just finite dimensions; source finite cubical character checks cover small m,n as corroboration. The statement excludes three-vertex sides, integral splitting and sinks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Farber–Hanbury provide the maturity/H1 input, but no two-summand full separate-side H2 character. Ramos–Yun 2026 computes balanced K_nn with only the *diagonal* S_n-action; restriction to diagonal S_n cannot recover the full S_m×S_n module and omits rectangular m≠n. Resultary sink-configuration modules allow collisions at vertices and are a different homotopy space, so neither source covers the independent-factor theorem.
+
+## value
+
+PASS
+
+The natural two-sided symmetric automorphism group of all rectangular complete bipartite graphs acts on configuration-space homology. The multiplicity-free two-irreducible decomposition is a uniform nontrivial symmetry classification, stronger than rank or diagonal character; it supports further graph-braid and equivariant invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
