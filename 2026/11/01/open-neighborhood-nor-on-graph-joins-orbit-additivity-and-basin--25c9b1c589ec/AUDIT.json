@@ -1,0 +1,174 @@
+{
+  "correctness": {
+    "rationale": "For undirected adjacency, the antitone graph-NOR support map A->V\\N(A) has A subset F^2(A), hence F^3=F. Every state reaches recurrence after one update. A full cases proof for supports in a graph join shows only factor-supported periodic states, except the universal empty/full orbit; an orbit involving the empty state in a factor occurs exactly for isolate-free factors. This establishes Q correction and fixed-point additivity. Counting cross-factor nonempty subsets plus factor total-dominating sets establishes the exact universal basin. The K_m closed formulas include the one-vertex exception. Direct exhaustive bit-mask tests pass for 5,625 ordered labelled graph pairs of orders 1..4 and 120 larger deterministic-seed pairs; these do not stand in place of the all-graph proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.1155/2017/7209762 defines the local operator on own vertex plus neighbors",
+        "doi:10.1155/2020/9708347 Proposition 1 concerns the self-inclusive NAND periodic-point setting",
+        "https://lie.ac.brocku.ca/~hfuks/solvableca.html displays a Rule 5 formula on one-dimensional rings",
+        "doi:10.1007/s12190-011-0517-9 public abstract concerns fixed points and maximal independent sets"
+      ],
+      "reasoning": "Existing general period-two and Boolean-network results support background methods, but their stated hypotheses exclude this update or only bound periods/fixed points. The ring Rule 5 formula is a special graph and does not subsume joins of arbitrary graphs or their exact basin law. The earlier AND-NOT full paper could not be accessed; its unknown contents remain a risk, not an invented negative inspection.",
+      "searches": [
+        "\"On the Periods of Parallel Dynamical Systems\" 2017 full text",
+        "\"Counting Periodic Points in Parallel Graph Dynamical Systems\" NAND-PDS Proposition 3",
+        "\"elementary cellular automaton rule 5\" explicit deterministic solution",
+        "\"On the computation of fixed points in Boolean networks\" 2011"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0805.0275",
+      "doi:10.1007/s12190-011-0517-9",
+      "doi:10.1155/2015/594294",
+      "doi:10.1155/2017/7209762",
+      "doi:10.1155/2020/9708347",
+      "doi:10.1016/j.ins.2018.08.041",
+      "https://lie.ac.brocku.ca/~hfuks/solvableca.html"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:0805.0275 Theorem 1.3 conjugates positive OR/AND, unlike negative NOR",
+        "doi:10.1007/s12190-011-0517-9 abstract supplies fixed-point background but no inspected orbit/basin decomposition",
+        "doi:10.1155/2020/9708347 homogeneous NAND/NOR local inputs include own state, which changes fixed-point coexistence"
+      ],
+      "reasoning": "Maximal-independent-set results alone imply only E(G∨H), not the primitive Q formula or basin B. General period-at-most-two results do not determine exact orbit counts. The new proof uses the open-neighborhood antitone polarity and the join support decomposition, plus total domination, to derive the missing exact structure; no cited stronger prior statement applies.",
+      "searches": [
+        "arxiv:0805.0275 conjunctive disjunctive Boolean dynamics theorems",
+        "doi:10.1007/s12190-011-0517-9 fixed points maximal independent sets",
+        "doi:10.1155/2020/9708347 periodic points maxterm minterm closed neighborhood",
+        "\"graph join\" \"total dominating sets\" attractor basin"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:0805.0275 Sections 1–2 treats OR/AND coordinate maps, not open NOR",
+        "doi:10.1155/2017/7209762 Section 2 specifies self-inclusive local inputs",
+        "doi:10.1155/2020/9708347 Sections 1 and 3 counts periodic points of self-inclusive homogeneous maxterm/minterm systems"
+      ],
+      "reasoning": "Conjugating OR to AND exchanges positive operators; it does not produce neighbor-only NOR. Self-inclusive NOR has qualitatively different recurrence (fixed and period-two states do not coexist in the cited homogeneous framework); open NOR can have both. Searches of join, cone, and universal-vertex terminology did not locate an equivalent statement.",
+      "searches": [
+        "\"NOR\" \"join\" graphs \"periodic\" Boolean",
+        "\"NOR\" \"join\" \"two-cycle\" graph dynamics",
+        "\"NOR\" graph \"universal vertex\" \"cycles\" Boolean network",
+        "\"open-neighborhood NOR\" primitive two cycles graph joins"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "doi:10.1155/2020/9708347 enumerates periodic points in a different self-inclusive operator convention",
+        "No indexed exact join-orbit or join-basin table in the performed literal/semantic searches",
+        "Finite checks here cover 5,625 factor graph pairs but are verification, not a published exact table"
+      ],
+      "reasoning": "No found exact table or database gives the join invariant with isolate indicators or its basin formula. A finite missing hit does not establish mathematical priority; this judgment rests additionally on checking the actual update conventions and implications of close primary results.",
+      "searches": [
+        "\"NOR\" \"periodic points\" \"join\" Boolean network",
+        "\"NOR\" \"fixed points\" \"2-cycles\" \"join\" undirected network",
+        "\"NOR\" \"maximal independent sets\" \"periodic points\" graph join",
+        "\"rule 5\" \"periodic configurations\" cellular automata"
+      ]
+    },
+    "rationale": "The join-specific formulas for primitive two-cycles, isolate corrections, and universal basin volumes were not found in the inspected earlier literature or accessible statement archive. Positive conjunctive dynamics (2008), AND-NOT fixed-point enumeration (2011), and self-inclusive NOR/maxterm systems (2017, 2020) neither match the open-neighborhood model nor imply the combined join formulas. The published Rule 5 iterate formula treats a ring only. Prior coverage remains possible in inaccessible or unindexed materials and this is not an independence or priority certificate.",
+    "residual_risks": [
+      "Previously unindexed graph-join or formal-concept descriptions could imply these identities without using NOR terminology.",
+      "Complete historical text for the 2011 AND-NOT and 2018 maxterm/minterm papers was not accessible; only the confirmed different scope of inspected portions and later descriptions were used.",
+      "The 2008 positive-operator theory and 2023 Rule 5 special case show broad mathematical background, so no claim of inventing antitone polarity or fixed-point correspondence is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: only positive AND/OR networks; no NOR join oscillation or basin theorem",
+        "evidence": [
+          "arxiv:0805.0275 introduction describes conjunctive/disjunctive positive maps",
+          "Theorem 1.3 conjugates OR and AND by complementing binary states"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0805.0275",
+        "material_read": "Full publicly rendered article text inspected in Introduction (definitions, Theorem 1.3) and start of Section 2; its defining operator family and central results were compared",
+        "method": "Public arXiv HTML text reading",
+        "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+        "trigger": "Early archive public network-dynamics foundation"
+      },
+      {
+        "assessment": "PARTIAL: abstract describes fixed points rather than full join cycle or basin counts; uninspected full text remains a residual risk",
+        "evidence": [
+          "Publisher abstract states a link between AND-NOT fixed points and maximal independent sets",
+          "First publicly dated 2011-10-15"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s12190-011-0517-9",
+        "material_read": "Publisher abstract, publication date, scope and references only; complete full text not accessible",
+        "method": "Publisher preview and public open-access searches; full text unavailable",
+        "title": "On the computation of fixed points in Boolean networks",
+        "trigger": "Same negative-Boolean-network terminology and maximal independent sets"
+      },
+      {
+        "assessment": "CONTEXT: published systems treat local functions with own vertex included; fixed/two-cycle coexistence distinction is material",
+        "evidence": [
+          "2015 survey discusses self-inclusive NOR-PDS fixed-state restrictions"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2015/594294",
+        "material_read": "Public article introduction and periodicity discussion in section 4.1",
+        "method": "Open full-text HTML",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Closest older survey of NOR and NAND graph parallel systems"
+      },
+      {
+        "assessment": "NOT_COVERING update convention: each vertex uses own state and adjacent states",
+        "evidence": [
+          "Definition 1 specifies inputs on {i} union A_G(i)",
+          "Conclusions state fixed and two-cycle noncoexistence for that local rule family"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2017/7209762",
+        "material_read": "Introduction, model definition and Section 2 local-input convention from indexed full-text material; direct opening blocked",
+        "method": "Search-indexed article full-text excerpt",
+        "title": "On the Periods of Parallel Dynamical Systems",
+        "trigger": "Earlier strongest general period coexistence theorem"
+      },
+      {
+        "assessment": "NOT_COVERING: counts periodic points of self-inclusive maxterm/minterm local systems, a different map",
+        "evidence": [
+          "Section 1 explicitly specifies a vertex and its neighbors as inputs",
+          "Section 3 states NAND-PDS periodic-point formula and multipartite counts"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/2020/9708347",
+        "material_read": "Accessible full article introduction, Section 3, Proposition 1, Theorem 7, and multipartite examples",
+        "method": "Open full-text HTML",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Primary source most plausibly offering stronger cycle-count results"
+      },
+      {
+        "assessment": "PARTIAL_SPECIAL_CASE: known rule-5 iterate formula is on rings, not arbitrary joined graphs or their exact cycle/basin decomposition",
+        "evidence": [
+          "Rule 5 formula gives alternating first/second-step polynomial forms in neighboring bits"
+        ],
+        "identifier_or_url": "https://lie.ac.brocku.ca/~hfuks/solvableca.html",
+        "material_read": "Author-hosted explicit iteration formula for Rule 5 and its conditions",
+        "method": "Public author companion page",
+        "title": "Solvable Cellular Automata, Rule 5 formula",
+        "trigger": "Open NOR restricted to a cyclic one-dimensional neighborhood is elementary Rule 5"
+      },
+      {
+        "assessment": "PARTIAL: concerns homogeneous maxterm/minterm parallel systems; no join-specific open NOR implication established from inspected text",
+        "evidence": [
+          "Abstract concerns upper bounds and a two-periodic orbit theorem for maxterm/minterm PDS"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ins.2018.08.041",
+        "material_read": "Accessible abstract and bibliographic context, not complete paper",
+        "method": "Public abstract and full citation in later open primary source",
+        "title": "Maximum number of periodic orbits in parallel dynamical systems",
+        "trigger": "Primary historical exact periodic-orbit results repeatedly cited by 2020 study"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "25c9b1c5-89ec-4732-9e66-846824638401",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Graph joins are canonical and the theorem computes natural complete recurrent orbit statistics and a distinguished entire basin for arbitrary factor graphs. The isolated-vertex threshold is sharp. When a clique is adjoined, the oscillatory orbit count stays invariant or gains one even as the number of initial configurations outside a single two-cycle basin grows only linearly in clique size, despite an exponential global state space. This broad structural separation of attractor number and accessibility is neither a small numeric improvement nor a restatement of only the maximal-independent-set fixed-point theorem.",
+    "status": "PASS"
+  }
+}
