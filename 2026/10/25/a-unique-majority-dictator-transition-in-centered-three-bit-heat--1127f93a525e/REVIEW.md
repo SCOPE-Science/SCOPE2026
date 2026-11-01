@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The norm is exactly the sum of four largest minus four smallest transition probabilities, by optimization over balanced sign vectors (the complex case reduces to the real case by taking a rotated real part). A three-coordinate signed likelihood ordering proves the two-branch identity. The strict monotonicity of \(-uh'(u)/h(u)\) for \(h(u)=\log\coth u\) follows from its positive-integral representation and a pointwise negative derivative, proving unique transverse crossing. Algebraic expansions and extremizer rigidity complete the proof. The independently implemented finite checker passes 371 groups of tests; no finite sampling is used to justify universal quantifiers.
+## correctness
 
-**Originality (PASS, with residual historical risk).** The reviewed noise-operator and Boolean Fourier literature supplies the basic semigroup and majority identities, not the exact anisotropic centered endpoint norm together with a unique positive-time extremizer transition and a nondifferentiable operator norm. The reviewed three-input majority optimality theorem uses nonlocal-box bias amplification and does not imply this endpoint result. Published records on centered conditional-expectation chains and unrelated cube spectral norms also do not cover the statement. Rearrangement/top-four likelihood optimization is well known and is not counted as the advance. A result under classical reliability/voting terminology remains possible.
+PASS
 
-**Value (PASS).** A centered Markov operator may have its endpoint norming mode switch at finite time although its matrix entries depend analytically on time. The exact three-bit classification isolates the smallest product setting in which this majority/dictator competition yields a **genuine interior operator-norm cusp**, gives a strictly proved unique switching time for all positive rates, and characterizes both the short-time second-order smoothing and exact eventual first-mode behavior. This is an explicit structural boundary, not merely a numerical norm evaluation.
+PASS. The generator L=sum r_i(I-tau_i) has eigenmultiplier s_i=e^{-2r_i t} for each single-bit Walsh character. At one output row its eight product probabilities are p(y)=prod_i(1+s_i y_i)/2. On the real mean-zero infinity-norm unit ball, every extreme vector is a balanced sign vector of exactly four + and four -, since seven saturated signs force the last. Therefore maximizing a row gives the sum of four largest minus four smallest probabilities; complex coefficients reduce to real parts after a global phase rotation. Sorting antipodal vertices by log likelihood weights a_i=log coth(r_i t), with a1>=a2>=a3>0, yields only two top-four sign patterns: majority if a1<a2+a3 and dictator y1 if a1>a2+a3. Their expectations are respectively (s1+s2+s3-s1s2s3)/2 and s1, proving the exact norm for all ordered positive rates and t>=0. For h(u)=log coth u the quantity G(u)=-u h prime(u)/h(u) strictly increases: J(u)=1/G(u)=h(u)sinh(2u)/(2u) admits a positive integral with strictly decreasing integrand, by 2coth(2u)-2coth(2u+2v)-1/u <0. Thus for r1<r2 the ratio (a2+a3)/a1 decreases strictly from 2 to 0, giving one transverse positive crossing, unequal analytic derivatives and a genuine cusp. If r1=r2 majority wins for all t>0. The exact small-time t² coefficient is 2 sum_{i<j}r_i r_j, while the large-time norm is precisely the slowest multiplier after t*. The transition tie and complex extension were checked.
 
-**Limits.** Three fair independent coordinates only; no claim for larger products, dependent noise or biased stationary laws. Closest background references: Polyanskiy (2013), O'Donnell (2014), Mori (2016); possible unindexed voting/reliability equivalences require independent historical assessment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Standard Fourier–Walsh and fair-bit noise theory (O’Donnell), hypercontractive/spherical Hamming averages (Polyanskiy), and Mori’s three-bit majority optimality for nonlocal-box bias amplification supply related tools but not this anisotropic mean-zero L-infinity operator norm, its complete all-time branch formula, or its unique cusp for a simple slow rate. Balanced four-largest-atom rearrangement is elementary and acknowledged as antecedent, not itself novelty. A classical statistical decision or weighted-voting envelope theorem could cover the switch by a different name; that remains a recorded historical risk.
+
+## value
+
+PASS
+
+PASS. A centered Markov semigroup has trivial full-space infinity norm one, so its mean-zero endpoint norm is a natural nontrivial mixing/contraction invariant. The smallest product cube supporting a genuine competition between a 3-coordinate majority and a 1-coordinate dictator has an exact nonanalytic time profile despite analytic heat entries. A strict unique positive transition, its extremizer rigidity and short-/long-time laws are structural results, not a numerical curve or textbook restatement of scalar decay.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

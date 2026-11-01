@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:55:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual assigned RESULT.md Git blob 4d36f6292d2da0bb87aa5b2a4fb3e945fa562372 and standalone checker.py blob b3acfd0c5281b9c962c5b15fe2bd26511c2b0489.",
+        "Independent rational 4^3 grid of anisotropic multipliers: enumerate all eight exact row probabilities and top-four sums; every optimum equals max(s1,(s1+s2+s3-s1s2s3)/2).",
+        "Independently verified monotonicity of log coth ratio by differentiating positive integral kernel, not accepting finite checker as infinite proof.",
+        "Taylor expansion of mean-centered majority correlation confirms first derivative zero and quadratic coefficient."
+      ],
+      "rationale": "PASS. The generator L=sum r_i(I-tau_i) has eigenmultiplier s_i=e^{-2r_i t} for each single-bit Walsh character. At one output row its eight product probabilities are p(y)=prod_i(1+s_i y_i)/2. On the real mean-zero infinity-norm unit ball, every extreme vector is a balanced sign vector of exactly four + and four -, since seven saturated signs force the last. Therefore maximizing a row gives the sum of four largest minus four smallest probabilities; complex coefficients reduce to real parts after a global phase rotation. Sorting antipodal vertices by log likelihood weights a_i=log coth(r_i t), with a1>=a2>=a3>0, yields only two top-four sign patterns: majority if a1<a2+a3 and dictator y1 if a1>a2+a3. Their expectations are respectively (s1+s2+s3-s1s2s3)/2 and s1, proving the exact norm for all ordered positive rates and t>=0. For h(u)=log coth u the quantity G(u)=-u h prime(u)/h(u) strictly increases: J(u)=1/G(u)=h(u)sinh(2u)/(2u) admits a positive integral with strictly decreasing integrand, by 2coth(2u)-2coth(2u+2v)-1/u <0. Thus for r1<r2 the ratio (a2+a3)/a1 decreases strictly from 2 to 0, giving one transverse positive crossing, unequal analytic derivatives and a genuine cusp. If r1=r2 majority wins for all t>0. The exact small-time t² coefficient is 2 sum_{i<j}r_i r_j, while the large-time norm is precisely the slowest multiplier after t*. The transition tie and complex extension were checked.",
+      "risks": [
+        "No claimed one-switch law for four or more bits, biased stationary measure, dependent flips or nonzero-mean input.",
+        "At ties multiple maximizing patterns exist; the uniqueness/extremizer rigidity refers to strict-branch intervals and does not erase this boundary."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Polyanskiy arxiv:1309.3014 main bound is Lp->L2 for spherical Hamming averages (nonsemigroup), not the requested anisotropic product heat endpoint norm.",
+          "O’Donnell (2014/2021) gives exact majority Fourier coefficients and noise stability, not a formula for centered L-infinity norm under distinct positive r_i.",
+          "Mori Theorem 1 optimizes CHSH/nonlocal-box recursive bias amplification, not a Markov transition-row top-half likelihood."
+        ],
+        "reasoning": "None of these inspected stronger-looking named results implies the time-dependent majority-dictator envelope or its unique positive crossing as stated. They provide background algebra, not a covering final claim.",
+        "searches": [
+          "Polyanskiy 2013 hypercontractivity spherical averages Hamming space Lp L2 vs restricted centered L infinity",
+          "O Donnell Boolean noise majority Fourier spectral properties L∞ mean zero",
+          "Ryuhei Mori three-input majority bias amplification nonlocal boxes full theorem"
+        ]
+      },
+      "checked_sources": [
+        "O’Donnell Analysis of Boolean Functions author edition arxiv:2105.10386 relevant chapters",
+        "Polyanskiy arxiv:1309.3014 primary PDF main theorem",
+        "Mori arxiv:1604.05663 full primary PDF",
+        "Resultary query three bit anisotropic noise heat semigroup mean-zero infinity norm majority dictator transition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current claim: centered sup norm equals maximum of majority correlation and slow dictator multiplier; a unique nondifferentiable t* exists for r1<r2.",
+          "Mori Theorem 1 concerns a nonlocal box bias threshold; O’Donnell Theorem 5.19 majority Fourier coefficients, homogeneous noise stability."
+        ],
+        "reasoning": "Fourier coefficients let one calculate the majority branch, but they do not compare it with every balanced Boolean function at each anisotropic time nor show the one-transverse-crossing property. The restricted endpoint norm is a different operator problem.",
+        "searches": [
+          "Mori Theorem 1 nonlocal box majority optimal implication to Markov norm?",
+          "O Donnell noise stability anisotropic heat majority dictatorship change"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "O’Donnell Analysis of Boolean Functions (2014; arxiv 2105.10386), Chapters 2, 5 and relevant noise sections, gives Walsh, majority, and homogeneous noise stability.",
+          "Mori (2016), arxiv:1604.05663, full Theorem 1 on unique majority optimal bias amplification using nonlocal boxes, a distinct objective."
+        ],
+        "reasoning": "Anisotropic product-kernel endpoint contraction is not the same as homogeneous noise stability or nonlocal-box bias amplification. The top-four likelihood filter may be described as a balanced maximum posterior score in decision theory, so terminology-based overlap remains possible.",
+        "searches": [
+          "three bit anisotropic noise heat semigroup mean-zero infinity norm majority dictator transition",
+          "mean zero Bernoulli product noise L-infinity Dobrushin ergodic coefficient three cube majority dictator",
+          "three voter product flip noise weighted majority optimum switch logarithm coth"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search returned unrelated hypercube operators and Boolean results, no matched exact three-bit norm phase or t*.",
+          "Finite eight-row probability sort is reproducible and supplies an exact formula without dependence on a named precomputed table."
+        ],
+        "reasoning": "The result evaluates a natural continuous rate triple and all times, not a finite table; no covering probability-ranking catalogue was found.",
+        "searches": [
+          "Resultary three bit anisotropic noise heat semigroup mean zero infinity norm majority dictator transition",
+          "three-bit heat semigroup norm t cusp r1 r2 0.1911225429",
+          "Boolean Markov kernel largest four atom sums exact operator norm"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Standard Fourier–Walsh and fair-bit noise theory (O’Donnell), hypercontractive/spherical Hamming averages (Polyanskiy), and Mori’s three-bit majority optimality for nonlocal-box bias amplification supply related tools but not this anisotropic mean-zero L-infinity operator norm, its complete all-time branch formula, or its unique cusp for a simple slow rate. Balanced four-largest-atom rearrangement is elementary and acknowledged as antecedent, not itself novelty. A classical statistical decision or weighted-voting envelope theorem could cover the switch by a different name; that remains a recorded historical risk.",
+      "residual_risks": [
+        "Unindexed classical decision theory on optimal balanced signs for three independent binary experiments could imply the endpoint branch switch.",
+        "The extremal rearrangement lemma and majority Fourier identity are classical; originality attaches to full rate/time phase and strict unique cusp, not these ingredients."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS ordinary Walsh/noise Fourier polynomial and majority identities; no identified anisotropic centered L-infinity single-cusp norm theorem.",
+          "evidence": [
+            "Theorem 5.19 describes majority Fourier coefficients; Chapter 5 covers homogeneous noise stability."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.10386",
+          "material_read": "Full 419-page searchable revised author edition; materially examined Chapter 2 majority/dictators, Chapter 5 majority Fourier coefficients and noise stability, theorem statements and targeted terms. Not all 419 pages read line by line.",
+          "method": "Open-access 2021 arxiv PDF, text search and screenshot of representative chapter page.",
+          "title": "Analysis of Boolean Functions",
+          "trigger": "Most relevant general Boolean majority/Fourier and Bernoulli noise background."
+        },
+        {
+          "assessment": "Objective is CHSH/nonlocal-box computation bias, not mean-zero Markov operator endpoint contraction; not covering.",
+          "evidence": [
+            "Theorem 1 states unique optimality for a specified communication protocol, not a norm profile."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1604.05663",
+          "material_read": "Full 8-page arXiv paper materially read via introduction, Theorem 1, protocol definitions, Fourier proof and closing statements.",
+          "method": "Open-access PDF full text and screenshots of first and theorem pages.",
+          "title": "Three-input majority function as the unique optimal function for the bias amplification using nonlocal boxes",
+          "trigger": "Same 3-input majority extremal form could dominate a different objective."
+        },
+        {
+          "assessment": "Lp->L2 Hamming-sphere average hypercontractivity does not determine the anisotropic mean-zero L-infinity norm.",
+          "evidence": [
+            "Spherical averages S_delta do not form a tensor semigroup; stated estimate is dimension-independent Lp->L2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3014",
+          "material_read": "24-page PDF, abstract, introduction, definitions and main theorem bounds, and comparison of spherical averages to Bernoulli product noise.",
+          "method": "Full-text PDF and first-page screenshot.",
+          "title": "Hypercontractivity of spherical averages in Hamming space",
+          "trigger": "Possible broader cube-operator norm estimates."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limits": [
+        "No assertions for n>=4, biased product spaces, nonlinear semigroups or other Banach endpoint norms."
+      ],
+      "rationale": "PASS. A centered Markov semigroup has trivial full-space infinity norm one, so its mean-zero endpoint norm is a natural nontrivial mixing/contraction invariant. The smallest product cube supporting a genuine competition between a 3-coordinate majority and a 1-coordinate dictator has an exact nonanalytic time profile despite analytic heat entries. A strict unique positive transition, its extremizer rigidity and short-/long-time laws are structural results, not a numerical curve or textbook restatement of scalar decay.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
