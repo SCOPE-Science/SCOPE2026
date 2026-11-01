@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete result follows from the reproducing-kernel circle parameterization and the exact AM-GM inequality \((n-1)r^n\le\sum_{j=1}^{n-1}r^{2j}\), strict in the open interval for \(n\ge3\). This compares every finite-radius circle with an explicit disk in the claimed hull. The limiting circle and the center supply the reverse hull inclusion; support-attainment, area, perimeter and Hausdorff distance follow by elementary tangent geometry. The unchanging ordinary numerical-range closure is established by an infinite orthonormal shift orbit, not merely finite examples. The checker uses exact fractions for the algebraic step and independent numerical geometry checks. No unproved infinite limiting interchange is used.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-The motivating 2026 Bourdon–Le–Thompson source supplies circular fibers generally, including the monomial case, and studies linear-symbol convexity and geometric boundary properties. The inspected full text does not give the stated global monomial convex-hull formula, exposed-support transition, area/perimeter, or collapse relative to fixed numerical ranges. Earlier Cowen–Felder and Augustine–Garayev–Shankar primary work concerns different symbol families. A prior independent monomial imaginary-width result (\(1/(m+1)\) at the inner endpoint) is a *covered component* and is explicitly excluded from the novelty claim: an entire planar support function, its convex body and its sharp metrics are strictly stronger information. Targeted indexed-result searches found no equivalent or dominating statement. Residual risk: an unindexed geometric treatment may already contain the precise hull.
+PASS
 
-## Mathematical value — PASS
-The closed convex hull is a canonical operator-geometric invariant, and this theorem classifies it completely for every nonlinear monomial composition isometry. The exact support function determines all exposed directions; the area and Hausdorff law exhibit an unexpectedly sharp large-degree collapse while the full ordinary numerical range remains the same unit disk. That contrast motivates the exact invariant independently of a parameter exercise. The result is not claimed to settle arbitrary nonlinear-symbol convexity.
+PASS. The Szegő-kernel formula gives Berezin value (1−|w|²)/(1−conj(w)w^m); each fixed radius |w|=r is a whole circle of center c=1/S_{m+1}(r) and radius q=r^(m+1)/S_{m+1}(r). AM–GM yields m r^(m+1)≤r²+⋯+r^(2m), strict for 0<r<1, placing each finite-radius disk inside the hull of 1 and D(1/(m+1),1/(m+1)). The limiting circle and w=0 yield reverse inclusion. Support and its attainment follow from strict interior inclusion, area/perimeter from tangent geometry; d_H to [0,1] is exactly 1/(m+1). An orthonormal forward-shift monomial orbit proves closure of W(C_m) is unit disk. All m≥2, with no pointwise Berezin range claim.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS (best knowledge). Bourdon–Le–Thompson 2026 gives circle-fiber property for compositions of zψ(z^k), a known necessary input but not the disk-plus-point convex hull or its full support function and asymptotic metric collapse. Other Cowen–Felder and Augustine–Garayev–Shankar operator Berezin range results address automorphic or linear/elliptic symbols. A preexisting sharp imaginary half-width 1/(m+1) is a known one-dimensional specialization and explicitly not new; it does not imply the complete planar hull.
+
+## value
+
+PASS
+
+PASS. Exact closed convexification is a natural invariant for a canonical nonlinear Hardy composition isometry. Its full support and tangent geometry, explicit Hausdorff collapse with degree and contrast with an unchanged unit-disk ordinary numerical range give a substantive geometric classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
