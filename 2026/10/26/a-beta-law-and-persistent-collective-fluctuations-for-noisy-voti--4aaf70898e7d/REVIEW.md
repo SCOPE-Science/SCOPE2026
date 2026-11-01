@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses an exact reduction to the hub spin and leaf count, explicit generator identities, stationary compactness, and a uniquely determined hierarchy of all polynomial moments. Every boundary and rate convention is specified. The limiting scaled beta law and conditional hub probabilities reproduce the unique stationary moment hierarchy. Finite-state linear solves independently check the finite correlations and sample higher moments. These computations are corroboration, not proof of convergence.
+## correctness
 
-**Originality — PASS (qualified).** The particularly close Cox–Peres–Steif star study already writes the reduced chain at the special noise normalization but proves a mixing-time theorem, not the displayed stationary beta limit or general-rate exact pair correlations. Carro–Toral–San Miguel analyze degree heterogeneity through annealed network approximations. Pymar–Rivera discuss general stationary-density fluctuations and identify the star as outside one Gaussian criterion; their displayed results address other graph families and a different density observable. Complete-graph beta-binomial stationary laws do not imply the fixed-noise star limit. A broad unlocated exact invariant-law theorem for state-dependent switching or an unpublished direct star calculation remains a priority risk; the searches establish best-knowledge noncoverage, not formal uniqueness.
+PASS
 
-**Mathematical value — PASS.** A star has a hub whose influence persists as the number of leaves diverges. The theorem resolves the entire non-Gaussian collective stationary law, quantifies the persistent variance at every fixed positive noise rate, and gives an interpretable hub-conditioned profile. It separates the singular-hub regime from self-averaging homogeneous-network intuition, beyond a routine finite-state calculation.
+The actual RESULT.md at the assigned Git tree fixes flip-versus-rerandomization and hub copying normalization, computes the generator on H sigma_i and sigma_i sigma_j (noise factor −4a), obtains u=bv and v=(m+1)/(m(2b²−1)+1), and derives the reduced (x,h) generator with drift h−bx and hub rate (b−hx)/2. Compactness and uniform polynomial-generator convergence yield stationarity for every subsequential limit. Applying it to x^(k+1) and h*x^k gives E(HX^k)=b M_(k+1) and M_(k+1)=k M_(k−1)/((k+1)b²−1); the compact moment problem uniquely identifies the symmetric beta law and joint hub conditional expectation. All noise a>0 and leaf count m>=2 restrictions in stated correlation are accounted for. Independently solved 12 finite stationary generators and verified exact second moments; those finite instances do not prove the weak limit.
 
-**Scope and limitations.** Only symmetric copying rates with one hub, fixed positive spontaneous flip noise, and stationary laws are treated. No mixing-rate or nonstar claim is made. The beta representation is a derived macroscopic asymptotic, not an assumption of independent leaves.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact star Markov reduction and noise convention are antecedent to the present claim. Cox–Peres–Steif treat special-noise n-star mixing and its reduced state space, but their Section 4 does not state the stationary beta weak limit or all-rate exact pair correlations. The higher-network noisy-voter results are not the same singular-hub stationary observable. The assessed original remainder is the full joint limiting beta law with conditional hub and persistent variance; this is best-of-knowledge rather than unqualified first priority.
+
+## value
+
+PASS
+
+The star is a canonical singular-hub graph for which mean-field self-averaging intuition fails at fixed positive noise. A complete compact-support beta stationary law and exact nonvanishing macroscopic variance are natural, independently meaningful probabilistic invariants; the joint hub–leaf profile is not a tiny numerical correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

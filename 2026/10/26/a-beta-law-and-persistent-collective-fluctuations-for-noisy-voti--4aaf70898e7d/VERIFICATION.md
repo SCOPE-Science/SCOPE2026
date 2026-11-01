@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,5 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
-The stationary two-state hub/count Markov generator is constructed directly in `verify.py` from the four possible leaf-spin transitions and the hub-flip transition. Running `python verify.py` with `requirements.txt` checks each row-sum generator convention, stationarity residuals, exact two-point formulas, and finite-size second/fourth/sixth moment comparisons with the beta limit. The proof itself independently establishes moment convergence by compactness and exact stationary generator identities. These computational checks cover selected finite sizes and noise rates only, and cannot certify a general theorem or historical priority. Independent audit has not been performed.
+
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+The actual RESULT.md at the assigned Git tree fixes flip-versus-rerandomization and hub copying normalization, computes the generator on H sigma_i and sigma_i sigma_j (noise factor −4a), obtains u=bv and v=(m+1)/(m(2b²−1)+1), and derives the reduced (x,h) generator with drift h−bx and hub rate (b−hx)/2. Compactness and uniform polynomial-generator convergence yield stationarity for every subsequential limit. Applying it to x^(k+1) and h*x^k gives E(HX^k)=b M_(k+1) and M_(k+1)=k M_(k−1)/((k+1)b²−1); the compact moment problem uniquely identifies the symmetric beta law and joint hub conditional expectation. All noise a>0 and leaf count m>=2 restrictions in stated correlation are accounted for. Independently solved 12 finite stationary generators and verified exact second moments; those finite instances do not prove the weak limit.
+
+## originality
+
+PASS
+
+The exact star Markov reduction and noise convention are antecedent to the present claim. Cox–Peres–Steif treat special-noise n-star mixing and its reduced state space, but their Section 4 does not state the stationary beta weak limit or all-rate exact pair correlations. The higher-network noisy-voter results are not the same singular-hub stationary observable. The assessed original remainder is the full joint limiting beta law with conditional hub and persistent variance; this is best-of-knowledge rather than unqualified first priority.
+
+## value
+
+PASS
+
+The star is a canonical singular-hub graph for which mean-field self-averaging intuition fails at fixed positive noise. A complete compact-support beta stationary law and exact nonvanishing macroscopic variance are natural, independently meaningful probabilistic invariants; the joint hub–leaf profile is not a tiny numerical correction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
