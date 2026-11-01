@@ -1,0 +1,144 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:12:55.032530Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob a96d9b971526e05041df9dd6e347ca2015b3ed50",
+        "Frozen verify.py blob 37c6d3e6f0716c8694ef878d230eb8ce78812c90 (read as evidence, not executed)",
+        "Independent symbolic and finite-width checker: independent_gaussian_curvature_checks.py and independent_gaussian_curvature_results.json",
+        "https://arxiv.org/html/2610.07248v1 derivative formula and thin-limit construction"
+      ],
+      "rationale": "For SPD S and symmetric planar A the transformed-set Gaussian change-of-variables gives H_epsilon = Var_mu(<ASy,y>) - E_mu(<(A^2 S+ASA)y,y>). For rectangles [-1/epsilon,1/epsilon] x [-epsilon,epsilon] in any orthogonal frame, symmetric transverse integration and a uniform Gaussian majorant bound all relevant normalized second/fourth moments by their Gaussian-line limits with O(epsilon^2) error uniformly over compact unit directions. If alpha=<Su,u>, beta=<ASu,u>, zeta=<(A^2S+ASA)u,u>, then H0=(2 beta^2-alpha zeta)/alpha^2. Orthogonal diagonalization A=diag(a,b) reduces the quartic numerator to -(a-b)^2xy[c(px^2+qy^2)+2pqxy]; with r=c/sqrt(pq), w=2sqrt(pq)xy/(px^2+qy^2)=sin 2phi this equals -(a-b)^2 w(w+r)/(2(1+rw)^2). The exact square identity implies sharp maximum (a-b)^2r^2/[8(1-r^2)] = ||AS-SA||_F^2/(16 det S), realized at w=-r/(2-r^2); for nonzero commutator w lies strictly interior, giving precisely two projective axes. The positivity region w(w+r)<0 has total transformed-angle length arcsin|r|. For r=0 or a=b, maximum zero, with no unsupported uniqueness claim. Independent symbolic expansion verified both polynomial identities. Independent finite checks covered 84 independently generated SPD/symmetric matrix pairs, 125 directions each (maximum residual 4.45e-14), and three direct finite-width Gaussian quadratures approaching the exact 1/6 instance (0.141407,0.155503,0.161696). Finite experiments are not a proof of the uniform error; the Gaussian dominated symmetric-Taylor argument supplies it.",
+      "residual_risks": [
+        "O(epsilon^2) is proved using smooth even transverse Gaussian integrals and a uniform lower bound; finite samples do not certify an all-axes remainder.",
+        "No finite-width global optimizer, higher-dimensional sharp constant, or nonrectangular convex-body analogue is claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kalantzopoulos Theorem 3 covers the sign condition for arbitrary dimension but not a numerical upper bound on the planar limiting curvature.",
+          "Cordero-Erausquin--Rotem Theorem 6 and Section 2 show near-isotropic Gaussian failure using thin boxes; no general planar optimizer in inspected proof.",
+          "Putterman accessible abstract treats near-equality for positive (B) inequalities through covariance eigenvalue dichotomy; full text not available."
+        ],
+        "reasoning": "General qualitative coverage does not provide the sharpened quantitative extremal value and rigid equality locus. Putterman positive-stability result is different in its stated theorem; cannot make a whole-document noncoverage claim from its abstract.",
+        "searches": [
+          "Web: Commutativity in a Poincaré-Type Inequality arxiv 2610.07248 full text 2D example directional inequality",
+          "Web: Putterman Sharp stability for the (B)-theorem arxiv 2608.08472 full text",
+          "https://arxiv.org/html/2610.07248v1",
+          "https://webusers.imj-prg.fr/~dario.cordero/Docs/articles/B-note-gafa.pdf",
+          "https://arxiv.org/abs/2608.08472"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.07248v1 Theorem 3, Remark 10, Appendix B",
+        "https://webusers.imj-prg.fr/~dario.cordero/Docs/articles/B-note-gafa.pdf Theorem 6, Fact 8, Section 2",
+        "https://arxiv.org/abs/2608.08472 abstract only",
+        "Resultary queries on thin rectangle Gaussian commutator angular curvature; no close published matching result among returned hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 yields 2 beta(u)^2 <= alpha(u) gamma(u) and its thin-line Gaussian derivation for every u; in the noncommuting case it proves an existence result only.",
+          "The current identity 4(1-r^2)w(w+r)+r^2(1+rw)^2=((2-r^2)w+r)^2 implies sup H0 = (a-b)^2r^2/[8(1-r^2)]=||[A,S]||_F^2/(16 det S).",
+          "Remark 10 computes sign range for a single S and A; it does not imply a published explicit universal optimizing direction or sharp constant without a new calculation."
+        ],
+        "reasoning": "The prior formulas make the present computation accessible and should be credited. Nevertheless the previous qualitative theorem is not itself a statement of the exact sharp constant, two-axis equality, or instability angular measure for all planar matrices; none of the read primary results explicitly covers that full strengthened claim. The upgrade is valuable if not otherwise previously published.",
+        "searches": [
+          "https://arxiv.org/html/2610.07248v1 Theorem 3, Remark 10, Appendix B",
+          "https://webusers.imj-prg.fr/~dario.cordero/Docs/articles/B-note-gafa.pdf Theorem 6, Fact 8, Section 2",
+          "https://arxiv.org/abs/2608.08472 abstract and retrieval attempts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kalantzopoulos Theorem 3 states noncommutation iff some axis violates 2 beta^2 <= alpha gamma; Remark 10 provides only A=diag(1,-1), S=[[1,-1/2],[-1/2,1]] and a sign interval.",
+          "The assessed claim yields a closed basis-invariant maximum, precise equality axes, a square-deficit identity, and an arc-length formula for every SPD planar S and symmetric A."
+        ],
+        "reasoning": "The sign/existence criterion agrees with the new profile, but the prior result does not state its sharp maximum or equality directions. Same mathematical object and same derivative representation, so this is a specialized quantitative extension with substantial provenance, not independent new machinery; other aliases may remain unindexed.",
+        "searches": [
+          "Resultary semantic search: Gaussian (B)-theorem sharp commutator norm thin rectangles Hessian second variation covariance direction two dimensional logarithmic curvature",
+          "Resultary semantic search: Kalantzopoulos Commutativity in a Poincare-Type Inequality thin rectangle angular maximal curvature sharp 2026",
+          "Web: Gaussian B theorem thin rectangle commutator sharp curvature supremum angular orientation 2 dimensional",
+          "https://arxiv.org/html/2610.07248v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related but distinct work on Gaussian volume-product Hessians and Gaussian anisotropy; no exact thin-rectangle commutator extremal or indexed angle table was identified.",
+          "The claimed invariant is a continuous two-by-two SPD matrix optimization, not a finite sequence or standard lookup table."
+        ],
+        "reasoning": "An exact-table check is substantively limited: no natural canonical table of values for the continuum of covariance pairs exists. The searches supply only absence of a matching retrieved formula, not a proof that no such result was published.",
+        "searches": [
+          "Resultary semantic search: Gaussian log-concavity rotated rectangles covariance noncommutativity exact second derivative maximization matrix commutator",
+          "Web: sharp commutator law Gaussian rotated rectangle",
+          "Web: Gaussian covariance rotated thin boxes exact maximal log concavity failure two dimensions"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact quantitative planar optimization, with explicit dependence on preceding Gaussian second-variation work. Kalantzopoulos (arXiv:2610.07248v1) proves the directionwise sign/commutator equivalence in all dimensions and evaluates one planar example, but does not give the universally optimized commutator quotient, full maximizing-axis set, or transformed-angle measure. Cordero-Erausquin and Rotem (2020) supply a Gaussian strong-(B) failure mechanism. Full text of Putterman (2026) was inaccessible even after same-paper arXiv and lawful-open attempts followed by authorized institutional retrieval; its abstract addresses positive near-equality covariance stability, not the negative-curvature orientation maximum. The maximization is an elementary yet motivated rational optimization of previous explicit formulas, not an independent invention of the derivative method. Search failure cannot prove priority.",
+      "residual_risks": [
+        "An earlier analytic quantitative specialization of Kalantzopoulos 2026 may be unindexed or under a different name.",
+        "The sharp formula is a modest algebraic optimization from prior directional variance expressions, which limits independence of the contribution.",
+        "Putterman 2026 full primary text could not be obtained because arXiv/OA fetch was unavailable and authorized Oxford retrieval reported a disconnected VPN. No whole-paper noncoverage assertion is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the general directional inequality and a fixed 2D sign example; does not state the invariant optimized magnitude or universal full equality locus",
+          "evidence": [
+            "Theorem 3 items (i)-(iii) and alpha/beta/gamma definitions (lines 210-275); Remark 10 angular test of one pair (lines 288-304); Appendix B Lemma 14 (lines 437-468)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.07248v1",
+          "material_read": "Rendered primary arXiv HTML: introduction, Gaussian variational identity, Theorem 3 with proof, Remarks 7-10, Appendix B thin-box convergence and the relevant references",
+          "method": "Read primary full-text sections and compare actual quantified statements and parameter substitutions",
+          "title": "Commutativity in a Poincaré-Type Inequality",
+          "trigger": "Exactly the same Gaussian second variation, thin orthogonal rectangles and noncommuting covariance criterion"
+        },
+        {
+          "assessment": "Proves Gaussian strong-(B) failure for near-standard covariance; its inspected constructions do not give the all-planar direction-optimized commutator invariant",
+          "evidence": [
+            "Theorem 6 (PDF pages 3-4), Fact 8 and proof (pages 4-5), final sign contradiction (page 6)."
+          ],
+          "identifier_or_url": "https://webusers.imj-prg.fr/~dario.cordero/Docs/articles/B-note-gafa.pdf",
+          "material_read": "Primary 11-page PDF: introduction, Theorem 6, Section 2 from Fact 8 through the contradiction computation, bibliography; rendered page 4 was examined",
+          "method": "Read PDF text with rendered-page verification of formulas",
+          "title": "Several results regarding the (B)-conjecture",
+          "trigger": "Earlier counterexample mechanism and thin-box limit used by the lead preprint"
+        },
+        {
+          "assessment": "Published abstract focuses on dimension-free covariance near-equality stability in positive (B), a different stated optimization; any appendix or hidden equivalent remains unknown",
+          "evidence": [
+            "arXiv 2608.08472 abstract dated August 9 2026; institutional retrieval status vpn_disconnected."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.08472",
+          "material_read": "ArXiv abstract and bibliographic metadata only; full HTML and PDF unavailable, OA mirror abstract only",
+          "method": "Tried arXiv HTML/PDF and lawful OA; then authorized Oxford retrieval reported vpn_disconnected and was not bypassed",
+          "title": "Sharp stability for the (B)-theorem",
+          "trigger": "2026 quantitative stability work potentially dominating a sharp Gaussian directional statement"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2610.07248v1 natural qualitative sign criterion",
+        "https://webusers.imj-prg.fr/~dario.cordero/Docs/articles/B-note-gafa.pdf Gaussian strong-(B) counterexample construction",
+        "Frozen RESULT.md definitions, exact square deficit and explicit optimal axes"
+      ],
+      "rationale": "The central question after the qualitative noncommutativity theorem is how large the strongest failure of Gaussian logarithmic curvature can be when rectangle directions vary. The exact invariant ||[A,S]||_F^2/(16 det S), optimal-axis rigidity, sum-of-squares angular deficit and full transformed-angle instability measure answer that natural quantitative problem for every symmetric planar generator and SPD covariance. A future researcher comparing strength of covariance anisotropy, the rate of strong-(B) failure or optimal witness directions can use these precise quantities, which are not mere arbitrary point values. The derivation is short and dependent on previous work, but the exact sharp universal continuous classification is an independently meaningful statement. No assertion of a wider convex-body theorem or paper-sized breakthrough.",
+      "residual_risks": [
+        "Its value is a narrow quantitative refinement rather than a fundamentally new mechanism.",
+        "If an exact published maximum is subsequently located, scientific originality would require re-evaluation independently of correctness/value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is best-of-knowledge with the Kalantzopoulos 2026 formulas as central antecedents.",
+    "Putterman full text not accessed; authorized Oxford retrieval blocked by disconnected VPN and not bypassed.",
+    "Only the assigned planar thin-rectangle limiting curvature is assessed.",
+    "Two administrative JSON files were sanitized; original mathematical files remain unchanged."
+  ],
+  "schema_version": 1
+}
