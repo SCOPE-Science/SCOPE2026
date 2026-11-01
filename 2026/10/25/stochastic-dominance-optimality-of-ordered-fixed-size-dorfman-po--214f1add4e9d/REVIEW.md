@@ -1,19 +1,21 @@
-# Scientific review: ordered fixed-size Dorfman pooling
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For independent people, the count of positive pools is a sum of independent Bernoulli variables with negative probabilities given by products of individual noninfection probabilities. Sorting and taking equal consecutive blocks majorizes **every** other group log-negative-probability vector, because its largest \(r\) blocks use the largest \(rk\) individual log-probabilities. A logarithmic two-pool spread keeps the product of negative probabilities fixed and increases their sum; the probabilities of at least one and at least two positives therefore respectively stay fixed and decrease. Majorization's finite transfer characterization and convolution establish first-order stochastic dominance of test workload for all pool partitions. Strict convexity of the exponential gives the exact equality characterization. For size-two pools, integrating the signed mixed derivative of \(st(1-st)\) and applying the four-point exchange proves the half-risk variance reversal. An exact standalone verifier establishes all reported finite checks; the proof is analytic and independent of finite enumeration.
+PASS
 
-## Originality — PASS, with explicit bibliographic residual risk
+Every partition has independent positive-pool indicators with negative probabilities u_G=product(1−p_i). Sorted blocks majorize all other vectors of log(u_G). Spreading two logs with fixed sum holds probability of at least one positive pool fixed and decreases probability of two; convolution/majorization transfer yields stochastic dominance of the entire test workload. Strict Karamata gives the full-law equality criterion. For pairs h(a,b)=ab(1−ab) has mixed derivative 1−4ab; four-point uncrossing gives the signed adjacent/opposite-extreme variance optima. Independently checked 942 exact tails and 246 pairing-variance evaluations. p_i=1 is a continuous limit only.
 
-Dorfman (1943) gives the homogeneous expectation/variance baseline. Black–Bilder–Tebbs (2012) study halving protocols; Aprahamian–Bish–Bish (2019), especially Theorem 1, provide expected-objective ordered-partition optimality but not an arbitrary-threshold distributional inequality. Bobkova–Chen–Eraslan (2023) modify the second stage by conditional last-test omission; their negative-assortative optima apply to this different protocol. Saraiva (2026) studies expected savings from positive assortative matching, as confirmed by its accessible abstract; its full text was not inspectable. Majorization/Poisson–binomial related research using fixed pair sums does not imply the fixed-product pool transfer here. The exact claim and its pairwise variance reversal were compared to research-record summaries and primary material under aliases; a search with no hit is not proof of novelty, and an independent literature audit remains outstanding.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Capacity planning in screening depends on the probability of exceeding each available assay budget, not just expected consumption. The theorem delivers simultaneous control of all upper tails for every heterogeneous risk vector, equal pool size, and feasible partition, with no approximation or low-prevalence restriction. The exact characterization of distributional ties and the 50% pairwise variance reversal show why this stronger guarantee should not be mislabeled a variance-minimization result. It is nontrivial across arbitrary partitions and operationally motivates checking the full workload law.
+Aprahamian–Bish–Bish (2019) full accessible 20-page article Theorem 1 proves existence of an ordered optimizer for expected-resource and classification objectives. It does not give stochastic dominance of every assay-count tail, its strict whole-law equality criterion, or pair variance reversal. Black–Bilder–Tebbs use recursive halving; Bobkova–Chen–Eraslan skip final retests. Saraiva (2026) full text inaccessible, risk explicitly retained.
 
-## Limitations and closest-source uncertainty
+## value
 
-This is an idealized independent, perfect-test, fixed-size, full-Dorfman-retesting theorem; neither correlated infection nor variable group sizes nor imperfect assays are covered. Full-text inspection of the Saraiva (2026) source was not possible, leaving a bibliographic risk; related reviews of majorization under alternative terminology may exist. Finite certificate cases supplement but do not establish the general proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Workload upper-tail risk is a natural capacity constraint beyond mean assays, and the sharp 50% variance reversal warns that dominance does not imply variance minimization. Universal stochastic comparison plus distribution equality is mathematically useful independent of clinical deployment claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

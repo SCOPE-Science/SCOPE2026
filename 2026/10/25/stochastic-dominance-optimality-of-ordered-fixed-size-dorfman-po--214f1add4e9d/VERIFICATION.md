@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,20 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and verification
 
-`verification/verify.py` requires Python 3 and only its standard library. From the package root, run:
+# Independent mathematical audit
 
-```text
-python3 verification/verify.py > pooling-certificate.json
-```
+## correctness
 
-Parse both the resulting JSON and `verification/certificate.json` and check structural equality. This executable enumerates 2,478 partitions for fixed sizes and six exact rational profiles in each configuration; it compares 7,986 positive-pool-count upper-tail probabilities. For the six-person, two-person-pool case, it separately enumerates all independent underlying infection histories to cross-check the probability-generating-function approach (360 exact PMF comparisons). It checks 246 pairwise-variance extremal comparisons and stores two explicit rational counterexamples to any presumption that upper-tail improvement always lowers variance. The finite enumerations and printed results were recomputed from these packaged paths, using exact fractions; no floats or random samples are involved.
+PASS
 
-## Verified mathematical steps
+Every partition has independent positive-pool indicators with negative probabilities u_G=product(1−p_i). Sorted blocks majorize all other vectors of log(u_G). Spreading two logs with fixed sum holds probability of at least one positive pool fixed and decreases probability of two; convolution/majorization transfer yields stochastic dominance of the entire test workload. Strict Karamata gives the full-law equality criterion. For pairs h(a,b)=ab(1−ab) has mixed derivative 1−4ab; four-point uncrossing gives the signed adjacent/opposite-extreme variance optima. Independently checked 942 exact tails and 246 pairing-variance evaluations. p_i=1 is a continuous limit only.
 
-The general statement relies on the analytical proof in `RESULT.md`: partial sums of largest pool log-negative probabilities, the finite transfer theorem for majorization, exact two-Bernoulli upper-tail identities, convolution preservation, strict exponential convexity for equality, and four-point signed-cross-derivative exchanges for the variance statement. Those steps quantify over every fixed positive pair of integers for which the given pooling design makes sense. The executable intentionally does **not** attempt an exhaustive infinite verification or independent literature certification.
+## originality
 
-## Limits
+PASS
 
-This verification assumes correct Python integer/Fraction operations and the supplied mathematical definitions. No empirical accuracy, dilution, correlated infections, unknown risks, adaptive pool choice or human bibliographic validation is asserted.
+Aprahamian–Bish–Bish (2019) full accessible 20-page article Theorem 1 proves existence of an ordered optimizer for expected-resource and classification objectives. It does not give stochastic dominance of every assay-count tail, its strict whole-law equality criterion, or pair variance reversal. Black–Bilder–Tebbs use recursive halving; Bobkova–Chen–Eraslan skip final retests. Saraiva (2026) full text inaccessible, risk explicitly retained.
+
+## value
+
+PASS
+
+Workload upper-tail risk is a natural capacity constraint beyond mean assays, and the sharp 50% variance reversal warns that dominance does not imply variance minimization. Universal stochastic comparison plus distribution equality is mathematically useful independent of clinical deployment claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
