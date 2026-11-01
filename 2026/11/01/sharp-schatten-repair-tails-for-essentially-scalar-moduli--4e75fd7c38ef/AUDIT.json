@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "For a compact perturbation X=T+K, |X|-cI is compact by quadratic factorization and inverse of |X|+cI. By compact spectral theory, beta_0 membership is equivalent to finite rank of the below-c spectral projection. On the span of the first m+j negative modulus eigenvectors, ||Tx|| <= (c-d_(m+j))||x||; intersect with the codimension-at-most-m subspace where ||Xx||>=c||x||, obtaining a j-dimensional subspace where ||Kx||>=d_(m+j)||x||. The min-max principle gives every claimed singular-value lower bound. The explicit polar-aligned clipping K_m=U E_-(I-Q_m) realizes all ranks simultaneously. Summing pth powers yields exact Schatten costs even for quasi-Schatten p<1; finite-rank obstruction and the repair threshold follow. A standalone checker passed 3000 finite assertions, supplementary only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Su--Zhang arXiv:2609.37621 Theorem 5.4 addresses whether one given compact perturbation preserves beta_0 by checking the negative spectrum of a compact residual. It does not give lower bounds on singular values of that perturbation or an optimal correction for each finite rank budget.",
+        "published-finding corpus c1c44b532dca derives exact operator-norm distance to positive absolutely norm-attaining operators but not Schatten-p distance under finite subcritical-rank constraints.",
+        "Bala--Golla arXiv:2607.15222 Theorem 2.9 requires both positive and negative modulus deviations to be Schatten when the target is a scalar partial isometry; the present one-sided negative-tail condition is strictly weaker."
+      ],
+      "reasoning": "The prior general spectral criteria supply the target membership condition but not an all-rank metric optimality statement. The difference is not a special case with matching parameters: our noncommuting perturbation lower bound is an additional min--max estimate, while the full scalar-partial-isometry Schatten condition is distinct and strictly stronger on the positive side. A checked example has positive tail outside trace class and still admits arbitrarily small trace-class repairs.",
+      "searches": [
+        "published-finding corpus: beta0(H) Schatten repair spectral negative part finite index compact modulus singular value lower bounds",
+        "published-finding corpus: operator modulus essentially scalar cI plus compact Schatten ideal perturbability reverse well ordered eigenvalues norm attainment",
+        "Web: \"absolutely norm attaining\" Schatten ideal compact perturbations",
+        "published-finding corpus record 2026/10/11/SCOPE-exact-distance-and-nearest-point-criterion-for-positive-absolute--c1c44b532dca"
+      ]
+    },
+    "checked_sources": [
+      "Su and Zhang, arXiv:2609.37621, first public 2026-09-29: Theorems 3.4, 4.3, 5.4, Sections 2-5; arXiv HTML full text.",
+      "Bala and Golla, arXiv:2607.15222, first public 2026-07-16: Theorems 2.5 and 2.9, compact/Schatten partial-isometry perturbations; arXiv HTML full text.",
+      "published-finding corpus public record d70d1e7cf8fa, Fiberwise density of beta_0(H) along fixed polar factors; publicly published RESULT.md fully read.",
+      "published-finding corpus public record c1c44b532dca, Exact distance and nearest-point criterion for positive absolutely norm-attaining operators; publicly published RESULT.md fully read.",
+      "published-finding corpus semantic searches: exact Schatten repair, pointwise singular-value tails, reducing-subspace norm attainment, positive/negative compact modulus and domination; source IDs logged in the four named checks.",
+      "Web searches for Schatten reducing-subspace norm attainment, absolute norm attainment in Schatten ideals, and spectral negative-part perturbations."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Su--Zhang: for a fixed compact correction, finitely many negative residual eigenvalues are equivalent to beta_0, but the statement does not compare every s_j(K) with a shifted spectral deficit of the original modulus.",
+        "Bala--Golla: complete Schatten membership of the scalar-partial-isometry difference, requiring both spectral tails, cannot imply the one-sided repair threshold when the positive tail is not Schatten.",
+        "d70d1e7cf8fa: no compact or Schatten restriction in the norm-density theorem; c1c44b532dca: p-infinity operator distance, not p-finite Schatten costs."
+      ],
+      "reasoning": "The sharp inequality follows from a rank-j intersection between the original m+j deepest spectral directions and the c-lower-bounded spectral subspace of the repaired modulus; no inspected source contains this implication. Spectral clipping simultaneously saturates all j, yields the exact Schatten formula, and gives the all-or-nothing ideal-orbit threshold. These are new mathematical steps beyond prior membership characterizations; residual risk of unindexed equivalent spectral-clipping arguments remains.",
+      "searches": [
+        "published-finding corpus: Schatten perturbations restore beta0 norm attainment on every reducing subspace scalar plus compact operator negative spectral part membership S_p",
+        "published-finding corpus: positive compact perturbations scalar identity negative eigenvalue tail Schatten p distance to reducing norm attainment beta(H)",
+        "Primary text arXiv:2609.37621 Theorems 3.4 and 5.4",
+        "Primary text arXiv:2607.15222 Theorem 2.9",
+        "Public published-finding corpus RESULT.md d70d1e7cf8fa and c1c44b532dca"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Su--Zhang arXiv:2609.37621 Theorem 3.4: beta_0 characterized by pure point, reverse-well-ordered modulus spectrum; for compact scalar-essential moduli this is finite subcritical spectral rank.",
+        "No inspected record states the simultaneous lower bounds s_j(K) >= d_(m+j) for arbitrary noncommuting K or the exact all-p optimal tail formula.",
+        "published-finding corpus d70d1e7cf8fa proves polar-fiber density in the operator norm and explicitly excludes claims of compact or finite-rank corrections."
+      ],
+      "reasoning": "Equivalent formulations include singular-value lifting, spectral clipping with a subcritical rank budget, and ideal-specific perturbability of beta_0. The nearest results are qualitative membership and operator-norm density, whereas the retained theorem determines the complete singular-value vector of an optimal correction and a sharp obstruction for every noncommuting perturbation. No inspected equivalent statement found.",
+      "searches": [
+        "published-finding corpus: sharp singular value tail majorization for Schatten correction of positive compact spectral deficits to norm attainment on every reducing subspace",
+        "published-finding corpus: exact Schatten p minimal perturbation lifting all but m subcritical singular values of essentially scalar operators",
+        "Web: \"Schatten\" \"reducing subspace\" \"norm attaining\" perturbation",
+        "Web: \"negative part\" \"Schatten\" \"norm attaining\" operator"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The object is an arbitrary compact self-adjoint modulus defect with singular-value sequence d_j, not a fixed finite numerical table or enumerated invariant.",
+        "Retrieved closest mathematical records d70d1e7cf8fa and c1c44b532dca concern, respectively, operator-norm polar-fiber density and operator-norm AN distance."
+      ],
+      "reasoning": "No database of exact spectral-deficit repair costs or tabulation is relevant; the statement holds for every infinite-dimensional separable Hilbert space and arbitrary compact defect. The searches returned no claimed table or exact result covering these rank-by-rank bounds.",
+      "searches": [
+        "published-finding corpus: sharp singular value tail majorization for Schatten correction of positive compact spectral deficits to norm attainment on every reducing subspace",
+        "published-finding corpus: beta0(H) Schatten repair spectral negative part finite index compact modulus singular value lower bounds",
+        "Web: \"beta_0\" \"Schatten\" norm attaining compact perturbations"
+      ]
+    },
+    "rationale": "The qualitative beta_0 compact-perturbation criterion is credited to Su--Zhang, and Schatten characterizations of scalar partial-isometry perturbations are credited to Bala--Golla. The retained sharp all-rank singular-value lower bound, simultaneous extremizer, exact optimal Schatten-p tail costs at every subcritical-rank budget, and one-sided ideal repairability threshold are absent from the inspected closest statement and proof texts. The published-finding corpus density and AN distance records are in the operator norm and do not entail the ideal-specific obstruction. A proof via an m-codimension spectral intersection supplies the additional conclusion. This is a best-knowledge, non-independent literature assessment.",
+    "residual_risks": [
+      "The underlying singular-value inequality is a natural variational spectral-clipping principle; equivalent statements might exist under other formulations in older unindexed matrix-approximation or norm-ideal literature.",
+      "The full coverage of worldwide unpublished and inaccessible literature has not been established; independent publication-priority verification has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "QUALITATIVE_PRIOR_COVERAGE_ONLY: prior spectral membership test credited; no pointwise universal singular-value repair bound or Schatten-optimal rank-budget formula located.",
+        "evidence": "Theorem 3.4 reverse-well-ordered modulus spectrum; Theorem 5.4 finite negative spectrum in compact residual; Example 4.4 trace-class instability.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.37621",
+        "material_read": "Fulltext Sections 1--5 in arXiv HTML, including definitions, Theorems 3.4, 4.3, 5.4 and related examples.",
+        "method": "Fulltext HTML statement-and-proof comparison of hypotheses and conclusions.",
+        "title": "The Stability and Density of Norm Attaining Operators on Reducing Subspaces",
+        "trigger": "Same beta_0(H) class and compact perturbation stability are the nearest motivating framework."
+      },
+      {
+        "assessment": "NOT_COVERING: characterizes perturbations to scalar partial isometries requiring both positive and negative modulus tails in Schatten; here only negative-tail membership is needed.",
+        "evidence": "Theorem 2.9 characterizes scalar-partial-isometry Schatten perturbations; the constructed trace-class repair example has non-trace-class positive modulus deviations.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.15222",
+        "material_read": "Fulltext Introduction and Section 2 including Theorems 2.5 and 2.9 and applications.",
+        "method": "Direct arXiv HTML source comparison.",
+        "title": "Spectral Characterizations of Schatten-class perturbations of Partial isometries",
+        "trigger": "Could dominate an ideal-specific repair theorem for operators with scalar essential modulus."
+      },
+      {
+        "assessment": "NOT_COVERING: operator-norm polar-fiber density does not control Schatten membership or optimal singular-value costs.",
+        "evidence": "Limitations explicitly say the perturbation need not be compact or finite rank; no Schatten p estimates.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-fiberwise-density-of-beta-0-h-along-fixed-polar-factors--d70d1e7cf8fa/RESULT.md",
+        "material_read": "Complete published RESULT.md, including proof and the statement that compactness is not claimed.",
+        "method": "Public repository content read; detailed full-document comparison.",
+        "title": "Fiberwise density of beta_0(H) along fixed polar factors",
+        "trigger": "published-finding corpus semantic search returned a highly pertinent density result."
+      },
+      {
+        "assessment": "NOT_COVERING: exact operator-norm distance to positive AN cone and attainability, not Schatten-p ideal repair or rank-budget singular-value frontier.",
+        "evidence": "Finding formula (M-m)/2 is based on essential-spectrum width; theorem makes no finite Schatten p claim.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-distance-and-nearest-point-criterion-for-positive-absolute--c1c44b532dca/RESULT.md",
+        "material_read": "Complete published RESULT.md including proof, spectral characterizations, limitations and references.",
+        "method": "Public repository content read and statement-level implication comparison.",
+        "title": "Exact distance and nearest-point criterion for positive absolutely norm-attaining operators",
+        "trigger": "published-finding corpus returned exact distances in a closely related norm-attainment class."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4e75fd7c-38ef-4853-8148-e4858ffae6e2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The question quantifies precisely the perturbation size needed to repair the failure of norm attainment on reducing subspaces, an issue highlighted by the motivating 2026 compact/finite-rank stability results. It gives an exact simultaneous singular-value optimum for every allowed finite rank of residual subcritical directions and all Schatten exponents, and a sharp ideal-theoretic dichotomy that remains valid for arbitrary noncommuting perturbations. Infinite-rank defects exhibit arbitrarily small Schatten repairs but no finite-rank repair; logarithmic power-tail examples yield concrete critical exponents. This is a natural complete quantitative classification, not an arbitrary parameter slice or mere finite experiment.",
+    "status": "PASS"
+  }
+}
