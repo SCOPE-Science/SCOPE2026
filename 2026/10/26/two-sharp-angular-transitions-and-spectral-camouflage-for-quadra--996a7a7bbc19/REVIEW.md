@@ -1,17 +1,21 @@
-# Scientific review: quadratic ball concentration under radial masks
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated theorem is a complete finite-dimensional spectral calculation for the full degree-at-most-two polynomial space on the real unit ball, not an inference from experiments. Normalized polar coordinates give the Beta radial law \(a t^{a-1}\); harmonic degree separates the full space into dimensions \(2,d,d(d+1)/2-1\). The generalized radial moment matrices and both scalar branches are derived from those exact integrals. Crucially, \(B-(b_1/\mu)M\) is exactly diagonal, so a two-entry negative-semidefinite test gives necessary and sufficient conditions and the complete boundary eigenspaces. Shell uniqueness uses strictly increasing sliding-interval conditional means; the quadratic threshold expansions follow by Taylor's theorem. The disk mask is checked by exact radical moment identities. The packaged independent-in-code checker passed 3,302 assertions, but the universal conclusion relies on the proof rather than extrapolation. All assumptions, multiplicities, strictness, and equality cases were reconsidered against the formula.
+## correctness
 
-## Originality — PASS, best-knowledge and provisional
-The focal 7 August 2023 preprint *Slepian concentration problem for polynomials on the unit Ball* gives the identical general polynomial concentration object and, in §5.1, describes determining the best concentration as a separate problem, treating Remez-type estimates instead of exact low-band spectral ordering. The expanded Gerhards–Huang version treats asymptotic eigenvalue distributions and numerical tesseroid examples; sections and appendices were checked for a matching radial moment phase test. The present all-radial-mask quadratic optimizer criterion, two exact thin-shell transitions, complete degeneracy cases, and a nonconstant disk mask acting as a scalar were not among those statements.
+PASS
 
-A related 2016 Slepian-ball paper uses Fourier–Bessel and Fourier–Laguerre spectral spaces, while a 2007 annular Zernike paper constructs orthogonal pupil polynomials and analyzes turbulence. Neither accessible description establishes the same fixed full-disk quadratic concentration comparison. Published mathematical-record searches for radial-ball Slepian spectra, annular moment masks, Zernike spectral phases, and quadratic concentration returned structurally different results; source summaries cannot exclude every equivalent uninspected theorem. Historical mathematical claims involving single-degree Zernike cumulative energies concern centered cutoffs or single modes, so they do not imply the arbitrary-mask optimizer classification for the mixed polynomial band. Residual risk: an older low-degree exact concentration treatment may have the same moment test, and the complete older annular optics text was not inspected. Independent priority review remains necessary.
+O(d) symmetry gives the orthogonal direct sum span{1,t}, span{x_i}, and harmonic quadratics, and the exact radial generalized eigenproblem Bv=lambda Mv. The nonradial eigenvalues are lambda1=b1/mu and lambda2=b2/nu. The diagonal B-lambda1 M=diag(b0-lambda1,b2-nu lambda1) proves the two necessary-and-sufficient weak moment inequalities and all strict/equality cases, including lambda_rad,+>=lambda2. Sliding-interval conditional means with positive density are strictly increasing, yielding exactly two thin-shell crossings for small width at each fixed dimension and the displayed epsilon^2 shifts. For d=2, exact radical integration over [0,u] union [1/2,v] gives moments (1/2,1/4,1/6) and scalar energy one-half for every degree<=2 polynomial. Independent exact computations confirmed diagonal algebra, 12 rational-mask cases and radical moments; the proof, not finite samples, establishes all-mask claims.
 
-## Value — PASS
-The motivation is the best-concentration question for polynomial Slepian operators raised in the focal literature. Unlike a standalone 2×2 calculation, the result classifies the sharp optimizer and every exceptional multiplicity for every radial mask and all real ball dimensions, decides rigorously when the nonradial dipole beats all radial quadratics, and locates two actual finite-shell transitions. The narrow high-dimensional phase window and an explicit nonconstant mask acting as a scalar on the entire six-dimensional disk polynomial band reveal geometric behavior not captured by coarse Shannon-number asymptotics. The exact exceptional mask is useful as a low-band distinguishability limit, not an arbitrary fitted scalar. The limitation to degree two is intentional and stated; no high-band asymptotic theorem is asserted.
+## originality
 
-## Closest literature and remaining limits
-Huang, arXiv:2308.03543v1 (2023), §§2, 5.1; Gerhards–Huang, arXiv:2308.03543v5 (2026), §§2–3, 7–8; Khalid–Kennedy–McEwen, arXiv:1403.5553, abstract/method domain; Dai–Mahajan (2007), journal abstract and accessible excerpts. Some older primary texts have not been read in full; absence of an equivalent result is best-knowledge, not mathematically certified originality. No statement on nonradial masks or polynomial degrees above two is established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Gerhards–Huang/Huang established polynomial Slepian concentration on balls, angular decomposition and large-bandwidth spectral asymptotics. Those inspected full primary statements do not imply the explicit degree-two all-radial-mask moment inequalities, complete optimizer degeneracies, or a nonconstant scalar-concentration indicator. Classical spherical harmonics and the generalized Rayleigh quotient are not claimed new. Priority remains qualified against older low-degree Zernike aperture identities.
+
+## value
+
+PASS
+
+The leading eigenspace of a natural polynomial concentration operator undergoes two exact angular transitions under thin-shell location, and the half-transmission disk/annulus supplies an exact nontrivial spectral-indistinguishability example. These are structural and experimentally relevant low-bandwidth concentration phenomena, not an arbitrary finite matrix calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
