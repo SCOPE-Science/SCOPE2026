@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,13 +18,25 @@
   "schema_version": 1
 }
 ---
-# Direct reproducibility checks and their scope
 
-The mathematical verification uses exact symbolic equalities and topological arguments, not computational experiments.
+# Independent mathematical audit
 
-1. For any finite solution to \(u^a=v^b\), calculate \((t^b u)^a=t^{ab}u^a=t^{ab}v^b=(t^a v)^b\). The reciprocal path connects the unique infinite fibre point to \((1,1)\). Both projections are onto, hence synchronized paths exist for every endpoint pair.
-2. On the endpoint slice \((x,0)\), continuity of a purported planner supplies \(h(x)^b=x^a\). On a sufficiently small loop around the origin, winding forces \(b\mid a\). The other slice \((0,y)\) supplies \(k(y)^a=y^b\) and forces \(a\mid b\). Together they force equal positive exponents; any unequal pair lacks even a single local planner around the branch-value endpoint.
-3. At equal exponents, duplicate an ordinary sphere motion-planning path in both coordinates. Three open domains suffice in the reduced convention.
-4. The rational cohomology ring of the endpoint space is \(\mathbb Q[u,v]/(u^2,v^2)\), with degree-two generators. The class \(a u-b v\) has nonzero square \(-2ab\,uv\). Since it restricts to zero on every open set where the endpoint-comparison maps are homotopic, the relative cup-product argument requires at least three sets. Pulling back the usual three-set sphere planner provides an upper bound of three, so normalized homotopic distance equals two.
+## correctness
 
-The evaluation-map continuity follows from compact-open path topology. Infinite strict complexity means no finite open cover by local planners; the local contradiction is stronger. The result is not a calculation of the strict complexity of all degree-matched sphere maps, nor evidence of an independent audit or exhaustive literature coverage.
+PASS
+
+The equality fibre product W={u^a=v^b} is path connected: each finite solution follows (t^b u,t^a v) to (0,0) and infinity connects to (1,1) by reciprocal scaling, while both projections are onto. A strict planner near (0,0) would induce continuous functions h(x)^b=x^a and k(y)^a=y^b on small endpoint slices; winding around punctured disks forces b|a and a|b, hence a=b. Unequal exponents have no local planner even near one point, so TC=∞ despite synchronizability. Equal exponents duplicate any 3-set standard sphere path planner. Homotopy invariant lower bound follows because (a u-b v)^2=-2ab uv is nonzero in Q[u,v]/(u²,v²); upper bound pulls back a 3-set sphere ordinary planner to F,G. Independently checked exact fibre-product scaling identity for 128 exponent/time pairs; cohomology and winding arguments are exact universal proofs.
+
+## originality
+
+PASS
+
+The full 2026 García-Calcines–Vilches Alarcón primary paper defines both invariants, proves general inequalities and in Example 3.4 obtains only cohomological lower bound two for arbitrary degree-2 and degree-3 maps S²->S². It does NOT determine strict infinity for the explicit branched power maps or the all-parameter winding classification. The homogeneous unbranched circle-cover examples and nonsynchronizable examples are mathematically different. Thus the exact strict-vs-homotopy gap is not a corollary of the example; priority remains best-of-knowledge.
+
+## value
+
+PASS
+
+The exact branch-order criterion distinguishes pointwise synchronized motion feasibility from existence of even a single continuous local planner; it gives an all-positive-exponent classification and an infinite-versus-two gap in a canonical simply connected branched setting, directly sharpening a concrete degree-two/three example from the defining primary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

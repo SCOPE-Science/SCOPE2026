@@ -1,19 +1,21 @@
-# Self-review: branch-order rigidity
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Both projections of the equality fiber product are surjective and its finite part contracts along \(t\mapsto(t^b u,t^a v)\) to the origin; infinity joins it by a reciprocal path, proving individual existence of synchronized trajectories. A continuous planner around \((0,0)\) forces one continuous complex root \(h(x)^b=x^a\) and another \(k(y)^a=y^b\). Winding numbers on small circles give both \(b\mid a\) and \(a\mid b\), so unequal positive exponents admit no local planner. For equal exponents, three ordinary sphere planning domains give three synchronized domains. Independently, the nonvanishing cup square \((a u-b v)^2=-2ab\,uv\) and the standard sphere upper bound give \(\mathrm{TC}_H=2\). No infinite claim is inferred from a finite experiment.
+PASS
 
-## Originality
+The equality fibre product W={u^a=v^b} is path connected: each finite solution follows (t^b u,t^a v) to (0,0) and infinity connects to (1,1) by reciprocal scaling, while both projections are onto. A strict planner near (0,0) would induce continuous functions h(x)^b=x^a and k(y)^a=y^b on small endpoint slices; winding around punctured disks forces b|a and a|b, hence a=b. Unequal exponents have no local planner even near one point, so TC=∞ despite synchronizability. Equal exponents duplicate any 3-set standard sphere path planner. Homotopy invariant lower bound follows because (a u-b v)^2=-2ab uv is nonzero in Q[u,v]/(u²,v²); upper bound pulls back a 3-set sphere ordinary planner to F,G. Independently checked exact fibre-product scaling identity for 128 exponent/time pairs; cohomology and winding arguments are exact universal proofs.
 
-**PASS, subject to explicitly identified residual literature risk.** The principal January 2026 source introduces these invariants and in Example 3.4 proves a lower bound for positive-degree sphere maps; it does not identify the exact infinite strict value for the concrete branched power-map pair with unequal exponents. Its non-synchronizable examples and its unbranched circle-cover example do not cover this connected, surjective, pointwise-synchronizable case. Other checked published results concern finite poset circle maps, affine torus maps or different covering invariants; their theorems cannot imply the local branch-order obstruction without a new argument. An unpublished or not-found equivalent formulation remains possible, as recorded in the structured comparison.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem closes a naturally motivated gap between an existing sphere lower bound and the exact strict invariant, and separates pointwise existence of coordinated paths from *all* local continuous coordination. The smallest unequal case, \(a=2,b=3\), turns a published lower bound into the sharp value infinity even though each map is onto and the coincidence fiber product is path connected. The sharp if-and-only-if classification for the full power-map family identifies ramification indices as an obstruction invisible to ordinary target topological complexity.
+The full 2026 García-Calcines–Vilches Alarcón primary paper defines both invariants, proves general inequalities and in Example 3.4 obtains only cohomological lower bound two for arbitrary degree-2 and degree-3 maps S²->S². It does NOT determine strict infinity for the explicit branched power maps or the all-parameter winding classification. The homogeneous unbranched circle-cover examples and nonsynchronizable examples are mathematically different. Thus the exact strict-vs-homotopy gap is not a corollary of the example; priority remains best-of-knowledge.
 
-## Closest source and limitations
+## value
 
-Primary: García-Calcines and Vilches Alarcón, arXiv:2601.16059v1, Examples 2.8, 2.12, 3.4 and the strict/homotopy comparison. The strict conclusion concerns specified branched complex power maps, not all continuous sphere maps of the same degree. The present review is not independent; no formal external validation is claimed. Searches cannot prove exhaustive novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact branch-order criterion distinguishes pointwise synchronized motion feasibility from existence of even a single continuous local planner; it gives an all-positive-exponent classification and an infinite-versus-two gap in a canonical simply connected branched setting, directly sharpening a concrete degree-two/three example from the defining primary work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
