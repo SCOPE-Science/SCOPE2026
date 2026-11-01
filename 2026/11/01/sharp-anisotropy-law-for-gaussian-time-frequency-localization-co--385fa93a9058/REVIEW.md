@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS (self-review).** The radial operator has exact monomial eigenvalues \(u^{n+1}\). Expanding the squared commutator in this orthonormal basis yields a nonnegative matrix generating series evaluated by an absolutely convergent four-real-variable Gaussian integral. The integral determinant gives the closed form. A positive integral representation of the radical difference and a strictly decreasing radicand establish monotonicity through the noncompact endpoint, while coherent-state weak convergence proves endpoint noncompactness. The executable finite checker corroborates the determinant and matrix expansion, but the proof does not rely on finite extrapolation.
+
+**Originality — PASS (historical priority provisional).** Testorf, arXiv:2410.15170, treats discrete Gabor localization and its spectral asymptotics; Svela, arXiv:2410.18769, treats individual localization spectra including symplectically deformed Gaussians; Huang–Zhang, arXiv:2405.11147, treats single-symbol operator norm bounds; Kisil, arXiv:2108.13710, provides general cross-Toeplitz theory. None of their inspected statements supplies this exact *two-mask* commutator norm with the strict fixed-mean-curvature ellipse-to-stripe maximum. General Gaussian-operator covariance methods are a credible source of indirect prior implication and remain a residual risk.
+
+**Mathematical value — PASS.** The noncommutativity cost between Gaussian localization masks is a natural invariant of incompatible time-frequency concentration operators. The complete parameter-dependent formula is sharp across every positive ellipse, proves rotational commutation rigidity, and identifies a unique optimizer at a noncompact singular boundary. This is more than a normalization check or isolated numerical example and does not assert an unrelated downstream theorem.
+
+**Limitations.** One complex dimension; centered real positive Gaussian masks; fixed radial parameter and fixed trace of the anisotropic quadratic form; no uniform statement in these fixed parameters or extension to general masks. Independent mathematical validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
