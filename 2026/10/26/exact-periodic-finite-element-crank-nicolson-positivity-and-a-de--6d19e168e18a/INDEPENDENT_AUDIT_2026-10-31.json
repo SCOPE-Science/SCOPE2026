@@ -1,0 +1,142 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:08:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md with cyclic inverse (1), exact q root equation",
+        "Li--Huang arXiv:1209.5657 Theorem 3.1 sufficient FEM bound"
+      ],
+      "rationale": "Consistent periodic P1 assembly gives H=4I+S+S^-1, A=(4+6r)I+(1-3r)(S+S^-1), and P=2A^-1 H-I. At r=0 identity, r=1/3 nonnegative, at n>=4 and 0<r<1/3 the signed cyclic inverse yields positive G_02 and P_02=-36rG_02/(1-3r)<0. At r>1/3 inverse is positive Stieltjes, so offdiagonals >0 and diagonal f_n(r) strictly decreases, with unique zero rho_n. Exact positive finite-size Green correction decreases in n and proves rho_n↓(5+sqrt(33))/12; n=3 direct eigenmode formula gives r<=1. Independent full P matrices and Fourier sums in 99 n/r cases, roots for n3..13, corroborate.",
+      "residual_risks": [
+        "No monotone positivity claim for nonuniform/Dirichlet FEM or finite precision; r=0 is isolated for n>=4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Indexed reversible Markov-chain CN theorem assumes generator Q Metzler, unlike -M^-1K here",
+          "Indexed backward-Euler filtered CN theorem changes the time update and uses a finite-difference lattice",
+          "Li--Huang general sufficient upper 2/3"
+        ],
+        "reasoning": "Neither broader general sufficient positivity nor another map/generator entails the sharp cycle-size dependent 0 isolated + [1/3,rho_n] classification and its root monotonicity.",
+        "searches": [
+          "periodic uniform P1 finite element consistent mass Crank Nicolson heat positivity exact mesh dependent threshold circulant",
+          "Resultary 2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1209.5657 full primary PDF theorem and screenshots",
+        "arXiv:2301.01066 mathematical setting",
+        "Resultary sources d475df91cd2a and 1f6f56bd0eac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li--Huang bounds certify a sufficient [1/3,2/3] but do not establish necessity or a sharp periodic endpoint beyond 2/3",
+          "Markov return threshold cannot be applied because consistent-mass spatial generator has negative distance-two coefficients near r=0"
+        ],
+        "reasoning": "The proposed periodic rho_n>2/3 and strict n monotonicity need explicit periodized inverse; they are not corollaries of the inspected broader sufficient criteria. The positive correction proves additional mathematical content.",
+        "searches": [
+          "periodic uniform P1 finite element consistent mass Crank Nicolson heat positivity exact mesh dependent threshold circulant",
+          "Li Huang Theorem 3.1 arXiv 1209.5657",
+          "Higueras Roldan Crank Nicolson arXiv 2301.01066"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Li--Huang arXiv:1209.5657 Theorem 3.1 concerns FEM sufficient conditions",
+          "Higueras--Roldan arXiv:2301.01066 uses finite differences and Dirichlet boundaries"
+        ],
+        "reasoning": "Periodic boundary changes cyclic Green sums and finite-size return. Unfiltered consistent mass has non-Metzler semidiscrete matrix; neither nonperiodic FE nor FD interval is a simple parameter rebranding.",
+        "searches": [
+          "periodic uniform P1 finite element consistent mass Crank Nicolson heat positivity exact mesh dependent threshold circulant",
+          "periodic consistent-mass linear finite elements theta step positivity cyclic tridiagonal circulant",
+          "Farago Horvath Theorem 6.5 Dirichlet Galerkin"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Numerically checked finite roots rho4=(1+sqrt(3))/3, rho5≈0.898084725589, rho∞≈0.895380220545",
+          "Retrieved research-record matches discuss filtered FD and Markov resolvents rather than a table of periodic P1 thresholds"
+        ],
+        "reasoning": "No exact matching mesh-size root table identified; isolated search absence is not a novelty certificate.",
+        "searches": [
+          "periodic uniform P1 finite element consistent mass Crank Nicolson heat positivity exact mesh dependent threshold circulant",
+          "periodic uniform consistent mass Crank Nicolson 0.895380220544836",
+          "Resultary 2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: the closest general P1 FEM papers provide sufficient bounds or Dirichlet problems; the exact FD Dirichlet Crank--Nicolson results and published filtered lattice / reversible Markov generator positivity laws have different operators or premises. Thus no inspected source directly implies the exact periodic consistent-mass all-n window, monotone upper roots, and limiting radical. A general cyclic-tridiagonal literature specialization is a residual possibility.",
+      "residual_risks": [
+        "Older cyclic-tridiagonal inverse positivity theorem might imply the same cutoff under different notation.",
+        "Materially relevant 2006 Farago--Horvath full text not freshly re-read in this run; its published statements target Dirichlet data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives sufficient step constraints, no claimed sharp cyclic periodic time step.",
+          "evidence": [
+            "Theorem 3.1 sufficient maximum principle bounds, Dirichlet formulation"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1209.5657",
+          "material_read": "Complete accessible 25-page PDF; relevant Galerkin assumptions, Theorem 3.1 and Remark 3.1 read; PDF page screenshots viewed",
+          "method": "Primary PDF text and page-image comparison",
+          "title": "Maximum principle for the finite element solution of time dependent anisotropic diffusion problems",
+          "trigger": "Same consistent mass and theta-step positivity method"
+        },
+        {
+          "assessment": "Different spatial FD operator and Dirichlet boundary; no whole-document noncoverage assertion.",
+          "evidence": [
+            "ArXiv 2301.01066 introduction and discretization type"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.01066",
+          "material_read": "Public mathematical description and source sections on Dirichlet central finite differences; full text not exhaustively read this execution",
+          "method": "Published source metadata and inspected scientific setting",
+          "title": "A new insight on positivity and contractivity of the Crank-Nicolson scheme for the heat equation",
+          "trigger": "Exact but different mesh-dependent CN threshold"
+        },
+        {
+          "assessment": "Markov generator assumption excludes non-Metzler consistent-mass FE spatial generator.",
+          "evidence": [
+            "Published summary states irreducible reversible Markov generator hypothesis"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-resolvent-return-law-for-crank-nicolson-positivity-on-reversib--d475df91cd2a",
+          "material_read": "Resultary indexed title/summary, not full repository file in this run",
+          "method": "Semantic published research-record comparison",
+          "title": "A resolvent-return law for Crank-Nicolson positivity on reversible Markov chains",
+          "trigger": "Possible broad CN resolvent theorem"
+        },
+        {
+          "assessment": "Backward Euler filtering and finite differences change both the map and operator.",
+          "evidence": [
+            "Published summary: backward-Euler half step then CN full step"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-backward-euler-filtered-cn-lattice-positivity--1f6f56bd0eac",
+          "material_read": "Resultary published title/summary only",
+          "method": "Semantic published research-record comparison",
+          "title": "Unconditional lattice positivity from backward-Euler-filtered Crank-Nicolson",
+          "trigger": "Periodic lattice and CN terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md Stieltjes regime, Fourier return and periodization correction",
+        "Li--Huang finite-element sufficient bounds"
+      ],
+      "rationale": "The natural periodic consistent-mass heat discretization has a nontrivial *nonmonotone* allowed timestep set: no small positive step, then a precisely quantified positivity window. Identifies the sharp finite-grid endpoint, its strict mesh monotonicity and limit, improving a conventional sufficient 2/3 limit. This is useful for rigorous numerical maximum-principle design, not a trivial substitution of Dirichlet results.",
+      "residual_risks": [
+        "Restricted to exact uniform periodic P1, unit diffusivity; separate accuracy/roundoff conditions remain."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Consistent-mass periodic one-dimensional P1 only; mesh-size-dependent positivity not an accuracy/float stability statement.",
+    "Near-cutoff floating-point numerical tests alone are not proof."
+  ],
+  "schema_version": 1
+}
