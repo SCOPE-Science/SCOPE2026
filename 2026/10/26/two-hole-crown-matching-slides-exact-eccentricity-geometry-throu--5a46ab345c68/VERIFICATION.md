@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The two included standard-library Python checkers independently enumerate all crown matchings of size \(n-1\) for \(3\le n\le8\), using derangement swaps versus direct partial-injection slides. Both executed successfully, and their complete canonical JSONL outputs agree byte-for-byte. Every BFS visits all states and every local edge is checked for reciprocity. The finite diameter and eccentricity classification follows from one full BFS per orbit of simultaneous index relabelings, whose orbit formula is proved in RESULT.md.
+# Independent mathematical audit
 
-Run `python3 verify_permutations.py` and `python3 verify_matchings.py` and compare stdout to `permutation_output.jsonl` and `matchings_output.jsonl`. These calculations do not verify any all-order distance claim; the all-order bijection, degree and parity identities are separately proved. The previously published connected-claw-free reachability theorem is credited, not re-proved as a new theorem. All literature comparisons and publication-priority caveats are documented in REVIEW.md and AUDIT.json.
+## correctness
+
+PASS
+
+The bijection from size n-1 crown matchings to derangements on n+1 symbols, with 0 encoding the two holes, identifies exactly the two legal transposition families and gives all-order D_(n+1) vertices, degree sequence, sign imbalance and non-Hamiltonicity. A new independent derangement-graph program enumerated all states and neighbors for n=3,...,8; BFS from one representative of each stabilizer-conjugacy orbit reproduces sizes 9,44,265,1854,14833,133496, all stated edge/center/diameter statistics and at n=8 radius10, diameter11, center14832, 2593920 diametral pairs. Symmetry reduction makes these finite claims exhaustive; no n>=9 distance theorem follows.
+
+## originality
+
+PASS
+
+Known token-slide connectivity in claw-free line graphs and matching token-jump reconfiguration do not imply exact deficiency-two crown graph distances. Crown-matching derangement bijection and derangement count are classical and acknowledged. Novelty is the complete finite metric/eccentricity and n8 diametral-pair census under strict slides, not the all-order basic count or generic connectivity.
+
+## value
+
+PASS
+
+The exact metric classification reaches a natural 133,496-state graph and determines a genuine odd-even centrality difference, orbit-resolved shortest-path geometry and obstruction to Hamilton paths. This is a motivated finite reconfiguration invariant that does not need an all-n theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
