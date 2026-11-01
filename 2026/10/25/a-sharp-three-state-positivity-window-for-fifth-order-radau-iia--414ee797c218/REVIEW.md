@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The entire row-stochastic three-state matrix is obtained by an exact rational matrix identity and a Jordan divided derivative. All entries apart from one positive-denominator multiple of a quartic are explicitly nonnegative. Descartes' rule and exact sign brackets prove there are precisely two positive roots; the two-state proof covers every generator including reducible boundary cases. The exact reversible witness and complete verification program have been independently recalculated within the same mathematical derivation. Finite calculations are not used to infer an infinite-dimensional assertion.
+PASS
 
-## Originality
+The completed fifth-order three-stage Radau IIA step is R(hQ) for R(z)=(60+24z+3z²)/(60-36z+9z²-z³). For every 2-state generator Q=[[-a,a],[b,-b]], Q²=-(a+b)Q and R(-x)=3((x-4)²+4)/(x³+9x²+36x+60) lies in (0,1]; hence every h>=0 gives an entrywise nonnegative matrix, including a+b=0. In the 3-state pure-birth Jordan block the only potentially negative entry is hR'(−h)=3hp(h)/D(h)² with p=h⁴−16h³−48h²+240h+1200, D=h³+9h²+36h+60. Exact signs at 4,5,17,18 and Descartes give exactly two positive roots, so positivity holds on [0,alpha] union [beta,infinity) and fails between. Independent exact rational reconstruction confirmed (T_Q0(5))_12=-105/13924 and the irreducible reversible epsilon=1/1000 witness negative entry -4448823545303000/676819275720209897. Hurwitz cubic locates the denominator poles in Re z>0, excluding undefined generator steps. Distinct from internal-stage positivity and arbitrary 3-state phase classification.
 
-**PASS, with residual risk.** Brugnano–Iavernaro–Magherini introduce implementation details for the classical Radau IIA family; Lóczi–Ketcheson establish scalar absolute-monotonicity theory and fifth-order rational-function radius optimization. Neither relevant inspected theorem determines this three-state Markov endpoint phase window. Published SSP-SDIRK2(2) and fourth-order \([2/2]\) Padé examples are different rational functions and do not imply the fifth-order \([2/3]\) threshold. Specialized literature and unavailable full-text research-record comparisons remain genuine risks.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result provides the exact smallest dimension of an unconditional-positivity counterexample for a widely used stiff solver, a complete two-threshold return-to-positivity phase diagram, and a reversible irreducible exact witness. These distinctions matter for maintaining probabilistic constraints after implicit time steps, even when spectral stability is not in question.
+The non-monotone three-state *completed* Radau IIA [2/3] phase window with recovered positivity and the reversible irreducible witness is distinct from classical scalar absolute monotonicity/SSP radii and known endpoint counterexamples for other rational integrators. Do not attribute the Runge–Kutta rational function or generic nonnegativity obstructions as new.
 
-## Closest literature and limits
+## value
 
-See the references and explicit comparisons in `RESULT.md` and `AUDIT.json`. The completed linear map, not individual Runge–Kutta stages or nonlinear trajectories, is evaluated. The sharp interval belongs to one normalized three-state birth model, not every generator. Independent mathematical audit is still outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum state dimension and complete reentrant step-size positivity window are natural stability-versus-positivity invariants for a standard stiff ODE integrator. Reversible irreducible counterexample rules out a modelling assumption that might otherwise seem to protect Markov transition probabilities. Both exact thresholds and recovery distinguish the result from a routine SSP-radius restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
