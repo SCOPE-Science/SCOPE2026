@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T19:52:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md steps 1–4 and verify.py inspected (not executed as opaque source)",
+        "Independent Python bitmask and matrix implementation, 15 weighted parameter cases",
+        "General Fraïssé one-point extension property for countable universal homogeneous poset"
+      ],
+      "rationale": "For individually named finite induced parameter poset P_{n,r} with n>=2r+1, r>=1, each lower a_i is below the r consecutive upper b_j. A nonalgebraic type of the homogeneous universal poset corresponds exactly to a compatible ideal/filter (L,U), and the two-sided pairs are bicliques. If a nonempty lower subset has a common neighbor, its unique short cyclic span of length s<r gives n singleton choices and n(1+u)^{s-1} endpoint choices, producing M=n[u((1+v)^r-1)+u^2 sum_{s=1}^{r-1}(1+u)^{s-1}((1+v)^{r-s}-1)] and M(1,1)=nr2^{r-1}. For one-sided cases, selecting the upper set makes a lower vertex forced iff one of its r upper neighbors selected; cyclic binary words weighted 2 per all-zero r-window are exactly traced by T_r. Total nonalg types t=2tr(T_r^n)+nr2^{r-1}-1; characteristic polynomial lambda^r-3lambda^(r-1)+sum_{j=0}^{r-2}lambda^j equals (lambda^(r-1)(lambda-2)^2-1)/(lambda-1), including T_1=(3). Primitive Perron–Frobenius theory and monotonicity of f_r(lambda)=lambda^(r-1)(lambda-2)^2 on lambda>2 give t~2rho_r^n (fixed r) with rho_r strictly decreasing to 2. Independently rebuilt direct bitset enumeration of lower/upper choices and transfer traces for 15 (r,n) cases r=1..5, n=2r+1..2r+3 at u=2, v=3: all agree; finite checks corroborate the unlimited parameter proof.",
+      "residual_risks": [
+        "The proof requires n>=2r+1 for unique cyclic span; no assertion for smaller n.",
+        "The asymptotic t~2rho_r^n is for fixed r and n tending to infinity, not a joint moving-width limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General #P-completeness treats arbitrary finite posets and gives a computable ideal/filter correspondence, not closed coefficients for this cyclic family.",
+          "Munarini 2006 abstract refers to generalized fences/crowns, presenting an explicit possible source of one-sided transfer recurrences; full text not accessible.",
+          "Trotter 1974 describes dimension of generalized crowns, not the exact one-type polynomial in the accessible abstract."
+        ],
+        "reasoning": "No inspected stronger result entails the bivariate biclique polynomial or the combined growth-base limit. An uninspected generalized-crown source could overlap ideal count; its inaccessible full text is a residual risk rather than invented noncoverage.",
+        "searches": [
+          "Resultary published finite-parameter 1-type #P-complete result, 2026/10/4/3b955f4020e1",
+          "Munarini, A Combinatorial Interpretation of the Chebyshev Polynomials, DOI:10.1137/S0895480103432283",
+          "Trotter, Dimension of the crown S_n^k, DOI:10.1016/0012-365X(74)90113-7"
+        ]
+      },
+      "checked_sources": [
+        "Full-text Munarini 2005 (pages 1–7)",
+        "Munarini 2006 publisher abstract, primary full text inaccessible",
+        "Published Resultary generic 1-type #P-completeness record and semantic hits",
+        "Trotter 1974 abstract",
+        "Git original claim and cited comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General ideal/filter formula gives a conceptual starting point but leaves exponential counting over P_{n,r} unevaluated.",
+          "The unique span of bicliques yields a separate explicit n*u,v polynomial, and transfer matrix plus PF yields decreasing algebraic growth constants."
+        ],
+        "reasoning": "A general algorithm and fixed-width one-sided cases do not logically imply all-r bivariate coefficients or strict rho_r monotonicity without the supplied derivation. Only integrated spectrum and structural refinements are attributed to this work.",
+        "searches": [
+          "Published random-poset #P-completeness and ideal/filter correspondence",
+          "Munarini 2005 and 2006 generalized fence and crown ideals",
+          "Trotter 1974 crown dimensions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general random-poset one-type formula is already a compatible ideal/filter pair and is not claimed as new.",
+          "Munarini and Zagaglia Salvi have ordinary crown ideal specializations, which do not state the all-width weighted two-sided biclique polynomial in the inspected material."
+        ],
+        "reasoning": "Matching the general construction or one-sided order-ideal count is not matching the claimed four-part parametric spectrum. Specific r values are subsumed by an all-r formula; those special cases are not separately claimed original.",
+        "searches": [
+          "Resultary: Finite random poset one-type counting cyclic height-two incidence generalized crowns n width r biclique bivariate polynomial transfer matrix growth",
+          "Resultary: Nonalgebraic 1-type count random poset over cyclic crown height two poset of n lower points each below three consecutive upper points",
+          "Munarini, On the rank polynomial of the lattice of order ideals of fences and crowns, DOI:10.1016/S0012-365X(02)00378-3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "2005 paper studies linear garland ideal count g_{n+2}=2g_{n+1}+g_n, not the displayed all-r cyclic incidence biclique refinement.",
+          "Ordinary-crown order-ideal tables may reproduce r=2 one-sided counts, but a listed special case does not supply full all-r named one-types."
+        ],
+        "reasoning": "Compared actual specialized ideal formulas and indexed types; found no entire bivariate all-width table. Search misses and uninspected appendices cannot certify nonexistence.",
+        "searches": [
+          "Resultary: cyclic one-type spectra/transfer matrix search",
+          "Munarini 2005 Enumeration of Order Ideals of a Garland, full PDF pages 1–7",
+          "Munarini–Zagaglia Salvi 2002 special crown rank polynomials"
+        ]
+      },
+      "rationale": "The 1-type ideal/filter bijection is known and a broad generalized-crown ideal recurrence may be prior. The surviving novelty is a bivariate mixed-type polynomial for all widths, integrated full named-parameter one-type count, and spectral width-growth law. An inaccessible Chebyshev/generalized crown article may cover one-sided ideals; that access limitation is explicitly not treated as a negative conclusion about its full text. Best-of-knowledge PASS.",
+      "residual_risks": [
+        "Munarini 2006 full text is inaccessible owing to institutional VPN disconnection; it could imply part or all of the one-sided transfer-matrix formula.",
+        "A separate fixed-width three-neighbor claim is a special case, not a second novelty.",
+        "Unindexed generalized-crown biclique/two-sided type polynomials may exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Garland linear ideals produce recurrence distinct from the general cyclic mixed-type spectrum",
+          "evidence": [
+            "g_{n+2}=2g_{n+1}+g_n",
+            "Garland ideal construction"
+          ],
+          "identifier_or_url": "https://combinatorialpress.com/ars-articles/volume-076-ars-articles/enumeration-of-order-ideals-of-a-garland/",
+          "material_read": "Primary eight-page PDF pages 1–7: garland recurrence, combinatorial setup, proof and examples",
+          "method": "lawful open PDF; page screenshots and text",
+          "title": "Enumeration of Order Ideals of a Garland",
+          "trigger": "Related height-two poset ideal count"
+        },
+        {
+          "assessment": "Potential overlap in generalized fence/crown one-sided ideal enumeration; whole-document coverage not assessed",
+          "evidence": [
+            "SIAM J. Discrete Math. 20 (2006), 649–655; publisher abstract",
+            "Institutional access unavailable; human VPN connection required"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895480103432283",
+          "material_read": "Abstract and publication summary only; no primary full text acquired",
+          "method": "arXiv and lawful OA attempts followed by authorized institutional retrieval",
+          "title": "A Combinatorial Interpretation of the Chebyshev Polynomials",
+          "trigger": "Strong possible generalized-crown ideal prior"
+        },
+        {
+          "assessment": "General #P-hardness and ideal/filter correspondence; not an explicit cyclic bivariate count",
+          "evidence": [
+            "One-type = compatible ideal/filter pair; #P-completeness under Turing reductions"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+          "material_read": "Published theorem/statement and general counting correspondence; compared with cyclic specialization",
+          "method": "published research record and Resultary semantic lookup",
+          "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+          "trigger": "Direct conceptual random-poset model"
+        },
+        {
+          "assessment": "Topic is dimension, not verified to contain one-type enumeration; residual rather than whole-document noncoverage",
+          "evidence": [
+            "Discrete Math. 8 (1974), 85–103"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(74)90113-7",
+          "material_read": "Accessible abstract/bibliographic description, no full text",
+          "method": "abstract and publication metadata",
+          "title": "Dimension of the crown S_n^k",
+          "trigger": "Generalized crown might have related recurrence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Random-poset finite-parameter type-counting context",
+        "Canonical cyclic height-two incidence/crown family",
+        "Reconstructed bivariate biclique and Perron spectral formulas"
+      ],
+      "rationale": "The family generalizes classical cyclic crowns and the complete weighted one-point type polynomial is natural in homogeneous-poset model theory. The exact separation of linear mixed contributions and exponential one-sided contributions, algebraic Perron bases, and monotone dependence on incidence width give nontrivial parametric structure useful beyond a single small instance.",
+      "residual_risks": [
+        "Restricted to nonalgebraic one-types with individually named parameters and n>=2r+1; no arity-two or small-circumference type theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "r>=1, n>=2r+1; individually named parameters, nonalgebraic one-types only.",
+    "Fixed-r Perron asymptotic n->infinity; 2n additional equality types, no uniform joint n,r claim.",
+    "Munarini 2006 full text is inaccessible owing to institutional VPN disconnection; it could imply part or all of the one-sided transfer-matrix formula.",
+    "A separate fixed-width three-neighbor claim is a special case, not a second novelty.",
+    "Unindexed generalized-crown biclique/two-sided type polynomials may exist."
+  ],
+  "schema_version": 1
+}

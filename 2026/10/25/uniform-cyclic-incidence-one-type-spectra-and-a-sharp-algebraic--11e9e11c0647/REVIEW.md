@@ -1,15 +1,21 @@
-# Review of the uniform cyclic-incidence one-type theorem
+# Independent mathematical audit
 
-## Correctness — PASS
-The extension-type correspondence is justified by transitivity and the Fraïssé extension property. For a nonempty lower set admitting a common upper neighbor, the short cyclic span is unique when \(n\ge2r+1\); its length and freely selected interior points give the displayed bivariate biclique polynomial. Direct cyclic zero-run counting gives the integral transfer matrix and hence the full nonalgebraic count. The characteristic-polynomial identity is verified algebraically, and primitivity gives the claimed exponential rate. The standalone direct enumeration agrees in 18 finite parameter cases, including a nontrivial bivariate weighting; those tests are checks, not the proof.
+## correctness
 
-## Originality — PASS with stated residual risk
-The literature contains the general ideal/filter description, complexity results for random-poset one-types, ordinary crown ideal formulas, generalized crown ideal enumeration, and a separate fixed-three-neighbor instance. None of the materially inspected results states the uniform two-sided type polynomial, the combined all-width one-type law, or the monotone algebraic growth bases. This is a statement/implication comparison, not a title comparison: a general algorithm for ideal counting does not itself give the displayed bivariate coefficients, and the special cases do not imply the universal parameter formula. The 2006 generalized-crown ideal-count paper was available only in abstract and might overlap the one-sided part, so the latter is not claimed as an independent novelty; unindexed broader coverage remains possible.
+PASS
 
-## Value — PASS
-The object is a standard two-parameter family of cyclic height-two posets, extending the classical crown. The bivariate polynomial refines the exact number of random-poset one-types by the numbers of parameters below and above a new point, and the spectral equation identifies how local incidence width controls the exponential orbit/type growth of this family. The exact linear mixed-term law versus exponential one-sided term is a structural separation across the whole family, rather than a chosen numerical slice or a reformulation of the general counting algorithm.
+For individually named finite induced parameter poset P_{n,r} with n>=2r+1, r>=1, each lower a_i is below the r consecutive upper b_j. A nonalgebraic type of the homogeneous universal poset corresponds exactly to a compatible ideal/filter (L,U), and the two-sided pairs are bicliques. If a nonempty lower subset has a common neighbor, its unique short cyclic span of length s<r gives n singleton choices and n(1+u)^{s-1} endpoint choices, producing M=n[u((1+v)^r-1)+u^2 sum_{s=1}^{r-1}(1+u)^{s-1}((1+v)^{r-s}-1)] and M(1,1)=nr2^{r-1}. For one-sided cases, selecting the upper set makes a lower vertex forced iff one of its r upper neighbors selected; cyclic binary words weighted 2 per all-zero r-window are exactly traced by T_r. Total nonalg types t=2tr(T_r^n)+nr2^{r-1}-1; characteristic polynomial lambda^r-3lambda^(r-1)+sum_{j=0}^{r-2}lambda^j equals (lambda^(r-1)(lambda-2)^2-1)/(lambda-1), including T_1=(3). Primitive Perron–Frobenius theory and monotonicity of f_r(lambda)=lambda^(r-1)(lambda-2)^2 on lambda>2 give t~2rho_r^n (fixed r) with rho_r strictly decreasing to 2. Independently rebuilt direct bitset enumeration of lower/upper choices and transfer traces for 15 (r,n) cases r=1..5, n=2r+1..2r+3 at u=2, v=3: all agree; finite checks corroborate the unlimited parameter proof.
 
-## Sources and limits
-The public archive's general finite-parameter type-counting result was read in full; Munarini's 2005 primary paper was inspected in parts, while abstract-only records are flagged in the structured originality review. This is a self-review, with no claim of independent certification. The result is restricted to \(n\ge2r+1\) and one-types.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 1-type ideal/filter bijection is known and a broad generalized-crown ideal recurrence may be prior. The surviving novelty is a bivariate mixed-type polynomial for all widths, integrated full named-parameter one-type count, and spectral width-growth law. An inaccessible Chebyshev/generalized crown article may cover one-sided ideals; that access limitation is explicitly not treated as a negative conclusion about its full text. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+The family generalizes classical cyclic crowns and the complete weighted one-point type polynomial is natural in homogeneous-poset model theory. The exact separation of linear mixed contributions and exponential one-sided contributions, algebraic Perron bases, and monotone dependence on incidence width give nontrivial parametric structure useful beyond a single small instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
