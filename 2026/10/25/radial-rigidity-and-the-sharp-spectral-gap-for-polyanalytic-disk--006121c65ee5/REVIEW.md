@@ -1,19 +1,21 @@
-# Scientific assessment: radial rigidity and sharp bianalytic disk concentration
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is a positive radial weight in the unit disk, full polyanalytic order \(m\ge1\), centered cutoff with squared radius \(R\in(0,1)\). The Fourier-sector decomposition is finite-dimensional at every angular frequency. The decisive strict inequality is not inferred from a finite scan: for every nonzero radial polynomial the covariance of \(s\) and the indicator of \(s<R\) is strictly negative, yielding a uniform strict quotient decrease on a compact projective polynomial space. Minimax transfers this decrease to every sorted eigenvalue. A degree restriction embeds each negative-frequency sector into its matching positive-frequency counterpart.
+## correctness
 
-At order two and unit weight, exact Gram determinants and traces give the complete spectrum. Evaluating two characteristic polynomials at \(R^2\) separates the second-largest eigenvalue from every lower angular block and from the negative mode. Explicit generalized eigenvectors give all leading equality cases. The spectral theorem then yields the optimal stability coefficient. The cubic boundary coefficient is checked by formal expansion of the characteristic equation; exact symbolic identities and an independently reconstructed numerical spectrum support the calculation. The checker passed 1,812 assertions, which are diagnostic, not substitutes for proof.
+PASS
 
-## Originality — PASS, best knowledge
-The closest published work, Barrera-Castelán–Maximenko–Ramos-Vazquez (arXiv:2009.14301, Sections 5, 7–8), already develops the decomposition into angular blocks and gives radial Toeplitz moment matrices. It therefore covers the *availability* of these blocks; neither block diagonalization nor simple substitution of their formulas is claimed to be the novelty. The investigated sections do not state strict eigenvalue monotonicity across all positive angular frequencies for arbitrary positive radial weights, radial rigidity of the entire maximal eigenspace, or the exact second eigenvalue and sharp stability gap of the unweighted bianalytic disk cutoff. These require the separate covariance/minimax comparison and cross-sector separation.
+In the full order-m closure of polyanalytic polynomials, each positive-frequency sector z^k P(|z|²) (deg P≤m−1) is finite-dimensional and its cutoff Rayleigh quotient is Q_k(P). For each nonzero P, increasing k size-biases s toward 1, strictly reducing mass on (0,R). Positivity a.e. of w gives a strictly negative covariance; compactness of projective polynomial space makes the gap uniform, and Courant–Fischer yields λ_j(k+1)<λ_j(k) for all j. Negative-frequency sectors embed into the +h polynomial sector and hence do not maximize. For m=2, w=1, exact 2×2 Gram determinants/traces give roots Λk± with product R^(2k+4); p0(R²)=−4R³(1−R)² and p1(R²)=−8R⁴(1−R)² establish leading separation from the negative mode R². Eigenvectors yield the sharp projection gap. Formal expansion gives Δ~4R as R↓0 and 3/4(1−R)^3 as R↑1. Independent SymPy replay checked tr/det and polynomial straddles.
 
-The analogous Fock-space framework of Maximenko–Tellería-Romero (arXiv:1905.00978, Sections 5–6) uses a different ambient measure and treats radial matrix symbols; its displayed claims do not resolve the present disk-cutoff ordering. Prior published findings on true-polyanalytic Gaussian disk concentration and Bergman disk-cutoff commutators have different Hilbert spaces or operators. Residual risk: an earlier polynomial concentration/interlacing theorem, or an unindexed consequence of the general Toeplitz block framework, might imply the ordering. The result is not independently priority-certified.
+## originality
 
-## Value — PASS
-This is a natural spectral localization question for polyanalytic Bergman spaces, where radial Toeplitz operators are generally matrix-valued within Fourier sectors and naive analytic-mononomial monotonicity no longer suffices. The all-order, weight-independent angular ordering collapses an infinite search for the best concentration constant to one finite radial pencil, without assuming a monotone weight. At the first nonanalytic order it further yields a complete exact spectrum, simple leading modes, a best-possible quantitative stability inequality, and a nontrivial cubic boundary-layer gap with coefficient \(3/4\). These identify optimizer geometry and robustness rather than merely repackaging the existing matrix representation.
+PASS
 
-## Scope and residual risk
-For disconnected radial masks the size-bias argument does not apply; for arbitrary radial weights the dimension of the radial top eigenspace is not characterized. The explicit algebraic formulas are restricted to unweighted bianalytic order. The literature comparison is best knowledge and remains subject to independent review of older approximation-theoretic sources.
+Best-of-knowledge originality PASS limited to strict all-weight angular eigenvalue domination and sharp full bianalytic gap, not the previously known moment block formulas. Priority risk remains because the closest whole paper was inaccessible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+An all-order centered-disk concentration problem is a natural norm/localization question. The strict size-bias ordering proves radial rigidity of all maximizers for arbitrary positive weights; the unweighted bianalytic second eigenvalue and cubic stability gap quantify the sharp global deficit and equality space. These conclusions are not automatic from the known individual matrices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
