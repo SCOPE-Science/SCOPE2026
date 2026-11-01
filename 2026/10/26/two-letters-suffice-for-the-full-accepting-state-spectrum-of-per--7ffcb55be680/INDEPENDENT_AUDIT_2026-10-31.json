@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:54:30.540403Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md Git blob 21a9427b83031a36daeb406b58dd4cba2eaeaa39",
+        "pinned CHECKER.py Git blob 8ad845d6d1f9f04645139ac6aacc3d4de36ebacd inspected, not executed",
+        "independent_check_results.json: 12 exhaustive generated group actions and 30 quotient-final-set checks",
+        "git_tree_results.json exact root b050d161e09831ed3d23becc135112354f508970"
+      ],
+      "rationale": "The binary witness has a k-cycle a paired with counter increment 1 and a transposition b with increment 0, with k=alpha+1, h=n+1. The generated permutation projection is S_k. Identity-permutation words a^k and (ab)^(k−1) increment the counter by coprime k and k−1, hence the generated group is S_k×Z/h, INCLUDING k=2, and every B state is reachable/distinguishable. Accepted B words project precisely onto the stabilizer of k. Therefore the quotient final set is all k−1 nonfixed states, and symmetric-group transitivity yields quotient DFA minimality and asc=alpha. All alpha≥m are obtained; the published unary interval 1..mn provides alpha<m; no nonempty K,L can give empty right quotient since permutation transitions are invertible. Independent BFS enumerated the entire action for all 12 (k,h) with 2≤k≤5, 2≤h≤4 and 30 stabilizer/quotient cases. The infinite result follows from the group proof.",
+      "risks": [
+        "The lower range relies on published unary spectrum Corollary 32; this was checked as a real theorem, not inferred from small cases.",
+        "No claim of smallest TOTAL-state binary witnesses."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2605.10852: Ternary cycle/transposition/separate-counter generator proves output N_positive but not minimum alphabet size two.",
+          "https://doi.org/10.1007/978-3-030-48516-0_10: Studies total DFA state complexity and sharp binary witnesses, NOT number of accepting states in minimal DFA"
+        ],
+        "reasoning": "A general model, theorem or algorithm does not itself establish the exact target quantifiers and sharp output unless a substantive implication is proved. Existing ternary full spectrum and unary finite interval do not alone imply binary sufficiency. The two coupled generators with coprime null-permutation counter words supply that exact missing implication. Residual risk: The unrestricted spectrum is already published; novelty is ONLY sharp binary-alphabet realization.",
+        "searches": [
+          "binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet",
+          "binary alphabet right quotient accepting state complexity permutation",
+          "Samuel German 2026 quotient ternary witness binary alphabet",
+          "arxiv:2208.14731 Corollary 32",
+          "https://doi.org/10.1007/978-3-030-48516-0_10"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.10852",
+        "https://arxiv.org/abs/2208.14731",
+        "https://doi.org/10.1007/978-3-030-48516-0_10",
+        "Resultary query: binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata: UNRESTRICTED ALPHABET SPECTRUM KNOWN; high-range construction explicitly employs three letters, not fixed binary",
+          "On the Accepting State Complexity of Operations on Permutation Automata: COVERS UNARY interval 1..mn, not binary full spectrum",
+          "Operations on Permutation Automata: Studies total DFA state complexity and sharp binary witnesses, NOT number of accepting states in minimal DFA"
+        ],
+        "reasoning": "The primary statements were compared by logical implication, respecting the actual invariant, hypotheses and parameter ranges, and recognizing any prior definitions, recurrence or constructions as already known. Existing ternary full spectrum and unary finite interval do not alone imply binary sufficiency. The two coupled generators with coprime null-permutation counter words supply that exact missing implication.",
+        "searches": [
+          "binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet",
+          "binary alphabet right quotient accepting state complexity permutation",
+          "Samuel German 2026 quotient ternary witness binary alphabet",
+          "arxiv:2208.14731 Corollary 32",
+          "https://doi.org/10.1007/978-3-030-48516-0_10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata: UNRESTRICTED ALPHABET SPECTRUM KNOWN; high-range construction explicitly employs three letters, not fixed binary",
+          "Resultary semantic query: binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet"
+        ],
+        "reasoning": "Translate the target into the canonical mathematical object/invariant and compare equivalent terminology or dual formulations. Existing ternary full spectrum and unary finite interval do not alone imply binary sufficiency. The two coupled generators with coprime null-permutation counter words supply that exact missing implication.",
+        "searches": [
+          "binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet",
+          "binary alphabet right quotient accepting state complexity permutation",
+          "Samuel German 2026 quotient ternary witness binary alphabet",
+          "arxiv:2208.14731 Corollary 32",
+          "https://doi.org/10.1007/978-3-030-48516-0_10"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query: binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet",
+          "https://arxiv.org/abs/2605.10852: UNRESTRICTED ALPHABET SPECTRUM KNOWN; high-range construction explicitly employs three letters, not fixed binary"
+        ],
+        "reasoning": "No inspected exact database entry/table gave the full stated parameter classification. This check is not a novelty proof; recorded related tables and special cases are weaker than the theorem in scope. An earlier 2-generator direct-product witness may exist under finite group/automata constructions not indexed by accepting-state terminology.",
+        "searches": [
+          "binary permutation automata right quotient accepting state complexity full positive spectrum two-letter alphabet",
+          "binary alphabet right quotient accepting state complexity permutation",
+          "Samuel German 2026 quotient ternary witness binary alphabet",
+          "arxiv:2208.14731 Corollary 32",
+          "https://doi.org/10.1007/978-3-030-48516-0_10"
+        ]
+      },
+      "rationale": "Existing ternary full spectrum and unary finite interval do not alone imply binary sufficiency. The two coupled generators with coprime null-permutation counter words supply that exact missing implication.",
+      "residual_risks": [
+        "The unrestricted spectrum is already published; novelty is ONLY sharp binary-alphabet realization.",
+        "An earlier 2-generator direct-product witness may exist under finite group/automata constructions not indexed by accepting-state terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "UNRESTRICTED ALPHABET SPECTRUM KNOWN; high-range construction explicitly employs three letters, not fixed binary",
+          "evidence": "Ternary cycle/transposition/separate-counter generator proves output N_positive but not minimum alphabet size two.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.10852",
+          "material_read": "Full accessible arXiv primary text, definitions and Theorem 3.1/high-range construction inspected, including PDF page screenshot",
+          "method": "Primary theorem-by-theorem implication comparison",
+          "title": "A Unary-to-Nonunary Transition in the Accepting-State Spectrum of Right Quotient for Permutation Automata",
+          "trigger": "Direct antecedent same output invariant and quotient operation"
+        },
+        {
+          "assessment": "COVERS UNARY interval 1..mn, not binary full spectrum",
+          "evidence": "Corollary 32 establishes full finite unary interval and hence binary lower bound on alphabet size.",
+          "identifier_or_url": "https://arxiv.org/abs/2208.14731",
+          "material_read": "Primary arXiv PDF, quotient section, Lemmas 28–31 and Corollary 32 examined with page screenshot",
+          "method": "Primary PDF theorem comparison",
+          "title": "On the Accepting State Complexity of Operations on Permutation Automata",
+          "trigger": "Exact unary interval for right quotient"
+        },
+        {
+          "assessment": "Studies total DFA state complexity and sharp binary witnesses, NOT number of accepting states in minimal DFA",
+          "evidence": "Theorem 12 right-quotient bound sc(KL^−1)≤m and binary/witness discussion are about total state complexity, not accepting state complexity.",
+          "identifier_or_url": "https://doi.org/10.1007/978-3-030-48516-0_10",
+          "material_read": "Author-uploaded full mathematical preview read for abstract, Theorems 11–12 and their proofs",
+          "method": "Primary published article excerpt; compare invariant and hypothesis",
+          "title": "Operations on Permutation Automata",
+          "trigger": "Possibly covers binary optimality for quotient operations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "German theorem is over arbitrary nonunary alphabets with ternary construction",
+        "Rauch–Holzer finite unary spectrum supplies provable optimal minimum alphabet size"
+      ],
+      "rationale": "Alphabet-size optimality is a natural sharp refinement of the existing unary-to-nonunary dichotomy. Explicit two-generator group control replaces a previously independent third letter, and the unary interval proves sharpness, so this is structural rather than a renaming of the unrestricted theorem.",
+      "risks": [
+        "Accepting-state complexity of right quotients in complete permutation DFAs only; no total-state witness optimality or left-quotient claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all positive input accepting-state complexities m,n, the right quotient of binary permutation languages realizes every positive output accepting-state complexity; if either input complexity is zero only zero is possible, and unary output spectrum is precisely 1..mn.",
+  "limitations": [
+    "Accepting-state complexity of right quotients in complete permutation DFAs only; no total-state witness optimality or left-quotient claim.",
+    "The unrestricted spectrum is already published; novelty is ONLY sharp binary-alphabet realization.",
+    "An earlier 2-generator direct-product witness may exist under finite group/automata constructions not indexed by accepting-state terminology."
+  ],
+  "schema_version": 1
+}
