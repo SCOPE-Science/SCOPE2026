@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The provided `verify_filling_census.py` is the complete reproducible checker. It requires Python 3 and SymPy (tested with version 1.14), with no additional input data files. It constructs the polynomial basis over \(\mathbb F_2\), evaluates gradients at all \(15\) rational points for all \(2^{16}\) quartic classes, and then uses four exact affine Gröbner unit-ideal tests for each of the \(288\) surviving masks. The attached `CENSUS.json` stores all smooth and excluded masks and the canonical monomial supports for the quotient basis.
+# Independent mathematical audit
 
-Actual runs partitioned the \(288\) survivors into intervals \([0,45)\), \([45,105)\), \([105,165)\), \([165,225)\), and \([225,288)\). Smooth counts were respectively \(23,30,30,29,32\); excluded counts were \(22,30,30,31,31\). All \(144\) geometrically smooth cases had computed rank \(19\) for the Frobenius matrix and its stable iterate. The four-chart Gröbner checks certify emptiness of each singular ideal over an algebraic closure, not merely over \(\mathbb F_2\).
+## correctness
 
-The explicit coefficient formula for the Frobenius action is derived from the Koszul resolution of a \((3,4)\) complete intersection and the characteristic-two action on the Cech Laurent-monomial basis. The rank computation is finite and exact, and is interpreted as the Jacobian \(2\)-rank only for geometrically smooth complete intersections. There has been no independent external audit or validation. The finite census concerns only the specified fixed cubic over \(\mathbb F_2\).
+PASS
+
+The projective-F2 rational point ideal is generated in degree three by six Frobenius binomials. Its 24 linear multiples have degree-four rank20, while multiples of G by four independent linear forms reduce the quartic-section quotient to 16 dimensions. A fresh independent bitset implementation enumerated all 65536 quotient masks and tested all 15 F2 points: exactly 288 have transverse gradients at every rational point. For those 288, independently computed exact Gröbner bases over F2 for all four affine charts of the complete-intersection Jacobian ideals give 144 geometrically smooth and 144 singular cases; five disjoint replay slices had smooth counts 28,28,28,28,32. An independent Cech cohomology computation forms the 19-dimensional kernel of multiplication by G on H^3(P3,O(-7)); multiplying Frobenius by GF gives rank19 on this kernel for every one of the 144 independently smooth masks (and images preserve the kernel). Thus all are ordinary. Degree=3*4=12, adjunction gives genus19, and smooth connected complete intersections are geometrically integral. Exhaustive finite algebra over F2 plus the Jacobian criterion proves the classification over the algebraic closure; finite-extension point sampling alone would not.
+
+## originality
+
+PASS
+
+The specific binary symplectic cubic and construction of smooth space-filling (3,4) complete intersections are published by Campbell et al. That existence is not assessed as new. The additional all-class 144 census, the 288 rational-smooth filtering figure, and the uniform maximal Hasse–Witt rank for this entire finite linear system were not supplied by the closely relevant full primary article inspected.
+
+## value
+
+PASS
+
+The complete 65536-class search in the natural binary quartic linear system fixes the exact smooth count and establishes a uniform arithmetic invariant, ordinary genus19, on every geometrically smooth member; this is a motivated finite classification, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
