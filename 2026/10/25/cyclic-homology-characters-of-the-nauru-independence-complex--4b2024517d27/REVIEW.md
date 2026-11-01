@@ -1,11 +1,21 @@
-# Scientific assessment: cyclic homology characters of the Nauru independence complex
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph, rotation, orientation conventions and face enumeration are explicit. A full directed-Hasse topological sort verifies acyclicity of all 17,604 matched pairs. The six-by-three signed integral Morse differential has primitive rank two, so the only positive reduced homology groups are free of ranks four and one in degrees five and six. A 696-term lifted integral six-cycle has zero boundary, projects to the primitive Morse kernel, and its rotation projects to the negative of that generator. All twelve signed fixed-simplex Lefschetz sums independently yield the stated fifth-homology character. The standalone exact verifier ran successfully.
+## correctness
 
-**Originality — PASS, with bounded residual risk.** Full published text of the graph-specific Nauru homotopy result establishes only the nonequivariant homotopy type and explicitly does not claim an equivariant decomposition. Fox–Gera–Stănică's complete 2012 article calculates independence numbers and bounds, not graph-rotation homology characters. Eppstein's full 2007 account studies the graph's symmetry and embeddings but not the homology representation. Comparisons with accessible indexed mathematical findings and variant search phrases did not identify a statement that implies either the regular quotient-four degree-five module or the degree-six sign. A differently indexed equivalent calculation remains possible.
+PASS
 
-**Value — PASS.** This computes a natural and previously undetermined symmetry refinement of the Nauru graph's entire reduced rational homology, not an arbitrary statistic: a genuine order-twelve graph automorphism acts through an order-four quotient on one homology degree, and its order-three subgroup acts trivially on all rational homology. The character identifies the dimension of invariant cycles and all rational irreducible components, which the known Betti numbers and nonequivariant wedge type cannot recover.
+Reconstructed the generalized Petersen adjacency and all 35,218 nonempty independent faces. Independent exact signed calculation found face vector (24,240,1304,4212,8328,10036,7176,2964,752,156,24,2); independent Morse matching has 17,604 face-coface pairs and acyclic directed incidence graph of 205,656 relations, leaving one critical vertex, six 5-cells and three 6-cells. Its integral differential columns (1,0,0,1,1,0),(1,0,0,0,0,0),(0,0,0,-1,-1,0) have primitive rank two, H5=Z4 and H6=Z. Reconstructed a 696-term integral degree-six generator and verified that one-step rotation acts by minus one on the Morse class. All twelve signed reduced Lefschetz values are (-3,-1,1,-1) repeated three times. Thus H5 character is (4,0,0,0) repeated three times and H6 alternates ±1; rational cyclic modules follow by semisimplicity. The finite exhaustive computation certifies this single finite graph, not a general Petersen family.
 
-**Scope and risks.** No integral equivariant module classification or full graph-automorphism decomposition is claimed. This is a finite certificate-backed computation whose originality cannot be conclusively established against inaccessible and unindexed literature. The 2012 paper was inspected in full; the specific graph's nonequivariant proof and the 2007 graph account were read materially.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact earlier Nauru independence-complex result proves ordinary homotopy wedge of four S5 and one S6, but its full RESULT.md gives no induced rotation character. Earlier cyclic-character computations on the Heawood and Möbius–Kantor graphs are genuinely different graphs and do not specialize to GP(12,5). Related generalized Petersen independence-number results concern independence cardinality, not simplicial homology action. No equal-claim antecedent was identified after actual full published Nauru RESULT comparison.
+
+## value
+
+PASS
+
+The complete rotation representation and order-three kernel supply a natural equivariant refinement of an already interesting mixed-dimensional homotopy type. The 4-dimensional inflated regular representation and top sign are not recoverable from total Betti numbers, giving precise symmetry behavior useful in graph-complex topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
