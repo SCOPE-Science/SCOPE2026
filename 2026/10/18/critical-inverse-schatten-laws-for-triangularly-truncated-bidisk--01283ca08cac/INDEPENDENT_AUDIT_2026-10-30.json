@@ -1,0 +1,247 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:10:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob b3dabc9fcce99c778ab4c6e6be0dca5edbd62692 (entire proof, definitions, limits and boundary cases)",
+        "Frozen checker.py blob 3f2f52a285ae4bb6d06d9eaebcbe119c6cfc9976 inspected as evidence, not executed",
+        "Independent independent_schatten_checks.py and independent_schatten_results.json: 40 direct full-matrix SVD cases, SymPy finite exact p2, 15 balanced asymptotic ratios, 9 p2 window ratios"
+      ],
+      "rationale": "Reconstructed H_N=⊕_{k=0}^N D_k, dim=(N+1)(N+2)/2. P_N M_{az+bw} maps D_k to D_{k+1} for k<N and kills D_N; the (k+2)x(k+1) full-column-rank bidiagonal block has Gram diagonal A²+B² and off-diagonal a* conjugate(b), unitarily gauged to AB. The sine eigenvectors yield s_{j,r}²=A²+B²+2AB cos(pi r/j), 2<=j<=N+1, 1<=r<j, strictly positive even if A=0 or B=0. Therefore N(N+1)/2 positive singulars and N+1 zero ones, with exact extreme values. For A!=B the bounded Riemann sum gives Q/N²->(1/(2pi)) integral_0^pi f(theta)^(-p/2)dtheta for all p>0 including a zero coefficient. When A=B=c>0, t=j-r yields 2c sin(pi t/(2j)); endpoint integrability for p<1, harmonic sums for p=1, t^-p dominated convergence for p>1 give each stated constant. Summing cosecant² gives exact Q_N,2=N(N+1)(2N+7)/(36c²). In the near-balance a_N=c+tau/(2N), b_N=c-tau/(2N), fixed p>1, s²=(tau/N)²+4A_NB_N sin²(pi t/(2j)); after multiplying by N² the pointwise limit is tau²+(pi ct/u)² at j/N->u. Uniform t^-p(j/N)^p majorant validates both limit exchanges including u=0; the coth summation for p=2 is correct. Independently built full compressed matrices and checked 40 complex-parameter/N cases; the maximum singular-value discrepancy was 8.9e-16. Symbolic exact p=2 finite trace identity verified; direct balanced ratios and p=2 critical-window ratios converge numerically. These tests corroborate but are not proofs of asymptotics.",
+      "residual_risks": [
+        "The infinite estimates rely on analytic dominated-convergence and endpoint-sum arguments; no machine-checked formal proof is claimed.",
+        "Numerical p<1 ratios at N<=1400 are still 0.95 due slow endpoint convergence, consistent with the analytic limit and not proof from extrapolation.",
+        "Fixed p and tau are required in the window; no uniformity over p or N-dependent tau was established."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rinkel 2013 public abstract considers inverses of compressed positive bounded triangular Toeplitz symbols; original full text unavailable",
+          "Widom 1989 published abstract specifies singular-value distribution and limiting set for one-dimensional Toeplitz matrices",
+          "Heinig-Hellinger 1994 abstract states convergence of Moore-Penrose inverses of block Toeplitz finite sections"
+        ],
+        "reasoning": "Rinkel-Seghier studies the inverse of a positive Toeplitz compression, whereas T_N is a rank-deficient compression of analytic multiplication and its balanced square symbol has zeros; the available general statements do not establish a double-scaled Moore-Penrose trace at the singular boundary. Widom and Heinig-Hellinger provide broad principles but no accessed theorem with matching hypotheses and conclusion. Inaccessibility of full papers remains explicitly unresolved bibliographically, not scientifically decisive.",
+        "searches": [
+          "web: Rinkel Seghier Matrices de Toeplitz tronquées sur des polygones convexes cas du triangle 2013 pdf arxiv",
+          "web: Widom 1989 On the Singular Values of Toeplitz Matrices full text pdf",
+          "web: The finite section method for Moore-Penrose inversion of Toeplitz operators",
+          "arXiv:1302.6106v1 (Rinkel and Seghier, Matrices de Toeplitz tronquées sur des polygones convexes, 2013)",
+          "DOI:10.4171/ZAA/350 (Widom, On the Singular Values of Toeplitz Matrices, 1989)",
+          "DOI:10.1007/BF01299842 (Heinig and Hellinger, The finite section method for Moore-Penrose inversion of Toeplitz operators, 1994)"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1302.6106v1 (Rinkel and Seghier, Matrices de Toeplitz tronquées sur des polygones convexes, 2013)",
+        "DOI:10.4171/ZAA/350 (Widom, On the Singular Values of Toeplitz Matrices, 1989)",
+        "DOI:10.1007/BF01299842 (Heinig and Hellinger, The finite section method for Moore-Penrose inversion of Toeplitz operators, 1994)",
+        "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)",
+        "Numdam BJHTUP11_2001__0608__P0_0 (Rinkel, Inverses et propriétés spectrales des matrices de Toeplitz à symbole singulier, 2001)",
+        "Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf",
+        "Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec",
+        "Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71",
+        "Böttcher and Grudsky, Spectral Properties of Banded Toeplitz Matrices (2005), chapter 9 SIAM excerpt, one-dimensional banded Toeplitz singular value distribution",
+        "Independent Git tree RESULT.md at assigned blob b3dabc9fcce99c778ab4c6e6be0dca5edbd62692 as claim, not prior"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The candidate proves Q_{N,p}~const*N^2 (p<1), N^2 log N/(2 pi c) (p=1), zeta(p)N^(p+1)/(pi^p(p+1)c^p) (p>1) and explicit Phi_{p,c}(tau) at |a|-|b|=tau/N",
+          "Published Resultary sources: Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf; Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec; Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71",
+          "Classical path-graph sine eigenpairs and coth partial fraction identity are acknowledged as known methods"
+        ],
+        "reasoning": "A general theorem giving only individual eigenvalues or limiting bulk spectral distributions is not by itself a statement of the divergent inverse moments or their N^-1 changing-symbol crossover. The evaluated double sum and uniform t^-p control are additional mathematics. Yet a specialized older edge/Fisher-Hartwig or singular Toeplitz trace theorem might imply the formulas after reduction, so priority is explicitly qualified and should be revisited.",
+        "searches": [
+          "arXiv:1302.6106v1 (Rinkel and Seghier, Matrices de Toeplitz tronquées sur des polygones convexes, 2013)",
+          "DOI:10.4171/ZAA/350 (Widom, On the Singular Values of Toeplitz Matrices, 1989)",
+          "DOI:10.1007/BF01299842 (Heinig and Hellinger, The finite section method for Moore-Penrose inversion of Toeplitz operators, 1994)",
+          "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)",
+          "Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf",
+          "Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec",
+          "Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71",
+          "web: Toeplitz tridiagonal inverse Schatten zeta p=1 critical eigenvalues quadratic form scaling mass coth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Each Gram block is exactly (A^2+B^2)I+AB adjacency(path_{k+1}); Dirichlet sine eigenpairs are standard",
+          "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)",
+          "Full published weighted Fock comparison Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71"
+        ],
+        "reasoning": "The exact block eigenvalues are equivalent to the tridiagonal Toeplitz path spectrum; this portion is classical as a matrix result. In unweighted bidisk H2, collecting ALL homogeneous degrees gives the multiset and its pseudoinverse inverse moments. The nonradial symmetric-Fock transfer law has distinct weights and does not imply the same inverse moment window.",
+        "searches": [
+          "Resultary: Hardy bidisk total degree truncations multiplication by az+bw singular values inverse Schatten trace critical crossover Moore Penrose",
+          "Resultary: triangular Toeplitz matrices tridiagonal Gram eigenvalues inverse trace balanced coefficients z plus w",
+          "web: finite section z+w Hardy space singular value cosine spectrum triangular",
+          "web: finite sections on Hardy polydisk z+w singular values orthogonal homogeneous shifts triangular Fourier section",
+          "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf",
+          "Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec",
+          "Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71"
+        ],
+        "reasoning": "The three genuinely read published RESULT.md texts give, respectively, a staircase effective resistance E_n~2/n for (1-z)(1-w), a restricted one-generator Dirichlet approximation threshold beta=(s+1)/2, and a binomially weighted Fock shift transfer spectrum. None contains a table for the standard unweighted Hardy-bidisk T_N(a,b) or its Q_{N,p} pseudoinverse traces. Failed index matches alone cannot prove historical novelty.",
+        "searches": [
+          "Resultary: Hardy bidisk total degree truncations multiplication by az+bw singular values inverse Schatten trace critical crossover Moore Penrose",
+          "Resultary: triangular Toeplitz matrices tridiagonal Gram eigenvalues inverse trace balanced coefficients z plus w",
+          "Resultary: Schatten norm pseudoinverse truncated multivariable weighted shift linear polynomial triangular finite sections",
+          "full GitHub published Resultary RESULT.md for three closest indexed findings"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives the actual implication comparison: exact path-graph/tridiagonal eigenpairs are classical and not claimed new. The independently evaluated combined total-degree positive spectral multiset, p=1 inverse-Schatten threshold and especially the fixed-p>1 N^-1 coefficient-imbalance limit Phi_{p,c}(tau) are not supplied by the inspected closest published results. The indexed published Resultary findings were read in full and concern other polynomial multipliers, approximation objectives, or different weighted lattice shifts. Closest historical Toeplitz full texts were not accessible; this is a qualified priority risk, not evidence of coverage or grounds for automatic failure.",
+      "residual_risks": [
+        "Full primary text of Rinkel-Seghier 2013 could not be inspected: arXiv and OA mirrors inaccessible; Oxford returned vpn_disconnected. Do not claim whole-document noncoverage.",
+        "The 2001 Rinkel thesis on singular Toeplitz symbols was only identifiable through metadata/bibliography, not body.",
+        "Widom 1989 and Heinig-Hellinger 1994 full articles were not available, so their complete theorem statements were not ruled out.",
+        "A specialized historical Fisher-Hartwig/Toeplitz edge or pseudoinverse formula might imply the double-scaling result through a nontrivial reduction.",
+        "Published-index relevance is based on actual full text for three nearest entries, but cannot establish global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different polynomial (1-z)(1-w) and objective best polynomial approximation error, not the singular spectrum or pseudoinverse inverse-Schatten moments of az+bw",
+          "evidence": [
+            "E_n=min_{p in P_n}||1-(1-z)(1-w)p||^2 ~2/n; exact staircase network effective resistance; no singular spectrum theorem"
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf",
+          "material_read": "Entire published RESULT.md including exact resistance formula, proof, scope, and references",
+          "method": "Actual GitHub published full-text blob retrieved at main",
+          "title": "Sharp total-degree Hardy approximation at a bidisk normal crossing",
+          "trigger": "Same Hardy bidisk and total-degree truncation"
+        },
+        {
+          "assessment": "The result minimizes ||1-(1-t)P(t)|| in radial weighted spaces and distinguishes restricted multipliers; it has no corresponding Moore–Penrose inverse or finite spectral trace statement.",
+          "evidence": [
+            "E_N^2 is reciprocal sum of inverse multinomial norms; support-size threshold beta=(s+1)/2; objective is a scalar approximation cost"
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec",
+          "material_read": "Entire published RESULT.md including exact weighted approximation formula and full proof",
+          "method": "Actual GitHub published full-text blob retrieved at main",
+          "title": "Exact one-generator approximation threshold in radial Dirichlet polydisk spaces",
+          "trigger": "Same linear form z+w and total-degree grading"
+        },
+        {
+          "assessment": "The nonradial binomial norm changes block coefficients to symmetric-Fock annihilation weights; its exact singular values differ from the constant-bidiagonal path spectra of standard unweighted H2(D2).",
+          "evidence": [
+            "Weights mu_{i,j}=omega_{i+j}sqrt(binomial(i+j,i)); sigma_s(q,n)=|omega_q/omega_{q+n}|2^(n/2)sqrt(q!(n+s)!/((q+n)!s!))"
+          ],
+          "identifier_or_url": "Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71",
+          "material_read": "Entire published RESULT.md including weighted-space definition, Hadamard Fock rotation and exact transfer singular values",
+          "method": "Actual GitHub published full-text blob retrieved at main",
+          "title": "Exact symmetric-Fock decomposition of a binomially weighted lattice backward shift",
+          "trigger": "Two-variable graded shift with exact singular spectra"
+        },
+        {
+          "assessment": "Abstract describes inverses of positive bounded triangular Toeplitz symbols and their trace asymptotics; cannot certify the whole paper excludes an implicit formula for this singular pseudoinverse problem.",
+          "evidence": [
+            "arXiv public abstract explicitly considers positive bounded semi-continuous f and the inverse of a truncated Toeplitz operator; current T_N(a,b) is rank-deficient compressed analytic multiplication",
+            "Oxford institutional retrieval reported vpn_disconnected (access risk, not scientific failure)"
+          ],
+          "identifier_or_url": "arXiv:1302.6106v1 (Rinkel and Seghier, Matrices de Toeplitz tronquées sur des polygones convexes, 2013)",
+          "material_read": "Original arXiv abstract and summary only; complete primary text not accessible",
+          "method": "arxiv.org/abs/1302.6106 accessed; arxiv.org/pdf/1302.6106 and arxiv.org/html/1302.6106 unavailable; ar5iv and arxiv-vanity OA mirrors unavailable; institutional Oxford returned vpn_disconnected",
+          "title": "Matrices de Toeplitz tronquées sur des polygones convexes. Cas du triangle",
+          "trigger": "Closest title and identical triangular Fourier region plus inverse trace"
+        },
+        {
+          "assessment": "The abstract concerns second-order singular-value distribution and limit sets for one-parameter Toeplitz matrices under hypotheses. The available statement does not supply this triangular direct-sum positive spectrum or near-critical changing-parameter inverse trace. Cannot rule out a hidden stronger theorem in the full text.",
+          "evidence": [
+            "Published June 30, 1989, Z. Anal. Anwend. 8, 221-229; abstract describes second-order Szegő-type distribution, not pseudoinverse-trace critical scaling"
+          ],
+          "identifier_or_url": "DOI:10.4171/ZAA/350 (Widom, On the Singular Values of Toeplitz Matrices, 1989)",
+          "material_read": "EMS published abstract, bibliographic record and stated scope only; complete text not read",
+          "method": "Read EMS abstract indexed via DOI; publisher full-text endpoint inaccessible",
+          "title": "On the Singular Values of Toeplitz Matrices",
+          "trigger": "Broad singular-value distribution may dominate asymptotics"
+        },
+        {
+          "assessment": "Abstract states convergence of Moore–Penrose inverses of certain infinite one-dimensional block Toeplitz finite sections; neither an explicit singular spectrum nor the triangular N-dependent crossover is given by the available statement.",
+          "evidence": [
+            "Integral Equations and Operator Theory 19(4), 419-446 (1994), DOI 10.1007/BF01299842"
+          ],
+          "identifier_or_url": "DOI:10.1007/BF01299842 (Heinig and Hellinger, The finite section method for Moore-Penrose inversion of Toeplitz operators, 1994)",
+          "material_read": "University repository journal abstract and metadata only; complete article not read",
+          "method": "Read publisher-linked research repository abstract",
+          "title": "The finite section method for Moore-Penrose inversion of Toeplitz operators",
+          "trigger": "Potential general prior coverage of pseudoinverse finite sections"
+        },
+        {
+          "assessment": "Explicit tridiagonal eigenpairs are a prior general technique and cover the elementary Gram eigenspectrum after reduction, but the abstract supplies no double-sum inverse-moment critical-window asymptotic.",
+          "evidence": [
+            "Public January 23, 2026 arXiv:2601.17200; symmetric Toeplitz similarity, Chebyshev determinant, eigenpairs and inverse kernel"
+          ],
+          "identifier_or_url": "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)",
+          "material_read": "Public arXiv abstract only",
+          "method": "Read arXiv indexed abstract",
+          "title": "Diagonal symmetrisation of tridiagonal Toeplitz matrices",
+          "trigger": "Classical exact tridiagonal eigenpairs may subsume the Gram diagonalization"
+        },
+        {
+          "assessment": "Cannot assess whole-document coverage: a plausible and material historical source requiring future full-text inspection.",
+          "evidence": [
+            "Université de Paris-Sud thesis, 2001, 98 pages; the title explicitly refers to singular symbols"
+          ],
+          "identifier_or_url": "Numdam BJHTUP11_2001__0608__P0_0 (Rinkel, Inverses et propriétés spectrales des matrices de Toeplitz à symbole singulier, 2001)",
+          "material_read": "Numdam bibliographic entry and bibliography only, no thesis body",
+          "method": "Read Numdam HTML metadata and source references",
+          "title": "Inverses et propriétés spectrales des matrices de Toeplitz à symbole singulier",
+          "trigger": "Specialized same-author thesis on singular Toeplitz inverses potentially relevant to balanced singular symbol"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full frozen RESULT.md and proof",
+        "Independent numerical and exact symbolic checks",
+        "Published Hardy approximation and weighted lattice shift results used to establish the natural mathematical context: Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf; Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec; Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71"
+      ],
+      "rationale": "The total-degree finite section of a bidisk Hardy linear multiplier is a natural graded Toeplitz compression with a rank-deficient Moore-Penrose inverse. Its conditioning changes sharply at equal coefficient moduli. Determining the full spectral multiset, exact inverse-square finite trace, three distinct inverse-moment growth laws, and a nontrivial mass-dependent critical-window function quantifies a mathematically motivated transition at natural scale N^-1; this is useful for benchmark inverse regularization of graded multivariable shifts. The crossover is not a gratuitous finite numeric statistic or merely a renamed tridiagonal eigenvalue identity. Value remains narrow: only linear symbols and this cutoff, no general polygon or higher-dimensional theorem asserted.",
+      "residual_risks": [
+        "Significance is specific to the unweighted total-degree Hardy bidisk model; no broader Toeplitz theorem or computational regularization algorithm is established.",
+        "Some component methods (sine diagonalization, harmonic/coth summation) are elementary; value rests on the naturally motivated complete inverse-moment classification including the N^-1 crossover."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md Git blob b3dabc9fcce99c778ab4c6e6be0dca5edbd62692 (entire proof, definitions, limits and boundary cases)",
+    "Frozen checker.py blob 3f2f52a285ae4bb6d06d9eaebcbe119c6cfc9976 inspected as evidence, not executed",
+    "Independent independent_schatten_checks.py and independent_schatten_results.json: 40 direct full-matrix SVD cases, SymPy finite exact p2, 15 balanced asymptotic ratios, 9 p2 window ratios",
+    "arXiv:1302.6106v1 (Rinkel and Seghier, Matrices de Toeplitz tronquées sur des polygones convexes, 2013)",
+    "DOI:10.4171/ZAA/350 (Widom, On the Singular Values of Toeplitz Matrices, 1989)",
+    "DOI:10.1007/BF01299842 (Heinig and Hellinger, The finite section method for Moore-Penrose inversion of Toeplitz operators, 1994)",
+    "arXiv:2601.17200 (Verwee, Diagonal symmetrisation of tridiagonal Toeplitz matrices, 2026)",
+    "Numdam BJHTUP11_2001__0608__P0_0 (Rinkel, Inverses et propriétés spectrales des matrices de Toeplitz à symbole singulier, 2001)",
+    "Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf",
+    "Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec",
+    "Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71",
+    "Böttcher and Grudsky, Spectral Properties of Banded Toeplitz Matrices (2005), chapter 9 SIAM excerpt, one-dimensional banded Toeplitz singular value distribution",
+    "Independent Git tree RESULT.md at assigned blob b3dabc9fcce99c778ab4c6e6be0dca5edbd62692 as claim, not prior",
+    "Full frozen RESULT.md and proof",
+    "Independent numerical and exact symbolic checks",
+    "Published Hardy approximation and weighted lattice shift results used to establish the natural mathematical context: Resultary/2026, 2026/10/11/SCOPE-sharp-total-degree-hardy-approximation-at-a-bidisk-normal-crossi--4dcc345602d4/RESULT.md, Git blob fb3509d39fcfe795f16cb6b9fd99895e1674bbaf; Resultary/2026, 2026/10/11/SCOPE-exact-one-generator-approximation-threshold-in-radial-dirichlet--a92045109063/RESULT.md, Git blob 97838ae01531f59fe6a1ef020df6003fafa3d1ec; Resultary/2026, 2026/10/11/SCOPE-exact-symmetric-fock-decomposition-of-a-binomially-weighted-latt--2ec674b1e526/RESULT.md, Git blob 9732b7c00d6df32af3786293638b0c9603748c71"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only one record assigned; no other record reviewed.",
+    "Institutional access returned vpn_disconnected for the same-paper 2013 arXiv paper after public/OA full-text failures; no human-auth bypass.",
+    "Publication not ready due unsanitized private provenance in original METADATA.json and AUDIT.json and absent fully materialized, hashed replacement bytes; this is transport/privacy, not science."
+  ],
+  "residual_risks": [
+    "The infinite estimates rely on analytic dominated-convergence and endpoint-sum arguments; no machine-checked formal proof is claimed.",
+    "Numerical p<1 ratios at N<=1400 are still 0.95 due slow endpoint convergence, consistent with the analytic limit and not proof from extrapolation.",
+    "Fixed p and tau are required in the window; no uniformity over p or N-dependent tau was established.",
+    "Full primary text of Rinkel-Seghier 2013 could not be inspected: arXiv and OA mirrors inaccessible; Oxford returned vpn_disconnected. Do not claim whole-document noncoverage.",
+    "The 2001 Rinkel thesis on singular Toeplitz symbols was only identifiable through metadata/bibliography, not body.",
+    "Widom 1989 and Heinig-Hellinger 1994 full articles were not available, so their complete theorem statements were not ruled out.",
+    "A specialized historical Fisher-Hartwig/Toeplitz edge or pseudoinverse formula might imply the double-scaling result through a nontrivial reduction.",
+    "Published-index relevance is based on actual full text for three nearest entries, but cannot establish global novelty.",
+    "Significance is specific to the unweighted total-degree Hardy bidisk model; no broader Toeplitz theorem or computational regularization algorithm is established.",
+    "Some component methods (sine diagonalization, harmonic/coth summation) are elementary; value rests on the naturally motivated complete inverse-moment classification including the N^-1 crossover."
+  ],
+  "schema_version": 1
+}
