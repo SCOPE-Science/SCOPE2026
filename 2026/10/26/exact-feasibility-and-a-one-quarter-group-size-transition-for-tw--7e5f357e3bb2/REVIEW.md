@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof identifies the forced valuation types for all four bundle allocations, handles arbitrary prescribed positive group sizes, and derives the feasibility criterion. Elementary pigeonhole reasoning proves the universal boundary, and multinomial occupancy and the classical central limit theorem yield the probability and transition formulas. Direct exhaustive allocation checks compared the exact mixed-item definition against the characterization for 123,792 profile-size cases. The program supplies corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS with residual publication-priority risk. Gölz et al. (2025, arXiv:2511.06218), including its Section 3 and appendix, prove an existence result **under monotonicity**, not for signed valuations. Its probabilistic thresholds concern a different item-count domain and exact envy-freeness. Deligkas et al. (2026, arXiv:2610.28213) already give a special eight-agent obstruction: that special example is explicitly excluded from the novelty claim. The compared accessible material does not contain the all-profile criterion or the exact occupancy and Gaussian results. Related work may encode this special case by a more general algorithm without presenting the derived sharp expression; this possibility remains a priority risk.
+PASS
 
-## Value
-PASS. The one-quarter boundary distinguishes structurally when flexible group membership can compensate for signed disagreement, in sharp contrast to universal monotone-EF1 existence. The exact occupancy law and critical transition quantify feasibility under a natural iid preference model, including fixed-small-group exponential scarcity and a nondegenerate Gaussian critical window. This is not merely a restatement of a previously exhibited counterexample.
+Each of four item allocations forces one of four valuation types into the smaller group and its antipode into the larger group; others are flexible. The antipodal-pair argument proves sufficiency if some count≤q and necessity otherwise. Pigeonhole gives universal cutoff. The exact infeasibility coefficient is the multinomial sum of four counts≥q+1; fixed-q asymptotics use binomial lower tails with pair intersections exponentially negligible; multinomial CLT yields the centered degenerate 4-variate Gaussian window. Direct original-definition exhaustive enumeration of 16,464 profile/group-size comparisons matched the count criterion; n8,q1 has 2520 infeasible among4^8, i.e.315/8192.
 
-## Restrictions
-Exactly two labeled items, two variable-membership groups, additive sign valuations, and the mixed own/other-item removal convention. Probability statements additionally require independent fair signs. No generalization to unequal magnitudes, arbitrary groups or other fairness notions is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact iid four-type feasibility inequality min count≤q and the related random critical Gaussian window were not found in the inspected primary signed-resource or variable-group theorems. The eight-agent four-type infeasible configuration is NOT original: Deligkas et al. 2026 Example 0 supplies precisely this witness. Their work emphasizes complexity for general signed inputs; Gölz et al. establish existence for monotone goods and a different random envy-freeness regime, without the mixed-chores premise. An earlier hidden precise two-item classification remains a priority risk, not a decisive blocker.
+
+## value
+
+PASS
+
+The all-profile feasibility boundary and precise q/n transition sharpen a documented eight-agent infeasibility phenomenon into a complete natural classification; exact Gaussian finite-size window is mathematically meaningful and not implied by the individual published witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

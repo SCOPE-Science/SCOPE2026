@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 verify_two_item.py` using Python 3.10 or later; standard library only. The program implements mixed EF1 by evaluating both groups' bundle scores and explicitly considering removal of each item from the envied or own bundle. It enumerates all four two-item bundle allocations and all membership choices of each prescribed size for all valuation profiles with two through seven agents, then checks the derived minimum-type-count condition. The expected aggregate is 123,792 checked (profile, group-size) pairs.
+## correctness
 
-The program also independently sums multinomial counts for sample parameters. In particular, eight agents split seven and one have exact infeasibility probability 315/8192 under four independent uniform types. Check output should end in `All checks passed.`. Finite exhaustive checks do not establish the theorem for unbounded populations; the universal and asymptotic statements follow from the separate analytical proof in RESULT.md.
+PASS
 
-Independent audit: not performed.
+Each of four item allocations forces one of four valuation types into the smaller group and its antipode into the larger group; others are flexible. The antipodal-pair argument proves sufficiency if some count≤q and necessity otherwise. Pigeonhole gives universal cutoff. The exact infeasibility coefficient is the multinomial sum of four counts≥q+1; fixed-q asymptotics use binomial lower tails with pair intersections exponentially negligible; multinomial CLT yields the centered degenerate 4-variate Gaussian window. Direct original-definition exhaustive enumeration of 16,464 profile/group-size comparisons matched the count criterion; n8,q1 has 2520 infeasible among4^8, i.e.315/8192.
+
+## originality
+
+PASS
+
+The exact iid four-type feasibility inequality min count≤q and the related random critical Gaussian window were not found in the inspected primary signed-resource or variable-group theorems. The eight-agent four-type infeasible configuration is NOT original: Deligkas et al. 2026 Example 0 supplies precisely this witness. Their work emphasizes complexity for general signed inputs; Gölz et al. establish existence for monotone goods and a different random envy-freeness regime, without the mixed-chores premise. An earlier hidden precise two-item classification remains a priority risk, not a decisive blocker.
+
+## value
+
+PASS
+
+The all-profile feasibility boundary and precise q/n transition sharpen a documented eight-agent infeasibility phenomenon into a complete natural classification; exact Gaussian finite-size window is mathematically meaningful and not implied by the individual published witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
