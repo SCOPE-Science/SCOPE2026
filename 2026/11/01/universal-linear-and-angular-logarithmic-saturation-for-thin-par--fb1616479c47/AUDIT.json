@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "For every fixed angle in (0,pi), the area-uniform law is the shear-parametrized product of uniforms, and the perimeter-uniform law is exactly the length-weighted mixture of long/short edges. The triangular difference kernel has an explicit primitive and a rigorously bounded second derivative with error O((abs(a)+b)^3). The exact interior second logarithmic moment is 7/72; the long-long, short-short and cross-edge expectations determine the boundary expansion, including a controlled O(ell^3 log(1/ell)) remainder. Independent quadrature and direct sampling reproduce coefficients and normalization; finite tests are not a substitute for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Shen arXiv:2608.06470, main theorem: planar convex-domain mean-distance inequality; proof and Section 5 demonstrate sharpness but do not quantify its rate.",
+        "Kukushkin arXiv:2608.14833, general convex body inequality: likewise no universal fixed-angle degeneration expansion.",
+        "Sheng 1985 and Agaronyan 2012 concern distance calculations for planar regions, in particular interior line-picking, which do not supply arclength-boundary pair statistics."
+      ],
+      "reasoning": "The global inequality alone gives strict positivity for each nondegenerate shape, not an asymptotic expansion as one side shrinks. Exact interior-distance expressions alone cannot imply the complete boundary-minus-interior gap. The present theorem neither reproves nor claims the general global inequality.",
+      "searches": [
+        "arXiv:2608.06470",
+        "arXiv:2608.14833",
+        "Sheng 1985 Advances in Applied Probability 17"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.06470 (full accessible HTML)",
+      "arXiv:2608.14833 (full accessible HTML)",
+      "arXiv:2608.14848 (partially inspected accessible HTML)",
+      "Sheng 1985 bibliographic source",
+      "Agaronyan 2012 bibliographic source"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In Shen arXiv:2608.06470, the thin-rectangle example establishes arbitrarily small relative gap without first or second asymptotic coefficients.",
+        "Kukushkin arXiv:2608.14833 supplies a broader inequality but the asserted angle-sensitive second-order law does not follow from its statement.",
+        "Lotnikov arXiv:2608.14848 studies a different global comparison, without an identified exact first-moment degeneration coefficient."
+      ],
+      "reasoning": "The prior general theorem is stronger in allowed convex bodies but weaker in precision and provides no formula or bound forcing the coefficients of the gap. The classical integral for interior distance is at best one of two necessary ingredients and does not cover perimeter-normalized cross-edge interactions. Distinguish first, second and fourth moments: coefficients of the latter do not determine the first moment.",
+      "searches": [
+        "Shen arXiv:2608.06470 section 5 thin rectangle limit",
+        "Kukushkin arXiv:2608.14833 nonuniform gap construction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Shen arXiv:2608.06470, Section 5, gives a thin-rectangle saturation mechanism, not a three-term fixed-angle expansion.",
+        "Kukushkin arXiv:2608.14833, Section 2, gives a limiting construction; the joint first-moment expansion is absent from the inspected section."
+      ],
+      "reasoning": "Replacing the gap by the ratio M_boundary/M_interior-1 is equivalent at leading and logarithmic orders because M_interior tends to 1/3. Direct searches for both ratio and difference terminology, thin strips, rectangles, parallelograms, Euclidean pair distances, and logarithmic rates found no exact equivalent claim. The known limit ratio 1 is strictly weaker: it does not specify either the linear or logarithmic coefficient.",
+      "searches": [
+        "arXiv:2608.06470",
+        "arXiv:2608.14833"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Classical rectangle and parallelogram line-picking integral tables concern the interior mean, not the coupled boundary-interior difference.",
+        "Known squared-distance and fourth-moment comparisons for triangles/parallelograms address different powers of distance."
+      ],
+      "reasoning": "A first-moment boundary-minus-interior three-term asymptotic is not an exact value at a single parameter or a tabulated fourth moment. The new coefficients were derived from separately normalized boundary and interior samplers, including cross-edge interactions and near-diagonal logarithmic effects.",
+      "searches": [
+        "Sheng 1985 Advances in Applied Probability 17",
+        "Agaronyan 2012 Proceedings of YSU A 46"
+      ]
+    },
+    "rationale": "The newly asserted claim is the fixed-angle three-term asymptotic of the first-distance-moment boundary minus interior gap, including the universal linear coefficient 1/3 and the angle-sensitive squared-length logarithmic coefficient. The nearest 2026 works prove the qualitative inequality and show its thin-rectangle limiting sharpness but do not state an angle-dependent quantitative three-term law. Earlier distance formulas and other moment comparisons do not by themselves imply this boundary-minus-interior asymptotic; definitive historical priority remains provisional.",
+    "residual_risks": [
+      "Older unindexed literature could contain an equivalent perimeter-sampled thin-parallelogram first-moment asymptotic.",
+      "The full texts of Sheng (1985) and Agaronyan (2012) were not accessed in this review; their interior-only focus does not prove noncoverage of all related formulas.",
+      "The theorem has not undergone independent peer or mathematical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Supports motivating inequality and qualitative thin-rectangle sharpness; no identical three-term fixed-angle law located.",
+        "evidence": "Main planar inequality; Section 5 degeneration to the thin rectangle.",
+        "identifier_or_url": "https://arxiv.org/html/2608.06470",
+        "material_read": "HTML full article, introduction, central theorems, and thin-rectangle argument in Section 5",
+        "method": "Primary full-text inspection against exact difference and ratio claims and limiting constructions",
+        "title": "The Zaporozhets–Tarasov Conjecture on Mean Distances",
+        "trigger": "First verified public mathematical source and closest theorem"
+      },
+      {
+        "assessment": "Global theorem and thin-rectangle limiting idea, not the proposed angle-sensitive rate.",
+        "evidence": "General convex-domain result and discussion of thin rectangles.",
+        "identifier_or_url": "https://arxiv.org/html/2608.14833",
+        "material_read": "Accessible HTML article, main statements, Section 2, Remark 1, and Section 6",
+        "method": "Inspect assumptions and quantitative sharpness claims",
+        "title": "The Zaporozhets–Tarasov Inequality for an Arbitrary Planar Convex Body",
+        "trigger": "Independent close contemporaneous proof of planar inequality"
+      },
+      {
+        "assessment": "No quantitative fixed-angle thin-parallelogram expansion found in inspected material; uninspected appendices remain residual risk.",
+        "evidence": "Statements concern general mean-distance comparison and convexity.",
+        "identifier_or_url": "https://arxiv.org/html/2608.14848",
+        "material_read": "Accessible abstract, introduction, and stated results for centrally symmetric bodies",
+        "method": "Inspect theorem statements and example discussion",
+        "title": "Mean distance between points inside and on the boundary of a convex body",
+        "trigger": "Same underlying two sampling measures and geometric body class"
+      },
+      {
+        "assessment": "Potentially contains overlapping interior component; cannot exclude a hidden full gap asymptotic by summary alone.",
+        "evidence": "Classical mean distances between interior uniform points.",
+        "identifier_or_url": "Sheng, Advances in Applied Probability 17 (1985), 748–773",
+        "material_read": "Bibliographic record and available summary of plane-region distance computations, not complete article",
+        "method": "Metadata/abstract comparison with interior and boundary pair distributions",
+        "title": "The distance between two random points in plane regions",
+        "trigger": "Classical line-picking formulas might contain dominating interior computations"
+      },
+      {
+        "assessment": "May encode a part of the integral calculation; priority of complete gap remains a residual bibliographic risk.",
+        "evidence": "Mean distance formulas for points in planar domains.",
+        "identifier_or_url": "Agaronyan, Proceedings of Yerevan State University A 46 (2012), 3–8",
+        "material_read": "Accessible bibliographic record and short source description, not complete publication",
+        "method": "Bibliographic comparison and scope check",
+        "title": "Mean distance between two points in a domain",
+        "trigger": "Possible exact regional distance formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "fb161647-9c47-42e2-92da-0585d57ce5c2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Recent sharp planar mean-distance comparison has no shape-independent multiplicative gap: thin rectangles approach equality. Quantifying this canonical degeneracy has direct mathematical motivation. This result supplies its universal sharp first-order gap for every fixed-angle parallelogram, a positive angle-sensitive logarithmic next order, and the full finite coefficient; it also identifies angular geometry from the near-equality profile. These are meaningful endpoint data not implied by qualitative strictness.",
+    "status": "PASS"
+  }
+}
