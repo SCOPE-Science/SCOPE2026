@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:55:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/rainbow-square-and-rainbow-diamond-edge-colorings-of-wheels-exac--413440a40139/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/rainbow-square-and-rainbow-diamond-edge-colorings-of-wheels-exac--413440a40139/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261030T0543/independent_math_checks.py"
+      ],
+      "rationale": "For W_n=K_1 vee C_n, n>=5, each C4 consists of the hub and three consecutive rim vertices and is contained in exactly the corresponding five-edge diamond; the extra spoke is already distinct from the other spokes by properness, making B- and D-constraint systems identical. With n hub-spoke colors normalized to i, each rim edge e_i excludes spoke labels i-1,i,i+1,i+2; therefore c(e_i)=i+d_i with d_i in {3,...,n-2}. The only remaining conflicts are adjacent rim edges, equivalent to d_i != d_(i+1)+1 as integer reps. The constant offset 3 gives an n-color solution, matching hub degree. Transfer matrix T_(u,v)=1 unless u=v+1 counts cyclic offset words as tr(T_(n-4)^n); global color-name action is free. At n=3 W3=K4 has all 6 edges pairwise conflicting; n=4 rim C4 adds B rainbow restriction requiring 8 rather than D=6 alternating, one color orbit each. Independent transfer count confirmed n5..8 counts 1,2,367,11966; direct exceptional structures follow from proof and source verifier.",
+      "residual_risks": [
+        "Known W4 D-index follows from a complete multipartite theorem; that special value is not new."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Runze Wang obtains general D-index degree-dependent inequalities, not exact wheel palette counts.",
+          "Gyárfás et al. give planar B-coloring bounds/extended line graph framework; an upper bound by degrees does not imply optimal-coloring census."
+        ],
+        "reasoning": "General bounds and conflict translations may contain the method but do not logically imply n!tr(T^n) without a wheel-specific analysis.",
+        "searches": [
+          "https://arxiv.org/pdf/2606.06831",
+          "https://real.mtak.hu/232155/1/2408.09059v2.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: exact D-chromatic index of complete multipartite graphs",
+        "Resultary: wheel W_n rainbow C4 B edge coloring diamond D coloring optimal colors exact enumeration",
+        "https://arxiv.org/pdf/2606.06831",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be",
+        "https://real.mtak.hu/232155/1/2408.09059v2.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wang 2026 Theorems 1.3–1.4 provide general color upper bounds; no wheel exact optimal trace classification found.",
+          "Complete multipartite exact index theorem implies only the exceptional W4 D=6 within this family."
+        ],
+        "reasoning": "After removing covered W4 special value, the infinite n>=5 equality and transfer-matrix enumeration are not implied by the inspected primary theorems.",
+        "searches": [
+          "https://arxiv.org/pdf/2606.06831",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B-coloring is proper edge coloring with every C4 rainbow; D-coloring with every K4−e subgraph rainbow, even non-induced.",
+          "For wheels Wn>=5 every C4 and diamond share the decisive pair conflicts, a graph-family equivalence proved in the package, not a general equivalence."
+        ],
+        "reasoning": "The local offset rule is a cyclic finite-state coloring / extended conflict-line-graph description, so checked graph-coloring and transfer-matrix aliases as possible prior coverage.",
+        "searches": [
+          "Resultary: wheel W_n rainbow C4 B edge coloring diamond D coloring optimal colors exact enumeration",
+          "https://arxiv.org/pdf/2606.06831"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known exact complete multipartite D-index formula gives D(W4)=6 since W4 is K1,2,2.",
+          "For n>=5 Wn is not complete multipartite in general, and the old result gives neither B-index nor optimum-coloring counts."
+        ],
+        "reasoning": "The W4 D entry is covered, explicitly acknowledged. No full wheel-family all-optima table was found in examined records; this is only a bounded database comparison.",
+        "searches": [
+          "Resultary: exact D-chromatic index of complete multipartite graphs",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be",
+          "Resultary: wheel W_n rainbow C4 B edge coloring diamond D coloring optimal colors exact enumeration"
+        ]
+      },
+      "rationale": "The n>=5 coincidence of two rainbow subgraph notions, precise cyclic offset characterization and optimum-coloring trace enumeration remain after excluding the previously implied D(W4)=6. Wang and planar B sources give broader inequalities but not the exact statement. Best-of-knowledge PASS with specialized equivalent-conflict-coloring risk.",
+      "residual_risks": [
+        "Specialized wheel-coloring literature or extended-line-graph equivalences may have independently computed the same local offset transfer spectrum.",
+        "General D-coloring complete-multipartite result already gives W4 special case."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NO_WHEEL_CENSUS_IN_INSPECTED_THEOREMS",
+          "evidence": "General D index inequalities do not imply the n-color wheel classification or exact optimum trace count.",
+          "identifier_or_url": "https://arxiv.org/pdf/2606.06831",
+          "material_read": "16-page 2026 arXiv PDF; definitions, principal theorems 1.3/1.4, degree bounds, proof arguments and graph families; wheel term checked; page image inspected",
+          "method": "full primary PDF relevant theorem/sections",
+          "title": "Proper Edge Coloring with Rainbow Diamonds",
+          "trigger": "primary definition and potential exact graph-class theorem"
+        },
+        {
+          "assessment": "BROAD_BOUNDS_ONLY",
+          "evidence": "Planar B bounds do not supply exact n-color wheel orbit census.",
+          "identifier_or_url": "https://real.mtak.hu/232155/1/2408.09059v2.pdf",
+          "material_read": "Primary 2024 arXiv paper abstract and relevant planar lower/upper bounds / extended line-graph characterization",
+          "method": "primary text original result sections compared",
+          "title": "Proper edge colorings of planar graphs with rainbow C4-s",
+          "trigger": "published B framework"
+        },
+        {
+          "assessment": "COVERS_EXCEPTION_ONLY",
+          "evidence": "The D-index W4=6 is covered by general multipartite formula; remaining n>=5 Wn are not complete multipartite.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be",
+          "material_read": "Published finding theorem statement and graph isomorphism W4=K1,2,2",
+          "method": "published exact statement comparison",
+          "title": "Exact D-chromatic index of complete multipartite graphs",
+          "trigger": "stronger exact theorem potentially covers wheel cases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/rainbow-square-and-rainbow-diamond-edge-colorings-of-wheels-exac--413440a40139/RESULT.md",
+        "https://arxiv.org/pdf/2606.06831",
+        "https://real.mtak.hu/232155/1/2408.09059v2.pdf",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-d-chromatic-index-of-complete-multipartite-graphs--62c5f10eb8be"
+      ],
+      "rationale": "Wheel graphs form an infinite fundamental planar test family for rainbow subgraph edge-coloring. The result not only sharpens general chromatic-index bounds but classifies all optimal assignments and yields a transfer-matrix census. The isolated n=4 mismatch between rainbow-square and rainbow-diamond constraints is structurally motivated.",
+      "residual_risks": [
+        "The theorem is restricted to precisely the object, parameters and invariant in the stated scope; no stronger family-level claim is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "For wheel W_n, n is rim vertex count, not total order, and proper edge coloring uses exactly optimal palette.",
+    "Diamonds mean non-induced K4−edge subgraphs, including inside K4.",
+    "Known W4 D-index follows from a complete multipartite theorem; that special value is not new."
+  ],
+  "schema_version": 1
+}

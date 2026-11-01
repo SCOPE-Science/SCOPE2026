@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-For \(n\ge5\), enumerating wheel four-cycles and five-edge diamonds gives identical edge-conflict systems; each rim edge is prohibited from exactly four of the hub's distinct spoke colors. The remaining properness restriction is the local offset-word inequality \(d_i\ne d_{i+1}+1\). The constant offset \(3\) gives the upper bound matching the hub-degree lower bound; a trace of a fully specified adjacency matrix counts every optimum. The two exceptional wheels have complete explicit conflict characterizations: \(W_3\cong K_4\), and \(W_4\) has two distinct nonconflicting opposite rim pairs under \(D\) but not \(B\). The independent graph-subgraph verifier tested the finite instances described in `VERIFICATION.md`. The infinite proof is structural; tests are not substituted for it.
+PASS
 
-## Originality: PASS (bounded)
+For W_n=K_1 vee C_n, n>=5, each C4 consists of the hub and three consecutive rim vertices and is contained in exactly the corresponding five-edge diamond; the extra spoke is already distinct from the other spokes by properness, making B- and D-constraint systems identical. With n hub-spoke colors normalized to i, each rim edge e_i excludes spoke labels i-1,i,i+1,i+2; therefore c(e_i)=i+d_i with d_i in {3,...,n-2}. The only remaining conflicts are adjacent rim edges, equivalent to d_i != d_(i+1)+1 as integer reps. The constant offset 3 gives an n-color solution, matching hub degree. Transfer matrix T_(u,v)=1 unless u=v+1 counts cyclic offset words as tr(T_(n-4)^n); global color-name action is free. At n=3 W3=K4 has all 6 edges pairwise conflicting; n=4 rim C4 adds B rainbow restriction requiring 8 rather than D=6 alternating, one color orbit each. Independent transfer count confirmed n5..8 counts 1,2,367,11966; direct exceptional structures follow from proof and source verifier.
 
-The 2026 Wang paper defines rainbow-diamond \(D\)-coloring, and the 2023/2024 and 2026 \(B\)-coloring literature provides graph-class bounds and an extended line-graph translation. These generic results do not supply the sharp wheel-family equality or trace enumeration for every \(n\ge5\). Direct semantic comparisons also covered alternative wheel names, 4-cycle rainbow colorings, diamond-conflict graphs, and complete multipartite specializations. A published result for all complete multipartite graphs *does* imply \(\chi'_D(W_4)=6\) because \(W_4\cong K_{1,2,2}\); this fact is included only to make the wheel case split complete, not independently claimed as new. The accessible full text of the recent planar paper of Vuolo gives only a general upper bound. The publisher-only article of Kong–Wang–Zheng was accessible through its abstract rather than complete proofs; priority risk remains. No result in the accessible comparisons implied both the infinite family and its exact complete optimal-census formula.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-The two rainbow constraints look different in general but coincide on the entire infinite \(n\ge5\) wheel family and disagree sharply on the four-rim wheel. The result does not merely calculate a minimum chromatic index; it determines all optimal colorings up to naming, along with an exact cyclic transfer matrix for their counts and formulas for the exceptional small wheels. The structural characterization and enumerator give concrete reusable benchmark families for rainbow edge-conflict coloring.
+The n>=5 coincidence of two rainbow subgraph notions, precise cyclic offset characterization and optimum-coloring trace enumeration remain after excluding the previously implied D(W4)=6. Wang and planar B sources give broader inequalities but not the exact statement. Best-of-knowledge PASS with specialized equivalent-conflict-coloring risk.
 
-## Limits and nearest literature
+## value
 
-Relevant sources include Wang (2026, arXiv:2606.06831); Gyárfás et al. (2024, arXiv:2408.09059); Vuolo (2026, arXiv:2608.09787); Lu et al. (2026, arXiv:2609.39716); and Kong–Wang–Zheng (2026, doi:10.1002/jgt.70067). The exact \(D\)-index of the complete-multipartite exception is credited. A later independent historical-priority check and mathematical audit may refine this self-review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Wheel graphs form an infinite fundamental planar test family for rainbow subgraph edge-coloring. The result not only sharpens general chromatic-index bounds but classifies all optimal assignments and yields a transfer-matrix census. The isolated n=4 mismatch between rainbow-square and rainbow-diamond constraints is structurally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

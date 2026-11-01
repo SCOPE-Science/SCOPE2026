@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducible mathematical checks
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing the embedded script, using the Python standard library only.
+## correctness
 
-The verifier constructs the wheel edge set directly, enumerates all 4-cycles from vertex permutations, and enumerates all five-edge diamond subgraphs from choices of four vertices. In particular, it checks non-induced diamonds in the four-vertex clique. For every pair of graph edges it decides directly whether equality of their colors is forbidden by incidence or by the complete subgraph collection.
+PASS
 
-Observed completed results:
+For W_n=K_1 vee C_n, n>=5, each C4 consists of the hub and three consecutive rim vertices and is contained in exactly the corresponding five-edge diamond; the extra spoke is already distinct from the other spokes by properness, making B- and D-constraint systems identical. With n hub-spoke colors normalized to i, each rim edge e_i excludes spoke labels i-1,i,i+1,i+2; therefore c(e_i)=i+d_i with d_i in {3,...,n-2}. The only remaining conflicts are adjacent rim edges, equivalent to d_i != d_(i+1)+1 as integer reps. The constant offset 3 gives an n-color solution, matching hub degree. Transfer matrix T_(u,v)=1 unless u=v+1 counts cyclic offset words as tr(T_(n-4)^n); global color-name action is free. At n=3 W3=K4 has all 6 edges pairwise conflicting; n=4 rim C4 adds B rainbow restriction requiring 8 rather than D=6 alternating, one color orbit each. Independent transfer count confirmed n5..8 counts 1,2,367,11966; direct exceptional structures follow from proof and source verifier.
 
-```
-n=5 normalized=1 named=120
-n=6 normalized=2 named=1440
-n=7 normalized=367 named=1849680
-n=8 normalized=11966 named=482469120
-VERIFY_OK B/D direct graph conflicts, finite normalized census, transfer matrix, constructions
-```
+## originality
 
-Tests include the complete 15-pair conflict graph for \(W_3\) under both variants; the 28-pair \(B\) and 26-pair \(D\) conflict graphs for \(W_4\); independent equality of \(B/D\) conflict sets for all rim lengths \(5\) through \(12\); exhaustive canonical rim assignments and matrix traces for rim lengths \(5\) through \(8\); constructive \(n\)-color wheel assignments for rim lengths \(5\) through \(15\); and the alternating two-new-rim-color construction for \(D(W_4)\).
+PASS
 
-The \(n\)-parameter theorem is established by the paper proof: finite computations cannot certify its unbounded quantifier. No independent external mathematical audit has been performed; the independent-audit evidence channel is unpopulated.
+The n>=5 coincidence of two rainbow subgraph notions, precise cyclic offset characterization and optimum-coloring trace enumeration remain after excluding the previously implied D(W4)=6. Wang and planar B sources give broader inequalities but not the exact statement. Best-of-knowledge PASS with specialized equivalent-conflict-coloring risk.
+
+## value
+
+PASS
+
+Wheel graphs form an infinite fundamental planar test family for rainbow subgraph edge-coloring. The result not only sharpens general chromatic-index bounds but classifies all optimal assignments and yields a transfer-matrix census. The isolated n=4 mismatch between rainbow-square and rainbow-diamond constraints is structurally motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
