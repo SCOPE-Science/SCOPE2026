@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim was reconstructed using nonempty approval ballots, ordinary (not excludable) strategic reporting, an unrestricted simplex allocation and all Nash maximizing tie resolutions. Exact KKT certificates establish global optimality for each of the 329 anonymous profiles with 1–4 voters and three labeled projects. An optimum-face vertex enumeration bounds every deviator's **true** utility for every optimal tie-break. The code returns 0, 0, 0, and 6 manipulable anonymous profiles, with 12 profitable report pairs and gain set \(\{5/4,(9-\sqrt{17})/4\}\). The all-electorate two-project immunity follows analytically from singleton-voter counts. The verified enumeration is not extrapolated beyond four voters.
+PASS
 
-## Originality — PASS (qualified historical priority)
+Log Nash objective is concave, and KKT scores G_j≤n with equality for funded projects are necessary and sufficient; every optimum has unique reported utility vector. Reviewed provided exact SymPy enumerator: all 329 anonymous profiles n=1..4 (7+28+84+210), certified optimizers via rational 1/24 lattice KKT and exact sqrt17 algebraic candidates, enumerated full optimal face vertices by exact linear solves and every unilateral ballot change. The program asserts 0,0,0,6 manipulated profiles, 12 changes and two gains. Independently reconstructed representative [B,AB,C,AC]: true p=(0,1/2,1/2), misreport AB→A has Nash q=(3/8,1/4,3/8), both satisfy exact G=[4,4,4], and true gain (5/8)/(1/2)=5/4. Analytical two-project rule reduces to singleton counts a,b and p=(a/(a+b),b/(a+b)). The complete finite census depends on careful inspected certificate, not a newly performed independent full rerun; full checker can be replayed with SymPy 1.14.
 
-Aziz–Lederer–Vollen (2026, arXiv:2605.11736) prove an unrestricted factor-two Nash incentive bound; it does not establish the exact first four-voter three-project frontier or \(5/4\) extremum. Aziz–Bogomolnaia–Moulin (2017, arXiv:1712.02542), including the appendix, construct far larger excludable-strategyproofness violations, a different notion. The related Brandl et al. (2020, arXiv:2005.07997) funding mechanism concerns contributions and participation. Actual searches for fixed numbers of projects, minimal electorate and gain ratios identified no implication-equivalent earlier claim. No independent historical-priority certification has occurred; full historical coverage is not claimed.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves a natural small-market question left open by a global asymptotic manipulability factor: *when* does strategic vulnerability first appear, *how many* small profiles exhibit it, does Nash tie-breaking matter, and what is the exact incentive? The two orbit structures, sharp 5/4 gain and universal two-project immunity are substantively informative for small approval-budget systems. They are not asserted to provide new general efficiency or fairness guarantees.
+Best-of-knowledge originality with disclosed antecedents and material access limits. No established equivalence from other incentive concepts to the full four-voter fixed-cell enumeration was found; comparing count vectors, truth utility, all tie allocations matters. Earlier theorems allow the existence of manipulation but neither imply its exact first size nor the finite orbit count, complete gains, and tie-invariant witnesses.
 
-## Limitations and evidence
+## value
 
-The proof applies only to unweighted binary approvals; the 1–4 voter finite census requires exactly three projects, and the two-project immunity holds for any voter count. All positive report gains persist across Nash-optimal ties. The checker requires Python 3.11+ and the pinned SymPy dependency. The mathematical claim is supported by the supplied exact code and analytic KKT argument, not by numerical solver logs. The background funding-project literature was only partly read and constitutes a limited historical-priority risk; no decisive stronger covering result was identified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact smallest strategic-vulnerability cell for the established Nash budget rule, complete orbit classification and sharp gain quantify behavior not entailed by asymptotic/global factor-2 bounds. Exact four-voter cell is a natural benchmark with directly interpretable fairness incentives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

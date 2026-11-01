@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:03:22.552156Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/the-sharp-four-voter-manipulability-frontier-for-three-project-n--2287081620fd at b96611dd0e4ba75879888c5efbc42e7576d8123f/RESULT.md",
+        "2026/10/25/the-sharp-four-voter-manipulability-frontier-for-three-project-n--2287081620fd at b96611dd0e4ba75879888c5efbc42e7576d8123f/verify.py",
+        "independent check /mnt/data/scope_worker02_independent_20261029_checks.py"
+      ],
+      "rationale": "Log Nash objective is concave, and KKT scores G_j≤n with equality for funded projects are necessary and sufficient; every optimum has unique reported utility vector. Reviewed provided exact SymPy enumerator: all 329 anonymous profiles n=1..4 (7+28+84+210), certified optimizers via rational 1/24 lattice KKT and exact sqrt17 algebraic candidates, enumerated full optimal face vertices by exact linear solves and every unilateral ballot change. The program asserts 0,0,0,6 manipulated profiles, 12 changes and two gains. Independently reconstructed representative [B,AB,C,AC]: true p=(0,1/2,1/2), misreport AB→A has Nash q=(3/8,1/4,3/8), both satisfy exact G=[4,4,4], and true gain (5/8)/(1/2)=5/4. Analytical two-project rule reduces to singleton counts a,b and p=(a/(a+b),b/(a+b)). The complete finite census depends on careful inspected certificate, not a newly performed independent full rerun; full checker can be replayed with SymPy 1.14.",
+      "residual_risks": [
+        "Independent replay checked one exact representative, not every 329 profile; full census conditional on source verifier coverage and KKT/face-vertex completeness reviewed in actual script.",
+        "All Nash optimal tie resolutions analyzed as polytope faces; result not applicable to excludable strategyproofness, coalitions, or >3 projects."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Global gain upper bound 2 is weaker than sharp gain 5/4 for n=4,m=3.",
+          "Earlier excludable manipulation examples involve more outcomes and voters, and different incentive constraints."
+        ],
+        "reasoning": "A broad approximation bound cannot give the exact first finite size, six orbit profiles, or tie-independence. The source proof itself specializes global KKT theory but adds exhaustive finite classification.",
+        "searches": [
+          "Aziz Lederer Vollen 2026 Theorem 3 ratio two",
+          "Fair Mixing excludable strategyproofness 2017",
+          "Brandl et al. arXiv:2005.07997"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.11736",
+        "arXiv:1712.02542",
+        "2026/10/25/the-sharp-four-voter-manipulability-frontier-for-three-project-n--2287081620fd at b96611dd0e4ba75879888c5efbc42e7576d8123f/AUDIT.json",
+        "Resultary semantic search for this specific claim"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Nash bound is two for unrestricted instance sizes, and explicitly does not state 5/4 for the four-voter three-project cell.",
+          "Excludable-SP violation on larger profiles does not force a four-voter threshold."
+        ],
+        "reasoning": "Earlier theorems allow the existence of manipulation but neither imply its exact first size nor the finite orbit count, complete gains, and tie-invariant witnesses.",
+        "searches": [
+          "Aziz Lederer Vollen arXiv:2605.11736 Theorem 3 page4",
+          "Aziz Bogomolnaia Moulin arXiv:1712.02542 Appendix",
+          "Brandl et al. arXiv:2005.07997"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ordinary strategyproofness allows a voter benefit from allocations to disapproved reports, unlike excludable-SP.",
+          "General Nash-incentive ratio and fair-mixing (NMP) counterexample studies use same objective but differing fixed dimensions and incentive notions."
+        ],
+        "reasoning": "No established equivalence from other incentive concepts to the full four-voter fixed-cell enumeration was found; comparing count vectors, truth utility, all tie allocations matters.",
+        "searches": [
+          "Nash max product public funding approval budget 3 projects first manipulation",
+          "Aziz Lederer Vollen arXiv:2605.11736",
+          "Aziz Bogomolnaia Moulin arXiv:1712.02542"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic results concern other voting rules (Baldwin, RSD, Webster) rather than Nash budget division.",
+          "The 210-profile finite census and its gain spectrum were reconstructed from genuine certificate, but not identified as an existing exact database table."
+        ],
+        "reasoning": "An exact finite count is natural as the sharp first manipulation frontier, though search nonappearance does not establish novelty.",
+        "searches": [
+          "Resultary: approval based budget division Nash maximum product manipulability four voters three projects ratio 5/4 six anonymous profiles",
+          "search Nash 210 four-voter approval profiles strategic budgeting"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality with disclosed antecedents and material access limits. No established equivalence from other incentive concepts to the full four-voter fixed-cell enumeration was found; comparing count vectors, truth utility, all tie allocations matters. Earlier theorems allow the existence of manipulation but neither imply its exact first size nor the finite orbit count, complete gains, and tie-invariant witnesses.",
+      "residual_risks": [
+        "An earlier complete small-market computational enumeration could exist under public-goods division terminology.",
+        "Source checker was read and tested on representative, not fully independently run across all 329 profiles."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers universal Nash gain factor 2, NOT exact fixed n=4,m=3 sharp factor 5/4",
+          "evidence": "Theorem 3: global upper 2; restricted count 210 not provided.",
+          "identifier_or_url": "arXiv:2605.11736",
+          "material_read": "Full nine-page primary publication PDF; inspected Theorem 3 and finite-dimension context",
+          "method": "Retrieved published primary PDF and inspected rendered first page and theorem page",
+          "title": "Approximate Strategyproofness in Approval-based Budget Division",
+          "trigger": "Exact same Nash rule and incentive ratio"
+        },
+        {
+          "assessment": "Known strategic vulnerability with different incentive notion and size; no assertion of complete full-text noncoverage",
+          "evidence": "NMP excludable-SP counterexamples not equivalent to all tie choices at n=4,m=3.",
+          "identifier_or_url": "arXiv:1712.02542",
+          "material_read": "Referenced excludable manipulation construction and appendix material from primary descriptions",
+          "method": "Comparison of notions and profile sizes, without full independent paper re-download",
+          "title": "Fair Mixing: The Case of Dichotomous Preferences",
+          "trigger": "Original Nash mixing manipulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/the-sharp-four-voter-manipulability-frontier-for-three-project-n--2287081620fd at b96611dd0e4ba75879888c5efbc42e7576d8123f/RESULT.md",
+        "arXiv:2605.11736",
+        "arXiv:1712.02542"
+      ],
+      "rationale": "The exact smallest strategic-vulnerability cell for the established Nash budget rule, complete orbit classification and sharp gain quantify behavior not entailed by asymptotic/global factor-2 bounds. Exact four-voter cell is a natural benchmark with directly interpretable fairness incentives.",
+      "residual_risks": [
+        "Scope limited to binary approval, four voters and three projects; no improvement of global two-factor bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent replay checked one exact representative, not every 329 profile; full census conditional on source verifier coverage and KKT/face-vertex completeness reviewed in actual script.",
+    "All Nash optimal tie resolutions analyzed as polytope faces; result not applicable to excludable strategyproofness, coalitions, or >3 projects.",
+    "An earlier complete small-market computational enumeration could exist under public-goods division terminology.",
+    "Source checker was read and tested on representative, not fully independently run across all 329 profiles.",
+    "Scope limited to binary approval, four voters and three projects; no improvement of global two-factor bound."
+  ],
+  "schema_version": 1
+}
