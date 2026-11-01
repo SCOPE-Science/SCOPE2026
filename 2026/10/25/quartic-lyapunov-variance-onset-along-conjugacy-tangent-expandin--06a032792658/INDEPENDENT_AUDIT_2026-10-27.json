@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:57:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 01bb8b20f541d7c3f6b9007d14911458521be215",
+        "Immutable check.py blob 7ea63c0fdbbb6d4549238ef3f56c31b5b9d9b9e2",
+        "Independent exact Fourier rational correlation replay in independent_checks.py"
+      ],
+      "rationale": "For d≥2 and u∈C⁵, Taylor expansion of Hε fε Hε⁻¹ with Hε=id+εu and v=du−u∘T_d cancels the O(ε) term and produces Gε=T_d+ε²u′(d·)v+O_C²(ε³). Consequently (log Gε′−log d)/ε²→φ=w′/d in C¹. The log derivative changes under conjugacy by a bounded coboundary, so Green–Kubo variance is invariant. Bernoulli coding with uniform inverse-branch contraction bounds correlations by Cλ^(−n/2), proving continuity and σ²(ε)/ε⁴→V_Td(φ). For u=−sin(2πx)/(2π), φ has modes −1/2 cos2πx, 3/2 cos6πx, −cos8πx: exact independent Fourier arithmetic gives covariances 7/4,0,1/4,0 thereafter, yielding 9/4. Uniform expansion holds |ε|<1/4 for this example; the general result is sufficiently small |ε|.",
+      "residual_risks": [
+        "No assertion that the coefficient is positive for arbitrary u; finite sampled ε from packaged script is not the universal argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Drach et al. Main Theorem proves a CLT for each fixed nonlinear expanding map, and Eq.(4.5) defines σ² without evaluating σ²(ε) near a linear map.",
+          "Baladi–Smania treats SRB averages of piecewise unimodal maps; the observable and measure differ."
+        ],
+        "reasoning": "Smooth pressure perturbation may give an alternative proof of quartic order but no actually inspected stronger theorem entails the exact w′/d curvature and 9/4 for this family; treat that possibility as an explicit priority risk.",
+        "searches": [
+          "Web: pressure metric expanding circle maps Green Kubo variance zero tangent smooth conjugacy",
+          "arXiv:2511.15662 §4–5",
+          "arXiv:0705.3383 SRB averages linear response"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/397780403_Normal_distribution_of_Lyapunov_exponents_of_periodic_orbits_for_expanding_circle_maps",
+        "https://arxiv.org/abs/0705.3383",
+        "Resultary record c097279b5a2a (distinct integer beta random switching)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2025 theorem permits any fixed positive σ and is consistent with σ²(ε) having many possible orders as ε→0; it does not logically force 9/4.",
+          "c097279b5a2a changes randomness in the selection of integer slopes and gives order ε, not a deterministic conjugacy-tangent map and order ε⁴."
+        ],
+        "reasoning": "The cited fixed-map CLT and switching theorem cannot imply the explicit claimed coefficient without a new second-order conjugacy calculation and Fourier Green–Kubo sum.",
+        "searches": [
+          "Resultary: periodic Lyapunov exponent CLT plus perturbative quartic variance",
+          "arXiv:2511.15662 Main Theorem and Eq.(4.5)",
+          "Resultary:c097279b5a2a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Drach et al. Eq.(4.5) is a fixed-map maximal-entropy correlation series; it gives no derivative in a perturbation parameter.",
+          "The exact ε² conjugated logarithmic observable w′/d and variance ε⁴ coefficient are absent from the inspected §4–5."
+        ],
+        "reasoning": "The variance is invariant under smooth change of coordinates up to the derivative coboundary, but expressing first-order cancellation in a perturbative coordinate requires the second-order defect. Earlier fixed-map variance and tangent linear response of other statistics do not state the exact asymptotic.",
+        "searches": [
+          "Resultary: quartic Lyapunov Green-Kubo tangent-to-conjugacy expanding map",
+          "Web: 2511.15662 variance Eq.4.5 coboundary rigidity",
+          "Web: Baladi Smania tangent topological conjugacy linear response"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary hit c097279b5a2a is a linear-noise-onset coefficient for random switching of *two integer maps*, not a fixed smooth map depending on ε."
+        ],
+        "reasoning": "An exact scalar coefficient cannot be borrowed from an unrelated switching model; no matching exact table was located. Search absence is not a proof of priority.",
+        "searches": [
+          "Resultary: explicit 9/4 quartic Lyapunov variance perturbation doubling sine harmonic",
+          "Web: exact coefficient 9/4 circle-map maximal entropy perturbative variance"
+        ]
+      },
+      "rationale": "No inspected earlier theorem establishes the quartic maximal-entropy Lyapunov variance coefficient for a perturbation tangent to smooth conjugacy. The strongest same-observable prior supplies the fixed-map Green–Kubo/CLT framework, not the two-parameter ε→0 onset; this is a best-of-knowledge PASS.",
+      "residual_risks": [
+        "A general differentiable-pressure or variance-metric theorem may encode the abstract order calculation under another formulation; no exact 9/4 implication was found.",
+        "No claim of priority certification or of a uniform-in-ε CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_PARAMETER_ONSET",
+          "evidence": "Main Theorem is a fixed f periodic-point CLT; Eq.(4.5) is fixed-f correlation variance, not the ε⁴ derivative.",
+          "identifier_or_url": "https://www.researchgate.net/publication/397780403_Normal_distribution_of_Lyapunov_exponents_of_periodic_orbits_for_expanding_circle_maps",
+          "material_read": "Read available author-posted primary full-text HTML: Main Theorem, Sections 2–5 with explicit Eq.(4.5) and asymptotic-variance positivity discussion, as indexed in lines 1058–1097.",
+          "method": "Web HTML full-text traversal plus section/term search",
+          "title": "Normal distribution of Lyapunov exponents of periodic orbits for expanding circle maps",
+          "trigger": "Same dynamical observable, maximal-entropy measure and variance"
+        },
+        {
+          "assessment": "DIFFERENT_STATISTIC_LIMITED_INSPECTION",
+          "evidence": "SRB expectation response in a piecewise interval setting, not maximal-entropy Lyapunov asymptotic variance.",
+          "identifier_or_url": "https://arxiv.org/abs/0705.3383",
+          "material_read": "Abstract/bibliographic description examined; full primary proof not read.",
+          "method": "Public arXiv record search",
+          "title": "Linear response formula for piecewise expanding unimodal maps",
+          "trigger": "Conjugacy-tangent/response alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Same-map Drach et al. 2025 fixed-map variance Eq.(4.5)",
+        "Exact independent Fourier coefficient 9/4"
+      ],
+      "rationale": "Near the linear covering the observable log f′ is cohomologically trivial. A conjugacy-tangent deformation annihilates the usual quadratic onset; the explicit quartic coefficient 9/4 measures a geometrically motivated second-order obstruction and proves small nonzero perturbations are not smoothly conjugate. This gives a precise benchmark for degenerating fluctuation variance, beyond a routine parameter substitution.",
+      "residual_risks": [
+        "Does not establish higher-order terms when V_Td(φ)=0 or a uniform periodic-orbit CLT."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
