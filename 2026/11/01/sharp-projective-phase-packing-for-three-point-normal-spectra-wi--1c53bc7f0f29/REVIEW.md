@@ -1,0 +1,15 @@
+# Review of sharp projective phase packing for three-point normal spectra
+
+## Correctness
+**PASS.** The normalized angular integral is exactly a three-profile maximum on the projective circle, by the spectral theorem. The centered-arc rearrangement lemma follows from strict monotonicity of \(\cos^2\) in projective distance and yields an explicit upper bound for arbitrary independent phases. The two weak winner-set lengths are optimally equal by strict sine concavity; the remaining scalar envelope is strictly concave and has a single critical point. At the proposed phases the three centered arcs are verified to coincide with the actual winner sets, so the upper bound is attained. Equality in all strict steps fixes the unordered projective phases. Taylor expansion proves the cubic weak-modulus law. Every quantifier, boundary \(r=1\), and independent phase is accounted for. A supplementary deterministic check passed 1,156 finite assertions; it is not the mathematical proof.
+
+## Originality
+**PASS, best-knowledge assessment.** The motivating full-text paper arXiv:2610.04844 (first posted 2026-10-04, read in its 2026-10-23 revision) introduces the integral and universal norm inequalities, without a three-modulus phase optimizer. A previously published exact projective-gap theorem for unitaries covers the equal-modulus \(r=1\) endpoint, but its unitary assumption cannot cover \(0<r<1\); its full statement and proof were inspected. An earlier two-spectrum calculation involves only a single weak mode, so it does not imply the two-weak-mode global optimization. Targeted searches for phase packing, aliases, arbitrary angular configurations, and the explicit angle \(\arccos(r/2)\) located no equivalent or dominating result. Search absence is not proof of publication priority. The main residual risk is an older general weighted-circle rearrangement/quantization theorem that subsumes this corollary.
+
+## Value
+**PASS.** This is an exact global optimization over both free spectral phases for the smallest normal three-point class beyond two modes, with prescribed natural moduli \(1,r,r\). It establishes the complete equality class and a nontrivial cubic onset of improvement as two equal weak spectral components turn on. The result gives a usable phase-design law for a recently introduced operator invariant, not a numerical or arbitrary parameter exercise. It does not claim arbitrary distinct spectral moduli or additional spectral values.
+
+## Comparison and limitations
+The motivating paper: arXiv:2610.04844, Definition (1.1), Theorem 4, Remark 19, and its remaining relevant results. The equal-modulus theorem: *Exact projective spectral-gap formula and optimal finite spectra for the \(L^2\)-Cartesian radius of unitaries* (2026-10-11), whose \(n=3\) case is explicitly acknowledged. The two-point normal case is prior work. Potential historical weighted-circle theorems remain a research-priority risk. No independent mathematical audit or publication-priority certification is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
