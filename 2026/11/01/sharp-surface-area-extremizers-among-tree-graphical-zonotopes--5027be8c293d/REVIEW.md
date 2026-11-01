@@ -1,0 +1,15 @@
+# Scientific review: sharp tree-zonotope surface-area extrema
+
+## Correctness
+PASS. The Euclidean normalization and intrinsic dimension are fixed in the statement. The penultimate intrinsic volume is evaluated from previously established zonotope intrinsic-volume decomposition. For each deleted tree edge, Cauchy--Binet and unit incidence minors give its forest Gram determinant exactly as the product of its two component sizes. The lower inequality is termwise sharp. For the upper inequality the branch-transfer argument changes no cut except the path toward a leaf of the second-smallest branch, where the weight increases strictly by the displayed positive product difference. This rules out every nonpath maximizer. Riemann-sum asymptotics and all equality cases follow. The independent integer-Gram checker handles every labeled tree through order seven but is not offered as an infinite proof.
+
+## Originality
+PASS on the inspected evidence, with residual historical-priority risk. Joós--Lángi, arXiv:2206.03204, Corollary 1, gives the general intrinsic-volume identity; its parallelotope isoperimetry compares with Euclidean cubes rather than optimizing among fixed root-vector trees. Padrol--Pilaud--Poullot, arXiv:2111.12422, studies deformation cones and normal fans, not root-tree surface-area extrema. Atia (2026), DOI 10.3390/math14173029, evaluates forest contributions for a complete-graph permutohedron, not the sharp tree surface order. The closest published tree-zonotope research record, identifier 482983ab9269, analyzes directional-width variance; trees with the same degree sequence can have distinct surface areas, excluding implication by its degree-based formula. Wang et al., *Split sizes and extremal tree shapes* (Adv. Appl. Math. 104, 2019), prove general extremal results for leaf-set split sums with degree constraints. Their statistic uses numbers of leaves, not numbers of vertices in edge-cut components, and excludes the direct geometric surface-area formulation; neither its theorems nor the other inspected sources state the present sharp star/path fixed-order surface comparison. Database and literature searches found no dominating path/star surface-area classification. Negative searches do not establish absolute novelty; unindexed equivalent tree-split functionals remain possible.
+
+## Value
+PASS. At fixed \((n-1)\)-dimensional volume and first intrinsic volume, the theorem proves a sharp, uniquely attained surface-area range among a natural geometric family of combinatorially identical cubes. Its maximum-to-minimum ratio diverges at the explicit order \(\sqrt n\). The strict branch transfer explains why shape of the underlying tree governs a global boundary measure, beyond the known general formula or a special numerical case.
+
+## Scope and limitations
+Only unweighted, simple finite trees with canonical Euclidean root generators are treated. Weighted or cyclic graphs and alternate norms are not covered. Source equivalence beyond inspected records cannot be ruled out, and the finding has not received independent mathematical validation.
+
+Self-review: passed. Independent audit: not yet performed.
