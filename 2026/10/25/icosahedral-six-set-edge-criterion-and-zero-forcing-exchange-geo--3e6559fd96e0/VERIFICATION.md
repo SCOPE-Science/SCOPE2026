@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3.8+ in this directory; no packages outside the Python standard library are required.
+## correctness
 
-The verifier constructs the two pentagonal rings, ten cap spokes, ten ring edges and ten cross-ring edges of the icosahedral graph, checking 12 degree-five vertices and 30 edges. It executes two separately implemented zero-forcing procedures on all 4096 initial subsets, checks the complete seven-coefficient generating polynomial, and enumerates all 120 graph automorphisms with a backtracking adjacency/nonadjacency test. It partitions all 924 six-subsets into the 18 explicitly listed orbits and verifies the eight-or-nine induced-edge criterion for every six-subset, with the three winning orbit sizes 20, 60 and 120.
+PASS
 
-The same executable generates all 200 minimum sets, checks the single-exchange adjacency using both move generation and direct Hamming distance on every pair, and runs a complete shortest-path search from each of the 200 configurations. It checks 1320 exchange edges and the full distance vector. Finite exhaustive enumeration is legitimate here because all relevant state spaces are precisely bounded and fully traversed; no larger or infinite-family assertion is made. Assertions in the executable trigger failure rather than a success report if a check disagrees.
+For the explicitly labeled 12-vertex 5-regular icosahedron, a <=5 initial set cannot force: any possible first force from a five-set makes a six-vertex closed neighbourhood with no further force. Independently enumerated all 4096 masks with a separate synchronous forcing implementation, obtaining 200 minimal six-sets, exactly those with 8 or 9 induced edges; polynomial (200,480,450,220,66,12,1) in degrees 6..12. Constructed the 200-vertex token-exchange graph by one-out/one-in operations, verified 1320 edges and all 200 BFS eccentricities 6 with exact pair distances (1320,5160,6300,5010,2010,100). Finite exhaustive proof applies to this graph alone. Source verify.py also gives 18 complete orbits under 120 automorphisms.
 
-Independent external validation has not been performed; completion of the local verifier does not certify originality or substitute for independent expert audit.
+## originality
+
+PASS
+
+The exact six-set edge condition, full polynomial and exact exchange-graph metric are not implied by the general zero-forcing polynomial or reconfiguration definitions in the inspected antecedents. No matching published record was found; an unindexed graph table remains possible.
+
+## value
+
+PASS
+
+The icosahedron is a canonical vertex-transitive 5-regular graph. The complete minimum-set classification and exchange distance distribution give a naturally reusable precise reconfiguration benchmark, more than an arbitrary small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

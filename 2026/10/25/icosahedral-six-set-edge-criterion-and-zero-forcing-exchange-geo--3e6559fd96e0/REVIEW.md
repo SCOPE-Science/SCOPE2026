@@ -1,11 +1,21 @@
-# Scientific review: icosahedral zero forcing
+# Independent mathematical audit
 
-**Correctness: PASS.** The closed-neighborhood argument excludes every initial set of size five or smaller. The explicit 18-orbit certificate partitions all 924 six-subsets under the 120 graph automorphisms; all three successful representatives have listed forcing sequences and all others fail under the same deterministic rule. Two independently programmed forcing procedures agree on all 4096 initial sets, establishing the polynomial. The exchange edges are checked by independent pairwise Hamming tests and all 200 shortest-path searches finish, giving the stated graph metric. These checks are executable in the included standard-library verifier.
+## correctness
 
-**Originality: PASS (best-knowledge, with risk).** The 2014 propagation-time source defines the timing invariant; the 2018 zero-forcing polynomial source treats different graph families; and the 2020 zero-forcing reconfiguration source treats general properties and several other base graphs. Their accessible primary texts were compared by invariant and implication, including their actual named families and conclusions. No inspected theorem yields the icosahedral dense-induced-subgraph criterion, its three orbit census, or the exchange metric. Searches using the graph's Platonic and icosahedral names and the exact counts found no matching assertion. Relevant published research records were compared at the level of mathematical claims. Unindexed finite graph databases and less readily accessible publications could nevertheless include partial or complete prior results.
+PASS
 
-**Value: PASS.** The exact induced-edge characterization is a graph-internal test for every optimal control placement in a canonical distance-transitive polyhedral graph. The complete polynomial distinguishes every initial-set cardinality, while the three symmetry strata and propagation rounds distinguish genuinely different optimal states. The connected exchange graph and exact diameter describe optimality-preserving reconfiguration and provide a finite benchmark for zero-forcing reconfiguration theory. These together are a natural finite classification rather than an arbitrary subgraph count.
+For the explicitly labeled 12-vertex 5-regular icosahedron, a <=5 initial set cannot force: any possible first force from a five-set makes a six-vertex closed neighbourhood with no further force. Independently enumerated all 4096 masks with a separate synchronous forcing implementation, obtaining 200 minimal six-sets, exactly those with 8 or 9 induced edges; polynomial (200,480,450,220,66,12,1) in degrees 6..12. Constructed the 200-vertex token-exchange graph by one-out/one-in operations, verified 1320 edges and all 200 BFS eccentricities 6 with exact pair distances (1320,5160,6300,5010,2010,100). Finite exhaustive proof applies to this graph alone. Source verify.py also gives 18 complete orbits under 120 automorphisms.
 
-**Scope and risks.** Only ordinary blue-only forcing of the fixed icosahedral graph is addressed. All counts are finite, reproducible and exhaustively checked; they are not assertions about arbitrary triangulations. An independent audit and global novelty certification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact six-set edge condition, full polynomial and exact exchange-graph metric are not implied by the general zero-forcing polynomial or reconfiguration definitions in the inspected antecedents. No matching published record was found; an unindexed graph table remains possible.
+
+## value
+
+PASS
+
+The icosahedron is a canonical vertex-transitive 5-regular graph. The complete minimum-set classification and exchange distance distribution give a naturally reusable precise reconfiguration benchmark, more than an arbitrary small-instance calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
