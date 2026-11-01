@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Conditional Gaussian-offset range formula is exact; Rayleigh integration yields p_1=t/sqrt(1+t^2). Each extrema perturbation is bounded by the uniform higher-harmonic L-infinity tail and Phi Lipschitz. The first-harmonic derivative and second derivative dominate on complementary arcs outside a Rayleigh-small exceptional event, bounding P(Z>=4). Summable weighted exponential tails yield the explicit all-N bounds and leading constant. Almost sure simplicity follows because Gaussian delta avoids finitely many random critical values. The included standard-library checker passed. Scope explicitly excludes finite-epsilon uniformity.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ittayem–Lundberg Theorem 4.1 and proof bound P(Z>=1) through E[Z], but E[Z] alone allows rare trajectories with more than two zeros, and provides no matching lower bound.",
+        "Benditkis–Novikov concern effective finite zero-count upper bounds for polynomial-Hamiltonian perturbations, not this Gaussian random forcing or a sharp probability coefficient."
+      ],
+      "reasoning": "The strongest directly relevant published upper bound and expected-count formula do not jointly determine the probability unless multiple-zero events are separately controlled. That control is proved here. A general unpublished or unlocated rare-event Gaussian-process result remains a priority risk.",
+      "searches": [
+        "Web: \"random Melnikov\" \"two zeros\" \"frequency\" Gaussian",
+        "Web: \"Gaussian\" \"Melnikov\" \"zero-free\" \"sinusoid\" high-frequency",
+        "Web: \"random trigonometric polynomial\" \"dominant first harmonic\" \"zero-free probability\"",
+        "arxiv:2610.33620v1 Section 4.1 full theorem and proof",
+        "Benditkis-Novikov 2011 published article abstract https://archive.numdam.org/articles/10.5802/afst.1314/"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.33620v1 (sections and proofs as described)",
+      "https://archive.numdam.org/articles/10.5802/afst.1314/ (abstract scope)",
+      "https://www.researchgate.net/publication/1745240_Effect_of_the_shape_of_periodic_forces_and_second_periodic_forces_on_horseshoe_chaos_in_Duffing_oscillator (partial indexed preview)",
+      "Published published-finding corpus search results for the six actual topic, alias and stronger-coverage queries recorded in the private comparison objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.1 gives E[Z] but does not show P(Z=2)~E[Z]/2 for N growing with frequency.",
+        "Theorem 4.1 yields upper order O(omega exp(-pi omega/2)), not an asymptotic leading coefficient; its exponential rate is already known.",
+        "The new proof supplies an N-uniform extremum sensitivity estimate and a second-derivative bound leading to P(Z>=4)=O(exp(-pi omega))."
+      ],
+      "reasoning": "The prior expectation formula and Markov estimate are consistent with the present conclusion but are strictly weaker as logical statements. The probability asymptotic and dominance of two simple roots require a lower bound plus exclusion of multiple-critical-point realizations, derived here from Gaussian radial independence.",
+      "searches": [
+        "arxiv:2610.33620v1 Theorems 3.1 and 4.1 and their proofs",
+        "Web: \"Zeros of Melnikov functions\" Ittayem Lundberg probability number of two zeros asymptotic",
+        "published-finding corpus: Gaussian random trigonometric polynomial small amplitude zero-free probability exact leading first harmonic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.33620v1 Theorem 2.1 gives exactly the same Gaussian random trigonometric polynomial; Theorem 3.1 gives the mean number of zeros; Theorem 4.1 gives only the high-frequency probability upper bound.",
+        "Source proof of Theorem 4.1 already establishes O(omega exp(-pi omega/2)); that rate is not asserted new."
+      ],
+      "reasoning": "Rewriting the zero event as Gaussian-offset membership in the range of a random trigonometric polynomial is equivalent to the new formulation, but the motivating work does not compute the event probability to relative error uniformly across N. The N=1 formula alone is an easy corollary and is not the claim. The uniform near-sinusoidal two-critical-point estimate is a separate implication.",
+      "searches": [
+        "published-finding corpus: random Melnikov Duffing Gaussian trigonometric forcing fixed degree low frequency probability homoclinic zeros linear frequency range Gaussian width",
+        "published-finding corpus: uniform in harmonic degree sharp probability random Melnikov function has exactly two zeros high forcing frequency sech dominated first harmonic Gaussian damping",
+        "Web: \"Ittayem\" \"Lundberg\" Melnikov high frequency sharp asymptotic probability",
+        "arxiv:2610.33620v1 Theorems 2.1, 3.1, 4.1 and proofs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessed published-finding corpus rankings did not present an exact high-frequency all-N two-root law; closest displayed items treated stationary Duffing moments, deterministic hyperbolic cycles, or unrelated Gaussian Fourier constraints."
+      ],
+      "reasoning": "The inspected published source and published-finding corpus query results did not supply this exact probability table or the two-zero asymptotic. Database coverage is incomplete and no claim of universal uniqueness follows.",
+      "searches": [
+        "published-finding corpus: zeros of Melnikov functions periodically perturbed Hamiltonian systems random coefficients Ittayem Lundberg",
+        "published-finding corpus: homoclinic Melnikov random coefficients high frequency asymptotic leading constant two simple zeros"
+      ]
+    },
+    "rationale": "The primary October 2026 paper establishes the exact Gaussian Melnikov formula and Kac-Rice expected zero count, plus an O(omega exp(-pi omega/2)) high-frequency probability upper bound, but does not identify a sharp N-uniform probability prefactor or prove that exactly two zeros asymptotically exhaust zero-bearing realizations. The leading high-frequency exponent, the first-harmonic exact probability, and the Melnikov integral are explicitly treated as prior or immediate special-case consequences. Finite harmonic cutoffs arbitrarily depending on frequency and the extra critical-point argument create the distinct statement. Related older polynomial Melnikov zero bounds do not imply random Fourier offset probabilities; broad probabilistic-process results not fully ruled out.",
+    "residual_risks": [
+      "A general Gaussian trigonometric-process perturbation or rare-event theorem not identified by these searches could imply the N-uniform leading asymptotic.",
+      "Only the motivating paper was materially examined through its relevant full original sections; some older plausibly adjacent work was available only as abstracts/previews.",
+      "Historical priority is not independently certified and no formal proof assistant was used."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Gaussian Melnikov formula and exponential upper bound; does not assert or prove a degree-uniform sharp probability prefactor or two-simple-zero dominance.",
+        "evidence": [
+          "Theorem 2.1 formula (2.5)",
+          "Theorem 3.1 formula (3.2)",
+          "Theorem 4.1 and proof equations (4.1) and ensuing Markov estimate",
+          "Remark 3 after Theorem 4.2"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.33620v1",
+        "material_read": "Original HTML abstract, introductory questions, Theorem 2.1 and derivation, Section 3 expected-zero theorem and proof, Section 4.1 full high-frequency statement and proof, Section 4.2 scope, and Section 5.1 on damping signs.",
+        "method": "Direct full-text HTML sectional reading and statement-implication comparison",
+        "title": "Zeros of Melnikov functions for periodically perturbed Hamiltonian systems with random coefficients",
+        "trigger": "Identical random Duffing equation and Gaussian coefficient distribution"
+      },
+      {
+        "assessment": "General effective maximum-zero theorem for polynomial Hamiltonian perturbations, not a Gaussian high-frequency forcing probability asymptotic.",
+        "evidence": [
+          "Archival abstract describing effective upper bounds for first nonvanishing Melnikov zeros in polynomial Hamiltonian perturbations."
+        ],
+        "identifier_or_url": "https://archive.numdam.org/articles/10.5802/afst.1314/",
+        "material_read": "Bibliographic abstract and stated effective upper-bound scope on the archival HTML page; complete PDF not examined.",
+        "method": "Publisher archive HTML abstract reading",
+        "title": "On the number of zeros of Melnikov functions",
+        "trigger": "Potential general dominating zero-count theorem"
+      },
+      {
+        "assessment": "Deterministic threshold and Fourier coefficients; no evidence of identical random Gaussian all-degree event-probability claim in material available.",
+        "evidence": [
+          "Preview displays sinusoidal Melnikov amplitude involving omega sech(pi omega/2) and deterministic forcing thresholds."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/1745240_Effect_of_the_shape_of_periodic_forces_and_second_periodic_forces_on_horseshoe_chaos_in_Duffing_oscillator",
+        "material_read": "Publicly indexed preview giving harmonic Melnikov coefficients; original complete paper not examined.",
+        "method": "Publicly indexed article preview",
+        "title": "Effect of the shape of periodic forces and second periodic forces on horseshoe chaos in Duffing oscillator",
+        "trigger": "Classical deterministic harmonically forced Duffing Melnikov coefficients"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "555e7491-a397-49b1-a671-90c9e517ee46",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source identifies a physically and dynamically motivated high-frequency probability question but gives only an upper bound and a mean zero count. The new result computes the universal leading event probability for all Fourier cutoffs, even degree growing with frequency, and proves that rare events yield exactly two rather than arbitrarily many transverse Melnikov roots. This distinction matters for understanding the geometry of first-order homoclinic splitting and is not an unmotivated parameter substitution.",
+    "status": "PASS"
+  }
+}
