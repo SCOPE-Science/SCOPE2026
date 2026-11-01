@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of the finite homotopy certificates
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3 and standard-library modules only. A successful run prints a JSON report and terminates with `VERIFY_OK`; the expected report is retained in `verify_output.txt` for exact comparison. No downloaded paper, external library, network call or precomputed chain boundary is needed.
+## correctness
 
-The verifier constructs both graphs explicitly, exhaustively evaluates all \(65,536\) possible vertex subsets of each with two different cycle-detection algorithms, and checks both face vectors. It forms the deterministic sequential-vertex matching on the augmented face poset, verifies the entire oriented Hasse diagram is a DAG, and independently derives the exact signed Morse boundary matrices by recursive gradient-path elimination. It checks that the sixth-to-fifth differential vanishes identically and that the fifth-to-fourth matrix contains the displayed maximal unit-determinant minor, in the indicated critical-face order. It also constructs independent full simplicial mod-two boundaries and checks their ranks.
+PASS
 
-The critical-face masks and actual minor matrices are printed in the JSON report. An apparent match in a mod-two Betti vector or Euler characteristic alone would not establish the integral conclusion; the decisive evidence is the integral signed Morse differential, the unit determinant, and the low-dimensional attaching-map argument in `RESULT.md`.
+PASS: Reconstructed both graph adjacencies from RESULT.md and verify.py, confirmed degree 6 and common-neighbor count 2, all 2^16 vertex masks via independent connected-component cyclomatic test. Exact Sh faces by size 0..7: (1,16,120,528,1440,2352,1952,512); rook: (1,16,120,528,1392,2160,1728,576); no larger forests. Fresh greedy vertex-toggle acyclic Morse DAG has 3370/3204 pairs, respective critical 4-,5-,6-cell counts (2,143,36)/(4,37,72). Independent signed integral Morse differential computation gives ∂6=0, ∂5 ranks 2/4 with unit maximal minors as in source; these kill degree-4 cells primitively. Homotopy cancellation and π5(wedge S5)=Z^k then yield Sh ∨141 S5 ∨36 S6 and rook ∨33 S5 ∨72 S6, not merely rational Betti equality.
 
-The exact finite proof covers only the two sixteen-vertex graphs. It does not establish an equivariant homology representation, an infinite-graph statement, or absolute novelty. Independent mathematical validation is not performed.
+## originality
+
+PASS
+
+PASS, best of knowledge: Taylan 2015 develops general devoid simplicial complexes and Morse matchings; Carnero Bravo 2023/2025 develops induced forest filtration and explicit families of paths, cycles, double stars, cactus graphs and selected products, not the two (16,6,2,2) graphs. Existing published Shrikhande/rook independence complex wedge counts use a stricter forbidden-edge predicate and imply neither forest homotopy type. No exact induced-forest pair table located, with unindexed prior-work risk.
+
+## value
+
+PASS
+
+PASS: these are the classic same-parameters nonisomorphic strongly regular pair. Calculating their full torsion-free mixed-dimensional induced-forest homotopy gives a natural structural counterexample to determination by SRG parameters or equal feedback vertex-set number, a mathematically motivated comparison beyond raw enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

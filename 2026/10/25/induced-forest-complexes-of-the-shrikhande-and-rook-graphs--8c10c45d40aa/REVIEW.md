@@ -1,22 +1,21 @@
-# Scientific review of the induced-forest graph-complex comparison
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact definitions fix the Shrikhande Cayley connection set and the rook adjacency relation on the same sixteen labels. The reproducible verifier independently tests induced acyclicity with both union-find and depth-first cycle detection on every subset, constructs all simplicial incidences, and topologically sorts the orientation of the complete Hasse graph induced by a deterministic face matching. Its critical-cell vectors are \((2,143,36)\) and \((4,37,72)\) in dimensions four to six. Signed integral projection of all critical attaching boundaries gives zero in degree six-to-five, and a maximal unimodular minor in the five-to-four differential for each graph (determinants \(+1\) and \(-1\)). The CW attaching-map argument justifies the *homotopy* wedge conclusions. Independently constructed ordinary simplicial mod-two boundary ranks corroborate the resulting Betti numbers; modular ranks alone are not used to establish integrality.
+PASS
 
-## Originality — PASS, qualified
+PASS: Reconstructed both graph adjacencies from RESULT.md and verify.py, confirmed degree 6 and common-neighbor count 2, all 2^16 vertex masks via independent connected-component cyclomatic test. Exact Sh faces by size 0..7: (1,16,120,528,1440,2352,1952,512); rook: (1,16,120,528,1392,2160,1728,576); no larger forests. Fresh greedy vertex-toggle acyclic Morse DAG has 3370/3204 pairs, respective critical 4-,5-,6-cell counts (2,143,36)/(4,37,72). Independent signed integral Morse differential computation gives ∂6=0, ∂5 ranks 2/4 with unit maximal minors as in source; these kill degree-4 cells primitively. Homotopy cancellation and π5(wedge S5)=Z^k then yield Sh ∨141 S5 ∨36 S6 and rook ∨33 S5 ∨72 S6, not merely rational Betti equality.
 
-The closest directly relevant pre-existing framework is Taylan's general graph devoid complex (arXiv:1501.06754v1) and the explicit vertex-induced forest filtration studied by Carnero Bravo (arXiv:2307.13271). Inspected definitions, stated classification domains and relevant graph-family theorems do not give the claimed Shrikhande or rook results. Indexed records for the same two graphs classify *different* complexes (ordinary/higher independence, triangle-avoidance, neighborhood and graph Čech complexes). None implies the homotopy of the complex that forbids **every** induced graph cycle. Searches under cycle-hypergraph independence, feedback-vertex-set complexes and acyclic vertex-subset complexes did not identify an exact or dominating result. The residual risk is equivalent unindexed or uninspected prior work; absence from search is not proof of uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The two canonical nonisomorphic strongly regular graphs have identical local numerical parameters, exactly thirty-two triangles and induced-forest cardinality cutoff seven, but their entire integral homotopy decompositions differ in **both** nonzero dimensions. This is a complete computation of a natural filtration endpoint associated to feedback vertex sets, not an arbitrary subgraph statistic or a restatement of the already known distinction between their independence complexes. The explicit integral, torsion-free wedge decompositions are useful to distinguish graph-derived topology beyond Betti-number parity and graph parameter counts. The result is finite and does not assert a new classification theorem for an infinite family.
+PASS, best of knowledge: Taylan 2015 develops general devoid simplicial complexes and Morse matchings; Carnero Bravo 2023/2025 develops induced forest filtration and explicit families of paths, cycles, double stars, cactus graphs and selected products, not the two (16,6,2,2) graphs. Existing published Shrikhande/rook independence complex wedge counts use a stricter forbidden-edge predicate and imply neither forest homotopy type. No exact induced-forest pair table located, with unindexed prior-work risk.
 
-## Closest sources and limits
+## value
 
-- D. Taylan (2015), arXiv:1501.06754v1, Sections 3–5: general devoid-complex construction and matchings; graph families differ.
-- A. Carnero Bravo (2023), arXiv:2307.13271, Sections 3–4: induced-forest filtration, paths, cycles, stars, cactus graphs and product families; this pair is not a covered classification case.
-- Previously available results on the Shrikhande/rook independence and triangle-avoidance complexes: mathematically distinct face predicates and homotopy statements.
-- An equivalent calculation outside indexed or inspected material remains possible; no independent mathematical audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: these are the classic same-parameters nonisomorphic strongly regular pair. Calculating their full torsion-free mixed-dimensional induced-forest homotopy gives a natural structural counterexample to determination by SRG parameters or equal feedback vertex-set number, a mathematically motivated comparison beyond raw enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
