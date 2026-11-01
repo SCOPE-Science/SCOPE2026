@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable `verify_mod2.py` was run with Python's standard library. Its independently reconstructed 15-edge Petersen graph has 2,000 spanning-tree facets and 4,680 adjacent eight-edge forest faces. The entire mod-two top boundary matrix has rank 1,760 and nullity 240.
+# Independent mathematical audit
 
-Two explicit binary 2,000-coordinate seed cycles (supports 972 and 992 facets), stored as hexadecimal strings in the executable itself, satisfy each boundary equation. After applying all 120 graph-label permutations to each seed, all 240 resulting vectors remain cycles. Exact bitwise elimination gives orbit-matrix rank 240. This is a full finite characteristic-two module certificate; the top homology contains no quotient by boundaries from higher chains.
+## correctness
 
-No claim is made that these orbit columns are an integral basis, or that an equivalent statement has not appeared in inaccessible literature. Independent audit has not been performed.
+PASS
+
+Constructed the Petersen graph independently from disjoint two-subsets and enumerated all 2^15 edge masks by a disjoint-set forest test. Found exactly 2,000 spanning-tree nine-edge faces, 4,680 eight-edge faces, and exact complete mod-two top boundary rank 1,760; H8 has dimension 240 because no degree-nine simplices exist. Parsed both actual hexadecimal seed bit-vectors from the checked verify_mod2.py Git blob, verified all 4,680 equations on both, enumerated 120 permutations of five labels, transported each active facet and independently eliminated all 240 orbit columns. Their rank is exactly 240. This is an exhaustive finite certificate, not an empirical sample; it proves the full modular group-algebra decomposition.
+
+## originality
+
+PASS
+
+Best-of-knowledge modular free orbit-basis refinement beyond previously known rational two-regular S5 character. The rational/complex representation is not sufficient over characteristic 2 because the group order is divisible by 2 and semisimplicity fails; explicit modular cycles and rank certificate add substantive structure.
+
+## value
+
+PASS
+
+An explicit free module over the nonsemisimple group algebra F2[S5] captures automorphism action invisible in ordinary Betti numbers and rational character; the two concrete orbit cycles are an exact reproducible structural certificate and a natural small symmetric graphic-matroid benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

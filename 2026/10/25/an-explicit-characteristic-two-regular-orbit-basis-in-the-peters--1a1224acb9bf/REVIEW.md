@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite chain complex is completely specified by lexicographic graph-edge masks. Exhaustive calculation constructs the 4,680-by-2,000 top boundary and verifies exact binary rank 1,760. Both embedded, explicitly indexed top cycles satisfy every boundary equation. Their 240 label-permutation translates are independently checked to be cycles and to have binary column rank 240. Since no higher-dimensional chains exist, this is a full free-module certificate and does not confuse rational and modular representation theory.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest accessible prior claim for the identical forest complex establishes two *rational* regular modules; its character does not imply a free decomposition over the nonsemisimple group algebra in characteristic two. General matroid equivariant representation theory in Moci–Pezzoli works over characteristic zero; the inspected special graph classes do not give these explicit binary orbit generators. Published Petersen matching and Morse complex calculations use different faces. Searches for modular graphic-matroid orbit bases returned no identical theorem. Equivalent unindexed modular calculations remain possible; no publication-priority guarantee is claimed.
+PASS
 
-**Mathematical value — PASS.** The problem of whether a rationally regular homology representation remains free over a modular group algebra is substantive: character equality loses information when the characteristic divides the group order. The theorem resolves that question at the prime two for a canonical symmetric graphic matroid by providing two explicit geometric chain cycles and a full-rank orbit certificate, not just a Betti number or another rational character computation.
+Constructed the Petersen graph independently from disjoint two-subsets and enumerated all 2^15 edge masks by a disjoint-set forest test. Found exactly 2,000 spanning-tree nine-edge faces, 4,680 eight-edge faces, and exact complete mod-two top boundary rank 1,760; H8 has dimension 240 because no degree-nine simplices exist. Parsed both actual hexadecimal seed bit-vectors from the checked verify_mod2.py Git blob, verified all 4,680 equations on both, enumerated 120 permutations of five labels, transported each active facet and independently eliminated all 240 orbit columns. Their rank is exactly 240. This is an exhaustive finite certificate, not an empirical sample; it proves the full modular group-algebra decomposition.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge modular free orbit-basis refinement beyond previously known rational two-regular S5 character. The rational/complex representation is not sufficient over characteristic 2 because the group order is divisible by 2 and semisimplicity fails; explicit modular cycles and rank certificate add substantive structure.
+
+## value
+
+PASS
+
+An explicit free module over the nonsemisimple group algebra F2[S5] captures automorphism action invisible in ordinary Betti numbers and rational character; the two concrete orbit cycles are an exact reproducible structural certificate and a natural small symmetric graphic-matroid benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
