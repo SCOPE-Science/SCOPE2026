@@ -1,15 +1,21 @@
-# Review: Exact local-swap price of anarchy on two-type Schelling cycles
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-Direct payoff comparison establishes that a mutually strictly improving adjacent opposite-color swap is equivalent to a cyclic alternating four-position word. This condition is exactly two adjacent singleton monochromatic runs. The run-index adjacency restriction gives \(n\ge3r\) and the \(n=3r\) equality obstruction; exhaustive construction of run lengths covers every remaining feasible composition, not just isolated examples. Counting bichromatic edges converts exact maximal run count into minimum local welfare and the ratio. The boundary \(n=3\) and both-color assumption are addressed. The independently coded direct payoff enumeration confirms all 119 composition classes through sixteen vertices; the witness generator confirms 6,215 composition cases through 112 vertices. Finite checks corroborate but do not replace proof.
+PASS
 
-## Originality (PASS; residual risk)
+For unlike adjacent colors AB, mutual strict utility improvement is equivalent to exterior colors BA; equivalently the four cyclic entries alternate. Stability therefore forbids adjacent singleton monochromatic runs. For 2r runs, at most r are singletons and hence n>=3r; equality forces alternating run lengths 1,2 and composition {r,2r}. The explicit cyclic run-length construction attains every feasible r, with precisely the n=3r balanced obstruction. Every monochromatic edge contributes one to welfare, giving W=n-2r and exact LPoA (n-2)/(n-2r*), including n=3.
 
-The closest primary article (Bilò et al., 2022, DOI 10.1007/s10458-022-09573-7) defines the identical local swap game, proves exact cases for the imbalanced regime, and states only an upper bound in the balanced regime (Theorem 13, Section 3.3). It does not supply the necessary-and-sufficient run-attainability criterion or the mod-three composition obstruction, and its proof explicitly labels only earlier cases as tight. The 2020 MFCS predecessor is shorter; the 2012 one-dimensional Schelling article studies a different stochastic movement model. Related public research-index records concerned run-transition covariances or threshold activation rather than mutually profitable adjacent swaps. Search hits are not exhaustive mathematical originality guarantees; an unlocated equivalent word-combinatorics result remains possible.
+## originality
 
-## Mathematical value (PASS)
+PASS
 
-This resolves the precise fixed-composition worst-equilibrium welfare of a natural class that the directly relevant peer-reviewed paper had bounded but left not tight. In particular, it identifies a genuine balanced divisibility-by-three obstruction (for example, equal groups on twelve vertices) and supplies a uniform explicit extremizer in every feasible case. It gives a complete parameter classification, not a routine restatement of the known run ceiling. Structural restrictions and the difference between local and unrestricted swaps limit applications.
+The identical local game in Bilò et al 2022 has an exact extreme bound only when type sizes are sufficiently imbalanced; its balance-regime Theorem 13 does not establish exact attainability, whereas the new construction and mod-three obstruction do. This is a qualified best-of-knowledge addition to an established problem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Closes an explicitly non-tight fixed-composition price-of-anarchy bound in a natural graph game for all cycle sizes, with a sharp new balanced mod-three obstruction and explicit extremizers. The exact global-in-composition classification is stronger than a textbook n>=3r ceiling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

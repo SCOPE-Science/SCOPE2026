@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:59:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md four-position payoff calculation and constructive sufficiency",
+        "Independent direct payoff and all-color-word enumeration n=3..14, 90 composition classes, no reliance on alternating-four lemma in payoff checker",
+        "Git source tree and verify.py inspected"
+      ],
+      "rationale": "For unlike adjacent colors AB, mutual strict utility improvement is equivalent to exterior colors BA; equivalently the four cyclic entries alternate. Stability therefore forbids adjacent singleton monochromatic runs. For 2r runs, at most r are singletons and hence n>=3r; equality forces alternating run lengths 1,2 and composition {r,2r}. The explicit cyclic run-length construction attains every feasible r, with precisely the n=3r balanced obstruction. Every monochromatic edge contributes one to welfare, giving W=n-2r and exact LPoA (n-2)/(n-2r*), including n=3.",
+      "risks": [
+        "Only adjacent mutually strictly beneficial swaps, full occupancy, and two types; nonlocal/stochastic models not covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilò et al Theorem 13 discusses cycles and says tightness holds for smaller side 1 or larger side at least twice smaller; the complementary range is bounded.",
+          "Brandt et al 2012 studies random one-dimensional segregation, not equilibrium under mutual adjacent payoff gains."
+        ],
+        "reasoning": "Earlier general inequalities do not imply the exact balanced-composition equality cases or their one-unit divisibility obstruction.",
+        "searches": [
+          "Schelling game local adjacent mutually improving swaps cycle two colors price of anarchy exact run composition",
+          "DOI:10.1007/s10458-022-09573-7 full section 3.3",
+          "arXiv:1203.6346"
+        ]
+      },
+      "checked_sources": [
+        "Bilò et al 2022 DOI:10.1007/s10458-022-09573-7 full Section 3.3",
+        "Bilò et al MFCS 2020 DOI:10.4230/LIPIcs.MFCS.2020.15",
+        "Brandt et al arXiv:1203.6346",
+        "Resultary:2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For n=12 and a=b=6 the new construction gives max r=3 and LPoA 5/3, while the prior general upper bound does not force this equality.",
+          "Equality n=3r forces group counts {r,2r}, a condition not present in the earlier upper bound."
+        ],
+        "reasoning": "Previously published upper bound and established imbalanced tightness leave a genuine logical gap filled by the new attainability proof.",
+        "searches": [
+          "DOI:10.1007/s10458-022-09573-7 Theorem 13",
+          "Schelling game local adjacent mutually improving swaps cycle two colors price of anarchy exact run composition"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For fixed composition, maximum run pairs, minimum equilibrium welfare n-2r, and worst equilibrium price of anarchy are equivalent quantities.",
+          "Bilò et al formulate welfare through monochromatic path runs, but prove only some bounds tight."
+        ],
+        "reasoning": "Compared the same adjacent mutual strictly improving swap model and full composition quantifiers, not a superficially similar stochastic Schelling game.",
+        "searches": [
+          "Schelling game local adjacent mutually improving swaps cycle two colors price of anarchy exact run composition",
+          "DOI:10.1007/s10458-022-09573-7 section 3.3, Theorem 13"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary title concerns covariance of color transition indicators under fixed composition, not swaps.",
+          "The inspected Bilò et al theorem provides asymptotic/class-specific bounds rather than an all-composition exact table."
+        ],
+        "reasoning": "An exhaustive finite simulation through n=14 is not a previous table and does not imply the all-n classification; no covering exact table identified.",
+        "searches": [
+          "Schelling game local adjacent mutually improving swaps cycle two colors price of anarchy exact run composition",
+          "Resultary:2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+        ]
+      },
+      "rationale": "The identical local game in Bilò et al 2022 has an exact extreme bound only when type sizes are sufficiently imbalanced; its balance-regime Theorem 13 does not establish exact attainability, whereas the new construction and mod-three obstruction do. This is a qualified best-of-knowledge addition to an established problem.",
+      "residual_risks": [
+        "An unindexed forbidden-pattern or cyclic-run extremum theorem might already imply the formula.",
+        "Different swap definitions can appear under identical Schelling terminology; applicability is restricted to mutual strict adjacent gain."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-review, balanced equality cases not supplied",
+          "evidence": [
+            "Theorem 13 and tightness restrictions o=1 or b>=2o; Section 3.3"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10458-022-09573-7",
+          "material_read": "Open-access full article, focus model definitions, Section 3.3 and Theorem 13 with proof and tightness discussion",
+          "method": "Publisher open-access HTML",
+          "title": "Topological influence and locality in swap schelling games",
+          "trigger": "Precisely same local adjacent swap rule"
+        },
+        {
+          "assessment": "Different stochastic update mechanism, not equivalent local equilibrium",
+          "evidence": [
+            "Brandt et al 2012 abstract/model description"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1203.6346",
+          "material_read": "Abstract and model description, not full paper",
+          "method": "arXiv metadata and accessible source synopsis",
+          "title": "An Analysis of One-Dimensional Schelling Segregation",
+          "trigger": "Potential one-dimensional prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All n>=3 and a,b>=1 classified",
+        "Balanced 12-cycle exception r*=3 rather than 4"
+      ],
+      "rationale": "Closes an explicitly non-tight fixed-composition price-of-anarchy bound in a natural graph game for all cycle sizes, with a sharp new balanced mod-three obstruction and explicit extremizers. The exact global-in-composition classification is stronger than a textbook n>=3r ceiling.",
+      "risks": [
+        "Does not extend to unrestricted or multitype swap models."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

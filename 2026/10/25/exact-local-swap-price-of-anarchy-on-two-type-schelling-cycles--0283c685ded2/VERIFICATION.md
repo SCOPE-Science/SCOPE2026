@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytical result applies for every integer \(n\ge3\) and every positive composition \(a+b=n\); finite calculations support but do not certify the infinite quantification.
+# Independent mathematical audit
 
-Run `python3 verify.py` in the same directory as `certificate.json` and compare the resulting standard output byte-for-byte with `certificate.json`. The standalone script imports only Python standard-library modules and prints one JSON line followed by a newline; no external data, package download or network call is required. All generation is deterministic.
+## correctness
 
-The verifier (i) directly checks both individuals' changed payoff on every adjacent swap, and separately tests the four-position alternating-word characterization, across 131,036 nonmonochromatic cyclic binary words with \(3\le n\le16\); (ii) groups local equilibria by composition into 119 classes and confirms the exact maximal run count; (iii) constructs 6,215 explicit extremal configurations for \(3\le n\le112\), independently tests their stability and run count; and (iv) reports selected exact welfare values.
+PASS
 
-These checks cannot establish all-n optimality or scientific novelty. The proof and complete scopes are given in `RESULT.md`. No independent audit has been performed.
+For unlike adjacent colors AB, mutual strict utility improvement is equivalent to exterior colors BA; equivalently the four cyclic entries alternate. Stability therefore forbids adjacent singleton monochromatic runs. For 2r runs, at most r are singletons and hence n>=3r; equality forces alternating run lengths 1,2 and composition {r,2r}. The explicit cyclic run-length construction attains every feasible r, with precisely the n=3r balanced obstruction. Every monochromatic edge contributes one to welfare, giving W=n-2r and exact LPoA (n-2)/(n-2r*), including n=3.
+
+## originality
+
+PASS
+
+The identical local game in Bilò et al 2022 has an exact extreme bound only when type sizes are sufficiently imbalanced; its balance-regime Theorem 13 does not establish exact attainability, whereas the new construction and mod-three obstruction do. This is a qualified best-of-knowledge addition to an established problem.
+
+## value
+
+PASS
+
+Closes an explicitly non-tight fixed-composition price-of-anarchy bound in a natural graph game for all cycle sizes, with a sharp new balanced mod-three obstruction and explicit extremizers. The exact global-in-composition classification is stronger than a textbook n>=3r ceiling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
