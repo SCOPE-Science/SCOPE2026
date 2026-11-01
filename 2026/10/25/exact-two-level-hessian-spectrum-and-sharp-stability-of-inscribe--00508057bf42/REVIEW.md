@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-The determinant inequality establishes the global equality orbit without relying on a classification theorem. A complete decomposition of sphere-tangent perturbations into rotations and trace-free symmetric matrices reduces the Hessian to two explicit quadratic forms. A \(d\)-dimensional matrix subspace and its Frobenius complement diagonalize the forms, with a strictly positive transverse gap. A tubular-neighborhood Taylor argument yields both sharp coefficients. The included program numerically checks the analytical expressions through dimension six, but it is not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-Horváth–Lángi identify the regular simplex as the inscribed maximum and supply first-order tests. Medgyes treats 7- and 8-vertex four-polytopes rather than the regular \(d+1\)-simplex Hessian. Grote–Kabluchko–Thäle supply strong spherical random-volume distribution formulas but not the directional Riemannian Hessian. Record searches found analogous Hessians for different functionals, including the nine-vertex inscribed-polytope problem and minimal central simplex sections. No retrieved stronger theorem implies the two eigenvalues, their multiplicities, and both sharp local distance coefficients. The search does not eliminate older unindexed treatments; accessible abstract-only records were not treated as whole-text noncoverage.
+PASS
 
-## Value — PASS
-The exact normal spectrum is a natural quantitative rigidity invariant of the simplest spherical volume maximizer. It proves there are no nonrotational quadratic flat modes and gives the sharp relative stiffness of two geometrically distinct deformation families in every dimension.
+The augmented determinant bound shows global maximizers exactly the O(d) orbit of regular simplices. Decompose every tangent array into skew-symmetric rotation A and tracefree symmetric S, with w_i=A u_i+(I-u_i u_i^T)S u_i. The mapping from tracefree S to tangent normals is injective by unique all-ones relation among regular vertices and has correct dimension. Hessian of -log volume from geodesic determinant twice differentiation is H(S,T)=2tr(ST)-(2d+1)/(d+1) sum_i q_i(S)q_i(T); metric G(S,T)=(d+1)/d tr(ST)-sum_i q_i q_i. The tracefree symmetric space splits into span{u_i u_i^T-I/d} (rank d, eigenvalue 1) and its Frobenius orthogonal complement (eigenvalue 2d/(d+1)). All other null modes are rotations. Compact tubular-neighborhood Taylor formula yields uniform sharp r^2 constants; normal eigendirections attain both.
 
-## Limitations
-The asymptotic bounds use the intrinsic product-sphere metric and fixed dimension. Their constants change under other normalizations. No explicit neighborhood radius or finite-sample probability law is claimed. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Horváth and Lángi prove global maximal volume and equality regular simplex, but those results do not imply the precise Riemannian Hessian, its two nonzero eigenlevels and Morse–Bott stability. Medgyes treats 7/8-vertex dimension-4 volume certificates; Grote–Kabluchko–Thäle scalar random-simplex laws do not resolve directional Hessian. Published SCOPE nine-vertex spherical Hessian concerns different object.
+
+## value
+
+PASS
+
+A complete all-dim local rigidity spectrum for the classical regular inscribed simplex specifies two distinct deformation stiffnesses and the sharp quantitative distance-to-orbit deficit. Distinct from the well-known global maximizer, useful for stability and perturbation analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

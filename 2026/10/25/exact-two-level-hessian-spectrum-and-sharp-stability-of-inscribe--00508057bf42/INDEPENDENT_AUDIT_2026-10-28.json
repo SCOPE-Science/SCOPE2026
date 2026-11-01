@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:14:04Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md determinant-AGM equality conditions, tangent decomposition, exact Hessian and rank computation",
+        "Independent numeric generalized Hessian eigenvalues d=2..6 and 40 geodesic determinant finite-difference checks agree with symbolic levels"
+      ],
+      "rationale": "The augmented determinant bound shows global maximizers exactly the O(d) orbit of regular simplices. Decompose every tangent array into skew-symmetric rotation A and tracefree symmetric S, with w_i=A u_i+(I-u_i u_i^T)S u_i. The mapping from tracefree S to tangent normals is injective by unique all-ones relation among regular vertices and has correct dimension. Hessian of -log volume from geodesic determinant twice differentiation is H(S,T)=2tr(ST)-(2d+1)/(d+1) sum_i q_i(S)q_i(T); metric G(S,T)=(d+1)/d tr(ST)-sum_i q_i q_i. The tracefree symmetric space splits into span{u_i u_i^T-I/d} (rank d, eigenvalue 1) and its Frobenius orthogonal complement (eigenvalue 2d/(d+1)). All other null modes are rotations. Compact tubular-neighborhood Taylor formula yields uniform sharp r^2 constants; normal eigendirections attain both.",
+      "risk": [
+        "Claims are local in intrinsic product-of-spheres distance; no explicit global quadratic modulus or neighborhood radius.",
+        "Finite dimension testing is corroboration, not the all-d proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:1402.6496v3 Corollary 1 global maximum",
+          "arXiv:2610.26886v1 7-/8-vertex 4-polytopes",
+          "arXiv:1708.00471v1 random-simplex volume laws"
+        ],
+        "reasoning": "No cited broad theorem yields the exact transverse spectrum, though classical determinant arguments supply the maximizer premise. Scalar moment distributions average away perturbation directions.",
+        "searches": [
+          "Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum",
+          "arXiv:1402.6496v3 Corollary 1 global maximum",
+          "arXiv:2610.26886v1 7-/8-vertex 4-polytopes",
+          "arXiv:1708.00471v1 random-simplex volume laws"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1402.6496v3 primary full text",
+        "arXiv:2610.26886v1 primary full text",
+        "arXiv:1708.00471v1 selected main results",
+        "Resultary search: Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:1402.6496v3 Corollary 1",
+          "arXiv:1708.00471v1 spherical random-simplex moments"
+        ],
+        "reasoning": "First-order optimality or the volume distribution does not mathematically force Morse–Bott nondegeneracy, eigenlevel multiplicities or sharp local moduli.",
+        "searches": [
+          "Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum",
+          "arXiv:1402.6496v3 Corollary 1",
+          "arXiv:1708.00471v1 spherical random-simplex moments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Horváth–Lángi arXiv:1402.6496v3 global inscribed maximum/equality",
+          "Gaussian/simplex Hessian and rotation-reduced determinant aliases; Resultary query Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum"
+        ],
+        "reasoning": "Global maximum/equality does not encode second variation; published nearby Hessian calculations target Gaussian products or minimal central sections rather than labelled sphere-vertex volume.",
+        "searches": [
+          "Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search: Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum",
+          "Published SCOPE 2026/10/11/SCOPE-uniform-quadratic-stability-of-the-maximal-nine-vertex-spherical--c558d6b5df45"
+        ],
+        "reasoning": "The nine-vertex spherical case is not d+1 labelled vertices for arbitrary d; no returned table of these all-d Hessian eigenvalues. Lack of a search hit is not definitive uniqueness.",
+        "searches": [
+          "Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum",
+          "Resultary search: Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum"
+        ]
+      },
+      "rationale": "Horváth and Lángi prove global maximal volume and equality regular simplex, but those results do not imply the precise Riemannian Hessian, its two nonzero eigenlevels and Morse–Bott stability. Medgyes treats 7/8-vertex dimension-4 volume certificates; Grote–Kabluchko–Thäle scalar random-simplex laws do not resolve directional Hessian. Published SCOPE nine-vertex spherical Hessian concerns different object.",
+      "residual_risks": [
+        "An older matrix-optimization or differential-geometry calculation may have obtained the same Hessian with a different normalization.",
+        "The sharp coefficient is metric-specific; changing sphere radius or product metric changes it."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers global extremizer and regular-simplex equality; does not calculate the full product-sphere transverse spectrum",
+          "evidence": [
+            "Corollary 1"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1402.6496v3",
+          "material_read": "Full accessible HTML: introduction, extremal simplex Corollary 1, optimality discussion",
+          "method": "Statement-by-statement comparison with Hessian assertion",
+          "title": "Maximum volume polytopes inscribed in the unit sphere",
+          "trigger": "Foundational same global regular simplex maximizer"
+        },
+        {
+          "assessment": "Different vertex count and finite-dimensional global certificates; not all-dimensional d+1 Hessian",
+          "evidence": [
+            "Sections 2–3, geometry and determinant"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.26886v1",
+          "material_read": "Accessible full HTML Sections 1–5, determinant and certificate arguments",
+          "method": "Compared vertex count and differentiable geometry",
+          "title": "Inscribed 4-polytopes of maximal volume with seven and eight vertices",
+          "trigger": "Recent exact spherical volume maximization"
+        },
+        {
+          "assessment": "Scalar volume moment laws do not present a labelled tangent-Hessian eigenbasis",
+          "evidence": [
+            "Theorems 2.3 and 2.5"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1708.00471",
+          "material_read": "Accessible manuscript main statements, especially spherical volume distributions/moments",
+          "method": "Compared random scalar law to orientation-resolved Hessian",
+          "title": "Limit theorems for random simplices in high dimensions",
+          "trigger": "Scalar spherical simplex volume statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "A complete all-dim local rigidity spectrum for the classical regular inscribed simplex specifies two distinct deformation stiffnesses and the sharp quantitative distance-to-orbit deficit. Distinct from the well-known global maximizer, useful for stability and perturbation analysis."
+      ],
+      "rationale": "A complete all-dim local rigidity spectrum for the classical regular inscribed simplex specifies two distinct deformation stiffnesses and the sharp quantitative distance-to-orbit deficit. Distinct from the well-known global maximizer, useful for stability and perturbation analysis.",
+      "risk": [
+        "Significance is confined to stated exact natural construction; no broader conjecture or large theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1402.6496v3 primary full text",
+    "arXiv:2610.26886v1 primary full text",
+    "arXiv:1708.00471v1 selected main results",
+    "Resultary search: Hessian regular simplex inscribed volume product spheres second variation Morse Bott stability spectrum"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claims are local in intrinsic product-of-spheres distance; no explicit global quadratic modulus or neighborhood radius.",
+    "Finite dimension testing is corroboration, not the all-d proof.",
+    "An older matrix-optimization or differential-geometry calculation may have obtained the same Hessian with a different normalization.",
+    "The sharp coefficient is metric-specific; changing sphere radius or product metric changes it."
+  ],
+  "residual_risks": [
+    "An older matrix-optimization or differential-geometry calculation may have obtained the same Hessian with a different normalization.",
+    "The sharp coefficient is metric-specific; changing sphere radius or product metric changes it."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers global extremizer and regular-simplex equality; does not calculate the full product-sphere transverse spectrum",
+      "evidence": [
+        "Corollary 1"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/1402.6496v3",
+      "material_read": "Full accessible HTML: introduction, extremal simplex Corollary 1, optimality discussion",
+      "method": "Statement-by-statement comparison with Hessian assertion",
+      "title": "Maximum volume polytopes inscribed in the unit sphere",
+      "trigger": "Foundational same global regular simplex maximizer"
+    },
+    {
+      "assessment": "Different vertex count and finite-dimensional global certificates; not all-dimensional d+1 Hessian",
+      "evidence": [
+        "Sections 2–3, geometry and determinant"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2610.26886v1",
+      "material_read": "Accessible full HTML Sections 1–5, determinant and certificate arguments",
+      "method": "Compared vertex count and differentiable geometry",
+      "title": "Inscribed 4-polytopes of maximal volume with seven and eight vertices",
+      "trigger": "Recent exact spherical volume maximization"
+    },
+    {
+      "assessment": "Scalar volume moment laws do not present a labelled tangent-Hessian eigenbasis",
+      "evidence": [
+        "Theorems 2.3 and 2.5"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1708.00471",
+      "material_read": "Accessible manuscript main statements, especially spherical volume distributions/moments",
+      "method": "Compared random scalar law to orientation-resolved Hessian",
+      "title": "Limit theorems for random simplices in high dimensions",
+      "trigger": "Scalar spherical simplex volume statistics"
+    }
+  ]
+}
