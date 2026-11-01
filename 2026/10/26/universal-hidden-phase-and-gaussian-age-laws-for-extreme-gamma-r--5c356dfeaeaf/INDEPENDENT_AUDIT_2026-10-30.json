@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Regenerative renewal reward gives the exact joint diffusion occupation density p_t(y) psi(t+delta) dt dy ddelta and return density v^-1 psi(t) p_t(y+j) dt dy dj, before division by mean cycle duration m=s/r+[2sqrt(D/r)Gamma(s+1/2)]/[v sqrt(pi)Gamma(s)]. For y=x+u, the exponential action rt+(x+u+j)^2/(4Dt) has a unique minimum at t_x=x/(2sqrt(Dr)) with t_x-saddle variance scale h_x^2=t_x/(2r). Taylor expansion at t=t_x+h_x z gives kx+z^2/2+k(u+j), k=sqrt(r/D), while psi(t+delta)/psi(t)->e^{-r delta}. Uniform Gaussian concentration and the Gamma/exponential tails control integration outside compact z,u,j,delta sets for fixed s>0; this yields joint Gaussian and independent exponential limits. The diff/return weights are 1/(kr) and 1/(vk^2), giving v/(v+sqrt(Dr)). Integrating the Gamma-mixed Brownian endpoint tail and dividing by m verifies coefficient k^(s-1)/(2^s Gamma(s)m)*(1/r+1/(v k)) x^(s-1)e^{-kx}. Independent numerical integration of separate occupation kernels at x=180 for three parameter sets including s<1 and s>2 agreed with phase fractions and Gaussian duration means/variances; finite thresholds do not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Radice (2022) explicitly gives phase marginals and asymptotic spatial tail; those already imply the scalar phase weight and are not independent novelty.",
+          "Masó-Puigdellosas et al. (2022) general conditional backward/forward density statements, including exponential instant-reset example, provide closely related machinery; finite-speed return phase and Gamma rare-position joint limit are not supplied in inspected results.",
+          "Bodrova/Sokolov 2019 and 2019 transport literature are additional model background, not confirmed covering the full joint limit."
+        ],
+        "reasoning": "A sufficiently general Laplace-conditioning theorem combined with model marginals could make the remaining joint limit corollary; no inspected primary theorem establishes all the exact cross-phase time/distance independence statements with this fixed model. Preserve this possibility as a material risk.",
+        "searches": [
+          "stationary Gamma reset finite speed return extreme position conditional age Gaussian hidden phase",
+          "arXiv:2201.01829 full sections 2–4 + Appendices",
+          "arXiv:2205.01613 conditioned backward and forward Section IV",
+          "arXiv:1907.12326 noninstantaneous returns",
+          "arXiv:1910.09927 transport noninstantaneous resetting"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.01829 (primary full PDF sections and equations 38–58)",
+        "arXiv:2205.01613 (primary PDF Section IV conditioned-age/time laws)",
+        "arXiv:1907.12326 (scoped bibliographic comparison)",
+        "arXiv:1910.09927 (scoped comparison)",
+        "arXiv:2105.12571 (reference scope)",
+        "Resultary search: stationary Gamma reset finite speed return extreme position conditional age Gaussian hidden phase"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Radice spatial density results are integrals over hidden diffusion time; integration loses the normalized duration distribution and conditional independence.",
+          "The exact augmented occupation kernels in the audited proof retain both time and auxiliary return/alarm variables and allow joint saddle-point analysis.",
+          "Masó conditioned-age construction for instant return provides a related formula but lacks the competing finite-speed ballistic return phase."
+        ],
+        "reasoning": "The marginal phase/tail part IS covered and excluded. The full cross-phase joint limit is not an immediate stated corollary of a cited formula without undoing integrals and proving a uniform multi-variable Laplace limit. This is the remaining motivated mathematical finding.",
+        "searches": [
+          "arXiv:2201.01829 Sections 2–4 equations 38–58",
+          "arXiv:2205.01613 Section IV equations 37–46",
+          "stationary Gamma reset finite speed return extreme position conditional age Gaussian hidden phase"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Radice 2022 Secs 2–4 Eqs.(38)–(58) gives phase-resolved position PDFs but not recorded joint elapsed diffusion time and forward time.",
+          "Masó-Puigdellosas et al. 2022 Sec IV Eqs.(37)–(46) obtains conditional backward age densities for instantaneous resets, not a two-phase finite-speed return mixture."
+        ],
+        "reasoning": "The joint augmented renewal occupation densities are latent variable enrichments of the published position marginals; Gaussian localization and independence of the overshoot/residual/return-progress are stronger than stationary position density alone. Broad conditioned-time framework is known and credited, not claimed as new.",
+        "searches": [
+          "stationary Gamma reset finite speed return extreme position conditional age Gaussian hidden phase",
+          "Gamma resetting constant velocity return conditional hidden diffusion age Gaussian large position Radice",
+          "arXiv:2205.01613 Section IV conditioned backward and forward time laws"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved renewal-age correlation result studies stationary unconditional age/residual powers rather than far-spatial Gamma-reset Brownian phase conditioning.",
+          "No returned exact conditional joint distribution or tabulation matched the full Gamma/return theorem."
+        ],
+        "reasoning": "There is no finite table constituting an exhaustive priority test for the joint weak limit. Semantic absence is only bounded evidence.",
+        "searches": [
+          "stationary Gamma reset finite speed return extreme position conditional age Gaussian hidden phase",
+          "Resultary query limit12; closest 2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8"
+        ]
+      },
+      "rationale": "Radice 2022 arXiv:2201.01829 establishes this exact Brownian Gamma-reset and finite-speed-return model, both stationary phase position densities and far spatial tail. The marginal tail constant and phase weight are already entailed and explicitly excluded from claimed originality. The surviving result is a JOINT extreme-position conditional limit: normal hidden diffusion duration together with independent exponential position overshoot and phase-specific forward time/return progress. Masó-Puigdellosas et al. arXiv:2205.01613 establish conditioned backward/forward times for resetting with instantaneous returns, an important close precursor; the inspected sections do not give the finite-speed two-phase Gamma joint saddle law. Novelty thus remains conditional on this precise full-joint specialization.",
+      "residual_risks": [
+        "Masó-Puigdellosas et al. 2022 provide general conditioned-time formulas; an existing generic saddle-point lemma may make the present joint specialization an implicit corollary.",
+        "Radice 2022 already supplies the marginal tail and limiting phase weight: these are not independently original.",
+        "Related finite-speed return primary papers were not all read completely in this run; avoid whole-paper noncoverage claims.",
+        "Asymptotics are fixed positive s,r,D,v and not uniform in Gamma shape/return speed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers original stationary marginal, phase limit and tail coefficient; no explicit full joint conditional age/overshoot/progress theorem in inspected material.",
+          "evidence": [
+            "PDF near Eqs.(45),(47),(55)–(58) derives stationary position densities and their far tails."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.01829",
+          "material_read": "Open-access primary PDF, Sections 2–4 Eqs.(38)–(58), spatial asymptotic at pages 9–11, surrounding derivations and appendix scope.",
+          "method": "Read PDF text and inspect screenshots of pages 1 and 10; compare the phase densities and Bessel tail to the full augmented densities.",
+          "title": "Diffusion processes with Gamma-distributed resetting and non-instantaneous returns",
+          "trigger": "Identical Gamma-reset Brownian with deterministic finite-speed return, same densities and tail."
+        },
+        {
+          "assessment": "Establishes closely related conditioned age/forward density machinery for instantaneous resetting. It does not treat deterministic finite-speed return and the joint Gaussian/exponential far-position two-phase limit.",
+          "evidence": [
+            "Sec IV Eq.(37) introduces f(B|x,t); Eq.(43) gives conditional backward density, Eq.(46) exponential-clock instance."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.01613",
+          "material_read": "Full primary PDF main body, particularly Sections III–IV and Eqs.(37)–(46), with conclusions and abstract.",
+          "method": "Open arXiv PDF, screenshot page 1, inspect Section IV text with conditional backward/forward formulas and exponential reset example.",
+          "title": "Conditioned backward and forward times of diffusion with stochastic resetting",
+          "trigger": "Potential prior exact position-conditioned age and residual-reset time laws; critical direct comparison."
+        },
+        {
+          "assessment": "Important antecedent, incomplete full-text coverage is retained as a priority risk.",
+          "evidence": [
+            "Work studies finite return time in resetting; no full-document exclusion is asserted."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1907.12326",
+          "material_read": "Available bibliographic model description and package cited scope, not a new exhaustive full-text reading in this run.",
+          "method": "Compare identified model families and observables with the exact augmented occupation variables.",
+          "title": "Resetting processes with non-instantaneous return",
+          "trigger": "Earlier general two-phase occupation framework."
+        },
+        {
+          "assessment": "Not asserted noncovering beyond inspected scope, full-text risk retained.",
+          "evidence": [
+            "Known subject is transport properties/MSD under stochastic noninstantaneous resetting."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.09927",
+          "material_read": "Bibliographic/abstract-scope evidence; complete full text not read in this run.",
+          "method": "Scoped literature comparison of transport observables versus extreme position-conditioned latent-time joint law.",
+          "title": "Transport properties of random walks under stochastic non-instantaneous resetting",
+          "trigger": "Potential general finite-speed reset-return stationary law."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The rare stationary spatial observation identifies the latent duration and mode in a natural two-phase regenerative diffusion. The joint normal/exponential conditional structure and its parameter-independent phase weight clarify a mechanistic inverse-inference question, beyond known stationary position marginals. Return travel and remaining alarm distributions have direct physical meaning; no paper-sized extension is needed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed positive s,r,D,v in stationary Gamma reset/diffuse/ballistic return Brownian motion, conditioning on X>x with x->infinity produces an asymptotically independent hidden diffusion/return phase, centered Gaussian elapsed/completed diffusion duration, Exp(sqrt(r/D)) spatial overshoot, Exp(r) remaining alarm duration in diffusion, and Exp(sqrt(r/D)) traveled return distance in return; the phase probability and scalar spatial tail coefficient are explicitly recognized as prior marginal consequences.",
+  "limitations": [
+    "Fixed s,r,D,v positive; x->infinity, not finite-threshold bounds or uniform s,v error rates.",
+    "One-dimensional Brownian diffusion, independent Gamma resets, deterministic constant-speed ballistic returns.",
+    "Scalar phase weight and tail constant are prior consequences of Radice (2022), not separately claimed original.",
+    "Not a first-passage-time or arbitrary reset-clock theorem."
+  ],
+  "schema_version": 1
+}
