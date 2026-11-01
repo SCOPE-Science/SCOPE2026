@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:57:17Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob a008703fe1e8dfc71a60bf3b19c0b72930b31e88",
+        "Immutable checker.py blob fd3813d2e642e67740be3fd5ab17009aa652d435",
+        "NIST DLMF 10.21.2 and Bessel recurrences",
+        "Independent 28-root bounded check n dimensions and two radii"
+      ],
+      "rationale": "For ν=d/2≥1 the annular Fourier amplitude equals (2π)^ν t^(−ν)[Jν(t)−r^νJν(rt)]. The Bessel recurrences give Eν′(t)=(4ν−2)t^(2ν−1)Jν−1(t)²≥0, with strictly positive integral on each interval (rt,t), so strict two-scale energy dominance holds for all t>0. At each boundary t=jν−1,k the scaled difference has the sign of Jν(t), giving alternating signs at consecutive brackets. At any root, dominance yields |Jν−1(t)|>r^ν|Jν−1(rt)|, forcing G′ nonzero with sign Jν−1, which cannot recur twice in one bracket. No first root occurs below jν−1,1 by the positive origin sign and derivative direction. The implicit-function theorem and compact-limit Bessel expansions prove analytic motion and limiting jν,k (r↓0), jν−1,k (r↑1), and bracket uniform N(t)=t/π+O_d(1). At d=1 the sine-cosine factorization classifies precisely the odd-numerator/even-denominator rational resonances with double zeros. Independent SciPy computation reproduced 28 bracket roots and derivative orientation (diagnostic, not proof).",
+      "residual_risks": [
+        "Simplicity refers to radial Fourier *amplitude* zeros, not intensity, and no assertion is made for nonconcentric/nonradial shells or complex zeros."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The uncertainty-principle and indicator Fourier transform works give transforms or bounds, not the complete annulus zero census.",
+          "DLMF 10.21 treats zeros of separate Bessel functions and derivatives, not Jν(t)−r^ν Jν(rt) for every r."
+        ],
+        "reasoning": "An existing broader Bessel inequality might imply the strict Eν(t) comparison; no inspected stronger root census of the two-scale annulus amplitude was found.",
+        "searches": [
+          "arXiv:1009.1710 strong annihilating Fourier Bessel",
+          "arXiv:1109.5262 Fourier geometric indicators",
+          "NIST DLMF special function zero structure",
+          "Web: Bessel derivative interlacing Baricz Kokologiannaki Pogány"
+        ]
+      },
+      "checked_sources": [
+        "https://dlmf.nist.gov/10.21",
+        "doi:10.1364/AO.44.007677",
+        "https://arxiv.org/abs/1009.1710",
+        "https://arxiv.org/abs/1109.5262",
+        "Resultary record 72c1da0f9bb0 (Fourier bipyramids)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The strict identity d/dt[t^(2ν)(Jν−1²+Jν²)]=(4ν−2)t^(2ν−1)Jν−1² implies |Jν−1(t)|>r^ν |Jν−1(rt)| at a zero; this forces a derivative sign and one root per bracket.",
+          "Ordinary contiguous-order interlacing alone gives only endpoint signs/at least one root, not uniqueness or simplicity of a two-scale difference."
+        ],
+        "reasoning": "The new derivative-orientation argument is a genuine additional proof step. The classical annular optical amplitude is covered, but not its complete root location and multiplicity in the indexed material.",
+        "searches": [
+          "Urcid Padilla 2005 annular diffraction amplitude",
+          "DLMF 10.21.2 jν−1,k < jν,k < jν−1,k+1",
+          "Web: two-scale Bessel zero root uniqueness annulus"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Urcid–Padilla annular aperture far-field amplitude is the same radial Bessel difference after normalization.",
+          "DLMF adjacent Bessel Jν-1 and Jν zero interlacing is only a boundary-bracket fact, not a zero theorem for the two-scale linear combination."
+        ],
+        "reasoning": "The aperture terminology and Bessel alias were included. Classical one-scale interlacing does not imply no doubled/extra zeros of a scaled difference; the energy inequality supplies this stronger conclusion.",
+        "searches": [
+          "Web: annular diffraction Jinc difference optical nulls",
+          "DLMF 10.21 adjacent-order Bessel interlacing",
+          "Web: zeros of Jν(t)−r^ν Jν(rt)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit 72c1da0f9bb0 concerns Fourier bipyramid zero-free strips, not annular difference roots.",
+          "Classical tables provide individual Bessel zeros only; the continuum of r-parameter annular zeros is not tabulated as the claimed complete interlacing classification."
+        ],
+        "reasoning": "A numerical diffraction-null table, if found, would not establish all-dimension simplicity; the indexed tables did not contain this theorem.",
+        "searches": [
+          "Resultary: Bessel difference exact annulus nodal spheres",
+          "DLMF tabulated jν,k / jν−1,k",
+          "Web: 1D annular shell resonant double zeros ratio odd even"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty PASS for the universal annular two-scale Bessel zero census, simplicity, analytic interpolation, and sharp d=1 exception. Classical aperture amplitude and single-scale Bessel interlacing are credited, not claimed new.",
+      "residual_risks": [
+        "An unindexed classical optical-diffraction treatise may state an equivalent two-scale Bessel interlacing lemma.",
+        "Some cited full primary articles were only available as abstracts/indexed sections in this execution, so no whole-document not-covering claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_SINGLE_SCALE_BESSEL_FACTS",
+          "evidence": "Contiguous-order Jν−1,Jν roots interlace, supporting brackets but not the uniqueness of Gν,r.",
+          "identifier_or_url": "https://dlmf.nist.gov/10.21",
+          "material_read": "Read relevant online DLMF theorem/section summaries for 10.21.2 and fixed-order Bessel zeros and standard recurrences; not a two-scale annular-difference theorem.",
+          "method": "Reference handbook web sections",
+          "title": "NIST DLMF Chapter 10, Sections 10.6 and 10.21",
+          "trigger": "Essential Bessel recurrences, zero interlacing and asymptotics"
+        },
+        {
+          "assessment": "SAME_AMPLITUDE_DIFFERENT_ZERO_CENSUS",
+          "evidence": "Annular aperture Jinc profile difference is known; all-r strict root count not established by material inspected here.",
+          "identifier_or_url": "https://doi.org/10.1364/AO.44.007677",
+          "material_read": "Read public abstract/citation and indexed Eqs.(20),(23) description from available sources; full author manuscript was not independently opened in this run.",
+          "method": "DOI and indexed scientific search",
+          "title": "Far-field diffraction patterns of circular sectors and related apertures",
+          "trigger": "Same physical Fourier transform for annulus"
+        },
+        {
+          "assessment": "DIFFERENT_RESULT",
+          "evidence": "Uncertainty-principle estimates are not zero interlacing for the annulus indicator.",
+          "identifier_or_url": "https://arxiv.org/abs/1009.1710",
+          "material_read": "Read original abstract and indexed problem description, not full text in this run.",
+          "method": "arXiv primary metadata",
+          "title": "Strong annihilating pairs for Fourier-Bessel transform",
+          "trigger": "Potential broad Fourier–Bessel theorem"
+        },
+        {
+          "assessment": "DIFFERENT_RESULT",
+          "evidence": "General shape Fourier formulas do not assert root simplicity/interlacing of scaled Bessel differences.",
+          "identifier_or_url": "https://arxiv.org/abs/1109.5262",
+          "material_read": "Read original indexed abstract and geometric-indicator transform discussion, not full text.",
+          "method": "arXiv primary metadata",
+          "title": "Fourier, Gauss, Fraunhofer, Porod and the shape from moments problem",
+          "trigger": "Potential broader indicator Fourier zeros"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "NIST DLMF Bessel-zero background",
+        "Analytic strict energy identity",
+        "Independent sample root verification"
+      ],
+      "rationale": "Annulus diffraction-null spheres are natural physical/mathematical Fourier invariants. Exactly one simple null per contiguous Bessel bracket uniformly for all inner radii and dimensions d≥2, analytic connection of ball-to-sphere nulls, and a sharp one-dimensional double-resonance obstruction form a complete structural classification, not a finite numerical exercise.",
+      "residual_risks": [
+        "Only real radial zeros of concentric annuli are classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
