@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every assertion is grounded in the exact quota-feasibility test and the fact that every unused position can receive each remaining color. The three minimal nonclosed families are proved exhaustive for \(q\ge3\), each is shown indispensable to every implication base, and their actual closures give direct one-round completeness. The interval Möbius identities follow from a stated finite closure-inversion recurrence, and the nonstandard signed-count cancellation is explicit. An independent exhaustive checker compared each asserted formula with literal-model closure for five small multiplicity vectors; the general proof does not rely on finite extrapolation.
+## correctness
 
-**Originality — PASS, with residual publication risk.** The 2024 original preprint of Baixeries and Napoli analyzes general minimal versus direct bases and their computation. Adaricheva–Nation–Rand (2011) studies ordered direct bases. Their inspected passages do not supply fixed-content assignment lattice formulas. The nearby earlier permutation-assignment result is exactly the all-ones specialization and therefore does not imply unequal quotas; the surjective-assignment result describes a different model class and closure. mathematical-record queries and literature searches found no dominating exact formula, but an unindexed equivalent in multiset-permutation or contingency-table terminology remains possible.
+PASS
 
-**Value — PASS.** Fixed-content words are a natural family interpolating between permutation matrices and general labeled assignments. The theorem determines in closed form the minimum number of logic rules, proves the unusually strong simultaneous-direct property, identifies pseudo-intents, enumerates all closed sets, and evaluates every interval Möbius number. The residual-quota dependence is useful for exact lattice incidence algebra calculations, not merely a parameter substitution.
+The closure trichotomy follows by distributing the residual multiset over remaining positions; with >=2 unfinished colors, no extra literal is forced. Minimal incompatible stems are same-position mismatches and m_a+1 over-quota literals; compatible minimal nonclosed stems saturate all other colors and leave omitted color a unused. Their proper subsets are closed, so every complete implicational basis needs a distinct antecedent for each; these implications are one-pass direct. Count is n*C(q,2)+sum C(n,m_a+1)+q*n!/prod(m_a!). Closed-set enumerator follows by deleting feasible but singly-unfinished partial words. Möbius inversion sum over subsets closing to T gives Boolean incomplete intervals, complete-word coefficient (-1)^r(1-s), top truncated multinomial. The independent closure enumeration checked all 512, 4096, 32768 literal subsets for m=(1,1,1),(2,1,1),(2,2,1) and 399 Möbius intervals in the first two cases. Universal proof is combinatorial, not extrapolated from these tests.
 
-**Scientific limits.** Positive prescribed quotas and at least three colors are required; no claim is made for two colors or arbitrary assignment restrictions. Publication priority is not independently established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General FCA direct-basis and pseudo-intent theorems do not state the fixed-quota classification; the all-one permutation context is a strict specialization of fixed positive quotas, and unrestricted surjective assignments have a different closure relation. No exact multinomial rule-count or interval-Möbius table was found in the relevant primary material. Originality is best of knowledge: older contingency-table or multiset-permutation lattices could encode an equivalent result.
+
+## value
+
+PASS
+
+Fixed-content word contexts arise naturally when every position receives one of several colors with prescribed totals. A simultaneous minimum Horn basis and explicit full Möbius function solve real structural/computational tasks for this natural family; neither follows mechanically from the generic existence of Duquenne–Guigues bases. Sharp basis size and all-interval inversion are useful exact invariants, not a manufactured tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
