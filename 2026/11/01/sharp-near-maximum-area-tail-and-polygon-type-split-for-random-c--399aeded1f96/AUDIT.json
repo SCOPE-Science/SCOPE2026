@@ -1,0 +1,139 @@
+{
+  "correctness": {
+    "rationale": "Exact 3D cube section area follows from coarea and a uniform-sum triangular-tail computation; polygon count follows from the face criterion. The unique maximizing normals are given by Ball's sharp slicing theorem. A local normalized coordinate chart has Jacobian 1/sqrt(2), uniform linear deficit g and a radial O(epsilon^2) boundary approximation, which yields the stated O(epsilon^3) probability errors. Exact sector integrations give the constants. A separately constructed cube-edge polygon verifier confirms area and face count in 1,958 cases, and separate finite-epsilon Haar quadratures approach the analytic constants. These numerical checks are not relied on as proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ball's maximal-section and equality classification covers the maximum and its set of normals.",
+        "Melbourne–Roberto Theorem 2 gives coordinate bounds but no exact probability or conditional quad/hex law."
+      ],
+      "reasoning": "The classical maximum and global stability hypotheses overlap, but their conclusions are weaker than the explicit leading measure, error order and angular limit. The new theorem acknowledges and uses those premises rather than asserting them as original.",
+      "searches": [
+        "Ball cube slicing equality stability Haar measure near extremizer",
+        "https://arxiv.org/pdf/2109.03946",
+        "local first-order angular area deficit at Ball equality direction cube slice"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2109.03946, Theorems 1–2 and quantitative slicing proof",
+      "arxiv:2107.14778, Theorems 1–3 and density/coarea identity",
+      "arxiv:2511.01504, Theorem 1.1 and Gaussian-type diagonal section methods",
+      "Exact Haar Hexagon Law and Cubic Rigidity for Central Sections of Rectangular Boxes, complete public result",
+      "arxiv:math/9812123, introduction and Section 2 exact expected vertex count (primary full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fodor–González Merino Theorem 1.1 is a dimension-asymptotic Gaussian diagonal law.",
+        "Melbourne–Roberto controls near-max normal coordinates without a sharp Haar constant.",
+        "Ambrus lists critical normals, not orientation-probability asymptotics.",
+        "A complete public exact Haar hexagon-law theorem gives only the global face-count marginal."
+      ],
+      "reasoning": "No inspected stronger or equivalent statement implies the two exact conditioned coefficients, O(epsilon^3) remainder, or full angular scaling law. Potential literature not indexed cannot be categorically excluded.",
+      "searches": [
+        "https://arxiv.org/pdf/2511.01504#page=3",
+        "https://arxiv.org/pdf/2109.03946#page=1",
+        "https://arxiv.org/pdf/2107.14778#page=2",
+        "sharp near-maximum area tail 3D cube random central sections 4 sqrt(2) epsilon squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ambrus Theorem 2 classifies critical directions, not their random-orientation angular neighborhoods.",
+        "The exact normal-coordinate deficit profile distinguishes area near-maxima from width, projected area and global face count."
+      ],
+      "reasoning": "Density/coarea, B-spline formulations and signed-order polar integration describe the same near-extremal area event; examined published statements do not quantify its small-deficit Haar conditional law.",
+      "searches": [
+        "Haar angular area tail central cube hyperplane sections",
+        "sharp near-maximum area tail 3D cube random central sections 4 sqrt(2) epsilon squared",
+        "https://arxiv.org/pdf/2107.14778"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published exact box formula yields the unconditional cube probability 1-6 arcsin(1/3)/pi.",
+        "The new limit has a conditional hexagon probability (pi+2)/(pi+4), with a different event and a sharp quadratic volume-tail coefficient."
+      ],
+      "reasoning": "The known polygon-count table supplies an unconditional marginal. It cannot fix the joint distribution of polygon type with Euclidean section area, so it does not imply the new conditional law or its normalization.",
+      "searches": [
+        "conditional hexagon versus quadrilateral given nearly maximal central cube section area",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "OEIS A349605 cube hexagon probability"
+      ]
+    },
+    "rationale": "The sharp joint near-maximum area and combinatorial-type Haar law is not a stated consequence of the Ball equality and coarse stability theorem, Ambrus critical-point classification, Gaussian diagonal-section asymptotics, or the complete unconditional box-section hexagon probability. The new local piecewise-homogeneous angular limit and constants were checked against the accessible current-week claims and actual mathematical sources. An unindexed equivalent formula remains a historical-priority risk.",
+    "residual_risks": [
+      "An older, unindexed stereological analysis may already calculate the same small-deficit area tail under alternate normalization.",
+      "The broad literature on random sections may contain equivalent results beyond inspected primary theorems; no claim of comprehensive historical priority is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "establishes global maximum and a coarse coordinate stability condition, but neither Haar measure asymptotic nor the split by section face count",
+        "evidence": [
+          "Theorem 1: unit-cube volume maximum sqrt(2), equality at two equal nonzero normal coordinates; Theorem 2: coordinate deviation bounds, without random-orientation probability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2109.03946",
+        "material_read": "theorems 1 and 2 and section 2, including the full statement of near-equality coordinate estimates and Fourier proof",
+        "method": "full-text mathematical comparison of theorems and proof mechanism",
+        "title": "Quantitative Form of Ball's Cube Slicing in R^n and Equality Cases in the Min-Entropy Power Inequality",
+        "trigger": "same extremizers and quantitative near-equality"
+      },
+      {
+        "assessment": "exactly classifies critical normals of the three-cube section function; it does not calculate the Haar measure of small area deficit events or conditional polygon-type frequencies",
+        "evidence": [
+          "Theorem 2: in dimensions 2 and 3 critical central sections are diagonal; equation (2.4) is the density/coarea identity used as acknowledged prior mathematics."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2107.14778",
+        "material_read": "introduction, Theorems 1–3 and Section 2 on density/coarea and critical directions",
+        "method": "full primary mathematical statements and density formula",
+        "title": "Critical Central Sections of the Cube",
+        "trigger": "possible competing exact local orientation analysis in dimension three"
+      },
+      {
+        "assessment": "first public 2025-11-03; studies asymptotics in dimension for Gaussian-weighted fixed diagonal sections, not Haar angular near-extremal area tails",
+        "evidence": [
+          "Theorem 1.1 is an n-to-infinity Gaussian-weighted diagonal-section limit with density parameter b>0, not a small area-deficit angular probability."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2511.01504",
+        "material_read": "introduction, Theorem 1.1 and proof outline plus Section 2 formulation",
+        "method": "primary PDF mathematical statement comparison",
+        "title": "Central Diagonal Sections of Gaussian Cubes",
+        "trigger": "same cube section object and recent motivating geometry"
+      },
+      {
+        "assessment": "provides unrestricted geometric probability that section is hexagonal; none of the volume-conditioning or near-maximum joint probability is covered",
+        "evidence": [
+          "For a cube, the unconditional hexagon probability is 1 - 6 arcsin(1/3)/pi; the new limit is (pi+2)/(pi+4), which conditions on an area deficit tending to zero."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-haar-hexagon-law-and-cubic-rigidity-for-central-sections-o--45d2a55425d4/RESULT.md",
+        "material_read": "complete RESULT.md with theorem, proof of six-face criterion, exact spherical solid-angle formula, comparison with Lonke, scope and references",
+        "method": "direct full-text public result comparison",
+        "title": "Exact Haar Hexagon Law and Cubic Rigidity for Central Sections of Rectangular Boxes",
+        "trigger": "same random central cube sections and face-count probability"
+      },
+      {
+        "assessment": "gives the unconditioned expected face counts of random central cube sections, not their Euclidean area distribution or conditional near-maximum joint tail",
+        "evidence": [
+          "Equation (1) and Proposition 2.2 give expected vertex counts of random cube sections; no near-maximum intrinsic-area event appears among the stated results."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/9812123",
+        "material_read": "full introduction and section 2, including explicit expected vertex count and invariant-measure setup",
+        "method": "primary PDF mathematical statement and probability formula comparison",
+        "title": "On random sections of the cube",
+        "trigger": "possible domination by exact random section probability formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "399aeded-1f96-4790-b081-0e083f7ed6d4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical cube slicing inequality and its stability theory motivate measuring the angular mass of near-equality orientations. This new exact quadratic near-maximum probability and distinct conditioned quadrilateral/hexagon mechanisms quantify that mass and supply a full local angular limiting region. The result is a meaningful geometric-probability law rather than a restatement of the maximum or unconditional hexagon proportions.",
+    "status": "PASS"
+  }
+}
