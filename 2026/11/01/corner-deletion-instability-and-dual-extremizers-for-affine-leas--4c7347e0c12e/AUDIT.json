@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the inverse of the one-row-deleted feature Gramian and the exact symmetric hat kernel. Checked sign preservation for its rank-one correction, derived parity-dependent absolute row formulas, and proved that only the Hamming-1/opposite-corner rows maximize using a central-binomial inequality and a zero-shell complement bound. Sign inputs attain the norm, and unitality gives the exact negativity defect. Independently computed exact Gram-based idempotence for dimensions 2..6, more than a million matrix row entries in dimensions 2..10, and every binomial Hamming orbit through dimension 100. Finite checks corroborate but do not replace the all-dimensional proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hangelbroek et al., arXiv:1005.2424, sections 1,4-5, study stability for positive-definite kernel approximation on manifolds, without this finite cubical sample.",
+        "Nayar, arXiv:1311.3179v1, sections 1-3, explicitly assumes full biased product cube and proves Fourier closeness statements.",
+        "Defant et al., arXiv:2302.00233, Sections 1-5 use Haar counting measure on full Boolean cube, not a deleted-vertex design."
+      ],
+      "reasoning": "The first article supplies operator-norm theory for a different approximation space, the second affine Fourier structure under an independent product law, and the third invariant-subspace projection constants on the complete group. None states a dominating universal exact formula for arbitrary single-point deletion.",
+      "searches": [
+        "arxiv:1005.2424v1 L infinity norm of L2 projector least squares",
+        "arxiv:1311.3179v1 FKN Theorem on the biased cube",
+        "Asymptotic Insights for Projection Gordon-Lewis Sidon Constants Boolean Cube arxiv 2302.00233"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1005.2424v1 (2010-05-13), public v2 HTML",
+      "arXiv:1311.3179v1 (2013-11-13), public HTML",
+      "arXiv:2302.00233v1 (2023-02-01), openly available preprint text",
+      "John, Technometrics 21 (1979) 225-228, publisher abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full-cube norm equals \\((d+1)\\binom{d}{\\lfloor d/2\\rfloor}/2^d\\), while the punctured norm has a strictly positive additional correction for every \\(d\\ge3\\).",
+        "The exact punctured norm follows from the Gramian \\(2^d I-\\mathbf1\\mathbf1^{\\mathsf T}\\), which is different from the full-cube diagonal Gramian."
+      ],
+      "reasoning": "Prior exact full-cube values neither determine the sign-sensitive rank-one perturbation nor imply the extremizing-row classification. Missing-run variance efficiency bounds control a quadratic inverse-Gram statistic rather than the absolute \\(\\ell^1\\) row sums; those statements do not logically imply an exact worst-case supremum without extra arguments.",
+      "searches": [
+        "full affine projection on uniform Boolean cube versus removing one vertex operator norm",
+        "arxiv:2302.00233 Theorem 3.1 canonical Fourier projector",
+        "1979 John missing points variance efficiency versus infinity norm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2302.00233 treats full Boolean-cube Walsh subspaces with Haar counting measure, not the punctured set.",
+        "Peter W. M. John, Technometrics 21 (1979), 225-228, investigates lost factorial runs and variance efficiency (abstract only)."
+      ],
+      "reasoning": "Conditioning on a missing corner changes the Gram inverse by a rank-one term and destroys translation invariance. The complete-cube convolution row norm therefore does not yield the present value or its two distinct extremizing Hamming orbits. An equivalence hidden in the unavailable full 1979 text remains possible.",
+      "searches": [
+        "punctured hypercube Boolean cube remove one point missing factorial run least-squares affine orthogonal projection Lebesgue endpoint norm row maximum",
+        "single corner deletion finite cube least squares main effects maximum absolute hat matrix row dual extremizer",
+        "arxiv:2302.00233, Sections 1-3, group-invariant Fourier projections"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible 1979 abstract concerns relative variance efficiencies rather than sharp absolute row sums of the affine hat matrix.",
+        "The full-cube arXiv:2302.00233 formulas are for symmetric Walsh-character subspaces and do not include an explicitly punctured cube table."
+      ],
+      "reasoning": "No exact tabulation for the same punctured design and the same infinity-to-infinity norm was located. This is absence-of-evidence only, not a proof of novelty.",
+      "searches": [
+        "punctured Boolean cube affine least squares Lebesgue norm exact",
+        "deleted point two-level factorial design orthogonal projector entrywise norm",
+        "missing points 2^n 2^(n-k) factorial design John Technometrics 1979"
+      ]
+    },
+    "rationale": "Closest accessible full-cube Fourier projection analyses assume Haar/product symmetry, which the corner deletion breaks; their results do not imply the rank-one sign correction, the exact attained norm, or dual Hamming extremizers. Older missing-run factorial-design literature is related but its accessible abstract addresses quadratic variance efficiencies, not these maximum absolute rows; the full text remains an explicit residual risk.",
+    "residual_risks": [
+      "A mathematically equivalent infinity-norm formula might be implicit in the unavailable 1979 missing-factorial-run paper or uncatalogued older experimental-design literature.",
+      "Search absence cannot certify global priority; related full-cube projection constants are known."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: positive-definite kernel spaces on manifolds, not finite Boolean-cube one-point deletion.",
+        "evidence": [
+          "arXiv:1005.2424v2, sections 1, 4, 5: kernel bases and boundedness of least-squares projectors; no Boolean cube case located."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1005.2424v2",
+        "material_read": "Abstract, Introduction, sections 4-5 and visible source headings; compared space and norms.",
+        "method": "Lawful public HTML full-text inspection, including keyword search for cube and Boolean.",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity-norm of the L2-projector",
+        "trigger": "General L-infinity least-squares projection theory and candidate stronger coverage."
+      },
+      {
+        "assessment": "Not covering: product-law Boolean spectral concentration rather than one-vertex-deleted least-squares infinity norm.",
+        "evidence": [
+          "arXiv:1311.3179v1, Sec. 1-3, full biased and unbiased Boolean cube, Fourier closeness results."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1311.3179v1",
+        "material_read": "Abstract and full Introduction, stated theorems, proof sections and hypotheses on product measure.",
+        "method": "Lawful public arXiv HTML full-text inspection.",
+        "title": "FKN Theorem on the biased cube",
+        "trigger": "Relevant affine Fourier approximation on discrete cubes."
+      },
+      {
+        "assessment": "Not covering: invariant Fourier subspaces on the full cube, not conditional counting measure on a deleted corner.",
+        "evidence": [
+          "arXiv:2302.00233v1, Sec. 1-3: \\(\\{-1,1\\}^d\\) as a compact group, Haar counting measure, Fourier-Walsh projection constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.00233",
+        "material_read": "Full accessible parsed preprint text, Introduction, sections 2-5, statements of the canonical Fourier-subspace setting.",
+        "method": "Lawful arXiv openly accessible preprint text inspection.",
+        "title": "Asymptotic insights for projection, Gordon-Lewis and Sidon constants in Boolean cube function spaces",
+        "trigger": "Closest Fourier projection-constant analysis for complete cubes."
+      },
+      {
+        "assessment": "Unresolved material risk: the abstracts address variance efficiency of estimated factorial effects, not exact infinity-to-infinity affine projector norm; full-document noncoverage is NOT asserted.",
+        "evidence": [
+          "Technometrics 21 (1979) 225-228; visible abstract describing missing-run variance efficiency, not infinity row sums."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/00401706.1979.10489752",
+        "material_read": "Publisher and secondary bibliographic abstracts only; complete text not accessible.",
+        "method": "Publisher DOI and alternate title/OA searches; attempted original PDF fetch, denied by publisher.",
+        "title": "Missing Points in 2^n and 2^(n-k) Factorial Designs",
+        "trigger": "Direct predecessor concerning erasing a run from two-level factorial designs."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c7347e0-c12e-4c52-8e3c-3e6a42d0d31c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Removing one observation is a natural robustness perturbation of first-order two-level factorial least squares. The result gives the exact worst-case bounded-data amplification and negativity defect in every dimension, identifies two a priori asymmetric sets of extremal evaluation vertices, and quantifies the counterintuitive positive but exponentially small deletion penalty. These are structural, parameter-uniform properties not obtained from simply evaluating a fixed small matrix.",
+    "status": "PASS"
+  }
+}
