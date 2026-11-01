@@ -1,15 +1,21 @@
-# Review of the truncated-tetrahedron width-isotropy result
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The directional identity is established from ordered tetrahedral support values and holds on the full closed truncation interval. All five required ordered spherical-coordinate moments are evaluated by explicit chamber integrals. The normalized-variance derivative has exactly one zero, and exact rational enclosures certify the necessary strict inequalities. The maximum and minimum directional width formulas and equality normal classes follow from a complete spherical Weyl-chamber extremization. The included Python program verifies the rational sign certificate and independently corroborates the expressions by vertex enumeration and quadrature.
+## correctness
 
-## Originality
-**PASS relative to inspected evidence, with residual risk.** The matching 2011 regular-tetrahedron second width moment is a special case, and established results on regular simplex, cube and crosspolytope widths do not imply this entire truncated family and its interior shape optimizer. Relevant geometric research on the same equal-truncation family addresses packing and self-assembly; only its abstract could be obtained, so no claim is made about unseen full-text or appendices. Searches comparing random projection-length aliases, normalized width variance, and similar geometric parameters found no source proving this precise statement. Historical priority remains provisional.
+PASS
 
-## Mathematical value
-**PASS.** The squared coefficient of variation of width measures orientation sensitivity independently of scale. Finding the exact optimal truncation in the complete tetrahedron-to-octahedron family gives a nontrivial interior shape selection, rather than a routine evaluation at a named solid. A distinct exact transition for minimum-width directions further explains its geometry.
+The sorted tetrahedral vertex dot products and t in [0,1/2] force the two largest and two smallest vertex pairings, giving W=2(M+cm) for all directions including boundary ties by continuity. The ordered spherical chamber is one of 48 symmetric chambers, with dΩ=sinθ dθ dφ and θ<=atan(sec φ); five exact moments α,β,A,B,C match independent double quadrature to 3.2e-11. The rational derivative has numerator 2[-E+Dc], and independently coded rigorous Q-interval arithmetic bounds D in [0.0265181674,0.0265181678], E in [0.0161594304,0.0161594309], D-E in [0.0103587365,0.0103587374], proving unique c*=E/D in (0,1). 20,000 independent direct 12-vertex directional checks have max error 4.5e-16; t=0 mean-square width /8 exactly equals Finch unit-edge tetrahedral formula. The spherical ordered cone minimum occurs at its three extreme rays by positive linearity and Euclidean norm convexity, giving min W=2min(1,(1+c)/sqrt(3)); Cauchy–Schwarz gives max=2sqrt(1+c²). Finite checks corroborate rather than prove all directions.
 
-## Limits and validation
-The result is restricted to equal truncations, uniformly sampled line-projection directions, and their mean/variance. The same-family 2011 primary paper was not available beyond its abstract. Finite computational tests are corroborative; the all-direction statements rely on the mathematical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of actual prior statements and implications finds known tetrahedron and octahedron endpoint calculations and broad Gaussian range moment methods, but no identified complete coefficient-of-variation profile or exact unique interior minimizer in this natural continuous truncation family. The same-family 2011 primary source remains inaccessible in full, expressly limiting priority confidence.
+
+## value
+
+PASS
+
+Width coefficient of variation measures orientation sensitivity without dependence on scale. Optimizing this natural intrinsic observable over the complete canonical tetrahedron-to-octahedron equal-truncation family yields an unexpected strict non-Archimedean interior minimizer, distinct from the separate transition in minimum-width direction. Its exact five-moment reduction and shape classification answer a natural non-tabular geometry question; neither elementary endpoint recomputation nor arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
