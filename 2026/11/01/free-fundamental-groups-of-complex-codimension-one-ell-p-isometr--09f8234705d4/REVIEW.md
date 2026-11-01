@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For finite complex \(\ell^p\), \(1\le p<\infty\) and \(p\ne2\), the source's disjoint-support characterization applies to genuine embeddings. The coordinatewise exponent change identifies the support model for every admitted exponent. Since there are \(n-1\) nonempty disjoint supports in \(n\) rows, the entire stratification consists only of injection tori and two-row-column edge closures. Those closures are \(S^3\times\mathbb T^{n-2}\). Their column-phase quotient is a graph of Hopf \(S^2\)'s, and the principal-bundle connecting map hits every standard generator of the torus fiber. The resulting free-group rank is \(1+(n-3)n!/2\); all boundary cases, notably \(n=2\), are included. The standalone finite checker validates the graph enumerations for dimensions 2 through 7 but does not establish the homotopy argument.
+
+## Originality — PASS, best-knowledge comparison
+Dalfollo-Daley, Delfín, Fernández, Mars and Xia, *Restricted isometries in finite-dimensional \(\ell^p\)-spaces*, arXiv:2610.32615v1 (Theorem 3.18, Proposition 4.5), give a Lamperti-type classification and the topology of individual fixed-support strata. They do not calculate the global gluing, its quotient graph of spheres, the Hopf connecting maps, or the resulting fundamental group. Classical Hilbertian Stiefel results concern a larger space at the excluded exponent and imply neither the complex non-Hilbert fundamental group nor its rank. The earlier real-valued classification of an analogous codimension-one space is not an implication because real strata have discrete signs and interval transition pieces instead of complex phase circles and Hopf three-spheres. Earlier complex isometry, restricted-isometry, Stiefel and disjoint-support topology literature was searched by equivalent-claim terminology, without locating a stronger applicable theorem. Searches cannot prove novelty; an earlier implicit presentation remains a priority risk.
+
+## Mathematical value — PASS
+The full operator space is an intrinsic, natural topological object absent from a classification limited to each fixed support pattern. The result gives its complete first nonabelian homotopy invariant for every dimension and every non-Hilbert finite \(p\), with factorial free rank and a sharp contrast to the simply connected complex Hilbert Stiefel manifold. The Hopf-bundle mechanism explains why column-phase loops vanish but support-reconfiguration loops survive, giving structural information not furnished by individual stratum dimensions.
+
+## Scope and residual risks
+The result does not calculate higher homotopy groups or treat general dimension gaps. Independent mathematical audit and exhaustive publication-priority assessment are not performed. A pre-existing polyhedral-product or disjoint-support frame-space computation under different terminology could cover the conclusion; no such exact implication was identified in the checked sources.
+
+Self-review: passed. Independent audit: not yet performed.
