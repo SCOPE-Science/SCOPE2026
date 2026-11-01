@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim fixes one generation of infectiousness, one seed, one removed vaccinated vertex, and a realized peak that counts the seed's generation. On each fixed successful-edge digraph, infections are shortest-path layers. If the original peak is one, the unique vertex in any distance layer separates all later layers, so removing it cannot create a wider layer. Otherwise a strict peak increase requires at least three vertices at a vaccinated distance of at least three, forcing at least seven total vertices. An explicit seven-vertex graph achieves peaks two and three. Exact enumeration of all 128 subsets of its seven contacts produces the stated signed polynomial, and its derivative proves the uniqueness and direction of the probability threshold. The embedded standalone program reconstructed the table, polynomial and root bracket; 20,000 additional random small-graph checks are supplementary, not the infinite proof.
+PASS
 
-## Originality — PASS, subject to named historical risks
+For a fixed successful-edge subgraph and one-generation infectivity, the infected generations are the directed source-distance layers, including the seed at t=0. If original peak=1, deleting the unique vertex at distance h disconnects every originally later layer, so no increase. If peak>=2 and a deletion raises it, a new layer of at least three people is needed. Layers 1 and 2 cannot gain new vertices because direct seed arcs persist and any new layer-2 vertex already lay at original distance 2. Thus a new layer of size >=3 must lie at distance>=3; it requires >=6 surviving vertices (seed, two intermediates, three targets), plus vaccinated vertex, hence n>=7. The explicit seven-vertex directed arcs (0,1),(0,2),(1,3),(2,4),(3,4),(3,5),(3,6), seed 0, vaccination 2 yield peaks 2 and 3 and final sizes 7 and 6. An INDEPENDENT complete census of all 2^7=128 contact-realization masks matches the k-by-delta table and exactly gives E[delta]=p^2(p^5-2p^4+3p^3-1), with unique root in (0,1) from derivative p^2(5p^2-8p+9)>0. Independently 32420 directed small-network checks corroborate but do not prove the universal n<=6 theorem.
 
-The claim was compared by implication, not title, with published mathematical results on epidemic-duration prolongation, time-dependent collateral infections, peak prevalence and graph-layer-width changes. Prior reachability or final-size monotonicity does not imply peak monotonicity; indeed the new witness loses an infection but gains one at its maximum simultaneous generation. The 2011 full-text paper on epidemic percolation networks gives the shortest-path construction and vaccination deletion operation without an identified seven-vertex peak threshold. The 2015 full-text multi-stage paper discusses peak prevalence under changes to infectious-period distributions, rather than the present minimal static vertex-deletion effect. The 2007 Floyd–Kay–Shapiro paper's abstract was accessible, but its full text could not be read: its uninspected contents or an independent graph-theoretic layer-width theorem may subsume the result. Searches cannot prove global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Peak simultaneous infectious burden is distinct from eventual infections or outbreak duration and is motivated by capacity constraints. This exact finite theorem answers a natural minimal-population question in all directed graphs rather than an arbitrary small graph family. It separates a universal six-person impossibility from a seven-person attainable increase, then identifies the precise common-transmissibility phase transition of a minimal witness using a complete finite enumeration. The finding is model-specific and does not justify any practical claim that vaccination normally raises epidemic peaks.
+Qualified PASS: the published vaccination monotonicity result concerns individual eventual infection probability, not maximum synchronous generation width. Epidemic-percolation network theory identifies deletion and paths, but its cited results do not give the sharp seven-vertex peak-amplification cutoff or the witness-specific exact polynomial. A generic BFS-width theorem under vertex deletion is the primary unresolved equivalent-formulation risk.
 
-## Closest literature and limits
+## value
 
-Floyd–Kay–Shapiro (DOI 10.1007/s11538-007-9275-0): monotonicity of ever-infected risks, abstract available but full text uninspected. Kenah–Miller (DOI 10.1155/2011/543520): full-text epidemic percolation construction and vaccination graph deletion. Sherborne–Blyuss–Kiss (DOI 10.1007/s11538-015-0109-1): full-text multi-stage infections and peak prevalence under a different perturbation. Important residual risk is a stronger unlocated BFS-layer-width vertex-deletion theorem. No independent audit or clinical validation has been conducted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The minimum population size for a counterintuitive intervention effect is a natural sharp extremal invariant of a simple exact epidemic model; the constructive witness plus exact probability threshold show how peak load can rise while infections fall. This is an independently useful boundary for interpreting network timing, without claiming clinical generality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 3ff6c79701244978e3e8edc2bb21ed4904b0af99",
+        "assigned verify.py blob 5e181e5f623b717e7f0c6e96ae204e1751d0f8c5",
+        "independent_checks.py epidemic 128-mask and 32420 networks"
+      ],
+      "rationale": "For a fixed successful-edge subgraph and one-generation infectivity, the infected generations are the directed source-distance layers, including the seed at t=0. If original peak=1, deleting the unique vertex at distance h disconnects every originally later layer, so no increase. If peak>=2 and a deletion raises it, a new layer of at least three people is needed. Layers 1 and 2 cannot gain new vertices because direct seed arcs persist and any new layer-2 vertex already lay at original distance 2. Thus a new layer of size >=3 must lie at distance>=3; it requires >=6 surviving vertices (seed, two intermediates, three targets), plus vaccinated vertex, hence n>=7. The explicit seven-vertex directed arcs (0,1),(0,2),(1,3),(2,4),(3,4),(3,5),(3,6), seed 0, vaccination 2 yield peaks 2 and 3 and final sizes 7 and 6. An INDEPENDENT complete census of all 2^7=128 contact-realization masks matches the k-by-delta table and exactly gives E[delta]=p^2(p^5-2p^4+3p^3-1), with unique root in (0,1) from derivative p^2(5p^2-8p+9)>0. Independently 32420 directed small-network checks corroborate but do not prove the universal n<=6 theorem.",
+      "residual_risks": [
+        "Independent finite graph checks do not exhaust all directed graphs on 5/6 vertices; general bound is analytic.",
+        "The result does not transfer to heterogeneous infectious periods or dynamic intervention without new proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kenah-Miller supply epidemic shortest-path/deletion framework; Floyd-Kay-Shapiro show probability monotonicity for ever infected, neither cited statement bounds peak temporal layer width by n."
+        ],
+        "reasoning": "The broader theorems supply modelling setup but do not imply the minimal n=7 peak paradox or exact expected-peak sign law. A general graph breadth theorem remains possible.",
+        "searches": [
+          "Kenah-Miller 2011 Sections 3-4",
+          "Floyd-Kay-Shapiro 2008 abstract",
+          "Resultary: vaccination vertex deletion increase peak epidemic one-generation directed graph breadth first search layer width seven vertex example"
+        ]
+      },
+      "checked_sources": [
+        "Floyd, Kay & Shapiro, BMB 70 (2008) 713-727, doi:10.1007/s11538-007-9275-0",
+        "Kenah & Miller, Epidemic Percolation Networks, 2011, doi:10.1155/2011/543520",
+        "Resultary semantic query: vaccination vertex deletion increase peak epidemic one-generation directed graph breadth first search layer width seven vertex example"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Deleting a vaccinated vertex weakly decreases the set eventually infected, but can delay competing branches until three align in one generation; the seven-edge witness exhibits that exact distinction."
+        ],
+        "reasoning": "Ever-infected monotonicity cannot entail monotonicity of the MAXIMUM layer size; the actual numerical witness disproves that implication. General shortest-path identities are premises, not the claimed sharp extremal conclusion.",
+        "searches": [
+          "Floyd-Kay-Shapiro 2008 infection monotonicity",
+          "Kenah-Miller 2011 epidemic percolation paths",
+          "Resultary: vaccination vertex deletion increase peak epidemic one-generation directed graph breadth first search layer width seven vertex example"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the exact one-generation model, peak infections equals the maximum directed BFS layer width from the seed in the successful-contact digraph, and vaccination is vertex deletion."
+        ],
+        "reasoning": "Compared the graph-theoretic extremal problem (not just SIR terminology); ordinary infection monotonicity is about reachable SETS, whereas a layer width can increase after path delays.",
+        "searches": [
+          "Resultary: vaccination vertex deletion increase peak epidemic one-generation directed graph breadth first search layer width seven vertex example",
+          "directed graph vertex deletion maximum BFS layer width seven",
+          "Floyd-Kay-Shapiro 2008"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent complete finite table of 128 edge-realization masks gives exact coefficients [0,0,-1,0,0,3,-2,1]; no matching prior table identified in searched materials."
+        ],
+        "reasoning": "The 128-case table is reproducible but is not automatically new; verified there is no known match in inspected sources, with residual risk of an unindexed equivalent table.",
+        "searches": [
+          "Resultary: vaccination vertex deletion increase peak epidemic one-generation directed graph breadth first search layer width seven vertex example",
+          "seven-vertex SIR peak amplification 128 contacts polynomial",
+          "Kenah-Miller 2011"
+        ]
+      },
+      "rationale": "Qualified PASS: the published vaccination monotonicity result concerns individual eventual infection probability, not maximum synchronous generation width. Epidemic-percolation network theory identifies deletion and paths, but its cited results do not give the sharp seven-vertex peak-amplification cutoff or the witness-specific exact polynomial. A generic BFS-width theorem under vertex deletion is the primary unresolved equivalent-formulation risk.",
+      "residual_risks": [
+        "Floyd-Kay-Shapiro full text unavailable; only abstract-level material used and no whole-document noncoverage asserted.",
+        "Unindexed directed BFS-layer-width vertex-deletion extremal theorem may imply the cutoff independently of epidemic terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_COVERING_SPECIFIC_CUTOFF",
+          "evidence": "Describes epidemic percolation paths and vaccination removal; discussed outcomes are final size, epidemic probabilities and interventions, not a seven-vertex peak-width classification.",
+          "identifier_or_url": "https://doi.org/10.1155/2011/543520",
+          "material_read": "Accessible 2011 Wiley primary full text, especially shortest-path infection timing and intervention/deletion sections",
+          "method": "Web full-text reading of pertinent sections",
+          "title": "Epidemic Percolation Networks, Epidemic Outcomes, and Interventions",
+          "trigger": "Same static network contact and vaccination representation"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "Abstract states monotonicity of infection probability, but the full paper was not read and is not excluded wholesale.",
+          "identifier_or_url": "https://doi.org/10.1007/s11538-007-9275-0",
+          "material_read": "Published abstract and bibliographic statement only; full text not obtained",
+          "method": "Web abstract",
+          "title": "Some Elementary Properties of SIR Networks or, Can I Get Sick because You Got Vaccinated?",
+          "trigger": "Directly related vaccination paradox question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Directed BFS-layer proof",
+        "128-mask exact probability polynomial",
+        "published epidemic monotonicity framework"
+      ],
+      "rationale": "The minimum population size for a counterintuitive intervention effect is a natural sharp extremal invariant of a simple exact epidemic model; the constructive witness plus exact probability threshold show how peak load can rise while infections fall. This is an independently useful boundary for interpreting network timing, without claiming clinical generality.",
+      "residual_risks": [
+        "The model is deliberately idealized (one infectious generation, one seed, perfect prophylaxis)."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Static directed network, pre-epidemic perfect vaccination, one-generation infectiousness, one seed and seed included in peak.",
+    "Expected-peak polynomial assumes independent common p on exactly the seven witness arcs.",
+    "Publication withheld pending semantic sanitization of potentially public administrative provenance; review is scientifically completed."
+  ],
+  "schema_version": 1
+}
