@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "The edge gradient space is exactly the subspace where all terminal-path edge sums agree. Orthogonal least squares adjusts every edge in a path by the same amount; minimization of the common sum gives the displayed projection entries. Their signs are fixed and summing rowwise absolute values gives the exact induced endpoint norm. If the distinguished path has length t and k other paths totaling M edges, Cauchy–Schwarz gives reciprocal-length sum at least k²/M, yielding row sum at most 3 + (1/2)sqrt(N/s). One s-edge path and floor(sqrt((N-s)/s)) balanced long paths have reciprocal sum tending to 1/s and give the matching leading term 1/(2sqrt(s)). A standalone exact-rational implementation independently inverts reduced incidence Gram matrices and checks 21,580 representative equalities; it does not replace the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kelner–Maymounkov, arXiv:0909.2859, Theorem 1.2 and Appendix A establish generic order sqrt(m), and give a shortcut-parallel-path construction.",
+        "Gurel-Gurevich–Nachmias–Sachdeva, arXiv:2605.24130, Theorems 1.1–1.3 bound edge averages and an absolute transfer-current spectral norm by logarithms."
+      ],
+      "reasoning": "An order-of-growth bound on unrestricted graphs does not supply a sharp asymptotic constant for minimum-path-length restricted theta networks. An average of column sums and a spectral norm of their absolute matrix do not control the extremal column formula sharply. The known short-path construction is a special profile, not the upper envelope over all profiles or the no-shortcut hierarchy.",
+      "searches": [
+        "electrical oblivious routing √m upper bound exact constant parallel paths",
+        "electrical flow localization transfer impedance average edge logarithmic spectral bound"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0909.2859 (Theorem 1.2, §3, Appendix A)",
+      "arxiv:1708.01632 (Example 1.1, §§1.2–1.3)",
+      "arxiv:2605.24130 (Theorems 1.1–1.3)",
+      "Lawler–Narayanan author-hosted routing paper (abstract/introduction)",
+      "Four semantically adjacent published mathematical result abstracts with different operators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2009 Appendix A shortcut example and the 2017 Example 1.1 balanced reciprocal-resistance computation imply a lower bound at s=1, recognized as known.",
+        "The formula in this finding has a max over every distinguished path and permits arbitrary numbers and sizes of paths; its sharp all-N coefficient for every s is proved by a separate uniform Cauchy–Schwarz argument."
+      ],
+      "reasoning": "The square-root scaling law without a sharp leading constant, or one balanced shortcut sample, does not imply an exact endpoint norm on every length profile nor the best constant with all paths forced to length≥s (particularly s≥2). The general projector pseudoinverse identity can of course be specialized algorithmically, but the primary texts inspected do not contain the complete formula and classification as a theorem.",
+      "searches": [
+        "Kelner Maymounkov parallel path lower bound full length expression",
+        "Schild Rao Srivastava Example 1.1 parallel paths full variation of lengths",
+        "theta electrical projection row sum maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schild–Rao–Srivastava, arXiv:1708.01632, §1.1 Example 1.1 and §1.3 identify edge-current ℓ1 length and the transfer-current projection.",
+        "Kelner–Maymounkov, arXiv:0909.2859, §§3 and Appendix A identify the corresponding routing norm."
+      ],
+      "reasoning": "Because the edge-gradient orthogonal projector is symmetric, its maximum absolute row sum equals its maximum absolute column sum, the worst electrical unit-edge-flow ℓ1 length. The general equivalence is known; in the checked material, the full symbolic dependence on arbitrary path lengths and sharp constrained-class hierarchy are not.",
+      "searches": [
+        "transfer current matrix ℓ1 ℓinfinity parallel paths",
+        "electrical flow length between endpoints of edge in generalized theta networks",
+        "operator norm edge gradient orthogonal projector"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record “Sharp coordinate-projection norms for edge bases of cactus transportation spaces”: spanning-tree basis suppression, not the orthogonal electric edge projection.",
+        "Published record “Exact algebraic gnarledness of three-path theta graphs”: homological invariant, not electrical flow lengths.",
+        "Published record “Parallel-path screening and the exact minimum sphere of directed edge polytopes”: radius of a convex polytope, not the operator endpoint norm.",
+        "Published record “Threshold law for projection constants of block-diagonal graph subspaces”: different graph-of-operator Banach construction."
+      ],
+      "reasoning": "A semantic database query for exact endpoint norms, graph cut projections, equivalent electrical-flow terminology, path lengths and sharp constants returned no matching claim. Distinct published records concern different operators and invariants. Semantic retrieval is not a proof of novelty.",
+      "searches": [
+        "Exact infinity norm l∞ edge gradient orthogonal projection graph cut space on theta networks with parallel paths and sharp 3 amplification",
+        "Sharp endpoint norm of electrical projection onto graph gradients on series parallel graphs multiple parallel paths transfer current",
+        "Projection constants of graph cut spaces theta graphs edge L∞ stability",
+        "Generalized theta graphs with path lengths electrical transfer current projection sharp l1 column sums and √m/2 extremal constant",
+        "Electric routing gluing sqrt m paths and a shortcut edge sharp 1/2 constant ℓ1 transfer current",
+        "Exact ℓ∞ norm cut space orthogonal projection of parallel path multigraphs"
+      ]
+    },
+    "rationale": "The previous literature supplies the transfer-current projector representation, the worst-edge congestion interpretation, an explicit balanced shortcut example, and square-root growth order. Those claims are expressly excluded from the new contribution. The all-path-profile identity and an upper-matching lower hierarchy for EVERY fixed minimum terminal-path length are not stated by the examined primary source sections or the distinct surfaced database findings. This bounded literature assessment does not prove absolute priority.",
+    "residual_risks": [
+      "An older circuit/transfer-current formula or unpublished note might imply the full all-length profile after simplification; bounded source coverage cannot rule this out.",
+      "The Lawler–Narayanan paper was not read end-to-end; no whole-document noncoverage claim is made.",
+      "Semantic record searches and summaries cannot guarantee global originality; no independent referee assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Directly covers general growth order and existence of a shortcut lower family, not the new arbitrary profile or fixed-minimum hierarchy",
+        "evidence": [
+          "Theorem 1.2, §3, Appendix A"
+        ],
+        "identifier_or_url": "arxiv:0909.2859",
+        "material_read": "Theorem 1.2, §3 projection/routing norm relationship, Appendix A and accompanying relevant proof",
+        "method": "open-access arXiv PDF; directly inspected rendered pages and extracted text",
+        "title": "Electric routing and concurrent flow cutting",
+        "trigger": "General square-root electrical routing upper and known parallel-path lower examples"
+      },
+      {
+        "assessment": "Precisely calculates one balanced shortcut example and describes transfer-current norms, but no general length-profile maximum or all-s sharp constant appears in inspected text",
+        "evidence": [
+          "§1.1 Example 1.1 gives flow length (sqrt(m)+1)/2 in a balanced short-edge example",
+          "§1.2 gives general aggregate bounds"
+        ],
+        "identifier_or_url": "arxiv:1708.01632",
+        "material_read": "Full open-access text searched; §1.1 Example 1.1, §1.2 Theorems 1.4–1.5 and §1.3 relevant norm discussion read",
+        "method": "full open-access arXiv HTML text",
+        "title": "Localization of Electrical Flows",
+        "trigger": "Potentially matching parallel-path electrical-flow row norm"
+      },
+      {
+        "assessment": "Average-edge electrical flow and spectral norms of entrywise-absolute transfer-current matrices are different aggregation functionals; no exact all-profile worst-edge envelope found",
+        "evidence": [
+          "Theorems 1.1–1.3; citation to predecessor example"
+        ],
+        "identifier_or_url": "arxiv:2605.24130",
+        "material_read": "Main theorems 1.1–1.3, mathematical setup and parallel-path discussion/reference to predecessor",
+        "method": "full open-access arXiv HTML text",
+        "title": "A Tight Bound on Localization of Electrical Flows",
+        "trigger": "Stronger results potentially dominating worst-edge projection claims"
+      },
+      {
+        "assessment": "Provides general routing bounds, not the fixed-minimum-length sharp class formula in material read; remaining text uninspected is a residual risk",
+        "evidence": [
+          "Abstract general O(sqrt(m)) routing bound"
+        ],
+        "identifier_or_url": "https://www.math.uchicago.edu/~lawler/oblivious.pdf",
+        "material_read": "Abstract and introduction with statement of O(sqrt(m)) upper bounds and routing indices",
+        "method": "author-hosted open-access PDF, rendered first page and searched accessible text",
+        "title": "Mixing times and ℓp bounds for oblivious routing",
+        "trigger": "Older general oblivious routing results could subsume the theta bound"
+      },
+      {
+        "assessment": "The named objects are basis suppression or an algebraic graph invariant, not edge-gradient orthogonal projection. No claim that full texts were inspected.",
+        "evidence": [
+          "Cactus transportation edge basis suppression projections",
+          "Three-path theta algebraic gnarledness"
+        ],
+        "identifier_or_url": "semantic-research-record results, public title-and-summary only",
+        "material_read": "Search-result titles and scientific summaries only, no full texts accessible through this channel",
+        "method": "semantic literature metadata comparison",
+        "title": "Published notes on cactus transportation basis projections and theta-graph algebraic gnarledness",
+        "trigger": "Graph projections and theta titles matched broad terminology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4b41a971-d62b-4cd2-80e7-3e9ef4ba7493",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum transfer-current ℓ1 column/row length is a natural worst-edge sensitivity measure, governing congestion for electrical oblivious routing. The result supplies an exact rational value for every parallel-path network, and the sharp structural threshold 1/(2sqrt(s)) for every fixed minimum edge subdivision s. Distinguishing the shortcut case s=1 from s≥2 in entire infinite families requires both the all-profile projection calculation and a matching extremal inequality; it is not the previously known balanced shortcut lower example or a routine relabeling.",
+    "status": "PASS"
+  }
+}
