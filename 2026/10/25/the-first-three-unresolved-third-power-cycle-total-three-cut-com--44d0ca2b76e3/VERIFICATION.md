@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The executable certificates use only the Python standard library. Running `python verify_morse.py morse_certificate.json` constructs all faces of the total three-cut complexes of the third powers of the cycles with 13, 14 and 15 vertices; repeats their stagewise element matchings; checks exact critical faces and pairs; and checks acyclicity by an exhaustive topological sort of all face-poset covering relations. The expected counts and chosen vertex orders are recorded in `morse_certificate.json`, while `verify_morse_output.txt` records the actual successful execution.
+# Independent mathematical audit
 
-An independent computation, `python verify_mod2.py`, enumerates the faces afresh as vertex tuples and calculates all simplicial boundary ranks over the field with two elements. Results and complete face vectors are in `verify_mod2_output.txt`. This second computation does not prove integral homotopy on its own; the discrete-Morse proof supplies that conclusion.
+## correctness
 
-The strongest claim is restricted to the three graph orders 13, 14, and 15 and depends on the complete, finite certificate reconstruction. No generalization to other orders is inferred from finite experiments. Independent scientific audit has not been performed.
+PASS
+
+With G=C_n^3 and facets V(G) minus independent triples, independent reconstruction enumerated all triples (13,28,50) and all nonempty faces (5434,13106,28803). Applying the actual packaged pivot permutations to all faces yields 2716,6552,14400 pairs, critical faces precisely {(1,0),(3492,5)}, {(2,0),(13492,6)}, {(2048,0),(14042,8),(21357,8)}. Every Hasse cover (31070,84910,205800) was independently oriented and all face vertices removed by topological sort, proving acyclicity. A single critical vertex and only positive-dimensional critical cells of one common dimension force integral wedges S5, S6 and S8 vee S8 by discrete Morse theory, not merely mod-two ranks.
+
+## originality
+
+PASS
+
+The primary 2026 treatment explicitly asks the interval 13..15 for r=d=3 (Question 49), with n12 and n>=16 handled separately. The finite homotopy calculation closes the first three open instances without purporting to settle higher-dimensional or all-parameter classifications.
+
+## value
+
+PASS
+
+These are the complete first unclassified finite interval from an explicit published question. The two top-dimensional spheres at n15 also demonstrate nonuniform behavior relative to adjacent one-sphere cases; exact integer homotopy is materially stronger than reduced Betti vectors alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
