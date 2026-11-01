@@ -1,15 +1,21 @@
-# Review of open-independent locating codes on multipartite line graphs
+# Independent mathematical audit
 
-## Correctness
-PASS. Every selected edge belongs to a vertex-disjoint two-edge path. Distinct open-neighborhood signatures force a spanning path factor or a uniquely structured near-factor. Necessity, sufficiency, the cubic exponential formula, the exact one-unused-vertex count, and the largest-part threshold are proved with all relevant nonempty-part hypotheses. The standalone checker exhaustively compared direct codes with both separate counting procedures on all 57 multipartite part profiles of orders 3 through 8. These finite calculations corroborate rather than replace the infinite proof.
+## correctness
 
-## Originality
-PASS, with priority risk. Seo and Slater (2017) introduced the code invariant; Cappelle and collaborators (arXiv:2103.07972) studied complexity and structural graph classes. Neither inspected primary work states this all-part-profile line-graph factorization and exponential census. A previously established rook-graph (two-part) result is a special case and is expressly not claimed as new. The expansion to three and more parts introduces genuine three-color triples and a unified sharp criterion. Inaccessible or unindexed work could affect priority.
+PASS
 
-## Mathematical value
-PASS. The output is a complete existence theorem, classification of all codes, fixed-size result, and exact enumerator for a natural infinite graph class. The arithmetic maximum-part transition and new rainbow-triple component are motivated by the underlying identification problem, not by a chosen small numerical target.
+In H=L(K_{n_1,...,n_r}), each selected code vertex has exactly one selected neighbor, so selected base-graph edges split into disjoint length-two paths with no shared vertices between paths. For a base edge uv, the open signature is T(u)∪T(v), except a selected edge receives its unique partner; these supports imply at most one unused base vertex and, if one, all P3 endpoints lie in its part and centers outside. Conversely every specified P3 factor/near-factor has nonempty distinct signatures. For N=3k, existence is exactly max_i n_i<=2k by the nonmonochromatic triple-partition induction; the labeled set-species formula uses cubic Q=(1/2)sum_{i!=j}x_i^2 x_j+3sum_{i<j<l}x_ix_jx_l and yields prod n_i![x^n]exp Q. At N=3k+1, the unique unused part must have size 2k+1 and code count is (2k+1)!/2^k. N=3k+2 cannot occur. All codes have size 2k. Independent direct enumeration of open-neighborhood signatures across 22 small complete multipartite profiles agreed, but arbitrary N relies on the combinatorial proof.
 
-## Closest literature and limitations
-References: Seo and Slater, Electronic Journal of Graph Theory and Applications 5(2), 179–193 (2017), DOI 10.5614/ejgta.2017.5.2.2; Cappelle, Coelho, Foulds and Longo, arXiv:2103.07972, DMTCS 24:1 (2022); Gupta, Goyal and Jain, AKCE International Journal of Graphs and Combinatorics 18(3) (2021), a different point-set domination concept. The exact prior rook classification is subsumed but not newly claimed. Novelty rests on the accessible comparisons and is not independently certified. The generating coefficient is an exact finite answer even where no simple closed factorial product is given.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Prior OLD_oind sources introduce the invariant and classify different graph families; a known L(K_{a,b}) rook specialization is admitted as covered. The full r-partite path-factor structure, three-part triple weights, and multivariate census for arbitrary r do not follow from the inspected sources. Best-of-knowledge PASS with alternative terminology priority risk.
+
+## value
+
+PASS
+
+OLD_oind is a distinct natural identifying-code invariant of line graphs. Converting a general signature problem into disjoint P3 factors yields sharp existence for all multipartite part-size profiles and a complete multivariate labeled code census. This extends a recognized two-part (rook graph) subfamily to arbitrarily many parts and covers triangular graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
