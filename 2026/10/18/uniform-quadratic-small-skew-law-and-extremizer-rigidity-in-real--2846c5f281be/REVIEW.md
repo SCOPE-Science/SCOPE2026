@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof uses exact quartic moment expansions for unit real \(L_4\) functions, the square identity \(\|x^2-y^2+\sqrt2xy\|_2^2=2+2\sqrt2F\), and two-support equality cases. A uniform second-order Taylor expansion reduces the lower bound to completing a quadratic square. The upper test pair has equal output norms, so all power means share that bound. The quantified almost-minimizer statement follows from the uncompleted quadratic defect inequality. Boundaries \(t=1\), \(t=\infty\), arbitrary measure spaces with two disjoint nonzero pieces, and \(\tau=0\) are covered; no finite experiment substitutes for proof.
+## correctness
 
-**Originality — PASS, subject to residual publication-priority risk.** Xu–Liu (2026) give the exact formula at the matching exponent \(t=p\) and non-sharp cross-exponent comparisons, and imply the range \(t\ge4\) using their balanced extremizer, but not the sharp lower bound for \(1\le t<4\) or its uniform rigidity. The full published small-skew Banaś–Frączek result is on a different nonsmooth space and its quadratic-mean first coefficient; the published real \(\ell_4\) skew geometric mean result is supremal rather than infimal; the hexagon endpoint result is for a different norm. Searches and comparison to recoverable prior claims found no statement implying the entire new conjunction. An older equivalent Banach-space duality-map formulation remains possible.
+PASS
 
-**Mathematical value — PASS.** The motivating new geometric invariant has a cross-exponent gap, and the sharp two-term law unexpectedly erases outer-exponent dependence even though the corresponding Hilbert-space profiles differ at quadratic order. The exact square deficit and quantitative \(O(\tau)\) rigidity add intrinsic structural information about extremizing duality-map asymmetry, not just a Taylor approximation or a known \(t=4\) reformulation.
+For unit x,y define C=∫x³y, E=∫xy³, D=∫x²y² and F=C−E. The pointwise polynomial identity ||x²−y²+√2xy||₂²=2+2√2F proves the sharp F≥−1/√2. The exact real quartic expansions and uniformly bounded fourth-root Taylor remainders give (||x+τy||₄+||τx−y||₄)/2=1+τF/2+τ²B+O(τ³), B=3D/2−3(C²+E²)/4. The identities for <R,xy> and <R,x²+y²> imply |B−9/16|≤4||R||₂. Completing the nonnegative defect quadratic gives the uniform lower 1−τ/(2√2)+9τ²/16−Kτ³ for all real L4 and any outer t≥1, using power-mean dominance over the arithmetic mean. On any two disjoint normalized supports, take x=af+bg,y=−bf+ag with a²=(√3+1)/(2√2),b²=(√3−1)/(2√2); both outputs have the identical fourth power 1−√2τ+3τ²+√2τ³+τ⁴, giving the uniform upper bound for every outer exponent including infinity. Equality in the square yields exactly two ratio levels r± and the specified y⁴-mass fractions. For O(τ³) near-optimal pairs the uncompleted quadratic forces ||R||₂=O(τ). Remainders are uniform via |C|,|E|,D≤1, τ≤1/8, and two-point power-mean comparison; no finite sampling substitutes for the analytic proof.
 
-**Limitations and closest work.** The result is local, real-scalar, and quadratic-order; the entire \(t\ge4\) range follows from Xu–Liu and their balanced extremizer. Full independent novelty assessment and audit remain outstanding. Relevant full texts materially examined: Xu–Liu arXiv:2610.03050v1 and published research-result texts for Banaś–Frączek, real \(\ell_4\) skew supremal constants, and the hexagonal endpoint. The 2025 Ni–Liu–Zhou journal paper was available as a discoverable lawful PDF but not examined in full during this comparison.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-small-skew L4 law for the previously uncontrolled outer exponents 1<=t<4, together with a square-defect rigidity statement for almost-minimizers, was not implied by the primary papers and complete relevant published results inspected. Xu–Liu Theorem 3.2 already proves matching exponent t=p=4; its balanced two-support optimizer, combined with monotonicity, in fact implies the whole t>=4 branch. These precovered cases are explicitly credited, rather than represented as original. The novel remaining assertion is an exact dimension-free lower expansion for t=1 and 1<t<4 and the quantified L2 stability that follows from a sharp antisymmetric-duality square identity. This is a best-of-knowledge priority assessment, not a claim of independently certified global novelty.
+
+## value
+
+PASS
+
+The skew Schäffer infimum is a natural published Banach-space geometric invariant, and the cross-exponent regime 1<=t<4 is a specific mathematical gap after the matching-exponent theorem. Determining its dimension-free sharp two-term onset, including t=1, is not a relabeling of the t=4 formula: prior monotonicity has the incorrect direction for the essential lower bound. A sharp square identity, two-level classification of antisymmetric duality-map extremizers, and quantitative O(τ) stability for O(τ³) almost-minimizers give structurally useful information about this non-Hilbert geometry. The object and invariant are intrinsically motivated independently of any speculative application; no general/downstream theorem is needed for mathematical value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

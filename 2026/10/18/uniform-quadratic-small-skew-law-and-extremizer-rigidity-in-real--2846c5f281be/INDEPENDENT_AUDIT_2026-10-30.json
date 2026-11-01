@@ -1,0 +1,216 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:11:44Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned RESULT.md blob af53619de87fa804671f423712db1d4d33ba3491 sections Proof 1–5, including exact polynomial expansions and explicit equality witness.",
+        "Independent SymPy algebra: exact unit-norm weights, quartic moments, r±-roots/mass fractions, identical output quartics, fourth-root Taylor coefficient 9/16, and a global linear bound 3√2/4+21/8<4 for |B−9/16|/||R||.",
+        "Independent deterministic finite diagnostic: 25,000 random normalized real ℓ4 pairs satisfied the squared-defect identities and B Lipschitz bound; full analytic proof used for infinite domain.",
+        "Exact Git tree reconstructed from six file blob IDs to d631473d684f7c73ff04524b9403911ab20f1d3d"
+      ],
+      "limitations": [
+        "The expansion is only local at τ=0 and real-scalar; no formula for all positive τ, complex L4, or outer exponents below 1.",
+        "The near-minimizer conclusion assumes a uniform O(τ³) bound and is not a complete finite-τ minimizer classification.",
+        "Finite numerical/symbolic sample checks support exact algebra and formula but do not independently certify arbitrary-dimensional quantifiers."
+      ],
+      "rationale": "For unit x,y define C=∫x³y, E=∫xy³, D=∫x²y² and F=C−E. The pointwise polynomial identity ||x²−y²+√2xy||₂²=2+2√2F proves the sharp F≥−1/√2. The exact real quartic expansions and uniformly bounded fourth-root Taylor remainders give (||x+τy||₄+||τx−y||₄)/2=1+τF/2+τ²B+O(τ³), B=3D/2−3(C²+E²)/4. The identities for <R,xy> and <R,x²+y²> imply |B−9/16|≤4||R||₂. Completing the nonnegative defect quadratic gives the uniform lower 1−τ/(2√2)+9τ²/16−Kτ³ for all real L4 and any outer t≥1, using power-mean dominance over the arithmetic mean. On any two disjoint normalized supports, take x=af+bg,y=−bf+ag with a²=(√3+1)/(2√2),b²=(√3−1)/(2√2); both outputs have the identical fourth power 1−√2τ+3τ²+√2τ³+τ⁴, giving the uniform upper bound for every outer exponent including infinity. Equality in the square yields exactly two ratio levels r± and the specified y⁴-mass fractions. For O(τ³) near-optimal pairs the uncompleted quadratic forces ||R||₂=O(τ). Remainders are uniform via |C|,|E|,D≤1, τ≤1/8, and two-point power-mean comparison; no finite sampling substitutes for the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xu–Liu Theorem 3.2 exactly handles S_(L_p,p), and its balanced optimizer covers every t>=p by power-mean monotonicity; Corollary 3.6 supplies estimates for the different-exponent settings, not their two-term sharp asymptotic.",
+          "Rao et al. skew James concerns a supremum of the same power-mean transform, rather than the required infimum.",
+          "The 2024 Variations article was discovered by abstract/metadata only, so its complete noncoverage cannot be asserted."
+        ],
+        "reasoning": "A theorem covering the cross-power infimum for all t could dominate the claim; the strongest materially read exact general Lp theorem evaluates t=p only. For t>=4, dominance DOES occur and is credited. For t<4 its power-mean comparison is in the wrong direction to deliver the sharp lower bound. The general Banach-space bounds do not specialize to the proposed 9/16 coefficient and L2 rigidity.",
+        "searches": [
+          "Resultary: normed spaces generalized skew Schäffer type constants real Lp exact formula Xu Liu",
+          "Xu–Liu 2026 full paper Theorems 3.2, 4.1 and Corollary 3.6",
+          "Martini–Papini–Wu Variations of James and Schäffer constants DOI 10.1007/s43034-023-00308-7",
+          "Rao et al. The skew James type constant in Banach spaces arXiv:2504.00827"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.03050",
+        "https://mia.ele-math.com/28-22/Some-aspects-of-new-skew-geometric-constants-in-Banach-spaces",
+        "https://arxiv.org/abs/2504.00827",
+        "https://doi.org/10.1007/s43034-023-00308-7",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-skew-geometric-mean-constant-of-ell-4--7a18ef79086d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dimension-free-c-approximate-birkhoff-symmetry-of-real-l-p-space--5f371e82ef77/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-skew-sch-ffer-endpoint-profile-of-the-regular-hexagonal-ba--ab622dc4661e"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.2 together with a balanced minimizer implies t>=4 but not t<4; infimal power means increase with exponent.",
+          "Neither the supremal operator-norm result nor the Birkhoff-constrained orthogonality result gives an infimal t=1 lower coefficient.",
+          "The exact equality square identity and quantitative O(τ) defect for O(τ³) near-minimizers are absent from the inspected comparisons."
+        ],
+        "reasoning": "For t>=4 the submitted asymptotic is mathematically implied by known t=4 exactness; that part is not a novel discovery. For t<=4, existing monotonicity only yields S_t<=S_4 and therefore gives an upper estimate, not the lower one needed. The present arithmetic-mean lower bound is a substantive extra theorem and, when paired with its exact square deficit, yields the explicit rigidity rate. Existing comparisons do not imply this conjunction; no decisive covering primary result was identified.",
+        "searches": [
+          "Xu–Liu Theorem 3.2 exact Lp p mean and power-mean Proposition 2.1(iii)",
+          "Resultary 2026/10/4 skew ell4 SUPREMUM and operator norm, complete RESULT.md",
+          "Resultary 2026/10/11 dimension-free Birkhoff approximate symmetry, complete RESULT.md",
+          "Resultary 2026/10/11 quadratic generalized rectangular L4, complete RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Xu–Liu, arXiv:2610.03050, definition (2), Theorem 3.2 equation (10), Remark 3.3 and Corollary 3.6.",
+          "Published dimension-free C-approximate Birkhoff symmetry uses orthogonality-constrained reversal residual, not the unconstrained two-norm infimum; its complete RESULT.md was read.",
+          "The present antisymmetric pairing F=∫xy(x²−y²), and the exact square deficit 2+2√2F, encode a different optimization from orthogonality-constrained functional symmetry."
+        ],
+        "reasoning": "Under the two-point matrix transform (x,y)->(x+τy,τx−y), matching outer fourth powers reduce to the scalar ℓ4 minimum modulus, already covered. The arithmetic mean is less than or equal to that fourth-power mean, so t=4 exactness cannot imply the sharp t=1 lower bound. The prior Birkhoff–James reverse-pairing theorem constrains ∫x³y=0 and optimizes |∫y³x|; it does not bound the unconstrained difference ∫(x³y−xy³) with the same near-minimizer stability. No inspected equivalent statement yields the new t<4 branch.",
+        "searches": [
+          "Resultary: sharp asymmetric L4 semi-inner-product duality pairing x^3 y - x y^3 small skew Schäffer mixed power means near-minimizer rigidity",
+          "Resultary: real L4 small tau infimum skew Schaffer mean outer exponent 1 2 4 uniform quadratic 9/16",
+          "arXiv 2610.03050 §2–§5, skew Schäffer infimum and matrix minimum-modulus representation",
+          "Resultary: published C-approximate Birkhoff symmetry of real Lp spaces, two-valued extremizers"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Xu–Liu Table 1 lists Lp with only matching outer exponent p (and Hilbert t-dependent cases), not the t<4 L4 expansion.",
+          "The published skew geometric L4 result computes an unrestricted supremum and a two-by-two operator norm, not the infimum.",
+          "The published generalized rectangular L4 result computes a different Birkhoff-constrained ratio with a scalar denominator exponent 2."
+        ],
+        "reasoning": "Compared the same object, infimum/supremum direction, outer exponent and known table parameters, rather than only searching for numerically matching constants. No exact matching tabulation of the t<4 first two coefficients or the R-square stability deficit was found. This search absence alone is not a proof of novelty.",
+        "searches": [
+          "Resultary: real L4 small tau infimum skew Schaffer mean outer exponent 1 2 4 uniform quadratic 9/16",
+          "Xu–Liu Table 1 exact power mean lower and upper radii",
+          "Resultary 2026/10/4 exact skew geometric mean constant of ell_4",
+          "Resultary 2026/10/11 exact generalized rectangular constant and extremizers of real L4"
+        ]
+      },
+      "rationale": "The exact all-small-skew L4 law for the previously uncontrolled outer exponents 1<=t<4, together with a square-defect rigidity statement for almost-minimizers, was not implied by the primary papers and complete relevant published results inspected. Xu–Liu Theorem 3.2 already proves matching exponent t=p=4; its balanced two-support optimizer, combined with monotonicity, in fact implies the whole t>=4 branch. These precovered cases are explicitly credited, rather than represented as original. The novel remaining assertion is an exact dimension-free lower expansion for t=1 and 1<t<4 and the quantified L2 stability that follows from a sharp antisymmetric-duality square identity. This is a best-of-knowledge priority assessment, not a claim of independently certified global novelty.",
+      "residual_risks": [
+        "Earlier differently named sharp antisymmetric semi-inner-product inequality or nonsymmetric smoothness modulus might imply the sharp first-variation identity or its extremizer classification; no covering implication was identified in the bounded searches.",
+        "The closest 2024 Variations of James and Schäffer constants journal paper was identified by abstract, not read in complete primary text; it remains a potential priority limitation.",
+        "The t>=4 portion of the stated all-exponent theorem is covered by Xu–Liu Theorem 3.2 and balanced equality pairs and is not claimed independently original.",
+        "ArXiv/open-access and published index coverage cannot establish absolute worldwide priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers t=4 exactly and thereby t>=4 on real L4; does not determine sharp t<4 lower onset or near-minimizer R-square stability.",
+          "evidence": [
+            "Definition (2); Proposition 2.1(iii); Theorem 3.2 equation (10); proof (13); Corollary 3.6 and Table 1; 2026-10-02 v1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.03050",
+          "material_read": "Complete accessible article text, especially §2 power-mean comparison, §3 Theorem 3.2 proof, Remark 3.3, Corollary 3.6, Table 1, and §§4–5 global bounds.",
+          "method": "Read full arXiv article rendered at the abstract/source-access page, comparing exact displayed equations and quantifier regimes.",
+          "title": "Skew Schäffer Type Constants",
+          "trigger": "Defines precisely the infimal transform and claims exact Lebesgue-space formulas."
+        },
+        {
+          "assessment": "Studies the supremal skew geometric mean and restricted supremal variants, not the sharp infimal L4 cross-exponent local lower law.",
+          "evidence": [
+            "Math. Inequalities Appl. 28 (2025), 327–342; DOI 10.7153/mia-2025-28-22; definitions in §§2–3."
+          ],
+          "identifier_or_url": "https://mia.ele-math.com/28-22/Some-aspects-of-new-skew-geometric-constants-in-Banach-spaces",
+          "material_read": "Full 16-page open-access PDF consulted, including skew arithmetic-geometric definitions, theorem statements, examples and orthogonality-restricted variants.",
+          "method": "Read lawful publisher-hosted full PDF; independently compared infimum/supremum direction and restrictions.",
+          "title": "Some aspects of new skew geometric constants in Banach spaces",
+          "trigger": "Same skew transform, same Banach geometry, journal version with potentially stronger constants."
+        },
+        {
+          "assessment": "The skew James constant is supremal and does not imply the t<4 lower bound of the skew Schäffer infimum.",
+          "evidence": [
+            "arXiv:2504.00827; supremal definition and exact examples."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2504.00827",
+          "material_read": "Full accessible arXiv HTML, particularly the definition and exact/general skew James statements.",
+          "method": "Read primary preprint and compared supremal versus infimal optimization.",
+          "title": "The skew James type constant in Banach spaces",
+          "trigger": "Same two-point power-mean transform and potential implication through a dual extremum."
+        },
+        {
+          "assessment": "Computes a supremum of arithmetic skew norms, not the infimum, and thus does not cover the new t<4 law.",
+          "evidence": [
+            "Theorem defines A_(alpha-beta) as sup and identifies it with ||M||_(ell4 to ell4)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-skew-geometric-mean-constant-of-ell-4--7a18ef79086d/RESULT.md",
+          "material_read": "Complete RESULT.md (finding, proof by matrix norm, relation to prior work, limitations).",
+          "method": "Read actual published repository source file and compared extremum direction and exact formula.",
+          "title": "Exact skew geometric mean constant of ell_4",
+          "trigger": "Same real ell4 skew mixing matrix; high-relevance published exact formula."
+        },
+        {
+          "assessment": "Its Birkhoff orthogonality constraint and scalar reverse residual differ from unconstrained F and skew mean; does not imply the proposed uniform t<4 law.",
+          "evidence": [
+            "Definitions equations (5)–(8), two-point reduction (9)–(20); orthogonality imposes ∫J_p(x)y=0."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dimension-free-c-approximate-birkhoff-symmetry-of-real-l-p-space--5f371e82ef77/RESULT.md",
+          "material_read": "Complete RESULT.md, including two-point size-biased reduction, duality, equality classification and domain.",
+          "method": "Read published source and examined orthogonality assumption and the optimized reverse residual.",
+          "title": "Dimension-free C-approximate Birkhoff symmetry of real Lp spaces",
+          "trigger": "Potential alternate phrasing as antisymmetric duality-map or reverse support-functional defect."
+        },
+        {
+          "assessment": "Birkhoff-restricted denominator ratio with λ optimization; no cross-exponent infimal two-norm skew mean law.",
+          "evidence": [
+            "Theorem defines µ_2 as a supremum of (1+λ²)^1/2/||x+λy|| under x perpendicular_B y."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md",
+          "material_read": "Complete RESULT.md, including Birkhoff-James condition, moment reduction, optimizers and limitations.",
+          "method": "Read published source and compared hypotheses and target invariant.",
+          "title": "Exact quadratic generalized rectangular constant and extremizers of real L4",
+          "trigger": "Same real L4 two-point extremizer mechanism and exact Cauchy moment envelope."
+        },
+        {
+          "assessment": "Potentially relevant classical symmetric constant but not a decisive known implication; residual priority risk retained.",
+          "evidence": [
+            "DOI 10.1007/s43034-023-00308-7; publication metadata."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s43034-023-00308-7",
+          "material_read": "Bibliographic record and abstract/available summary only; complete paper not materially inspected.",
+          "method": "Targeted discovery, abstract-level comparison; no full-document exclusion inferred.",
+          "title": "Variations of the James and Schäffer constants in Banach spaces",
+          "trigger": "Plausible broader published theorem on generalized classical Schäffer constants."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Natural gap documented by Xu–Liu 2026 Section 3: exact matching p and bounds for other t.",
+        "Theorem supplies exact independent outer-exponent local value and rigorous stability of extremizing duality-map asymmetry on every real L4 of dimension≥2.",
+        "Quantitatively distinct from the Hilbert profile, whose second coefficient is outer-exponent-sensitive."
+      ],
+      "rationale": "The skew Schäffer infimum is a natural published Banach-space geometric invariant, and the cross-exponent regime 1<=t<4 is a specific mathematical gap after the matching-exponent theorem. Determining its dimension-free sharp two-term onset, including t=1, is not a relabeling of the t=4 formula: prior monotonicity has the incorrect direction for the essential lower bound. A sharp square identity, two-level classification of antisymmetric duality-map extremizers, and quantitative O(τ) stability for O(τ³) almost-minimizers give structurally useful information about this non-Hilbert geometry. The object and invariant are intrinsically motivated independently of any speculative application; no general/downstream theorem is needed for mathematical value.",
+      "residual_risks": [
+        "The exact deficit identity is elementary algebra by itself; assessed value rests on its nontrivial coupling to the sharp uniform local lower bound and rigidity.",
+        "No quantitative numerical-conditioning, algorithmic, or complex-space applications are claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2610.03050",
+    "https://mia.ele-math.com/28-22/Some-aspects-of-new-skew-geometric-constants-in-Banach-spaces",
+    "https://arxiv.org/abs/2504.00827",
+    "https://doi.org/10.1007/s43034-023-00308-7",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-skew-geometric-mean-constant-of-ell-4--7a18ef79086d/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-dimension-free-c-approximate-birkhoff-symmetry-of-real-l-p-space--5f371e82ef77/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-quadratic-generalized-rectangular-constant-and-extremizers--f46017f59baf/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-sharp-small-skew-phase-transition-in-the-bana-fr-czek-plane--4c730d387d65",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-skew-sch-ffer-endpoint-profile-of-the-regular-hexagonal-ba--ab622dc4661e"
+  ],
+  "disposition": "passed",
+  "final_claim": "In every real L4 space of dimension at least two, uniformly for 1<=t<=infinity, S_(X,t)(tau)=1-tau/(2sqrt(2))+9tau²/16+O(tau³) as tau downarrow zero, with absolute tau0,K. For any two unit x,y, ||x²-y²+sqrt(2)xy||₂²=2+2sqrt(2)∫xy(x²-y²); the latter integral has sharp infimum -1/sqrt(2), equality exactly at two permitted pointwise ratios (-sqrt(2)±sqrt(6))/2 with corresponding y⁴ masses (2±sqrt(3))/4. O(tau³)-almost-minimizing pairs for any t(tau) obey ||x²-y²+sqrt(2)xy||₂=O(tau).",
+  "limitations": [
+    "Real L4, dimension >=2, local tau downarrow zero, t in [1,infinity]; no complex extension or global-tau minimizers.",
+    "Earlier Xu–Liu exact t=4 theorem and balanced optimizer already imply t>=4, credited as prior coverage.",
+    "Possible pre-existing antisymmetric duality-map formulation is an originality risk, not confirmed coverage.",
+    "No Lean or independent expert attestation was supplied; symbolic checks are not formal proof."
+  ],
+  "residual_risks": [
+    "Earlier differently named sharp antisymmetric semi-inner-product inequality or nonsymmetric smoothness modulus might imply the sharp first-variation identity or its extremizer classification; no covering implication was identified in the bounded searches.",
+    "The closest 2024 Variations of James and Schäffer constants journal paper was identified by abstract, not read in complete primary text; it remains a potential priority limitation.",
+    "The t>=4 portion of the stated all-exponent theorem is covered by Xu–Liu Theorem 3.2 and balanced equality pairs and is not claimed independently original.",
+    "ArXiv/open-access and published index coverage cannot establish absolute worldwide priority."
+  ],
+  "schema_version": 1
+}
