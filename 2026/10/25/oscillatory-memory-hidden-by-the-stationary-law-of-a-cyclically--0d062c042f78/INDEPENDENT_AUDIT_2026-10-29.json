@@ -1,0 +1,138 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:14:52Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Construct the stationary chain and reset clock as independent two-sided processes. The backward reset age is Exp(r), while the directed cycle is stationary uniform, giving a mixture of three planar Brownian resolvent densities and E|X|²=a²+4D/r. The chain vertex complex eigenvalue is -lambda with lambda=3nu/2-i sqrt(3)nu/2, yielding E[v(Y0)·v(Ys)]=a²exp(-3nu s/2)cos(sqrt(3)nu s/2). Conditioning on the last reset between 0 and t and integrating an independent backward age gives C(t)=(a²+4D/r)e^{-rt}+a²r² Re[(e^{-lambda t}-e^{-rt})/(r²-lambda²)]. For r>3nu/2 the oscillatory complex mode is the slow nonzero term, forcing unbounded negative windows; for r<3nu/2 the e^{-rt} coefficient is algebraically positive; at equality the offset 10a²/13+4D/r competes with amplitude 3a²/sqrt13, giving Dc=3nu a²(3sqrt13-10)/104 and all strict/equality cases. Independent nested numerical age/time quadrature agreed in 108 cases to 9e-16, and critical-envelope algebra was cross-checked, but all-times and all-parameters assertions use the analytic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. analyze resetting complete system state to a fixed configuration",
+          "Bressloff 2020 abstract says both position and diffusion state reset simultaneously; full source missing"
+        ],
+        "reasoning": "The specified target chain survives every particle reset, which prevents these fixed/full-state results from mechanically implying the submitted covariance. Remaining full-document comparison is a priority risk.",
+        "searches": [
+          "Resultary semantic search: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations",
+          "arXiv:1806.01298",
+          "DOI 10.1088/1751-8121/ab97e0"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1102.2704 — Original full article rendered via arXiv, model, stationary density and first-passage analyses",
+        "https://doi.org/10.1088/1751-8121/ab97e0 — Original article abstract and publisher metadata; linked author-hosted PDF returned HTTP 404, entire primary text not read",
+        "Resultary corpus: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations",
+        "Original immutable RESULT.md Git blob 48fbf9b6bb792f892f1cdbcf28fa1ec55025e857"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "p_*(x) independent nu is a consequence of classical renewal mixing",
+          "The autocovariance has a persistent cyclic spectral factor e^{-(3nu/2-i sqrt3nu/2)t}"
+        ],
+        "reasoning": "Prior density formulas do not imply the covariance or its critical oscillatory-dominance threshold; no novelty claimed for one-point marginal.",
+        "searches": [
+          "arXiv:1102.2704",
+          "DOI 10.1088/1751-8121/ab97e0",
+          "Resultary semantic search: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical stationary resolvent and random-position mix already known",
+          "New autonomous cycle creates nonzero complex eigenmode in time covariance"
+        ],
+        "reasoning": "Equivalent generating-function/master-equation formulations of time correlations were considered; the exact sign boundary has not been located in inspected matching stochastic-reset protocols.",
+        "searches": [
+          "Resultary semantic search: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations",
+          "arXiv:1102.2704",
+          "DOI 10.1088/1751-8121/ab97e0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known two-reset-point work optimizes first-passage time rather than stationary three-site cycle correlations",
+          "No inspected exact table gives Dc=3nu a²(3sqrt(13)-10)/104"
+        ],
+        "reasoning": "Known stationary density and MFPT special cases are different observables and cannot certify sign behavior at arbitrarily large lags.",
+        "searches": [
+          "Resultary semantic search: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations",
+          "arXiv:2311.11897",
+          "arXiv:1102.2704"
+        ]
+      },
+      "rationale": "Classical Poisson resetting and independent random reset positions yield the Bessel resolvent marginal; this part is covered and not asserted as novel. A persistent, autonomously cycling three-state target changes two-time structure while leaving marginal fixed. The relevant new statement is a sharp sign classification of time covariance for a different coupled protocol, not the stationary resolvent formula.",
+      "residual_risks": [
+        "Bressloff 2020 full source text inaccessible through author-hosted link (404); an equivalent two-time correlation specialization could appear in a different section, despite explicitly different reset-state protocol.",
+        "Planar independent Brownian diffusion and three equilateral persistent directed reset sites are essential; neither correlated Markov noise generally nor other reset protocols follow.",
+        "Stationary one-time position mixture is classical renewal theory and must not be claimed novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Classical fixed-position resetting stationary law is prior coverage; no autonomous directed three-site reset target or sharp covariance phase classification",
+          "evidence": [
+            "Reset position is a fixed initial site, not v_Y(t) from an independently evolving three-state environment."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+          "material_read": "Original full article rendered via arXiv, model, stationary density and first-passage analyses",
+          "method": "ArXiv full-text textual review",
+          "title": "Diffusion with Stochastic Resetting",
+          "trigger": "Foundational one-point stationary reset distribution and renewal formula"
+        },
+        {
+          "assessment": "Abstract expressly resets the two-state diffusion environment together with particle, whereas present three-state cycle continues through resets; whole-paper absence of incidental equivalent correlation statements not verified",
+          "evidence": [
+            "Abstract says diffusion state simultaneously reset to stationary distribution; source model differs in reset protocol."
+          ],
+          "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+          "material_read": "Original article abstract and publisher metadata; linked author-hosted PDF returned HTTP 404, entire primary text not read",
+          "method": "DOI/author listing and indexed abstract; author-hosted PDF access attempted unsuccessfully",
+          "title": "Switching diffusions and stochastic resetting",
+          "trigger": "Closest stochastic switching plus resetting model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact stationary one-time spatial distribution is blind to the cyclic target speed, but the two-time covariance records it and exhibits a sharp late-negative-lag transition including a nontrivial critical diffusivity. This is a motivated dynamical identifiability and oscillatory-relaxation result for the precise autonomous-environment model, not merely a routine Bessel integral.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1102.2704 — Original full article rendered via arXiv, model, stationary density and first-passage analyses",
+    "https://doi.org/10.1088/1751-8121/ab97e0 — Original article abstract and publisher metadata; linked author-hosted PDF returned HTTP 404, entire primary text not read",
+    "Resultary corpus: diffusion stochastic resetting directed cyclic Markov reset target stationary autocorrelation negative oscillations",
+    "Original immutable RESULT.md Git blob 48fbf9b6bb792f892f1cdbcf28fa1ec55025e857"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Bressloff 2020 full source text inaccessible through author-hosted link (404); an equivalent two-time correlation specialization could appear in a different section, despite explicitly different reset-state protocol.",
+    "Planar independent Brownian diffusion and three equilateral persistent directed reset sites are essential; neither correlated Markov noise generally nor other reset protocols follow.",
+    "Stationary one-time position mixture is classical renewal theory and must not be claimed novel."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Classical fixed-position resetting stationary law is prior coverage; no autonomous directed three-site reset target or sharp covariance phase classification",
+      "evidence": [
+        "Reset position is a fixed initial site, not v_Y(t) from an independently evolving three-state environment."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+      "material_read": "Original full article rendered via arXiv, model, stationary density and first-passage analyses",
+      "method": "ArXiv full-text textual review",
+      "title": "Diffusion with Stochastic Resetting",
+      "trigger": "Foundational one-point stationary reset distribution and renewal formula"
+    },
+    {
+      "assessment": "Abstract expressly resets the two-state diffusion environment together with particle, whereas present three-state cycle continues through resets; whole-paper absence of incidental equivalent correlation statements not verified",
+      "evidence": [
+        "Abstract says diffusion state simultaneously reset to stationary distribution; source model differs in reset protocol."
+      ],
+      "identifier_or_url": "https://doi.org/10.1088/1751-8121/ab97e0",
+      "material_read": "Original article abstract and publisher metadata; linked author-hosted PDF returned HTTP 404, entire primary text not read",
+      "method": "DOI/author listing and indexed abstract; author-hosted PDF access attempted unsuccessfully",
+      "title": "Switching diffusions and stochastic resetting",
+      "trigger": "Closest stochastic switching plus resetting model"
+    }
+  ]
+}

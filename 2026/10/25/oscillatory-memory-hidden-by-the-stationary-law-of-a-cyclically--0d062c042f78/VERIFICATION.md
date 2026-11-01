@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 and the standard library. The script has no external data dependencies. It evaluates the exact time covariance by a complex-valued closed expression, independently by Simpson quadrature of the unintegrated last-reset-time formula, and independently by fourth-order numerical integration of the finite three-state Markov moment equations. Parameters span rate ratios above, below, and on the critical boundary. It checks the critical amplitude identity, positivity of the below-threshold asymptotic coefficient, and signs of late oscillatory lags.
+## correctness
 
-Recorded outcome: `PASS 601 independent and boundary checks; max numerical error 2.2147333966771043e-10`.
+PASS
 
-The calculation is finite and numeric. The infinite-lag and all-parameter conclusions rest on the explicit renewal identity and analytic comparison of decay exponents and sinusoidal envelopes, proved in `RESULT.md`. Some related switching-diffusion primary text could not be inspected in full; historical originality remains subject to independent verification.
+Construct the stationary chain and reset clock as independent two-sided processes. The backward reset age is Exp(r), while the directed cycle is stationary uniform, giving a mixture of three planar Brownian resolvent densities and E|X|²=a²+4D/r. The chain vertex complex eigenvalue is -lambda with lambda=3nu/2-i sqrt(3)nu/2, yielding E[v(Y0)·v(Ys)]=a²exp(-3nu s/2)cos(sqrt(3)nu s/2). Conditioning on the last reset between 0 and t and integrating an independent backward age gives C(t)=(a²+4D/r)e^{-rt}+a²r² Re[(e^{-lambda t}-e^{-rt})/(r²-lambda²)]. For r>3nu/2 the oscillatory complex mode is the slow nonzero term, forcing unbounded negative windows; for r<3nu/2 the e^{-rt} coefficient is algebraically positive; at equality the offset 10a²/13+4D/r competes with amplitude 3a²/sqrt13, giving Dc=3nu a²(3sqrt13-10)/104 and all strict/equality cases. Independent nested numerical age/time quadrature agreed in 108 cases to 9e-16, and critical-envelope algebra was cross-checked, but all-times and all-parameters assertions use the analytic proof.
+
+## originality
+
+PASS
+
+Classical Poisson resetting and independent random reset positions yield the Bessel resolvent marginal; this part is covered and not asserted as novel. A persistent, autonomously cycling three-state target changes two-time structure while leaving marginal fixed. The relevant new statement is a sharp sign classification of time covariance for a different coupled protocol, not the stationary resolvent formula.
+
+## value
+
+PASS
+
+The exact stationary one-time spatial distribution is blind to the cyclic target speed, but the two-time covariance records it and exhibits a sharp late-negative-lag transition including a nontrivial critical diffusivity. This is a motivated dynamical identifiability and oscillatory-relaxation result for the precise autonomous-environment model, not merely a routine Bessel integral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
