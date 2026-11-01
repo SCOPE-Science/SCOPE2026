@@ -1,19 +1,21 @@
-# Review: Cyclic-subgroup fixed-point persistence of polygonal Vietoris–Rips complexes
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The barycentric-coordinate lemma canonically replaces geometric fixed points by a flag complex on complete vertex orbits. For an odd-order rotation, every pair of orbit classes has maximum inter-orbit distance \(sm+\delta_m(a,b)\); this includes the internal diameter when \(a=b\) and proves every face criterion simultaneously at every real scale. Even-order orbits contain antipodes and cannot appear before the ambient complex becomes a full simplex. The resulting simplicial maps are independent of scale and thus identify all persistence maps. The finite checker independently tested orbit diameters, face sets and signed Euler–Lefschetz values; it is not a proof for arbitrary sizes.
+PASS
 
-## Originality
+For n>=3,d|n,m=n/d, every fixed barycentric vector has orbitwise-constant weights, with support a union of H_d orbits; thus geometric fixed spaces are the orbit-union simplicial complex, not an abstract fixed-vertex subcomplex. For odd d=2s+1 the exact maximum original cyclic distance over each pair O_a,O_b equals s*m+delta_m(a,b), including a=b. Hence the entire filtration is empty below sm and otherwise literally VR(C_m;r-sm), with inclusion-natural PL identification; for even d every complete orbit contains antipodes, so only the full simplex stage r>=n/2 has fixed points. The m=1,2 and identity d=1 boundary cases follow from literal quotient metric. The proof is unrestricted in n,d, real r; bounded enumeration is corroboration only.
 
-PASS with residual unindexed-priority risk. The closest complete primary-text comparisons are Adamaszek–Adams' ordinary classification of clique powers of cycles (arXiv:1503.03669, Theorem 4.3), Adams–Coldren–Willmot's ordinary persistence algorithm (arXiv:1812.03374, Theorem 1 and Section 4), Moy's continuum-circle metric thickening classification (arXiv:2206.03539, Sections 7–8), and Adams–Heim–Peterson's orbit-*quotient* Rips comparisons (arXiv:1911.00732, Section 3). None of the inspected results states the finite polygon geometric fixed-point filtration with its odd/even rotation dichotomy and natural radius shift. Targeted semantic record searches for fixed-point rotations and orbit barycenters found related but distinct cycle, matching, cut, and Rips findings. This does not establish global mathematical uniqueness; independent priority inspection is warranted.
+## originality
 
-## Value
+PASS
 
-PASS. The parity dichotomy classifies an entire natural family of genuine equivariant persistence invariants at every parameter and subgroup, with a canonical filtered homeomorphism rather than a Betti-number identity. It detects nontrivial fixed persistence despite free actions on the original vertex set, distinguishes odd and even subgroup orders, and transports published nonequivariant cyclic Rips calculations directly into fixed-point persistence. For \(n=15,d=3\), the fixed first-homology class is born at scale six and dies at scale seven, whereas even-order fixed filtrations contain no positive-degree bars.
+The complete geometric subgroup-fixed filtration and odd/even exact radius-shift are not given by the inspected ordinary Rips homotopy, cyclic persistence, or metric orbit-quotient results. This is not merely the ordinary quotient VR of the vertex metric: its face condition uses a MAXIMUM over pairs of orbit representatives, whereas metric quotient uses a minimum. An unindexed general invariant-orbit filtration lemma could make this an easy instance, so priority remains qualified.
 
-## Scientific limitations
+## value
 
-The metric must be the finite shortest-cycle metric. Reflection subgroups, quotient spaces, and homotopy fixed points are not classified; no completeness against inaccessible or unindexed equivalent sources is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For every n and every rotation subgroup order, the result identifies an entire geometric-fixed-point persistent filtration canonically and detects nontrivial fixed persistence when every original vertex is moved. The sharp even/odd dichotomy and the exact shift make existing nonequivariant Rips barcodes useful as a family of natural equivariant invariants; not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
