@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The proof parameterizes every endomorphism of \(C_p\oplus C_{p^b}\), applies the exact automorphism criterion on \(A/pA\), and solves the two fixed-point equations. The valuation-one case and the separate zero case account for all possibilities for \(\delta=d-1\); the exceptional term at \(b=2\) is necessary. Exhaustive checks for eight small parameter pairs agree with the formula, but the general proof—not enumeration—establishes the result.
+PASS
 
-## Originality (O) — PASS
+Every endomorphism is uniquely determined by a,c,beta mod p and d mod p^b, with phi(x)=a x+p^(b-1)c y and phi(y)=beta x+d y; it is invertible iff a and d mod p are units. Pointwise fixing A[p] forces a=1,c=0,d=1 mod p. For delta=d-1 nonzero of valuation r in [1,b-1], the v-coordinate fixed kernel has p^r elements, all divisible by p; the fixed subgroup equals A[p] iff r=1. This contributes p(p-1)p^(b-2)=(p-1)p^(b-1). The delta=0, beta nonzero case contributes p-1 exactly at b=2, while beta=0 fixes too much. Cases exhaust all possibilities including p=2. Independent exhaustive enumeration checked p,b=(2,2),(2,3),(2,4),(3,2),(3,3),(5,2), with counts 3,4,8,8,18,24. The valuation proof establishes the universal result.
 
-The inspected Senden paper determines attainable fixed-point cardinalities for finite abelian groups, rather than multiplicities by fixed-subgroup type. The claim is the exact count for the canonical subgroup \(A[p]\), which is finer than knowing only that a fixed subgroup has order \(p^2\). Camina–Collins (1974) is a plausible historical antecedent, but its full text was not accessible; no noncoverage conclusion is drawn from its title alone. A specialized source may still contain this type-resolved count.
+## originality
 
-## Value (V) — PASS
+PASS
 
-The distinction between \(C_p^2\) and \(C_{p^2}\) matters because these subgroups have the same order but different exponent structure. The formula gives a complete type-specific multiplicity for a natural rank-two family and isolates the boundary phenomenon at \(b=2\), refining cardinality-only fixed-point data.
+Prior theta(A,p^2) formulas count automorphisms with fixed-set cardinality p^2, not which subgroup is fixed. The already published Resultary separated-exponent rank-two paper gives theta counts, including a=1,b>=4 and known a=1,b=3, but not the canonical A[p] subgroup multiplicity; its formula cannot be reinterpreted as the same count. Senden classifies occurrence of possible fixed-point numbers, not exact subgroup multiplicities. The 1974 Camina–Collins titled study is plausible but full primary text inaccessible; authorized Oxford attempt returned vpn_disconnected. Qualified best-of-knowledge PASS, not a whole-paper noncoverage claim.
 
-## Closest literature and limitations
+## value
 
-Camina and Collins (1974), DOI 10.1112/plms/s3-28.1.45, is a broad fixed-point antecedent whose full text was unavailable. Senden (arXiv:2205.15740; 2023 journal publication) treats the fixed-point/Reidemeister spectrum. The claim is limited to \(C_p\oplus C_{p^b}\), \(b\ge2\), and the fixed subgroup \(A[p]\); a literature-wide uniqueness claim is not made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A[p] is the unique canonical maximal elementary-p-torsion subgroup, so counting automorphisms with exactly that fixed subgroup is a natural refinement of the established theta(A,p^2) invariant. The exact all-prime, all-b formula with exceptional b=2 provides a type-sensitive statistic that cardinality-only tables do not determine. The proof is elementary and scope narrow; the substantive motivation is the fixed-subgroup-type distinction, not computational difficulty.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
