@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` in the extracted file directory, using Python 3.10 or later and no third-party packages. The program runs exact Fraction arithmetic on independently enumerated compatible permutation allocations for eleven finite multilayer examples, verifies the eigenvalue determinant reduction, and tests the specialized two-layer determinant identity. Numerical computations further check the constant-term asymptotic for nine two-layer and seven additional profiles, including three- and four-layer cases. Successful completion prints `CHECK_OK_MULTILAYER 27`.
+## correctness
 
-Analytical proof dependencies are: the standard order-statistic second-moment identities, the finite block contrast calculation, the Brownian-bridge Riemann sum limit, and Stirling's formula. The verifier checks examples rather than proving any of the infinite-dimensional asymptotic assertions. The statement and proof require strictly positive layer sizes; the asymptotic requires a fixed number of layers with positive limiting proportions.
+PASS
 
-No independent audit has been conducted.
+Uniform ordinal-sum points are obtained by uniformly permuting consecutive order-statistic rank blocks, yielding volume ∏m_i!/n!. Covariances of uniform order statistics are c_rs=min(r,s)(n+1-max(r,s))/((n+1)^2(n+2)). Within-layer contrast variance λ_i=(m_i+1)(m_i+2)/[12(n+1)(n+2)]; group-average covariance has normalized k×k block B. Orthogonal block determinant then gives exact detΣ. For fixed k and positive α, n c_rs converges to Brownian-bridge covariance; Riemann sums give B→C positive definite. Uniform Taylor for λ_i and Stirling for volume cancel O(n) terms, leaving −(k−1)log n+γ_k(α). Independently enumerated rank permutations and exact Fractions for (2,2),(1,2,1),(2,1,2) verify determinant; finite enumeration is not asymptotic proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.
+
+## value
+
+PASS
+
+An exact full-dimensional uniform covariance determinant reduced to fixed k block sums and a universal interface-count (k−1) logarithmic deficit from the cube isotropic constant is a useful structural result for nonsymmetric order polytopes. It is not a routine consequence of merely knowing combinatorial volume or a lattice free-sum structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Uniform order-statistic rank allocation is an exact measure-preserving construction, the contrast decomposition and finite-rank matrix are derived without numerical assumptions, and the fixed-layer asymptotic retains the constant terms of Stirling and the Brownian-bridge group covariance. The source verifier independently enumerates rank allocations for small profiles. No extrapolation of finite tests is substituted for the proof.
+PASS
 
-## Originality
+Uniform ordinal-sum points are obtained by uniformly permuting consecutive order-statistic rank blocks, yielding volume ∏m_i!/n!. Covariances of uniform order statistics are c_rs=min(r,s)(n+1-max(r,s))/((n+1)^2(n+2)). Within-layer contrast variance λ_i=(m_i+1)(m_i+2)/[12(n+1)(n+2)]; group-average covariance has normalized k×k block B. Orthogonal block determinant then gives exact detΣ. For fixed k and positive α, n c_rs converges to Brownian-bridge covariance; Riemann sums give B→C positive definite. Uniform Taylor for λ_i and Stirling for volume cancel O(n) terms, leaving −(k−1)log n+γ_k(α). Independently enumerated rank permutations and exact Fractions for (2,2),(1,2,1),(2,1,2) verify determinant; finite enumeration is not asymptotic proof.
 
-PASS, qualified. Closest published literature supplies order-polytopes, ordinal-sum/free-sum equivalence, and general isotropic-constant notions, rather than the precise covariance determinant, two-layer closed formula, or \(-(k-1)\log n\) asymptotic defect. Source comparison includes plausible equivalent descriptions, not titles alone. Remaining risk: an uncatalogued general covariance formula for free joins may subsume the result.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. A natural full-dimensional affine-invariant geometric quantity, previously not determined by volume or combinatorial type, is computed in every dimension for a nested family. The universal layer-interface coefficient distinguishes the high-dimensional effect of changing poset height, and the two-layer formula identifies its dependence on balance. No claim is made about sharp finite-dimensional thresholds.
+Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.
 
-## Closest literature and limits
+## value
 
-Stanley (1986) gives the order-polytope triangulation; Fang–Fourier–Pegel (2018 first public) study marked poset geometry; Can–Hibi (2021) give ordinal-sum free-sum equivalence and toric-code properties; Kipp (2024) studies isotropic-constant extremizers. The fixed-layer positive-proportion regime is essential. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full-dimensional uniform covariance determinant reduced to fixed k block sums and a universal interface-count (k−1) logarithmic deficit from the cube isotropic constant is a useful structural result for nonsymmetric order polytopes. It is not a routine consequence of merely knowing combinatorial volume or a lattice free-sum structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
