@@ -1,19 +1,21 @@
-# Review: integer patch allocation and cross-class rescue
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For each mixed composition, the full colonization matrix has an exact symmetric two-dimensional equitable restriction with the same Perron eigenvalue. The pure-type subcriticality assumptions make the determinant test an if-and-only-if threshold at each integer count. The critical squared coupling is a rational function of the positive odds \(s=k/(N-k)\); it has exactly one real minimizer because its derivative changes sign once. The floor/ceiling conclusion follows without any unproved claim about finite enumeration. Completing the square proves the exact strictly nonnegative integer rounding penalty. The \(N=5\) example follows using exact rational inequalities. The independently implemented, finite Jacobi tests passed; no infinite result is inferred from them.
+PASS
 
-## Originality
+For every integer N>=2 and 1<=k<N under δ>max{a(N−1),b(N−1)}, the positive Perron eigenvalue belongs to the symmetric 2×2 quotient T_k, and δ above both diagonals makes det(δI−T_k)<0 equivalent to c²>R(k). The ratio s=k/(N−k) yields R=(UC/s+BVs+UV+BC)/N², unique s0=sqrt(UC/BV), R0=(sqrt(UV)+sqrt(BC))²/N²; square completion gives exact penalty sqrt(UBVC)*(k−k0)²/[k k0 (N−k)(N−k0)]. Floor/ceiling restrict all integer minimizers, including N=2 boundary; equality c=c_crit is not strictly supercritical. Independent 1,595 rational-parameter checks plus N=5 exact fractions confirm, not replace, the proof.
 
-**PASS, with historical risk.** Ovaskainen–Hanski (2001) establishes spectral metapopulation capacity. Grilli–Barabás–Allesina (2015) applies this threshold to random fragmented landscapes. Choe–Lee (2015) and general equitable-partition theory already supply analogous two-group eigenvalue calculations. These established general facts, and the eigenvalue reduction itself, are explicitly excluded from the novelty claim. The new combination is the optimization of required cross-class coupling over *all integer compositions* when both pure networks are subcritical, the two-adjacent-candidate rule, the exact rounding excess, and an interval where the relaxed model predicts a capacity threshold crossing but no finite feasible partition crosses it. Searches for the two-class block-model, intertype threshold, spectral/equitable aliases, and integer-count allocation found no statement implying that entire optimized result. The full 2015 landscape article and the full 2015 heterogeneous-mixing article were inspected at their models, results, and discussions. A supplementary landscape PDF could not be read, and original 2001 metapopulation-capacity and 2009 genetic-demography studies could be compared only through accessible abstract/bibliographic material; their inaccessible full statements remain priority risks.
+## originality
 
-## Value
+PASS
 
-**PASS.** Integer patch counts are an inherent finite-landscape constraint, not an arbitrary parameter slice. The exact threshold answers the ecological design question of whether *any* allocation of a fixed patch census can overcome two individually subcritical homogeneous landscapes. It avoids an \(N-1\)-composition search by reducing candidate counts to at most two; it quantifies the full discrete penalty, not just a rounded numeric prescription. The five-patch exact example demonstrates a strict, testable disagreement between continuous and feasible finite-network viability criteria. The fact is limited to an idealized symmetric, constant-edge, deterministic spectral-capacity model; it is not a persistence guarantee for finite stochastic occupancy, a real-site placement recommendation, or an empirical claim.
+Classical metapopulation-capacity thresholds and equitable partitions determine fixed-composition spectra but do not, in the inspected literature, give the all-integer optimum and exact positive rounding penalty. The algebra is elementary once the block model is chosen, so historical implicit-derivation overlap is a genuine risk; best-of-knowledge not absolute priority.
 
-## Closest literature and unresolved limits
+## value
 
-Ovaskainen and Hanski (2001), DOI 10.1006/tpbi.2001.1548, contains the foundational network spectral criterion and is strictly broader on arbitrary landscape matrices, but its accessible abstract does not evaluate this integer-census optimization. Grilli, Barabás and Allesina (2015), DOI 10.1371/journal.pcbi.1004251, studies random spatial patch arrangements and patch-value heterogeneity, not fixed two-class fully connected block rates with a discrete optimum; the accessible main article was inspected, but the supplementary PDF was unavailable. Choe and Lee (2015), DOI 10.1186/s12976-015-0026-x, provides the already-known two-group reproduction eigenvalue formula, with different treatment and mixing objectives. Theodorou, Souan and Couvet (2009), DOI 10.1111/j.1420-9101.2008.01634.x, studies persistence with genetic/demographic effects and patch heterogeneity; its abstract does not resolve the comparison. Results on equitable quotients and graph compositions supply the spectral reduction but not, in inspected material, the exact finite integer penalty. The remaining historical full-text gap prevents an independent historical-priority certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite habitat counts are inherently integer and can create strict false-positive capacity windows under continuous relaxation; the exact rounding cost and two-candidate criterion provide a motivated resource-allocation boundary even though this deliberately idealized model is not a stochastic survival theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

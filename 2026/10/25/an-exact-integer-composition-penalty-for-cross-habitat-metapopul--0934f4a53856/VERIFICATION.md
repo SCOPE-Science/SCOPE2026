@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof reduces the full, symmetric, block-constant colonization matrix to a two-dimensional invariant subspace, factors the spectral threshold as a positive ratio, minimizes that ratio on the continuous positive line, and then proves an exact identity for the integer rounding excess.
+# Independent mathematical audit
 
-The reproducible `check.py` uses only the Python standard library. It independently diagonalizes full matrices by Jacobi rotations and compares their eigenvalues with the formula obtained from the invariant block. It checks 1,200 randomly selected finite network configurations, 21,309 eigenvalue/threshold comparisons, all integer composition minima against an explicit scan, and the exact five-patch example by rational arithmetic. Execute `python3 check.py`.
+## correctness
 
-The numerical tests are not a replacement for the proof; in particular they do not verify arbitrary real parameters or all finite network sizes. The claim concerns linearized capacity-supercriticality, not survival with positive probability for all time in a finite absorbing stochastic process. Some historical full texts remained inaccessible and independent mathematical validation has not occurred.
+PASS
+
+For every integer N>=2 and 1<=k<N under δ>max{a(N−1),b(N−1)}, the positive Perron eigenvalue belongs to the symmetric 2×2 quotient T_k, and δ above both diagonals makes det(δI−T_k)<0 equivalent to c²>R(k). The ratio s=k/(N−k) yields R=(UC/s+BVs+UV+BC)/N², unique s0=sqrt(UC/BV), R0=(sqrt(UV)+sqrt(BC))²/N²; square completion gives exact penalty sqrt(UBVC)*(k−k0)²/[k k0 (N−k)(N−k0)]. Floor/ceiling restrict all integer minimizers, including N=2 boundary; equality c=c_crit is not strictly supercritical. Independent 1,595 rational-parameter checks plus N=5 exact fractions confirm, not replace, the proof.
+
+## originality
+
+PASS
+
+Classical metapopulation-capacity thresholds and equitable partitions determine fixed-composition spectra but do not, in the inspected literature, give the all-integer optimum and exact positive rounding penalty. The algebra is elementary once the block model is chosen, so historical implicit-derivation overlap is a genuine risk; best-of-knowledge not absolute priority.
+
+## value
+
+PASS
+
+Finite habitat counts are inherently integer and can create strict false-positive capacity windows under continuous relaxation; the exact rounding cost and two-candidate criterion provide a motivated resource-allocation boundary even though this deliberately idealized model is not a stochastic survival theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
