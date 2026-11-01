@@ -1,19 +1,21 @@
-# Scientific review: minimum maximal total visibility in the eight-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The 2023 distance-two equivalence reduces maximal total-visibility sets to independent dominating sets in two disjoint parity halves. The published code builds all 128 even-weight vertices directly, enumerates every independent anchored candidate of sizes five to eight in increasing index order, and checks domination using exactly the union of radius-two masks. Four radius-two balls cannot cover 128 vertices. Counts are zero for \(k=5,6,7\) and 142,380 for \(k=8\); the independent shortest-path checker validates a concrete size-eight witness in each parity. Even XOR transitivity and incidence double counting give \(128\cdot142,380/8=2,278,080\), whose square is the stated census. Code enumeration is a finite proof only for dimension eight, not a general pattern inference.
+PASS
 
-## Originality — PASS (with residual risks)
+Used the published exact Hamming-graph equivalence: a total mutual-visible set in Q8 is exactly a set containing no distance-two pair. All distance-two pairs preserve parity, so Q8 splits into two independent 128-vertex halved cubes with edges at Hamming distance two. Inclusion maximality is equivalent to independent domination in each half. Since each half closed neighborhood has 1+C(8,2)=29 vertices, k<=4 cannot dominate 128. An independently implemented C++20 exhaustive search normalized an anchored vertex to 0 using even XOR transitivity and enumerated every independent subset of sizes k=5,6,7,8 using strictly increasing candidate indices and exact 128-bit domination masks. Counts (independent,dominating) are (611100,0),(2984625,0),(7490595,0),(9234285,142380). Hence i(H8)=8. Double-counting pairs (vertex, size-eight independent dominating set) gives 128*142380/8=2,278,080 such sets per parity class; squaring the independent choices yields exactly 5,189,648,486,400 labeled total-visibility minimum maximal sets, and lower total mutual visibility=16. Search examined 9,234,285 anchored independent size-eight candidates; exhaustive recursion correctness was independently reviewed, not inferred from opaque verifier log. No result for unbounded dimension claimed.
 
-Brešar–Yero's 2023 Problem 1 poses the lower-visibility hypercube problem without the present dimension-eight count. The 2023 Hamming-graph characterization is used as a lemma, not relabeled as new. Korže–Vesel's 2024 exact \(\mu_{\mathrm t}(Q_8)=32\) is the **largest**, not the smallest inclusion-maximal, total-visible set. The 2025 numerical halved-cube data give ordinary domination number seven and 71,680 ordinary minimum dominating sets; the present independent domination number eight and its 2,278,080 minima are mathematically different. The length-eight radius-two covering-code literature allows both parities and also does not supply the counted independent same-parity covering families. Searching descriptions and exact numerical invariants did not locate a dominating earlier result. Residual risks: independently computed but unindexed coding-theory tables, or unpublished classifications of halved-cube maximal codes; searchable absence is not a proof of worldwide priority.
+## originality
 
-## Value — PASS
+PASS
 
-The exact minimum and census address a stated published graph-product question at the first unsolved dimension after the known dimension-seven value. The parity decomposition reveals a substantial gap between ordinary and independent domination on the halved cube; the census is not implied by either the ordinary domination number or the known upper total-visibility value. A 13-digit count of minimum objects and the profile stratification give a reproducible finite benchmark useful for later structural work. No broader-dimensional theorem is asserted.
+Best-of-knowledge PASS for the specific lower minimum-maximal value and complete labeled census in dimension eight. Prior source proves distance-two equivalence; the published upper visibility and ordinary domination tables concern other extrema. Searches for exact 142380, 2278080 and 5189648486400 and published records did not establish an earlier same minimum independent-dominating enumeration; unindexed coding-theory data remain a genuine risk.
 
-## Limitations and relationships
+## value
 
-The result uses a complete finite C++17 search and relies on its verifiable recursion; independent Python checks verify existence, direct shortest-path visibility and maximality but do not independently enumerate all optimizing sets. The closest inspected full texts are arXiv:2307.02951, arXiv:2307.05168 and arXiv:2405.05650; prior covering and ordinary domination tables are acknowledged. The precise value of 16 by itself could be recoverable from another coding-theoretic representation; the exact minimum census is the strongest item-specific contribution.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: The dimension-eight lower total mutual-visibility number is a natural independently posed graph invariant, and the exact 13-digit census of minimum inclusion-maximal objects is not implied by the known upper value or ordinary domination tables. The parity reduction plus a reproducible exhaustive count produces a meaningful finite mathematical benchmark, including distinguishing ordinary and independent domination. The claim deliberately does not extrapolate beyond dimension eight.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

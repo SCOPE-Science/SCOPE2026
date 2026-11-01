@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:51:05.182073Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Used the published exact Hamming-graph equivalence: a total mutual-visible set in Q8 is exactly a set containing no distance-two pair. All distance-two pairs preserve parity, so Q8 splits into two independent 128-vertex halved cubes with edges at Hamming distance two. Inclusion maximality is equivalent to independent domination in each half. Since each half closed neighborhood has 1+C(8,2)=29 vertices, k<=4 cannot dominate 128. An independently implemented C++20 exhaustive search normalized an anchored vertex to 0 using even XOR transitivity and enumerated every independent subset of sizes k=5,6,7,8 using strictly increasing candidate indices and exact 128-bit domination masks. Counts (independent,dominating) are (611100,0),(2984625,0),(7490595,0),(9234285,142380). Hence i(H8)=8. Double-counting pairs (vertex, size-eight independent dominating set) gives 128*142380/8=2,278,080 such sets per parity class; squaring the independent choices yields exactly 5,189,648,486,400 labeled total-visibility minimum maximal sets, and lower total mutual visibility=16. Search examined 9,234,285 anchored independent size-eight candidates; exhaustive recursion correctness was independently reviewed, not inferred from opaque verifier log. No result for unbounded dimension claimed.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 gives feasibility by no distance-two pair but does not count inclusion-maximal feasible sets. The published μ_t(Q8)=32 is maximum total-visibility size, whereas the audited μ_t^−(Q8)=16 is least maximal size. K(8,2)=12 covers both parities by radius two and is not the independent same-parity covering problem."
+        ],
+        "reasoning": "None of the stronger-looking parameter bounds logically determines this minimum or 2,278,080 census; unlike a stronger total-visibility all-dimension theorem, these statements have different quantifiers.",
+        "searches": [
+          "arxiv:2307.05168 Theorem 6 total mutual visibility in Hamming graphs",
+          "arxiv:2405.05650 Korže–Vesel Q8 upper value 32",
+          "Blass–Litsyn 1999 K(8,2)=12 covering code",
+          "OEIS:A323447 ordinary domination"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2307.02951",
+        "https://arxiv.org/abs/2307.05168",
+        "https://arxiv.org/abs/2405.05650",
+        "https://oeis.org/A323447",
+        "https://oeis.org/A355226",
+        "https://aeb.win.tue.nl/codes/binary-1.html",
+        "Resultary low-distance mutual visibility Qn record 2026/9/30"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Brešar–Yero explicitly introduces and asks for lower total mutual visibility of hypercubes. Bujtás–Klavžar–Tian supply the exact distance-two criterion but no dimension-eight independent-domination census in inspected primary manuscript. Korže–Vesel tabulates an upper extremum (32)."
+        ],
+        "reasoning": "These results provide a reduction/motivation, not a mathematical implication of the specific exhaustive no-k5..7 and count-k8 assertions. Existing coding classifications under other names remain priority risk.",
+        "searches": [
+          "Brešar–Yero 2023 arxiv:2307.02951 Problem 1",
+          "Bujtás–Klavžar–Tian 2023 arxiv:2307.05168 Theorem 6",
+          "Korže–Vesel 2024 arxiv:2405.05650"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The lower total mutual-visibility number of Q8 is 2*i(H8), where H8 is the even-weight distance-two halved cube. Its size-eight independent dominating sets are maximal even binary (8,4)-codes covering all even vertices at radius two, not arbitrary binary radius-two covering codes of all 256 words."
+        ],
+        "reasoning": "Precisely identified coding/graph equivalent formulation before searches. No earlier table of minimum independent dominating H8 sets or their number was established.",
+        "searches": [
+          "Bujtás–Klavžar–Tian arxiv:2307.05168 Theorem 6",
+          "Resultary query: halved eight dimensional cube minimum independent dominating sets 2278080 total mutual visibility",
+          "web: maximal binary (8,4) codes minimum size8 even parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A323447 reports ordinary domination number seven and 71,680 corresponding minimum ordinary dominating sets at dimension eight, not independent dominating ones. A355226 enumerates all independent sets by size without the domination test; it cannot isolate the 2,278,080 inclusion-maximal eight-subsets."
+        ],
+        "reasoning": "No exact matching minimum independent-domination census was found; ordinary domination and all-independent-set tables do not give the desired number without a new filtering/classification.",
+        "searches": [
+          "OEIS:A323447 number of minimum dominating sets in n-halved cube graph",
+          "OEIS:A355226 number of independent sets of size k in n-halved cube graph",
+          "web search exact 2278080 independent dominating halved cube and exact 142380"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the specific lower minimum-maximal value and complete labeled census in dimension eight. Prior source proves distance-two equivalence; the published upper visibility and ordinary domination tables concern other extrema. Searches for exact 142380, 2278080 and 5189648486400 and published records did not establish an earlier same minimum independent-dominating enumeration; unindexed coding-theory data remain a genuine risk.",
+      "residual_risks": [
+        "Unindexed classification of minimum maximal even binary (8,4) codes or halved-cube independent domination could already report this exact count.",
+        "Complete finite certificate rests on faithful exhaustive backtracking implementation, now independently replayed; the dimension-eight enumeration does not prove higher-dimensional values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PROBLEM_PRECEDENT_NOT_SOLUTION",
+          "evidence": "Poses lower hypercube task but no dimension-eight count established in the sections read.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.02951",
+          "material_read": "Original primary PDF inspected including definition of lower maximal total visibility and Problem 1.",
+          "method": "ArXiv primary PDF and rendered screenshot",
+          "title": "Lower (total) mutual visibility in graphs",
+          "trigger": "the same lower cardinality parameter and hypercube open problem"
+        },
+        {
+          "assessment": "DIRECT_PRECEDENT_LEMMA",
+          "evidence": "Distance-two criterion is previously proved and explicitly credited; no 2,278,080 halved-cube minimum census supplied.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.05168",
+          "material_read": "Primary complete PDF inspected; Theorem 6 and nearby proof explicitly give Hamming distance-two characterization.",
+          "method": "ArXiv primary PDF and rendered theorem-page screenshot",
+          "title": "Total mutual-visibility in Hamming graphs",
+          "trigger": "critical structural equivalence used in C proof"
+        },
+        {
+          "assessment": "DISTINCT_UPPER_OPTIMUM",
+          "evidence": "Tabulates μ_t(Q8)=32 maximum feasible size, not μ_t^− minimum size of inclusion-maximal feasible sets.",
+          "identifier_or_url": "https://arxiv.org/abs/2405.05650",
+          "material_read": "Primary paper PDF inspected including the hypercube total-visibility table and definitions.",
+          "method": "ArXiv primary PDF and rendered screenshot",
+          "title": "Variety of mutual-visibility problems in hypercubes",
+          "trigger": "potential Q8 table coverage"
+        },
+        {
+          "assessment": "DIFFERENT_DOMINATION_CONSTRAINT",
+          "evidence": "Ordinary minimum dominating sets need not be independent and differ from independent dominating eight-sets.",
+          "identifier_or_url": "https://oeis.org/A323447",
+          "material_read": "OEIS public sequence entry and description including ordinary domination value 7 and count 71,680.",
+          "method": "Public OEIS database record",
+          "title": "A323447: Number of minimum dominating sets in the n-halved cube graph",
+          "trigger": "potential exact table for dimension 8"
+        },
+        {
+          "assessment": "TABLE_NOT_SUFFICIENT",
+          "evidence": "Counts independent sets without domination and cannot directly infer the number of inclusion-maximal eight-sets.",
+          "identifier_or_url": "https://oeis.org/A355226",
+          "material_read": "Public OEIS entry description and generating table meaning, not a specific maximal subset census.",
+          "method": "Public OEIS database record",
+          "title": "A355226: Number of independent sets of size k in the n-halved cube graph",
+          "trigger": "potential encompassing independent-set census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The dimension-eight lower total mutual-visibility number is a natural independently posed graph invariant, and the exact 13-digit census of minimum inclusion-maximal objects is not implied by the known upper value or ordinary domination tables. The parity reduction plus a reproducible exhaustive count produces a meaningful finite mathematical benchmark, including distinguishing ordinary and independent domination. The claim deliberately does not extrapolate beyond dimension eight.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the eight-dimensional hypercube Q8, lower total mutual visibility is exactly 16; each of the even/odd 128-vertex halved cubes has minimum independent domination number 8 with exactly 2,278,080 labeled minimum independent dominating sets, giving exactly 5,189,648,486,400 smallest inclusion-maximal total mutual-visible sets.",
+  "limitations": [
+    "Only Q8, no general-n formula or orbit classification of all minimum sets.",
+    "Reliance on exact terminating finite enumeration; normalizing zero via even XOR transitivity is essential to completeness."
+  ],
+  "schema_version": 1
+}
