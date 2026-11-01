@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four de Bruijn predecessor states are explicit. A two-sided input exists for a spatial-periodic output word exactly when its Boolean relation has a directed cycle, including cycles longer than one; consequently the count does not silently assume a same-period antecedent. The finite transfer system has 75 reachable relations. The supplied checker recomputes these relations from Rule 110, confirms a ninth-degree polynomial annihilates the acceptance vector at all 75 states, and verifies the exact formal-power-series logarithmic-derivative identity. Those identities establish the zeta formula at every period, not merely at enumerated lengths. The separately coded direct periodic-antecedent enumeration checks the first five counts. The explicit word with one zero proves every least spatial period at least three, and the period-two exclusion follows from exhaustive enumeration of its four words.
+## correctness
 
-## Originality — PASS under inspected evidence
-The claimed invariant is the explicitly evaluated *spatial* Artin–Mazur zeta function of the *one-step image* of Rule 110, together with the complete primitive-spatial-period spectrum. Nordahl's 1989 finite-lattice periodic sets concern temporal evolution, not this invariant. Cook's 2004 work treats the rule's computational universality, not this image zeta function. Manada–Kashyap's 2009 and Inoue–Krieger's 2010 zeta techniques establish general rationality/formulas in different symbolic settings, not the claimed Rule 110 numerical specialization. Exact published-finding corpus searches and searches for alternate phrases, point counts, the polynomial factors, and zeta formulas did not produce a matching statement. Prior finite-word complexity, even for this same image, does not imply its fixed-point counts. Search incompleteness and a possibly implicit older calculation remain risks; novelty is not established by a negative search alone.
+PASS
 
-## Mathematical value — PASS
-Periodic-point counts and primitive-period sets are intrinsic invariants of a symbolic dynamical system. A complete explicitly evaluated rational zeta function for the one-step image of a canonical computationally universal elementary automaton is a natural exact object, and the complete least-period spectrum singles out the nontrivial period-two gap. Unlike an arbitrary length cutoff, the result describes *every* spatial period and distinguishes the period of an image configuration from that of its antecedent. The proof offers a finite Boolean-relation certificate that can be reproduced without relying on finite experiments as infinite proofs.
+The four-de-Bruijn-state predecessor relation for Rule 110 has label matrices R_0=0x8101 and R_1=0x42c2, verified independently by enumerating all eight local neighborhoods. A periodic output w∞ has a bi-infinite predecessor iff Boolean relation R_w has a directed cycle of length ≤4; any such cycle may realize an antecedent period multiple of |w|, so the proof avoids a same-period antecedent assumption. Independent Boolean-relation closure from identity has exactly 75 reachable states. With transfer T, acceptance vector v is killed coordinatewise by T⁹−4T⁸+6T⁷−5T⁶+T⁵+4T⁴−4T³+2T²−I; the independent implementation confirmed all 75 exact integer coordinates. The first ten counts and rational generating-function logarithmic-derivative identity then certify ζ for every n, not merely finitely many n. Period two is excluded by the two failed alternating words. The relations R_1^kR_0 have a directed cycle for k≥2 and R_1 powers stabilize at k=5, so 1^(n−1)0 gives a primitive witness for every n≥3. Finite ring checks are only corroborative.
 
-## Closest literature and limitations
-Nordahl, *Formal Languages and Finite Cellular Automata*, Complex Systems 3 (1989), 63–78; Cook, *Universality in Elementary Cellular Automata*, Complex Systems 15 (2004), 1–40; Manada and Kashyap, arXiv:0904.2375v1 (2009); Inoue and Krieger, arXiv:1001.1839v1 (2010). The claim is one-step and spatial, not temporal periodic points, limit-set entropy, or a general theorem about all cellular automata. An equivalent result may be hidden in an unindexed table; independent literature priority and independent audit are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is a specific evaluated periodic-point generating function for the spatial shift on F_110(full shift), not the widely studied temporal dynamics of Rule 110, nor generic rationality of sofic zeta functions. Primary papers of Nordahl (finite cellular-automata language/time cycles), Manada–Kashyap (general periodic-finite-type shifts) and Inoue–Krieger (coded and Dyck systems) do not give the displayed numerical rational function or the exceptional length-two primitive-period gap. No searched research record supplied an identical object/result. Equivalent hidden graph presentations remain a priority risk.
+
+## value
+
+PASS
+
+The spatial one-step image of Rule 110 is a canonical sofic shift, and its exact Artin–Mazur zeta and complete primitive-period classification are natural dynamical invariants not determined by language complexity or Rule 110 universality. The 75-state finite identity is a reproducible certificate for all periods, and the unique missing nontrivial period is structurally notable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
