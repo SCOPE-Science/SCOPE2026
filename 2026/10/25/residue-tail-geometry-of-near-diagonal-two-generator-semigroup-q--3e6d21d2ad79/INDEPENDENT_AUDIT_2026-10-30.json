@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:55:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/residue-tail-geometry-of-near-diagonal-two-generator-semigroup-q--3e6d21d2ad79/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/residue-tail-geometry-of-near-diagonal-two-generator-semigroup-q--3e6d21d2ad79/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261030T0543/independent_math_checks.py"
+      ],
+      "rationale": "Let d=a-1 and (a-1)n=ax+(a+k)y. Mod d yields x+(k+1)y=dt for some t>=1 unless n=0; substitution n=at-ky with 0<=y<=floor(dt/(k+1)). Thus the t-th represented arithmetic progression has initial u_t=at-k floor(dt/(k+1)), terminal at, step k, with u_t>0. The floor increments give u_(t+k)<=at+k and u_(t+k)>=u_t+k; hence for each initial t in 1..k the successive progressions link without gaps, and gcd(a,k)=1 makes their k residues distinct. This proves full semigroup and gap-tail decomposition, Hilbert series, Frobenius max_t(u_t-k), and genus sum floor((u_t-1)/k) for every a>=2,k>=1. At k=2 (a odd >=3) thresholds O,E satisfy O>=3, O<E<=2O and E=2O or 2O-2; odd members below O+E and even members below 2O are indecomposable, with all larger decomposable, yielding the displayed minimal generator intervals and embedding dimension=multiplicity O, unbounded. Independent exact two-coin criterion checked 761 coprime pairs and 51610 memberships, including k=2 examples; these are finite support for the floor-inequality proof.",
+      "residual_risks": [
+        "The maximal embedding dimension classification applies specifically to k=2."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cabanillas establishes general quadratic complexity algorithms and generator invariants for two-generated quotients; hence computability and some genus consequences are covered.",
+          "Adeniran et al. give general quotient genus formulas, potentially implying the specialized genus after substitution."
+        ],
+        "reasoning": "The claim retains the uniform explicit k-floor *membership* classification and special MED family; the genus alone is not treated as independent novelty.",
+        "searches": [
+          "https://arxiv.org/pdf/1904.08240",
+          "https://arxiv.org/pdf/1809.09360",
+          "https://arxiv.org/pdf/2604.26415"
+        ]
+      },
+      "checked_sources": [
+        "Resultary: numerical semigroup quotient <a,a+k> a-1 residue",
+        "Resultary: quotient of numerical semigroup <a,a+k> by a-1 Apéry residues maximal embedding dimension difference two",
+        "https://arxiv.org/abs/2607.23076",
+        "https://arxiv.org/pdf/1809.09360",
+        "https://arxiv.org/pdf/1904.08240",
+        "https://arxiv.org/pdf/2604.26415"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cabanillas Theorem 5 gives general minimal-generator formulas via continued fractions, covering algorithmic derivability; it does not display the specific floor-tail union for d=a-1 in the inspected theorem.",
+          "Liu studies quotient Frobenius questions; even an exact Frobenius specialization would not imply the full gap-set and Hilbert-series identity."
+        ],
+        "reasoning": "Strong general algorithms are prior and can be used to compute each instance; the proposed uniform structural simplification is a separate theorem. Equivalence in uninspected formulas remains an explicit risk.",
+        "searches": [
+          "https://arxiv.org/pdf/1904.08240",
+          "https://arxiv.org/pdf/1809.09360",
+          "https://arxiv.org/abs/2607.23076"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The residue tails are the Apéry set with respect to k only if k belongs to the semigroup; here the formula describes residues of entire Q mod k directly, including cases k may not itself be in Q.",
+          "Cabanillas uses planar lattice/continued-fraction encoding of quotient <a,b>/d."
+        ],
+        "reasoning": "Compared the full set/membership law, not just Frobenius numbers; a generic lattice representation may specialize to the same residues but does not state this simple closed-tail form in the inspected sections.",
+        "searches": [
+          "Resultary: quotient of numerical semigroup <a,a+k> by a-1 Apéry residues maximal embedding dimension difference two",
+          "https://arxiv.org/pdf/1904.08240"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General continued-fraction algorithms give instancewise numerical tables.",
+          "An infinite coprime (a,k) family and k2 minimal-generator pattern cannot be established by finite computation tables."
+        ],
+        "reasoning": "No exact dominating linked-parameter tabulation was found in inspected primary sections; lack of hits alone is not novelty evidence.",
+        "searches": [
+          "Resultary: numerical semigroup quotient <a,a+k> a-1 residue",
+          "https://arxiv.org/abs/2607.23076"
+        ]
+      },
+      "rationale": "The candidate is a uniform explicit full residue-tail equality for the specific d=a-1 family and an explicit k=2 unbounded MED generator classification. Older general two-generator quotient algorithms and genus formulas are acknowledged as covering calculability and some consequences, not treated as new. Inspected general results do not state the full linked-parameter closed formula as written; PASS only as a best-knowledge specialized structural result, with real risk of derivability or prior exact specialization in Cabanillas/Liu.",
+      "residual_risks": [
+        "Cabanillas (2019) gives general formulas for arbitrary two-generator quotients and may yield these cases through nontrivial specialization; a previously printed exact floor-tail specialization cannot be conclusively ruled out.",
+        "Liu (2026) has a related near-diagonal Frobenius paper not inspected throughout; priority risk limited to exact parameter domain comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_FRAMEWORK_PARTLY_DOMINATES",
+          "evidence": "Provides general formulas and algorithms for the quotient class, but the inspected statement does not directly present the simple linked d=a-1 floor-tail description or k2 two-tail MED enumeration.",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08240",
+          "material_read": "57-page arXiv primary: introduction and definition, Section 5.2 Theorem 5 full minimal-generator cases, Sections 5.3–5.4 invariants, examples; first page screenshot",
+          "method": "full PDF relevant theorem/proof material and section comparisons",
+          "title": "Quotients of numerical semigroups generated by two numbers",
+          "trigger": "strongest general prior in exact object class"
+        },
+        {
+          "assessment": "DIFFERENT_DIVISIBILITY_HYPOTHESIS",
+          "evidence": "The divisor a-1 generically does not divide a or a+k; the cited theorem does not encompass all such pairs.",
+          "identifier_or_url": "https://arxiv.org/pdf/2604.26415",
+          "material_read": "12-page 2026 arXiv PDF, hypothesis on quotient divisor dividing a generator, Section 2 Apéry and principal statements; first page image",
+          "method": "full text relevant definitions and theorem assumptions",
+          "title": "The Frobenius problem for a class of quotients of numerical semigroups",
+          "trigger": "recent specialized quotient source"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Potential prior for specialized Frobenius formulas, but no basis to assert all gap-tail and MED classification is covered or not covered.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.23076",
+          "material_read": "Bibliographic record and available abstract only; entire article technical text not fully available at time of assessment",
+          "method": "abstract/metadata inspection, not full-text proof inspection",
+          "title": "On the Frobenius Number of Quotients of Numerical Semigroups",
+          "trigger": "highly related 2026 source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/residue-tail-geometry-of-near-diagonal-two-generator-semigroup-q--3e6d21d2ad79/RESULT.md",
+        "https://arxiv.org/pdf/1904.08240",
+        "https://arxiv.org/pdf/2604.26415",
+        "https://arxiv.org/abs/2607.23076"
+      ],
+      "rationale": "A complete explicit two-parameter residue-tail model of a numerical semigroup quotient (all gaps, Hilbert series and minimal generators for k=2) is a natural arithmetic invariant beyond computing isolated Frobenius numbers. The difference-two family supplies nonordinary unbounded maximal-embedding-dimension semigroups with a directly usable minimal generator structure.",
+      "residual_risks": [
+        "The theorem is restricted to precisely the object, parameters and invariant in the stated scope; no stronger family-level claim is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The quotient divisor is linked as a-1, second generator is a+k, with gcd(a,k)=1; no general arbitrary quotient claim.",
+    "Known general semigroup quotient algorithms and genus formulas retain prior status; algorithmic computability itself is not a novel result.",
+    "The maximal embedding dimension classification applies specifically to k=2."
+  ],
+  "schema_version": 1
+}
