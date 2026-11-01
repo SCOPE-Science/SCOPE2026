@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 installation. The program uses integer arithmetic and no third-party packages.
+## correctness
 
-The first computation enumerates every nonattacking-rook matching in the staircase board for each \(1\leq n\leq9\). It acts on each simplex by the graph involution, computes the parity of the induced ordering permutation, and sums the signed contributions by simplex size, including the empty face.
+PASS
 
-An independent integer recurrence assembles the contributions of self-reversed blocks and exchanged block pairs on labelled reversal pairs, and adds the central-block factor when needed. The verifier compares the complete coefficient dictionaries, not merely their values at \(y=-1\). Successful execution ends with `HALFGRAPH_REFLECTION_GRADED_TRACE_VERIFIED n=1..9`.
+The bijection sends a matching edge (i,j) of the triangular half-graph to increasing arc i→j+1, so all matchings are disjoint unions of sorted directed paths and correspond bijectively to set partitions of [n+1]. The involution reverses ground-set order. A reversal-stable partition decomposes into self-reversed blocks on t reflected label pairs, with (2t−1) arcs and sign (−1)^(t−1), or pairs of exchanged blocks on t pairs with 2^(t−1) choices, (2t−2) arcs and sign (−1)^(t−1). For odd ground size, the center block on t pairs adds sign (−1)^t y^(2t). The labeled exponential formula therefore gives T_(2m−1)=m![z^m]exp((1−e^(−y²z))/y+(1−e^(−2y²z))/(2y²)) and T_(2m) with e^(−y²z) factor. Augmented Hopf trace yields reduced Lefschetz −T_n(−1); quotient Euler follows averaging ordinary and invariant-cell Euler numbers. Independent direct matching enumeration and independent component recurrence match all coefficients for n=1..7 (not only y=−1), while the bijection proves all n.
 
-The enumeration is finite, whereas the universal formulas are proved by a bijection and the labelled exponential formula in `RESULT.md`. The recurrence and finite tests cannot establish the homology of the quotient in individual degrees or an independent audit.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for signed graded reversal trace and quotient Euler, beyond published matching–multipath equivalence and ordinary Stirling Euler numbers; related symmetric-partition tables are unsigned.
+
+## value
+
+PASS
+
+The natural part-swapping order reversal on the entire half-graph matching family has an exact all-size graded signed cellular trace, which refines usual Euler/face counts and directly determines rational Lefschetz and symmetry-quotient Euler invariants. The new signed partition-component structure is mathematically motivated rather than an arbitrary finite enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
