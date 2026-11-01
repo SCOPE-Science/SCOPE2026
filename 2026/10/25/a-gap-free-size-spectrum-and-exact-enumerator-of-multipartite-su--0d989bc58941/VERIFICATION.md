@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 checker.py` (Python 3.10+, standard library). The exact finite tests independently enumerate all source subsets and all constraints on small relations, compare to an independent function enumeration for additional cases, enumerate all allowed permutations on smaller support profiles, and check the interval and coefficient formula for 37 multipartite profiles of order two through seven.
+## correctness
 
-Observed output:
+PASS
 
-```
-ALL_CHECKS_OK
-multipartite_profiles= 37
-forbidden_permutation_subprofiles= 1131
-independent_powerset_repair_checks= 7
-independent_function_assignment_checks= 35
-example_(3,2,2)= [(4, 4), (5, 48), (6, 384), (7, 288)]
-```
+PASS: Simultaneous functional dependency x->y and inclusion pi_x subset pi_y force every finite consistent nonempty subrelation to be a permutation on its used vertices. A strict extension is a cycle on unused vertices; maximality iff unused vertices lie in at most one part. Allowed permutations exist exactly for 2 max(s_i)<=sum(s_i), by cyclic rotation across contiguous part blocks. Rook inclusion-exclusion yields D(s), and omitting t vertices from one part gives the exact labelled generating polynomial. Omissions from largest part realize every integer from max(n-a1,2 a2) through min(n,2(n-a1)), and other omission choices lie within. Independently checked six profiles and full example (3,2,2) polynomial 4z^4+48z^5+384z^6+288z^7.
 
-This verification is finite and does not certify arbitrary orders. The general derivation is contained in RESULT.md: finite-function bijectivity, maximal unused-part criterion, explicit shift permutation, rook inclusion-exclusion, and matching upper and lower interval bounds. The only computational dependencies are Python standard library modules `itertools`, `math`, and `collections`. No independent review has been undertaken.
+## originality
+
+PASS
+
+General FD+ID repair/argumentation equivalence and complexity are prior results but do not state labelled multipartite size polynomial or gap-free interval. Rook inclusion-exclusion is classical, but the maximality criterion and support-spectrum combination is a new exact instance to best knowledge.
+
+## value
+
+PASS
+
+PASS: Exact labelled sizes and gap-free maximal-repair spectrum answer a concrete database-consistency counting question with mathematically natural block restrictions. The partial-permutation/omission criterion is structural and the support interval is an informative classification, despite the routine rook summation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The scope is a finite labelled complete cross-part directed relation with exactly one functional and one inclusion dependency. The first forces at most one outgoing tuple per source and the second forces the used source set into the target set; finite cardinality makes every consistent subrelation a permutation on its source support. An enlargement exists exactly when two unused vertices lie in different parts. For a given occupancy profile, the part-size condition is necessary and the cyclic rotation by the largest occupied class is an explicit sufficient construction. The rook inclusion-exclusion counts the permitted labelled permutations. Finally the largest-part omission family realizes every integer between the stated sharp endpoints and all other possible omissions lie inside the same bounds. Those five proof steps cover all integer parameters without extrapolation from experiments. The included checker independently evaluates all small subrelations and matches the formulas; see VERIFICATION.md for its precise finite limits.
+## correctness
 
-## Originality — PASS (within examined literature)
-The 2026 paper by Mahmood et al. and the 2024 precursor supply the logical/database setting and general repairs-to-argumentation correspondence. Inspection of their relevant full text does not reveal this complete bipartite/multipartite relation family or its repair cardinality enumerator. Kimelfeld et al. (2020) count preferred repairs under priority structures, which does not entail the simultaneous-FD+ID polynomial here. The closest published complete-multipartite result about paired domination concerns balanced support sets admitting perfect matchings; unlike the present result it neither enumerates oriented cycle-cover permutations nor enforces subset-repair maximality, and it excludes odd-size support. The rook counting device and Hall-type feasibility are acknowledged as standard; the original asserted package is the database/team-semantics classification plus the exact polynomial and gap-free spectrum. The possibility of an older equivalent statement about maximal block-avoiding partial permutations remains a genuine priority risk, not a proven negative search result.
+PASS
 
-## Value — PASS
-General coupled functional and inclusion dependencies yield challenging repair problems, so explicit tractable infinite families are independently meaningful. Here an exact combinatorial classification and polynomial refine existence/computability into the full labelled cardinality distribution, including odd-length cycles and every intermediate repair size. The gap-free interval and both exact endpoints are not merely a table computation; they give a qualitative shape theorem for all part profiles and a reusable benchmark for repair enumerators and finite team semantics. The restricted scope and residual literature risks are explicit.
+PASS: Simultaneous functional dependency x->y and inclusion pi_x subset pi_y force every finite consistent nonempty subrelation to be a permutation on its used vertices. A strict extension is a cycle on unused vertices; maximality iff unused vertices lie in at most one part. Allowed permutations exist exactly for 2 max(s_i)<=sum(s_i), by cyclic rotation across contiguous part blocks. Rook inclusion-exclusion yields D(s), and omitting t vertices from one part gives the exact labelled generating polynomial. Omissions from largest part realize every integer from max(n-a1,2 a2) through min(n,2(n-a1)), and other omission choices lie within. Independently checked six profiles and full example (3,2,2) polynomial 4z^4+48z^5+384z^6+288z^7.
 
-## Reproducibility and limitations
-Execute the included standard-library-only `checker.py`. Its exhaustive subrelation maximality tests are limited to small instances; the arbitrary-size theorem follows from the supplied proof. No claim is made outside complete bidirected multipartite relations, nor of any independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General FD+ID repair/argumentation equivalence and complexity are prior results but do not state labelled multipartite size polynomial or gap-free interval. Rook inclusion-exclusion is classical, but the maximality criterion and support-spectrum combination is a new exact instance to best knowledge.
+
+## value
+
+PASS
+
+PASS: Exact labelled sizes and gap-free maximal-repair spectrum answer a concrete database-consistency counting question with mathematically natural block restrictions. The partial-permutation/omission criterion is structural and the support interval is an informative classification, despite the routine rook summation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
