@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducing the finite topological and equivariant computations
+# Independent mathematical audit
 
-Use Python 3 and run `python3 verify.py`. No external packages, remote data, or supplemental certificates are required. The program reconstructs all fourteen vertices and twenty-one incidence edges, checks each of the 16,384 vertex masks, enumerates and validates all nonempty simplices, and constructs the deterministic fourteen-pivot discrete-Morse matching. It checks all 10,150 Hasse cover incidences and establishes that reversing the matched edges produces a directed acyclic graph; the remaining cells are one vertex and thirteen five-cells, giving an integral thirteen-sphere wedge by Forman's theorem. A separate mod-two boundary reduction recomputes the homology ranks.
+## correctness
 
-For the equivariant part, the program enumerates the 168 invertible binary matrices, adds the 168 point–line exchanging symmetries, and checks the signed oriented simplex Lefschetz traces via two distinct parity computations for all 336 permutations. The exact trace-class distributions and representation identity are asserted. Compare stdout to `verification-output.txt`; success ends with the literal line `VERIFY_OK`.
+PASS
 
-The entire argument concerns this finite simplicial complex, including all cells and incidences. Mod-two agreement by itself does not establish integral homotopy; the complete acyclic matching does. The group character follows from the Hopf trace identity and the proven integral homology concentration. Neither an external audit nor a verification of absence from all possible prior literature has been performed.
+The Fano point–line incidence relation a·p=0 over F2 gives 14 vertices, 21 edges and max-degree-one face criterion. An independent exhaustive face enumeration reproduced 2256 faces with f=(14,91,322,651,728,392,58), the full 1121-pair pivot matching, one zero-cell and thirteen critical five-cells; 10150 directed incidences topologically sorted acyclically, proving the integral wedge. Independently enumerated 168 invertible 3×3 binary matrices and their 168 duality coset permutations; signed Lefschetz traces (13,5,1,1,−1) by preserving element order and all −1 for dual elements imply χ=1+2(fixed Fano points−1), yielding 1⊕2W and a duality-odd unique GL3 invariant line. Integral wedge does not require an F2 homology assumption.
+
+## originality
+
+PASS
+
+Prior Heawood ordinary independence, graph matching, perfect-matching and two-matching complexes have different face predicates and homology. Published Deshpande–Singh higher-independence family theorems cover selected complete multipartite, whiskered, cycle and tree families, not the Heawood incidence graph. The assessed novelty is a precise graph-specific Ind_2 integral type and all-336-element character, not defining higher independence itself.
+
+## value
+
+PASS
+
+The Heawood graph is a fundamental highly symmetric cubic girth-six incidence graph, and degree-bounded vertex sets form a canonical nontrivial complex. Exact integral homotopy and representation of all 336 automorphisms give a meaningful topological-symmetry invariant, including a counterintuitive duality-odd invariant line.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
