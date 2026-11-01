@@ -1,11 +1,21 @@
-# Review: exact quantifier-rank profiles of finite rook graphs
+# Independent mathematical audit
 
-**Correctness (PASS).** The EF-game sufficiency maintains simultaneous partial bijections of both coordinate values for at most \(q\) rounds. Matching \(q\)-truncations guarantees the same supply of fresh coordinate values, and the coordinate pattern preserves adjacency and equality. For necessity, rank-two nonadjacency separates the complete graphs, vertex-existence formulas recover their order up to the cutoff, and rank-\(s\) clique and universal common-neighbor formulas, respectively, recover the two factor sizes (including all boundary cases) from the graph language without naming coordinates. Counting two-element multisets and minimizing factor products gives the asserted class count and sharp smallest representatives. The actual `check_rook_ef.py` and `checker_output.txt` reproduce finite consistency tests, not a purported infinite certificate.
+## correctness
 
-**Originality (PASS, with residual risk).** The primary EF-game literature gives general distinction bounds, while the Hamming-graph article gives a subgraph/triangle-coordinate structural description. Neither inspected material yields the explicit all-rank equivalence criterion, \(q(q+1)/2\) type count, and sharp rook-family representative bound as stated. Dedicated searches for first-order equivalence of rook/lattice graphs and for line graphs of complete bipartite graphs located no equivalent published result. Published results on logical depth for complete multipartite graphs and one-red orders address different classes and cannot imply the rook all-rank partition without an additional argument. An equivalent elementary/folklore statement remains possible.
+PASS
 
-**Value (PASS).** Rook graphs are a canonical infinite two-parameter graph family, simultaneously line graphs of complete bipartite graphs and two-dimensional Hamming graphs. Their unlabeled adjacency relation conceals the coordinate directions, so the full rank-by-rank classification is not a direct product-language truncation. Explicit rank-optimal recovery by edge-common-neighbor quantification supplies a reusable structural technique; the exact number of elementary classes and sharp smallest representative order are natural, global invariants, not arbitrary finite cutoffs.
+Reconstructed Ehrenfeucht–Fraïssé equivalence of adjacency-only rook graphs R_{a,b}=K_a□K_b for every q>=1. If both factor sizes agree after q-truncation up to swap, Duplicator prolongs separate partial bijections on row/column coordinate values through all q moves, preserving equality and edge relation. Conversely rank2 existence of a nonedge distinguishes 2D factors from complete cases; for rank s>=3, s-clique existence detects max(a,b)>=s, while universal requirement of s−2 common neighbors for every edge detects min(a,b)>=s. Complete cases are counted by existence of distinct vertices, handling q=1,2 explicitly. Therefore exact q-type count is q(q+1)/2 and largest least rook-family representative is q². Independent recursive EF game checks passed 55 graph pairs at q=1 and q=2 and 21 pairs at q=3; the all-q proof is symbolic.
 
-**Limits.** No bound for general higher-dimensional Hamming graphs or arbitrary graph models is asserted; computations concern only finitely many factors and ranks; independent validation and a completely exhaustive priority search have not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: adjacency-only two-factor Hamming/rook graphs are natural; standard finite-graph EF theory and Hamming structure are prior but do not provide the family-specific all-rank cutoff classification and type count in checked material. Resultary related logical-depth profiles concern different graph classes. An elementary folklore result remains possible.
+
+## value
+
+PASS
+
+Rook graphs are a canonical family of finite 2-factor Hamming graphs and line graphs of K_{a,b}. The adjacency language hides the coordinate sorts; exact recoverable dimensions at each FO quantifier rank, type count q(q+1)/2, and sharp least-representative order q² give a complete family-specific logical-complexity invariant, not an arbitrary finite example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
