@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-Direct classification of valid down-sets as three disjoint families and determination of minimal complement elements gives explicit transitions partitioning every ideal into exactly one of the listed 3-, 5-, or 2-cycles. Counting cycles matches the separate total \(2^{n+1}+n-1\). The rank sums along each orbit verify the reported averages and the \(n=3\) boundary. A complete finite check of every ideal for \(3\le n\le11\), plus independent ideal-bitmask toggles for \(3\le n\le8\), agrees, but is not invoked as proof of the infinite range.
+## correctness
 
-## Originality — PASS with residual risks
-Targeted published-finding corpus semantic searches covered the canonical name, height-two deleted-matching comparability description, rowmotion, orbit counts, uniform order 30, and rank-average behavior. Closest records on finite crown topology, poset dimension, and symmetry orbit-counts do not imply temporal ideal rowmotion formulas. The full introductory definitions and relevant mathematical sections of Striker–Williams (arXiv:1108.1172), Biró–Hamburger–Pór–Trotter (arXiv:1402.5113), Grinberg–Roby (arXiv:1402.6178), and Elizalde–Plante–Roby–Sagan (arXiv:2108.12443) were inspected; none provides the explicit standard-example orbit partition. For the classical Cameron–Fon-der-Flaass general antichain orbit paper, only abstract and bibliographic information were accessible; this is a concrete publication-priority risk, not proof of noncoverage. No previously accessible own claim duplicates the proposed result. Search absence alone is not novelty evidence; the assessment rests on mathematical implication comparisons.
+PASS
 
-## Mathematical value — PASS
-The standard examples are canonical posets of arbitrarily large dimension. Their complete orbit structure reveals an unexpected uniform period bound and a sharp loss of cardinality homomesy exactly when two-cycles first appear. The distinction between the two equal-length cycle families tests how symmetry and orbit statistics behave beyond known fence and skeletal-poset families. This is a full all-order classification, not an arbitrary finite slice.
+For S_n every ideal (A,B) is either (A,∅), (N\{i},{i}) or (N,B), B nonempty. Compute rowmotion from minimal missing elements: explicit single 3-cycle, n disjoint 5-cycles, and paired complementary subsets in two distinct families of 2-cycles. For n≥4 each 2-cycle family has 2^(n−1)−n−1 cycles; total 2^n−2n−2, all ideal counts sum to 2^(n+1)+n−1. Rank-sums give mean n for 3/5-cycles and n/2 versus 3n/2 for two-cycles. At n=3 there are no two-cycles and order 15, for n≥4 order 30. Independently enumerated all ideals and cycle rank profiles n=3..9, not used for all-n proof.
 
-## Remaining limitations
-No assertion is made about all height-two posets or refined/birational rowmotion. The 1995 historical full text and potentially unindexed general orbit tables remain unverified. This is a self-review, not independent scientific validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard examples and rowmotion are classical; the available primary rowmotion theorems address other poset structures and do not give this explicit S_n orbit and rank-average partition. A natural complete all-n classification survives, qualified by the inaccessible 1995 general antichain paper.
+
+## value
+
+PASS
+
+The standard examples are canonical posets of unbounded order dimension. Exact all-n rowmotion cycle lengths bounded by 5 and a sharp change in orbit-averaged cardinality between n=3 and n≥4 give a natural structural orbit classification, not arbitrary finite numerical data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
