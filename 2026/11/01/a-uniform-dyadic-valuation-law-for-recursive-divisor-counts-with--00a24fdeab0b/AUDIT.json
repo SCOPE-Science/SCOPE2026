@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Proof derives formal Dirichlet series from recursion, extracts one exponent r and arbitrary labelled exponent-one primes, and computes all k via Stirling numbers. Direct coefficient congruence modulo 4 proves odd/even exponent cases uniformly; k=0 and 1 evaluated separately. A separate proper-divisor recurrence confirms 84 exact numerical cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fink 2307.09140 full text supplies generating series zeta/(2-zeta) and divisor convolutions.",
+        "Fink 2307.16691 abstract says three closed forms for kappa_0 and K; full proof not inspected."
+      ],
+      "reasoning": "Fink Theorem 1 states a general Dirichlet series for all kappa_0 values but does not state the uniform valuation law. Extracting the valuation for unbounded k needs a labelled-variable generating function and mod-4 coefficient argument; the raw Dirichlet identity alone does not give the displayed case split. The second Fink paper provides general closed forms, but no full-text priority exclusion is claimed.",
+      "searches": [
+        "arXiv:2307.09140 Theorem 1, Theorems 2-3",
+        "arXiv:2307.16691 title abstract",
+        "web: \"Number of ordered factorizations and recursive divisors\" \"prime\" \"power\" \"squarefree\" Fink"
+      ]
+    },
+    "checked_sources": [
+      "Fink, arXiv:2307.09140, full accessible text",
+      "Fink, arXiv:2307.16691, title and abstract",
+      "research-index targeted searches listed above",
+      "OEIS A067824 and A074206 contextual descriptions",
+      "Accessible current-week historical finding claims for same subject/parameters"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The prior Dirichlet series is used explicitly as the first lemma; the new conclusion follows by exact labelled coefficient extraction and a mod-4 Stirling calculation.",
+        "No source inspected explicitly asserted the stated odd/even stabilization or k=1 exceptional towers."
+      ],
+      "reasoning": "Fink Theorem 1 states a general Dirichlet series for all kappa_0 values but does not state the uniform valuation law. Extracting the valuation for unbounded k needs a labelled-variable generating function and mod-4 coefficient argument; the raw Dirichlet identity alone does not give the displayed case split. The second Fink paper provides general closed forms, but no full-text priority exclusion is claimed.",
+      "searches": [
+        "Fink 2307.09140 Theorems 1-3",
+        "Fink 2307.16691 abstract",
+        "research-index query: recursive divisor kappa0 valuation prime power squarefree cofactor one exponent varying other exponent one"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fink 2023 arXiv:2307.09140 Theorem 3 identifies kappa_0 and ordered factorization via convolution; no valuation law appears in inspected full text.",
+        "Research-index top hits concern other arithmetic functions or valuations; none computes this family."
+      ],
+      "reasoning": "The corresponding Kalmár ordered-factorization valuation differs by one for N>1; this alias was explicitly searched. No exact law found.",
+      "searches": [
+        "research-index query: 2-adic valuation recursive divisor function kappa_0 on n=p^r q1 q2 ... qk, q distinct primes; even r r+1 odd r r",
+        "research-index query: ordered factorization number K(n) exact two-adic valuation prime power times squarefree cofactor including k=0,1,2 or more",
+        "web: \"2-adic valuation\" \"ordered factorization\" arithmetic function Kalmar"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Fink 2307.09140 Table 1 lists kappa_0 and K for n=1 through n=12.",
+        "The two OEIS sequence listings encode values, not an inspected uniform valuation classification."
+      ],
+      "reasoning": "Pointwise sequences and small tables do not state the unbounded r,k valuation law; no same table identity found.",
+      "searches": [
+        "research-index query: Fink 2023 κ_0 2-adic valuation prime exponents 1 except one arbitrary exponent",
+        "OEIS A067824 recursive divisor counts",
+        "OEIS A074206 ordered factorization counts"
+      ]
+    },
+    "rationale": "Available Fink 2023 full text provides the series, convolution identities, and ordered factorization relation, but not an exact uniform 2-adic valuation classification for prime exponent vectors (r,1,...,1). Recorded research-index and web searches found no equivalent claim. The companion general closed-form paper was not fully inspected and remains an explicit bibliographic risk.",
+    "residual_risks": [
+      "Full text of arXiv:2307.16691 was not successfully accessed; a stronger earlier specialization might cover the valuation implicitly.",
+      "Undiscovered or unindexed literature could contain equivalent 2-adic statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Published generating function and general convolutions; no explicit valuation stability statement",
+        "evidence": [
+          "Theorem 1 establishes zeta(s)/(2-zeta(s)); Theorem 3 relates kappa_0 and K; Table 1 n<=12."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/372444691_Properties_of_the_recursive_divisor_function_and_the_number_of_ordered_factorizations",
+        "material_read": "Full five-page text, Theorems 1-3, proofs, references, and table",
+        "method": "Full text in accessible HTML transcription",
+        "title": "Properties of the recursive divisor function and the number of ordered factorizations",
+        "trigger": "Exact source of Dirichlet series and closest direct predecessor"
+      },
+      {
+        "assessment": "Unresolved priority possibility through a general exact formula",
+        "evidence": [
+          "Abstract reports three closed-form representations; no valuation classification in accessible text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.16691",
+        "material_read": "Title and abstract only, full text inaccessible in available route",
+        "method": "arXiv bibliographic record and indexed abstract",
+        "title": "Number of ordered factorizations and recursive divisors",
+        "trigger": "Closely related general closed forms for same count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00a24fde-ab0b-4ec5-b46a-2df8f1d34248",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete sharp classification on the natural first nonsquarefree prime-exponent family, spanning arbitrary prime-power exponent and arbitrary distinct squarefree cofactor. It isolates the exceptional one-prime cofactor tower and proves exact stabilization for every additional factor. The output is a uniform arithmetic invariant, not finite numerology or a mere restatement of the published generating function.",
+    "status": "PASS"
+  }
+}
