@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:15:23Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md at Git blob 077b69773f1d5865619e3cebbeb1bc33707f4ea5, Steps 1–5, checked for all quantifiers and boundary cases.",
+        "Actual Git tree 69b8bc7c577dd2ccca6687312558b4ebf40dc056 and eight blob SHAs verified against frozen commit cbd61aab71e4f01d305014a9520f769db8108742.",
+        "New independent C++ full enumeration: (n,q)=(4,2):{0:1,2:3}, (5,2):{0:1,2:15}, (6,2):{0:1,2:75}, (7,2):{0:1,2:315}, (4,4):{0:1,2:15}, (5,4):{0:1,2:255}, (4,8):{0:1,2:63}.",
+        "New independent exact integer orbit-quotient computation checked 360 (q,n,r) instances for q∈{2,4,8}, 1≤n≤20, even r≤n; for n=8,q=2 the additional rank-four coefficient is 3780.",
+        "Counterexample to relaxing alternating in characteristic two: all-ones 2×2 matrix is symmetric and square-zero but has nonzero diagonal."
+      ],
+      "rationale": "The claimed all-n rank classification and enumeration are mathematically correct. For any symmetric zero-diagonal X satisfying X²=0, symmetry gives ker X=(im X)^⊥; image U is totally isotropic, and F(v,w)=v^T Xw descends to a nonsingular alternating form on U*. Conversely this data uniquely reconstructs X. Nondegenerate alternating forms exist exactly when r is even, and GL_r/Sp_r gives E_q(r). The isotropic-vector hyperplane has dimension n−1, symplectic when n odd, radical R=<ones> when n even; the two disjoint even-n strata of U yield I_q(m,r−1)+q^r I_q(m,r). The r=0 term is one, odd ranks vanish, and the sharp support is the even ranks 0..2⌊n/4⌋. These are proofs for all q=2^f and n≥1, not extrapolation from finite tests.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Buckhiester Theorem 4.1: number of rank-(2γ+τ) rectangular Y satisfying YAY^T=C for arbitrary nonalternate full-rank A, alternating C of rank 2γ, over every GF(2^f). Take A=I_n, γ=0, C=0, and τ=s=r.",
+          "Buckhiester Theorem 2.5 and §§2,4 already identify the isotropic vector hyperplane and its special all-ones line, and distinguish incidence cases in even n.",
+          "The 2014 theorem counts all self-adjoint nilpotents by Jordan shape and hence does not directly isolate the zero-diagonal subcount; the 1974 rectangular-frame theorem is the decisive source."
+        ],
+        "reasoning": "The 1974 theorem dominates the input incidence count at every claimed parameter. The remaining GL_r/Sp_r factor is the standard number of nondegenerate alternating forms on an r-space. Thus the earlier theorem plus routine congruence provides the exact proposed formula and its even-dimensional radical splitting without a new hard lemma.",
+        "searches": [
+          "DOI 10.4153/CJM-1974-008-2 Theorems 2.5 and 4.1; inspected complete 13-page original",
+          "J. C. Perkins 1971 Rank r Solutions to the Matrix Equation XX^T=0 DOI 10.1002/mana.19710480106 bibliographic and later primary citation",
+          "DOI 10.37236/3810 §§2.2, 4.4 and 7",
+          "DOI 10.1112/blms/8.1.77 publisher and citation"
+        ]
+      },
+      "checked_sources": [
+        "Philip G. Buckhiester, Rank r Solutions to the Matrix Equation XAX^T=C, A Nonalternate, C Alternate, Over GF(2^y), Canadian Journal of Mathematics 26 (1974), 78-90, DOI 10.4153/CJM-1974-008-2, Theorems 2.5, 4.1 and equations (4.4), (4.12)",
+        "A. E. Brouwer, R. Gow, J. Sheekey, Counting Symmetric Nilpotent Matrices, Electronic Journal of Combinatorics 21(2) (2014), P2.4, DOI 10.37236/3810, Sections 2, 4.4, 7",
+        "J. C. Perkins, Rank r Solutions to the Matrix Equation XX^T=0 over a Field of Characteristic Two, Mathematische Nachrichten 48 (1971), 69-76, DOI 10.1002/mana.19710480106 (bibliography and contemporaneous citation only)",
+        "G. Lusztig, A Note on Counting Nilpotent Matrices of Fixed Rank, Bulletin of the London Mathematical Society 8 (1976), 77-80, DOI 10.1112/blms/8.1.77 (bibliography only, full text inaccessible)",
+        "Published Resultary semantic search, three actual English math queries for square-zero alternating rank counts and equivalent symplectic description; nearest hits were different results",
+        "Published SCOPE GitHub code searches on square-zero alternating; nilpotent skew-symmetric rank; isotropic-image (no matching file hits returned)",
+        "Independent C++ exhaustive check over GF(2), GF(4), GF(8) and exact arithmetic orbit quotient cross-check"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let r=2s and J be the nonsingular alternating r×r matrix of a fixed symplectic form. Put Z in Mat_{r×n}(F_q) with rank(Z)=r and ZZ^T=0, and map Z to X=Z^T J Z. Then X^T=X, diag(X)=0, X^2=Z^T J(ZZ^T)JZ=0 and rank(X)=r. Every rank-r alternating square-zero symmetric X factors in this way: take a row basis of U=im(X), express its nonsingular induced alternating form, and standardize that form to J. For each X, exactly |Sp_r(F_q)| choices of Z map to it, because any two bases differ by an element P with P^T J P=J. Consequently #{X}=#{Z:rank Z=r, ZZ^T=0}/|Sp_r(F_q)|. Buckhiester Theorem 4.1, specialized to A=I_n, C=0 and s=r, already determines the numerator for every n,r,q even; his underlying theorem cites Perkins 1971. This is an elementary explicit quotient of a prior dominating exact count, not merely a similarly named or differently shaped result.",
+          "The known numerator is |GL_r(q)| times the count of totally isotropic r-dimensional subspaces of the standard dot product; the denominator is |Sp_r(q)|. Thus |GL_r|/|Sp_r|=q^{s(s−1)}∏_{i=1}^s(q^{2i−1}−1), precisely E_q(r).",
+          "For n even, the isotropic hyperplane has radical <(1,...,1)> and the usual containing/not-containing split gives I_q((n−2)/2,r−1)+q^r I_q((n−2)/2,r); Buckhiester treats this distinguished vector in his original enumeration."
+        ],
+        "reasoning": "This is a direct mathematical derivation from the published theorem, with precise substitution and finite group fiber size. It is stronger evidence than the absence of an identically titled publication and resolves originality negatively. The source package did not test this implication.",
+        "searches": [
+          "Buckhiester, DOI 10.4153/CJM-1974-008-2, Theorem 4.1 C=0, s=r, A=I_n; §§2 and 4",
+          "Buckhiester, Theorem 2.5 and prior Perkins 1971 cited therein",
+          "Brouwer–Gow–Sheekey, DOI 10.37236/3810, Sections 2 and 4.4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rank-r square-zero alternating matrices correspond to full-rank isotropic r-frames Z modulo Sp_r(q), using X=Z^T JZ.",
+          "Buckhiester (1974) defines N(A,C,n,s,r) and counts the case A=I_n, C=0 for s=r; its formula is the orbit numerator.",
+          "Brouwer–Gow–Sheekey (2014) §4.4 counts self-adjoint nilpotents by shape but does not impose zero diagonal; it is context, not the strongest implication."
+        ],
+        "reasoning": "Let r=2s and J be the nonsingular alternating r×r matrix of a fixed symplectic form. Put Z in Mat_{r×n}(F_q) with rank(Z)=r and ZZ^T=0, and map Z to X=Z^T J Z. Then X^T=X, diag(X)=0, X^2=Z^T J(ZZ^T)JZ=0 and rank(X)=r. Every rank-r alternating square-zero symmetric X factors in this way: take a row basis of U=im(X), express its nonsingular induced alternating form, and standardize that form to J. For each X, exactly |Sp_r(F_q)| choices of Z map to it, because any two bases differ by an element P with P^T J P=J. Consequently #{X}=#{Z:rank Z=r, ZZ^T=0}/|Sp_r(F_q)|. Buckhiester Theorem 4.1, specialized to A=I_n, C=0 and s=r, already determines the numerator for every n,r,q even; his underlying theorem cites Perkins 1971. This is an elementary explicit quotient of a prior dominating exact count, not merely a similarly named or differently shaped result.",
+        "searches": [
+          "Published Resultary query: classification square-zero alternating matrices characteristic two isotropic subspaces symplectic alternating square zero canonical forms rank orbit counts",
+          "Web query: alternating square zero matrices characteristic two number rank counts isotropic image",
+          "Published article DOI 10.4153/CJM-1974-008-2, §§2–4",
+          "Published article DOI 10.37236/3810, §§4.4 and 7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching named coefficient table was located; the 2014 Appendix gives totals of broader symmetric-nilpotent populations.",
+          "An explicit published formula for the richer rectangular-frame count exists in Buckhiester 1974, Theorem 4.1; such theorem-level coverage is decisive despite no table naming the narrower quotient.",
+          "Independent exact arithmetic orbit quotient checks for q=2,4,8 and n=1..20 confirmed the specific rank formulas and counts, not novelty."
+        ],
+        "reasoning": "An exact database/table match is unnecessary when a primary general counting theorem already implies every coefficient by a universal uniform denominator. No search failure is treated as evidence of novelty.",
+        "searches": [
+          "Search: square-zero alternating matrices rank counts finite fields characteristic 2",
+          "Search: rank distribution for symmetric zero-diagonal matrices satisfying X squared equals zero over finite fields",
+          "Brouwer–Gow–Sheekey 2014 Appendix and §7, full 16 pages",
+          "Buckhiester 1974, displayed general rank enumeration Theorem 4.1"
+        ]
+      },
+      "rationale": "The all-n, all-even-q, fixed-rank count is a direct orbit-quotient corollary of the already-published complete rank enumeration of rectangular isotropic frames. Buckhiester (1974), Theorem 4.1, covers precisely the numerator N(I_n,0,n,r,r); dividing by the standard symplectic basis stabilizer yields all claimed rank fibers. His proof also explicitly handles the canonical all-ones radical vector in even n. This decisive statement-level implication invalidates the source self-review argument that different matrix dimensions or a nonmatching title establish novelty. The canonical image-form description is mathematically correct but an elementary reformulation of this quotient.",
+      "residual_risks": [
+        "Perkins (1971) full paper was not obtained, so no independent claim is made about its internal proof beyond the explicit earlier citation.",
+        "Lusztig (1976) full text was not available; authorized institutional service returned vpn_disconnected after OA attempts.",
+        "There may be additional earlier equivalent orthogonal Lie-algebra formulations; they would strengthen, not weaken, the decisive 1974 coverage comparison.",
+        "Finite exhaustive tests cover only specified q,n; the infinite theorem is justified by linear algebra, not experiment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_ELEMENTARY_REDUCTION: Theorem 4.1 includes X I_n X^T=0 at full row rank, the exact numerator of the target; standard Sp_r orbit quotient gives the target.",
+          "evidence": [
+            "Theorem 4.1 holds for any nonalternate nonsingular A, alternating C and prescribed row rank; set A=I_n, C=0, s=r.",
+            "Section 2 identifies the hyperplane of isotropic vectors and the all-ones line; Section 4 splits cases according to containment of this vector."
+          ],
+          "identifier_or_url": "https://doi.org/10.4153/CJM-1974-008-2",
+          "material_read": "Full 13-page open-access PDF (pp. 78–90); explicitly examined §1, §2 Theorem 2.5, §3, §4 Theorem 4.1 and preceding formulas (4.4), (4.12) and radical-vector arguments.",
+          "method": "Cambridge open-access PDF extracted text plus independent page screenshots at printed pp. 80,85,87,88.",
+          "title": "Rank r Solutions to the Matrix Equation XAX^T=C, A Nonalternate, C Alternate, Over GF(2^y)",
+          "trigger": "A stronger full-rank isotropic-frame enumeration could imply the rank count by orbit quotient."
+        },
+        {
+          "assessment": "BROADER_BUT_NOT_DIRECT: all symmetric nilpotents by shape, without explicitly separating zero diagonal; not needed for decisive coverage from Buckhiester 1974.",
+          "evidence": [
+            "Section 4.4 defines Ns(Y) as the number of symmetric nilpotents of shape Y, with no zero-diagonal constraint.",
+            "Section 7 explains rank and exponent can be extracted by summing Young diagrams."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3810",
+          "material_read": "Full 16-page open-access PDF, including introductory definitions, §2 nilpotent and symplectic counts, §4.4 self-adjoint nilpotents by shape, §7 ranks/exponents and Appendix.",
+          "method": "Journal open-access PDF text and scanned page images at printed page 10.",
+          "title": "Counting Symmetric Nilpotent Matrices",
+          "trigger": "Potential stronger enumerations by nilpotent Jordan shape and rank/exponent."
+        },
+        {
+          "assessment": "EARLIER_COUNT_SUPPORTED_BY_CITATION: likely earlier source of the exact numerator; full source inaccessible; Buckhiester Theorem 4.1 independently provides the decisive full readable statement.",
+          "evidence": [
+            "Buckhiester 1974 §1 explicitly credits Perkins for enumeration of matrices of given rank with XX^T=0 in characteristic two."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/mana.19710480106",
+          "material_read": "Bibliographic title/date/DOI and exact citation in Buckhiester 1974 introduction and references; not the Perkins paper full text.",
+          "method": "Public bibliographic index and contemporaneous primary citation.",
+          "title": "Rank r Solutions to the Matrix Equation XX^T=0 over a Field of Characteristic Two",
+          "trigger": "Earlier primary cited by the 1974 exact counting theorem."
+        },
+        {
+          "assessment": "INACCESSIBLE_ADDITIONAL_PRIOR; inability does not cause failure, because direct coverage is independently established from fully inspected Buckhiester 1974.",
+          "evidence": [
+            "Brouwer–Gow–Sheekey 2014 §2.2 cites Lusztig for nilpotent skew-symmetric counts of fixed rank, without claiming an exponent-two refinement in the accessible cited passage."
+          ],
+          "identifier_or_url": "https://doi.org/10.1112/blms/8.1.77",
+          "material_read": "Publisher bibliographic page and citation in Brouwer–Gow–Sheekey 2014; full paper not obtained.",
+          "method": "arXiv/preprint and lawful OA searches failed to locate same-paper full text; authorized institutional retrieval returned vpn_disconnected, not bypassed.",
+          "title": "A Note on Counting Nilpotent Matrices of Fixed Rank",
+          "trigger": "Potential equivalent nilpotent skew-symmetric enumeration in orthogonal Lie-algebra literature."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "Buckhiester 1974 Theorem 4.1 determines all needed ordered isotropic-frame counts for every parameter.",
+        "The missing factor is the standard finite classical group ratio |GL_r(q)|/|Sp_r(q)|; no new hard enumeration is needed.",
+        "The source proof uses the same canonical all-ones radical line known from Buckhiester §2 and treated in §4.",
+        "No further theorem or independent consequence beyond this quotient and re-expression is in the submitted RESULT.md."
+      ],
+      "rationale": "The object and invariant are natural and the formula is correct, but as an independent new mathematical finding the entire exact count is mechanically implied by the already-published rank enumeration for isotropic frames using the textbook Sp_r orbit quotient. The image/form parametrization is an elementary linear-algebra reconstruction, and the even-dimensional radical split is a standard feature already used in the prior enumeration. No separate non-implied structural boundary, unknown exact invariant, or genuinely new classification remains to motivate a standalone contribution. Reproducibility and an elegant packaging do not alone satisfy the mathematical-value bar for a new claim.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Philip G. Buckhiester, Rank r Solutions to the Matrix Equation XAX^T=C, A Nonalternate, C Alternate, Over GF(2^y), Canadian Journal of Mathematics 26 (1974), 78-90, DOI 10.4153/CJM-1974-008-2, Theorems 2.5, 4.1 and equations (4.4), (4.12)",
+    "A. E. Brouwer, R. Gow, J. Sheekey, Counting Symmetric Nilpotent Matrices, Electronic Journal of Combinatorics 21(2) (2014), P2.4, DOI 10.37236/3810, Sections 2, 4.4, 7",
+    "J. C. Perkins, Rank r Solutions to the Matrix Equation XX^T=0 over a Field of Characteristic Two, Mathematische Nachrichten 48 (1971), 69-76, DOI 10.1002/mana.19710480106 (bibliography and contemporaneous citation only)",
+    "G. Lusztig, A Note on Counting Nilpotent Matrices of Fixed Rank, Bulletin of the London Mathematical Society 8 (1976), 77-80, DOI 10.1112/blms/8.1.77 (bibliography only, full text inaccessible)",
+    "Published Resultary semantic search, three actual English math queries for square-zero alternating rank counts and equivalent symplectic description; nearest hits were different results",
+    "Published SCOPE GitHub code searches on square-zero alternating; nilpotent skew-symmetric rank; isotropic-image (no matching file hits returned)",
+    "Independent C++ exhaustive check over GF(2), GF(4), GF(8) and exact arithmetic orbit quotient cross-check"
+  ],
+  "disposition": "failed",
+  "final_claim": "For every even prime power q and n≥1, the rank-r fiber of symmetric zero-diagonal X∈M_n(F_q) with X²=0 vanishes for odd r and equals E_q(r)I_q((n−1)/2,r) for odd n, or E_q(r)[I_q((n−2)/2,r−1)+q^r I_q((n−2)/2,r)] for even n, where E_q(2s)=q^{s(s−1)}∏_{i=1}^s(q^{2i−1}−1) and I_q(m,t) counts totally isotropic t-spaces in a 2m-dimensional symplectic space. The package also asserts a canonical bijection to pairs (U,β) with U totally isotropic and β nonsingular alternating on U*.",
+  "limitations": [
+    "No formal Lean or expert verification; these external attestation channels were preserved unchanged.",
+    "The finite checks test bounded sizes only; the proof supports all n,q.",
+    "Unobtained Perkins 1971 and Lusztig 1976 full texts are access limitations, not the grounds for the negative originality assessment.",
+    "The scientific rejection concerns prior implication and mathematical value, not the correctness of the counts.",
+    "No corrected surviving original/valuable mathematical claim was produced; no repaired disposition is asserted."
+  ],
+  "residual_risks": [
+    "Perkins (1971) full paper was not obtained, so no independent claim is made about its internal proof beyond the explicit earlier citation.",
+    "Lusztig (1976) full text was not available; authorized institutional service returned vpn_disconnected after OA attempts.",
+    "There may be additional earlier equivalent orthogonal Lie-algebra formulations; they would strengthen, not weaken, the decisive 1974 coverage comparison.",
+    "Finite exhaustive tests cover only specified q,n; the infinite theorem is justified by linear algebra, not experiment."
+  ],
+  "schema_version": 1
+}
