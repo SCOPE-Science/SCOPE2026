@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:13:59.096953Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Averaging over the defective K_{n,n} graph automorphism group is valid because SLEM=||P-J/(2n)||2 is convex. Edge orbits reduce to two weights x,y. Exact invariant subspaces give eigenvalues 1-nx, the two eigenvalues of a 2x2 antisymmetric block M, and d=1-x-(n-1)y with multiplicity 2n-4. The block column lower bound g(x)>=1/sqrt(n) is attained through n=7 with y=(2-nx)/(2(n-1)). For n>=8 the smaller root of the specified quadratic yields g(x)=d=(n-2)x/2; an explicit nonnegative convex combination of the active eigenvalue gradients vanishes, certifying the global convex minimum. Independently built the full 2n x 2n matrices for n=3,4,6,7,8,9,10,20,30; their SLEM matches the formula to 1.7e-15 and five high-regime subgradient residuals vanish to numerical precision. The asymptotic 4/(9n²) edge-loss penalty follows by Taylor expansion, not finite testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general FMMC SDP covers algorithmic optimization on every graph; exact closed forms given for intact K_{m,n} and distinct complement bridges, not the one-link-deleted biclique."
+        ],
+        "reasoning": "The earlier broad method permits finding each instance but does not entail the explicit n=7/8 transition and asymptotic coefficient as an existing mathematical statement.",
+        "searches": [
+          "fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius",
+          "arXiv:0709.0955 full arXiv HTML"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:0709.0955 full HTML §§3.1.2 and 5.3.1",
+        "Boyd et al. 2004 Stanford primary abstract",
+        "Resultary query fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Original intact biclique allowed every cross-edge and was edge-transitive, with only one edge probability, unlike two edge orbits after removal."
+        ],
+        "reasoning": "Removing an edge changes feasible support, spectral sectors and subgradient optimum; the intact result provides only a lower bound. The complement bridge formula optimizes a disjoint set of allowed cross-edges.",
+        "searches": [
+          "fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius",
+          "Boyd et al. 2007/2009 §3.1.2, §5.3.1, §5.3.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The graph is K_{n,n} minus one cross-edge, or the complement of two cliques joined by a bridge; SLEM minimization is the convex spectral norm of P-J/(2n)."
+        ],
+        "reasoning": "The complement representation changes the set of permitted transitions, so the bridge-of-cliques optimal chain is not an equivalent instance of this edge-failure problem.",
+        "searches": [
+          "fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius",
+          "arXiv:0709.0955 §3.1.2 and §5.3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The relevant published 2007/2009 paper has exact intact biclique formula mu=max((n-m)/n,n/(n+2m)), yielding 1/3 for m=n.",
+          "No inspected table supplied the defective biclique eigenvalue and radical formula."
+        ],
+        "reasoning": "No exact earlier defective-biclique table was located, but general SDP numerical output could be generated and must not be misrepresented as novelty proof.",
+        "searches": [
+          "fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius",
+          "Resultary query fastest mixing Markov chain K_n,n with one missing edge optimal SLEM spectral radius"
+        ]
+      },
+      "rationale": "Boyd, Diaconis and Xiao (2004) and Boyd, Diaconis, Parrilo and Xiao (2007/2009) develop the exact SLEM/SDP formulation and give the intact complete bipartite graph formula. The symmetry paper also treats two complete cliques connected by a bridge, which is the complement of the defective biclique, but its off-diagonal support constraint is the opposite graph and does not preserve fastest-mixing SDP. The inspected published paper does not imply the all-n two-parameter defective-biclique optimum or transition at n=8. General numerical SDP solvability cannot substitute for the exact closed-form family; best-of-knowledge residual unknown edge-failure formulas.",
+      "residual_risks": [
+        "An existing exact SDP/robust-mixing result for a single absent biclique edge may be indexed under link-failure/graph-vulnerability language.",
+        "Earlier algorithmic solution for any fixed n does not imply historical priority of the closed uniform n-family."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides intact K_{m,n} and generic orbit framework, not a stated defective-biclique phase transition",
+          "evidence": [
+            "§3.1.2 Eq.10-11: intact biclique optimal edge probability and SLEM",
+            "§5.3.1 exact intact spectrum"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0709.0955",
+          "material_read": "Open full original arXiv HTML §§1,3.1.2,4,5.3.1 and compared graph-support/orbit-eigenvalue formulas",
+          "method": "Read complete relevant primary mathematical sections directly in open HTML",
+          "title": "Fastest Mixing Markov Chain on Graphs with Symmetries — Boyd, Diaconis, Parrilo, Xiao",
+          "trigger": "Closest exact symmetric FMMC primary classification"
+        },
+        {
+          "assessment": "Foundational FMMC optimization, not evidence of a previously stated one-missing-link formula",
+          "evidence": [
+            "2004 defines symmetric stochastic edge-constrained SLEM optimization"
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+          "material_read": "Original publicly accessible abstract and 2007 successor paper recapitulating convex formulation; 2004 full body not read this run",
+          "method": "Primary project page and detailed successor theorem",
+          "title": "Fastest Mixing Markov Chain on a Graph — Boyd, Diaconis, Xiao",
+          "trigger": "Original convex spectral norm and SDP method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Deleting one allowed link from an extremally symmetric graph is a canonical robustness question for fastest mixing. The exact global optimum, transition at part size eight and leading spectral failure penalty quantify how one edge changes optimizer structure, beyond an arbitrary small finite case or a reproduction of the intact graph answer.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Symmetric stochastic nonnegative matrices only, self-loops allowed; not fixed finite-time mixing, nonreversible chains or arbitrary edge deletions.",
+    "Global optimum is shown, but theorem does not classify all symmetry-breaking optimizers.",
+    "The frozen public METADATA.json and AUDIT.json each retain a confidential operational provenance identifier (scope_run_id). Full sanitized replacement bytes with verified exact Git blob guards were not staged in the writable local audit container. Publishing without them might leak protected provenance, so publication is withheld despite a complete scientific assessment."
+  ],
+  "schema_version": 1
+}

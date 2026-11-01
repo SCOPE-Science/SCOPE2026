@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** Symmetry averaging is valid for the spectral-norm objective. The four orbit classes produce a two-by-two antisymmetric block, one extra eigenvalue and the ordinary-class repeated eigenvalue. Through part size seven, the norm of its first column supplies a matching global lower bound. Beyond that point, a concrete feasible chain meets a proved convex first-order global optimality certificate with nonnegative weights. The analytic proof handles every integer part size in the stated domain; finite numerical checks are supplementary.
+## correctness
 
-**Originality — PASS, best-knowledge.** The closest sources are Boyd–Diaconis–Xiao (2004), section 7.1, and Boyd–Diaconis–Parrilo–Xiao (arXiv:0709.0955; 2009 published version), section 5.4.2 on intact bicliques and section 5.4.4 on two cliques joined by a bridge. The intact-biclique formula is not the one-edge-deleted optimization, and the bridge-of-cliques example solves a different graph (the complement of the graph studied here). Source searches for one-edge-deficient bicliques, missing links, near-complete bipartite graphs and spectral-optimum equivalences found no demonstrated exact covering formula. This is not a proof of absence across every publication. Other unindexed edge-failure treatments remain a residual risk.
+PASS
 
-**Value — PASS.** One missing allowed transition edge is a natural robustness perturbation of a standard explicit fastest-mixing example. The result determines all optimal spectral values across arbitrary balanced part sizes, identifies the non-obvious transition at eight, supplies explicit optimal edge probabilities, and quantifies a strictly positive \(n^{-2}\) asymptotic penalty. This is more than recomputing a known table or applying the intact-biclique formula by substitution.
+Averaging over the defective K_{n,n} graph automorphism group is valid because SLEM=||P-J/(2n)||2 is convex. Edge orbits reduce to two weights x,y. Exact invariant subspaces give eigenvalues 1-nx, the two eigenvalues of a 2x2 antisymmetric block M, and d=1-x-(n-1)y with multiplicity 2n-4. The block column lower bound g(x)>=1/sqrt(n) is attained through n=7 with y=(2-nx)/(2(n-1)). For n>=8 the smaller root of the specified quadratic yields g(x)=d=(n-2)x/2; an explicit nonnegative convex combination of the active eigenvalue gradients vanishes, certifying the global convex minimum. Independently built the full 2n x 2n matrices for n=3,4,6,7,8,9,10,20,30; their SLEM matches the formula to 1.7e-15 and five high-regime subgradient residuals vanish to numerical precision. The asymptotic 4/(9n²) edge-loss penalty follows by Taylor expansion, not finite testing.
 
-**Scientific boundaries.** Only symmetric stochastic chains with freely chosen self-loops and one deleted cross-edge are covered. No classification of all possibly nonsymmetric optimal weights or arbitrary failures is claimed. A targeted primary-source comparison was performed, not a comprehensive survey of unindexed papers. The standalone finite checker does not replace the convex analytical proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Boyd, Diaconis and Xiao (2004) and Boyd, Diaconis, Parrilo and Xiao (2007/2009) develop the exact SLEM/SDP formulation and give the intact complete bipartite graph formula. The symmetry paper also treats two complete cliques connected by a bridge, which is the complement of the defective biclique, but its off-diagonal support constraint is the opposite graph and does not preserve fastest-mixing SDP. The inspected published paper does not imply the all-n two-parameter defective-biclique optimum or transition at n=8. General numerical SDP solvability cannot substitute for the exact closed-form family; best-of-knowledge residual unknown edge-failure formulas.
+
+## value
+
+PASS
+
+Deleting one allowed link from an extremally symmetric graph is a canonical robustness question for fastest mixing. The exact global optimum, transition at part size eight and leading spectral failure penalty quantify how one edge changes optimizer structure, beyond an arbitrary small finite case or a reproduction of the intact graph answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The proof uses exact group-averaging reduction, an analytic spectral decomposition and an explicitly nonnegative convex subgradient certificate. In the high-size branch, the weights \(\alpha,\beta,\gamma\) are nonnegative by the algebraic inequality \(2/(3n-2)<x_*<1/n\), and their weighted gradient is identically zero. These analytical checks extend to every integer \(n\) in the stated domain.
+## correctness
 
-`verify_fmmc.py` uses only Python's standard library and checks the displayed candidate formulas for integer part sizes three through five hundred. The script additionally computes an illustrative deterministic finite grid of feasible edge weights at selected part sizes; the grid and floating-point checks are not exhaustive proofs. The exact infinite-family conclusion depends on the symbolic argument in RESULT.md, not on test coverage.
+PASS
 
-Literature searches examined the relevant intact-biclique and symmetry-reduction derivations in two primary full texts. An exact preexisting formula for the one-edge-deficient biclique cannot be ruled out solely from targeted retrieval. The supplied evidence is self-reviewed and is not an independent audit, certification, or third-party validation.
+Averaging over the defective K_{n,n} graph automorphism group is valid because SLEM=||P-J/(2n)||2 is convex. Edge orbits reduce to two weights x,y. Exact invariant subspaces give eigenvalues 1-nx, the two eigenvalues of a 2x2 antisymmetric block M, and d=1-x-(n-1)y with multiplicity 2n-4. The block column lower bound g(x)>=1/sqrt(n) is attained through n=7 with y=(2-nx)/(2(n-1)). For n>=8 the smaller root of the specified quadratic yields g(x)=d=(n-2)x/2; an explicit nonnegative convex combination of the active eigenvalue gradients vanishes, certifying the global convex minimum. Independently built the full 2n x 2n matrices for n=3,4,6,7,8,9,10,20,30; their SLEM matches the formula to 1.7e-15 and five high-regime subgradient residuals vanish to numerical precision. The asymptotic 4/(9n²) edge-loss penalty follows by Taylor expansion, not finite testing.
+
+## originality
+
+PASS
+
+Boyd, Diaconis and Xiao (2004) and Boyd, Diaconis, Parrilo and Xiao (2007/2009) develop the exact SLEM/SDP formulation and give the intact complete bipartite graph formula. The symmetry paper also treats two complete cliques connected by a bridge, which is the complement of the defective biclique, but its off-diagonal support constraint is the opposite graph and does not preserve fastest-mixing SDP. The inspected published paper does not imply the all-n two-parameter defective-biclique optimum or transition at n=8. General numerical SDP solvability cannot substitute for the exact closed-form family; best-of-knowledge residual unknown edge-failure formulas.
+
+## value
+
+PASS
+
+Deleting one allowed link from an extremally symmetric graph is a canonical robustness question for fastest mixing. The exact global optimum, transition at part size eight and leading spectral failure penalty quantify how one edge changes optimizer structure, beyond an arbitrary small finite case or a reproduction of the intact graph answer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
