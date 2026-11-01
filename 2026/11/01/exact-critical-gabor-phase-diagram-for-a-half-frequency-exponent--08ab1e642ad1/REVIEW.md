@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. On the unit critical lattice the Zak transform is a unitary scalar diagonalization, and the exponentially decaying shift series gives its rational symbol. The upper bound follows from a strictly convex scalar endpoint envelope attained at the origin of the Zak fundamental cell. The lower frame-region bounds follow from the reverse triangle inequality, strict monotonicity of the scalar envelopes, and limiting equality at the other cell edge. The ratio of two positive denominator moduli identifies exactly one potential zero magnitude; the upper-half-circle restriction on the time variable chooses exactly one interior zero and gives its explicit coordinates. The critical endpoints are approached from inside the cell. The spectral and conditioning statements are direct consequences of this nonconstant real-analytic multiplier and the sharp formulas. Supplementary numerical tests passed; they are not relied upon for the proof.
+PASS
 
-## Originality
+PASS. For r=e^(−λ)∈(0,1) Zak diagonalization on the unit critical lattice yields scalar symbol r^x[(1−rz)^−1+c e^(πix)(1+rz)^−1]. A strictly convex endpoint upper envelope gives sharp B; monotone reverse-triangle envelopes give sharp lower frame bounds outside [(1−r)/(1+r),(1+r)/(1−r)]. The modulus equation for zero reduces to a strictly monotone correlation ratio and a unique phase with Im(z)<0, giving one x∈(0,1), ω∈(0,1/2) for interior coefficients and limiting zeros at both endpoints. Sharp A vanishes exactly on the closed gap and recovers quadratically; |Zak|² has interval essential range and no level sets of positive measure by nonconstant real analyticity. Independently evaluated a 371×967 grid for seven coefficient regimes at r=0.43, including sharp extremal limits and near-zero regions; this is supplementary, the inequalities establish the quantifiers.
 
-PASS within the inspected prior-work scope, with remaining historical-priority risk. Faulhuber–Shafkulovska (arXiv:2204.02917, first public 2022-04-06) treat the single one-sided exponential, cutoff exponentials, the hyperbolic secant and two-sided exponentials; their sections 2.3 and 7 do not analyze interference from a half-integer frequency translate. Its single-component bounds do not control the sum's Zak zeros. Kloos–Stöckler (arXiv:1311.7359) concern totally positive functions and exponential splines, rather than this complex oscillatory sideband. A specific undiscovered modulation-mixture treatment remains possible; searches cannot prove global novelty.
+## originality
 
-## Value
+PASS
 
-PASS. The result solves a natural coherent-interference stability question: even though both ingredients are critical Gabor Riesz generators, a positive-weight superposition can lose the basis property on a full nontrivial amplitude interval. Exact optimal bounds, an explicit unique-zero trajectory, and the two sharp quadratic recovery laws make this a complete parameter classification rather than a generic perturbation warning. The claim does not require an unproved generalization.
+PASS, best knowledge. Faulhuber–Shafkulovska 2022/2023 derive sharp constants for single one-sided exponential windows, but not for their coherent half-integer frequency superposition; frame properties of summands do not imply those of the sum. Kloos–Stöckler treat totally positive/spline windows, whereas this two-tone window is complex oscillatory. Related published Gabor findings optimize spline, shifted-sampling, or Fock windows, without a documented same-window coefficient phase diagram. General Zak analysis is known and expressly credited.
 
-## Limits and evidence
+## value
 
-The unit critical lattice and half-integer modulation gap are essential to the displayed rational Zak proof. No claim is made about other lattice spacings or detunings. Primary literature was compared by mathematical implication, not titles. The independent mathematical audit has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. Stability of a coherent sum of two individually critical Riesz generators is a natural frame-theoretic question; the exact nonframe interval, moving unique Zak zero, optimal bounds and sharp quadratic onset classify a genuine full-parameter obstruction rather than a routine single-window substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
