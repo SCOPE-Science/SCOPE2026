@@ -1,15 +1,21 @@
-# Review of the cyclic translation character
+# Independent mathematical audit
 
-## Correctness — PASS
-The farthest-distance graph is exactly a disjoint union of \(b\) cycles \(C_{2m}\), since opposite even-coordinate columns are uniquely farthest and the two odd-coordinate antipodes generate the full odd cycle. The independence-complex join theorem determines the integral homology. Fixed points of the antipodal half-turn on one independence factor are the independence complex of \(C_m\); the Lefschetz fixed-point equality forces its entire integral top-homology action to be \(-I\). Graded join permutations give the translation sign, and the signed tensor-permutation trace follows by counting invariant basis words. Boundary-rank and fixed-simplex trace computations verify nontrivial small cases. Finite checks do not prove the full family.
+## correctness
 
-## Originality — PASS, with limitations
-The foundational published cycle independence-complex theorem and the cycle-double-cover equivalence *already imply* the ordinary sphere-wedge statement; that component is background, not the original finding. The proposed contribution is the precise **integral cyclic translation action** and the mod-three dependent full trace formula. A full-text comparison with the 2025 torus-grid preprint and the 2023 categorical-product preprint found neither claiming these translation characters. Related calculations for other simplicial constructions and metric scales do not imply the new action. A matching statement in an uninspected source remains possible.
+PASS
 
-## Value — PASS
-Ordinary Betti numbers cannot distinguish integral representations of geometric symmetries. This computation gives the complete cyclic character and a tensor-model distinction across the three-divisibility threshold in an infinite, naturally parameterized torus family. It is a meaningful equivariant refinement of an established nonequivariant calculation rather than an isolated numerical case.
+The l1 distance on C_m square C_2b (m odd) is sum of cyclic distances; its maximal-distance forbidden-pair graph at D-1 consists of b disjoint C_{2m} cycles, because each even-coordinate antipodal column pair has two odd-coordinate farthest neighbors and gcd((m-1)/2,m)=1. Hence the flag Rips complex is the join Ind(C_2m)^{*b}. Standard exact independence-cycle recurrence gives q_m=2 spheres of degree d_m if 3|m and one sphere otherwise. Geometric fixed points of the antipodal deck map on Ind(C_2m) form Ind(C_m); Lefschetz and homology concentration force deck action -I integrally. Rotation of join factors incurs the graded sign, yielding (-1)^k 2^gcd(b,k) when 3|m and (-1)^{bk} otherwise, including t^b=(-1)^b I. Proof handles all specified m,b and integer k; finite checks corroborate.
 
-## Limits and closest literature
-The main topological input is the independence complex of cycles, explicitly covered in Antolín Camarena–Carnero Bravo (arXiv:2307.12401); the motivating graph-metric setting is Adams et al. (arXiv:2502.07134). The full automorphism representation, other Rips scales, equivariant homotopy type, and independent validation remain outside the result.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Previous circular-arc nerve/independence-cycle character theory determines the FACTOR cyclic/dihedral homology representations, and the known cycle independence theorem determines all ordinary Betti ranks. Those ingredients are credited, not novel. The surviving finding is the new exact mixed-parity torus metric reduction and resulting complete INTEGRAL translation module, including the wrapped half-turn and graded tensor sign. The strongest 2025 torus-grid source explicitly studies square n-by-n grids and its penultimate-stage lemma only treats even-even or odd-odd; it does not assert the mixed-parity representation. Priority is qualified because existing factor character plus standard joins makes the consequence comparatively elementary.
+
+## value
+
+PASS
+
+The cyclic even-coordinate translation is a geometrically canonical symmetry of an infinite family of torus grids. Its integral top-homology representation, including the mod-three tensor permutation phase and half-period sign, cannot be recovered merely from wedge counts; this natural equivariant refinement supplies a reusable geometric symmetry invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:50:19Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Verified assigned 7-file Git tree and actual RESULT.md/check.py blob SHAs; inspected farthest-graph and alternating Lefschetz code rather than trusting log.",
+        "Independent direct farthest-edge computation produced b disjoint 2m-cycles for five toroidal sizes, and independently enumerated invariant simplex signed Lefschetz values for every rotation power on (m,2b)=(3,4),(3,6),(5,4), all agreeing.",
+        "Checked deck half-turn fixed set, integer -I consequence of involution eigenvalues, graded join Koszul factor, and top B=b(d_m+1)-1 formula."
+      ],
+      "rationale": "The l1 distance on C_m square C_2b (m odd) is sum of cyclic distances; its maximal-distance forbidden-pair graph at D-1 consists of b disjoint C_{2m} cycles, because each even-coordinate antipodal column pair has two odd-coordinate farthest neighbors and gcd((m-1)/2,m)=1. Hence the flag Rips complex is the join Ind(C_2m)^{*b}. Standard exact independence-cycle recurrence gives q_m=2 spheres of degree d_m if 3|m and one sphere otherwise. Geometric fixed points of the antipodal deck map on Ind(C_2m) form Ind(C_m); Lefschetz and homology concentration force deck action -I integrally. Rotation of join factors incurs the graded sign, yielding (-1)^k 2^gcd(b,k) when 3|m and (-1)^{bk} otherwise, including t^b=(-1)^b I. Proof handles all specified m,b and integer k; finite checks corroborate.",
+      "risks": [
+        "Claims only the natural even-coordinate cyclic subgroup, not full automorphism representation or equivariant sphere-wedge decomposition.",
+        "q_m=2 uses known independence-cycle topology; the finite chain checks alone cannot prove the all-size module."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Adams et al. 2025 paper page 1 studies T_{n,n} (square grids); Section 6 treats the square penultimate diameter scale and one/four forbidden neighbors in even/even or odd/odd cases.",
+          "Adamaszek et al. 2014 Proposition 7.2–7.3 determines dihedral action of circular-arc nerve complexes; it does not describe mixed rectangular torus Rips complexes.",
+          "Antolín Camarena–Carnero Bravo independence complex categorical products, arXiv:2307.12401, is another graph family."
+        ],
+        "reasoning": "Combined prior tools contain factor topology and factor representation; the mixed-parity torus decomposition and t-action require the separate geometry/connection. This is not presented as novel general independence-cycle homology.",
+        "searches": [
+          "mixed parity torus Cartesian product odd even cycle Vietoris Rips penultimate scale cyclic translation character tensor rotation representation",
+          "arXiv:2502.07134",
+          "arXiv:1410.4336",
+          "arXiv:2307.12401"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2502.07134v2 PDF Sections1,6",
+        "arXiv:1410.4336 Section7–8",
+        "arXiv:2307.12401 abstract",
+        "Five-query published Resultary semantic search, mixed-parity torus character query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For square grids, the 2025 Lemma6.1 counts 1 or 4 maximal-distance exclusions, but odd-by-even has precisely 2, yielding a forbidden graph of b C_{2m} cycles.",
+          "The factor half-turn action may be obtained from the 2014 dihedral representations, but no published cited result supplies the induced even-coordinate translation across b connected farthest cycles."
+        ],
+        "reasoning": "The submitted character follows after combining old factor representation results with a new natural mixed-grid identification and explicit graded tensor bookkeeping. The factor contribution is prior; the combined torus theorem is not an immediate specialization of a stated prior torus theorem.",
+        "searches": [
+          "arXiv:2502.07134 Section 6 Lemma 6.1",
+          "arXiv:1410.4336 Proposition 7.2-7.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2014 circular-arc nerve dihedral module controls Ind(C_n) through Alexander duality, but the current object is the Rips complex of C_m square C_2b with a geometrically natural column translation.",
+          "The Rips complex is identified simplicially with b factor joins by its farthest graph, not by a metric quotient or a direct cycle specialization."
+        ],
+        "reasoning": "A factor dihedral character is not a priori the cyclic action of column translation across a wrapped product of b factors; it becomes the latter after establishing the farthest graph decomposition and tracing the deck twist.",
+        "searches": [
+          "mixed parity torus Cartesian product odd even cycle Vietoris Rips penultimate scale cyclic translation character tensor rotation representation",
+          "arXiv:1410.4336 Section 7",
+          "arXiv:2502.07134 Section 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed complete translation-character table for all odd m and b>=2 was located; related square-torus Rips and toroidal-cut results have distinct complexes and symmetries."
+        ],
+        "reasoning": "The theorem is an infinite-family integral representation, not a finite database output; an unseen exact table remains a priority possibility.",
+        "searches": [
+          "mixed parity torus Cartesian product odd even cycle Vietoris Rips penultimate scale cyclic translation character tensor rotation representation",
+          "Resultary semantic search: rectangular torus penultimate Rips translation character"
+        ]
+      },
+      "rationale": "Previous circular-arc nerve/independence-cycle character theory determines the FACTOR cyclic/dihedral homology representations, and the known cycle independence theorem determines all ordinary Betti ranks. Those ingredients are credited, not novel. The surviving finding is the new exact mixed-parity torus metric reduction and resulting complete INTEGRAL translation module, including the wrapped half-turn and graded tensor sign. The strongest 2025 torus-grid source explicitly studies square n-by-n grids and its penultimate-stage lemma only treats even-even or odd-odd; it does not assert the mixed-parity representation. Priority is qualified because existing factor character plus standard joins makes the consequence comparatively elementary.",
+      "residual_risks": [
+        "An equivalent known corollary may follow by combining a 2014 dihedral independence-cycle character theorem with a routine farthest graph decomposition; intrinsic novelty is in natural mixed-torus interpretation.",
+        "The complete 2023 categorical-product paper was not reread beyond available abstract; its exact factor theorem is treated as prior."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT COVERING mixed odd-even torus translation representation",
+          "evidence": [
+            "The author-defined T_{n,n} is n-by-n; Lemma 6.1 excludes one vertex for n even, four for n odd, unlike odd-even exactly two."
+          ],
+          "identifier_or_url": "arXiv:2502.07134v2",
+          "material_read": "Primary 24-page PDF page1 abstract/intro and Section 6 lines on diameter-minus-one scales, Lemma6.1; page screenshot also examined",
+          "method": "PDF reading and screenshot",
+          "title": "Vietoris–Rips complexes of torus grids",
+          "trigger": "Same graph-metric l1 torus and near-diameter scale"
+        },
+        {
+          "assessment": "COVERS factor homology action; not entire mixed-torus conclusion",
+          "evidence": [
+            "Original dihedral representation of evenly spaced arc nerves and clique power topology, not odd-even rectangular torus translation."
+          ],
+          "identifier_or_url": "arXiv:1410.4336",
+          "material_read": "Full 17-page PDF relevant Section7 Proposition7.2–7.3 and Section8 Theorem8.2, screenshot pages 11–12",
+          "method": "PDF text and screenshots",
+          "title": "Nerve complexes of circular arcs",
+          "trigger": "Possible stronger theorem for factor dihedral representation"
+        },
+        {
+          "assessment": "RELATED; full source not inspected this run",
+          "evidence": [
+            "Categorical-product independence complexes, not a stated mixed-parity Rips translation module."
+          ],
+          "identifier_or_url": "arXiv:2307.12401",
+          "material_read": "Arxiv abstract identifying categorical-product graphs and cycle-double-cover setting",
+          "method": "Abstract and bibliographic inspection",
+          "title": "Homotopy type of the independence complex of some categorical products of graphs",
+          "trigger": "Potential stronger cycle independence theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Same audited RESULT.md claim, exact source tree e3a312e39c738ebe86c10656f079e4d79ace1371",
+        "Structured same-object originality comparisons and independent mathematical reconstruction support motivation; correctness alone is not used as mathematical value."
+      ],
+      "rationale": "The cyclic even-coordinate translation is a geometrically canonical symmetry of an infinite family of torus grids. Its integral top-homology representation, including the mod-three tensor permutation phase and half-period sign, cannot be recovered merely from wedge counts; this natural equivariant refinement supplies a reusable geometric symmetry invariant.",
+      "risks": [
+        "An equivalent known corollary may follow by combining a 2014 dihedral independence-cycle character theorem with a routine farthest graph decomposition; intrinsic novelty is in natural mixed-torus interpretation.",
+        "The complete 2023 categorical-product paper was not reread beyond available abstract; its exact factor theorem is treated as prior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

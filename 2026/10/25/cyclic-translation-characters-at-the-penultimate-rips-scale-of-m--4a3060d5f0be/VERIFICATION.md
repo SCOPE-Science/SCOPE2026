@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
-The proof uses an exact farthest-pair component decomposition and the standard independence-complex cycle recurrence. The critical new check is the geometric-fixed-point Lefschetz argument for the antipodal half-turn, followed by the graded join-sign calculation. This establishes the infinite-family cyclic representation and does not rest on finite computation.
+# Independent mathematical audit
 
-The included `check.py` needs Python 3 and no other packages. Running `python3 check.py` verifies all graph metric pairs in 15 rectangular-torus cases; mod-two independence-complex homology of three component cycles and the first product case; and independent fixed-simplex chain-trace formulas for every translation power in three sample rectangles. The integer module's complete validity in all parameters is proved mathematically; the script only supplies finite consistency checks.
+## correctness
 
-The cycle complex formula is prior mathematics (arXiv:2307.12401), and the setting of torus-grid Vietoris–Rips complexes is motivated by arXiv:2502.07134. The full automorphism-group action, other scales, and an equivariant homotopy equivalence are not claimed.
+PASS
+
+The l1 distance on C_m square C_2b (m odd) is sum of cyclic distances; its maximal-distance forbidden-pair graph at D-1 consists of b disjoint C_{2m} cycles, because each even-coordinate antipodal column pair has two odd-coordinate farthest neighbors and gcd((m-1)/2,m)=1. Hence the flag Rips complex is the join Ind(C_2m)^{*b}. Standard exact independence-cycle recurrence gives q_m=2 spheres of degree d_m if 3|m and one sphere otherwise. Geometric fixed points of the antipodal deck map on Ind(C_2m) form Ind(C_m); Lefschetz and homology concentration force deck action -I integrally. Rotation of join factors incurs the graded sign, yielding (-1)^k 2^gcd(b,k) when 3|m and (-1)^{bk} otherwise, including t^b=(-1)^b I. Proof handles all specified m,b and integer k; finite checks corroborate.
+
+## originality
+
+PASS
+
+Previous circular-arc nerve/independence-cycle character theory determines the FACTOR cyclic/dihedral homology representations, and the known cycle independence theorem determines all ordinary Betti ranks. Those ingredients are credited, not novel. The surviving finding is the new exact mixed-parity torus metric reduction and resulting complete INTEGRAL translation module, including the wrapped half-turn and graded tensor sign. The strongest 2025 torus-grid source explicitly studies square n-by-n grids and its penultimate-stage lemma only treats even-even or odd-odd; it does not assert the mixed-parity representation. Priority is qualified because existing factor character plus standard joins makes the consequence comparatively elementary.
+
+## value
+
+PASS
+
+The cyclic even-coordinate translation is a geometrically canonical symmetry of an infinite family of torus grids. Its integral top-homology representation, including the mod-three tensor permutation phase and half-period sign, cannot be recovered merely from wedge counts; this natural equivariant refinement supplies a reusable geometric symmetry invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
