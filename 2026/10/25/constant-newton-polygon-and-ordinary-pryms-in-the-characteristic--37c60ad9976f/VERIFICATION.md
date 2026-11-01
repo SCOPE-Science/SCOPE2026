@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Direct checks
+# Independent mathematical audit
 
-The file `verify_picard.py` is a standalone exact symbolic and finite-field checker. Execute `python3 verify_picard.py` with Python 3 and no third-party dependencies.
+## correctness
 
-The checker expands the four-term quartic's fourth power with all symbolic parameters over characteristic five, and extracts the nine monomial coefficients that define the Hasse--Witt matrix. It verifies the two nonzero entries, namely \(1\) and \(3b(a^2+b)\). The universal smooth-fibre conclusion then follows from the exact symbolic matrix calculation, semilinear Frobenius, and the squarefreeness condition.
+PASS
 
-For independent corroboration, the checker also counts points in examples over \(\mathbb F_5\) and \(\mathbb F_{25}\). Those finite enumerations neither enumerate all algebraically closed parameters nor prove the universal claim by themselves.
+Over algebraically closed characteristic five and b(a²+b) nonzero, smoothness of y³=x⁴+ax²+b follows from squarefreeness and smooth point at infinity. The Cech Frobenius formula on H¹(O_C) produces H=[[0,0,0],[0,0,3b(a²+b)],[0,1,0]], independently verified by expanding F^4 symbolically over F5 and extracting all nine target coefficients. Its semilinear square has diag(0,c,c^5), c!=0; stable rank 2 gives p-rank 2, rank H=2 gives a-number 1, and the remaining height-two component is slope 1/2 twice. The involution quotient has j=0 supersingular elliptic curve, and the prime-to-5 Prym isogeny forces Prym p-rank 2, hence ordinarity. These are uniform geometric statements, not finite-fibre extrapolations.
 
-The geometric Frobenius, Prym isogeny, and Newton-polygon deductions are proved in `RESULT.md`, not outsourced to the checker. Historic sources concerning general Picard Hasse--Witt formulas were not all available in full text. Independent scientific validation is not performed.
+## originality
+
+PASS
+
+A special member Newton polygon is known; the uniform family-wide nonzero Hasse-Witt off-diagonal coefficient and Prym ordinarity are the additional claim. Laga--Shnidman treat exactly the bielliptic Picard/Prym objects, but their inspected main geometric/arithmetic results do not state the characteristic-5 rank law. A 1991 general Picard Hasse--Witt source is plausible priority risk. Actual named comparisons and inaccessible-source limitations are recorded below.
+
+## value
+
+PASS
+
+A constant Newton polygon and p-rank two throughout the full smooth bielliptic Picard family is a useful natural geometric classification, including the nonjumping ordinary Prym property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

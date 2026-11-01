@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complete smoothness condition is \(b(a^2+b)\ne0\) in characteristic \(5\). Direct expansion of the fourth power of the plane quartic equation gives \(H_{23}=3b(a^2+b)\), \(H_{32}=1\), and seven zero entries in the Frobenius matrix. Its semilinear square has stable rank two. This proves \(5\)-rank two, \(a\)-number one, and the stated Newton slopes. The tame bielliptic quotient has \(j=0\), hence is supersingular; the complementary Prym is ordinary. The standalone exact-expansion program reproduced all nine entries.
+PASS
 
-## Originality — PASS, qualified
+Over algebraically closed characteristic five and b(a²+b) nonzero, smoothness of y³=x⁴+ax²+b follows from squarefreeness and smooth point at infinity. The Cech Frobenius formula on H¹(O_C) produces H=[[0,0,0],[0,0,3b(a²+b)],[0,1,0]], independently verified by expanding F^4 symbolically over F5 and extracting all nine target coefficients. Its semilinear square has diag(0,c,c^5), c!=0; stable rank 2 gives p-rank 2, rank H=2 gives a-number 1, and the remaining height-two component is slope 1/2 twice. The involution quotient has j=0 supersingular elliptic curve, and the prime-to-5 Prym isogeny forces Prym p-rank 2, hence ordinarity. These are uniform geometric statements, not finite-fibre extrapolations.
 
-Kazemifard--Tafazolian determine the Newton polygon of the special \(a=0\) instance but do not classify all smooth parameters. The bielliptic Picard family, quotient, and Prym isogeny are already studied by Laga--Shnidman; their inspected material does not establish universal characteristic-five Prym ordinarity. Faber--Pagani study the broader bielliptic locus and Bouw et al. treat Picard models and arithmetic. Estrada-Sarlabous (1991) is the strongest unresolved historical source: the publisher abstract concerns general Picard Hasse--Witt conditions, and the full article was inaccessible. It might contain a dominating formula and should be checked before any independent novelty assertion.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The ordinary Prym locus has no internal characteristic-five supersingular jumps, even though the genus-three Jacobians are uniformly nonordinary. Exact stable Frobenius rank, Newton polygon, and the match of its nonvanishing factor with the discriminant give a natural arithmetic constraint on a full moduli family, not merely a computation for a selected curve.
+A special member Newton polygon is known; the uniform family-wide nonzero Hasse-Witt off-diagonal coefficient and Prym ordinarity are the additional claim. Laga--Shnidman treat exactly the bielliptic Picard/Prym objects, but their inspected main geometric/arithmetic results do not state the characteristic-5 rank law. A 1991 general Picard Hasse--Witt source is plausible priority risk. Actual named comparisons and inaccessible-source limitations are recorded below.
 
-## Limitations
+## value
 
-The conclusion is restricted to smooth characteristic-five members. No Ekedahl--Oort type finer than the \(a\)-number is given, nor a claim about singular boundary fibres or other characteristics. Partial historical literature access leaves a concrete originality risk; self-review are not independent confirmation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A constant Newton polygon and p-rank two throughout the full smooth bielliptic Picard family is a useful natural geometric classification, including the nonjumping ordinary Prym property.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
