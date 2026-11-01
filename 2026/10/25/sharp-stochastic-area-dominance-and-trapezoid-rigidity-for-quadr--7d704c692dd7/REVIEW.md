@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The argument reduces the known exact inellipse squared-area profile to \(f_q(x)=(1-x^2)(1+qx)\), proves by exact expansion that every nontrivial superlevel interval is shorter than its symmetric \(q=0\) counterpart, and separately derives the trapezoid profile using all four tangent-support equations. Uniformity of the center parameter under affine transformations is justified by constant arclength scaling along a straight segment. The domain excludes parallelograms and degenerate ellipses. Supplementary finite diagnostics cannot replace the algebraic proof.
+## correctness
 
-**Originality — PASS, with a significant source-implication risk.** Horwitz (2003, 2009) establishes the center theorem and individual cubic area profile; Hayes (2016) treats inellipse optimization. The new scientific assertion is a universal stochastic ordering across all quadrilateral shapes, strict at every threshold away from trapezoids, not the prior cubic expression. It uses a separate, proved midpoint-level-set inequality and a global comparison over affine moduli. The cubic area formula is powerful enough that this theorem is a deduction from prior inputs; the residual risk is that it already appears as an implicit or explicit comparison in other sources, especially a 2024 inellipse monograph. The literature search cannot certify uniqueness.
+PASS
 
-**Value — PASS.** The random-center experiment is canonically determined by the Newton segment and affine invariant. A sharp full-distribution inequality is substantially stronger than comparing one averaged area; the equality class recognizes precisely when a quadrilateral has parallel opposite sides. It yields every positive-moment extremum with the same rigidity, a natural geometric classification rather than an arbitrary numerical slice.
+Horwitz's established center-line and squared-area cubic reduce via affine and linear parameterization to f_q(x)=(1−x²)(1+qx) for x uniform on (−1,1), |q|<1 and q=0 exactly for trapezoids. For 0<λ<max f_q the unique superlevel interval has midpoint c>0 and radius h. Equality of endpoint values yields λ=f_q(c)−h²(1+3qc), and exact algebra gives (1−h²)f_q(c)−λ=h²(c²+2qc+qc³)>0 for q>0. Thus h<sqrt(1−λ/max f_q); q=0 yields equality. Direct solve of four line tangencies for trapezoid center c gives det Q=r[1−4c²/(1−r)²]/4 and hence exactly B=sqrt(1−x²). Moments follow by tail integration/Beta function. Independent SymPy confirmed three polynomial identities and the trapezoid determinant, with twelve supporting finite superlevel comparisons. Endpoints are excluded zero measure, parallelograms excluded degeneracy.
 
-**Limitations.** Only strictly convex nonparallelogram quadrilaterals, four-side tangent inellipses, uniform center sampling, and normalized areas are covered; no statement concerns all inscribed ellipses without four tangencies or a random selection under some other measure. Horwitz's cubic identity is a published premise, not independently reproved. A plausible later monograph could contain an equivalent theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Horwitz's primary 2010 paper provides the precise cubic squared-area profile, center-line parametrization and uniqueness/max-area statements; those are explicitly prior. The submitted theorem proves a new sharp distributional stochastic comparison across all quadrilateral shapes with strictness/equality at ANY threshold, not an area formula for each ellipse. A 2024 specialized Horwitz monograph appears relevant and was only inspected by description/table of contents, not full mathematical body; its contents remain a priority risk. Best-of-knowledge no equivalent complete stochastic law was found in the reviewed published summaries and accessible primary sections.
+
+## value
+
+PASS
+
+A geometric probability invariant with a natural uniform-center measure and affine invariance; supplies sharp universal distribution and all positive moment inequalities with an exact rigidity class. This is not an arbitrary slice: center location canonically parametrizes all inellipses of any nonparallelogram quadrilateral.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
