@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:02:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Original frozen RESULT.md and verify_tight_cycle_dihedral.py full code",
+        "Exact independent SymPy transfer characteristic polynomial and path weights L=2..34",
+        "Independent fixed-orbit sums all D_n actions n=6..15",
+        "Kim–Kim arXiv:2101.01850 Theorem 3.4 (primary full text)"
+      ],
+      "rationale": "For n>=6, the noncover complex of the tight 3-uniform cycle is the ordinary 3-cut complex of complement C_n. Kim–Kim Theorem 3.4 provides the nonequivariant concentration in d_n=2k−2 with rank3 for n=4k, otherwise d_n=2k−1 rank1. Equivariant combinatorial Alexander duality gives χ(g)=(-1)^(c(g)+d_n)F(g), with F the signed orbit-subset sum over cyclic words avoiding 111. The 4×4 rotation transfer matrix has characteristic x(x−1)(x²+1), independently reconstructed exactly; the reflected half-path sums satisfy T_L=(-1)^floor(L/2) (checked to L=34 and supported by transfer recurrence). This yields χ(r^j)=3 if n=4k and 4|j else −1 in the n=4k case; χ(sr^j)=(-1)^(k+1+j), with 1 and (-1)^k for nonzero residues. Fresh independent direct orbit-sum enumerations verified every dihedral element at all n=6..15, not an all-n substitute.",
+      "residual_risks": [
+        "Uniform result uses published integral wedge classification, and equivariant Alexander-duality orientation signs",
+        "Finite n enumerations corroborate transfer proof, not proof for every n"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bayer et al. arXiv:2407.08158 Section 6.2 explicitly takes G=P_n or C_n, not complement C_n",
+          "Bayer et al. arXiv:2304.13675 studies cycles and other graph families with group actions"
+        ],
+        "reasoning": "Published cycle-group results concern different cut-complex graph parameters; they cannot be substituted for the complement-cycle object without proving a duality matching D_n modules.",
+        "searches": [
+          "noncover complex tight 3-uniform cyclic hypergraph dihedral representation equivariant Alexander duality homology"
+        ]
+      },
+      "checked_sources": [
+        "Domination numbers and noncover complexes of hypergraphs",
+        "Topology of Cut Complexes II",
+        "Topology of Cut Complexes of Graphs",
+        "Resultary search: noncover complex tight 3-uniform cyclic hypergraph dihedral representation equivariant Alexander duality homology"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kim–Kim non-equivariant wedge theorem does not specify the D_n action on homology",
+          "Bayer et al. Section 6.2 derives different graph complex Δ_k(C_n) characters"
+        ],
+        "reasoning": "The new transfer and equivariant Alexander duality calculation are needed; none of the prior precise statements logically forces the reflection parity values or the quarter-turn representation.",
+        "searches": [
+          "noncover complex tight 3-uniform cyclic hypergraph dihedral representation equivariant Alexander duality homology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "NC(tight triple cycle) is Δ_3(complement C_n) for n>=6 because disconnected complement triples are consecutive cycle triples",
+          "Kim–Kim arXiv:2101.01850 treats the identical noncover object"
+        ],
+        "reasoning": "The two descriptions are recognized as equivalent and compared; the known homotopy classification does not give nonidentity group traces.",
+        "searches": [
+          "noncover complex tight 3-uniform cyclic hypergraph dihedral representation equivariant Alexander duality homology"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kim–Kim Theorem 3.4 already tables the ranks 3 or 1 and degrees; those entries are excluded from novelty",
+          "No matched source table of both reflection types and rotation traces for Δ_3(complement C_n) in located works"
+        ],
+        "reasoning": "Identity-character entries follow from known Betti counts but the reflection and rotation traces are additional data, with a genuine mod-eight invariant-subspace consequence.",
+        "searches": [
+          "noncover complex tight 3-uniform cyclic hypergraph dihedral representation equivariant Alexander duality homology"
+        ]
+      },
+      "rationale": "The exact hypergraph and nonequivariant homotopy are known from Kim–Kim; this part is not new. Bayer et al. 2023/2024 equivariant cut-complex results concern Δ_k(C_n), not Δ_3(complement C_n). Another published result treats cyclic actions on 3-cut complexes of cycle powers, different graph and only cyclic rather than full dihedral. No earlier exact rotation/reflection character for these noncover complexes was found; possible equivariant reductions remain residual risk.",
+      "residual_risks": [
+        "Earlier paper could encode same character by non-obvious equivariant Alexander duality",
+        "Novelty limited to rational group representation, not known nonequivariant rank or degree"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN_NONEQUIVARIANT_PART",
+          "evidence": "Theorem 3.4 supplies wedges of three spheres when n mod4=0 and one sphere otherwise; no group characters.",
+          "identifier_or_url": "https://arxiv.org/pdf/2101.01850",
+          "material_read": "Definitions, Alexander duality in introduction, Section 3.2 including Theorem 3.4 proof",
+          "method": "Original arXiv full-text PDF with screenshot of Section 3.2 inspected",
+          "title": "Domination numbers and noncover complexes of hypergraphs",
+          "trigger": "Exact same tight cycle and homology concentration"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_SCOPE",
+          "evidence": "Section 6.2 explicitly computes Δ_k(P_n), Δ_k(C_n) rather than Δ_3(complement C_n).",
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Abstract, Section 6 group actions and Section 6.2 Paths and Cycles including its displayed graph domain",
+          "method": "Original PDF full-text read, page-25 screenshot",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Direct potentially stronger dihedral character result"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_IDENTICAL_OBJECT",
+          "evidence": "Known families include cycles and complete multipartite; no inspected assertion matches this complement-cycle full dihedral character.",
+          "identifier_or_url": "https://arxiv.org/pdf/2304.13675",
+          "material_read": "Introduction, cut-complex graph family descriptions, relevant group-action references",
+          "method": "Original PDF text and screenshot checked",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Broader equivariant graph cut-complex results and dualities"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Original frozen RESULT.md and verify_tight_cycle_dihedral.py full code",
+        "Exact independent SymPy transfer characteristic polynomial and path weights L=2..34",
+        "Independent fixed-orbit sums all D_n actions n=6..15",
+        "Kim–Kim arXiv:2101.01850 Theorem 3.4 (primary full text)"
+      ],
+      "rationale": "The full D_n homology representation on a canonical infinite tight-cycle hypergraph family contains the reflection-axis signs and a quarter-turn plane invisible to existing ordinary homotopy calculations. It produces an exact mod-eight invariant-space dichotomy and natural rational representation classification for every n≥6, not a small arbitrary slice.",
+      "residual_risks": [
+        "No integral D_n-lattice classification or equivariant stable homotopy statement"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

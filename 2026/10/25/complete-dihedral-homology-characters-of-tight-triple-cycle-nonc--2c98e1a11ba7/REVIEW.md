@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The uniform proof combines the known tight-cycle wedge classification of Kim and Kim with equivariant combinatorial Alexander duality, an exact signed fixed-orbit Lefschetz expression and two explicit matrix calculations. The rotation transfer has characteristic polynomial \(x(x-1)(x^2+1)\); reflection half-path sums satisfy the four-periodic identity stated in RESULT.md. Independently constructed finite exact checks of 126 direct signed noncover simplex traces and 180 dual fixed-orbit sums agree with all claims. Tests do not substitute for the infinite proof.
+## correctness
 
-**Originality — PASS with limits.** Kim and Kim's 2021 theorem supplies the nonequivariant wedge ranks used here. Bayer et al. 2023 and 2024 study cut complexes with group actions, including \(\Delta_k(C_n)\); this result concerns \(\Delta_3(\overline{C_n})\), not that complex. Searches for equivalent hypergraph, noncover and complement-cycle terminology found no full dihedral character statement. Unindexed equivalent work remains a genuine risk.
+PASS
 
-**Value — PASS.** Complete dihedral modules capture reflection signs and a two-dimensional quarter-turn constituent invisible to known homotopy ranks. The invariant-space congruence modulo eight holds for an infinite natural hypergraph family.
+For n>=6, the noncover complex of the tight 3-uniform cycle is the ordinary 3-cut complex of complement C_n. Kim–Kim Theorem 3.4 provides the nonequivariant concentration in d_n=2k−2 with rank3 for n=4k, otherwise d_n=2k−1 rank1. Equivariant combinatorial Alexander duality gives χ(g)=(-1)^(c(g)+d_n)F(g), with F the signed orbit-subset sum over cyclic words avoiding 111. The 4×4 rotation transfer matrix has characteristic x(x−1)(x²+1), independently reconstructed exactly; the reflected half-path sums satisfy T_L=(-1)^floor(L/2) (checked to L=34 and supported by transfer recurrence). This yields χ(r^j)=3 if n=4k and 4|j else −1 in the n=4k case; χ(sr^j)=(-1)^(k+1+j), with 1 and (-1)^k for nonzero residues. Fresh independent direct orbit-sum enumerations verified every dihedral element at all n=6..15, not an all-n substitute.
 
-**Limits.** The rational result does not claim an integral group lattice, equivariant homotopy decomposition, or novelty of the nonequivariant sphere counts. Independent mathematical audit has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact hypergraph and nonequivariant homotopy are known from Kim–Kim; this part is not new. Bayer et al. 2023/2024 equivariant cut-complex results concern Δ_k(C_n), not Δ_3(complement C_n). Another published result treats cyclic actions on 3-cut complexes of cycle powers, different graph and only cyclic rather than full dihedral. No earlier exact rotation/reflection character for these noncover complexes was found; possible equivariant reductions remain residual risk.
+
+## value
+
+PASS
+
+The full D_n homology representation on a canonical infinite tight-cycle hypergraph family contains the reflection-axis signs and a quarter-turn plane invisible to existing ordinary homotopy calculations. It produces an exact mod-eight invariant-space dichotomy and natural rational representation classification for every n≥6, not a small arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
