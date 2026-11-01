@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The shortest-edge-chain metric is derived by endpoint minimization, with separate same-direction and cross-direction formulas. On each fixed coordinate direction, Walsh characters give the exact tensor-product eigenvalue; cross-direction coefficients give one real symmetric constant-diagonal block per Walsh subset. This supplies all d*2^(d-1) independent modes and verifies both spectral formulas with their multiplicities. For 0<z<1 all P_s are positive; the M_s factorization shows M_0 is the unique least transverse eigenvalue and gives a single sharp crossing and d-1-dimensional nullspace. Differentiation at z=1 gives the four-level ordinary distance spectrum. The embedded self-contained rational checker independently builds line-graph BFS distances, proves 30368 finite exact assertions on their Fourier action and traces, and brackets the root; the finite checks are explicitly distinguished from the analytic all-order proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "DeVille (2017), arXiv:1708.02294, generalized distance spectrum of selected graph classes and Cartesian products, searched for the line graph of hypercube.",
+        "Aalipour et al. (2015), arXiv:1509.01196, distance-regular families and line graphs of complete and complete bipartite graphs."
+      ],
+      "reasoning": "Generalized-distance-spectral methods can motivate calculations, but the reviewed sources do not give a result for this graph family that dominates every parameter z and determines the singular directional eigenspace. In particular L(Q_d) is not distance-regular for d>=3: distance-two pairs can have either one or two common neighbors.",
+      "searches": [
+        "\"line graph\" \"hypercube\" \"distance\" \"positive definite\" kernel",
+        "line graph hypercube graph metric exponential kernel exp(-t distance) sharp positive semidefinite threshold z(1+z)^(d-2)=1",
+        "line graph of hypercube generalized distance spectrum Walsh eigenspaces kernel positivity",
+        "The generalized distance spectrum of a graph and applications arxiv 1708.02294"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1155/2013/543189",
+      "https://arxiv.org/pdf/1509.01196",
+      "https://pdf.hanspub.org/aam20211200000_16228918.pdf",
+      "https://arxiv.org/abs/1708.02294",
+      "Published result: Complete even centro-affine facet spectrum of the regular cross-polytope (Boolean cube facet adjacency rather than edge-distance exponential).",
+      "Published result: The cuboctahedral three-cut complex is a mixed-dimensional sphere wedge (topology rather than distance kernel).",
+      "Published result: Complete intrinsic Cech persistence of the cuboctahedral graph (persistence rather than kernel)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liu et al. (2013), Section 3.2, compares Laplacian characteristic polynomial and Kirchhoff index.",
+        "Hou and Bian (2021), Theorem 2, gives adjacency eigenvalues, not distance-kernel eigenvalues.",
+        "Aalipour et al. (2015), Sections 3.3 and 4, computes distances for different families.",
+        "Prior folded-cube and squared-cycle spectral results are for non-isomorphic graph families."
+      ],
+      "reasoning": "The new theorem directly implies a golden-ratio kernel threshold on L(Q_3), an exact rank drop for every dimension and a full formula for ordinary distance eigenvalues. Neither an adjacency- or Laplacian-spectrum statement, nor the explicit distance spectrum of other graph families, entails those kernel eigenvalues without an additional distance formula and Walsh-fiber argument.",
+      "searches": [
+        "hypercube line graph 4 eigenvalues distance spectra negative type Gaussian kernel",
+        "line graph of hypercube nonnegative distance eigenvalues d-1 negative type",
+        "cuboctahedral graph exponential shortest path distance kernel exact PSD t log golden ratio",
+        "distance exponential kernel on edges of hypercube Fourier positive definite sharp root"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liu et al. (2013), DOI 10.1155/2013/543189, Sections 3.2 and 4: Laplacian and resistance calculations only.",
+        "Hou and Bian (2021), DOI 10.12677/AAM.2021.1012470, Theorem 2: adjacency spectral expression for the same graph, no distance kernel.",
+        "Aalipour et al. (2015), arXiv:1509.01196, Sections 3.3 and 4: different distance-spectral graph families."
+      ],
+      "reasoning": "The same graph is described both as the line graph of the hypercube and as the edge-incidence or cuboctahedral graph at dimension three. Adjacent spectral matrices are not equivalent to the non-polynomial entrywise exponential of shortest-path distance; their eigenvalues cannot directly determine the parameter-dependent positive-semidefinite region.",
+      "searches": [
+        "\"line graph of the hypercube\" \"distance spectrum\"",
+        "\"line graph of hypercube\" \"exponential distance\" matrix eigenvalues",
+        "edge graph hypercube line graph graph metric Fourier Walsh distance matrix",
+        "distance exponential kernel on edges of hypercube Fourier positive definite sharp root"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published cuboctahedral cut-complex and Cech-complex records concern topological, not distance-kernel, invariants.",
+        "Liu et al. (2013) lists Kirchhoff indices and Laplacian eigenvalues of L(Q_d).",
+        "Hou and Bian (2021) lists the adjacency spectrum and spanning-tree quantities."
+      ],
+      "reasoning": "The exact positive-definite transition z(1+z)^(d-2)=1 and d-1 threshold nullity were not in the searched algebraic-spectral records, tables or inspected exact graph spectra. Search absence alone does not establish uniqueness.",
+      "searches": [
+        "line graph of hypercube Q_d full distance matrix spectrum integral eigenvalues 2^{d-2}(d^2+1)-1",
+        "cuboctahedral graph line graph Q3 distance eigenvalues 19 -5 1 -1",
+        "edge middle of Hamming cube Gaussian graph distance Laplacian kernel positive definiteness threshold Lambert W",
+        "\"line graph of the hypercube\" \"distance matrix\" spectrum"
+      ]
+    },
+    "rationale": "The central claim is the exact all-order exponential shortest-path kernel spectrum and its unique positive-semidefinite cutoff on the line graphs of Boolean cubes, not a Laplacian or adjacency-spectrum formula. Liu et al. prove Laplacian/resistance formulas for the same graph, Hou and Bian derive adjacency spectra, and Aalipour et al. derive ordinary distance spectra for other graph families. Neither those inspected statements nor the generalized distance-spectrum framework of DeVille supplies the claimed directional Fourier blocks or exact cutoff. Actual semantically matched published research records and recoverable prior claims yielded related but non-implying results. Unindexed equivalent historical coverage remains possible.",
+    "residual_risks": [
+      "An equivalent statement under an unindexed older name for the edge graph of the hypercube or a specialized Bose–Mesner algebra may exist.",
+      "Results on other generalized distance kernels may imply a subset of the present spectrum by additional computations not supplied in those sources; no independent exhaustive literature certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: treats graph Laplacian and effective-resistance Kirchhoff index, not the exponential of ordinary shortest-path distance",
+        "evidence": "Theorem 11 and its proof use Laplacian characteristic polynomials, Vieta formula and Kirchhoff index.",
+        "identifier_or_url": "https://doi.org/10.1155/2013/543189",
+        "material_read": "Open-access HTML abstract, introduction, all Section 3.2 and conclusions",
+        "method": "Read the stated theorem, proof and spectrum provenance for L(Q_d)",
+        "title": "The Kirchhoff Index of Hypercubes and Related Complex Networks",
+        "trigger": "Same line-graph family L(Q_d) and complete spectral formulas"
+      },
+      {
+        "assessment": "NOT_COVERING: computes halved-cube, double-odd and related spectra, with line-graph examples for complete/complete-bipartite graphs, not L(Q_d) exponential kernels",
+        "evidence": "Section 3.3 is titled Halved cube; line-graph examples concern L(K_m) and L(K_{m,m}), neither equal to L(Q_d) for general d.",
+        "identifier_or_url": "https://arxiv.org/pdf/1509.01196",
+        "material_read": "Open-access PDF abstract, sections discussing line graph examples, Hamming spectra and Sections 3.3 and 4, including visually inspected pages",
+        "method": "Read source text and inspect PDF page images; compare the graph families and claimed spectral quantities",
+        "title": "On the distance spectra of graphs",
+        "trigger": "Ordinary graph-distance spectra and potentially relevant Walsh methods"
+      },
+      {
+        "assessment": "NOT_COVERING: Theorem 2 supplies adjacency matrix eigenvalues and subsequent results concern trees and bipartiteness, not graph-distance kernels",
+        "evidence": "Theorem 2 is Spec A(line(Q_n)), based on incidence and signless Laplacian spectra; the paper does not state exponential-distance positivity.",
+        "identifier_or_url": "https://pdf.hanspub.org/aam20211200000_16228918.pdf",
+        "material_read": "Open-access seven-page PDF abstract, introductory literature comparison and central theorems in Section 3, including visually inspected pages 4 and 6",
+        "method": "Read original PDF sections and examine relevant theorem-page images",
+        "title": "Research on the Properties of Spectrum on the Line Graph of Hypercube",
+        "trigger": "Title names precisely the candidate graph L(Q_d)"
+      },
+      {
+        "assessment": "NOT_DIRECTLY_COVERING: no inspected specialization yielding L(Q_d) sharp exponential-kernel cutoff",
+        "evidence": "Generalized distance matrix definition and applications to graph classes; no identified exact threshold formula for cube line graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/1708.02294",
+        "material_read": "Open-access arXiv abstract, introduction and relevant searchable sections; tested for hypercube and line-graph specialization",
+        "method": "Inspect stated generalized graph-distance methods and search for candidate family",
+        "title": "The generalized distance spectrum of a graph and applications",
+        "trigger": "General framework could potentially dominate a specialized parameter-dependent distance matrix"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57a41214-7b01-42da-a1dc-584445eb3c97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An unweighted cube line graph is a canonical infinite symmetric graph family with N=d*2^(d-1) vertices. Exact positivity thresholds for exponentially transformed shortest-path distances determine admissible kernel scales used in harmonic and metric spectral analysis. The Fourier eigenspace and d-1 rank drop locate the precise mechanism of failure, including the golden-ratio endpoint for the cuboctahedron and logarithmic growth of the threshold. This is a complete structural classification, not a reparametrization of a known adjacency spectrum or an arbitrary finite table; it is meaningful even though the metric is not of negative type for every d>=3.",
+    "status": "PASS"
+  }
+}
