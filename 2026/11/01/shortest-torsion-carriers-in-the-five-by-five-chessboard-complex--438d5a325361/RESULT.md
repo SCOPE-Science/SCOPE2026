@@ -1,0 +1,51 @@
+# Shortest torsion carriers in the five-by-five chessboard complex
+
+## Finding
+
+Let \(X=M_{5,5}\) be the simplicial complex of partial nonattacking rook placements on the ordinary \(5\times5\) board. The already-established integral group \(\widetilde H_2(X;\mathbb Z)\cong\mathbb Z/3\) admits **exactly 1,800 distinct supports of minimum-size integral simplicial cycles representing nonzero homology**. Their sharp size is eight nonzero oriented triangular faces.
+
+Every support is the eight-facet octahedral sphere \(S^0*S^0*S^0\) on three pairs of mutually attacking squares, with distinct pairs mutually nonattacking. Exactly \(900\) supports have one same-row pair and two same-column pairs; the other \(900\) have two same-row pairs and one same-column pair. All represent generators of \(\mathbb Z/3\), and all form one orbit under independent row and column permutations together with board transposition.
+
+Every one of the \(25\) board squares occurs in \(432\) such supports. Any two attacking squares occur together in \(54\); any two nonattacking squares occur together in \(108\). As a supplementary equivariant fact, the induced action of \((S_5\times S_5)\rtimes C_2\) on \(\widetilde H_2(X;\mathbb Z)\) is multiplication by \(\operatorname{sgn}(\sigma)\operatorname{sgn}(\tau)(-1)^\delta\), where \(\delta\) records transposition.
+
+## Assumptions and scope
+
+Vertices of \(X\) are pairs \((r,c)\) with \(0\le r,c\le4\). A face is any set with no repeated row or column. A triangular face is a three-rook placement (a two-dimensional simplex). The **support size** of an integral two-chain is the number of triangular simplices carrying nonzero integer coefficients, not the number of board squares used. A torsion carrier is an integral two-cycle with nonzero class in \(\widetilde H_2(X;\mathbb Z)\); two carriers have the same support if their sets of triangular simplices agree. The number 1,800 counts supports, not orientations or coefficient multiples. All homology groups are reduced unless indicated otherwise.
+
+For \(z\in C_2(X;\mathbb Z)\), the claimed minimum is over every cycle \(\partial z=0\) with \([z]\ne0\), without assumptions about coefficient magnitudes. The classification concerns this fixed board only. The nonzero homology group is an established result of Shareshian--Wachs and Jonsson, not claimed new here.
+
+## Proof
+
+**1. A support lower bound in a flag complex.** The chessboard complex is flag: a set of squares is a simplex precisely when its pairs are compatible. Let \(z\) represent nonzero integral second homology, and reduce coefficients modulo three. Because the established integral group is \(\mathbb Z/3\), and \(\widetilde H_1(X;\mathbb Z)=0\) by standard chessboard-complex connectivity, the reduction still represents a nonzero class in \(H_2(X;\mathbb F_3)\). Choose, among all representatives of this nonzero field class, a two-cycle \(c\) with minimum triangular support. Every vertex in its support is incident to at least four supported triangles: the signed simplicial link of that vertex is a nonzero one-cycle in a simple graph, so it has at least three edges; if it has exactly three, it is a triangle, and the flag condition allows subtraction of the boundary of the corresponding tetrahedron to eliminate those three triangles and introduce at most one, contradicting minimality. Consequently, if \(f\) triangles and \(v\) board-square vertices support \(c\), then \(4v\le3f\).
+
+Every flag complex on at most five vertices has trivial second reduced homology over any field. To see the five-vertex case, use vertex deletion and link with induction on the vertex count. A nontrivial first homology of a link requires at least four vertices and hence, with four vertices, an induced four-cycle. If the ambient complex has only five vertices, the remaining fifth vertex is joined to every vertex of this four-cycle, and the complex is its cone. Thus no five-vertex flag complex has nonzero \(H_2\). If \(f\le7\), the inequality \(4v\le3f\) forces \(v\le5\), a contradiction. Therefore \(f\ge8\) for every nonzero class, and hence for every integral representative.
+
+**2. Equality rigidity.** Suppose an integral generator has exactly eight supported triangles. Its reduction modulo three has eight nonzero coefficients: otherwise the previous lower bound would already fail. Apply the same link reduction to this eight-triangle representative. A supported vertex with at most three incident faces would yield a homologous cycle of at most six triangles, impossible. Thus \(v\le6\); by the five-vertex vanishing, \(v=6\), and every vertex has exactly four incident triangles. At each vertex the four link edges form an elementary four-cycle, so the supported one-skeleton is four-regular on six vertices: it is \(K_6\) minus a perfect matching. The eight supported triangles must consequently be the eight triangles of the join of the three paired zero-spheres. If either opposite pair were compatible in the ambient flag complex, the sphere would be coned off there and would represent zero. Thus opposite pairs must conflict in the chessboard, proving that the support is an **induced** octahedron.
+
+**3. The precise carrier set.** Each opposite pair shares a row or a column. Distinct pairs must have disjoint row and column sets, since their squares are pairwise compatible across pairs. Write \(h\) for the number of same-row pairs among the three. Their six board squares occupy \(h+2(3-h)=6-h\) distinct rows and \(2h+(3-h)=h+3\) distinct columns. Both quantities must be at most five; therefore \(h=1\) or \(h=2\). For \(h=2\), choose the two same-row labels, the two columns of each of those pairs, and the two rows of the remaining same-column pair, leaving its column forced: \(\binom52\binom52\binom32\binom32=900\). Transposition supplies another \(900\) of type \(h=1\), and no others exist. The symmetry group is transitive on this family.
+
+**4. Nonzero homology and integral coefficients.** In row-major vertex numbering \(i=5r+c\), the integral join
+\[
+z_0=(e_0-e_1)*(e_{13}-e_{18})*(e_{22}-e_{24})
+\]
+is an oriented two-cycle with exactly eight triangular faces. The complete mod-three two-cocycle stored in `COCHAIN.json`, interpreted by `verify.py`, pairs nontrivially with its reduction: \(\langle\omega,z_0\rangle=2\in\mathbb F_3\). This cocycle vanishes on the boundary of every one of the 600 tetrahedra, so the pairing is a genuine homological nonvanishing certificate rather than a face-count heuristic. Since the full integral degree-two homology is \(\mathbb Z/3\), \([z_0]\) generates it. Every induced octahedron is a symmetry translate of \(z_0\) up to orientation; thus every one of the 1,800 supports carries an integral generator. Conversely, steps 1--2 show that no other support attains the bound. The coefficients of any integral two-cycle on the connected oriented sphere support are a constant integral multiple of its fundamental cycle; nonzero homology means that multiple is not divisible by three.
+
+**5. Incidence scheme and symmetry.** Transitivity gives \(1800\cdot6/25=432\) supports per board square. Each support contains exactly three attacking opposite pairs and twelve compatible pairs; there are \(100\) unordered attacking pairs and \(200\) compatible pairs among the \(25\) board squares. The two resulting incidences are \(1800\cdot3/100=54\) and \(1800\cdot12/200=108\). Direct mod-three cocycle pairings with \(z_0\) and its images under a row transposition, a column transposition, and board transpose are \(2,1,1,1\), respectively; each generator therefore acts by \(-1\). These generate the sign-character assertion.
+
+## Verification
+
+Run `python3 verify.py` with `COCHAIN.json` in the same directory (Python standard library only). The script reconstructs all faces in dimensions zero through three; checks the integral boundary of \(z_0\); checks cocycle closure against every tetrahedron; computes the mod-three boundary ranks \(176\) and \(423\); enumerates all \(1,800\) induced octahedra and pairs each with the cocycle; verifies the three symmetry generators; and independently checks every one-point and two-point support incidence. The signed ordinary simplicial boundary uses ascending row-major vertices, with signs \((-1)^i\) on the omitted vertex. All finite enumerations are exhaustive for the stated fixed board, not extrapolations to larger boards.
+
+## Relationship to prior work
+
+Shareshian and Wachs, Theorem 1.7(i), already proved the degree-two \(\mathbb Z/3\) homology statement. Jonsson, Section 3, independently gives a computer-free proof and **explicitly displays an eight-triangle threefold join generator**. His text also establishes the sign action of a row/column permutation subgroup. None of those preexisting claims is claimed as new. The contribution here is the **sharp all-carriers classification and exact orbit/incidence counts**; board-transpose sign is an additional refinement verified here. The 2026 Column Law preprint concerns torsion-freeness near top homology and does not provide this minimal-support classification.
+
+## Limitations
+
+The argument assumes the known integral \(\mathbb Z/3\) homology of the complete \(5\times5\) chessboard complex and the known connectivity below degree two. The standalone cochain is a finite certificate for the nontrivial representative and symmetry; the eight-face lower bound and completeness are proved symbolically. The result does not assert uniqueness of coefficients for a given support: all nonzero multiples modulo three remain generators. Equivalent formulations may appear in literature not indexed or not inspected; independent mathematical review has not been performed.
+
+## References
+
+1. J. Shareshian and M. L. Wachs, *Torsion in the Matching Complex and Chessboard Complex*, arXiv:math/0409054, first posted 2004-09-03, especially Theorem 1.7 and Section 5. https://arxiv.org/abs/math/0409054
+2. J. Jonsson, *On the 3-torsion Part of the Homology of the Chessboard Complex*, arXiv:1203.5644, posted 2012-03-26, Section 3 (especially the explicit generator and subgroup action). https://arxiv.org/abs/1203.5644
+3. *The Column Law and Torsion in Chessboard Complexes*, preprint first publicly posted October 2026, Section 9. https://www.preprints.org/manuscript/202610.0974

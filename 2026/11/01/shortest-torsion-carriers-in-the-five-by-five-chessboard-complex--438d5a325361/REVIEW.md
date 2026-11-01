@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Flag-complex link reduction forces four incident triangles per support vertex in any minimum nontrivial two-cycle. A five-vertex flag complex has no second homology, so the lower bound is eight; equality forces the octahedral one-skeleton and induced opposite pairs. Row/column counting gives exactly 900 supports of each type. A complete mod-three cocycle verifies that an explicit eight-triangle integral sphere is nonzero, and the published integral identification of the entire group as \(\mathbb Z/3\) converts this into a generator statement. A standalone exhaustive computation reconstructs and verifies the face and orbit claims; finite tests are not used to infer universal flag-complex steps.
+
+**Originality — PASS, with residual risk.** Shareshian--Wachs, Theorem 1.7(i), and Jonsson, Section 3, already prove the 3-torsion homology and Jonsson actually writes down an octahedral cycle generator and a subgroup sign action. The new statement is not those known facts: it classifies **every minimum-support torsion carrier**, establishes the exact count of 1,800, its single symmetry orbit, and the pair-incidence scheme. Inspected primary sections give generator examples and exact group ranks rather than this full support census. Relevant indexed mathematical findings concern other complexes, not this exact invariant. There remains a risk of an unindexed equivalent enumeration or of an implicit classification in an uninspected combinatorial treatment.
+
+**Value — PASS.** The smallest standard balanced chessboard case with integral 3-torsion is a natural test case for integral cycle geometry. A complete sharp systolic layer and its two-class pair-incidence regularity are topological information not encoded by the known \(\mathbb Z/3\) answer or a single cycle example; they concretely describe where all shortest integral torsion witnesses can lie. It is a bounded natural classification, not an arbitrary sample.
+
+**Limitations.** Depends on known integral homology/connectivity; finite cocycle and orbit checks are independently reproducible, but no independent audit has been performed and equivalent prior literature could remain.
+
+Self-review: passed. Independent audit: not yet performed.
