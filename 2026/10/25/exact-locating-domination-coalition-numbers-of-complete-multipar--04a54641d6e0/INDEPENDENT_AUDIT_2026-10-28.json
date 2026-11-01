@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:59:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md omitted-vertex/signature lemma, coalition graph star/disjoint-pairs obstruction, sharp constructions",
+        "Direct independent exhaustive LD tests and set-partition enumeration for 57 complete multipartite profiles of orders 3..8",
+        "Packaged verifier independently enumerates 86 profiles through order 9 (source inspected, not used as proof)"
+      ],
+      "rationale": "LD sets are exactly the dominating sets omitting at most one per original multipartite part and at most one across singleton original parts. A coalition graph with >=4 nonempty non-LD blocks either has disjoint edges or a star, but a star center with >=3 partners is itself LD: disjoint partner coverage forces every omitted part count <=1 and omitted singletons <=1. Two disjoint LD unions force each original part to have size <=2 and s<=2. A fifth block leads to an LD partner contradiction. Constructed 3- and exceptional 4-block partitions establish the full equality characterization for N>=3.",
+      "risks": [
+        "Proof assumes connected complete multipartite graphs with >=2 original parts and N>=3; K2 excluded.",
+        "Finite checks do not establish all sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Founding paper gives general bound C_L(G)<=N-gamma_L(G)+2 and small-order extremal cases.",
+          "For K_{2,...,2} with r parts, generic bound does not force C_L=4 uniformly in r."
+        ],
+        "reasoning": "Neither the generic inequality nor finite small-order equality classification mathematically implies the new all-multipartite if-and-only-if result.",
+        "searches": [
+          "locating dominating coalition partition number complete multipartite graphs LD coalitions",
+          "arXiv:2602.18760 Proposition 2.8, Proposition 4.1"
+        ]
+      },
+      "checked_sources": [
+        "Chellali et al arXiv:2602.18760v2 full text",
+        "Haynes et al Introduction to coalitions in graphs 2020 (bibliographic context only)",
+        "Resultary:2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The new proof shows disjoint LD coalition pairs imply every part has size<=2 and s<=2, then excludes >=5 blocks.",
+          "The defining article supplies neither this disjoint-coalition rigidity nor an infinite-class formula."
+        ],
+        "reasoning": "The full new classification is a strict additional mathematical implication beyond the source bounds; the known 4-vertex cases are not novel by themselves.",
+        "searches": [
+          "arXiv:2602.18760v2 Sections 2-4",
+          "locating dominating coalition partition number complete multipartite graphs LD coalitions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The founding work names locating-dominating coalitions/LDC-partitions precisely, not self-locating or solid-locating domination.",
+          "A Resultary indexed record on self- and solid-locating domination of multipartite graphs treats different vertex-code invariants."
+        ],
+        "reasoning": "Compared actual non-LD block partition and LD union requirements rather than only similar parameter names.",
+        "searches": [
+          "locating dominating coalition partition number complete multipartite graphs LD coalitions",
+          "arXiv:2602.18760v2 Defs 1.1-1.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "K_{2,2} and K_{2,1,1} occur in known order-four equality cases.",
+          "Related published research-index table concerns a different notion of locating domination."
+        ],
+        "reasoning": "Existing finite data overlap exactly on boundary graphs but cannot determine the unbounded family or no-fifth-block obstruction.",
+        "searches": [
+          "locating dominating coalition partition number complete multipartite graphs LD coalitions",
+          "arXiv:2602.18760 Section 4",
+          "Resultary:2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf"
+        ]
+      },
+      "rationale": "Chellali et al 2026 introduce this exact coalition parameter and calculate small-order examples already containing K_2,2 and K_2,1,1, but the inspected general upper bound grows with order and does not imply a constant four ceiling or its infinite equality class. Best-of-knowledge originality of the full multipartite classification survives, with finite cases explicitly attributed.",
+      "residual_risks": [
+        "Unindexed exact coalition invariant result may be phrased differently.",
+        "Small four-vertex cases are already covered and not claimed as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines same parameter and small cases but not entire multipartite classification",
+          "evidence": [
+            "Proposition 2.8 generic upper bound; Proposition 4.1 order-four examples"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2602.18760v2",
+          "material_read": "Complete 23-page accessible arXiv text/PDF, particularly Definitions 1.1-1.2, Proposition 2.8, full Sections 3-4 and Proposition 4.1",
+          "method": "arXiv HTML and PDF screenshot inspection",
+          "title": "Locating-dominating coalitions in graphs",
+          "trigger": "Original defining source and small-order covering cases"
+        },
+        {
+          "assessment": "Different location-domination set notion, not coalition partitions",
+          "evidence": [
+            "Indexed formulas for gamma^DLD and gamma^SLD"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/30/SCOPE-self-and-solid-locating-domination-in-complete-multipartite-grap--b18aa60a13cf",
+          "material_read": "Resultary indexed title and scientific synopsis",
+          "method": "Published mathematical-record semantic search",
+          "title": "Self- and solid-locating domination in complete multipartite graphs",
+          "trigger": "Similar graph class and title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact 3/4 phase boundary and infinite equality family K_{2,...,2}",
+        "Exclusion of a fifth block independent of graph order"
+      ],
+      "rationale": "A complete sharp classification of a recently defined natural graph partition invariant over the infinite, structurally important complete-multipartite family. The uniform bound four improves an order-dependent estimate arbitrarily much on many size-two-part families; the proof uses nontrivial disjoint-coalition rigidity.",
+      "risks": [
+        "No classification outside multipartite graphs; no enumeration of all optimal partitions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
