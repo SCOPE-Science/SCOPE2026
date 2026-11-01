@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:11:53.415588Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual RESULT.md blob 6e519fa3908c95b192fc5f175a6dcc08361339c1",
+        "independent_checks.py",
+        "independent_results.json",
+        "frozen source tree 000e9dba2fb26d6b8680183e39a16c1d25a23f23"
+      ],
+      "rationale": "For 0<p<1/2, exact conditional attachment probabilities are P(Delta L=+1)=[p+(1-p)(L+S)]/n and P(Delta L=-1)=[pL+(1-p)L/D]/n, with S=sum_{nonleaf neighbours u}1/D(u)>=0 and L<=D. Hence conditional drift is [(1-2p)(L-1)+(1-p)(1-L/D+S)]/n. For Y=(L-1)_+, when L>=2 the increment equals Delta L; for L<=1, Y next is nonnegative. Therefore E[Y_(n+1)|F_n]>=(1+(1-2p)/n)Y_n. Seed events occur with probabilities p/2 at n=3 for v=1,2 and p^2/[v(v+1)] at n=v+2 for v>=3, giving positive expected Y. Gamma-product iteration implies liminf n^-(1-2p) E Y >= b Gamma(m)/Gamma(m+1-2p) >0. Independently enumerated 11,824 exact rational conditional-transition/difference checks on growing finite trees; no finite experiment is used as an infinite-time proof.",
+      "residual_risks": [
+        "Only positive-part expectation for a fixed label; p in (0,1/2), no almost-sure bound, tight exponent, phase transition or upper bound."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.70082, Section 7 item 7 and local sections",
+          "https://arxiv.org/html/1303.1052v2, Section 3 equations (5)-(6)"
+        ],
+        "reasoning": "The general friend-tree paper proves deep local results for pure one-step redirection, and notes mixed model degrees diverge; mixed-model global leaf density bounds do not imply a polynomial fixed-v count lower bound.",
+        "searches": [
+          "web: Random friend trees mixture choose V with probability p W with 1-p all degrees diverge",
+          "web: Cannings Jordan 2013 random walk attachment graphs global leaf fraction bounds"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2403.20185v1",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.70082",
+        "https://arxiv.org/html/1303.1052v2",
+        "Resultary query noted in searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.70082, Section 7 variation",
+          "https://arxiv.org/html/1303.1052v2, Section 3 Eqs (5)-(6)"
+        ],
+        "reasoning": "Almost-sure unbounded degree is weaker/different: degree counts all neighbours and gives no rate for leaf neighbours. A global leaf fraction cannot force every fixed vertex to have polynomially many leaf neighbours in expectation.",
+        "searches": [
+          "web: Random friend trees 2026 second variation degree every vertex infinity almost surely",
+          "web: Cannings Jordan global leaf proportion mixed zero one walk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/1303.1052v2, Section 3 mixture with walk length 0 or 1",
+          "https://arxiv.org/html/2403.20185v1, Section 7 open questions"
+        ],
+        "reasoning": "A direct attachment of probability p is a zero-length random walk, so the model is exactly the 0/1-walk mixture. The observable here counts leaves in the neighbourhood of one fixed vertex, not the global leaf fraction.",
+        "searches": [
+          "Resultary: Random friend trees mixed random-walk attachment length zero one fixed vertex leaf neighbors expectation polynomial n^(1-2p) submartingale",
+          "web: random walk attachment graphs proportion leaves mixture Cannings Jordan 2013"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits involve different random recursive tree root-degree/leaf covariance or other networks; no exact local mixed-growth table",
+          "The bound is an all-label formula with gamma-normalized explicit constants, not a finite table"
+        ],
+        "reasoning": "Search results did not display an exact fixed-vertex expectation growth formula. An absent search hit is not historical novelty proof, especially for an elementary drift consequence.",
+        "searches": [
+          "Resultary semantic query: mixed friend tree local leaf-neighbour growth n^(1-2p)",
+          "web: Random friend trees fixed vertex leaf neighbours p probability mixture polynomial"
+        ]
+      },
+      "rationale": "The same zero-step/one-step mixture appears in Cannings–Jordan (2013), whose derived statistics concern the global proportion of leaves, and in Addario-Berry et al (2024 preprint, 2026 journal), which explicitly proposes the mixture and observes qualitative degree divergence. Neither inspected manuscript gives the fixed-vertex leaf-neighbour expected excess lower bound with n^(1-2p) exponent. This exact local expectation inequality is accepted as a best-knowledge increment; possible derivations in older local preferential/random-walk attachment literature remain priority risk.",
+      "residual_risks": [
+        "Straightforward multiplicative-drift proofs in older random walk / directed-redirection literature could imply this special lower bound without identical terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Core paper treats pure step-one model; mixed variation mentioned with qualitative degree-divergence, no claimed local expectation exponent",
+          "evidence": "2026 Wiley Section 7 item 7, arXiv Sections 2–3",
+          "identifier_or_url": "https://arxiv.org/html/2403.20185v1",
+          "material_read": "Abstract, Sections 2–3 local quantities and Section 7 open questions, especially mixed variation; 2026 open journal counterpart",
+          "method": "Full lawful arXiv HTML and open Wiley article",
+          "title": "Random friend trees",
+          "trigger": "Original friend-tree model, qualitative mixed extension"
+        },
+        {
+          "assessment": "Same attachment mixture but studies proportion of leaves globally, not fixed vertex local neighbour count",
+          "evidence": "Section 3 pp and equations (5),(6)",
+          "identifier_or_url": "https://arxiv.org/html/1303.1052v2",
+          "material_read": "Entire short manuscript, especially Section 3 equations (5)-(6) for mixed global leaf fraction",
+          "method": "Lawful full arXiv HTML",
+          "title": "Random walk attachment graphs",
+          "trigger": "Exact 0/1 walk mixture and established leaf statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/2403.20185v1",
+        "https://arxiv.org/html/1303.1052v2",
+        "independent_results.json"
+      ],
+      "rationale": "The mixed random-friend-tree model is a natural interpolation between uniform recursive attachment and one-step redirection. An explicit polynomial lower bound on leaf-neighbour excess for each fixed vertex answers a local quantitative question not settled by qualitative degree divergence or global leaf density. Although proof uses an elementary drift inequality, it is a motivated infinite-horizon growth theorem with explicit constants, not just an algebraic sign check.",
+      "residual_risks": [
+        "The exponent is a lower-bound exponent, not necessarily sharp, and no phase transition assertion is justified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only positive-part expectation for a fixed label; p in (0,1/2), no almost-sure bound, tight exponent, phase transition or upper bound.",
+    "Straightforward multiplicative-drift proofs in older random walk / directed-redirection literature could imply this special lower bound without identical terminology.",
+    "The exponent is a lower-bound exponent, not necessarily sharp, and no phase transition assertion is justified.",
+    "Frozen public AUDIT.json and METADATA.json both contain a confidential operational provenance key. The exact full original administrative-file bytes have been examined through authorized Git reads, but complete privacy-neutral replacement files have not been faithfully staged and rehashed in the writable audit container. Publication without exact-blob-guarded verified complete replacements could reveal confidential provenance. Scientific review itself is complete."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical claim is verified by the proof in `RESULT.md`.
+## correctness
 
-- Model convention: each arrival chooses a uniform target and then attaches directly with probability \(p\), or to a uniformly sampled neighbour with probability \(1-p\).
-- Transition check: a leaf-neighbour is born exactly when the new vertex attaches to the fixed vertex; it is lost exactly when that leaf-neighbour receives the new edge. The two conditional probabilities are enumerated in the proof.
-- Algebra check: subtracting the death probability from the birth probability gives the displayed drift identity. Subtracting \((1-2p)(L-1)/n\) leaves \((1-p)(1-L/D+S)/n\), which is nonnegative because \(L\le D\) and \(S\ge0\).
-- Recurrence check: for \(Y=(L-1)_+\), the drift bound applies when \(L\ge2\); for \(L\le1\), \(Y=0\) and the next value is nonnegative. Thus the multiplicative expectation inequality holds for all states.
-- Initialization check: one direct attachment at the initial edge suffices for labels 1 and 2; two consecutive direct attachments to any fixed label \(v\ge3\) create two leaf-neighbours with probability \(p^2/[v(v+1)]\).
-- Product check: the recurrence iterates to \(\prod_{k=m}^{n-1}(1+c/k)=\Gamma(n+c)\Gamma(m)/(\Gamma(n)\Gamma(m+c))\); the standard gamma-ratio limit gives the explicit positive liminf constant.
+PASS
 
-Limits: no independent audit was performed. The conclusion is an expectation lower bound only; finite calculations, if any, are not used to justify the infinite statement. The trusted importer initializes absent external channels as unperformed; research does not assess or author those channels.
+For 0<p<1/2, exact conditional attachment probabilities are P(Delta L=+1)=[p+(1-p)(L+S)]/n and P(Delta L=-1)=[pL+(1-p)L/D]/n, with S=sum_{nonleaf neighbours u}1/D(u)>=0 and L<=D. Hence conditional drift is [(1-2p)(L-1)+(1-p)(1-L/D+S)]/n. For Y=(L-1)_+, when L>=2 the increment equals Delta L; for L<=1, Y next is nonnegative. Therefore E[Y_(n+1)|F_n]>=(1+(1-2p)/n)Y_n. Seed events occur with probabilities p/2 at n=3 for v=1,2 and p^2/[v(v+1)] at n=v+2 for v>=3, giving positive expected Y. Gamma-product iteration implies liminf n^-(1-2p) E Y >= b Gamma(m)/Gamma(m+1-2p) >0. Independently enumerated 11,824 exact rational conditional-transition/difference checks on growing finite trees; no finite experiment is used as an infinite-time proof.
+
+## originality
+
+PASS
+
+The same zero-step/one-step mixture appears in Cannings–Jordan (2013), whose derived statistics concern the global proportion of leaves, and in Addario-Berry et al (2024 preprint, 2026 journal), which explicitly proposes the mixture and observes qualitative degree divergence. Neither inspected manuscript gives the fixed-vertex leaf-neighbour expected excess lower bound with n^(1-2p) exponent. This exact local expectation inequality is accepted as a best-knowledge increment; possible derivations in older local preferential/random-walk attachment literature remain priority risk.
+
+## value
+
+PASS
+
+The mixed random-friend-tree model is a natural interpolation between uniform recursive attachment and one-step redirection. An explicit polynomial lower bound on leaf-neighbour excess for each fixed vertex answers a local quantitative question not settled by qualitative degree divergence or global leaf density. Although proof uses an elementary drift inequality, it is a motivated infinite-horizon growth theorem with explicit constants, not just an algebraic sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
