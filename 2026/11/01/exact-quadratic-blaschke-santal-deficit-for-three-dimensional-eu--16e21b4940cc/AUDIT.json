@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The support function is ||y||_2+s|y1|, so the polar has exact disk sections on 0<=x<=1/(1+s). Fubini evaluates polar volume as 2pi(s+2)/(3(1+s)^2), while the original volume is 2pi(2+3s)/3. The polynomial identity 4(1+s)^2-(2+3s)(2+s)=s^2 gives the exact deficit for all s>=0. Differentiation gives -8pi^2 s/[9(1+s)^3]. The cylinder limit follows by uniform support convergence. A standard-library checker independently passed exact rational checks and numerical spherical-polar integration checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:0901.3340, Theorem 1.1 bounds Banach–Mazur proximity via an unspecified dimension-dependent constant.",
+        "arXiv:1706.01749, Theorem 1.1 supplies the global 32/3 lower bound in dimension three.",
+        "arXiv:math/0606305, Theorem 1 concerns convexity of reciprocal polar volume along shadow systems."
+      ],
+      "reasoning": "The general theorems may constrain the family but do not state or imply a unique explicit P(s): sharp global extremal constants leave infinitely many possible curves, and the stability theorem is not an equality classification for capsules. The derivation here additionally uses the exact capsule support function and polar integration.",
+      "searches": [
+        "Blaschke Santalo inequality stability axial rotational symmetry Böröczky 0901.3340",
+        "Meyer Reisner shadow systems volume polar reciprocal convexity math/0606305",
+        "Iriyeh Shibata symmetric Mahler dimension three arXiv 1706.01749"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:math/0606305 (2006-06-13 first posting)",
+      "arXiv:0901.3340 (2009-01-21 first posting)",
+      "arXiv:1706.01749 (2017-06-06 first posting)",
+      "DOI:10.1112/S0025579300000061",
+      "DOI:10.1016/j.aim.2010.04.014"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The new identity is P(s)=16pi^2/9*(1-s^2/(4(1+s)^2)), all real s>=0.",
+        "The B–S upper bound proves P(s)<=16pi^2/9 but not the strict coefficient, curve, or cylinder limit.",
+        "The three-dimensional lower bound proves P(s)>=32/3 but does not give the much stronger sharp family limit 4pi^2/3."
+      ],
+      "reasoning": "The new formula implies the extremal inequalities for this family and gives a strictly sharper exact pointwise deficit; none of the compared general bounds can be inverted to recover the family identity. The 2006 shadow result lacks the required polar-section evaluation and does not contain this explicit consequent.",
+      "searches": [
+        "arXiv:math/0606305 shadow system general inequality comparison",
+        "arXiv:0901.3340 quantitative stability direct comparison",
+        "arXiv:1706.01749 global volume-product minimum comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Meyer–Reisner, arXiv:math/0606305, introduction and Theorem 1; no capsule formula.",
+        "Böröczky, arXiv:0901.3340, introduction and Theorem 1.1; general stability bound, not the identity."
+      ],
+      "reasoning": "Capsule, spherocylinder, stadium and ball-plus-segment are the same object after scaling and axial rotation. No exact identity of the specified form was located under these aliases in the checked materials.",
+      "searches": [
+        "\"Mahler\" \"spherocylinder\" volume product polar",
+        "\"Mahler\" \"capsule\" \"polar\" convex body volume",
+        "\"B_2^3\" \"segment\" \"volume product\" ball",
+        "3-dimensional stadium sausage body exact quadratic volume-product deficit"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked original articles use general inequalities and no tables of capsule Mahler products were located.",
+        "Known capsule volume formulas describe the original body, not its polar and the normalized product."
+      ],
+      "reasoning": "No exact numerical table or formula with the present parameter and normalization was identified. No claim of exhaustive indexing is made.",
+      "searches": [
+        "volume product stadium capsule spherocylinder exact formula",
+        "Mahler polar volume spherocylinder 3D quadratic deficit",
+        "three-dimensional Euclidean capsule polarity 1-(s/(1+s))^2/4"
+      ]
+    },
+    "rationale": "No inspected claim covers the exact family-specific identity P/P(B)=1-(a/(r+a))^2/4. The compared global upper/lower and stability theorems do not determine its coefficient or full parameter profile. Alias and consequence searches returned no equivalent explicit formula; historical priority remains a bounded uncertainty.",
+    "residual_risks": [
+      "The exact capsule formula is elementary once its polar support is written, so an older source could have computed it without indexing under the searched names.",
+      "The 60-page 2017/2019 paper was not read exhaustively; the relevant global theorem and introductory scope were inspected, and targeted full-text alias searches found no match.",
+      "General shadow-system methods are broader in principle but do not explicitly produce the stated rational family identity; a hidden worked example remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General convexity of reciprocal polar volume; no three-dimensional capsule product or quadratic deficit in inspected sections.",
+        "evidence": [
+          "arXiv:math/0606305, pp.1–3, Theorem 1",
+          "DOI:10.1112/S0025579300000061"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/math/0606305",
+        "material_read": "Full-text text extraction, abstract, introduction pp.1–3, Theorem 1 and scope, targeted searches for capsule and segment.",
+        "method": "Primary arXiv PDF text and rendered page inspection.",
+        "title": "Shadow systems and volume of polar convex bodies",
+        "trigger": "Potential general polar-volume theorem could cover the capsule product."
+      },
+      {
+        "assessment": "General Banach–Mazur stability bound; no capsule exact coefficient or formula in inspected scope.",
+        "evidence": [
+          "arXiv:0901.3340, Theorem 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0901.3340",
+        "material_read": "Abstract, introduction pp.1–3, Theorem 1.1 and its constants; full text searched for capsule and stadium.",
+        "method": "Primary arXiv PDF text and rendered p.2 inspection.",
+        "title": "Stability of the Blaschke–Santaló and the affine isoperimetric inequality",
+        "trigger": "Potential quantitative stability theorem dominating the claimed deficit."
+      },
+      {
+        "assessment": "Sharp lower bound 32/3, no exact capsule-specific product in inspected material.",
+        "evidence": [
+          "arXiv:1706.01749, Theorem 1.1"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1706.01749",
+        "material_read": "Abstract, introduction pp.1–4, Theorem 1.1 and named comparisons; full text searched for capsule and spherocylinder.",
+        "method": "Primary arXiv PDF text and rendered p.1 inspection.",
+        "title": "Symmetric Mahler's conjecture for the volume product in the three dimensional case",
+        "trigger": "Sharp three-dimensional lower bound might imply a claimed capsule extremum."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "16e21b49-40cc-474e-8865-5b81d64040ed",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The family is the canonical Euclidean ball thickened by a segment; volume product is a key affine invariant with nontrivial global stability literature. The result gives a sharp dimension-three family-wide stability curve, an exact quadratic coefficient for the axial deformation, and a sharp nonellipsoidal limiting benchmark. These precise constants and the curve are not supplied by the global upper or lower inequalities. Scope is one natural family, not a universal theorem.",
+    "status": "PASS"
+  }
+}

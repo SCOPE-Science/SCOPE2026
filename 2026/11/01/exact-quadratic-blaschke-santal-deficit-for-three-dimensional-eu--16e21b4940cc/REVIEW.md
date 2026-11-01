@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The object is a centered three-dimensional Minkowski sum of a radius-positive Euclidean ball and a segment, so the origin is its Santaló point. The normalized capsule volume is the ball-plus-cylinder volume. Its polar is exactly the region cut out by the support inequality \(\|y\|_2+s|y_1|\le1\). Fubini integration of its explicit circular sections proves the polar formula without approximation. The exact polynomial identity \(4(1+s)^2-(2+3s)(2+s)=s^2\) proves the claimed deficit. Exact differentiation establishes strict monotonicity, and a uniform support-function limit identifies the limiting cylinder. The provided verifier passed exact-arithmetic and independent numerical checks. No infinite assertion relies on finite tests.
+
+## Originality — PASS, subject to historical priority
+The relevant general Blaschke–Santaló inequality and Böröczky's stability theorem control all convex bodies but do not evaluate this one-parameter product or its exact quadratic stability coefficient. Meyer–Reisner's shadow-system convexity controls the reciprocal polar volume in another general deformation class and does not imply the computed capsule identity as a stated result. Iriyeh–Shibata's sharp lower bound in dimension three also leaves this exact family profile undetermined. Searches for the capsule/stadium/spherocylinder aliases and the specific quadratic identity found no equivalent published statement in inspected material. The full text of the most relevant accessible articles was checked at the indicated theorem and introductory sections; worldwide priority beyond the searched literature remains uncertain. The result is not a claim that an existing general method cannot derive the formula, only that no compared prior claim covers its explicit sharp identity.
+
+## Value — PASS
+A capsule is the canonical ball-plus-segment Minkowski sum, and the volume product is a central affine invariant. Sharp stability of the Blaschke–Santaló inequality is an independently motivated topic; the exact identity supplies a dimension-three calibration with its full deficit curve, exact second-order coefficient near the ball, strict shape ordering, and the nonellipsoidal cylinder limit. The coefficient and full curve are not consequences of the general extremal inequalities alone. This is a narrowly scoped but natural exact benchmark rather than a general Santaló stability theorem; its proof is elementary and its value is primarily the quantitative identity, not a new method.
+
+## Closest comparisons and limitations
+Meyer–Reisner (2006) concerns general shadow systems; Böröczky (2009/2010) concerns qualitative-rate stability in Banach–Mazur distance; Iriyeh–Shibata (2017/2020) concerns a global lower bound. None states the exact quadratic capsule identity. The result does not compute Banach–Mazur distance, establish sharp stability across other families, or settle historical priority in inaccessible sources. The source inspections and structured comparisons are recorded in the accompanying audit.
+
+Self-review: passed. Independent audit: not yet performed.
