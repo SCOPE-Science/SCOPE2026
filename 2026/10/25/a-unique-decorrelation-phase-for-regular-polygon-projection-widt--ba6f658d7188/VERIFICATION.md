@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-## Analytic checks
-1. Difference-body support reduces both parity cases to a regular even \(N\)-gon of radius \(\rho\), with centered cosine chambers of half-width \(a=\pi/N\).
-2. The mixed moment is the sum of two explicit cosine-product integrals separated at \(a-d\). Subtracting the square of the exact mean yields (1).
-3. Differentiation gives the exact derivative (7); strict sinc monotonicity and the zero average of centered autocovariance yield exactly one simple zero on \((0,a)\).
-4. Uniform Taylor expansion of the centered folded cosine, followed by two polynomial integrations, yields the quartic limit. A nonzero derivative at its root yields the \(O(a^2)\) root error.
+## correctness
 
-## Computational checks
-Running `python verify.py` with Python 3 standard library returned `VERIFY_OK: 223 finite numerical regression checks`. It constructs vertices and takes projection maxima and minima instead of generating test widths from the claimed cosine chamber. It numerically integrates angular covariance at five lags for each \(3\le n\le12\), tests periodic symmetry and numerical root signs, and compares larger regular polygons against the limiting root. The deterministic finite quadrature and floating-point tolerances are auxiliary regression tests; they are not exhaustive and do not prove any statement with universal quantifiers.
+PASS
 
-## Scientific limits
-Unshifted width variance and generic edge-projection pair moments appear in prior published work. The exact joint-lag monotonicity, unique threshold and universal normalized limiting phase are asserted as the evaluated extension. No result for arbitrary polygons or empirical-noise reconstruction is claimed. Bibliographic priority remains subject to further independent checks. Independent audit has not been performed.
+PASS. For the regular n-gon the width is the support function of its difference body. For even n the difference body is a regular n-gon of circumradius 2R; for odd n it is a regular 2n-gon of circumradius 2R cos(pi/(2n)). On each cosine chamber of half-width a=pi/N, the normalized width is rho cos(theta). Independently integrating the two overlap pieces for angular lag 0<=d<=a reproduces the exact mixed moment [(2a-d)cos d+d cos(2a-d)+sin(2a-d)+sin d]/(4a). Subtracting (sin a/a)^2 gives covariance. Differentiation yields rho^2[d sin(2a-d)-(2a-d)sin d]/(4a), strictly negative because sinc decreases over the positive interval and 0<d<a. The mean-zero period integral of covariance and strict decrease imply the centered half-period endpoint is negative, and the positive zero-lag variance gives one and only one interior sign reversal. The centered chamber expansion converges uniformly to F(x)=1/6-x^2/2 on [-1,1]; its autocorrelation is H(q)=[8-15q^2(2-q)^2]/360. Thus the asymptotic zero fraction is 1-sqrt(1-sqrt(8/15)), and the lag-half-period correlation tends to -7/8. The stated odd/even radius normalizations, n=3 boundary, and n->infinity quantifiers were checked; no finite regression substitutes for the analytic strict decrease.
+
+## originality
+
+PASS
+
+PASS, best of knowledge. Akiyama–Kamae (2022) provides a general edge-projection second-moment kernel and discusses width deviation and regular polygons, a substantial prior ingredient. Its inspected Theorem 1 and regular-polygon conclusions do not state the prescribed angular-lag centered covariance zero, strict one-crossing, or the explicit universal quartic limit. The indexed geometric width results compute chord-width products or marginal width laws and cannot directly imply a joint lag covariance. The geometric reduction uses known tools; the complete all-n sign and asymptotic result is the candidate new contribution, with an explicit risk that the edge-projection kernel could yield an earlier unpublished derivation.
+
+## value
+
+PASS
+
+PASS. Width in two nearby sampled directions is a natural angular-tomography observable. The theorem determines exactly how their centered covariance changes from positive to negative for every regular side count, then shows a nontrivial universal quartic shape, one root and maximal anticorrelation of -7/8. This is a global, motivated classification rather than a zero-lag variance recomputation or an arbitrary finite numerical case. The precise fraction may serve as an analytic benchmark for angular width sampling; no claims outside regular polygons are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

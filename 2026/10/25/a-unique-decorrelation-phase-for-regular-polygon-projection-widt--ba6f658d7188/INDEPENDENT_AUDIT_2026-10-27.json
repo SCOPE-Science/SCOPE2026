@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:55:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual Git RESULT.md blob c0d6ab5873b26b8e24b9dc9ccd6aa48282577377; proof of difference-body geometry, two-chamber integration, derivative, zero and uniform limit.",
+        "Independent symbolic SymPy integration and polynomial expansion of two cosine overlap terms: mixed moment agrees identically; H(q)=(-15q^4+60q^3-60q^2+8)/360, H(0)=1/45 and H(1)=-7/360.",
+        "Independent bracketing of the covariance root for side counts n=3,...,11, with n=3 odd-body normalization.",
+        "Actual Git verification script blob 519d15fe9d9bc9e224aa1c78165a84ba69e68f36 read, not used to prove universal quantifiers."
+      ],
+      "rationale": "PASS. For the regular n-gon the width is the support function of its difference body. For even n the difference body is a regular n-gon of circumradius 2R; for odd n it is a regular 2n-gon of circumradius 2R cos(pi/(2n)). On each cosine chamber of half-width a=pi/N, the normalized width is rho cos(theta). Independently integrating the two overlap pieces for angular lag 0<=d<=a reproduces the exact mixed moment [(2a-d)cos d+d cos(2a-d)+sin(2a-d)+sin d]/(4a). Subtracting (sin a/a)^2 gives covariance. Differentiation yields rho^2[d sin(2a-d)-(2a-d)sin d]/(4a), strictly negative because sinc decreases over the positive interval and 0<d<a. The mean-zero period integral of covariance and strict decrease imply the centered half-period endpoint is negative, and the positive zero-lag variance gives one and only one interior sign reversal. The centered chamber expansion converges uniformly to F(x)=1/6-x^2/2 on [-1,1]; its autocorrelation is H(q)=[8-15q^2(2-q)^2]/360. Thus the asymptotic zero fraction is 1-sqrt(1-sqrt(8/15)), and the lag-half-period correlation tends to -7/8. The stated odd/even radius normalizations, n=3 boundary, and n->infinity quantifiers were checked; no finite regression substitutes for the analytic strict decrease.",
+      "risks": [
+        "No assertion is proved for arbitrary nonregular bodies or nonuniform direction sampling.",
+        "The global n-independent limit uses its uniform chamber Taylor bound, not pointwise finite-sample extrapolation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Akiyama–Kamae Theorem 1 (2022) yields E(X_alpha X_beta)=|alpha beta| V(eta)/(4pi) for edge projections; its explicit consequences concern scalar deviation, not lagged covariance zeros.",
+          "Resultary complete RESULT.md for translative convex hull regular polygon: J_m(u)=d_P(u) w_P(u perpendicular), not E[w(U)w(U+d)]."
+        ],
+        "reasoning": "An exact general second-moment kernel dominates a building block, not the submitted sign classification and limiting root without further computation. The other width-related results have different observables.",
+        "searches": [
+          "Akiyama Kamae Width deviation convex polygons arxiv 2201.06736 covariance moment theorem regular polygon",
+          "Resultary angular stability and projection polygon width distributions"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2201.06736 full relevant text including theorem 1",
+        "Resultary published full RESULT.md regular-polygon translative hull",
+        "Resultary published full RESULT.md tangential width inverse",
+        "Resultary semantic query angular lag autocovariance regular polygon widths single zero decorrelation universal quartic"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current formula C_n(d)/rho²=[(2a-d)cos d+d cos(2a-d)+sin(2a-d)+sin d]/(4a)-(sin a/a)^2.",
+          "Prior edge projection kernel V(eta) is general, but its cited consequences do not include strictly decreasing covariance for every n or the q-dependent universal quartic."
+        ],
+        "reasoning": "The prior kernel is compatible with and could be used to derive the exact moment, but an implication to the complete one-zero theorem is not present in the inspected text. Neither single-angle marginal inverse nor perpendicular chord product determines this statistic.",
+        "searches": [
+          "arxiv 2201.06736 Theorem 1 comparison cross-angle widths",
+          "published regular polygon width law full result translative hull and tangential inverse"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Akiyama and Kamae arXiv:2201.06736, full relevant theorem and regular-width sections; edge projection kernel V(eta)=(pi-|eta|)cos eta+sin|eta|.",
+          "Resultary 2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939 full RESULT.md: marginal width survival based on gap multiset."
+        ],
+        "reasoning": "The lag-dependent width covariance also has angular convolution/Fourier aliases. A marginal width distribution does not determine covariance at two related angles; the inspected prior kernel makes one compute it but gives no global single-zero statement. An unindexed equivalent autocovariance formula remains possible.",
+        "searches": [
+          "angular lag autocovariance regular polygon widths single zero decorrelation universal quartic",
+          "regular polygon directional projection width covariance cyclic correlation Fourier coefficient zero phase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary five-topic semantic search returned related polygon width laws, no identified exact n-wise angular covariance table or universal-root record.",
+          "The referenced 2022 paper provides an edge kernel and zero-lag deviation formulas, not a table of the proposed phase."
+        ],
+        "reasoning": "The claim is a full continuous angular function with one zero and an n-uniform limit, not an interpolation of known finite data. No matched exact database statement was identified.",
+        "searches": [
+          "Resultary angular lag autocovariance regular polygon widths single zero decorrelation universal quartic",
+          "regular polygon decorrelation phase 0.480670 chord width autocorrelation tabulated"
+        ]
+      },
+      "rationale": "PASS, best of knowledge. Akiyama–Kamae (2022) provides a general edge-projection second-moment kernel and discusses width deviation and regular polygons, a substantial prior ingredient. Its inspected Theorem 1 and regular-polygon conclusions do not state the prescribed angular-lag centered covariance zero, strict one-crossing, or the explicit universal quartic limit. The indexed geometric width results compute chord-width products or marginal width laws and cannot directly imply a joint lag covariance. The geometric reduction uses known tools; the complete all-n sign and asymptotic result is the candidate new contribution, with an explicit risk that the edge-projection kernel could yield an earlier unpublished derivation.",
+      "residual_risks": [
+        "General edge-projection moment kernel of Akiyama–Kamae could have been specialized elsewhere to a shifted angular autocovariance theorem.",
+        "Alternative Fourier/autocorrelation nomenclature might obscure an earlier statement despite targeted search."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS KERNEL / NOT IDENTIFIED COVERING full lag-one-root claim; global source theorem about scalar width deviations.",
+          "evidence": [
+            "Theorem 1: edge moment uses V(eta)=(pi-|eta|)cos eta+sin|eta|; width variance at zero angular lag and extrema studied."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2201.06736",
+          "material_read": "Complete available 25-page searchable PDF; abstract, introductory results, Theorem 1/proof p7, regular-polygon passages and targeted full-document terms.",
+          "method": "Open-access arXiv PDF text and rendered screenshot of page 7.",
+          "title": "Width deviation of convex polygons",
+          "trigger": "Same polygon width observable and general edge-pair angular moment formula."
+        },
+        {
+          "assessment": "Different directional invariant J_m=d_P w_P(perp); no averaged centered shifted-width covariance.",
+          "evidence": [
+            "Proof computes single deterministic perpendicular-direction width products and translative hull ratios."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-translative-convex-hull-profile-of-every-regular-polygon--79b005afe9c0",
+          "material_read": "Full RESULT.md read including finding, directional product formula, all cases and references.",
+          "method": "Read actual published GitHub blob f6bc2b3ff48b5af5fcaa1e318e63406aa425a092.",
+          "title": "Exact translative convex-hull profile of every regular polygon",
+          "trigger": "Published exact regular-polygon width-related candidate."
+        },
+        {
+          "assessment": "Marginal one-direction width law does not entail shifted joint angular covariance.",
+          "evidence": [
+            "Survival function based on multiset of tangent-normal gaps; angular cyclic order not recovered."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-inverse-classification-of-projection-width-distributions-for-tan--2ee871113939",
+          "material_read": "Full RESULT.md read including exact survival, inverse gap recovery, limitations.",
+          "method": "Read actual GitHub blob 8ccb8c4119bc4eaab3073513b369570d9db5a966.",
+          "title": "Inverse classification of projection-width distributions for tangential symmetric polygons",
+          "trigger": "Published inverse random width law candidate."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limits": [
+        "No arbitrary convex polygon, random independent directions, noisy or nonuniform width samples, or higher joint cumulants."
+      ],
+      "rationale": "PASS. Width in two nearby sampled directions is a natural angular-tomography observable. The theorem determines exactly how their centered covariance changes from positive to negative for every regular side count, then shows a nontrivial universal quartic shape, one root and maximal anticorrelation of -7/8. This is a global, motivated classification rather than a zero-lag variance recomputation or an arbitrary finite numerical case. The precise fraction may serve as an analytic benchmark for angular width sampling; no claims outside regular polygons are made.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

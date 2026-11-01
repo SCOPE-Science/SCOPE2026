@@ -1,15 +1,21 @@
-# Mathematical review: regular-polygon width decorrelation
+# Independent mathematical audit
 
-## Correctness
-The claim concerns a uniform common angle and a deterministic lag, not two independent samples. The support of the difference body supplies the exact single cosine chamber and the correct odd/even scaling. Splitting at its unique wrap proves the displayed trigonometric covariance. A direct derivative reduces strict monotonicity to the decreasing sinc function, and integrating the mean-zero autocovariance over the period forces a negative endpoint. The quartic limiting profile follows from a uniformly valid Taylor expansion of the centered folded cosine; its derivative and its simple interior zero give convergence of roots. The numerical checker uses actual polygon vertex dot products and reproduces the analytic values on finite examples. All radius, parity, and lag boundaries were checked. No numerical enumeration is used in place of the proof.
+## correctness
 
-## Originality
-The closest primary source, Akiyama and Kamae, arXiv:2201.06736v1 (2022), already derives edge-projection second moments and settles several questions about **variance at zero angular lag**. Those formulas offer general machinery for computing rotated second moments; novelty is therefore not asserted for the idea of width variance or for an isolated trigonometric identity. The inspected text did not state a strict monotonicity and exactly one zero of the regular-polygon angular width covariance for every side count, nor the universal quartic limiting normalized profile and its exact zero. Searches of semantic research records for autocovariance, shifted widths, cosine chambers, quartic phase, and decorrelation turned up studies of translative chord-width products, one-direction marginal distributions, and angular stability but no implication-equivalent joint-lag theorem. Each comparison concerns mathematical assertions rather than title similarity. This supports a provisional original extension, not a priority certificate. Residual risk: an unpublished, differently phrased or unindexed evaluation using general edge kernels may already contain this conclusion.
+PASS
 
-## Value
-The angular correlation of projection widths measures redundancy of two oriented width observations. The point where fluctuations switch from positively to negatively correlated is a natural quantitative sampling threshold, with an exact single-zero classification for every regular polygon and a nontrivial shared limiting shape despite vanishing absolute variance. This is not merely the known variance, a parameter substitution, or an arbitrary low-side-count table. Its sharp all-order and large-side-count structure supplies an interpretable benchmark for geometric tomography and direction-pair sampling, without asserting unsupported generality to arbitrary convex bodies.
+PASS. For the regular n-gon the width is the support function of its difference body. For even n the difference body is a regular n-gon of circumradius 2R; for odd n it is a regular 2n-gon of circumradius 2R cos(pi/(2n)). On each cosine chamber of half-width a=pi/N, the normalized width is rho cos(theta). Independently integrating the two overlap pieces for angular lag 0<=d<=a reproduces the exact mixed moment [(2a-d)cos d+d cos(2a-d)+sin(2a-d)+sin d]/(4a). Subtracting (sin a/a)^2 gives covariance. Differentiation yields rho^2[d sin(2a-d)-(2a-d)sin d]/(4a), strictly negative because sinc decreases over the positive interval and 0<d<a. The mean-zero period integral of covariance and strict decrease imply the centered half-period endpoint is negative, and the positive zero-lag variance gives one and only one interior sign reversal. The centered chamber expansion converges uniformly to F(x)=1/6-x^2/2 on [-1,1]; its autocorrelation is H(q)=[8-15q^2(2-q)^2]/360. Thus the asymptotic zero fraction is 1-sqrt(1-sqrt(8/15)), and the lag-half-period correlation tends to -7/8. The stated odd/even radius normalizations, n=3 boundary, and n->infinity quantifiers were checked; no finite regression substitutes for the analytic strict decrease.
 
-## Limits
-These comparisons use accessible primary literature and published indexed records, not an exhaustive proof of bibliographic priority. The numerical program confirms finite examples only. The all-\(n\) proof is analytic. The source's broad pairwise kernel remains the closest technical precursor.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge. Akiyama–Kamae (2022) provides a general edge-projection second-moment kernel and discusses width deviation and regular polygons, a substantial prior ingredient. Its inspected Theorem 1 and regular-polygon conclusions do not state the prescribed angular-lag centered covariance zero, strict one-crossing, or the explicit universal quartic limit. The indexed geometric width results compute chord-width products or marginal width laws and cannot directly imply a joint lag covariance. The geometric reduction uses known tools; the complete all-n sign and asymptotic result is the candidate new contribution, with an explicit risk that the edge-projection kernel could yield an earlier unpublished derivation.
+
+## value
+
+PASS
+
+PASS. Width in two nearby sampled directions is a natural angular-tomography observable. The theorem determines exactly how their centered covariance changes from positive to negative for every regular side count, then shows a nontrivial universal quartic shape, one root and maximal anticorrelation of -7/8. This is a global, motivated classification rather than a zero-lag variance recomputation or an arbitrary finite numerical case. The precise fraction may serve as an analytic benchmark for angular width sampling; no claims outside regular polygons are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
