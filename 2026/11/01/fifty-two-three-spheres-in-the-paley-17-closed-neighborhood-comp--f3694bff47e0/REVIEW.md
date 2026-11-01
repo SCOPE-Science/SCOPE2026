@@ -1,0 +1,11 @@
+# Scientific review: closed neighborhoods of the seventeen-vertex Paley graph
+
+**Correctness — PASS.** All 6,851 nonempty faces are exhaustively reconstructed by two distinct tests. The specified 3,399 matched pairs form a legitimate matching on the nonempty face Hasse diagram, and a complete directed incidence topological sort proves global acyclicity on 33,847 incidences. Exactly one critical zero-cell and 52 critical three-cells remain. The resulting CW complex has only these cells, so each three-cell attaches to a point and the integral wedge-of-spheres claim follows directly. Raw mod-two chain ranks are a separate corroboration, not the premise for integral homotopy.
+
+**Originality — PASS, with stated residual risk.** Matsushita's arXiv:2511.12608 develops general closed-neighborhood constructions, a suspension-to-double-cover equivalence (Theorem 1.2) and a complete-rook-graph example (Example 3.5); none computes the closed Paley-17 complex. The closest published Paley-17 computation concerns the *open* neighborhoods (3,468 nonempty faces and a three-torsion Moore summand). The closed complex has 6,851 faces and is therefore not that same object. Semantic result searches and exact-phrase searches found no classification implying this particular 52-sphere wedge. The absence of a search hit cannot establish publication priority, and equivalent unindexed computations remain possible.
+
+**Mathematical value — PASS.** The difference between open and closed neighborhood topologies for one canonical strongly regular graph is a natural structural question. Replacing open by closed neighborhoods removes the previously observed degree-two three-torsion and yields a torsion-free 52-fold wedge in degree three, a qualitative change not predicted by the graph's strongly regular parameters or general closed-neighborhood equivalences. The result supplies an exact reproducible benchmark for comparing graph Čech and Lovász neighborhood complexes.
+
+**Limits.** Only the stated graph and radius-one closed neighborhoods are classified, with no equivariant decomposition or inclusion-map calculation beyond the forced disappearance of degree-two torsion. Independent mathematical audit is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
