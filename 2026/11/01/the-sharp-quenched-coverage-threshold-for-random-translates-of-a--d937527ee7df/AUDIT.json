@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "Correctness was checked by reconstructing the full chain: uniform point in doubled cube -> iid U(0,1) coordinate coverage probabilities -> Gamma(d,1); maxima of exponential samples give exact mean as P(Gamma<=M_m). Gamma density Stirling expansion contributes (1-s^2)/3; E[M_m]-log m contributes Euler gamma. Each translated cube changes the normalized union by at most 2^-d, so McDiarmid yields 2 exp(-2t^2 4^d/m). At m~exp(d+O(sqrt d)), choose t proportional to d^-1/2; the tails are summable. The two-sided threshold inversion via monotonicity proves the a.s. constant-order logarithmic quantile law. Python standard-library verifier passed 120 deterministic cases including exact rational finite formula checks and numerical second-term diagnostics. Simulations are only diagnostics, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Zhigljavsky–Noonan 2020 contains an exact finite-dimensional coverage expression for arbitrary parameters;",
+        "Penrose 2023 studies complete coverage by shrinking Euclidean balls at fixed dimension;",
+        "Shelley–Tartakovsky 2026 treats deterministic unions and Voronoi-nerve topology."
+      ],
+      "reasoning": "The 2020 formula is stronger than the auxiliary finite mean formula; it does not itself state an almost-sure dimension-indexed random hitting-time threshold, nor the constant-order logarithmic correction. The complete-coverage and random-polytope frameworks have different objects or asymptotic regimes.",
+      "searches": [
+        "sharp Gaussian critical window at log m = d + s sqrt d for random unit cube translate coverage of doubled cube and Euler constant correction",
+        "self averaging concentration random volume of union of exponentially many iid axis aligned hypercube translates",
+        "random partial coverage fraction of hypercube by independent uniformly translated congruent cubes with exponential number, almost sure Gumbel gamma Gaussian critical threshold"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2610.25841",
+      "https://orca.cardiff.ac.uk/id/eprint/134282/1/Zhigljavsky-Noonan2020_Article_CoveringOfHigh-DimensionalCube.pdf",
+      "https://researchportal.bath.ac.uk/en/publications/random-euclidean-coverage-from-within/",
+      "https://paperity.org/p/272342930/random-volumes-in-d-dimensional-polytopes",
+      "A complete translation-distance phase diagram for hypercube covariograms (public indexed mathematical record)",
+      "Exact subcritical coverage profile of the optimal octahedral lattice (public indexed mathematical record)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2020 Section 4.2 equation (29): complete finite expected coverage for randomly located axis-parallel cubes;",
+        "New theorem uses a gamma one-term Edgeworth estimate, extreme-exponential mean shift, concentration and a Borel–Cantelli inversion;",
+        "2026 arXiv:2610.25841 Theorems 1.1–1.2 concern topological inclusion-exclusion; not random quantile thresholds."
+      ],
+      "reasoning": "Finite expectation is an exact prior implication and is credited rather than claimed. A sample-wise asymptotic hitting-time statement, with an additive constant in log-sample size, requires new estimates and a high-probability inversion that are not immediate consequences of a deterministic equality of means. This distinction supports originality but leaves a genuine risk of an earlier unindexed corollary.",
+      "searches": [
+        "sharp Gaussian critical window at log m = d + s sqrt d for random unit cube translate coverage of doubled cube and Euler constant correction",
+        "self averaging concentration random volume of union of exponentially many iid axis aligned hypercube translates",
+        "random partial coverage fraction of hypercube by independent uniformly translated congruent cubes with exponential number, almost sure Gumbel gamma Gaussian critical threshold",
+        "sample-wise threshold for union of random convex body translates, covered volume and Euler gamma correction"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zhigljavsky–Noonan 2020, Section 4.2, equations (28)–(29), exact random cubical coverage mean;",
+        "Independent gamma-vs-maximum-exponential representation P(Gamma(d,1)<=max of m exponentials);",
+        "Searches of public mathematical records returned cube width and covariogram claims but no matching almost-sure threshold."
+      ],
+      "reasoning": "Random smaller cube coverage in the 2020 model becomes the same volume functional after translating target [-1,1]^d, choosing delta=r=1/2, and identifying the sampling centers. The finite expectation is covered. The probabilistic hitting-time asymptotic with the constant gamma+(1-s^2)/3, for realized union volume rather than expected coverage, is an additional limit claim, not a different name for the old finite identity.",
+      "searches": [
+        "expected union volume of m independent random translates of a cube centers uniform inside cube, logarithmic high-sample uncovered volume",
+        "sharp (log n)^(d-1)/n deficit random coverage cube by uniform translated unit cubes, exact formula",
+        "complete homogeneous harmonic polynomial exact expectation random cubical covering and e^d phase transition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search of available previously published mathematical claim abstracts found no matching sample-wise random cubical coverage threshold.",
+        "A complete translation-distance phase diagram for hypercube covariograms: fixed-distance overlap optimization of two cubes.",
+        "Exact subcritical coverage profile of the optimal octahedral lattice: periodic octahedral covering, not random cubes."
+      ],
+      "reasoning": "The inspected records concern fixed-distance two-cube overlap and periodic octahedral lattice coverage, respectively, not independent random translated-cube volume thresholds. The record search is not a proof of uniqueness and no exact priority database can certify absence of all antecedents.",
+      "searches": [
+        "expected union volume of m independent random translates of a cube centers uniform inside cube, logarithmic high-sample uncovered volume",
+        "sharp (log n)^(d-1)/n deficit random coverage cube by uniform translated unit cubes, exact formula",
+        "complete homogeneous harmonic polynomial exact expectation random cubical covering and e^d phase transition",
+        "sample-wise threshold for union of random convex body translates, covered volume and Euler gamma correction"
+      ]
+    },
+    "rationale": "The exact random-cube expected coverage is demonstrably prior in Zhigljavsky and Noonan (2020), Section 4.2. The claim evaluated here is instead the almost-sure, all-fixed-alpha threshold in dimension with a sharp additive constant in logarithmic sample size, including a joint gamma Edgeworth/Gumbel correction and exponentially strong self-averaging. This is not asserted or proved by the inspected prior Section 4.2, by the 2026 union-of-translates paper, or by the closest published mathematical-record searches. Targeted source and alias searches disclosed no stated covering theorem, although historical priority remains at risk because the derivation applies standard probability tools to an exact known mean.",
+    "residual_risks": [
+      "The exact finite mean formula is substantially covered by Zhigljavsky–Noonan (2020); only the new a.s. threshold and explicit constant are claimed.",
+      "As a consequence of known finite coverage and standard probabilistic tools, an equivalent high-dimensional almost-sure threshold might exist in older, unindexed random-coverage literature.",
+      "Only abstract-level material was accessible for Penrose (2023) and the random-polytope comparison; no negative full-document assessment is asserted for them.",
+      "Semantic searches of published mathematical abstracts are incomplete and cannot certify uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Deterministic strict-convex-body Voronoi/topology theorem; cube random sampling and almost-sure dimension-asymptotic hitting times not covered in inspected statements.",
+        "evidence": "Initial public date October 19 2026; Theorem 1.1 and Theorem 1.2 are about exact nerve inclusion-exclusion in finite dimensions and ellipsoid rigidity.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.25841",
+        "material_read": "Full arXiv HTML text accessible; abstract, introduction and Theorems 1.1–1.2 with their hypotheses, plus a search for random-translation terminology.",
+        "method": "Lawful open-access arXiv HTML text and targeted term search.",
+        "title": "Union of Translates of a Convex Body",
+        "trigger": "Fresh 2026 work on union volume of convex translates; same geometric operation."
+      },
+      {
+        "assessment": "Directly subsumes finite expected coverage formula after delta=r=1/2 specialization. It does not state the sharp random almost-sure exponential partial-coverage threshold or constant-order logarithmic shift in inspected material.",
+        "evidence": "Section 4.2 derives C_{d,Z_n,r}=1-sum_{k=0}^n (-1)^k binomial(n,k) I_k^d for random smaller cubes in a fixed big cube; when the two cube scales and center support match, same model.",
+        "identifier_or_url": "https://orca.cardiff.ac.uk/id/eprint/134282/1/Zhigljavsky-Noonan2020_Article_CoveringOfHigh-DimensionalCube.pdf",
+        "material_read": "Open-access PDF cover/abstract and page 21 (Section 4.2, equations (28)–(29)), page 22, indexed conclusion and table of contents.",
+        "method": "Lawful institutional-host open PDF, visually inspected pages, compared model parameters.",
+        "title": "Covering of High-Dimensional Cubes and Quantization",
+        "trigger": "Direct prior result for random cube coverage with independently uniform centers; potential dominant exact result."
+      },
+      {
+        "assessment": "Fixed-dimensional complete-coverage radius thresholds for Euclidean balls; different sampling/coverage geometry. Full text not inspected; cannot exclude hidden relevant lemmas.",
+        "evidence": "Abstract states asymptotics of minimal radius for complete coverage of domain A by n uniform ball centers.",
+        "identifier_or_url": "https://researchportal.bath.ac.uk/en/publications/random-euclidean-coverage-from-within/",
+        "material_read": "Publisher university abstract and publication details only, not complete manuscript.",
+        "method": "Publisher abstract page.",
+        "title": "Random Euclidean Coverage from Within",
+        "trigger": "Potential general dominating random covering theorem."
+      },
+      {
+        "assessment": "Convex hull of random points, not union of translated cubes, so exact random coverage is not a stated specialization.",
+        "evidence": "Defines K_N=conv(X_1,...,X_N) and studies its expected volume.",
+        "identifier_or_url": "https://paperity.org/p/272342930/random-volumes-in-d-dimensional-polytopes",
+        "material_read": "Accessible abstract and introduction excerpt, including quoted earlier cube-convex-hull threshold; not complete full text.",
+        "method": "Open abstract/intro web result.",
+        "title": "Random Volumes in d-dimensional Polytopes",
+        "trigger": "High-dimensional exponential sample-size phase transition in another random geometric volume functional."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d937527e-e7df-41ba-baac-28336fadbc6c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "In high dimension each of exponentially many congruent cube translations covers an exponentially small fraction of their doubled support; determining the sample count for any fixed macroscopic partial-coverage target is a natural geometric probability question. The theorem finds the exact exponential base e, the sqrt(d) Gaussian window, and, nontrivially, the constant *multiplicative sample-size factor* at every target fraction. Half-volume coverage occurs at e^(-gamma-1/3)e^d almost surely. The same hitting-time constant governs realized configurations, not merely an expectation. This is a precise benchmark beyond a known exact mean; it is not a named constant for an arbitrary unmotivated slice.",
+    "status": "PASS"
+  }
+}
