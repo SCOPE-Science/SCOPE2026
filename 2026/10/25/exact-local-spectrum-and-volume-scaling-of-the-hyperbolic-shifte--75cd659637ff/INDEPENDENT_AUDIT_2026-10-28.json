@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:59:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md: normal variation and average derivative, exact eigenvalue formula",
+        "Git tree reconstructed from 6 blob SHA entries",
+        "Independent calculation of n,R,alpha spectral expressions and large-R scaling for 12 parameter choices"
+      ],
+      "rationale": "Reconstructed the Fréchet linearization at a curvature -1 hyperbolic geodesic sphere: delta W=-Hess(u)-u(W^2-I), delta F=-(alpha/n)(coth R-1)^(alpha-1)(Delta u+n csch^2(R)u), and the area-average variation cancels measure terms because F is constant. Spherical harmonic eigenvalues yield degree-zero/degree-one neutral modes and strictly negative all higher-degree eigenvalues; degree two gives the sharp gap. Differentiating its q=e^(-2R) closed form and inserting hyperbolic ball asymptotics yields monotonicity and the exact V^(-2alpha/n) coefficient for every n>=2, alpha>0, R>0. No nonlinear all-initial-data convergence is inferred.",
+      "risks": [
+        "Depends on standard sign convention for outward normal and nonpositive Laplacian, both fixed in source.",
+        "Only the infinitesimal operator, not global nonlinear flow rates."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhang 2026 claims global convergence for a shifted curvature flow, but the complete article could not be read in this run.",
+          "Wei–Yang–Zhou 2022/2024 hyperbolic Gauss flows employ unshifted K, changing the derivative and eigenvalues."
+        ],
+        "reasoning": "A global convergence theorem does not alone give exact linearized eigenvalues and volume scaling; an uninspected proof might nevertheless compute these explicitly, and this is a priority risk.",
+        "searches": [
+          "hyperbolic shifted Gauss curvature volume preserving flow geodesic sphere linearized spherical harmonics spectral gap radius volume",
+          "arXiv:2610.18423v1 global convergence",
+          "arXiv:2210.06035",
+          "arXiv:2406.05159"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.18423v1 (metadata/secondary claim only; no full text)",
+        "arXiv:1805.11776 (comparison from identified flow and citation)",
+        "arXiv:2210.06035",
+        "arXiv:2406.05159",
+        "Resultary:2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed gamma2 includes the exact factor alpha(coth R-1)^(alpha-1)csch^2 R, derived by differentiating the specific speed.",
+          "Prior exact-spectrum Resultary records have different ambient geometry and curvature operators."
+        ],
+        "reasoning": "Neither merely establishing convergence nor the unshifted/degree-one analogue mathematically entails this full shifted-alpha formula without an additional linearization calculation.",
+        "searches": [
+          "hyperbolic shifted Gauss curvature volume preserving flow geodesic sphere linearized spherical harmonics spectral gap radius volume",
+          "arXiv:2610.18423v1",
+          "arXiv:1805.11776",
+          "arXiv:2210.06035"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Degree-l spherical-harmonic eigenvalues and the degree-two sharp gap are equivalent to the full local semigroup spectrum after modding out radius and center modes.",
+          "Andrews–Chen–Wei use a degree-one shifted-curvature speed, not the all-alpha power stated here."
+        ],
+        "reasoning": "Compared normal graph linearization, neutral isometry directions, shifted-Weingarten speed and spectral gap, not titles. No identified source states this same parameterwise spectrum.",
+        "searches": [
+          "hyperbolic shifted Gauss curvature volume preserving flow geodesic sphere linearized spherical harmonics spectral gap radius volume",
+          "arXiv:2610.18423v1 flow equations (1.5)-(1.6)",
+          "arXiv:1805.11776 shifted degree-one speed"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed full spectral records concern spherical Alexandrov–Fenchel and dual Minkowski flows, distinct from the hyperbolic shifted Gauss speed."
+        ],
+        "reasoning": "An all-n/all-R/all-alpha symbolic formula cannot be exhausted by finitely tabulated eigenvalues; no equivalent source was identified.",
+        "searches": [
+          "hyperbolic shifted Gauss curvature volume preserving flow geodesic sphere linearized spherical harmonics spectral gap radius volume",
+          "Resultary:2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089",
+          "Resultary:2026/10/11/SCOPE-complete-spherical-harmonic-linearization-of-the-supercritical-d--0a8d1e04c632"
+        ]
+      },
+      "rationale": "Best-of-knowledge: the exact all-degree linearized spectrum and its radius-dependent sharp gap for the specified shifted-alpha Gauss flow are not covered by identified published results on other curvature speeds or other ambient geometries. The directly matching recent Zhang article was located but inaccessible in full, creating a significant explicit priority risk; its absence alone is not grounds to assert noncoverage or failure.",
+      "residual_risks": [
+        "High: full Zhang 2026 directly relevant manuscript unavailable (authorized retrieval storage limit); possible same-flow linearized computation cannot be ruled out.",
+        "A standard variation formula may make the calculation familiar; no novelty is claimed for the variation formula itself.",
+        "Unindexed equivalent all-alpha formula remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "HIGH-RELEVANCE UNREAD; cannot claim article-wide noncoverage",
+          "evidence": [
+            "arXiv:2610.18423v1; source reports Theorem 1.3 and equations (1.5)-(1.6)"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18423",
+          "material_read": "Bibliographic metadata, claimed result scope and equations as reported in the audited source; full paper inaccessible",
+          "method": "arXiv and lawful OA retrieval attempts; authorized institutional tool returned storage-limit error",
+          "title": "Curvature measures and volume preserving flows in h-convex geometry",
+          "trigger": "Exact shifted-alpha Gauss flow and global convergence"
+        },
+        {
+          "assessment": "Different spherical ambient geometry and Alexandrov–Fenchel speed",
+          "evidence": [
+            "Resultary published synopsis: gap 2(n+2)/(n sin^2 R)"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-full-linearization-of-a-spherical-alexandrov-fenchel-flow--e83160512089",
+          "material_read": "Indexed title and abstract, not original full text",
+          "method": "Resultary published search",
+          "title": "Exact full linearization of a spherical Alexandrov–Fenchel flow",
+          "trigger": "Similar full-mode spectral formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp gap is attained by degree-two harmonics for all n>=2 and alpha>0",
+        "Large-volume exponent 2alpha/n with explicit coefficient; no uniform positive lower gap over radii"
+      ],
+      "rationale": "The exact degree-resolved, all-parameter relaxation spectrum of the natural stationary solutions identifies neutral symmetries, the optimal local shape rate and its sharp deterioration with enclosed volume. These quantities can inform volume-sensitive nonlinear estimates; the claim does not require or promise such an estimate. This is a motivated analytic refinement of a global-flow problem, not a renamed convergence assertion.",
+      "risks": [
+        "The output may be routine to specialists; significance is the exact scale for the specified geometric flow, not a new variation method."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

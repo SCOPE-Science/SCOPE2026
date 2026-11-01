@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-## Mathematical checks
+# Independent mathematical audit
 
-- At a geodesic sphere, \(\kappa_i=\coth R\), so \(\widetilde K^{\alpha/n}=(\coth R-1)^\alpha\) is constant and the sphere is stationary.
-- The variation of the shape operator is \(\delta\mathcal W=-\nabla^2u-u(\mathcal W^2-I)\); its trace gives the stated \(\delta H\).
-- The derivative of the area average equals the average derivative at a constant reference speed; this is the source of the projection \(u-\bar u\).
-- The eigenvalues use \(\Delta_{S_R}Y_\ell=-\ell(\ell+n-1)\sinh^{-2}R\,Y_\ell\).
-- The exact gap expression follows from \(\coth R-1=2e^{-2R}/(1-e^{-2R})\) and \(\operatorname{csch}^2R=4e^{-2R}/(1-e^{-2R})^2\).
-- The volume asymptotic follows from \(\operatorname{Vol}(B_R)=\omega_n\int_0^R\sinh^n s\,ds\sim\omega_n e^{nR}/(n2^n)\).
+## correctness
 
-## Scope of verification
+PASS
 
-The proof is analytic and covers every stated \(n,R,\alpha\). No code, finite enumeration, or numerical sampling is needed. The result is about the linearization only; nonlinear global rate constants and independent audit remain unperformed.
+Reconstructed the Fréchet linearization at a curvature -1 hyperbolic geodesic sphere: delta W=-Hess(u)-u(W^2-I), delta F=-(alpha/n)(coth R-1)^(alpha-1)(Delta u+n csch^2(R)u), and the area-average variation cancels measure terms because F is constant. Spherical harmonic eigenvalues yield degree-zero/degree-one neutral modes and strictly negative all higher-degree eigenvalues; degree two gives the sharp gap. Differentiating its q=e^(-2R) closed form and inserting hyperbolic ball asymptotics yields monotonicity and the exact V^(-2alpha/n) coefficient for every n>=2, alpha>0, R>0. No nonlinear all-initial-data convergence is inferred.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the exact all-degree linearized spectrum and its radius-dependent sharp gap for the specified shifted-alpha Gauss flow are not covered by identified published results on other curvature speeds or other ambient geometries. The directly matching recent Zhang article was located but inaccessible in full, creating a significant explicit priority risk; its absence alone is not grounds to assert noncoverage or failure.
+
+## value
+
+PASS
+
+The exact degree-resolved, all-parameter relaxation spectrum of the natural stationary solutions identifies neutral symmetries, the optimal local shape rate and its sharp deterioration with enclosed volume. These quantities can inform volume-sensitive nonlinear estimates; the claim does not require or promise such an estimate. This is a motivated analytic refinement of a global-flow problem, not a renamed convergence assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
