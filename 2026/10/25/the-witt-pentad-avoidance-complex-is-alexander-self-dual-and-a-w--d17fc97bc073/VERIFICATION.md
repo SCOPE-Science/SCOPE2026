@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3. The program requires only standard-library modules. Its output is saved in `verification_output.txt`.
+## correctness
 
-The verification recomputes the entire cyclic block list and all tetrad incidences (unique coverage of 330 tetrads), all 1023 nonempty faces with size vector \((11,55,165,330,396,66)\), equality of the 66 free hexads with complements of blocks, and the unique free hexad extension of each nonblock pentad.
+PASS
 
-For discrete Morse acyclicity, it reconstructs 451 unique vertex-toggle matching pairs, explicitly enumerates every one of 4301 face-cover incidences, orients matched incidences upward and all other incidences downward, and topologically sorts all 1023 vertices of that directed graph. This eliminates any possible closed gradient path and gives a finite, exhaustive certificate.
+The six cyclic pentad orbits generate 66 distinct blocks and uniquely cover all 330 four-subsets; the 66 free hexads are precisely the block complements. Every nonblock five-set extends uniquely to a free hexad, proving Alexander self-duality with the stated convention. Independent exhaustive enumeration reproduced the nonempty f-vector (11,55,165,330,396,66), 1023 faces, 451 disjoint vertex-pivot Morse pairs, one critical vertex plus 120 four-simplices; a topological sort of all 4301 oriented covering edges visited every face, proving acyclicity. The resulting Morse CW complex has one zero-cell and only 120 four-cells, all with constant attaching maps. The finite exhaustive certificate proves this fixed instance, not an all-Steiner-system theorem.
 
-No external solver, software dependency, precomputed certificate, or external mathematical judgement is needed to replay these finite calculations. The application of the standard discrete-Morse homotopy theorem to this finite matching is the sole topological deduction. No assertion is made about other Steiner-system parameters or independent verification.
+## originality
+
+PASS
+
+Known Witt-design uniqueness/incidence facts and general Alexander dual constructions are used but neither the finite acyclic matching nor the 120-sphere homotopy type was found in the materially inspected sources. Ballico et al study a different complement-of-nonblock matroid, not the free-hexad-facet avoidance complex. Originality remains best-of-knowledge; similar topology may be unindexed.
+
+## value
+
+PASS
+
+The unique small Witt design is a canonical exceptionally symmetric finite incidence structure. Its self-Alexander-duality and full integral homotopy classification yield a natural exact invariant useful for studying Steiner-design avoidance complexes and their topology, beyond routine face counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
