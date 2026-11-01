@@ -1,0 +1,11 @@
+# Scientific review of the Desargues perfect-matching homotopy classification
+
+**Correctness — PASS.** The exact graph and extendible-matching definition fix every finite quantifier. Sixty facets are independently counted by recursive enumeration and a bipartite permanent. All \(113{,}192\) ordinary matchings are independently classified for perfect extendibility, recovering exactly \(44{,}282\) faces including the empty face. A complete directed-Hasse topological sort certifies the acyclic matching. Forman reduction gives one zero-cell, thirty-one three-cells, and one four-cell. Exact signed elimination yields a zero integral degree vector, not merely zero mod two; since \(\pi_3\) of the wedge of three-spheres is freely detected by degrees, the four-cell attaches nullhomotopically. The verifier reproduces every finite step.
+
+**Originality — PASS against checked evidence.** The closest same-graph published theorem classifies the ordinary matching complex with \(113{,}191\) nonempty faces, whereas the new perfect-matching subcomplex has \(44{,}281\); the former's wedge in dimensions five and six does not imply the latter's wedge in dimensions three and four. The nearest same-construction result treats the Heawood incidence graph, and the relevant primary papers classify honeycomb or polygonal-line families. Exact alias, parameter, and stronger-coverage searches returned no equivalent theorem. Residual risk: an unindexed equivalent computation is possible.
+
+**Value — PASS.** The Desargues graph is the canonical twenty-vertex bipartite double cover of the Petersen graph and is a natural, highly symmetric test object for the difference between all matchings and extendible matchings. The precise mixed-dimensional integral homotopy type is not supplied by the known ordinary matching classification or by generic perfect-matching-complex constructions. A natural finite classification, rather than a claim of a uniform graph-family theorem, is the contribution.
+
+The statement does not assert equivariant homotopy, inclusion-induced maps, or a classification beyond this graph. All mathematical certification here is limited to the supplied finite reconstruction and accepted mathematical principles; no outside audit is implied.
+
+Self-review: passed. Independent audit: not yet performed.
