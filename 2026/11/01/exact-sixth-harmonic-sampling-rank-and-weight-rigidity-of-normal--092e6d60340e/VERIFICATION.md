@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and boundaries
+# Independent mathematical audit
 
-Run `python3 verify_b6.py` in the folder containing `verify_b6.py`. It depends only on the Python standard library and prints `TYPE_B_SIXTH_HARMONIC_EXACT_CHECK_OK 304` on success.
+## correctness
 
-The script computes normalized Gegenbauer values as exact fractions; forms squared inner products of one representative from each antipodal pair; checks the three rational scalar eigenvalues, standard-block determinant, invariant-block determinant and explicit invariant weight null relation for each integer dimension \(3\le n\le22\). It reconstructs complete projective Gram matrices and independently row-reduces them with exact fractions for dimensions \(3\) to \(6\), verifying ranks \(6,13,24,35\).
+PASS
 
-These are finite reproducibility checks. The all-dimensions claim is established in RESULT.md by the explicit incidence decomposition and exact rational determinant identities, plus direct positivity arguments. The normalization is \(G_n(1)=1\), not the raw \(L^2\) surface-measure reproducing constant. Neither historical priority nor independent mathematical verification has been certified.
+The real harmonic addition theorem identifies rank of evaluation with rank of the positive semidefinite Gegenbauer Gram on n² antipodal representatives, normalized G_n(1)=1. The squared dot-product classes {0,1/4,1/2,1} split the n short and two signed pair coordinates into an m=binom(n,2) difference sector of eigenvalue a=1−x>0, pair-deviation ker(B) sector c=1+3x−4y=15(n−4)(n+4)(n+6)/(16D), a standard (n−1)-copy 2×2 block with determinant 15n(n−3)(n+4)²(n+6)(n+8)/(32D²), and a constant 2×2 block with T11>0 and determinant zero. All zero eigenvalue multiplicities therefore give ranks 6,13,n²−1 exactly. Independent SymPy rational symbolic factorizations checked pair-deviation eigenvalue, standard determinant, constant-sector determinant and weighted null-vector row identity as identities in n; inspected exact-rational verifier verify_b6.py, which additionally forms full small-n Gram ranks. Averaging nonnegative annihilators over the signed-permutation group proves the stated existence thresholds even for non-invariant arrays. Antipodal symmetry is essential for uniqueness because odd weights annihilate even harmonics automatically.
+
+## originality
+
+PASS
+
+Bajnok and Nozaki–Sawa develop hyperoctahedral invariant orbit-design equations already giving the invariant short/long sixth-harmonic weight ratio and its positivity threshold; these are correctly treated as known consequences. The non-invariant full n²-row Gram rank, exceptional n=3,4 nullities and uniqueness of all antipodally symmetric degree-six annihilators for n≥5 are stronger and not implied by only invariant moment equations. Long-root-only type-D spectra and abstract harmonic-index bounds concern different configurations or just invariant equations. No direct dominating full mixed-orbit rank located.
+
+## value
+
+PASS
+
+The full exact-degree-six sampling operator on a classical root system is a natural high-symmetry harmonic-analysis question. Classifying ALL nullweights—not merely group-averaged ones—reveals two genuine exceptional low dimensions and a stable rigidity range relevant to harmonic index cubature and sampling, a structural classification rather than a renamed invariant design constraint.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
