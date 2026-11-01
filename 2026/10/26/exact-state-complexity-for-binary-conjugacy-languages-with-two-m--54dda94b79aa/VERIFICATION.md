@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Scope
+## correctness
 
-The proved result applies to every pair of nonnegative integers \(a,b\), to the language consisting of all distinct cyclic rotations of \(1\,0^a1\,0^b\), and to the state count of its smallest **complete deterministic** finite automaton. Independent external validation has not been conducted.
+PASS
 
-## Reproduction
+For the finite language C(w) of distinct conjugates of w=10^a10^b, a complete minimal DFA has one dead quotient and nonempty quotients segregated by prefix length and number of consumed ones. Let ell=min(a,b), h=max(a,b), d=h−ell. All-zero prefixes contribute h+1 quotients, two-one prefixes another h+1. One-one prefixes 0^i1 0^j are feasible exactly in the union [0,ell]×[0,h] ∪ [0,h]×[0,ell], cardinality (ell+1)(2h−ell+1). Quotient collisions can only pair singleton A-only and B-only continuations, requiring i'=i+d, j'=j−d in min(d,ell+1)² distinct disjoint pairs. Thus the exact Myhill–Nerode quotient count is (2ell+4)h+4−ell²−min(d²,(ell+1)²), including equal gaps and adjacent ones. Independently enumerated complete right-quotient sets for 91 pairs 0≤a≤b≤12; every result matched. This checks finite instances only, with all-parameter proof from the rectangle and collision argument.
 
-Run `python3 checker.py` with Python 3 and no installed dependencies. The checker creates the set of cyclic rotations without assuming they are all distinct. It constructs a prefix trie and computes bottom-up Myhill–Nerode equivalence classes using the final status and ordered child states, counting one explicit dead state. It separately constructs and counts the complete sets of right quotients at every prefix length in smaller cases. These two implementations do not use the proof's rectangle-collision counting argument.
+## originality
 
-The full finite test set is all \(0\leq a\leq b<24\) (300 minimizations), all \(0\leq a\leq b<9\) (45 quotient inventories), plus 121 ordered pairs through ten for cyclic-gap symmetry. Expected representative state counts: \((0,0)\mapsto4\), \((1,1)\mapsto9\), \((2,2)\mapsto16\), \((2,5)\mapsto31\), \((3,5)\mapsto41\), \((5,10)\mapsto94\).
+PASS
 
-## Proof obligation and limits
+Best-of-knowledge PASS for a complete per-word two-marker conjugacy state-complexity formula. Jirásková–Okhotin 2008 addresses worst-case complexity of cyclic shift as an operation on arbitrary regular languages; Gabric–Holub–Shallit 2019 studies global maxima and generalized de Bruijn equality, not this fixed two-marker quotient collision census. Known descriptional-complexity upper bounds do not determine the exact grid-collision regime.
 
-Finite computations only corroborate the theorem. The infinite quantifiers are discharged by enumerating all possible nonempty right quotients and proving that only a translated square family of A-only/B-only prefixes can coincide. The source-word boundary cases \(a=b=0\) and \(a=b>0\) are explicitly included. The argument is not asserted for other weights or nondeterministic automata. Priority caveats appear in the scientific review; there has been no independent external audit.
+## value
+
+PASS
+
+Exact complete DFA state count over every binary two-one cyclic-word language is a natural sharp descriptional-complexity classification. It tracks the nontrivial quotient mergers at h−ell=ell+1 and covers periodic degenerate equal gaps, supplying information not entailed by global extremal bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

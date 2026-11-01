@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:15:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 92dae467ef5d41913061107ca7635bc05267cab4",
+        "Assigned checker.py Git blob 4aaa1691547a42ea319a598c4d6baec2c2768cb3",
+        "Independent direct finite-language quotient inventory 91 pairs"
+      ],
+      "rationale": "For the finite language C(w) of distinct conjugates of w=10^a10^b, a complete minimal DFA has one dead quotient and nonempty quotients segregated by prefix length and number of consumed ones. Let ell=min(a,b), h=max(a,b), d=h−ell. All-zero prefixes contribute h+1 quotients, two-one prefixes another h+1. One-one prefixes 0^i1 0^j are feasible exactly in the union [0,ell]×[0,h] ∪ [0,h]×[0,ell], cardinality (ell+1)(2h−ell+1). Quotient collisions can only pair singleton A-only and B-only continuations, requiring i'=i+d, j'=j−d in min(d,ell+1)² distinct disjoint pairs. Thus the exact Myhill–Nerode quotient count is (2ell+4)h+4−ell²−min(d²,(ell+1)²), including equal gaps and adjacent ones. Independently enumerated complete right-quotient sets for 91 pairs 0≤a≤b≤12; every result matched. This checks finite instances only, with all-parameter proof from the rectangle and collision argument.",
+      "residual_risks": [
+        "Distinct rotations, rather than rotation multiplicities, are the language; complete DFA includes one dead state.",
+        "Finite enumeration only verifies 91 parameter pairs and does not establish the unbounded formula by itself."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2008 primary Section 2 defines worst-case f_k(n) over ALL n-state DFA languages; Sections 3–5 construct hard regular-language witnesses and enumerate n≤5, not fixed length-n two-marker rotations.",
+          "Gabric et al. Theorem 7 bounds the maximum among all conjugacy languages of a given length; the present result is below that max in most of the family."
+        ],
+        "reasoning": "The compared stronger-looking bounds optimize over languages or words. They do not pin down the exact Myhill–Nerode quotient structure for every 10^a10^b.",
+        "searches": [
+          "Jirásková Okhotin 2008 full PDF https://im.saske.sk/hospodar/literature/2008_jiraskova_okhotin_RAIRO-ITA_cyclic_shift.pdf",
+          "Gabric Holub Shallit 2019 arXiv 1903.05442 Theorem 7"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Operation-level worst-case complexity; not the per-single-two-marker-word quotient formula in inspected theorems",
+          "material_read": "Full 26-page PDF indexed text with Section 1 context, Section 2 Theorem 1, Sections 3–5 scope and screenshot page 1",
+          "source": "https://im.saske.sk/hospodar/literature/2008_jiraskova_okhotin_RAIRO-ITA_cyclic_shift.pdf"
+        },
+        {
+          "assessment": "Global maximal bound and generalized de Bruijn criterion, no fixed two-marker quotient collision formula in inspected material",
+          "material_read": "Primary full PDF, definitions and Theorem 7 around page 10 with visual screenshot",
+          "source": "https://arxiv.org/pdf/1903.05442"
+        },
+        {
+          "assessment": "Could contain special-case enumeration; no whole-document exclusion asserted",
+          "material_read": "Bibliographic abstract only; full chapter unavailable",
+          "source": "https://doi.org/10.1007/978-3-642-38536-0_22"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gabric et al. Theorem 7 provides global upper bounds/equality criteria for generic single-word conjugacy languages.",
+          "Jirásková–Okhotin Theorem 1 supplies operation-level worst-case bounds, independent of the two-marker quotient collision count."
+        ],
+        "reasoning": "Neither source determines the displayed piecewise threshold at h=2ell+1. A specialized overlooked 2013 finite-language result could be stronger; that material remains uninspected.",
+        "searches": [
+          "Gabric Holub Shallit 2019 Theorem 7",
+          "Jirásková Okhotin 2008 Theorem 1 and Section 5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-one finite-word conjugacy class is a special language; state complexity is the distinct right-quotient count with a sink, not number of rotations.",
+          "Gabric–Holub–Shallit maximum bound and de Bruijn condition are not an exact two-gap function."
+        ],
+        "reasoning": "The cyclic-shift language-operation literature, necklace conjugacy and prefix-trie minimization are equivalent problem descriptions. An upper bound based only on word length cannot imply this two-parameter exact count without resolving quotient collisions.",
+        "searches": [
+          "Resultary semantic query: state complexity deterministic automaton conjugate cyclic rotations two 1s binary words zero run gaps",
+          "Gabric Holub Shallit arXiv 1903.05442"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2008 Section 5 tabulates small DFA input sizes for cyclic-shift operation complexity, not the two-zero-gap formula.",
+          "91 directly checked two-marker examples agree with a genuinely parameterized analytic count, no prior exact table located."
+        ],
+        "reasoning": "A table of global worst-case DFA complexity for up to five input states is not an all-(a,b) exact census of conjugates of single binary two-one words.",
+        "searches": [
+          "Gabric Holub Shallit 2019 conjugacy language state complexity de Bruijn",
+          "Jirásková Okhotin 2008 Section 5 small DFA computer enumeration",
+          "Resultary two marked bits binary conjugate DFA query"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for a complete per-word two-marker conjugacy state-complexity formula. Jirásková–Okhotin 2008 addresses worst-case complexity of cyclic shift as an operation on arbitrary regular languages; Gabric–Holub–Shallit 2019 studies global maxima and generalized de Bruijn equality, not this fixed two-marker quotient collision census. Known descriptional-complexity upper bounds do not determine the exact grid-collision regime.",
+      "residual_risks": [
+        "Relevant 2013 prefix-free cyclic-shift chapter and some earlier special-case automata literature were not inspected in full.",
+        "A specialized two-marker conjugacy formula may predate these general descriptional-complexity works without shared terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Operation-level worst-case complexity; not the per-single-two-marker-word quotient formula in inspected theorems",
+          "evidence": [
+            "DOI 10.1051/ita:2007038; Section 2 Theorem 1 and Section 5"
+          ],
+          "identifier_or_url": "https://im.saske.sk/hospodar/literature/2008_jiraskova_okhotin_RAIRO-ITA_cyclic_shift.pdf",
+          "material_read": "Full 26-page PDF indexed text with Section 1 context, Section 2 Theorem 1, Sections 3–5 scope and screenshot page 1",
+          "method": "OA full PDF open, find and screenshot",
+          "title": "State complexity of cyclic shift",
+          "trigger": "Potential identical automata operation"
+        },
+        {
+          "assessment": "Global maximal bound and generalized de Bruijn criterion, no fixed two-marker quotient collision formula in inspected material",
+          "evidence": [
+            "arXiv:1903.05442 Theorem 7"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1903.05442",
+          "material_read": "Primary full PDF, definitions and Theorem 7 around page 10 with visual screenshot",
+          "method": "arXiv PDF open and screenshot",
+          "title": "Generalized de Bruijn Words and the State Complexity of Conjugate Sets",
+          "trigger": "Exact same conjugacy-language invariant and strongest potential coverage"
+        },
+        {
+          "assessment": "Could contain special-case enumeration; no whole-document exclusion asserted",
+          "evidence": [
+            "DOI 10.1007/978-3-642-38536-0_22 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/978-3-642-38536-0_22",
+          "material_read": "Bibliographic abstract only; full chapter unavailable",
+          "method": "search abstract",
+          "title": "Cyclic Shift on Prefix-Free Languages",
+          "trigger": "Potential narrower finite-language special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Independent checked scientific primary and specialty sources as listed under originality",
+        "Independent mathematical verification/replay as recorded under verification"
+      ],
+      "rationale": "Exact complete DFA state count over every binary two-one cyclic-word language is a natural sharp descriptional-complexity classification. It tracks the nontrivial quotient mergers at h−ell=ell+1 and covers periodic degenerate equal gaps, supplying information not entailed by global extremal bounds.",
+      "residual_risks": [
+        "Scope is precisely two marked bits and complete deterministic automata; no higher-marker or NFA complexity claim."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Other alphabets, ≥3 one-bits and nondeterministic complexity not assessed; older special-case literature partially inaccessible.",
+  "schema_version": 1
+}
