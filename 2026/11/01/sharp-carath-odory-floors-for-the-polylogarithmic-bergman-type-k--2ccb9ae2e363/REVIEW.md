@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness — PASS
+The theorem gives the exact real-part infimum for every real exponent \(\alpha\ge0\). For orders strictly between zero and one, the second-difference Laplace kernel is negative and has total disk-transform mass one; the sharp Möbius upper bound yields the zero floor. For orders strictly between one and two, its sign reverses, the Möbius lower bound identifies the exact boundary value \(4\eta(-\alpha)\), and the zeta functional equation establishes positivity. The integer endpoints are rational identities. For all orders above two, complex Euler–Maclaurin/Riemann-sum asymptotics give diverging negative real part along a disk approach. A separate eta-sign and Rolle argument supplies a negative-real kernel zero at each supercritical order. Numerical checks are supportive, never the proof. Residual correctness risk is conventional handling of standard analytic continuations; the integral formulas and sector asymptotics are displayed explicitly in the proof.
+
+## Originality — PASS under bounded review
+The novel assertion reviewed is the **complete, sharp Carathéodory real-part lower envelope**, including its order-one boundary-location switch and its unbounded-negative regime above order two. Wood (1992) describes classical polylogarithm zero counts, so mere disk zero-free behavior is not asserted as a new contribution. Savage–Visontai (arXiv:1208.3831) treat finite Eulerian polynomials; they do not state a continuous-order sharp real-part floor. Bénéteau et al. (arXiv:1509.04807) treat zeros of optimal approximants and subspace reproducing kernels, not the exact real-part envelope of the full power-coefficient kernel. Published results on distinct radial weights and half-plane Carathéodory components have a different coefficient sequence or function definition and do not imply this floor as stated. An older 1975 Jonquière-zero paper was identified but its full text remained inaccessible; a differently indexed real-part theorem remains a residual novelty risk. Search failures alone were not taken as novelty evidence.
+
+## Mathematical value — PASS
+This is the exact optimal quantitative half-plane bound for a canonical Hardy-to-Bergman family and every supercritical member, not a computed special value. It yields strict uniform kernel lower bounds for each exponent strictly between one and two; identifies the singular change from a vanishing boundary floor below one to a constant floor at one; and explains precisely where the Carathéodory property breaks down, with negative real part unbounded beyond two. These are intrinsic analytic invariants that are stronger than the known zero locations and can inform normalized-kernel estimates.
+
+## Scientific limits
+The coefficient normalization is fixed, negative exponents are not treated, and no classification of all supercritical zeros is asserted. Related earlier specialized literature might contain an equivalent real-part estimate. Numerical tests do not establish the universal quantifiers; independent audit and validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
