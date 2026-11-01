@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-Run `python verify_ramanujan_min.py` using Python 3.10 or later. The verifier uses only standard-library exact integer and rational arithmetic.
+# Independent mathematical audit
 
-Its complete enumeration covers the moduli \(2\) through \(163\) and every nonprincipal real Dirichlet character at each modulus, not just primitive characters. The square-class quotient is computed from units, and all nontrivial dual characters are generated; direct multiplicativity assertions provide an additional consistency check.
+## correctness
 
-The expected certificate reports 433 characters, 173 even and 260 odd; 85 odd characters have \(B_{1,\chi}=0\) and 175 have nonzero \(B_{1,\chi}\). It reports the sole strict failure at 163 and the unique sharp lower-range ratio at 67. All root-location decisions follow from the exact reciprocal-quadratic criterion in the proof, not floating root approximations.
+PASS
 
-This verifies a finite minimality theorem, not the existence of a universal bound beyond the stated range. The modulus-163 counterexample itself is due to Pathak (2026), not to this work. The work has received no independent audit.
+Square-class quotient U_N/U_N² enumerates all real nonprincipal characters, primitive and imprimitive. Bernoulli polynomial identities express B1,B3,B5 exactly in integer power sums; even-parity polynomials have roots ±i, odd parity reduces to reciprocal quadratic with root-on-circle iff 5B3²<=3B1B5. Independent exact enumeration for every 2<=N<=163 found 433 characters (173 even, 260 odd; 85 odd B1=0), sole ratio>1 at N=163 and unique maximum under 163 at N=67. This is exhaustive within the FINITE stated range, not a theorem for larger moduli.
+
+## originality
+
+PASS
+
+Pathak (2026) explicitly published the modulus-163 counterexample and its coefficients: they are not claimed original. The assessed difference is proof of MINIMUM modulus (including all imprimitive real characters) and unique exact modulus-67 near-miss. Berndt–Straub (2014) reported checks only up to modulus 100, so those citations do not entail the exhaustive 101..162 classification. Full primary recent arXiv HTML was unavailable.
+
+## value
+
+PASS
+
+The first exact failure cutoff for a named zeros-on-circle conjecture and its unique closest preceding arithmetic character are a motivated natural finite classification with actual unproved lower-modulus exclusion, not an arbitrary experimental slice. It does not claim all higher moduli or degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

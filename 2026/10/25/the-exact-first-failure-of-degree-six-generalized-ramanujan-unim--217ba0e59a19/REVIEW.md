@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The degree-six polynomial follows from the published generalized-Bernoulli definition, with the even and odd parity branches checked separately. For odd characters with \(B_{1,\chi}\ne0\), the reciprocal quadratic has off-circle roots exactly when \(5B_{3,\chi}^2>3B_{1,\chi}B_{5,\chi}\); this is established by direct algebra. The exhaustive certificate enumerates every homomorphism of the square-class quotient for every modulus \(2\) through \(163\), checks multiplicativity, and computes the Bernoulli sums with rational arithmetic. It identifies 433 nonprincipal real characters and exactly one failure, plus the unique sharp ratio at 67. The finite claim is within the enumerated scope.
+## correctness
 
-**Originality — PASS, with residual risk.** Berndt–Straub introduced the objects and verified numerically only through modulus 100. Pathak gives the explicit modulus-163 counterexample and a general at-most-four exceptional-root theorem. Neither inspected source proves that 163 is the *least* failing modulus among all real characters, primitive and imprimitive, or provides the exact sharp modulus-67 pre-failure bound. The relevant primary literature and mathematical records do not imply the exact classification. It remains possible that an unpublished search or older unindexed computation established it implicitly.
+PASS
 
-**Value — PASS.** The least counterexample modulus is a natural invariant of the formerly universal zero-location conjecture, and the unique maximal pre-failure coefficient ratio quantitatively measures how near the conjecture came to failure. Both supply a complete, reproducible boundary for the lowest degree with a genuine quartic nonzero-root configuration, strengthening a single published counterexample rather than arbitrarily enumerating unrelated moduli.
+Square-class quotient U_N/U_N² enumerates all real nonprincipal characters, primitive and imprimitive. Bernoulli polynomial identities express B1,B3,B5 exactly in integer power sums; even-parity polynomials have roots ±i, odd parity reduces to reciprocal quadratic with root-on-circle iff 5B3²<=3B1B5. Independent exact enumeration for every 2<=N<=163 found 433 characters (173 even, 260 odd; 85 odd B1=0), sole ratio>1 at N=163 and unique maximum under 163 at N=67. This is exhaustive within the FINITE stated range, not a theorem for larger moduli.
 
-**Limitations.** This theorem stops at 163 and is specific to degree six; higher-degree first failures are not classified. The proof includes an exhaustive finite algorithm whose completeness depends on the proved square-class parametrization. Independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pathak (2026) explicitly published the modulus-163 counterexample and its coefficients: they are not claimed original. The assessed difference is proof of MINIMUM modulus (including all imprimitive real characters) and unique exact modulus-67 near-miss. Berndt–Straub (2014) reported checks only up to modulus 100, so those citations do not entail the exhaustive 101..162 classification. Full primary recent arXiv HTML was unavailable.
+
+## value
+
+PASS
+
+The first exact failure cutoff for a named zeros-on-circle conjecture and its unique closest preceding arithmetic character are a motivated natural finite classification with actual unproved lower-modulus exclusion, not an arbitrary experimental slice. It does not claim all higher moduli or degrees.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
