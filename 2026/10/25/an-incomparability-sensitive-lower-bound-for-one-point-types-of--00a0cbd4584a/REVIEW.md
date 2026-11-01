@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Each nonalgebraic type corresponds to an admissible ideal/filter pair in the generic partial order. The identity \(t=2i-1+m\), the induction \(i\ge n+1+j\), and the comparable-pair injection \(m\ge c\) jointly give the stated lower bound. The equalities are classified by a two-step obstruction argument: a fork or cofork creates a mixed type beyond comparable-pair types, while three nonempty chain components create a strictly positive third elementary symmetric term. The proof treats the empty set and all small orders. Standalone finite enumeration agrees in every case through five vertices.
+## correctness
 
-**Originality — PASS, qualified.** Dolinka–Mašulović's one-point-extension machinery and published finite-parameter type-counting work supply the counting setup. The explicitly inspected papers and published counting result do not state the incomparable-pair penalty plus a global equality classification. Searches using the lower bound, aliases, two-chain equality family, and ideal-count comparison found no decisive covering theorem. This is a best-knowledge assessment, not proof of novelty; implicit or poorly indexed previous coverage is a concrete residual risk.
+PASS
 
-**Mathematical value — PASS.** The theorem refines the extremal minimum for an intrinsic statistic of every finite poset. It quantifies the minimum cost of incomparability in the number of one-point extensions, separates branching and multiple-component excess by exact nonnegative terms, and characterizes all sharp cases, not merely a sample family. It supplies a structural benchmark for comparing finite parameter sets and for near-extremal searches. It is not a claim of a new complexity theorem.
+Every nonalgebraic type is an admissible ideal/filter pair (L,U) over a finite named poset, giving t(P)=2i(P)-1+m(P). For a chosen maximal x and Q=P\{x}, its strict predecessors D form an ideal; the incomparable subposet H=Q\D yields i(P)=i(Q)+i(H) and j(P)=j(Q)+|H|. Since i(H)>=|H|+1, induction gives i(P)>=n+1+j(P). Each comparable a<b gives a distinct mixed type (downarrow a, uparrow b), so m(P)>=c(P), yielding t(P)>=binom(n+2,2)+j(P) and exact nonnegative two-term defect. Nonchain connected comparability components contain an incomparable distance-two pair sharing a neighbor; their union downset/upset gives an additional mixed type not associated with a comparable pair. For disjoint k chains, i(P)=prod(n_i+1), j=e2 and m=c, so defect=2 sum_{r>=3}e_r and equality iff k<=2 (including empty poset). A fresh independent exhaustive enumeration for all labeled posets n=0..4 matched both the inequality and exact equality classification.
 
-**Closest literature and limitations.** The historical one-point extension description is standard; the counting-hardness result covers exact evaluation, not this sharp parameterized bound. Exact second-minimum results concern a different optimization and do not imply the bound for arbitrarily many incomparable pairs. No independent audit has been performed; an unindexed equivalent combinatorial inequality cannot be excluded.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dolinka–Mašulović and a published #P-completeness finding already establish the ideal/filter parameterization. The inspected complete Resultary finite-parameter #P paper gives chain/antichain values and a top-chain complexity reduction but not the sharp incomparability-sensitive coefficient-one lower bound, exact two-slack defect or global equality iff at most two chain components. The deduction uses elementary combinatorics, so a hidden extremal poset ideal-count inequality remains a real priority risk. No stronger theorem was located that mathematically implies the full stated equality classification.
+
+## value
+
+PASS
+
+This is a natural extremal counting question for the automorphism-stabilizer type profile of the universal homogeneous poset. Its coefficient-one penalty per incomparable pair and exact structural equality cases distinguish how incomparability grows beyond a chain; it is a complete all-finite-poset bound/classification, not a renamed counting-hardness result. The result is modest/elementary but mathematically useful as a sharp extremal benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

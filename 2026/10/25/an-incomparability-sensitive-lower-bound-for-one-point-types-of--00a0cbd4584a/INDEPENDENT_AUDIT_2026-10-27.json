@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:53:35Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual Git RESULT.md blob 28a42ede10396296a2f48793dceeb3089d2db261 full proof and n=0 boundary.",
+        "Independent standalone enumeration of every transitive labeled strict relation through n=4: counts 1,1,3,19,219 posets; all exact defects nonnegative and equality cases exactly <=2 chain comparability components.",
+        "Actual package check.py Git blob 17866eef11261e1e359cbbafd78992052aaf75cf reviewed: exhausts n<=5 and compares ideals, admissible types, chain-component classification; stored output alone not treated as proof.",
+        "Published Resultary 2026/10/4 random poset #P theorem full RESULT.md independently read for exact type–ideal/filter correspondence."
+      ],
+      "rationale": "Every nonalgebraic type is an admissible ideal/filter pair (L,U) over a finite named poset, giving t(P)=2i(P)-1+m(P). For a chosen maximal x and Q=P\\{x}, its strict predecessors D form an ideal; the incomparable subposet H=Q\\D yields i(P)=i(Q)+i(H) and j(P)=j(Q)+|H|. Since i(H)>=|H|+1, induction gives i(P)>=n+1+j(P). Each comparable a<b gives a distinct mixed type (downarrow a, uparrow b), so m(P)>=c(P), yielding t(P)>=binom(n+2,2)+j(P) and exact nonnegative two-term defect. Nonchain connected comparability components contain an incomparable distance-two pair sharing a neighbor; their union downset/upset gives an additional mixed type not associated with a comparable pair. For disjoint k chains, i(P)=prod(n_i+1), j=e2 and m=c, so defect=2 sum_{r>=3}e_r and equality iff k<=2 (including empty poset). A fresh independent exhaustive enumeration for all labeled posets n=0..4 matched both the inequality and exact equality classification.",
+      "risks": [
+        "Lower bound not sharp for every fixed (n,j) when no two-chain poset has that incomparability count.",
+        "An elementary induction does not automatically establish new originality, assessed separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary #P result supplies exact type–pair bijection, chain and antichain baseline, and polynomial-time Turing #P-hardness.",
+          "Classical counts of order ideals/antichains are general background for i(P)>=n+1+j(P)."
+        ],
+        "reasoning": "The complexity theorem is broader computationally but does not imply a sharp order-theoretic inequality or its equality classification. Conversely #P-hardness is not claimed here. A general extremal order-ideal theorem could imply part and remains a residual literature risk.",
+        "searches": [
+          "Resultary: Count nonalgebraic one point types generic random poset finite parameter lower bound incomparable pairs order ideals equality two disjoint chains",
+          "Dolinka Masulovic 2010 finite poset one point extensions ideals filters"
+        ]
+      },
+      "checked_sources": [
+        "Resultary complete RESULT.md #P-complete type-count record 3b955f4020e1",
+        "Dolinka–Mašulović arXiv:1009.2892 abstract and prior citations",
+        "Original package RESULT.md, check.py, source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Resultary proof of #P-hardness via ordinal sums does not imply t(P)>=binom(n+2,2)+j(P).",
+          "The new bound follows from additional ideal-count induction and mixed-extension injection, neither supplied by a general #P classification."
+        ],
+        "reasoning": "Same type parameterization is prior; new all-poset extremal inequality/equality needs separate combinatorial steps. Prior complexity statement cannot be substituted for it.",
+        "searches": [
+          "Resultary: Count nonalgebraic one point types generic random poset finite parameter lower bound incomparable pairs order ideals equality two disjoint chains",
+          "Dolinka Masulovic 2010 finite poset one point extensions ideals filters",
+          "Resultary published finite-parameter random-poset #P-complete record"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Count of nonalgebraic 1-types equals count of admissible ideal/filter pairs, already present in the published #P-completeness theorem.",
+          "Potential alias: order ideals versus antichains in a finite poset; comparability graph connected components determine equality."
+        ],
+        "reasoning": "The generic-poset type count and admissible ideal/filter pairs are literally equivalent and credited to prior work. However the new inequality also bounds that common counting function using incomparability pairs and characterizes all equality cases; those are not in the inspected prior type-count theorem.",
+        "searches": [
+          "Resultary: Count nonalgebraic one point types generic random poset finite parameter lower bound incomparable pairs order ideals equality two disjoint chains",
+          "generic random poset one point extensions poset number ideals at least n+1 incomparable pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary finite-parameter type-count theorem gives chain binom(n+2,2) and antichain 2^(n+1)-1; no incomparability-count-based table.",
+          "Direct independent enumeration n<=4 checks 224 labeled posets, not an exhaustive all-n database."
+        ],
+        "reasoning": "Known endpoint counts do not cover all finite posets or characterize equality at fixed incomparability count; no exact database that lists all (n,j,t) is known from inspected sources.",
+        "searches": [
+          "Resultary: Count nonalgebraic one point types generic random poset finite parameter lower bound incomparable pairs order ideals equality two disjoint chains",
+          "generic random poset one point extensions poset number ideals at least n+1 incomparable pairs"
+        ]
+      },
+      "rationale": "Dolinka–Mašulović and a published #P-completeness finding already establish the ideal/filter parameterization. The inspected complete Resultary finite-parameter #P paper gives chain/antichain values and a top-chain complexity reduction but not the sharp incomparability-sensitive coefficient-one lower bound, exact two-slack defect or global equality iff at most two chain components. The deduction uses elementary combinatorics, so a hidden extremal poset ideal-count inequality remains a real priority risk. No stronger theorem was located that mathematically implies the full stated equality classification.",
+      "residual_risks": [
+        "Classical extremal order-ideal inequalities may contain the coefficient-one bound implicitly; the elementary proof limits priority certainty.",
+        "The complete Dolinka–Mašulović primary text was not accessible/read; only its usage as prior parameterization is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE of type-pair bijection, NOT the claimed extremal inequality",
+          "evidence": [
+            "Lemma/statement c(P) equals admissible ideal/filter pairs; examples c(C_n)=binom(n+2,2) and c(A_n)=2^(n+1)-1; absent incomparability-sensitive bound/equality theorem."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-finite-parameter-1-type-counting-in-the-random-poset-is-p-comple--3b955f4020e1",
+          "material_read": "Complete published RESULT.md including definition, bijection, #P reduction, chain/antichain examples, limits and references",
+          "method": "Primary full published record reading",
+          "title": "Finite-parameter 1-type counting in the random poset is #P-complete",
+          "trigger": "Exact same model and counting variable; highest priority comparison"
+        },
+        {
+          "assessment": "KNOWN antecedent for ideal/filter description; precise further coverage unverified",
+          "evidence": [
+            "Source cited in published primary type-count result for finite-poset one-point extension L/U data; not used to claim noncoverage of full paper."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.2892",
+          "material_read": "Accessible abstract and bibliography; full paper not read in this execution",
+          "method": "Abstract-level source identification, not whole-document claim",
+          "title": "A universality result for endomorphism monoids of some ultrahomogeneous structures",
+          "trigger": "Primary finite-poset one-point extension parameterization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary complete RESULT.md #P-complete type-count record 3b955f4020e1",
+        "Dolinka–Mašulović arXiv:1009.2892 abstract and prior citations",
+        "Original package RESULT.md, check.py, source tree"
+      ],
+      "rationale": "This is a natural extremal counting question for the automorphism-stabilizer type profile of the universal homogeneous poset. Its coefficient-one penalty per incomparable pair and exact structural equality cases distinguish how incomparability grows beyond a chain; it is a complete all-finite-poset bound/classification, not a renamed counting-hardness result. The result is modest/elementary but mathematically useful as a sharp extremal benchmark.",
+      "residual_risks": [
+        "Classical extremal order-ideal inequalities may contain the coefficient-one bound implicitly; the elementary proof limits priority certainty.",
+        "The complete Dolinka–Mašulović primary text was not accessible/read; only its usage as prior parameterization is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
