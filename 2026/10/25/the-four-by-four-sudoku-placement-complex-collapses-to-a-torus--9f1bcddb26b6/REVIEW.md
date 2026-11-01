@@ -1,19 +1,21 @@
-# Review of the four-by-four Sudoku placement complex
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact recurrence enumerates every subset of the sixteen cells and finds face vector \((16,64,64,16)\). The 32 specified free-face pairs, recomputed and checked against remaining strict cofaces, collapse the complex to a two-dimensional complex with vector \((16,48,32)\). Every edge has precisely two incident triangles; every vertex link is one cycle; the one-skeleton is connected; triangle orientations can be chosen consistently. A closed connected orientable surface of Euler characteristic zero is a torus. The integer homology, fundamental group, and cup-product conclusions follow from a strong deformation retract, not from matching homology ranks alone.
+PASS
 
-## Originality — PASS
+For the exact 16-cell row/column/2x2 block conflict graph with degree seven and 56 edges, independently enumerated all 65536 subsets and obtained 161 faces including empty (f-vector 16,64,64,16). Enumerated 32 actual elementary free-face/coface pairs; their removal leaves a pure two-dimensional simplicial subcomplex with 16 vertices, 48 edges and 32 triangles. Independent incidence checks verify connected one-skeleton, two triangles per edge, connected 2-regular link at each vertex and a globally coherent orientation. Its Euler characteristic 16-48+32=0 and surface classification identify an orientable genus-one torus. Elementary collapses imply simple-homotopy equivalence and the claimed integral homology, pi1=Z² and nonzero degree-one cup pairing.
 
-Sander's fully inspected seven-page graph paper (2009, doi:10.37236/263) defines the same Sudoku graph but proves its spectral integrality, not a homotopy classification. Jones, Perkins and Roach (2012, doi:10.1155/2012/760310) count 288 complete Sudoku colorings, a different object. Goyal, Shukla and Singh (arXiv:1905.06926) prove a product-graph wedge-of-circles theorem for categorical products of two complete graphs; Sud(2) is a different four-factor NEPS. The published four-by-four rook independence complex is an ambient sphere wedge, and its type does not determine this proper subcomplex. Multiple exact-object, alias, and theorem-implication searches located no direct coverage. An unindexed equivalent theorem remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The first nontrivial Sudoku board produces a torus after elementary collapses of its single-symbol placement complex. This distinguishes the invariant from complete-coloring counts and from the ordinary chessboard complex; importantly the nonzero first-cohomology cup product rules out replacing it with a wedge of spheres. The result establishes a full integral homotopy type for a natural named graph without asserting an arbitrary generalization.
+The specific surviving result is not covered by the inspected same-object antecedents or dominating theorem hypotheses; every comparison below identifies what previous results actually imply. This is best-of-knowledge, not proof of absolute novelty.
 
-## Limits
+## value
 
-The proof and checker concern only the sixteen-cell standard four-by-four Sudoku graph, and no full-grid colorings are represented by the complex's simplices. Independent validation has not been performed; unknown equivalent literature remains a residual originality risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A Sudoku board is a canonical finite constraint system, and the complex of all feasible placements of a single value is its natural solution-space topology. A collapse to a torus has nontrivial pi1 and cup product, qualitatively unlike known rook/chessboard wedges. The exact 32 elementary collapses make a reusable combinatorial-topology benchmark, though no result for 9x9 boards is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

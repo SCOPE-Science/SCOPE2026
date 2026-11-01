@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T12:55:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git tree b83037601eb1316e9099c1ae1b21f078aa39fc9a; RESULT.md blob fc2982f8ec88198d287d0a056bc4222c2b190c22",
+        "Independent_checks.py and sudoku_manifold.py independently verified all 32 free pairs, manifold links, orientation, and Euler characteristic; original verify.py blob c4d1d9408e787af755ba407434c56bba9760df02 inspected"
+      ],
+      "rationale": "For the exact 16-cell row/column/2x2 block conflict graph with degree seven and 56 edges, independently enumerated all 65536 subsets and obtained 161 faces including empty (f-vector 16,64,64,16). Enumerated 32 actual elementary free-face/coface pairs; their removal leaves a pure two-dimensional simplicial subcomplex with 16 vertices, 48 edges and 32 triangles. Independent incidence checks verify connected one-skeleton, two triangles per edge, connected 2-regular link at each vertex and a globally coherent orientation. Its Euler characteristic 16-48+32=0 and surface classification identify an orientable genus-one torus. Elementary collapses imply simple-homotopy equivalence and the claimed integral homology, pi1=Z² and nonzero degree-one cup pairing.",
+      "residual_risks": [
+        "The assertion concerns one-symbol placements in standard 4x4 Sudoku, NOT full Sudoku colorings and not arbitrary board sizes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926, Proposition 3.2 / Theorem 5.1, covers categorical products of two complete graphs, not Sudoku NEPS/conflict graph.",
+          "T. Sander, Sudoku Graphs are Integral, Electronic Journal of Combinatorics 16 (2009) N25, DOI 10.37236/263 computes Sudoku graph eigenvalues, not the topology of its independence complex."
+        ],
+        "reasoning": "Categorical products and simple rook/Cartesian products are not the Sudoku graph whose edges include within-block conflicts. Their wedge-of-circles or other homotopy statements do not imply a torus.",
+        "searches": [
+          "four by four Sudoku graph independent sets placement complex torus collapses",
+          "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926"
+        ]
+      },
+      "checked_sources": [
+        "T. Sander, Sudoku Graphs are Integral, Electronic Journal of Combinatorics 16 (2009) N25, DOI 10.37236/263",
+        "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926",
+        "Resultary semantic query: four by four Sudoku graph independent sets placement complex torus collapses",
+        "Resultary indexed 4x4 rook graph independence-complex calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "T. Sander, Sudoku Graphs are Integral, Electronic Journal of Combinatorics 16 (2009) N25, DOI 10.37236/263, 2009, primary theorem about adjacency-integral eigenvalues, no collapse or homotopy.",
+          "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926, primary product-graph result concerns a graph operation that does not reconstruct Sudoku block adjacency."
+        ],
+        "reasoning": "Graph spectrum and coloring enumeration do not determine fundamental group or cup product; the torus result is not a corollary of the inspected graph-product theorems.",
+        "searches": [
+          "four by four Sudoku graph independent sets placement complex torus collapses",
+          "Sander Sudoku graphs integral topology",
+          "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "T. Sander, Sudoku Graphs are Integral, Electronic Journal of Combinatorics 16 (2009) N25, DOI 10.37236/263, definition and Figure 2, defines the same Sud(2) row-column-block adjacency.",
+          "A one-symbol legal placement is precisely an independent vertex set of Sud(2), or a clique in the complement graph."
+        ],
+        "reasoning": "Aliasing the one-color placement complex with the independence complex reveals same object; Resultary hits on 4x4 rook/four-cube complexes refer to distinct graphs or functors.",
+        "searches": [
+          "four by four Sudoku graph independent sets placement complex torus collapses",
+          "single-symbol Sudoku placement graph Sud(2) independence complex torus"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary located a published 4x4 rook independence-complex sphere-wedge result, but the Sudoku graph adds block edges and has a different face poset.",
+          "Counts of all completed four-by-four Sudoku solutions are not a count of simplices or cup products for one symbol."
+        ],
+        "reasoning": "The exact board size or 288 full colorings cannot substitute for the one-color full face complex; no inspected same-object torus table found.",
+        "searches": [
+          "four by four Sudoku graph independent sets placement complex torus collapses",
+          "4x4 rook independence complex Shrikhande chessboard torus"
+        ]
+      },
+      "rationale": "The specific surviving result is not covered by the inspected same-object antecedents or dominating theorem hypotheses; every comparison below identifies what previous results actually imply. This is best-of-knowledge, not proof of absolute novelty.",
+      "residual_risks": [
+        "An equivalent single-symbol Sudoku-complex torus computation under a different label may be unindexed.",
+        "Negative indexed results cannot establish global historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS exact graph definition, NOT simplicial independence topology.",
+          "evidence": [
+            "Definition of Sud(n); spectral statements Theorems 3.2–3.3; no independence-complex collapse."
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/263",
+          "material_read": "All seven pages of publisher PDF, particularly definition Sud(n), Figure 2 and spectrum theorem; PDF pages rendered.",
+          "method": "Primary PDF opened, text and screenshot inspected",
+          "title": "Sudoku Graphs are Integral",
+          "trigger": "Exact 4x4 Sudoku graph"
+        },
+        {
+          "assessment": "NOT_COVERING because categorical K_m × K_n and studied subdivisions are not the Sudoku NEPS graph.",
+          "evidence": [
+            "Proposition 3.2 and Theorem 5.1; graph operations explicitly different."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.06926",
+          "material_read": "Accessible 18-page full preprint, relevant product graph definitions, Proposition 3.2 and Theorem 5.1, plus surrounding hypotheses.",
+          "method": "Primary PDF text and screenshot inspected",
+          "title": "Homotopy Type of Independence Complexes of Certain Families of Graphs",
+          "trigger": "Potential product-graph theorem could imply graph topology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "T. Sander, Sudoku Graphs are Integral, Electronic Journal of Combinatorics 16 (2009) N25, DOI 10.37236/263",
+        "S. Goyal, S. Shukla, A. Singh, Homotopy Type of Independence Complexes of Certain Families of Graphs, arXiv:1905.06926"
+      ],
+      "rationale": "A Sudoku board is a canonical finite constraint system, and the complex of all feasible placements of a single value is its natural solution-space topology. A collapse to a torus has nontrivial pi1 and cup product, qualitatively unlike known rook/chessboard wedges. The exact 32 elementary collapses make a reusable combinatorial-topology benchmark, though no result for 9x9 boards is claimed.",
+      "residual_risks": [
+        "One fixed 4x4 board rather than a formula for general Sudoku block sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only the 4x4 one-symbol placement complex; no general Sudoku graph or full coloring space asserted.",
+    "An equivalent single-symbol Sudoku-complex torus computation under a different label may be unindexed.",
+    "Negative indexed results cannot establish global historical priority."
+  ],
+  "schema_version": 1
+}
