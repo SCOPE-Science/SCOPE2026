@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "Exactly 2*3^r orientations follow from forbidding the single triangle-cycle spoke pattern conditional on the spine direction. Every longer directed cycle would imply a forbidden triangle. The finite Boolean recurrence P(S,d)=OR_q(P(S_q0,d-1) AND P(S_q1,d-1)) is necessary and sufficient by tree induction, with exact cardinality pruning. Independently replayed full leaf-witness trees prove every lower bound for r=1..7. The separate topological elimination test checks all witness DAGs. Exact state searches prove failure of depth d+1 for every r=1..7, including 236276 memoized subproblems for the r=7 depth-12 exclusion. No infinite claim is inferred from finite checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kozma and Moran, Shattering, Graph Orientations, and Connectivity (2013), §3.1 Lemma 12 and Proposition 15, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+        "Cardinal et al., Combinatorial Generation via Permutation Languages. V. Acyclic Orientations, arXiv:2212.03915 (2022), author manuscript https://wrap.warwick.ac.uk/id/eprint/174321/13/WRAP-combinatorial-generation-via-permutation-languages-acyclic-orientations-Mutze-2023.pdf",
+        "The known all-graph VC forest criterion gives VC(B_r)=r+1, not the online depth."
+      ],
+      "reasoning": "The forest criterion and stronger cactus-versus-noncactus qualitative separation give no first failure of the cardinality upper bound for this 7-page family. Gray-code Hamiltonicity in orientation-flip graphs is a different invariant from binary online query depth.",
+      "searches": [
+        "Littlestone dimension acyclic orientations diamond graph K4 minus edge VC dimension three; vertex-glued diamonds unbounded adaptive versus static shattering gap in chordal planar treewidth-two graphs",
+        "online learning orientations of chordal graphs partial comparison queries Littlestone shattering product of blocks",
+        "Littlestone dimension acyclic orientations graph edge query shattering"
+      ]
+    },
+    "checked_sources": [
+      "Kozma and Moran, Shattering, Graph Orientations, and Connectivity (2013), §3.1 Lemma 12 and Proposition 15, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+      "Blagoev, On the Number of Acyclic Orientations of Complete k-Partite Graphs, arXiv:1808.02787v1 (2018), §§1–4, https://arxiv.org/html/1808.02787v1",
+      "Cardinal et al., Combinatorial Generation via Permutation Languages. V. Acyclic Orientations, arXiv:2212.03915 (2022), author manuscript https://wrap.warwick.ac.uk/id/eprint/174321/13/WRAP-combinatorial-generation-via-permutation-languages-acyclic-orientations-Mutze-2023.pdf",
+      "Semantic retrieval of published mathematical findings for triangular books, multipartite acyclic orientations, and adaptive edge queries; closest returned titles concerned non-separating out-branchings in K_{3,n} and quadrilateral-book matching complexes."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kozma and Moran, Shattering, Graph Orientations, and Connectivity (2013), §3.1 Lemma 12 and Proposition 15, https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+        "Blagoev, On the Number of Acyclic Orientations of Complete k-Partite Graphs, arXiv:1808.02787v1 (2018), §§1–4, https://arxiv.org/html/1808.02787v1",
+        "Cardinal et al., Combinatorial Generation via Permutation Languages. V. Acyclic Orientations, arXiv:2212.03915 (2022), author manuscript https://wrap.warwick.ac.uk/id/eprint/174321/13/WRAP-combinatorial-generation-via-permutation-languages-acyclic-orientations-Mutze-2023.pdf",
+        "Exact independent recurrence yields r=7 depth=11, whereas the cardinality bound yields only depth<=12."
+      ],
+      "reasoning": "The published static and enumeration results permit both hypothetical depth-11 and depth-12 online trees at seven pages. The depth-12 exclusion requires the new exact recursive check. The small r=2 diamond computation was already known and is not represented as an independent contribution.",
+      "searches": [
+        "exact Littlestone dimension acyclic orientations book graph B_r K_2 join independent r: r=1..7 dimensions 2 4 5 7 8 10 11, first cardinality logarithm bound failure at r=7",
+        "acyclic orientations complete tripartite graph K_{1,1,r} Littlestone VC adaptive mistake dimension",
+        "acyclic orientations complete tripartite graph K_{1,1,r} Littlestone dimension adaptive orientation queries"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Blagoev, On the Number of Acyclic Orientations of Complete k-Partite Graphs, arXiv:1808.02787v1 (2018), §§1–4, https://arxiv.org/html/1808.02787v1",
+        "The book B_r is the complete tripartite graph K_{1,1,r}, also a collection of r triangles sharing a common spine edge."
+      ],
+      "reasoning": "Results phrased as ternary constrained orientation strings, acyclic orientations of K_{1,1,r}, or triangular books would cover the target if they gave the exact adaptive depth; the inspected count/Gray-code sources instead address nonadaptive quantities.",
+      "searches": [
+        "exact Littlestone dimension acyclic orientations book graph B_r K_2 join independent r: r=1..7 dimensions 2 4 5 7 8 10 11, first cardinality logarithm bound failure at r=7",
+        "adaptive edge-direction shattering on triangular book or book graph of triangles sharing an edge; online decision tree acyclic orientations 7 pages",
+        "acyclic orientations complete tripartite graph K_{1,1,r} Littlestone VC adaptive mistake dimension",
+        "Littlestone dimension acyclic orientations diamond graph K4 minus edge treewidth two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest public published-finding corpus search results concerned non-separating out-branchings of K_{3,n} and quadrilateral-book matching complexes, not K_{1,1,r} orientation Littlestone dimensions.",
+        "Blagoev, On the Number of Acyclic Orientations of Complete k-Partite Graphs, arXiv:1808.02787v1 (2018), §§1–4, https://arxiv.org/html/1808.02787v1"
+      ],
+      "reasoning": "No accessible exact adaptive-dimension table for K_{1,1,r} was found. Counts |AO|=2*3^r and the static forest table are insufficient for the r=7 strict bound, since 2^12<=4374.",
+      "searches": [
+        "exact Littlestone dimension acyclic orientations book graph B_r K_2 join independent r: r=1..7 dimensions 2 4 5 7 8 10 11, first cardinality logarithm bound failure at r=7",
+        "adaptive edge-direction shattering on triangular book or book graph of triangles sharing an edge; online decision tree acyclic orientations 7 pages",
+        "acyclic orientations complete tripartite graph K_{1,1,r} Littlestone VC adaptive mistake dimension"
+      ]
+    },
+    "rationale": "The new assertion is the exact online-shattering sequence of the natural complete-tripartite book family and the sharp first r=7 gap below the logarithmic orientation-count bound. Closest full primary texts supply orientation counts, classical forest/VC shattering, and Gray-code enumeration, but do not supply an adaptive tree-depth formula. Earlier published and accessible claims include the r=2 diamond and a general cactus criterion; neither determines the r=7 threshold. published-finding corpus searches over aliases and adaptive queries did not reveal a covering result. Priority outside indexed and inspected materials remains a risk.",
+    "residual_risks": [
+      "Unindexed or privately circulated exact online-shattering tables could predate this computation.",
+      "The new finite threshold is supported by exact executable enumeration and tree witnesses; no separate concise structural impossibility proof for r=7 is claimed.",
+      "The complete 37-page 2023 text was searched for shattering language but only the directly pertinent introduction and construction sections were materially read in detail."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "STATIC_VC_COVERED_ADAPTIVE_NOT_COVERED",
+        "evidence": "Lemma 12(ii) identifies shattered supports as forests; Proposition 15 gives VC rank; no adaptive Littlestone computation appeared in the inspected relevant material.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i3p44/pdf/",
+        "material_read": "Full abstract, introductory framing and Section 3.1 through Proposition 15, particularly PDF pages 7–8 (zero-index 6–7), plus search over full PDF for Littlestone.",
+        "method": "Opened complete 18-page primary PDF, inspected page image and parsed corresponding sections.",
+        "title": "Shattering, Graph Orientations, and Connectivity",
+        "trigger": "Directly characterizes acyclic-orientation VC shattering"
+      },
+      {
+        "assessment": "COUNT_AND_ENUMERATION_ONLY_NOT_ADAPTIVE_DIMENSION",
+        "evidence": "Proposition 2.3, Section 3 and conclusion explicitly concern counts of acyclic orientations and complete multipartite path encodings.",
+        "identifier_or_url": "https://arxiv.org/html/1808.02787v1",
+        "material_read": "Full HTML Sections 1, 2, 3 including the recurrence, Section 4 conclusion and references; full-text term searches for Littlestone and shatter.",
+        "method": "Read lawful original arXiv HTML rendering dated 2018-08-08.",
+        "title": "On the Number of Acyclic Orientations of Complete k-Partite Graphs",
+        "trigger": "Same object K_{1,1,r}, counts all orientations"
+      },
+      {
+        "assessment": "GRAY_CODE_GENERATION_NOT_ADAPTIVE_SHATTERING",
+        "evidence": "The paper optimizes Gray-code adjacency flips and lattice/quotient generation, not existence of complete binary orientation-query mistake trees.",
+        "identifier_or_url": "https://wrap.warwick.ac.uk/id/eprint/174321/13/WRAP-combinatorial-generation-via-permutation-languages-acyclic-orientations-Mutze-2023.pdf",
+        "material_read": "Primary author manuscript abstract and Section 1.3 on graphical zonotopes, general generation problem and main research scope, with full-document keyword checks for Littlestone and shattering.",
+        "method": "Opened 37-page lawful author manuscript PDF, inspected a relevant page screenshot, extracted section text and searched whole document for adaptive terminology.",
+        "title": "Combinatorial Generation via Permutation Languages. V. Acyclic Orientations",
+        "trigger": "Broader result for acyclic orientations of chordal graphs"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "049d8206-4835-4d12-980b-b2c0ea0c81a4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Complete a natural seven-parameter exact online dimension sequence for acyclic orientations of the elementary book graphs K_{1,1,r}, with the precise first threshold where information-theoretic log2 concept count is unattainable. The sharp negative at seven pages is neither a routine derivation from VC rank nor obtainable from orientation counts; it exhibits a substantive, reproducible obstruction to balanced adaptive learning trees on an important bounded-treewidth graph family. The result does not claim a general formula for larger books.",
+    "status": "PASS"
+  }
+}
