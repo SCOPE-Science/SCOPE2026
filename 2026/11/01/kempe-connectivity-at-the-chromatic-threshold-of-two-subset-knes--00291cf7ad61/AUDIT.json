@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "Static classes yield exact star/triangle normal form; singleton centre-edge recolorings are isolated Kempe components; six-spoke classes form one connected Kempe chain for swapping two star labels; three disjoint triangle-spoke chains exchange a triple vertex with a sink centre; a four-stage loop swaps the triangle palette colour with a chosen centre label. Each change preserves properness and the chromatic palette. Johnson graph connectivity plus full palette permutations and internal bit toggles proves reachability for all n>=5; n=4 is three independent K2 edges. Exact enumeration and independent Kempe BFS cover n=4..6, with canonical optimum-coloring enumeration n=4..7. Finite checks are corroboration, not an infinite certificate.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bonamy–Bousquet–Feghali–Johnson: connected cubic graph 3-colourings form one Kempe class, except two exceptional cubic graphs.",
+        "For KG(n,2), degree equals binomial(n-2,2), while optimal palette is n-2; both equal 3 only at n=5."
+      ],
+      "reasoning": "The cubic theorem includes the Petersen base case but not the n>=6 range. A published static classification of optimal KG(n,2) colours is broader for class structure but does not directly assert or establish a sequence of Kempe operations overcoming the triangle invariant.",
+      "searches": [
+        "Kempe equivalence of colourings of cubic graphs",
+        "\"Kneser graphs\" \"Kempe equivalent\" colorings",
+        "All optimal colorings of Kneser graphs KG(n,2) are Kempe-equivalent by alternating color connected-component swaps"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0904.3977",
+      "doi:10.1016/j.disc.2009.01.017",
+      "doi:10.1080/09728600.2023.2170299",
+      "doi:10.1016/j.ejc.2016.06.008",
+      "LSE-CDAM-2007-31",
+      "published-finding corpus record: 2026/10/4/SCOPE-neighborhood-parity-odd-colorings-of-crown-graphs--fe94e840e8ec",
+      "published-finding corpus record: 2026/10/4/SCOPE-the-dihedral-character-of-stable-kneser-independence-complex-hom--8af1ffc8127a",
+      "published-finding corpus record: 2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Static Theorem 2.2 gives the triangle/star normal form, but not connectivity of bichromatic Kempe-chain exchanges.",
+        "The new constructive steps connect triangle triples and change the triangle palette label, which ordinary recolouring provably cannot do.",
+        "The cubic Kempe theorem covers only n=5 of this family."
+      ],
+      "reasoning": "The candidate explicitly uses the existing static classification as a premise; it adds proofs of full Kempe connectivity by deriving and composing three specific legal Kempe mechanisms, including a nontrivial label-transposition loop. No inspected stronger theorem implies the full n>=6 statement without this additional dynamical argument.",
+      "searches": [
+        "All optimal colorings of Kneser graphs KG(n,2) are Kempe-equivalent by alternating color connected-component swaps",
+        "Kempe change or Kempe equivalence chromatic colorings Kneser graphs KG(n,2) all n",
+        "\"Kneser graphs\" \"Kempe equivalent\" colorings",
+        "\"KG(n,2)\" \"Kempe\" vertex coloring",
+        "https://www.tandfonline.com/doi/full/10.1080/09728600.2023.2170299",
+        "https://doi.org/10.1016/j.ejc.2016.06.008"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "KG(5,2) is the Petersen graph; the known cubic Kempe theorem proves the n=5 special case.",
+        "Two-colour induced subgraph moves are standard Kempe swaps, not simultaneous single-site updates."
+      ],
+      "reasoning": "The general statement is equivalently that the optimal-palette Kempe-reconfiguration graph of KG(n,2) has exactly one connected component. It is not equivalent to mere connectivity of its ordinary single-site recolouring graph, which is highly disconnected.",
+      "searches": [
+        "All optimal colorings of Kneser graphs KG(n,2) are Kempe-equivalent by alternating color connected-component swaps",
+        "Kempe change or Kempe equivalence chromatic colorings Kneser graphs KG(n,2) all n",
+        "star triangle partitions of complete graph colorings switching Kempe chains swap triangle center",
+        "\"Kneser graphs\" \"Kempe equivalent\" colorings",
+        "\"KG(n,2)\" \"Kempe\" vertex coloring",
+        "\"Petersen graph\" \"Kempe\" \"3-colorings\" equivalence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Theorem 2.2 in Jalilolghadra–Behtoei exhaustively characterizes static optimum colouring classes.",
+        "published-finding corpus hits include crown-graph odd colourings and Kneser homology rather than Kempe paths."
+      ],
+      "reasoning": "No checked database, table, or cited article gave the all-n count of Kempe-equivalence classes. Counts of optimum static colourings and single-site cube components are directly implied by prior structural work and are included only as context, not represented as the novel contribution.",
+      "searches": [
+        "All optimal chromatic number n-2 colorings of Kneser graph KG(n,2) partition edges of K_n into stars and a single triangle; single-vertex recoloring graph disjoint hypercubes of dimension binomial(n-3,2)",
+        "Kneser KG(n,2) minimum coloring reconfiguration components determined by triangle and colors assigned to nontriangle star centers, tournament edge flips",
+        "One vertex recoloring graph of proper three colorings of Petersen graph consists of 60 disjoint copies of K2",
+        "\"Kneser graph\" \"reconfiguration graph\" \"colorings\" \"single vertex\"",
+        "\"KG(n,2)\" \"recoloring\" \"hypercube\"",
+        "\"Kneser graphs\" \"optimal colorings\" \"star\" \"triangle\""
+      ]
+    },
+    "rationale": "An infinite-family optimum-palette Kempe-connectivity result distinct from known static Kneser color-class descriptions and from the cubic-graph theorem (which covers only the Petersen case). No source inspected directly covers n>=6; possibility of an unidentified more general theorem is an acknowledged residual risk.",
+    "residual_risks": [
+      "A general Kempe-equivalence theorem for complements of line graphs or Kneser graphs under other terminology could cover n>=6, even if not found.",
+      "The static optimum-colour normal form is prior knowledge; novelty rests only on constructive Kempe connectivity, not class counting.",
+      "Independent mathematical evaluation not yet performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Existing star/triangle classification, no all-n Kempe equivalence conclusion in inspected text",
+        "evidence": [
+          "Fact 3: intersecting edge families are stars or triangles",
+          "Focus on b-colouring and b-continuity, not Kempe swaps"
+        ],
+        "identifier_or_url": "https://people.iut.ac.ir/sites/default/files/users/samin/page_files/bcoloring_kneser.pdf",
+        "material_read": "Relevant full-text definitions, Fact 3 and b-colouring proofs and later sections; source PDF pages and parsed text inspected",
+        "method": "Lawful author-hosted PDF full-text, including rendered-page inspection",
+        "title": "On b-coloring of the Kneser graphs",
+        "trigger": "Star/triangle structural description for Kneser optimum colour classes"
+      },
+      {
+        "assessment": "Addresses b-chromatic number and Kneser palette; no Kempe connectivity",
+        "evidence": [
+          "arXiv:0904.3977 initially submitted 2009-04-25",
+          "b-colouring is a different invariant"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0904.3977v4",
+        "material_read": "Entire short arXiv HTML paper, main theorem and structural statements",
+        "method": "Open preprint full text plus public arXiv version history",
+        "title": "On the b-chromatic number of Kneser Graphs",
+        "trigger": "Archive source and early public baseline of the optimum colouring problem"
+      },
+      {
+        "assessment": "Theorem 2.2 provides the full STATIC optimal colouring normal form; treated as prior, not new; does not provide Kempe components or global equivalence",
+        "evidence": [
+          "Theorem 2.2 unique triangular colour class and all remaining star centers and independently assigned internal edges",
+          "Article studies total dominator rather than Kempe equivalence"
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/09728600.2023.2170299",
+        "material_read": "Full freely readable HTML text, especially Section 2 and Theorem 2.2",
+        "method": "Published open-access article",
+        "title": "Total dominator chromatic number of Kneser graphs",
+        "trigger": "Precise known theorem classifying every optimum (n-2)-colouring"
+      },
+      {
+        "assessment": "All 3-colourings of connected cubic graphs except K4 and triangular prism are Kempe equivalent. Covers Petersen n=5 but not n>=6 two-subset Kneser graphs, whose degrees differ from three and chromatic palettes differ.",
+        "evidence": [
+          "Theorem 1 explicitly requires cubic graphs",
+          "KG(n,2) has degree (n-2)(n-3)/2, which is 6 at n=6"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejc.2016.06.008",
+        "material_read": "Full HTML theorem statement, setup and main proof sections available from article",
+        "method": "Publisher open-archive page",
+        "title": "Kempe equivalence of colourings of cubic graphs",
+        "trigger": "Potential stronger Kempe connectivity theorem covering all optimum Kneser colorings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00291cf7-ad61-4f69-a790-406af19671c5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The proof resolves a natural qualitative reconfiguration dichotomy at the exact chromatic threshold for an unbounded family: single-vertex moves cannot change the unique triangular colour class and leave factorially many disconnected cubes, whereas no extra colour is needed for full Kempe-chain reachability. It gives explicit connectivity mechanisms at all orders n>=6 beyond the already-covered Petersen instance, rather than a routine static counting corollary.",
+    "status": "PASS"
+  }
+}
