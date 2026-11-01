@@ -1,15 +1,21 @@
-# Assessment of the strong-majority rook-graph classification
+# Independent mathematical audit
 
-## Correctness — PASS
-For each \(2\le m\le n\), the edge-colouring definition is used with *open* edge neighbourhoods of size \(2(m+n-3)\). In a two-colouring, both colour counts must equal half this number, producing an adjacency-eigenvector equation with eigenvalue \(4-m-n\). The exact rook-graph spectrum restricts possible two-colour cases to total coordinate sizes four and six. Row–column sum identities exclude both six cases. For the only surviving four case, direct cyclic checking gives four named assignments. The two- and three-colour small-case constructions are fully specified and validated by the dependency-free checker. For minimum degree at least five, the published three-colour theorem of Pękała–Przybyło supplies the upper bound. The proof's quantifiers cover every positive integer pair in the stated range and no additional family.
+## correctness
 
-## Originality — PASS, with residual bibliographic risk
-The closest inspected primary source, Kalinowski–Kamyczura–Pilśniak–Woźniak (arXiv:2605.23828v1), introduces the invariant and covers general bounds and cycles, not the rook-graph exact classification. Antoniuk–Prorok–Salia (arXiv:2607.00212v1) gives improved generic upper bounds and an Euler-tour three-colour observation. Pękała–Przybyło (arXiv:2608.04122v1, Theorem 4) proves an upper bound of three at minimum degree at least five, but it gives no matching two-colour lower bound on this family. The Eulerian construction already yields the three-colour upper bound for \(R_{3,3}\); that upper bound is not claimed as a new discovery. Searches for rook-graph, Cartesian-product, and line-graph formulations in published research records and public literature found no matching exact all-parameter classification. Searches do not prove uniqueness: a different formulation in an unindexed publication could cover the claim.
+PASS
 
-## Mathematical value — PASS
-Rook graphs are a canonical unbounded two-parameter family of line graphs. The theorem classifies the exact minimum colour count at every parameter pair, exposes an infinite spectral obstruction to two colours, and closes the two degree-four cases not covered by the strongest existing general minimum-degree-three-colour theorem. The two-colour multiplicity is completely determined, rather than merely bounded. These are structural boundary and classification statements, not a numerical instance or routine improvement in a bound.
+For rook R_{m,n}=K_m square K_n, 2<=m<=n, degree d=m+n-2. In a two-colour strong-majority edge colouring each edge sees exactly d-1 of each colour among 2d-2 other incident edges. With r(v) red degree and s(v)=2r(v)-d, red/blue edge sums are +2/-2, giving adjacency eigen-equation A s=(2-d)s for a nonzero vector. Rook adjacency eigenvalues are d,m-2,n-2,-2, so spectral necessity leaves m+n=4 or6; m+n=5 has missing -1 and >=7 has 2-d<-2. At m+n=6, the -2 eigenvectors have row and column sums zero. R_{2,4} column cancellation forces forbidden edge-sum zero; R_{3,3} odd triple of +/-2 row entries cannot sum zero. The only two-colour case is C4=R22 with exactly four named colourings. Independently all 2-colourings of R22,R23,R24,R33 were exhausted (4,0,0,0); explicit 3-colour certificates checked in R23,R24,R33, and for m+n>=7 the published Pękała-Przybyło theorem delta>=5 gives the 3-colour upper bound. Thus Maj=2 iff (2,2), else3, with exact two-colouring multiplicity. No finite enumeration is used for the infinite range.
 
-## Scientific scope and limitations
-The finite verifier corroborates the small certificates and the two-colouring boundary; it does not establish the infinitely many large-case three-colouring constructions itself. That upper bound uses a stated published theorem. The claim does not classify all three-colourings or give an algorithm to construct them on every high-degree rook graph. Independent validation and external bibliographic completeness have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exact two-parameter index and absence/count of two-colour colourings. General minimum-degree-five theorem already supplies three colours whenever m+n>=7, so the upper bound is not new; new content is global optimality via a spectral obstruction and degree-3/4 sharp boundary. Resultary published complete-graph strong-majority index concerns K_n, not rook K_m square K_n. The separate recent majority C-colouring of Cartesian products colours VERTICES and is not the same invariant.
+
+## value
+
+PASS
+
+The exact strong-majority edge index of the natural two-parameter lattice/rook graph family is a mathematically motivated class classification. The spectral obstruction distinguishes two from three colours over all parameters and the explicit degree-four boundary demonstrates meaningful behavior outside the general sufficiency theorem. The exact two-colouring multiplicity is also determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

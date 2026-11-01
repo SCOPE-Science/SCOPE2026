@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Execute `python3 verify.py` with Python 3 (standard library only), from the folder containing this file and the verifier. Compare its output with `verify_output.txt`.
+## correctness
 
-The checker constructs each undirected rook graph directly from ordered coordinate pairs and independently enumerates every binary edge assignment for the four finite graphs \(R_{2,2}\), \(R_{2,3}\), \(R_{2,4}\), and \(R_{3,3}\). In that order the exact counts of named two-colourings are \(4,0,0,0\). It also constructs and checks each of the four explicit optimal edge colourings, including the two different four-regular cases, against every edge's adjacent-edge colour counts. Enumeration is complete for these four finite graphs, not an extrapolation to larger parameters.
+PASS
 
-The infinite two-colour exclusion follows from the proved necessary eigenvector identity and the explicitly derived spectrum. The universal three-colour upper bound at degree at least five is imported from Pękała–Przybyło, arXiv:2608.04122v1, Theorem 4, rather than being computationally certified here. No external independent audit has been performed.
+For rook R_{m,n}=K_m square K_n, 2<=m<=n, degree d=m+n-2. In a two-colour strong-majority edge colouring each edge sees exactly d-1 of each colour among 2d-2 other incident edges. With r(v) red degree and s(v)=2r(v)-d, red/blue edge sums are +2/-2, giving adjacency eigen-equation A s=(2-d)s for a nonzero vector. Rook adjacency eigenvalues are d,m-2,n-2,-2, so spectral necessity leaves m+n=4 or6; m+n=5 has missing -1 and >=7 has 2-d<-2. At m+n=6, the -2 eigenvectors have row and column sums zero. R_{2,4} column cancellation forces forbidden edge-sum zero; R_{3,3} odd triple of +/-2 row entries cannot sum zero. The only two-colour case is C4=R22 with exactly four named colourings. Independently all 2-colourings of R22,R23,R24,R33 were exhausted (4,0,0,0); explicit 3-colour certificates checked in R23,R24,R33, and for m+n>=7 the published Pękała-Przybyło theorem delta>=5 gives the 3-colour upper bound. Thus Maj=2 iff (2,2), else3, with exact two-colouring multiplicity. No finite enumeration is used for the infinite range.
+
+## originality
+
+PASS
+
+Qualified PASS for exact two-parameter index and absence/count of two-colour colourings. General minimum-degree-five theorem already supplies three colours whenever m+n>=7, so the upper bound is not new; new content is global optimality via a spectral obstruction and degree-3/4 sharp boundary. Resultary published complete-graph strong-majority index concerns K_n, not rook K_m square K_n. The separate recent majority C-colouring of Cartesian products colours VERTICES and is not the same invariant.
+
+## value
+
+PASS
+
+The exact strong-majority edge index of the natural two-parameter lattice/rook graph family is a mathematically motivated class classification. The spectral obstruction distinguishes two from three colours over all parameters and the explicit degree-four boundary demonstrates meaningful behavior outside the general sufficiency theorem. The exact two-colouring multiplicity is also determined.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

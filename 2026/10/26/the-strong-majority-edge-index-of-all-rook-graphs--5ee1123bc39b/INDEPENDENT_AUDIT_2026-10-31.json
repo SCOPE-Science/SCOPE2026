@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 887a617aae1b59025f41ec628e172030ca615e41",
+        "assigned verify.py blob a16ebc7b25be3ad0ee6738e8320ced71b52406ce",
+        "independent rook finite exhaustive counts and certificates",
+        "Pękała & Przybyło arXiv:2608.04122 Theorem 4"
+      ],
+      "rationale": "For rook R_{m,n}=K_m square K_n, 2<=m<=n, degree d=m+n-2. In a two-colour strong-majority edge colouring each edge sees exactly d-1 of each colour among 2d-2 other incident edges. With r(v) red degree and s(v)=2r(v)-d, red/blue edge sums are +2/-2, giving adjacency eigen-equation A s=(2-d)s for a nonzero vector. Rook adjacency eigenvalues are d,m-2,n-2,-2, so spectral necessity leaves m+n=4 or6; m+n=5 has missing -1 and >=7 has 2-d<-2. At m+n=6, the -2 eigenvectors have row and column sums zero. R_{2,4} column cancellation forces forbidden edge-sum zero; R_{3,3} odd triple of +/-2 row entries cannot sum zero. The only two-colour case is C4=R22 with exactly four named colourings. Independently all 2-colourings of R22,R23,R24,R33 were exhausted (4,0,0,0); explicit 3-colour certificates checked in R23,R24,R33, and for m+n>=7 the published Pękała-Przybyło theorem delta>=5 gives the 3-colour upper bound. Thus Maj=2 iff (2,2), else3, with exact two-colouring multiplicity. No finite enumeration is used for the infinite range.",
+      "residual_risks": [
+        "Three-colour upper bound for the infinite range imports a stated and checked published theorem rather than reproving it."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pękała-Przybyło prove any graph with min degree >=5 admits a strong-majority 3-colouring, which covers the entire rook range m+n>=7. They do not assert two colours are impossible for these rook graphs, and their theorem does not include degree-four R24/R33."
+        ],
+        "reasoning": "The assessed theorem acknowledges all already implied upper bounds; spectral two-colour impossibility plus specific low-degree constructions is the addition. No misleading new general 3-colour upper bound is claimed.",
+        "searches": [
+          "Pękała-Przybyło arXiv:2608.04122 Theorem 4",
+          "Antoniuk-Prorok-Salia arXiv:2607.00212",
+          "Resultary: strong majority edge coloring rook graph Cartesian product complete graphs K_m square K_n strong majority edge chromatic index"
+        ]
+      },
+      "checked_sources": [
+        "Pękała & Przybyło, On Strong Majority Edge Colourings with Few Colours, arXiv:2608.04122v1 Theorem 4",
+        "Kalinowski et al, arXiv:2605.23828",
+        "Antoniuk et al, arXiv:2607.00212",
+        "Resultary: strong majority edge coloring rook graph Cartesian product complete graphs K_m square K_n strong majority edge chromatic index",
+        "Resultary exact strong majority index of complete graphs 2026/10/4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Minimum degree >=5 entails Maj<=3; it does NOT entail Maj=3 or exclude 2. The adjacency eigencondition 2-d in spectrum and boundary contradictions supply exactly the missing lower bound."
+        ],
+        "reasoning": "Compares the logical directions: the majority theorem proves sufficiency, the rook-specific spectral obstruction proves necessity, and explicit R24 3-colouring handles a low-degree exception outside the general hypothesis.",
+        "searches": [
+          "Pękała-Przybyło Theorem 4",
+          "Kalinowski et al original invariant",
+          "rook spectrum direct derivation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R_{m,n} is isomorphic to L(K_{m,n}); a strong-majority EDGE colouring of R is a majority colouring constraint on adjacent pairs of edges of the rook graph, not a simple vertex majority colouring of the underlying K_{m,n}."
+        ],
+        "reasoning": "Compared the line-graph and Cartesian-product aliases explicitly; searched Resultary findings on complete graphs and other graph majority parameters do not imply strong-majority EDGE index of rook graphs.",
+        "searches": [
+          "Resultary: strong majority edge coloring rook graph Cartesian product complete graphs K_m square K_n strong majority edge chromatic index",
+          "rook graph line graph L(K_{m,n}) MathWorld",
+          "Kalinowski et al arXiv:2605.23828"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact named two-colouring counts 4,0,0,0 for four boundary graphs; Resultary published K_n index uses a different graph family."
+        ],
+        "reasoning": "The full parameter pair classification is not a known numerical table in inspected sources; verifying the four boundary cases alone would not establish the universal theorem, which relies on eigenvalue calculation.",
+        "searches": [
+          "Resultary: strong majority edge coloring rook graph Cartesian product complete graphs K_m square K_n strong majority edge chromatic index",
+          "arXiv:2605.23828 graph family examples",
+          "independent exhaustive R22,R23,R24,R33 two-colour cases"
+        ]
+      },
+      "rationale": "Qualified PASS for exact two-parameter index and absence/count of two-colour colourings. General minimum-degree-five theorem already supplies three colours whenever m+n>=7, so the upper bound is not new; new content is global optimality via a spectral obstruction and degree-3/4 sharp boundary. Resultary published complete-graph strong-majority index concerns K_n, not rook K_m square K_n. The separate recent majority C-colouring of Cartesian products colours VERTICES and is not the same invariant.",
+      "residual_risks": [
+        "An earlier strong-majority line-graph/rook graph classification or eigenvalue-based two-colour obstruction might imply the same index.",
+        "General published three-colour sufficiency and R33 special Eulerian case are not new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERAL_UPPER_BOUND_ONLY",
+          "evidence": "Theorem 4 establishes 3 colours for min degree >=5 but does not classify rook graph two-colour obstructions or R24.",
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Accessible primary full mathematical text, especially Theorem 4 and minimum-degree-five proof context",
+          "method": "Web arXiv full-text research earlier in this run",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "Same strong majority edge invariant; general 3-colour theorem"
+        },
+        {
+          "assessment": "BACKGROUND_PRIORITY_RISK",
+          "evidence": "Introduces Maj prime and general bounds, no claim of full-paper noncoverage.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "Abstract, introductory theorem description and cited graph families; complete text not systematically inspected",
+          "method": "Web arXiv abstract and source summary",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Definition and named invariant"
+        },
+        {
+          "assessment": "BACKGROUND_PRIORITY_RISK",
+          "evidence": "Improves general bounds; an exact rook class result, if buried in text, remains a priority risk.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.00212",
+          "material_read": "Abstract and published theorem summary; full text not inspected",
+          "method": "Web arXiv abstract",
+          "title": "Strong Majority Edge-Coloring",
+          "trigger": "Potential stronger three-colour constructions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Eigenvalues of K_m square K_n",
+        "two-colour regular graph spectral rigidity",
+        "Pękała-Przybyło published three-colour theorem"
+      ],
+      "rationale": "The exact strong-majority edge index of the natural two-parameter lattice/rook graph family is a mathematically motivated class classification. The spectral obstruction distinguishes two from three colours over all parameters and the explicit degree-four boundary demonstrates meaningful behavior outside the general sufficiency theorem. The exact two-colouring multiplicity is also determined.",
+      "residual_risks": [
+        "Three-colour construction for large-degree cases comes from known theory; new content must be understood as sharp class-specific lower/exception classification."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Does not enumerate or classify all optimal three-colourings.",
+    "Results for named colours and simple undirected rook graphs m,n>=2 only.",
+    "Publication withheld pending semantic sanitization of potentially public administrative provenance; review is scientifically completed."
+  ],
+  "schema_version": 1
+}
