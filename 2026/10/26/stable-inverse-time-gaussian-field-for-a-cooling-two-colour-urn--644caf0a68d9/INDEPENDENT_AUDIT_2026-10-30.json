@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:56:19.848885Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Computed one-step conditional mean E[V_k|F_{k-1}]=(1-2p_k)Q_{k-1}, so a_k=prod(1-2p_j/(m+j)) and M_k=Q_k/a_k is a martingale with increments D_k=(V_k-(1-2p_k)Q_{k-1})/[(m+k)a_k]. Since p_n->0, a_n and a_n^-1 are positive slowly varying and a_n^-1=n^{o(1)}, making sum Var(D_k) finite and giving L2 terminal convergence. Block increments sqrt(n) a_n sum_{k~nu} D_k have bracket ->(1-Q_infinity^2)(1/r-1/t), and jumps O(n^-1/2), satisfying the martingale stable FCLT with a Brownian independent of terminal history. Truncating future at nR has L2 remainder <=4n a_n^2 sum_{k>nR}1/((m+k)^2 a_k^2)->4/R by Karamata; send R->infinity to obtain the backward Brownian covariance 1/max(s,t), uniformly for r<=t<=T. Uniform slow variation replaces a_n with a_floor(nt). Convergence at t=0 is correctly excluded. The logarithmic product criterion gives a_infinity>0 iff sum p_k/(m+k)<infinity; divergence makes Q_infinity=0. Independently checked exact conditional expectation/second-moment recurrence across 40 finite urn distributions (four seeds, two nonconstant schedules). Finite checks establish no weak convergence.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fan-Qi arXiv:2610.16065 includes a time-dependent first-order martingale/strong-law framework; direct full text was unavailable this run.",
+          "Gava–Rezende 2021 abstract explicitly mentions Gaussian fluctuation and weak invariance for affine conditional Bernoulli probabilities; full article inaccessible.",
+          "Tokumitsu 2026 Theorem 1.1 and appendix martingale FCLT are fixed-copy-probability."
+        ],
+        "reasoning": "An abstract general martingale stable CLT is a known method, but it does not state this cooling process or covariance as a theorem. The inaccessible 2021 source is a genuine potential stronger-coverage risk, not a positive novelty witness.",
+        "searches": [
+          "A Generalized Elephant Random Walk with Time-Dependent Memory Fan Qi 2026 Theorem 2.4 martingale limit arxiv 2610.16065",
+          "Some limit theorems for dependent Bernoulli random variables Gava Rezende 2021 abstract invariance principle"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2603.13690v1 full accessible model/theorem sections",
+        "arXiv:2610.16065 Fan-Qi 2026 abstract",
+        "Gava–Rezende 2021 RePEc abstract and DOI; authorized full download blocked by disconnected VPN",
+        "arXiv:2110.13497 gradually increasing memory abstract",
+        "Resultary semantic searches for cooling elephant and inverse-time field"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tokumitsu Theorem 1.1 assumes a single constant p in (3/4,1), producing a fixed-power normalizer and deterministic variance.",
+          "The source construction is a time-dependent Pólya/elephant model with p_n->0, where slow variation and random variance Q_infinity enter the bracket."
+        ],
+        "reasoning": "The known first-order martingale law and constant-memory stable functional theorem do not directly imply the arbitrary-cooling and random-to-nonrandom covariance transition. A 2021 stronger general fluctuation result cannot be ruled out from its abstract alone.",
+        "searches": [
+          "arXiv:2603.13690",
+          "arXiv:2610.16065",
+          "doi:10.1016/j.spl.2020.109010"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The seeded urn increments form an elephant-type process with time-varying copy probability 1-p_n.",
+          "Tokumitsu arXiv:2603.13690 Theorem 1.1 uses fixed p and a different forward time scaling."
+        ],
+        "reasoning": "Equivalent Bernoulli/elephant/urn descriptions were compared. The full variable-cooling terminal-centred process is not the fixed-p process in the inspected Tokumitsu theorem.",
+        "searches": [
+          "cooling time dependent elephant random walk urn terminal-centered stable functional Gaussian field inverse time Brownian",
+          "arXiv:2603.13690"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned SCOPE scientific record is about fixed-critical elephant cover times; distinct process statistic.",
+          "No finite database or table could establish an all-n stable functional weak limit without a theorem."
+        ],
+        "reasoning": "No exact indexed statement of this terminal-centered inverse-time field was located, but index silence is not evidence of absolute novelty.",
+        "searches": [
+          "cooling elephant random walk dependent Bernoulli reverse martingale stable functional central limit theorem Gava Rezende",
+          "cooling time dependent elephant random walk urn terminal-centered stable functional Gaussian field inverse time Brownian"
+        ]
+      },
+      "rationale": "Best-of-knowledge noncoverage after comparing the precise statements and implications, original scope, related general theorems and aliases, with the specific residual priority limitations below; lack of a search hit is not itself evidence of novelty.",
+      "residual_risks": [
+        "Gava–Rezende 2021 explicitly advertises Gaussian fluctuations and an invariance principle for affine correlated Bernoulli variables; its uninspected exact theorem could overlap materially.",
+        "Other general terminal-martingale stable functional CLTs may imply much of the statement after specialization.",
+        "The full Fan–Qi 2026 theorem proof was not newly accessible during this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Direct fixed-copy-probability theorem does not give arbitrary p_n->0 or random conditional covariance, though it shares a stable martingale FCLT proof method.",
+          "evidence": [
+            "arXiv:2603.13690v1, lines 41-95 and 193-224."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.13690v1",
+          "material_read": "Read full accessible HTML including model equation (1.1), fixed-p Theorem 1.1, Remarks 1.2, fixed-p Theorem 1.3 and martingale proof §2.1, appendix description.",
+          "method": "Primary theorem parameter and centering comparison",
+          "title": "Stable functional CLTs for scaled elephant random walks",
+          "trigger": "Strong candidate higher-level stable functional theorem for same ERW family"
+        },
+        {
+          "assessment": "Decisive whole-article noncoverage cannot be asserted; priority remains qualified, but no exact covering theorem was identified.",
+          "evidence": [
+            "Gava–Rezende 2021, Statistics & Probability Letters 170, abstract and DOI."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.spl.2020.109010",
+          "material_read": "RePEc and publisher abstract explicitly mentioning Gaussian fluctuation and weak invariance principle. Full article not available; authorized institutional attempt returned vpn_disconnected.",
+          "method": "Abstract-level scope, with express failure of full-text access",
+          "title": "Some limit theorems for dependent Bernoulli random variables",
+          "trigger": "Exact affine conditional Bernoulli alias and possible general Gaussian fluctuation theorem"
+        },
+        {
+          "assessment": "Establishes closely related model and strong-law/CLT results. Its exact full text was not reread here; retain risk of possible overlapping fluctuations.",
+          "evidence": [
+            "Fan–Qi, arXiv:2610.16065, abstract."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.16065",
+          "material_read": "Primary abstract and bibliographic metadata; direct current full HTML unavailable; candidate package cites its first-order martingale theorem.",
+          "method": "Direct model and available scope comparison",
+          "title": "A Generalized Elephant Random Walk with Time-Dependent Memory",
+          "trigger": "Same deterministic time-dependent copying parameter model"
+        },
+        {
+          "assessment": "Does not directly provide a theorem for deterministic reversal probability p_n->0 with full past sampling.",
+          "evidence": [
+            "Gut–Stadtmüller 2022 abstract; Aguech 2024 model description."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.13497",
+          "material_read": "Read abstract and 2024 follow-on model description: gradually increasing *remembered history length*, fixed copying probability, rather than this changing reversal p_n.",
+          "method": "Distinct-model comparison",
+          "title": "The elephant random walk with gradually increasing memory",
+          "trigger": "Potential apparent synonym gradually increasing memory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Gives a complete path-level second-order law around the random terminal martingale drift for arbitrary deterministic reversal probabilities tending to zero, with an inverse-time Brownian covariance and a phase distinction between persistent random composition and erased memory. This is a motivated stochastic limit distinct from first-order convergence and fixed-parameter elephant fluctuation laws.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any deterministic p_n in [0,1] with p_n->0 and initially both colours, the terminal-centered imbalance process sqrt(n)(Q_floor(nt)-a_floor(nt)M_infinity) converges stably on [r,T] (r>0) to sqrt(1-Q_infinity^2) B(1/t), independent Brownian conditional on full urn history; conditional covariance equals (1-Q_infinity^2)/max(s,t).",
+  "limitations": "Only deterministic p_n->0, seeded two-colour single-addition urn, terminal unobservable centering and compact positive time intervals; no rate or origin-time limit. Gava–Rezende 2021 full text inaccessible; a general earlier correlated-Bernoulli invariance theorem might overlap. Authorized Oxford retrieval reported vpn_disconnected; no bypass attempted.",
+  "schema_version": 1
+}
