@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify.py` using the Python standard library. The checker exhaustively compares exact falling-factorial moment formulas with direct enumeration for every tuple `(n,m,j,r)` with `1<=n<=5`, `1<=m<=4`, `0<=j<=n`, and `r` in `{1,2}`; it also checks critical-scale finite-size first moments and rare larger-star tail sums for `k=2,3,4,5` and `c=0.75,1,2`. It prints `CRITICAL_STAR_OCCUPANCY_EXACT_OK 184 checks` on success.
+## correctness
 
-The proof of the infinite Poisson convergence, the exhaustive first-order probability spectrum, and originality are not computationally certified by this finite test. The exact factorial moment formula and canonical structures for model checking are fully specified in `RESULT.md`. The named statuses correspond only to self-review; independent validation has not been performed.
+PASS
+
+PASS: Exact occupancy factorial moment for X_{n,j} is (m)_r (n)_{jr}/((j!)^r m^{jr}) (1-r/m)^(n-jr). For m~c n^{k/(k-1)}, j<k counts diverge by relative variance, degree k converges by all factorial moments to Poisson(1/(k! c^(k-1))), and larger degrees vanish by a first-moment bound. The q-round disjoint-star EF strategy truncates multiplicities at q so sentence outcomes depend only on min(X_{n,k},q); finite/cofinite Poisson events are all definable. Independently enumerated exact first/second factorial moments on 108 small parameter instances. Fixed signature/sorts and fixed k,c are essential.
+
+## originality
+
+PASS
+
+The classical birthday Poisson collision law is not new; new combined content is the exact complete finite/cofinite first-order sentence spectrum at every fixed threshold with effective q-type reduction. Degree-constrained random undirected graph FO papers do not sample the named-sort independent allocation model.
+
+## value
+
+PASS
+
+PASS: The theorem resolves the entire first-order limiting event spectrum at every fixed higher-birthday collision threshold, not just a selected Poisson statistic. Definability converse and effective computation distinguish it from routine occupancy convergence; this is a natural finite-model-theory benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
