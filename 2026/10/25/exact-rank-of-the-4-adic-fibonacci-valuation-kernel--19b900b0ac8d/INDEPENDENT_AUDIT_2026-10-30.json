@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:18:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 0c2826bc67ce8977921d4e862013fed19c284633, verify.py blob 1b9a27035646599267cb75a76242edafe34c94c4, tree 9feb0f3001a298c707ec50a40b316fe1a603ca15.",
+        "Independent exact Fibonacci valuation checks through m=4999, 340 distinct kernel offset checks through depth four, and witness determinant 1.",
+        "Murru–Sanna 2016 §6 identifies exact composite-base kernel ranks as an open natural question."
+      ],
+      "limitations": [
+        "One exact (base4,Fibonacci) rank, not a general prime-power or Lucas-sequence formula.",
+        "Finite checker complements the all-depth symbolic kernel classification."
+      ],
+      "rationale": "The known Fibonacci ν2 formula gives s(n)=h(ν2(n+1)) when 6 divides n+1 and 0 otherwise, h(t)=floor((t+2)/2). Define g(n)=δ2(n)h(ν2(n+1)) with δj indicating n mod3. For each e>=1 and i<4^e−1, s(4^e n+i) is zero for odd i+1 or equals h(ν2(i+1)) δ_{−i−1 mod3}(n) for even i+1; the final offset gives g+eδ2. Thus all kernel sequences lie in span(s,g,δ0,δ1,δ2). The explicit subsequences s(16n+1)=δ1, s(16n+5)=δ0, s(64n+9)=δ2 and s(4n+3)=g+δ2 show each generator lies in the kernel module. At n=0,1,2,5,11 the resulting 5x5 witness matrix has determinant ±1; hence rank exactly five. All kernel depths are covered symbolically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier sources establish explicit ν2(F_n), p-regularity and broad k-regularity classifications.",
+          "They do not state the five-dimensional rational 4-kernel span for ν4(F_(n+1))."
+        ],
+        "reasoning": "The general fact that the sequence is 4-regular supplies finite rank but neither an exact rank nor minimal independent generators.",
+        "searches": [
+          "Medina–Rowland arXiv:0910.2907",
+          "Sobolewski arXiv:2202.09922",
+          "4-adic valuation of Fibonacci 4-kernel module rank 5 composite base Murru Sanna"
+        ]
+      },
+      "checked_sources": [
+        "Murru–Sanna arXiv:1603.09310 full PDF",
+        "Medina–Rowland arXiv:0910.2907 full PDF",
+        "Sobolewski arXiv:2202.09922 full PDF",
+        "Resultary query and returned Fibonacci/regularity-related findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An already known rank-five result applies to ν2(F_(n+1)) over base2, but ν4(F)=floor(ν2(F)/2) and the base4-kernel genuinely alter the module.",
+          "The five generator rank for the base4 sequence is independently proved; the prior prime theorem does not give it by mere substitution."
+        ],
+        "reasoning": "General automatic sequence closure under base power implies regularity; rank can change, so a bound without exact rank does not dominate the five-vector independence and containment.",
+        "searches": [
+          "Murru–Sanna §5 prime-rank proof and §6 open question",
+          "Medina–Rowland §2 2-adic formula"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 1.4 handles rank for prime base p, and the concluding section asks for the composite-base generalization."
+        ],
+        "reasoning": "Prime p=2 rank-five is a related but different sequence/automaton; identifying ν4 and grouping base-4 kernel offsets is not implied by simply reindexing the original rank theorem.",
+        "searches": [
+          "4-adic valuation of Fibonacci 4-kernel module rank 5 composite base Murru Sanna",
+          "Murru–Sanna arXiv:1603.09310 Theorems 1.3–1.4, §6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary exact rank-5 composite valuation record appeared in the actual query; Murru–Sanna publishes prime-rank formulas but not a composite-base rank table."
+        ],
+        "reasoning": "No exact same-base table was located; this absence is not proof of absolute historical novelty.",
+        "searches": [
+          "Resultary semantic query: 4-adic valuation of Fibonacci 4-kernel module rank 5 composite base Murru Sanna",
+          "arXiv:1603.09310 §§5–6"
+        ]
+      },
+      "rationale": "Murru–Sanna explicitly leave the rank of ν_k(u_(n+1)) for composite k, including prime powers, open. Their rank-five prime-base Fibonacci valuation is NOT this statement: changing both ν2 to floor(ν2/2) and the 2-kernel to the 4-kernel changes the generated rational module. The five-generator computation answers a natural specific composite-base question not provided by inspected prior theorems.",
+      "residual_risks": [
+        "A differently expressed composite base-power kernel rank may be published outside inspected literature.",
+        "The exact rank5 coincides numerically with an earlier prime-base rank5 but is not assumed equivalent."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "§6 explicitly poses composite-base rank and names prime powers as natural, while rank theorem covers p prime.",
+          "evidence": "Theorem 1.4 and §6 pp.7–8, explicit proposed prime-power direction.",
+          "identifier_or_url": "https://arxiv.org/pdf/1603.09310",
+          "material_read": "Complete 8-page PDF, Theorems 1.3–1.4, proof §5 and §6 concluding remarks, especially prime-power sentence.",
+          "method": "Full arXiv PDF, text and page images inspected.",
+          "title": "On the k-regularity of the k-adic valuation of Lucas sequences",
+          "trigger": "Original exact rank prime-base theorem and explicit composite-base research question"
+        },
+        {
+          "assessment": "Provides the valuation input, but studies νp and p-kernel rather than ν4 and the 4-kernel.",
+          "evidence": "ν2(F_n) by residue mod6 and prime-base rank discussion.",
+          "identifier_or_url": "https://arxiv.org/pdf/0910.2907",
+          "material_read": "Complete preprint including the ν2(F_n) formula and exact prime-base kernel calculations.",
+          "method": "Lawful arXiv full PDF with page images.",
+          "title": "p-Regularity of the p-Adic Valuation of the Fibonacci Sequence",
+          "trigger": "Potential dominating exact Fibonacci 2-adic rank result"
+        },
+        {
+          "assessment": "General regularity is established, but no explicit rank for this exact base4 Fibonacci sequence located.",
+          "evidence": "General k-regularity classification, Theorem 2.3.",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.09922",
+          "material_read": "Full arXiv PDF regularity statements and characterization inspected.",
+          "method": "Lawful arXiv full PDF and relevant theorem text.",
+          "title": "On k-regularity of sequences of valuations and last nonzero digits",
+          "trigger": "Potential broader prime-power k-regularity theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "The classification gives both generators and a witness determinant for exact rank."
+      ],
+      "limitations": [
+        "No extension to arbitrary k or Lucas sequences."
+      ],
+      "rationale": "Composite-base k-kernel rank was singled out as an open natural invariant by the authors of the general theory. An explicit finite-rank classification, five generator sequences and a minimal independence witness for base 4 and Fibonacci numbers answer the first nontrivial prime-power example, offering an exact reusable datum even without a general formula.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Murru–Sanna arXiv:1603.09310 full PDF",
+    "Medina–Rowland arXiv:0910.2907 full PDF",
+    "Sobolewski arXiv:2202.09922 full PDF",
+    "Resultary query and returned Fibonacci/regularity-related findings",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-rank-of-the-4-adic-fibonacci-valuation-kernel--19b900b0ac8d/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-rank-of-the-4-adic-fibonacci-valuation-kernel--19b900b0ac8d/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-rank-of-the-4-adic-fibonacci-valuation-kernel--19b900b0ac8d/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For s(n)=ν4(F_(n+1)) with ν4(t)=max{e:4^e divides t}, the Z-module generated by all 4-kernel subsequences s(4^e n+i) has rational rank exactly five.",
+  "limitations": [
+    "One exact (base4,Fibonacci) rank, not a general prime-power or Lucas-sequence formula.",
+    "Finite checker complements the all-depth symbolic kernel classification.",
+    "No extension to arbitrary k or Lucas sequences."
+  ],
+  "residual_risks": [
+    "A differently expressed composite base-power kernel rank may be published outside inspected literature.",
+    "The exact rank5 coincides numerically with an earlier prime-base rank5 but is not assumed equivalent."
+  ],
+  "schema_version": 1
+}
