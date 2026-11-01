@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness
+PASS. The quotient is defined as the geometric quotient under the free global sign involution and retains distinct quotient cells when their vertex-orbit sets coincide. The full 30-by-360 and 360-by-480 integral cellular boundary operators are reconstructed from all signed matchings. Their chain identity and one-skeleton connectivity are checked. An exact unimodular unit-pivot reduction makes 270 unit pivots, leaves a matrix whose every nonzero entry is exactly ±2, and reduces its half by 15 further unit pivots with no residual nonzero entries. This gives the complete integral Smith factors 1 repeated 270 and 2 repeated 15. The resulting integral homology groups follow from exact ranks and primitivity of the first boundary. The program performs all operations; finite-field experiments have not been treated as integral proof.
+
+## Originality
+PASS with residual risk. The closest general literature establishes the simplicial-double operation and the nonequivariant and equivariant homology decompositions of ordinary vertex inflations. Those results cover the torsion-free homotopy type of the covering complex and are explicitly excluded from the new claim. The quotient has several cells over the same base face and is not an ordinary vertex inflation of the matching complex. Wachs's equivariant homology formula for the cover does not state or directly determine the quotient's integer Smith factors or possible order-four extensions. The generalized inflation theorem requires a flabby-sheaf condition not verified for this quotient; the present claim uses no such assumption. Relevant primary source sections and semantically similar existing mathematical findings were compared; no exact covering result was found, but an unindexed equivalent calculation remains possible.
+
+## Mathematical value
+PASS. A natural free symmetry quotient of the newly defined simplicial double develops nontrivial integral torsion even though the covering inflated matching complex is a wedge of 106 circles and 405 two-spheres. The exact fifteen independent two-torsion classes and the complete ranks distinguish the quotient sharply from its cover. This is a concrete obstruction to assuming a nonequivariant inflation sphere-wedge classification descends to a free global sign quotient; the fact is an exact natural integral invariant relevant to studying quotient topology and equivariant constructions, not an arbitrary graph parameter recomputation.
+
+## Scope and scientific limits
+The result is one fixed, canonical six-dimensional case. It does not classify all quotients or claim an integral character splitting, homotopy equivalence type or independent external certification. Wachs's general equivariant theorem and the Ayzenberg--Khoroshavkina flabbiness hypothesis were compared explicitly. The executable integer Smith calculation is part of the evidence and is not a substitute for independent audit.
+
+Self-review: passed. Independent audit: not yet performed.
