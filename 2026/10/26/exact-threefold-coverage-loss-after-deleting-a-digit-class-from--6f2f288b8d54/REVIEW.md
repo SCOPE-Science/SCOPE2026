@@ -1,13 +1,21 @@
-# Threefold sumset coverage: scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** Base-\(g^3\) block contributions never carry across blocks because \(3g(g-1)<g^3\) for \(g\ge4\). The zero-permitted sumset is exactly the union of two Cartesian languages of block size \(2g^2-g\) and \(3g-2\), with overlap size \(2g-1\). A complete analysis of positive summands removes precisely the \(\binom{k+2}{2}\) weak compositions of total at most two. Nine independent direct-enumeration configurations corroborate the general argument. The key limitations are the exact periodic partition and full-block cutoffs.
+## correctness
 
-**Originality: PASS, subject to unrecognized implicit prior coverage.** The most relevant primary work is Min Tang's 2026 arbitrary-partition theorem, which proves minimality of the *full* union and essentiality properties, not an exact threefold sumset size after removing a whole position class. Related minimal digital-basis literature and research-index searches showed no equivalent, stronger covering theorem or exact table for this parameter family. The quantifier and parameter comparison concerns all \(g\ge4\) and all \(k\ge1\), not just coincident small examples. Implicit coverage through general deleted Cantor sumset or finite automata theory remains a residual risk.
+PASS
 
-**Mathematical value: PASS.** The motivating minimal-basis theorem makes the full threefold sumset cofinite. Removing an infinite class changes the counting law to a computable nonintegral power exponent. The exact three-exponential-plus-polynomial formula identifies both the dominant fractal-growth mechanism and the nontrivial positivity obstruction. These are natural invariants of an entire missing summand class, not an arbitrary finite census.
+Group base-g digits into H=g³ blocks. For three summands each confined to W0 or W1, every block contribution is s_j+g v_j≤3g(g−1)<H so there is no interblock carry. With q of 3 summands of type W0, q=1 has full interval T1={0,…,2g²−g−1}; q=2,3 are subsets, and q=0 gives multiples-of-g T0 with 3g−2 elements. |T1∩T0|=2g−1, so allowing zeros, size=(2g²−g)^k+(3g−2)^k−(2g−1)^k. A separate digit-allocation proof enforces all three summands positive: only T1 words with quotient digits B=0 and total remainder R≤2 are excluded, exactly binom(k+2,2) weak compositions; T0\T1 all admit 3 positive type-W1 summands. Thus exact formula for every g≥4,k≥1 and θ_g=log_{g³}(2g²−g)<1. Independent direct enumeration verifies nine parameter pairs incl. g=4,k=3 (22599), not an infinite proof.
 
-**Closest literature:** Tang (arXiv:2610.23152v1), especially Theorem 1.1 and Corollaries 1.3–1.5; Tang–Ling (arXiv:1810.10925). The former has no matching infinite-class deletion formula; the latter addresses construction and minimality rather than this precise cutoff count.
+## originality
 
-**Limits:** No classification for irregular partitions or all cutoffs; independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete three-class union is a minimal asymptotic basis by Tang; this theorem deletes one ENTIRE infinite digit-position class and computes the exact size, dominant exponent and positivity correction for the remaining threefold sumset at all full-block cutoffs. Tang’s accessible full primary paper proves minimality/essentiality for the original complete family, not this complete residual-count formula. Generic g-adic sumset or carry automata might implicitly give it; no covering theorem in inspected material.
+
+## value
+
+PASS
+
+Minimality of a full g-adic basis motivates studying how the representation count deteriorates on removal of an entire infinite digit class. The exact three-exponential inclusion–exclusion law plus polynomial positivity correction and sharp sublinear coverage exponent are natural structural invariants, not a random cutoff table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

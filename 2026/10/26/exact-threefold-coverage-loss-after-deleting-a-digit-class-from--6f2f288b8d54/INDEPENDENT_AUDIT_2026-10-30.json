@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:54:07.689409Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Group base-g digits into H=g³ blocks. For three summands each confined to W0 or W1, every block contribution is s_j+g v_j≤3g(g−1)<H so there is no interblock carry. With q of 3 summands of type W0, q=1 has full interval T1={0,…,2g²−g−1}; q=2,3 are subsets, and q=0 gives multiples-of-g T0 with 3g−2 elements. |T1∩T0|=2g−1, so allowing zeros, size=(2g²−g)^k+(3g−2)^k−(2g−1)^k. A separate digit-allocation proof enforces all three summands positive: only T1 words with quotient digits B=0 and total remainder R≤2 are excluded, exactly binom(k+2,2) weak compositions; T0\\T1 all admit 3 positive type-W1 summands. Thus exact formula for every g≥4,k≥1 and θ_g=log_{g³}(2g²−g)<1. Independent direct enumeration verifies nine parameter pairs incl. g=4,k=3 (22599), not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tang 2026 arbitrary partition minimality covers arbitrary classes for FULL union and qualitative essentiality; no inspected result giving the two-language exact count after whole-class deletion.",
+          "Tang–Ling 2018 studies construction/minimality of digital bases."
+        ],
+        "reasoning": "The broader partition theorem does not imply this exact remaining-sumset growth exponent. A more general automaton transfer-matrix result specialized to this deletion could dominate, but none verified here.",
+        "searches": [
+          "arXiv:2610.23152 Theorem 1.1 Corollary 1.3 1.5",
+          "arXiv:1810.10925 g-adic minimal bases",
+          "minimal g-adic basis deleting one digit class threefold sumset exact count coverage exponent"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.23152v1",
+        "https://arxiv.org/abs/1810.10925"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang Theorem 1.1 shows the original three-class union is minimal basis, in particular removal prevents a cofinite threefold sumset; it does NOT quantify residual counting function.",
+          "Current theorem quantifies |3B∩[0,g^{3k})| and θ_g<1."
+        ],
+        "reasoning": "The prior qualitative essentiality is implied by the new exponent but cannot determine the latter or the binomial positivity correction. Original minimality is acknowledged, not claimed as new.",
+        "searches": [
+          "https://arxiv.org/html/2610.23152v1",
+          "https://arxiv.org/abs/1810.10925",
+          "minimal g-adic basis deleting one digit class threefold sumset exact count coverage exponent"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original full basis B=A_g(W0)∪A_g(W1)∪A_g(W2) from Tang; after deleting W2, threefold sumset equals two regular block languages except weak-composition correction."
+        ],
+        "reasoning": "A nontrivial exact residual sumset size after infinite deletion is distinct from showing the original union is an asymptotic basis; same digit object but different quantifier and invariant.",
+        "searches": [
+          "minimal g-adic basis deleting one digit class threefold sumset exact count coverage exponent",
+          "deleting W_2 from three periodic base-g digit supports additive basis",
+          "g-adic block language union T1^k T0^k"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independently enumerated 9 (g,k) values; at g=4 counts k=1,2,3 are 28,829,22599.",
+          "No actual matching table or exact closed formula found in scoped primary Resultary search."
+        ],
+        "reasoning": "This is a complete formula for all integer g≥4 and k≥1, not a recomputation of a known finite table. Finite coincidence is no originality proof.",
+        "searches": [
+          "minimal g-adic basis deleting one digit class threefold sumset exact count coverage exponent",
+          "(2g^2-g)^k+(3g-2)^k-(2g-1)^k-binomial(k+2,2)",
+          "deleted digit class sumset counts base 4 829 22599"
+        ]
+      },
+      "rationale": "The complete three-class union is a minimal asymptotic basis by Tang; this theorem deletes one ENTIRE infinite digit-position class and computes the exact size, dominant exponent and positivity correction for the remaining threefold sumset at all full-block cutoffs. Tang’s accessible full primary paper proves minimality/essentiality for the original complete family, not this complete residual-count formula. Generic g-adic sumset or carry automata might implicitly give it; no covering theorem in inspected material.",
+      "residual_risks": [
+        "General deleted Cantor digit sumsets or carry-automata transfer matrix theorems could yield an equivalent formula under a different formulation.",
+        "The exact formula covers periodic three-class partitions and cutoffs g^{3k} only; no classification across arbitrary partitions is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Full union minimal and removal of members qualitative; no identical whole-class deletion cutoff count in inspected results",
+          "evidence": "Theorem 1.1 assumes all three classes present and concludes minimality, not the exact post-deletion sumset count.",
+          "identifier_or_url": "https://arxiv.org/html/2610.23152v1",
+          "material_read": "Accessible full arXiv HTML, Theorem 1.1, Corollaries 1.3–1.5 and associated proof/essentiality discussion inspected.",
+          "method": "Primary HTML full-text sections reviewed",
+          "title": "Minimal asymptotic g-adic bases from arbitrary partitions",
+          "trigger": "Same three-position-class g-adic minimal basis"
+        },
+        {
+          "assessment": "Construction/qualitative basis antecedent, exact residual count not established by accessible abstract",
+          "evidence": "The same exact 2g²−g exponential and binomial correction is not in the inspected abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1810.10925",
+          "material_read": "Indexed abstract and stated construction; complete primary text not verified.",
+          "method": "ArXiv indexed summary",
+          "title": "On asymptotic bases and minimal asymptotic bases",
+          "trigger": "Related minimal digital-basis construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Minimality of a full g-adic basis motivates studying how the representation count deteriorates on removal of an entire infinite digit class. The exact three-exponential inclusion–exclusion law plus polynomial positivity correction and sharp sublinear coverage exponent are natural structural invariants, not a random cutoff table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For g≥4,k≥1, B=A_g(W0)∪A_g(W1) with strictly positive digit-restricted summands and W_r positions ≡r mod3: |3B∩[0,g^{3k})|=(2g²−g)^k+(3g−2)^k−(2g−1)^k−binom(k+2,2), with exponent log_{g³}(2g²−g)<1.",
+  "limitations": [
+    "Only periodic residue classes mod 3 and cutoffs g^{3k}, excludes irregular partitions and arbitrary cutoffs.",
+    "All members B are positive; allowing 0 would remove the binomial correction."
+  ],
+  "schema_version": 1
+}
