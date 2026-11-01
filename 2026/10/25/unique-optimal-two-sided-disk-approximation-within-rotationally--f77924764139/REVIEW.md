@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The disk-intersection radial function follows from solving the disk equation in each angular cell. Its derivatives establish both nested-end regimes and a unique inside/outside crossing. The exact boundary-term primitive gives the displayed derivative of weighted area. The strict increase of the normalized crossing function from zero to one proves global existence and uniqueness without reliance on sampling. A uniform Taylor bound on the narrow center interval yields both \(n^{-2}\) coefficients and the stated \(n^{-4}\) error. Numerical tests are supplemental and reproduce the equations for different radii and weights.
+## correctness
 
-## Originality — PASS within the stated family, with residual priority risk
-The open weighted disk-polygon deviation questions in Basit–Lángi motivate the problem, but their results address Dowker-type behavior and one-sided regimes, not the exact optimized two-sided regular-center equation. Nagy–Vígh give one-sided inscribed/circumscribed asymptotics; their theorems do not imply the unique weighted crossing point. Closest indexed work on circular-gap area for intersections of congruent disks optimizes area at fixed center radius and is not a two-sided comparison against a prescribed smaller disk. A full reading of that indexed record was unavailable; a potential undiscovered equivalent remains a priority risk, not an asserted impossibility.
+PASS
 
-## Mathematical value — PASS
-The source's weighted area questions involve competing excess and deficit, a regime not captured by simply combining optimal inscribed and circumscribed constructions. A natural, symmetry-preserving disk-polygon benchmark here has an exact unique optimizer, strict weight interpolation, and a sharp nontrivial curvature-dependent second-order constant. This supplies a comparison standard for investigating the unrestricted sequence; it neither claims to settle nor trivially follows from the unrestricted open questions.
+For every integer n>=3, 0<r<1 and p,q>0 the origin is inside all unit disks for 0<=c<1. In each of n regular angular cells the radial function is rho(c,t)=sqrt(1-c^2 sin^2(t))-c cos(t) for 0<=t<=h=pi/n. Implicit differentiation of rho^2+2c rho cos(t)+c^2=1 gives rho_c<0, rho_t>0, and the exact primitive -rho rho_c=d_t(rho sin t). Outside (c0,c1) the two weighted difference terms are nested and the objective is strictly monotone toward that interval; inside it the unique crossing alpha(c) rises from 0 to h. Direct Leibniz differentiation (zero endpoint integrands at the crossing) yields E_n'(c)=2n((p+q)r sin(alpha(c))-q rho(c,h)sin h). The ratio r sin(alpha(c))/(rho(c,h)sin h) is strictly increasing onto (0,1), so there is exactly one global minimizer for each s=q/(p+q). A uniform Taylor expansion rho=r-delta+[r(1-r)/2]t^2+O(h^4), delta=O(h^2), derives the n^-2 center correction and E_n coefficient pi^3 r^2(1-r)(p+q)s(1-s^2)/3 with O(n^-4) remainder at fixed r,p,q; the expansion does not cover degenerate endpoints r=0,1 or p/q=0. Independent SciPy quadrature/root checks for 18 parameter/n cases corroborate derivative stationarity and scaling, not the infinite proof.
 
-## Boundaries
-The claim applies only to fixed-radius concentric target disks and centers forming a regular angular orbit with freely chosen radius. It is not an all-shapes or all-center-position optimization. Complete global scholarly priority cannot be guaranteed from accessible sources alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge and restricted to regular-center one-parameter optimization. Primary literature establishes weighted disk-polygon approximation as a natural problem and separately establishes one-sided or fixed-center-radius results, but none inspected gives the precise mixed-sign weighted objective, unique balancing radius for all finite n and fixed positive weights, or sharp O(n^-4) expansion. This is a genuinely narrower theorem than unrestricted disk-polygon approximation, not an assertion of that open problem. Unindexed equivalent calculations remain possible.
+
+## value
+
+PASS
+
+Weighted inside/outside area deviation is a mathematically motivated problem raised by primary disk-polygon approximation work. In the canonical rotationally symmetric one-parameter family, a strict global optimum for every finite n and arbitrary positive weights, a weight-interpolating crossing law and an explicit n^-2 curvature/radius coefficient form a reusable comparison benchmark for unrestricted approximation. This is neither a textbook nesting calculation nor an unsupported claim to solve the unrestricted open problem; the nontrivial part is balancing positive area excess and deficit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

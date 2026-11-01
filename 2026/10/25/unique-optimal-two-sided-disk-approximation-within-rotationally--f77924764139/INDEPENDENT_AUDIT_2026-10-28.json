@@ -1,0 +1,140 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:50:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139/RESULT.md",
+        "GitHub exact tree API d39188f6f220bff9b94e6419b957d5da33e59cce",
+        "inspected source checker, result, and structured audit evidence"
+      ],
+      "rationale": "For every integer n>=3, 0<r<1 and p,q>0 the origin is inside all unit disks for 0<=c<1. In each of n regular angular cells the radial function is rho(c,t)=sqrt(1-c^2 sin^2(t))-c cos(t) for 0<=t<=h=pi/n. Implicit differentiation of rho^2+2c rho cos(t)+c^2=1 gives rho_c<0, rho_t>0, and the exact primitive -rho rho_c=d_t(rho sin t). Outside (c0,c1) the two weighted difference terms are nested and the objective is strictly monotone toward that interval; inside it the unique crossing alpha(c) rises from 0 to h. Direct Leibniz differentiation (zero endpoint integrands at the crossing) yields E_n'(c)=2n((p+q)r sin(alpha(c))-q rho(c,h)sin h). The ratio r sin(alpha(c))/(rho(c,h)sin h) is strictly increasing onto (0,1), so there is exactly one global minimizer for each s=q/(p+q). A uniform Taylor expansion rho=r-delta+[r(1-r)/2]t^2+O(h^4), delta=O(h^2), derives the n^-2 center correction and E_n coefficient pi^3 r^2(1-r)(p+q)s(1-s^2)/3 with O(n^-4) remainder at fixed r,p,q; the expansion does not cover degenerate endpoints r=0,1 or p/q=0. Independent SciPy quadrature/root checks for 18 parameter/n cases corroborate derivative stationarity and scaling, not the infinite proof.",
+      "residual_risks": [
+        "Strict positive p,q; r strictly between zero and one; n>=3; c restricted to [0,1); no arbitrary center-set disk-polygon optimum.",
+        "The O(n^-4) remainders fix r,p,q and do not assert uniformity at degenerate weights or radii."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Basit–Lángi proves Dowker-type results and poses weighted area questions for unrestricted disk-polygons (Problems 2–3); the audited result does not solve those larger problems.",
+          "Nagy–Vígh theorems on one-sided inscribed and circumscribed approximations give optimal area-deficit asymptotics, not the nonnested two-sided optimum at each n."
+        ],
+        "reasoning": "An unrestricted solution of weighted two-sided error would dominate this claim, but the inspected primary source asks rather than proves it. The one-sided theorems cannot be combined mechanically to recover an interior crossing minimum for positive p,q.",
+        "searches": [
+          "weighted two-sided symmetric disk polygon concentric disk approximation unique optimal regular center radius weighted symmetric difference asymptotic",
+          "https://arxiv.org/html/2307.04026v5",
+          "https://www.math.u-szeged.hu/~vigvik/preprints/Lconvexapproximations.pdf",
+          "Nagy Vígh best and random approximations generalized disc-polygons one-sided inscribed circumscribed"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2307.04026v5",
+        "https://www.math.u-szeged.hu/~vigvik/preprints/Lconvexapproximations.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8/RESULT.md",
+        "https://arxiv.org/abs/2307.04026",
+        "https://doi.org/10.1007/s00454-023-00554-5",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Basit–Lángi Section 5 Problems 2–3 leave weighted unrestricted sequence behavior open and earlier theorems handle a distinct one-sided regime.",
+          "Nagy–Vígh Theorems 1–2 treat optimal one-sided generalized disk-polygon approximation.",
+          "The circular-gap theorem establishes angular equal-spacing minimizing intersection area for a fixed circle of centers; it does not vary center radius or compare two signed area losses."
+        ],
+        "reasoning": "None of these statements implies uniqueness of the weight-balanced c_n, its strict variation in s, or the precise two-sided asymptotic constant. The audited theorem is explicitly only for a regular angular orbit; it does not claim new angular equal-spacing optimality.",
+        "searches": [
+          "https://arxiv.org/html/2307.04026v5",
+          "https://www.math.u-szeged.hu/~vigvik/preprints/Lconvexapproximations.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8/RESULT.md",
+          "weighted two-sided symmetric disk polygon concentric disk approximation unique optimal regular center radius weighted symmetric difference asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The loss p area(K\\Q)+q area(Q\\K) is a weighted symmetric-difference objective; the regular-center geometry reduces to radial integration in n congruent angular cells.",
+          "The published circular-gap theorem uses the same intersections under b=1/c scaling but optimizes center angular gaps at fixed c and computes random-area laws, not the weight-balanced target-disk deviation at varying c."
+        ],
+        "reasoning": "Equivalence of the objects and scaling was checked, but optimizing area at fixed c is not the same optimization as varying c to balance area deficits and excesses; a fixed-radius Jensen theorem cannot determine this crossing-angle stationarity.",
+        "searches": [
+          "weighted two-sided symmetric disk polygon concentric disk approximation unique optimal regular center radius weighted symmetric difference asymptotic",
+          "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks with centers equally spaced on a circle",
+          "https://arxiv.org/html/2307.04026v5",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The inspected circular-gap RESULT.md tabulates/derives an exact radial area functional and equal-angle extremum for fixed center-circle radius.",
+          "No inspected published table supplied the mixed-sign finite-n weighted crossing equation or its full-n leading coefficient."
+        ],
+        "reasoning": "An exact intersection area for fixed parameters or selected n is not an evaluated optimization over all c for every n>=3; the inspected data do not provide a dominating exact database/table for the claim.",
+        "searches": [
+          "weighted two-sided symmetric disk polygon concentric disk approximation unique optimal regular center radius weighted symmetric difference asymptotic",
+          "regular unit disk centers equally spaced intersection area target concentric disk radial weighted difference",
+          "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks with centers equally spaced on a circle",
+          "Resultary published circular-gap area law 2026/10/11"
+        ]
+      },
+      "rationale": "Best-of-knowledge and restricted to regular-center one-parameter optimization. Primary literature establishes weighted disk-polygon approximation as a natural problem and separately establishes one-sided or fixed-center-radius results, but none inspected gives the precise mixed-sign weighted objective, unique balancing radius for all finite n and fixed positive weights, or sharp O(n^-4) expansion. This is a genuinely narrower theorem than unrestricted disk-polygon approximation, not an assertion of that open problem. Unindexed equivalent calculations remain possible.",
+      "residual_risks": [
+        "An unindexed equal-center-radius balancing or weighted symmetric-difference formula may be equivalent to this theorem.",
+        "The primary Basit–Lángi questions address unrestricted disk-n-gons and should not be mistaken for a claim that this broader problem is solved.",
+        "The angular-gap area identity and generic analytic differentiation are established techniques; originality is in the full optimized parameter law and asymptotic constant."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines and motivates weighted two-sided questions; proved one-sided Dowker-type results do not contain unique regular-center radial optimizer",
+          "evidence": "Definitions 3–4, Theorems 1–3, Section 5 Problems 2–3",
+          "identifier_or_url": "https://arxiv.org/html/2307.04026v5",
+          "material_read": "Full-text definitions and Theorems 1–3, Section 5 Problems 2–3, including rendered PDF pages of introduction and late problem section",
+          "method": "arXiv lawful full-text HTML/PDF and visual page inspection",
+          "title": "Dowker-type theorems for disk-polygons in normed planes",
+          "trigger": "Same weighted disk-polygon approximation and explicit open problems"
+        },
+        {
+          "assessment": "One-sided inscribed/circumscribed extremal asymptotics, not the mixed weighted two-sided finite-n radius optimization",
+          "evidence": "Theorems 1 and 2 and their one-sided hypotheses",
+          "identifier_or_url": "https://www.math.u-szeged.hu/~vigvik/preprints/Lconvexapproximations.pdf",
+          "material_read": "Author open-access full text, statement and assumptions of Theorems 1–2 in pages 2–3",
+          "method": "lawful author-preprint PDF, textual and rendered page inspection",
+          "title": "Best and random approximations with generalized disc-polygons",
+          "trigger": "Closest sharp area-error asymptotics"
+        },
+        {
+          "assessment": "Equivalent family of disk intersections after scaling; fixes the center circle radius and varies angular gaps, a different objective. No covered two-sided target-radius optimum.",
+          "evidence": "Finding gap-Jensen area identity and deterministic angular optimum; proof parts 1–2 and limitations",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-circular-gap-area-laws-and-gaussian-fluctuations-for-inter--1c25b18e16e8/RESULT.md",
+          "material_read": "Entire 11,279-character published RESULT.md, including finding, five proof steps, relationship to prior work and limitations",
+          "method": "GitHub read-only fetched source blob",
+          "title": "Exact circular-gap area laws and Gaussian fluctuations for intersecting congruent disks",
+          "trigger": "Same disk intersections with equally spaced centers and exact area law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/1f8e0be379eb81eef2fb9793610c55b58e95c7d6/2026/10/25/unique-optimal-two-sided-disk-approximation-within-rotationally--f77924764139/RESULT.md",
+        "https://arxiv.org/html/2307.04026v5",
+        "https://www.math.u-szeged.hu/~vigvik/preprints/Lconvexapproximations.pdf"
+      ],
+      "rationale": "Weighted inside/outside area deviation is a mathematically motivated problem raised by primary disk-polygon approximation work. In the canonical rotationally symmetric one-parameter family, a strict global optimum for every finite n and arbitrary positive weights, a weight-interpolating crossing law and an explicit n^-2 curvature/radius coefficient form a reusable comparison benchmark for unrestricted approximation. This is neither a textbook nesting calculation nor an unsupported claim to solve the unrestricted open problem; the nontrivial part is balancing positive area excess and deficit.",
+      "residual_risks": [
+        "Unindexed prior exact symmetric two-sided formulas remain possible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strict positive p,q; r strictly between zero and one; n>=3; c restricted to [0,1); no arbitrary center-set disk-polygon optimum.",
+    "The O(n^-4) remainders fix r,p,q and do not assert uniformity at degenerate weights or radii.",
+    "Unindexed prior exact symmetric two-sided formulas remain possible.",
+    "An unindexed equal-center-radius balancing or weighted symmetric-difference formula may be equivalent to this theorem.",
+    "The primary Basit–Lángi questions address unrestricted disk-n-gons and should not be mistaken for a claim that this broader problem is solved.",
+    "The angular-gap area identity and generic analytic differentiation are established techniques; originality is in the full optimized parameter law and asymptotic constant."
+  ],
+  "schema_version": 1
+}
