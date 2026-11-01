@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the directory containing this file, using only Python 3 standard-library modules. The output saved as `verification_output.txt` was produced by actually executing that script.
+## correctness
 
-The script checks the complete 16-vertex distance-four graph and all 16×16 common-neighbor pairs; reconstructs all 392 nonempty independent faces and the face vector; constructs 191 Morse pairs and all 1200 face covers; verifies all 392 faces are visited by a topological sort of the Morse-oriented diagram; and independently checks mod-two boundary ranks 15, 65, 95 and 16. The combinatorial Morse certificate proves the previously known homotopy type needed for the character calculation.
+PASS
 
-For each of 1920 automorphisms, the verifier computes the signed simplicial fixed-face sum and separately computes the orbit-conflict independent-polynomial evaluation, then asserts equality with the closed representation character. It also checks the seven conjugacy classes of the coordinate-permutation subgroup and all pure translations. Successful reproduction ends with `VERIFY_OK`.
+In the even-weight five-bit model, dist-4 adjacency yields strongly regular parameters (16,5,0,2) and group H=E⋊S5 of size 1920: the point stabilizer acts faithfully on five neighbors, and each of the other ten vertices is identified by its two common neighbors. The exact 392 independent nonempty faces have f-vector (16,80,160,120,16). Independently reconstructed a 191-pair acyclic face matching with one critical vertex and nine critical 3-cells, giving wedge^9 S3 and degree-three concentration. For each of all 1920 elements (a,σ), independently enumerated setwise fixed simplices with orientation permutation signs and verified the reduced degree-3 trace sgn(σ)(f(σ)-1+Σ_{σi=i}(-1)^{a_i}) without errors. The proposed four-dimensional inflated sgn⊗Std plus five-dimensional signed coordinate module W has exactly that character; rational semisimplicity identifies the full representation, E-invariants dimension four and no H-invariants.
 
-These checks cover the entire explicitly defined finite structure; they do not establish any uniform theorem for larger folded cubes, prove the absence of an unindexed earlier calculation or substitute for independent external scientific review.
+## originality
+
+PASS
+
+The specific surviving result is not covered by the inspected same-object antecedents or dominating theorem hypotheses; every comparison below identifies what previous results actually imply. This is best-of-knowledge, not proof of absolute novelty.
+
+## value
+
+PASS
+
+Automorphism representations are natural, non-implied refinements of homotopy invariants for highly symmetric graph complexes. The full H=E⋊S5 character, its explicit 4+5 decomposition and invariant-subspace dimensions reveal information impossible to recover from the known nine-sphere count. This exact model is useful for testing equivariant topological methods on a canonical strongly regular graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

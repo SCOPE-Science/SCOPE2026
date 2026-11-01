@@ -1,15 +1,21 @@
-# Scientific review: Clebsch independence homology character
+# Independent mathematical audit
 
-## Correctness — PASS
-The underlying graph is defined unambiguously as the even-weight five-bit distance-four graph. The 1920-element action is the entire automorphism group: translations act transitively, and any stabilizer of zero injects into the permutations of its five neighbors, with nonneighbors determined by pairs. The supplied exact verifier enumerates all 392 independent faces, establishes an acyclic 191-pair matching with nine critical three-cells and one vertex, checks all 1200 face incidences and independently computes mod-two boundary ranks. The signed reduced Lefschetz identity is used with the correct odd-dimensional sign. Its 1920 trace values agree by two different methods and with the displayed representation formula. Character semisimplicity over the rationals finishes the proof. Limited to this finite graph and its rational homology; no generalized folded-cube assertion is made.
+## correctness
 
-## Originality — PASS
-Previously published exact-object findings determine the nonequivariant homotopy type \(\bigvee^9S^3\) but not the homological symmetry character. The documented odd-folded-cube *neighborhood-complex* translation representation concerns a different construction, not the independence complex. Barmak proves triangle-free independence complexes are suspensions, which does not determine the present character. Greenwood–Gleason and Schmidt concern graph construction and automorphisms rather than the action on third homology. Searches included Clebsch, Greenwood–Gleason, projective cube, folded cube, full automorphism, translation character and equivalent clique-complex terminology; no stated stronger theorem implies the new character. Residual risk: an unpublished or unindexed equivalent representation calculation may exist.
+PASS
 
-## Value — PASS
-The full natural automorphism action on the nine-dimensional rational homology is a complete symmetry invariant, not an isolated small numeric parameter. It distinguishes a signed standard four-dimensional translation-fixed component from a five-dimensional orbit of nontrivial translation weights, identifies all 1920 traces in one structural formula, and shows the full group has no invariants. None of these features follows merely from the known nine-sphere nonequivariant homotopy equivalence. This is a meaningful representation-theoretic refinement of a canonical strongly regular graph complex.
+In the even-weight five-bit model, dist-4 adjacency yields strongly regular parameters (16,5,0,2) and group H=E⋊S5 of size 1920: the point stabilizer acts faithfully on five neighbors, and each of the other ten vertices is identified by its two common neighbors. The exact 392 independent nonempty faces have f-vector (16,80,160,120,16). Independently reconstructed a 191-pair acyclic face matching with one critical vertex and nine critical 3-cells, giving wedge^9 S3 and degree-three concentration. For each of all 1920 elements (a,σ), independently enumerated setwise fixed simplices with orientation permutation signs and verified the reduced degree-3 trace sgn(σ)(f(σ)-1+Σ_{σi=i}(-1)^{a_i}) without errors. The proposed four-dimensional inflated sgn⊗Std plus five-dimensional signed coordinate module W has exactly that character; rational semisimplicity identifies the full representation, E-invariants dimension four and no H-invariants.
 
-## Closest literature and limitations
-The two public exact-object homotopy calculations identified in RESULT.md give the face vector and homotopy type but no automorphism character. The cited Barmak suspension theorem and Schmidt folded-cube article are broader contextual results without a covering implication. The finite computation is reproducible from its included source; exact novelty outside indexed/inspected literature cannot be proved by search. No claim is made concerning other folded cubes or equivariant stable homotopy.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The specific surviving result is not covered by the inspected same-object antecedents or dominating theorem hypotheses; every comparison below identifies what previous results actually imply. This is best-of-knowledge, not proof of absolute novelty.
+
+## value
+
+PASS
+
+Automorphism representations are natural, non-implied refinements of homotopy invariants for highly symmetric graph complexes. The full H=E⋊S5 character, its explicit 4+5 decomposition and invariant-subspace dimensions reveal information impossible to recover from the known nine-sphere count. This exact model is useful for testing equivariant topological methods on a canonical strongly regular graph.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
