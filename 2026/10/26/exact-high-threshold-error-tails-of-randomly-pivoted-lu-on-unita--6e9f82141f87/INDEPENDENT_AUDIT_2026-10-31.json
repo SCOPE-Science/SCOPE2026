@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:08:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md, check_unitary_tail.py",
+        "https://www.researchgate.net/publication/400339985_Low-Rank_Approximation_by_Randomly_Pivoted_LU, Section 3.1"
+      ],
+      "rationale": "For U unitary, direct Frobenius inner product gives ||U-U_:j U_i:/U_ij||_F^2=n-2+|U_ij|^-2. Under strict threshold t>sqrt(b_n), event is |U_ij|^2<delta, with delta=1/[n(t^2-1)+2]<min(1/n,4/n^2). Each row needs a large entry, hence strictly fewer than n(n-1)*delta/n probability. A complex phase rank-one update of I with flat unit vector produces n(n-1) offdiagonal squared amplitudes q↑delta, yielding exact supremum (n-1)delta, not attained; tail constant (n-1)/n. Independently recomputed pivot norms, sampled probabilities, and unitarity for 15 (n,t) values.",
+      "residual_risks": [
+        "Strict threshold and complex-unitary family essential; no result below explicit b_n or for nonunitary/multistep/roundoff inputs."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Divan--Gilles arXiv:2609.06287 abstract concerns spectral-decay rates under exact/approximate sampling; full text not read",
+          "Resultary 2026/9/18/SCOPE-sharp-multistage-arp-error-products--77e11f8220ee is an expected multi-stage column projection result"
+        ],
+        "reasoning": "A general expected convergence rate or stochastic moment bound does not yield the finite-n, threshold-dependent strict maximization. Since the same-method follow-up is unread, its possible stronger high-probability theorem is retained as risk rather than declared noncovering.",
+        "searches": [
+          "randomly pivoted LU unitary input squared-entry sampling exact Frobenius error probability worst-case tail single pivot rank one",
+          "Convergence rates of randomly pivoted methods for low-rank approximation arXiv:2609.06287",
+          "Resultary multistage randomized pivoting expected error"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.22344 full-text Section 3.1",
+        "arXiv:2609.06287 abstract only; institutional retrieval disconnected",
+        "Resultary published records 77e11f8220ee and 71dd3abf0659"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gilles--Wilber expected squared residual equals 2(n-1) on dense unitaries (Section 3.1)",
+          "Tail is governed by how many individual entries can lie strictly under delta and an attainable nearly equal-amplitude offdiagonal phase construction"
+        ],
+        "reasoning": "Markov from E||R||^2 bounds tail loosely and does not prove the exact (n-1)/(n(t^2-1)+2) probability. The extra extremal construction supplies a genuinely new statement relative to the inspected source.",
+        "searches": [
+          "randomly pivoted LU unitary input squared-entry sampling exact Frobenius error probability worst-case tail single pivot rank one",
+          "https://arxiv.org/abs/2601.22344",
+          "https://arxiv.org/abs/2609.06287"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gilles--Wilber arXiv:2601.22344 Section 3.1 uses identical squared-entry pivot law and exact one-step cross update"
+        ],
+        "reasoning": "The input distribution is genuinely the same but source evaluates expected Gram/Frobenius error, not the strict probability tail optimized over all U(n). Moment equality does not imply an exact upper-tail quantile.",
+        "searches": [
+          "randomly pivoted LU unitary input squared-entry sampling exact Frobenius error probability worst-case tail single pivot rank one",
+          "Low-Rank Approximation by Randomly Pivoted LU dense unitary error equation (9)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearby published exact one-step ACA bound is for deterministic maximum-entry pivot and arbitrary residual matrices",
+          "No indexed unitary-tail tabulation was retrieved in the 12-result semantic search"
+        ],
+        "reasoning": "The deterministic-pivot table and this sampled one-pivot extreme tail have different objectives/distributions; unsuccessful search does not certify newness.",
+        "searches": [
+          "randomly pivoted LU unitary input squared-entry sampling exact Frobenius error probability worst-case tail single pivot rank one",
+          "Resultary 2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: original RPLU work proves expectation/Gram error bounds and a dense-unitary second moment; the present strict high-threshold worst-case probability and constructive phase family are stronger distributional and minimax assertions. Follow-up Divan--Gilles full text was unavailable despite OA/arXiv attempts and authorized institutional access; possible overlap is a material risk, not an automatic O failure.",
+      "residual_risks": [
+        "The close 2026 follow-up arXiv:2609.06287 could have related high-probability results in unread text.",
+        "Exact strict-tail result applies only for t>sqrt(b_n); lower threshold range not solved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes mean-square identity 2(n-1), not optimized strict tail in the inspected source material.",
+          "evidence": [
+            "arXiv:2601.22344, Section 3.1 and eq. (9), dense unitary discussion"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/400339985_Low-Rank_Approximation_by_Randomly_Pivoted_LU",
+          "material_read": "Accessible full-text HTML, introduction and Section 3.1 including equation 9, Theorem 3 and unitary paragraph around lines 888-925, plus adjacent conclusions",
+          "method": "Primary full-text section reading, targeted searches for unitary/tail",
+          "title": "Low-Rank Approximation by Randomly Pivoted LU",
+          "trigger": "Same randomized LU pivot and dense unitary one-step error"
+        },
+        {
+          "assessment": "No full-document coverage verdict; material unresolved priority risk.",
+          "evidence": [
+            "arXiv:2609.06287 abstract, spectral decay and sampling approximation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.06287",
+          "material_read": "Abstract only; arXiv PDF and lawful OA text unavailable in this run",
+          "method": "arXiv/OA attempt followed by authorized institutional download, which returned vpn_disconnected; no bypass",
+          "title": "Convergence rates of randomly pivoted methods for low-rank approximation",
+          "trigger": "Direct follow-up on same sampled LU family"
+        },
+        {
+          "assessment": "Deterministic complete pivot on arbitrary residual, not randomized squared-entry U(n) tail.",
+          "evidence": [
+            "Published finding summary of sharp worst-case norm growth"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-sharp-frobenius-growth-complete-pivot-aca--71dd3abf0659",
+          "material_read": "Published indexed title and summary only",
+          "method": "Resultary semantic search",
+          "title": "Sharp one-step Frobenius growth under complete-pivot ACA",
+          "trigger": "Similar residual growth after one cross step"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Gilles--Wilber Section 3.1 algorithmic setting",
+        "Pinned RESULT.md support-count and phase-family proof"
+      ],
+      "rationale": "Determines an exact high-confidence failure probability for a natural randomized low-rank cross update on perfectly conditioned matrices, with dimension-dependent minimax constant and explicit near-extremizing unitaries; a justified exact risk functional beyond expectation bounds.",
+      "residual_risks": [
+        "Only a high-threshold, single-step, exact-arithmetic law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "High-threshold regime only; sup never attained, only approached; not finite-precision or multistage.",
+    "The directly relevant Divan--Gilles paper could not be read in full; authorized institutional access returned vpn_disconnected."
+  ],
+  "schema_version": 1
+}

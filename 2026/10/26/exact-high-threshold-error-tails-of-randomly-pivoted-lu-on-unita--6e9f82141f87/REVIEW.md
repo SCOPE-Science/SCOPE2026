@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cross-update amplitude is calculated exactly from unitarity. Every row must contain a nonqualifying entry once the threshold probability lies below \(1/n\); this gives the global envelope. The rank-one complex phase family realizes the required \(n(n-1)\) qualifying entries with probabilities arbitrarily close to the cap, establishing the sharp supremum and nonattainment. Direct deterministic checks cover 34,902 identities. No finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS, with historical risk.** The foundational paper supplies the pivot distribution, expected Gram matrix and dense-unitary mean-square computation, but not this optimized **strict probability tail** or phase-family extremization. Previous stochastic LU moment and deterministic cross-approximation results concern different normalization, distributions, or expected errors; neither implies the all-dimension exact high-threshold unitary envelope without a new extremal argument. The 2026 Divan–Gilles convergence-rates paper was accessible in abstract only and remains a material-read risk.
+PASS
 
-**Value — PASS.** The theorem exactly quantifies a high-confidence error risk of randomized LU even on spectrally perfect inputs. It gives the sharp \(n\)-dependent confidence tail and a constructive worst-case family, complementing mean-square and convergence-rate estimates rather than simply rephrasing them. The full low-threshold phase diagram is not asserted.
+For U unitary, direct Frobenius inner product gives ||U-U_:j U_i:/U_ij||_F^2=n-2+|U_ij|^-2. Under strict threshold t>sqrt(b_n), event is |U_ij|^2<delta, with delta=1/[n(t^2-1)+2]<min(1/n,4/n^2). Each row needs a large entry, hence strictly fewer than n(n-1)*delta/n probability. A complex phase rank-one update of I with flat unit vector produces n(n-1) offdiagonal squared amplitudes q↑delta, yielding exact supremum (n-1)delta, not attained; tail constant (n-1)/n. Independently recomputed pivot norms, sampled probabilities, and unitarity for 15 (n,t) values.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS: original RPLU work proves expectation/Gram error bounds and a dense-unitary second moment; the present strict high-threshold worst-case probability and constructive phase family are stronger distributional and minimax assertions. Follow-up Divan--Gilles full text was unavailable despite OA/arXiv attempts and authorized institutional access; possible overlap is a material risk, not an automatic O failure.
+
+## value
+
+PASS
+
+Determines an exact high-confidence failure probability for a natural randomized low-rank cross update on perfectly conditioned matrices, with dimension-dependent minimax constant and explicit near-extremizing unitaries; a justified exact risk functional beyond expectation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
