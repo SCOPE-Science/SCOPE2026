@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** All edge-to-edge distances reduce to four endpoint routes, apart from the same-edge case, which lies below the tail threshold. Exact support cardinalities force the overlap classification. Each nonzero tail region is an explicit polygon of area \(\varepsilon\), \(\varepsilon^2\), or \(2\varepsilon^2\). Exact combinatorial counts complete both formulas for all permitted parameters. A standard-library rational-polygon program separately checks selected instances. The program's finite scope is not treated as an infinite proof.
+
+**Originality (PASS, bounded priority uncertainty).** The 2024 Johnson–Kneser hyperbolicity paper establishes continuous diameters and hence subsumes any claim of novelty for those diameters alone. The 2023 general continuous mean-distance paper gives edge integration, not an upper-tail classification. The 2012 geometric Johnson paper concerns finite vertex-island graphs rather than arclength-uniform interior points. Earlier upper-tail formulas for graphs of vertex diameter at most two apply to lower-rank cases and motivate the restriction \(k\ge3\). The new result is a pair of *exact* near-diametric distribution polynomials and a sharp exponent transition across all high-diameter ranks. No source examined provided those probability statements. Remaining risk: unlocated earlier special-purpose formulas or unpublished equivalent results.
+
+**Value (PASS).** Random two-point geodesic distance is a natural measure of transportation dispersion. Even a known diameter does not quantify its near-extremal frequency. The proof identifies a geometric transition from a positive-length ridge of diametral edge pairs at \(n=2k+1\) to isolated midpoint pairs at \(n\ge2k+2\), producing an observable first-order to second-order tail change. The exact coefficients depend on the geometry of set supports and remain valid for all admissible integers; this is not a one-off numerical lookup or a substitution into a known diameter formula.
+
+**Limitations.** The result does not cover balanced \(n=2k\), variable edge lengths, or the remainder of the distance distribution. Historical priority is based on accessible comparisons, not a comprehensive proof of uniqueness.
+
+Self-review: passed. Independent audit: not yet performed.
