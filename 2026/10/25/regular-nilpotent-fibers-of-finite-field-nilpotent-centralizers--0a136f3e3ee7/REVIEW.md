@@ -1,9 +1,21 @@
-# Review of the regular-nilpotent fiber law
+# Independent mathematical audit
 
-**Correctness — PASS.** For a regular nilpotent \(B\), the centralizer is the truncated polynomial ring, making the Jordan type of a nonzero commuting nilpotent \(A\) the almost-rectangular type of a power of \(B\). The explicit invertible-centralizer orbit count proves equal cardinality for every polynomial parameter of the requisite valuation. The standard radical quotient of the full centralizer and the Fine–Herstein nilpotent count give the denominator. The zero case is computed separately. Actual matrix enumeration and direct polynomial evaluation verify the formulas through dimension four over several finite fields, including \(\mathbb F_4\).
+## correctness
 
-**Originality — PASS, subject to priority risk.** The inspected primary papers arXiv:2212.08425 and arXiv:1001.0811 concern possible commuting Jordan types, arXiv:2305.00176 gives a normal-form classification for two unequal blocks, and arXiv:2012.04038 gives joint-kernel-one normal forms. The precise fixed-matrix Euler-product conditional probability and uniform polynomial fiber multiplicity for all partitions are not identified in the examined statements. SageMath documents the unit centralizer order, and Fine–Herstein supplies the total nilpotent count; neither by itself gives the uniform fibers. The results are derivable by the separate explicit orbit calculation; a stronger unindexed count remains possible.
+PASS
 
-**Value — PASS.** The statistic is the probability that a nilpotent element of a fixed matrix centralizer realizes the unique regular nilpotent orbit. It resolves the existence/zero boundary and its exact positive density for every Jordan type, and identifies a uniform parameter law and scale-stable probabilities. These are natural counts for finite-field commuting nilpotent pairs, not a single arbitrary small example. This is not a full census of commuting-pair Jordan types.
+For nilpotent A in M_n(F_q) with Jordan block partition lambda, a commuting regular-nilpotent B exists exactly if A is a polynomial in a regular Jordan block, hence its rank-of-powers sequence is almost rectangular (lengths floor(n/k),ceil(n/k), where k=#blocks); A=0 separately. Centralizer E=End_{F_q[t]}(V) has dimension d=Σ_ij min(lambda_i,lambda_j) and E/rad E ≅ product_s M_{m_s}(F_q), giving #nilpotent elements q^(d-k) and |C_GL(A)|=q^d product_s Phi_{m_s}(q). For nonzero almost-rectangular A, every polynomial f of valuation k<n gives identical regular-nilpotent fiber |C_GL(A)|/[(q-1)q^(n-1)], so #regular B = |C_GL(A)| q^(-k); the probability is product of the Phi_{m_s}(q). The A=0 boundary is product_{j=2}^n(1-q^-j). Independently exhaustively enumerated all 65536 binary 4x4 matrices for lambda=(4),(3,1),(2,2),(2,1,1),(1,1,1,1): the nilpotent centralizer totals 8,16,64,128,4096 and regular counts 4,0,24,24,2520, with all distinct polynomial fibers checked. n=1 boundary follows separate formula. The full n and all prime powers follow group torsors/standard radical arguments, not enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Existence and almost-rectangular Jordan types, Fine–Herstein count and unit-centralizer formulas are known and credited. Prior studies of commuting partitions and two-block nilpotent centralizers do not state the conditional regular-nilpotent probability with per-polynomial exact equidistribution for a fixed A. The orbit-fiber calculation retains the fixed matrix, which is not determined by abstract commuting type existence. Risk: a classical orbit-counting identity may implicitly cover it.
+
+## value
+
+PASS
+
+Exact conditional uniformity and Euler-product probabilities in nilpotent matrix centralizers quantify a natural arithmetic matrix statistic across every nilpotent Jordan type, including the sharp zero/existence boundary and exceptional A=0; this is more than the previously-known yes/no classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
