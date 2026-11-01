@@ -1,0 +1,15 @@
+# Scientific review: circulating logistic triad
+
+## Correctness
+**PASS.** The claim concerns a clearly defined local analytic germ of a clipped self-map of the cube. Fourier diagonalization gives the three exact multipliers and an outward unit-circle crossing at \(r_{\mathrm c}=1+2/(1+3c^2)\). The complex Fourier recurrence is an exact quadratic polynomial, not a truncated expansion. Center-manifold invariance yields its quadratic graph; removal of the only quadratic complex monomial gives the cubic radial coefficient \(\ell_1=-(3+3c^2)^3/(1+3c^2)^2\). The two omitted resonance values are exactly the third- and fourth-order resonances. The noncritical multiplier is strictly within the unit disk, so the standard nonresonant Neimark–Sacker theorem yields an attracting invariant circle in three dimensions. A symbolic checker and independent finite evaluations corroborate the algebra. The existence proof depends on the established local bifurcation theorem, not on finite numerical trajectories.
+
+## Originality
+**PASS under currently inspected evidence.** Baron and Galla (2026, arXiv:2609.24402) provide the interacting-logistic-map motivation and a large-network oscillatory instability, not this exact deterministic antisymmetric three-node normal-form sign. Mareno and English (2020) study a different two-map symmetric coupling and a different Neimark–Sacker boundary. The full accessible Dementyeva–Kuznetsov–Savin–Sedova (2014) paper explicitly defines additive unidirectional coupling (their equation (2.1)), not the multiplicative cyclic interaction here. Relevant published result summaries address other dynamical systems, not a theorem that implies this one. Direct identical/equivalent and broad-covering searches did not reveal an encompassing theorem. Searches are not proof of historical novelty; residual risk remains in less-indexed cyclic Lotka–Volterra discrete map literature and unpublished calculations.
+
+## Mathematical value
+**PASS.** A balanced three-site directed cycle is the smallest directed ring with a nontrivial oscillatory Fourier pair. The theorem quantifies exactly how any positive skew circulation replaces the ordinary scalar first flip with an earlier, necessarily supercritical oscillatory instability, and gives the complete coefficient sign across a continuous coupling family. The universal negative coefficient is not just a numerical or textbook threshold; it proves the local existence and stability of a nonlinear collective oscillation. It connects analytically tractable finite networks to the question of oscillatory instabilities raised for heterogeneous logistic networks.
+
+## Limits and interpretation
+The result does not cover the two excluded low-order resonances, global attraction, arbitrary disorder, heterogeneous site parameters, or larger network sizes. Numerical tests confirm formulas only on sampled data. Priority remains provisional beyond the stated inspected sources. Independent review and external validation have not taken place.
+
+Self-review: passed. Independent audit: not yet performed.
