@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "A full symbolic sweep derivation on matching pairs and unmatched sites establishes an invertible coordinate change (pair sums, corrected first endpoints, zero-sum shift coordinates). It splits the update into a cyclic shift on a length-(n-2k+1) zero-sum space and a square-zero shear I+J_k. Since n is even, this shift length is odd and the fixed space of its tth power has dimension gcd(n-2k+1,t)-1. The shear rank is exactly k for even k and k-1 for odd k, including k=0,1 boundaries. These give the actual maximal periods and all q-ary fixed-state counts; Möbius inversion yields primitive-orbit counts. The code paths code/verify_scan.py and code/verify_direct.cpp were executed, respectively confirming 7,728 and 757,296 GF(2) labelled cases. Finite checks corroborate, and do not replace, the unrestricted characteristic-two proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The survey defines generic synchronous and sequential graph dynamics and discusses graph dependence rather than enumerating this matching-block family.",
+        "The published record complete-multipartite parity record concerns synchronous, rather than single-site sequential, updates.",
+        "The previously recorded bipartite sequential parity result concerns K_{a,b}, not the complement of a matching in K_n."
+      ],
+      "reasoning": "Generic algorithms and phase-space definitions are not explicit stronger classifications of this graph/schedule family. Synchronous multipartite parity automata cannot subsume the sequential missing-matching result. Different edge sets and scan-local functions prevent straightforward specialization from the bipartite case.",
+      "searches": [
+        "scan order XOR matching deleted complete graph adjacency all neighbor self inclusive maximum periods",
+        "Aledo Martínez Valverde 2015 survey sequential dynamical systems",
+        "published record ID 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "a1fb648a-5614-4539-943f-42339c19bec9"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.04930 (full primary PDF inspected)",
+      "doi:10.1155/2015/594294 (full HTML inspected)",
+      "doi:10.1016/j.amc.2003.10.023 (abstract only)",
+      "accessible related single-deletion claim c6750217-94c5-4e84-953f-cd45c5657ec0",
+      "accessible related bipartite scan claim a1fb648a-5614-4539-943f-42339c19bec9",
+      "published research record 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+      "published research record 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The single-deletion prior theorem treats a fixed graph with exactly one deleted edge; it cannot imply how multiple matched-pair updates change the nilpotent rank or maximal period.",
+        "Chen-Reidys provides an algorithmic representation for any linear SDS; an additional family-specific conjugacy and odd-shift/even-shear analysis are needed to imply this theorem.",
+        "The other same-graph published result is an acyclic-signature theorem without state dynamics."
+      ],
+      "reasoning": "The claimed novelty is the explicit similarity class and its consequences for all even n and k>=2, not the generic product-of-matrices representation, the one-edge reduction, or definitions of sequential dynamics. Statements and model assumptions, rather than merely overlapping titles, were compared.",
+      "searches": [
+        "arxiv:1510.04930 Theorem 3.1 full manuscript",
+        "doi:10.1155/2015/594294 full HTML survey",
+        "c6750217-94c5-4e84-953f-cd45c5657ec0",
+        "published record 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+        "published record 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen-Reidys Theorem 3.1 gives the general formula (I-A_pi)^{-1}(A-A_pi), but not a matched-pair direct-sum conjugacy.",
+        "The one-missing-edge exact scan result handles k=1, which is implied by the current general formula, but expressly excludes graphs with two or more deleted edges."
+      ],
+      "reasoning": "The equivalent linear formulations are the order of a product of local transvections, the elementary divisors of that product, and the fixed-point counts of its powers. The checked general formula does not present the present block decomposition or period counts. The closest one-edge formulation agrees with the k=1 baseline and does not cover the two-defect and larger-matching claims.",
+      "searches": [
+        "complete graph with two deleted nonincident edges sequential XOR sum of neighbors plus self period 2(n-3)",
+        "matching block scan linear parity system Jordan blocks I plus all ones complete graph matching deletion period",
+        "sequential parity XOR complete graph minus matching consecutive pairs sweep full periodic orbit count",
+        "linear sequential dynamical systems xor graph update complete graph all pairs matching deleted cycle length",
+        "arxiv:1510.04930 Sections 2-4",
+        "c6750217-94c5-4e84-953f-cd45c5657ec0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "A matching-deleted complete-graph acyclic-signature result counts graph orientation signs, not dynamical orbit populations.",
+        "No inspected scientific database table contains the fixed-state formula q^(gcd(n-2k+1,t)-1+b_t) or the transition n+1, n-1, 2(n-3)."
+      ],
+      "reasoning": "Exact database/table searches used both the graph aliases and the orbit/Jordan parameterization. The retrieved graph-matching entry treats a distinct invariant; failure to find a table is not taken as a uniqueness proof.",
+      "searches": [
+        "complete graph with two deleted nonincident edges sequential XOR sum of neighbors plus self period 2(n-3)",
+        "sequential parity XOR complete graph minus matching consecutive pairs sweep full periodic orbit count",
+        "\"matching\" \"sequential dynamical\" \"parity\" cycles complete graph",
+        "\"linear sequential dynamical systems\" \"Jordan\" complete graph",
+        "published matching-defect record ID 2026/9/19/SCOPE-acyclic-signatures-complete-graphs-minus-matching--c164cb9690e5"
+      ]
+    },
+    "rationale": "No inspected covering statement establishes the paired-deleted-matching scan conjugacy, rank jump and complete exact period census. General linear SDS matrix representations are explicitly acknowledged as known. An accessible one-edge-deletion theorem already implies the k=1 specialization, which is not counted as a new result; the genuinely new content concerns k>=2, especially period amplification from two missing edges. The early general digraph matrix paper was not fully accessible, so its unexplored contents remain a named priority risk.",
+    "residual_risks": [
+      "The 2005 linear-SDS digraph paper was inaccessible beyond abstract and might contain a similar special case; no full-text noncoverage claim is made.",
+      "Unindexed or differently named finite-state scan classifications could be equivalent despite searches.",
+      "The theorem is restricted to the specified matched-pair block scan; general scan-order claims would need new proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General matrix formula and arbitrary linear SDS framework; does not state this matching-block direct-sum decomposition or cycle-order census.",
+        "evidence": [
+          "Theorem 3.1, PDF p.6, (G,A,pi)=(I-A_pi)^(-1)(A-A_pi).",
+          "PDF introduction explicitly frames graph, functions and schedule; Sec.3 treats arbitrary linear maps."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1510.04930",
+        "material_read": "Full manuscript was accessible; abstract, introduction, definitions in Section 2, Theorem 3.1 and proof in Section 3, discussion of repeated-word schedules in Section 4, and concluding structural scope were inspected.",
+        "method": "Open full arXiv PDF, inspect source pages including the theorem and its matrix proof; compare precise statement and graph assumptions.",
+        "title": "Linear sequential dynamical systems, incidence algebras, and Möbius functions",
+        "trigger": "Closest open primary paper on general matrix forms for linear sequential dynamics."
+      },
+      {
+        "assessment": "General dynamical framework; no matching-deleted sequential XOR orbit classification located in inspected article.",
+        "evidence": [
+          "Definitions 4–6 identify sequential local updates and recurrent orbits.",
+          "References 40, 45, 46 and 67 give background on scan schedules and linear systems."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2015/594294",
+        "material_read": "Open HTML article, its definitions of synchronous versus sequential dynamical systems, phase-space discussion, and related literature references were inspected.",
+        "method": "Read accessible primary HTML, search within full article for sequential dynamics, linear cases, complete graphs.",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Earlier OA survey with definitions and known orbit and update-schedule results."
+      },
+      {
+        "assessment": "Full-text relation is unresolved. The abstract reports general matrix methods and special OR/PAR systems, but cannot exclude a family-specific result in the unread article.",
+        "evidence": [
+          "Journal metadata: Applied Mathematics and Computation 160 (2005), 197–212.",
+          "Abstract describes linear sequential dynamical systems on digraphs and matrix methods."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.amc.2003.10.023",
+        "material_read": "Abstract and bibliographic record only; no full article text accessible from arXiv or lawful OA sources.",
+        "method": "Searched author/title in open indexes, arXiv and OA routes; a lawful full-text access path did not yield the paper; no access controls were bypassed.",
+        "title": "Matrix method for linear sequential dynamical systems on digraphs",
+        "trigger": "Early broad linear SDS paper plausibly containing a dominating matrix treatment."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2b78456e-d922-4ca8-9788-ab8d9f65e38d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Deleting two disjoint edges from an even complete graph changes a sequential local-parity map from a shift of maximal period n+1 to a direct sum with a nonzero square-zero shear and maximal period 2(n-3), despite deletion of only two of n(n-1)/2 edges. This reverses the effect of one deleted edge (period n-1) for every even n>=8. The proved all-k, all-characteristic-two structural similarity and exact primitive orbit populations give a motivated, extensible answer about perturbation sensitivity of sequential network dynamics, not a routine isolated numerical count.",
+    "status": "PASS"
+  }
+}
