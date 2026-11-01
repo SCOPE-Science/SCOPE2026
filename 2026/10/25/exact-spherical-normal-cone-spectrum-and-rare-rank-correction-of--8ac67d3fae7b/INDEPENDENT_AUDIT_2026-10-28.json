@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:52:56Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Rebuilt the seven-file Git tree from blob identities; matched assigned SHA 7a0551ddddd43d5b04a773280e988ce7d40410ec.",
+        "Independent scipy quadrature normalized all angle layers for n=2,3,4,5,8,20,100; calculated scaled rank-one correction at n=100 as 0.999867360388225.",
+        "Separate Gaussian optimization simulation over all 1+2n+n(n-1) vertices at n=2,3,5,8, 60000 trials each; observed rank-one probability agrees with exact integral to within 0.0036.",
+        "Analytic density integral yields n B_n=E[J(M_n)1_{M_n>0}], J(t)~1/(sqrt(2pi)t)."
+      ],
+      "rationale": "A uniformly spherical exposing direction is equivalent to 2n independent standard Gaussian objective coefficients. All partial matchings are vertices, with rank multiplicities 1,2n,n(n-1), and row/column symmetry is orthogonal in the Frobenius metric. Rank zero requires all negative coefficients, giving 2^(-2n). For a specified rank-one vertex (row1,col1), its necessary and sufficient inequalities are x>0,y<x,Y_j<0,X_j<min(x,x-y) for every j>1; splitting y<=0 and 0<y<x reduces the probability to the stated positive Gaussian integral B_n. The remaining rank-two angle follows by partitioning the almost-sure unique maximizer. The Gaussian-maximum density n phi Phi^(n-1) and the asymptotic J(t)~1/(sqrt(2pi)t) give the 1/sqrt(pi log n) relative rare-rank correction via uniform tail control; finite n tests do not prove that limit.",
+      "risks": [
+        "The mean-field numerical quadrature becomes unstable for extremely tiny exponentially rare probabilities at very large n; the analytic asymptotic avoids this.",
+        "Ambient Euclidean/Frobenius geometry is essential; projected partial permutohedra have different normal cones."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The primary article describes face lattices/volumes, not conditional Gaussian inequalities.",
+          "John/Löwner ellipsoid formulas determine distinct extremal ellipsoids, not solid angles of all vertex normal cones."
+        ],
+        "reasoning": "A general Gaussian normal-fan identity gives probabilities as cone measures but requires the explicit rank-one event integration to obtain the claimed exact spectrum. No broader result inspected evaluated this case.",
+        "searches": [
+          "arXiv:2012.09901v3 §§2.1,3 and Theorem 3.8",
+          "Resultary exact John ellipsoid matching polytope",
+          "\"matching polytope\" \"normal cone\" gaussian exact angles"
+        ]
+      },
+      "checked_sources": [
+        "Heuer–Striker arXiv:2012.09901, full accessible text",
+        "Resultary published matching-polytope degree/ellipsoid findings",
+        "PMC3612621 normal-cone statistical interpretation (targeted excerpt)",
+        "Direct web query matching normal-cone Gaussian angles"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rank counts 1,2n,n(n-1) and vertex transitivity are already in source geometry.",
+          "One needs the new inequalities x>0, y<x, Y_j<0, X_j<min(x,x-y), their Gaussian integral and max-tail expansion to derive 1/sqrt(pi log n)."
+        ],
+        "reasoning": "Prior vertex classification does not mathematically imply evaluated angle integrals without nonstandard probabilistic work; neither a known John ellipsoid nor the count of rank-one vertices fixes their spherical normal-cone probabilities.",
+        "searches": [
+          "Heuer Striker 2022 rectangular partial permutation polytope theorem",
+          "Resultary rectangular matching polytope vertex degree invariant",
+          "arxiv 2012.09901 two rows Gaussian angle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Heuer–Striker, Partial permutation and alternating sign matrix polytopes, studies vertex/facet combinatorics and volume/Ehrhart (two-row section), not random Gaussian exposed-vertex ranks.",
+          "Resultary rank-stratified vertex degrees, John ellipsoids, and related partial-permutohedron results measure different invariants."
+        ],
+        "reasoning": "Compared aliases doubly substochastic matrices, partial permutation matrix polytope, two-row assignment/matching polytope and random linear assignment. No inspected same-metric cone-angle distribution was found.",
+        "searches": [
+          "Resultary semantic: two row rectangular partial permutation matching polytope solid angles Gaussian random exposed matching cardinality asymptotic",
+          "\"matching polytope\" \"normal cone\" gaussian exact angles",
+          "arXiv:2012.09901v3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches retrieved no exact finite n rank-layer angle table; published matching-polytope vertex degree and sphere-ellipsoid tables are distinct.",
+          "Direct quadrature yields a nontrivial object-dependent correction approaching the claimed asymptotic."
+        ],
+        "reasoning": "An exact database of matching-polytope solid angles could subsume the result, but no such table was located; a search gap is a residual risk.",
+        "searches": [
+          "Gaussian normal cone angles two-row partial matching exact integral rank one",
+          "Resultary matching polytope rank angle distribution"
+        ]
+      },
+      "rationale": "The matching polytope and its rank orbits are classical. The rank-resolved ambient Gaussian normal-cone measures and the explicit high-n nonmaximal-rank correction were not supplied by the checked full-text partial-permutation geometry article or indexed matching-polytope comparisons; best-of-knowledge original synthesis.",
+      "residual_risks": [
+        "Unindexed Gaussian maximum-matching or assignment literature may already calculate this fixed-rank event and correction.",
+        "No claim for nonisotropic directions or more than two rows."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for rank-resolved spherical angles and rare-rank asymptotic; geometry antecedent",
+          "evidence": [
+            "Heuer–Striker §2.1 defines partial permutation matrices and §3 treats two-row polytope and Ehrhart/volumes, not exposed-Gaussian probability."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2012.09901",
+          "material_read": "Full accessible primary arXiv HTML, §§2.1 and 3, two-row volume and vertex/facet theorems",
+          "method": "Read full text and searched for angular/Gaussian/normal cone terms",
+          "title": "Partial permutation and alternating sign matrix polytopes",
+          "trigger": "Exactly the same rectangular matching-polytope family"
+        },
+        {
+          "assessment": "PARTIALLY_RELATED: generic symmetric-vertex 1/v law only in vertex-transitive settings, inapplicable across 3 distinct rank orbits",
+          "evidence": [
+            "Polytope is not vertex-transitive: rank layers have different normal cone measures."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3612621/",
+          "material_read": "Relevant result on vertex normal-cone probabilities and symmetry, with source excerpt inspected; not entire text",
+          "method": "Targeted source theorem comparison",
+          "title": "Computational and statistical tradeoffs via convex relaxation",
+          "trigger": "Potential generic normal-cone probability representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Rank-orbit probabilities are directly interpretable as random optimization outcomes.",
+        "The correction isolates a specific rare rank-one event invisible to the leading exponential term."
+      ],
+      "rationale": "Two rows are the first nontrivial matching dimension with competition between choices in different rows. Complete normal-cone angles of all matching ranks are a natural geometric invariant; their exponential smallness and the explicit 1/sqrt(log n) relative correction precisely quantify how often Gaussian linear optimization chooses a deficient matching. These constants provide a reusable asymptotic benchmark beyond generic combinatorial vertex counts.",
+      "risks": [
+        "Metric-specific and fixed two-row setting; not an all-rectangular family or a universal matching asymptotic."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

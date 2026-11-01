@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The vertex count and Frobenius/Gaussian normalization are explicit. For each rank-one matrix the inequalities comparing against all feasible matchings are both necessary and sufficient. Splitting on the competing same-column Gaussian weight gives a positive one-dimensional integral for its exact angle; rank-zero is an orthant event and rank-two follows from the disjoint exhaustive vertex partition. The Gaussian-max identity and quantitative tail control justify the asymptotic interchange, with the exact \(1/\sqrt{\pi}\) correction. A standalone program independently enumerates all finite matchings for dimensions two through eight and evaluates the one-dimensional integrals; its finite checks corroborate rather than prove the theorem.
+## correctness
 
-## Originality — PASS, with bibliographic risk
-Heuer and Striker's primary original text, §2.1 and §3 (arXiv:2012.09901v3), studies these matching polytopes' vertices, inequalities and two-row normalized volume, not the spherical angle spectrum. Indexed geometric comparators about rectangular matching-polytope vertex degrees, John ellipsoids, and related projected partial permutohedra do not imply the rank-resolved ambient normal-cone probabilities. Direct searches for Euclidean matching-polytope angles and Gaussian exposed matching ranks revealed no covering theorem. Full priority cannot be guaranteed: less-indexed matching/assignment probabilistic literature may contain an equivalent event integral or asymptotic.
+PASS
 
-## Mathematical value — PASS
-The full normal-cone angle spectrum is a natural, coordinate-invariant-under-orthogonal-symmetry invariant of a geometrically canonical polytope, not a numerical sample or arbitrary slice. Two rows are the first size at which column competition couples independent one-row assignment choices. The sharp \(1/\sqrt{\log n}\) relative correction identifies a specific competing-column mechanism that is invisible in the leading exponentially rare nonmaximum-rank mass; it supplies a precise benchmark for random linear optimization of matching polytopes.
+A uniformly spherical exposing direction is equivalent to 2n independent standard Gaussian objective coefficients. All partial matchings are vertices, with rank multiplicities 1,2n,n(n-1), and row/column symmetry is orthogonal in the Frobenius metric. Rank zero requires all negative coefficients, giving 2^(-2n). For a specified rank-one vertex (row1,col1), its necessary and sufficient inequalities are x>0,y<x,Y_j<0,X_j<min(x,x-y) for every j>1; splitting y<=0 and 0<y<x reduces the probability to the stated positive Gaussian integral B_n. The remaining rank-two angle follows by partitioning the almost-sure unique maximizer. The Gaussian-maximum density n phi Phi^(n-1) and the asymptotic J(t)~1/(sqrt(2pi)t) give the 1/sqrt(pi log n) relative rare-rank correction via uniform tail control; finite n tests do not prove that limit.
 
-## Limitations
-No claim is made for growing numbers of rows, other inner products, or generic distributions. Finite simulations are not substitutes for proof, and bibliographic priority has not been independently certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The matching polytope and its rank orbits are classical. The rank-resolved ambient Gaussian normal-cone measures and the explicit high-n nonmaximal-rank correction were not supplied by the checked full-text partial-permutation geometry article or indexed matching-polytope comparisons; best-of-knowledge original synthesis.
+
+## value
+
+PASS
+
+Two rows are the first nontrivial matching dimension with competition between choices in different rows. Complete normal-cone angles of all matching ranks are a natural geometric invariant; their exponential smallness and the explicit 1/sqrt(log n) relative correction precisely quantify how often Gaussian linear optimization chooses a deficient matching. These constants provide a reusable asymptotic benchmark beyond generic combinatorial vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
