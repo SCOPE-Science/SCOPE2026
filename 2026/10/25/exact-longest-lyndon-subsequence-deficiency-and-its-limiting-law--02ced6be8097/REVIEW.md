@@ -1,11 +1,21 @@
-# Review of the four-run longest-Lyndon-subsequence law
+# Independent mathematical audit
 
-**Correctness (PASS).** The proof reduces all Lyndon subsequences to two or four alternating runs, proves the exact four-run suffix criterion, and maximizes in four disjoint parameter regimes. It then derives the distribution using explicit tail-generating sums, proves the sharp deficiency by an inequality and a witness, and evaluates the Dirichlet-simplex limit. The standalone verifier independently checked 625 complete subsequence sets and 91,390 composition cases through length 40. These finite checks support, but do not replace, the infinite proof.
+## correctness
 
-**Originality (PASS, with risk).** The closest source is Bannai et al., *Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences* (arXiv:2201.06773; Algorithmica 2023 online). Its inspected full article proves general computation and special results when letters are all distinct, but does not state this family-specific deletion formula, rational bivariate distribution or limiting Dirichlet law. The inspected complete 2021 *Counting Lyndon Subsequences* preprint treats how **many** subsequences are Lyndon, not the maximum length; the 2018 longest-Lyndon-**substring** edit work and known four-run contiguous-factor findings are distinct invariants, not equivalent subsequence theorems. Indexed scientific queries found no equivalent result, though unpublished or unindexed coverage remains possible; a general algorithm computes individual cases and cannot establish priority on its own.
+PASS
 
-**Value (PASS).** Four runs are the first binary increasing-alternation family in which competing choices (discard a whole internal run or retain all four runs after adjusting exponents) create a nontrivial deletion-deficiency law. The explicit constant-time formula replaces a general cubic-time approach on this compressed family. The complete rational distribution, sharp worst-case loss approaching half the word, and nondegenerate limit with an atom quantify behavior not obtained from single-instance computation. The object and invariant are natural in the established longest-Lyndon-subsequence problem.
+Every nontrivial Lyndon subsequence of 0^a1^b0^c1^d has two or four alternating nonempty runs. A four-run word 0^i1^j0^k1^l is Lyndon iff i>k or i=k,j<l, by comparing the suffix starting at the second zero run. Minimizing deletions over this criterion and the two-run option gives D=min(b,max(0,c-a+1_{b>=d})); equality cases a=c,b=d and c=1 are addressed. Positive-composition counting splits b<d vs b>=d, yields displayed exact generating functions; simplex Dirichlet integral gives P(D/n>t)=(1/2)(1-2t)^3 for 0<t<1/2, atom 1/2 at zero, and mean length 15n/16+O(1).
 
-**Limitations.** Only positive four-run words beginning in zero under the fixed binary order, uniformly sampled positive compositions for the limit, and longest lengths rather than counts of optimal subsequences. Indexed-literature searches do not prove global novelty; independent assessment is still outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The published general longest-Lyndon-subsequence algorithms compute each input but neither state the four-run closed formula nor its exact population distribution or Dirichlet limit. Counting Lyndon subsequences and longest contiguous substrings are mathematically different statistics. Best-of-knowledge original new exact enumerative law, with potential unindexed specialization risk.
+
+## value
+
+PASS
+
+Four alternating binary runs are the first family with a genuine choice between retaining both one-runs and discarding an interior run, and so are a natural minimal nontrivial case of the established longest-Lyndon-subsequence problem. Exact constant-time deficiency, entire rational distribution and nondegenerate limit with an atom give reusable precise information not mechanically obtained from a general individual-word algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

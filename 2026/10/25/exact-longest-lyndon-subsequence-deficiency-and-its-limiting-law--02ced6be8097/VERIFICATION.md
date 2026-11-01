@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The self-contained `verify.py` uses only the Python standard library. It independently generates **all distinct scattered subsequences** of each of 625 small four-run binary words, tests the strict proper-suffix definition of a Lyndon word, and computes each maximum without using the claimed run formula. It also exhaustively enumerates 91,390 positive four-part compositions at total lengths 4–40 and compares all tail-distribution coefficients and extrema with the claimed generating function.
+# Independent mathematical audit
 
-Command: `python3 verify.py`
+## correctness
 
-Observed output:
+PASS
 
-`VERIFY_OK direct_subsequence_sets=625 complete_compositions=91390 lengths=4..40 tail_distributions=true sharp_extrema=true`
+Every nontrivial Lyndon subsequence of 0^a1^b0^c1^d has two or four alternating nonempty runs. A four-run word 0^i1^j0^k1^l is Lyndon iff i>k or i=k,j<l, by comparing the suffix starting at the second zero run. Minimizing deletions over this criterion and the two-run option gives D=min(b,max(0,c-a+1_{b>=d})); equality cases a=c,b=d and c=1 are addressed. Positive-composition counting splits b<d vs b>=d, yields displayed exact generating functions; simplex Dirichlet integral gives P(D/n>t)=(1/2)(1-2t)^3 for 0<t<1/2, atom 1/2 at zero, and mean length 15n/16+O(1).
 
-The finite search does not prove the formula, the generating functions, or the limiting distribution for arbitrary lengths. Proofs of those claims are given in `RESULT.md`. This package does not contain an independent audit or externally issued certificate.
+## originality
+
+PASS
+
+The published general longest-Lyndon-subsequence algorithms compute each input but neither state the four-run closed formula nor its exact population distribution or Dirichlet limit. Counting Lyndon subsequences and longest contiguous substrings are mathematically different statistics. Best-of-knowledge original new exact enumerative law, with potential unindexed specialization risk.
+
+## value
+
+PASS
+
+Four alternating binary runs are the first family with a genuine choice between retaining both one-runs and discarding an interior run, and so are a natural minimal nontrivial case of the established longest-Lyndon-subsequence problem. Exact constant-time deficiency, entire rational distribution and nondegenerate limit with an atom give reusable precise information not mechanically obtained from a general individual-word algorithm.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

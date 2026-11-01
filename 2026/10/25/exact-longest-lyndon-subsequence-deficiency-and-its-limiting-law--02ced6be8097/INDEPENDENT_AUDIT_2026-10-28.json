@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T02:59:39Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md exact four-case maximization, rational tail and marked generating functions and limit proof",
+        "Independent all-subsequence generation for 256 quadruples with each run in 1..4 and exact tail counts for lengths 4..29",
+        "Git source tree reconstructed and verify.py logic inspected"
+      ],
+      "rationale": "Every nontrivial Lyndon subsequence of 0^a1^b0^c1^d has two or four alternating nonempty runs. A four-run word 0^i1^j0^k1^l is Lyndon iff i>k or i=k,j<l, by comparing the suffix starting at the second zero run. Minimizing deletions over this criterion and the two-run option gives D=min(b,max(0,c-a+1_{b>=d})); equality cases a=c,b=d and c=1 are addressed. Positive-composition counting splits b<d vs b>=d, yields displayed exact generating functions; simplex Dirichlet integral gives P(D/n>t)=(1/2)(1-2t)^3 for 0<t<1/2, atom 1/2 at zero, and mean length 15n/16+O(1).",
+      "risks": [
+        "Uniform random positive-composition law, not Bernoulli random strings.",
+        "Finite enumerations are corroborative, not proof for arbitrary lengths."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bannai et al give general algorithms for the maximum length on arbitrary strings but no four-parameter identity nor exact bivariate distribution or probability law.",
+          "Their unique-character special case does not cover repeated-run binary words."
+        ],
+        "reasoning": "Algorithmic computability of individual instances is broader as a computational task but does not directly imply an explicitly evaluated symbolic distribution or limiting law.",
+        "searches": [
+          "longest Lyndon subsequence four-run binary word deletion deficiency rational generating function",
+          "arXiv:2201.06773",
+          "DOI:10.1007/s00453-023-01125-z"
+        ]
+      },
+      "checked_sources": [
+        "Bannai et al arXiv:2201.06773 and DOI:10.1007/s00453-023-01125-z full articles",
+        "Hirakawa et al arXiv:2106.01190 full preprint",
+        "Urabe et al DOI:10.4230/LIPIcs.CPM.2018.19 abstract",
+        "Resultary semantic search for four-run longest Lyndon deficiency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The general algorithm accepts all binary four-run inputs but does not state the explicit deficiency min/max identity.",
+          "The limiting law with mass 1/2 and polynomial density requires new composition counting rather than executing a fixed-string algorithm."
+        ],
+        "reasoning": "No inspected theorem entails the claimed exact distribution and Dirichlet probability law without substantial additional derivation.",
+        "searches": [
+          "DOI:10.1007/s00453-023-01125-z sections 4-5",
+          "longest Lyndon subsequence four-run binary word deletion deficiency rational generating function"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Longest scattered Lyndon subsequence equals minimal deletions to a Lyndon word, not a longest Lyndon substring.",
+          "Hirakawa et al count Lyndon subsequences, not maximal retained length."
+        ],
+        "reasoning": "Compared suffix/lexicographic characterization and scattered vs contiguous embeddings, rather than only title wording.",
+        "searches": [
+          "longest Lyndon subsequence four-run binary word deletion deficiency rational generating function",
+          "DOI:10.1007/s00453-023-01125-z",
+          "arXiv:2106.01190"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "General counting results enumerate numbers of Lyndon subsequences, while 2018 edit results concern longest contiguous Lyndon substring.",
+          "No identified exact table classifies all positive four-run compositions by longest scattered Lyndon length."
+        ],
+        "reasoning": "An exhaustive finite search for the claimed small cases is not a prior published all-n table; no exact equivalent generating function identified.",
+        "searches": [
+          "longest Lyndon subsequence four-run binary word deletion deficiency rational generating function",
+          "arXiv:2106.01190",
+          "DOI:10.4230/LIPIcs.CPM.2018.19"
+        ]
+      },
+      "rationale": "The published general longest-Lyndon-subsequence algorithms compute each input but neither state the four-run closed formula nor its exact population distribution or Dirichlet limit. Counting Lyndon subsequences and longest contiguous substrings are mathematically different statistics. Best-of-knowledge original new exact enumerative law, with potential unindexed specialization risk.",
+      "residual_risks": [
+        "Unindexed combinatorics of Lyndon scattered subsequences may contain an exact four-run case.",
+        "Algorithmic generality is prior known; originality is limited to formula, generating function and law."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General algorithms, no asserted family-specific exact enumerator or asymptotic law",
+          "evidence": [
+            "Algorithmica article Sections 4-5; original arXiv:2201.06773"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00453-023-01125-z",
+          "material_read": "Full open-access article, especially longest subsequence algorithms, unique-character special cases, conclusions",
+          "method": "Open-access publisher article and original arXiv comparison",
+          "title": "Computing Longest Lyndon Subsequences and Longest Common Lyndon Subsequences",
+          "trigger": "Same exact longest scattered subsequence objective"
+        },
+        {
+          "assessment": "Different statistic: counts Lyndon subsequences, not longest length per four-run word",
+          "evidence": [
+            "Hirakawa et al 2021 Theorems 1,3,4"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.01190",
+          "material_read": "Full accessible preprint including theorems on total/distinct counts",
+          "method": "arXiv complete PDF and screenshot",
+          "title": "Counting Lyndon Subsequences",
+          "trigger": "Potential stronger Lyndon subsequence census"
+        },
+        {
+          "assessment": "Contiguous substring after an edit, not scattered subsequence",
+          "evidence": [
+            "CPM 2018 Article 19 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CPM.2018.19",
+          "material_read": "Abstract and stated model, not full paper",
+          "method": "Publisher abstract",
+          "title": "Longest Lyndon Substring After Edit",
+          "trigger": "Potential longest word title collision"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp half-length deficiency, generating function and limit law",
+        "Dirichlet simplex integral gives nontrivial atom and continuous density"
+      ],
+      "rationale": "Four alternating binary runs are the first family with a genuine choice between retaining both one-runs and discarding an interior run, and so are a natural minimal nontrivial case of the established longest-Lyndon-subsequence problem. Exact constant-time deficiency, entire rational distribution and nondegenerate limit with an atom give reusable precise information not mechanically obtained from a general individual-word algorithm.",
+      "risks": [
+        "Restricted to four runs, fixed order, positive lengths; general sequences not classified."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
