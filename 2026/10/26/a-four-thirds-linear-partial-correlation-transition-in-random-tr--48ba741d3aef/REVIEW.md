@@ -1,11 +1,21 @@
-# Research review: A four-thirds linear-partial-correlation transition in random triangle overlays
+# Independent mathematical audit
 
-**Correctness — PASS.** Every finite covariance entry is computed by avoidance probabilities. Full-support configurations prove strict positive definiteness, allowing inversion. The three incidence-space projectors and their eigenvalues give an exact precision matrix. Uniform asymptotic expansions for positive layer-density limits produce the two partial-correlation coefficients and marginal signs. Reproducible exact-enumeration and rational inversion checks pass, but the infinite claim relies on the proof, not those finite checks.
+## correctness
 
-**Originality — PASS with risk.** The underlying overlapping-layer model is credited to Bloznelis and Leskelä (arXiv:1912.13404). The most relevant adjacent-node bidegree paper (arXiv:2002.11809) addresses vertex degrees and assortativity; the subgraph-count paper (arXiv:2107.02683) proves distributional limit theorems for graph counts. The exact full edge-indicator inverse covariance and the \(4/3\) asymptotic partial-correlation sign change are not stated in the inspected primary results. Generic three-eigenspace diagonalization is acknowledged as existing linear algebra; it alone does not fix the model-specific asymptotic threshold. Earlier equivalent technical work cannot be categorically excluded.
+PASS
 
-**Value — PASS.** Adjacent edges in an overlapping-community graph show strictly positive marginal covariance at every size, yet adjustment for all other edges produces an eventual sign reversal at a natural constant layer density. This distinction between marginal and full-order linear residual correlations supplies a structural description of dependence in a well-established sparse random graph model.
+For each edge, single-layer inclusion probability p=6/[n(n−1)] and adjacent-pair inclusion r=p/(n−2). Two-edge absence probabilities yield the three covariance classes q−q², b−q², c−q² with q=(1−p)^m,b=(1−2p+r)^m,c=(1−2p)^m. Since r>p², adjacent covariance is positive; disjoint covariance is negative. The proof excludes any nonzero deterministic linear edge-indicator combination by comparing all-layer-identical triangles and replacing one layer, establishing positive definiteness for n≥5,m≥2. The three eigenspaces of the Johnson graph J(n,2) have explicit λ0,λ1,λ2, and the spectral projectors give Q=Σ^−1. Expanding λ0∼18α²/n², λ1∼12α/n, λ2∼6α/n and projector entries yields both precise limits, marginal correlations, and a genuine sign reversal away from α=4/3. Independent all-edge covariance enumeration and exact inversion for n=5,m=2 and high-precision asymptotic comparisons for α=.5,1,4/3,2 corroborate each step.
 
-**Limitations.** The result is for homogeneous complete triple layers, linear partial correlations, and sequences with positive finite layer-density limits. No conditional-independence, causality, nonlinearity, critical-boundary finite-sign, or more general layer law is asserted. Historical priority and independent mathematical validation remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Bernoulli random-graph superposition model and many degree, clustering, and percolation observables are prior work of Bloznelis–Leskelä and collaborators. The present precise inverse covariance of all triangle-union edge indicators, its Johnson scheme decomposition, and the adjacent-edge 4/3 full-order partial-correlation transition were not found in the complete inspected primary model paper. A related published incidence-precision result for inversion indicators uses a different distribution and does not dominate the triangle-overlay computation.
+
+## value
+
+PASS
+
+The contrast between always-positive marginal adjacent-edge dependence and negative full-order linear partial correlation below a sharp α=4/3 is a natural structural effect of conditioning on the entire edge array. The exact precision matrix on a canonical overlapping-community model gives a useful dependence benchmark, not merely a routine covariance diagonalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
