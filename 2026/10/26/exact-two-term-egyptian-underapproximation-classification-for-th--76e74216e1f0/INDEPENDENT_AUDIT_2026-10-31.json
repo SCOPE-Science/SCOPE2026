@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:54:31.402688Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the strict greedy intervals J_a=(1/4+1/a,1/4+1/(a-1)] and checked all open/closed endpoint conventions. For a competing pair (x,y), x>=5; Nathanson’s necessary competitor bound 5<=x<=7<=y<4x/(x-4), proved in the cited primary paper, reduces every possible competitor for theta in I4 to 21 pairs. Independent exact Fraction enumeration (not reliance on the package log) gives 13+5+3=21 candidates, one candidate with a=11 outside the domain, and exactly 19 relevant a-values, split into 6 strictly improving and 12 tied denominators (the a=17 row has two candidates but the minimum threshold is 13/42, and a=60 has two distinct tie pairs). The exact strict-improvement thresholds and left-endpoint exclusion were checked for a=14,17,25,38,47,114; the other a-values admit no competitors by the bounding lemma. This is an infinite all-real interval proof because the analytic lemma exhausts all possible pairs before the finite count; the finite script alone would not suffice.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kovač shows eventually greedy best Egyptian underapproximations form a measure-zero set, via many-term asymptotic arguments; his early lemmas construct non-greedy intervals for large i.",
+          "Chu Theorem 1.3 gives uniqueness for rational p/q with Upsilon<=3 except 10/17, with failures for larger Upsilon."
+        ],
+        "reasoning": "Neither theorem derives the finite full theta in (1/4,1/3] classification: one concerns eventual n-term behavior, the other an arithmetic sufficient condition rather than necessary all-real exact endpoints.",
+        "searches": [
+          "Resultary: Egyptian fractions best two term underapproximation first denominator four interval exact exceptions ties",
+          "arXiv:2406.07218v3 Theorem 1 and Lemma 3",
+          "arXiv:2306.12564v2 Theorem 1.3"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2202.00191 (Nathanson)",
+        "arXiv:2306.12564v2 (Chu)",
+        "arXiv:2406.07218v3 (Kovač)",
+        "Resultary Egyptian fraction semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published competitor reduction is explicitly reused rather than claimed new.",
+          "Chu 5/16 example lies in one of the resulting strict-failure subintervals.",
+          "Kovač asymptotic measure conclusion does not identify all 19 finite competing values."
+        ],
+        "reasoning": "The candidate theorem is a strict specialization of a prior method but not a prior proved consequence without its 21 exact comparisons; it completes the first-denominator-four scenario all real theta, unlike the former partial/sufficient or measure statements.",
+        "searches": [
+          "Nathanson Lemma 1 and Sections 6–7",
+          "Chu Theorem 1.3 and Example 1.1",
+          "Kovač Theorem 1",
+          "Resultary: Egyptian fractions best two term underapproximation first denominator four interval exact exceptions ties"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Nathanson’s candidate lemma and small-first-denominator examples already supply the framework.",
+          "Chu Example 1.1 at 5/16 gives greedy 1/4+1/17 beaten by 1/5+1/9, a single subcase of the a=17 interval."
+        ],
+        "reasoning": "Greedy underapproximation at each theta is encoded by the least a with 1/a<theta-1/4. Chu’s arithmetic condition on rational theta is not a partition of every real theta in I4; an example does not imply all failure and tie intervals.",
+        "searches": [
+          "Resultary: Egyptian fractions best two term underapproximation first denominator four interval exact exceptions ties",
+          "arXiv:2202.00191 two-term best underapproximation Sections 6–7",
+          "arXiv:2306.12564v2 Egyptian fraction Upsilon threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results concern different Egyptian fraction problems, not the exact six failure and twelve tie denominators.",
+          "The exact 21-entry candidate table was independently recomputed; earlier sources give necessary bounds and individual examples, not a matching complete table in inspected passages."
+        ],
+        "reasoning": "This is an exact classification of a natural smallest next interval, so database/table comparison is relevant; none of the inspected primary tables states the complete required partition. Absence of an unindexed table is a residual risk.",
+        "searches": [
+          "Resultary: Egyptian fractions best two term underapproximation first denominator four interval exact exceptions ties",
+          "Nathanson arXiv:2202.00191 §§6–7",
+          "Chu arXiv:2306.12564 Example 1.1"
+        ]
+      },
+      "rationale": "Nathanson proves the essential general finite-competitor reduction and specializes first-denominator intervals two and three. Chu gives rational-number criteria in terms of Upsilon(p,q) and specifically the 5/16 non-greedy example belonging to a=17, but not the all-real first-denominator-four six-interval/12-tie classification. Kovač studies measure-zero eventual greediness over infinitely many terms and large first denominators; his result cannot determine the exact finite 21-candidate table. The method itself and individual failures are prior; the explicit complete next-interval partition is the candidate contribution. An unindexed equivalent special-case table remains a priority risk.",
+      "residual_risks": [
+        "An older unindexed complete first-denominator-four table or equivalent parametrized formula could exist.",
+        "The claim is specifically two-term, strictly below theta with denominators allowing repetition, and a fixed I4; it does not solve higher-denominator or longer Egyptian problems."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "METHOD prior and lower first-denominator cases; no displayed I4 full partition",
+          "evidence": "Nathanson arXiv:2202.00191, competitor lemma and Sections 6–7",
+          "identifier_or_url": "https://arxiv.org/pdf/2202.00191",
+          "material_read": "Full arXiv primary PDF, competitor lemma, Sections 6–7",
+          "method": "Read lemma and enumerated prior cases and compare exact 21 bounds",
+          "title": "Underapproximation by Egyptian Fractions",
+          "trigger": "Main necessary-condition lemma and closest first-denominator classifications"
+        },
+        {
+          "assessment": "SINGLE 5/16 example and rational Upsilon criteria covered, not full all-real I4 classification",
+          "evidence": "Chu arXiv:2306.12564v2, Example 1.1 and Theorem 1.3",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.12564",
+          "material_read": "26-page arXiv primary PDF: abstract, Introduction, Theorem 1.3, Example 1.1, section scope",
+          "method": "Read primary source with visual PDF page verification and mathematical comparison",
+          "title": "A Threshold for the Best Two-term Underapproximation by Egyptian Fractions",
+          "trigger": "Exact same two-term greedy problem and a=17 example"
+        },
+        {
+          "assessment": "Measure-zero eventual-greediness theorem concerns variable n and large denominators, not fixed 2-term I4 exact table",
+          "evidence": "Kovač arXiv:2406.07218v3 Theorem 1",
+          "identifier_or_url": "https://arxiv.org/pdf/2406.07218",
+          "material_read": "Full seven-page arXiv PDF: Introduction, Theorem 1, large-i Lemma 3, proof scope",
+          "method": "Read primary full-text reasoning with visual PDF confirmation",
+          "title": "On Eventually Greedy Best Underapproximations by Egyptian Fractions",
+          "trigger": "Potential stronger broad non-greediness theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result completes the next natural first-denominator family after the published two and three cases and gives a sharp exhaustive answer, including strict inequality endpoint handling and a genuine three-way optimal tie. The existence of a finite candidate bound does not mechanically supply the rational classification without its exact enumeration and comparison. This is an independently reusable exact number-theoretic classification, albeit modest in breadth.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On real theta in (1/4,1/3], the two-term greedy Egyptian underapproximation (4,a), a>=13, is suboptimal exactly for a=14,17,25,38,47,114 on the stated six rational open-left upper intervals; it ties a distinct pair exactly for 12 a-values 20,24,28,30,36,56,60,80,132,180,252,380, with a three-way tie at a=60, and is otherwise uniquely best.",
+  "limitations": [
+    "An older unindexed complete first-denominator-four table or equivalent parametrized formula could exist.",
+    "The claim is specifically two-term, strictly below theta with denominators allowing repetition, and a fixed I4; it does not solve higher-denominator or longer Egyptian problems.",
+    "Scientific assessment complete; administrative publication change-set not ready. No GitHub writes, dispatcher closeouts or schedule changes."
+  ],
+  "schema_version": 1
+}
