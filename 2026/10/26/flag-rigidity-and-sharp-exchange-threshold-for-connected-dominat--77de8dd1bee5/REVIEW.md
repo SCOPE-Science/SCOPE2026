@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The universal boundary-edge inequality for a connected dominating set \(D\) uses only regularity \(q+1\), edge-connectedness \(|E(G[D])|\ge|D|-1\), and domination of every outside vertex. Its equality condition forces a tree on the selected vertices and exactly one selected neighbor for each outside vertex. Pairwise-joining and pairwise-intersection arguments plus the absence of an induced six-cycle force the selected points onto one line and selected lines into one pencil; domination fills both. The spanning-tree bijection and the \(q\)-exchange line-graph identification are checked separately. Independent standard-library programs exhaustively reproduce the order-two and order-three cases. All quantifiers are restricted to existing finite projective planes with \(q\ge2\). Tests at small order are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, subject to stated priority risk
-Caro–West–Yuster give the known general maximum-leaf/connected-domination equivalence, not the present flag classification in the accessible abstract. Goldberg–Rajendraprasad–Mathew give ordinary domination numbers in design incidence graphs; Héger–Nagy analyze ordinary dominating sets and a distinct minimality notion. Accessible full-text portions were compared with the exact structural claim, not merely titles. Searches targeting incidence/Levi graphs, flag double stars, exchange size, line-graph reconfiguration, and maximum-leaf spanning trees, including research-record searches, identified no implication that covers the joint classification. The general 2000 article was accessible only at abstract level, and an unindexed earlier characterization is a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-This is an all-order exact structural theorem (including non-Desarguesian planes) for a classical domination parameter of a natural incidence-graph family. Beyond its sharp optimum, it counts every optimal maximum-leaf spanning tree and establishes the minimum batch size needed for feasible optimal reconfiguration, including the threshold graph and its diameter. The sharp transition is motivated by the fundamental question of whether optimal connected sensor/relay placements can be transformed while preserving connectivity and domination, not by an arbitrary parameter slice.
+Reconstructed the universal degree-bound proof without coordinatization: for connected dominating D of k vertices in the 2v-vertex (q+1)-regular bipartite incidence graph, boundary edges satisfy 2v-k <= (q-1)k+2, giving k>=2(q+1). Equality forces G[D] to be a tree and every exterior vertex to have exactly one selected neighbor. A flag D(p,l) satisfies both by unique point joining and line meeting axioms. In any equality set, at least two selected points and lines; the unique exterior-neighbor property forces joining lines of every selected point pair and intersection points of every selected line pair into D. Noncollinear triples would generate an internal 6-cycle, so points are collinear and lines concurrent; domination fills the entire line and pencil, hence all equality sets are exactly flag double stars. Every exterior vertex then has exactly one forced tree attachment, giving a bijection with max-leaf spanning trees and exactly 2q^2 leaves. Intersections of two flag double stars have 2q+2-q= q+2 vertices for a common point/line and exactly two for flags sharing neither, implying exchange distances q or 2q, so the r=q graph is the line graph of the plane incidence graph with degree 2q. Incidence-graph diameter and non-crossed flags give line-graph radius=diameter=3 for all q>=2. Independently enumerated all 2^14 Fano-plane candidate subsets: precisely 21 size-six connected dominating sets; analytic proof handles every plane. Source two finite exhaustive scripts separately cover q=2 and q=3 but their outputs are not infinite proof.
 
-## Closest literature and limitations
-The general equivalence and broad bounds are in Caro–West–Yuster (2000); ordinary domination and small ordinary dominating sets are in Goldberg–Rajendraprasad–Mathew (2014) and Héger–Nagy (2016). These results have different conclusions; they were not passed off as discoveries. Potential alternative terminology, an incompletely accessible general paper, and unindexed results remain possible. The full mathematical proof is given in RESULT.md, while two finite independent tests check \(q=2,3\). There is no proof that projective planes exist for all integer \(q\), and no claim of uniqueness from searches alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The connected-domination/max-leaf equivalence is classical (Caro–West–Yuster). Goldberg–Rajendraprasad–Mathew and Héger–Nagy give ordinary (not necessarily connected) domination for projective-plane Levi graphs. Their q-level and small dominating-set classifications do not state the exact equality rigidity for connected domination, forced count of max-leaf trees or optimal batch-exchange threshold. The class includes non-Desarguesian planes, so no special automorphism argument is used. An inaccessible/unindexed exact Levi-graph connected-domination theorem remains a priority risk; do not equate search absence with certification.
+
+## value
+
+PASS
+
+The theorem supplies a structural description of every minimizer of a natural graph-optimization problem on classical incidence geometries, not just a numerical bound. The exact max-leaf tree bijection and sharp q simultaneous-exchange barrier describe geometric rigidity and optimal reconfiguration for all existing projective planes, including non-Desarguesian cases. This is substantial motivated extremal graph theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
