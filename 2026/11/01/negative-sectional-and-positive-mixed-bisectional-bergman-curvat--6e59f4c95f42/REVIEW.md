@@ -1,0 +1,15 @@
+# Mathematical review
+
+## Correctness
+The monomial norm is obtained by integrating independent disk fibers and then a beta integral on the central disk. Its reciprocal provides exact polynomial-jet coefficients of the Bergman kernel in every complex dimension. At the origin, Reinhardt symmetry removes first derivatives of the metric; fourth derivatives of the logarithm produce the complete coordinate curvature tensor stated in the result. The curvature quartic has an exact decomposition into strictly negative terms, because weighted Cauchy–Schwarz bounds its only potentially positive term. Holomorphic disk automorphisms lift to the intersected cylinders, extending all signs and normalized transverse values to the central analytic spine. The rational checker independently confirms the coefficient and tensor algebra in five representative parameter cases. No finite check is used as an infinite-dimensional proof.
+
+## Originality
+Cho and Yuan, arXiv:2004.04637 (2020), prove a curvature-sign separation on the symmetrized bidisc, a different, nonconvexifiable two-dimensional domain. Park, DOI:10.1016/j.jmaa.2021.125398 (2021), gives a closed Bergman kernel for intersected cylinders and monomial formulas in higher dimension. Beberok, arXiv:1601.02989 (2016), gives predecessor kernel formulas for intersected ellipsoids. Neither inspected text states the full all-parameter curvature tensor, its global-in-direction negative sectional sign along the spine, or the simultaneous positive transverse values. A known kernel determines its derivatives and therefore is a substantial indirect-priority risk; differentiating alone does not establish the all-direction sign, which requires a separate inequality. Searches in the research results database and accessible historical ledger found no equivalent statement or stronger direct curvature theorem. Absence of an indexed match is not a uniqueness proof.
+
+## Mathematical value
+The qualitative relation between negative holomorphic sectional curvature and positive holomorphic bisectional curvature is a recognized problem in invariant complex geometry. The theorem provides a natural explicit convex family in all complex dimensions at least three that exhibits the sign separation **at every point of a geometric analytic spine**, and quantifies it by an exact all-pairs positive transverse coefficient and a full negative sectional quartic. It is not merely a restatement of zero-freeness or a newly chosen numerical parameter; the property concerns tensor signs and contrasts with the ball and polydisk benchmarks.
+
+## Limitations
+Only the central analytic spine is controlled; the theorem does not imply global negative sectional curvature of the entire domain or all-pairs positive bisectional curvature. Convex examples need not have smooth boundaries. The full Bergman kernel representation is known and acknowledged, so historical independence of the curvature classification requires external assessment. Independent mathematical audit and validation have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
