@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and limits
 
-Execute `python3 verify.py` using Python 3.10 or later. The standalone script has no nonstandard dependencies. Its first algorithm reduces the weighted face-poset filtration exactly over \(\mathbb F_2\) for both roots and all \(3\le n\le8\). The second constructs every chain of the filtered order complex independently and repeats exact persistence reduction for all \(3\le n\le5\). Both compare complete interval multisets to the stated formulas, including homological degree, both endpoints and multiplicity.
+# Independent mathematical audit
 
-The expected successful terminal markers are `VERIFY_OK` and `DIRECT_ORDER_VERIFY_OK`. The direct order-complex checker enumerates \(12,74,540\) chains at \(n=3,4,5\), respectively, for either root type. The binary calculations are tests of the formulas, not all-field or all-size proofs. The all-field claim follows from the displayed integral sphere-skeleton and cone decompositions in `RESULT.md`, and the exact persistence statement follows from the literal filtration identifications and inclusion maps.
+## correctness
 
-Independent scientific review or audit has not been performed.
+PASS
+
+For nonempty proper B⊂[n], the literal Alexandrov downset difference is Ψ_x(B)=2^|B|−2^|B∩x|. With atom x={1}, filtration stages alternate contractible root cones with (j−1)-skeleta of an (n−1)-simplex: C(n−1,j) reduced classes in degree j−1 are born at 2^j−1 and die at 2^(j+1)−2 for 1≤j≤n−2, followed by essential H_{n−2} at 2^(n−1)−1 and one essential H0 from t=0. With coatom x=[n]\{1}, each threshold 2^k glues a cone on the (k−1)-skeleton of an (n−2)-simplex to its full simplex, giving C(n−2,k) reduced H_k bars [2^k,2^(k+1)) for 0≤k≤n−3, then essential H_{n−2} at 2^(n−2), plus the essential H0. Naturality of barycentric subdivision and adjacent stages establishes inclusion maps, not only stagewise ranks; standard skeleton collapse is integral, so valid over every coefficient field.
+
+## originality
+
+PASS
+
+The exact all-degree atom and coatom barcodes on the Boolean-sphere finite poset are not supplied by the accessible finite-space persistence abstract or the related poset-deletion result. Both roots and the finite-space filtration are explicit, with a nontrivial inclusion-map calculation; priority remains qualified where the original 2026 paper full text was unavailable.
+
+## value
+
+PASS
+
+The two extremal roots are natural symmetry orbits of a standard finite topological sphere. Their all-degree exact persistence modules give binomial multiplicities and exponentially separated intervals and distinguish roots even though the terminal sphere agrees. This is a motivated natural family calculation rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

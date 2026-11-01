@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The literal furtherness count \(\Psi_x(B)=2^{|B|}-2^{|B\cap x|}\) yields exact subcomplex identifications, naturally compatible with all filtration inclusions. Atom stages alternate simplex skeletons with cones, while coatom stages are cones attached to a simplex along successive skeletons. An elementary collapsing matching gives the integral skeleton homotopy ranks, and exact persistent-chain computations verify all degrees and endpoints for \(3\le n\le8\), independently including direct order complexes for \(3\le n\le5\). The proof is uniform in \(n\), not an extrapolation from finite tests.
+## correctness
 
-**Originality — PASS with a disclosed residual risk.** The nearest October 2026 paper introduces the furtherness persistence filtration and concentrates on degree-zero features; the March 2026 paper establishes furtherness itself, not these all-degree diagrams. Rank-selected Boolean homology, punctured Boolean-sphere finite-space cores, and rank-span-two character calculations concern different functors/objects or restrictions, and none of their inspected statements implies these exact two rooted persistent modules. Scientific and database searches found no equivalent theorem. Unindexed work or an uninspected equivalent formulation remains possible; failed search is not proof of absolute novelty.
+PASS
 
-**Value — PASS.** The Boolean sphere poset is a canonical finite topological model, and the two extremal root orbits are natural test cases for the newly introduced furtherness persistence. The theorem supplies an entire infinite family of all-degree, all-field benchmarks, detects genuine root dependence of the persistence even though terminal topology agrees, and exposes an exponentially separated, binomial-multiplicity cascade not captured by previously published degree-zero analysis. This is a structural infinite-family computation, not a single arbitrary numeric example.
+For nonempty proper B⊂[n], the literal Alexandrov downset difference is Ψ_x(B)=2^|B|−2^|B∩x|. With atom x={1}, filtration stages alternate contractible root cones with (j−1)-skeleta of an (n−1)-simplex: C(n−1,j) reduced classes in degree j−1 are born at 2^j−1 and die at 2^(j+1)−2 for 1≤j≤n−2, followed by essential H_{n−2} at 2^(n−1)−1 and one essential H0 from t=0. With coatom x=[n]\{1}, each threshold 2^k glues a cone on the (k−1)-skeleton of an (n−2)-simplex to its full simplex, giving C(n−2,k) reduced H_k bars [2^k,2^(k+1)) for 0≤k≤n−3, then essential H_{n−2} at 2^(n−2), plus the essential H0. Naturality of barycentric subdivision and adjacent stages establishes inclusion maps, not only stagewise ranks; standard skeleton collapse is integral, so valid over every coefficient field.
 
-**Scope and limitations.** Intermediate-rank roots are not classified. No finite-space homotopy classification of the stages is asserted; computations test \(n\le8\) and do not replace the general proof. Bibliographic priority is limited to inspected accessible material and retrieved records. Independent external validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact all-degree atom and coatom barcodes on the Boolean-sphere finite poset are not supplied by the accessible finite-space persistence abstract or the related poset-deletion result. Both roots and the finite-space filtration are explicit, with a nontrivial inclusion-map calculation; priority remains qualified where the original 2026 paper full text was unavailable.
+
+## value
+
+PASS
+
+The two extremal roots are natural symmetry orbits of a standard finite topological sphere. Their all-degree exact persistence modules give binomial multiplicities and exponentially separated intervals and distinguish roots even though the terminal sphere agrees. This is a motivated natural family calculation rather than an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
