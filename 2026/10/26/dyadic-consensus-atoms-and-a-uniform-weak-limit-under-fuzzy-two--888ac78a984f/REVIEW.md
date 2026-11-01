@@ -1,19 +1,21 @@
-# Scientific review: dyadic consensus atoms and a uniform weak limit
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two independent Bernoulli directional choices produce, at any fixed opinion gap, no selection, one-sided selection, or two-sided selection with the probabilities explicitly calculated in RESULT.md. Eliminating idle rounds yields a geometric waiting time and a stopped binary subdivision of the initial interval. Independent fair branch choices give each distinct midpoint at depth \(k\) mass \(S_k s_k/2^k\). The stopping depth is almost surely finite because its conditional stopping probability is bounded below by the positive initial one. Conditional midpoint-grid moments yield the exact variance, and stagewise holding times give the exact expected consensus time. At fixed finite levels the stopping chance tends to zero as confidence width vanishes; coupling each dyadic midpoint to uniform mass on its interval proves weak uniform convergence. Fixed-confidence atomicity gives total variation one. The first-stage geometric waiting time supplies the exact Arrhenius prefactor, since the sum of later-stage expected waiting times is exponentially smaller. All hypotheses and limits appear explicitly in the result; numerical checks are supportive, not substitutes for these arguments.
+PASS
 
-## Originality — PASS, subject to historical priority
+For a current interval gap z, two independent Bernoulli(q(z)) decisions yield idle probability (1−q)², one-sided 2q(1−q) and both q². Condition on non-idle round: stop probability s=q/(2−q), otherwise fair left/right halving. At depth k each 2^k dyadic subinterval equally likely with survival S_k, giving atom S_k s_k/2^k. Since s_k≥s_0>0, eventual absorption a.s., finite moments and stagewise geometric holding times E[T]=ΣS_k/h_k; midpoint-grid variance d²(1−4^{−k})/12. As ε↓0 fixed β,d, every fixed-depth stopping mass tends zero, and coupling dyadic midpoint to a uniform sample of its interval gives the weak uniform limit; each ε law has countable support, so TV=1. Initial holding mean 1/h0 dominates: later stages bounded by O(log_2(d/ε)/h1), exponentially smaller, yielding limit e^{−βd/ε}E[T]=1/[2(1+e^β)]. Independently computed rational dyadic probabilities through depth8 and high-precision prefactor across four ε values.
 
-The October 2026 motivating work provides the logistic inclusion rule and simulation outcomes, but not the state-dependent two-agent exact distribution, its purely atomic law, its singular continuous weak limit or the sharp time prefactor. Mäs, Flache and Helbing (2016) already describe positive-probability cross-group contact and eventual consensus in related simulations, so eventual consensus is not claimed to be the novel ingredient. Elboim, Peres and Peretz (2024) study consensus times and variance for fixed-kernel asynchronous DeGroot averaging; their exact dynamics, population assumptions and time asymptotics are different. Shi, Johansson and Johansson (2012) analyze unreliable randomized gossip but do not give the logistic state-dependent stopped-dyadic law in the accessible material. Targeted mathematical-record searches and checked accessible historical claims did not expose an implication-equivalent prior theorem. General stopped-dyadic-process mathematics and specialized stochastic gossip literature remain residual coverage risks. The comparative claim is priority-provisional, not certification of unique novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The paired properties are not a routine statement of eventual consensus. The exact law shows that at any strictly positive confidence width the random consensus outcome lives on a countable dense atomic set, while at vanishing width it becomes almost indistinguishable from uniform by weak observables even though total variation never approaches zero. The sharp \(e^{\beta d/\varepsilon}\) waiting-time prefactor quantitatively reconciles nearly frozen simulated polarization with eventual exact agreement. Both the output law and the time law are natural quantities for validating inference and stopping criteria for this specific stochastic social-influence rule. The result is restricted to two agents, independent directional sampling and unweighted midpoint influence; it makes no general-population convergence claim.
+The 2026 motivating paper introduces probabilistic logistic neighbor selection and compares consensus behavior by network simulation. It does not report this exact state-dependent two-agent stopping law in the accessible abstract. Unreliable gossip and bounded-confidence crossing effects are prior; the dyadic atomic mixture, singular weak–TV contrast and exact waiting-time prefactor are more specific than eventual consensus.
 
-## Closest sources and limits
+## value
 
-Relevant sources: Giaquinta–Hernández–Chavalarias (arXiv:2610.07971v1, 2026), Mäs–Flache–Helbing (JASSS 19(4), 2016), Elboim–Peres–Peretz (Random Structures & Algorithms 65, 2024), and Shi–Johansson–Johansson (arXiv:1203.6028). The mathematical proof is self-contained; historical priority outside inspected sources is not independently established.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Output law and completion time are natural exact observables of a defined stochastic social-influence model. A countably atomic consensus law approaches uniform weakly but remains maximally distant in total variation; the sharp exponential waiting time reconciles extremely slow practical clustering with almost-sure agreement. This is more than the trivial two-agent eventual-consensus claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
