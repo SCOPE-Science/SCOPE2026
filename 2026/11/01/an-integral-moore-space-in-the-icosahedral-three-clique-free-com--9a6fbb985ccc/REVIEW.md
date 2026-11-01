@@ -1,0 +1,11 @@
+# Scientific review: icosahedral three-clique-free Moore space
+
+**Correctness — PASS.** A complete description of all twenty forbidden triangles determines every face. The finite checker verifies the full face poset, 522 pair matching, directed Hasse acyclicity, and the integral Morse differential by two different exact cancellation procedures. Critical dimensions are zero, four and five, and the integer degree is \(-2\). Therefore the CW model is \(S^4\cup_2e^5\); this is a homotopy classification, not an inference from finite-field Betti numbers. Diagnostic ranks over four characteristics agree.
+
+**Originality — PASS, with residual risk.** Ghosh–Selvaraja (arXiv:2602.09623v1, §§1,3–5) gives shellability criteria for chordal graph families and clique attachments, neither of which computes the icosahedral complex. Moradi (arXiv:1712.00583v1, introductory scope and §2) develops the equivalent Stanley–Reisner ideal description and treats complements of paths/cycles, without this result. Related published calculations concern the icosahedral matching, three-cut, and neighborhood complexes, whose face sets differ and do not imply the claim. Exact nomenclature, hypergraph-independence aliases, two-torsion, dimensional, facet-count and Moore-space searches found no covering theorem. Undiscovered equivalent computations remain possible; a search result alone is not a uniqueness certificate.
+
+**Value — PASS.** This is a natural highly symmetric, regular, planar triangulation outside the chordal shellability setting. The exact two-torsion and degree-two attachment are not recoverable from ordinary rational homology or shellability conditions, and the result supplies a concrete pure five-dimensional nonshellable clique-free complex with a compact, reproducible integer certificate. The case is self-contained and motivated by the open classification of nonchordal clique-free complexes, without extrapolating to larger graph families.
+
+**Limitations.** No conclusion for arbitrary polyhedral graphs or other thresholds. Potential unindexed prior equivalent remains an originality risk, and mathematical validation by another party has not taken place.
+
+Self-review: passed. Independent audit: not yet performed.
