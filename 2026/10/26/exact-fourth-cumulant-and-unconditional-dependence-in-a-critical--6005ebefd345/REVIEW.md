@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary filter is bounded under the stated strict parameter constraints, so all moment and Laplace manipulations are justified. Stationarity of the explicitly displayed two-state generator gives the four required moments; affine closure gives the two-dimensional semigroup. The nonnegative resolvent shows strict variance-mixing for every positive reinforcement strength, and a direct fourth-moment calculation yields the displayed closed rational expression. The independent `CHECK.py` implementation agrees exactly at 96 rational parameter/mode selections and two known exact values. The statement is restricted to the stationary limiting process rather than to a finite-size model.
+## correctness
 
-**Originality — PASS, with limitations.** The full accessible critical-switching paper identifies the two conditionally Gaussian modes, their second moments, and the possibility of unconditional dependence, but does not give the model-specific stationary fourth cumulant, an if-and-only-if Gaussianity boundary, or the strict squared-mode covariance. The closest general Markov-modulated OU treatment handles moments through finite-state modulations but does not imply this continuous-filter fourth-cumulant closed form merely by specialization. Broader stochastic-volatility overlap is a residual historical risk, not a claim of exhaustive novelty proof. The named scientific comparisons and searches are in the structured review.
+PASS
 
-**Value — PASS.** A conditional Gaussian fluctuation theorem does not identify the unconditional one-time law. The exact fourth cumulant gives a sharp separation between marginal Gaussianity and persistent volatility mixtures, while strict positivity of cross-mode square covariance settles the previously explicit but unresolved dependence warning. The formulas provide testable observable moments and a natural identifiability boundary in a recently introduced reinforced critical-switching model.
+C PASS: Inspected the actual stationary two-sided diffusion with positive Q_t=1/8−(rU_t+delta E_t)^2/2. U_t=delta∫_{−∞}^t e^(−a(t−s))E_s ds has |rU+delta E|<=delta/a<1/2, so Q>0 and stochastic integrals exist. Generator L on UE,U²,U³E,U⁴ yields stated exact moments; the centered pair (U²−EU²,UE−EUE) has triangular drift M and covariance S. For r>0, v=(r²,2r delta) has positive components; S and e^(M^Tt) are entrywise positive, proving C_Q(t)>0. Laplace resolvent L(z)=v^TS(zI−M^T)^−1v/4 gives Var(V_k)=L(k)/k, Cov(V_k,V_l)=[L(k)+L(l)]/(k+l), and conditional Gaussian identities give cum4=3L(k)/k and positive cross-squares covariance. Algebra simplifies to the printed rational cumulant; its denominator and residual polynomial are strictly positive on 1/2<a<=1 and c>0, and factor (a−1)^2 enforces the iff r=0 boundary. At r=0 Q constant, so the Brownian-driven modes really are independent Gaussians; their unconditional zero covariance for r>0 does not imply independence. Independently derived the same symbolic cumulant from both resolvent and stationary mixed U,V moment recursion, using SymPy identity simplification, not source code.
 
-**Closest literature and limitations.** Cruz-Suárez, arXiv:2610.02609v1, Sections 2 and 4; Huang et al., arXiv:1412.7952v1. The conclusion does not extend to nonstationary solutions or to finite-size distributions. An older formulation under stochastic-volatility terminology might have overlapping statements. The computational tests are finite algebraic regression checks, not an infinite-range certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS qualified: the cited 2026 limiting process and conditional Gaussianity, as well as Markov-modulated OU moment techniques, are prior. The contribution is its specific closed fourth cumulant and exact positive cross-square dependence criterion. Direct switching coefficients in general MMOUs do not by themselves state the identity for a causal continuously filtered telegraph factor. A general older OU-mixture stochastic-volatility theorem may allow derivation, but no exact same-parameter implication was established.
+
+## value
+
+PASS
+
+V PASS: Detecting strictly non-Gaussian stationary marginals and dependence between two uncorrelated fluctuation modes in a natural, already-studied critical switching model directly answers a structural probabilistic question that second moments cannot resolve. The exact iff boundary and positive dependence are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

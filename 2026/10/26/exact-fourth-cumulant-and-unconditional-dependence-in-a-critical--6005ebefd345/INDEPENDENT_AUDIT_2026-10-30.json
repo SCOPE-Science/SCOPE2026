@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS: Inspected the actual stationary two-sided diffusion with positive Q_t=1/8−(rU_t+delta E_t)^2/2. U_t=delta∫_{−∞}^t e^(−a(t−s))E_s ds has |rU+delta E|<=delta/a<1/2, so Q>0 and stochastic integrals exist. Generator L on UE,U²,U³E,U⁴ yields stated exact moments; the centered pair (U²−EU²,UE−EUE) has triangular drift M and covariance S. For r>0, v=(r²,2r delta) has positive components; S and e^(M^Tt) are entrywise positive, proving C_Q(t)>0. Laplace resolvent L(z)=v^TS(zI−M^T)^−1v/4 gives Var(V_k)=L(k)/k, Cov(V_k,V_l)=[L(k)+L(l)]/(k+l), and conditional Gaussian identities give cum4=3L(k)/k and positive cross-squares covariance. Algebra simplifies to the printed rational cumulant; its denominator and residual polynomial are strictly positive on 1/2<a<=1 and c>0, and factor (a−1)^2 enforces the iff r=0 boundary. At r=0 Q constant, so the Brownian-driven modes really are independent Gaussians; their unconditional zero covariance for r>0 does not imply independence. Independently derived the same symbolic cumulant from both resolvent and stationary mixed U,V moment recursion, using SymPy identity simplification, not source code.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huang–Jansen–Mandjes–Spreij–De Turck (2014), arXiv:1412.7952: moment equations for finite-state Markov-modulated Ornstein–Uhlenbeck processes with directly switching coefficients; no specific continuously filtered telegraph volatility rational formula in inspected sections.",
+          "Original model has Q(U,E) depending on a continuous causal filter as well as telegraph state, rather than only a finite-state direct modulation."
+        ],
+        "reasoning": "General MMOUs permit broad moment calculations, but the published accessible method does not explicitly classify this non-polynomially direct random-volatility model under identical parameter constraints.",
+        "searches": [
+          "critically switching reinforced urn telegraph-modulated Ornstein Uhlenbeck fourth cumulant dependence modes",
+          "Markov-modulated Ornstein Uhlenbeck processes moment recursions shared finite Markov environment"
+        ]
+      },
+      "checked_sources": [
+        "Cruz-Suárez arXiv:2610.02609 model/critical limit",
+        "Huang et al. arXiv:1412.7952 finite-state modulation",
+        "Resultary semantic search on telegraph OU fourth cumulant"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cruz-Suárez (2026), arXiv:2610.02609, critical reinforced process fluctuation limit: conditional Gaussian two-mode diffusion and stationary second moments; unconditional mode independence explicitly not guaranteed, but no closed fourth cumulant asserted in inspected Sections 2/4."
+        ],
+        "reasoning": "Conditional independence plus unconditional covariance zero does NOT imply independence; random conditional variances can remain positively correlated. The exact strict cross-square test goes materially beyond the cited conditional Gaussian limit and second moments.",
+        "searches": [
+          "critically switching reinforced urn telegraph-modulated Ornstein Uhlenbeck fourth cumulant dependence modes",
+          "Cruz Suarez 2026 hybrid fluctuation reinforced processes unconditional independent Gaussian modes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cruz-Suárez (2026), arXiv:2610.02609, critical reinforced process fluctuation limit: conditional Gaussian two-mode diffusion and stationary second moments; unconditional mode independence explicitly not guaranteed, but no closed fourth cumulant asserted in inspected Sections 2/4.",
+          "Huang–Jansen–Mandjes–Spreij–De Turck (2014), arXiv:1412.7952: moment equations for finite-state Markov-modulated Ornstein–Uhlenbeck processes with directly switching coefficients; no specific continuously filtered telegraph volatility rational formula in inspected sections."
+        ],
+        "reasoning": "The equivalent statement is positivity of random conditional variance V_k and covariance of two variance integrals. A general Gaussian scale-mixture identity provides cum4=3Var(V_k), but does not evaluate or sign the exact model-specific resolvent without new moments.",
+        "searches": [
+          "critically switching reinforced urn telegraph-modulated Ornstein Uhlenbeck fourth cumulant dependence modes",
+          "telegraph noise stochastic volatility Gaussian mixture fourth cumulant conditional variance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Cruz-Suárez (2026), arXiv:2610.02609, critical reinforced process fluctuation limit: conditional Gaussian two-mode diffusion and stationary second moments; unconditional mode independence explicitly not guaranteed, but no closed fourth cumulant asserted in inspected Sections 2/4.",
+          "Current exact formula is not among source second-moment identities in inspected Sections 2/4."
+        ],
+        "reasoning": "No matching published exact rational formula/table located, but a negative search is not novelty proof.",
+        "searches": [
+          "critically switching reinforced urn telegraph-modulated Ornstein Uhlenbeck fourth cumulant dependence modes",
+          "critical Markov switching reinforced urn fourth cumulant rational dependence table"
+        ]
+      },
+      "rationale": "O PASS qualified: the cited 2026 limiting process and conditional Gaussianity, as well as Markov-modulated OU moment techniques, are prior. The contribution is its specific closed fourth cumulant and exact positive cross-square dependence criterion. Direct switching coefficients in general MMOUs do not by themselves state the identity for a causal continuously filtered telegraph factor. A general older OU-mixture stochastic-volatility theorem may allow derivation, but no exact same-parameter implication was established.",
+      "residual_risks": [
+        "General moment formulas elsewhere for finite Markov environment and filtered stochastic volatility could subsume the resolvent method; no complete historical-priority certification.",
+        "All statements concern stationary limiting diffusion, not finite interacting urns or nonstationary initial laws; strict assumptions a>1/2, delta>0,c>0 apply."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same diffusion is prior; displayed exact fourth cumulant and iff unconditional independence criterion not present in read material.",
+          "evidence": "Cruz-Suárez (2026), arXiv:2610.02609, critical reinforced process fluctuation limit: conditional Gaussian two-mode diffusion and stationary second moments; unconditional mode independence explicitly not guaranteed, but no closed fourth cumulant asserted in inspected Sections 2/4.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.02609",
+          "material_read": "Accessible arXiv PDF model and critical fluctuation theorem in Sections 2 and 4, conditional Gaussianity and second moments; inspected page image.",
+          "method": "Read and compare primary PDF relevant sections and screenshot.",
+          "title": "Exact random centering and hybrid fluctuation limits for interacting reinforced processes under critical Markov switching",
+          "trigger": "Exact same reinforced-process limiting diffusion and conditional independence issue"
+        },
+        {
+          "assessment": "Coefficients depend directly on finite-state X; causal filtered volatility is not the same model.",
+          "evidence": "Huang–Jansen–Mandjes–Spreij–De Turck (2014), arXiv:1412.7952: moment equations for finite-state Markov-modulated Ornstein–Uhlenbeck processes with directly switching coefficients; no specific continuously filtered telegraph volatility rational formula in inspected sections.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.7952",
+          "material_read": "Accessible arXiv PDF Introduction, Section 2 model definition and moments discussion; inspected page image.",
+          "method": "Read primary paper selected sections, not all appendices.",
+          "title": "Markov-modulated Ornstein–Uhlenbeck processes",
+          "trigger": "Potential broad Markov-modulated moment theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V PASS: Detecting strictly non-Gaussian stationary marginals and dependence between two uncorrelated fluctuation modes in a natural, already-studied critical switching model directly answers a structural probabilistic question that second moments cannot resolve. The exact iff boundary and positive dependence are independently useful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the stationary telegraph-modulated two-mode OU fluctuation diffusion with a=1-r>1/2, r=rho+kappa>=0, delta>0, c>0, r+2delta<1, the exact fourth cumulant is the displayed rational expression in RESULT.md, positive iff r>0. Its Gaussian conditional modes are uncorrelated; they are unconditionally independent iff r=0, otherwise their squared amplitudes have strictly positive covariance.",
+  "limitations": [
+    "There is a genuine b parameter b=1−rho+kappa; resulting damping ell=2b−1 must stay positive. Modes are only conditionally independent for r>0."
+  ],
+  "schema_version": 1
+}
