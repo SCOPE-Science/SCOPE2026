@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-## Reproduction
+## correctness
 
-From the package directory, run `python3 verify.py` with a standard Python 3 interpreter; no third-party modules are required. The program applies the original neighbor-equality utilities rather than using the proposed potential in its direct cycle checks. It reports 6600 graph/type/action combinations, 4812 cross-type cyclic instances, and 203904 exact potential-identity comparisons in CR-free configurations, and checks the three-vertex coexistence witness and action-cardinality boundary.
+PASS
 
-## Mathematical proof boundary
+PASS. A C-R-edge-free graph has integer potential summing C-C/C-S match and R-R/R-S mismatch indicators; every flexible player utility increment equals its incident potential change. Presence of C-R edge and two unused pinned colors permits setting other flexible players to third color d and a four-profile (a,b)->(b,b)->(b,a)->(a,a)->(a,b) directed strict cycle, each gain exactly one; arbitrary outside-neighbor contributions are unchanged. Three-vertex S-C-R path has PNE (0,0,1) and four-step cycle, with two-vertex/binary same-path minimality checked directly. Finite enumeration never replaces arbitrary-graph argument.
 
-This finite search does not establish the theorem for arbitrarily large networks. The proof in RESULT.md does: absence of CR edges gives a bounded exact potential on every finite graph, and a single CR edge embeds a length-four strictly improving cycle using two actions absent among stubborn agents, while all other flexible agents use a third action. The latter constructs one permissible infinite improvement trajectory; it does not assert nonconvergence for a specified random scheduling rule. Neither programmatic checks nor self-review constitutes independent mathematical audit.
+## originality
+
+PASS
+
+PASS best knowledge. Pei–Cao–Zhang 2026 supplies same multi-action graph game and sufficient potential conditions and PNE existence, not the necessity of no C-R adjacency for ALL unilateral strict-improvement paths. Binary opinion-dynamics and matching-pennies research is not this exact graph-uniform multi-action characterization. Risk: general better-response cycle theorem in wider potential-game literature.
+
+## value
+
+PASS
+
+PASS. Separates static existence of Nash equilibria from a robust dynamic requirement covering every better-response path. The iff graph criterion and minimal equilibrium-plus-cycle witness are sharp, useful tests for multiclass network dynamics. Does not claim stochastic scheduling behavior, weighted or directed models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
