@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unit-pair-rate Kingman convention is explicit. Each cherry is exactly one merger of two extant singleton lineages. The independent exponential waiting time contributes external length but not cherry covariance at its current step. The three transition probabilities are exhaustive. The full proof reconstructs first-moment identities, the exceptional \((3,3)\) initial case, a three-term law-of-total-covariance recurrence, and its rational-polynomial induction; the all-singleton specialization is \(-2/9\) for all \(n\ge4\). Exact rational state recurrences and independent labeled-merger enumeration corroborate the formulas, without substituting finite enumeration for infinite proof. The coalescent rate normalization is indispensable.
+## correctness
 
-**Originality — PASS with historical-priority risk.** Full accessible primary text of Janson–Kersting (arXiv:1004.5011) concerns external length, the black/red lineage process, and its marginal and process moments. Full accessible primary text of Wu–Choi (arXiv:1508.03139) concerns joint cherry/pitchfork *counts* and the marginal cherry moments. Steel–Mooers (arXiv:0910.5240) concerns lengths under different Yule pure-birth waiting times. Actual semantic record and literature queries for cherry/external or pendant-length covariance and synonymous merger-count formulations returned no equivalent evaluated mixed-moment classification. Transition rules from the earlier work permit computation in principle, but do not imply the displayed closed expression without the additional joint-recursion calculation. Published work not retrieved or not fully accessible could contain the identity; this risk is not a novelty proof.
+PASS
 
-**Mathematical value — PASS.** Both cherries and external length are standard, biologically meaningful but different tree statistics (shape and branch metric). The exact negative covariance is surprisingly independent of sample size even though the marginal cherry variance grows with sample size while external-length variance decreases; the induced correlation vanishes at logarithmic rate. The result supplies a sharp finite boundary and a general closed negative covariance formula across all partial-resolutions, rather than a routine numerical instance or an arbitrary small-sample calculation.
+PASS: Reconstructed the three exhaustive merger types with probabilities b(b-1)/[k(k-1)], 2b(k-b)/[k(k-1)], (k-b)(k-b-1)/[k(k-1)]. The independent Exp(binomial(k,2)) waiting interval adds b times its length to E, and two-singleton merging adds one cherry. First moments f=b(b-1)/[3(k-1)] and g=2b/k and total-covariance induction give K(b,k)=-2b(b-1)(3k-2b-2)/[9k(k-1)(k-2)]. k=3,b=3 is exceptional, yielding zero, while k=3,b=2 yields -2/9. k>=4 successors cannot have b=3,k=3; the induction is therefore valid. Taking b=k=n>=4 yields -2/9, with n=2,3 separately zero. Independent exact joint-moment recursion reconstructed 1,125 partial states up to k=46 including boundaries; finite verification supplements the symbolic recurrence, not the all-n proof. Clock normalization is essential.
 
-The claim is confined to homogeneous pairwise Kingman coalescence, and does not assert negative association, heterogeneous-rate validity, or exhaustive historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: Janson-Kersting develop the external/singleton coalescent machinery, Wu-Choi the cherry/pitchfork topology, and Alimpiev-Rosenberg a compendium of metric coalescent covariances; the inspected statements do not yield an evaluated mixed cherry-count versus total external-length covariance -2/9 or the partial-state rational kernel. General merger recurrences make it calculable but do not explicitly imply the closed evaluated identity without additional derivation. Priority may overlap unindexed mixed-moment calculations.
+
+## value
+
+PASS
+
+PASS: This exact cross-covariance measures dependence between a natural topological tree statistic (cherries) and a natural metric statistic (total pendant length). The size-independent -2/9 and strictly negative partial-state kernel explain an asymptotically vanishing correlation despite a persistent covariance and form a useful structural finite-size identity, not a marginal-moment restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
