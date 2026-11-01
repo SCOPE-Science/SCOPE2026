@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The four-way similarity classification follows from an exact invariant four-dimensional local subspace, the square-zero structure of the underlying hypercube adjacency operator, complementary-subspace arguments for two cases, and complete power-rank calculations for the remaining cases. The normal forms reproduce exact fixed-space dimensions, stopping-time populations, and primitive orbit counts. Standalone binary elimination and trajectory enumeration independently verify all dimensional/distance classes through dimension eight and every labeled configuration through dimension four. Proof does not infer an all-dimensional statement from the finite checks.
+
+**Originality — PASS (qualified).** The directly compared primary sources are Brunnet–Chaté (2004), whose full paper treats nonlinear totalistic threshold rules, and Lettieri–Stevens–Thomas (2006), whose accessible full text treats finite linear automata on rings. The most relevant accessible prior result for a **single** feedback site is not a two-site theorem: it has no parameter distinguishing distance one from all other distances. A published mathematics-record search located a distance-two hypercube parity rule changing adjacency globally, not the rank-two self-feedback perturbation. Comparison of objects, assumptions, and conclusions gives no observed implication of this exact four-way normal form. Unindexed algebraic-graph results remain a risk, not something ruled out by failed searches.
+
+**Mathematical value — PASS.** The invariant is the complete finite-state linear-dynamics similarity class on a natural graph family, not an arbitrary parameter slice. A pair of minimal local feedback changes creates a sharp topological threshold: adjacency determines reversibility in odd dimensions, and toggles primitive six-cycles versus exclusively fixed attractors in even dimensions. All nonadjacent separations share the same structure despite unequal Hamming distances, making a meaningful robustness statement. Exact transit shells and primitive orbit counts are derived without an ad hoc finite census.
+
+The smallest dimension is three; the binary field assumption is essential. Source searches cannot certify global uniqueness, and no independent audit or validation has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
