@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The closed-form basis equations in the proof have solutions \(K(h)=L(h)=U_0+\gamma(1-e^{-h})e_3e_1^\top\) and \(B(h)=I_2\). Substitution into the 2023 method's augmentation gives \(H\). Its characteristic polynomial factors as \((\lambda-1)(\lambda^2-\lambda-p^2)\), proving the three eigenvalues. The strict parameter comparisons in the example can be checked with elementary exponential bounds, independently of floating-point output.
+## correctness
 
-Install NumPy according to `requirements.txt` and run `python verify.py` from the directory containing these files. In the current environment the verifier printed `VERIFY_OK 132` and, for the witness, \(d\approx1.132209236674\), \(h\eta=7.5\), a positive exact minimum eigenvalue near \(0.322274939716\), and a negative truncated minimum eigenvalue near \(-1.132209236674\). The routine compares the exact spectrum with symmetric eigensolvers and checks the truncation choice on a finite set of parameters; the symbolic proof is what establishes the all-parameter inertia and the sharp cutoff.
+PASS
 
-The numerical checks do not constitute an independent scientific audit, prove novelty, or certify the method beyond the stated assumptions. Exact selection at the tied-singular-value boundary remains nonunique and is not tested as a unique-output claim.
+From the actual parallel augmented source update under transpose-equivariance and matched bases, H=[B,C^T;C,0]; B positive definite and C full row rank s give inertia (r positive,s negative) by Schur-complement congruence. For the specified PSD-preserving gradient flow, exact reduced stages produce H=[[1,0,p],[0,1,0],[p,0,0]], eigenvalues 1+d,1,-d with d(d+1)=p^2; the SVD rank-two sign transition occurs precisely at p=sqrt(2), tie excluded. At gamma=2,h=3/2,tolerance=6/5,c=10, rank-two is chosen, the negative direction remains and neither of two source rejection tests fires. Independently checked symbolic characteristic polynomial and 12 sample parameters.
+
+## originality
+
+PASS
+
+Ceruti/Kusch/Lubich introduce the underlying parallel algorithm and explicitly mention limitations. The structural inertia theorem and precise rank-two SVD sign switch under PSD-preserving dynamics are not stated in the inspected original algorithm or the distinct 2021 serial BUG algorithm; Schur-complement inertia itself is classical.
+
+## value
+
+PASS
+
+Positive semidefiniteness is a motivated invariant in covariance/Lyapunov dynamics. A universally sharp structural obstruction for symmetric rank augmentation plus an exact nonrejected three-dimensional witness are informative numerical-method boundaries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
