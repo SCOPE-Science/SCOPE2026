@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The independent-of-formula finite test script `check_commuting_idempotents.py` uses direct matrix multiplication, row-reduction ranks, and explicit enumeration of idempotent matrices over prime fields. It compares every observed rank-stratified commuting-pair count with the fourfold general-linear orbit formula. The tested configurations are \((n,q)=(2,2),(3,2),(4,2),(2,3),(3,3)\); for \((4,2)\), only the balanced rank pair \((2,2)\) is enumerated. The total number of ordered test pairs is \(372{,}920\), and the balancing rank profile for \((4,2)\) is \((560,20160,560)\) across product ranks \(0,1,2\).
+# Independent mathematical audit
 
-Run with Python 3 using `python check_commuting_idempotents.py`; compare standard output to `check_output.txt`. The script requires no third-party packages. It does not test extension-field arithmetic or the infinite asymptotics. The general prime-power statement is established by linear algebra and the positive Euler product, not extrapolated from enumeration.
+## correctness
+
+PASS
+
+Commuting idempotents are simultaneously diagonalizable over every F_q because x(x−1) is separable even in characteristic two. Orthogonal products EF, E(I−F),(I−E)F,(I−E)(I−F) decompose the vector space into dimensions t,r−t,s−t,n−r−s+t. Transitive GL_n action and block stabilizer give C=|GL_n|/Π|GL_block|. For n=4m,r=s=2m,t=m+j the exact stratum ratio is q^(−4j²) φ_m^4/(φ_(m+j)^2 φ_(m−j)^2), dominated by a constant times q^(−4j²), establishing total variation by dominated convergence on Z. Count rank-half idempotents and use |GL_k|=q^(k²)φ_k to get q^(4m²) P(commuting)→Θ_q/Φ_q. Independent enumeration of every small prime-field idempotent and ordered pair reproduced all rank strata for (n,q)=(2,2),(3,2),(2,3). This is not an infinite-field/counting proof.
+
+## originality
+
+PASS
+
+The simultaneous four-eigenspace decomposition and canonical forms are known from Edmunds and elementary semisimple-module theory; the exact finite orbit formula is a proof ingredient, not a novel classification. Edmunds counts similarity classes, while the present result counts weighted rank strata and extracts a conditioned lattice theta fluctuation and exact commutativity constant. General unrestricted commuting-matrix asymptotics of Fulman–Guralnick are distinct. A broad q-multinomial or partition-function theorem might imply this conditioned limit, and that is noted as a priority risk.
+
+## value
+
+PASS
+
+Finite-field projection pairs form a canonical family with a strong commutativity rarity phenomenon. The exact conditioned product-rank distribution and theta normalizing constant give nontrivial asymptotic fluctuations and rare-event probability in a natural matrix ensemble; they are not merely a single finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

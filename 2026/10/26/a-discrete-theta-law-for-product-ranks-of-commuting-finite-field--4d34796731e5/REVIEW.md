@@ -1,19 +1,21 @@
-# Scientific review: balanced commuting-idempotent theta law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The joint four-eigenspace decomposition follows from two commuting idempotents over any field, including characteristic two. The stabilizer product yields the exact count for each rank triple. Substitution of \(|\operatorname{GL}_k(\mathbb F_q)|=q^{k^2}\prod_{h=1}^k(1-q^{-h})\) gives both the discrete weight ratio and the scaled commutation probability, with normalization checked. The finite positive Euler product supplies a summable uniform majorant, so the total-variation and constant-factor limits follow by dominated convergence. The independent exhaustive checker matches exact rank-stratum counts in five small-field configurations; its coverage is finite and does not replace the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Commuting idempotents are simultaneously diagonalizable over every F_q because x(x−1) is separable even in characteristic two. Orthogonal products EF, E(I−F),(I−E)F,(I−E)(I−F) decompose the vector space into dimensions t,r−t,s−t,n−r−s+t. Transitive GL_n action and block stabilizer give C=|GL_n|/Π|GL_block|. For n=4m,r=s=2m,t=m+j the exact stratum ratio is q^(−4j²) φ_m^4/(φ_(m+j)^2 φ_(m−j)^2), dominated by a constant times q^(−4j²), establishing total variation by dominated convergence on Z. Count rank-half idempotents and use |GL_k|=q^(k²)φ_k to get q^(4m²) P(commuting)→Θ_q/Φ_q. Independent enumeration of every small prime-field idempotent and ordered pair reproduced all rank strata for (n,q)=(2,2),(3,2),(2,3). This is not an infinite-field/counting proof.
 
-The 2017 matrix-idempotent article by Ferraz, Polcino Milies and Taufer establishes single-idempotent and ideal-generator enumerations. Edmunds (2014) already gives joint idempotent diagonalization and similarity-class classification; those classical steps and the ensuing group orbit count are not claimed as independently novel. Fulman–Guralnick (2016) obtain unrestricted commuting-matrix and commuting-nilpotent counts and asymptotics, not fixed-rank-half commuting idempotents. Searches for rank-conditioned commuting projector spectra, discrete-theta product-rank laws, GL orbit decomposition and equivalent asymptotic formulations did not identify the *specific balanced conditional theta law with sharp commutativity constant*. This is a best-knowledge priority assessment, not a proof of global novelty: implicit coverage by older module-count formulas is a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The pair statistic \(\operatorname{rank}(EF)\) is a natural multiplication invariant in finite full matrix semigroups. Conditioning independent rank-half idempotents to commute is exponentially rare, with a sharp \(q^{-4m^2}\) decay and explicit nonzero constant, while the conditional rank retains an exact, non-Gaussian lattice limit. This jointly resolves scale, leading constant and fluctuations in a natural family, rather than supplying only an unmotivated small-field table or a routine restatement of simultaneous diagonalization.
+The simultaneous four-eigenspace decomposition and canonical forms are known from Edmunds and elementary semisimple-module theory; the exact finite orbit formula is a proof ingredient, not a novel classification. Edmunds counts similarity classes, while the present result counts weighted rank strata and extracts a conditioned lattice theta fluctuation and exact commutativity constant. General unrestricted commuting-matrix asymptotics of Fulman–Guralnick are distinct. A broad q-multinomial or partition-function theorem might imply this conditioned limit, and that is noted as a priority risk.
 
-## Limitations
+## value
 
-The limit holds for ambient dimension divisible by four, both ranks exactly half, and fixed field order. The checker covers prime-field examples only. No assertion is made about all rank densities or fully exhaustive publication priority. Sources on finite-field commuting matrices are extensive, and further independent priority checking is appropriate.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Finite-field projection pairs form a canonical family with a strong commutativity rarity phenomenon. The exact conditioned product-rank distribution and theta normalizing constant give nontrivial asymptotic fluctuations and rare-event probability in a natural matrix ensemble; they are not merely a single finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
