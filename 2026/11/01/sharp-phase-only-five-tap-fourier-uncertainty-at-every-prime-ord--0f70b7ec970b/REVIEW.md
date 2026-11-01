@@ -1,0 +1,11 @@
+# Review of the five-tap phase-only Fourier-zero bound
+
+**Correctness (PASS).** The two modulus equations obtained from three hypothesized sampled roots have coefficients in the cyclotomic integer ring. Reducing their vanishing Sylvester resultant modulo the ramified prime yields the nonzero integer 900 modulo any prime at least seven. The constructive half supplies a two-root factor and proves the remaining coefficients have modulus one using a factored exact inequality; the seventh-order boundary is controlled by an explicit cubic interval and all higher primes by the fifth-root cosine identity. The exceptional fifth-order witness is the fifth cyclotomic polynomial. An independent executable recalculates the exact determinant and tests sampled witnesses. Finite testing is not substituted for the analytic proof.
+
+**Originality (PASS, bounded).** The sharp unrestricted support uncertainty theorem allows four zeros with five arbitrary coefficients, whereas the new theorem places an equal-modulus restriction. The inspected phase-only results on supports of sizes three and four do not imply the five-tap claim. The inspected length-five fourth-moment result concerns a distinct optimization functional, and the inspected self-inversive polynomial work addresses unit-circle root location rather than prime-order grid zeros under five unit-modulus coefficients. No direct coverage was located in the actual record and primary-literature searches; undiscovered equivalent results in phase-code or cyclotomic theory remain possible.
+
+**Mathematical value (PASS).** This is a sharp classification of a natural uncertainty invariant at the first five-tap consecutive support. It eliminates two of the four ordinary uncertainty-theorem zeros at every prime at least seven, identifies a genuine exceptional prime, and supplies a new uniform resultant mechanism with an explicit sharpness construction. The proof does not simply rename or reuse the four-tap antipodal-pair argument.
+
+**Scope and limitations.** Fixed consecutive support, prime cyclic groups only, maximum cardinality rather than full zero-pattern classification. Results have not undergone independent audit or external validation.
+
+Self-review: passed. Independent audit: not yet performed.
