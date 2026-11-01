@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness: PASS.** The claim is the rational \(p\)-kernel rank \(2\alpha-1\) for all primes and all positive exponents. Kummer's theorem gives the weighted subtraction-borrow recursion. The state module has precisely \(2\alpha-1\) dimensions, not \(2\alpha\), because the pending-borrow generating polynomial has no constant term. Explicit zero-prefix differences span every pending-borrow monomial, and the last-digit \(p-1\) transfer produces all no-borrow monomials. Two triangular families of continuation evaluations separate every state. This proves both upper and lower bounds for the sequence kernel. Exact finite checks independently compare binomial counts and full-rank matrices in 18 parameter cases.
+
+**Originality: PASS, with residual priority risk.** Rowland's original article [1, final paragraph] expressly leaves the rank \(2\alpha-1\) open. The full-text later article [2, Theorem 1] contains the earlier all-valuation \(2\times2\) matrix product, which after truncation provides the upper-bound representation but has no corresponding exact lower-rank or minimality theorem. Spiegelhofer–Wallner [3, Introduction and Section 2] study polynomial coefficients and do not address exact kernel rank. Related prior research on digital-function expressions and asymptotics does not imply a lower bound on the dimension of this kernel. Searches of relevant mathematical records did not identify an equivalent exact-rank proof; no search can certify universal priority. See structured comparison in AUDIT.json.
+
+**Value: PASS.** This settles an explicit natural conjecture about the minimum linear complexity of prime-power Pascal-row counts, uniformly over all primes and exponents. The constructive minimal representation also gives a sharp dimension benchmark for symbolic computation of the sequences. It is more than an alternative way to calculate values: the reachability–observability proof establishes an optimality invariant.
+
+**Limits and risk.** The field of scalars is \(\mathbb Q\); specialized coverage under an unrecognized equivalent definition of \(p\)-regular rank remains possible. The result is not independently audited, and finite verification is not the universal proof.
+
+Self-review: passed. Independent audit: not yet performed.
