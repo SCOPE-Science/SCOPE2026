@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:13:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md exact A inverse and trace identity; Git blob d39fa9f4b56c193abed233af5cf41841dd115bfd",
+        "sorting_star_checker.py inspected (Git blob f54c579cafbe5da9c73cf0fa0996ac092d8f2921)",
+        "independent generalized eigenvalue comparison, 36 parameter cases"
+      ],
+      "rationale": "Within each strict sorting chamber, S is a coordinate permutation, so the global two-input Lipschitz constant equals the largest generalized norm of a permutation in A=I+γL_star. Every chamber is open; a small displacement along a generalized maximal eigenvector produces an actual attaining pair. Leaf permutations are A-isometries; moving the hub is conjugate to swapping hub with one leaf. The two-centered star matrices differ in rank two, their determinants are equal, and exact inversion gives trace defect δ=γ²(n²−1)/[(1+γ)(1+(n+1)γ)]. Thus the only nontrivial positive generalized eigenvalues have product 1 and sum 2+δ, yielding (sqrt(4+δ)+sqrtδ)/2. n=1 is isometric and γ→∞ yields the graph-Dirichlet quotient modulus (sqrt(n+3)+sqrt(n−1))/2. Fresh independent symmetric generalized eigenvalue calculations agreed for n=2..10 and γ=.1,1,3,9 (36 cases). The eigenvalue checks do not prove the all-n formula; the rank-two calculation does.",
+      "residual_risks": [
+        "General weighted stars, nonlinear sorting conventions, and other Sobolev exponents are outside the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steinerberger Section 1–3 single-input graph energy rearrangement inequalities",
+          "Chernozhukov–Fernández-Val–Galichon standard Lp rearrangement contraction"
+        ],
+        "reasoning": "Neither bound compares ||S(x)−S(y)||_A to ||x−y||_A for two arbitrary vectors. In fact the bound exceeds one for any n≥2, so the usual Lp contraction has no implication here.",
+        "searches": [
+          "Discrete Rearrangements and the Polya-Szego Inequality on Graphs full text",
+          "sorting rearrangement Lipschitz Sobolev norm star graph exact operator norm hub permutation finite star"
+        ]
+      },
+      "checked_sources": [
+        "Steinerberger arxiv:2209.06765 original HTML sections",
+        "arxiv:0704.3686",
+        "arxiv:1811.05381",
+        "Resultary semantic query 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Steinerberger main statements about single signal graph derivatives",
+          "GroupSort contraction under Euclidean or ℓp norms"
+        ],
+        "reasoning": "A single-input energy inequality cannot bound the difference of two outputs, while a coordinate-symmetric norm is invariant under every sorting permutation. The rank-two hub exchange formula is additional to those premises.",
+        "searches": [
+          "arxiv:2209.06765 Graph rearrangements",
+          "arxiv:1811.05381 GroupSort",
+          "arxiv:0704.3686 rearrangement"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinerberger, arXiv:2209.06765, graph gradient rearrangement",
+          "Anil–Lucas–Grosse, arXiv:1811.05381 GroupSort"
+        ],
+        "reasoning": "The map is piecewise a coordinate permutation, and the exact question is the maximal A-to-A permutation operator norm. Published symmetric-norm GroupSort constants are one and hence do not specialize to noninvariant star Sobolev metrics.",
+        "searches": [
+          "sorting rearrangement Lipschitz Sobolev norm star graph exact operator norm hub permutation finite star",
+          "sorting coordinate permutation weighted quadratic graph Laplacian generalized eigenvalue"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned a finite-star Lipschitz-free Banach–Mazur result and isotonic-permutation results on other metrics, not a table of this sharp two-input norm"
+        ],
+        "reasoning": "A finite-star closed formula in n,γ could be represented by generalized eigenvalues; no exact duplicate formula or table appears in identified records. This does not prove novelty.",
+        "searches": [
+          "sorting rearrangement Lipschitz Sobolev norm star graph exact operator norm hub permutation finite star",
+          "Resultary finite star Lipschitz free and sorting stability graph Sobolev"
+        ]
+      },
+      "rationale": "Classical rearrangement Lp contraction concerns permutation-symmetric norms; graph Pólya–Szegő results bound the energy of one sorted vector, not two-input differences. GroupSort Lipschitz theory also uses coordinate norms. Thus those results do not imply the sharp nontrivial star Sobolev amplification or its all-chamber classification. Fresh Resultary queries returned related star Lipschitz-free and permutation results but not the same two-input graph metric. Priority qualified by potential unindexed matrix-norm formulation.",
+      "residual_risks": [
+        "Unindexed generalized eigenvalue computations for star-Laplacian permutations may contain the same formula.",
+        "GroupSort source not examined fully in this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Focuses on energy of individual rearrangements; no sharp two-input Sobolev sorting modulus in inspected sections",
+          "evidence": "Theorem statements compare graph gradient norms for a single function.",
+          "identifier_or_url": "https://arxiv.org/abs/2209.06765",
+          "material_read": "Full accessible arXiv HTML sections 1–3, theorem statements and relevant proofs",
+          "method": "Public original full-text reading",
+          "title": "Discrete Rearrangements and the Pólya–Szegő Inequality on Graphs",
+          "trigger": "Plausible general graph rearrangement theorem dominating star case"
+        },
+        {
+          "assessment": "Different symmetric coordinate norms; possible overlooked nonstandard norms remain a limited risk",
+          "evidence": "GroupSort uses norm-preservation for standard input/output coordinate metrics",
+          "identifier_or_url": "https://arxiv.org/abs/1811.05381",
+          "material_read": "Title, abstract and specific named GroupSort norm properties via available primary-public descriptions; not full text in this execution",
+          "method": "Public abstract/summary comparison",
+          "title": "Sorting Out Lipschitz Function Approximation",
+          "trigger": "GroupSort operator Lipschitz stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md with exact stated theorem",
+        "independent source comparison and mathematical assessment"
+      ],
+      "rationale": "Sorting is canonical and Euclidean nonexpansive, but data supported on a graph incur a non-permutation-invariant edge regularity penalty. The exact amplification factor on the simplest branching graph, all extremizing chambers, and √n strong-coupling asymptotics give a useful structural stability benchmark. In particular for n=2 homogeneous norm the factor is the golden ratio, not a routine restatement of rearrangement contraction.",
+      "residual_risks": [
+        "Limited to unweighted stars and common γ, not arbitrary graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Global TWO-input Lipschitz modulus; not one-input rearrangement-energy ratio.",
+    "For homogeneous norm sorting is considered modulo additive constants."
+  ],
+  "schema_version": 1
+}

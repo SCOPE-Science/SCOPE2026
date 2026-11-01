@@ -1,19 +1,21 @@
-# Scientific review: sorting in finite-star graph Sobolev norms
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces a globally continuous piecewise-permutation map to the maximum of all local permutation operator norms, including an explicit argument giving actual attaining input pairs. The star's leaf automorphisms reduce this to one hub/leaf swap. The difference of star Laplacians has rank two; their positive-definite forms have equal determinant, and an exact inverse provides the trace defect \(\gamma^2(n^2-1)/[(1+\gamma)(1+(n+1)\gamma)]\). These two constraints determine the nontrivial generalized eigenvalues and hence the sharp norm. The \(n=1\) case and homogeneous limit are handled separately. An independently formulated executable checker passed 2704 exact-rational and numerical tests. Residual risk: the analytic proof is not independently audited.
+PASS
 
-## Originality — PASS, with residual risk
+Within each strict sorting chamber, S is a coordinate permutation, so the global two-input Lipschitz constant equals the largest generalized norm of a permutation in A=I+γL_star. Every chamber is open; a small displacement along a generalized maximal eigenvector produces an actual attaining pair. Leaf permutations are A-isometries; moving the hub is conjugate to swapping hub with one leaf. The two-centered star matrices differ in rank two, their determinants are equal, and exact inversion gives trace defect δ=γ²(n²−1)/[(1+γ)(1+(n+1)γ)]. Thus the only nontrivial positive generalized eigenvalues have product 1 and sum 2+δ, yielding (sqrt(4+δ)+sqrtδ)/2. n=1 is isometric and γ→∞ yields the graph-Dirichlet quotient modulus (sqrt(n+3)+sqrt(n−1))/2. Fresh independent symmetric generalized eigenvalue calculations agreed for n=2..10 and γ=.1,1,3,9 (36 cases). The eigenvalue checks do not prove the all-n formula; the rank-two calculation does.
 
-The mathematical comparison distinguishes (i) norm contraction of decreasing rearrangement in permutation-invariant \(L^p\) spaces, (ii) one-input graph Pólya–Szegő energy inequalities, and (iii) norm-preserving GroupSort activations from the **two-input** norm in a graph-Sobolev geometry. Direct published-finding corpus queries over sorting, graph energy, finite stars, Sobolev Lipschitz moduli, coordinate permutations, and analogous metric projections returned no matching claim. The closest records concern single-input fractional-gradient rigidity, finite-star Lipschitz-free geometry, and isotonic regression rather than the map and metric here. An equivalent calculation may exist in unindexed operator-norm or graph signal processing literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Sorting is a canonical rearrangement that contracts all permutation-symmetric coordinate norms but fails to preserve a graph derivative. This finding quantifies the exact price of that failure on the simplest nontrivial branching graph, identifies all worst local chambers, and separates fixed from dimension-rescaled coupling. The \(\sqrt n\) growth and the homogeneous golden-ratio three-vertex case show that perturbation stability cannot be inferred from energy monotonicity of a single rearrangement. The complete parameter law is useful as a benchmark for stability of graph-based sorting operators and regularized graph signals.
+Classical rearrangement Lp contraction concerns permutation-symmetric norms; graph Pólya–Szegő results bound the energy of one sorted vector, not two-input differences. GroupSort Lipschitz theory also uses coordinate norms. Thus those results do not imply the sharp nontrivial star Sobolev amplification or its all-chamber classification. Fresh Resultary queries returned related star Lipschitz-free and permutation results but not the same two-input graph metric. Priority qualified by potential unindexed matrix-norm formulation.
 
-## Comparison and limitations
+## value
 
-Chernozhukov–Fernández-Val–Galichon (arXiv:0704.3686) studies ordinary rearrangement of monotone estimation; Steinerberger (arXiv:2209.06765) proves one-input gradient rearrangement inequalities; Anil–Lucas–Grosse (arXiv:1811.05381) addresses GroupSort in coordinate norms. None of the inspected statements establishes the same graph-Sobolev two-input operator modulus. Arbitrarily weighted stars and general finite graphs are not addressed. Unindexed historical overlap and the lack of independent proof checking remain.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Sorting is canonical and Euclidean nonexpansive, but data supported on a graph incur a non-permutation-invariant edge regularity penalty. The exact amplification factor on the simplest branching graph, all extremizing chambers, and √n strong-coupling asymptotics give a useful structural stability benchmark. In particular for n=2 homogeneous norm the factor is the golden ratio, not a routine restatement of rearrangement contraction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
