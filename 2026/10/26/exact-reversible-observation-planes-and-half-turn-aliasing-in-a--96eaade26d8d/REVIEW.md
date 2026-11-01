@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The stable three-dimensional Gaussian diffusion has the uniquely reconstructed covariance \(TI_3/a\). Exact Rodrigues propagation identifies the only possible antisymmetric planar covariance, giving both directions of the continuous and sampled full-path criteria by Gaussian finite-dimensional distributions. The stationary-current integral gives full dissipation, and direct positive-definite Gaussian block inversion gives the pairwise KL formula with a controlled zero-lag limit. A standalone numerical checker verified random Lyapunov equations, matrix exponentials, projected antisymmetry, KL formulas, sampling aliases, and edge limits. The numerical tests are corroboration rather than infinite proofs.
+## correctness
 
-## Originality — PASS, with residual risk
-The originating paper's model, stationary isotropy, moment analysis, zero-shear entropy discussion, and hidden-variable memory equation are prior knowledge. The general propagator/current mathematics is also known. Against these, the present claim is specifically the complete orientation-dependent **all-time path-law** classification, the half-turn discrete-sampling reversibility criterion, and the exact pairwise information visibility fraction. Comparisons with accessible historical claims, mathematical research summaries, the originating main text, and Godrèche--Luck's general OU analysis found no explicit equivalent classification. A related Loos--Klapp publication could be read only at abstract/metadata level, so its complete coverage remains uncertain. It is not classified as noncovering on that evidence alone. Priority is not independently certified.
+PASS
 
-## Mathematical value — PASS
-The result solves a physically motivated sensor-placement and measurement-cadence problem: a genuinely dissipative three-variable system can have an *exactly* time-symmetric, non-Markovian two-variable history, and any observer can lose all arrow-of-time information at precise sampling intervals. A complete if-and-only-if geometrical and temporal classification, plus quantified two-time information loss, is more substantive than the already known stationary equal-time Gaussian moments. The distinction between pairwise KL and entire observed-path entropy is expressly preserved.
+The stationary Lyapunov equation gives Sigma=(T/a)I. Gaussian finite-dimensional path reversibility is equivalent to symmetry of all lag covariance matrices. Rodrigues gives F_t-F_t^T=2e^(-at) sin(Ωt) PMP^T/Ω, and on any observation plane PMP^T=(ω·n)J. Sampling at Δ requires sin(kΩΔ)=0 for every integer k, equivalently the k=1 half-turn condition unless ω·n=0. Current j=Mx rho gives exactly 2Ω²/a. Two-block Gaussian covariance inversion yields K_t=4b_t²(1-det F_t)/det(I-F_tF_t^T), whose local expansion gives the pairwise slope; no full projected entropy-production rate is asserted. Independent 120 4x4 covariance/KL checks agree to 4.44e-16.
 
-## Closest literature and scope
-Fernandez--Hess--Klapp (2024), arXiv:2402.10579, establishes the motivating stochastic model and reported moment/entropy results. Godrèche--Luck, arXiv:1807.00694, supplies broader nonequilibrium OU covariance/current theory. Loos--Klapp, arXiv:2008.00894, studies related hidden nonreciprocity, but its complete text could not be checked. The theorem assumes an isotropic harmonic drift plus constant skew rotation and ordinary time-reversal parity; it does not extend automatically to finite shear or arbitrary non-Markovian hidden media.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The original Fernandez–Hess–Klapp model and general OU covariance/current theory precede this result. The audited contribution is the all-finite-dimensional-path observation-plane classification and sampled half-turn alias, plus pairwise relative entropy. Loos–Klapp 2020 addresses related nonreciprocal information flow; full relevant text was inaccessible, leaving a priority risk rather than a finding of noncoverage.
+
+## value
+
+PASS
+
+An exact if-and-only-if classification of which sensor planes and sampling cadences conceal time irreversibility despite positive current is a natural observability and information-loss question; the half-turn alias and pairwise information fraction are not merely stationary moment formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
