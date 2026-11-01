@@ -1,0 +1,15 @@
+# Correctness, originality and mathematical value
+
+## Correctness — PASS
+The theorem assumes a real finite metric with one hub and strictly quasi-Banach exponent \(0<p<1\). The cited general finite-tree formula gives an attained, finite optimization. The proof's source-to-source edge shortcut and hub-parent shortcut strictly improve any inadmissible positive-flow tree, forcing precisely the two permitted types of routes. Every subset route is realized, establishing a matching upper and lower bound. At equal weights the scalar optimization is concave, so only the empty and full subsets can minimize. The threshold inequality and both endpoint expansions follow by algebra and Taylor's theorem. Exact comparisons against all labelled spanning trees in 27 finite test cases and two additional scalar checks passed; they are corroborative, not proofs beyond the tested cases.
+
+## Originality — PASS (best-knowledge assessment)
+The 2018/2020 construction of Albiac–Ansorena–Cúth–Doucha already uses an infinite equilateral set and one added hub to demonstrate nonisometry, and yields a one-sided bound for finite-support vectors. The later Cúth–Raunig theorem already gives a general minimum over spanning trees. Neither inspected paper states the present *two-parameter exact positive-cone subset formula*, its sharp necessary-and-sufficient finite cardinality transition, or its selective unequal-mass extremizer. The 2026 Albiac–Ansorena work establishes isomorphic inclusion for arbitrary spaces, not the exact norm. Published mathematical summaries concerning universal equilateral-star Lipschitz extension factors and three-point inclusion constants were also compared. Those quantities do not, by themselves, imply the norm of every positive molecule. Their unavailable full texts leave residual priority risk; the result is not independently certified as new.
+
+## Mathematical value — PASS
+The family is the canonical concrete failure-of-isometry test introduced by the early literature and remains relevant following the 2026 general embedding theorem. The result replaces a combinatorial tree minimum by a sharp closed transportation law on an entire positive cone, determines exactly which equal-mass support sizes first exhibit nonisometry, and reveals an exponential cardinality boundary near the Banach endpoint. The explicit unequal-mass witness proves partial source routing is essential. This is a natural finite-dimensional exact-invariant classification, not a rephrasing of the general inclusion theorem.
+
+## Limits and references
+The result is restricted to real nonnegative one-sink masses and one equiradial hub; no general signed-cone formula or optimal full inverse embedding constant is asserted. The closest primary sources are arXiv:1811.01265v2 (Theorem 6.1), arXiv:2311.02920v1 (Theorems 2.2, 2.8), and arXiv:2603.28193v1 (Theorems 3.1, 3.5). Additional published mathematical summaries were assessed only to the extent accessible.
+
+Self-review: passed. Independent audit: not yet performed.
