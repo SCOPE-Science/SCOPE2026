@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The Riccati scalar polynomial, positive state-cost spectrum, Bellman completion-of-squares identity for arbitrary stable static feedback, covariance lower bound, and graph-radius Frobenius projection imply a universal lower cost bound. The Laurent square-root singularity of the centralized gain at \(z=-2\) implies Fourier coefficients of size \(j^{-3/2}2^{-j}\) and a squared tail of sharp order \(r^{-3}4^{-r}\). A symmetric finite-range Fourier truncation is stable for large radius and attains the same order. The direct floating-point checker verifies independent finite instances but does not establish the universal theorem.
+PASS
 
-## Originality — PASS (subject to residual bibliographic uncertainty)
+For A=I/2, B=I and SPD Q=9I/4+S+Sᵀ, the scalar DARE gives p(q)=[q−3/4+sqrt((q+1/4)(q+9/4))]/2 and gain k=p/[2(1+p)]. Riccati completion of squares for every stable even noncirculant F yields stationary excess 1/(2N)tr((F−K)ᵀ(I+P)(F−K)Sigma_F), at least ||F−K||_F²/(2N). The optimum Frobenius radial-band approximation is matrix entry truncation, not requiring circulant competitors. Nearest outer Laurent branch point z=-2 produces coefficients (-1)^(j-1) sqrt(3)/(2sqrt(pi)) 2^-j j^-3/2 and exact squared-tail asymptotic E_r~r^-3 4^-r/(2pi). A uniformly stable symmetric radius-r Fourier truncation gives an O(E_r) upper bound. Therefore Δ_r=Theta(r^-3 4^-r), with r fixed before N→infinity, and log-log radius inversion. Independent matrix Riccati, stationary Lyapunov performance-difference checks for r=1..3 at N=36 and FFT tail ratios at j=5..20 agreed. The optimal *leading constant* is not asserted.
 
-Zhou–Matias, arXiv:2610.11699v1, establishes upper spatiotemporal response decay and logarithmic sufficient communication ranges. Shin et al., arXiv:2204.05551v2, establishes exponential upper performance gaps for truncated static LQR gains. The new contribution is a lower bound over *every* stable static radius-constrained gain, combined with an exact nontrivial polynomial prefactor for this nearest-neighbor cyclic family. Closely related older spatially invariant Riccati analysis is acknowledged; two plausible sources were not fully inspected, as recorded in the structured review. A failed literature search is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The lower bound demonstrates unavoidable stationary LQR excess cost of static locality, and the matching upper construction gives an exact second-order logarithmic formula for the spatial radius needed to meet a target tolerance. It supplies a nontrivial boundary against arbitrary nontranslation-invariant static policies rather than only showing a known Fourier truncation is accurate.
+Prior spatially distributed LQR work establishes gain decay and sufficient near-optimal truncation, not the sharp matching lower bound against every possibly noncirculant radius-r static controller with cubic polynomial tail for this exact cyclic Q. The Fourier symbol is a classical technique. Older spatially invariant Riccati analysis could contain an equivalent calculation, so priority is qualified.
 
-## Scope and risk
+## value
 
-The result is restricted to the specified stable discrete-time model, static state feedback and fixed-radius-then-size limit. It neither gives a universal limit coefficient for the optimal static cost nor bounds dynamic distributed controllers. Relevant full-text bibliographic coverage remains imperfect, as itemized in AUDIT.json.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural networked static-controller locality constraint has a provably unavoidable cost, quantified against all noncirculant static gains, matching a constructive truncation. The exact exponential base and cubic correction sharpen qualitative upper-only exponential decay and determine a precise second-order logarithmic communication-radius requirement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

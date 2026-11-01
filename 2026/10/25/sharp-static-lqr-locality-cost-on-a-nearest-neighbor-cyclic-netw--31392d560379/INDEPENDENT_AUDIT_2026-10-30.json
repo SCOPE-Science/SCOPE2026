@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:00:12Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/sharp-static-lqr-locality-cost-on-a-nearest-neighbor-cyclic-netw--31392d560379/RESULT.md",
+        "2026/10/25/sharp-static-lqr-locality-cost-on-a-nearest-neighbor-cyclic-netw--31392d560379/check.py"
+      ],
+      "rationale": "For A=I/2, B=I and SPD Q=9I/4+S+Sᵀ, the scalar DARE gives p(q)=[q−3/4+sqrt((q+1/4)(q+9/4))]/2 and gain k=p/[2(1+p)]. Riccati completion of squares for every stable even noncirculant F yields stationary excess 1/(2N)tr((F−K)ᵀ(I+P)(F−K)Sigma_F), at least ||F−K||_F²/(2N). The optimum Frobenius radial-band approximation is matrix entry truncation, not requiring circulant competitors. Nearest outer Laurent branch point z=-2 produces coefficients (-1)^(j-1) sqrt(3)/(2sqrt(pi)) 2^-j j^-3/2 and exact squared-tail asymptotic E_r~r^-3 4^-r/(2pi). A uniformly stable symmetric radius-r Fourier truncation gives an O(E_r) upper bound. Therefore Δ_r=Theta(r^-3 4^-r), with r fixed before N→infinity, and log-log radius inversion. Independent matrix Riccati, stationary Lyapunov performance-difference checks for r=1..3 at N=36 and FFT tail ratios at j=5..20 agreed. The optimal *leading constant* is not asserted.",
+      "residual_risks": [
+        "Static real memoryless feedback only; radius held fixed before N→∞; optimized leading constant unknown; dynamic SLS controllers outside theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Shin et al. prove general exponential localized-gain and near-optimal truncation upper bounds, not a matching global lower bound with r^-3 4^-r for this exact cyclic state-cost family. Zhou–Matias gives general sufficient bounds, accessible abstract only."
+        ],
+        "reasoning": "General exponential upper bounds alone do not imply a sharp necessary radius or exact polynomial factor; the present exact family estimates are more specialized in model but stronger in asymptotic precision.",
+        "searches": [
+          "arXiv:2204.05551 Theorem 3.3 Corollary 3.5 distributed LQR decay",
+          "arXiv:2610.11699 spatiotemporal response decay",
+          "static LQR nearest neighbor cycle spatial locality cost exponential Fourier feedback r inverse cube"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2204.05551",
+        "https://arxiv.org/abs/2610.11699",
+        "https://doi.org/10.1109/CDC42340.2020.9304235",
+        "2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Even knowing exponential feedback decay does not force squared tail to have a cubic polynomial prefactor or prove a lower bound for arbitrary noncirculant static matrices. The Riccati difference identity and projection deliver those additional implications."
+        ],
+        "reasoning": "No inspected theorem dominates the exact Θ(r^-3 4^-r) statement, although older scalar Riccati spectral factorization might supply its kernel coefficients.",
+        "searches": [
+          "arXiv:2204.05551 Thm 3.3 and Cor 3.5",
+          "Jensen Epperlein Bamieh 2020 CDC",
+          "spatial LQR noncirculant static feedback lower bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The spatial LQR gain kernel equals Fourier coefficients of the scalar Riccati gain; the performance gap is a stationary Riccati weighted Hilbert–Schmidt distance to the radius-r band."
+        ],
+        "reasoning": "Tested the alias to spatially invariant spectral factorization and static H2 control, not solely matching network-control titles.",
+        "searches": [
+          "static LQR nearest neighbor cycle spatial locality cost exponential Fourier feedback r inverse cube",
+          "spatially invariant discrete time algebraic Riccati Fourier symbol nearest complex branch point",
+          "LQR Fourier Toeplitz gain spatial decay"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary surfaced cyclic numerical radius and finite-cycle Riesz findings, not this controller cost; Jensen 2020 studies spatially invariant LQR kernel localization in Sobolev spaces."
+        ],
+        "reasoning": "A precomputed Fourier coefficient or exact LQR tail in spatial control literature might cover components; no full matching rate table was identified.",
+        "searches": [
+          "static LQR nearest neighbor cycle spatial locality cost exponential Fourier feedback r inverse cube",
+          "Resultary semantic query: static LQR nearest neighbor cycle spatial locality cost exponential Fourier feedback r inverse cube",
+          "Jensen Epperlein Bamieh localization LQR kernel"
+        ]
+      },
+      "rationale": "Prior spatially distributed LQR work establishes gain decay and sufficient near-optimal truncation, not the sharp matching lower bound against every possibly noncirculant radius-r static controller with cubic polynomial tail for this exact cyclic Q. The Fourier symbol is a classical technique. Older spatially invariant Riccati analysis could contain an equivalent calculation, so priority is qualified.",
+      "residual_risks": [
+        "Older spatially invariant Riccati or Toeplitz spectral-factorization sources could provide the same square-root Fourier tail and performance estimate.",
+        "Closest 2026 Zhou–Matias full paper and 2020 Jensen et al primary full text were not available in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides prior exponential upper bounds, not matched lower or particular polynomial correction.",
+          "evidence": "Shin–Lin–Qu–Wierman–Anitescu (2022) localization theorems.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.05551",
+          "material_read": "Full accessible arXiv PDF and page screenshots; examined Theorem 3.3 and Corollary 3.5 on exponential gain decay/performance.",
+          "method": "Full PDF source and section comparison",
+          "title": "Near-Optimal Distributed Linear-Quadratic Regulator for Networked Systems",
+          "trigger": "same LQR truncation and performance cost"
+        },
+        {
+          "assessment": "Relevant general sufficient locality results; whole-text overlap remains a residual risk.",
+          "evidence": "Zhou–Matias (2026) abstract and model summary.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11699",
+          "material_read": "ArXiv abstract and search descriptions; full PDF not retrieved.",
+          "method": "ArXiv/OA attempted; authorized Oxford returned VPN disconnected",
+          "title": "Spatiotemporal Response Decay for Near-Optimal Distributed LQR via System Level Synthesis",
+          "trigger": "current 2026 near-optimal distributed LQR"
+        },
+        {
+          "assessment": "Related spectral-localization technique; exact family matching rate remains unchecked in complete source.",
+          "evidence": "Jensen–Epperlein–Bamieh (2020).",
+          "identifier_or_url": "https://doi.org/10.1109/CDC42340.2020.9304235",
+          "material_read": "Published abstract and bibliographic information, not complete paper.",
+          "method": "Publisher landing/abstract",
+          "title": "Localization of the LQR Feedback Kernel in Spatially-Invariant Problems over Sobolev Spaces",
+          "trigger": "direct spatial Fourier kernel alias"
+        },
+        {
+          "assessment": "Different operator/invariant; does not imply LQR feedback locality cost.",
+          "evidence": "Published mathematical finding concerns numerical radius rather than Riccati performance.",
+          "identifier_or_url": "2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4",
+          "material_read": "Search result summary about cyclic shift numerical radius Hessian.",
+          "method": "Resultary query",
+          "title": "Resultary spatial-control query",
+          "trigger": "SCOPE overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/sharp-static-lqr-locality-cost-on-a-nearest-neighbor-cyclic-netw--31392d560379/RESULT.md"
+      ],
+      "rationale": "A natural networked static-controller locality constraint has a provably unavoidable cost, quantified against all noncirculant static gains, matching a constructive truncation. The exact exponential base and cubic correction sharpen qualitative upper-only exponential decay and determine a precise second-order logarithmic communication-radius requirement.",
+      "residual_risks": [
+        "Static real memoryless feedback only; radius held fixed before N→∞; optimized leading constant unknown; dynamic SLS controllers outside theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Static real memoryless feedback only; radius held fixed before N→∞; optimized leading constant unknown; dynamic SLS controllers outside theorem."
+  ],
+  "schema_version": 1
+}
