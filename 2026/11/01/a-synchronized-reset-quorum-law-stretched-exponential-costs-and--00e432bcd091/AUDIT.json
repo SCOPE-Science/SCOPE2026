@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "For every \\(N\\) and \\(r\\), reflection principle gives F(t), renewal gives \\(q_N\\) and the mean exactly. Uniform logarithmic \\(F(t)\\) expansion, global \\(e^{-b/\\sqrt t}\\) bound and compact Laplace-principle localization establish the fixed-rate \\(N^{2/3}\\) constant. Maximal first-passage Frechet convergence, its exponential transform, compact-uniform convergence, and explicit uniform small- and large-clock barriers prove convergence of global minima; no unproved optimizer uniqueness is used. The embedded pure-Python verifier reproduces distinct finite-size checks.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Asmussen et al., arXiv:0706.0403, analyzes job-size vs failure-tail asymptotics, not this growing-population Brownian-max family or exact N-dependent optimal clock constants in its available abstract."
+      ],
+      "reasoning": "General renewal theorems imply the finite-N mean representation but not the two explicit competing large-population clock scalings without additional Brownian-extreme analysis. A more general unlocated theorem is an acknowledged priority risk.",
+      "searches": [
+        "restart maximum of N iid Levy first passage times single shared exponential failure clock collective completion large N stretched exponential",
+        "Asmussen Fiorini Lipsky Rolski Sheahan 2007 Asymptotic Behavior of Total Times For Jobs That Must Start Over If a Failure Occurs",
+        "restart maximum of N iid Levy first passage times single shared exponential failure clock collective completion large N stretched exponential"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.23542 abstract (2026-09-20)",
+      "Phys. Rev. E 107, 064141 (2023) abstract",
+      "arXiv:1102.2704 abstract",
+      "arXiv:0706.0403 abstract",
+      "First-passage resetting gas (2026) public model excerpt"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 first-arrival optimum uses M=min tau_i while this result uses M=max tau_i, yielding contrasting population scaling.",
+        "The 2026 rank-ordered optimization records completed hits; the present protocol resets completed hits at every failure epoch.",
+        "The 2026 first-passage resetting gas resets when any one walker reaches a level, not at an external Poisson time with all hits required."
+      ],
+      "reasoning": "None of the available statements logically yields the claimed quorum mean or global optimally scaled \\(N^2\\) limit; finite-N restart identities remain acknowledged prior work.",
+      "searches": [
+        "2026 arXiv 2609.23542 Rank-dependent optimal resetting in multiparticle search",
+        "2023 Phys Rev E Critical number of walkers for diffusive search processes with resetting",
+        "2026 First-passage resetting gas 10.1209/0295-5075/ae3f4f"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Biroli–Majumdar–Schehr 2023, arXiv:2303.18012: first arrival (minimum of passage times) rather than maximum and failure erasing previous hits.",
+        "Vatash et al. 2026, arXiv:2609.23542 abstract: ordered arrivals with independently reset searchers, not common clock and all-in-one-epoch completion."
+      ],
+      "reasoning": "A process measuring the first arrival, or preserving each arrived particle after resets, does not have one-attempt success probability E[exp(-r max_i tau_i)]. Thus the mathematical objective, joint renewal law and large-N population parameter differ.",
+      "searches": [
+        "all N Brownian first passage hits before a common Poisson restart progress erased each epoch stretch exponential N two thirds",
+        "common restart maximum task duration restart all tasks extreme values stretched exponential N 2/3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Biroli, Majumdar and Schehr (2023), arXiv:2303.18012, first-arrival common-reset protocol; Vatash et al. (2026), arXiv:2609.23542, ranked-arrival model as publicly described."
+      ],
+      "reasoning": "The compared published work concerns first arrival or recorded arrival ranks; neither provides a full-cohort repeated-start calculation for unbounded population size. Search absence is not proof of uniqueness.",
+      "searches": [
+        "full batch completion Brownian resetting Frechet maximum renewal fixed reset asymptotic N^(2/3)"
+      ]
+    },
+    "rationale": "On a genuine different objective (a full quorum completed within one random epoch, with progress lost between common resets), the exact N-dependent renewal functional is distinct from first-arrival and recorded-rank reset theory. Source and claim-level primary literature comparisons found no mathematically stronger directly covering \\(N^{2/3}\\) fixed-rate cost and global \\(N^{-2}\\) rate optimization. General restart/extreme-value theory could subsume components and the closest 2026 rank-paper full text was unavailable, so priority remains qualified.",
+    "residual_risks": [
+      "Full text of arXiv:2609.23542 was not accessible in this execution; abstract-level comparison cannot rule out an unexpected appendix specialization.",
+      "General maximal-job restart/exponential-Tauberian theorems might imply the saddle-point exponent; theorem combines it with explicit globally optimal population scaling.",
+      "No independent publication-priority validation or external mathematical review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Proves first-arrival threshold, not all-in-one-epoch quorum or \\(N^2\\) optimal clock scaling.",
+        "evidence": [
+          "2023 Phys. Rev. E 107 064141 abstract; protocol B resets all, seeks first target."
+        ],
+        "identifier_or_url": "https://journals.aps.org/pre/abstract/10.1103/PhysRevE.107.064141",
+        "material_read": "Published article abstract, model/protocol A-B definitions and N thresholds; full manuscript unavailable",
+        "method": "Read accessible journal abstract and metadata, compare order statistic target (first versus last) and retention rule",
+        "title": "Critical number of walkers for diffusive search processes with resetting",
+        "trigger": "Same N Brownian start and common versus individual reset comparison"
+      },
+      {
+        "assessment": "No exact-claim coverage apparent from accessible material; full-text access risk remains.",
+        "evidence": [
+          "arXiv:2609.23542 first submitted 2026-09-20; abstract mentions finite-N reference, arrival ranks, independent reset rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.23542",
+        "material_read": "Public author abstract, submission date, protocol description; HTML/full PDF access attempted and unavailable",
+        "method": "Compare abstract definitions of order statistics, arrival-rank accumulation across reset attempts with erased-progress common-epoch quorum",
+        "title": "Rank-dependent optimal resetting in multiparticle search",
+        "trigger": "Closest new 2026 rank-based resetting paper"
+      },
+      {
+        "assessment": "Establishes resetting search concept and one-particle behavior, not quorum-synchronous population scale.",
+        "evidence": [
+          "Evans–Majumdar 2011 abstract, Brownian resetting and MFPT optimum."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1102.2704",
+        "material_read": "Public abstract and foundational formula descriptions",
+        "method": "Compare one-walker renewal identity with population-extreme scaling",
+        "title": "Diffusion with stochastic resetting",
+        "trigger": "Foundational one-particle resetting first-passage and renewal behavior"
+      },
+      {
+        "assessment": "A first-arrival-triggered global reset differs from Poisson-triggered all-complete cohort restart.",
+        "evidence": [
+          "2026 article model excerpt: all N reset whenever any coordinate reaches L."
+        ],
+        "identifier_or_url": "https://doi.org/10.1209/0295-5075/ae3f4f",
+        "material_read": "Available public model excerpt describing reset when any walker first reaches a boundary; publisher full text access blocked",
+        "method": "Compare reset trigger and quorum stopping condition",
+        "title": "First-passage resetting gas",
+        "trigger": "Recent simultaneous multi-particle reset with a first-passage trigger"
+      },
+      {
+        "assessment": "Potential abstract-level analogy but no exact \\(N^2\\) optimal-rate theorem verified from available text.",
+        "evidence": [
+          "Asmussen et al. 2007 public abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0706.0403",
+        "material_read": "Public abstract describing restart failure and total-time tail asymptotics",
+        "method": "Compare asymptotic variable (completion-time tails per task) versus growing-N extreme of Brownian first passages",
+        "title": "Asymptotic Behavior of Total Times For Jobs That Must Start Over If a Failure Occurs",
+        "trigger": "Potentially broader restart of heavy-tailed completion times"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00e432bc-d091-49b9-9f6a-a6cde86c693d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The strict, progress-erasing all-searchers-within-one-reset-epoch task is a natural synchronized quorum/parallel completion objective. It exhibits a singular design distinction: any fixed common reset rate costs exp(const \\(N^{2/3}\\)), but a globally optimized clock of order \\(N^{-2}\\) reduces the best achievable mean to order \\(N^2\\) with an explicit universal variational constant. This is a meaningful exact population-scale optimization and boundary, not merely a numerical benchmark or renaming of one-searcher renewal theory.",
+    "status": "PASS"
+  }
+}
