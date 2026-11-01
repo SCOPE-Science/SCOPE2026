@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof starts from the exact representation \(X=e^{Y/k}\), where \(e^Y\) is unit exponential, and reconstructs the moving one-standard-deviation interval from the exact Weibull moments. The cubic log-Gamma term produces equal inward first-order shifts of the two reflected-Gumbel endpoints. A smooth CDF expansion gives the displayed \(1/k\) coefficient and \(O(k^{-2})\) remainder. The coefficient is manifestly positive. The bundled verifier recomputes the exact finite-\(k\) probability and confirms the numerical constants without serving as the infinite-parameter proof.
+## correctness
 
-## Originality
-PASS. The closest primary source treats exactly this Weibull central probability. It proves the Gaussian comparison for \(0<k\le1\), shows a counterexample at \(k=3\), and plots \(1\le k\le10\); its Gumbel section separately gives the endpoint central mass. Full-text inspection found no large-\(k\) Weibull asymptotic, no signed \(1/k\) correction, and no \(\zeta(3)\) coefficient. Candidate-specific published-record searches and current/prior own-ledger comparisons found no covering claim. Residual risk remains for older reliability or extreme-value literature using different terminology.
+PASS
 
-## Value
-PASS. The source's finite-shape counterexample makes the behavior after failure mathematically motivated. The theorem gives an analytic far-right phase description: the functional returns above the Gaussian benchmark because it converges from below to a strictly larger reflected-Gumbel constant, and the exact correction quantifies the recovery. This is a natural endpoint law of the source problem, not a routine recomputation.
+With r=1/k and unit scale, write X=e^{rY}, Y=log E, E~Exp(1). The cumulant generating function of Y is logΓ(1+t). Its cubic expansion gives μ=-γ, v=ζ(2)=a² and κ3=-2ζ(3). Hence m_r=1+μr+(μ²+v)r²/2+O(r³), s_r²=vr²+(2μv+κ3)r³+O(r⁴), and s_r=ar+a(μ−ζ(3)/v)r²+O(r³). Thus r^{-1}log(m_r−s_r)=μ−a+(ζ(3)/a)r+O(r²) and r^{-1}log(m_r+s_r)=μ+a−(ζ(3)/a)r+O(r²). Smooth Taylor expansion of F_Y(y)=1−exp(−exp y) at these two endpoints yields C_k=Cinf−A/k+O(k^{-2}), with strictly positive A. Because Cinf exceeds erf(1/sqrt2), eventual recovery above the Gaussian one-sigma benchmark follows. The lower endpoint m_r−s_r is positive for sufficiently small r. No global monotonicity, minimal K or exact finite crossing is claimed.
 
-## Closest literature and limitations
-Sun, Hu and Sun, arXiv:2304.11459v1/v2, provide the exact Weibull probability, the \(0<k\le1\) theorem, the \(k=3\) failure, and the Gumbel one-sigma constant. The present claim does not identify the smallest recovery shape, prove global monotonicity, or classify all finite-\(k\) crossings.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality PASS for the signed first-order large-shape expansion of the already-named Weibull one-sigma central mass. The 2023/2024 source determines the Gumbel limiting constant and plots the Weibull functional through shape 10 but does not give the large-k signed 1/k coefficient in the arXiv v2 sections read. A directly relevant published small-shape Weibull anti-concentration law is for shape tending to zero, not infinity. Classical log-Gamma and Weibull formulas are ingredients; no checked covering statement for the exact signed coefficient was established.
+
+## value
+
+PASS
+
+The same one-sigma functional previously fails its Gaussian comparison for the non-infinitely-divisible shape k=3 and is evaluated only numerically for shape up to 10. The large-shape boundary is a mathematically natural question: the theorem identifies the reflected-Gumbel endpoint, the positive exact Apéry correction determining its approach from below, and eventual recovery above the Gaussian benchmark. This quantifies a motivated signed endpoint law and gives a precise asymptotic benchmark for subsequent finite-shape investigations; it is not a claim of a global phase diagram or an arbitrary parameter slice. Although elementary Gamma expansions are proof ingredients, the prior source does not specify their combination at the standardized moving one-sigma endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

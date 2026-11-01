@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:11:01Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md",
+        "SLOGAN.txt",
+        "METADATA.json",
+        "AUDIT.json",
+        "REVIEW.md",
+        "VERIFICATION.md",
+        "verify_weibull_gumbel_endpoint.py",
+        "verification_output.txt",
+        "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+        "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html"
+      ],
+      "evidence": [
+        "Source RESULT.md at assigned Git object d0ad323b0e6b62e3b634d8d683e63dd5ce0e0bec, proof and all boundary qualifications.",
+        "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+        "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html",
+        "Independent symbolic verification of the r³ variance coefficient and both r² logarithmic endpoint coefficients, plus 90-digit direct C_k checks at k=20,40,80,160,320,640,1000,2000,5000,10000. The analytic argument, not finite tests, establishes the result.",
+        "Independent constants Cinf=0.72375126751971034068479770553422035077..., A=0.37546693034735008031194969969760075121..., normal=0.68268949213708589717..."
+      ],
+      "rationale": "With r=1/k and unit scale, write X=e^{rY}, Y=log E, E~Exp(1). The cumulant generating function of Y is logΓ(1+t). Its cubic expansion gives μ=-γ, v=ζ(2)=a² and κ3=-2ζ(3). Hence m_r=1+μr+(μ²+v)r²/2+O(r³), s_r²=vr²+(2μv+κ3)r³+O(r⁴), and s_r=ar+a(μ−ζ(3)/v)r²+O(r³). Thus r^{-1}log(m_r−s_r)=μ−a+(ζ(3)/a)r+O(r²) and r^{-1}log(m_r+s_r)=μ+a−(ζ(3)/a)r+O(r²). Smooth Taylor expansion of F_Y(y)=1−exp(−exp y) at these two endpoints yields C_k=Cinf−A/k+O(k^{-2}), with strictly positive A. Because Cinf exceeds erf(1/sqrt2), eventual recovery above the Gaussian one-sigma benchmark follows. The lower endpoint m_r−s_r is positive for sufficiently small r. No global monotonicity, minimal K or exact finite crossing is claimed.",
+      "residual_risks": [
+        "Expansion applies as k→∞ to every positive real shape and arbitrary positive scale; it is not a uniform global bound for all k>0.",
+        "Finite high-precision arithmetic and pre-existing VERIFY_OK logs do not themselves prove the remainder."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+          "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+          "Five endpoint laws behind vanishing standardized anti-concentration (published result record), full RESULT.md inspected, Weibull alpha downarrow0; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59"
+        ],
+        "reasoning": "The classical gamma series yields moment expansions, and higher-order delta-method machinery may provide general expansion tools. The checked sources did not identify a prior theorem whose stated hypotheses and conclusions, when specialized, explicitly determine this signed 1/k central mass coefficient. The October 4 published Weibull asymptotic instead treats shape alpha→0 and a fixed-threshold outside tail with logarithmic exponent 2/e; it cannot by parameter substitution imply the k→∞ one-sigma central-mass correction.",
+        "searches": [
+          "Weibull large shape parameter asymptotic one standard deviation probability zeta(3) Gumbel reflected",
+          "Weibull central probability mean standard deviation shape infinity asymptotic Gumbel zeta(3)",
+          "NIST DLMF 5.7.3 Gamma Maclaurin expansion",
+          "Weibull standardization second order delta method central coverage"
+        ]
+      },
+      "checked_sources": [
+        "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+        "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+        "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html",
+        "Five endpoint laws behind vanishing standardized anti-concentration (published result record), full RESULT.md inspected, Weibull alpha downarrow0; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59",
+        "Resultary semantic results for two actual shape-infinity central probability queries (15 ranked records each); selected closest same-family endpoint source inspected.",
+        "Public literature queries for large-shape Weibull standardized probability, reflected Gumbel, one-sigma mass, zeta3 coefficient and exact value 0.723751."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sun, Hu and Sun: Gumbel one-sigma constant 0.723751, Weibull 0<k<=1 comparison, k=3 counterexample 0.667713, graph k∈[1,10], but no first-order large-k difference in the inspected sections.",
+          "Resultary result proves -alpha log P(|W_alpha−mean|≥y sd)→2/e as alpha→0; its parameter limit is opposite and target statistic a standardized outside-tail.",
+          "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3"
+        ],
+        "reasoning": "The source exact W_k formula together with textbook series permits deriving the new coefficient, but no prior reported result checked already carries out the 1/k evaluation. The small-shape outside-tail theorem cannot imply the large-shape central-mass first-order law. The best-of-knowledge claim is restricted to that signed coefficient and its resulting eventual Gaussian-comparison recovery, not to the classical Weibull/Gumbel relation.",
+        "searches": [
+          "arXiv:2304.11459v2 Theorem 2.2 Theorem 3.1 Remark 3.2 and Figure 2",
+          "Resultary published record: Five endpoint laws behind vanishing standardized anti-concentration",
+          "Weibull k to infinity Gamma expansion standardized reflected Gumbel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+          "Theorem 3.1 gives exact W_k through Gamma(1+1/k), Gamma(1+2/k); Theorem 2.2 gives 0.723751... Gumbel mass. No signed first-order large-k formula is stated in the inspected relevant sections.",
+          "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html"
+        ],
+        "reasoning": "The equivalent formulation sets r=1/k and X=exp(rY), Y=log E with E unit exponential. This makes the limit Gumbel-reflected. The one-standard-deviation endpoints, however, depend on k through the mean and standard deviation; the first-order endpoint movement involving zeta(3) and the resulting coefficient A do not follow solely from convergence in distribution or the published limiting constant.",
+        "searches": [
+          "Weibull shape parameter infinity standardized Gumbel limit central probability",
+          "Sun Hu Sun variation comparison Weibull Gumbel one standard deviation full text Theorem 2.2 3.1",
+          "Resultary: Weibull distribution large shape parameter k infinity one standard deviation central probability reflected Gumbel asymptotic zeta(3) correction"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+          "NIST DLMF separately tabulates the log-Gamma series, not C_k or its large-k first coefficient.",
+          "No checked result/database entry contained the exact coefficient zeta(3)/a times the sum of the reflected-Gumbel endpoint densities."
+        ],
+        "reasoning": "The basic Weibull moments and limiting Gumbel probability are tabulated, but their combined standardized one-sigma 1/k correction is not an entry in the inspected sources. Failure to locate one is search evidence only, not proof of publication priority.",
+        "searches": [
+          "\"Weibull\" \"zeta(3)\" \"standard deviation\" probability",
+          "\"Weibull\" \"0.723751\" \"shape\" asymptotic",
+          "\"Weibull\" \"one standard deviation\" \"infinity\" Gumbel",
+          "Resultary: one sigma Weibull central mass asymptotic gamma cumulants scale normalization Gaussian comparison large shape"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the signed first-order large-shape expansion of the already-named Weibull one-sigma central mass. The 2023/2024 source determines the Gumbel limiting constant and plots the Weibull functional through shape 10 but does not give the large-k signed 1/k coefficient in the arXiv v2 sections read. A directly relevant published small-shape Weibull anti-concentration law is for shape tending to zero, not infinity. Classical log-Gamma and Weibull formulas are ingredients; no checked covering statement for the exact signed coefficient was established.",
+      "residual_risks": [
+        "The final published 2024 Springer version was not separately inspected in full; accessible original arXiv v2 was inspected in its relevant sections.",
+        "Older extreme-value or reliability literature may contain the same signed first-order central-mass expansion under alternative standardization terminology.",
+        "Generic higher-order smooth-transformation/delta-method technology makes the coefficient derivable; an unlocated explicitly covering general theorem cannot be excluded. Negative searches alone do not establish priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the signed first-order k→∞ Weibull central-mass correction; does cover the zeroth-order Gumbel central mass and exact Weibull input formulas.",
+          "evidence": "Theorem 2.2 fixes Gumbel one-sigma probability ~0.723751. Theorem 3.1 treats 0<k<=1. Remark 3.2 gives W_3=0.667713 and Figure 2 plots shapes 1..10; no asymptotic large-k 1/k coefficient in inspected relevant material.",
+          "identifier_or_url": "arXiv:2304.11459v2; https://arxiv.org/pdf/2304.11459",
+          "material_read": "Full arXiv v2 PDF available; visually inspected pages 3–7 of 22 (the full relevant Theorem 2.2 Gumbel portion, Theorem 3.1 Weibull proof, Remark 3.2 and Figure 2) and the opening scope. Did not claim all 22 pages line-by-line or inspect final Springer text.",
+          "method": "Full-text arXiv PDF text with visual PDF screenshots, theorem and figure comparison.",
+          "title": "Variation comparison between infinitely divisible distributions and the normal distribution",
+          "trigger": "Primary paper defining exactly the functional C_k and comparing the Gumbel central mass and Weibull shapes."
+        },
+        {
+          "assessment": "NOT_COVERING: shape alpha→0 and exponentially small outside-tail probability; does not imply k→∞ centered one-sigma mass or its zeta(3) coefficient.",
+          "evidence": "Its Weibull finding is -alpha log Pr(|W_alpha−EW_alpha|≥y sigma_alpha)→2/e as alpha↓0, opposite endpoint to k→∞.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59",
+          "material_read": "Entire posted RESULT.md, including finding, Weibull proof, relationship to prior, and limitations.",
+          "method": "Read published repository result in full using authorized read-only GitHub connector.",
+          "title": "Five endpoint laws behind vanishing standardized anti-concentration",
+          "trigger": "High ranked published Resultary result involving Weibull standardized probabilities and sharp endpoint limits."
+        },
+        {
+          "assessment": "COVERS proof ingredient but not the specific Weibull central-mass first-order law.",
+          "evidence": "Expansion of log Γ(1+z) yields -gamma z+zeta(2) z²/2−zeta(3) z³/3+O(z^4).",
+          "identifier_or_url": "https://dlmf.nist.gov/5.7.E3",
+          "material_read": "The Maclaurin/Taylor expansion entry 5.7.3 and its stated domain; inspected web text.",
+          "method": "NIST DLMF formula inspection.",
+          "title": "NIST Digital Library of Mathematical Functions §5.7(i)",
+          "trigger": "Primary mathematical reference for the essential Gamma Taylor expansion and possible tabulated first-order coefficient."
+        },
+        {
+          "assessment": "COVERS elementary formulas but no large-k standardized one-sigma expansion.",
+          "evidence": "Mean sigma Γ(1+1/k), variance sigma²[Γ(1+2/k)−Γ(1+1/k)²].",
+          "identifier_or_url": "https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html",
+          "material_read": "Definition, distribution function and moment formulas in help page.",
+          "method": "R project published reference documentation.",
+          "title": "R stats: The Weibull Distribution",
+          "trigger": "Authoritative check of the exact Weibull mean, variance, and shape/scale normalization."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+        "Five endpoint laws behind vanishing standardized anti-concentration (published result record), full RESULT.md inspected, Weibull alpha downarrow0; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59"
+      ],
+      "evidence": [
+        "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+        "Sharp exact first-order coefficient involving ζ(3), not an unmotivated decimal approximation.",
+        "No claim of optimal finite K, monotonicity or uniqueness of crossing."
+      ],
+      "rationale": "The same one-sigma functional previously fails its Gaussian comparison for the non-infinitely-divisible shape k=3 and is evaluated only numerically for shape up to 10. The large-shape boundary is a mathematically natural question: the theorem identifies the reflected-Gumbel endpoint, the positive exact Apéry correction determining its approach from below, and eventual recovery above the Gaussian benchmark. This quantifies a motivated signed endpoint law and gives a precise asymptotic benchmark for subsequent finite-shape investigations; it is not a claim of a global phase diagram or an arbitrary parameter slice. Although elementary Gamma expansions are proof ingredients, the prior source does not specify their combination at the standardized moving one-sigma endpoints.",
+      "residual_risks": [
+        "The derivation is a relatively short application of classical Gamma cumulants; mathematical value rests specifically on the previously identified failure-and-recovery question and signed quantitative endpoint, not on new general asymptotic machinery."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md",
+    "SLOGAN.txt",
+    "METADATA.json",
+    "AUDIT.json",
+    "REVIEW.md",
+    "VERIFICATION.md",
+    "verify_weibull_gumbel_endpoint.py",
+    "verification_output.txt",
+    "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+    "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html",
+    "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+    "NIST DLMF 5.7.3, exact Maclaurin series of log Gamma(1+z); https://dlmf.nist.gov/5.7.E3",
+    "R stats Weibull documentation, scale/shape parameterization, moments and CDF; https://stat.ethz.ch/R-manual/R-patched/library/stats/html/Weibull.html",
+    "Five endpoint laws behind vanishing standardized anti-concentration (published result record), full RESULT.md inspected, Weibull alpha downarrow0; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59",
+    "Resultary semantic results for two actual shape-infinity central probability queries (15 ranked records each); selected closest same-family endpoint source inspected.",
+    "Public literature queries for large-shape Weibull standardized probability, reflected Gumbel, one-sigma mass, zeta3 coefficient and exact value 0.723751.",
+    "Sun, Hu, Sun, Variation comparison between infinitely divisible distributions and the normal distribution, arXiv:2304.11459v2, pp.3–7, Theorems 2.2, 3.1 and Remark 3.2; https://arxiv.org/pdf/2304.11459",
+    "Five endpoint laws behind vanishing standardized anti-concentration (published result record), full RESULT.md inspected, Weibull alpha downarrow0; https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-five-endpoint-laws-behind-vanishing-standardized-anti-concentrat--b5686a859f59"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No explicit least recovery K, global monotonicity, uniqueness of crossings or fixed-k sign claim is proven.",
+    "The 2024 final publisher version of the source paper is not separately confirmed from full text; arXiv v2 relevant sections were read.",
+    "The existing public administrative provenance needs separately verified sanitization; source science and GitHub repository were left unchanged."
+  ],
+  "schema_version": 1
+}
