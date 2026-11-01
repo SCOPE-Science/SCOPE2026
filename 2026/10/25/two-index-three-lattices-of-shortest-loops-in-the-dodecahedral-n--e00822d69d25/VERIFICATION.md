@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The reproducibility artifact `verify_dodeca_square_lattices.py` constructs the dodecahedral graph, its open-neighborhood simplices, every simple four-cycle and the full graph-automorphism action from their definitions. Signed cotree cycle coordinates and a unimodular twenty-row minor identify the integral first-homology quotient. Exact twenty-one-column determinants \(+3\), \(-3\), \(+1\), and \(-1\), combined with independent modulo-three ranks twenty for each single orbit, establish the two index-three orbit lattices and the mixed integral bases. The verifier prints the complete indices of those certificates.
+# Independent mathematical audit
 
-Checks performed: graph with twenty vertices and thirty edges; twenty unique triangles, sixty edges and a connected one-skeleton; exactly twenty filled three-cycles and sixty induced four-cycles; automorphism group of order 120 with two thirty-element square orbits; first integral homology rank twenty-one; exact quotient and four determinant certificates. The primitive-cycle argument additionally uses the proved edge-disjointness of the filled-triangle boundaries. The result is restricted to this one explicitly defined complex; no independence of assessment or general family theorem is claimed.
+## correctness
+
+PASS
+
+The neighborhood triples yield 20 triangles and 60 mutually distinct edges; each triangle has a free edge, and collapse to a connected 20-vertex 40-edge graph gives H1=Z^21. All length-three loops are filled, and exhaustive four-set enumeration yields 60 induced squares split 30/30 by whether the original dodecahedron induces 0 or 1 edge. Exact integral coordinate projection via a 20x20 unimodular triangle-boundary pivot gives a Z^21 model. Independent exact 21-column determinants ±3 with mod-3 ranks 20 prove index exactly 3 for each orbit; two independent 20+1 mixed determinants ±1 prove integral bases. All 120 automorphisms were enumerated and show orbit transitivity; primitivity follows from the described integral cocycles and basis completions.
+
+## originality
+
+PASS
+
+The same-complex published rational A5×C2 character and Shukla’s general degree-three wedge-of-circles theorem cover the background H1 rank 21 but cannot detect index-three integral sublattices (which become full after tensoring with Q). The new finite invariant is the geometric orbitwise short-loop generation obstruction, not the ambient homotopy type.
+
+## value
+
+PASS
+
+The dodecahedral graph is a canonical A5-symmetric finite polyhedron. Distinguishing two geometric families of shortest essential loops that generate rational H1 but each miss an index-three integral lattice gives a natural integral equivariant refinement and a minimal mixed generator theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
