@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,4 +19,24 @@
 }
 ---
 
-Run `python3 verify.py` in the same directory as the bundled script and compare its one-line JSON output byte-for-byte with `certificate.json`. The checker enumerates labeled, disjoint sample subsets independently of the formula's absence-indicator proof and uses only exact integer fractions. It checks all abundance partitions with total census size \(4\) through \(8\) for two-person samples, all positive sample-size pairs over census sizes up to \(7\), the singleton–doubleton phase in \(2595\) cases, and explicit extremes. These finite checks support implementation correctness, not proof for infinite families. The proof in `RESULT.md` establishes the unrestricted statements by counting. No independent scientific audit has yet been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+PASS. Express richness as S minus species-absence indicators; their pairwise joint absence probabilities follow by two-stage hypergeometric selection for all m,n. For m=n=2, collision indicators H_A=2-K_A and H_B=2-K_B reduce covariance to counting ordered disjoint same-species pairs; identity (a)_2²-(a)_4=4(a)_3+2(a)_2 gives [((4N-6)/(N(N-1)))T2²-4T3-2T2]/(N)_4. Substitution for d doubletons yields exact sign test, N=4 correlations +1 (2,2), -1 (3,1); sign witnesses for every N>=4. Independent exact rational enumeration checked all 60 abundance partitions N4..8 and 580 admissible general sampling cases N<=7; symbolic counting proof establishes all finite N.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for exact cross-survey richness covariance sign and sharp singleton–doubleton phase, including both signs at minimal N=4. General multivariate hypergeometric and U-statistic moment frameworks are prior and could contain an equivalent identity under different terminology.
+
+## value
+
+PASS
+
+PASS. Covariance sign of two disjoint richness surveys is directly germane to finite-population variance calculations; the exact doubleton-frequency threshold and both extremal Pearson correlation examples at the minimum possible census N=4 show substantive design implications, beyond a simple sign/normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

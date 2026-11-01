@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The two-block joint absence probability is independently derived by choosing the first subset while excluding one species, and then choosing a disjoint second subset excluding another. The simplification for samples of size two counts ordered, distinct 4-tuples and uses the verified falling-factorial identity \((a)_2^2-(a)_4=4(a)_3+2(a)_2\). Exact enumeration confirms both independent formulas on finite census cases; the proof extends to all finite censuses and admissible sample sizes. The minimal 4-individual examples attain correlations \(+1\) and \(-1\), and the all-size sign argument uses strict explicit inequalities.
+## correctness
 
-## Originality
-**PASS, subject to independent bibliographic review.** Queries against published mathematical records, historical in-scope findings, general sampling theory and ecological primary literature did not identify the signed covariance classification for *two disjoint individual-based richness samples*. The nearest published record on iid successive species-discovery covariance uses an iid-with-replacement model, not a fixed disjoint finite census. The record on richness–Gini–Simpson covariance compares two *different* statistics on one sample. Gotelli–Colwell and Chao et al. set up one-sample rarefaction; Chao–Lin examines estimation of total and shared species counts, with full text inaccessible at review time. Generic hypergeometric calculations supply background rather than a located statement of the exact all-size sign threshold. A formula in broader \(U\)-statistic or sampling-theory literature remains a meaningful residual originality risk.
+PASS
 
-## Value
-**PASS.** Splitting a fixed census into two nonoverlapping richness surveys is a natural sampling and uncertainty-quantification protocol. The covariance's sign governs whether independence-based standard errors are anticonservative or overly conservative. The smallest feasible census admits perfect positive and negative correlations, and the exact doubleton threshold specifies which behavior occurs across every census size when abundances are one or two. The result addresses a concrete survey-design boundary rather than a choice of arbitrary numerical parameters; neither code nor novelty search alone motivates its value.
+PASS. Express richness as S minus species-absence indicators; their pairwise joint absence probabilities follow by two-stage hypergeometric selection for all m,n. For m=n=2, collision indicators H_A=2-K_A and H_B=2-K_B reduce covariance to counting ordered disjoint same-species pairs; identity (a)_2²-(a)_4=4(a)_3+2(a)_2 gives [((4N-6)/(N(N-1)))T2²-4T3-2T2]/(N)_4. Substitution for d doubletons yields exact sign test, N=4 correlations +1 (2,2), -1 (3,1); sign witnesses for every N>=4. Independent exact rational enumeration checked all 60 abundance partitions N4..8 and 580 admissible general sampling cases N<=7; symbolic counting proof establishes all finite N.
 
-## Closest literature and limitations
-Gotelli–Colwell (2001), DOI 10.1046/j.1461-0248.2001.00230.x, author PDF inspected for rarefaction and single-sample variance; Chao et al. (2014), DOI 10.1890/13-0133.1, author PDF inspected for sampling assumptions and variance; Chao–Lin (2012), DOI 10.1111/j.1541-0420.2011.01739.x, abstract only due access restrictions. Published mathematical-record results on discovery-increment covariance and same-sample richness/diversity covariance are not directly equivalent. General \(U\)-statistic representation remains a bibliographic risk. The result assumes a known complete census, exact species detection, and uniformly disjoint samples; it is not a field-spatial or superpopulation sampling theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best-of-knowledge for exact cross-survey richness covariance sign and sharp singleton–doubleton phase, including both signs at minimal N=4. General multivariate hypergeometric and U-statistic moment frameworks are prior and could contain an equivalent identity under different terminology.
+
+## value
+
+PASS
+
+PASS. Covariance sign of two disjoint richness surveys is directly germane to finite-population variance calculations; the exact doubleton-frequency threshold and both extremal Pearson correlation examples at the minimum possible census N=4 show substantive design implications, beyond a simple sign/normalization check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

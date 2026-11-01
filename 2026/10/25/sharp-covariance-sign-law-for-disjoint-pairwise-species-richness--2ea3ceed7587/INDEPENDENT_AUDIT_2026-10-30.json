@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:15:51.582308Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob a43b67c3731bb38c9ba7146d3f7217d3aa84f45e",
+        "Assigned verify.py blob 970a80ba5cff5515cb87a4f3b86c2f9de2d4e70b",
+        "Assigned certificate.json blob bc203a0d5e974f0cb0af729bdbf3269635d544cb",
+        "independent_batch_checks.py: 60 census profiles and 580 multi-size designs"
+      ],
+      "rationale": "PASS. Express richness as S minus species-absence indicators; their pairwise joint absence probabilities follow by two-stage hypergeometric selection for all m,n. For m=n=2, collision indicators H_A=2-K_A and H_B=2-K_B reduce covariance to counting ordered disjoint same-species pairs; identity (a)_2²-(a)_4=4(a)_3+2(a)_2 gives [((4N-6)/(N(N-1)))T2²-4T3-2T2]/(N)_4. Substitution for d doubletons yields exact sign test, N=4 correlations +1 (2,2), -1 (3,1); sign witnesses for every N>=4. Independent exact rational enumeration checked all 60 abundance partitions N4..8 and 580 admissible general sampling cases N<=7; symbolic counting proof establishes all finite N.",
+      "residual_risks": [
+        "This is fixed-census, disjoint simple random sampling, not iid draws or ecological spatial quadrats."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gotelli–Colwell discuss individual-based rarefaction and variance under without-replacement sampling.",
+          "Resultary prior computes covariance of successive iid with-replacement discovery indicators, not disjoint block richness."
+        ],
+        "reasoning": "General hypergeometric counting is a framework, but the checked sources do not state the special exact sign phase across two labelled disjoint pair surveys; the iid discovery covariance is not its consequence with the same sampling law.",
+        "searches": [
+          "Resultary: covariance species richness two disjoint samples without replacement pairs fixed population abundances covariance sign",
+          "Gotelli–Colwell 2001",
+          "Resultary: 2026/9/20/SCOPE-successive-species-discovery-covariance-missing-mass--4b975bda1dac"
+        ]
+      },
+      "checked_sources": [
+        "Gotelli–Colwell 2001 full author PDF",
+        "Chao–Lin 2012 Biometrics (abstract/bibliography)",
+        "Chao et al 2014 Ecological Monographs (bibliography)",
+        "Walton 1986 JASA (abstract)",
+        "Resultary: covariance species richness two disjoint samples without replacement pairs fixed population abundances covariance sign"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Rarefaction sources derive expected single-sample richness and related estimators, not the covariance of richnesses from two labelled disjoint pair surveys.",
+          "The candidate exact sign criterion depends on T2 and T3 and changes sign with census composition."
+        ],
+        "reasoning": "Single-sample covariance/variance formulas cannot by themselves imply this signed cross-survey covariance without nontrivial joint hypergeometric counting. Earlier uninspected U-statistics identities are a priority risk.",
+        "searches": [
+          "Gotelli–Colwell 2001",
+          "Chao–Lin 2012 Biometrics",
+          "Chao et al 2014 Ecological Monographs",
+          "Resultary: covariance species richness two disjoint samples without replacement pairs fixed population abundances covariance sign"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Richness is sum of occupancy indicators; equivalently covariance of two finite-population U-statistics (same-species collisions) for pair samples.",
+          "Walton’s single-sample observed-classes moment framework is a plausible related form."
+        ],
+        "reasoning": "Compared the precise joint law of two DISJOINT blocks; its cross-covariance is not the same random variable as single-sample richness variance or iid occupancy discoveries.",
+        "searches": [
+          "Resultary: covariance species richness two disjoint samples without replacement pairs fixed population abundances covariance sign",
+          "finite population multivariate hypergeometric joint occupancy covariance two disjoint samples",
+          "Walton number of observed classes multiple hypergeometric distribution 1986"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related published Resultary result concerns covariance of richness and unbiased Gini–Simpson diversity WITHIN one iid sample; it has a universal sign unlike the present two-block sign reversal.",
+          "The source certificate lists finite census checks; the actual theorem asserts all N."
+        ],
+        "reasoning": "No checked table identifies the all-N doubleton cutoff or positive/negative complete N=4 witness classification; finite tabulation is corroboration only.",
+        "searches": [
+          "Resultary: covariance species richness two disjoint samples without replacement pairs fixed population abundances covariance sign",
+          "Resultary: 2026/10/4/SCOPE-universal-positive-covariance-of-sample-richness-and-unbiased-gi--e84114bd4ba0"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for exact cross-survey richness covariance sign and sharp singleton–doubleton phase, including both signs at minimal N=4. General multivariate hypergeometric and U-statistic moment frameworks are prior and could contain an equivalent identity under different terminology.",
+      "residual_risks": [
+        "An older multiple hypergeometric distribution or finite-population U-statistic source could state an equivalent cross-covariance or implied all-N sign phase.",
+        "Ecological generalizations with spatial correlations are outside the fixed-census theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Documents prior one-sample expected richness and rarefaction; inspected sections do not yield explicit two-disjoint-pair sign law.",
+          "evidence": [
+            "Sampling without replacement is classical; not original here."
+          ],
+          "identifier_or_url": "https://www.robertkcolwell.org/publications/7086.pdf",
+          "material_read": "Full primary author-copy PDF; inspected individual-based rarefaction/variance discussion, including rendered page 6.",
+          "method": "primary full text and PDF screenshot",
+          "title": "Quantifying biodiversity: procedures and pitfalls in the measurement and comparison of species richness",
+          "trigger": "classical without-replacement rarefaction and richness variance"
+        },
+        {
+          "assessment": "Relevant unresolved historical priority risk rather than a proved negative finding.",
+          "evidence": [
+            "Published framework may contain an unrecognized multivariate cross-moment consequence."
+          ],
+          "identifier_or_url": "Walton, 1986, Journal of American Statistical Association",
+          "material_read": "Bibliographic abstract only; full paper not inspected.",
+          "method": "abstract-level source check",
+          "title": "Number of Observed Classes from Multiple Hypergeometric Distribution",
+          "trigger": "potential broader finite-population occupancy moments"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Gotelli–Colwell 2001 motivation for finite-sample richness uncertainty"
+      ],
+      "rationale": "PASS. Covariance sign of two disjoint richness surveys is directly germane to finite-population variance calculations; the exact doubleton-frequency threshold and both extremal Pearson correlation examples at the minimum possible census N=4 show substantive design implications, beyond a simple sign/normalization check.",
+      "residual_risks": [
+        "Not a covariance formula for independent or spatially correlated field quadrats."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Known fixed census; individuals labelled; two unordered two-individual subsets disjoint, ordered by survey; general m,n covariance expression but only pairwise sign law."
+  ],
+  "schema_version": 1
+}
