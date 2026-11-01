@@ -1,0 +1,17 @@
+# Scientific assessment: Universal weighted detour-spline law on Cartesian-product metric networks
+
+## Correctness — PASS
+The theorem assumes finitely many connected simple factor graphs, positive factor-geodesic lengths, and normalized arclength sampling on their Cartesian-product one-skeleton. All nonexceptional edge-pair routes realize the ambient sum-product distance; on two different layers of the same factor edge of length \(\ell\), endpoint routes give a detour of \(2\min\{\min(s,t),\ell-\max(s,t)\}\). The exact two-triangle area calculation gives survival \(1-z/\ell\)^2\) on each exceptional pair. Counting these copies establishes the weighted spline and all moments; jumps in its second derivative prove the aggregate edge-length reconstruction.
+
+Two ordinary Python checkers performed 86,336 and 51,728 exact-rational pair-distance comparisons, respectively, on unequal-weight paths, cycles, stars, triangles, a diamond, and three- or four-factor products. Their finite checks passed and corroborate, but do not replace, the universal proof. The conditions on nongeodesic edges and the inverse-identification limitations are essential.
+
+## Originality — PASS, with residual priority uncertainty
+The closest restricted result treats only the product of two **unit-edge cycles**, deriving a conditional \(\mathrm{Beta}(1,2)\) detour. It does not imply an arbitrary-weight, many-factor truncated-square law or inverse detection of edge lengths. Garijo, Márquez and Silveira's full open-access treatment of continuous mean distances provides general integration methods rather than this structural identity. Baptista, Kennedy and Mugnolo's accessible full text concerns metric-graph mean-distance bounds and surgery and likewise does not establish the product-skeleton result. The older De Carufel et al. and Cáceres et al. papers were considered from their available abstracts. The important Doyle–Graver 1982 full text remained unavailable, and no full-text noncoverage claim is made about it. Searches for product-network detour laws, equivalent beta-mixture formulations, vertex-distance-profile corrections and inverse length-spline formulas found no directly covering result; this is not a worldwide novelty guarantee.
+
+## Value — PASS
+The product skeleton is the canonical set of routes that change only one graph coordinate at a time, whereas its ambient sum-metric product allows interior coordinate changes. The theorem gives a complete and exact account of the gap for every finite number of graph factors, independent of regularity or equality of edge lengths. Recovering the weighted aggregate edge-length multiset from the jumps of an observed distance-excess survival function is an inverse metric-geometric statement not available in the fixed unit-edge toroidal model. Its precise limits are that factor labels, graph topology, nongeodesic edges and volume-uniform ambient sampling are not recovered or covered.
+
+## Closest literature and limitations
+The context includes Doyle and Graver (1982), Cáceres et al. (first public 2006-11-21), De Carufel et al. (first public 2015-12-07), Garijo et al. (2021/2023), and Baptista et al. (2023). Their directly relevant published claims were compared as described above; some older complete texts were not accessible. No claim of independent validation or historical completeness is made.
+
+Self-review: passed. Independent audit: not yet performed.
