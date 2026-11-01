@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-All distributions and normalizations are explicit. The identity \(S=RW/\sqrt2\) follows by orthogonal Gaussian projection with independent radial and directional parts. The pair contribution uses correlation magnitude \(1/2\); the three connected edge motifs exhaust all nonvanishing distinct-edge third cumulants. The three closed trivariate absolute-product integrals agree with the classical normal moment identity, with a continuous limiting calculation for a singular triangular covariance. Counting paths by middle edges explicitly subtracts the three triangular false paths. The algebraic coefficient \(\delta<0\) has a rigorous rational upper bound \(-95/1848\) on its scaled numerator. Finite independent checker diagnostics agree; infinite claims rely on the displayed analytical argument.
+## correctness
 
-## Originality — PASS (qualified)
-The primary graphical-zonotope article [1] was inspected in its geometry/deformation portions, the Gaussian mean-width article [2] in its Gaussian-to-spherical theorem and higher-moment examples, and the original trivariate Gaussian integral [3] in the explicit absolute-moment section. Their established ingredients are cited; none supplies a fixed-order fixed-degree exact triangle-recovery theorem for the zonotope's third directional width moment. A published graphical-zonotope width-variance result fixes at most two-edge contributions, which cannot distinguish the triangular prism from \(K_{3,3}\). Earlier work on Gaussian graph total variation may contain the same triple-motif decomposition, so bibliographic novelty is a residual limitation rather than a logically demonstrated universal absence.
+PASS
 
-## Mathematical value — PASS
-Uniform-spherical width is a canonical metric statistic of graphical zonotopes. For regular graphs, two complete angular moment invariants are unable to detect triangle count but the third can do so with a universal strictly nonzero sensitivity. The exact all-graph decomposition explains which local graph shapes enter at third order, provides an explicit recoverable graph invariant rather than a routine numerical instance, and separates concrete nonisomorphic regular graphs.
+Independent reconstruction of the Gaussian-to-sphere radius factor Γ((n−1)/2)/Γ((n+2)/2) and joint cumulant expansion confirms that only repeated-edge terms and three connected three-edge motifs (path, star, triangle) contribute. The path count is Σ_{ij∈E}(d_i−1)(d_j−1)−3t; under d-regularity m,w,s and p+3t are fixed. The triangle contrast coefficient δ=k_T−3k_P≈−0.0768578615748493 is strictly negative by the stated analytic rational upper-bound certificate. Independent 750000 Gaussian-draw witness comparing triangular prism and K_{3,3} gave a third-cumulant difference −0.8383 versus analytical prediction −0.922294, a finite sampling corroboration, not an exact proof. Exact finite checks in the actual package cover 141 connected graphs through six vertices; the universal result follows from the cumulant classification and trivariate Gaussian integral, not those runs.
 
-## Scope and references
-Uses precisely unit-weight segments, connected simple graphs, standard intrinsic Euclidean measure, and the verified 2021 graphical-zonotope source. Key citations are Padrol–Pilaud–Poullot, arXiv:2111.12422v1; Kabluchko–Litvak–Zaporozhets, arXiv:1511.08479; and Nabeya (1952). Detailed methodological and bibliographic caveats are in `RESULT.md` and `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical Nabeya Gaussian trivariate absolute moments and Padrol–Pilaud–Poullot graphical-zonotope structural theory are inputs; the separate published second-width-moment variance theorem cannot recover triangle counts between regular graphs of equal order/degree. No covering full third-moment motif theorem was identified in the searched primary studies. Residual equivalence with older Gaussian graph-total-variation cumulant formulas remains.
+
+## value
+
+PASS
+
+A third angular moment differentiates connected regular graphs invisible to the first two width moments; the triangular prism and K3,3 give a concrete sharp witness. The motif formula is an exact graph-geometric invariant with a natural statistical interpretation, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

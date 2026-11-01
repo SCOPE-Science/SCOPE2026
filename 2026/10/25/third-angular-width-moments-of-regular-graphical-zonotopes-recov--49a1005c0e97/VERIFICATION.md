@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification notes
-The claim is proved analytically in `RESULT.md`, through Gaussian projection, three-edge cumulant census, specialized trivariate absolute Gaussian moments, and an explicit rational strict sign bound. The standalone diagnostic `width_moment_checker.py` enumerates and checks 141 connected unlabeled graphs with three to six vertices by directly recomputing Gaussian covariance and joint absolute moments, rather than using the derived graph motif counts in its right-hand expression. It separately compares the triangular prism and \(K_{3,3}\), checks the coefficient \(\delta<0\), and provides one independently seeded Gaussian Monte Carlo sanity check. An example successful run printed: `VERIFY_OK connected_graphs= 141 delta= -0.076857861575 prism_minus_K33_exact= -0.922294338898 simulation= -1.0267011`.
+# Independent mathematical audit
 
-Finite tests cannot certify all-dimensional identities. The nonstandard Gaussian absolute-moment identity is sourced to Nabeya (1952). The radial/angular normalization is sourced to Kabluchko–Litvak–Zaporozhets (2015). The candidate's originality status is based on recorded actual comparisons of those ingredients, Padrol–Pilaud–Poullot (2021), and related geometry/graph-width results; equivalent unindexed Gaussian-statistics formulations cannot be ruled out. No independent audit has been conducted.
+## correctness
+
+PASS
+
+Independent reconstruction of the Gaussian-to-sphere radius factor Γ((n−1)/2)/Γ((n+2)/2) and joint cumulant expansion confirms that only repeated-edge terms and three connected three-edge motifs (path, star, triangle) contribute. The path count is Σ_{ij∈E}(d_i−1)(d_j−1)−3t; under d-regularity m,w,s and p+3t are fixed. The triangle contrast coefficient δ=k_T−3k_P≈−0.0768578615748493 is strictly negative by the stated analytic rational upper-bound certificate. Independent 750000 Gaussian-draw witness comparing triangular prism and K_{3,3} gave a third-cumulant difference −0.8383 versus analytical prediction −0.922294, a finite sampling corroboration, not an exact proof. Exact finite checks in the actual package cover 141 connected graphs through six vertices; the universal result follows from the cumulant classification and trivariate Gaussian integral, not those runs.
+
+## originality
+
+PASS
+
+Classical Nabeya Gaussian trivariate absolute moments and Padrol–Pilaud–Poullot graphical-zonotope structural theory are inputs; the separate published second-width-moment variance theorem cannot recover triangle counts between regular graphs of equal order/degree. No covering full third-moment motif theorem was identified in the searched primary studies. Residual equivalence with older Gaussian graph-total-variation cumulant formulas remains.
+
+## value
+
+PASS
+
+A third angular moment differentiates connected regular graphs invisible to the first two width moments; the triangular prism and K3,3 give a concrete sharp witness. The motif formula is an exact graph-geometric invariant with a natural statistical interpretation, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:14:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independent reconstruction of the Gaussian-to-sphere radius factor Γ((n−1)/2)/Γ((n+2)/2) and joint cumulant expansion confirms that only repeated-edge terms and three connected three-edge motifs (path, star, triangle) contribute. The path count is Σ_{ij∈E}(d_i−1)(d_j−1)−3t; under d-regularity m,w,s and p+3t are fixed. The triangle contrast coefficient δ=k_T−3k_P≈−0.0768578615748493 is strictly negative by the stated analytic rational upper-bound certificate. Independent 750000 Gaussian-draw witness comparing triangular prism and K_{3,3} gave a third-cumulant difference −0.8383 versus analytical prediction −0.922294, a finite sampling corroboration, not an exact proof. Exact finite checks in the actual package cover 141 connected graphs through six vertices; the universal result follows from the cumulant classification and trivariate Gaussian integral, not those runs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Padrol et al characterize graphical-zonotope deformations and triangles in graphical cones.",
+          "Kabluchko et al compute random one-dimensional widths of standard regular polytopes, not widths for arbitrary graph zonotopes."
+        ],
+        "reasoning": "These earlier broad theories do not imply the exact third cumulant of graph edge differences without additional three-edge Gaussian calculations.",
+        "searches": [
+          "Resultary:graphical zonotope third width moment Gaussian total variation regular graph triangles third cumulant",
+          "web:graphical zonotope third angular width moment triangles Gaussian absolute value Nabeya",
+          "Padrol–Pilaud–Poullot arXiv:2111.12422",
+          "Kabluchko–Litvak–Zaporozhets arXiv:1511.08479"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2111.12422",
+        "https://arxiv.org/pdf/1511.08479",
+        "https://www.ism.ac.jp/editsec/aism/pdf/004_1_0015.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Three distinct Gaussian edge-correlation graphs yield distinct third cumulants k_P,k_S,k_T; δ=k_T−3k_P≠0."
+        ],
+        "reasoning": "Earlier trivariate integration plus the combinatorial motif census can be combined to derive the result; neither source actually records this consequence. The graph triangle count is therefore not merely a quoted corollary of the second-moment result.",
+        "searches": [
+          "Nabeya 1952",
+          "Padrol 2021",
+          "Kabluchko 2015",
+          "Resultary tree graphical zonotope width variance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spherical width is Gaussian graph total variation divided by an independent χ_{n−1} radius.",
+          "Nabeya 1952 supplies E|X_1X_2X_3| for correlated normals, not a graph motif expansion."
+        ],
+        "reasoning": "The transformation exposes a plausible alias in Gaussian total-variation cumulants; primary Gaussian moment source gives building blocks, but no graph-family triangle-recovery conclusion was found.",
+        "searches": [
+          "Resultary:graphical zonotope third width moment Gaussian total variation regular graph triangles third cumulant",
+          "web:graphical zonotope third angular width moment triangles Gaussian absolute value Nabeya",
+          "Nabeya 1952 3-dimensional absolute normal moments",
+          "Gaussian graph total variation third cumulants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published indexed result covers second directional-width variance as affine function of wedge count and tree extremizers.",
+          "The prism and K3,3 have identical first/second angular moments but triangles 2 versus 0."
+        ],
+        "reasoning": "The prior variance table supplies lower moments, not the asserted third moment or strict triangle-identifying coefficient.",
+        "searches": [
+          "Resultary:graphical zonotope third width moment Gaussian total variation regular graph triangles third cumulant",
+          "web:graphical zonotope third angular width moment triangles Gaussian absolute value Nabeya",
+          "Resultary:sharp-width-variance-extremizers-among-tree-graphical-zonotopes"
+        ]
+      },
+      "rationale": "Classical Nabeya Gaussian trivariate absolute moments and Padrol–Pilaud–Poullot graphical-zonotope structural theory are inputs; the separate published second-width-moment variance theorem cannot recover triangle counts between regular graphs of equal order/degree. No covering full third-moment motif theorem was identified in the searched primary studies. Residual equivalence with older Gaussian graph-total-variation cumulant formulas remains.",
+      "residual_risks": [
+        "An equivalent third-cumulant formula may appear in Gaussian graph total variation, generalized Rice formulas or unindexed zonotope-width literature.",
+        "Monte Carlo is a diagnostic only; the analytic proof depends on the accuracy of the trivariate Gaussian absolute-moment identity and its singular triangle limit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Combinatorial deformations and edge-coefficient constraints, not E W_G^3.",
+          "identifier_or_url": "https://arxiv.org/abs/2111.12422",
+          "material_read": "Public full-text sections on deformation cones, generators and triangle combinatorics, including theorem context",
+          "method": "lawful full published OA text",
+          "title": "Deformed Graphical Zonotopes",
+          "trigger": "Identical graph zonotope objects and triangle language"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECT_FAMILY",
+          "evidence": "Line projection width moments for regular simplex/crosspoly/cube; not arbitrary graphical zonotopes third motif moments.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08479",
+          "material_read": "Introduction, higher-moment section and cross-polytope example 3.4, plus PDF first page screenshot",
+          "method": "lawful arXiv full PDF text and image",
+          "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+          "trigger": "Possible stronger polytope-width moments"
+        },
+        {
+          "assessment": "COVERS_GAUSSIAN_INPUT",
+          "evidence": "Exact three-Gaussian absolute moment framework is prior; graph motif cumulant enumeration is not identified there.",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/004_1_0015.pdf",
+          "material_read": "PDF opening theorem and sample formulas on first/eighth pages inspected visually; whole 16-page article not line-extracted",
+          "method": "lawful author-institution OA PDF screenshots",
+          "title": "Absolute Moments in 3-dimensional Normal Distribution",
+          "trigger": "Critical trivariate Gaussian input"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A third angular moment differentiates connected regular graphs invisible to the first two width moments; the triangular prism and K3,3 give a concrete sharp witness. The motif formula is an exact graph-geometric invariant with a natural statistical interpretation, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact third spherical directional-width moment of every connected simple graphical zonotope is determined by three-edge motif counts; within fixed-order fixed-degree connected regular graphs it determines triangle count with a strictly nonzero negative coefficient.",
+  "limitations": [
+    "Triangle identification requires both graphs to be d-regular of equal order and degree.",
+    "For irregular graphs, path and degree statistics confound triangle count; weighted edges are outside the theorem."
+  ],
+  "schema_version": 1
+}
