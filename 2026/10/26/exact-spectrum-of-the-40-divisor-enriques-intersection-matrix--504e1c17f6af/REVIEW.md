@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C)
-PASS. The script reconstructs all 40 vertices and the intersection numbers from the stated duad, syntheme, and total rules. It verifies \(G^3-16G^2-336G=0\), \(\operatorname{tr}(G)=-80\), and \(\operatorname{tr}(G^2)=2080\) exactly. These imply the eigenvalue multiplicities \(1,9,30\); the written proof derives the characteristic polynomial and inertia. The rank-10 span has the same signature as \(\operatorname{Num}(X)\), but the index is not determined.
+## correctness
 
-## Originality (O)
-PASS on the available evidence, with residual risk. published-finding corpus searches for the exact Enriques 40-divisor Gram spectrum and its duad/syntheme/total aliases returned no equivalent finding. Katsura--Kondo provide the incidence graph and the finite-index reflection result, but do not state the Gram-matrix spectrum. The graph also appears in level-two Siegel modular geometry, and exhaustive coverage of graph-spectral literature was not completed; this remains an explicit residual risk.
+PASS
 
-## Value (V)
-PASS. This is an exact spectral invariant of the canonical 40-divisor configuration used in the Enriques lattice and reflection-group analysis. The matrix identity and trace certificates provide a compact reproducible check of all weighted incidences and recover the full nondegenerate signature from the actual configuration. It is not claimed to add a new classification or determine the sublattice index.
+Reconstructed the specific 40-class duad/syntheme/total weighted intersection incidence: fifteen 2-subsets, fifteen perfect matchings, ten complementary 3+3 partitions of six letters, diagonal −2 and published off-diagonal weights 1 or 2. An independently implemented exact-integer 40×40 matrix, not execution of supplied scripts, satisfies G³−16G²−336G=0, trG=−80, trG²=2080 and rank10. Since G is real symmetric, its possible eigenvalues are 0,28,−12; solving multiplicities from dimension and traces gives 30 zeros, one 28 and nine −12, yielding signature (1,9,30). The index of this full-rank span in Num(X) is not determined; correctness relies on the published intersection incidences as a premise, not on proving the geometric construction again.
 
-## Closest literature and limitations
-The main source is Katsura--Kondo (2014), Sections 5--7. Van der Geer's level-two Siegel modular threefold is a related realization of the combinatorial graph; that paper's introduction says intersection theory of modular subvarieties is not treated. A complete search of all later graph-spectral literature was not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Katsura–Kondo construct the divisors, give weighted intersection rules, and establish the ambient Num(X) signature and finite-index reflection statements. Those premises do not explicitly supply the full Gram characteristic polynomial or the weighted cubic matrix identity. No exact table in the consulted Resultary and spectral papers was found, but this is a tightly scoped derived invariant and older graph-spectral literature could contain it.
+
+## value
+
+PASS
+
+The 40-divisor configuration is canonical in characteristic-two Enriques lattice and reflection geometry. Its weighted Gram spectrum and rank provide a compact exact structural invariant, enabling explicit comparison of divisor spans and incidence-based lattice models beyond the ambient (1,9) signature. The whole 40×40 matrix certificate is reproducible and motivated by a natural geometric configuration, not a random matrix slice; the contribution is modest but mathematically usable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
