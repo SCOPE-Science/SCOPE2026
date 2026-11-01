@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The structural proof characterizes admissible edge families by a disjointness-graph degree bound, exhibits a one-critical-vertex acyclic matching on a contractible subcomplex, and attaches one full five-simplex along a two-sphere for each four-subset avoiding a designated vertex. All identifications, intersections and quantifiers are explicit. CW cofiber arguments and integral Alexander duality yield the stated wedge and torsion-free homology. The standalone checker reproduces the dual and a complete acyclic matching for \(n=5,6,7,8\). Those computations support but do not replace the infinite-family argument.
+## correctness
 
-## Originality — PASS on accessible evidence
-The original foundational ordinary cut-complex papers cover other classes of graphs. The closest indexed triangular-graph result concerns an ordinary four-cut complex at the single parameter \(n=5\), while the closest indexed three-cut formulas involve rook graphs or hypotheses such as triangle-freeness, four-cycle-freeness or high girth, none applying here. The complete statement and references were compared, including a full read of the indexed four-cut result and the main foundational preprints. No inspected result implies the all-\(n\) three-cut dual sphere-wedge classification. Residual risk: an equivalent result may exist outside the inspected/recognized record.
+PASS
 
-## Value — PASS
-This is a uniform homotopy classification of the Alexander dual of a natural infinite family of canonical strongly regular graphs. It yields the complete integral homology and torsion-absence of the ordinary cut complexes, exact closed-form ranks, and a uniform nonshellability proof. The three-sphere multiplicity has a direct combinatorial interpretation through four-subsets, making it more than an isolated small finite computation.
+For each F⊆E(K_n) in the Alexander dual, every three edges of F have at most one disjointness pair; equivalently the disjointness graph has maximum degree one. It follows exactly that F lies in a star simplex or within the six edges of K4. Designating vertex 0, the subcomplex with pairwise-intersecting non-0 edges admits an explicit fiberwise acyclic cone matching leaving one vertex (B=non-0 edges never increases along downward arrows). Each remaining K4 simplex P_S intersects this collapsible core in the join of three S0, an S2, and distinct P_S intersect only in the core. Hence dual≃wedge^{binom(n-1,4)} S3, and integral Alexander duality gives X_n homology only in degree N-6. Pure N-4 X_n therefore nonshellable. Independently computed exact nonempty dual-face counts (260,746,1750,3634) for n=5..8. These bounded checks corroborate, not replace, unrestricted proof.
 
-## Limits
-No actual homotopy equivalence is claimed for the original cut complex, only for its dual. The finite checker is not a proof of the all-parameter theorem. Completeness of published literature indexing cannot be guaranteed. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bayer et al. define ordinary cut complexes and analyze other families; published Resultary J(5,2) four-cut is for another parameter, as are total cut and high-girth results. The new all-n three-cut triangular-graph dual sphere wedge is not a title/parameter restatement of the inspected work.
+
+## value
+
+PASS
+
+Classifies complete integral homology for the ordinary three-cut complex of every triangular graph, plus an explicit Alexander-dual sphere wedge and a nonshellability obstruction. Such natural graph-family topology goes beyond an Euler characteristic or an isolated small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The attached `CHECK.py` uses only Python's standard library. Run `python3 CHECK.py` to enumerate all nonempty dual faces for \(n=5,6,7,8\), reconstruct direct connectivity of each selected triple in the triangular graph, check every generated face, produce matching pairs, and topologically sort the complete directed Hasse incidence graph after matched-arrow reversal. It reports the exact face and critical-cell counts in RESULT.md and ends with `PASS` when every check succeeds. This check was executed on the supplied script.
+## correctness
 
-The all-parameter mathematical verification is the argument in RESULT.md: opposite pairs in four-vertex supports, contractible spoke fibers, cross-polytope boundaries, CW cofiber wedges, and integral Alexander duality. No finite enumeration alone establishes the result for arbitrary \(n\), and no integral homotopy type is asserted for the original cut complex.
+PASS
+
+For each F⊆E(K_n) in the Alexander dual, every three edges of F have at most one disjointness pair; equivalently the disjointness graph has maximum degree one. It follows exactly that F lies in a star simplex or within the six edges of K4. Designating vertex 0, the subcomplex with pairwise-intersecting non-0 edges admits an explicit fiberwise acyclic cone matching leaving one vertex (B=non-0 edges never increases along downward arrows). Each remaining K4 simplex P_S intersects this collapsible core in the join of three S0, an S2, and distinct P_S intersect only in the core. Hence dual≃wedge^{binom(n-1,4)} S3, and integral Alexander duality gives X_n homology only in degree N-6. Pure N-4 X_n therefore nonshellable. Independently computed exact nonempty dual-face counts (260,746,1750,3634) for n=5..8. These bounded checks corroborate, not replace, unrestricted proof.
+
+## originality
+
+PASS
+
+Bayer et al. define ordinary cut complexes and analyze other families; published Resultary J(5,2) four-cut is for another parameter, as are total cut and high-girth results. The new all-n three-cut triangular-graph dual sphere wedge is not a title/parameter restatement of the inspected work.
+
+## value
+
+PASS
+
+Classifies complete integral homology for the ordinary three-cut complex of every triangular graph, plus an explicit Alexander-dual sphere wedge and a nonshellability obstruction. Such natural graph-family topology goes beyond an Euler characteristic or an isolated small census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
