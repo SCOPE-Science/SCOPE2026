@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python verify_bishops5.py` with Python 3 and `sympy==1.14.0`. The script has no internet dependency, no preloaded face table and no external program inputs. It builds all faces from the exact bishop move rule; performs all elementary free-face collapses; constructs the oriented cellular triangular relators, including a BFS spanning tree and freely reduced edge words; checks every one-generator elimination algebraically; checks every remaining attaching word reduces to the identity; derives the join sphere counts; and constructs the original integer signed boundary matrices and their Smith normal forms. A successful complete run ends with `VERIFY_OK_BISHOP5_MIXED_WEDGE_HOMOTOPY`. The separately supplied output record is included for reproducibility, but it is not a substitute for running or inspecting the code.
+## correctness
 
-The computations exhaust the finite \(5\times5\) instance. Nothing here proves a result for larger chessboards. In particular, the Smith calculations independently check integral Betti numbers and non-torsion; the explicit word-level CW cancellations are the certificate for the stronger homotopy decomposition. No independent scientific audit has been performed.
+PASS
+
+Bishop attack preserves parity r+c, so the whole independence complex is join X0*X1 of two actual diagonal-incidence bipartite matching/Ferrers complexes. Independent complete face enumeration and free tetrahedral collapse verified X0 f-by-size (1,13,46,46,8) and X1 (1,12,38,32,4), with respectively 8 and 4 free triangle-tetra pairs. After spanning-tree contraction independent exact word relator elimination canceled 33 of 34 generators in X0 leaving 1 circle plus five null 2-cells, and 25 of 27 in X1 leaving 2 circles plus three null 2-cells. Every elimination was checked as unique generator occurrence, giving integral homotopy equivalences, not just homology. Join distributes sphere counts to 2S3+13S4+15S5; full board face counts checked too.
+
+## originality
+
+PASS
+
+The bishop complex is equivalent to a join of two nonrectangular Ferrers-board matching complexes, but cited triangular Ferrers results require a row-length pattern absent here. Full rectangular chessboard/matching-complex torsion and independence-number formulas are not equivalent to these two explicit mixed CW types. No exact 5x5 bishop homotopy table was encountered in Resultary or primary comparisons.
+
+## value
+
+PASS
+
+The canonical ordinary 5x5 bishop-placement complex has a nontrivial mixed-dimensional integral sphere-wedge type, interesting in contrast to pure or single-dimensional shellable rook boards. The finite classification and its two parity-factor splittings are a natural exact invariant of this familiar graph-derived complex, with potentially reusable computation for neighboring board sizes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
