@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:55:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "C PASS: Each selected reachability column is a standard basis vector, so rank equals number of covered coordinates. At each residue s modulo n, the q independent binary choices aggregate to independent Bin(q,1/2) count C_s. A coordinate s is missing exactly if C_s=q and C_(s−r)=0, with marginal probability p=4^-q. Two missing-coordinate events sharing a binomial variable conflict exactly when their residues differ by ±r; nonadjacent sets have product probability p^j. Therefore expanding z^X yields the independence polynomial of g disjoint cycles of length d=n/g, with length-two interpreted as K2. The classic cycle count d/(d−j) binom(d−j,j), quadratic-root formula and q=1 evaluation J_d(−1/4)=2^(1−d) give all exact finite laws and 2^g shortest-horizon schedules. The bounded-degree conflict graph eliminates O_k(n^(k−1)) of n^k ordered distinct k-tuples, proving uniform factorial-moment Poisson convergence when np->lambda>0; union bound handles lambda=0, variance<=np and Chebyshev handle np diverging. Independent exhaustive direct schedule enumeration vs polynomial coefficient combinatorics passed 66 cases including d=2; finite checks are corroboration not asymptotic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ballotta, Joseph and Thete (2024), arXiv:2407.12125, Section II formula (4): finite-time scheduled reachability matrix, pointwise-sparse controllability, and rank-preserving schedule construction; it does not assert a full distribution for unguided independent 2-choice cyclic permutation schedules.",
+          "Kondapi et al. (2024), Sparse Actuator Scheduling for Discrete-Time Linear Dynamical Systems, arXiv:2407.00385: scheduled controllability and design bounds, not identical cyclic random-rank PGF in inspected abstract.",
+          "Siami, Olshevsky and Jadbabaie (2018), Deterministic and Randomized Actuator Scheduling with Guaranteed Performance Bounds, arXiv:1805.00606: performance and deterministic/randomized schedule guarantees, not complete independent fair cyclic deficiency law."
+        ],
+        "reasoning": "The prior general rank-preserving scheduling results ensure that feasible schedules exist or yield performance bounds; they do not assign the unbiased independent-coin measure to every schedule, so they cannot determine its exact deficiency distribution by direct specialization. Standard local-dependence Poisson theorems cover the last limit once the conflict representation is proved, and those probability tools are credited as prior.",
+        "searches": [
+          "random independent actuator schedules cyclic shift permutation system rank deficiency independence polynomial Poisson controllability threshold",
+          "Pointwise Sparse Actuator Scheduling controllability guarantee cyclic random independent"
+        ]
+      },
+      "checked_sources": [
+        "Ballotta–Joseph–Thete arXiv:2407.12125 Sect II Eq (4), inspected PDF",
+        "Kondapi et al. arXiv:2407.00385 abstract",
+        "Siami–Olshevsky–Jadbabaie arXiv:1805.00606 abstract",
+        "Resultary semantic search on cyclic actuator rank deficiency, includes different cyclic binary-row ordering result"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ballotta, Joseph and Thete (2024), arXiv:2407.12125, Section II formula (4): finite-time scheduled reachability matrix, pointwise-sparse controllability, and rank-preserving schedule construction; it does not assert a full distribution for unguided independent 2-choice cyclic permutation schedules.",
+          "Source formula (4) defines the same type of reachability matrix, but its stochastic selection approach is rank-constrained and thus not the independent fair coin law."
+        ],
+        "reasoning": "The property that a controllable schedule exists, or a Markov chain restricted to controllable schedules, cannot imply probability 2^(g−n) under uniformly independent choices. The exact probability law uses a different measure and explicit cyclic group arithmetic.",
+        "searches": [
+          "random independent actuator schedules cyclic shift permutation system rank deficiency independence polynomial Poisson controllability threshold",
+          "Ballotta Joseph Thete reachability matrix formula schedule rank constrained MCMC"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ballotta, Joseph and Thete (2024), arXiv:2407.12125, Section II formula (4): finite-time scheduled reachability matrix, pointwise-sparse controllability, and rank-preserving schedule construction; it does not assert a full distribution for unguided independent 2-choice cyclic permutation schedules.",
+          "Algebraic rank of coordinate reachability columns equals size of cyclic random coverage; missing-coordinate conflicts are the independence polynomial of cycle C_d."
+        ],
+        "reasoning": "The exact rank law can be restated as a cyclic occupancy/blocking model with two exclusive adjacent patterns. The cycle polynomial is old, but its appearance as the *whole reachability rank distribution* for independent actuator schedules is not stated in inspected control results.",
+        "searches": [
+          "random independent actuator schedules cyclic shift permutation system rank deficiency independence polynomial Poisson controllability threshold",
+          "cycle independence polynomial rank deficiency random cyclic coverage Bernoulli schedules"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Ballotta, Joseph and Thete (2024), arXiv:2407.12125, Section II formula (4): finite-time scheduled reachability matrix, pointwise-sparse controllability, and rank-preserving schedule construction; it does not assert a full distribution for unguided independent 2-choice cyclic permutation schedules.",
+          "A finite enumeration of 66 instances reconstructed the exact PGF; no published identical all-offset table located in inspected literature."
+        ],
+        "reasoning": "The finite tables are independent consistency tests, not novelty evidence; a prior cyclic-cover enumeration table may exist unindexed.",
+        "searches": [
+          "random independent actuator schedules cyclic shift permutation system rank deficiency independence polynomial Poisson controllability threshold",
+          "random cyclic shift actuator full rank count 2^g gcd shortest horizon"
+        ]
+      },
+      "rationale": "O PASS qualified: cycle independence polynomial, probability generating functions, occupancy limits and factorial-moment Poisson methods are classical. The asserted new synthesis is the exact distribution of rank loss for a constrained random actuator schedule, the arithmetic gcd-dependent shortest-horizon count, and uniform critical window. Prior actuator-scheduling work treats algorithmically designed or rank-guaranteed schedules with different sampling; published general occupancy limits could subsume the convergence statement, but not the exact finite PGF without identifying this conflict graph.",
+      "residual_risks": [
+        "Classical local occupancy and avoidance-pattern literature could contain an equivalent full PGF; no unconditional originality certification.",
+        "Only h=qn, independent fair two-way actuation, permutation dynamics, n>=2 and 1<=r<n; no nonuniform/randomized algorithm output or control energy/conditioning theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides matrix and existence/optimization guarantee, not unbiased independent rank-distribution law.",
+          "evidence": "Ballotta, Joseph and Thete (2024), arXiv:2407.12125, Section II formula (4): finite-time scheduled reachability matrix, pointwise-sparse controllability, and rank-preserving schedule construction; it does not assert a full distribution for unguided independent 2-choice cyclic permutation schedules.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.12125",
+          "material_read": "Primary arXiv PDF Section II equations (3)–(5), algorithms and finite experiments; inspected screenshot page with matrix definition.",
+          "method": "Read relevant full PDF sections and page image.",
+          "title": "Pointwise-Sparse Actuator Scheduling for Linear Systems with Controllability Guarantee",
+          "trigger": "Direct same scheduled reachability matrix and sparsity constraint"
+        },
+        {
+          "assessment": "Design/guarantee rather than exact independent cyclic probability in inspected material.",
+          "evidence": "Kondapi et al. (2024), Sparse Actuator Scheduling for Discrete-Time Linear Dynamical Systems, arXiv:2407.00385: scheduled controllability and design bounds, not identical cyclic random-rank PGF in inspected abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2407.00385",
+          "material_read": "ArXiv abstract and result overview; full paper not inspected in this run.",
+          "method": "Read indexed primary abstract.",
+          "title": "Sparse Actuator Scheduling for Discrete-Time Linear Dynamical Systems",
+          "trigger": "Plausible broad actuator scheduling prior"
+        },
+        {
+          "assessment": "Randomized performance guarantees do not directly supply the exact PGF in inspected statements.",
+          "evidence": "Siami, Olshevsky and Jadbabaie (2018), Deterministic and Randomized Actuator Scheduling with Guaranteed Performance Bounds, arXiv:1805.00606: performance and deterministic/randomized schedule guarantees, not complete independent fair cyclic deficiency law.",
+          "identifier_or_url": "https://arxiv.org/abs/1805.00606",
+          "material_read": "Primary arXiv abstract and theorem overview; full article not inspected.",
+          "method": "Read available primary abstract.",
+          "title": "Deterministic and Randomized Actuator Scheduling with Guaranteed Performance Bounds",
+          "trigger": "Possible randomized performance bound dominating the limit"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "V PASS: Rank deficiency and full controllability probability under pointwise-sparse random actuation are natural design benchmarks. The exact all-n, all-r distribution and an offset-uniform Poisson crossover near n log_4 n give useful quantitative information beyond guaranteed feasibility; the nontrivial gcd dependence at shortest horizon is meaningful.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For independent uniform two-choice cyclic shift actuator schedules of h=qn steps, n>=2, 1<=r<n, g=gcd(n,r), d=n/g, the exact reachability rank-deficiency PGF is J_d(4^-q(z-1))^g with cycle independence polynomial J_d. Exactly 2^g of the shortest-horizon 2^n schedules are full rank; for n->infinity, X tends to Poisson(lambda) whenever n4^-q tends to finite lambda, and full-rank probability tends to zero if n4^-q diverges, uniformly in r.",
+  "limitations": [
+    "The q symbol is an integer repeat count and not a field size; do not conflate with record 1. The transition is lattice-scaled in q; time horizons not multiples of n are excluded."
+  ],
+  "schema_version": 1
+}

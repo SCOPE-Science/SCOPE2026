@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3. Only standard-library facilities are used: `fractions`, `collections`, `itertools`, and `math`.
+## correctness
 
-The checker directly generates all binary schedules for 74 parameter triples with \(2\le n\le9\), \(1\le r<n\), \(q\in\{1,2,3\}\), and \(qn\le17\). It maps each selected actuator to the corresponding cyclically shifted basis-vector reachability column and counts distinct coordinates. Independently, it computes the polynomial recurrence for the claimed generating function in exact rational arithmetic. It verifies every coefficient of every generating polynomial against the exhaustive schedule histogram. It separately verifies exact counts at the shortest feasible horizon, compares closed-root and recurrence probabilities, and checks illustrative critical-window values.
+PASS
 
-Expected successful output begins:
+C PASS: Each selected reachability column is a standard basis vector, so rank equals number of covered coordinates. At each residue s modulo n, the q independent binary choices aggregate to independent Bin(q,1/2) count C_s. A coordinate s is missing exactly if C_s=q and C_(s−r)=0, with marginal probability p=4^-q. Two missing-coordinate events sharing a binomial variable conflict exactly when their residues differ by ±r; nonadjacent sets have product probability p^j. Therefore expanding z^X yields the independence polynomial of g disjoint cycles of length d=n/g, with length-two interpreted as K2. The classic cycle count d/(d−j) binom(d−j,j), quadratic-root formula and q=1 evaluation J_d(−1/4)=2^(1−d) give all exact finite laws and 2^g shortest-horizon schedules. The bounded-degree conflict graph eliminates O_k(n^(k−1)) of n^k ordered distinct k-tuples, proving uniform factorial-moment Poisson convergence when np->lambda>0; union bound handles lambda=0, variance<=np and Chebyshev handle np diverging. Independent exhaustive direct schedule enumeration vs polynomial coefficient combinatorics passed 66 cases including d=2; finite checks are corroboration not asymptotic proof.
 
-`VERIFY_OK exact rank-deficiency distributions for 74 independent enumeration cases`
+## originality
 
-The universal generating-function formula, all offset/parameter boundaries, and the arbitrary-sequence Poisson limiting statements are established analytically in `RESULT.md`; the finite checker is a reproducibility test, not a substitute for their proofs or an independent external certification. In particular, its asymptotic examples do not prove convergence. No third-party publication, source code, or numerical data is bundled.
+PASS
+
+O PASS qualified: cycle independence polynomial, probability generating functions, occupancy limits and factorial-moment Poisson methods are classical. The asserted new synthesis is the exact distribution of rank loss for a constrained random actuator schedule, the arithmetic gcd-dependent shortest-horizon count, and uniform critical window. Prior actuator-scheduling work treats algorithmically designed or rank-guaranteed schedules with different sampling; published general occupancy limits could subsume the convergence statement, but not the exact finite PGF without identifying this conflict graph.
+
+## value
+
+PASS
+
+V PASS: Rank deficiency and full controllability probability under pointwise-sparse random actuation are natural design benchmarks. The exact all-n, all-r distribution and an offset-uniform Poisson crossover near n log_4 n give useful quantitative information beyond guaranteed feasibility; the nontrivial gcd dependence at shortest horizon is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

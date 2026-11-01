@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact reachability matrix is a collection of coordinate vectors. The proof identifies precisely the missing-coordinate events and proves that their incompatibility graph is a union of arithmetic cycles, with joint probabilities equal to the independent-set weights. Counting cycle independent sets yields the complete generating function, including the two-vertex cycle boundary. Specializing to a single traversal gives the exact number of feasible schedules. A bounded-degree factorial-moment proof supplies the Poisson limit uniformly over all actuator offsets, and the negative neighbor covariances establish the high-mean failure case. The accompanying standard-library exact checker independently enumerates 74 parameter cases and checks entire distributions, but its finite checks are not treated as proof of the universal statements.
+## correctness
 
-**Originality — PASS (best-knowledge, not independently certified).** The directly motivating Ballotta–Joseph–Thete paper defines pointwise-sparse reachable columns, safe greedy scheduling, and rank-aware MCMC; the all-schedule independent fair rank law and its critical full-rank probability are different assertions. The related performance-sampling, convex LQG scheduling and other sparse-scheduling papers inspected do not imply the joint-event independence polynomial or the random-horizon Poisson threshold. A record search for exact cyclic uniform rank probabilities, gcd shortest-horizon counts, and cycle coverage aliases found no statement implying all of these claims. The cycle independence-polynomial recurrence and Poisson method are classical components; novelty is claimed solely for the precise scheduling theorem and its exact/asymptotic scope. The remaining risk is unknown equivalent occupancy or control-scheduling literature.
+PASS
 
-**Value — PASS.** The source literature motivates avoiding failure of pointwise-sparse controllability. The finding gives a complete, nontrivial distribution rather than an ad hoc instance: at the absolute minimum horizon independent random schedules may succeed with probability exponentially small in dimension, whereas near \(n\log_4 n\) steps they exhibit a universal sharp transition. This provides a benchmark for assessing naive independent choices and the need for rank-aware schedule design, without claiming these algorithms themselves are uniformly random.
+C PASS: Each selected reachability column is a standard basis vector, so rank equals number of covered coordinates. At each residue s modulo n, the q independent binary choices aggregate to independent Bin(q,1/2) count C_s. A coordinate s is missing exactly if C_s=q and C_(s−r)=0, with marginal probability p=4^-q. Two missing-coordinate events sharing a binomial variable conflict exactly when their residues differ by ±r; nonadjacent sets have product probability p^j. Therefore expanding z^X yields the independence polynomial of g disjoint cycles of length d=n/g, with length-two interpreted as K2. The classic cycle count d/(d−j) binom(d−j,j), quadratic-root formula and q=1 evaluation J_d(−1/4)=2^(1−d) give all exact finite laws and 2^g shortest-horizon schedules. The bounded-degree conflict graph eliminates O_k(n^(k−1)) of n^k ordered distinct k-tuples, proving uniform factorial-moment Poisson convergence when np->lambda>0; union bound handles lambda=0, variance<=np and Chebyshev handle np diverging. Independent exhaustive direct schedule enumeration vs polynomial coefficient combinatorics passed 66 cases including d=2; finite checks are corroboration not asymptotic proof.
 
-**Closest literature and limitations.** Ballotta, Joseph & Thete (arXiv:2407.12125v1), Kondapi et al. (arXiv:2407.00385v1), Siami–Olshevsky–Jadbabaie (arXiv:1805.00606), and Jiao et al. (arXiv:2203.02321v2) were read and compared. The result covers two coordinate actuators, cyclic shift dynamics, independent fair choices, and horizons divisible by the state dimension. It does not cover nonuniform or rank-conditioned policies, other system matrices, control energy, or numerical reachability conditioning. External originality and independent scientific audits remain unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS qualified: cycle independence polynomial, probability generating functions, occupancy limits and factorial-moment Poisson methods are classical. The asserted new synthesis is the exact distribution of rank loss for a constrained random actuator schedule, the arithmetic gcd-dependent shortest-horizon count, and uniform critical window. Prior actuator-scheduling work treats algorithmically designed or rank-guaranteed schedules with different sampling; published general occupancy limits could subsume the convergence statement, but not the exact finite PGF without identifying this conflict graph.
+
+## value
+
+PASS
+
+V PASS: Rank deficiency and full controllability probability under pointwise-sparse random actuation are natural design benchmarks. The exact all-n, all-r distribution and an offset-uniform Poisson crossover near n log_4 n give useful quantitative information beyond guaranteed feasibility; the nontrivial gcd dependence at shortest horizon is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
