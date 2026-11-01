@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The three-point Cauchy determinant for the normalized Szegő kernel gives the product of squared pseudohyperbolic pair distances. Expansion of the entrywise-square Gram determinant yields the exact polynomial \(uvw(6-2(u+v+w)+uvw)\). The positive decomposition of its partial logarithmic derivative and the monotonicity of the angular logarithmic derivative together establish strict Schur concavity for all admissible positive gaps, including the case of a gap at least \(\pi\). Boundary coincidences have determinant zero. The equilateral substitution and endpoint asymptotics are exact. The supplied code checks rational identities and sample complex determinants; the all-parameter proof is analytical.
+## correctness
 
-## Originality — PASS (historical priority not independently established)
-Tian's 2026 finite-point Schwarz--Pick estimate bounds image Bergman Gram matrices in Loewner order but does not optimize determinant over site angles. Kernel-Fekete interpolation literature motivates such optimization but the inspected primary full text studies approximate Gaussian designs, not this exact Bergman determinant. The closest indexed Szegő orbit frame record has a different kernel exponent, and its determinant-maximization assertion does not imply the present *strict Schur concavity* under entrywise squaring. Exact-angle, cyclic-gap, pseudohyperbolic, Borchardt/Schur-product, and Gram-determinant searches returned no directly equivalent theorem. Classical unindexed design theorems remain a priority risk; published-finding corpus result descriptions were not treated as fully examined source papers.
+PASS
 
-## Value — PASS
-Three points are the first case with nontrivial cyclic three-way interactions in the squared Szegő kernel. A global strict majorization law yields both a unique optimal sampling geometry for every radius and a closed form for the normalized squared volume, not just a local stationary-point test. The criterion can guide finite-node Bergman sampling and illustrates why the Szegő determinant mechanism needs strengthening for the Bergman exponent.
+PASS: The Szego Cauchy identity gives det S=uvw for the three squared pseudohyperbolic separations. Since Bergman B is the entrywise square of S, elementary 3x3 Hermitian expansion gives det B=uvw(6-2(u+v+w)+uvw). Its polynomial factor P>0 on (0,1)^3, and partial log derivatives (u'/u)C_u have C_u>0 with C_u-C_v=-2(u-v)/P. For angular gaps α>β both <π, u(α)>u(β) and the positive ratio u'/u decreases; for α≥π its derivative ≤0 while β<π gives positive. Thus strict Schur-Ostrowski criterion applies throughout positive gaps summing to 2π. Coincident nodes give zero. At equal 2π/3 gaps the sharp determinant equals 81t³(t³+2)(2t³+1)/(1+t+t²)^6, approaching 162r^6 at r→0 and deficit (1-t)^4/3 at t→1. Independently verified exact algebra/limit and nine complex direct Gram determinants; finite samples not substituted for the derivative proof.
 
-## Limitations
-Only three points, a common Euclidean radius, and the exponent-two disk Bergman kernel are covered. Independent mathematical review and comprehensive historical-priority validation are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: Bergman Schwarz-Pick Loewner comparisons are not the same as node-position determinant maximization. General Gaussian-kernel approximate Fekete work concerns another kernel and approximate sites. The published Resultary Szego-orbit determinant is for power-one Szego kernels and its result alone does not show strict gap Schur concavity for the entrywise-square exponent-two Bergman matrix. The new three-point polynomial coupling and derivative inequality supply the missing comparison. Classical exact Fekete configurations could overlap.
+
+## value
+
+PASS
+
+PASS: Optimal kernel Gram determinant and strict gap order are natural stability/design invariants for reproducing-kernel interpolation. A unique optimum at every radius, not merely a stationary symmetric guess, and a strict majorization law with sharp boundary asymptotics are reusable precise facts for the Bergman space.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
