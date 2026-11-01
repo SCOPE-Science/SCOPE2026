@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:12:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at frozen commit 7114b2e91c83d844d5a46a85c8a46887759567e5 (GitHub fetched blob cb4d2ea954681f18ab9395fb58bddd0257e1feac)",
+        "Fresh independent_checks.py numerical diagnostics and results",
+        "Mathematical proof and parameter boundary analysis"
+      ],
+      "rationale": "Let U be union of a incomparable lower Boolean sets; Sperner bounds a≤binom(|U|,floor(|U|/2)), hence |U|≥mu(a). With b>=2 incomparable upper sets, no upper is U, so rank ≥mu(a)+1. Minimal mu(a) forces any a selected central-layer subsets of [mu(a)] to cover all mu(a) coordinates, since otherwise Sperner on mu(a)-1 coordinates would contradict minimality. Adding b distinct new coordinates to that union gives b incomparable upper sets of size mu(a)+1. At minimum rank the lower union has size exactly mu(a) and each upper must be union plus a distinct new coordinate; w*=mu(a)+b follows, as does w*=a+b iff a=2,3,4. Checked mu(a) for a=2..15; the Sperner/union argument proves all a,b≥2.",
+      "residual_risks": [
+        "The theorem excludes a=1 or b=1 and refers to width optimized at minimum rank, not arbitrary-width induced embeddings."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 4 gives w*(P)≤|P| for all finite posets, and concluding Question 8 requests equality classification."
+        ],
+        "reasoning": "The uniform exact w*(P_{a,b})=mu(a)+b and corresponding h*=mu(a)+1 sharpen the general bound and give an if-and-only-if equality criterion, not a direct restatement of an inequality. Classical Sperner is the necessary ingredient.",
+        "searches": [
+          "arxiv:2509.26630v1 Theorem 3 Theorem 4 Question 8",
+          "Complete two-layer poset all lower below all upper optimal Boolean embedding hypercube height width Sperner theorem"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md at immutable commit 7114b2e91c83d844d5a46a85c8a46887759567e5",
+        "Resultary semantic search: Complete two-layer poset all lower below all upper optimal Boolean embedding hypercube height width Sperner theorem",
+        "Optimal Embeddings of Posets in Hypercubes, https://arxiv.org/abs/2509.26630",
+        "Ein Satz über Untermengen einer endlichen Menge, Sperner, Mathematische Zeitschrift 27 (1928), 544–548"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Sperner determines the minimal union-size lower bound, but w* also requires minimizing upper antichain extensions at minimal rank; general paper provides w*≤a+b only."
+        ],
+        "reasoning": "The exact family formulas follow from a new combination of standard results and elementary structural necessity; they are not tautologically supplied by the published general upper bound. Value rests on a natural complete classification, not difficulty or proof length.",
+        "searches": [
+          "Flídr Ivan Jaffe Optimal Embeddings of Posets in Hypercubes arxiv:2509.26630",
+          "Sperner classical antichain theorem 1928"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "P_{a,b} is the ordinal sum of two antichains, with all comparabilities from minima to maxima; h* is minimal max rank and w* is least Boolean ground-set size at THAT optimized rank, not ordinary order dimension."
+        ],
+        "reasoning": "Compared complete bipartite Hasse-diagram/ordinal-sum naming and rank-restricted induced Boolean embedding conventions. The invariants are asymmetric in levels because rank bound and complement duality differ.",
+        "searches": [
+          "Complete two-layer poset all lower below all upper optimal Boolean embedding hypercube height width Sperner theorem",
+          "arxiv:2509.26630 optimal embeddings posets hypercubes complete bipartite poset Boolean induced embedding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns complete height-two finite-space/topological or interval-endomorphism classifications, which are different invariants; no exact hypercube-invariant table in bounded results."
+        ],
+        "reasoning": "There is no known numerical table to reproduce in inspected sources, but the formula could be folklore and this search alone establishes no novelty.",
+        "searches": [
+          "Complete two-layer poset all lower below all upper optimal Boolean embedding hypercube height width Sperner theorem",
+          "Resultary complete height-two poset hypercube width height Sperner bound"
+        ]
+      },
+      "rationale": "Qualified PASS for exact two-parameter evaluation in the natural complete height-two family, with elementary proof and genuine folklore risk. Flídr–Ivan–Jaffe (arXiv:2509.26630) introduce h*,w*, prove the general upper bound w*(P)≤|P| and ask which posets achieve equality (Question 8). The inspected paper text does not state both formulas or the full equality criterion. This is not novelty for Sperner or isolated equality witnesses; it is a precise full-family invariant.",
+      "residual_risks": [
+        "The argument is elementary enough that the exact family may be known informally or in an unindexed exercise, even if not in the motivating paper.",
+        "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_AND_OPEN_QUESTION",
+          "evidence": [
+            "Theorem 4 asserts w*(P)≤|P|; Question 8 asks which P attain equality, not explicit formula for P_{a,b} in inspected text."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2509.26630",
+          "material_read": "Accessible six-page PDF: definitions, two-layered construction in Section 2, Theorems 3–4 and concluding Questions 6–8; PDF screenshot inspected as needed.",
+          "method": "Read primary paper statements/arguments and compare logical strength of general bound and Question 8 to both formulas.",
+          "title": "Optimal Embeddings of Posets in Hypercubes",
+          "trigger": "Introduces exactly h*,w* and Question 8 on equality."
+        },
+        {
+          "assessment": "KNOWN_TOOL",
+          "evidence": [
+            "Central binomial coefficient is maximum antichain size; not claimed original."
+          ],
+          "identifier_or_url": "Sperner, Mathematische Zeitschrift 27 (1928), 544–548",
+          "material_read": "Classical Sperner theorem statement and central-layer equality bound; original German article not fully read.",
+          "method": "Applied standard antichain bound on U and contradiction on u-1 coordinates.",
+          "title": "Ein Satz über Untermengen einer endlichen Menge",
+          "trigger": "Classical antichain inequality needed for all-parameter proof."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact mathematical invariant and its natural motivating primary literature",
+        "Correctness proof reconstructed from actual RESULT.md"
+      ],
+      "rationale": "Complete height-two posets are a canonical first family testing a published structural equality question for optimized Boolean embeddings. The result determines both hypercube invariants for all two-level sizes and the exact equality region; an exact natural classification can be independently valuable despite its short Sperner proof.",
+      "residual_risks": [
+        "It resolves equality only within the complete height-two family, not the motivating global Question 8."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem excludes a=1 or b=1 and refers to width optimized at minimum rank, not arbitrary-width induced embeddings.",
+    "The argument is elementary enough that the exact family may be known informally or in an unindexed exercise, even if not in the motivating paper.",
+    "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist.",
+    "It resolves equality only within the complete height-two family, not the motivating global Question 8.",
+    "Oxford institutional full-text access remained disconnected; no authentication bypass; no external formal or expert certification implied."
+  ],
+  "schema_version": 1
+}

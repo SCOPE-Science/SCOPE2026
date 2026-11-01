@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The proof gives matching lower and upper bounds for both invariants. The lower bound uses Sperner’s theorem on the union of the lower antichain and the necessity that each of at least two upper-level sets strictly contain that union. The construction uses a middle-layer antichain whose union is the full ground set, followed by distinct one-coordinate extensions.
+PASS
 
-## Originality
+Let U be union of a incomparable lower Boolean sets; Sperner bounds a≤binom(|U|,floor(|U|/2)), hence |U|≥mu(a). With b>=2 incomparable upper sets, no upper is U, so rank ≥mu(a)+1. Minimal mu(a) forces any a selected central-layer subsets of [mu(a)] to cover all mu(a) coordinates, since otherwise Sperner on mu(a)-1 coordinates would contradict minimality. Adding b distinct new coordinates to that union gives b incomparable upper sets of size mu(a)+1. At minimum rank the lower union has size exactly mu(a) and each upper must be union plus a distinct new coordinate; w*=mu(a)+b follows, as does w*=a+b iff a=2,3,4. Checked mu(a) for a=2..15; the Sperner/union argument proves all a,b≥2.
 
-The closest primary source proves only the general bound \(w^*(P)\le |P|\) and poses the equality-classification question. The formula \(w^*(P_{a,b})=\mu(a)+b\), together with the matching height formula, is not stated in the inspected sections. Bounded literature-database searches did not surface the same formula; this is evidence of a bounded search, not proof of uniqueness. The source remarks that other equality examples are easy to construct, so isolated equality examples are not claimed as the contribution.
+## originality
 
-## Value
+PASS
 
-This is an exact evaluation for an infinite, structurally natural family directly related to the open equality-classification question for hypercube-width. It both gives the width for every pair of level sizes in the family and identifies exactly which first-level sizes attain the general bound.
+Qualified PASS for exact two-parameter evaluation in the natural complete height-two family, with elementary proof and genuine folklore risk. Flídr–Ivan–Jaffe (arXiv:2509.26630) introduce h*,w*, prove the general upper bound w*(P)≤|P| and ask which posets achieve equality (Question 8). The inspected paper text does not state both formulas or the full equality criterion. This is not novelty for Sperner or isolated equality witnesses; it is a precise full-family invariant.
 
-## Closest literature and limits
+## value
 
-T. Flídr, M.-R. Ivan, and S. Jaffe, *Optimal Embeddings of Posets in Hypercubes*, arXiv:2509.26630v1, especially the definitions, Theorem 4, and Question 8. E. Sperner, *Ein Satz über Untermengen einer endlichen Menge*, Mathematische Zeitschrift 27 (1928), 544–548.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete height-two posets are a canonical first family testing a published structural equality question for optimized Boolean embeddings. The result determines both hypercube invariants for all two-level sizes and the exact equality region; an exact natural classification can be independently valuable despite its short Sperner proof.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
