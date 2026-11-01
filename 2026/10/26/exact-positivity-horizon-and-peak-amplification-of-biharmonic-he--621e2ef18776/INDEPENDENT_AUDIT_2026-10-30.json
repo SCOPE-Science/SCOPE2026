@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:48:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The complete-graph Laplacian L(K_a)=a V_a with V_a=I-J_a/a and U_a=J_a/a. Tensor spectral projections U_a⊗U_b, V_a⊗U_b, U_a⊗V_b, V_a⊗V_b yield L eigenvalues 0,a,b,a+b and thus exactly four kernel equality classes. Three classes are strictly positive for every t>0; only vertices differing in both coordinates have entry F_ab/(ab), negative immediately since F_prime(0)=-2ab. Writing H(t)=exp(b^2 t)(1-exp(-a^2 t))/(1-exp(-(a^2+2ab)t)), its logarithmic derivative b^2+a^2/(exp(a^2t)-1)-(a^2+2ab)/(exp((a^2+2ab)t)-1) is positive because u/(exp(ut)-1) decreases with u. H(0+)=a/(a+2b)<1 and H(infty)=infty, so exactly one cutoff. Every row sums to one, with precisely (a-1)(b-1) potentially negative entries; its absolute row sum proves the norm formula. Multiplying F_prime by exp((a+b)^2t) gives a strictly increasing exponential equation with one positive root, giving a unique peak before cutoff. At a=b=m, factor 1-2z+z^4=(z-1)(z^3+z^2+z-1), derive tau=-log(z*)/m^2, theta=log2/(3m^2), max gain as stated. For fixed a and b large, y=b²t and delta=a/b expansions at the unique monotone zero and peak prove y_cut=log(2b/a)+O_a(log b/b), y_peak=1+O_a(1/b), max gain=4(a-1)/(eb)+O_a(b^-2). Independently computed five explicit small rook-graph matrix exponentials, entries, negativity and norm; infinite statements rely on analytic monotonicity and uniform expansions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Johnson/Lins/Walch 2010 Theorem 5.3 implies finite three-level no-gap positivity after a positive time; Daners/Gluck/Kennedy develop general eventual positivity, and published corrected Resultary 2026 example is an infinite-dimensional 3-level semigroup with only time zero operator-positive."
+        ],
+        "reasoning": "General spectral criteria and the corrected infinite-dimensional three-level counterexample address different operator statements. The four-class kernel and sharp shape-dependent cutoff/peak/infinity norm for finite K_a square K_b require an additional exact family computation not implied by the broader theorems.",
+        "searches": [
+          "Daners Gluck Kennedy 2015 eventually asymptotically positive semigroups spectral criteria",
+          "Johnson Lins Walch 2010 critical exponent continuous powers doubly nonnegative three spectral values",
+          "Resultary published corrected three-spectral-value barrier 2026-10-11"
+        ]
+      },
+      "checked_sources": [
+        "Daners/Gluck/Kennedy 2015 arXiv:1511.05294 full accessible HTML relevant sections",
+        "Resultary published 2026-10-11 corrected 3-level bounded semigroup finding complete RESULT.md",
+        "Johnson/Lins/Walch 2010 three-level monotonicity theorem as summarized in full Resultary record",
+        "Resultary 12-hit semantic search for biharmonic rook heat positivity",
+        "MathWorld rook graph identity mentioned as standard family alias"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Daners et al supply eventual positivity framework; Johnson et al force later positivity after a positive time only in finite three-level setting; published corrected three-level record concerns countably infinite self-adjoint operators with nonuniform eventual sign."
+        ],
+        "reasoning": "For unequal a,b, L² has four distinct eigenvalues; none of these prior results determines the sharp sign of the BOTH-different coordinate kernel F_ab, its unique root or the worst-case infinity norm. At a=b, three levels do not fix the numerical threshold. The original claim is restricted to this exact family.",
+        "searches": [
+          "Daners Gluck Kennedy eventually positive semigroups 2015 finite matrix theorem",
+          "Resultary corrected three level Hilbert lattice example October 11 2026",
+          "Johnson Lins Walch 2010 Theorem 5.3 three eigenvalue positive conventional powers"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rook K_a square K_b is the line graph L(K_{a,b}); its Laplacian has spectral levels 0,a,b,a+b, reduced to three distinct levels only for a=b."
+        ],
+        "reasoning": "Changing the name from rook to line graph does not change the exact matrix function, so these aliases were searched; published general no-gap results for 3 spectral levels cannot furnish the four-level unequal-side threshold and do not give numerical constants even at a=b.",
+        "searches": [
+          "rook graphs K_a Cartesian K_b line graphs complete bipartite squared Laplacian e^{-t L^2}",
+          "Resultary semantic search biharmonic heat squared graph Laplacian rook graph eventual positivity maximum norm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The actual natural family contains arbitrarily large parameters a,b; no examined source table records its unique tau_ab, theta_ab, square cubic z^3+z^2+z-1 or fixed-a thin-board asymptotic law."
+        ],
+        "reasoning": "The quantitative theorem is not a lookup of known finite spectrum alone: the norm/cutoff requires checking kernel signs and monotone crossings for all a,b. Special case K_2 square K_2 overlaps other classical four-cycle calculations without covering the family.",
+        "searches": [
+          "rook graph heat kernel biharmonic Laplacian spectral four classes explicit numerical positivity time",
+          "Resultary search squared Laplacian rook graph peak amplification"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact positivity horizon and peak amplification of biharmonic heat on rook graphs is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.",
+      "residual_risks": [
+        "An older association-scheme or line-graph exact exponential kernel may contain equivalent rook-grid formulas.",
+        "The 3-spectral prior theorem does not by itself cover four levels, but no claim that general eventual positivity or the spectral decomposition is new.",
+        "The logarithmic scaling is only for fixed a with b->infinity; no uniform joint-growth or weighted graph extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING eventual positivity theory; no examined theorem specifies exact rook-graph squared heat kernel or rectangular cutoff.",
+          "evidence": "General semigroup spectral machinery does not supply an exact four-entry kernel or shape asymptotic formula.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.05294",
+          "material_read": "Accessible full primary ar5iv HTML: semigroup positivity framework, spectral characterizations and finite-dimensional statements.",
+          "method": "Read relevant original primary HTML sections and theorem statements",
+          "title": "Eventually and asymptotically positive semigroups on Banach lattices",
+          "trigger": "general positivity criteria for signed higher-order semigroups"
+        },
+        {
+          "assessment": "DIFFERENT: bounded self-adjoint infinite-dimensional coordinate ell^2 example; finite 3-level no-gap already credited to Johnson et al. Not a finite rectangular rook-graph exact kernel.",
+          "evidence": "Corrected publication explicitly says finite 3-level no-gap not new, and gives a countable Hilbert lattice where all t>0 have some negative coefficient.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-three-spectral-value-barrier-for-gaps-in-positivity-times-of-s--da21753d4271",
+          "material_read": "Complete corrected RESULT.md Git blob read (all finding, proof, relationship to prior work and limitations).",
+          "method": "Read entire primary published finding via pinned public Git content",
+          "title": "A bounded three-level self-adjoint semigroup with no positive operator time on ell^2",
+          "trigger": "very relevant prior published three-level positivity barrier"
+        },
+        {
+          "assessment": "COVERING a finite three-spectrum monotonicity implication, not the 4-level rook family.",
+          "evidence": "Finite positive 3-level self-adjoint exponential, if positive at t0, remains positive for t>=t0.",
+          "identifier_or_url": "https://arxiv.org/abs/1008.3568",
+          "material_read": "Theorem 5.3 statement as cited and quoted in fully read corrected published finding; not an independent full primary PDF inspection.",
+          "method": "Indirect theorem-statement inspection via published mathematical analysis",
+          "title": "The critical exponent for continuous conventional powers of doubly nonnegative matrices",
+          "trigger": "possible dominating finite-dimensional three-level no-gap theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fourth-order heat semigroups need not preserve positivity or maximum principles. Rook graphs are natural Cartesian products/line graphs with a complete four-level spectral decomposition. An exact worst-case maximum-coordinate norm and sharp eventual-positivity threshold for every rectangular parameter, including unusual logarithmic thin-board scaling, provide a motivated structural classification of transient positivity defects beyond general eventual-positivity existence criteria.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all integer a,b>=2, the unnormalized rook-graph squared-Laplacian heat exp(-tL^2) has exact infinity operator norm 1+2(a-1)(b-1)/(ab)[-F_ab(t)]_+, F_ab(t)=1-e^{-a^2t}-e^{-b^2t}+e^{-(a+b)^2t}. It is entrywise nonnegative exactly at t=0 and t>= a unique positive cutoff; its norm has one peak. Square-board constants are exact and fixed-a, b->infty cutoff grows logarithmically in b^2t while maximal amplification vanishes at rate 1/b.",
+  "limitations": "Finite unweighted rectangular rook graphs with unnormalized Laplacian squared, t>=0, infinity norm; no conclusions for arbitrary weighted graphs, higher Cartesian factors or other fourth-order boundary models.",
+  "schema_version": 1
+}
