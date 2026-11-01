@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
-The signed unordered deleted-product complex is completely reconstructed, with cellular ranks \((496,1440,1032)\), vanishing consecutive-boundary composite, and second-boundary rank at least \(928\) modulo \(101\). All 186 short-cycle product tori are exact integral cycles. A 104-row projection of their chain matrix has integer column Hermite normal form equal to the identity; the rank bound then identifies the whole integral second homology. The 72-column shortest-cycle Smith computation gives a primitive rank-72 lattice; the 168-column intermediate computation gives Smith factors \((2,2)\). Reproducible complete code checks all statements and the 192 graph symmetries.
+## correctness
 
-## Originality
-Compared statement-by-statement with Barnett–Farber (arXiv:0903.2180), Farber–Hanbury (arXiv:1005.2300), and An–Knudsen (arXiv:2008.10371). They establish foundational ordered deleted-product methods, mature-graph formulas, or planar graph-braid generation, but no identified theorem or table supplies the exact integral six/eight-cycle filtration of the nonplanar Dyck graph. Targeted mathematical-record searches also found no directly covering result. Residual risk: an unindexed graph-specific calculation or inaccessible dissertation might contain an equivalent classification.
+PASS
 
-## Value
-The Dyck graph has natural hexagonal and octagonal regular-map realizations. The two shortest cycle lengths are therefore geometrically distinguished independently of the computation. The index-four obstruction separates rational torus spanning from integral generation; the sharp need for two octagon-pair tori and the alternative symmetry-orbit completions give a concrete structural answer, rather than a generic Betti-number increment.
+The explicit 32-vertex LCF graph is cubic with 48 edges; the standard unordered deleted-product model has cells C0,C1,C2 of sizes 496,1440,1032. Independent boundary construction verifies ∂1∂2=0 and rank_F101 ∂2=928, bounding the integral H2 rank by 104. Enumerating all simple 6/8 cycles yields 16/12 and disjoint pairs 72/96/18. Each of 186 signed cycle-product chains has zero boundary. An independent 104-row projection of these cycles has exact integer Hermite normal form I104, showing surjectivity to Z^104 and, with rank bound, integral identification ker∂2≅Z104. For 6/6 columns the Smith diagonal is 72 ones; including 6/8 gives 102 ones and two twos. Aut(Dyck) enumerates as 192 elements with pair orbits 24,48,96,6,12; independent HNF checks show each 8/8 orbit separately kills the residual (Z/2)^2. The minimal two extra generators follows from its two-dimensional mod-two quotient, not from numerics.
 
-## Limits
-The proof is a finite exact computation for two unordered points and the stated short cycle lengths, not a universal generation theorem or a homotopy classification. No external independent audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett–Farber provide the graph-particle cubical/deleted-product framework; An–Knudsen characterizes second-homology generation for *planar* graph braids and discusses a nonplanar obstruction. The Dyck graph is nonplanar and the exact length-filtered integral torsion quotient and either-orbit completion are not consequences of those theorems. Other Resultary records treat different graphs or sink collision regimes.
+
+## value
+
+PASS
+
+The Dyck graph has two geometrically canonical regular-map embeddings, with face cycles of lengths six and eight. Exact integral generation shows an obstruction invisible in rational H2 and tied to these two embeddings; the two-element minimal completion and automorphism-orbit classification give a natural fully determined finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

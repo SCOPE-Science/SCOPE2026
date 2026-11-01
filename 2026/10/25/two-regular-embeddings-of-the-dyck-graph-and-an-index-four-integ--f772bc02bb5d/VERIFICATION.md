@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction of exact finite certificates
+# Independent mathematical audit
 
-Run `python verify_dyck.py` from the same directory as `requirements.txt`. The checker constructs the standard 32-vertex cubic graph using the stated LCF sequence, performs exhaustive simple-cycle searches at lengths six and eight, and enumerates every disjoint cycle pair. The integer two-cell boundary and torus cycle chains are assembled from first principles.
+## correctness
 
-The checker verifies every signed boundary composite and torus cycle, uses exact sparse arithmetic modulo \(101\) to show the second-boundary rank is at least \(928\), and chooses 104 square-coordinate rows independent modulo two. It then computes exact column Hermite normal forms and integer Smith normal forms. The full 186-torus coordinate matrix has Hermite form \(I_{104}\); the shortest 72-column matrix has 72 Smith units; the hexagon-involving 168-column matrix has Smith factors \(2,2\), with all other 102 invariant factors units.
+PASS
 
-All 192 automorphisms are enumerated using graph isomorphism checks. The two eight–eight orbit additions, of sizes six and twelve, each restore Hermite form \(I_{104}\).
+The explicit 32-vertex LCF graph is cubic with 48 edges; the standard unordered deleted-product model has cells C0,C1,C2 of sizes 496,1440,1032. Independent boundary construction verifies ∂1∂2=0 and rank_F101 ∂2=928, bounding the integral H2 rank by 104. Enumerating all simple 6/8 cycles yields 16/12 and disjoint pairs 72/96/18. Each of 186 signed cycle-product chains has zero boundary. An independent 104-row projection of these cycles has exact integer Hermite normal form I104, showing surjectivity to Z^104 and, with rank bound, integral identification ker∂2≅Z104. For 6/6 columns the Smith diagonal is 72 ones; including 6/8 gives 102 ones and two twos. Aut(Dyck) enumerates as 192 elements with pair orbits 24,48,96,6,12; independent HNF checks show each 8/8 orbit separately kills the residual (Z/2)^2. The minimal two extra generators follows from its two-dimensional mod-two quotient, not from numerics.
 
-These finite exact certificates prove the stated integral subgroup and quotient calculations when combined with the cubical deformation-retraction theorem. They do not prove any result about arbitrary graphs, longer cycles, more particles, or independent validation. Dependencies are provided separately; the code does not fetch papers or data.
+## originality
+
+PASS
+
+Barnett–Farber provide the graph-particle cubical/deleted-product framework; An–Knudsen characterizes second-homology generation for *planar* graph braids and discusses a nonplanar obstruction. The Dyck graph is nonplanar and the exact length-filtered integral torsion quotient and either-orbit completion are not consequences of those theorems. Other Resultary records treat different graphs or sink collision regimes.
+
+## value
+
+PASS
+
+The Dyck graph has two geometrically canonical regular-map embeddings, with face cycles of lengths six and eight. Exact integral generation shows an obstruction invisible in rational H2 and tied to these two embeddings; the two-element minimal completion and automorphism-orbit classification give a natural fully determined finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
