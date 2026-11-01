@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "The proof exhausts all flipping masks via degree-two propagation; it checks endpoint conditions for zero, one or both active paths and counts stable path interiors through exact integer compositions including the one-vertex boundary. It proves the Fibonacci/six-periodic equivalence by rational generating functions. A separate direct update program exhaustively matched all three class counts for 66 legal pairs with n<=14 (327,696 states), but those finite tests are not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos 1980 abstract asserts period at most two on finite symmetric threshold networks, with no numerical orbit classification.",
+        "Benjamini et al. 2014, arxiv:1405.2486v1, Theorem 1.1 and main Theorems 1-4 discuss eventual behavior on finite, random and unimodular graphs.",
+        "Nakar–Ron 2022 considers a local uniform radius-r cyclic majority rule, excluding degree-three chord endpoints."
+      ],
+      "reasoning": "Period-two boundedness is a strict general property but has no specified implication for exact values of N(n,d) beyond restricting temporal lengths; full local equations and graph-specific counting remain necessary. The fixed-ring results have fewer edges and cannot dominate the one-chord census under graph monotonicity, which is not available for majority dynamics.",
+      "searches": [
+        "doi:10.1016/0012-365X(80)90121-1 periodic behaviour generalized threshold functions",
+        "arxiv:1405.2486v1 full PDF and finite theorem",
+        "arxiv:2205.08972v1 full PDF and Theorem 1",
+        "majority dynamics graph chords cycle oscillations fixed points two cycle counting"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1405.2486v1, manuscript sections 1-4",
+      "arxiv:2205.08972v1, introduction and periodic-state sections",
+      "doi:10.1016/0012-365X(80)90121-1, indexed abstract",
+      "Related open-access searches for chorded-cycle/theta-graph majority recurrence and Fibonacci two-cycle counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "An unchorded odd cycle has no primitive two-cycle because every flipping vertex forces both cycle neighbors to flip, hence impossible odd-length alternation.",
+        "For the single-chord odd cycle the explicit construction yields at least two endpoint-only and two one-arc-flipping orbits; the source models without a chord do not contain these states.",
+        "The exact class populations use constrained interior words and graph-dependent endpoint voting, absent from the cited general period-two result."
+      ],
+      "reasoning": "Neither the general eventual period restriction nor unchorded-ring configuration structure logically determines the additional dynamical states created by a chord; in particular no monotonic edge-addition implication can supply the exact count. A matching formula under a renamed theta-graph presentation remains a residual historical possibility.",
+      "searches": [
+        "arxiv:1405.2486v1 Theorem 1.1 finite period two",
+        "arxiv:2205.08972v1 periodic configurations of one-dimensional majority radius one",
+        "majority cycle local update longest alternating block no fixed point exact bipartite oscillation",
+        "theta graph majority update period two exact census"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1405.2486v1, Section 1 Theorem 1.1 and Section 2: only the general period-two property, not the specialized orbit census.",
+        "arxiv:2205.08972v1, Sections 1.1-1.3: one-dimensional cellular automaton on an unchorded cycle; no chorded-graph parameter.",
+        "Targeted public research records returned unrelated graph dynamics, including a complete multipartite XOR automaton census, which has a different graph and update rule."
+      ],
+      "reasoning": "A chorded cycle is also a theta graph with three internally disjoint paths, one of length one. The exact majority two-cycle census is not equivalent to generic period-at-most-two or to the unchorded local majority rule. Search results did not exhibit a theta-graph or single-chord count. No absence-of-results argument is treated as proof of novelty.",
+      "searches": [
+        "majority dynamics chorded cycles synchronous binary period two exact formula",
+        "majority dynamics on a cycle with a single chord two cycles",
+        "theta graph \"majority dynamics\" periodic two-cycle counting",
+        "Two-cycle transition classification majority dynamics with two vertices of degree three joined by a chord and all other vertices degree two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest available subject-matter records were for different dynamics or for unchorded cycles; no chord-length-indexed integer table was identified.",
+        "The exact values N(5,2)=4, N(6,3)=7, N(9,3)=8 were produced by a separate actual update enumeration and checked against the formula."
+      ],
+      "reasoning": "Tables of graph cycle structure, ordinary periodicity, or period-two frequency on other graph families would not give the present two-parameter integer sequence unless an explicit covering formula or graph reduction were established; none was found in inspected sources.",
+      "searches": [
+        "synchronous majority dynamics chorded cycle exact period two Fibonacci",
+        "majority cellular automata on cycle with one chord edge two cycle fixed point count Fibonacci",
+        "Exact two-cycle counts of synchronous binary majority on chorded cycle graphs C_n plus a single chord between vertices separated by d"
+      ]
+    },
+    "rationale": "The exact two-parameter primitive-two-cycle census and the sharp emergence of oscillations upon one chord do not follow from the known eventual period-two theorem or unchorded one-dimensional majority classification; targeted archive literature and research database comparisons did not identify a matching or stronger chorded-cycle theorem. Full historical priority cannot be certified, and one older original was inaccessible.",
+    "residual_risks": [
+      "The complete 1980 Goles–Olivos paper was not accessible; exact graph-family implications beyond its indexed abstract were not confirmed.",
+      "A prior theta-graph or majority-network census under different terminology could exist outside retrieved research indices.",
+      "No independent human mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: finite eventual period at most two, infinite random graph behavior and consensus, not a single-chord primitive-orbit census",
+        "evidence": [
+          "2014 first posted 2014-05-11; Section 1 Theorem 1.1 states eventual period at most two.",
+          "Main results treat unimodular, Erdős–Rényi and regular random graphs; no term chord found in text search."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "Introduction, Theorem 1.1, main theorem statements, representative sections 2-4 and the reference list; relevant portions of pages 2, 4, 8, 15 and 18 were inspected",
+        "method": "Open-access PDF text and visual page inspection; searched for chord terminology and examined the theorem statements and applications",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Closest accessible archive-era primary statement of the finite period-two theorem and graph-majority model"
+      },
+      {
+        "assessment": "Not covering: homogeneous degree-two cyclic neighborhood with radius parameter; no isolated added chord and no two-arc chord-distance formula",
+        "evidence": [
+          "arXiv:2205.08972v1 first posted 2022-05-18; Definitions 1-9 use one-dimensional cyclic words.",
+          "The introduction specifies a uniform radius-r majority rule and states the structural scope."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2205.08972",
+        "material_read": "Introduction, definitions and main periodic-state result, the structure/related-work discussion and section structure; complete PDF text was available, with focus on ring-local results",
+        "method": "Open-access PDF text and visually inspected pages 3 and 4; searched chord terminology",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Plausible stronger coverage for radius-one cyclic majority dynamics and exact periodic states"
+      },
+      {
+        "assessment": "Broader period boundedness, but a possible inaccessible historical source; no statement of chord counts seen in accessible material",
+        "evidence": [
+          "Discrete Mathematics 30 (1980), 187–189; accessible abstract states that symmetric threshold iterations converge to fixed points or two-cycles."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Indexed abstract and bibliographic record (three-page primary full text not obtained)",
+        "method": "Published abstract and journal metadata inspected; full text unavailable",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Foundational exact finite threshold period bound potentially stronger than the result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "59a6c7d9-54ec-4adb-92fd-6155a1763a27",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single chord is the minimal edge perturbation of an odd cycle and changes qualitative recurrent dynamics from no primitive oscillations to at least four. The exact infinite-family count separates all mechanisms, depends nontrivially on both chord arc lengths and reduces to Fibonacci growth plus a six-periodic correction. These are natural graph-dynamical invariants, not arbitrary finite samples.",
+    "status": "PASS"
+  }
+}
