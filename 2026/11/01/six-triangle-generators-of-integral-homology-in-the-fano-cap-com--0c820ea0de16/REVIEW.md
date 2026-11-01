@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The complex is specified by seven bitwise Fano lines; exact chain calculations give face counts \((7,21,28,7)\), boundary ranks \((6,15,7)\), a saturated triangle-to-edge image, and reduced integral \(H_2\) of rank six. Exhaustive mod-two cycle enumeration through weight six yields \((0,0,0,7,0,42)\), with seven tetrahedral boundaries and precisely 42 bipyramids. The external-edge argument rules out hidden even-coefficient integral supports of size at most six. Every geometric sphere has a nonzero primitive class, as confirmed by eight-unit Smith forms for each sphere adjoining the seven tetrahedron boundaries; the 42-cycle matrix has thirteen unit Smith factors, proving saturated generation. Exact group enumeration proves one 42-support orbit.
+
+**Originality — PASS, subject to literature risk.** The relevant older hypergraph-independence framework and Heawood rational representations give neither exact minimum integral triangular supports nor saturation of their generated lattice. Searches used Fano cap, Steiner triple-system line avoidance, integer homology systoles, bipyramids and equivalent Heawood language. The closest known published-finding corpus mathematical findings concern a Heawood independence-complex rational character and unrelated manifold shortest carriers. These do not imply the present support-and-lattice classification. Equivalent unindexed treatment remains possible; the published Fano incidence geometry, rational ranks and group order are not represented as new.
+
+**Value — PASS.** Complete shortest-carrier classification and saturation answer natural homological filling and generating-cycle questions for a canonical finite geometry, giving integral chain-level structure not determined by the Betti number or the usual rational character. The number 42, orbit structure, and exact primitive generating property are intrinsic to the complete natural complex, not an arbitrary parameter slice.
+
+**Limits.** The verifier is exhaustive for seven points only. Absolute priority and independent certification are not established. The source comparison does not establish nonexistence of unindexed equivalent literature.
+
+Self-review: passed. Independent audit: not yet performed.
