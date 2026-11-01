@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:09:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "immutable RESULT.md, scripts verify_full.py and verify_quotient.py, METADATA.json and AUDIT.json",
+        "Independent checker: 265 exact graph/partition evolutions and 10 n=4k boundaries; all passed",
+        "Full Git tree reconstructed from 10 actual tree/blob entries at assigned source SHA"
+      ],
+      "rationale": "For k>=2,n>=4k+1, the first counting-refinement round separates root, the union T_1..T_k, and the far tail. The round-two near-to-far counts are j for 1<=j<=k and far-to-near counts 2k-j+1 for k<j<=2k. Each later tail index a<j<=a+k has first separated neighbor T_{j-k}, while more distant tail points have none; reflection enforces no within-T_j separation. The last residual distance alone is a class, so strict first stabilization is ceil((floor(n/2)-1)/k). At n=4k the antipodal wraparound makes T_{2k-1},T_{2k} coalesce at round two and split at round three using T_{k-1}. The argument covers all integers in the stated domain, independently corroborated by new direct exact refinement for 265 pairs and 10 boundary cases; finite checks do not prove the induction.",
+      "residual_risks": [
+        "No claim for 2k+2<=n<4k; 1-WL exact rooted object only, not graph canonization or arbitrary circulants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kluge handles every prime-order circulant connection set with one mark, thus dominates the prime subcase of eventual partition only. Kiefer–McKay gives worst-case n-1 and n-2 iteration bounds for arbitrary graphs."
+        ],
+        "reasoning": "Neither broad endpoint orbit recovery nor a global worst-case extremal bound evaluates the exact distance-frontier rounds for this regular family.",
+        "searches": [
+          "Kluge, Combinatorial refinement on circulant graphs, arXiv:2204.01054 Lemma 4.12",
+          "Kiefer and McKay, arXiv:2005.10182 Theorems 1.1-1.2"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2204.01054 Section 4, Lemma 38/Lemma 4.12",
+        "arXiv:2005.10182 pp.1-2 Theorems 1.1-1.2",
+        "Resultary semantic results for exact C_n^k rooted refinement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The asserted first-round, second-round, and frontier recurrence plus antipodal exceptional merger are not contained in the checked eventual-closure or worst-case theorems."
+        ],
+        "reasoning": "Known prime-order endpoint is logically weaker than the all-order exact round claim, and a bound n-1 gives no exact ceiling or sharp 4k exception.",
+        "searches": [
+          "Kluge arXiv:2204.01054 Section 4 one-mark circulants",
+          "Kiefer–McKay arXiv:2005.10182 Section 1 iteration number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Consecutive-generator Cayley graph of Z_n is exactly C_n^k; distance strata T_j are reflected pairs. Kluge 2024 Lemma 4.12 identifies eventual 1-WL colors for prime-order circulants, not strict-depth evolution."
+        ],
+        "reasoning": "The prime-order eventual orbit statement is a covered equivalent endpoint, but exact integer-round trajectory for composite orders and at n=4k does not follow from eventual orbit equivalence.",
+        "searches": [
+          "Resultary semantic: counting color refinement one individualized vertex power of cycle C_n^k exact stabilization rounds orbit partition depth",
+          "arXiv:2204.01054 one-pointed circulant 1-WL multiplier-stabilizer orbits",
+          "arXiv:2005.10182 iteration number of colour refinement"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned indexed cycle-power result concerned rainbow edge coloring, a distinct invariant. The present strict-round formula was rederived from actual distance-count signatures."
+        ],
+        "reasoning": "No identical exact-depth table was identified; this does not by itself establish priority and no pre-existing graph table is treated as exhaustive.",
+        "searches": [
+          "Resultary semantic query on exact rooted 1-WL cycle-power depths",
+          "cycle power C_n^k one-vertex rooted WL round tables and circulant stabilization"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for the exact strict-round trajectory and sharp wraparound exception; the prime-order endpoint stable partition is known via Kluge and is explicitly NOT credited as new. No inspected prior result implies the all-n depth and boundary.",
+      "residual_risks": [
+        "An unindexed specialized color-refinement/regular-circulant round formula may predate the submission; prime-order endpoint is already covered by Kluge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COVERS_PRIME_ENDPOINT_ONLY",
+          "evidence": "Prime-order eventual rooted orbit equality, no claimed explicit all-order intermediate round trajectory.",
+          "identifier_or_url": "arXiv:2204.01054",
+          "material_read": "PDF Section 4, including prime-order multiplier-stabilizer orbit lemma (journal Lemma 4.12; 2022 preprint Lemma 38), relevant pages 23-24",
+          "method": "full-text PDF text, corresponding page screenshots",
+          "title": "Combinatorial refinement on circulant graphs",
+          "trigger": "Exact one-pointed circulant orbit problem"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING_TRAJECTORY",
+          "evidence": "Theorem 1.1 gives n-1 worst-case examples; Theorem 1.2 gives n-2/n-1 global lower extremum; not rooted cycle-power formula.",
+          "identifier_or_url": "arXiv:2005.10182",
+          "material_read": "PDF abstract, introduction and Theorems 1.1-1.2 on pp.1-2",
+          "method": "primary PDF text and page screenshot",
+          "title": "The Iteration Number of Colour Refinement",
+          "trigger": "Potential general strict-depth domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual theorem and local-neighbor induction",
+        "Kiefer–McKay worst-case iteration context",
+        "independent finite partition recreation"
+      ],
+      "rationale": "The power-of-cycle family is a canonical undirected circulant; exact synchronous iteration depth and the 4k wraparound threshold quantify a meaningful structural complexity boundary, unbounded in n at fixed k. The parameterized frontier is stronger than an isolated finite computation.",
+      "residual_risks": [
+        "No claim about general graph identification, arbitrary rooted circulants or the dense n<4k regime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "No claim for 2k+2<=n<4k; 1-WL exact rooted object only, not graph canonization or arbitrary circulants.; An unindexed specialized color-refinement/regular-circulant round formula may predate the submission; prime-order endpoint is already covered by Kluge.; No claim about general graph identification, arbitrary rooted circulants or the dense n<4k regime.",
+  "schema_version": 1
+}

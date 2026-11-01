@@ -1,15 +1,21 @@
-# Scientific review: exact rooted refinement depth of cycle powers
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the synchronous counting convention, identifies exact round-one colours and establishes round-two distance separation for \(n\ge4k+1\). The inductive frontier uses the smallest previously separated distance class adjacent to a newly exposed vertex, which is exactly indexed by \(j-k\). This establishes the complete intermediate partitions and the sharp depth \(\lceil(\lfloor n/2\rfloor-1)/k\rceil\). At \(n=4k\), an explicitly computed second-round collision of the final two distance strata is resolved on round three. The final classes are precisely reflection orbits, hence stable. Two separate executable finite checks passed. Their finite scope is not substituted for the proof.
+## correctness
 
-## Originality — PASS, with priority uncertainty
-The closest inspected source is Kluge (2022), Lemma 38, establishing the eventual single-root colour classes for *prime-order* circulants in terms of multiplier stabilizers. It already covers the final prime-order partition and is not treated as a novel special case. It does not provide the parameter-uniform exact intermediate partition evolution, composite-order family, or sharp three-round boundary at \(n=4k\). Kiefer and McKay (2020) address worst-case iteration numbers, and Kersting et al. (2014) address general colour-refinement optimization rather than this exact family. An independently indexed study of rainbow connection on cycle powers concerns edge-colouring, not the claimed counting-refinement invariant, but its complete text was not inspected; it remains a literature-access risk. Targeted mathematical-literature and research-index searches found no direct exact-depth statement. Search absence alone is not proof of priority.
+PASS
 
-## Value — PASS
-The family is the natural consecutive-generator circulant family, and the result gives the exact number of synchronous local aggregation rounds needed to expose every root-stabilizer orbit. The transition at \(n=4k\) is a genuine geometric wrap-around obstruction: the antipodal stratum acquires a second near-neighbour and remains merged with the penultimate distance stratum for an extra round. The unbounded depth for fixed \(k\) is made quantitative. This is a structural finite-model-theoretic classification, not a renamed general bound or isolated table value.
+For k>=2,n>=4k+1, the first counting-refinement round separates root, the union T_1..T_k, and the far tail. The round-two near-to-far counts are j for 1<=j<=k and far-to-near counts 2k-j+1 for k<j<=2k. Each later tail index a<j<=a+k has first separated neighbor T_{j-k}, while more distant tail points have none; reflection enforces no within-T_j separation. The last residual distance alone is a class, so strict first stabilization is ceil((floor(n/2)-1)/k). At n=4k the antipodal wraparound makes T_{2k-1},T_{2k} coalesce at round two and split at round three using T_{k-1}. The argument covers all integers in the stated domain, independently corroborated by new direct exact refinement for 265 pairs and 10 boundary cases; finite checks do not prove the induction.
 
-## Closest references and scientific limitations
-Arvind et al. (2015), Kluge (2022), Kiefer and McKay (2020), and Kersting et al. (2014) were examined at the material levels described in the structured audit. The prime-order stable-partition conclusion has earlier coverage; no priority is claimed for that subresult. Full external priority verification and the smaller dense regime are outside this result. No independent audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for the exact strict-round trajectory and sharp wraparound exception; the prime-order endpoint stable partition is known via Kluge and is explicitly NOT credited as new. No inspected prior result implies the all-n depth and boundary.
+
+## value
+
+PASS
+
+The power-of-cycle family is a canonical undirected circulant; exact synchronous iteration depth and the 4k wraparound threshold quantify a meaningful structural complexity boundary, unbounded in n at fixed k. The parameterized frontier is stronger than an isolated finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

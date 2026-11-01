@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python3 verify_full.py` to reconstruct the undirected adjacency lists and apply exact synchronous neighbour-multiset refinement from the root singleton. Run `python3 verify_quotient.py` to construct a separate distance-quotient transition matrix and independently evolve colour signatures. Neither script requires third-party packages.
+## correctness
 
-The first verifies every partition at every strict round for 840 parameter pairs in the main domain, plus the exact three-round boundary behaviour in 29 additional parameter cases; it touches 402,409 vertex-round instances. The second verifies the same 869 parameter cases independently, with 206,045 distance-profile checks in the main domain, and confirms the unique second-round merger at the boundary.
+PASS
 
-Execution records are included as `full_output.txt` and `quotient_output.txt`; each ends in `ALL_TESTS_PASS`. Inputs of both programs are generated deterministically. The computation is finite; the all-parameter statement is supported by the proof in `RESULT.md`, particularly the initial radius-two separation and the first-adjacent-stratum frontier induction.
+For k>=2,n>=4k+1, the first counting-refinement round separates root, the union T_1..T_k, and the far tail. The round-two near-to-far counts are j for 1<=j<=k and far-to-near counts 2k-j+1 for k<j<=2k. Each later tail index a<j<=a+k has first separated neighbor T_{j-k}, while more distant tail points have none; reflection enforces no within-T_j separation. The last residual distance alone is a class, so strict first stabilization is ceil((floor(n/2)-1)/k). At n=4k the antipodal wraparound makes T_{2k-1},T_{2k} coalesce at round two and split at round three using T_{k-1}. The argument covers all integers in the stated domain, independently corroborated by new direct exact refinement for 265 pairs and 10 boundary cases; finite checks do not prove the induction.
 
-There is no formal proof assistant certificate and no independent audit. No extension to smaller values of \(n\), arbitrary root sets or general circulants is asserted.
+## originality
+
+PASS
+
+Best-knowledge PASS for the exact strict-round trajectory and sharp wraparound exception; the prime-order endpoint stable partition is known via Kluge and is explicitly NOT credited as new. No inspected prior result implies the all-n depth and boundary.
+
+## value
+
+PASS
+
+The power-of-cycle family is a canonical undirected circulant; exact synchronous iteration depth and the 4k wraparound threshold quantify a meaningful structural complexity boundary, unbounded in n at fixed k. The parameterized frontier is stronger than an isolated finite computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
