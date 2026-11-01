@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:53:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Source RESULT.md exact Git blob 6e23a58070fe98a86e694ac46069311516107b51",
+        "Source verify.c exact Git blob e372cafc4e5be5dc151a04977e54985f9bc2d77e (source read, not blindly executed)",
+        "/mnt/data/scope_worker02_run_20261029T0143/independent_check.py (independently implemented and executed, six finite fields)",
+        "Git tree verified with actual seven blob SHA1 IDs, reconstructed tree 1506a045220b0d5bd96d58f202c914e00886f087"
+      ],
+      "rationale": "Independently reconstructed all coefficient identities in the ordered basis (1,u,v,uv): T²=0 iff A²=0, {A,B}={A,C}=0 and {A,D}+{B,C}=0. For nonzero A, all 2-by-2 nilpotents are rank-one conjugates of J=E12; {J,-} has rank 2 and kernel 2, and the anticommutator of any two kernel matrices is 2ac I in its image, leaving a rank-2 affine solution plane for D. Nonzero stratum is (L²-1)L^6. For A=0, D is free A^4 and Y={BC+CB=0}. For odd characteristic the rank profile of C↦BC+CB across B=0, traceless nonzero, trace-nonzero determinant-zero and remaining B is 0,2,3,4, giving kernel dimensions 4,2,1,0 and [Y]=L^5+3L^4-2L^3-2L²+L. For char2, commutation centralizers have kernel dimensions 4 for scalar B and 2 otherwise; [Y]=L^6+L^5-L^3. Adding L^4[Y] proves [X]=L^9+4L^8-2L^7-3L^6+L^5 in odd characteristic and L^10+L^9+L^8-L^7-L^6 in char2, with respective dimensions 9 and 10 by constant-rank bundle strata. This is valid over arbitrary fields, with no assumption of reduced original scheme, and counts labeled matrices. Independent self-written field arithmetic/rank and anticommutator computation verified the Y stratum, nonzero nilpotent obstruction/affine fibers, and all predicted totals for F2,F3,F4,F5,F7,F8, including nonprime extensions of F2; tests corroborate, not prove unrestricted formulas.",
+      "residual_risks": [
+        "Grothendieck class of a reduced variety need not recover nonreduced scheme structure or individual irreducible components; these are not claimed.",
+        "The finite check uses limited fields and ring size; arbitrary-field statements follow from the symbolic stratum proof, not the enumerator.",
+        "No similarity-class enumeration, higher matrix sizes or arbitrary nonchain rings are proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/1212.6157v2 Section 10, pp. 41–43 in the 46-page primary PDF, assumes radical square zero for the nonprincipal extension.",
+          "https://arxiv.org/html/1805.00378v2 Theorem 1.1 analyzes complex anticommuting pairs and is a genuine known ingredient, not the ring-lifting theorem.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md Full published RESULT.md classifies nilpotency indices for J_n+epsilon B over F_q[epsilon]/epsilon²; the fixed Jordan base and square-zero coefficient ring do not dominate this four-dimensional R.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md Full published RESULT.md counts strongly nil-clean matrices over dual numbers, a different predicate from T²=0 over this R."
+        ],
+        "reasoning": "The strongest nearby general ring paper imposes a nilpotence-length restriction violated here; the geometry of field anti-commuting pairs supplies only the zero-reduction stratum; published dual-number theorems concern Loewy length two and different properties. None gives an implication to both displayed characteristic-dependent motives or all finite-field labeled counts.",
+        "searches": [
+          "matrix nilpotent order two over local complete intersections radical cube zero length four finite field counting",
+          "square zero matrices over dual numbers k epsilon modulo epsilon squared exact count lift nilpotent matrices",
+          "nilpotent matrices local rings size polynomial count Fq square-zero",
+          "https://arxiv.org/html/1212.6157v2",
+          "https://arxiv.org/html/1805.00378v2",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1212.6157v2",
+        "https://arxiv.org/html/1805.00378v2",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v3i1r2",
+        "Resultary semantic searches for exact local-ring square-zero matrix and differential-module counts",
+        "Source package RESULT.md, AUDIT.json, REVIEW.md from exact Git blob identities"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Nonzero residue: X|A!=0 has class (L²-1)L^6, using the rank-one nilpotent orbit and affine-six kernel/image fibers; no cited prior result supplies this stratum for R.",
+          "Zero residue: X|A=0=A^4 x Y with Y the field anticommuting-pair variety, a proper known constituent from Chen–Wang in char!=2.",
+          "https://arxiv.org/html/1212.6157v2 treats similarity/centralizers, whereas this result counts individual labeled matrices and a Grothendieck class.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md counts indices of Jordan lifts over F_q[epsilon]/epsilon², not arbitrary square-zero lifts over R; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md concerns strongly nil-clean operators."
+        ],
+        "reasoning": "Even granting all prior field Y results, both the A!=0 lift and characteristic-two base-centralizer classification are needed to deduce the final formulas. Existing distinct-ring counts and similarity classifications do not imply the claim by a direct general theorem, specialization, duality or dominated parameter choice. The exact formula remains a best-of-knowledge new synthesis.",
+        "searches": [
+          "2 by 2 square-zero matrices over Fq[u,v]/(u^2,v^2) number characteristic odd even Grothendieck class",
+          "square zero matrices over dual numbers k epsilon modulo epsilon squared exact count lift nilpotent matrices",
+          "anticommuting pairs 2x2 matrices and square-zero free differential modules over k[x,y]/(x^2,y^2)",
+          "https://arxiv.org/html/1212.6157v2",
+          "https://arxiv.org/html/1805.00378v2",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source RESULT.md Eq. (1): T=A+uB+vC+uvD; T²=0 iff A²=0, {A,B}={A,C}=0, and {A,D}+{B,C}=0.",
+          "https://arxiv.org/html/1212.6157v2 Section 10 explicitly assumes the nonprincipal maximal ideal P satisfies P²=0, not true of this R; Sections 1–2 concern similarity classes.",
+          "https://arxiv.org/html/1805.00378v2 Theorem 1.1 and Sections 1–4 concern BC+CB=0 for matrices over a field in characteristic !=2, only the A=0 constituent."
+        ],
+        "reasoning": "The sixteen-coordinate matrix-square equation is a coupled lift of an anticommuting pair, not a one-to-one reparameterization of a field pair or a dual-number matrix. The full coefficient-stratum class includes a nonzero nilpotent reduction orbit with affine-six fibers, and char2 changes anti-commutation to commutation. No inspected equivalent formulation already computes both total polynomial classes.",
+        "searches": [
+          "2 by 2 square-zero matrices over Fq[u,v]/(u^2,v^2) number characteristic odd even Grothendieck class",
+          "matrix nilpotent order two over local complete intersections radical cube zero length four finite field counting",
+          "anticommuting pairs 2x2 matrices and square-zero free differential modules over k[x,y]/(x^2,y^2)",
+          "square zero matrices over dual numbers k epsilon modulo epsilon squared exact count lift nilpotent matrices",
+          "k[x,y]/(x^2,y^2) differential matrices",
+          "https://arxiv.org/html/1212.6157v2",
+          "https://arxiv.org/html/1805.00378v2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual Resultary semantic searches returned the published dual-number Jordan-lift and strongly-nil-clean census findings, but no entry with the two polynomials L^9+4L^8-2L^7-3L^6+L^5 and L^10+L^9+L^8-L^7-L^6.",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v3i1r2 Ekhad–Zeilberger publisher landing page concerns square-zero *upper triangular matrices over a field*, not all 2-by-2 matrices over the local complete intersection.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md and https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md were retrieved in full and mathematically compared."
+        ],
+        "reasoning": "A precise table or formula for this sixteen-coordinate locus was not identified in the checked accessible database and published-result records. Absence of a search hit is not itself novelty proof; the decisive comparison is the mismatch in the objects and hypotheses of actual stronger candidates.",
+        "searches": [
+          "2 by 2 square-zero matrices over Fq[u,v]/(u^2,v^2) number characteristic odd even Grothendieck class",
+          "matrix nilpotent order two over local complete intersections radical cube zero length four finite field counting",
+          "anticommuting pairs 2x2 matrices and square-zero free differential modules over k[x,y]/(x^2,y^2)",
+          "nilpotent matrices local rings size polynomial count Fq square-zero",
+          "number square zero matrices over finite local rings radical cube zero",
+          "anticommuting pairs of 2 by 2 matrices characteristic 2 count finite fields",
+          "Resultary semantic search full square-zero local ring counts and Jordan dual-number lift distributions"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the full square-zero locus of labelled 2-by-2 matrices over R=k[u,v]/(u^2,v^2): the two characteristic-dependent K0(Var_k) classes, dimensions and all finite-extension point counts. Prasad–Singla–Spallone study similarity classes over length-two rings and a nonprincipal extension with radical square zero, whereas this ring has m^2=(uv) nonzero and m^3=0. Chen–Wang cover the known field anticommuting-pair Y (the A=0 base, in characteristic not two) but not the square-zero lift over R. Two published Resultary dual-number results treat a different ring and different invariants. Neither broad theorems on similarity nor the field stratum directly imply the full motivic formulas; a fresh lift computation is essential. This is not an absolute priority certification and previously unindexed exact specialization remains a genuine residual risk.",
+      "residual_risks": [
+        "Unindexed specialized exact counts over short nonchain local complete intersections or differential-module moduli might reproduce these polynomials under different terminology.",
+        "Ekhad–Zeilberger publisher record was identified by bibliographic material, not primary full-text analysis; its target is different and it was not used to assert broad noncoverage.",
+        "Originality is conditional on the accessible primary literature and Resultary records actually inspected; no exhaustive historical priority certificate is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING full claim: nonprincipal case demands P²=0; R has m²=(uv)!=0. Similarity classification not the Grothendieck class of labeled square-zero matrices.",
+          "evidence": [
+            "https://arxiv.org/html/1212.6157v2 Section 10 and PDF pages 42–43; source PDF inspected via page screenshots."
+          ],
+          "identifier_or_url": "arXiv:1212.6157v2 / https://arxiv.org/html/1212.6157v2",
+          "material_read": "Primary 46-page PDF content including introduction, main hypotheses and Section 10 pp.41–43; PDF pages 42/43 visually inspected with screenshots, including requirement P²=0.",
+          "method": "Lawful OA arXiv PDF full text and actual PDF screenshots; compared ring hypotheses, objects, counting versus similarity.",
+          "title": "Similarity of matrices over local rings of length two",
+          "trigger": "Highly relevant local-ring matrix problem, nonprincipal extension and possible stronger similarity classification."
+        },
+        {
+          "assessment": "PARTIALLY_COVERING: established complex field Y geometry, not full R-matrix lift, motivic class in arbitrary fields or char2 effect.",
+          "evidence": [
+            "https://arxiv.org/html/1805.00378v2 Theorem 1.1 and Sections 1–5."
+          ],
+          "identifier_or_url": "arXiv:1805.00378v2 / https://arxiv.org/html/1805.00378v2",
+          "material_read": "Lawful full arXiv HTML: introduction Sections 1.2–1.4 and Theorems 1.1–1.3, relevant arguments in Sections 2–5 and ground-field restrictions.",
+          "method": "Actual HTML full-text open and section reading; checked what its theorem states and the coefficient field.",
+          "title": "Anti-commuting varieties",
+          "trigger": "The A=0 reduction is exactly the field anti-commuting-pair locus."
+        },
+        {
+          "assessment": "NOT_COVERING: F_q[epsilon]/epsilon², fixed Jordan reduction and nilpotency index distribution; no all-matrix T²=0 count for current R.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md Finding, Proof and Limitations."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-nilpotency-index-distribution-for-jordan-lifts-over-finite--a669645ca0b7/RESULT.md",
+          "material_read": "Full published RESULT.md theorem, proof, verification, scope and references.",
+          "method": "Authorized read-only GitHub file fetch; compared coefficient ring and fixed Jordan block versus arbitrary A.",
+          "title": "Exact nilpotency-index distribution for Jordan lifts over finite dual numbers",
+          "trigger": "Published precise finite-field nilpotent-matrix lift result and potential stronger count."
+        },
+        {
+          "assessment": "NOT_COVERING: strongly nil-clean is a different property and the ring has square-zero radical; no implication to present square-zero matrix locus.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md Finding and Proof."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-strongly-nil-clean-census-over-mathbb-f-q-varepsilon-varep--0c1ad928a72e/RESULT.md",
+          "material_read": "Full published RESULT.md theorem, proof and relationship-to-prior-work sections.",
+          "method": "Authorized read-only GitHub file fetch and mathematical comparison.",
+          "title": "Exact strongly nil-clean census over F_q[epsilon]/(epsilon²)",
+          "trigger": "Published finite-field matrix enumeration that could dominate small-ring counts."
+        },
+        {
+          "assessment": "DIFFERENT TARGET; only upper triangular field matrices in cited description, with residual risk explicitly kept. No whole-document NOT_COVERING inference made.",
+          "evidence": [
+            "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v3i1r2 bibliographic/abstract identification."
+          ],
+          "identifier_or_url": "doi:10.37236/1226 / https://www.combinatorics.org/ojs/index.php/eljc/article/view/v3i1r2",
+          "material_read": "Bibliographic record and publisher landing-page scope; no full proof used to claim whole-document noncoverage.",
+          "method": "Publisher page and mathematical object comparison from title/abstract only.",
+          "title": "The Number of Solutions of X²=0 in Triangular Matrices Over GF(q)",
+          "trigger": "A likely older exact square-zero matrix count."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source RESULT.md stratum construction and dimension argument",
+        "https://arxiv.org/html/1212.6157v2 ring conditions",
+        "https://arxiv.org/html/1805.00378v2 geometric base constituent"
+      ],
+      "rationale": "The four-dimensional ring k[u,v]/(u²,v²) is a canonical smallest two-generator commutative complete intersection with nonzero m² and m³=0. Its labeled rank-two square-zero endomorphisms are natural arithmetic invariants of free differential modules over a short singular algebra. The full motivic class determines counts over every finite extension, beyond isolated small-q examples. The non-obvious characteristic jump in reduced variety dimension from 9 to 10 follows from anti-commuting versus commuting fibers. This exact, naturally motivated invariant is not mechanically a field-matrix count or covered by a generic classification; it can serve as a benchmark for differential-module and finite local-ring matrix enumeration without requiring a paper-sized generalization.",
+      "residual_risks": [
+        "The theorem is restricted to 2-by-2 labeled matrices over one four-dimensional algebra; no general family or component classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem is only about the reduced variety of labeled 2-by-2 square-zero matrices, not the original zero-scheme reducedness, similarity or components.",
+    "Finite field computations include F2,F3,F4,F5,F7,F8; this is not exhaustive across every field, and the arbitrary-field formula depends on the reconstructed geometric proof.",
+    "Originality is best-of-knowledge, with unindexed older finite-ring counts an explicit bibliographic residual risk.",
+    "Publication is not_ready due unsanitized private operational identifiers and unsupported first_public_date in potentially public metadata; no public edits authorized."
+  ],
+  "schema_version": 1
+}
