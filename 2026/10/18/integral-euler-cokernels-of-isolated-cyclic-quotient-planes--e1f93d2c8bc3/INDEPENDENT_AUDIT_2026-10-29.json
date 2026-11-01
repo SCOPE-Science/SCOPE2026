@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:56:14.812517Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md group-ring proof, steps 1–4",
+        "Assigned verify.py implementation inspected, not treated as proof",
+        "Independent finite checker in attached private audit artifacts; SHA/tree verified"
+      ],
+      "rationale": "The theorem concerns n≥3 and unit a mod n, with the ordinary unscaled Hessian of the explicitly specified Euler quadratic polynomial. The group-ring factor t^{-(a+1)}(t−1)(t^a−1)(1+t^{a+1}) was independently algebraically checked, including coincident shifts. Since a is a unit, multiplication by t^a−1 has precisely the augmentation ideal image, giving ker[(t−1)(t^a−1)]=ZN and coker A=Z⊕Z/n, with the stated exact sequence. For m=n/g odd, 1+t^{a+1} has g odd-length signed cycles, producing (Z/2)^{g−1} as kernel of the sequence; odd n splits, whereas even n is nonsplit by exact F2 nullity g (one fewer even torsion factor than the split case). For m even, the signed cycles give free Z^g and torsion injects into Z/n, hence cyclic; the integer kernel basis B_0,A_r has Gram determinant nm^g/4 while Fourier nonzero eigenvalues multiply to n²m^g/8, giving torsion n/2 and free rank g+1. An independently written SymPy SNF checker verified every admissible pair 3≤n≤22 plus six higher cases (154), with extra mod-2 and pseudodeterminant checks for small n; these finite checks corroborate the infinite proof, not replace it.",
+      "residual_risks": [
+        "Euler-form normalization is assessed against the explicit Q in the assigned source; primary attribution to Bachhuber–Gholampour Theorem 4.6 could not be independently checked in full text.",
+        "No claim extends to nonunit a or noncyclic quotient groups; no formal Lean/expert attestation was performed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Noferini–Williams Theorem 3.15 computes the count of nonunit invariant factors from modular polynomial gcds; their other results provide general companion-ring transformations and determinantal divisors.",
+          "Their §4 applications explicitly study cocktail-party adjacency, fractional/generalized Fibonacci, generalized Neuwirth and other cyclic presentations; none of the inspected statements is a gcd(n,a+1)-controlled Euler polar cokernel for this exact three-factor symbol.",
+          "Bachhuber–Gholampour abstract establishes an Euler quadratic form classification but does not itself display the present integral cokernel classification. Full original text was not available for independent check."
+        ],
+        "reasoning": "The general Smith theory is methodologically broader but does not automatically evaluate all integer extensions and primitive-kernel covolumes of this special symbol. An exact prior general theorem that algebraically determines the same Smith group would dominate even if unstated; no such implication was established from material read. The closest original paper remains a full-text-access priority risk.",
+        "searches": [
+          "V. Noferini and G. Williams, 2025, DOI:10.1016/j.laa.2024.12.003, full OA PDF, Theorems 3.1, 3.8, 3.11, 3.13, 3.15 and §§4.1–4.6",
+          "arXiv 2610.12736v1: G-Equivariant Hilbert Schemes and Quadratic Forms (abstract; full text access blocked)",
+          "Resultary semantic searches of published findings on integral Euler form and Smith classifications"
+        ]
+      },
+      "checked_sources": [
+        "Noferini and Williams, Linear Algebra and its Applications 708 (2025), 372–404, DOI:10.1016/j.laa.2024.12.003, Theorems 3.1, 3.15 and §§4.3–4.4, OA full PDF read",
+        "Bachhuber and Gholampour, arXiv:2610.12736v1 (2026-10-08), abstract only; full preprint inaccessible in this execution",
+        "Published Resultary/2026 numerical Euler lattice RESULT.md, 2026/10/4, full text read",
+        "Resultary semantic search hits: generalized-lantern Smith H_1, smooth surface Euler lattice, cyclic quotient singularities; none an exact matching statement",
+        "Additional exact-string web searches for the factor polynomial and Euler Hessian (no matching primary paper retrieved)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The input Euler-form coefficients are credited to Bachhuber–Gholampour; knowing coefficients is not equivalent to knowing all integral Smith factors.",
+          "Theorem 3.15 counts nonunit factors but does not on its own determine whether the elementary 2-group extension is split or the cyclic torsion order in the even-shift-cycle case.",
+          "The Néron–Severi discriminant theorem applies to smooth projective surfaces, unlike the character-multiplicity Euler lattice of an affine quotient stack."
+        ],
+        "reasoning": "Prior results imply the input form and some generic tools, not, without substantial specialized argument, the explicit group for every coprime (n,a), including the even-cycle kernel jump. This is a qualified positive originality judgment rather than an assertion of universally unclaimed priority.",
+        "searches": [
+          "Noferini–Williams Theorems 3.1, 3.15 and applications §§4.2–4.6, OA PDF",
+          "Bachhuber–Gholampour, arXiv:2610.12736v1 abstract and attempted full text",
+          "Resultary full RESULT.md: 2026/10/4/SCOPE-the-numerical-euler-lattice-of-a-surface-has-the-n-ron-severi-di--5ef4157e1c3a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Hessian is the seven-shift circulant 2I-S-S^{-1}-S^a-S^{-a}+S^{a+1}+S^{-(a+1)}; its group-ring symbol is t^{-(a+1)}(t-1)(t^a-1)(1+t^{a+1}).",
+          "For unit a mod n, replacing the cyclic difference t^a-1 by t-1 preserves its image (the augmentation ideal), but still requires nontrivial extension and lattice analysis for the cokernel.",
+          "Resultary published numerical Euler lattice concerns K_num of smooth projective surfaces and Néron–Severi discriminant groups, not this quotient-stack character lattice."
+        ],
+        "reasoning": "The Euler Hessian, its circulant polynomial, and the cyclic-module quotient are equivalent formulations of one integer matrix problem. Searches for all three languages found generic tools and different Euler lattices, not an already evaluated all-unit-weight Smith classification. A failed search alone does not prove priority.",
+        "searches": [
+          "Resultary search: integral Smith normal form Euler bilinear form cyclic quotient plane singularity weights 1 a Hessian 2I minus shifts radical torsion gcd n a+1",
+          "Resultary search: Smith cokernel circulant (t-1)(t^a-1)(t^(a+1)+1) cyclic group integral lattices quotient surface",
+          "web: cyclic quotient surface orbifold Euler form Smith normal form radical torsion (1,a) mu_n",
+          "web: Smith normal form circulant (1-x)(1-x^a)(1+x^(a+1))"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Noferini–Williams §4.3 is a block-constant circulant, not the seven-shift Hessian; §4.4 generalized Fibonacci relators have a distinct polynomial symbol.",
+          "The published Resultary smooth-surface numerical Euler statement gives a Néron–Severi discriminant formula, not this cyclic-stack matrix.",
+          "The independently calculated 154 finite SNFs agree with the submitted formula, but finite internal checks are not a pre-existing published exact table and are not novelty evidence."
+        ],
+        "reasoning": "No searched source or inspected table records this exact infinite all-unit-weight invariant-factor classification. Searches are nonexhaustive; an older unindexed Smith table remains possible.",
+        "searches": [
+          "web: Smith normal form circulant (1-x)(1-x^a)(1+x^(a+1))",
+          "web: cyclic quotient surface orbifold Euler form Smith normal form radical torsion (1,a) mu_n",
+          "Resultary search: Smith cokernel circulant (t-1)(t^a-1)(t^(a+1)+1) cyclic group integral lattices quotient surface",
+          "Noferini–Williams 2025 §4 explicit Smith tables and applications"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact integral Smith classification of the Euler polar lattice of all isolated unit-weight cyclic quotient planes. The originating Bachhuber–Gholampour paper introduces the Euler form, and Noferini–Williams provide strong generic circulant Smith tools, but the inspected statements do not give or immediately entail the full gcd/parity invariant-factor formula. A related published smooth-projective-surface Euler-lattice statement concerns a different geometric lattice. The source preprint full text was not independently accessible this execution; historical priority therefore remains qualified.",
+      "residual_risks": [
+        "The originating Bachhuber–Gholampour full paper is highly relevant but was inaccessible; its uninspected results/appendices might cover some or all Smith data despite the abstract.",
+        "General companion-ring/cyclic-presentation literature could contain an equivalent special-symbol Smith classification under another alias or as a corollary.",
+        "Searches and inspected primary sources are bounded; no universal first-discovery or independence guarantee is implied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_METHOD_NOT_IDENTIFIED_AS_EXACT_FAMILY_COVERAGE",
+          "evidence": [
+            "Theorem 3.15 supplies a count of nonunit factors via mod-p gcd, not the complete invariant-factor list for this special Euler symbol.",
+            "Theorem 4.5 concerns block-constant rows for Neuwirth groups; §4.4 generalized Fibonacci matrices have another polynomial."
+          ],
+          "identifier_or_url": "https://repository.essex.ac.uk/39978/1/1-s2.0-S0024379524004750-main.pdf",
+          "material_read": "OA original 33-page PDF; introduction and application-family descriptions, Theorem 3.15 and its proof at printed page 387, §4.3–4.4 at printed pages 390–394, and key theorem statements §3",
+          "method": "Full-text search plus original PDF page images 372, 387 and 394, comparison of defining polynomials and theorem hypotheses",
+          "title": "Smith forms of matrices in Companion Rings, with group theoretic and topological applications",
+          "trigger": "Broad Smith theory for circulant integer matrices might logically dominate the target family"
+        },
+        {
+          "assessment": "ORIGINAL_SOURCE_PLAUSIBLE_FULL_TEXT_INACCESSIBLE_PRIORITY_RISK",
+          "evidence": [
+            "Abstract explicitly advertises an Euler quadratic form and classification of quotient stacks, but not an integral Smith-cokernel theorem.",
+            "The assigned package credits Theorem 4.6 for coefficients; that attribution is not independently confirmed from original full text this execution."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12736",
+          "material_read": "arXiv abstract and bibliographic record; independently inspected the Euler quadratic polynomial as reproduced in the assigned RESULT.md, not the original paper full text",
+          "method": "Attempted arXiv HTML and alternate lawful OA retrieval; both unavailable. Authorized Oxford paper retrieval returned vpn_disconnected; no retry or bypass.",
+          "title": "G-Equivariant Hilbert Schemes and Quadratic Forms",
+          "trigger": "Original source of the precise quotient-stack Euler quadratic form; most plausible exact-priority source"
+        },
+        {
+          "assessment": "DIFFERENT_EULER_LATTICE_NOT_COVERING",
+          "evidence": [
+            "That result determines the numerical Euler pairing of a smooth projective surface via Néron–Severi intersection form; the present object is an n-character lattice of a singular affine quotient stack."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-numerical-euler-lattice-of-a-surface-has-the-n-ron-severi-di--5ef4157e1c3a/RESULT.md",
+          "material_read": "Full RESULT.md theorem, proof, limitations and cited literature",
+          "method": "Read GitHub source file and compare the lattice definitions, geometric category and implications",
+          "title": "The numerical Euler lattice of a surface has the Néron–Severi discriminant group",
+          "trigger": "Closest published Resultary Euler lattice and Smith-cokernel finding"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bachhuber–Gholampour arXiv:2610.12736 abstract for the natural geometric origin of the Euler form",
+        "Noferini–Williams 2025 for natural exact Smith invariants of circulants",
+        "Source RESULT.md for the full all-unit-weight structural classification"
+      ],
+      "rationale": "The Euler quadratic form is a natural representation-theoretic lattice invariant of isolated cyclic quotient surface stacks. Its exact integral cokernel and radical are finer than rational rank and directly compare canonical Euler data across all unit-weight actions. The complete invariant factors exhibit a genuine parity/gcd phase transition, including an infinite exceptional free-rank jump and a cyclic-vs-elementary 2-torsion dichotomy. These require substantive integer-extension and covolume analysis, rather than relabeling a textbook computation or reading off a known finite table. The result has self-contained mathematical use as exact integral Euler-lattice data, without claiming a new geometric existence theorem.",
+      "residual_risks": [
+        "This is a focused integral-lattice classification, not a Hilbert-scheme dimension or smoothness theorem.",
+        "The mathematical significance is structural, not supported by a proved downstream application."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original Bachhuber–Gholampour full preprint not independently accessible; arXiv/OA retrieval failed and authorized Oxford access returned vpn_disconnected. The source was not called NOT_COVERING from its abstract.",
+    "No exhaustive proof of priority from search results; equivalent unindexed circulant or cyclic-presentation result remains possible.",
+    "Independent exact arithmetic finite checks do not prove the all-parameter theorem; proof reconstructed separately.",
+    "The guarded publication operations are only staged in a private audit change-set, not executed."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review: integral Euler cokernels of isolated cyclic quotient planes
+# Independent mathematical audit
 
-**Correctness — PASS.** The source-derived Hessian has an explicit seven-shift formula and a three-factor integral group-ring factorization. The cyclic difference image identity proves the necessary integral normalization. An exact sequence reduces the Smith problem to the parity of the cycles of multiplication by \(1+t^{a+1}\). For odd cycle length, the elementary two-group extension is classified by its mod-two rank; for even cycle length, torsion is cyclic, and a primitive-kernel covolume/pseudodeterminant calculation gives its exact order. The proof treats the crepant and coincident-character boundary cases. An executable integer Smith check agrees on 154 admissible finite examples, without being substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Bachhuber and Gholampour, arXiv:2610.12736v1, supply the Euler coefficients and classify character groupings, but do not state this integral cokernel theorem. Noferini and Williams, DOI:10.1016/j.laa.2024.12.003, give broad companion-ring methods and other explicit circulant examples, without an identified result for this particular gcd/parity family in the inspected material. Searches of relevant mathematical findings returned no equivalent all-unit-weight statement. General algorithms, prior special-weight calculations, or unindexed literature could still conceal equivalent consequences; uniqueness is not claimed.
+PASS
 
-**Value — PASS.** A complete Smith classification of the canonical Euler lattice across every isolated cyclic quotient plane action with both weights units is more structural than numerical experiments or a rank computation. It exhibits a sharp arithmetic phase transition: the radical dimension is either one or \(g+1\), with a corresponding change in torsion structure. The classification is useful for comparing integral representation-theoretic Euler data and isolating exceptional quotient-stack families.
+The theorem concerns n≥3 and unit a mod n, with the ordinary unscaled Hessian of the explicitly specified Euler quadratic polynomial. The group-ring factor t^{-(a+1)}(t−1)(t^a−1)(1+t^{a+1}) was independently algebraically checked, including coincident shifts. Since a is a unit, multiplication by t^a−1 has precisely the augmentation ideal image, giving ker[(t−1)(t^a−1)]=ZN and coker A=Z⊕Z/n, with the stated exact sequence. For m=n/g odd, 1+t^{a+1} has g odd-length signed cycles, producing (Z/2)^{g−1} as kernel of the sequence; odd n splits, whereas even n is nonsplit by exact F2 nullity g (one fewer even torsion factor than the split case). For m even, the signed cycles give free Z^g and torsion injects into Z/n, hence cyclic; the integer kernel basis B_0,A_r has Gram determinant nm^g/4 while Fourier nonzero eigenvalues multiply to n²m^g/8, giving torsion n/2 and free rank g+1. An independently written SymPy SNF checker verified every admissible pair 3≤n≤22 plus six higher cases (154), with extra mod-2 and pseudodeterminant checks for small n; these finite checks corroborate the infinite proof, not replace it.
 
-**Scope and limitations.** The theorem assumes \(n\ge3\), \(\gcd(a,n)=1\), complex coefficients and the unscaled integer Hessian. It does not classify nonunit second weights, general finite abelian groups, or the geometry of individual Hilbert-scheme components. Independent verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact integral Smith classification of the Euler polar lattice of all isolated unit-weight cyclic quotient planes. The originating Bachhuber–Gholampour paper introduces the Euler form, and Noferini–Williams provide strong generic circulant Smith tools, but the inspected statements do not give or immediately entail the full gcd/parity invariant-factor formula. A related published smooth-projective-surface Euler-lattice statement concerns a different geometric lattice. The source preprint full text was not independently accessible this execution; historical priority therefore remains qualified.
+
+## value
+
+PASS
+
+The Euler quadratic form is a natural representation-theoretic lattice invariant of isolated cyclic quotient surface stacks. Its exact integral cokernel and radical are finer than rational rank and directly compare canonical Euler data across all unit-weight actions. The complete invariant factors exhibit a genuine parity/gcd phase transition, including an infinite exceptional free-rank jump and a cyclic-vs-elementary 2-torsion dichotomy. These require substantive integer-extension and covolume analysis, rather than relabeling a textbook computation or reading off a known finite table. The result has self-contained mathematical use as exact integral Euler-lattice data, without claiming a new geometric existence theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
