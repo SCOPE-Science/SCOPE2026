@@ -1,0 +1,153 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:13:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md 89ce8be7e1de4a7a8a0a3591f1dc288859f0c135",
+        "Pinned verify.py 1f733e98a21f2278c5a87b9bd919fba1179bdcf8 (read, not relied upon as stand-alone proof)",
+        "independent_checks.json produced by separate symbolic elimination and Routh verification",
+        "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf"
+      ],
+      "rationale": "For the exact displayed 4D polynomial ODE, q=0 forces p=s=r=0. With q≠0 the first two equations force r²=50 and p=qr/5. Then s=-52p/21 and the third equation is exactly 35q²−52q−1995=0; its two real nonzero roots times two signs of r yield exactly four nonzero equilibria. The origin Jacobian is diag(5,-10,-19/5,21/20), unstable index 2. Independent SymPy reconstruction of the full Jacobian characteristic polynomial at both r-signs, reduced modulo the equilibrium quadratic, gives the asserted quartic. Independently recomputed Routh B and C agree after exact algebraic reduction; using -7<q_±<9 yields signs +,+,-,+,-, so each nonzero equilibrium has three strict right-half-plane eigenvalues. The Routh array is nondegenerate, hence hyperbolic; no finite enumeration is used for completeness.",
+      "residual_risks": [
+        "The conclusion concerns precisely the published rational parameter vector; no proof here for general coefficients.",
+        "Neither exact local eigenvalue counts nor equilibrium completeness imply an actual hyperchaotic attractor, basin structure or validity/failure of a controller."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf",
+          "Chen et al., A new hyper-chaotic system and its synchronization, Nonlinear Analysis: Real World Applications 10 (2009), 2088–2096, DOI 10.1016/j.nonrwa.2008.03.015; abstract read, full article inaccessible",
+          "El-Dessoky, Synchronization and anti-synchronization of a hyperchaotic Chen system, Chaos, Solitons & Fractals 39 (2009), 1790–1797, DOI 10.1016/j.chaos.2007.06.053; full article text read via ResearchGate",
+          "The full 2009 El-Dessoky paper studies x′=a(y−x)+w, y′=dx−xz+cy, z′=xy−bz, w′=yz+rw, not the assigned Chen–Lee extension."
+        ],
+        "reasoning": "No accessible parameter-general equilibrium theorem for the same printed Chen–Lee extension was found that would imply these radicals and all four nonzero unstable indices. The original 2009 Chen et al. article remains incompletely inspected rather than classified as noncovering.",
+        "searches": [
+          "Chen hyperchaotic system p'=-q r+5p q'=p r-10q r'=p q/3-3.8r+0.2s s'=0.1p+0.5qr+1.05s equilibrium points stability eigenvalues",
+          "complete equilibrium five fixed points Chen hyperchaotic synchronization 2009 2023 f=5 g=-10 j=-3.8",
+          "\"A new hyper-chaotic system and its synchronization\" Chen Sheu equilibrium",
+          "\"Synchronization and anti-synchronization of a hyperchaotic Chen system\" equations 2009"
+        ]
+      },
+      "checked_sources": [
+        "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf",
+        "Chen et al., A new hyper-chaotic system and its synchronization, Nonlinear Analysis: Real World Applications 10 (2009), 2088–2096, DOI 10.1016/j.nonrwa.2008.03.015; abstract read, full article inaccessible",
+        "El-Dessoky, Synchronization and anti-synchronization of a hyperchaotic Chen system, Chaos, Solitons & Fractals 39 (2009), 1790–1797, DOI 10.1016/j.chaos.2007.06.053; full article text read via ResearchGate",
+        "Resultary/2026, 2026/10/4/SCOPE-five-equilibrium-correction-for-a-four-dimensional-chaos-generat--be37c8c765ca/RESULT.md (complete inspected)",
+        "Three semantic Resultary searches by exact equations/parameters, count and radical; exact top hit excluded as the assigned mirror",
+        "Focused web searches for 2009 Chen et al. preprint, lawful OA copy, parameter alias and equilibrium keyword; no matching full text located"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf",
+          "The 2023 origin-only characteristic polynomial factors as (λ−5)(λ+10)(λ+19/5)(λ−21/20).",
+          "El-Dessoky, Synchronization and anti-synchronization of a hyperchaotic Chen system, Chaos, Solitons & Fractals 39 (2009), 1790–1797, DOI 10.1016/j.chaos.2007.06.053; full article text read via ResearchGate",
+          "Resultary/2026, 2026/10/4/SCOPE-five-equilibrium-correction-for-a-four-dimensional-chaos-generat--be37c8c765ca/RESULT.md (complete inspected)"
+        ],
+        "reasoning": "The existence and local spectrum of one equilibrium neither imply that there are exactly five equilibria nor determine off-origin unstable indices. A controller for another four-dimensional system and a census for a different nonlinear flow cannot specialize to the present parameter-specific Chen–Lee ODE. A complete census hidden in the unavailable 2009 introducing paper remains a credible unresolved priority risk, but no positive coverage evidence was found.",
+        "searches": [
+          "complete equilibrium five fixed points Chen hyperchaotic synchronization 2009 2023 f=5 g=-10 j=-3.8",
+          "\"Control and adaptive modified function projective synchronization\" \"Equilibrium points and stability\"",
+          "\"A new hyper-chaotic system and its synchronization\" \"equilibrium points\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf",
+          "The 2023 §2.2 has (2.2) exactly p′=-qr+fp, q′=pr+gq, r′=pq/3+jr+0.2s, s′=lp+qr/2+1.05s, f=5,g=-10,j=-3.8,l=0.1; its stability paragraph gives only E=(0,0,0,0) eigenvalues (-3.8,1.05,5,-10).",
+          "Chen et al., A new hyper-chaotic system and its synchronization, Nonlinear Analysis: Real World Applications 10 (2009), 2088–2096, DOI 10.1016/j.nonrwa.2008.03.015; abstract read, full article inaccessible"
+        ],
+        "reasoning": "Direct equation/parameter and solved-radical aliases were searched. The matched full accessible primary text states only the origin analysis; no equivalent full five-equilibrium formula or nonzero unstable index is shown. The 2009 introducing source cannot be ruled out from its abstract.",
+        "searches": [
+          "Chen hyperchaotic system p'=-q r+5p q'=p r-10q r'=p q/3-3.8r+0.2s s'=0.1p+0.5qr+1.05s equilibrium points stability eigenvalues",
+          "complete equilibrium five fixed points Chen hyperchaotic synchronization 2009 2023 f=5 g=-10 j=-3.8",
+          "\"Chen hyperchaotic\" \"-qr\" \"pr\" \"pq\" equilibria 5",
+          "\"10.1016/j.nonrwa.2008.03.015\" \"equilibria\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact top semantic match is a mirror of the assigned record, not independent prior work.",
+          "Resultary/2026, 2026/10/4/SCOPE-five-equilibrium-correction-for-a-four-dimensional-chaos-generat--be37c8c765ca/RESULT.md (complete inspected)",
+          "The distinct five-equilibrium hit has x′=-12x+yz+w²/20−2/5, y′=8y−xz+w|y|, z′=xy−45z, w′=w−10z."
+        ],
+        "reasoning": "Three independent semantic query formulations were executed; high-ranked nearby findings were checked against actual equations. The only exact match is self-mirrored, and the similarly titled independent result is on an unrelated vector field. Search incompleteness is a residual risk.",
+        "searches": [
+          "Chen hyperchaotic system p'=-q r+5p q'=p r-10q r'=p q/3-3.8r+0.2s s'=0.1p+0.5qr+1.05s equilibrium points stability eigenvalues",
+          "complete equilibrium five fixed points Chen hyperchaotic synchronization 2009 2023 f=5 g=-10 j=-3.8",
+          "equilibrium census unstable dimension three Chen four dimensional hyperchaotic system square root 70501 Routh",
+          "Resultary/2026 2026/10/11/SCOPE-complete-equilibrium-census-and-unstable-index-split-for-the-che--5e96aa74a27e",
+          "Resultary/2026 2026/10/4/SCOPE-five-equilibrium-correction-for-a-four-dimensional-chaos-generat--be37c8c765ca"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact five-point fixed-point census and local unstable-index split at the cited parameter vector. The full 2023 benchmark paper prints the same ODE and parameters, but computes only the origin spectrum; no four further equilibria or index-three classification is present. A different 2009 paper with a Chen-hyperchaotic title has materially different equations; the closest Resultary five-equilibrium article also concerns another ODE. The 2009 original article full text could not be read; this is an expressly retained priority risk, not proof of novelty.",
+      "residual_risks": [
+        "Original 2009 Chen et al. body unavailable; its possibility of containing the same complete census or stability statement cannot be excluded. The institutional download served a different 1979 Rössler paper and must not be cited as if it were the requested 2009 paper.",
+        "A thesis, unindexed preprint, or alternate-parameter algebraic census may imply these exact results despite semantic and literal searches.",
+        "The benchmark paper describes the origin as an equilibrium, not expressly as the unique one; the result adds a classification but should not be framed as proving an explicit false uniqueness assertion by that paper."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRECURSOR_NOT_COVERING_FINAL_CENSUS",
+          "evidence": "Section 2.2 prints f=5,g=-10,j=-3.8,l=0.1 and E=(0,0,0,0) with eigenvalues -3.8,1.05,5,-10; no off-origin fixed points or unstable-index-three result.",
+          "identifier_or_url": "https://doi.org/10.3934/math.20231201",
+          "material_read": "Complete 14-page primary PDF text, including §2.2 equations and parameters (PDF page 4), origin spectral calculation (PDF page 5), control section and references; PDF pages 4–5 visually inspected by screenshot",
+          "method": "Compare actual vector field, fixed-point assertions, theorem scope, and follow-on stability/controls",
+          "title": "Control and adaptive modified function projective synchronization of different hyperchaotic dynamical systems",
+          "trigger": "Exact originating 2023 benchmark equations and numerical parameters"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PRIORITY_RISK",
+          "evidence": "The abstract does not disclose a full equilibrium classification, but the inaccessible body may; returned institutional document was plainly unrelated and supplies no negative coverage evidence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.nonrwa.2008.03.015",
+          "material_read": "Bibliographic record and abstract, which describes Chen–Lee-based nonlinear control, Lyapunov exponent computation and synchronization; no authorized full article obtained. Oxford attempt returned an unrelated Rössler 1979 three-page article and was explicitly rejected as the requested source.",
+          "method": "Lawful preprint/OA searches followed by authorized institutional source retrieval; abstract-only comparison; no inference about unexamined body",
+          "title": "A new hyper-chaotic system and its synchronization",
+          "trigger": "Introducing 2009 article cited in 2023 as source of same system; plausible priority competitor"
+        },
+        {
+          "assessment": "DIFFERENT_ODE_NOT_COVERING",
+          "evidence": "Model is x′=a(y−x)+w, y′=dx−xz+cy, z′=xy−bz, w′=yz+rw, with a=35,b=3,c=12,d=7,r=0.5, unlike the Chen–Lee ODE in the claim.",
+          "identifier_or_url": "https://doi.org/10.1016/j.chaos.2007.06.053",
+          "material_read": "Complete ResearchGate-hosted article text, including the model equations (system 10), synchronization and anti-synchronization sections and conclusions",
+          "method": "Side-by-side full vector-field comparison rather than topic/title matching",
+          "title": "Synchronization and anti-synchronization of a hyperchaotic Chen system",
+          "trigger": "Same Chen hyperchaotic language and cited predecessor of 2023 source"
+        },
+        {
+          "assessment": "DIFFERENT_ODE_NOT_COVERING",
+          "evidence": "Its vector field includes w²/20, w|y| and x′=-12x+yz−2/5 and is not algebraically a specialization of the target field.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-five-equilibrium-correction-for-a-four-dimensional-chaos-generat--be37c8c765ca/RESULT.md",
+          "material_read": "Complete RESULT.md, including displayed ODE, classification proof, spectral conclusion, and cited original article",
+          "method": "Direct comparison of ODE coefficients and parameter assumptions",
+          "title": "Five-equilibrium correction for a four-dimensional chaos generator",
+          "trigger": "Closest nonmirror published-finding database hit with a complete five-equilibrium correction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "El-Dessoky, Almohammadi, Alzahrani, AIMS Mathematics 8 (2023), DOI 10.3934/math.20231201, full 14-page paper pp. 23624–23625, §§2.2–2.3; DOI publisher PDF https://www.aimspress.com/aimspress-data/math/2023/10/PDF/math-08-10-1201.pdf",
+        "Chen et al., A new hyper-chaotic system and its synchronization, Nonlinear Analysis: Real World Applications 10 (2009), 2088–2096, DOI 10.1016/j.nonrwa.2008.03.015; abstract read, full article inaccessible",
+        "Independent elimination and Routh classification in independent_checks.json"
+      ],
+      "rationale": "The five-point equilibrium skeleton is a natural invariant of an actively studied four-dimensional hyperchaotic Chen–Lee benchmark, and its exact classification fills a concrete gap left by a same-ODE source that studies only the origin. The four omitted hyperbolic fixed points have unstable dimension three, versus two at the origin, a qualitative distinction relevant to local stable/unstable manifold dimensions and interpretations of basins and self-excitation. This is a motivated exact finite classification of a real benchmark system, not a parameter-renaming exercise or finite numerical sample. It does not claim a general-parameter theorem or invalidate synchronization by itself.",
+      "residual_risks": [
+        "The scope is narrow: one parameter vector and local geometry, with no global phase portrait or attractor statement.",
+        "The benchmark source only asserts one specific equilibrium rather than explicit uniqueness; avoid overstating the source error."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "2009 source full-text comparison incomplete; institutional tool returned wrong document, not accepted as evidence",
+    "No theorem for other parameter values, chaotic attractor existence, basin topology or synchronization efficacy",
+    "Priority is best-of-knowledge, not established universal absence"
+  ],
+  "schema_version": 1
+}

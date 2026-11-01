@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The equilibrium equations admit an exhaustive split into \(q=0\) and \(q\ne0\). The nonzero branch forces \(r^2=50\), \(p=qr/5\), \(s=-52p/21\), and then the single quadratic \(35q^2-52q-1995=0\), yielding exactly four nonzero points. Exact symbolic replay verifies the substitutions and the characteristic polynomial. The origin's spectrum is diagonal, while the nonzero equilibria have the exact Routh sign pattern \(+,+,-,+,-\), proving unstable dimensions two and three respectively without numerical root counting.
+## correctness
 
-## Originality
-PASS. The 2023 target paper's full text gives the same vector field and parameter vector but presents the origin only as a specific equilibrium point and does not state the complete five-point census or index split. published-finding corpus searches by the system equations, exact parameters, radical, equilibrium-count language, DOI, and implication aliases found no equivalent same-system result. The closest five-equilibrium database result was inspected in full and concerns a different four-dimensional vector field. The 2009 introducing paper remains a genuine residual risk because only its bibliographic record and abstract were accessible for statement-level comparison.
+PASS
 
-## Value
-PASS. A complete equilibrium census is a natural structural datum for a hyperchaotic benchmark used in fixed-point synchronization and control. The four omitted equilibria are not redundant copies of the origin's local geometry: their unstable dimension is three rather than two. This changes the equilibrium skeleton against which local basins, self-excitation, and control constructions may be interpreted, while the claim remains narrowly limited to what is proved.
+For the exact displayed 4D polynomial ODE, q=0 forces p=s=r=0. With q≠0 the first two equations force r²=50 and p=qr/5. Then s=-52p/21 and the third equation is exactly 35q²−52q−1995=0; its two real nonzero roots times two signs of r yield exactly four nonzero equilibria. The origin Jacobian is diag(5,-10,-19/5,21/20), unstable index 2. Independent SymPy reconstruction of the full Jacobian characteristic polynomial at both r-signs, reduced modulo the equilibrium quadratic, gives the asserted quartic. Independently recomputed Routh B and C agree after exact algebraic reduction; using -7<q_±<9 yields signs +,+,-,+,-, so each nonzero equilibrium has three strict right-half-plane eigenvalues. The Routh array is nondegenerate, hence hyperbolic; no finite enumeration is used for completeness.
 
-## Closest literature and limitations
-The direct source is El-Dessoky, Almohammadi, and Alzahrani (2023), DOI 10.3934/math.20231201. The introducing 2009 Chen-system paper, DOI 10.1016/j.nonrwa.2008.03.015, is the strongest access-limited risk. The closest semantic database record with a five-equilibrium conclusion is for Zhao–Wang–Zhang's different image-encryption flow and does not cover this system. No claim is made about arbitrary parameters, attractor existence, basin topology, or synchronization failure.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the exact five-point fixed-point census and local unstable-index split at the cited parameter vector. The full 2023 benchmark paper prints the same ODE and parameters, but computes only the origin spectrum; no four further equilibria or index-three classification is present. A different 2009 paper with a Chen-hyperchaotic title has materially different equations; the closest Resultary five-equilibrium article also concerns another ODE. The 2009 original article full text could not be read; this is an expressly retained priority risk, not proof of novelty.
+
+## value
+
+PASS
+
+The five-point equilibrium skeleton is a natural invariant of an actively studied four-dimensional hyperchaotic Chen–Lee benchmark, and its exact classification fills a concrete gap left by a same-ODE source that studies only the origin. The four omitted hyperbolic fixed points have unstable dimension three, versus two at the origin, a qualitative distinction relevant to local stable/unstable manifold dimensions and interpretations of basins and self-excitation. This is a motivated exact finite classification of a real benchmark system, not a parameter-renaming exercise or finite numerical sample. It does not claim a general-parameter theorem or invalidate synchronization by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
