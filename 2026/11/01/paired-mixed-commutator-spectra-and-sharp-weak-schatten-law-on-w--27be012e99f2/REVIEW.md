@@ -1,0 +1,11 @@
+# Review of mixed harmonic Bergman commutator spectrum
+
+**Correctness (PASS).** The normalized monomial basis and projection coefficients yield a single weighted bilateral shift. The exact positive and negative tails are equal in absolute value; gamma moments are strictly log-convex, which makes each tail coefficient positive. The coefficient reflection gives paired singular multiplicities; the middle-weight identities give a guaranteed block of zeros. A two-variable finite difference of log-gamma moments proves the \(r^{-2}\) leading coefficient, and singular-value counting gives its sharp indexed constant and logarithmic trace. All claims use fixed parameters and the operator is bounded. Reproducibility source runs 16,278 finite checks but is not substituted for proof.
+
+**Originality (PASS, best-knowledge).** Tian–Wang–Zhao (2026) proves qualitative noncommutation; Dong–Zhou (2013) proves vanishing-pattern symmetry, and Dong–Zhou (2014) classifies finite-rank cases. Their accessible full texts do not state the positive paired singular multiset or the sharp weighted mixed-degree weak-Schatten coefficient. Chbichib–Ghiloufi (2026) treats an ambient projection-multiplier commutator with different order. A previously recorded same-space self-commutator theorem covers \(m=n\) but does not give the claimed cross-index spectrum; that special case is explicitly excluded. The monomial shift calculations in older work are a potential route to derive parts of this result, so exhaustive priority is not asserted.
+
+**Value (PASS).** Mixed analytic/coanalytic Toeplitz commutators are natural quantitative noncommutation objects. Their non-selfadjoint spectra nevertheless have exact even singular-value pairing; a zero block depends on degree mismatch, while the sharp high-frequency scale is the product of degrees. The natural weak-Schatten endpoint is determined with its exact logarithmic coefficient. These are motivated operator invariants, not an arbitrary finite numerical slice.
+
+**Residual risks.** Older quasihomogeneous shift formulas could yield an equivalent sharp spectral coefficient under a different name. The complete exact kernel, polynomial-symbol extension, and independent validation are not claimed. The scientific review is not a publication-priority certificate.
+
+Self-review: passed. Independent audit: not yet performed.
