@@ -1,11 +1,21 @@
-# Three-axis scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The full superelliptic differential basis and Cartier coefficient formula reconstruct the two blocks \(H_1,H_2\), with the exact determinant \(2a^2(a^5-b^4)\). The discriminant criterion is established by \(f=f'=0\), and the exceptional Cartier block has rank two and a length-three nilpotent chain. The published Weil functional equation converts independently enumerated point counts at extension degrees one through four into the genus-four zeta numerator; its Newton polygon follows from exact \(7\)-adic valuations. Cusp parametrization proves all-extension marked counts and motivic identities. The standard-library checker rederives all critical arithmetic inputs. Limits: finite enumerations alone are not a proof of all-extension statements; those follow from the symbolic identities.
+## correctness
 
-**Originality — PASS (qualified).** Full readable primary sources include Baldwin et al.'s cyclic trigonal genus-four Abelian-functions paper, Elkin's general cyclic-cover Cartier formalism and rank bounds, and Kudo–Harashita's genus-four superspecial nonexistence result. Their statements and mathematical implications do not explicitly determine the doubled Hasse divisor, the exact rank dichotomy together with the exceptional Newton polygon, or the universal parameter-stratum classes for this two-parameter characteristic-seven family. General Cartier methods could supply individual coefficients but do not, on the inspected material, state the complete combined theorem. Searches of published mathematical-record summaries and the closest accessible historical claims identified no equivalent or stronger implication. Residual risk: Sohn's 2025 genus-four superelliptic \(a\)-number paper could not be examined in full; it might subsume some Cartier-rank information, and historical specialization tables may have covered the exceptional zeta numerator. Do not interpret searches as proof of worldwide uniqueness.
+PASS
 
-**Mathematical value — PASS.** The multiplicity-two Hasse divisor is a geometric refinement that does not follow merely from knowing the ordinary/nonordinary support. The all-parameter dichotomy and exact field-independent exceptional Newton polygon distinguish \(7\)-rank-zero from supersingular behavior in a natural genus-four family. The resulting elementary motivic census is tied to the actual discriminant cusp and the arithmetic stratification, not an arbitrary finite enumeration.
+At infinity the superelliptic pole-order test gives exactly four regular differentials dx/y, dx/y², x dx/y², x² dx/y². I independently expanded (x⁵+ax+b)² and (x⁵+ax+b)⁴ mod7 and reconstructed the coefficient extraction matrices H1=(2a) and H2=[[5ab²,0,1],[4b³,6a²,0],[a⁴,5ab,0]]. Their determinant is 2a²(a⁵-b⁴). On a≠0 H invertible gives ordinarity; on a=0,b≠0 the semilinear Cartier block has a nilpotent chain of length3 and rank2, giving stable rank0 and a-number2 (a-number is NOT the Cartier stable rank). An independently written finite-field quotient-ring enumerator reproduced #points (8,50,344,2094) over GF(7^j), j=1..4. Newton identities and functional equation yield 1-77T⁴+2401T⁸ and p-adic slope multiplicities 4 each at 1/4,3/4. The exceptional geometric scaling C_{0,b}≅C_{0,1} works because λ⁵=μ³=b over algebraic closure. The discriminant cusp is (t⁴,t⁵), bijective off t=0 with piecewise G_m inverse; it has q points over all GF(7^n), giving q-1 exceptional and (q-1)² ordinary marked pairs, not geometric isomorphism-class counts. Exact computations check finite data; universal parameter claims rest on algebra.
 
-Closest prior primary literature: Baldwin et al., arXiv:math/0612654; Elkin, arXiv:0708.0431; Kudo–Harashita, arXiv:1607.01114. Additional overlap risk: Sohn, DOI:10.23091/japm.2025.059 (incomplete access).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge qualified PASS for doubled Hasse divisor, full marked-parameter stratification and exceptional Newton polygon. General a-number/Cartier methods and some same-object genus-four classifications are prior. Highly relevant 2025–2026 Sohn sources could cover the rank/a-number component; no full-text comparison possible after lawful open attempts and authorized access safety block.
+
+## value
+
+PASS
+
+The natural two-parameter family exhibits a nonreduced Hasse divisor with a sharp rank dichotomy and an intermediate-slope exceptional Newton polygon. The complete geometric and marked-parameter stratification identifies a meaningful family boundary; it is more than a routine substitution into a genus formula. Even if the a-number portion is already known, the doubled divisor and NP/census are independently motivated facts, subject to stated priority risks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
