@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:10:18.592155Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source Git tree a6df878de822104ee17ede1747b39b21dc861373, RESULT blob fda0fa31028f43098cefaa687fc0fd4c3f6dc579",
+        "Independent 3030 exact-rational split checks",
+        "Exact witness F_causal=4/5, F_fixed=5/6",
+        "Analytic determinant and convexity inequalities"
+      ],
+      "rationale": "For x0=0, x1=b u0+w with centered independent variance-s noise, put h=b^2>0, q=E u0^2,p=E u1^2,c=E x1u1. The information covariance is [[s+hq,c],[c,q+p]], with c²<=(s+hq)p and total budget s+(1+h)q+p<=beta. The inverse trace is minimized at c=0 (feasible via independent centered open-loop controls), with full budget used. With S=s+hq in [s,(s+h beta)/(1+h)], the strictly convex symmetric function 1/(eta+S)+1/(eta+beta-S) is minimized at S*=clamp(beta/2,s,(s+h beta)/(1+h)), yielding unique optimal covariance and late/mixed/early timing regimes. For fixed deterministic controls, c²=h q p and full-budget branch determinant D(q)=(eta+s)(eta+beta-s)+h q(q-s), strictly convex, so maximum occurs only at pure-stage endpoints; switching beta=s(2+h). Randomized gap strictly positive iff optimal q*,p*>0; h>1, beta->infty ratio (1+h)^2/(4h). Independent exact rational checks of 3030 mixed deterministic splits and rational witness h=4,s=eta=1,beta=3 reproduce F*=4/5,F_det=5/6. Scope excludes deterministic state-feedback, which is more expressive than fixed deterministic open loop.",
+      "residual_risks": [
+        "Independent finite checks corroborate only bounded cases; infinite/all-parameter assertions rest on reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md,check.py",
+          "Bencherki et al arXiv:2609.08751 full author manuscript",
+          "Manchester arXiv:1009.5614 abstract",
+          "Resultary optimal coordinate-sampling finding (different operator)"
+        ],
+        "reasoning": "The general covariance convexity and Frank-Wolfe theorem implies existence/tractability of approximations but does not alone entail the explicit closed-form optimal Σ*, cutoff beta=2s/(1-h) for h<1, or the deterministic-open-loop unbounded gap. Time-domain/robust experiment-design results concern different weights, horizons or objectives, with no inspected exact dominating theorem.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance",
+          "Primary-literature search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md,check.py",
+        "Bencherki et al arXiv:2609.08751 full author manuscript",
+        "Manchester arXiv:1009.5614 abstract",
+        "Resultary optimal coordinate-sampling finding (different operator)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md,check.py",
+          "Bencherki et al arXiv:2609.08751 full author manuscript",
+          "Manchester arXiv:1009.5614 abstract",
+          "Resultary optimal coordinate-sampling finding (different operator)"
+        ],
+        "reasoning": "Bencherki et al provide the broad variational problem and a numerical algorithm; specialization to a simple horizon requires further exact moment reduction, convex balancing and determinant endpoint analysis. These steps are supplied and rigorously checked in the submitted work, and no earlier explicit specialization was identified in the inspected full text. Priority over older specialized two-step studies remains qualified.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance",
+          "Primary-literature search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md,check.py",
+          "Bencherki et al arXiv:2609.08751 full author manuscript",
+          "Manchester arXiv:1009.5614 abstract",
+          "Resultary optimal coordinate-sampling finding (different operator)"
+        ],
+        "reasoning": "The optimization is over causal policy-achievable expected state/input covariance, not an empirical Fisher-information matrix or the linearized Frank-Wolfe oracle. At the two-stage scalar horizon the entire nonlinear objective reduces to strictly convex reciprocal balancing in a single state-information coordinate S; deterministic fixed controls instead force c=b u0u1 and hence an offdiagonal penalty.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance",
+          "Primary-literature search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md,check.py",
+          "Bencherki et al arXiv:2609.08751 full author manuscript",
+          "Manchester arXiv:1009.5614 abstract",
+          "Resultary optimal coordinate-sampling finding (different operator)"
+        ],
+        "reasoning": "A continuum of positive parameters h,s,eta,beta is classified by sharp analytic inequalities, not a finite table. Exact rational witness (h=4,s=eta=1,beta=3) demonstrates the gap but its novelty/value comes from proved general thresholds, not the small numerical example.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance",
+          "Primary-literature search 2026-10-30: optimal input design two-stage A-optimal trace inverse stochastic randomized deterministic fixed input covariance"
+        ]
+      },
+      "rationale": "Bencherki--Lee--Matni--Rantzer arXiv:2609.08751 gives the general nonlinear weighted trace-inverse covariance design, convexity and Frank--Wolfe linear oracle via Riccati recursion, including finite-horizon causal feasible covariances. Its Sections 2–4 and Appendix 8.1 do not explicitly classify the present two-stage scalar isotropic criterion, three timing phases, or fixed deterministic open-loop separation. Ordinary A-optimal balancing of two positive diagonal entries is standard; novelty is specifically the exact dynamical realization and gap.",
+      "residual_risks": [
+        "Earlier special-case A-optimal design or Riccati-oracle paper might contain an equivalent explicit formula",
+        "The fixed deterministic gap does not extend to arbitrary deterministic feedback or input-only budget; avoid overstatement."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains broad framework but no explicit three-regime scalar two-stage threshold or fixed-open-loop gap in inspected statements",
+          "evidence": [
+            "General finite-horizon covariance design is prior; Appendix 8.1 moment/feasibility framework, linear oracle is different objective"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08751",
+          "material_read": "Full accessible author manuscript/transcription: Sections 1–4 and Appendix 8.1, general feasible covariance program, Frank-Wolfe and Riccati linear oracle",
+          "method": "Read author manuscript at documents.live, compared exact objective, time horizon and propositions",
+          "title": "Optimal input design via Frank-Wolfe",
+          "trigger": "Same nonlinear trace-of-inverse achievable covariance optimization"
+        },
+        {
+          "assessment": "Insufficient material to rule out specialized two-step exact formulas",
+          "evidence": [
+            "General convex-relaxation approaches to system input design"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1009.5614",
+          "material_read": "Abstract only",
+          "method": "Source discovery and abstract comparison",
+          "title": "Input Design for System Identification via Convex Relaxation",
+          "trigger": "Earlier systems experiment-design theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md,check.py",
+        "Bencherki et al arXiv:2609.08751 full author manuscript",
+        "Manchester arXiv:1009.5614 abstract",
+        "Resultary optimal coordinate-sampling finding (different operator)"
+      ],
+      "rationale": "The exact three regimes and sharp deterministic-vs-randomized gap in a natural smallest dynamic A-optimal design are a meaningful classification of when randomization/correlation control is necessary for optimal information, with an unbounded gain-dependent approximation loss. The nonlinear inverse-trace objective matters; replacing it by linear Frank-Wolfe subproblems changes the claim.",
+      "residual_risks": [
+        "Earlier special-case A-optimal design or Riccati-oracle paper might contain an equivalent explicit formula"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Earlier special-case A-optimal design or Riccati-oracle paper might contain an equivalent explicit formula",
+    "The fixed deterministic gap does not extend to arbitrary deterministic feedback or input-only budget; avoid overstatement.",
+    "The public administration records were not privacy sanitized, so scientific assessment is complete but publication is NOT READY."
+  ],
+  "schema_version": 1
+}
