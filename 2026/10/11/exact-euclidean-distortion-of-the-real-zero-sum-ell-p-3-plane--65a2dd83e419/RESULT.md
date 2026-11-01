@@ -61,7 +61,7 @@ Passer [1] gives a quantitative approximate Jordan--von Neumann theorem, boundin
 
 ## Limitations
 
-The analysis is specific to three coordinates and **real** scalars. The computation does not establish analogous formulas for arbitrary codimension-one hyperplanes, complex hyperplanes, or other Schatten-class subspaces. The claim is mathematical and has received same-model review only; it has not undergone independent external verification. An earlier equivalent formulation under type-\(A_2\) root-system or three-atom norm terminology remains a bibliographic possibility, although the inspected sources do not imply the full displayed profile.
+The analysis is specific to three coordinates and **real** scalars. The computation does not establish analogous formulas for arbitrary codimension-one hyperplanes, complex hyperplanes, or other Schatten-class subspaces. The claim is mathematical and has received self-review only; it has not undergone independent external verification. An earlier equivalent formulation under type-\(A_2\) root-system or three-atom norm terminology remains a bibliographic possibility, although the inspected sources do not imply the full displayed profile.
 
 ## References
 

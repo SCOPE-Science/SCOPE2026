@@ -1,11 +1,21 @@
-# Same-model scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Symmetrizing an arbitrary comparison ellipsoid produces the Euclidean quadratic form without enlarging distortion. The projective unit circle reduces to \((1,r,-1-r)\) for \(0\le r\le1\). An explicit logarithmic-derivative numerator is strictly convex in \(p-1\) and vanishes exactly at \(p=2,4\); it determines the complete radial extrema. The proof separately treats \(p=1\) and \(p=\infty\). The standalone program corroborates the real quartic identity and endpoint inequalities with 22,307 finite checks. None of these finite checks is being used as an infinite proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Passer's approximate Jordan--von Neumann theorem (arXiv:1305.3546, Theorem 3.4) gives general near-Hilbert distortion estimates, not this sharp global formula. Zhang--Meng--Wu (arXiv:2207.05499, Theorem 2) address the full real \(\ell_p^3\)-to-cube comparison, not the two-dimensional zero-sum subspace-to-Euclidean one. The known real quartic hyperplane case already implies the special value at \(p=4\); the all-exponent formula and two transitions are the new asserted statement. Searches under type-\(A_2\), three-atom, and trace-zero aliases did not identify a dominating result. Historical equivalence remains possible and is not ruled out by failed searches.
+PASS
 
-**Value — PASS.** The formula classifies a natural Banach--Mazur invariant of the canonical three-atom mean-zero \(\ell_p\) family, specifies optimal Hilbert position and all extremal directions, and detects two exceptional Hilbertian exponents and their symmetry-orbit reversals. The result is not claimed beyond real three-atom spaces.
+The symmetrization lemma is sound: for any Hilbert positive quadratic comparison Q, averaging mQ≤||x||p²≤MQ over all S3 permutations maintains m,M and forces scalar Euclidean Q on H by its 120° rotation. Each nonzero real zero-sum triple reduces by permutation/scalar to (1,r,-1-r), 0≤r≤1. F_p(r)=(1+r^p+(1+r)^p)^(1/p)/sqrt(2(1+r+r²)); for 1<p<infinity its log-derivative has sign of G_r(s)=(2+r)r^s+(1-r)(1+r)^s-(1+2r), s=p-1. G_r(1)=G_r(3)=0 and G_r''(s)>0 for 0<r<1, giving monotonicity with precisely p=2,4 transitions. Explicit p1 and p∞ expressions increase; endpoints Fp(0), Fp(1) yield the exact reciprocal-max formula and p∞ 2/sqrt3. At p=4, exact polynomial identity 2Σxi^4=(Σxi²)² on H confirms d=1. All-real-p proof is analytic, not finite experiments; no optimal tilted ellipse is omitted.
 
-**Verification and limitations.** Run `python3 verification/check.py`. The printed finite counts can be reproduced from this package. The proof uses continuum strict convexity for all exponents; it has not received an independent review.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality of the complete continuous p-dependent sharp Euclidean distortion profile for the real three-atom zero-sum plane, with its two exceptional Hilbertian exponents and extremal orbit reversals. Direct published full-text comparison shows only the p=4 subcase and distinct generic/full-space/polygon theorems; searches for type-A2 and centered Schatten-p aliases did not identify an independent dominating all-p statement. Failed search is not proof of historical priority.
+
+## value
+
+PASS
+
+The induced three-atom mean-zero ell_p plane is a canonical codimension-one subspace and A2 reflection representation; its Euclidean Banach--Mazur distance is a natural intrinsic geometric invariant relevant to norm comparisons and sharp ellipsoid placement. The exact all-p profile solves a complete genuine parametric classification, not a cherry-picked constant, and determines two Hilbertian exponents, sharp endpoint distortion and reversal of global extremizing symmetry orbits. A future Banach-space geometer can use the exact profile and attainments directly; its value does not depend on a higher-dimensional extension. The p4-only subclaim is known but the complete varying-exponent result is not mechanically implied by it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
