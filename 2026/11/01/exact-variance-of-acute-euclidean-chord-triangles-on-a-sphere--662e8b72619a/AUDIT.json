@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Unit-sphere dot-product geometry rigorously gives q(theta)=sin(theta/2)-(1-cos(theta/2))/2. Uniform cosine integration yields E[q]=1/2, E[q^2]=(pi-1)/8. Conditional independence and complete overlap counting imply the stated variance for every n>=3, with zero-probability boundaries. A stand-alone finite checker tested coefficient arithmetic, overlap multiplicities, numerical integral and point-sampling diagnostics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2007.07783 Theorem 6 concerns random convex-hull facets and only a one-triangle probability.",
+        "MathOverflow 498296 discusses probability that all four faces of a tetrahedron are acute, a four-way intersection."
+      ],
+      "reasoning": "General U-statistic expansions can reduce a variance to conditional second moments but do not supply the evaluated geometry-specific pi coefficient; the known exact four-way event for n=4 does not entail the pairwise joint law or the all-n variance. For n>4 hull facets are not the same objects as all triples.",
+      "searches": [
+        "arXiv:2007.07783, entire text and sections 3-4",
+        "MathOverflow question 498296, all-four-acute tetrahedron event",
+        "acute Euclidean triangle count U-statistics covariance overlapping pairs on sphere"
+      ]
+    },
+    "checked_sources": [
+      "Akopyan–Edelsbrunner–Nikitenko, arXiv:2007.07783 (v1 July 15, 2020), original accessible full text.",
+      "MathOverflow question 498296, original question and relevant mathematical answers."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "One-triangle acuteness 1/2 is prior and fully credited; new joint probability is (pi-1)/8, not derivable from 1/2 without additional conditional geometry.",
+        "The later four-face all-acute probability 1/12 does not determine the pairwise acute-face probabilities or the general-n variance."
+      ],
+      "reasoning": "Neither the published marginal theorem nor the separate four-way intersection claim implies the stated complete pairwise covariance structure; the new conditional cap subtraction and exact pi/8 moment provide the missing calculation.",
+      "searches": [
+        "arXiv:2007.07783 Lemma 4 Theorem 6",
+        "MathOverflow 498296 discussion and exact all-four-faces acute answer",
+        "\"acute triangles\" \"second moment\" \"sphere\" random"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2007.07783, Lemma 4: P(one Euclidean chord triangle is acute)=1/2; Theorem 6: uniformly chosen hull-facet acuteness has same probability."
+      ],
+      "reasoning": "The event is ordinary Euclidean triangle acuteness. The earlier one-triangle and selected-facet marginal statements are compatible with, but cannot identify, E[J_123 J_124] or Var(sum_I J_I); many joint distributions have the same marginal.",
+      "searches": [
+        "\"acute triangles\" \"variance\" random points sphere",
+        "\"covariance\" \"acute triangles\" \"sphere\" random",
+        "arXiv:2007.07783, sections 3 and 4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted record results were closest to independent spherical triangle marginals, inscribed polyhedron area moments, and other sampling measures; no matched covariance table or exact second-moment value was located."
+      ],
+      "reasoning": "The theorem is a closed probability formula rather than a tabulated finite enumeration. Search absence is only limited evidence; no claim of exhaustive indexing is made.",
+      "searches": [
+        "acute triangle count variance sphere exact pi-3 coefficient",
+        "shared-edge probability (pi-1)/8 acute inscribed spherical tetrahedron",
+        "published mathematical finding index: acute spherical sample triple variance"
+      ]
+    },
+    "rationale": "The closest primary paper establishes only the acute Euclidean triangle marginal probability, while the evaluated shared-pair joint probability and resulting full variance are distinct. The relevant four-face all-acute question is a different event. Indexed record, accessible historical claims, targeted title/parameter and implication searches did not find an identical or dominating theorem; priority remains provisional.",
+    "residual_risks": [
+      "Uninspected general second-moment or geometric U-statistic results could subsume this special evaluated covariance; literature searches are not a proof of worldwide uniqueness.",
+      "The exact formula is for all chord triangles, not the convex-hull facet count in samples of five or more points.",
+      "Independent proof and priority review have not been performed.",
+      "Glen Richard Hall, Acute triangles in the n-ball (1982), was cited by the MathOverflow discussion; the original full text was not inspected and concerns interior-ball rather than sphere-surface sampling."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECTLY CREDITS the known 1/2 marginal and related uniformly selected hull-facet marginal, but does not give the covariance between overlapping three-point triples or its all-n sum variance.",
+        "evidence": [
+          "Lemma 4 gives 1/2 acute probability for three surface-uniform vertices.",
+          "Theorem 6 concerns a uniformly chosen convex-hull facet.",
+          "No exact second-moment or overlapping-triple covariance statement appears in the inspected complete text."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.07783",
+        "material_read": "Complete accessible arXiv HTML, with detailed analysis of Lemmas 1–5, Theorem 6, sections 3–4, and text searches for second moments/covariance",
+        "method": "Read the original primary full text and compare event, random variables, quantifiers and implications",
+        "title": "The Beauty of Random Polytopes Inscribed in the 2-sphere",
+        "trigger": "Same unit-sphere sampling distribution and acute Euclidean triangle event"
+      },
+      {
+        "assessment": "Studies the all-four-acute intersection (probability 1/12); does not give the pairwise acute-face joint probability (pi-1)/8 or the variance for all n.",
+        "evidence": [
+          "Question posed July 26, 2025, asks that all four faces be acute.",
+          "Later mathematical answer obtains the four-way probability 1/12 using signed sums, not the second moment of an unrestricted acute-triple count."
+        ],
+        "identifier_or_url": "https://mathoverflow.net/questions/498296/",
+        "material_read": "Question, later mathematical answers, short-sum graph proof, integral evaluations and discussion of related probabilities",
+        "method": "Inspect the original question and answer claims and compare event conjunction against the full two-point moment",
+        "title": "A tetrahedron's vertices are random points on a sphere. What is the probability that the tetrahedron's four faces are all acute triangles?",
+        "trigger": "Four-point sample and acute Euclidean tetrahedral facets; potentially stronger joint-event result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "662e8b72-619a-4906-8e0a-6acf4cbcb84f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural all-sample geometric triangle count. The theorem determines the entire pairwise covariance structure, exact finite-n uncertainty, a distinguished inscribed-tetrahedron variance and a nontrivial n^4 rather than naive n^3 fluctuation scale. It evaluates a specific pi-dependent dependence coefficient not provided by the known 1/2 marginal probability.",
+    "status": "PASS"
+  }
+}
