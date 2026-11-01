@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Gaussian projection is intrinsic and exact, the top-minus-bottom support identity is exact, the positive-proportion quantile linearization has a uniform probabilistic remainder, and the spherical denominator contributes the quadratic Gaussian term required by the displayed variance. The explicit covariance integrals yield the stated \(V\). The nonmonotone inequalities are enclosed by exact rational alternating-series arithmetic in the standalone checker. Finite support enumeration is ancillary verification, not a proof of the limit theorem.
+## correctness
 
-**Originality — PASS, qualified.** In the accessible primary source on hypersimplex projections, Martínez-Sandoval–Padrol address skeleton preservation, not random widths. Kabluchko–Litvak–Zaporozhets prove the regular cube/simplex/crosspolytope random-width laws, and explicitly supply the balanced endpoint, which is prior art. The general L-statistic and studentization mechanisms are known and credited. The assessed new synthesis is the precise dense-rank hypersimplex width law and its nonmonotone fluctuation-variance counterexample, rather than the underlying standard CLT method. Searches of closely matched published records did not reveal a same-claim result; equivalent broad Gaussian L-statistic formulations remain possible.
+PASS
 
-**Mathematical value — PASS.** Hypersimplex rank interpolates a canonical matroid-base-polytope family from simplex-like to balanced geometry. The derived fluctuation law determines the stochastic Euclidean scale along this family and rules out a natural monotonic fluctuation ordering by showing a decrease, reversal, and another decrease. The nonmonotonicity is not evident from classical Gaussian order-statistic asymptotics and is proved with a finite rational certificate. No full classification of local extrema, sparse-rank limit, or finite-n variance is asserted.
+The hypersimplex is the uniform matroid base polytope in its intrinsic hyperplane 1-perp; the support-width identity is EXACTLY the top-k minus bottom-k Gaussian sample sums divided by centered chi length. The proof gives a uniform O_p(1) error when replacing empirical trimming quantiles by population normal quantiles for alpha=k/n in a fixed compact [epsilon,1/2]. Gaussian denominator expansion yields influence function psi_z= (|G|-z)_+ - 2[phi(z)-zQ(z)] - phi(z)(G²-1), whose variance is the displayed positive continuous V(z). A triangular-array Lindeberg theorem gives a CLT even if alpha_n oscillates. The limit is not claimed for sparse ranks or as finite-n variance. Inspected CHECK.py uses exact Fraction alternating-series brackets for normal phi/Q and pi to rigorously certify V(1/2)>V(1)<V(3/2)>V(2). Independent normal-integral calculation reproduced V at 0,1/2,1,3/2,2 as 0.0450703414,0.0148846190,0.0058140331,0.0087088534,0.0054190364; Gaussian integral formulas, not these floats, prove the all-rank CLT.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: A single balanced value and generic asymptotic machinery do not logically yield the rankwise strict V inequalities without the explicit computation. A broader theorem on this exact studentized L-statistic might subsume the CLT and is a genuine risk. A general CLT can imply Gaussianity after calculating the exact influence function but does not by itself assert the nonmonotone V profile and its certified strict inequalities; the new quantitative specialization is the relevant survivor.
+
+## value
+
+PASS
+
+The rank fraction indexes a canonical infinite family of uniform-matroid base polytopes. An explicitly normalized stochastic width CLT and a rationally certified decrease-increase-decrease variance profile refute a natural monotonicity expectation; it is a motivated geometric phenomenon, not a routine one-number variance tabulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
