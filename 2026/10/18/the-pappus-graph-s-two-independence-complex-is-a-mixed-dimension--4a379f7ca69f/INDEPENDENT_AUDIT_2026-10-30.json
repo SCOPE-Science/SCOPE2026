@@ -1,0 +1,196 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:12:14.407187Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob 819f36304df46e1b7eb54964b0f4a519ed486d36, full proof and boundary recursion",
+        "Frozen verify_pappus.py blob 7b5dd759e32bf6cb5145fa66acfd1e3171ec6d38 (read as evidence; independent checker was separately authored)",
+        "Frozen VERIFICATION.md blob 13c50c5e3e31663733ee481e282a037d95507e27",
+        "independent_pappus_check.py / independent_pappus_results.json, newly executed; complete exact face/matching/Hasse/integer check",
+        "independent_pappus_mod2.py / independent_pappus_mod2_results.json, separate newly executed bitset rank computation",
+        "https://arxiv.org/pdf/2001.05448 Proposition 2.10 and Theorem 2.4 (Morse matching and CW model)"
+      ],
+      "rationale": "The LCF [5,7,-7,7,-7,-5]^3 specifies an 18-vertex cubic simple graph with 27 edges. For any vertex set S, induced components have at most two vertices iff each induced vertex has degree <=1, equivalently no triple supporting a length-two path is contained. Independently exhaustively enumerating all 2^18 masks gives 54 forbidden 3-vertex path triples, 20652 augmented faces, f-vector (18,153,762,2394,4806,6027,4428,1728,308,27), and reduced Euler characteristic -8. The exact 18-vertex toggle order in RESULT.md yields 10321 disjoint matched pairs (including the empty face pair), and precisely nine critical 5-faces [0x6621,0xcc03,0x12264,0x18846,0x20b18,0x22360,0x2c409,0x2c902,0x3404c] and one critical 6-face 0x3212a. Independently oriented all 120240 Hasse covers and topologically sorted all 20652 nodes, proving the acyclic matching. The signed integral Morse projection of the seven 5-dimensional facets of the 6-dimensional critical cell has only two nonzero contributions, deletion vertex 5 giving -e5 and deletion vertex 13 giving +e5 (one-indexed), so the full Z^9 differential is zero. Discrete Morse gives one basepoint, nine 5-cells and one 6-cell; its 5-skeleton is wedge^9 S5 and is 4-connected. Hurewicz gives pi5 ≅ H5, hence zero signed attaching degrees imply a nullhomotopic 6-cell attaching map and the asserted wedge^9 S5 ∨ S6. An independent full augmented F2 chain reduction verifies ranks (1,17,136,626,1768,3038,2980,1447,281,27) and beta5=9,beta6=1, which is only an auxiliary check. All seven actual frozen Git blob SHA1s exactly reconstruct the assigned Git subtree SHA; administrative originals were separately checked against their blob SHA1s before redaction.",
+      "residual_risks": [
+        "The proof is a complete finite computation for this specified Pappus graph and r=2; none of it implies a uniform theorem for larger cubic graphs or other r.",
+        "The mod-two homology alone cannot establish the integral wedge or attaching map; the all-Hasse acyclicity and exact integer differential are the crucial proof steps.",
+        "The supplied verifier was read but not treated as certification merely because it prints VERIFY_OK; the newly written independent finite computation reproduces the structural certificate."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deshpande–Singh calculate complete multipartite, whiskered, path, cycle, and perfect rooted-tree families; Proposition 2.10 gives generic acyclicity for sequential vertex matchings, not their Pappus critical-cell inventory or attaching map.",
+          "Abdelmalek et al. address chordal graphs, trees, caterpillars and chordal counterexamples. Pappus has induced 6-cycles and is not chordal.",
+          "Deshpande–Shukla–Singh give general connectivity/homology-vanishing bounds, while their wedge theorem assumes chordality.",
+          "Deshpande–Roy–Sawant analyze Alexander-dual co-connected complexes and shellability/linear-resolution characterizations on enumerated classes such as chordal, cycles and grids; no Pappus exact homotopy computation appears in inspected sections."
+        ],
+        "reasoning": "The strongest checked broad results supply useful definitions and methodology, but their precise statements do not force homotopy equivalent to nine S5 and one S6 for Pappus. In particular, generic Forman matching existence/acyclicity does not determine critical counts or a zero integral attaching map.",
+        "searches": [
+          "https://arxiv.org/pdf/2001.05448, Section 1 theorem inventory, Proposition 2.10 and Theorem 3.5",
+          "https://arxiv.org/pdf/2106.10863, Section 1 and Section 2",
+          "https://arxiv.org/pdf/2001.06775, Theorems 2–4",
+          "https://arxiv.org/pdf/2510.25710, Introduction Theorem 3.15 and class inventory",
+          "Resultary: Pappus Levi graph higher independence 2 independence homotopy integral Betti numbers"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2001.05448, abstract, theorem inventory, Proposition 2.10, Section 3",
+        "https://arxiv.org/pdf/2106.10863, Introduction, Section 2",
+        "https://arxiv.org/pdf/2001.06775, Theorems 2–4",
+        "https://arxiv.org/pdf/2510.25710, Introduction, Theorem 3.15, alternative Alexander-dual formulation",
+        "https://mathworld.wolfram.com/PappusGraph.html",
+        "https://upcommons.upc.edu/server/api/core/bitstreams/998f0f22-905b-4fe4-b4bc-fb4023ab8510/content (2-independence-number table, different parameter)",
+        "Published Resultary complete RESULT.md on Pappus ordinary Ind, matching, Čech and Petersen Ind_2, file paths specified above",
+        "Actual Resultary semantic searches recorded in four comparison objects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published ordinary Pappus matching complex M(P) is a wedge of 40 S5 and has 27 graph EDGES as simplicial vertices; current Ind_2(P) uses 18 graph VERTICES and 20,651 nonempty simplices.",
+          "Published ordinary Ind(P) has ten S4 and an order-three rational representation, but it excludes adjacent vertex pairs rather than allowing induced components of size two.",
+          "The scale-three graph Čech nerve of Pappus is a wedge of 44 S2 and is generated by six-vertex closed neighborhoods of graph edges, a different face poset.",
+          "Published Ind_2(Petersen) is a single S3; this agrees with the definition but has a different underlying ten-vertex graph."
+        ],
+        "reasoning": "Each preceding statement is about either another simplicial object on the same Pappus graph or the same invariant of a different graph; none of the checked results implies the exact mixed wedge for Ind_2(Pappus). The equivalence of r=2 with 3-path-hypergraph independence is acknowledged and does not itself compute its homotopy.",
+        "searches": [
+          "Resultary full source: 2026/10/11/SCOPE-integral-homotopy-type-of-the-pappus-graph-matching-complex--db6c6c11f317/RESULT.md",
+          "Resultary full source: 2026/10/11/SCOPE-order-three-symmetry-on-pappus-independence-homology--ea65a5211f31/RESULT.md",
+          "Resultary full source: 2026/10/11/SCOPE-the-scale-three-graph-ech-nerve-of-the-pappus-graph-is-a-wedge-o--2ff2beca323b/RESULT.md",
+          "Resultary full source: 2026/10/11/SCOPE-the-2-independence-complex-of-the-petersen-graph-is-a-3-sphere--156dc9567f6a/RESULT.md",
+          "https://arxiv.org/pdf/2001.06775 Theorems 2–4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For component bound 2, a vertex subset is a face exactly when its induced maximum degree is <=1, equivalently it avoids the 54 three-vertex path triples in the cubic girth-6 Pappus graph.",
+          "The associated 3-uniform path-hypergraph independence complex is the SAME simplicial complex. Its complement-face Alexander dual is the 2-co-connected complex Sigma_2(P) under arXiv:2510.25710, not a different homotopy calculation.",
+          "Ind_2 is not a distance-two independent-set invariant: adjacent selected vertices are allowed as two-vertex components."
+        ],
+        "reasoning": "These aliases and exact objects were searched and compared. The primary higher-independence families do not contain Pappus, and the Alexander-dual structural results inspected do not compute the exact Pappus homotopy. Exact query non-hits alone establish no priority.",
+        "searches": [
+          "Resultary semantic search: Pappus graph higher independence complex Ind_2 Pappus wedge 9 spheres dimension 5 sphere dimension 6",
+          "Resultary semantic search: Pappus graph three-path hypergraph independence complex induced maximum degree one topology",
+          "Web: \"Pappus graph\" \"2-independence complex\" homotopy",
+          "Web: \"Pappus\" \"higher independence\" complex wedge",
+          "https://arxiv.org/pdf/2001.05448 (same-definition theorem inventory)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "MathWorld documents the LCF [5,7,-7,7,-7,-5]^3, cubic symmetric distance-regular graph, but no r-independence homotopy table.",
+          "The k-independence-number table reports a distance-k packing number for Pappus (alpha_2=3), not Betti groups, discrete-Morse data or the topology of vertex-subset component-bound-two Ind_2.",
+          "Targeted exact graph/complex/homotopy searches did not retrieve an exact invariant table matching the claimed sphere decomposition."
+        ],
+        "reasoning": "The same-name independence-number table is genuinely inapplicable because it measures forbidden distances among selected vertices, whereas the present complex permits selected adjacent pairs. No covering exact homotopy table was found; failure to find one cannot establish absence.",
+        "searches": [
+          "Web: \"Pappus graph\" \"Ind_2\" simplicial homotopy",
+          "Web: \"Pappus graph\" \"path-free complex\"",
+          "Web: \"Pappus graph\" homotopy \"independence\" two",
+          "https://upcommons.upc.edu/server/api/core/bitstreams/998f0f22-905b-4fe4-b4bc-fb4023ab8510/content table of k-independence numbers",
+          "https://mathworld.wolfram.com/PappusGraph.html graph parameters"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact integral homotopy type of the vertex-subset 2-independence complex of the 18-vertex Pappus graph. Primary papers by Deshpande–Singh (2021), Deshpande–Shukla–Singh (2020), Abdelmalek et al. (2023), and Deshpande–Roy–Sawant (2026) define and analyze higher independence, chordal families, algebraic duals, and general connectivity, but their inspected theorem hypotheses and enumerated graph families do not yield this Pappus-specific nine S5 plus one S6 homotopy result. Related published Pappus ordinary independence, matching, and graph Čech results compute different complexes; Petersen Ind2 uses a different graph. Exact-object/alias searches found no published identical classification; these searches are evidence, not a novelty guarantee. An unindexed full computation or an unexpected general theorem remains possible.",
+      "residual_risks": [
+        "An obscure unindexed earlier Pappus r=2 higher-independence/three-path-free homotopy computation may exist despite targeted queries and primary-source comparison.",
+        "The exact result concerns a single canonical 18-vertex graph; its value is its natural integral mixed-dimensional topology, not a general graph-family classification.",
+        "Some primary articles were inspected by relevant complete-source sections and text search rather than every page of full text; absence of the name is not blanket noncoverage.",
+        "The named distance-two independence number alpha_2 is a different invariant and cannot be used to certify or refute priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem results enumerate multipartite, whiskered, paths, cycles, rooted trees. Proposition 2.10 verifies sequential matching method but has no Pappus-specific critical cell or attaching output.",
+          "evidence": [
+            "Proposition 2.10 arXiv p.4; first-section listed families arXiv p.2; no Pappus occurrence in primary full-text search."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.05448",
+          "material_read": "Primary 24-page PDF opened; abstract, introduction theorem inventory on pages 1–2, definitions, Morse preliminaries and Proposition 2.10 on pages 3–4, beginning of Theorem 3.5, search over the complete PDF text for Pappus.",
+          "method": "Read indexed primary full-text sections and checked rendered PDF page 2; exact-name find returned no Pappus.",
+          "title": "Higher independence complexes of graphs and their homotopy types",
+          "trigger": "Defines the exact higher-independence invariant and supplies standard staged matching theorem; possible stronger all-graphs statement."
+        },
+        {
+          "assessment": "The stated broad shellability and vertex-decomposability results do not give a Pappus mixed-dimensional homotopy type.",
+          "evidence": [
+            "Definition 1.1 and Theorem Corollary 2.10 / Theorem 3.12 in Introduction; Pappus absent from primary PDF text find."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2106.10863",
+          "material_read": "Primary 15-page PDF opened; abstract and introduction pages 1–3, definitions and Con_r hypergraph construction in Section 2, theorem inventory and text search for Pappus.",
+          "method": "Read paper text and checked rendered PDF page 2; compared exact assumptions (chordal, tree, caterpillar) with girth-six nonchordal Pappus.",
+          "title": "Chordal graphs, higher independence and vertex decomposable complexes",
+          "trigger": "Potential general wedge/shellability theorem for r-independence complexes."
+        },
+        {
+          "assessment": "Does not calculate the Pappus face complex, critical matching, integral attaching vector or exact Betti ranks.",
+          "evidence": [
+            "Theorem 2 covers connectivity bounds for all graphs; Theorems 3–4 assume chordal graphs or construct new chordal graphs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2001.06775",
+          "material_read": "Primary 14-page PDF opened; abstract and introductory main Theorems 2–4, definitions, rendered page 3 and exact Pappus search.",
+          "method": "Compared quantified statements: arbitrary-graph connectivity bounds versus chordal-only homotopy wedge.",
+          "title": "Distance r-domination number and r-independence complexes of graphs",
+          "trigger": "A theorem covering all graphs might imply the exact homology degrees."
+        },
+        {
+          "assessment": "Provides an alternative formulation but only generic vertex-decomposability/shellability and selected-family criteria, not the numerical integral homotopy of Ind_2(Pappus).",
+          "evidence": [
+            "Page 3 identifies Sigma_r(empty,G) = Ind_r(G)^vee and lists chordal, co-chordal, cograph, cycle/complement, ladder and grid classes. No Pappus occurrence."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2510.25710",
+          "material_read": "Primary 35-page PDF opened; abstract, Introduction and Theorem 3.15 / Proposition 3.20 class inventory through page 3; rendered PDF page 3; complete text search for Pappus.",
+          "method": "Read definitions identifying the Alexander dual of Ind_r(G), explicit class list and theorem scopes.",
+          "title": "The complex of r-co-connected subgraphs, chordality and Fröberg's theorem",
+          "trigger": "Alexander-dual and r-path-free equivalents could dominate the exact Pappus homotopy claim."
+        },
+        {
+          "assessment": "Exact graph identification confirmed; entry does not claim an r-independence topology computation.",
+          "evidence": [
+            "MathWorld entry identifies Pappus as cubic symmetric distance-regular on 18 vertices, LCF [5,7,-7,7,-7,-5]^3."
+          ],
+          "identifier_or_url": "https://mathworld.wolfram.com/PappusGraph.html",
+          "material_read": "Graph description, LCF representation, symmetry/distance-regular identification and references.",
+          "method": "Read graph reference and independently reconstructed all 27 edges and cubic degrees.",
+          "title": "Pappus Graph",
+          "trigger": "Establish that the exact LCF labeling used in source is the canonical eighteen-vertex Pappus graph."
+        },
+        {
+          "assessment": "Each is a different complex or different graph and is not a prior implication of the assessed exact homotopy type.",
+          "evidence": [
+            "Pappus matching uses 27 graph-edge vertices and wedge 40 S5; ordinary Pappus Ind uses 18 graph vertices but forbids ALL edges and is wedge 10 S4; Pappus Čech uses closed-neighborhood facets and wedge 44 S2; Petersen Ind_2 is S3 on a ten-vertex graph."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/",
+          "material_read": "Complete RESULT.md for the Pappus matching complex, the Pappus ordinary independence homology C3 action, Pappus scale-three Čech nerve, and Petersen Ind_2.",
+          "method": "Retrieved all four complete scientific result files via authenticated read-only repository source and compared face-set definitions and theorem conclusions.",
+          "title": "Published Pappus matching, ordinary independence, and Čech results; published Petersen 2-independence result",
+          "trigger": "Semantically high-ranked published findings have the same graph or the same invariant."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://mathworld.wolfram.com/PappusGraph.html documents canonical symmetric, distance-regular graph",
+        "https://arxiv.org/pdf/2001.05448 compares explicit equidimensional homotopy family results",
+        "https://arxiv.org/pdf/2106.10863 limits broad shellability to specified chordal/tree families",
+        "Published Resultary Pappus ordinary independence and matching result files have distinct homotopy patterns",
+        "Independent exact 20,652-face integral Morse construction and nonzero mixed Betti ranks"
+      ],
+      "rationale": "Pappus is a canonical 18-vertex cubic symmetric distance-regular Levi graph, so the component-bound-two higher-independence complex is a natural invariant, not an arbitrary constructed slice. Its complete integral homotopy type exhibits both degree-five and degree-six sphere summands, unlike the equidimensional/contractible families in early classifications and unlike the ordinary Pappus independence and matching complexes. The exact integral attaching vector is mathematically essential: the same mod-two Betti numbers would not generally determine homotopy type. This creates a useful reproducible mixed-dimensional benchmark for higher independence of nonchordal cubic graphs, even though it is one finite graph rather than a general-family theorem. The result is not asserted to classify automorphism actions, other component bounds or all cubic graphs.",
+      "residual_risks": [
+        "This is a single named-graph exact classification, with no asserted new structural theorem for all highly symmetric cubic graphs.",
+        "Computational accessibility and correctness alone are not value; motivation depends on the graph naturalness, higher independence filtration and genuinely integral mixed-dimensional feature."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete classification applies only to 18-vertex Pappus graph at component bound 2",
+    "No new general cubic-graph family theorem or graph automorphism action",
+    "Potential unindexed equivalent calculation remains, originality is best-of-knowledge",
+    "The publication change set is staged in the private ledger, not executed on GitHub"
+  ],
+  "schema_version": 1
+}
