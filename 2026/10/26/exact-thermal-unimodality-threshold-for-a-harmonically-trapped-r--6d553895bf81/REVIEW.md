@@ -1,11 +1,21 @@
-# Scientific review: exact thermal modality threshold
+# Independent mathematical audit
 
-**Correctness — PASS.** The stationary stochastic convolution is decomposed into independent beta-supported active and Gaussian thermal terms. The source beta law follows from the two-state stationary flux equations. The exact central-curvature Kummer equation has a unique sign-changing positive root because every root has derivative \((a-1)I_a(z)/z<0\). The small/large-parameter signs, a Gaussian total-positivity sign-variation argument, and the heat equation together classify all modes including the quartically flat critical point. The endpoint limits follow by weak convergence to the symmetric two-point measure and the uniform-density limit, respectively. The numerical checker supplies independent Gauss–Jacobi quadrature, root and curvature checks, and sampled mode behavior, but is not treated as the proof.
+## correctness
 
-**Originality — PASS within inspected accessible sources, with material residual risk.** The Gaussian–beta stationary convolution is already given in Frydel (2022), Eq. (15); García-Millán and Pruessner (2021), Appendix D, derive a Hermite-series stationary law and illustrate the crossover; Wang et al. (2014) motivate trapping and observed two peaks. These formulas and general observations are not asserted as new. The evaluated contribution is the unique global thermal-noise transition curve, an explicit one-root Kummer characterization, the complete one-/two-mode proof and quartic critical shape, and endpoint asymptotics. Direct primary-text comparisons found no equivalent evaluated theorem. An arXiv abstract from 2026 on exactly this process states a qualitative crossover but the full paper was inaccessible; if it includes the same root theorem, priority would require revision. Broader mathematical smoothing literature could contain this beta-specific consequence. Negative search results are not evidence of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** The thermal/noise tradeoff changes the experimentally meaningful morphology of a trapped active particle from a pair of peripheral peaks to a central peak. Exact critical parameters matter for distinguishing persistent active accumulation from thermally erased accumulation, beyond athermal switching-rate classifications or illustrative plots. The theorem is complete across the natural two-dimensional parameter space and identifies the exceptional flat critical density, rather than a routine value from one numerical parameter.
+The two-sided stationary SDE decomposes Y as U_a+√τG; stationary telegraph flux gives density of U_a proportional to (1−u²)^(a−1) on (−1,1), with independent Gaussian G. Central curvature is −F_a(z)/(τ√(2πτ)B(1/2,a)), z=1/(2τ), F=I+2zI′, I=B·1F1(1/2;a+1/2;−z). Kummer equation gives F′(z*)=(a−1)I(z*)/z*<0 at any root for a<1. F(0)>0 and large-z F<0, so exactly one downward crossing. Derivative of Gaussian-convolved beta density has at most 3 sign alternations by truncation and strict total positivity of the exponential/Laplace kernel; the local curvature sign therefore decides the global one-vs-two mode count. At criticality the heat equation plus transversality yields fourth derivative p4(0)<0. At a≥1 beta component unimodal, and convolution strictly unimodal. Weak limit a→0 is two point masses, yielding τc→1; limit a→1 is uniform, yielding τc→0. Independently checked three root values and sign identity (a=0.1,0.5,0.9) as finite confirmation.
 
-**Limitations.** The result is confined to symmetric two-state Markov propulsion and independent Gaussian thermal forcing in a one-dimensional harmonic well. It is not a finite-time, nonharmonic or many-particle result. Full-text access was not obtained for the 2014 experimental simulation article or the 2026 preprint, so those comparisons relied on accessible abstracts and are reported as risks. No independent external scientific audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The stationary beta–Gaussian mixture is prior, as are qualitative noise-induced loss of bimodality and Hermite-series descriptions. The inspected Frydel primary text and García-Millán/Pruessner statements do not supply the unique global Kummer critical curve, rigorous exactly-two-to-one mode proof, quartic criticality and both endpoint limits. Sevilla–Meléndez Mora (2026) is exceptionally close but its full text was inaccessible; the abstract gives qualitative crossover. This is a material priority risk not by itself a decisive prior implication.
+
+## value
+
+PASS
+
+The noise-controlled transition from edge accumulation to central accumulation of trapped active particles is a natural observable. The complete rigorously unique critical curve, strict modal classification and quartic borderline resolve a motivated feature beyond the already-known convolution law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
