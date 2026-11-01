@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact minimum follows because covering each unary target needs k-1 fixed copies of each alphabet symbol plus the unique joker. At equality, contrasting the two-run target b^(r+1)a^(k-r-1) forces equal counts of all symbols before the joker. If the ordinary prefix were not t-universal, an absent length-t pattern p followed by k-t copies of its last letter would be absent from the host; reversal gives the corresponding suffix statement. The proved shortest-ordinary-universal arch lemma forces each side to split into alphabet permutations. The construction realizes all targets and the joker boundary t makes the k(q!)^(k-1) representations injective. Edge k=1 is explicit. Direct exhaustive and separately implemented matcher checks: 61,609 balanced hosts over 18 parameter pairs, 5,213 positive hosts; 1,625,493 independent matcher comparison pairs. All-parameter reasoning does not depend on computation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Adamson et al., k-Universality of Regular Languages, arXiv:2311.10658v1, §§1–2 asks whether individual ordinary words accepted by a language are k-universal, not whether their k-spectra jointly cover all targets.",
+        "Published research record 2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 gives worst insertion distance for ordinary-word edits, not a one-joker exact boundary classification.",
+        "The arch characterization in arXiv:2003.04629v1 is used only as a special ordinary-word lemma; it does not force the wildcard position."
+      ],
+      "reasoning": "An arbitrary ordinary-symbol insertion can only match one fixed symbol across all targets; the joker can match target-dependent symbols. The measured ordinary insertion radius and automaton existential universality do not dominate this exact one-joker min-length set classification.",
+      "searches": [
+        "universal scattered subsequences partial words single hole exact enumeration optimal word structure",
+        "one wildcard all binary length k scattered subsequences hosts only permutation blocks",
+        "one joker partial word one wildcard contains every q-ary length-k word as scattered subsequence, shortest length q(k-1)+1, forced permutation-block boundary, exactly k(q!)^(k-1) optimal hosts",
+        "\"scattered\" \"wildcard\" \"universality\" word",
+        "arXiv:2311.10658v1",
+        "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2003.04629v1 (primary full text)",
+      "arXiv:2304.04583v1 (primary full text)",
+      "arXiv:1601.06456v4 (primary full text and PDF page image)",
+      "arXiv:2311.10658v1 (primary full text)",
+      "2026/10/4/SCOPE-exact-full-support-insertion-radius-of-subsequence-universality--967f04fec949 (published abstract; full GitHub page inaccessible)",
+      "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 (published abstract; full GitHub page inaccessible)",
+      "Web text searches for wildcard, joker, partial-word, scattered-subsequence universal hosts and boundary permutations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ordinary qk lower bound and arch structure: Barker et al. 2020, arXiv:2003.04629v1, §2.",
+        "Ordinary enumeration: Adamson 2023, arXiv:2304.04583v1, §3.",
+        "Contiguous exact-once partial word definition: Chen et al. 2016, arXiv:1601.06456v4, §1.1.",
+        "Published research record 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37 concerns the ordinary binary k-universality-index distribution, not wildcard matching."
+      ],
+      "reasoning": "Ordinary block factorization is a known ingredient and not claimed as new. The new claim additionally enforces equal prefix counts through targets b^(r+1)a^(k-r-1), enforces universality of the left and right ordinary portions, and counts the admissible boundary joker positions. No cited theorem states this implication for target-dependent wildcard matching.",
+      "searches": [
+        "one joker symbol partial subsequence covering words minimal length q(k-1)+1 permutation block boundary",
+        "universal scattered subsequences partial words single hole exact enumeration optimal word structure",
+        "one joker partial word one wildcard contains every q-ary length-k word as scattered subsequence, shortest length q(k-1)+1, forced permutation-block boundary, exactly k(q!)^(k-1) optimal hosts",
+        "\"partial words\" \"subsequence\" \"universal\"",
+        "arXiv:2003.04629v1",
+        "arXiv:1601.06456v4",
+        "arXiv:2304.04583v1",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chen et al., On universal partial words, arXiv:1601.06456v4, §1.1 defines joker matches for contiguous factors and requires exact-once coverage.",
+        "Barker et al., Scattered Factor-Universality of Words, arXiv:2003.04629v1, §2 Definition 2 and Remark 2 define ordinary scattered universality and the qk minimum without jokers.",
+        "Searches of published research records ranked the published ordinary-insertion and ordinary-universality findings as closest; no exact one-joker statement was returned."
+      ],
+      "reasoning": "Replacing a wildcard with one fixed letter does not produce a k-universal ordinary word at optimal length: every other letter occurs only k-1 times. The union of scattered k-spectra of all completions is not the spectrum of any one completion. The contiguous-factor exactly-once notion is not equivalent to scattered coverage at least once; prior named models do not imply the all-q placement and enumeration formula.",
+      "searches": [
+        "one wildcard shortest partial word universally contains all words length k as subsequences exact k(q!)^(k-1)",
+        "one joker symbol partial subsequence covering words minimal length q(k-1)+1 permutation block boundary",
+        "\"subsequence universal\" \"joker\" \"partial\" word",
+        "\"partial words\" \"subsequence\" \"universal\"",
+        "arXiv:1601.06456v4",
+        "arXiv:2003.04629v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Adamson, Ranking and Unranking k-subsequence universal words, arXiv:2304.04583v1, §3 counts ordinary universal words with no joker.",
+        "Targeted searches of published research records did not return a table or formula matching k(q!)^(k-1) for shortest one-joker scattered covers.",
+        "The finite exact checks in verify.py are newly reproduced tests rather than a literature table."
+      ],
+      "reasoning": "No examined database or published exact table directly lists the optimal one-joker hosts or the all-parameter enumerator. Absence in finite search results is only bounded evidence, not a uniqueness proof.",
+      "searches": [
+        "one wildcard shortest partial word universally contains all words length k as subsequences exact k(q!)^(k-1)",
+        "one joker partial word one wildcard contains every q-ary length-k word as scattered subsequence, shortest length q(k-1)+1, forced permutation-block boundary, exactly k(q!)^(k-1) optimal hosts",
+        "\"wildcard\" \"subsequence universal\" \"shortest\" partial",
+        "\"permutation blocks\" \"wildcard\" subsequences",
+        "arXiv:2304.04583v1"
+      ]
+    },
+    "rationale": "Bounded primary full-text and published-record searches found no result that states or implies the minimum length, boundary-only joker placement and exact k(q!)^(k-1) count for a single target-dependent wildcard. The closest sources give ordinary subsequence arch results, ordinary-word counting, or contiguous exactly-once partial-word coverage. published-finding corpus nearest items on ordinary insertion radius and binary ordinary-universality distribution have different premises and do not dominate the conclusion. Originality is best-knowledge only and no negative search is treated as proof of novelty.",
+    "residual_risks": [
+      "An unindexed publication or different terminology may contain the same single-wildcard scattered-subsequence classification.",
+      "Full GitHub text for the two closest published records was not accessible; only indexed scientific statements were compared, although neither statement claims the target-dependent wildcard model.",
+      "The 2018 paper Universal partial words over non-binary alphabets uses the contiguous-exact-once definition in the accessible material; publisher full text could not be opened."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Ordinary host words, no joker; the known arch characterization is explicitly used as a lemma, but its statements do not cover target-dependent wildcard embeddings",
+        "evidence": [
+          "arXiv:2003.04629v1, §2, Definition 2 and Remark 2",
+          "arXiv:2003.04629v1, §2, rich-factor equivalence"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2003.04629v1",
+        "material_read": "Full accessible HTML, especially Introduction, §2 Definitions 1–4, Remark 2 and rich-factor/arch equivalence; ordinary qk length claim; §4 topic and conclusion",
+        "method": "Primary author preprint HTML, reading relevant mathematical statements and assumptions",
+        "title": "Scattered Factor-Universality of Words",
+        "trigger": "Closest foundational source on scattered-subsequence universality and shortest ordinary hosts"
+      },
+      {
+        "assessment": "Counts k-universal ordinary words over a q-symbol alphabet. A host with a wildcard is not an ordinary word and cannot be counted by direct parameter substitution",
+        "evidence": [
+          "arXiv:2304.04583v1, Definition 2.1, Theorem 2.4 and §3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Accessible full-text HTML Introduction, §2 Arch Factorisations and §3 counting definitions/recurrence including the free-symbol case",
+        "method": "Primary author preprint full-text HTML",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Potential exact ordinary-word counting theorem that could subsume the enumerator"
+      },
+      {
+        "assessment": "Requires every target to occur exactly once as a contiguous factor; this differs from at-least-once scattered-subsequence coverage. Existing single-joker positions are governed by different constraints.",
+        "evidence": [
+          "arXiv:1601.06456v4, §1.1, §1.2, Table 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1601.06456v4",
+        "material_read": "Full accessible preprint HTML Introduction §1.1 precise factor definition, §1.2 scope and reported single-joker results; matching PDF page 3 table",
+        "method": "Primary preprint HTML and page image of open-access journal PDF",
+        "title": "On universal partial words",
+        "trigger": "Same joker-host mechanism may imply a stronger or equivalent prior classification"
+      },
+      {
+        "assessment": "Existential universality asks for an individually k-universal ordinary completion; this is impossible at the one-joker optimum for q>=2 and k>=2, even though the union of completion spectra is universal.",
+        "evidence": [
+          "arXiv:2311.10658v1, Introduction and problem definitions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Full accessible author preprint HTML abstract, §1 formulation, algorithmic universality and counting definitions",
+        "method": "Primary full-text HTML",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Potentially broader language-theoretic universality theorem that includes a language of wildcard completions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "045ac24b-3fa3-4e2a-b84e-37d1d4d2844a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single wildcard is a standard compact uncertain-symbol mechanism, whereas scattered-subsequence universality is a natural complete-pattern coverage property. The exact optimum length, complete structural classification of all optimal hosts, and exact all-q all-k count answer a motivated infinite-family design problem. The nontrivial boundary rigidity comes from pairwise prefix-balance and absent-pattern obstructions; it is not a mere arithmetic substitution, finite table, or arbitrary slice. The theorem supplies a fully enumerated minimal design space for target-dependent uncertain-symbol pattern coverage.",
+    "status": "PASS"
+  }
+}
