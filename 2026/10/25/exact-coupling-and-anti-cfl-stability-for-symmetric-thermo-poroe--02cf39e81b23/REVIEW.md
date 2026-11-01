@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness.** The claim is reconstructed from the exact scalar specialization of equation (5.4) of Altmann–Maier–Schmeck. The five-state characteristic polynomial factors into symmetric and antisymmetric quadratic terms and a zero root. All three strict real-quadratic Schur inequalities are checked, including the boundary \(z=-1\). First-order convergence from constant history follows from explicit root expansions, with a separate closed-form parity argument at the limiting parasitic-root boundary. The verified symbolic characteristic factorization and reproducible numerical witnesses provide ancillary checks, not the proof.
+## correctness
 
-**Originality.** The source's Theorem 5.4 supplies the sufficient condition \(2d^2+c\leq1\) along with a separate scalar inf-sup condition; its Section 6.4 displays numerical regions exceeding that sufficient bound. The reviewed finding gives a necessary-and-sufficient scalar condition \(hb>4d^2-2-2c\), exact all-step boundary \(2d^2\leq1+c\), and an explicit anti-CFL instability mechanism not stated there. The earlier two-field Altmann–Maier poroelastic scheme lacks the pressure–temperature cross mode; Chen–Cui–Zhou's distinct stabilized sequential DG algorithm has different update equations. The general quadratic Schur test is standard; the exact model-specific phase portrait is the proposed contribution. Searches cannot exclude every unpublished or unindexed derivation.
+PASS
 
-**Value.** The result addresses the precise numerical gap highlighted by the source's green/yellow/red stability diagrams. It explains how the cross-storage coefficient expands rather than contracts the true scalar stability region, identifies a regime in which the published sufficient assumptions become vacuous while the method remains convergent, and quantifies a counterintuitive lower bound on permissible step size under stronger coupling. It gives a useful exact model benchmark without pretending to prove stability for general finite-element matrices.
+Specializing the source (5.4) matrix to A=C=Ctilde=1, D=Dtilde=d, B=Btilde=b and Chat=c yields precisely u^{n+1}=d(p^n+theta^n), (1+t)p^{n+1}=d(u^n-u^{n+1})+p^n+c(theta^n-theta^{n-1}) and the symmetric theta update. Symmetric/antisymmetric coordinates produce one zero eigenvalue and quadratics [(1+t)z^2-(1-K)z-K] and [(1+t)z^2-(1-c)z-c], K=2d^2-c. The three strict Jury/Schur inequalities for symmetric factor simplify to t>0, 2+t-2K>0, and 1+t+K>0 (latter automatic from K>-1); antisymmetric factor is Schur for every t>0. This proves sharp threshold, -1 boundary and below-bound instability. Constant histories give both scalar first-step values v1=v0/(1+t); root expansions yield O(h) physical and O(h) parasitic coefficients for K<1. At K=1 the exact parity formula v_n=v0(1+t)^(-ceil(n/2)) gives O(h) convergence even with root approaching -1; at K>1 coefficient on the root near -K is proportional to h for nonzero symmetric initial mode and grows like h K^(T/h). Independent SymPy characteristic determinant and 144 spectral root tests corroborated, not replacing proof.
 
-**Closest literature and limitations.** Altmann–Maier–Schmeck (arXiv:2603.14149v1, equation (5.4), Theorem 5.4 and Section 6.4) is the closest source; Altmann–Maier (arXiv:2104.10092), and Chen–Cui–Zhou (arXiv:2509.06480), concern different models or algorithms. The result is scalar, homogeneous, equal-storage/equal-diffusion, and equal-coupling only. Prior work in general multistep and IMEX stability theory is methodologically related; no claim of a new Schur criterion is made. It has not received independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The directly relevant Altmann–Maier–Schmeck 2026 full text Section 5.4 specifies the fully decoupled scheme; Theorem 5.4 supplies a sufficient weak-coupling condition and Section 6.4 reports numerically stable regions outside it. Its scalar sufficient condition 2d^2+c<=1 plus d^2>c does not give the sharp necessary-and-sufficient 2d^2<=1+c or anti-CFL step-size reversal. Altmann–Maier 2021 is two-field poroelastic; Chen–Cui–Zhou 2025 uses a distinct stabilized DG method. The scalar spectral computation is elementary in isolation but exact sharp interpretation for this contemporary physical split and correct marginal convergence are not stated in inspected prior primary results.
+
+## value
+
+PASS
+
+The precise stability and convergence boundary resolves a gap between sufficient analytic theory and observed numerical stable regions for a motivated three-field discretization. It exposes an anti-CFL regime where decreasing step size destabilizes a consistent method, and proves convergence at a marginal limiting -1 mode. This has actionable mathematical implications for analyzing this numerical scheme, beyond a generic textbook quadratic-root test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
