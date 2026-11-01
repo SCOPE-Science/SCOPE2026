@@ -1,0 +1,21 @@
+# Scientific review: second-band trigonometric SBP geometry
+
+## Correctness — PASS
+The theorem is a complete exact classification under explicitly quantified assumptions: three nodes \((-1,a,1)\), \(-1<a<1\), \(\pi<\kappa<2\pi\), function space \(\operatorname{span}\{1,\cos(\kappa x),\sin(\kappa x)\}\), exact differentiation, and strictly positive diagonal SBP norm. Singular nodal sampling cannot support exact derivatives because a sampled-zero cosine function has nonzero endpoint derivatives. For unisolvent sampling, the middle diagonal SBP equation forces \(\sin(\kappa a)=0\), yielding only three candidate grids. Their exact collocation matrices and the uniquely forced SBP norms are displayed and checked entry by entry. Signed trigonometric inequalities establish the precise positivity boundaries. Finally, strictly negative derivatives of two explicit mass-defect functions prove that there is exactly one constant-exact frequency in each of the two feasible branch families. The root decimals are not a substitute for those analytic root-existence and uniqueness proofs.
+
+The standalone script `verify_fsbp.py` was executed from the proposed package directory and returned `VERIFY_OK 1319`; it independently rebuilds collocation derivatives and tests the critical identities. The code's finite sampling supplements the exact proof.
+
+## Originality — PASS with residual risk
+The motivating 2026 work by Hale, Harley, Nchupang, and Nordström treats general optimal-node positive quadrature and FSBP construction. The 2022/2023 Glaubitz–Nordström–Öffner work establishes the abstract existence criterion, and the 2025 construction paper explicitly adds constant-function quadrature as a preferred condition. Those stronger general frameworks do not specify the three discrete second-band geometries, the two exact phase cutoffs, or the exactly three mass-normalized configurations; the relevant full-text sections and examples were examined. Searches for off-center trigonometric SBP branches, high-frequency alias nodes, and the exact calibration root numbers produced no covering statement among the checked results. General results about nonunique optimal nodes do not imply the precise classified geometry. Historical coverage by a specialized closed-form trigonometric quadrature identity remains possible; there has been no independent priority audit.
+
+## Mathematical value — PASS
+The positivity of the quadrature norm is what provides a discrete energy inner product; endpoint inclusion and exact differentiation alone cannot guarantee it. A positive-norm geometry previously restricted to the midpoint at lower frequency can, above the first sine resonance, be viable at two distinct displaced points while the midpoint fails. The three/two/zero diagram is an exhaustive structural boundary for the minimum possible node count, not an arbitrary test frequency. The derivative-of-products space fails the Tchebyshev-system hypothesis used in the general optimal-node theorem, because its second-harmonic sine has five interior zeros; the positive norms therefore survive in a non-Tchebyshev aliasing regime. Exact constant mass is separately motivated by quadrature consistency, and the theorem identifies the only three second-band grids satisfying it. These sharp facts can guide the choice of nodes and frequency in small FSBP elements and prevent extrapolating low-frequency rigidity to aliased regimes. No full PDE solver guarantee is inferred.
+
+## Closest literature and limitations
+- Hale et al., arXiv:2604.23306v1 (2026), general optimal-node characterization and examples; no explicit second-band three-node classifications in inspected sections.
+- Glaubitz, Nordström, and Öffner, arXiv:2203.05479 and SIAM JNA (2023), general positive-quadrature equivalence and different trigonometric grids.
+- Glaubitz, Nordström, and Öffner, J. Sci. Comput. 105 (2025), exact integration of constants as an additional design requirement.
+
+Only the specified three-dimensional trigonometric space, an open second band, three nodes, exact arithmetic, and positive diagonal norms are covered. Non-diagonal norms, more nodes, and PDE stability require separate analysis. Publication priority remains conditional on broader human literature review.
+
+Self-review: passed. Independent audit: not yet performed.

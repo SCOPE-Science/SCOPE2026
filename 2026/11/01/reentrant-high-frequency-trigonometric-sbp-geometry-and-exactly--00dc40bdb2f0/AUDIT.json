@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "For pi<kappa<2pi the sampled matrix is unisolvent exactly when cos(kappa a) != cos(kappa); any singular sample-null cos(kappa x)-cos(kappa) has nonzero endpoint derivatives, excluding exact D. The central cardinal derivative D_11=kappa sin(kappa a)/(cos(kappa)-cos(kappa a)) and strictly positive P_11 force the exhaustive a=0, +/-pi/kappa alternatives. Explicit unique D, P are checked entrywise, trigonometric signs give cutoffs 4pi/3 and 5pi/3, and strictly decreasing mass residuals with opposite endpoint signs certify unique mass-calibration roots. The packaged standalone verifier passed 1,319 supplemental symbolic/high-precision comparisons. Finite tests are not used as proof of exhaustive classification.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hale et al. 2026, Sections 2, 3.5 and 4.1: optimal generalized Gauss-Lobatto nodes under Tchebyshev-system hypotheses and trigonometric PDE examples, without the three-point second-band node set.",
+        "Glaubitz et al. 2025, Sections 2.1-2.3: optimization over P and Q with optional requirement that P integrate constants exactly; no explicit high-frequency alias branch thresholds."
+      ],
+      "reasoning": "General constructions permit many nodes and frequency choices, but neither supply a dominance theorem determining this restricted set of all three-node unisolvent collocation SBP pairs nor the exact zero-set of the extra constant-mass equation. The current theorem uses the minimal fixed node count and distinct aliasing geometry.",
+      "searches": [
+        "summation by parts general function space trigonometric arbitrary node positive quadrature exact",
+        "three node trigonometric summation by parts off center frequency aliasing positive diagonal norm",
+        "https://arxiv.org/html/2604.23306v1",
+        "https://doi.org/10.1007/s10915-025-03062-1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.23306v1",
+      "https://arxiv.org/abs/2203.05479",
+      "https://doi.org/10.1007/s10915-025-03062-1",
+      "https://arxiv.org/abs/2610.30272",
+      "https://arxiv.org/abs/2604.23306"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2026 optimal-node paper, full HTML Sections 2.1, 3.5, 4.1: general generalized-Gauss and positive quadrature framework, not the three-point aliasing classification.",
+        "2022/2023 original FSBP paper, Sections 4-6: exactness and positivity correspondence and trigonometric construction at a different node count; the first-resonance frequency and high-frequency geometry are not identified as a three-node classification.",
+        "2025 optimization paper, Section 2.3: identifies exact mass as a further design requirement and shows why it matters, but does not solve this specific three-node calibration condition."
+      ],
+      "reasoning": "The elementary low-frequency implication sin(kappa a)=0 forces a=0 if 0<kappa<pi, but cannot imply admissible off-center grids above pi. The two additional stationary cardinal nodes a=+/-pi/kappa enter strictly inside the interval only in the new second-frequency band. Their forced positive norms and exact mass calibration require separate trigonometric inequalities and strict residual-monotonicity arguments. The published abstract FSBP existence and optimal-node theorems contain no explicit implication fixing these points, cutoffs, or mass roots.",
+      "searches": [
+        "three-node trigonometric SBP midpoint rigidity high frequency second Nyquist band multiple valid interior nodes",
+        "trigonometric summation by parts exact differentiation positive diagonal three nodes off-center aliased high frequency pi 5pi/3",
+        "https://arxiv.org/html/2604.23306v1",
+        "https://arxiv.org/abs/2203.05479",
+        "https://doi.org/10.1007/s10915-025-03062-1",
+        "https://arxiv.org/abs/2610.30272"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For full-rank sampled bases, the positive-quadrature criterion for the derivative-of-products space is equivalent to a positive-diagonal FSBP identity (Glaubitz, Nordström, Öffner, arXiv:2203.05479, Corollary 4.6).",
+        "The exact second-band node list comes instead from the central cardinal derivative and its alias roots; no second-band three-node reduction was located in the inspected quadrature construction sections."
+      ],
+      "reasoning": "An equivalent formulation would be a positive quadrature exact on the first and second sine/cosine harmonics on [-1,1] at three nodes including endpoints, with frequency pi<kappa<2pi. The cited general equivalence reduces the problem but does not itself solve the equality/positivity and mass calibration for the prescribed node count; the proposed proof supplies those missing exact implications.",
+      "searches": [
+        "trigonometric summation by parts exact differentiation positive diagonal three nodes off-center aliased high frequency pi 5pi/3",
+        "three-node trigonometric SBP midpoint rigidity high frequency second Nyquist band multiple valid interior nodes",
+        "trigonometric generalized function space summation by parts quadrature positive diagonal frequency 3pi/2",
+        "https://arxiv.org/abs/2203.05479",
+        "https://doi.org/10.1007/s10915-025-03062-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted numerical-constant and alias-node searches produced no matched tabulation of the two calibration frequencies and three/two/zero node counts among returned published results.",
+        "The nearest retrieved frequency-triple sampling records concern finite cyclic Fourier frame or interpolation conditioning, not first-derivative FSBP with physical-interval boundary form."
+      ],
+      "reasoning": "An exact numerical table or precomputed phase diagram would cover the claim even without identical theorem wording. No such matching table was identified in checked public search results; search absence is weak evidence and is not claimed to establish uniqueness or priority.",
+      "searches": [
+        "\"5.066777161\" \"summation-by-parts\" trigonometric",
+        "\"4.028701322\" trigonometric quadrature",
+        "\"5π/3\" \"summation-by-parts\" trigonometric nodes",
+        "\"off-center\" \"trigonometric\" \"summation-by-parts\" three",
+        "trigonometric summation by parts exact differentiation positive diagonal three nodes off-center aliased high frequency pi 5pi/3"
+      ]
+    },
+    "rationale": "The inspected primary FSBP results establish general existence via positive quadrature and optimal-node schemes, but do not state the exact above-first-resonance three/two/zero geometry or its two uniquely mass-calibrated frequencies. In the stated band the derivative-of-products space is not Tchebyshev (its second-harmonic sine has five interior zeros), so the sufficient generalized optimal-node theorem does not directly apply. Targeted searches found no published equivalent within checked material; a specialized older formula remains a residual priority risk.",
+    "residual_risks": [
+      "An older specialized trigonometric Lobatto quadrature or oscillatory SBP identity might imply the exact node phase diagram; literature coverage is not exhaustive.",
+      "A general construction or numerical code could implicitly generate these nodes without expressly classifying them; this is not considered proof of priority.",
+      "Independent mathematical verification, full literature search, and numerical PDE performance tests have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Generalized optimal-node construction does not provide the three-node second-frequency-band closed-form node enumeration or calibrated mass roots.",
+        "evidence": "arXiv:2604.23306v1; definitions and general theorem in Section 2, examples in Section 3.5, trigonometric advection in Section 4.1.",
+        "identifier_or_url": "https://arxiv.org/html/2604.23306v1",
+        "material_read": "Full HTML: Introduction, Section 2.1 definitions/theorem, Section 3.5 examples including node nonuniqueness, Section 4.1 trigonometric model",
+        "method": "Read the source full-text HTML sections and mathematical statements, including its optimality definition and numerical trigonometric examples",
+        "title": "Summation-by-parts operators for general function spaces: Optimal nodes",
+        "trigger": "Same approximation-space SBP setup, generalized Gauss-Lobatto optimal nodes, plausible stronger coverage"
+      },
+      {
+        "assessment": "The paper supplies the general positive quadrature equivalence and trigonometric examples, but not the second-band three-node aliased closed-form classification.",
+        "evidence": "arXiv:2203.05479; Corollary 4.6 and examples including four-node trigonometric cases.",
+        "identifier_or_url": "https://arxiv.org/abs/2203.05479",
+        "material_read": "Full HTML: general FSBP definitions, Section 4 existence/equivalence, Section 5 construction, trigonometric examples in Section 6",
+        "method": "Compared exact objects, node count and quantifiers in original full-text theorems and examples",
+        "title": "Summation-by-parts operators for general function spaces",
+        "trigger": "Foundational equivalence might subsume all exact trigonometric SBP instances"
+      },
+      {
+        "assessment": "Motivates adding mass calibration but has no analytic formulas for this aliased grid family or exact calibrated frequencies.",
+        "evidence": "J. Sci. Comput. 105 (2025), article 83, Sections 2.1-2.3.",
+        "identifier_or_url": "https://doi.org/10.1007/s10915-025-03062-1",
+        "material_read": "Open-access full text: Sections 2.1-2.3 definitions, positive exact quadrature, Requirement 1 on integrating constants, and Section 3 construction",
+        "method": "Inspected framework, exact-mass constraints and applicability against prescribed 3-node second-band problem",
+        "title": "An Optimization-Based Construction Procedure for Function Space-Based Summation-by-Parts Operators on Arbitrary Grids",
+        "trigger": "Arbitrary-grid FSBP optimization and exact constant mass might dominate the proposed classification"
+      },
+      {
+        "assessment": "It addresses conservation/entropy properties with larger spaces and additional coordinate functions, not the minimum three-node geometry and calibrated second-band roots.",
+        "evidence": "arXiv:2610.30272v1, especially Section 4 and Remark 4.8.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.30272",
+        "material_read": "Accessible HTML excerpts on function-space assumptions and trigonometric constructions, especially Section 4 and the constant-mass remark",
+        "method": "Read relevant full-text material and distinguished its enriched trigonometric-polynomial space from the present three-dimensional space",
+        "title": "Summation-by-parts operators for general function spaces: Flux differencing, entropy stability, and accuracy",
+        "trigger": "Recent trigonometric FSBP with mass/entropy requirements"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00dc40bd-b2f0-4b04-95fd-e93889579136",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete geometry classification for the smallest closed FSBP operator, motivated by the need for positive quadrature weights and well-defined energy norms in general-function-space discretization. Above the first resonance, two geometrically distinct aliased interior nodes remain viable when the midpoint loses positivity; the exact three/two/zero node phase diagram identifies intrinsic feasibility boundaries. Exact integration of constants is separately necessary in several applications; the two uniquely calibrated frequencies and exactly three grids quantify when that additional consistency is possible. It is more than reparameterizing a low-frequency result because the off-center cardinal zeros first enter the domain beyond pi. The result does not assert performance beyond this restricted algebraic setting.",
+    "status": "PASS"
+  }
+}
