@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives a sharp minimum-support lemma for flag complexes by the deletion–link exact sequence. A reproducible exhaustive enumerator confirms precisely five induced matchings of six edges and therefore five twelve-vertex octahedral spheres. The integer cellular cycles are checked directly. A reproducible exact 388-by-388 signed determinant certificate with value \(-1\), combined with independent boundary-rank bounds modulo \(101\) and the chain identities, proves the five classes form a basis over \(\mathbb Z\). All 240 natural symmetry actions agree exactly at the chain level.
+## correctness
 
-**Originality — PASS, with qualification.** The closest published calculations already determine \(\operatorname{Ind}(D)\simeq S^4\vee\bigvee^5S^5\), but their inspected proofs do not identify the five induced minimum-support spheres as an integral basis or determine the signed \(S_5\times C_2\) lattice. Engström, Barmak, Athanasiadis, and Tsukuda address broader constructions or flag-complex bounds, not this equivariant unimodular certificate. The edge-ideal linear-strand result concerns a different invariant. The comparison cannot exclude unindexed equivalents; it does exclude treating the preexisting homotopy equivalence as new.
+PASS
 
-**Mathematical value — PASS.** The Desargues graph is a canonical bipartite Kneser/incidence graph with rich symmetry, and geometric integral bases need not follow from ranks or a nonequivariant wedge type. The exact five-sphere census, primitive integral basis, and signed group module answer a natural representation and support question for this object. These are structural facts, not an arbitrary finite cutoff.
+The Desargues graph is the 30-edge bipartite inclusion graph on 2- and 3-subsets of [5], and its independence complex is flag. A minimal-support nonzero H5 class needs at least 2·5+2=12 vertices; an equality support must be an octahedral S5 from a six-edge induced matching. An independent enumeration yielded induced matching counts [30,255,700,615,42,5,0] in sizes 1..7; the five six-edge matchings are the M_i obtained by fixing the omitted element i. Their signed 64-term sphere cycles are genuine 5-cycles. The integral ranks of ∂5,∂6,∂7 are forced to 932,383,97 by mod-101 lower bounds and the rank 388 primitive lattice L=im∂6+ΣZz_i; its exact 388×388 minor has determinant −1. I independently regenerated the 388-row and 388-column minor directly from the actual certificate indices and performed 388 exact integer unit pivots, obtaining −1. Thus L=ker∂5 as saturated equal-rank lattices and H5=Z^5 with the five specified integral generators. The S5 action exactly permutes the matching spheres, and complementation reverses all six chosen edges with net −1, giving Z[X]_perm⊗sgn_C2. The known H4=Z and nonequivariant homotopy type are not claimed new.
 
-The exact finite proof supports this specific complex and does not establish an infinite family theorem or any statement about degree-four symmetry. Bibliographic coverage remains incomplete in principle. The scientific assessment is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier exact same-object homotopy calculations determine H5 rank five, but not the minimum-support spheres, primitive integral basis, or S5×C2 module exhibited and certified here. General incidence-graph Alexander duality also does not imply those concrete integral representatives. This surviving contribution is narrower than the previously known homotopy type; priority is best-of-knowledge.
+
+## value
+
+PASS
+
+Minimum-support cycles and their integral permutation-with-sign module are natural geometric/topological invariants for this symmetric named graph. A primitive integral basis is strictly stronger than a rank-five rational homology assertion, and the full S5×C2 action is useful for equivariant topology. It is not a recomputation of the previously known homotopy type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
