@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T05:55:35Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all c_j of unit modulus, Parseval gives ||P||_4^4=25+2 sum_{k=1}^4|C_k|²; |C4|²=1. Scalar/modulation normalization gives c=(1,1,p,pq,pqr) with p,q,r on T. Direct expansion of C1,C2,C3 and minimization over p yields K−2|L|. Let q=e^{iβ}, r=e^{iγ}, x=cosβ, y=cosγ, z=cos(β−γ): K=9+4x+4y+2z and |L|²=7+6x+6y+2z+4xy. K≥2 follows as a sum of phase-averaged squared moduli. The inequality K−2|L|≥1 reduces to D=(K−1)²/4−|L|²=4Q(A,B), with A=cos((β+γ)/2), B=cos((β−γ)/2), Q=(4B²−1)A²+B(4B²+3)A+B⁴+B²+2. Symmetry takes B≥0. On B≤1/2, concavity in A makes A=−1 the minimizer; on B≥1/2 the convex vertex is at/beyond −1 by positive factor 1+(1−B)(1+4B(1−B)). The endpoint Q(−1,B)=(1−B)[(1−B)²+B²(2−B)]≥0 with equality only B=1,A=−1 up to simultaneous sign reversal. Consequently q=r=−1, then remaining objective 1+|p−1|² forces p=1. Undo normalization gives precisely c_j=λ η^j times (1,1,1,−1,1), E=2, ||P||4^4=29 and merit 25/4. Independently re-expanded K, D→4Q, factor and vertex identities by exact SymPy; exact Barker autocorrelations are (0,1,0,1). Finite checker stress tests do not prove universal claim.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Neuwirth, The maximum modulus of a trigonometric trinomial: L-infinity optimization for three modes; its norm and mode count differ.",
+          "Neuwirth, Metric unconditionality and Fourier analysis: general even-moment Parseval polynomial mechanism, but no sharp five-mode continuous phase inequality.",
+          "Published length-six polyphase base-energy minimum E=5 addresses a different fixed length; its statement does not imply the n=5 value or phase rigidity.",
+          "Published four-point Fourier-support work addresses four frequencies and a different support/difference geometry."
+        ],
+        "reasoning": "General Parseval expansions do not, without additional nontrivial optimization, bound the three free phase differences sharply. The neighboring exact results have different supports or coefficient lengths and do not logically imply the five-consecutive-mode inequality or its equality classification.",
+        "searches": [
+          "Resultary query: phase-only fourth Fourier moment five consecutive frequencies minimum Barker polynomial sharp L4 exact extremizers",
+          "Resultary related records: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-length-six-polyphase-base-energy-minimum--b03150b9996c",
+          "Resultary related records: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c",
+          "Neuwirth hal-00135804 trigonometric trinomial maximum modulus",
+          "Neuwirth arXiv math/9707211 metric unconditionality Fourier analysis even moments",
+          "Kai-Uwe Schmidt Sequences with small correlation polyphase Barker survey",
+          "https://hal.science/hal-00135804",
+          "https://arxiv.org/abs/math/9707211"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1109/TIT.2004.842778",
+        "Peter Borwein and Michael J. Mossinghoff, Barker sequences and flat polynomials, accessible primary PDF",
+        "Kai-Uwe Schmidt, Sequences with small correlation, accessible arXiv primary review",
+        "https://hal.science/hal-00135804",
+        "https://arxiv.org/abs/math/9707211",
+        "https://arxiv.org/abs/1503.05067",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-length-six-polyphase-base-energy-minimum--b03150b9996c",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-four-point-support-geometry-quantizes-the-phase-only-fourth-four--2b7f859e0b5c",
+        "Resultary semantic search of current and older published SCOPE findings, excluding the identical record itself from prior evidence"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The stronger-looking Barker min-energy lower-bound paper arXiv:1503.05067 explicitly treats binary sequences; no legitimate deduction for arbitrary unit complex phases.",
+          "Borwein–Ferguson explicitly frame their tabulated length-five E=2 as lowest obtained through stochastic search, not a certified analytic bound.",
+          "Full source proof supplies a nontrivial two-variable nonnegative quadratic Q(A,B) argument with sharp equality; that analytic inequality is not supplied by inspected prior sources."
+        ],
+        "reasoning": "A general lower bound or an all-phase equality classification would dominate this statement if found; the strongest located exact binary bound applies to a strict subset and does not extend formally to complex phases. The prior equal numerical candidate is insufficient to infer the universal bound. Residual risk of less-accessible radar/polyphase sources is explicit.",
+        "searches": [
+          "Resultary semantic searches for fourth-moment 29; Barker orbit; E=2 continuous phase length five",
+          "Web query: unimodular polyphase sequences general lower bound autocorrelation energy (n-1)/2 Barker odd length",
+          "Web query: polyphase merit factor upper bound 25/4 length five exact optimal unimodular autocorrelation",
+          "Schmidt survey Sequences with small correlation; Barker and polyphase sections",
+          "https://doi.org/10.1109/TIT.2004.842778",
+          "https://arxiv.org/abs/1503.05067"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For five unimodular coefficients Parseval gives ||P||_4^4=25+2E, and merit factor is 25/(2E), so the proposed statements are mathematically equivalent.",
+          "Borwein–Ferguson (2005), Figure 1: n=5 and E=2.000 is the lowest value found by stochastic optimization, not an exact global theorem.",
+          "Barker-sequence results certify the five-bit +/-1 construction; unrestricted unimodular phases are a continuous four-torus before scalar symmetry, not the same search class."
+        ],
+        "reasoning": "The closest numeric entry and its binary Barker construction match E=2 but do not logically establish E>=2 on arbitrary complex unit phases, nor uniqueness modulo scalar and linear phase. Searches included L4 fourth moment, aperiodic integrated sidelobes, base energy, merit factor, binary and polyphase Barker aliases.",
+        "searches": [
+          "Resultary query: five-term unimodular polynomial fourth norm minimum 29 aperiodic autocorrelation energy 2 all phases exact optimizers Barker",
+          "Resultary query: polyphase sequences length five continuous phase merit factor exact maximum 25/4 autocorrelation global minimizer",
+          "Web query: length 5 complex unimodular sequences globally minimum integrated sidelobe level 2 unique Barker",
+          "Web query: polyphase merit factor upper bound 25/4 length five exact optimal unimodular autocorrelation",
+          "https://doi.org/10.1109/TIT.2004.842778",
+          "https://arxiv.org/abs/1503.05067"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Borwein–Ferguson 2005, Figure 1: E=2.000 for length five as lowest found, with stochastic and statistical justification only.",
+          "Borwein–Mossinghoff Barker sequences and flat polynomials, Table 1: the length-five +/-1 Barker pattern has merit factor 25/4.",
+          "Classical Barker tables enumerate low-autocorrelation binary constructions, whereas the result optimizes over all unimodular complex five-tuples."
+        ],
+        "reasoning": "The exact candidate number was known, so novelty cannot lie in numerically exhibiting it. New surviving content is analytic globality over arbitrary phases and all-minimizer orbit rigidity. A table of binary extremizers or stochastic results does not prove this continuous claim.",
+        "searches": [
+          "Borwein Ferguson Polyphase Sequences With Low Autocorrelation Figure 1 length five base energy",
+          "Barker sequences and flat polynomials Borwein Mossinghoff length five merit factor 6.25",
+          "Web query: length 5 complex unimodular sequences globally minimum integrated sidelobe level 2 unique Barker",
+          "https://doi.org/10.1109/TIT.2004.842778",
+          "https://arxiv.org/abs/1503.05067"
+        ]
+      },
+      "rationale": "No inspected prior source proves the all-complex-phase length-five global inequality with complete equality orbit. Borwein–Ferguson (2005) tabulate E=2.000 as a stochastic lowest found, but provide statistical rather than analytic global certification. Binary Barker literature knows the same value for +/-1 coefficients, a strictly smaller feasible set. Neuwirth phase-extremal and even-moment analyses do not dominate the five-term continuous-phase minimization. Related published SCOPE results treat length six or nonconsecutive/different Fourier supports. This is best-of-knowledge, not a priority guarantee.",
+      "residual_risks": [
+        "Older or unindexed radar, polyphase sequence, and unimodular Barker literature may contain an equivalent exact length-five complex-phase result, possibly in alternate merit-factor or integrated-sidelobe notation.",
+        "An algebraically disguised universal lower bound for this length in a general polyphase theorem is not completely excluded by the indexed and inspected materials; no absolute priority claim is warranted.",
+        "The numeric candidate E=2 and the binary Barker construction are explicitly prior art and are not original components."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "E=2.000 is an empirical candidate and the authors give statistical evidence; no analytic proof of all-complex-phase global optimality or all minimizers is established.",
+          "evidence": "Figure 1 n=5 E=2.000, discussion of stochastic repeated searches and a statistical model for likelihood of global optimum.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2004.842778",
+          "material_read": "Accessible complete five-page author-hosted PDF: definitions, stochastic optimization, Figure 1 length-five row, statistical-globality discussion, references; page image of Figure 1.",
+          "method": "Full-text PDF inspection with page-image confirmation.",
+          "title": "Polyphase Sequences With Low Autocorrelation",
+          "trigger": "Exactly matches the autocorrelation/base-energy objective and reports the length-five candidate."
+        },
+        {
+          "assessment": "Barker and known merit-factor table are for binary signs; do not bound every complex phase nor prove unique complex orbit.",
+          "evidence": "Table 1 includes 5-bit Barker +-pattern with merit factor 6.25, and opening Parseval identity is general but its Barker classification is binary.",
+          "identifier_or_url": "Peter Borwein and Michael Mossinghoff, Barker sequences and flat polynomials (accessible 18-page PDF; bibliographic title search https://arxiv.org/search/?query=Barker+sequences+and+flat+polynomials&searchtype=all)",
+          "material_read": "Complete available 18-page PDF and page images of early definitions and Barker sequence table.",
+          "method": "Full-text PDF and page-image inspection.",
+          "title": "Barker sequences and flat polynomials",
+          "trigger": "Potentially dominating Barker merit-factor theorem for length five."
+        },
+        {
+          "assessment": "Discusses the binary Barker family and wider unimodular/autocorrelation theory but does not state the five-term all-phases sharp minimum with complete optimizer orbit.",
+          "evidence": "Binary Barker classifications and general correlation definitions; distinct from exact continuous four-phase-variable optimization.",
+          "identifier_or_url": "Kai-Uwe Schmidt, Sequences with small correlation, arXiv survey (accessible full-text HTML)",
+          "material_read": "Full accessible arXiv HTML and sections on Barker sequences, unimodular Barker sequences, integrated sidelobe levels.",
+          "method": "Full-text HTML and focused theorem/section inspection.",
+          "title": "Sequences with small correlation",
+          "trigger": "Survey of Barker, general polyphase, and aperiodic merit-factor results potentially containing an exact n=5 theorem."
+        },
+        {
+          "assessment": "Minimax/maximum-modulus for three terms, not minimum normalized L4 fourth moment of five successive unit coefficients.",
+          "evidence": "The title, abstract, and principal three-frequency L-infinity statements.",
+          "identifier_or_url": "https://hal.science/hal-00135804",
+          "material_read": "Accessible 19-page primary PDF: statement, normalizations, main theorems and context, with page-image inspection.",
+          "method": "Full-text PDF inspection.",
+          "title": "The maximum modulus of a trigonometric trinomial",
+          "trigger": "Primary published phase optimization in trigonometric polynomials."
+        },
+        {
+          "assessment": "Even moments are polynomial in Fourier coefficients, but no evaluated five-term L4 global minimum or all-minimizer rigidity is given.",
+          "evidence": "General Parseval/additive-relation mechanism; no sharp optimization for this parameter.",
+          "identifier_or_url": "https://arxiv.org/abs/math/9707211",
+          "material_read": "Accessible primary arXiv HTML: abstract, introductory Parseval framework and relevant even-moment passages.",
+          "method": "Full-text HTML and theorem/intro section reading.",
+          "title": "Metric unconditionality and Fourier analysis",
+          "trigger": "Broader even-moment Fourier phase algebra might imply the proposed n=5 theorem."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The aperiodic base energy/merit factor is a canonical intrinsic quality measure for unimodular/polyphase sequences. Length five is a natural minimal nontrivial Barker boundary case, and the literature previously provided E=2 as a numerical/polyphase search candidate and a binary sequence. Proving its exact global optimality over the entire continuous complex phase torus, and showing the only optimizers form one scalar/modulation orbit, is a useful non-tabular rigidity classification with an analytic sharp inequality. It provides a precise benchmark for continuous-phase autocorrelation design and distinguishes numerically located minima from rigorously exhaustive ones. The result is explicitly only length five and fourth moment; no larger-length theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality with residual risk of historical all-phase small-length theorem in older radar/polyphase literature.",
+    "The value E=2 and length-five binary Barker example are known; only continuous-phase globality and full phase rigidity are independently claimed.",
+    "No larger-length optimum or different even moment is proved.",
+    "The source checker has finite random tests and symbolic identities; analytic positivity of Q establishes the universal result.",
+    "No Lean proof or external expert attestation was performed or inferred.",
+    "Public package privacy/provenance corrections were not supplied as exact source-guarded bytes; publication remains blocked despite completed scientific review."
+  ],
+  "schema_version": 1
+}
