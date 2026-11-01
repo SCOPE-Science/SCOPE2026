@@ -1,0 +1,20 @@
+# Scientific comparison and review
+
+## Correctness
+PASS: Quotient geodesic distance between independent Haar points equals a sum of three independent weighted squared uniforms in the rectangular Voronoi cell. Exact cumulants 1/12, 1/180, 1/3780 recover power sums S,Q,R. Positive-triplet Cauchy range plus a unique sorted trigonometric arc proves the full interval of squared volume and the phase Q=S²/2. Newton identities give an exact cubic with roots the positive squared lengths. Rouché counting on root-radius discs proves the 1/3 Hölder upper bound, while exact noncongruent moment-collision families give sharpness and optimal cutoff. An independently implemented rational moment expander, positive-volume-fiber check, and collision check complete 23,434 finite tests; these checks are not substituted for analytic quantification.
+
+The sphere of validity is strictly positive rectangular three-torus side lengths. The sampling distribution is Haar, and only exact population moments enter the inverse theorem. The proof checks boundary cases at cubic equality, the two-equal circle factors, the excluded zero-length collapse boundary, and nondegenerate Hölder perturbations.
+
+## Originality
+PASS (provisional historical priority): Direct comparisons distinguish the 1978 torus-distance empirical-process framework; 2012 Euclidean planar-domain mean-distance integral geometry; 2020 random triangle topology on 2D flat tori; 2026 energy optimization over variable measures on flat tori; 2D full-distribution rigidity; and width/orthotope finite-moment reconstruction. None of the inspected mathematical assertions implies the exact 3D Haar-geodesic first-three-even-moment rigidity plus sharp two-moment squared-volume fiber and cubic stability. Essential risk: Silverman (1978) complete full text could not be inspected. Search non-recovery is not independent novelty certification.
+
+Closest accessible literature: Silverman (1978), DOI 10.2307/3213243, empirical torus distance processes (abstract-only access); Agaronyan (2012), DOI 10.46991/PYSUA.2012.46.3.003, Euclidean planar-domain mean-distance formula; Glorieux–Yarmola, arXiv:2003.08190v1, random three-point triangle topology on flat two-tori; and Zhou, arXiv:2609.05622v1, variational energies and negative type for flat tori. Direct statement-level comparison of their accessible material does not give the volume-identifiability transition. A prior full-distance-law inverse theorem for two-dimensional tori and an inverse theorem for planar triangle chord moments concern different geometric families and do not imply this classification. The published orthotope finite-moment tomography result concerns random Euclidean projection volumes rather than intrinsic periodic geodesics.
+
+The 1978 article's complete text was inaccessible for this review; its abstract alone cannot exclude that it proves a broader result. Priority and correctness remain unverified by an independent reviewer.
+
+## Mathematical value
+PASS: A flat-torus quotient geodesic observable is natural in stochastic geometry and determines how much unlabeled metric information is encoded in distances between Haar-random points. The exact feasible two-moment range and full squared-volume fiber identify a nontrivial rigidity-versus-collapse transition at the intrinsic fourth-to-second moment ratio 7/5. A sharp minimal moment cutoff and optimal 1/3 inverse modulus answer both identifiability and conditioning questions, beyond moment formulas alone; all three are precisely motivated by the same geometric inference problem.
+
+The quantified gain is an exact inverse description of a natural metric family: which moment pairs are attainable, precisely which volumes coexist at fixed two moments, why the threshold is a true degeneration boundary, and why the third moment is necessary and sufficient but ill-conditioned at cubic symmetry. A general moment calculation by itself would not establish the sharp positive-geometry fiber statement.
+
+Self-review: passed. Independent audit: not yet performed.
