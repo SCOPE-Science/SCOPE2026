@@ -1,0 +1,19 @@
+# Scientific review: exact complete-graph cyclic-dominance dynamics
+
+## Correctness — PASS
+
+The synchronous population reduction is exact because a vertex cannot be its own successor; on a complete graph the number of successor neighbours is exactly the global successor count. The four trajectory categories arise by exhausting the zero-, one-, two- and three-large-population possibilities, with separate treatment of one- and two-colour support. Every claimed finite-size existence boundary has an explicit configuration witness, and absence follows from integer count constraints. The labelled-block exponential generating functions reproduce the exact exhaustive category counts. The Gaussian limit uses the multinomial central limit theorem, a nondegenerate two-dimensional covariance, and Gaussian continuity; the arithmetic boundary follows from a finite sum of local multinomial probabilities. Independent vertex-level code checked 280,449 configuration/threshold pairs for all systems of sizes three through nine and thresholds one through size-plus-one. These finite tests do not prove the statements for arbitrary sizes; the proof supplies that extension.
+
+## Originality — PASS with residual priority risk
+
+The exact synchronous three-colour cyclic rule itself is not new. Gravner, Lyu and Sivakoff (2016) prove a stronger theorem on arbitrary finite graphs, but only with a one-neighbour contact requirement; their result entails some threshold-one dynamics and that special case is not treated as an original invention. Bello and Sivakoff (2021) treat general contact thresholds, but on infinite regular trees and with almost-sure fixation/fluctuation conclusions rather than a complete finite-state classification. España, Funez and Ugalde (2025) develop attractor landscapes and reductions for Boolean clover networks with signed majority rules, not three-colour complete graphs. Neither the complete all-threshold census nor the residue-dependent critical \(1/N\) law follows from these results. Searches for equivalent complete-graph cyclic automata, all-to-all predator thresholds and exact basin tables identified no direct statement. This absence is evidence of non-coverage among searched sources, not a universal proof of priority. A specialized uncatalogued treatment of the elementary complete-graph case remains possible.
+
+## Mathematical value — PASS
+
+The complete graph is the canonical mean-field comparison geometry for threshold excitable media, and finite automata generally have exponentially large state spaces. Here an exact all-state census identifies all orbit periods, both possible transient depths, and their sharp finite-size existence boundaries. The joint \(\sqrt N\) critical window quantifies coexistence of eternal three-colour oscillation and absorption, and the coefficient at the exact integer boundary exhibits a three-way arithmetic distinction invisible to the limiting zero probability. This combination supplies a useful analytic benchmark when evaluating spatial or sparse-network behavior; it does not claim a general theorem for other graph families.
+
+## Closest literature and limitations
+
+The closest dynamically identical local rule with general graph topology is Gravner–Lyu–Sivakoff (2016), for contact threshold one. The closest general contact-threshold analogue is Bello–Sivakoff (2021), for infinite trees. The current literature anchor is España–Funez–Ugalde (2025), whose finite-network attractor questions motivate seeking exact alternatives. The present analysis does not extend to arbitrary graph topology, nonuniform initial colour probabilities, more than three colours, or asynchronous updates. Independent scientific validation and historical-priority certification have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
