@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof parameterizes all maximum-area inscribed triangles, computes their exact tangential perimeter derivatives, derives a uniform lower bound via Heron's identity, and converts it into an actual improvement with a controlled second derivative. The near-circle coefficient follows from a uniform transverse perturbation at the circular equilateral maximum. The companion script tests the constructive gain on 800 cases and checks four near-circle optimizations. Finite tests are supplementary, not proof.
+## correctness
 
-**Originality — PASS (with residual risks).** The principal 2026 Hoehner work addresses asymptotic vertex budgets. The most relevant public result, *Exact perimeter selection among maximum-area polygons inscribed in ellipses*, was examined in full and expressly restricts the perimeter comparison to the maximum-area polygon subfamily. The present claim compares it with the unrestricted perimeter maximum at three vertices and calculates a global positive gap and sharp perturbative coefficient. A 2021 ellipse billiard discussion gives only extremal stationarity. Historical elliptic-integral and billiards work may still contain equivalent formulas.
+PASS
 
-**Value — PASS.** Strict positive finite-budget two-intrinsic-volume incompatibility and an exact sharp quadratic defect provide a motivated quantitative complement to infinite-budget rigidity. The explicit all-aspect ratio lower bound makes the obstruction uniform without needing the closed-form global perimeter optimizer.
+Inverse-affine mapping proves all area maximizers are images of equilateral circle triangles. Exact side lengths s_i and tangential derivative D_i identify a vertex with |D_i| bounded below by 9 b²(a²-b²)/(16a⁴) using trigonometric range and Heron. A bounded second derivative and a chosen signed angular step give a concrete gain at least 81 b⁷(a²-b²)²/(2048a¹⁰), uniformly for each area-maximizer. Near a=1+ε,b=1 the transverse Hessian around equilateral triples is negative definite, linear εδ term is explicit and completing square yields coefficient 9sqrt(3)/16. Independent 600 numerical derivatives matched analytic first variation to <8e-15; independent multi-eccentricity global optimizations showed normalized near-circle gap increasing toward 0.974278579, not used to prove the asymptotic. Globality near circle follows compactness of circular equilateral maximizers and uniform transverse Hessian.
 
-**Scientific limits.** The global lower bound is not claimed optimal. Neither a closed formula nor a complete classification for unrestricted maximum-perimeter inscribed triangles is obtained. No independent verification or originality certification has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The full published Resultary theorem “Exact perimeter selection among maximum-area polygons inscribed in ellipses” classifies rotations only within the maximum-area family, explicitly excluding all-inscribed perimeter maximization. It cannot imply a positive gap to the unrestricted maximum or the claimed ε² coefficient. Hoehner treats many-vertex asymptotic simultaneous intrinsic-volume optimization; a fixed three-vertex quantitative inequality is not a corollary. Classical ellipse billiards only gives first-order reflection stationarity. No matching all-eccentricity bound or local coefficient found; historical elliptic-integral priority remains possible.
+
+## value
+
+PASS
+
+Quantifies a natural finite-budget incompatibility of planar intrinsic volumes (area and perimeter), with strict rigidity at precisely circular ellipses and sharp small-anisotropy loss. The result is useful without solving the difficult full perimeter-optimizer classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

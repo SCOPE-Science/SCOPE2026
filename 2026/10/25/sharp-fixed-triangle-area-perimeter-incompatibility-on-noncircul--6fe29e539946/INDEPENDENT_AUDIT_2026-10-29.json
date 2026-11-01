@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:15:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Inverse-affine mapping proves all area maximizers are images of equilateral circle triangles. Exact side lengths s_i and tangential derivative D_i identify a vertex with |D_i| bounded below by 9 b²(a²-b²)/(16a⁴) using trigonometric range and Heron. A bounded second derivative and a chosen signed angular step give a concrete gain at least 81 b⁷(a²-b²)²/(2048a¹⁰), uniformly for each area-maximizer. Near a=1+ε,b=1 the transverse Hessian around equilateral triples is negative definite, linear εδ term is explicit and completing square yields coefficient 9sqrt(3)/16. Independent 600 numerical derivatives matched analytic first variation to <8e-15; independent multi-eccentricity global optimizations showed normalized near-circle gap increasing toward 0.974278579, not used to prove the asymptotic. Globality near circle follows compactness of circular equilateral maximizers and uniform transverse Hessian.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoehner uses vertex budget growing without bound.",
+          "Prior ellipse theorem covers all n>=3 but only orientation within maximum area."
+        ],
+        "reasoning": "Neither dominates the fixed-n=3 gap to the unrestricted optimum; scope and quantifiers do not imply this claim.",
+        "searches": [
+          "arXiv:2602.18547 Hoehner simultaneous intrinsic volumes",
+          "Resultary exact maximum-area-family perimeter selection"
+        ]
+      },
+      "checked_sources": [
+        "Resultary/2026 2026/10/11 exact perimeter selection, full RESULT.md",
+        "arXiv:2602.18547 Hoehner, abstract/bibliography",
+        "MathOverflow Q407192",
+        "assigned ellipse RESULT.md + source blob verify_gap.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier exact phase selection concerns max perimeter conditioned on max area only.",
+          "Reflection/billiard stationarity does not quantify the global gap."
+        ],
+        "reasoning": "The claims have different feasible-set maxima. The sharp ε² coefficient requires transverse deformation of vertices, which is absent from phase optimization in the area-maximal family.",
+        "searches": [
+          "Resultary:2026/10/11/SCOPE-exact-perimeter-selection-among-maximum-area-polygons-inscribed--9338777854e9",
+          "Hoehner arXiv:2602.18547",
+          "MathOverflow 407192"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Full relevant prior RESULT.md defines P_n only among area-maximizers and explicitly disclaims all inscribed polygons."
+        ],
+        "reasoning": "Same affine-regular family occurs, but optimization over a proper subset is not equivalent to comparing with the global maximum.",
+        "searches": [
+          "Resultary semantic search: max area inscribed triangle ellipse maximum perimeter gap near circle quadratic",
+          "Resultary:2026/10/11/SCOPE-exact-perimeter-selection-among-maximum-area-polygons-inscribed--9338777854e9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact database/table with the all-eccentricity lower bound and near-circle constant was identified."
+        ],
+        "reasoning": "Continuous optimization and asymptotic coefficient are not a pre-tabulated finite census; earlier elliptic-integral identities are a residual risk.",
+        "searches": [
+          "Resultary semantic search: max area inscribed triangle ellipse maximum perimeter gap near circle quadratic",
+          "MathOverflow 407192 ellipse maximum-perimeter question"
+        ]
+      },
+      "rationale": "The full published Resultary theorem “Exact perimeter selection among maximum-area polygons inscribed in ellipses” classifies rotations only within the maximum-area family, explicitly excluding all-inscribed perimeter maximization. It cannot imply a positive gap to the unrestricted maximum or the claimed ε² coefficient. Hoehner treats many-vertex asymptotic simultaneous intrinsic-volume optimization; a fixed three-vertex quantitative inequality is not a corollary. Classical ellipse billiards only gives first-order reflection stationarity. No matching all-eccentricity bound or local coefficient found; historical elliptic-integral priority remains possible.",
+      "residual_risks": [
+        "Earlier unindexed local elliptic integral/billiard perturbation may contain the same quadratic coefficient.",
+        "No full independent access to all geometric optimization primary texts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_UNRESTRICTED_PERIMETER_COMPARISON",
+          "evidence": "Explicitly restricts to Euclidean perimeters inside affine-regular maximum-area family, excluding unrestricted perimeter maximizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-perimeter-selection-among-maximum-area-polygons-inscribed--9338777854e9",
+          "material_read": "Complete frozen RESULT.md including Finding, Assumptions, Chebyshev-resolvent proof, Limitations",
+          "method": "GitHub read-only fetch of full scientific RESULT.md",
+          "title": "Exact perimeter selection among maximum-area polygons inscribed in ellipses",
+          "trigger": "Same ellipse/area-maximizing triangle, plausible dominating all-n theorem"
+        },
+        {
+          "assessment": "NOT_DEMONSTRATED_TO_COVER_FIXED_THREE_VERTEX_GAP",
+          "evidence": "Many-vertex limiting statement, not a fixed n=3 quantitative gap; full text not independently inspected.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.18547",
+          "material_read": "Public bibliography and abstract-level description; no independently reviewed full paper",
+          "method": "Primary abstract and package bibliography",
+          "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+          "trigger": "Broader intrinsic volume rigidity"
+        },
+        {
+          "assessment": "DIFFERENT_FROM_SHARP_GAP",
+          "evidence": "Stationarity condition alone does not give the exact maximum or difference.",
+          "identifier_or_url": "https://mathoverflow.net/questions/407192/inscribed-n-gons-of-maximum-perimeter-for-an-ellipse",
+          "material_read": "Problem/answer claims about reflection stationarity as cited; full online discussion not independently fetched",
+          "method": "Bibliographic and mathematical comparison",
+          "title": "Inscribed n-gons of maximum perimeter for an ellipse",
+          "trigger": "Stationarity of unrestricted perimeter optimum"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Quantifies a natural finite-budget incompatibility of planar intrinsic volumes (area and perimeter), with strict rigidity at precisely circular ellipses and sharp small-anisotropy loss. The result is useful without solving the difficult full perimeter-optimizer classification.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary/2026 2026/10/11 exact perimeter selection, full RESULT.md",
+    "arXiv:2602.18547 Hoehner, abstract/bibliography",
+    "MathOverflow Q407192",
+    "assigned ellipse RESULT.md + source blob verify_gap.py"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Earlier unindexed local elliptic integral/billiard perturbation may contain the same quadratic coefficient.",
+    "No full independent access to all geometric optimization primary texts."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_UNRESTRICTED_PERIMETER_COMPARISON",
+      "evidence": "Explicitly restricts to Euclidean perimeters inside affine-regular maximum-area family, excluding unrestricted perimeter maximizers.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-perimeter-selection-among-maximum-area-polygons-inscribed--9338777854e9",
+      "material_read": "Complete frozen RESULT.md including Finding, Assumptions, Chebyshev-resolvent proof, Limitations",
+      "method": "GitHub read-only fetch of full scientific RESULT.md",
+      "title": "Exact perimeter selection among maximum-area polygons inscribed in ellipses",
+      "trigger": "Same ellipse/area-maximizing triangle, plausible dominating all-n theorem"
+    },
+    {
+      "assessment": "NOT_DEMONSTRATED_TO_COVER_FIXED_THREE_VERTEX_GAP",
+      "evidence": "Many-vertex limiting statement, not a fixed n=3 quantitative gap; full text not independently inspected.",
+      "identifier_or_url": "https://arxiv.org/abs/2602.18547",
+      "material_read": "Public bibliography and abstract-level description; no independently reviewed full paper",
+      "method": "Primary abstract and package bibliography",
+      "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+      "trigger": "Broader intrinsic volume rigidity"
+    },
+    {
+      "assessment": "DIFFERENT_FROM_SHARP_GAP",
+      "evidence": "Stationarity condition alone does not give the exact maximum or difference.",
+      "identifier_or_url": "https://mathoverflow.net/questions/407192/inscribed-n-gons-of-maximum-perimeter-for-an-ellipse",
+      "material_read": "Problem/answer claims about reflection stationarity as cited; full online discussion not independently fetched",
+      "method": "Bibliographic and mathematical comparison",
+      "title": "Inscribed n-gons of maximum perimeter for an ellipse",
+      "trigger": "Stationarity of unrestricted perimeter optimum"
+    }
+  ]
+}
