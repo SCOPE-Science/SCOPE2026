@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T08:01:50.658910Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-local-rk4-positivity-horizons-on-every-finite-tree--2042521dfc9d/RESULT.md at b96611dd0e4ba75879888c5efbc42e7576d8123f",
+        "2026/10/25/exact-local-rk4-positivity-horizons-on-every-finite-tree--2042521dfc9d/verify.py at b96611dd0e4ba75879888c5efbc42e7576d8123f",
+        "Independent replay /mnt/data/scope_worker02_run_20261029T0743/independent_five_checks.py"
+      ],
+      "rationale": "Let T be any finite simple unweighted tree with >=2 vertices. Exact expansion of R4(-hL) by graph distance gives h p_uv(h) on edges, h^3/6(1-h q(P)/4) for distance-three paths, strictly positive entries for distance two and four when h>0, zero past four, and positive diagonal by a sum-of-squares spectral identity. Edge p_uv=1-(a+b)h/2+[a²+ab+b²+a+b-1]h²/6-C_uv h³/24 with C_uv=(a+b)(a²+b²)+2(a²+ab+b²)-2(a+b)+s_u+s_v. Bound B<=(a+b)² and C>=(a+b)^3/2 force p' negative by negative derivative discriminant and unique positive root. Therefore entire entrywise positivity set is [0,min_uv root(p_uv),min_{length3 path} 4/sum degrees], with no reentry. Independent integer matrix powers on P5, subdivided star, P6, K2 checked all coefficient classes and the distinct first-failure mechanisms.",
+      "residual_risks": [
+        "Finite numerical checks are only supplementary and do not establish the general theorem or bibliographic originality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General SSP statements do not imply exact end-step positivity because the RK4 endpoint can remain nonnegative beyond a stagewise SSP bound; local tree graph combinatorics essential.",
+          "DOI:10.1137/S003614450036757X"
+        ],
+        "reasoning": "General SSP statements do not imply exact end-step positivity because the RK4 endpoint can remain nonnegative beyond a stagewise SSP bound; local tree graph combinatorics essential.",
+        "searches": [
+          "RK4 graph heat equation positivity nonnegative matrix on trees exact step size horizon",
+          "DOI:10.1137/S003614450036757X",
+          "arXiv:2102.08242"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1137/S003614450036757X",
+        "arXiv:2102.08242",
+        "Resultary semantic search: RK4 graph heat equation positivity nonnegative matrix on trees exact step size horizon"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published general positivity-preserving time-step constructions do not yield unique cubic edge root and distance-three bound across all unweighted trees; methods/integrators are different.",
+          "DOI:10.1137/S003614450036757X",
+          "arXiv:2102.08242"
+        ],
+        "reasoning": "Published general positivity-preserving time-step constructions do not yield unique cubic edge root and distance-three bound across all unweighted trees; methods/integrators are different.",
+        "searches": [
+          "RK4 graph heat equation positivity nonnegative matrix on trees exact step size horizon",
+          "DOI:10.1137/S003614450036757X",
+          "arXiv:2102.08242"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "RK stability polynomial applied to graph Laplacian, endpoint Markov positivity, nonnegative matrix step-size CFL frontier on trees.",
+          "DOI:10.1137/S003614450036757X"
+        ],
+        "reasoning": "RK stability polynomial applied to graph Laplacian, endpoint Markov positivity, nonnegative matrix step-size CFL frontier on trees. The exact mathematical object and output are compared, rather than names alone.",
+        "searches": [
+          "RK4 graph heat equation positivity nonnegative matrix on trees exact step size horizon",
+          "DOI:10.1137/S003614450036757X",
+          "arXiv:2102.08242"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search found Padé/Crank-Nicolson/Lanczos positivity thresholds, not exact classical RK4 tree coefficient table."
+        ],
+        "reasoning": "Resultary search found Padé/Crank-Nicolson/Lanczos positivity thresholds, not exact classical RK4 tree coefficient table.",
+        "searches": [
+          "RK4 graph heat equation positivity nonnegative matrix on trees exact step size horizon",
+          "DOI:10.1137/S003614450036757X",
+          "arXiv:2102.08242"
+        ]
+      },
+      "rationale": "General SSP Runge–Kutta literature gives stability/positivity frameworks, not this exact graph-dependent horizon for arbitrary unweighted trees. The result distinguishes endpoint positivity from stagewise SSP, and identifies precisely edge and three-step path failures, which generic method coefficients do not determine.",
+      "residual_risks": [
+        "Unindexed numerical-analysis or numerical-PDE graph-tree RK4 calculation may be equivalent.",
+        "2001 original SSP paper not inspected in full in this run, so coverage statements restricted to inspected mathematical material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Generic preservation, not exact tree endpoint horizon",
+          "evidence": [
+            "SSP framework controls monotonicity through decompositions/stability and differs from unconditional site-specific endpoint positivity."
+          ],
+          "identifier_or_url": "DOI:10.1137/S003614450036757X",
+          "material_read": "Reference and accessible overview of SSP coefficient framework; no full text of this paper reviewed in current run",
+          "method": "Bibliographic and methodological comparison",
+          "title": "Strong Stability-Preserving High-Order Time Discretization Methods",
+          "trigger": "Canonical general SSP analysis of RK schemes"
+        },
+        {
+          "assessment": "Broader numerical methods do not furnish the asserted tree-specific RK4 criterion",
+          "evidence": [
+            "Methods discuss positivity for general ODEs and specialized schemes, not exact edge cubic plus length-three path horizon for graph heat on arbitrary trees."
+          ],
+          "identifier_or_url": "arXiv:2102.08242",
+          "material_read": "Public arXiv PDF, introduction and substantive sections on positivity-preserving methods, screenshot of PDF inspected",
+          "method": "Open primary PDF and material method reading",
+          "title": "Positivity-Preserving Methods for Ordinary Differential Equations",
+          "trigger": "Near primary numerical positivity theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "DOI:10.1137/S003614450036757X",
+        "arXiv:2102.08242",
+        "2026/10/25/exact-local-rk4-positivity-horizons-on-every-finite-tree--2042521dfc9d/RESULT.md"
+      ],
+      "rationale": "Graph-heat positivity preservation is a standard numerical criterion; a linear-time local exact sharp timestep rule for ALL finite unweighted trees and an exhaustive pair of failure mechanisms is nontrivial and operationally useful beyond a generic graph-independent step bound. It does not claim nonlinear or weighted-tree results.",
+      "residual_risks": [
+        "Unindexed numerical-analysis or numerical-PDE graph-tree RK4 calculation may be equivalent.",
+        "2001 original SSP paper not inspected in full in this run, so coverage statements restricted to inspected mathematical material."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No theorem extends beyond explicitly stated domain in the frozen RESULT.md.",
+    "Originality best-of-knowledge, with named historical risks; absence from search is not proof of historical novelty.",
+    "No Lean/expert independent attestation is asserted.",
+    "Scientific review complete but publication not ready; no source edits or publication attempted."
+  ],
+  "schema_version": 1
+}
