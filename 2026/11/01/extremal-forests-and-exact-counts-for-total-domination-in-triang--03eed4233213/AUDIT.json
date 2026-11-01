@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "For all n>=4 the line-graph mapping is exact: every minimum total dominating set corresponds to a selected-edge graph H on [n] with at most one isolated vertex and no K2 component. Nontrivial components obey v_i<=3 e_i/2 and the global lower bound. At optimal h, c=s-h+mu<=floor(s/3) in each residue class forces cyclomatic excess mu=0 and the uniquely enumerated vertex profiles. Each listed forest has h selected edges and satisfies total domination. Trees on 3, 4, 5 fixed labelled vertices number 3,16,125. The standalone C++17 enumerator exhaustively checked all size-h sets for n=4..10, totalling full labelled cases, and separately verified every classified component shape and formula. Finite checks supplement but are not substituted for the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cornet–Dravec–Torres arXiv:2610.04675, abstract, Introduction and §3 Theorem 14 establish a minimum size but not a total-domination polynomial or enumerator.",
+        "The 2019 arXiv:1910.02431 source describes a general problem and a tree algorithm, not the count in complete graphs in the inspected material."
+      ],
+      "reasoning": "A general total-domination polynomial for all J(n,2) would dominate the minimum coefficient, but none was located. The cited theorem of a smaller numerical parameter is not a stronger counting theorem. Broad general algorithms for computing domination counts on finite graphs do not themselves supply this closed-form infinite-family classification.",
+      "searches": [
+        "\"triangular graph\" \"total domination polynomial\"",
+        "\"Johnson graphs\" \"total domination polynomial\"",
+        "\"number of minimum total dominating sets\" \"Johnson\"",
+        "\"total domination\" \"triangular graph\" \"minimum\" \"sets\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.04675 (relevant primary full-text HTML sections)",
+      "arXiv:1910.02431 (abstract and metadata only)",
+      "Wolfram GraphData documentation",
+      "MathWorld Domination Number tables",
+      "Targeted web searches for Johnson/triangular graph total-domination counts and K_n total edge domination counts"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cornet–Dravec–Torres, arXiv:2610.04675, §3, Theorem 14 and proof: gamma_t(J(n,2))=ceil(2(n-1)/3), using an incidence graph inequality and explicit path-type attaining constructions.",
+        "The new independent argument restricts every optimal selected-edge graph to forests; for n divisible by three it includes order-five-tree and two-order-four-tree configurations besides spanning P3 forests."
+      ],
+      "reasoning": "A minimum numerical value and existence construction do not imply the exact number or exhaustive types of equality configurations without additional equality analysis and labelled-tree enumeration. The proof here makes the cyclomatic excess vanish, classifies all allowable component orders, and counts them via Cayley; those implications and counts are not stated in the inspected predecessor theorem or its relevant proof. If a broader unstated or unlocated counting theorem exists, priority must be reassessed.",
+      "searches": [
+        "arxiv:2610.04675 Theorem 14 proof n-1 2(n-1)/3",
+        "\"minimum total dominating sets\" \"Johnson\" \"2\" count",
+        "\"total edge domination\" \"complete graph\" count 3k 3k+1 3k+2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "J(n,2) is the line graph of K_n by the defining adjacency of intersecting pairs; see the definitions in Cornet–Dravec–Torres, https://arxiv.org/html/2610.04675.",
+        "Pan–Yang–Li–Xu, arXiv:1910.02431, defines total edge domination and focuses in the available abstract on complexity and trees."
+      ],
+      "reasoning": "Minimum total domination in J(n,2) is exactly minimum total edge domination in K_n. Therefore equivalent-language prior work was searched rather than relying on Johnson graph terminology alone. The inspected source passages and retrieved comparisons did not state the full forest classification or the labelled minimum-set counts; the older full paper was not inspected and remains a risk.",
+      "searches": [
+        "\"total edge domination\" \"complete graph\" \"count\"",
+        "\"total edge dominating\" \"complete graph\" \"enumeration\" optimal",
+        "\"L(K_n)\" \"total domination\" enumeration",
+        "\"J(n,2)\" \"minimum total dominating sets\" \"number\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Wolfram GraphData documents a generic MinimumTotalDominatingSetCount operation, https://reference.wolfram.com/language/ref/GraphData.html.",
+        "MathWorld tabulates several ordinary domination invariants of triangular graphs, not the labelled minimum-total-domination sequence in the inspected passage: https://mathworld.wolfram.com/DominationNumber.html."
+      ],
+      "reasoning": "The targeted database and exact-term searches returned no indexed formula containing the sequence 12, 80, 840, 630, 13440 or the relevant three-residue count. Generic software counts for finite named graphs would be computational outputs, not published proof of the all-n statement. Lack of an indexed hit is not a proof of originality.",
+      "searches": [
+        "site:oeis.org \"12, 80, 840, 630, 13440\"",
+        "site:oeis.org \"total dominating\" \"triangular graph\"",
+        "site:mathworld.wolfram.com \"Triangular Graph\" \"total\"",
+        "Wolfram GraphData MinimumTotalDominatingSetCount triangular graph"
+      ]
+    },
+    "rationale": "The closest primary full-text proof (arXiv:2610.04675, Theorem 14) establishes the numerical optimum and representative constructions only. The present result strictly refines that statement by classifying every equality configuration and counting all of them; equivalent total edge domination language and possible general-polynomial results were separately searched. No covering claim was found in retrieved scientific records, with explicit residual historical risks.",
+    "residual_risks": [
+      "A prior counting theorem could be indexed under an older nonstandard term for total edge domination of K_n.",
+      "The full Pan–Yang–Li–Xu manuscript was not inspected; absence from its abstract does not establish noncoverage.",
+      "No independent exhaustive bibliographic search has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the known minimum size; the inspected relevant theorem and proof do not state or derive the full family enumeration.",
+        "evidence": [
+          "Theorem 14: gamma_t(J(n,2))=ceil(2(n-1)/3).",
+          "Proof establishes lower bound from an incidence bipartite graph and constructs unions of two-edge paths; no min-set count or complete equality analysis in the relevant passages."
+        ],
+        "identifier_or_url": "arXiv:2610.04675; https://arxiv.org/html/2610.04675",
+        "material_read": "The publicly accessible HTML article abstract and Introduction on Johnson/total domination, and Section 3 around Theorem 14 including its proof and attaining constructions (approximately HTML lines 346–373).",
+        "method": "Inspected rendered substantive primary full-text sections, not merely an abstract snippet.",
+        "title": "Domination and Total Domination in Johnson graphs",
+        "trigger": "Exact matching family J(n,2) and the known minimum total-domination value."
+      },
+      {
+        "assessment": "Its accessible summary focuses on complexity, bounds and input trees, not K_n enumeration; full-text noncoverage is not asserted.",
+        "evidence": [
+          "Abstract defines total edge dominating sets and describes a tree algorithm and NP-completeness."
+        ],
+        "identifier_or_url": "arXiv:1910.02431; https://arxiv.org/abs/1910.02431",
+        "material_read": "Public abstract and available article descriptions; no verified material read from the full PDF.",
+        "method": "Abstract/title/metadata and keyword inspection.",
+        "title": "The complexity of total edge domination and some related results on trees",
+        "trigger": "Equivalent formulation using total edge dominating sets of a complete graph."
+      },
+      {
+        "assessment": "The inspected material documents operations or other invariant tables, not the universal counting formula.",
+        "evidence": [
+          "GraphData has a generic MinimumTotalDominatingSetCount property.",
+          "MathWorld lists ordinary triangular-graph domination numbers, a different invariant."
+        ],
+        "identifier_or_url": "https://reference.wolfram.com/language/ref/GraphData.html; https://mathworld.wolfram.com/DominationNumber.html",
+        "material_read": "GraphData list of available minimum-total-dominating-set count operations and MathWorld ordinary domination number table, including triangular graphs.",
+        "method": "Documentation/table content inspection.",
+        "title": "GraphData reference and domination-number tables",
+        "trigger": "Possible exact computational database or table coverage of the labelled minimum-set sequence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03eed423-3213-45dc-bb3b-ecae234c817b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This computes the full number and complete combinatorial structure of optimum solutions for a natural infinite family of strongly regular graphs, beyond the previously computed optimum value. Distinct residue-dependent forest classes, including previously unlisted five-vertex-tree and paired four-vertex-tree families when 3 divides n, are mathematically meaningful structural information. It supports exact enumeration and uniform sampling of optimal total dominating sets; no downstream general theorem is claimed.",
+    "status": "PASS"
+  }
+}
