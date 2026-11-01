@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:54:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-gaussian-alignment-frontier-for-one-vector-ritz-spectral-p--0c9b408cc209/VERIFICATION.md"
+      ],
+      "rationale": "For the one-spike Hessian H=diag(kappa,1,...,1), kappa>1, and anisotropic Gaussian g=(sqrt(tau)Z1,Z2,...), q=Hg/||Hg||, the exact inverse-Rayleigh correction M=I-(1-lambda^-1)qq^T has nontrivial preconditioned two-plane eigenvalues with sum kappa+2-lambda and product kappa/lambda (lambda=1+(kappa-1)t). For 0<t<1 these bracket 1, so chi+chi^-1+2=lambda(kappa+2-lambda)^2/kappa. Exact factorization against baseline (kappa+1)^2/kappa yields chi<kappa iff t>t_*(kappa), with t_*=(2kappa+1-sqrt(4kappa+5))/(2(kappa-1)). The independent Gaussian ratio U/(U+Z1^2) is Beta((d-1)/2,1/2), giving exactly I_{T/(1+T)} where T=kappa^2 tau(1-t_*)/t_*. Expanding t_*=1-kappa^-1/2+O(kappa^-1) gives the tau kappa^3/2 frontier. W is maximized at lambda=(kappa+2)/3, t=1/3; chi_max~4kappa^2/27. Distinct unit eigenvalues for d>=3 imply generic exact arithmetic CG minimum polynomial has degree three, versus at most two before. Independently checked 49 (kappa,t) threshold points, all analytic maxima, and four large-k expansions; these checks corroborate, not replace, the analytic proof. Exact endpoints have zero Gaussian measure; no multi-sketch extension claimed.",
+      "residual_risks": [
+        "Generic exact-CG termination comparison does not imply finite tolerance or wall-clock acceleration; Gaussian sketch is not every ensemble sketch."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Daužickaitė et al 2026 use Gaussian randomized sketches and applications to Hessians",
+          "2021 spectral-LMP formulation DOI:10.1002/qj.4151"
+        ],
+        "reasoning": "General randomized eigenspace approximation bounds cover different error metrics and dimensions; the inspected strong papers do not give an implication fixing the exact probability/tau frontier in this one-vector normalization.",
+        "searches": [
+          "one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold",
+          "randomized Hessian spectral preconditioning sketch covariance kappa alignment",
+          "arxiv:2605.23571 Section 3.2"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.23571",
+        "https://doi.org/10.1002/qj.4151",
+        "https://doi.org/10.1137/040617546",
+        "Resultary semantic search: one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known rank-one LMP correction is prior art",
+          "The 2026 paper Gaussian sketch uses matrix A omega and discusses covariance but no sharp one-spike condition event"
+        ],
+        "reasoning": "Published correction is necessary background, but to infer the claimed probability requires a new exact global threshold calculation plus a chi-square ratio. Endpoint exact-CG effect is confined to the special one-spike model.",
+        "searches": [
+          "one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold",
+          "Daužickaitė et al arxiv:2605.23571 Eq.(7) 3.1 3.2",
+          "Giraud Gratton 2006 spectral preconditioner sensitivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Daužickaitė et al 2026 §3.1 gives general rank-k spectral-LMP formulas",
+          "Giraud–Gratton 2006 sensitivity treats inexact eigenpairs"
+        ],
+        "reasoning": "Equivalent formulation is a precise two-plane generalized-eigenvalue inequality integrated over a biased Gaussian direction. Framework and perturbative error estimates do not themselves present this exact distribution.",
+        "searches": [
+          "one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold",
+          "rank-one Rayleigh Ritz condition number one spike Gaussian beta law",
+          "arxiv:2605.23571 Section 3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary spectral filter residual theorem concerns normal-matrix residual distortion, not SPD preconditioned chi and Gaussian beta ratios",
+          "Resultary stale SOAP basis is a distinct algorithm"
+        ],
+        "reasoning": "No exact prior beta-CDF table found; negative database search is not alone a novelty proof.",
+        "searches": [
+          "one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold",
+          "Resultary 2026/9/21/SCOPE-spectral-filter-rayleigh-residual-distortion--7f8adc00c4c0"
+        ]
+      },
+      "rationale": "Daužickaitė et al. 2026 actual full 21-page arXiv preprint was inspected, including §§3.1–3.2: spectral limited-memory preconditioner Eq.(7) and randomized Hessian sketch/covariance discussion. The paper does not state an exact probability of improvement for this one-vector one-spike inverse-Rayleigh model or a beta-CDF threshold; its models and formulas motivate but do not logically imply the distribution without a separate spectral reduction and stochastic integration. Earlier 2021 spectral-LMP work and 2006 approximate-eigenpair sensitivity concern construction and perturbative conditioning, not the exact nonperturbative frontier. Resultary returned unrelated spectral-filter residual distortion and stale-basis conditioning, no equivalent beta law. Novelty of the exact sharp minimal model survives, while a hidden specialized two-eigenvalue perturbation corollary remains possible.",
+      "residual_risks": [
+        "Possible special-case consequence of older precise perturbative spectral-preconditioner analysis not accessible in full.",
+        "The 2026 motivating paper has been inspected in full, superseding older audit note that only abstract was available.",
+        "Generic exact-CG termination comparison does not imply finite tolerance or wall-clock acceleration; Gaussian sketch is not every ensemble sketch."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior provides spectral LMP framework and experiments, not the one-spike one-sketch exact beta law, critical tau kappa^3/2 or 1/3 worst-orientation theorem.",
+          "evidence": [
+            "§3.1 Eq.(7) spectral LMP; §3.2 Gaussian sketch covariance, arXiv:2605.23571"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.23571",
+          "material_read": "Full 21-page primary preprint, including introduction, §3.1 Eq.(7), §3.2 Gaussian sketches and covariance, method descriptions and conclusions",
+          "method": "Primary full-text theorem and proof comparison",
+          "title": "Accelerating an ensemble of variational data assimilations with randomized preconditioning",
+          "trigger": "Same spectral-LMP formula and randomized sketch design, strongest plausible current coverage"
+        },
+        {
+          "assessment": "Local spectral eigenvector-sensitivity results are relevant but abstract alone cannot establish whole-document noncoverage; this remains a priority risk.",
+          "evidence": [
+            "Giraud and Gratton 2006 DOI:10.1137/040617546"
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/040617546",
+          "material_read": "Bibliographic abstract and citation/introductory comparison; no full primary text obtained for this source",
+          "method": "Metadata and accessible abstract compared, not a full-text noncoverage assessment",
+          "title": "On the sensitivity of some spectral preconditioners",
+          "trigger": "Perturbation bounds could imply exact conditioning formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2605.23571",
+        "https://doi.org/10.1002/qj.4151",
+        "https://doi.org/10.1137/040617546",
+        "Resultary semantic search: one Ritz vector Gaussian rank one spectral preconditioner condition number worsening probability alignment threshold"
+      ],
+      "rationale": "The risk of worsened conditioning despite a Ritz correction is an important mathematical boundary for randomized preconditioning. The exact Gaussian improvement probability, critical anisotropy scaling tau~kappa^-3/2, worst-case quadratic damage and three-eigenvalue CG change provide motivated quantitative diagnostics for a natural minimal model. This does not claim performance of arbitrary ensemble or Nyström algorithms.",
+      "residual_risks": [
+        "Possible special-case consequence of older precise perturbative spectral-preconditioner analysis not accessible in full.",
+        "The 2026 motivating paper has been inspected in full, superseding older audit note that only abstract was available.",
+        "Generic exact-CG termination comparison does not imply finite tolerance or wall-clock acceleration; Gaussian sketch is not every ensemble sketch."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

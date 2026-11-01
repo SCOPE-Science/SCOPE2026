@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The one-spike Hessian and rank-one inverse spectral correction are precisely specified for every integer \(d\ge2\), \(\kappa>1\), and \(\tau>0\). The preconditioned spectrum consists of two plane eigenvalues (and additional unit eigenvalues for \(d>2\)); its trace and determinant give \(W=\lambda(\kappa+2-\lambda)^2/\kappa\). Exact factorization provides the unique strict-improvement threshold. A chi-square ratio yields the full regularized-beta probability; expansion yields the critical covariance scale. The worst-case maximizer and generic Krylov-step statement follow from the same spectral calculation. The standalone checker reproducibly passes symbolic, rational, dense-matrix, and Gaussian finite checks. These finite checks support, rather than replace, the analytical proof.
+PASS
 
-## Originality: PASS, priority not independently established
+For the one-spike Hessian H=diag(kappa,1,...,1), kappa>1, and anisotropic Gaussian g=(sqrt(tau)Z1,Z2,...), q=Hg/||Hg||, the exact inverse-Rayleigh correction M=I-(1-lambda^-1)qq^T has nontrivial preconditioned two-plane eigenvalues with sum kappa+2-lambda and product kappa/lambda (lambda=1+(kappa-1)t). For 0<t<1 these bracket 1, so chi+chi^-1+2=lambda(kappa+2-lambda)^2/kappa. Exact factorization against baseline (kappa+1)^2/kappa yields chi<kappa iff t>t_*(kappa), with t_*=(2kappa+1-sqrt(4kappa+5))/(2(kappa-1)). The independent Gaussian ratio U/(U+Z1^2) is Beta((d-1)/2,1/2), giving exactly I_{T/(1+T)} where T=kappa^2 tau(1-t_*)/t_*. Expanding t_*=1-kappa^-1/2+O(kappa^-1) gives the tau kappa^3/2 frontier. W is maximized at lambda=(kappa+2)/3, t=1/3; chi_max~4kappa^2/27. Distinct unit eigenvalues for d>=3 imply generic exact arithmetic CG minimum polynomial has degree three, versus at most two before. Independently checked 49 (kappa,t) threshold points, all analytic maxima, and four large-k expansions; these checks corroborate, not replace, the analytic proof. Exact endpoints have zero Gaussian measure; no multi-sketch extension claimed.
 
-Closest relevant primary work: Daužickaitė et al. (2026), arXiv:2605.23571, investigates ensemble-informed randomized sketches and LMP acceleration; accessible abstract and introduction do not give the present exact one-spike Gaussian condition-number distribution, though full text was unavailable and remains a priority risk. Daužickaitė et al. (2021), DOI 10.1002/qj.4151, supplies spectral-LMP and approximate Ritz constructions; Giraud and Gratton (2006), DOI 10.1137/040617546, treats local sensitivity to inaccurate eigenvectors. The deterministic ingredients may connect to established two-dimensional perturbation theory, but no inspected source or semantic research match yielded the precise improvement probability and critical \(\tau\kappa^{3/2}\) transition. Existing general sensitivity bounds do not alone calculate this distribution. Search failure is not a proof of priority.
+## originality
 
-## Mathematical value: PASS
+PASS
 
-A one-vector Hessian-product sketch is the smallest nontrivial instance of a practically motivated spectral limited-memory preconditioner. Rather than merely exhibiting a failed sketch, the result gives the exact chance of reducing a relevant condition number, a sharp covariance-design scale, the maximally harmful alignment, and an exact-arithmetic three-eigenvalue effect. In particular, variance scaling as \(\kappa^{-3/2}\) separates high- and low-probability improvement for the tested one-spike geometry, furnishing a quantitative diagnostic for sketch covariance design. It does not claim broad iteration-count, wall-clock, or multi-vector improvement.
+Daužickaitė et al. 2026 actual full 21-page arXiv preprint was inspected, including §§3.1–3.2: spectral limited-memory preconditioner Eq.(7) and randomized Hessian sketch/covariance discussion. The paper does not state an exact probability of improvement for this one-vector one-spike inverse-Rayleigh model or a beta-CDF threshold; its models and formulas motivate but do not logically imply the distribution without a separate spectral reduction and stochastic integration. Earlier 2021 spectral-LMP work and 2006 approximate-eigenpair sensitivity concern construction and perturbative conditioning, not the exact nonperturbative frontier. Resultary returned unrelated spectral-filter residual distortion and stale-basis conditioning, no equivalent beta law. Novelty of the exact sharp minimal model survives, while a hidden specialized two-eigenvalue perturbation corollary remains possible.
 
-## Residual scientific risks
+## value
 
-A complete comparison with the inaccessible portions of the motivating 2026 article has not been performed. Earlier randomized approximate-eigenpair analysis might already imply the specific beta law after a special-case substitution; available sources were searched and actual inspected statements compared, but this possibility remains. The statement is restricted to the precise one-vector Rayleigh-LMP setup.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The risk of worsened conditioning despite a Ritz correction is an important mathematical boundary for randomized preconditioning. The exact Gaussian improvement probability, critical anisotropy scaling tau~kappa^-3/2, worst-case quadratic damage and three-eigenvalue CG change provide motivated quantitative diagnostics for a natural minimal model. This does not claim performance of arbitrary ensemble or Nyström algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
