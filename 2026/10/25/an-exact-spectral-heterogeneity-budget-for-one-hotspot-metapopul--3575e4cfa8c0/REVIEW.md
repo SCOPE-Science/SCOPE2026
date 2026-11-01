@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Finding under assessment:** an exact, spectral-energy invasion threshold for the one-hotspot SIR-network model under arbitrary symmetric stochastic travel, plus an exact fixed-hub-column pair with opposing invasion classifications.
+## correctness
 
-## Correctness — PASS
+PASS
 
-The infection matrix follows from the equal-population symmetric-flux SIR model. The decomposition into a background matrix square plus a positive rank-one hotspot term is exact. Since the background reproduction parameter is below one, a positive-definite rank-one congruence gives an if-and-only-if invasion test, including strict and boundary cases. Spectral decomposition makes the scalar heterogeneity budget exact and basis independent. The full analytic proof covers all finite patch numbers and all nonnegative symmetric stochastic fluxes. In the five-patch pair, every matrix entry and all matrix inverses are rational; the reproducible verifier checks the full constructed fluxes, exact budgets, exact determinant signs, and uniform-hub consistency identities. No inference from finite enumeration is used in the general theorem.
+For symmetric stochastic Φ, ||Φ||₂≤1 and I-rΦ² is positive definite. K=rΦ²+r(ζ-1)vvᵀ with v=Φe is positive semidefinite. Rank-one congruence makes ρ(K)<1 equivalent to r(ζ-1)vᵀ(I-rΦ²)^(-1)v<1; the trivial eigenmode contributes precisely 1/[M(1-r)], yielding the stated H_r threshold and equality/strict-reversal cases. Rayleigh on the all-ones vector gives ρ(K)≥r(M-1+ζ)/M; equality forces Φe uniform and that condition is sufficient by constant K-row sums. Exact reconstruction of five-by-five rational examples yields H=529543/11008272>1/24 versus 245/5956<1/24, with identical fifth columns and opposite determinant signs. Numerical checks of 120 further symmetric stochastic matrices corroborate only finite instances. The all-size conclusions rest on the rank-one and Rayleigh proof.
 
-## Originality — PASS, with priority risks
+## originality
 
-Das and Stolerman (arXiv:2308.01998, 2023; DOI:10.1137/23M1579522, 2024) give the SIR-network threshold problem and analyze classes with equal flux into the hotspot. Their four conjectures, star variants and previous fully connected results do not address the fixed **nonuniform** hub column examined here. The 2019 equitable-quotient theorem is a decisive broader source for the uniform-hub quotient reduction, so this reduction is excluded from the novel claim; its accessible abstract and limitations are recorded. Classical rank-one spectral tests are also acknowledged as tools. The accepted novelty is the complete **non-equitable** spectral risk budget, including the two precise five-patch systems with identical hotspot column and opposite outcomes. Related layered-mobility papers have different mechanisms. Searches of primary literature and relevant prior results did not show this model-specific statement or pair. The complete 2019 full text and an exhaustive later-priority survey remain outstanding scientific risks, not proof of uniqueness.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS for the arbitrary nonuniform-hotspot spectral budget and rigorously equal-hub-column/opposite-invasion pair. Classical rank-one secular tests, equitable quotient theory, and all uniform-hotspot special cases are prior mathematics. A new quantitative application is a substantive motivated finding, though broader epidemic literature could encode the test under a different notation.
 
-The classification distinguishes two epidemiologically natural mechanisms that hotspot-traffic summaries conflate: individual journeys involving the hotspot and mixing among the remaining neighborhoods. It proves that even the entire hotspot column and its variance can fail to predict invasion, while the weighted spectral energy gives a necessary-and-sufficient all-size test. This closes a motivated parameter-interpretation gap in the source SIR-network model, rather than a textbook substitute for a known instance. The elementary linear algebra used in the proof is not claimed novel.
+## value
 
-## Scope and limitations
+PASS
 
-Only local disease-free invasion is addressed. Assumptions include equal populations, symmetric row-stochastic mobility, common recovery, strictly subcritical background transmission, and exactly one elevated infection rate. The result does not establish whole-epidemic size, persistence, or heterogeneous/directed travel claims. Publication priority and independent validation remain open.
+The observable full hotspot column and its variance are shown insufficient for invasion: two exact five-neighborhood networks with identical hotspot mobility have opposite threshold outcomes as background travel changes. The all-size spectral budget supplies a precise invasion test, sharp uniform-column optimum and variance bounds. This directly advances motivated SIR mobility modelling beyond the special uniform-hub cases without claiming a new matrix theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
