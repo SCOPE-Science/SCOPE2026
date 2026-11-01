@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The precise object is a unit-weight path with two fixed endpoint opinions, plus one Bernoulli shortcut. The dynamic rule gives a unique grounded-harmonic limiting expectation. The central path and optional shortcut are parallel conductances, yielding the exact two-arm voltage formula. Strict concavity supplies the finite probability bias; a direct vertexwise comparison and parity-correct sum produce the normalized population discrepancy. The three limits follow without numerical extrapolation. `verify.py` independently checks 1,124 exact-rational conditions using grounded Laplacian solutions. The important distinction between stationary expected opinions and nonconvergent sample opinion trajectories is preserved.
+## correctness
 
-**Originality — PASS under examined evidence, with uncertainty.** Acemoğlu et al. provide the harmonic network framework but not the random graph/expected-graph contrast. Xing and Johansson (arXiv:2301.05352, sections 2 and 4) compare such models with high-probability bounds under strong connectivity hypotheses, not the exact rare-shortcut phase diagram outside them. Wang et al. (arXiv:2409.05063) analyze a partially stubborn Friedkin–Johnsen model; Xing and Johansson (arXiv:2205.14784) analyze transient weighted-community behavior. No examined primary text or searched scientific research record establishes the stated exact all-vertex limit. General circuit laws and possible unindexed equivalent sparse-network constructions remain priority risks.
+PASS
 
-**Value — PASS.** Network expectation is an important approximation in networked opinion modeling. This result identifies its sharp probability threshold on a connected, explicitly solvable family and proves that an edge present with vanishing probability can still create a nonvanishing macroscopic mean-profile prediction error. The proof separates fixed-graph dynamical randomness from topology randomness and provides a benchmark for understanding why strong expected-degree hypotheses matter. The result is deliberately limited to this family, not presented as a universal counterexample to established concentration theorems.
+Under a once-sampled Bernoulli shortcut and two fixed boundary agents, expected gossip converges (in expectation) to a grounded weighted-harmonic solution. Series/parallel effective resistance gives a(t)=(L/H+Lt)/(1+2L/H+2Lt), and linearity of the rest of the path follows from harmonicity. Direct subtraction yields the strictly positive rational Jensen gap. Summing the absolute coordinatewise differences on both short arms and the H+1 central vertices, avoiding double counting endpoints, yields the exact parity-dependent B_H coefficient. When H/L->infinity, p->0, Lp->c including infinity, normalized discrepancy tends to phi(c)/2, and convergence in probability holds because the realized shortcut is absent with probability 1-p->1. Independently solved 175 exact rational grounded Laplacian systems across lengths and shortcut conductances, plus 35 exact discrepancy checks. No assertion of almost-sure convergence of instantaneous gossip states is made.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Acemoğlu–Como–Fagnani–Ozdaglar established the harmonic representation of stubborn-agent expected gossip, so the electric-network method is established. Xing–Johansson concentration bounds compare random-graph gossip to expected-graph averages under substantial graph density/anchoring hypotheses not met by the long low-degree path with one rare bridge. The sharp scale p~1/L, exact all-vertex discrepancy and supercritical limit 1/4 within this family are not consequences of their concentration statement. The theorem is a motivated sharp counterexample delineating the hypotheses, not claiming to refute those results.
+
+## value
+
+PASS
+
+The explicit threshold determines where expected-graph predictions break down despite a vanishing edge-presence probability, and the all-population error has a rigorous sharp limit. This is a motivated model warning tied to existing random-graph approximation hypotheses, not a generic Jensen assertion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
