@@ -1,11 +1,21 @@
-# Scientific review of the four-run binary string-attractor classification
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The claim is an infinite four-parameter theorem with no hidden genericity or parity assumptions. The unique middle `10` factor forces a central position; all more-complex factors automatically cross it. The two rectangles of `01` factors yield four constructive two-position regimes. In the remaining two regimes, three pairwise separated forced factors or two explicit unhit factors prohibit a two-attractor; two explicit three-position witnesses give the matching upper bound. The disjoint parameterizations give the stated rational generating function. The standalone exhaustive checker independently matches every run quadruple from \(1\) to \(8\), and checks coefficients through length \(22\); finite tests do not serve as the infinite proof.
+## correctness
 
-**Originality (O): PASS under inspected-source best knowledge, with residual risk.** Prezza (2017) introduced string attractors; Kempa et al. (2018) developed general verification and optimization; Mantaci et al. (2019/2021) handled broad combinatorial operations and special word families; Dvořáková–Hendrychová (2023/2024) treat different pseudostandard/Rote families. None of the materially inspected results gives the unrestricted four-run run-length criterion or its exact parameter-count generating function. Nearest mathematical-research records concern attractor counts of specific morphic words and finite-length binary censuses, neither of which implies an all-length four-run classification. Residual risk: an unindexed or differently named characterization of small run-length words might cover this claim.
+PASS
 
-**Value (V): PASS.** The smallest-attractor problem is generally difficult and minimum size is a basic compression-theoretic invariant. Four nonempty alternating runs are a natural low-complexity class with a genuine transition from minimum size \(2\) (the alphabet lower bound) to size \(3\). The result provides a complete four-parameter decision, explicit optimal witnesses, two sharp obstruction regions, an exact generating function, and a limiting half-and-half split. It is not merely a new verification algorithm or a small numerical sample.
+Every distinct factor either is constant, contains one 01 transition or contains the unique central 10 transition. The unique 10 adjacent pair forces any attractor to select its U or V position, and then all multi-transition factors are covered. Longest constant runs suffice for constant factors. One-transition 01 factors correspond to union of two integer rectangles [1,a]×[1,b], [1,c]×[1,d]. Four explicit two-position witnesses cover the aligned-maxima cases and crossed cases with one run-length excess≤1. The remaining (a>c,d>b) regime has three disjoint forced factors; for (c≥a+2,b≥d+2), a chosen central U or V leaves an explicit 01 factor inaccessible to any second position. Two explicit three-position sets cover all other words. Disjoint parameterizations of those two obstruction regions give the rational generating function and dominant pole ratio 1/2. Independent direct factor-occurrence-mask enumeration tested all 625 quadruples with lengths 1..5, plus exact coefficient comparisons for n=4..18. These are finite checks; the proof exhausts all positive run lengths.
 
-**Scope and limits.** There is no complete classification of *all* minimizer position sets. Literature and index searches cannot establish absolute uniqueness of a result. Finite experiments are supplementary to the human-readable proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General efficient attractor algorithms and special infinite-word results do not yield the precise two forbidden four-run inequalities or their complete composition-generating function; finite length-12 tables are not an all-length theorem.
+
+## value
+
+PASS
+
+Exactly four alternating runs are the first natural run-complexity setting with a nontrivial two-versus-three alphabet-lower-bound transition. A complete four-parameter decision with explicit optimal witnesses, exact enumeration and limiting density is a self-contained useful combinatorial classification, not an arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
