@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:14:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Cauchy facet projection yields B_d(U)=E_sign|sign·U| with the 2^{d−1}/(d−1)! normalization. Rotational symmetry gives mean √d Γ(d/2)/(√πΓ((d+1)/2)); the normalized inner product of two independent sign vectors is 1−2K/d, K∼Bin(d,1/2). The bivariate Gaussian absolute-product identity produces E B²=(2/π)E f(1−2K/d). Independent exact Rademacher moments through degree six, Taylor coefficients 1/2,1/24,1/80 of f, and gamma Stirling expansion exhibit cancellation at orders d^0,d^{-1},d^{-2} and surviving 1/(3π)d^{-3}. Numerically evaluating the exact formula up to d=512 gives d³ variance 0.106394 versus 0.106103 target. Hoeffding tails justify truncation for the unbounded integer limit; finite numerics do not substitute for it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "KLZ Example 3.4 gives all k-th moments of W_Cd=2 max_i|U_i|, not B_d.",
+          "Ivanov discusses extremal lower-dimensional projection volumes."
+        ],
+        "reasoning": "A general projection-body covariance identity could cover intermediate expressions, but no inspected theorem states the evaluated binomial brightness moment and d^{-3} asymptotic.",
+        "searches": [
+          "Resultary:crosspolytope hyperplane brightness variance second moment asymptotics random projections",
+          "web:random crosspolytope hyperplane projection brightness variance and second moment",
+          "Kabluchko et al arXiv:1511.08479",
+          "Ivanov arXiv:1808.09165"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1302.6164",
+        "https://arxiv.org/abs/1808.09165",
+        "https://arxiv.org/pdf/1511.08479"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cauchy brightness requires all 2^d facet normals and pair overlaps, whereas the KLZ width functional needs only d axial vertices and their maximum."
+        ],
+        "reasoning": "KLZ line-width moments do not imply this hyperplane-volume second moment. The translation identity is known, but the uniform angular variance and its asymptotics require a separate calculation.",
+        "searches": [
+          "KLZ 2016 sections 1,3 crosspoly example",
+          "Horváth–Lángi 2013",
+          "Ivanov 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Convex hull(C_d,C_d+tU) volume increment equals t A_d(U) by fiber integration.",
+          "Line-projection width of C_d equals 2 max_i |U_i|, unlike hyperplane brightness averaging |ε·U|."
+        ],
+        "reasoning": "Translation increment is exactly equivalent and explicitly not an independent novelty; the common width alias describes a different functional.",
+        "searches": [
+          "Resultary:crosspolytope hyperplane brightness variance second moment asymptotics random projections",
+          "web:random crosspolytope hyperplane projection brightness variance and second moment",
+          "Horváth–Lángi arXiv:1302.6164"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed orthotope moments concern different bodies and planar codimension d−2; cross-polytope diameter results concern random sections."
+        ],
+        "reasoning": "No matching table/entry specifying hyperplane brightness variance constant 1/(3π) was identified; absence is not proof of priority.",
+        "searches": [
+          "Resultary:crosspolytope hyperplane brightness variance second moment asymptotics random projections",
+          "web:random crosspolytope hyperplane projection brightness variance and second moment",
+          "Resultary:exact-planar-shadow-area-moments-for-all-orthotopes",
+          "Resultary:cross-polytope hyperplane projection records"
+        ]
+      },
+      "rationale": "The full-text Kabluchko–Litvak–Zaporozhets result computes moments of one-dimensional projected width; this problem measures (d−1)-dimensional hyperplane projection volume (brightness) and thus is not implied by those line-width formulas. Horváth–Lángi provide the volume-of-hull translation identity, and Ivanov studies projection extrema rather than the uniform second moment and third-order variance constant. The specific binomial brightness law and 1/(3π) asymptotic remain best-of-knowledge not covered.",
+      "residual_risks": [
+        "Older stochastic-geometry literature may contain a general spherical second-moment brightness tensor whose cross-polytope specialization yields the finite formula.",
+        "No central limit theorem, whole-distribution concentration bound, or arbitrary-axis theorem is implied by the variance asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_PROJECTION_DIMENSION",
+          "evidence": "Explicit W_Cn=2 max|U_i|; user claim B_d=E_sign|ε·U| represents hyperplane brightness.",
+          "identifier_or_url": "https://arxiv.org/pdf/1511.08479",
+          "material_read": "Read abstract, first intrinsic-volume and exact higher-moment section including Example 3.4 and theorem 3.7; PDF first page visually inspected",
+          "method": "lawful full arXiv PDF",
+          "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+          "trigger": "Strongest same cross-polytope random-width source"
+        },
+        {
+          "assessment": "COVERS_TRANSLATION_IDENTITY_ONLY",
+          "evidence": "Volume increment equivalence is credited, not treated as a second new theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/1302.6164",
+          "material_read": "Published abstract and cited translation-volume discussion; not complete manuscript inspection",
+          "method": "arXiv abstract/search",
+          "title": "On the volume of the convex hull of two convex bodies",
+          "trigger": "Identical translated convex-body increment"
+        },
+        {
+          "assessment": "EXTREMA_NOT_DISTRIBUTION",
+          "evidence": "Extremal lower-dimensional projected volumes do not determine Haar random hyperplane brightness variance.",
+          "identifier_or_url": "https://arxiv.org/abs/1808.09165",
+          "material_read": "Accessible abstract and extrema statements, no entire full text checked",
+          "method": "arXiv abstract/search",
+          "title": "On the volume of projections of the cross-polytope",
+          "trigger": "Projection theorem with same body"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp d^{-3} variance, with two nontrivial cancellations, quantifies concentration of random hyperplane shadows of a canonical high-dimensional polytope. It answers an intrinsic geometric probability question beyond merely evaluating the mean, and the exact binomial expression supports future fluctuation analysis.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform random hyperplane normals of the standard d-dimensional cross-polytope, the all-dimensional normalized brightness first two moments have the stated gamma/binomial formulas and d^3 Var(B_d)→1/(3π).",
+  "limitations": [
+    "Only standard equal-axis cross-polytopes and uniform hyperplane directions.",
+    "Asymptotic variance is not a distributional limit theorem."
+  ],
+  "schema_version": 1
+}
