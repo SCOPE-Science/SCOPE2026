@@ -1,0 +1,193 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:57:18.273211Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md (Git blob 94fd97296e86c7a04e9f5e103a86231143416b44): five-step reflection/resultant/Fourier/ramp/path proof.",
+        "Assigned verify.py (Git blob 567f72e8383f996376e51be479ad2b9d570c781c): inspected algorithm and exact-rational cases.",
+        "Independent exact Bareiss reconstruction: 112 comparisons for n=3..18 and weights 0, 1/3, 3/5, 1, 3/2, 3, -1/(n-1), all match the claimed polynomial."
+      ],
+      "rationale": "Reconstructed the theorem for n>=3 and every real edge weight w with combinatorial Laplacian L(w), actuator b=e0 and positive powers in ordered Kalman columns. Reflection J e_i=e_(n-1-i) decomposes into symmetric dimension p=ceil(n/2) and antisymmetric q=floor(n/2), with constant S and rank-one A_w=A_0+2w f f^T. In pairwise reflected Jacobi bases all offdiagonals are nonzero and w-independent; hence each endpoint-input block Krylov determinant is a fixed nonzero triangular product. A full spectral Vandermonde determinant divided by the two block Vandermondes gives a constant times resultant product over symmetric eigenvalues det(lambda I-A_w), and both polynomial sides extend through collisions. At w=1 the uniform cycle Fourier sine/cosine pairing gives exactly p-1=floor((n-1)/2) common nonzero symmetric eigenvalues, simple in A_1; rank-one slopes are nonzero because a Jacobi endpoint eigenvector cannot vanish in first coordinate. The symmetric zero eigenvalue contributes the affine factor 1+(n-1)w from antisymmetric ramp vector at signed resonance and path nonsingularity. w=0 path Krylov matrix is triangular with diagonal (-1)^j, fixing global sign (-1)^(n+1). Checked parity n even/odd, n=3 minimum, 0 and 1 and negative root, L versus -L convention, and squared Gram determinant. Independently recomputed 112 exact rational n=3..18 comparisons from integer Bareiss arithmetic; finite checks are only corroborative.",
+      "residual_risks": [
+        "Proof requires choosing compatible reflection-sector orientation for an overall determinant sign; evaluating full n=3..18 integer determinants and w=0 path anchor checks this normalization, and the abstract resultant proof supplies a w-independent nonzero constant.",
+        "The algebraic finite-Krylov squared volume is not a physical finite-horizon energy Gramian; claim explicitly avoids identifying them.",
+        "No formal Lean proof or external expert attestation was asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grudsky et al. 2022, Theorem 5 and Section 10 give the same family eigenvectors and norm factors in the 0<w<1 range; 2024/2025 sequels cover negative and overweighted spectral regimes.",
+          "Parlangeli–Notarstefano 2011: unweighted path/cycle reachability.",
+          "Xiang et al. 2013: general network controllability and directed-cycle section, without this symmetric defect determinant."
+        ],
+        "reasoning": "Known stronger spectral descriptions cover the same matrix and bound most practical qualitative controllability statements. They do not automatically trivialize an unknown closed polynomial of the ordered Kalman columns: spectral Vandermonde, endpoint eigenvector products, and sign normalizations still need to be reconstructed. The accessible 2022/2023 primary sources contain no identified complete direct formula. The 2025 chapter full text is unavailable; treated as a priority risk rather than falsified comparison.",
+        "searches": [
+          "Resultary semantic query: Reachability volume and single-input controllability of weighted cycle Laplacian with one edge defect; reflection symmetry factorization via symmetric and antisymmetric Jacobi blocks; exact rank-loss multiplicity [24 retrieved]",
+          "Grudsky Maximenko Soto Gonzalez one weighted edge 2022 eigenvectors arxiv 2205.12457",
+          "arXiv:2205.12457v1 (primary complete eigensystem)",
+          "arXiv:2308.07514v1 (negative-weight spectral results)",
+          "DOI:10.1007/978-3-031-80486-1_9 (positive overweighted spectral chapter)",
+          "arXiv:1109.3556 (unweighted paths and cycles)"
+        ]
+      },
+      "checked_sources": [
+        "Eigenvalues of the Laplacian Matrices of the Cycles with One Weighted Edge; arXiv:2205.12457v1; DOI:10.1016/j.laa.2022.07.011; https://www.math.cinvestav.mx/~grudsky/Papers/148.pdf (Accessible complete original open preprint, including spectral setup, characteristic equation, Theorem 1, Theorem 5 eigenvector formulas, and Section 10 norms; page image of Theorem 5 independently inspected.)",
+        "Eigenvalues of Laplacian Matrices of the Cycles with One Negative-Weighted Edge; arXiv:2308.07514v1; DOI:10.1016/j.laa.2023.12.003 (Open preprint introduction, matrix definition, Theorem 2.1 and its conditions, main-result outline and relevant eigenvector/norm section descriptions; screenshot page 4; targeted searches for control and Kalman terms.)",
+        "Eigenvalues of the Laplacian Matrices of Cycles with One Overweighted Edge; DOI:10.1007/978-3-031-80486-1_9; https://link.springer.com/chapter/10.1007/978-3-031-80486-1_9 (Publisher chapter title, bibliographic record, March 14 2025 date, abstract, scope and citations; not its full 32-page chapter.)",
+        "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance; arXiv:1408.2187v1; https://arxiv.org/pdf/1408.2187 (Complete accessible eight-page primary PDF, including Theorem III.3, signed edge condition and connected path effective resistance.)",
+        "On the Reachability and Observability of Path and Cycle Graphs; arXiv:1109.3556; DOI:10.1109/TAC.2011.2168912 (Original open 26-page arXiv PDF abstract, introductory definitions, and central unweighted path/cycle reachability and observability statements, with page image inspected.)",
+        "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics; DOI:10.1155/2013/405034; https://doi.org/10.1155/2013/405034 (Full openly readable original journal HTML: network rank conditions, Theorem 8, directed cycle section 4.2, Corollary 18 and examples on weight changes.)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zelazo–Bürger Theorem III.3 already yields the signed zero root by negative reciprocal path effective resistance, n-1.",
+          "Parlangeli–Notarstefano proves known unweighted cycle reachability limitations; this covers the mere w=1 rank loss.",
+          "Grudsky–Maximenko–Soto-González give same graph eigensystem and norms, a credible route to determinant via spectral-product identities but without identified exact polynomial.",
+          "The 2025 exact overweighted eigensystem is inaccessible beyond publisher abstract and remains genuine potential untested source of broader coverage."
+        ],
+        "reasoning": "The known negative root and qualitative uniform-cycle obstruction are consequences of prior results. The claim under audit is the complete normalized determinant including sign and exponent for arbitrary n, real w, not merely the controllability iff statement; generating it from prior spectral input requires a substantive cross-resultant/factor normalization argument. A potentially covering 2025 chapter could not be materially read, so its actual implications remain a residual limitation, not a fabricated disjointness.",
+        "searches": [
+          "DOI:10.1155/2013/405034 (2013 directed/network control)",
+          "arXiv:1408.2187v1 (2014 inverse-effective-resistance signed root)",
+          "arXiv:1109.3556 (2011 uniform cycle)",
+          "arXiv:2205.12457v1 (2022 same graph, full eigensystem)",
+          "arXiv:2308.07514v1 (2023 same graph w<0)",
+          "DOI:10.1007/978-3-031-80486-1_9 (2025 same graph w>1)",
+          "Resultary semantic query: Weighted undirected cycle graph with a single exceptional edge weight w. Exact determinant of controllability (walk/Kalman) matrix from a vertex incident to defective edge: (w-1)^{floor((n-1)/2)} (1+(n-1)w). [22 retrieved]"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent objects: det[e0,L e0,...,L^(n-1)e0], endpoint Laplacian walk determinant, cross-sector spectral resultant, squared Krylov Gram volume.",
+          "Resultary search results included a normalized-path dynamical sampling determinant and many unrelated cyclic graph invariants, but no equivalent exact weighted-cycle walk determinant among the examined hits."
+        ],
+        "reasoning": "The squared volume is an exact square of the determinant and not a second independent result. A general eigensystem trivially determines the matrix, but a closed all-w determinant factorization requires eliminating eigenvalue and eigenvector products. No examined published record prints or straightforwardly provides the final factored expression; nonretrieval alone is not proof of novelty.",
+        "searches": [
+          "Resultary semantic query: Weighted undirected cycle graph with a single exceptional edge weight w. Exact determinant of controllability (walk/Kalman) matrix from a vertex incident to defective edge: (w-1)^{floor((n-1)/2)} (1+(n-1)w). [22 retrieved]",
+          "Resultary semantic query: Reachability volume and single-input controllability of weighted cycle Laplacian with one edge defect; reflection symmetry factorization via symmetric and antisymmetric Jacobi blocks; exact rank-loss multiplicity [24 retrieved]",
+          "Resultary semantic query: Determinant of walk matrix of a cycle graph with one weighted edge; control from endpoint; symbolic factorization and controllability. [23 retrieved]",
+          "\"controllability\" \"cycle\" \"one weighted edge\" \"determinant\" Kalman",
+          "\"walk matrix\" \"weighted cycle\" determinant",
+          "\"weighted cycle\" \"controllability matrix\" determinant",
+          "\"Eigenvalues of the Laplacian Matrices of Cycles with One Overweighted Edge\" arxiv"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Grudsky et al. 2022 tables and spectral figures concern eigenvalues/eigenvectors rather than tabulated walk/Kalman determinant for every n and w.",
+          "Three actual Resultary searches (22,24,23 respective hits) returned no exact determinant database or table; related normalized path theorem is a different dynamical operator."
+        ],
+        "reasoning": "A two-parameter all-n polynomial and exact vanishing multiplicity is not recovered merely by a finite table or a generic cycle spectrum list; no exact database covering it was identified. Query failure is not treated as formal priority proof.",
+        "searches": [
+          "Resultary semantic query: Weighted undirected cycle graph with a single exceptional edge weight w. Exact determinant of controllability (walk/Kalman) matrix from a vertex incident to defective edge: (w-1)^{floor((n-1)/2)} (1+(n-1)w). [22 retrieved]",
+          "Resultary semantic query: Determinant of walk matrix of a cycle graph with one weighted edge; control from endpoint; symbolic factorization and controllability. [23 retrieved]",
+          "\"walk matrix\" \"cycle\" \"edge\" \"weight\" controllability",
+          "\"controllability determinant\" weighted ring graph",
+          "arXiv:2205.12457v1 spectral formulas and numerical tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives as the exact signed ordered-endpoint Kalman determinant with its complete all-dimension polynomial factorization and high-order w=1 volume collapse. The 2022/2024/2025 Grudsky–Maximenko–Soto-González line supplies a full spectral analysis of precisely the same graph and is the strongest near-coverage; generic access to eigenvectors plus Vandermonde identities in principle permits reconstructing any Krylov determinant, but reducing their full eigenvalue data to this short closed polynomial entails a nontrivial resultant and normalization calculation that was not identified as an earlier stated or immediately mechanically supplied result. The signed negative root, uniform-cycle noncontrollability, and generic rank tests are previously known and are not independently novel. This is a best-of-knowledge finding with material priority risks and one inaccessible full text, not certification of absolute novelty.",
+      "residual_risks": [
+        "The 2022 same-object complete eigensystem and explicit eigenvector norms could support a shorter spectral derivation of the exact Kalman determinant than currently identified; careful human literature/prior-implication review may affect novelty priority.",
+        "The 2025 overweighted-edge chapter DOI:10.1007/978-3-031-80486-1_9 is highly relevant but full text was not obtainable through preprint, OA, or authorized institutional access (disconnected); only publisher abstract read.",
+        "Unindexed walk-determinant, control-theory or Toeplitz-resultant literature may independently state an equivalent factorization; semantic-index nonhits do not certify priority.",
+        "The signed singularity -1/(n-1), unweighted-cycle noncontrollability and the general eigenstructure are not new and must never be marketed as such."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes exact eigenvalue/eigenvector data for the same matrix family, particularly weights 0<w<1, but does not give the claimed ordered Kalman determinant or its exact polynomial factorization and unit-weight multiplicity. Recombining complete spectral data may imply it after significant cross-product elimination; strongest unresolved priority risk, not dismissed by absence of identical words.",
+          "evidence": [
+            "arXiv:2205.12457v1, Sections 2-3 and 10, Theorem 5 eigenvectors and norms; same graph L_{alpha,n}.",
+            "Direct spectral-data-to-Krylov determinant involves eigenvector endpoint coordinates and Vandermonde cross-resultant, whose simplified product is not an explicit result of the inspected source."
+          ],
+          "identifier_or_url": "arXiv:2205.12457v1; DOI:10.1016/j.laa.2022.07.011; https://www.math.cinvestav.mx/~grudsky/Papers/148.pdf",
+          "material_read": "Accessible complete original open preprint, including spectral setup, characteristic equation, Theorem 1, Theorem 5 eigenvector formulas, and Section 10 norms; page image of Theorem 5 independently inspected.",
+          "method": "Primary full-text comparison of graph/Laplacian matrices, eigenvalue and eigenvector results with endpoint Krylov walk-matrix determinant and cross-sector resultant; targeted searches for Kalman/controllability/walk determinant.",
+          "title": "Eigenvalues of the Laplacian Matrices of the Cycles with One Weighted Edge",
+          "trigger": "Exactly the same one-edge weighted cycle and complete eigensystem; strongest potential prior implication of the exact Krylov determinant."
+        },
+        {
+          "assessment": "Theorem 2.1 supplies spectral zero crossing for negative w and outlier behavior, not an explicit walk-matrix determinant; signed zero root is already understood in stronger effective-resistance literature. Partial primary reading does not justify a claim of whole-paper noncoverage.",
+          "evidence": [
+            "arXiv:2308.07514v1, matrix definition p.2, Theorem 2.1 and discussion pp.4-5; the n=(w-1)/w boundary matches w=-1/(n-1)."
+          ],
+          "identifier_or_url": "arXiv:2308.07514v1; DOI:10.1016/j.laa.2023.12.003",
+          "material_read": "Open preprint introduction, matrix definition, Theorem 2.1 and its conditions, main-result outline and relevant eigenvector/norm section descriptions; screenshot page 4; targeted searches for control and Kalman terms.",
+          "method": "Compare spectral localization, zero-mode transition and exact stationary graph objects to the signed root and all-real walk-matrix determinant.",
+          "title": "Eigenvalues of Laplacian Matrices of the Cycles with One Negative-Weighted Edge",
+          "trigger": "Exactly same weighted cycle for negative edge weight, including the signed zero resonance."
+        },
+        {
+          "assessment": "Abstract concerns outlier eigenvalues, asymptotics and eigenvectors/norms, not explicitly endpoint Kalman factorization. Cannot assert full-document noncoverage. Real residual risk; inaccessible plausible source alone is not proof of novelty or an automatic reason to fail an otherwise supported best-of-knowledge review.",
+          "evidence": [
+            "Publisher first-online 2025-03-14, abstract and DOI:10.1007/978-3-031-80486-1_9; study w>1 and complete eigenvectors/norms. Full chapter not accessible."
+          ],
+          "identifier_or_url": "DOI:10.1007/978-3-031-80486-1_9; https://link.springer.com/chapter/10.1007/978-3-031-80486-1_9",
+          "material_read": "Publisher chapter title, bibliographic record, March 14 2025 date, abstract, scope and citations; not its full 32-page chapter.",
+          "method": "Checked arXiv/preprint and lawful open-access full text first; publisher landing shows subscription-preview-only. Authorized institutional full-text attempt reported disconnected access; no bypass or invented reading.",
+          "title": "Eigenvalues of the Laplacian Matrices of Cycles with One Overweighted Edge",
+          "trigger": "Same exact weighted-cycle matrix in positive range w>1 and explicit eigenvectors/norms; possible dominating prior description."
+        },
+        {
+          "assessment": "Explains signed-Laplacian loss of positive semidefiniteness exactly at negative root; not the high-order w=1 controllability collapse nor the full ordered Kalman determinant.",
+          "evidence": [
+            "arXiv:1408.2187v1, Theorem III.3, R_eff(0,n-1)=n-1 for the unit path; critical signed root -1/(n-1)."
+          ],
+          "identifier_or_url": "arXiv:1408.2187v1; https://arxiv.org/pdf/1408.2187",
+          "material_read": "Complete accessible eight-page primary PDF, including Theorem III.3, signed edge condition and connected path effective resistance.",
+          "method": "Substitute effective resistance R=n-1 into single negative edge singularity criterion; compare with zeros of endpoint reachability determinant.",
+          "title": "On the Definiteness of the Weighted Laplacian and its Connection to Effective Resistance",
+          "trigger": "The negative-edge singularity w=-1/(n-1) is equivalent to inverse effective resistance of the unit path."
+        },
+        {
+          "assessment": "Covers the known symmetric cycle controllability obstruction and path boundary, not the one-defect all-n exact determinant polynomial.",
+          "evidence": [
+            "arXiv:1109.3556, unweighted path and cycle reachability/observability theory; uniform cycle symmetries produce repeated Laplacian eigenvalues."
+          ],
+          "identifier_or_url": "arXiv:1109.3556; DOI:10.1109/TAC.2011.2168912",
+          "material_read": "Original open 26-page arXiv PDF abstract, introductory definitions, and central unweighted path/cycle reachability and observability statements, with page image inspected.",
+          "method": "Compare fixed unweighted graph families and input placement to the all-real one-edge perturbation and determinant.",
+          "title": "On the Reachability and Observability of Path and Cycle Graphs",
+          "trigger": "Classical single-leader reachability of unweighted paths and cycles, including w=0,1 limiting graphs."
+        },
+        {
+          "assessment": "Provides general PBH-like controllability principles and directed-cycle results but not an exact undirected one-edge Laplacian Krylov determinant or its symmetry-restoration order.",
+          "evidence": [
+            "DOI:10.1155/2013/405034, Sections 3 and 4.2, Theorem 8/Corollary 18; directed cycle as a different operator."
+          ],
+          "identifier_or_url": "DOI:10.1155/2013/405034; https://doi.org/10.1155/2013/405034",
+          "material_read": "Full openly readable original journal HTML: network rank conditions, Theorem 8, directed cycle section 4.2, Corollary 18 and examples on weight changes.",
+          "method": "Compare orientation, node dynamics, graph edge weights, actuator configuration and determinant conclusions.",
+          "title": "Controllability of Weighted and Directed Networks with Nonidentical Node Dynamics",
+          "trigger": "Earlier network-control theory and a cycle example potentially covering the endpoint weighted cycle."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md theorem and quantified domain (n>=3, all real w).",
+        "Grudsky et al. 2022/2024 spectral same-object literature establishes motivation; known spectrum does not itself display the determinant sensitivity factorization.",
+        "Parlangeli–Notarstefano 2011 known cycle controllability obstruction motivates perturbation; Zelazo–Bürger 2014 known signed singular edge gives distinct physical mechanism."
+      ],
+      "rationale": "This is a naturally motivated exact invariant of a standard endpoint-actuated undirected ring with a single conductance defect, not an arbitrary slice: the determinant gives an algebraic reachability volume and a complete closed all-n response to changing one edge. The nontrivial dimension-dependent order floor((n-1)/2) quantifies symmetry-restoring controllability fragility that binary PBH controllability tests and signed-Laplacian stability thresholds do not reveal. Distinguishes all w real algebraic roots, physical w>0 controllability, and exact squared Krylov Gram volume. The result is bounded and does not claim a finite-time energy Gramian, other actuator placements or a general graph theorem; its exact, reusable sensitivity law retains value despite antecedent same-object spectral data and a relatively short reflection-based proof.",
+      "residual_risks": [
+        "The invariant is a finite ordered-Krylov algebraic volume, not normalized energy cost; applications to control effort would require additional dynamical estimates.",
+        "The result addresses only the endpoint incident to weighted edge, not generic vertices or multiple defect parameters."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full 2025 same-object overweighted cycle chapter inaccessible after arXiv/preprint/OA and authorized institutional route; original primary full-text comparison remains a documented scientific priority risk, not an automatic failure.",
+    "Prior 2022/2024 published complete same-object eigenvector results could imply the determinant after nontrivial elimination; absolute novelty is not certified.",
+    "The algebraic ordered-Krylov Gram determinant is not a normalized finite-horizon control energy Gramian.",
+    "Only one input at a distinguished-edge endpoint, cycle n>=3, real w; no claims for other actuators, directed cycles or multi-defect graphs.",
+    "Potential public metadata contains internal identifiers and inaccurate first-public date; publication withheld pending full sanitized guards."
+  ],
+  "schema_version": 1
+}
