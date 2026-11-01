@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "Explicit independent-side coupon representation, log-concavity of geometric convolutions and their CDF, exact mean and Poisson-clock maximum identities; Gamma difference Bernstein bound and L2 coupon localization rigorously permit the local-limit Riemann argument. Integrals of Gumbel squared density and normal Jensen gap are 1/4 and 1. A local exact rational checker passed 228 finite assertions, which supplements but does not replace analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:1709.04500, Section 4.2 conditions lambda>1 for expectation asymptotics and assumes independent draws from mixture groups.",
+        "arxiv:2011.07893 studies cover times for multiple walks on general graphs at order scales."
+      ],
+      "reasoning": "The two-group iid mixture includes the comparator but not the alternating sampling process; the many-walk framework includes graph cover times but not the sharp second-order iid comparison. Neither implies the stated periodic-vs-iid theorem without additional arguments.",
+      "searches": [
+        "\"coupon collector stratified cyclic sampling deterministic balanced group schedule versus random selection expectation difference logarithmic\"",
+        "arxiv:1709.04500 Sections 3-4",
+        "arxiv:2011.07893 introduction and theorem overview"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1709.04500",
+      "https://arxiv.org/abs/math/0304229",
+      "https://arxiv.org/abs/2011.07893",
+      "https://arxiv.org/abs/1601.04455",
+      "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/speed-and-concentration-of-the-covering-time-for-structured-coupon-collectors/10D13221F2E173C9B2823AAA402BC684"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1709.04500, Section 4.2 conditions lambda>1 for expectation asymptotics and assumes independent draws from mixture groups.",
+        "arxiv:math/0304229, Section 2.1 gives two independent coupon-collector simultaneous-completion probability, not alternating versus iid cover-time comparison.",
+        "arxiv:2011.07893 studies cover times for multiple walks on general graphs at order scales.",
+        "Published result on nonuniform reset coupon rates addresses reset catastrophes, not temporal stratification."
+      ],
+      "reasoning": "A deterministic alternating side schedule on K_nn is compared to iid sampling with identical uniform stationary marginals. The 2017 work assumes iid sampling, the 2003 work compares two independent coupon collectors with no iid-versus-alternation gap, and the 2020 work concerns multiple walkers. Taken individually none directly implies stochastic dominance plus a sharp additive log-gap, although their standard tools inform the new proof.",
+      "searches": [
+        "\"Sampling from a mixture of different groups of coupons\" arxiv 1709.04500",
+        "\"Some new aspects of the coupon-collector's problem\" arxiv math/0304229",
+        "\"Multiple Random Walks on Graphs: Mixing Few to Cover Many\" arxiv 2011.07893"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:math/0304229, Section 2.1 gives two independent coupon-collector simultaneous-completion probability, not alternating versus iid cover-time comparison."
+      ],
+      "reasoning": "The event T=T' and the exact mean-of-two-collectors representation are known ingredients. The conclusion involving a constant (1/2) log n gain compared with one iid 2n-type process and the full-horizon stochastic comparison do not follow from an exact tie law alone.",
+      "searches": [
+        "\"alternating\" \"coupon collector\" \"bipartite\" cover",
+        "\"expected maximum of two independent coupon collector times Poissonization log n correction\"",
+        "arxiv:math/0304229, Section 2.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:math/0304229, Section 2.1 gives two independent coupon-collector simultaneous-completion probability, not alternating versus iid cover-time comparison.",
+        "Exact rational checks produce gap 4/3 for n=2, 52/35 for n=3; those values alone are not the claimed all-n result."
+      ],
+      "reasoning": "Known completion-time tables for two collectors and exact finite coupon sums do not state or dominate the new asymptotic 1/2 log n coefficient. No corresponding exact cover-time table with a stronger asymptotic was found.",
+      "searches": [
+        "\"complete bipartite random walk cover time expected exact 2n H2n lower order\"",
+        "\"random walk complete bipartite graph cover time second order de-poissonization\"",
+        "arxiv:math/0304229 simultaneous completion table"
+      ]
+    },
+    "rationale": "Originality is assessed for the joint stochastic domination and sharp (log n)/2 expected-cover advantage, not for the standard coupon marginal, known two-collector tie probability, or generic Gumbel limits. Full rendered primary text of the most plausible 2017 iid two-group source, the 2003 two-collector competition paper, and the 2020 multiple-walk cover source was compared at theorem/hypothesis level. No inspected result logically covers this periodic-vs-iid pair of claims; historical general de-Poissonization priority remains uncertain.",
+    "residual_risks": [
+      "Older de-Poissonization asymptotics for the maximum of multiple discrete coupon collectors might implicitly yield the same logarithmic coefficient without mentioning complete bipartite walks.",
+      "The structured-coupon collector preprint was not fully inspected; its accessible abstract concerns iid random subset draws and so no whole-document noncoverage is asserted.",
+      "Absolute historical priority and independent mathematical review remain open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: its collection scheme is iid across groups and its group-comparison mean asymptotic presumes unequal rates; neither deterministic alternation nor logarithmic iid/alternating gap appears",
+        "evidence": [
+          "Theorem 6 requires lambda>1; its Poisson embedding and maximum construction are acknowledged."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.04500",
+        "material_read": "Full publicly accessible arXiv HTML, introduction, Sections 2, 3, 4.1, 4.2 and appendix synopsis",
+        "method": "Read complete rendered text and inspected hypotheses of Theorems 2, 5, 6",
+        "title": "Sampling from a mixture of different groups of coupons",
+        "trigger": "Directly studies two-group coupon collection and iid mixture cover times"
+      },
+      {
+        "assessment": "PARTIALLY_OVERLAPPING: gives simultaneous completion law but neither sampling-policy dominance nor half-log cover-time gap",
+        "evidence": [
+          "Section 2.1 is the closest finite tie-law overlap; present theorem explicitly uses only the known tie as an auxiliary term."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0304229",
+        "material_read": "Full arXiv rendered text, introduction and Section 2.1 with related Sections 2.2-2.3",
+        "method": "Read two-collector competition and exact simultaneous-completion formulas",
+        "title": "Some new aspects of the coupon-collector's problem",
+        "trigger": "Two independently progressing complete collectors and tie mass"
+      },
+      {
+        "assessment": "NOT_COVERING: multiple-walk general-network bounds, not single-walk balanced-bipartite versus iid uniform coupon comparison",
+        "evidence": [
+          "The graph-cover setting aligns but neither the object comparison nor second-order logarithmic constant is stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2011.07893",
+        "material_read": "Full arXiv rendered article abstract, introduction, theorem overview and ICALP PDF introduction",
+        "method": "Read accessible article text and examined proceedings PDF pages visually",
+        "title": "Multiple Random Walks on Graphs: Mixing Few to Cover Many",
+        "trigger": "Primary graph-walk cover-time and MSC-classification reference"
+      },
+      {
+        "assessment": "ACCESS_RISK: iid random-set coupon scheme is different from deterministic alternating one-at-a-time scheduling; no negative full-text coverage claim",
+        "evidence": [
+          "A broad structured model can motivate further review; abstract-level material alone cannot certify noncoverage."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1601.04455",
+        "material_read": "Journal abstract and model scope; full preprint not inspected",
+        "method": "Read journal abstract, bibliographic classification, and paper model description",
+        "title": "Speed and concentration of the covering time for structured coupon collectors",
+        "trigger": "General structured coupon collectors possibly dominating proposed comparison"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "055ff1a6-d591-4d61-beef-8e37eaedadbd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result quantifies the intrinsic effect of forced alternating side balance while holding all vertex marginal probabilities uniform: it proves uniform stochastic improvement at every horizon and resolves the first diverging mean correction to the classical coupon cover scale, with a sharp 1/2 coefficient. This natural second-order phenomenon is not a parameter rename or an arbitrary finite invariant.",
+    "status": "PASS"
+  }
+}
