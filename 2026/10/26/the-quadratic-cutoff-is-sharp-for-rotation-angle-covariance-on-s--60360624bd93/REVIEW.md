@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Normalized Haar measure, character normalization, and irreducible Fourier multipliers are written explicitly. The quadratic tapers have strictly positive coefficients because the exact auxiliary function \(h(x)=(x-\sin x)/x^3\) decreases for all \(x>0\). A positive beta mixture propagates positivity to every larger exponent. The one-sided Fourier endpoint expansion produces a nonzero oscillatory contribution dominating the consecutive-coefficient smooth difference for every smaller positive exponent, including the full-support boundary. Peter–Weyl completeness yields strict finite-set positive definiteness on the admissible side. The independent computation checks formula consistency, not infinite assertions.
+PASS
 
-## Originality
+For every 0<R<=pi, alpha>0, Peter-Weyl reduces positivity to b_l=(J_l-J_{l+1})/pi with J_n=integral_0^R (R-theta)^alpha cos(n theta)dtheta; this follows exactly from (1-cos theta)chi_l=cos(l theta)-cos((l+1)theta) and Haar density. At alpha=2, J_n=2R/n^2-2sin(nR)/n^3 (n>=1); h(x)=(x-sin x)/x^3 is strictly decreasing by sign of 2x+x cos x-3 sin x, while b_0>0 by direct integral. For alpha>2 a positive beta-mixture of alpha=2 kernels preserves strict spectral positivity. Completeness of irreducible matrix coefficients then gives strict finite-set positive definiteness. For 0<alpha<2, endpoint asymptotics imply b_l=(2 Gamma(alpha+1)sin(R/2)/(pi l^(alpha+1)))sin((l+1/2)R-pi(alpha+1)/2)+o(l^(-alpha-1)); the origin contribution to consecutive differences is O(l^-3) and cannot mask nonzero oscillatory negative subsequences. Irrational R/(2pi) yields density 1/2 negative; rational radii admit recurring negative phases, including R=pi. Independent 1556 finite Fourier/coefficient diagnostics at four radii and alpha=0.6,1,1.4 support but do not prove these infinite statements.
 
-PASS under bounded primary-text and database review, with residual equivalence risk. Xu's projective-space sufficient criterion and Lu's strict-positive-definiteness theorem already prove the positive side at exponent two and above. The proposed new claim is only that this is **necessary for each radius**, with infinitely many negative character modes below the threshold and a natural-density description for irrational radii. The inspected sources do not state that necessity. The closest related earlier result on a signed-cosine quadratic rotation-angle taper fixes exponent two and therefore does not imply the subcritical obstruction. Arguably equivalent Jacobi-spectral asymptotics in sources not retrieved remain possible.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The support-radius-independent sharp exponent boundary closes a natural admissibility gap for compact-group covariance models, beyond a known one-way sufficient condition. The explicit high-spin oscillatory obstruction explains why low-frequency numerical positivity does not certify global validity, and it is quantitative enough to distinguish rational and irrational apertures. This is a motivated spectral classification, not a parameter renaming or numerical special case.
+Best-of-knowledge PASS for the necessity and subcritical negative high-spin coefficients at EVERY fixed support radius. The sufficient alpha>=2 part is explicitly covered by Xu and Lu and is not the claimed increment. The inspected projective positive-definiteness literature characterizes spectral positivity and proves sufficient truncated-power thresholds, but does not establish a fixed-radius if-and-only-if obstruction with negative-index density.
 
-## Limitations
+## value
 
-The theorem concerns one natural family on \(SO(3)\), not a complete classification of isotropic kernels on all compact groups. Previously published sufficient positivity is not claimed as a discovery. Database coverage is bounded; an equivalent unindexed necessity theorem is the principal originality risk. Independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp all-radius threshold for a canonical compact-group radial covariance family is mathematically motivated by admissible positive-definite kernels; explicit high-spin negative modes distinguish necessity from already published sufficiency. The irrational-radius natural-density result is an additional spectral distribution, not mere renaming or recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

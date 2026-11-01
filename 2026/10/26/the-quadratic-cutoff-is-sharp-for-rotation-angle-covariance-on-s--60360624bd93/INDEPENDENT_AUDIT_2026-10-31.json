@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 88023ba308b5da04a47a97c594092f294b6f63e4",
+        "assigned checker.py blob 40571e3b58646dcc80fc88d29841c471e8a2ef0e",
+        "independent_checks.py SO3 1556 diagnostics"
+      ],
+      "rationale": "For every 0<R<=pi, alpha>0, Peter-Weyl reduces positivity to b_l=(J_l-J_{l+1})/pi with J_n=integral_0^R (R-theta)^alpha cos(n theta)dtheta; this follows exactly from (1-cos theta)chi_l=cos(l theta)-cos((l+1)theta) and Haar density. At alpha=2, J_n=2R/n^2-2sin(nR)/n^3 (n>=1); h(x)=(x-sin x)/x^3 is strictly decreasing by sign of 2x+x cos x-3 sin x, while b_0>0 by direct integral. For alpha>2 a positive beta-mixture of alpha=2 kernels preserves strict spectral positivity. Completeness of irreducible matrix coefficients then gives strict finite-set positive definiteness. For 0<alpha<2, endpoint asymptotics imply b_l=(2 Gamma(alpha+1)sin(R/2)/(pi l^(alpha+1)))sin((l+1/2)R-pi(alpha+1)/2)+o(l^(-alpha-1)); the origin contribution to consecutive differences is O(l^-3) and cannot mask nonzero oscillatory negative subsequences. Irrational R/(2pi) yields density 1/2 negative; rational radii admit recurring negative phases, including R=pi. Independent 1556 finite Fourier/coefficient diagnostics at four radii and alpha=0.6,1,1.4 support but do not prove these infinite statements.",
+      "residual_risks": [
+        "Infinite phase-density and endpoint asymptotics rest on the analytic derivation, not the finite diagnostics.",
+        "No claim is made for alpha<=0, R>pi, or different metrics on other groups."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lu proves positivity of truncated powers at lambda>=(d+1)/2 on RP^d (including d=3), covering alpha>=2; Xu supplies projective positivity machinery. Neither identified theorem states a negative coefficient below the threshold for every support radius."
+        ],
+        "reasoning": "Acknowledges stronger published SUFFICIENT coverage; no broader necessity implication was found in the specifically compared theorem statements. This is bounded literature evidence, not an absolute novelty guarantee.",
+        "searches": [
+          "Xu arXiv:1701.00787 projective sufficient truncated-power theorem",
+          "Lu JAT 2025 Sections 2-3",
+          "Resultary: positive definite truncated powers geodesic distance real projective space SO(3) necessity alpha 2 sharp radius Fourier Jacobi coefficients"
+        ]
+      },
+      "checked_sources": [
+        "Xu, Positive definite functions on the unit sphere and integrals of Jacobi polynomials, arXiv:1701.00787, relevant projective result",
+        "Lu, Strictly positive definite functions on spheres, JAT 306 (2025) 106120, author full PDF intro and Sections 2-3",
+        "Barbosa & Menegatto, Strictly positive definite kernels on two-point compact homogeneous spaces, arXiv:1505.00591",
+        "Resultary semantic query: positive definite truncated powers geodesic distance real projective space SO(3) necessity alpha 2 sharp radius Fourier Jacobi coefficients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior >=2 sufficiency is literally part of assessed theorem and is already covered. Positive-definiteness spectral characterization says coefficient nonnegativity is necessary and sufficient; it does not calculate their signs for truncated powers at subcritical alpha."
+        ],
+        "reasoning": "The final claim adds the exact NECESSITY for fixed R, infinitely many negative high-spin coefficients for 0<alpha<2, and irrational-radius density 1/2. Prior sufficient theorems do not imply the converse.",
+        "searches": [
+          "Lu 2025 JAT doi:10.1016/j.jat.2024.106120",
+          "Xu arXiv:1701.00787",
+          "Barbosa-Menegatto arXiv:1505.00591"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "SO(3) is real projective 3-space after constant geodesic-distance rescaling; its central coefficients equal projective harmonic coefficients. Barbosa-Menegatto provide a criterion based on coefficients but no sign computation for (R-theta)^alpha_+."
+        ],
+        "reasoning": "Compared the SAME RP3 radial kernel and its Peter-Weyl/Jacobi coefficients rather than requiring an SO3 title match; the general spectral criterion does not itself force a fixed-radius alpha=2 necessity threshold.",
+        "searches": [
+          "Resultary: positive definite truncated powers geodesic distance real projective space SO(3) necessity alpha 2 sharp radius Fourier Jacobi coefficients",
+          "arXiv:1505.00591 spectral characterization",
+          "Lu (2025) projective radial covariance correspondence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved Fourier, covariance and sphere-related findings but no identical alpha/R spectral sign table; published spectral positivity criteria are qualitative rather than a completed all-radius sign census."
+        ],
+        "reasoning": "No finite table can substitute for the all-radius and unbounded-spin sign theorem; searched mathematical databases and source appendices for equivalent sign tables but cannot rule out an unindexed table.",
+        "searches": [
+          "Resultary: positive definite truncated powers geodesic distance real projective space SO(3) necessity alpha 2 sharp radius Fourier Jacobi coefficients",
+          "Barbosa-Menegatto arXiv:1505.00591",
+          "Lu 2025 paper sections and references"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the necessity and subcritical negative high-spin coefficients at EVERY fixed support radius. The sufficient alpha>=2 part is explicitly covered by Xu and Lu and is not the claimed increment. The inspected projective positive-definiteness literature characterizes spectral positivity and proves sufficient truncated-power thresholds, but does not establish a fixed-radius if-and-only-if obstruction with negative-index density.",
+      "residual_risks": [
+        "An equivalent sharp necessity theorem in projective Jacobi-coefficient or radial covariance notation may exist outside the inspected sources.",
+        "The published sufficient half is not new, and its novelty cannot be inferred from a fresh proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_SUFFICIENT_ONLY",
+          "evidence": "Explicit lambda>=(d+1)/2 sufficient assertion; no all-radius necessity theorem in inspected main theorem.",
+          "identifier_or_url": "https://www.math.wichita.edu/~lu/resume/power.pdf",
+          "material_read": "Author-posted 13-page primary PDF, introduction, Sections 2-3 and truncated-power theorem, including visual check of page 3",
+          "method": "Web PDF text and page screenshot",
+          "title": "Strictly positive definite functions on spheres",
+          "trigger": "Same RP3 object and exponent-two truncated power"
+        },
+        {
+          "assessment": "COVERS_SUFFICIENT_ONLY",
+          "evidence": "Projective sufficient truncated-power criterion, not the required negative Fourier signs below alpha=2.",
+          "identifier_or_url": "https://arxiv.org/abs/1701.00787",
+          "material_read": "Relevant projective-space theorem and surrounding discussion in accessible scholarly text",
+          "method": "Web full-text primary result review",
+          "title": "Positive definite functions on the unit sphere and integrals of Jacobi polynomials",
+          "trigger": "Projective-space Jacobi coefficients at same distance scaling"
+        },
+        {
+          "assessment": "BACKGROUND_NOT_EXCLUSION",
+          "evidence": "Necessary-and-sufficient spectral strictness criterion, not the signs for this specific kernel.",
+          "identifier_or_url": "https://arxiv.org/abs/1505.00591",
+          "material_read": "Abstract and theorem description only; not a full-text exclusion",
+          "method": "Web abstract",
+          "title": "Strictly positive definite kernels on two-point compact homogeneous spaces",
+          "trigger": "Could imply radial positive definiteness by representation theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Peter-Weyl spectral criterion",
+        "Xu/Lu published sufficient threshold",
+        "assigned high-spin asymptotic proof"
+      ],
+      "rationale": "A sharp all-radius threshold for a canonical compact-group radial covariance family is mathematically motivated by admissible positive-definite kernels; explicit high-spin negative modes distinguish necessity from already published sufficiency. The irrational-radius natural-density result is an additional spectral distribution, not mere renaming or recomputation.",
+      "residual_risks": [
+        "Sufficient half is previously known; the independently valuable increment is only sharp necessity and mode signs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Restricted to 0<R<=pi, alpha>0, principal angle on SO3; not a universal compact-space criterion.",
+    "Numerical mode sampling is not an infinite proof.",
+    "Publication withheld pending semantic sanitization of potentially public administrative provenance; review is scientifically completed."
+  ],
+  "schema_version": 1
+}
