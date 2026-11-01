@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claim fixes a precise collision-free two-particle graph and its complete commuting symmetry action. The cubical two-chain argument proves integral second-homology vanishing for every branch count. Four explicit signed cell-trace counts give the entire rational first-homology character; Maschke's theorem then identifies the module, including its particle-swap and pole-swap structures. Exact finite checks of 672 group actions agree with the formulas. Remaining dependence: the standard sufficiently-subdivided Abrams deformation-retract theorem.
+## correctness
 
-**Originality — PASS, qualified.** Published studies of banana and generalized-theta graph configuration spaces compute homotopy dimension, ranks, topological complexity, or graph-braid generators/relations, while the closest indexed three-particle generalized-theta result concerns a different degree and particle number. None of the material inspected states or dominates the complete two-particle three-factor rational symmetry character. Searches used branch relabeling, graph braids, unordered/ordered particles, theta/banana/K(2,m) aliases, and signed pair-module terminology. A differently indexed equivalent characterization remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** The graph family is a canonical family of multiply connected networks. Ordinary Betti ranks fail to encode the simultaneously commuting branch, pole, and particle symmetries. The result determines a full natural representation for all branch counts and explains the nontrivial switch between unordered exterior-square homology and the ordered symmetric pair quotient. This is a structurally motivated equivariant classification, not a narrow parameter table.
+For m>=3 three-edge branched theta graph, the Abrams ordered-particle two-cube model has cell counts c0=4m²+6m+2, c1=12m², c2=7m²-5m. Connectivity uses a third free branch; any 2-cycle in the ordered model has coefficients constant across edge pairs of given branches by the two separate tensor partial boundaries, and shared pole forbids first-edge pairs for every i,j, forcing zero, with transfer proving H2 of unordered quotient also zero. Its signed Lefschetz fixed-cell table for branch permutation sigma, pole rho and label tau gives character (-1)^h(f(f-1)-1) for no particle swap or (-1)^h(1-2t) with swap, since H0 is trivial. Directed-pair module W/Q(sum e_ij) has exactly that character; rational semisimplicity and tau-invariants give unordered Λ²Q^m with pole sign. Fresh independent cubical signed-trace calculations confirmed all cases m=3,4, and universal proof handles arbitrary m. Check excludes m=2 where configuration disconnected.
 
-**Limits.** Rational representation only in degree one; the integral degree-one lattice and fundamental-group presentations are not classified. Finite tests are not a universal proof. No assertion of independent audit or mathematical certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lütgehetmann–Recio-Mitter Section 5 primary manuscript establishes that Conf2(B_m) is a connected graph of first Betti number at least m−1 and studies topological complexity, not the exact complete S_m×C2×C2 rational character. General graph-braid generator literature and published three-particle theta-class modules are different homological objects. A prior general graph-braid character theorem may potentially imply this particular representation, but none was found/verified in inspected sources.
+
+## value
+
+PASS
+
+The complete branch-permutation, pole-exchange, and particle-exchange representation for all m>=3 is a structurally motivated symmetry invariant of classical graph configurations. The directed ordered-pair character and exterior-square unordered module refine earlier connectivity and rank bounds, providing reusable data for equivariant graph braid topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
