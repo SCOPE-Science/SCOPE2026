@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the orientation-twisted carrier formula
+# Independent mathematical audit
 
-The general conclusion is proved by comparing the integer facet-compatibility matrix with the top twisted normalized boundary. Finite examples do not establish the theorem.
+## correctness
 
-Run `python verify.py` in this directory (requires Python 3 and SymPy). For the ten faces `012,013,024,035,045,125,134,145,234,235`, the program checks 6 vertices, 15 edges, 10 facets, two facets per edge, five-cycle vertex links, Euler characteristic 1, and nonorientable monodromy. It constructs the ordinary signed boundary and the oppositely signed, local-orientation-twisted boundary. It obtains ranks 10 and 9 respectively over exact rationals, and block-diagonal results for one through five disjoint copies. Each repeated-copy scenario is a direct covering by identity maps, so its simplex dimension can also be checked without homological assumptions.
+PASS
 
-Expected final line: `VERIFY_OK`. Scientific limits: the calculation only covers the displayed real-projective-plane triangulation and its disjoint-copy covers; the proof in RESULT.md covers arbitrary closed triangulated manifolds and finite-fiber simplicial maps with supported bundle scenarios. No external or independent validation has been performed.
+Kharoof–Lai Proposition 3.16 gives carrier dimension equals real nullity of the facet compatibility matrix minus one. Proposition 3.8 says the support map is a bundle scenario discrete over vertices; Proposition 3.10 guarantees supported n- and (n-1)-cells are precisely the proper dimensional lifts. On a closed manifold the pulled-back orientation local system orients each base facet locally and its two adjacent n-simplex sides oppositely. Row/column sign changes therefore identify the complete integer twisted top cellular boundary with the integer facet matrix. Since no supported cells exist above dimension n, H_n with pulled-back local coefficients equals its integral kernel, whose rank equals real nullity. The pulled-back orientation double cover yields the negative rational deck eigenspace, without an integral splitting claim. In a finite cover, adjacent lifted facets enforce a constant weight on each connected covering component; the only remaining equation is sum_j d_j a_j=1, so the whole distribution polytope is a simplex and twisted top homology Z^c. Independent 6-vertex RP2 exact ranks 10 ordinary vs 9 twisted, and direct block-copy checks 1..5, corroborate the nonorientable distinction.
+
+## originality
+
+PASS
+
+Orientation local system is a classical general construction and the source facet-nullity theorem already determines numerical carrier dimensions, but neither one alone states the integer identification for supported simplicial distributions or the covering simplex law. The targeted missing orientability hypothesis requires verifying signs for this particular distribution compatibility matrix, not just relabeling ordinary homology.
+
+## value
+
+PASS
+
+The orientation obstruction in a currently published carrier-face theorem is natural and substantive: ordinary top homology vanishes for nonorientable RP2 even with nonzero carrier dimension, whereas twisted homology restores the correct invariant. The integer chain identification, double-cover formulation and full-polytope classification of finite covers give structural information beyond a bare matrix nullity, while acknowledging the latter was already computable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
