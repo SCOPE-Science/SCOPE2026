@@ -1,23 +1,17 @@
-# Same-model review
+# Mathematical assessment
 
 ## Correctness
 
-PASS. The proof reduces a \(\Gamma\)-invariant assignment to one parity-constrained permutation per \(\Gamma\)-orbit of outer blocks, centralizing the point stabilizer. This gives an exact product formula for every subgroup of \(S_4\). A three-cycle fixes a weight-one outer block but has an all-even centralizer, proving the structural zero. Burnside's lemma gives the full coordinate-relabeling quotient, and descending subgroup-lattice subtraction gives exact stabilizers. The bundled checker regenerates all \(30\) subgroups of \(S_4\) and reproduces every number independently of a stored subgroup table.
+The normalized corner assignments have precisely \(12^{14}\) choices. For each subgroup \(\Gamma\le S_4\), a fixed assignment is determined by parity-constrained representatives that centralize the corresponding point stabilizers. The product over corner-orbits is exact. All 30 subgroup values, the Burnside orbit count, and the exact stabilizer strata were rederived from a fresh enumeration of \(S_4\) and its subgroup lattice. The numerical totals match the claim: \(53{,}496{,}608{,}995{,}008\) orbits and \(12{,}608{,}256\) nonfree orbits. The three-cycle obstruction follows from the even centralizer of a 3-cycle acting on a fixed weight-one corner.
 
 ## Originality
 
-PASS. The primary source reports only selected structured symmetry families and its public search program evaluates one supplied subgroup at a time. The inspected paper explicitly leaves broader subgroup-based symmetry reduction unfinished. Searches for the source identifier, frame-assignment terminology, conjugation action, Burnside quotient, and the exact family-size fingerprints found no complete census or three-cycle obstruction.
+Kamenetsky, *Towards Strongly Aperiodic Monotiles in Higher Dimensions* (arXiv:2610.00916v1), Table 2, reports subgroup-fixed family sizes \(32\), \(768\), and \(6912\) but not the full orbit/stabilizer census. The accompanying public `symsearch4.py` computes one chosen subgroup family, not the all-subgroup classification. The closest published result on three-dimensional Chair44 tiling symmetry uses a 2-adic hierarchy phase and does not cover four-dimensional candidate-frame combinatorics. No pre-existing complete census was found in the inspected sources; unindexed parallel calculations remain possible.
 
-## Value
+## Mathematical value
 
-PASS. The four-dimensional problem has an enormous finite candidate space, and the source specifically identifies symmetry as a useful search reduction. The result completes the normalized coordinate-symmetry census, shows that all three-cycle symmetry is impossible before any expensive geometric closure test, and gives the exact number of inequivalent symmetric candidates remaining. It is a structural search-pruning classification, not merely a recomputation of one table row.
+The classification completes a natural symmetry-pruning layer for a very large normalized finite search, determines which exact coordinate stabilizers can arise, and rules out three-cycle symmetries without a geometric closure test. It is an exact combinatorial result useful for structuring further search, not a solution of the unnormalized four-dimensional monotile problem.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Scope and independent limits
 
-## Closest literature and limitations
-
-The closest source is Kamenetsky, arXiv:2610.00916v1, together with its `symsearch4.py` implementation. Its structured counts \(32\), \(768\), and \(6912\) are recovered exactly, but the source does not give the full subgroup table, Burnside orbit count, or exact stabilizer strata.
-
-A separate three-dimensional Chair44 symmetry-phase theorem concerns symmetries of completed tilings, not candidate four-dimensional frame assignments.
-
-The theorem is confined to the normalized search slice used by the source's symmetry program. It does not decide coarsening closure for the remaining candidates and does not solve the full unnormalized \(12^{15}\) open problem.
+Only normalized frame assignments with the outer zero frame fixed to identity are counted. No claim of coarsening closure, tightness, enclosure, or polyhedral monotile construction is made. The arithmetic verification is finite and exhaustive for this S4 action; it is not a formal proof-assistant attestation or a substitute for testing the geometric certificate.

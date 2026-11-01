@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,33 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The verification reconstructs the finite group calculation from first principles.
+# Independent mathematical audit
 
-It enumerates all \(24\) permutations in \(S_4\), generates all \(30\) subgroups, forms their orbits on
-\[
-U_4=\{0,1\}^4\setminus\{(1,1,1,1)\},
-\]
-and for each orbit representative counts the permutations having the required homochiral parity and centralizing its point stabilizer.
+## correctness
 
-The resulting fixed-family values are checked against the complete expected conjugacy-type table. In particular the source's structured-family values
-\[
-32,\qquad768,\qquad6912
-\]
-are recovered.
+PASS
 
-Burnside's formula is evaluated directly from element fixed sets and checked to equal
-\[
-53{,}496{,}608{,}995{,}008.
-\]
+For U4={0,1}^4\{1111}, π0=id and parity(πv)=(-1)^|v| on 14 remaining corners, the count is 12^14. A Γ-fixed assignment is determined independently on Γ-orbit representatives by the allowed-parity elements centralizing Γv; this is a bijection, not a heuristic. An odd frame cannot commute with a 3-cycle fixing the weight-one remaining coordinate because C_S4((123))=C3 is even. A separate exact enumeration generated the 24 permutations and all 30 subgroups, computed every fixed count and exact stabilizer by downward subgroup Möbius subtraction, and verified the listed table, Burnside total 53,496,608,995,008, nontrivial 151,266,816 assignments/12,608,256 orbits. The seven file identities reconstruct the assigned Git tree SHA. No closure/enclosure claim follows.
 
-The verifier then performs descending subgroup-lattice subtraction
-\[
-E(H)=F(H)-\sum_{K>H}E(K)
-\]
-for every concrete subgroup \(H\), aggregates exact stabilizers by conjugacy type, and checks the assignment and orbit counts in the finding.
+## originality
 
-It separately asserts that every subgroup containing a three-cycle has fixed count zero.
+PASS
 
-The finite calculation is exhaustive for this normalized \(S_4\)-action. It does not test coarsening closure or any later geometric certificate condition, and no conclusion about those conditions is inferred from the symmetry census.
+The exact normalized S4 orbit/stabilizer census and no-three-cycle obstruction were not found in the inspected primary article, its single-subgroup program, the closest published Chair44 tiling-symmetry result, Resultary searches or exact-number web searches. The 32/768/6912 values are present in the primary paper, but the new full subgroup/stratum table is not. Best-of-knowledge only, with unindexed-source priority risk.
+
+## value
+
+PASS
+
+This is a natural finite classification for the exact symmetry-reduced slice of Kamenetsky’s explicitly open 4D chair-frame search, whose raw space is 12^14 under the fixed-origin normalization. The three-cycle impossibility supplies structural pruning before expensive coarsening tests, while all stabilizer strata and orbit totals quantify all inequivalent symmetric candidates. It is motivated by the source’s stated larger-subgroup search reduction, not an arbitrary numerical slice; it does not certify any feasible monotile.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
