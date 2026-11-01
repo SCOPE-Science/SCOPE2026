@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The principal lemma uses only the spectral inequality \(B^2\preceq qB\), sparsity of the input tail, and an elementary one-variable maximization. Its extremal rank-one block reaches the coefficient exactly. Iterative support retention follows by induction and the tail-to-leading norm ratio contracts by at least \(q\) per step. The counterexample loses the leading support in one step and becomes a fixed eigendirection with eigenvalue \(q\). Finite exact-arithmetic witnesses and randomized numerical tests corroborate, but do not replace, the proof.
+## correctness
 
-**Originality — PASS (qualified).** The 2026 sparsified-power paper proves general dimension-independent guarantees but does not provide this exact sharp one-sparse overlap threshold and equality/tie behavior. Yuan–Zhang (2013) established the algorithm and broader perturbation-based sparse recovery; their theorem's hypotheses and implications do not identify the present necessary-and-sufficient universal retention boundary. Search of relevant sparse power, sparse PCA, and published mathematical finding records found no equivalent threshold. This negative search alone is not a uniqueness proof; earlier equivalently phrased support-preservation analyses remain plausible.
+PASS
 
-**Value — PASS.** A single discarded leading coordinate makes every subsequent sparse iteration incapable of recovering an otherwise exact top eigenvector. The finding gives the sharp dimension-free line between guaranteed protection and a concrete irreversible failure, for every finite truncation budget, and quantitatively controls the surviving iteration. This is a structural limit of sparse eigensolvers, not a generic normalization or one-off finite calculation.
+For A=diag(1,B), 0≼B≼qI, z tail supported on at most m-1 coordinates, the order-statistic inequality follows from B²≼qB and h≤q s/(s²+m-k), yielding |Bz|_(m)≤q sqrt(m-1)/m||z|| with equality attained by B=qJ_m/m. A leading coordinate above this bound survives arbitrary ties, with tail/leading norm ratio contracting by q; gives exact squared-overlap threshold and Rayleigh bound. The same rank-one tail at/below threshold ejects first coordinate (equality with adversarial tie) and traps subsequent iterates at q. All m and n allowed; no indefinite tail, non-sparse start or finite-precision claim.
 
-**Closest literature and limits.** The direct comparators are Hajlasz–Musco–Weare–Webber (2026, arXiv:2610.14620v1) and Yuan–Zhang (JMLR 2013). The result applies only to exactly one-coordinate leading eigenvectors, positive semidefinite matrices, already sparse starts, and exact arithmetic. A possible older alias for the extremal lemma is the principal originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. The order-statistic constant q sqrt(m-1)/m together with rank-one extremizer gives a necessary and sufficient uniform frontier not shown in available prior statements; newer full-text unavailability leaves material originality risk.
+
+## value
+
+PASS
+
+Dimension-independent sharp initialization/support-retention frontier with matching permanent-failure witness addresses a natural irreversible error mode of hard-threshold sparse eigensolvers, beyond sufficient convergence estimates.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
