@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:48:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The stationary convolution from a two-sided Poisson clock exists because 2 gamma+2(lambda/s)log(1-s)<0. Its conditional variance V=2D integral_0^infty exp(2gamma u)(1-s)^{2N_u}du is positive and satisfies the exact affine perpetuity V=A Vprime+B with A=(1-s)^2 exp(2 gamma T), B=D/gamma(exp(2 gamma T)-1), T~Exp(lambda/s); A and B are dependent but jointly independent of Vprime. Verified negative E log A, nonarithmetic log A, P(A>1)>0, E A^(p_s/2)=1 and a positive moment margin for B, so Goldie implicit renewal applies. Breiman transfers the V survival tail to symmetric X with p_s survival exponent; a stationary Fokker-Planck zero-flux calculation gives q_s for the diffusion. The Taylor third-derivative sign for (1-s)^u changes at exponent u=2, yielding the exact root comparison; the second-order x^2 generator coefficients match 2(gamma-lambda)+lambda s. At fourth order jump generator has extra -4lambda s^2+lambda s^3, giving the strict wedge between b_DA=1-3s/2 and b_true=1-3s/2+s^2-s^3/4; generator moments yield strict fourth-moment ordering when finite. The s->0 positive-root equation b c=1-exp(-c) and implicit expansion gives the nonunit exponent ratio. Independently checked 42 parameter root-order cases and boundaries. Heavy-tail conclusions rely on precisely stated standard theorem, not on simulated tails.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldie implicit-renewal theorem gives regularly varying tails from E[A^rho]=1; Breiman gives Gaussian-scale-mixture exponent. General GOU theory covers tail mechanisms but not the specified finite-s comparison with a different diffusion SDE."
+        ],
+        "reasoning": "The general renewal theorem covers existence/exponent mechanism only; it does not alone state sharp p_s vs q_s reversal or moment-loss wedge without calculating both generators and comparing roots.",
+        "searches": [
+          "Goldie 1991 implicit renewal affine perpetuities nonarithmetic tail",
+          "Alsmeyer Behme 2026 generalized Ornstein Uhlenbeck exponential functional tails",
+          "Resultary frequent partial resetting Pareto diffusion approximation comparison"
+        ]
+      },
+      "checked_sources": [
+        "Galla 2026 arXiv:2602.21635 accessible main and S1 full text",
+        "Goldie 1991 published implicit renewal theorem",
+        "arXiv:2205.03363 partial resetting with constant drift",
+        "Resultary semantic 15-hit search comparing full parameter-dependent tail claims"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galla S1 computes the approximate stationary density and q_s; Goldie states a general tail theorem; Tal-Friedman treat constant rather than expanding linear drift."
+        ],
+        "reasoning": "The combination of existing approximation and heavy-tail machinery permits a derivation but no inspected prior theorem asserts the exact crossover at p=q=2 or finite-fourth-versus-infinite-fourth wedge in the same physical model. Standard proof techniques are fully credited.",
+        "searches": [
+          "Galla arxiv 2602.21635 original affine drift and Gaussian approximation",
+          "Tal-Friedman Roichman Reuveni arxiv 2205.03363 partial resetting of drift diffusion",
+          "Goldie perpetuity and Breiman product lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Galla arXiv:2602.21635 Section S1 derives the approximate Itô diffusion stationary law; the exact jump process is a Poisson-driven linear generalized Ornstein-Uhlenbeck system with multiplier 1-s."
+        ],
+        "reasoning": "The source approximate density implies q_s and its moment thresholds and is prior; the exact jump process has different stochastic recurrence, whose Goldie exponent p_s is compared as a function of finite s. The assessed finding is this relationship, not the existence of stochastic stationary densities.",
+        "searches": [
+          "Galla 2026 frequent weak resetting affine diffusion approximation supplementary S1 stationary density",
+          "Resultary semantic query frequent partial resetting expanding linear drift diffusion approximation Pareto tail exponent fourth moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Galla main text/supplement contains source diffusion density; no examined table contains the paired finite-s exponent-reversal boundary or open fourth-moment-loss wedge."
+        ],
+        "reasoning": "No exact database/table of this model is invoked as a new computation; original is an analytic parameter family. Source numerical comparisons cannot establish an all-parameter wedge.",
+        "searches": [
+          "arXiv:2602.21635 Section S1 Eq S8 stationary density",
+          "Resultary search partial resetting Pareto exponent tail bias fourth moment"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact moment-loss wedge and Pareto-exponent reversal under frequent partial resetting is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.",
+      "residual_risks": [
+        "An older generalized Ornstein-Uhlenbeck calculation may contain the exact p_s-q_s comparison implicitly or explicitly.",
+        "The heavy-tail coefficient is not evaluated in elementary closed form; Goldie and Breiman are external standard theorems rather than new proofs.",
+        "The stationary far-tail x->infty limit need not commute with s->0; no joint threshold-uniform approximation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for diffusion approximation, density, Gaussian moments; NOT COVERING for jump-tail vs diffusion exponent reversal in inspected mathematics.",
+          "evidence": "Supplement S1 supplies the multiplicative-noise approximate SDE and closed stationary density, enabling q_s.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.21635",
+          "material_read": "Full accessible main-text HTML and supplementary section S1, including affine-model diffusion and stationary density Eq S8.",
+          "method": "Read primary arXiv HTML and its accessible supplement",
+          "title": "A diffusion approximation for systems with frequent weak resetting",
+          "trigger": "same process parameters and approximation"
+        },
+        {
+          "assessment": "COVERING general tail existence mechanism, not specific finite-s root comparison.",
+          "evidence": "Goldie nonarithmetic affine recurrence E[A^rho]=1, negative log-drift and positive B produce a positive regularly varying tail.",
+          "identifier_or_url": "https://doi.org/10.1214/aoap/1177005985",
+          "material_read": "Bibliographic theorem statement and applicability conditions as cited by source; not asserted to have read all original pages.",
+          "method": "Read accessible bibliographic statement and reconstruct hypotheses from the assigned proof",
+          "title": "Implicit renewal theory and tails of solutions of random equations",
+          "trigger": "critical nonstandard perpetuity theorem"
+        },
+        {
+          "assessment": "DIFFERENT MODEL: constant drift, not gamma X expanding drift with multiplicative contraction approximation.",
+          "evidence": "Constant-drift resetting cannot directly imply the stated gamma/lambda/s wedge.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Available arXiv primary abstract and model summary; source review cites selected primary PDF sections, not substituted for fresh full-document reading.",
+          "method": "Scoped primary record reading",
+          "title": "Partial resetting of drift diffusion",
+          "trigger": "same partial-reset terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The stationary second-moment approximation of frequent weak resetting is deceptively exact while its far-tail behavior can have the opposite exponent ordering and even the wrong finite/infinite fourth-moment classification. The explicit open moment-loss wedge and sharp shared-variance reversal are physically motivated limits of diffusion approximations for rare events, not trivial repackagings of a known stationary density.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For an expanding linear Brownian process with Poisson proportional contraction 1-s at rate lambda/s, the exact stationary survival exponent p_s and its diffusion-approximation exponent q_s reverse order exactly at the common second-moment boundary s=2(1-gamma/lambda). Their finite variances coincide exactly, yet a nonempty open wedge has finite true fourth moment and infinite approximate fourth moment; the weak-reset exponent ratio does not approach 1.",
+  "limitations": "Assumes fixed D>0, lambda>gamma>0, 0<s<1, homogeneous Poisson contractions, independent Brownian drivers; no double-scaling or elementary tail amplitude.",
+  "schema_version": 1
+}
