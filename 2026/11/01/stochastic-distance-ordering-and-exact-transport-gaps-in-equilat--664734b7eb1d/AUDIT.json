@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For every pair of edges the true intrinsic shortest path is classified explicitly. Counts of ordered same-edge, incident-edge, and disjoint-edge pairs exhaust all ordered edge pairs. The three elementary triangular CDFs give the formula on the entire support. Their CDF difference at fixed vertex count factors into a strictly positive threshold-dependent polynomial and a positive reciprocal-edge-count difference. The unique polynomial maximum gives exact total variation; its integral gives exact one-Wasserstein distance; limiting edge-pair weights give the asymptotics. The single-edge and star boundaries are consistent. A portable exact-rational checker independently computes vertex shortest routes and tests 40,570 cases, but the universal result is analytical.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Baptista et al. 2023 Theorem 3.2 bounds continuous mean given length and edges; its graph surgery arguments do not compare full laws among changing edge counts.",
+        "Garijo et al. 2023 Theorem 3.3 computes mean via edge-pair integration; Proposition 4.3 gives a complete-graph formula.",
+        "Bose et al. 2013 describes farthest-point diagrams and pointwise network distances, rather than two-point arclength distributional order."
+      ],
+      "reasoning": "Algorithms that could help recompute means or pointwise farthest values do not establish this sharp CDF theorem or its exact total-variation and Wasserstein separations. The graphs being compared have different total lengths, unlike fixed-total-length mean bounds.",
+      "searches": [
+        "arxiv:2312.04952 (Theorem 3.2, examples, Section 5, inspected)",
+        "doi:10.1007/s00025-023-01902-w (Theorem 3.3, Proposition 4.3, inspected)",
+        "arxiv:1304.1909 (abstract inspected)",
+        "continuous metric graph complete bipartite first order stochastic dominance pair distances arclength distribution"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1304.1909 (abstract/context)",
+      "doi:10.1002/jgt.3190060410 (abstract/bibliography only)",
+      "arxiv:2103.11676 and doi:10.1007/s00025-023-01902-w (open text)",
+      "arxiv:2312.04952 (rendered full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1982 Doyle–Graver abstract and later literature describe mean-distance formulas for specific shapes; the inaccessible full text is not asserted to be noncovering.",
+        "Garijo 2023 includes a stronger general algorithmic method for means but no two-point distance distribution for complete bipartite graphs.",
+        "Baptista 2023 gives spectral/mean bounds and star/flower examples; it does not entail the stated fixed-order stochastic domination."
+      ],
+      "reasoning": "The conditional distance formula for disjoint biclique edges, its exact mixing weights, the full CDF, and one-sign-change density comparison are additional steps not supplied by known mean-only or farthest-point statements.",
+      "searches": [
+        "doi:10.1002/jgt.3190060410 (publisher abstract/bibliography inspected)",
+        "doi:10.1007/s00025-023-01902-w (Sections 2–4, inspected)",
+        "arxiv:2312.04952 (Theorem 3.2 and examples, inspected)",
+        "arxiv:1304.1909 (abstract inspected)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Garijo–Márquez–Silveira, Proposition 4.3 concerns the equilateral complete (not bipartite) graph mean; their general network-distance algorithm addresses the first moment.",
+        "The accessible work of Baptista–Kennedy–Mugnolo treats mean-distance inequalities and star/flower examples, not fixed-order CDF comparisons.",
+        "The four-cycle has an elementary uniform-distance law; this special case is not claimed separately novel."
+      ],
+      "reasoning": "The claimed strict stochastic order is an inequality between full continuous laws for all thresholds, plus exact probability-measure distances. It is neither an alias of mean-distance optimization nor implied by a stand-alone formula for one mean or the four-cycle case.",
+      "searches": [
+        "continuous metric graph complete bipartite first order stochastic dominance pair distances arclength distribution",
+        "complete bipartite metric graphs distance distribution random edge points stochastic order",
+        "mean distance complete bipartite graphs continuous metric lengths equal",
+        "doi:10.1007/s00025-023-01902-w (Theorem 3.3 and Proposition 4.3, inspected)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact-table match for complete bipartite random arclength-point distance laws was found in the accessible scientific search results.",
+        "The explicit conditional three-class decomposition and distribution-order parameter P=mn are not tabulated in the inspected primary literature."
+      ],
+      "reasoning": "A negative search is not proof of global priority. Available tables and results cover discrete vertex distances, complete-graph means, or different continuous network metrics; none is an exact table for this full law.",
+      "searches": [
+        "complete bipartite metric graphs distance distribution random edge points stochastic order",
+        "\"unit-edge\" \"complete bipartite\" \"mean distance\" \"stochastic\"",
+        "mean distance complete bipartite graphs continuous metric lengths equal",
+        "arxiv:2103.11676 (source compared)"
+      ]
+    },
+    "rationale": "At fixed vertex number, the exact conditional-mixture CDF gives a strict first-order stochastic order and closed, sharp one-Wasserstein and total-variation distances between any distinct complete bipartitions. The accessible relevant full texts treat mean-distance calculations, bounds, or network farthest points; none states or logically entails these distributional comparisons without the new edge-pair argument. Previously derived special cases such as the circular four-cycle and individual mean formulas are acknowledged. The 1982 full text was inaccessible and remains a historical-priority risk.",
+    "residual_risks": [
+      "Unindexed or older treatment of continuous two-point distance distributions is possible.",
+      "Doyle–Graver 1982 full scientific text was inaccessible; its complete set of special shapes is not excluded by an abstract.",
+      "Published-record searches have incomplete coverage and cannot certify global uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains algorithm for continuous means and exact equilateral complete-graph mean, not the complete-bipartite full distribution or stochastic comparison.",
+        "evidence": "Theorem 3.3 integrates roof diagrams; Proposition 4.3 explicitly concerns equilateral complete graphs rather than complete bipartite graphs.",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00025-023-01902-w",
+        "material_read": "Abstract, Introduction, Sections 2-4, including Theorem 3.3 and proof of Proposition 4.3, and full-text searches for bipartite, variance, distribution",
+        "method": "Accessible open-access publisher HTML",
+        "title": "Continuous Mean Distance of a Weighted Graph",
+        "trigger": "General exact continuous mean-distance algorithm and possible broad implication"
+      },
+      {
+        "assessment": "Fixed-length/edge-count mean bounds and surgery; no equivalent full CDF or stochastic domination across complete bipartitions.",
+        "evidence": "Theorem 3.2 and Section 5 address means and graph surgery; no bipartite formula appears in the available text.",
+        "identifier_or_url": "https://arxiv.org/abs/2312.04952",
+        "material_read": "ArXiv-rendered full text, Abstract, Sections 1-5 with Theorems 3.1-3.2, examples 4.1-4.3, and surgery Proposition 5.3; searched bipartite and distribution",
+        "method": "Accessible arXiv HTML-rendered text",
+        "title": "Mean distance on metric graphs",
+        "trigger": "General geometry and mean-distance surgery/optimization might dominate proposed first-order comparison"
+      },
+      {
+        "assessment": "Unresolved historical priority risk. No claim made that the unavailable full article is noncovering.",
+        "evidence": "1982 Journal of Graph Theory 6, 453–471; Garijo 2023 introduction describes seven specific and six constrained families of earlier mean-distance formulas.",
+        "identifier_or_url": "https://doi.org/10.1002/jgt.3190060410",
+        "material_read": "Bibliographic data, publisher abstract/preview and references only; full text inaccessible",
+        "method": "Publisher page and independent later survey/overview",
+        "title": "Mean distance for shapes",
+        "trigger": "Historically plausible prior computations of graph-shaped domains"
+      },
+      {
+        "assessment": "Context only; inspected content is about farthest-point structures, not a comparison of random two-point laws. No full-text noncoverage claim.",
+        "evidence": "ArXiv first posting 2013-04-06; farthest-point network diagrams and minimum eccentricity feed-link results.",
+        "identifier_or_url": "https://arxiv.org/abs/1304.1909",
+        "material_read": "ArXiv bibliographic abstract and journal summary, not entire article",
+        "method": "Open abstracts and bibliographic descriptions",
+        "title": "Network Farthest-Point Diagrams",
+        "trigger": "Precisely dated archive-era source establishing metric-network point framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "664734b7-eb1d-4020-a438-82d80896281a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete distribution and sharp first-order stochastic ordering across every bipartition of a fixed vertex set are natural transport-geometric invariants, strictly stronger than a mean comparison. The result quantitatively identifies a counterintuitive effect of edge densification under arclength sampling, with sharp decision thresholds, exact total-variation and one-Wasserstein separations, and an asymptotic gap of \\(2/3\\). These are universal family classifications, not isolated table entries or arbitrary numerical refinements. Fixed-vertex versus fixed-total-length scope is explicit.",
+    "status": "PASS"
+  }
+}
