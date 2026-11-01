@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Every integral monic divisor of \\(X^n-1\\) corresponds to a subset of distinct cyclotomic factors. The product identity \\(H_A(z)\\prod_j H_A(z^{(p-1)p^{j-1}})\\) is derived exactly. Since \\(A<p-1\\) and \\(A<p\\), reduction modulo p-1 isolates the first digit, and base-p expansion isolates all remaining digits. Coefficient products yield the exact \\(2^r\\) histogram. Allowed degrees form blocks indexed by restricted base-p words; their successor carries give precisely the stated gap lengths and counts. The normalized sets converge in Hausdorff distance <=\\(p^{-b}\\) to a separated affine IFS, giving dimension \\(\\log(A+1)/\\log p\\). Direct independent integer convolution verifies 96 triples, 510728 coefficients and 34336 gaps; this finite computation is corroborative, not the infinite proof. The uniform subset-product measure makes the layer digits independent with weights \\(1/(2A)\\) at the endpoints and \\(1/A\\) at interior digits; a bounded-coupling argument proves weak convergence. Strong cylinder separation and the law of large numbers give the exact-dimensional entropy formula \\((\\log A+(\\log2)/A)/\\log p\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pollack–Thompson study general degree supports and some uniqueness questions but the inspected text does not state the exact non-practical \\(2^a p^b\\) coefficient histogram.",
+        "The other close digital-injectivity result applies to positive divisor subset sums with a different threshold.",
+        "The original all-degrees theorem and later distribution work imply only that some degree is absent, not its exact gap census.",
+        "The inspected closest paper and two public digital notes do not claim a limiting probability measure for the degree of a uniformly chosen monic divisor as the prime-power exponent grows."
+      ],
+      "reasoning": "A theorem giving exact all-fiber cyclotomic divisor counts for arbitrary n would dominate this result, but the general statements inspected do not. The analogous subset-sum result has different irreducible summands and modulus boundary and cannot directly imply the stated distribution. No established broader coverage identified.",
+      "searches": [
+        "spectrum of degrees of divisors t^(2^a*p^b)-1 missing degrees gaps number of attainable degrees",
+        "Euler totient divisors subset sums degrees x^n-1 two primes 2^a p^b disjoint intervals gap lengths p^j",
+        "arxiv:1206.2084v1",
+        "arxiv:1511.03357v1",
+        "2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689"
+      ]
+    },
+    "checked_sources": [
+      "L. Thompson, arxiv:1111.5401v1 (2011-11-23)",
+      "P. Pollack and L. Thompson, arxiv:1206.2084v1 (2012-06-11)",
+      "C. Pomerance, L. Thompson and A. Weingartner, arxiv:1511.03357v1 (2015-11-11)",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a/RESULT.md",
+      "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689/RESULT.md"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Thompson: phi-practical iff \\(p\\le A+1\\); hence for \\(p>A+1\\) at least one degree absent, not which degrees or multiplicities.",
+        "Closest multiplicity note: \\(N_n(d)\\ge2\\) for all interior degrees when \\(p\\le A+1\\), disjoint domain.",
+        "Subset-sum injectivity note: distinct-divisor integer sums have bound M=\\(2^{a+1}-1\\); cyclotomic factor subset sums have a different \\(H_A\\) weight function and threshold.",
+        "Current result requires unique digit map, binomial multiplicity histogram and exact gap lengths, none an immediate logical corollary of the stated prior conclusions."
+      ],
+      "reasoning": "The shared factor-generating-polynomial identity makes the proof short, but the prior full-text theorems do not assert the \\(p>A+1\\) consequence. Deriving the complete complementary classification requires distinct modulo-(p−1) and base-p uniqueness and analysis of carries, and the self-similar limit. The resulting natural exact invariant is not a special case of any quoted stronger theorem. The limiting measure additionally requires identifying weighted digit probabilities and proving their entropy dimension; this is not stated in the previous coefficient-generating identity.",
+      "searches": [
+        "arxiv:1111.5401v1",
+        "arxiv:1206.2084v1",
+        "arxiv:1511.03357v1",
+        "2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a",
+        "2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689",
+        "cyclotomic divisor degree multiplicity p larger than 2^a plus 1 exact unique degrees for 2^a p^b",
+        "number of gaps lengths between degrees of divisors X^(2^a p^b) minus one  p minus 1 minus 2^a"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cyclotomic factor subset sums encode degrees of monic divisors; the closest existing explicit \\(2^a p^b\\) factor-degree identity in the public multiplicity note is restricted to \\(p\\le 2^a+1\\).",
+        "The exact digit histogram in the complementary \\(p>2^a+1\\) case is not a restatement of a result for \\(p\\le 2^a+1\\)."
+      ],
+      "reasoning": "Searched aliases degree support, phi-practicality, unique monic divisor degrees, cyclotomic subset sums and corresponding formulas. An equivalent presentation would require the entire coefficient distribution or per-gap multiset in the non-practical domain, which was not found among inspected records. The digital technique is shared; the novel assertion is a natural complementary exact classification.",
+      "searches": [
+        "phi practical polynomial X^n minus one exact attainable cyclotomic factor degrees n=2^a p^b gaps digit Cantor",
+        "cyclotomic divisor degree multiplicity p larger than 2^a plus 1 exact unique degrees for 2^a p^b",
+        "arxiv:1111.5401v1",
+        "2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest full accessible posted results supply no table or formula for the \\(p>A+1\\) cyclotomic gap multiset or dimension of normalized degree supports.",
+        "The 96-case direct checks in verify.py are new computational corroboration, not an appeal to a known database."
+      ],
+      "reasoning": "Looked for exact tabulations of missing cyclotomic divisor degrees, prime-power index families, and normalized Cantor limits. No directly equivalent table was located. A search cannot exclude an uncatalogued special table; this is an explicit residual historical risk.",
+      "searches": [
+        "phi practical 2^a p^b number distinct attainable degrees omitted complement count missing-degree intervals",
+        "number of gaps lengths between degrees of divisors X^(2^a p^b) minus one  p minus 1 minus 2^a",
+        "Cantor dimension closure normalized cyclotomic divisor degrees of X^n minus one for n 2^a p^b",
+        "public research record 2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a",
+        "public research record 2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689"
+      ]
+    },
+    "rationale": "Primary all-degree work identifies the opposite threshold but not the non-practical per-degree fibers or gap lengths. The closest publicly accessible multiplicity note shares \\(H_A\\) and establishes only the \\(p\\le A+1\\) practical domain, explicitly excluding this domain. The analogous positive-divisor subset-sum theorem uses different weights and a different threshold. Relevant full primary scientific claims were inspected; targeted mathematical searches located no implication giving the present complete complementary multiplicity/gap/Cantor classification. This is a qualified originality assessment, not proof against unknown publications. No inspected primary statement gives the associated normalized-degree Bernoulli limit or its entropy dimension.",
+    "residual_risks": [
+      "General subset-sum digit methods in earlier work can make the present specialization elementary; the method itself is not new.",
+      "An unlocated tabulation or older dissertation may have stated the same coefficient or gap formula under different terminology.",
+      "The search of the later broad study covered relevant abstract/introduction/claims rather than every line and appendix."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives existence of divisors in all degrees iff the prime lies at or below the threshold; does not determine positive multiplicities, gap lengths or normalized limiting support above it.",
+        "evidence": [
+          "The theorem classifies the \\(p\\le 2^a+1\\) range of phi-practicality, not the \\(p>2^a+1\\) distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.5401",
+        "material_read": "Initial publication record, abstract, definitions and the sections with Lemma 4.1 and the prime-extension criterion.",
+        "method": "Read arXiv openly available primary PDF and compared hypotheses and theorem implications.",
+        "title": "Polynomials with divisors of every degree",
+        "trigger": "Original all-degrees question and precise two-prime-support threshold."
+      },
+      {
+        "assessment": "Establishes distributional and uniqueness-related results in a general framework, but the inspected material does not contain the exact digit-indexed spectrum, per-gap counts or Cantor limit for \\(p>2^a+1\\).",
+        "evidence": [
+          "The Q-optimal classifications address a different uniqueness condition; the present n=\\(2^a p^b\\) still has varying degree multiplicity values 1,2,4,... and holes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1206.2084",
+        "material_read": "Abstract, introduction and closing Section 5 discussing degree sets, Q-efficient and Q-optimal integers.",
+        "method": "Read open full-text PDF relevant mathematical statements and conclusion and compared exact objects and implication strength.",
+        "title": "On the degrees of divisors of T^n-1",
+        "trigger": "Direct study of cyclotomic divisor-degree spectra and uniqueness notions."
+      },
+      {
+        "assessment": "Asymptotic enumeration of integers with all divisor degrees, not a per-index exact non-practical degree-multiplicity and gap census.",
+        "evidence": [
+          "The quantities are counts of indices n satisfying full coverage, not local fibers N_n(d) or their holes."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.03357",
+        "material_read": "Open PDF abstract, introductory results, statements on density/prevalence and the two-prime context.",
+        "method": "Read the relevant accessible primary-text material and compared statement-level coverage; not asserted to have read every appendix.",
+        "title": "On integers n for which \\(X^n-1\\) has a divisor of every degree",
+        "trigger": "Potential later coverage of phi-practical integers and their complement."
+      },
+      {
+        "assessment": "Establishes \\(N_n(d)\\ge2\\) for every interior degree when \\(p\\le 2^a+1\\), and explicitly states no assertion when \\(p>2^a+1\\). The \\(H_A\\) digit method overlaps substantially, but it does not imply the new complement-side histogram/gap/limit.",
+        "evidence": [
+          "The record uses \\(H_A(z)=1+2z+\\cdots+2z^{A-1}+z^A\\) for \\(p\\le A+1\\); its Limitations section excludes \\(p>A+1\\)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-interior-divisor-degrees-are-never-unique-for-two-prime-practica--02336813184a/RESULT.md",
+        "material_read": "Complete public RESULT.md, especially the theorem, factor-degree generating polynomial and stated parameter limitations.",
+        "method": "Read full available primary research result and compared exact assumptions, proof identity and consequences.",
+        "title": "Interior divisor degrees are never unique for two-prime phi-practical numbers",
+        "trigger": "Closest published multiplicity-sensitive classification for the same monic divisor object and \\(2^a p^b\\) family."
+      },
+      {
+        "assessment": "Concerns subset sums of positive integer divisors (weights 2^i p^j), with threshold \\(p>2^{a+1}\\), not totient-degree weights, whose threshold is \\(p>2^a+1\\). It does not cover the monic polynomial divisor multiplicity histogram or gap spectrum.",
+        "evidence": [
+          "Its digit bounds are 0..\\(2^{a+1}-1\\) and its target interval is [0,sigma(n)], unlike the cyclotomic-factor degrees 0..\\(2^a p^b\\)."
+        ],
+        "identifier_or_url": "https://raw.githubusercontent.com/Resultary/2026/main/2026/10/4/SCOPE-complete-or-injective-divisor-subset-sums-on-2-a-p-b--20554cd8e689/RESULT.md",
+        "material_read": "Complete public RESULT.md, including definition, theorem, base-p uniqueness proof and limitations.",
+        "method": "Read full available primary research result and compared underlying summands, thresholds and implications.",
+        "title": "Complete-or-injective divisor subset sums on \\(2^a p^b\\)",
+        "trigger": "Possible equivalent digital injectivity result across two-prime-support divisors."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0258f72c-e52e-4466-958f-495c40c238b4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete distribution of monic divisor degrees, their precise fiber sizes, the contiguous missing-degree intervals with exact length census, and a natural limiting Hausdorff dimension are intrinsic invariants of \\(X^{2^a p^b}-1\\). They provide sharp complement-side information across infinitely many polynomial indices, contrasting the known all-degree/no-unique-interior-degree regime. It is a motivated complete classification of previously undetermined quantities, not a mere failure-of-practicality observation or an isolated numerical slice. The proof is elementary and no broader generalization is claimed. The distinct support dimension and typical divisor-degree dimension, \\(\\log(A+1)/\\log p\\) versus \\((\\log A+(\\log2)/A)/\\log p\\), quantify an intrinsic sparse-multiplicity bias not visible from a bare coverage criterion.",
+    "status": "PASS"
+  }
+}
