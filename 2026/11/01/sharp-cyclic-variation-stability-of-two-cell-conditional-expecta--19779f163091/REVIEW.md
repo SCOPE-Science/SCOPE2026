@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Both output values are class means, so the output variation equals twice the number of color runs times their difference. Exact cyclic summation by parts reduces the latter linear functional to a range of normalized prefix sums with a sharp interval-indicator extremizer. The run-mass rigidity and complete attainable amplification range follow without asymptotic assumptions on signal length. Exact-rational tests from the packaged checker corroborate the proof, but do not replace it.
+
+**Originality — PASS (best-knowledge, not uniqueness certification).** A direct statement-and-implication comparison was carried out against available published records and the original papers by Nochetto–Salgado, Sandryhaila–Moura, and Gaubert–Qu. The first treats a periodic finite-element interpolation operator, the second cyclic graph-signal variation and frequency filtering, and the third oscillation-seminorm contraction of Markov operators. None of their materially read theorems gives the sharp cyclic-variation modulus, per-run mass criterion, or the full open upper-endpoint range for arbitrary interlaced two-class partitions. General polyhedral norm duality remains known mathematics; the assessed contribution is the complete concrete classification. Searches are not an exhaustive guarantee, and an older implicit equivalent remains possible.
+
+**Value — PASS.** The question is natural for coarse-graining signals while preserving neighboring-sample variation. The answer distinguishes unconditional oscillation contraction from cyclic-gradient amplification, gives an exact linear-time computable invariant, and determines both the exact run-level balance criterion for stability and the full attainable instability spectrum at fixed geometry. It is not merely one numerical instance or a renamed interpolation bound.
+
+**Scientific limitations.** Real finite cyclic signals, exactly two classes, positive masses, and unweighted variation edges only. No claim is made for three-class partitions or arbitrary graphs. Numerical checks are finite and do not certify uniqueness in the literature.
+
+Self-review: passed. Independent audit: not yet performed.
