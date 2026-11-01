@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Complete independent enumeration of \(\mathcal M(P)\) gives the 332-face complex. A 158-pair Morse matching is explicitly checked acyclic over every nonempty Hasse incidence, and signed integral unit-pivot cancellation yields a seven-by-seven boundary matrix of rank two with a unit two-by-two minor. Because the Morse complex has only one zero-cell and cells in degrees two and three, primitive attaching degrees establish the claimed integral wedge. Full rational \(S_5\) characters are checked over all 120 automorphisms by signed chain traces and boundary-image traces. The standalone code reproduces all steps without external certificates.
+
+**Originality — PASS against inspected sources.** Mondal–Mukherjee–Saha study \(\mathcal M(K_n)\); their statement that \(\mathcal M(K_5)\) **is the Petersen graph** does not compute \(\mathcal M(P)\). Larrión–Pizaña–Villarroel-Flores study a clique-operator problem for the graph \(G_5=P\). The nearest publicly indexed two-matching and Morse-complex claims concern different face conditions. Other known symmetry calculations involve different graph configuration spaces. The precise definitions, characters, aliases, and possible stronger statements were compared, rather than just their titles. An equivalent result could still exist in unindexed work.
+
+**Value — PASS.** The Petersen graph is the standard small symmetric cubic graph. Its edge-matching complex has a genuine mixed-dimensional integral homotopy wedge, while its equal-rank homology groups carry inequivalent nontrivial irreducible-content symmetry types. These are natural graph-topological and representation-theoretic invariants beyond a raw Betti-number computation.
+
+**Limitations.** The result is for one canonical nonpure graph complex, with rational homology representations and a nonequivariant homotopy decomposition; no generality or integral equivariance is claimed. Relevant inspected sources include arXiv:2303.07054, arXiv:2305.02973, the Larrión–Pizaña–Villarroel-Flores clique-operator paper, and nearby public graph-matching calculations. Searches cannot rule out unindexed coverage. Independent review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
