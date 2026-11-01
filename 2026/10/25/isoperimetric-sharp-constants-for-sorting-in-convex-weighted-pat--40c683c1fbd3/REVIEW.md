@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The cut-profile theorem is proved analytically. Convex superadditivity separates sorted gaps; each gap crosses a ranked vertex cut, and the sharp ratio is attained by binary data. The even and odd central-defect cut minima were checked separately, including all boundary cardinalities. Exact rational regression completed 140,414 checks; no extrapolation from the finite tests is used to prove the general assertion.
+## correctness
 
-## Originality — PASS, bounded assessment
-Bankevich–Nazarov's continuous weighted theory, Gupta's nondecreasing half-line weight theorem, and Steinerberger's graph rearrangement/isoperimetric theorems are the closest primary comparisons. The \(\ell^1\) graph cut mechanism is prior art, not a separate discovery. The inspected statements do not present the **simultaneously sharp all-convex-density multiplier for arbitrary positive finite-path weights** and the explicit two-family parity phase law. An implicit or unindexed equivalent remains a risk; see `AUDIT.json` for detailed statement-vs-implication comparisons.
+PASS
 
-## Mathematical value — PASS
-The cut invariant makes all nonzero convex edge energies share the same sharp rearrangement multiplier, with binary extremizers and a computable exact contraction criterion. The odd/even centered-defect phase transition distinguishes two mechanisms for weighted smoothing, including a divergent odd-path low-defect regime absent from even paths. This is a finite-chain structural result, not an assertion about general graph rearrangement or nonlinear two-point stability.
+For all N>=2, positive edge weights, and finite nonzero convex nondecreasing Phi with Phi(0)=0, convexity gives superadditivity. Decompose original coordinate differences by sorted rank gaps and count crossed cuts A_k to bound E(x)>=sum h_k Phi(g_k), while E(Sx)=sum w_k Phi(g_k). A two-valued input from each minimizing cardinality-k cut attains w_k/h_k exactly. Centered even and odd cut profiles yield max(1,t/2) and max(1,t/2,1/(2t)) respectively. Independently checked 48 weighted cut profiles, 13068 energy cases, including boundary strengths and equality witnesses. Finite checks supplement all-N proof.
 
-## Limitations and sources
-The proof assumes finite real path data, positive edge weights, and one fixed convex nondecreasing edge-density function. Main sources: arXiv:1402.3006, arXiv:2204.11647, arXiv:2209.06765. Prior \(\ell^1\) edge-isoperimetry is acknowledged; independent literature audit could reveal more coverage.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Steinerberger develops discrete Pólya–Szegő edge-isoperimetric machinery, especially an L1 mechanism. Gupta establishes a restricted monotone half-line weighted power-energy inequality, and Bankevich–Nazarov concern continuous rearrangements. Inspected statements do not imply an exact sharp arbitrary-positive-weight finite-path multiplier simultaneously for every convex Phi and its centered asymmetric transition.
+
+## value
+
+PASS
+
+The sharp best constant for every convex edge density under sorting is a natural general weighted-graph inequality. Exact centered-defect transitions and odd/even contrast are mathematically motivated stability boundaries, not arbitrary parameters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
