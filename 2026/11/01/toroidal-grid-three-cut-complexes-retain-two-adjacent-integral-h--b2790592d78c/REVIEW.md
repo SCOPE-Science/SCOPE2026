@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The Alexander-dual face classification is exhaustive in all dimensions: every three-face is a two-edge path, every four-face is a coordinate square, and the five-vertex incidence count is impossible. Free-face uniqueness is justified independently for bend triangles, square diagonals and straight-path chords for all \(m,n\ge5\). The resulting torus plus \(\binom{mn}{2}-6mn\) edges gives the integral cohomology without relying on field computations, and the stated shift follows by integral Alexander duality. The checker independently verifies its combinatorial instances for three parameter pairs. No homotopy classification of the cut complex is asserted.
+
+**Originality — PASS on inspected material.** Bayer et al.'s original cut-complex theory gives definitions and general face-poset tools but not the toroidal product homology. Their follow-up classifies *rectangular* three-cut grids, with shellability and top-dimensional spheres, whereas this periodic family has a next-to-top integral class. Chauhan et al.'s single squared cycle is not a Cartesian cycle product. Indexed results on toroidal total two-cut complexes, discrete cubical square fillings and neighborhood complexes concern mathematically distinct complexes; indexed three-cut results for circular ladders and edge-disjoint squares have incompatible hypotheses. Searches and full-text inspections are recorded in the structured audit. Equivalent unindexed literature remains possible.
+
+**Value — PASS.** Periodic identification changes a basic known shellable grid family into a uniformly non-shellable family. The explicit torus collapse explains the preserved integral two-dimensional class, supplies a complete two-degree torsion-free Betti classification, and distinguishes a cup-product-bearing dual space from a mere sphere wedge. The all-parameter structural lemma is more useful than a single finite computation.
+
+**Scientific limits.** The theorem assumes both cycle lengths are at least five. It classifies the homotopy of the Alexander dual and integral homology of the ordinary three-cut complex, not the cut-complex homotopy type or equivariant representation. Finite checker tests do not imply universal statements without the written collapse proof.
+
+Self-review: passed. Independent audit: not yet performed.
