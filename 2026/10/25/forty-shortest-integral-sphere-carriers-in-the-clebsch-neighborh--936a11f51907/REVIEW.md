@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Cayley graph is fixed explicitly as the five-regular folded five-cube, not its complement. The identification of forty missing tetrahedra is established by the unique five-direction dependence and independently checked by exhaustive four-set enumeration. The exact signed chain ranks \((15,65,64,16)\) are reproduced over three characteristics. A fully indexed \(95\times95\) integer minor, using sixty-four selected three-boundaries and thirty-one tetrahedral sphere cycles, has determinant \(-1\), established by ninety-five integer unit pivots. This proves integral primitivity and the basis, not merely rational independence. The affine group action is checked on all forty supports. The finite determinant and rank facts are checked by the attached executable certificate.
+## correctness
 
-**Originality — PASS (best knowledge, with residual risk).** The nearest previously published work proves the nonequivariant thirty-one-sphere wedge and the corresponding general odd-folded-cube theorem, while a further publication determines the rational translation character. Their inspected full results do not classify four-vertex sphere supports or establish the primitive integral forty-generator surjection. A published full-automorphism character statement also addresses a different, rational invariant. Targeted semantic searches and accessible earlier statements found no equivalent geometric integral presentation. The possibility of equivalent unindexed or hidden work remains.
+PASS
 
-**Mathematical value — PASS.** The Clebsch graph is the canonical five-regular folded cube and a distinguished sharp four-chromatic graph. Homology rank and rational character do not determine whether minimum-support embedded spheres exist, which are essential, or whether they generate integrally. The result answers all three questions, with an exact thirty-one-element geometric basis, all forty primitive minimizers in one symmetry orbit, and an equivariant integral presentation with nine relations. This provides a natural geometric refinement of the known abstract homotopy type, not an arbitrary parameter slice.
+For the standard Clebsch Cayley graph on F_2^4 with directions 1,2,4,8,15, the open-neighborhood complex has 16 vertices and f=(16,80,160,80,16). Every four-vertex 2-cycle must be an induced missing tetrahedron. Exactly forty such sets are the four cosets of each of ten affine planes determined by direction triples. The integer chain complex has rank partial_2=65 and rank partial_3=64, so ker partial_2 has rank 95. A 95x95 submatrix of 64 tetrahedron-boundary chains and 31 sphere cycles has determinant -1, proving an integral basis of cycles and H_2=Z^31. Affine F_2^4 semidirect S_5 is transitive on forty supports, so each is a primitive shortest nonzero class and their relation lattice is free of rank nine.
 
-**Boundaries.** No claim is made about larger folded cubes, a splitting of the equivariant presentation, or an explicit irreducible decomposition of the relation module. The remaining originality uncertainty is bibliographic, not an unchecked arithmetic step.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The independently read earlier published finding for this exact Clebsch neighborhood complex proves wedge^31 S^2 via a 160-pair Morse matching but does NOT identify any forty affine missing-tetrahedron support spheres, individual integral primitivity, or an explicit 31-sphere unimodular basis. The current result is a genuinely more precise support/integral presentation, not a new claim for the known Betti number.
+
+## value
+
+PASS
+
+The full integral 31-dimensional homology of a canonical finite graph complex is already known, but a natural complete set of forty shortest primitive carriers and an explicit unimodular 31-element basis is additional geometric and arithmetic data. The exact support orbit and relation rank make minimum-support homology computations reproducible and reusable.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
