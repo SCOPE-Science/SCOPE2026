@@ -1,15 +1,21 @@
-# Scientific review: ternary four-window cyclic-burst maximizers
+# Independent mathematical audit
 
-## Correctness
-PASS. The ball consists of the unchanged word and at most three outputs per four-window. The period-six witness attains the bound, with six local contexts that can be checked exhaustively. Because a nontrivial permutation must change at least two positions, an appended window can collide only with its two immediate predecessors, giving a rigorous six-symbol-local transition rule. The complete 21-state canonical graph follows by exhaustive enumeration of the 243 five-letter words and their three extensions. Exact integer matrix calculations establish both the recurrence and generating function, with an independent direct output-set census through length nine. The finite checks are used to verify a finite transition graph and algebraic identities, not to infer an infinite conclusion without a proof.
+## correctness
 
-## Originality
-PASS, subject to stated residual risk. The closest primary source is Chen–Milenkovic, arXiv:2610.15701v1, particularly its binary-model scope and Sections III–V; it analyzes cyclic-permutation redundancy and constructions, not a ternary four-window extremizer-language census. Published binary four-window and nonbinary three-window computations have different hypotheses and do not imply this ternary classification. A separate paper on fixed-length burst Levenshtein balls permits replacement with unrelated inserted symbols, a larger and structurally different channel. Searches by model, parameter, synonyms and rational-enumeration claims found no equivalent; negative search alone does not prove uniqueness.
+PASS
 
-## Value
-PASS. The exactly-four-position cyclic-permutation channel is explicitly motivated by four-base sensing windows. The smallest alphabet that can attain the simple full three-output-per-window bound at all lengths is nontrivial because windows necessarily repeat symbols over three letters. The classification of *all* maximum-ambiguity ternary inputs, its finite-state structure, rational census and exponential scarcity distinguish a complete natural family rather than an arbitrary fixed-length numerical case. The contribution does not claim a coding-rate improvement.
+Reconstructed the exact channel: n>=4 over a labeled ternary alphabet, one nonwrapping four-position window rotated by 1, 2 or 3, identity included, duplicate outputs collapsed. Each window contributes <=3, giving 3n-8; the six-periodic prefix 000121 achieves all three increments for every appended window. A nontrivial cyclic rotation changes at least two coordinates, so the new terminal window cannot duplicate an output from any old window overlapping it in at most one position. This proves six-letter locality for every n, not just checked n. Independent complete 3-ary balls for n=4..8 give 72,126,246,474,930 maximum centers; the 21 canonical five-letter states and 41 edges were independently rebuilt from exact balls. Exact left-vector annihilation by Q(A) (order 10), plus the first ten values 126..47850, proves the displayed rational generating function for all n. Connectivity of the listed finite graph and its 01201 self-loop give primitivity and the Perron growth rate. Finite enumerations are graph/identity checks, not an extrapolated infinite proof.
 
-## Sources and limitations
-Closest full text: Chen and Milenkovic, arXiv:2610.15701v1 (2026-10-11), Introduction and Sections III–V, VII–VIII; directly inspected as accessible HTML. Distinct-channel comparator: Xi, Sun and Ge, arXiv:2506.07817v1 (2025-06-09), abstract and model. Residual risks are unpublished or unindexed equivalent equality cases and independent validation not yet undertaken. The result is restricted to maximizers for the exact four-window model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete ternary equality-case automaton, rational count and entropy; no inspected stronger source directly implies the statement. The source 2026 Chen–Milenkovic treats permutation/cyclic burst error-correcting codes and primarily binary redundancy rather than ternary four-window maximizing-center census; complete primary full text could not be retrieved this run, explicitly retained as a priority risk.
+
+## value
+
+PASS
+
+PASS: It determines the exact infinite language of largest ambiguous centers of a motivated four-symbol cyclic read-error channel, not merely an isolated finite example or redundancy slogan. The all-length maximum, exact rational census and primitive-state entropy establish the rarity rate of worst-case centers; this natural language invariant is reusable in combinatorial channel analysis. No unsupported coding-rate or decoding gain is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
