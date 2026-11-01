@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3 standard library; the observed completion marker is `CHECK_OK: exact Zak extremal fibers, numeric grid, direct sums, and balanced-lattice limit`. It verifies exact analytical fiber evaluations numerically, the claimed extrema on a finite mesh, separate long bilateral sums, and the balanced-lattice identity.
+## correctness
 
-The proof in `RESULT.md`, not the finite sample, justifies uncountably many parameter choices, strict global extrema, and sharpness. The Fourier transform of the Poisson window, the Zak Parseval identity, positive cosine derivative, and strict frequency convexity are the decisive mathematical steps. No independent audit has been performed.
+PASS
+
+A unitary Zak transform diagonalizes the union of two integer-frequency critical lattices, with multiplier |Zg_w(x,omega)|^2+|Zg_w(x,omega-delta)|^2. The Fourier transform pi/w exp(-2pi w|xi|) gives a closed rational Zak fiber. Its modulus-square derivative with respect to cos(2pi x) is strictly positive because p,q are nonnegative and the positive denominator is cubed; hence minima at x=1/2, maxima at x=0. Strict convexity of sinh^2 and cosh^2 along the two frequency intervals gives exactly the asserted essential extrema and their attaining fibers. The d=min(delta,1-delta) dependence makes 1/2 the unique optimizer. Taylor sinh(pi w delta)=pi w delta+O(delta^3) gives the quadratic coefficient.
+
+## originality
+
+PASS
+
+Belov and Semenov (October 21, 2026) give a sharp existence criterion for irregular/semi-regular Poisson-kernel Gabor systems, including the two-coset configuration as a qualitative frame case. That prior work covers existence, not exact optimal lower/upper constants, global optimal staggering or delta^2 coalescence coefficient. The balanced delta=1/2 case also belongs to known regular half-frequency lattice formulas. Full off-balance quantitative profile survives this statement-level comparison.
+
+## value
+
+PASS
+
+Exact frame bounds control stability and conditioning of the natural simplest nonlattice oversampled rational-window system. The theorem locates a unique best stagger and computes a sharp degeneracy exponent/coefficient as cosets collide, beyond generic frame-existence results. This is a motivated precise spectral refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

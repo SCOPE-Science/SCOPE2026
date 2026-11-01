@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:14:04Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md analytic Zak transform, derivative numerator and two-interval strict-convexity proof",
+        "Inspected verify.py computation of direct bilateral sums and closed fiber comparisons",
+        "Independent 12 (w,delta) tests (3 widths and 4 spacings) confirmed exact extremal fibers, grid inequalities and truncated sum formula"
+      ],
+      "rationale": "A unitary Zak transform diagonalizes the union of two integer-frequency critical lattices, with multiplier |Zg_w(x,omega)|^2+|Zg_w(x,omega-delta)|^2. The Fourier transform pi/w exp(-2pi w|xi|) gives a closed rational Zak fiber. Its modulus-square derivative with respect to cos(2pi x) is strictly positive because p,q are nonnegative and the positive denominator is cubed; hence minima at x=1/2, maxima at x=0. Strict convexity of sinh^2 and cosh^2 along the two frequency intervals gives exactly the asserted essential extrema and their attaining fibers. The d=min(delta,1-delta) dependence makes 1/2 the unique optimizer. Taylor sinh(pi w delta)=pi w delta+O(delta^3) gives the quadratic coefficient.",
+      "risk": [
+        "Claim assumes precisely unit translation and two unit-frequency cosets; does not extend to arbitrary irregular sets.",
+        "Finite numerical tests do not prove the continuous extrema or all w and delta."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2610.30037v1 Theorem 1 qualitative iff irregular Gabor frame criterion",
+          "Belov–Kulikov–Lyubarskii arXiv:2103.08959v1 lattice rational-window frame sets",
+          "de Dios Pont et al. arXiv:2608.04992v1 total-positive exponentially-decaying lattice windows"
+        ],
+        "reasoning": "Belov–Semenov is directly relevant and stronger for frame existence on arbitrary M, but does not dominate the exact quantitative optimal-bound result. Rational-lattice and totally-positive window theorems address different index sets/classes or only frame existence.",
+        "searches": [
+          "Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger",
+          "arXiv:2610.30037v1 Theorem 1 qualitative iff irregular Gabor frame criterion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.30037v1 primary full HTML",
+        "arXiv:2103.08959v1 primary accessible full text",
+        "arXiv:2608.04992v1 total positivity frame existence",
+        "Resultary semantic search: Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2610.30037v1 Theorem 1 and operator L_xi sections2–6",
+          "arXiv:2103.08959v1 rational Gabor lattice frame regions"
+        ],
+        "reasoning": "Arbitrary irregular frame existence and the regular half-lattice special case do not logically specify the exact lower/upper multipliers or the unique optimizing delta. The new formulas are stronger quantitative statements for the two-coset subfamily.",
+        "searches": [
+          "Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger",
+          "arXiv:2610.30037v1 Theorem 1 and operator L_xi sections2–6",
+          "arXiv:2103.08959v1 rational Gabor lattice frame regions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Belov–Semenov, arXiv:2610.30037v1, Theorem 1: semi-regular Poisson systems M x alpha Z",
+          "Equivalent Zak description: two-window critical-lattice multiplier |Zg|^2+|Zg(.-delta)|^2",
+          "delta=1/2 equivalent to regular frequency-half lattice"
+        ],
+        "reasoning": "The semi-regular existence theorem applies and subsumes frame existence, but does not state multiplier extrema; the half-lattice formulas cover a single delta and not the full stagger parameter dependence.",
+        "searches": [
+          "Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search: Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger",
+          "2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+          "2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c"
+        ],
+        "reasoning": "Related published frame-bound profiles concern tent/hat spline windows, not this rational Poisson two-coset system. No checked exact nonlattice Poisson A,B table was located; this is negative search evidence, not absolute novelty proof.",
+        "searches": [
+          "Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger",
+          "Resultary search: Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger",
+          "2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+          "2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c"
+        ]
+      },
+      "rationale": "Belov and Semenov (October 21, 2026) give a sharp existence criterion for irregular/semi-regular Poisson-kernel Gabor systems, including the two-coset configuration as a qualitative frame case. That prior work covers existence, not exact optimal lower/upper constants, global optimal staggering or delta^2 coalescence coefficient. The balanced delta=1/2 case also belongs to known regular half-frequency lattice formulas. Full off-balance quantitative profile survives this statement-level comparison.",
+      "residual_risks": [
+        "A classical Zak-transform source may already tabulate the same two-coset hyperbolic extrema under staggered sampling aliases.",
+        "Frame existence and delta=1/2 regular-lattice special case are prior and must not be described as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS frame existence for the system; no sharp closed optimal A,B as functions of the staggering parameter or unique optimization is stated",
+          "evidence": [
+            "Theorem 1 and Sections 2,3,5,6; submitted 2026-10-21"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.30037v1",
+          "material_read": "Full accessible HTML: Introduction, Theorem 1, operator reduction and main proof through Sections 2–6",
+          "method": "Read theorem hypotheses, existence conditions, operator L_xi and result scope",
+          "title": "Irregular Gabor Frames for the Poisson Kernel",
+          "trigger": "Same Poisson kernel and arbitrary semi-regular modulation set including two-coset M"
+        },
+        {
+          "assessment": "Rectangular lattice existence/frame-region results, not all-delta sharp bound profile",
+          "evidence": [
+            "Main Theorems 1.1–1.9"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2103.08959v1",
+          "material_read": "Accessible full HTML: introduction and main frame-set theorems",
+          "method": "Compared index set, window and quantitative conclusion",
+          "title": "Gabor frames for rational functions",
+          "trigger": "Earlier rational/Herglotz window frame-set theorems"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact frame bounds control stability and conditioning of the natural simplest nonlattice oversampled rational-window system. The theorem locates a unique best stagger and computes a sharp degeneracy exponent/coefficient as cosets collide, beyond generic frame-existence results. This is a motivated precise spectral refinement."
+      ],
+      "rationale": "Exact frame bounds control stability and conditioning of the natural simplest nonlattice oversampled rational-window system. The theorem locates a unique best stagger and computes a sharp degeneracy exponent/coefficient as cosets collide, beyond generic frame-existence results. This is a motivated precise spectral refinement.",
+      "risk": [
+        "Significance is confined to stated exact natural construction; no broader conjecture or large theorem claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.30037v1 primary full HTML",
+    "arXiv:2103.08959v1 primary accessible full text",
+    "arXiv:2608.04992v1 total positivity frame existence",
+    "Resultary semantic search: Poisson Gabor two shifted frequency cosets frame optimal bounds Zak g(t)=1/(t²+w²) stagger"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Claim assumes precisely unit translation and two unit-frequency cosets; does not extend to arbitrary irregular sets.",
+    "Finite numerical tests do not prove the continuous extrema or all w and delta.",
+    "A classical Zak-transform source may already tabulate the same two-coset hyperbolic extrema under staggered sampling aliases.",
+    "Frame existence and delta=1/2 regular-lattice special case are prior and must not be described as new."
+  ],
+  "residual_risks": [
+    "A classical Zak-transform source may already tabulate the same two-coset hyperbolic extrema under staggered sampling aliases.",
+    "Frame existence and delta=1/2 regular-lattice special case are prior and must not be described as new."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS frame existence for the system; no sharp closed optimal A,B as functions of the staggering parameter or unique optimization is stated",
+      "evidence": [
+        "Theorem 1 and Sections 2,3,5,6; submitted 2026-10-21"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2610.30037v1",
+      "material_read": "Full accessible HTML: Introduction, Theorem 1, operator reduction and main proof through Sections 2–6",
+      "method": "Read theorem hypotheses, existence conditions, operator L_xi and result scope",
+      "title": "Irregular Gabor Frames for the Poisson Kernel",
+      "trigger": "Same Poisson kernel and arbitrary semi-regular modulation set including two-coset M"
+    },
+    {
+      "assessment": "Rectangular lattice existence/frame-region results, not all-delta sharp bound profile",
+      "evidence": [
+        "Main Theorems 1.1–1.9"
+      ],
+      "identifier_or_url": "https://arxiv.org/html/2103.08959v1",
+      "material_read": "Accessible full HTML: introduction and main frame-set theorems",
+      "method": "Compared index set, window and quantitative conclusion",
+      "title": "Gabor frames for rational functions",
+      "trigger": "Earlier rational/Herglotz window frame-set theorems"
+    }
+  ]
+}

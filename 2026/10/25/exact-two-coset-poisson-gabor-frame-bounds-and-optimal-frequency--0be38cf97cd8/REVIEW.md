@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Zak transform is unitary for the chosen integer lattice, so the two-coset frame operator is the sum of two critical multipliers. The displayed rational Zak fiber follows from the Fourier transform of the Lorentzian window. Its squared modulus has a strictly positive derivative in the cosine of the translation phase, reducing the global extremal problem to two explicit one-variable pairs. Strict convexity gives exact, attainable extrema on both frequency arcs. The limits and optimal staggering follow algebraically. The standard-library checker verified the formula against independent bilateral Zak sums, sampled the full domain, and checked the regular half-frequency case. These are supporting finite tests, not proofs of the continuum assertion.
+## correctness
 
-## Originality — PASS (best-knowledge, with residual risks)
-The motivating 2026 total-positivity theorem treats a class of exponentially decaying windows and regular time-frequency lattices; the present polynomially decaying rational window and two-coset nonlattice modulation pattern are outside its hypotheses, and its frame-existence statement supplies no sharp constants. The full 2021/2022 rational-window paper focuses on rectangular lattice frame sets; its primary theorems are not statements about optimal nonlattice two-coset bounds. The 2026 even-rational-window article studies a different window and lattice regions; its full text was not accessible. The closest previously recorded Poisson-window calculation treats integer-factor regular frequency lattices and implies the balanced phase only; algebraic agreement at the balanced phase is checked. The new conclusions are the complete continuum of nonlattice offsets and unique best conditioning with a sharp coalescence law. No exact published-table or broader covering statement was identified in actual literature and indexed semantic searches. Unindexed older Zak frame-bound calculations may still contain an equivalent result.
+PASS
 
-## Value — PASS
-Two interlaced modulation cosets form a natural smallest nonlattice oversampling geometry at fixed density two. Frame stability can degenerate even though density remains two as the cosets coalesce; the exact quadratic exponent and prefactor quantify that loss. The unique balanced optimizer solves the natural deterministic spacing problem for both sharp spectral endpoints, not just a perturbative inequality. The result is an explicit nonlattice reconstruction benchmark not inferred from the regular-lattice density theorems.
+A unitary Zak transform diagonalizes the union of two integer-frequency critical lattices, with multiplier |Zg_w(x,omega)|^2+|Zg_w(x,omega-delta)|^2. The Fourier transform pi/w exp(-2pi w|xi|) gives a closed rational Zak fiber. Its modulus-square derivative with respect to cos(2pi x) is strictly positive because p,q are nonnegative and the positive denominator is cubed; hence minima at x=1/2, maxima at x=0. Strict convexity of sinh^2 and cosh^2 along the two frequency intervals gives exactly the asserted essential extrema and their attaining fibers. The d=min(delta,1-delta) dependence makes 1/2 the unique optimizer. Taylor sinh(pi w delta)=pi w delta+O(delta^3) gives the quadratic coefficient.
 
-## Limits and related literature
-The result does not treat arbitrary irregular index sets, arbitrary windows, or arbitrary time-lattice spacing. The source by de Dios Pont and collaborators first appeared 2026-08-05; the Belov–Kulikov–Lyubarskii rational-window work first appeared 2021-03-16; Ghosh's distinct rational-window preprint first appeared 2026-09-16. Independent historical-priority verification remains necessary.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Belov and Semenov (October 21, 2026) give a sharp existence criterion for irregular/semi-regular Poisson-kernel Gabor systems, including the two-coset configuration as a qualitative frame case. That prior work covers existence, not exact optimal lower/upper constants, global optimal staggering or delta^2 coalescence coefficient. The balanced delta=1/2 case also belongs to known regular half-frequency lattice formulas. Full off-balance quantitative profile survives this statement-level comparison.
+
+## value
+
+PASS
+
+Exact frame bounds control stability and conditioning of the natural simplest nonlattice oversampled rational-window system. The theorem locates a unique best stagger and computes a sharp degeneracy exponent/coefficient as cosets collide, beyond generic frame-existence results. This is a motivated precise spectral refinement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
