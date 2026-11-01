@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:50:13.371563Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md SHA c214cbedcc07b2c5a1b1c60ee662e3338fa9f195",
+        "pinned verify.py SHA dfe4e0b8b6144d7ee6b9d82b9308dfb949a1a4bb inspected",
+        "independent_checks.py / independent_check_results.json: 272 states, all 264 BFS roots and exact distances/eccentricities",
+        "git_tree_results.json verified 35ad05ad2ce24ee0134c178b7612355e3363d2c0"
+      ],
+      "rationale": "Constructed Q4 with 16 vertices and its 32 edges, exhaustive backtracking by the first unmatched vertex enumerating 272 perfect matchings, with no duplicates or omissions. Generated all 24 coordinate squares and their opposite-edge-pair flips; independently, a pair of matchings with four-edge symmetric difference is a square flip because symmetric difference is an alternating four-cycle. Enumerated 8 isolated vertices and one 264-vertex component. New independent BFS from every vertex of this component counted the exact all-pairs distances (768,2640,6032,9360,9504,5296,1104,12) summing to C(264,2), eccentricities 7:252 and 8:12, and 12 distance-eight pairs incident to 12 vertices. Read pinned verifier that separately checks two matchings enumerators, two adjacency constructors, 384 affine cube automorphisms and the antipodal graph with components [4,4,4]; its complete bounded loops establish three four-cycles. Finite exhaustive enumeration applies to exactly dimension 4.",
+      "risks": [
+        "The diameter/radius are for the unique nontrivial component; distances across eight singleton components are undefined.",
+        "No claim for general Q_d; 264-root exhaustive finite proof is valid only for this state space."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klivans–Saldanha 272 perfect matchings, nine components",
+          "Hartarsky–Lichev–Toninelli arXiv:2304.10930 permits longer alternating-cycle moves"
+        ],
+        "reasoning": "Higher-dimensional connectedness/invariants and bounds for an expanded flip move set do not give the exact diameter or radius of local-square flips on Q4; changing the move set can strictly shorten paths.",
+        "searches": [
+          "Resultary_Search: Q4 hypercube perfect matchings domino tilings flip graph diameter radius distance distribution 264",
+          "web primary Klivans Saldanha and Hartarsky Lichev Toninelli"
+        ]
+      },
+      "checked_sources": [
+        "Klivans and Saldanha, Algebraic Combinatorics 5 (2022), Example 2.2",
+        "Fink, SIAM J Discrete Mathematics (2009), distinct transition graph",
+        "Hartarsky, Lichev and Toninelli, arXiv:2304.10930",
+        "Resultary semantic search for Q4 matching flips"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 paper supplies connectivity components and frozen matching classification, no eight-step extremal paths",
+          "pinned RESULT.md derives BFS enumeration from the complete coordinate-square move relation"
+        ],
+        "reasoning": "The exact counts are strictly stronger combinatorial invariants than component size or connectivity. Computing them requires either full BFS/finite graph analysis or an equivalent extra theorem.",
+        "searches": [
+          "Resultary_Search: Q4 hypercube perfect matchings domino tilings flip graph diameter radius distance distribution 264",
+          "primary Example 2.2 and general flip-dynamics diameter literature"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klivans and Saldanha, Domino tilings and flips in dimensions 4 and higher (2022), Example 2.2",
+          "Fink, Connectivity of Matching Graph of Hypercube (2009), uses alternating Hamiltonian cycle moves"
+        ],
+        "reasoning": "Q4 perfect matchings are domino tilings of the four-dimensional unit cube. The local-square-flip graph is exactly their nonfrozen 264-tiling component; the Fink matching graph differs in allowed transitions. The checked 2022 Example 2.2 reports the component, not its geodesic profile.",
+        "searches": [
+          "Resultary_Search: Q4 hypercube perfect matchings domino tilings flip graph diameter radius distance distribution 264",
+          "web slow: 4 cube perfect matching flip graph diameter 8 264 eccentricity tilings distance distribution"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previously published counts 272,264,8 and nine connected components",
+          "New complete 8-entry all-pairs shortest-distance table and antipodal 3C4 decomposition"
+        ],
+        "reasoning": "Known table of states and components does not determine shortest-path histogram or eccentricity orbit. No exact table of those metric numbers found in inspected primary material; unpublished supplementary code remains a risk.",
+        "searches": [
+          "Resultary_Search: Q4 hypercube perfect matchings domino tilings flip graph diameter radius distance distribution 264",
+          "Klivans–Saldanha Example 2.2 and supplementary computation"
+        ]
+      },
+      "rationale": "The complete metric/eccentricity and symmetry refinement appears absent from the inspected literature, which already gives the perfect-matching and connected-component counts.",
+      "residual_risks": [
+        "An archived code table for the known 264-vertex flip component or an unindexed dimer-flip enumeration may already contain the exact metric profile."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS known state/component counts; no full distance histogram, eccentricities, or antipodal structure in inspected sections",
+          "evidence": [
+            "web: ,  and screenshot "
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.08474",
+          "material_read": "Primary mathematical text, especially Example 2.2 listing 272 tilings, eight isolated and a component of 264, and surrounding definitions",
+          "method": "arXiv PDF text inspected; screenshot inspected",
+          "title": "Domino tilings and flips in dimensions 4 and higher",
+          "trigger": "Same Q4 domino tilings and local-square flip graph"
+        },
+        {
+          "assessment": "Uses a larger transition set and does not directly fix square-flip geodesics",
+          "evidence": [
+            "arXiv:2304.10930, comparison of move sets"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.10930",
+          "material_read": "Referenced abstract and Theorem 6 scope describing additional longer alternating-cycle transitions",
+          "method": "Bibliographic text and targeted theorem description; full-document noncoverage NOT claimed",
+          "title": "Local dimer dynamics in higher dimensions",
+          "trigger": "Possibly dominating higher-dimensional diameter bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "pinned RESULT.md full finite proof",
+        "independent_check_results.json 34,716 all-pairs distance counts, 12 antipodes"
+      ],
+      "rationale": "The local flip graph is a standard finite testbed for higher-dimensional domino-tiling reconfiguration. Its complete geodesic histogram, sharp diameter, radius/eccentricity split and antipodal symmetry orbit are natural exact geometric invariants not determined by the known component count. A future researcher can use the precise 8-step obstruction to calibrate flip algorithms or conjectured dimension dependence; no all-d theorem is required for this motivated finite classification.",
+      "risks": [
+        "Small finite case, not an asymptotic result; possible earlier unpublished enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among Q4 perfect matchings, eight are isolated and the unique other square-flip component has 264 vertices, radius 7 and diameter 8. Unordered distinct pair distances 1..8 have multiplicities (768,2640,6032,9360,9504,5296,1104,12); 252 vertices have eccentricity7 and 12 have eccentricity8; the distance-eight pairs form three disjoint four-cycles on one automorphism orbit.",
+  "limitations": [
+    "Q4, elementary 4-cycle flips only; distances across disconnected components deliberately undefined.",
+    "The diameter/radius are for the unique nontrivial component; distances across eight singleton components are undefined.",
+    "No claim for general Q_d; 264-root exhaustive finite proof is valid only for this state space.",
+    "An archived code table for the known 264-vertex flip component or an unindexed dimer-flip enumeration may already contain the exact metric profile."
+  ],
+  "schema_version": 1
+}

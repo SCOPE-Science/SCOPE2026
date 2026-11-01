@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is finite and precisely scoped to the \(264\)-state component. The 272 perfect matchings are reconstructed by two exhaustive recursions using distinct vertex orders and descriptions; square-flip adjacency is reconstructed separately from coordinate squares and symmetric differences. All 264 breadth-first searches prove, rather than estimate, every shortest distance. The complete unordered distance distribution sums to \(34716\) and yields the stated radius, diameter, and the \(3C_4\) antipodal graph. The included standalone checker verifies every identity and all 384 cube isometries; an exact diameter-eight witness is printed.
+## correctness
 
-## Originality — PASS, with a residual literature risk
-Fink (2009, DOI 10.1137/070697288) defines a matching graph with different adjacency via Hamiltonian cycles, not square flips. Klivans–Saldanha (2022, DOI 10.5802/alco.205, Example 2.2) **already** enumerated 272 matchings, nine components, one of size 264, and eight frozen tilings; the current statement does not claim these observations. Their inspected full text does not give a radius, diameter, shortest-path distribution or antipodal graph. Hartarsky–Lichev–Toninelli (2023, arXiv:2304.10930, Theorem 6) prove a diameter bound using flips along cycles longer than four. Its premises do not establish the exact four-cycle-only distances. Targeted related-literature and research-record searches yielded no covering exact metric census. An unindexed computation or authors' supplementary source remains a possible prior-coverage risk.
+PASS
 
-## Value — PASS
-The move-restricted four-dimensional dimer model is a basic, non-ergodic finite example. Distinguishing connected-component enumeration from actual geodesic complexity resolves the precise number of local moves required in the unique non-frozen sector. The exceptional twelve-state orbit and three disjoint antipodal four-cycles reveal a nontrivial metric geometry useful as a benchmark for move-set comparisons and local dimer dynamics. This is a complete natural finite invariant, rather than an arbitrary parameter slice.
+Constructed Q4 with 16 vertices and its 32 edges, exhaustive backtracking by the first unmatched vertex enumerating 272 perfect matchings, with no duplicates or omissions. Generated all 24 coordinate squares and their opposite-edge-pair flips; independently, a pair of matchings with four-edge symmetric difference is a square flip because symmetric difference is an alternating four-cycle. Enumerated 8 isolated vertices and one 264-vertex component. New independent BFS from every vertex of this component counted the exact all-pairs distances (768,2640,6032,9360,9504,5296,1104,12) summing to C(264,2), eccentricities 7:252 and 8:12, and 12 distance-eight pairs incident to 12 vertices. Read pinned verifier that separately checks two matchings enumerators, two adjacency constructors, 384 affine cube automorphisms and the antipodal graph with components [4,4,4]; its complete bounded loops establish three four-cycles. Finite exhaustive enumeration applies to exactly dimension 4.
 
-## Limitations
-The result is finite, computationally certified only through transparent deterministic exhaustive code. Independent external checking has not been performed. The known components are fully credited, and the available source inspection does not rule out all unindexed data.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The complete metric/eccentricity and symmetry refinement appears absent from the inspected literature, which already gives the perfect-matching and connected-component counts.
+
+## value
+
+PASS
+
+The local flip graph is a standard finite testbed for higher-dimensional domino-tiling reconfiguration. Its complete geodesic histogram, sharp diameter, radius/eccentricity split and antipodal symmetry orbit are natural exact geometric invariants not determined by the known component count. A future researcher can use the precise 8-step obstruction to calibrate flip algorithms or conjectured dimension dependence; no all-d theorem is required for this motivated finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

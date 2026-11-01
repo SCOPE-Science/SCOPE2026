@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification procedure
+# Independent mathematical audit
 
-Run `python3 verify.py` in a directory containing this file and the standalone checker. The checker has no external data or library dependencies. It constructs all \(272\) perfect matchings by two independent recursive algorithms; it constructs the adjacency graph using both coordinate-square flips and the four-edge symmetric-difference criterion; it compares these complete adjacency representations; and it exhausts all \(264\) BFS source states.
+## correctness
 
-The exact expected integer checks are: component sizes \(264,1,1,1,1,1,1,1,1\); unordered pair distances \(768,2640,6032,9360,9504,5296,1104,12\) for distances \(1\) to \(8\); eccentricity multiplicities \(252\) at \(7\) and \(12\) at \(8\); and three antipodal connected components, each a four-cycle. It checks automorphism-orbit sizes and degrees under all \(384\) geometric symmetries.
+PASS
 
-A successful run prints `VERIFY_OK` and an explicit distance-eight matching pair. Exhaustiveness is finite; this does not prove any analogous property for larger hypercubes. The published \(272\)/\(264\)/eight-frozen census is independently recreated, not attributed as new. No independent audit has been performed.
+Constructed Q4 with 16 vertices and its 32 edges, exhaustive backtracking by the first unmatched vertex enumerating 272 perfect matchings, with no duplicates or omissions. Generated all 24 coordinate squares and their opposite-edge-pair flips; independently, a pair of matchings with four-edge symmetric difference is a square flip because symmetric difference is an alternating four-cycle. Enumerated 8 isolated vertices and one 264-vertex component. New independent BFS from every vertex of this component counted the exact all-pairs distances (768,2640,6032,9360,9504,5296,1104,12) summing to C(264,2), eccentricities 7:252 and 8:12, and 12 distance-eight pairs incident to 12 vertices. Read pinned verifier that separately checks two matchings enumerators, two adjacency constructors, 384 affine cube automorphisms and the antipodal graph with components [4,4,4]; its complete bounded loops establish three four-cycles. Finite exhaustive enumeration applies to exactly dimension 4.
+
+## originality
+
+PASS
+
+The complete metric/eccentricity and symmetry refinement appears absent from the inspected literature, which already gives the perfect-matching and connected-component counts.
+
+## value
+
+PASS
+
+The local flip graph is a standard finite testbed for higher-dimensional domino-tiling reconfiguration. Its complete geodesic histogram, sharp diameter, radius/eccentricity split and antipodal symmetry orbit are natural exact geometric invariants not determined by the known component count. A future researcher can use the precise 8-step obstruction to calibrate flip algorithms or conjectured dimension dependence; no all-d theorem is required for this motivated finite classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
