@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:15:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact OU hazard h_tau(t)=D(1-exp(-t/tau)), strictly increasing from 0 to D, and F(gamma)=beta_s/2*(gamma+c)M0. Integration by parts gives F_prime=(beta_s/2)*int t*(h_tau(t)-c)*exp(-gamma*t)*G_tau(t) dt. For 0<c<D this integrand has exactly one t sign change. Splitting negative early and positive late contributions, their positive ratio N_gamma/P_gamma has strictly negative log derivative since its positive-part time mean exceeds t0 and its negative-part time mean falls below t0; this ratio tends to 0 as gamma grows. Thus F_prime crosses 0 at most once and, when c<c_*=M0/M1, crosses from positive to negative exactly once. For c>=D F_prime is strictly negative. Since K=1/F the optimizer classification and strict monotonicity follow. For tau increasing, G_tau2/G_tau1 is a strict likelihood-ratio increasing function of t, making M1/M0 strictly increase and c_* decrease. The limits follow by dominated convergence at tau->0 and Gaussian t=sqrt(tau) scaling at tau->infinity. At gamma=b/tau and tau->0 the derivative sign reduces to (1-kappa)/b^2-1/(b+1)^2, whose unique zero is b0=sqrt(1-kappa)/(1-sqrt(1-kappa)); bracketing plus previously proved uniqueness yields the optimizer scaling. Independent SciPy quadrature reproduced strictly descending c_* at five tau values, unique positive gamma*=0.2273477 at (D,c,tau)=(1,0.5,3), and tau cutoff 4.22146244017. Numerical cases only corroborate these universal analytic steps.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hayashi specifies the very same Kc formula and discusses sufficient finite-optimum conditions, not a stated iff unique transition in abstract.",
+          "Tönjes colored-frequency-noise Kuramoto and Zhang–Strogatz switched network topology lack this endogenous Glauber-rate prefactor in their stated models."
+        ],
+        "reasoning": "Broader statistical-mechanics analyses do not visibly determine the explicit moment-ratio cutoff and singular optimizer for the exact defined OU response; full inaccessible primary text is a substantive historical priority risk.",
+        "searches": [
+          "arXiv:2609.35838 original model 2026-09-24",
+          "arXiv:1003.1549 colored-noise Kuramoto",
+          "arXiv:2101.02721 temporal network design synchronization",
+          "2009 Phys Rev E 79 045101 on-off coupling"
+        ]
+      },
+      "checked_sources": [
+        "Hayashi arXiv:2609.35838 primary abstract dated 2026-09-24; full text unavailable, Oxford VPN disconnected",
+        "Tönjes arXiv:1003.1549 (abstract-level model comparison)",
+        "Zhang and Strogatz arXiv:2101.02721 (abstract-level scope)",
+        "Resultary OU/Ising-Kuramoto switching semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A sufficient condition for existence and numerical finite optima do not imply uniqueness, full nonexistence criteria or strict monotonicity of the boundary in tau.",
+          "The proof invokes model-specific strictly increasing hazard and monotone likelihood-ratio tilt; these hypotheses are not stated as fully evaluated model results in the accessible source abstract."
+        ],
+        "reasoning": "The presented theorem is not logically implied by the accessible stated sufficient criterion. Caution: because full identical-source text was inaccessible, absence of an unadvertised stronger theorem in its appendices cannot be certified.",
+        "searches": [
+          "arXiv:2609.35838 abstract: “derive a general sufficient condition for such an interior optimum”",
+          "arXiv:1003.1549",
+          "Resultary OU / switching hits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact optimization is equivalent to maximizing (gamma+c)*Laplace(G_tau); the critical curve c_* is inverse mean of the free OU kernel.",
+          "The Hayashi primary abstract announces sufficient existence of a finite optimum, not an equivalently quantified necessary-and-sufficient unique optimum with a memory threshold."
+        ],
+        "reasoning": "A general Laplace-transform monotone-hazard theorem might imply one-crossing, but full model-dependent c_*(tau) monotonicity and two asymptotic scalings were not identified as a prior evaluated result.",
+        "searches": [
+          "Resultary: OU colored noise dynamic Ising Kuramoto optimal switching rate unique correlation time threshold",
+          "arXiv:2609.35838 susceptibility and switching parameter",
+          "Web: OU kernel Laplace-transform one-crossing positive monotone hazard"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The numerical example tau_c approx 4.22146244 is a consequence of a global threshold formula; related hits involve OU sensors or different Ising models."
+        ],
+        "reasoning": "No exact table for c_*(tau) or b0 for this model was identified; absence of table alone is not novelty.",
+        "searches": [
+          "Web: Hayashi OU Ising Kuramoto tau optimum gamma numerical table",
+          "Resultary: OU colored noise dynamic Ising Kuramoto optimal switching rate unique correlation time threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. The original same-object source reports a sufficient condition in its accessible abstract; no prior necessary-and-sufficient global optimization theorem was established, but its full text was inaccessible and is explicitly a residual risk.",
+      "residual_risks": [
+        "Primary Hayashi paper exact same susceptibility was not read in full: arXiv full text inaccessible and authorized Oxford retrieval returned vpn_disconnected; appendices could state stronger uniqueness/boundary findings.",
+        "General monotone-hazard Laplace transform/variation-diminishing results may subsume parts of the optimization proof.",
+        "Statements concern a deliberately defined first-harmonic linear-response threshold, not actual nonlinear collective phase transitions or finite-size equilibria."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_WITH_ACCESS_LIMIT; abstract reports sufficient condition and numerical optima; full mathematical coverage remains unverified",
+          "evidence": "Abstract states K_c=[(mu+beta_s gamma)chi_gamma]^-1 and “a general sufficient condition for such an interior optimum”; no complete iff uniqueness or tau boundary in the available abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.35838",
+          "material_read": "Primary arXiv abstract and dated submission record; arXiv PDF and HTML attempts failed, authorized institutional retrieval returned vpn_disconnected",
+          "method": "Read accessible mathematical abstract and model formula, searched lawful OA copies, tried arXiv and authorized institutional PDF; explicitly not full-paper read",
+          "title": "Memory-induced optimal switching in a dynamic Ising–Kuramoto model",
+          "trigger": "Exact model and same susceptibility Kc with Glauber rate gamma"
+        },
+        {
+          "assessment": "Different linear response object and no observed (gamma+c)OU Laplace optimization",
+          "evidence": "Colored-noise oscillator synchronization without the specific Glauber-spin switching prefactor.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.1549",
+          "material_read": "Accessible abstract and indexed descriptions; not complete full text in this run",
+          "method": "Compared independent spin-flip prefactor and object under study at the level actually read",
+          "title": "Synchronization Transition in the Kuramoto Model with Colored Noise",
+          "trigger": "Colored OU noise might imply threshold duration generalization"
+        },
+        {
+          "assessment": "Different optimization variable and no detected domination",
+          "evidence": "Temporal topology design under a resource constraint versus the OU first-harmonic linear response.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.02721",
+          "material_read": "Abstract/available scope only; no complete text obtained in this run",
+          "method": "Compared network switching optimization against scalar Glauber-rate susceptibility",
+          "title": "Designing temporal networks that synchronize under resource constraints",
+          "trigger": "Possibly stronger switching optimizer theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The source OU linear-response model motivates the competition between switching amplification and memory suppression but provides only an existence criterion and examples in accessible primary abstract. The exact necessary-and-sufficient all-parameter classification, monotone unique correlation-duration threshold and sharp singular 1/tau optimizer scale answer a natural model-specific timescale question; no nonlinear stability claim is smuggled in.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hayashi arXiv:2609.35838 primary abstract dated 2026-09-24; full text unavailable, Oxford VPN disconnected",
+    "Tönjes arXiv:1003.1549 (abstract-level model comparison)",
+    "Zhang and Strogatz arXiv:2101.02721 (abstract-level scope)",
+    "Resultary OU/Ising-Kuramoto switching semantic search"
+  ],
+  "disposition": "passed",
+  "final_claim": "For D,tau,mu,beta_s>0, gamma>=0, with OU memory G_tau and susceptibility chi_gamma=(1/2)int exp(-gamma t)G_tau dt, the response threshold K_c=1/[(mu+beta_s gamma)chi_gamma] has a unique positive minimizer iff c=mu/beta_s<c_*(tau)=M_0(0,tau)/M_1(0,tau); otherwise its unique minimizer is gamma=0. The critical c_*(tau) decreases continuously from D to zero, asymptotic sqrt(pi D/(2tau)); for fixed 0<c<D there is a unique tau cutoff and gamma_*(tau)~b0/tau as tau tends to zero.",
+  "limitations": [
+    "Only specified positive-parameter OU first-harmonic linear-response model, not nonlinear stationary stability, multistability, or bounded-cost optimal switching.",
+    "As tau tends to zero the optimal gamma diverges; the singular limit does not assert a finite optimum at exactly tau=0."
+  ],
+  "residual_risks": [
+    "Primary Hayashi paper exact same susceptibility was not read in full: arXiv full text inaccessible and authorized Oxford retrieval returned vpn_disconnected; appendices could state stronger uniqueness/boundary findings.",
+    "General monotone-hazard Laplace transform/variation-diminishing results may subsume parts of the optimization proof.",
+    "Statements concern a deliberately defined first-harmonic linear-response threshold, not actual nonlinear collective phase transitions or finite-size equilibria."
+  ],
+  "schema_version": 1
+}
