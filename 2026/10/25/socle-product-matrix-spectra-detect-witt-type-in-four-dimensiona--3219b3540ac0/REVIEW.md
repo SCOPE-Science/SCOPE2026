@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The hypotheses force a nondegenerate binary symmetric socle pairing. The proof partitions the product-equation matrix into \(q-1\) disjoint unit–socle stars, an isolated zero vertex, and a bilinear incidence block. Its two-step walk matrix is calculated entrywise; the perpendicular-line involution and the quadratic-value trace determine every sign multiplicity. The zero-multiplicity and rank follow by degree counting. Full-matrix computations for both forms over \(\mathbb F_2\), \(\mathbb F_3\), and \(\mathbb F_4\) agree. No finite test substitutes for the general proof.
+## correctness
 
-**Originality — PASS, qualified.** Dolžan (arXiv:2601.19301, 2026-01-27) defines product matrices and treats different nilpotency regimes. The complete accessible arXiv preprint (12 pages), including Theorems 3.1, 4.1, 4.4, 4.7, and 5.1, was inspected. Its hypotheses are respectively unit targets, maximal radical nilpotency, or square-zero radical, never the intermediate \((1,2,1)\) nonzero-socle-target setting. Direct searches for bilinear-incidence eigenvalues, equivalent ring descriptions, and published research records did not identify a theorem covering the same ring class and target. Highly relevant older ring theory and graph-spectral work were considered as possible ingredient-level antecedents. Remaining residual risks concern older finite-field bilinear-incidence formulations and unindexed historical equivalents, not the inspected Dolžan theorem statements.
+PASS
 
-**Mathematical value — PASS.** The result fills a natural intermediate-nilpotence case between the radical regimes in the motivating paper, uniformly for every finite field and both isometry classes. Besides the complete characteristic polynomial, it shows a ring multiplication spectrum retains a classifying invariant of the underlying socle pairing. This is a structural all-parameter classification, rather than a small isolated numerical experiment.
+For the equicharacteristic local Gorenstein (1,2,1) ring, R=F_q ⊕V⊕F_q z with nondegenerate symmetric B:V×V→F_q; at nonzero u=c z, units and q−1 socle vertices split into q−1 stars K_(1,q³) plus isolated zero. The non-socle radical block is C⊗J_q with C_(v,w)=1[B(v,w)=c]. Solving two independent linear equations gives (C²)_(v,w)=q for v=w, 0 for distinct proportional, 1 for distinct lines. On projective-line constants, C=J−P for perp-involution P with exactly t isotropic fixed lines, giving eigenvalues q once, +1 (q+1−t)/2 and −1 (q−1+t)/2. On the line-zero-sum complement C²=qI and trace(C)−trace(C|H)=0, so equal ±sqrt(q) multiplicities. Combining all blocks yields X^(q^4−q²−2q+3)(X−q²)(X−q)^((q+1−t)/2)(X+q)^((q−1+t)/2)(X²−q³)^((q²+q−4)/2), rank q²+2q−3. Independent construction and diagonalization of full product matrices over q=2 and q=3 for each Witt type reproduced eigenvalue multiplicities. The general proof is combinatorial-algebraic and does not rely on finite diagonalization.
 
-**Boundaries.** Only equicharacteristic split local Gorenstein algebras of Hilbert function \((1,2,1)\), at nonzero socle targets, are covered. The full 12-page primary preprint was inspected; broader historical priority remains provisional.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dolžan defined and studied the same product matrices, but examined the full preprint theorems require unit targets, maximally nilpotent radicals or square-zero radicals, none of which equals a nonzero-socle target with Hilbert function (1,2,1). The new full characteristic polynomial and recovery of isotropic-line number therefore survive the exact-object comparison. An equivalent earlier bilinear-incidence theorem remains a priority risk.
+
+## value
+
+PASS
+
+For a canonical intermediate nilpotence Gorenstein class omitted by the closest maximal/square-zero radical formulas, the natural multiplication-target matrix admits a complete uniform spectral classification for all prime powers, and its signed eigenvalue multiplicities recover the ring quadratic form’s Witt type. This is a motivated structural ring invariant, not a small unmotivated instance computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
