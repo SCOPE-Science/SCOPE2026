@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The two-step Legendre recurrence was derived from standard differentiation and integration by parts with explicit endpoint data. The base cases, positivity, ratio monotonicity, both parity limits via Euler/Wallis products, and the Schoenberg strictness criterion cover all positive scales, all real signed mixture coefficients, and boundary cases. The full parameter claim is a consequence of analytic inequalities rather than a finite search. Supplementary 45-digit quadrature confirmed the finite coefficient formulas, with maximum discrepancy below \(5.5\times10^{-48}\).
+## correctness
 
-**Originality — PASS under a bounded comparison.** The inspected full texts of Gneiting (arXiv:1111.7077), Fiedler (arXiv:1303.6856), and Feragen–Lauze–Hauberg (arXiv:1411.0296) give spherical positive definiteness, coefficient transfer and individual exponential positivity, but not the sharp inequality for differences of two distinct scales. The indexed-record searches and accessible own claim comparison found no statement dominating the complete criterion. Search incompleteness and unindexed equivalent results remain genuine priority risks; no exhaustive literature uniqueness is asserted.
+PASS
 
-**Mathematical value — PASS.** Signed differences of covariance kernels are not generally positive definite merely because both summands are. The result solves a natural spectral Loewner-comparison problem exactly, replaces infinitely many spherical-harmonic inequalities by an explicit two-branch parameter threshold, identifies the distinct low-degree and asymptotic even-degree obstructions, and proves strict positive definiteness at the nontrivial boundary. The dimension and signed-scale restrictions are substantive, not arbitrary numerical slices.
+Read the full frozen RESULT.md theorem, boundary and Legendre proof. With I_n(c)=integral_0^pi exp(-ct)P_n(cos t)sin(t)dt, the integration-by-parts identity gives I_(n+2)(c)=[c^2+n^2]/[c^2+(n+3)^2] I_n(c) and strictly positive I_0=(1+exp(-pi c))/(1+c^2), I_1=(1-exp(-pi c))/(4+c^2). Hence each parity ratio I_n(a)/I_n(b) is strictly increasing (a>b) or decreasing (a<b). Comparison of base ratios shows min n=0 for a>b; Euler products/Wallis yield the smaller limiting EVEN-parity ratio a(1-exp(-pi a))/[b(1-exp(-pi b))] for a<b, not attained by finite n. Schoenberg coefficient nonnegativity is necessary/sufficient for all finite site matrices; infinitely many strictly positive coefficients in each parity give strict PD on S2 at a!=b. Equal scales reduce to (1-lambda) times strictly PD exponential. Independent high-precision Legendre integrations and exact recurrence/coefficient-ratio checks corroborate but do not prove the infinite criterion.
 
-Closest inspected literature: Gneiting's theorem on individual completely monotone spherical kernels and Schoenberg expansions; Fiedler's general coefficient relations; Feragen and coauthors' geodesic exponential kernel geometry. None of these facts alone establishes the two-scale coefficient-order theorem. No independent scientific audit, priority determination, or dimension extension is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The new comparison concerns a signed difference of two geodesic exponential scales, not the known positive definiteness of each scale. Schoenberg diagonalization and single-scale positivity are historical inputs; the exact three-case endpoint lambda frontier, which parity/degree controls it, and strict positivity at the threshold are the surviving claim. Relevant Resultary records returned other spherical and covariance spectral work, no implication to this two-scale ratio.
+
+## value
+
+PASS
+
+The exact largest admissible subtraction weight of two natural isotropic geodesic covariance models is a meaningful nonstandard covariance-design/positive-definite-kernel invariant; identifying low-degree versus high-frequency obstruction and strictness at boundary is more than a textbook restatement of Schoenberg positivity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
