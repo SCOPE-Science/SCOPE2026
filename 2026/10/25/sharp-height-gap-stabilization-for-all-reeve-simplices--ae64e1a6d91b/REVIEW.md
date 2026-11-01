@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-PASS. The defining barycentric inequalities reduce integer-section nonemptiness to a single necessary-and-sufficient ceiling inequality. Dividing every height into a quotient and residue yields an exact range identity for all dilations; the residue thresholds, translated gap set, and greatest-common-divisor floor-sum count follow with no asymptotic assumptions. The accompanying checker directly enumerates small integer simplices and tests broader closed formulas. The theorem is not inferred from those finite tests.
+## correctness
 
-## Originality
-PASS under accessible evidence; historical priority is not established. The 2020 *Lecture Notes on Lattice Polytopes* state the Reeve family and its empty-simplex property, but not the stated dilation-by-dilation height classification. The complete publicly accessible 2025 De Loera–Marsters–O'Neill source establishes eventual near-progressions and quasilinear arithmetic width generally; it does not specify the Reeve threshold, gap multiset, or gcd count. Actual semantic research-record searches returned related but not logically covering work on lattice-simplex convexification and rational weighted-projective simplex invariants. A specialized unindexed height-semigroup calculation could still duplicate the formula.
+PASS
 
-## Mathematical value
-PASS. Reeve simplices form a standard unlimited-volume family with nonnormal lattice behavior. A complete two-parameter height-spectrum theorem, including an exact first full-residue dilation and an integer gcd-controlled boundary-defect count, is a concrete natural example of the recently introduced arithmetic-width invariant. The exact gap pattern provides more structural information than qualitative stabilization and a useful benchmark for projection-sensitive lattice computations; it is not claimed to settle general minimization over directions.
+For R_{d,m}=conv(0,e1,...,e_{d-1},sum e_i+m e_d), barycentric nonnegativity for integral projected height z is equivalent to all x_i>=z/m and sum x_i<=n+(d-2)z/m. Taking x_i=ceil(z/m) proves the sharp if-and-only-if section criterion (d-1)ceil(z/m)<=n+(d-2)z/m. Separating z=mq+s gives all multiples mq (0<=q<=n) and each nonzero residue s with 0<=q<=n-d+1+floor((d-2)s/m). At n0=d-1-floor((d-2)/m), s=1 is exactly the final residue to appear, and from n0 every missing height in [0,mn] is mn-(m j-s), 1<=j<=d-2-floor((d-2)s/m). The standard floor-sum over m-1 residues, including gcd(d-2,m), yields G=((d-1)(m-1)-gcd(d-2,m)+1)/2. Independent direct integer point searches matched all 90 triples for d∈{3,4,5}, m∈{2,...,7}, n∈{0,...,4}; all 550 parameter pairs (d=3..24,m=2..26) passed three post-threshold gap tests. The unrestricted theorem uses the exact barycentric and gcd identities, not finite enumeration.
 
-## Closest literature and limits
-The classical source identifies the objects; the 2025 source gives a general eventual structural framework. Neither inspected full text entails the numerical constants or sharp parameter-specific onset. The short ceiling-based proof is elementary and the novelty risk is that the computation might appear implicitly in historical work; no independent audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haase–Nill–Paffenholz lecture notes establish the Reeve simplex coordinates and original emptiness; no all-dilation height-range formula in inspected Reeve material. De Loera–Marsters–O’Neill (2025) full paper defines arithmetic projected width and proves eventual almost arithmetic progressions, translated gap structure and quasilinear width for broad polytopes, but neither states the explicit sharp Reeve threshold, gcd count, or all-n residue formula. Resultary semantic results concerned other simplex invariants and dilation saturation problems. The new result refines general eventual structure to an exact two-parameter canonical family in a fixed coordinate direction; possible older height-semigroup equivalent remains a real priority risk.
+
+## value
+
+PASS
+
+Reeve simplices are a canonical empty-lattice-simplex family with anomalous lattice dilation behavior. Exact projected integer height spectra in all dimensions and dilation factors, earliest full-residue threshold, and gcd-sensitive finite hole pattern give an independently useful benchmark for the arithmetic-width invariant and semigroup gap stabilization. It is specifically height-direction cardinality, not the globally minimized lattice width.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
