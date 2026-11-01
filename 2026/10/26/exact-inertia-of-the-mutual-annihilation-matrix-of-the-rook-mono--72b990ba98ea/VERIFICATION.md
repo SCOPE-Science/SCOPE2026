@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The included `verify.py` uses only Python's standard library, and builds each partial bijection directly. For sizes \(n=1,2,3\), all ordered pairs are checked using two explicit empty-composition tests, independent of the domain-image kernel expression. The compressed kernel inertia is computed using exact rational symmetric congruence eliminations. For sizes \(n=1,2,3,4\), its determinant is checked modulo the primes \(101\) and \(1009\).
+## correctness
 
-The resulting full matrix orders are \(2,7,34,209\) and the predicted inertias are, respectively, \((1,1,0)\), \((4,2,1)\), \((10,10,14)\), and \((38,32,139)\). The concluding program marker is `VERIFY_OK_ROOK_MUTUAL_ANNIHILATION_INERTIA`.
+PASS
 
-This provides finite corroboration, not exhaustive verification for all sizes. The universal proof is contained in `RESULT.md`, whose critical steps are the exact incidence compression and nonsingular rank-antitriangular homotopy. Real spectral signs and the retention of loops are essential scope restrictions. No independent mathematical audit has been performed.
+The relation alpha beta=beta alpha=empty is equivalent to R_alpha disjoint D_beta and D_alpha disjoint R_beta. Compress through the full-column-rank domain/image incidence P; P^T P has positive diagonal r!, so Sylvester inertia reduces to K. Its rank blocks vanish above a+b=n, and each a+b=n block is complement/swap permutation; deform lower rank blocks continuously to zero without changing determinant or inertia. The endpoint involution has binom(n,n/2) fixed points for even n, none for odd n; this proves all signs, rank/nullity and spectral product for every n. Verified finite n=1..4 and independent direct compositions n<=3; finite tests are corroboration only. The inclusion of the empty map and diagonal loops is essential.
+
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison: The target is not a direct numerical instance of the cited graph invariants. Potential hidden general incidence theorems remain a priority risk.
+
+## value
+
+PASS
+
+A natural loop-retaining annihilation bilinear form on the full symmetric inverse monoid has unexpectedly low rank equal to a central binomial coefficient. The exact inertia and nonzero spectral product give structural information about its multiplicative disjointness geometry not supplied by monoid cardinality or standard commuting graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

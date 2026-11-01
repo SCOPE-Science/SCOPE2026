@@ -1,11 +1,21 @@
-# Mathematical review: Exact inertia of the mutual-annihilation matrix of the rook monoid
+# Independent mathematical audit
 
-**Correctness — PASS.** The factorization by ordered domain/image pairs is exact, with \(r!\) bijections per rank-\(r\) pair. The block-antitriangular homotopy never becomes singular; its endpoint is a complement-and-swap involution. The proof verifies boundary parities, nullity, and nonzero eigenvalue product. Direct computation for small sizes agrees, without being used as a proof for general sizes.
+## correctness
 
-**Originality — PASS with residual risk.** Grood and Solomon supply the classical rook-monoid setting; Malandro's monoid Fourier analysis studies different spectral operators; Araújo–Bentz–Konieczny address the loopless commuting graph; Toker addresses a different partial-transformation semigroup. Their inspected statements do not imply this specific inertia result. An unlocated general disjointness-kernel theorem or older graph paper might imply it; definitive priority is not claimed.
+PASS
 
-**Value — PASS.** The intrinsic mutual-annihilation bilinear form has an explicit rank much smaller than its matrix order and a parity-sensitive inertia, with a closed product of its nonzero eigenvalues for every size. These exact invariants are useful in studying multiplication-zero relations and related semigroup spectral operators.
+The relation alpha beta=beta alpha=empty is equivalent to R_alpha disjoint D_beta and D_alpha disjoint R_beta. Compress through the full-column-rank domain/image incidence P; P^T P has positive diagonal r!, so Sylvester inertia reduces to K. Its rank blocks vanish above a+b=n, and each a+b=n block is complement/swap permutation; deform lower rank blocks continuously to zero without changing determinant or inertia. The endpoint involution has binom(n,n/2) fixed points for even n, none for odd n; this proves all signs, rank/nullity and spectral product for every n. Verified finite n=1..4 and independent direct compositions n<=3; finite tests are corroboration only. The inclusion of the empty map and diagonal loops is essential.
 
-**Limitations.** The matrix includes zero and diagonal loops; no claim concerns the simple graph after deleting them. Its full eigenvalue list, unrelated semigroups, and independent validation are outside scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison: The target is not a direct numerical instance of the cited graph invariants. Potential hidden general incidence theorems remain a priority risk.
+
+## value
+
+PASS
+
+A natural loop-retaining annihilation bilinear form on the full symmetric inverse monoid has unexpectedly low rank equal to a central binomial coefficient. The exact inertia and nonzero spectral product give structural information about its multiplicative disjointness geometry not supplied by monoid cardinality or standard commuting graph invariants.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
