@@ -1,19 +1,21 @@
-# Review of the phase–frequency covariance classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The complex-parameter Fourier transform uses a valid half-plane analytic continuation of the absolutely integrable radial exponential, with an explicit \(c_d\) normalization. The argument \(\theta(\rho)\) is continuous, monotone and ranges from \(-2\phi\) to \(0\); the spectral-phase interval has fixed width \((d+1)\phi\). Bochner positivity gives exactly the two phase endpoint inequalities. The \(d=3\) witness was independently simplified symbolically, and a radial Hankel quadrature cross-check was executed at several frequencies/dimensions. No discrete grid is used to certify an infinite statement.
+PASS
 
-## Originality
+The radial Fourier transform of e^{-zr} for Re z>0 is c_d z/(z²+ρ²)^((d+1)/2). For z=α−iω, multiplying by (1−iβ) and taking real part gives the exact spectral density. The continuous argument θ(ρ)=Arg(z²+ρ²) rises from −2φ to 0, so the spectral cosine argument decreases from dφ−arctanβ to −φ−arctanβ, a total sweep (d+1)φ. Pointwise nonnegative spectrum is equivalent to the phase interval lying in [−π/2,π/2], yielding φ≤π/(d+1), −cot(dφ)≤β≤cotφ. Strict positive definiteness on distinct sites follows from positive density on an open annulus; boundary α=ω=β=1,d=3 has explicit spectrum 64πρ²/(ρ⁴+4)², and d=4 fails frequency threshold. An independent exact symbolic d=3 identity and 600 numeric spectral sign cases confirmed formulas; continuity/all-d proof is analytical.
 
-**PASS, within bounded literature review.** The closest exact special case is the known positive-definiteness condition for pure damped cosine (the section \(\beta=0\)), which does not imply the nonzero-sine admissible region or its unique high-frequency extremizer. The general radial Schoenberg treatment in Gneiting (arXiv:1111.7077v1, Section 2) supplies a characterization but not the parameter classification. Schubert–Korte–Brockmann–Schuh (DOI 10.3390/math8040591, Sections 3 and 8) treat stationary time-series oscillators, not positive definiteness of isotropic extensions on all \(\mathbb R^d\). Searches for phased damped sinusoidal radial covariances and semantic published-result matches did not retrieve the complete cone. Strongest residual risk is an unindexed equivalent phase criterion or a more general spectral-positivity theorem whose corollary already implies the result.
+## originality
 
-## Value
+PASS
 
-**PASS.** Oscillatory stationary covariances can model negative correlations at positive spatial separation, but a one-dimensional autocorrelation formula need not remain positive definite on spatial point sets. The theorem supplies a complete, sharp multi-dimensional admissibility region, an explicit frequency ceiling, and the unique boundary phase at that ceiling. The spatially valid \(d=3\) witness is disallowed by the standard cosine-only family at the same oscillation frequency. This is a structurally motivated parameter classification, not an arbitrary finite computation.
+Classical Schoenberg/Bochner theory establishes spectral positivity criteria, and RandomFields RMdampedcos gives the β=0 slice α/ω≥cot(π/(2d)); these do not state the full real-β frequency–phase cone. Schubert et al (2020) study damped oscillatory temporal ARMA covariance, not arbitrary-dimensional radial extension. The complex Laplace/Fourier transform is standard, and a radial harmonic phase result elsewhere remains a priority risk. The assessed increment is the necessary-and-sufficient full cone including sharp endpoint and strictness.
 
-## Limitations
+## value
 
-The result excludes geodesic spherical distances, multidimensional mixtures of frequencies, and improper damping. The literature search is bounded, and the 1999 Chilès–Delfiner book cited by the cosine-model documentation was not materially inspected. The numerical checks are illustrative, not exhaustive proofs, and no independently commissioned validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides an exact admissible covariance family in every Euclidean dimension with a tunable damping-phase parameter, endpoint behavior, strict kernel definiteness and a 3D-but-not-4D explicit witness; useful in spatial covariance design beyond the known damped-cosine subfamily.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

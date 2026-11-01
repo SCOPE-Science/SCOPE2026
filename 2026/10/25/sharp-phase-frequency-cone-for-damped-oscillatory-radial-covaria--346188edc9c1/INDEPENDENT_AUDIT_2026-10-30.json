@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:14:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 58982cbb1eb34c58094e4689dc9caf2db402d103",
+        "CHECKER.py Git blob 3183c0ff72d0971147c81a827c3c1d6294810a15",
+        "independent_scope_worker01_checks_results.json:600 cases; symbolic 3D spectrum"
+      ],
+      "rationale": "The radial Fourier transform of e^{-zr} for Re z>0 is c_d z/(z²+ρ²)^((d+1)/2). For z=α−iω, multiplying by (1−iβ) and taking real part gives the exact spectral density. The continuous argument θ(ρ)=Arg(z²+ρ²) rises from −2φ to 0, so the spectral cosine argument decreases from dφ−arctanβ to −φ−arctanβ, a total sweep (d+1)φ. Pointwise nonnegative spectrum is equivalent to the phase interval lying in [−π/2,π/2], yielding φ≤π/(d+1), −cot(dφ)≤β≤cotφ. Strict positive definiteness on distinct sites follows from positive density on an open annulus; boundary α=ω=β=1,d=3 has explicit spectrum 64πρ²/(ρ⁴+4)², and d=4 fails frequency threshold. An independent exact symbolic d=3 identity and 600 numeric spectral sign cases confirmed formulas; continuity/all-d proof is analytical.",
+      "residual_risks": [
+        "Spectral power uses principal branch; ω>0 and α>0 ensure no branch crossing; α=0 or curved-space radial distance outside claim."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Schoenberg/Gneiting radial covariance general machinery; Bochner theorem, RMdampedcos beta=0."
+        ],
+        "reasoning": "General Fourier characterization alone requires sign analysis; beta=0 formula does not imply exact β≠0 region without a phase calculation.",
+        "searches": [
+          "Euclidean positive definite damped oscillatory radial kernel exp(-alpha r)(cos omega r + beta sin omega r) exact phase frequency condition",
+          "damped exponential cosine sine radial positive definite covariance arbitrary dimension exact spectral positivity"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1111.7077",
+        "https://rdrr.io/cran/RandomFields/man/RMdampedcos.html",
+        "https://doi.org/10.3390/math8040591",
+        "Resultary published semantic search: Euclidean positive definite damped oscillatory radial kernel exp(-alpha r)(cos omega r + beta sin omega r) exact phase frequency condition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gneiting 2013, RandomFields RMdampedcos, Schubert et al 2020."
+        ],
+        "reasoning": "Classical formulas supply transform and a known slice, but neither covers the full tunable phase cone and 3D boundary witness in the inspected statements.",
+        "searches": [
+          "Euclidean positive definite damped oscillatory radial kernel exp(-alpha r)(cos omega r + beta sin omega r) exact phase frequency condition",
+          "damped exponential cosine sine radial positive definite covariance arbitrary dimension exact spectral positivity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "radial Bochner spectral density; Matérn-like damped oscillatory covariance with phase shift; completely monotone and Schoenberg classes."
+        ],
+        "reasoning": "The sine coefficient β modifies spectral phase independently of decay/frequency, and must satisfy two sharp endpoint inequalities for fixed d.",
+        "searches": [
+          "Euclidean positive definite damped oscillatory radial kernel exp(-alpha r)(cos omega r + beta sin omega r) exact phase frequency condition",
+          "damped exponential cosine sine radial positive definite covariance arbitrary dimension exact spectral positivity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "RandomFields RMdampedcos documentation; Resultary semantic search on damped oscillatory radial phase cone."
+        ],
+        "reasoning": "Existing documented model is exactly a one-dimensional β=0 slice; no full multidimensional coefficient table identified.",
+        "searches": [
+          "Euclidean positive definite damped oscillatory radial kernel exp(-alpha r)(cos omega r + beta sin omega r) exact phase frequency condition",
+          "damped exponential cosine sine radial positive definite covariance arbitrary dimension exact spectral positivity"
+        ]
+      },
+      "rationale": "Classical Schoenberg/Bochner theory establishes spectral positivity criteria, and RandomFields RMdampedcos gives the β=0 slice α/ω≥cot(π/(2d)); these do not state the full real-β frequency–phase cone. Schubert et al (2020) study damped oscillatory temporal ARMA covariance, not arbitrary-dimensional radial extension. The complex Laplace/Fourier transform is standard, and a radial harmonic phase result elsewhere remains a priority risk. The assessed increment is the necessary-and-sufficient full cone including sharp endpoint and strictness.",
+      "residual_risks": [
+        "An earlier general spectral positive-definiteness theorem for complex exponential radial kernels could imply full cone as simple corollary; no complete bibliographic exhaustion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND_NOT_EXACT: spherical Schoenberg theory and dimensional nesting, not sharp Euclidean single damped harmonic beta interval",
+          "evidence": "Gneiting (2013) §2 reviews radial positive definiteness on Euclidean space; main results cover sphere geodesic distance.",
+          "identifier_or_url": "https://arxiv.org/pdf/1111.7077",
+          "material_read": "Primary abstract, introduction, section overview for Euclidean restriction and spherical domains",
+          "method": "Read primary arXiv PDF and viewed text page",
+          "title": "Strictly and non-strictly positive definite functions on spheres",
+          "trigger": "General Schoenberg kernel and dimensional criteria"
+        },
+        {
+          "assessment": "KNOWN_SLICE: beta=0 condition but not arbitrary sine coefficient",
+          "evidence": "RMdampedcos states α/ω≥cot(π/(2d)), coinciding with β=0 specialization.",
+          "identifier_or_url": "https://rdrr.io/cran/RandomFields/man/RMdampedcos.html",
+          "material_read": "Package documentation and model admissibility stated in accessible text",
+          "method": "Web documentation",
+          "title": "RMdampedcos: Exponentially Damped Cosine",
+          "trigger": "Exact beta-zero cross-section"
+        },
+        {
+          "assessment": "RELATED_TEMPORAL_MODEL: one-dimensional time autocorrelation, not radial R^d admissibility",
+          "evidence": "Schubert et al (2020) ARMA and damped oscillator fits, does not establish full Euclidean phase-frequency cone in inspected material.",
+          "identifier_or_url": "https://doi.org/10.3390/math8040591",
+          "material_read": "Title/abstract and methods context only; no complete primary text inspection",
+          "method": "Web accessible summary",
+          "title": "A Generic Approach to Covariance Function Estimation Using ARMA-Models",
+          "trigger": "Damped oscillatory covariance aliases"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob 58982cbb1eb34c58094e4689dc9caf2db402d103"
+      ],
+      "rationale": "Provides an exact admissible covariance family in every Euclidean dimension with a tunable damping-phase parameter, endpoint behavior, strict kernel definiteness and a 3D-but-not-4D explicit witness; useful in spatial covariance design beyond the known damped-cosine subfamily.",
+      "residual_risks": [
+        "Exact parameter family only; excludes general spectral mixtures, spherical-geodesic kernels, other metric spaces."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Euclidean d positive integer, α,ω>0, β real, stationary isotropic kernel, strictly PD for distinct sample sites."
+  ],
+  "schema_version": 1
+}
