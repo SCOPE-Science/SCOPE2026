@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The infinite claim is proved by a fixed three-rung good cover of the scale-two Möbius ladder, contractible intersections and an explicit collapse of its nerve onto a circle for all \(n\ge6\). The exceptional \(n=5\) case has a completely replayable 48-step elementary-collapse certificate to a six-vertex octahedral sphere, and twenty signed Lefschetz calculations establish the integral orientation action. Diameter and scale-one boundary arguments cover all remaining cases. The package contains an standalone executable reconstruction of its finite certificates; its bounded tests are not offered as an infinite proof.
+
+**Originality — PASS, with risk.** Full-text comparisons were made with the archive-era graph-power clique-complex paper, the metric-gluing paper, and two particularly close published finite-cylinder and clique-fiber cyclic Rips classifications. The first concerns graph powers of unmodified cycles and restricted large-girth or neighborhood criteria, the second uses metric gluings/continuous circular ladders or supremum product metrics, and the last two concern genuine Cartesian products without the Möbius twist. Their hypotheses and conclusions do not imply this parameterized twisted-ladder theorem. Searches of existing indexed records and accessible prior claims identified no equivalent; an unindexed theorem remains possible.
+
+**Mathematical value — PASS.** This is a complete natural infinite-family homotopy classification at the first nontrivial graph-metric Rips scale, with a sharp exceptional sphere-to-circle threshold and a complete integral dihedral orientation character. Its comparison with the untwisted ladder distinguishes two canonical graph families, including the different small-size transition points. The signed exceptional representation and stable rank-one persistence survival are informative beyond numerical face counts.
+
+**Limits.** No classification beyond scale two, continuous-edge metric graphs, full equivariant homotopy, or integral homology of symmetry quotients is asserted. Literature priority is bounded, and there is no independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
