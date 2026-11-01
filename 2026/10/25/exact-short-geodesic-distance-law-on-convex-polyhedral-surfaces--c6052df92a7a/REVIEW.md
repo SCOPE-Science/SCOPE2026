@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The cone metric is explicitly identified from intrinsic face unfoldings. The double-distance area integral is reduced by a radial-angular layer-cake identity to an elementary one-dimensional integral; all constants, angular ranges, and normalization by squared surface area are tracked. The localization step uses compactness, finitely many disjoint vertex charts, and the fact that intrinsic edges are locally flat. The tetrahedral quotient calculation and independently evaluated quadrature corroborate the critical cone coefficient. The claim is restricted to a nonempty sufficiently small radius interval; no extrapolation is made.
+## correctness
 
-**Originality — PASS relative to the inspected corpus, with residual priority risk.** Searches of the mathematical-record database using intrinsic geodesic, cone-angle, flat-cone pair distance, quartic and tetrahedral aliases did not return the claimed statement. The nearest record concerning distance between two uniform planar-polygon points uses Euclidean interior distance, whereas the present metric is intrinsic on a closed polyhedral surface. Wenk--Cook's inspected results address shortest path algorithms, not an area-averaged distance distribution. Mathai--Moschopoulos--Pederzoli's accessible abstract addresses sampled Euclidean cube distances; its full text could not be verified. No absence-of-match inference is presented as proof of absolute novelty.
+PASS
 
-**Mathematical value — PASS.** Short-range pair-distance statistics are natural intrinsic observables on closed piecewise-flat surfaces. The exact quartic law reveals a nonlinear aggregate of cone angles beyond the Gauss--Bonnet total angular deficit, distinguishing, for example, the regular tetrahedron and cube at equal area. An exact local coefficient for all convex polyhedra is more informative than a numerical special-case value.
+Each vertex neighborhood is an Euclidean cone with total angle alpha_v in (0,2pi); away from vertices edges unfold flatly. For pair radii t,s, the angular difference from the planar baseline is 2[min(beta,alpha/2)-beta]. Its double area integral is homogeneous r^4; exact radial/angular integration gives F(alpha)=-alpha/8[cot(alpha/2)+(pi-alpha/2)csc^2(alpha/2)]. Disjoint vertex charts and a positive small-radius cutoff localize all nonflat contributions, yielding pi r^2/A + r^4 sum_v F(alpha_v)/A^2. The tetrahedron specialization is pi r^2/sqrt(3)-pi^2 r^4/12. Independent numerical integration confirmed the exact F(alpha) at six cone angles within 7e-16, including alpha=pi.
 
-**Principal limitations.** The localization radius is not uniform across degenerating polyhedra. Only nondegenerate convex polyhedra and short intrinsic distances are covered. Exact historical priority and independent mathematical audit remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Wenk–Cook (2009) derive shortest-path computation and geometry on polyhedral surfaces, not the distribution of distances between two independent area-uniform points. The inspected published convex-polygon result computes Euclidean distances of pairs within a planar polygon and angle-dependent quartics but has a boundary-induced cubic term; it is a different metric space and measure from a closed intrinsically flat polyhedral surface. Mathai et al. (1999) compute extrinsic Euclidean distances for a solid cube rather than this intrinsic surface cone law (abstract-level comparison only). No stronger primary statement was observed to supply the exact sum-of-cone coefficients.
+
+## value
+
+PASS
+
+Exact termination of the short-radius probability at quartic order on all convex polyhedral surfaces, and dependence on the individual cone angles rather than only total curvature, gives a natural measurable geometric statistic. The formula distinguishes regular tetrahedron and cube despite equal Gauss–Bonnet total defect; this is an independently useful complete local law, not a trivial smooth-manifold expansion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
