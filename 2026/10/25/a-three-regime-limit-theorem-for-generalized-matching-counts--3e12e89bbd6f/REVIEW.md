@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness (C): PASS
+## correctness
 
-The proof separates the Bernoulli known-match count from the residual permutation fixed-point count. The sparse-skill limit uses total-variation binomial-to-Poisson convergence and the classical \(\operatorname{Pois}(1)\) limit for fixed points. The near-perfect limit applies a fixed conditional permutation kernel to the Poisson limit of the unresolved count and derives the moved-point mass by choosing and deranging exactly the moved labels. In the interior regime, the binomial variance diverges; the residual fixed-point count is tight because its expectation is at most one, so Slutsky's theorem gives the stated normal limit. The exact centering is \(n\theta_n+1-\theta_n^n\). Finite checks passed but are not used as proof of the limits.
+PASS
 
-## Originality (O): PASS
+The exact model K*=L+K_(n-L) with L binomial and K_r uniform permutation fixed points yields three limits. If ntheta→lambda then L→Pois(lambda) TV and R→∞, whence K_R→Pois(1) in conditional TV, giving Pois(1+lambda). If n(1-theta)→mu then unresolved R→Pois(mu) TV and applying the fixed moved-point kernel gives P(W_mu=d)=e^-mu D_d/d! sum_(j>=0) mu^(d+j)/[(d+j)! j!]; D_1=0. If both endpoint intensities diverge, binomial variance diverges, residual K_R is tight (mean≤1), and the stated exact-mean centered CLT follows by Slutsky. Independent exact finite convolutions, impossible n-1 match and mixture check pass. The proof—not those finite checks—covers all parameter arrays meeting conditions.
 
-The closest inspected source is O'Neill's generalized matching distribution paper, which gives the same model identity, its moments, and a central limit theorem for fixed \(0<\theta<1\). It does not state the triangular-array endpoint limits or the exact Poissonized moved-point law near perfect matching. An earlier result about two-game likelihood ordering in this model is a distinct finite-sample testing claim, not this asymptotic classification. Searches for equivalent descriptions using fixed points, derangements, Poissonized moved points, and endpoint skill scalings did not identify an implication or exact duplicate. This is a bounded literature assessment, not a proof of universal priority.
+## originality
 
-## Mathematical value (V): PASS
+PASS
 
-The classification identifies the two boundary laws where a Gaussian approximation is inappropriate and the interior regime where it is appropriate. The near-perfect endpoint is particularly informative: the limiting number of mismatches has an explicit mass function and assigns probability zero to exactly one mismatch. This gives a natural boundary law for inference when matching accuracy is close to one, a setting in which the source paper warns that standard asymptotic confidence intervals perform poorly. The result is a focused asymptotic classification rather than a claim of a broad downstream theorem.
+Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. O’Neill (2023) develops exactly the two-stage Bernoulli/permutation distribution and proves a fixed-0<theta<1 central limit. Lanke (1973) considers randomly paired decks with variable type multiplicities; its asymptotic Poisson theorem does not incorporate preliminary forced matches. Barton (1958) covers earlier matching Poisson forms but broader applicability remains a cited risk.
 
-## Closest literature and limitations
+## value
 
-Ben O'Neill, “A Generalised Matching Distribution for the Problem of Coincidences,” arXiv:2112.12442; *Methodology and Computing in Applied Probability* 25 (2023), article 93, DOI: 10.1007/s11009-023-10067-6. The main inspected comparison is Theorem 9 (fixed-parameter normal approximation), alongside the exact two-stage representation and the discussion of inference near parameter endpoints. Search was not exhaustive; no convergence rates are claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural complete three-regime phase diagram of a probabilistic matching model, including the asymmetric near-perfect mismatch law with forbidden one-mismatch event and full total-variation endpoint statements, supplies an exact probability characterization not contained in a fixed-parameter CLT. Although derivation uses standard limits, the explicit combined boundary description and mixture law are a motivated complete classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
