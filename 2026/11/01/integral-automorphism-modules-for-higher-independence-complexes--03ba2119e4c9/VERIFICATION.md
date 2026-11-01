@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The proof uses an integral chain isomorphism of the pair consisting of the higher-independence complex and its contractible subcomplex of faces missing at least one hub. In relative chains, the oriented hub edge shifts the augmented leaf-skeleton complex by two degrees, with a sign under hub exchange. The augmentation-kernel exterior-power identification is over integers, not merely over rational coefficients.
+# Independent mathematical audit
 
-Execute `python3 checker.py`. The self-contained checker uses adjacency-based component enumeration and independent signed Lefschetz summation, giving `PASS: 128 homology cases, 1050 signed-character cases, 27412 total faces enumerated`. The finite calculation is a diagnostic only. It does not independently establish the proof or test every parameter value.
+## correctness
 
-Literature boundaries: the ordinary homotopy type and sphere count were already established in Deshpande–Singh (2020/2021), Theorem 3.10 and Corollary 3.13. The assertion evaluated here is restricted to the integral automorphism module and its character; it is not an equivariant homotopy equivalence. An independent audit has not been performed.
+PASS
+
+For any double star T_{a,b} with both leaf blocks nonempty, the no-both-hubs subcomplex A is contractible: the entire leaf simplex plus each one-hub cone attaches along a contractible leaf-block join, also covering r=1. Faces containing both hubs are exactly {u,v} union a leaf set S of size <=r-2. In the relative oriented chain complex C_*(X,A), deletion of either hub vanishes; the leaf differential is the augmented boundary on the (r-3)-skeleton of the (m-1)-simplex, shifted by the oriented hub pair and twisted by the sign of any hub exchange. The integral augmented differential is contraction by epsilon on exterior powers of Z^L; splitting Z^L=ker epsilon ⊕ Z e_l0 shows the only relative homology is wedge^(r-2) ker epsilon in degree r-1, with no torsion. The long exact sequence is equivariant because A is invariant and contractible. For r>=m+2 X is the full simplex, and for r=1 X=A is contractible; r=2 gives the correct trivial exterior power with hub sign. The rational character is eta(g)[z^(r-2)] det(I+z P_g)/(1+z), with cycle factors. Independent checks for a=b=3,r=4 gave rank 10, hub-block-swap trace 2, matching the 6+4 eigenspace split. The checked finite example does not replace the proof for all a,b,r.
+
+## originality
+
+PASS
+
+Deshpande-Singh Theorem 3.10 and Corollary 3.13 already cover the entire double-star ordinary wedge homotopy type and binomial Betti ranks, which are NOT original here. The surviving claim identifies the full integral leaf-augmentation exterior-power lattice with the hub-exchange twist and all characters, an equivariant refinement that is not implied by a nonequivariant wedge. Later general tree vertex decomposability and chordal shellability do not determine integral action. No exact module statement found in bounded Resultary/primary searches.
+
+## value
+
+PASS
+
+The automorphism action is a natural invariant of the double-star family, which has substantial S_a×S_b and sometimes block-exchange symmetry. Identifying the full integral lattice, rather than only rational traces or known ordinary homotopy, distinguishes hub-exchange behavior and provides a reusable character formula simultaneously for all thresholds and leaf sizes. The precise twist matters for any later equivariant or quotient analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

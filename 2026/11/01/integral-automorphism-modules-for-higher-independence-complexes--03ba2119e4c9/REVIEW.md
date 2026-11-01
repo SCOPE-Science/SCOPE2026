@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof gives a complete relative-simplicial chain model. Faces missing one hub comprise a contractible complex because the two possible one-hub cones attach to a leaf simplex along contractible joins. The remaining faces are exactly the oriented hub edge plus at most \(r-2\) leaves. Their relative differential is the augmented leaf-skeleton differential, and the only extra automorphism sign is reversal of the hub pair. The augmented simplex boundary is contraction by the sum-of-coordinates functional, with integral kernel \(\bigwedge^{r-2}W_L\). The long exact sequence gives the canonical integral module and excludes additional degrees and torsion. The boundary cases \(r=1\), \(r=2\), \(r=m+1\) and \(r\ge m+2\) were checked explicitly. The packaged checker passed 128 finite homology cases and 1,050 signed-character cases; those computations are not substituted for the general proof.
+PASS
 
-## Originality — PASS, with residual risks
+For any double star T_{a,b} with both leaf blocks nonempty, the no-both-hubs subcomplex A is contractible: the entire leaf simplex plus each one-hub cone attaches along a contractible leaf-block join, also covering r=1. Faces containing both hubs are exactly {u,v} union a leaf set S of size <=r-2. In the relative oriented chain complex C_*(X,A), deletion of either hub vanishes; the leaf differential is the augmented boundary on the (r-3)-skeleton of the (m-1)-simplex, shifted by the oriented hub pair and twisted by the sign of any hub exchange. The integral augmented differential is contraction by epsilon on exterior powers of Z^L; splitting Z^L=ker epsilon ⊕ Z e_l0 shows the only relative homology is wedge^(r-2) ker epsilon in degree r-1, with no torsion. The long exact sequence is equivariant because A is invariant and contractible. For r>=m+2 X is the full simplex, and for r=1 X=A is contractible; r=2 gives the correct trivial exterior power with hub sign. The rational character is eta(g)[z^(r-2)] det(I+z P_g)/(1+z), with cycle factors. Independent checks for a=b=3,r=4 gave rank 10, hub-block-swap trace 2, matching the 6+4 eigenspace split. The checked finite example does not replace the proof for all a,b,r.
 
-Deshpande and Singh's 2020/2021 Theorem 3.10 and Corollary 3.13 already give the exact ordinary sphere-wedge homotopy type of every double star. **That result is prior coverage, and is excluded from the claimed novelty.** Their fully inspected primary text does not give the integral module structure, and its nonequivariant Morse matching does not imply a character formula. Subsequent papers by Abdelmalek et al. (2021), Ghosh and Selvaraja (2025) and Sawant (2026) address shellability and vertex decomposition, not the full automorphism action on integral homology. Targeted searches of mathematical records and literature did not identify an equivalent module theorem. The remaining risk is an unindexed or implicit equivariant version of the earlier Morse matching; independent comparison is still needed.
+## originality
 
-## Value — PASS
+PASS
 
-The new object is the natural integral representation of the full graph-automorphism group on the only nonzero homology group, not a recomputation of its rank. For all sizes and thresholds the lattice is a canonical exterior power of the leaf augmentation kernel with a hub-exchange sign. This distinguishes group actions invisible to the known wedge count: for the six-leaf balanced double star at threshold four the hub interchange has trace two and gives \(6\)- versus \(4\)-dimensional rational eigenspaces. The structural chain model and exact character formula supply reusable symmetry information about a natural caterpillar family. The result does not assert any downstream general-tree theorem.
+Deshpande-Singh Theorem 3.10 and Corollary 3.13 already cover the entire double-star ordinary wedge homotopy type and binomial Betti ranks, which are NOT original here. The surviving claim identifies the full integral leaf-augmentation exterior-power lattice with the hub-exchange twist and all characters, an equivariant refinement that is not implied by a nonequivariant wedge. Later general tree vertex decomposability and chordal shellability do not determine integral action. No exact module statement found in bounded Resultary/primary searches.
 
-## Closest source and limitations
+## value
 
-The closest full-text predecessor is arXiv:2001.05448v2, Theorem 3.10 and Corollary 3.13; it **fully covers** the ordinary homotopy statement but not the integral automorphism module claimed here. arXiv:2605.25150v1 is the recent primary motivation and establishes vertex decomposability of all higher tree-independence complexes. arXiv:2106.10863 and arXiv:2505.06614 contribute shellability/vertex-decomposability context. This work does not claim a full equivariant homotopy equivalence, fixed-point classification, or independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The automorphism action is a natural invariant of the double-star family, which has substantial S_a×S_b and sometimes block-exchange symmetry. Identifying the full integral lattice, rather than only rational traces or known ordinary homotopy, distinguishes hub-exchange behavior and provides a reusable character formula simultaneously for all thresholds and leaf sizes. The precise twist matters for any later equivariant or quotient analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
