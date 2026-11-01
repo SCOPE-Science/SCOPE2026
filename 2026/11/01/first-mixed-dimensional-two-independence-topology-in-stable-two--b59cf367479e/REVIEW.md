@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The canonical graph definition and the degree-at-most-one face criterion are equivalent to the two-independence definition. The finite face enumeration is exhaustive by deleting the maximum indexed vertex. Every matching is explicitly reproducible, and the checker topologically sorts every reversed face-incidence graph. The signed integer Morse differentials are constructed from the actual matchings; their squares vanish. Unimodular row/column eliminations use only integer unit pivots and end at zero, proving exactly the asserted free homology ranks. With a single one-cell killed by a degree-one two-cell, the two-skeleton becomes a wedge of two-spheres; by Hurewicz the remaining three-cell maps are exactly their integral degree columns. Thus the unit cancellations establish homotopy types, not just Betti vectors. An independent direct mod-two calculation agrees. The result makes no claim outside the seven checked parameter values.
+
+## Originality — PASS against checked literature
+Braun's Theorem 1.4 treats ordinary \(\operatorname{Ind}(SG_{2,k})\), not two-independence. Deshpande–Singh's higher-independence classification lists complete multipartite, fully whiskered, path, cycle and perfect-tree families, not stable two-subset Kneser graphs. Chordal higher-independence theorems do not apply, because the graph at the decisive stage has the explicitly exhibited induced four-cycle. Related indexed results on ordinary stable-Kneser dihedral characters and on a different Schrijver parameter have different hypotheses and statements. Searches also included the synonyms dissociation complex, induced maximum degree one, stable chords and the exact \(k=6\) numerical ranks. No result that implies this complete initial segment was found; an unindexed equivalent remains possible.
+
+## Value — PASS
+The original stable-Kneser independence complex has a known single-degree two-sphere wedge classification. Higher independence permits disjoint chord pairs and can change dimension. The seven initial chromatic parameters show a precise first transition: two independent third-homology generators arise at \(k=6\), where earlier stages have none. This is a motivated qualitative boundary for a classical vertex-critical graph family, not an arbitrary graph or an insignificant numerical correction. Exact integral homotopy types go beyond the mod-two experiment; they form a reproducible starting point for analysis of larger parameters. No general formula is claimed.
+
+## Closest sources and remaining risks
+Primary full-text comparisons: Braun, arXiv:0912.0720, theorem and proof of the ordinary stable-Kneser case; Deshpande–Singh, arXiv:2001.05448, definitions and the listed complete family classifications; Abdelmalek et al., arXiv:2106.10863, chordal applicability. Other relevant indexed results are restricted to ordinary independence or different Kneser constructions. Residual risk: an unindexed preprint or indirect reduction could cover these exact two-independence stages. Independent audit and validation have not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
