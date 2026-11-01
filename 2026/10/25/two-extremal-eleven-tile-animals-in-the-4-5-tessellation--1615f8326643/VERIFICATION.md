@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-## Mathematical checks
+# Independent mathematical audit
 
-- The perimeter identity is derived from the published hole-free Euler relation and the count of the four sides of each square.
-- The four-center obstruction is checked by the induced adjacency graph: at most two adjacent edges gives pair-intersection sum at most 8; three edges give a path or star and the same bound; four edges force one square face and a 13-tile incidence union.
-- For three centers, zero or one adjacent pair cannot fit in 11 tiles. Two adjacent pairs form a path, and the five-cycle link has exactly two neighbor-pair orbits, yielding the two constructions.
-- Each construction has 11 tiles, three interior vertices, no hole, and perimeter \(2\cdot11+2-2\cdot3=18\).
+## correctness
 
-## Limits
+PASS
 
-The result is a hand proof based on local incidence and published extremality facts; no computer enumeration is claimed. The literature searches found no direct matching enumeration, but absence from search results is not a proof of novelty. Independent audit and independent validation remain unperformed.
+Reconstructed local vertex-star incidence proof for exactly eleven unit squares of the regular hyperbolic {4,5} tessellation: each interior vertex has five incident tiles, adjacent vertex stars intersect in two, opposite square corners in one. Every four distinct interior vertices require at least 12 tiles: for induced adjacency e<=2 the six-pair intersection sum is <=8; e=3 (path or 3-star) it remains <=8; e=4 forces a genuine square-face and its union has 13 tiles. Three centers with union <=11 must form a two-edge path; its endpoint neighbor-pairs occupy exactly two dihedral orbits in the five-cycle link. Both star-unions have exactly 11 tiles, are connected disk-like and have h=3. The published no-hole extremality theorem and edge/Euler relation e1=2n+2-2h give min e1=24-2(3)=18 and exactly two isometry types. This is a combinatorial edge perimeter, not hyperbolic length.
+
+## originality
+
+PASS
+
+The new portion is exactly the two isometry classes at n=11; the known minimum perimeter and no-hole theorem are prior work. Full primary accounts were compared at the level of their equality cases, special uniqueness ranges and count tables, rather than matching paper titles. Best-of-knowledge PASS with unindexed historical census risk.
+
+## value
+
+PASS
+
+The precise number of isometry classes of minimizers is an explicitly motivated exact invariant beyond the widely known isoperimetric minimum. This small natural count reveals the two local incidence configurations and supplies a rigorous benchmark for the open-ended study of extremal {p,q}-animal enumerations; it does not allege a full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,21 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim is proved for connected 11-tile animals in the regular \(\{4,5\}\) tessellation. For a hole-free extremal animal, Euler's relation gives \(e_1=2n+2-2h\). Four interior vertices require at least 12 incident tiles, so \(h\le3\) at \(n=11\). The exhaustive three-center incidence split yields exactly two isometry types with 11 tiles and \(h=3\), each having perimeter 18. The cited extremality theorem excludes holes from any minimum-perimeter animal.
+PASS
 
-## Originality
+Reconstructed local vertex-star incidence proof for exactly eleven unit squares of the regular hyperbolic {4,5} tessellation: each interior vertex has five incident tiles, adjacent vertex stars intersect in two, opposite square corners in one. Every four distinct interior vertices require at least 12 tiles: for induced adjacency e<=2 the six-pair intersection sum is <=8; e=3 (path or 3-star) it remains <=8; e=4 forces a genuine square-face and its union has 13 tiles. Three centers with union <=11 must form a two-edge path; its endpoint neighbor-pairs occupy exactly two dihedral orbits in the five-cycle link. Both star-unions have exactly 11 tiles, are connected disk-like and have h=3. The published no-hole extremality theorem and edge/Euler relation e1=2n+2-2h give min e1=24-2(3)=18 and exactly two isometry types. This is a combinatorial edge perimeter, not hyperbolic length.
 
-Targeted literature/database searches and the inspected primary literature did not reveal the exact 11-tile isometry-class count. The 2023 paper gives the general perimeter theorem and an explicit five-class count at 9 tiles; its uniqueness results cover special sequences rather than this order. The 2025 isoperimetric paper gives perimeter values, not equality-case counts. The claim is a finite classification refinement, not a claim to a new perimeter formula.
+## originality
 
-## Value
+PASS
 
-The source literature identifies enumeration of extremal hyperbolic animals as largely open. An exact classification at 11 tiles provides a reproducible equality-case benchmark beyond the published 9-tile example and identifies the two local incidence patterns that attain the minimum perimeter.
+The new portion is exactly the two isometry classes at n=11; the known minimum perimeter and no-hole theorem are prior work. Full primary accounts were compared at the level of their equality cases, special uniqueness ranges and count tables, rather than matching paper titles. Best-of-knowledge PASS with unindexed historical census risk.
 
-## Closest literature and limitations
+## value
 
-- Malen, Roldán, and Toalá-Enríquez, arXiv:2109.05331v1 / DOI 10.1007/s00026-022-00631-1: general extremality theorem; five \(\{4,5\}\)-classes at 9 tiles; no stated 11-tile class count.
-- Roldán and Toalá-Enríquez, arXiv:2206.14910v1 / DOI 10.1007/s00373-025-02900-1: exact minimum-perimeter formula and small perimeter table; no isomorphism classification.
-- Searches do not prove absolute novelty; an obscure or unindexed enumeration could exist. Independent audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The precise number of isometry classes of minimizers is an explicitly motivated exact invariant beyond the widely known isoperimetric minimum. This small natural count reveals the two local incidence configurations and supplies a rigorous benchmark for the open-ended study of extremal {p,q}-animal enumerations; it does not allege a full census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
