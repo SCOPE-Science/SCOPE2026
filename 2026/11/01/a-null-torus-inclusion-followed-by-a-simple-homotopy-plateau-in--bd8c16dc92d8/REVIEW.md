@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The result is an exact finite statement with a fully specified graph, filtration and orientation convention. The standalone checker recomputes all faces by two independent component algorithms, confirms the torus link and orientability conditions, verifies the explicit signed 26-tetrahedron filling of the torus cycle, checks 897 face-poset incidences for an acyclic Morse matching, and derives a zero integer Morse boundary from oriented gradient paths. Its independent free-face verification supplies all 182 elementary-collapse steps from the third complex to the second. The conclusion that the middle complex is a sphere wedge follows from the degree-zero attaching maps and \(\pi_2(S^2)\cong\mathbb Z\); nullhomotopy of the torus inclusion follows from two-dimensional obstruction theory and the exhibited integer filling. Finite calculations here are exhaustive for the fixed 13-vertex graph, not extrapolations to an infinite class.
+
+## Originality — PASS against inspected evidence
+The January 2020 higher-independence family classification, the 2020 connectivity/chordal result and the 2021 chordal higher-independence paper were compared at the theorem level with the exact Paley-13, cutoff-two/three and inclusion-map claims. The relevant papers concern other families or impose chordality, and the Paley-13 torus discussed in 2023 provides only the initial topological stage. Searches under Paley-13, conference-graph, higher-independence, simple collapse and homotopy/persistence aliases located no equivalent classification. Available neighboring finite graph computations treat different graphs or simplicial constructions. The residual risk is an unindexed result or an implicit specialization of a general algorithm not identified in the inspected material.
+
+## Value — PASS
+This natural, exceptionally symmetric conference graph has a classical torus triangulation at the ordinary independence stage. The previously unclassified higher-independence stages show a nontrivial homotopy change and a genuine simple-homotopy plateau. Crucially, the first inclusion kills the fundamental torus class despite equality of the integral second-Betti numbers, so Betti numbers alone cannot recover its persistence behavior. The explicit integral filling and free-face collapse offer reusable structural certificates for this canonical finite case. The scope is one graph; general Paley-family behavior and an independent assessment remain open.
+
+Self-review: passed. Independent audit: not yet performed.

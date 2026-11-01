@@ -1,0 +1,44 @@
+# A null torus inclusion followed by a simple-homotopy plateau in Paley-13 higher-independence complexes
+
+## Finding
+For the thirteen-vertex Paley graph \(P_{13}\), write \(K_r=\operatorname{Ind}_r(P_{13})\) for the simplicial complex whose faces are vertex sets inducing components of order at most \(r\). The first three stages have integral homotopy types
+\[
+K_1\simeq T^2,\qquad
+K_2\simeq S^2\vee S^3\vee S^3,\qquad
+K_3\searrow K_2.
+\]
+Here \(K_3\searrow K_2\) is a literal sequence of 182 elementary simplicial collapses. Moreover, the natural inclusion \(K_1\hookrightarrow K_2\) is **nullhomotopic**, even though both complexes have integral second homology isomorphic to \(\mathbb Z\). Thus the degree-two homology class at the second stage is newly generated, not inherited from the torus. The middle-stage complex is pure three-dimensional but nonshellable.
+
+## Assumptions and scope
+Use the vertex set \(V=\{0,1,\ldots,12\}=\mathbb F_{13}\), with distinct vertices \(i,j\) adjacent precisely when \(i-j\pmod {13}\) belongs to the quadratic residues \(\{1,3,4,9,10,12\}\). For \(r\in\{1,2,3\}\), \(K_r\) consists of all subsets \(U\subseteq V\) for which every connected component of the induced subgraph \(P_{13}[U]\) has at most \(r\) vertices. No claim is made for larger Paley graphs or larger cutoffs. Homotopy equivalences are for the geometric realizations of the finite abstract simplicial complexes, and integral chains have increasing-vertex orientation.
+
+For reproducibility, a nonnegative integer mask \(m\) denotes the subset \(\{i:(m\mathbin{\&}2^i)\ne0\}\). A certificate gives oriented chains as pairs \((m,\pm1)\), a fixed toggle-matching order, the expected critical faces, and the exact parameters checked by the accompanying standalone Python checker.
+
+## Proof
+**(1) The initial torus.** Direct examination of the \(2^{13}\) vertex subsets gives 13 vertices, 39 edges and 26 triangles in \(K_1\), with no higher faces. Every edge occurs in exactly two triangles, the complex is connected, and every vertex link is a connected six-cycle. Consequently \(K_1\) is a closed connected triangulated surface. The supplied signed sum \(z\) of its 26 triangles satisfies \(\partial_2 z=0\) and uses every triangle with coefficient \(\pm1\), proving orientability. Since \(\chi(K_1)=13-39+26=0\), the classification of compact orientable surfaces gives \(K_1\cong T^2\).
+
+**(2) Integral Morse model for the middle stage.** Enumerating the same vertex subsets yields precisely 313 faces of \(K_2\), including the empty face. In the fixed vertex order \((10,4,12,0,6,1,5,2,8,11,9,3,7)\), toggle the first available vertex in every unmatched face. This pairs 155 faces in the augmented face poset, including the empty face and \(\{10\}\). Keeping \(\{10\}\) instead gives an ordinary discrete-Morse matching of 154 pairs, with only four critical cells: \(\{10\}\) in dimension zero, the triangular face of mask 4129 in dimension two, and tetrahedral faces of masks 680 and 780 in dimension three.
+
+The accompanying checker constructs the full directed Hasse graph, directs matched incidences upward and all other incidences downward, and topologically sorts all 312 nonempty faces and 897 cover incidences. Hence the matching is acyclic, and discrete Morse theory gives a CW complex with one 0-cell, one 2-cell, and two 3-cells. The exact signed gradient-path boundary from the two 3-cells to the 2-cell is \((0,0)\); the checker derives this from oriented simplicial boundaries and recursive elimination, rather than only from field ranks. The 2-skeleton of the Morse CW complex is \(S^2\), and the Hurewicz isomorphism \(\pi_2(S^2)\cong H_2(S^2;\mathbb Z)\) identifies these two attaching degrees. Since both are zero, the two attaching maps are nullhomotopic. Therefore \(K_2\simeq S^2\vee S^3\vee S^3\), with integral homology free in every degree.
+
+**(3) The torus fundamental class dies by an explicit filling.** The signed torus cycle \(z\) and a 26-tetrahedron signed chain \(c\) are embedded in `CERTIFICATE.json`. Every tetrahedron of \(c\) is a face of \(K_2\), and direct oriented integral boundary calculation gives the exact chain equality \(\partial_3 c=z\). The torus orientation class thus maps to zero in \(H_2(K_2;\mathbb Z)\). Since \(K_2\) is simply connected and homotopy equivalent to \(S^2\vee S^3\vee S^3\), a map from a two-dimensional CW complex to \(K_2\) is nullhomotopic when its degree-two obstruction in \(H^2(-;\pi_2(K_2))\) vanishes. For the oriented torus the obstruction corresponds under Hurewicz to the image of its fundamental class, which has just been shown zero. Hence the full inclusion \(K_1\hookrightarrow K_2\) is nullhomotopic, not merely zero on homology.
+
+**(4) A simple-homotopy plateau.** The complex \(K_3\) has 677 augmented faces, 364 more than \(K_2\). Starting from \(K_3\), repeatedly choose the lexicographically first face \(\sigma\notin K_2\) with a unique immediate coface \(\tau\notin K_2\), where \(\tau\) is maximal in the remaining complex, and remove \(\sigma,\tau\). The checker independently verifies the free-face property at each step, terminates after 182 removals, and confirms the exact remaining collection is \(K_2\). Thus \(K_3\searrow K_2\) by elementary collapses; the inclusion \(K_2\hookrightarrow K_3\) is a simple-homotopy equivalence.
+
+**(5) Nonshellability.** The 78 facets of \(K_2\) all have four vertices, so \(K_2\) is pure of dimension three. A pure shellable complex has reduced homology only possibly in its top dimension, whereas \(\widetilde H_2(K_2;\mathbb Z)=\mathbb Z\). Therefore it is nonshellable.
+
+## Verification
+Run `python3 check_paley13.py CERTIFICATE.json` with Python 3's standard library; `VERIFY_OUTPUT.txt` contains the exact output of a successful run. The checker independently recomputes induced connected components via graph search and union-find for all 8,192 vertex sets at each cutoff, verifies face closure and the torus surface links, evaluates all signed boundaries of the 26-term chains, checks acyclicity of the full Morse face-poset orientation, computes the exact integer Morse differential, and verifies all 182 actual elementary simplicial collapses. Independent ordinary simplicial homology over characteristics 2, 3 and 5 gives ranks \((\beta_0,\beta_1,\beta_2)=(1,2,1)\) for \(K_1\) and \((\beta_0,\beta_2,\beta_3)=(1,1,2)\) for \(K_2,K_3\). These field ranks are corroboration; the integral statements come from the explicit signed chain and Morse reductions.
+
+## Relationship to prior work
+Deshpande and Singh's higher-independence results (first public January 15, 2020) establish definitions and classify other graph families, including complete multipartite graphs, cycles, whiskered graphs and perfect rooted trees; their theorems do not imply these three Paley-13 stages or their inclusion maps. Deshpande, Shukla and Singh and Abdelmalek and collaborators analyze connectivity or shellability, principally under chordality assumptions that fail for this graph. Jones and Mačaj describe a natural torus embedding of the Paley graph of order thirteen; its existence does not imply the two higher-independence homotopy types or the filling of the torus class. Nearby computations for independence complexes of other highly symmetric graphs and for related but different simplicial complexes do not imply the present filtration result. The key new object is the induced-component-cutoff filtration and the explicit behavior of its maps, not the pre-existing torus triangulation.
+
+## Limitations
+This is an exhaustive, reproducible finite classification for the standard graph on thirteen vertices, not a theorem for all conference graphs or Paley graphs. No general formula for \(\operatorname{Ind}_r(P_q)\) is asserted. The computations establish the recorded full finite incidence checks, not a formal proof assistant certificate; the mathematical implications from the integral Morse model and two-dimensional obstruction theory are given above. Bibliographic searches, even with relevant full-text inspection, cannot exclude unindexed equivalent results. Independent review has not been carried out.
+
+## References
+1. P. Deshpande and A. Singh, *Higher Independence Complexes of graphs and their homotopy types*, arXiv:2001.05448, first public January 15, 2020.
+2. P. Deshpande, S. Shukla and A. Singh, *Distance \(r\)-domination number and \(r\)-independence complexes of graphs*, arXiv:2001.06775, first public January 19, 2020.
+3. F. M. Abdelmalek, P. Deshpande, S. Goyal, A. Roy and A. Singh, *Chordal graphs, higher independence and vertex decomposable complexes*, arXiv:2106.10863, first public June 21, 2021.
+4. G. A. Jones and M. Mačaj, *Regular dessins with primitive automorphism groups*, arXiv:2303.11808, first public March 21, 2023.
+5. R. Forman, *Morse theory for cell complexes*, Advances in Mathematics **134** (1998), 90–145.
