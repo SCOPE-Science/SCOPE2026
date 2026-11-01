@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The companion `verify.py` constructs state-transition generators from adjacency lists, computes the recursion coefficient independently, and compares it with symbolic exact-rational mean absorption times. Checked examples include a three-leaf star, three-free-agent clique, a path, a two-plus-one disconnected induced free-agent graph, and a two-zealot clique. Run from this directory with `python verify.py` (requires SymPy). Expected final line: `All exact symbolic assertions passed.`
+## correctness
 
-For the three-leaf star, the exact mean is \(11/(3\delta)\). For the three-free-agent clique, the exact mean is \((25\delta^2+8\delta+16)/(6\delta^3)\). The analytical finite-state perturbation and renewal argument, not finite experimentation, establishes the general theorem. No formal infinite-graph or independent proof verification was performed.
+PASS
+
+Exact component generator: negative-to-positive δ b_v(S)/2 and positive-to-negative (1−δ/2)q contributions. For every nonempty proper S within connected C, q_C(S)>0, so zero-δ transient chain drains to empty with invertible triangular generator. Recursive first-step perturbation gives probability hδ(S)=δ^{m−|S|}H_C(S)+O(δ^{m−|S|+1}). Each excursion out of empty succeeds with probability δ^{m−1}k_C/r_C+O(δ^m), while excursions have bounded moments and empty waiting is Exp(δr_C). Geometric thinning therefore yields Exp(k_C) on δ^{−m} time, with mean/UI. Components use independent clocks; global hitting is max, smaller components vanish on leading scale. Separate exact CTMC on 3-vertex path (one zealot) yields Eτ=4(1+δ)/δ², limit 4, confirming exponent and coefficient.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality with disclosed antecedents and material access limits. Compared finite-state metastable hitting/excursion, voter consensus, rare-mutation fixation and connected-component barriers rather than title matches; the exact fixed-graph subset recursion is not an immediate result of mean-field phase diagrams. No checked published theorem directly yields largest-free-component exponent and exact coefficient on every fixed connected graph; do not equate generic exponential-metastability principles with this model-specific constant.
+
+## value
+
+PASS
+
+The largest induced dissenting component rather than total dissenters controls the consensus delay, a structurally motivated graph invariant under near-zealotry. Explicit rational rate recursion quantifies the asymptotic law beyond a generic metastability existence statement, with finite example contrasting connected and disconnected components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

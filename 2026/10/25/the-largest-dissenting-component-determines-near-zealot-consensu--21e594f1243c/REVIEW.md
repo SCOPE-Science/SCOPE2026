@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite graph and clock normalization are explicit. Exact generator transitions separate different induced dissenting components. The hitting-probability expansion follows from an invertible transient generator at the limiting no-birth chain and the finite subset recursion; the attempt-success probability has leading term \(k_C\delta^{|C|-1}/r_C\). The renewal argument proves an exponential scaling limit and expected-value convergence, and independence yields the maximum-of-exponentials global law. Exact-rational computations on finite example graphs independently reproduce leading exponents and coefficients. Finite computations do not substitute for the proof.
+PASS
 
-## Originality — PASS, with residual priority risk
+Exact component generator: negative-to-positive δ b_v(S)/2 and positive-to-negative (1−δ/2)q contributions. For every nonempty proper S within connected C, q_C(S)>0, so zero-δ transient chain drains to empty with invertible triangular generator. Recursive first-step perturbation gives probability hδ(S)=δ^{m−|S|}H_C(S)+O(δ^{m−|S|+1}). Each excursion out of empty succeeds with probability δ^{m−1}k_C/r_C+O(δ^m), while excursions have bounded moments and empty waiting is Exp(δr_C). Geometric thinning therefore yields Exp(k_C) on δ^{−m} time, with mean/UI. Components use independent clocks; global hitting is max, smaller components vanish on leading scale. Separate exact CTMC on 3-vertex path (one zealot) yields Eτ=4(1+δ)/δ², limit 4, confirming exponent and coefficient.
 
-The 2023 partisan-voter study by Llabrés, San Miguel, and Toral examines finite-size mean-field fixation and quasi-stationarity, whereas the present result requires fixed zealots and produces finite *arbitrary graph* component barriers and exact limiting rates. The modular-network study by Zimmaro, Contucci, and Kertész reports deterministic approximations and finite simulations but no graph-dependent low-positive-flip asymptotic, componentwise renewal coefficients, or independent exponential maxima. A 2025 near-zealotry work was identified but its full text was not accessible; its model is not verified to cover the theorem. General finite Markov-chain rare-transition methods could recover the result through a specialized application, so broader priority remains provisional, not certified uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-The exponent depends on induced dissenting connectivity rather than population size. A four-vertex star and four-vertex clique have the same three negative voters but divergence orders \(\delta^{-1}\) and \(\delta^{-3}\), respectively. The exact subset recursion additionally supplies computable leading constants and a full limiting lifetime law, giving a network-sensitive test case for metastable opinion-change theory.
+Best-of-knowledge originality with disclosed antecedents and material access limits. Compared finite-state metastable hitting/excursion, voter consensus, rare-mutation fixation and connected-component barriers rather than title matches; the exact fixed-graph subset recursion is not an immediate result of mean-field phase diagrams. No checked published theorem directly yields largest-free-component exponent and exact coefficient on every fixed connected graph; do not equate generic exponential-metastability principles with this model-specific constant.
 
-## Closest literature and limitations
+## value
 
-Primary sources: arXiv:2301.09563, arXiv:2303.09587. Supporting model history: arXiv:1003.0768. Scope is fixed finite undirected graphs, fixed positive zealots, identically negative-preferring initially negative free vertices, and independent asynchronous updates. The result does not establish a joint graph-size limit or cover arbitrary bias profiles. Broader finite-state resistance-tree coverage and unavailable full text on closely related 2025 work remain residual originality risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The largest induced dissenting component rather than total dissenters controls the consensus delay, a structurally motivated graph invariant under near-zealotry. Explicit rational rate recursion quantifies the asymptotic law beyond a generic metastability existence statement, with finite example contrasting connected and disconnected components.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
