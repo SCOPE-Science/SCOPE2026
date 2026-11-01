@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** All factor types are handled. A factor with both marked symbols has a marker-bearing border exactly when both outer zero-gaps are at most the middle gap; a zero-only border supplies the diagonal cases. Closed palindromes contribute exactly the word length, and the off-diagonal marker-bearing factors contribute the product correction. The max problem is an exact two-integer optimization, not an inference from finite data. The bundled checker independently reconstructs 680 complete closed-factor sets through length 16, confirms all maxima through length 100, and checks the zero/one-marker boundary through length 34. Main limitation: no separate formal proof certification.
+PASS
 
-## Originality
+PASS. Exhaustively classify closed factors by 0,1,2 marker occurrences and number of internal proper-border occurrences. Closed palindromes contribute exactly n; other closed factors have two markers and unequal outer gaps i!=j with i<=min(a,b),j<=min(b,c), giving max(A,B)(min(A,B)+1). Optimization over p<=q, p+2q<=n-2 gives exact 3-residue piecewise maxima and complete maximizing gap triples. The simplex Riemann integral gives mean n²/36+O(n). Independently brute-enumerated the entire set of distinct closed factors for all 680 words length 2..16 with exactly two 1s; verified boundary n=2,3 and maximizing tuples. This finite test alone would not establish all lengths, which use the factor argument.
 
-**PASS with residual priority uncertainty.** Badkobeh–Fici–Lipták establish the general closed-factor theory, the empty-word convention, and the possibility of quadratic behavior; their unrestricted length table and a block-rich construction do not imply the sharp two-one formula or optimizer list. The 2016 closed-factorization paper concerns substring algorithms, but its full manuscript could not be examined, so an undocumented special-case theorem cannot be ruled out. A search across complete-return, periodic-like, closed-factor, and fixed-Hamming-weight terminology, indexed related results, and the accessible original research records found no dominating statement. Negative searches alone do not prove novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The exact formula yields a complete sparse-family classification with sharp all-length maximizers and identifies the minimum number of minority-symbol occurrences needed for quadratic closed-factor richness. This strengthens the qualitative interpretation of the classical quadratic construction: a single marker gives linear complexity, but two markers already produce a quadratic family. The exact constrained extremum and limiting average are natural quantities independently motivated by closed-factor complexity, rather than arbitrary finite table entries.
+PASS best-of-knowledge for all-length formula at EXACT Hamming weight two, its precise optimizing zero-gap triples, and the minimal fixed minority support for quadratic closed-factor growth. Unrestricted quadratic constructions/finite tables exist but do not mathematically supply this complete restricted classification.
 
-## Sources and limits
+## value
 
-Primary: G. Badkobeh, G. Fici, and Zs. Lipták, *On the Number of Closed Factors in a Word*, arXiv:1305.6395 (2013). Relevant but not fully accessible: G. Badkobeh et al., *Closed factorization*, Discrete Applied Mathematics 212 (2016), 23–29, doi:10.1016/j.dam.2016.04.009. Prior results on unrestricted maxima do not settle the fixed-weight-two question. The bounded primary-text access risk remains explicit, and independent validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. A complete exact closed-factor count for every binary word with two occurrences of one letter, all extremal configurations, and a sharp two-marker transition to quadratic complexity is a natural structural refinement of a widely studied word-complexity invariant. This is neither merely a small census nor an arbitrary unmotivated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

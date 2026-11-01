@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:15:51.582293Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 74ce00108bd9b9068ee2859b737a6ba95917b24c",
+        "Assigned verify.py blob ed5392b6683ca3911c06b5f8baa1b6552736356f",
+        "independent_batch_checks.py: 680 full-word enumerations"
+      ],
+      "rationale": "PASS. Exhaustively classify closed factors by 0,1,2 marker occurrences and number of internal proper-border occurrences. Closed palindromes contribute exactly n; other closed factors have two markers and unequal outer gaps i!=j with i<=min(a,b),j<=min(b,c), giving max(A,B)(min(A,B)+1). Optimization over p<=q, p+2q<=n-2 gives exact 3-residue piecewise maxima and complete maximizing gap triples. The simplex Riemann integral gives mean n²/36+O(n). Independently brute-enumerated the entire set of distinct closed factors for all 680 words length 2..16 with exactly two 1s; verified boundary n=2,3 and maximizing tuples. This finite test alone would not establish all lengths, which use the factor argument.",
+      "residual_risks": [
+        "Definition excludes empty word; standard literature often counts it, shifting all totals by one."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Badkobeh–Fici–Lipták establish binary quadratic closed-factor growth with a repeated-block construction and tabulate unrestricted maxima at finite lengths.",
+          "Their Theorem 25 constructs quadratic abundance with blocks of repetitions, not exact two isolated markers."
+        ],
+        "reasoning": "An existence construction for unrestricted binary words neither fixes exactly two ones nor gives all-gap exact counts, all maximizers, or mean. The prior unrestricted theorem is broader in words but weaker/different in requested exact statistic.",
+        "searches": [
+          "Resultary: closed factors binary words with exactly two ones exact closed factor complexity maximum",
+          "arxiv:1305.6395"
+        ]
+      },
+      "checked_sources": [
+        "Badkobeh–Fici–Lipták arxiv:1305.6395 full PDF",
+        "Closed factorization 2016 DOI 10.1016/j.dam.2016.04.009 (abstract only)",
+        "Resultary: closed factors binary words with exactly two ones exact closed factor complexity maximum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2013 paper defines closed factors and proves they can be quadratic; its construction does not prove weight two is the minimum minority support.",
+          "2016 Closed factorization accessible abstract describes algorithms/factorizations, not complete fixed-weight-two enumeration."
+        ],
+        "reasoning": "The candidate proves a sharp different fixed-Hamming-weight theorem, not a special case automatically implied by unrestricted extremal lower bounds; the 2016 article full text was not accessible, so no whole-paper NOT_COVERING judgment.",
+        "searches": [
+          "arxiv:1305.6395",
+          "Resultary: closed factors binary words with exactly two ones exact closed factor complexity maximum",
+          "DOI:10.1016/j.dam.2016.04.009"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Closed factors are complete returns to a proper border, also termed periodic-like factors.",
+          "The candidate class is precisely words of form 0^a1 0^b1 0^c, including nonpalindromic complete returns."
+        ],
+        "reasoning": "The fixed-weight-two complete-return classification is the equivalence target; checking only titles with closed-factor wording would be insufficient.",
+        "searches": [
+          "Resultary: closed factors binary words with exactly two ones exact closed factor complexity maximum",
+          "arxiv:1305.6395",
+          "complete first return periodic-like word with two rare symbols closed factors"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published table gives unrestricted binary closed-rich maxima for a few n, not a fixed minority weight-two all-length enumeration.",
+          "Resultary record classifies unrestricted binary maxima at n=25–27; its maximizing patterns differ from the fixed-weight-two family."
+        ],
+        "reasoning": "No inspected table contains the exact three-gap formula or all optimizer tuples. Failure of lookup cannot establish historical priority.",
+        "searches": [
+          "Resultary: closed factors binary words with exactly two ones exact closed factor complexity maximum",
+          "Resultary record 2026/10/4/SCOPE-exact-binary-closed-rich-maxima-at-lengths-25-27--86328d0d91d6"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for all-length formula at EXACT Hamming weight two, its precise optimizing zero-gap triples, and the minimal fixed minority support for quadratic closed-factor growth. Unrestricted quadratic constructions/finite tables exist but do not mathematically supply this complete restricted classification.",
+      "residual_risks": [
+        "Full 2016 Closed factorization paper was inaccessible; it might contain an overlooked exact sparse-letter formula.",
+        "Alternative complete-return terminology may conceal earlier classification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precedes all basic definitions and unrestricted quadratic lower bounds, but does not provide the exact fixed-two-marker formula in relevant argument.",
+          "evidence": [
+            "Theorem 25 uses repeated blocks and is not the universal classification of words with precisely two ones."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1305.6395",
+          "material_read": "Primary 10-page PDF, definitions, quadratic-growth construction, Theorem 25 and tabulated unrestricted extremal results; page 8 inspected as PDF image.",
+          "method": "full primary text with section inspection and PDF screenshot",
+          "title": "On the Number of Closed Factors in a Word",
+          "trigger": "original closed-factor extremal theorem"
+        },
+        {
+          "assessment": "Cannot assert whole-document noncoverage; preserve explicit priority risk.",
+          "evidence": [
+            "Abstract focuses longest/shortest closed factor algorithms; possible hidden fixed-weight corollary not assessed."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2016.04.009",
+          "material_read": "Abstract and bibliographic data only; full text inaccessible.",
+          "method": "publisher abstract; authorized request returned safety block, no retry or bypass",
+          "title": "Closed factorization",
+          "trigger": "plausible earlier specialized complete-return calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Badkobeh–Fici–Lipták original closed-factor complexity problem"
+      ],
+      "rationale": "PASS. A complete exact closed-factor count for every binary word with two occurrences of one letter, all extremal configurations, and a sharp two-marker transition to quadratic complexity is a natural structural refinement of a widely studied word-complexity invariant. This is neither merely a small census nor an arbitrary unmotivated numerical slice.",
+      "residual_risks": [
+        "Does not solve unrestricted binary maximum or other fixed Hamming weights."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Words linear; alphabet {0,1}; distinct nonempty closed factors; zero/one-marker boundary separate."
+  ],
+  "schema_version": 1
+}

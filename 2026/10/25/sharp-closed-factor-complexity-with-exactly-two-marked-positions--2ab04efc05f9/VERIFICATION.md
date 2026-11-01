@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-This result consists of a complete case classification of factors with zero, one, and two marked symbols; its maximization reduces to the integer optimization \(\max q(p+1)\) subject to \(0\le p\le q\) and \(p+2q\le n-2\). The proof in `RESULT.md` is the justification for every length.
+## correctness
 
-Run `python3 verify.py` in this directory. It independently enumerates all factors and tests borders with occurrence counts; it checks the full factor sets and all maximizers for lengths \(2\)–\(16\), the arithmetic maximizers for lengths \(17\)–\(100\), and the zero/one-marker boundary through length \(34\).
+PASS
 
-The enumerations are finite cross-checks, not substitutes for the proof or evidence of unpublished priority. The available 2013 primary text was compared at its definitions, extremal theorem, and table. One relevant 2016 article was available only through its abstract, leaving a bounded literature-priority risk.
+PASS. Exhaustively classify closed factors by 0,1,2 marker occurrences and number of internal proper-border occurrences. Closed palindromes contribute exactly n; other closed factors have two markers and unequal outer gaps i!=j with i<=min(a,b),j<=min(b,c), giving max(A,B)(min(A,B)+1). Optimization over p<=q, p+2q<=n-2 gives exact 3-residue piecewise maxima and complete maximizing gap triples. The simplex Riemann integral gives mean n²/36+O(n). Independently brute-enumerated the entire set of distinct closed factors for all 680 words length 2..16 with exactly two 1s; verified boundary n=2,3 and maximizing tuples. This finite test alone would not establish all lengths, which use the factor argument.
+
+## originality
+
+PASS
+
+PASS best-of-knowledge for all-length formula at EXACT Hamming weight two, its precise optimizing zero-gap triples, and the minimal fixed minority support for quadratic closed-factor growth. Unrestricted quadratic constructions/finite tables exist but do not mathematically supply this complete restricted classification.
+
+## value
+
+PASS
+
+PASS. A complete exact closed-factor count for every binary word with two occurrences of one letter, all extremal configurations, and a sharp two-marker transition to quadratic complexity is a natural structural refinement of a widely studied word-complexity invariant. This is neither merely a small census nor an arbitrary unmotivated numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
