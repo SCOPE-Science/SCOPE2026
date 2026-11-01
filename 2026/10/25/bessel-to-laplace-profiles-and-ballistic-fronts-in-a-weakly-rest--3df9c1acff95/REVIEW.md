@@ -1,11 +1,21 @@
-# Scientific self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The walk, restart convention, dark coin and quantifiers are explicit. The originating paper gives the ballistic spectral law and geometric stationary-age representation. Direct pushforward of the group velocity, renewal convergence and uniform integrability prove full weak convergence and moments. Elementary partial fractions provide the characteristic function, while local velocity and endpoint expansion give the center, far-tail and finite-time ballistic-front singularities with exact coefficients. The arcsine/two-point endpoint limits yield the Bessel and Laplace laws. The standalone verifier executes 41 finite numerical cross-checks; finite samples are not substitutes for the analytic limiting argument.
+## correctness
 
-**Originality — PASS under self-review, subject to specialist priority risk.** Das's arXiv:2609.08973v1 provides the model, dark coin, age mixture, ballistic spectral law and second moment, and these are excluded as antecedents. The new assessed result is the complete explicit elementary weak-reset spatial characteristic function, sharp central and far-tail constants, transient front amplitude and self-loop endpoint classification. Related network resetting, finite-qubit resetting and first-passage quantum-walk literature do not state this combined result in the material inspected; two related sources could be inspected only at abstract level. Broad renewal and spectral machinery might already imply parts of it. The submitted audit records actual related-record searches, closest distinct claims and the mathematical implication relationships; failed searches do not certify uniqueness.
+PASS
 
-**Value — PASS.** The global position density reveals a logarithmically singular central peak, a rare-displacement exponential tail and an inverse-square-root ballistic front that cannot be inferred from the published variance alone. The two physically motivated self-loop limits yield different explicit distributional families. This is a meaningful spatial-statistics refinement with direct interpretation, without asserting a new general resetting principle.
+The specified coin chi=(sqrt(ell),-2,sqrt(ell))/sqrt(2(ell+2)) is orthogonal to the flat band, so the existing dispersive ballistic law with group speed u=√(ell/(ell+2)) yields even velocity density rho(v)=√(1-u²)/(π(1-v²)√(u²-v²)) for |v|<u. The independent geometric age A_q has qA_q⇒Exp(1); joint ballistic/age convergence and |X_a|<=a with geometric tails give qX_stat⇒EV and convergence of all positive moments. Conditioning gives CF (1+ξ²√((1-u²)/(1+u²ξ²)))/(1+ξ²), checked via partial fractions; density g(y)=∫_0^u rho(v)e^{-|y|/v}dv/v. The rho(0) expansion gives log coefficient (1/π)√(2/ell), and the sqrt edge singularity plus Laplace method gives g(y)~sqrt((ell+2)/(4πu|y|)) exp(-|y|/u). At t=floor(z/q) the last age⇒min(E,z), and its mass e^-z at z produces inverse-sqrt ballistic front with exact stated prefactor. Sequential ell→0 after weak resetting gives K0/π for Y/u and ell→∞ gives symmetric Laplace. Fresh numerical coin Fourier-eigenspace checks verified dark overlap zero, equal dispersive weights and transform normalization for ell=.4,2,8. These are corroborations, not a proof of the originating spectral theorem.
 
-**Limitations.** Fixed loop weight before weak resetting; one-dimensional walk and dark initial coin; ensemble positions rather than monitored paths; sequential self-loop endpoints; only a self-review of proof and literature. No independent mathematical or novelty validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.
+
+## value
+
+PASS
+
+Exact entire macroscopic position density and characteristic function, with distinct logarithmic central singularity, exponential rare-displacement tail, ballistic moving edge and nontrivial K0/Laplace self-loop endpoints, reveal spatial information impossible to read from the previously known mean-square displacement alone. This is motivated physics/mathematics of a natural one-dimensional quantum walk, with precise limits.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
