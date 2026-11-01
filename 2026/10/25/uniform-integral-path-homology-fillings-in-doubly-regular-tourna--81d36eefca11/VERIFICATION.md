@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify_drt_path_h1.py` using Python 3.8+ standard library; compare with `verify_drt_path_h1.log`. The verifier checks Paley digraph arc orientations for \(7,11,19,23,31\) vertices, verifies tournament and pairwise-degree identities and enumerates every triple, including all common source/sink apexes and integral triangle boundaries. A separate procedure constructs finite regular degree-two boundary generators and performs exact modular elimination for Paley \(7\), Paley \(11\), and the cyclic seven-vertex tournament at primes \(2,3,5,101\).
+## correctness
 
-The expected final line is `VERIFY_OK_DRT_INTEGRAL_PATH_H1`. These tests do not give an infinite proof, do not establish integral homology by modular ranks alone, and make no claims about degree-two or higher homology. The full integral and uniform argument is written in `RESULT.md`.
+PASS
 
-Independent audit has not been performed.
+For directed cyclic triple a→b→c→a in a (4t+3)-vertex doubly regular tournament, each external d is a common in/out-neighbor of 3,1,or0 cycle edges. Double count over three pairs gives 6t=4t+2h, hence exactly h=t outside common dominating or dominated vertices. For t>=1, a cyclic triangle perimeter is the boundary of three individually transitive directed two-paths through an apex; a transitive triangle perimeter is one allowed path boundary. The triangles C(r,i,j) rooted at r form a unimodular integral basis of the 1-cycle lattice of the complete underlying graph, and coefficient sum ≤||z||_1, giving B with ∂B=z and ||B||_1≤3||z||_1. At t=0 a directed triangle has Ω2=0 so H1=Z. Independently enumerated Paley7,11,19 pair-neighbor counts and exactly t common apices of every directed triangle.
+
+## originality
+
+PASS
+
+GLMY papers introduce the regular directed path-chain complex but do not by themselves settle doubly regular tournament H1. The published cyclic tournament example with persistent integral H1 uses a different arc family, demonstrating that one-way tournament path homology is not always trivial. The uniform exact t cone count and bounded integer fillings add an object-specific quantitative theorem, subject to historical indexing limits.
+
+## value
+
+PASS
+
+The theorem gives an infinite-family integral homology vanishing result with a uniform linear ℓ1 chain-filling bound and exact local t-cone multiplicity. It distinguishes a canonical highly regular tournament family from cyclic tournaments with nonzero H1 and provides a reusable combinatorial filling mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

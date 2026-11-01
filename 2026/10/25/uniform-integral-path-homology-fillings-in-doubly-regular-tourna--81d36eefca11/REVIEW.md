@@ -1,15 +1,21 @@
-# Scientific review: doubly regular tournament integral path homology
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof derives exactly \(t\) common-dominator/common-dominated apexes of every directed triangle by counting ordered common in/out neighbors; it constructs explicit three-path integral boundaries for these triangles and one-path boundaries for transitive triangles. Rooted graph-cycle triangles give a unimodular integral basis of the first cycle lattice; the constructive filling norm is at most three. No mod-prime rank inference is used to claim integral vanishing. The included verifier exhaustively validates the counting and boundary identities on five Paley prime sizes and performs separate GLMY rank checks on three seven-/eleven-vertex tournaments. The uniform conclusion depends only on the common-neighbor identities, not on primality or a finite experiment.
+## correctness
 
-## Originality — PASS, subject to bibliographic limits
-The 2012 path-homology foundations define the homology and classify elementary triangles but do not state the doubly regular tournament cone count, full integral filling bound or uniform first-homology theorem. The 2014 homotopy paper derives the fundamental-group relationship, not the tournament classification. The 2017 cycle-space theorem treats undirected graphs through bidirected arcs and field coefficients, not oriented tournaments over \(\mathbb Z\). Public research records closest in terminology treat **cyclic regular tournaments** (opposite first-homology outcome), nonregular alternating-pole digraphs, and **directed flag**, not regular GLMY path, homology of Paley tournaments. No indexed source found was shown to imply this result. The accessible summaries of some potentially adjacent repository items do not replace full-text inspection: equivalent unindexed work remains a live but nondecisive bibliographic risk.
+PASS
 
-## Mathematical value — PASS
-The natural class of doubly regular tournaments supplies an infinite collection of dense directed graphs that can carry cyclic three-subtournaments but have no integral first path-homology obstruction. The exact \(t\)-apex formula explains local cancellation, the uniform integral chain filling is a quantitative constructive refinement, and the nonvanishing of a standard cyclic regular tournament separates pairwise regularity from mere degree regularity. The statement is not an incidental small-table calculation.
+For directed cyclic triple a→b→c→a in a (4t+3)-vertex doubly regular tournament, each external d is a common in/out-neighbor of 3,1,or0 cycle edges. Double count over three pairs gives 6t=4t+2h, hence exactly h=t outside common dominating or dominated vertices. For t>=1, a cyclic triangle perimeter is the boundary of three individually transitive directed two-paths through an apex; a transitive triangle perimeter is one allowed path boundary. The triangles C(r,i,j) rooted at r form a unimodular integral basis of the 1-cycle lattice of the complete underlying graph, and coefficient sum ≤||z||_1, giving B with ∂B=z and ||B||_1≤3||z||_1. At t=0 a directed triangle has Ω2=0 so H1=Z. Independently enumerated Paley7,11,19 pair-neighbor counts and exactly t common apices of every directed triangle.
 
-## Limits
-The claim does not imply the directed flag complex is contractible or has vanishing homology, does not address higher path-homology groups, and does not prove the factor three optimal. A publication database search and inspected primary papers cannot rule out an equivalent result absent from accessible indices.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+GLMY papers introduce the regular directed path-chain complex but do not by themselves settle doubly regular tournament H1. The published cyclic tournament example with persistent integral H1 uses a different arc family, demonstrating that one-way tournament path homology is not always trivial. The uniform exact t cone count and bounded integer fillings add an object-specific quantitative theorem, subject to historical indexing limits.
+
+## value
+
+PASS
+
+The theorem gives an infinite-family integral homology vanishing result with a uniform linear ℓ1 chain-filling bound and exact local t-cone multiplicity. It distinguishes a canonical highly regular tournament family from cyclic tournaments with nonzero H1 and provides a reusable combinatorial filling mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
