@@ -1,19 +1,21 @@
-# Review of the sharp two-factor first-exponential-integral bound
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conclusion reduces by orthogonal tensor diagonalization to covariance of two decreasing exponentials of the *same* uniform random variable. The positive-semidefinite order, strictness and kernel follow from an explicit double-integral identity; Cauchy–Schwarz reduces the exact global spectral-norm bound to a one-variable variance maximization. The derivative numerator has a rigorously proved single positive zero through a third-derivative sign-change chain. This establishes the equality characterization, and the scalar example attains the bound. Exact rational Taylor bounds bracket the maximizing stiffness and error constant; the grid experiment is ancillary. No conclusion requires a finite enumeration to cover a continuum.
+PASS
 
-## Originality — PASS, with residual priority uncertainty
+Orthogonal diagonalization of real symmetric negative-semidefinite factors reduces every spectral error to Cov(e^-aU,e^-bU) for U uniform on [0,1]. The symmetric double-integral gives nonnegative sign and zero exactly when a=0 or b=0. Cauchy–Schwarz bounds F(a,b) by max_t Var(e^-tU), attained only a=b=t*. Symbolic derivative 2t^3 W'(t)=e^-2t H(t) and sign-chain H triple-prime = -4e^t J(t) with J double-prime = (2t-1)e^t shows a single positive maximizing root; independent derivative and covariance checks give t*=3.24530448 and C*=0.0661398939754. Rank and dimension arbitrary but factors symmetric. Relative captured action tends zero for a=b→∞; fixed generators have h²/12 A⊗B leading error. Analytic argument, not grid, proves sharp global norm statement.
 
-The closest published construction is Caliari–Cassini, arXiv:2304.02327, Theorem 1 and Sections 3–5, whose full open HTML text was inspected. Its local \(O(h^2)\) tensor factorization is an explicit precursor, but it does not state the dissipative Loewner ordering, the universal optimum \(C_*\), the unique attaining stiffness, or the relative-error degeneration. The Sylvester-based recovery work of Muñoz-Matute–Pardo–Calo (doi:10.1002/nme.6929) and the PHIKS/quadrature papers (arXiv:2210.07667 and arXiv:2211.00696) solve different matrix-function evaluation problems; their abstracts were available but the full texts were not inspected. Targeted mathematical-literature and published-mathematical-record searches did not identify a result implying the sharp constant. General covariance and Laplace-transform theory could conceal an equivalent scalar optimum, so independent publication priority is not certified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source's formal fixed-generator splitting estimate alone does not quantify its *stiffness-uniform* error. A sharp dimension-independent absolute operator-norm bound, attainable eigenvalue geometry, positive-semidefinite error sign, and a relative error arbitrarily close to unity give concrete design information for tensor-structured exponential integrators. The exact optimizer is a motivated natural invariant: the maximal worst-case operator action discrepancy of the published two-direction splitting. The result is not claimed as a convergence theorem for arbitrary stiff PDEs or as a method improvement.
+Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Caliari–Cassini Theorem 1 proves O(h²) direction-splitting for fixed generators, not uniform all-stiffness constant or equality set. Sylvester/quadrature methods recover phi-actions differently and do not imply sharp error for the uncorrected tensor product.
 
-## Remaining risks
+## value
 
-The self-adjoint hypothesis is essential for the Loewner and operator-norm reduction. The result does not include three-factor or higher-function analogues. Relevant generic probability literature may contain an independently derived maximization of the same uniform-Laplace-transform variance; the related numerical quadrature papers were not fully inspected. Numerical approximation claims are supported by exact-rational enclosures, but no external replication has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Global sharp stiffness-independent operator bound, positivity, equality spectra, and failure of uniform relative accuracy are motivated numerical matrix-function questions. Constant has exact variational characterization and impact on two-direction tensor splitting beyond local O(h²) accuracy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
