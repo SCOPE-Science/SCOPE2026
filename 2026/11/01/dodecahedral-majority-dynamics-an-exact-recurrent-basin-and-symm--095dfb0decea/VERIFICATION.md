@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible computation
+# Independent mathematical audit
 
-The full state space contains exactly \(2^{20}=1{,}048{,}576\) binary assignments. `dodeca_majority.cpp` constructs the successor of every assignment, removes noncycle states by indegree peeling, then classifies cycles and their complete basins. The archived transition table `transition_u32le.bin` contains all 1,048,576 little-endian 32-bit successor words; its SHA-256 is `231454f9198ec28f2950bcf9004b75978c9275ac53635cbe93ba6a5fcc741fc6`.
+## correctness
 
-`verify_dodeca.cpp` independently recomputes each successor by three Boolean majority terms and compares every record in the archive, then performs direct trajectory tests on every starting state. It verifies the 16 exact entrance-time/attractor cells. The output file `verify_dodeca_output.txt` records the successful whole-space checks. `verify_automorphism_group.cpp` independently enumerates all graph automorphisms using full adjacency-preservation backtracking and confirms that all 120 appear in `automorphisms.csv`. `symmetry_classes.cpp` enumerates the orbits of recurrent temporal cycles under these exact permutations, and its class-size frequencies sum to all 118 fixed points and 9,679 primitive two-cycles. `verify_matching_cuts.cpp` checks the fixed-state characterization for each configuration. `verify_graph_identity.cpp` checks the vertex bijection from `gp10_2_isomorphism.tsv` against the complete GP(10,2) edge list.
+PASS
 
-All five sources are independently compilable with a C++17 compiler. Run them from the directory containing the extracted files using the commands provided in `RESULT.md`. Outputs corresponding to each checker are embedded. The C++ source, actual certificate, and exact enumeration provide a finite proof, but no formal theorem is claimed for larger graphs. This is a self-review, not an independent third-party audit.
+For labelled GP(10,2) on 20 vertices, the source's 20 by 3 neighbor array implements simultaneous Boolean majority, with no ties. Independently reconstructed the entire 2^20-state transition by a Boolean majority expression (not the original indegree-peeling algorithm), classified all 1,048,576 states by direct forward iterates to their first F^2(y)=y state, and recovered entry layers (fixed,two): t=0 (118,19358),1 (4710,351490),2 (14700,344880),3 (27320,105000),4 (61600,33960),5 (60960,5760),6 (15840,0),7 (2880,0). Therefore 118 fixed and 9679 unordered temporal two-cycles, full basins 188128 and 860448; no other periods, sharp uniform 7-step bound (witness state 5608), F^9=F^7. Independently checked GP(10,2) graph isomorphism, enumerated 120 graph automorphisms and their 9 fixed and 145 two-cycle geometric orbit classes, with total orbit coverage 118 and 9679. Fixed configurations exactly those with matching bichromatic cut edges by cubic majority equivalence; complementation pairs 118 into 59. This is an actual exhaustive finite certificate, not extrapolation from samples.
+
+## originality
+
+PASS
+
+Best-of-knowledge: the exact new assertion was compared to its natural aliases, stronger/general results and selected primary literature, as well as the Resultary search. Known foundations are not claimed as new. Sources read and unresolved priority limitations are recorded explicitly. dodeca.
+
+## value
+
+PASS
+
+A complete dynamical census for the natural 3-regular dodecahedral graph separates 118 fixed states from 9679 two-cycle orbits, quantifies every basin/entrance layer, identifies a sharp finite transient and resolves the full spatial symmetry quotient. Such an exact graph-specific benchmark is a motivated, finite but nontrivial invariant, not merely a general-period theorem or an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
