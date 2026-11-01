@@ -1,0 +1,143 @@
+{
+  "correctness": {
+    "rationale": "For all compact convex planar bodies, the random cyclic gap beta law gives the exact area correlation formula. Positivity of the sine-beta weights follows from integration by parts, and a strict cosine-multiple inequality plus speed-one Parseval produces the nonnegative spectral deficit and equality rigidity. On C4 convex boundaries, a global seventh-order sine remainder is dominated by fourth-derivative Parseval, and Frenet identities produce the exact curvature-cube term with O(m^-6). A separate standard-library checker passed 184 finite diagnostics; the analytic proof, not numerical sampling, establishes infinite/all-m assertions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fodor–Papvári explicitly uses L-convex hulls of interior samples, not standard convex hulls of iid boundary arclength points.",
+        "The Sonnleitner and Reitzner–Schütt–Werner sources focus on Hausdorff error or higher-dimensional simple polytope bounds, neither of which dominates the claimed expected-area formula."
+      ],
+      "reasoning": "A high-dimensional convex-hull framework does not by itself imply the sharp planar all-m perimeter-constrained mean-area constant or the identified curvature-cube coefficient; the sampling density and loss functional matter.",
+      "searches": [
+        "Random inscribed polygon expected area universal circle isoperimetric inequality arbitrary convex planar body boundary arclength sampling",
+        "Random approximation of convex bodies in Hausdorff distance",
+        "arxiv:2509.11702",
+        "arxiv:2508.16442"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2509.11702",
+      "arxiv:1911.05917",
+      "doi:10.21638/11701/spbu01.2020.108",
+      "doi:10.1007/s00208-025-03186-7",
+      "arxiv:2508.16442",
+      "2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+      "2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+      "2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Nikitin–Polevaya treats expected perimeter, not area; the paper abstract was accessible but not its complete argument.",
+        "Indexed ellipse sampling law optimizes asymptotic loss for variable sampling density, whereas this theorem keeps normalized arclength sampling fixed at arbitrary finite m.",
+        "Fodor–Papvári higher-order generalized disc polygons are not the same stochastic hull."
+      ],
+      "reasoning": "The classical planar isoperimetric inequality gives E[area random hull] <= area(K) <= L^2/(4π), not the stricter exact circle E[area random hull] coefficient for finite m. Nor does a leading-order smooth-boundary approximation yield the fourth-order curvature-cube coefficient.",
+      "searches": [
+        "On the average perimeter of the inscribed random polygon 2020",
+        "2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+        "2026/10/11/SCOPE-clipped-curvature-minimax-sampling-for-hausdorff-and-area-approx--7dfc7d4760ff",
+        "arxiv:2509.11702"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The available arXiv:1911.05917 paper derives random-volume results for boundary points of simple polytopes in dimension at least three; it does not treat planar arclength data with a sharp fixed-perimeter circle bound.",
+        "Retrieved mathematical claims on exact random-circle area and polygonal Fourier shape effects address distinct special cases or other observables."
+      ],
+      "reasoning": "Replacing perimeter by average interpoint distance, selecting random vertices from a regular polygon, and taking a circle limit do not produce the all-convex-body beta-gap multiplier inequality. No equivalent statement was identified.",
+      "searches": [
+        "Sharp perimeter-normalized expected area of convex hull of m i.i.d. arclength-uniform boundary points of convex curve is maximized by circle for every finite m; exact Fourier deficit",
+        "Fourier spectral expansion of expected area of random convex hull of m uniform boundary points, sharp deficit curvature stability",
+        "arxiv:1911.05917"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Known circle-only formulas determine values of the maximum candidate but not its sharp extremality among all convex bodies.",
+        "The closest indexed polygon sampling claim concerns Hausdorff rather than area; exact data tables for a few shapes do not imply the universal nonnegative Fourier deficit."
+      ],
+      "reasoning": "No exact table, previously tabulated parameter set, or indexed result was found that provides the stated all-m and all-body claim or its C4 curvature-cube expansion.",
+      "searches": [
+        "Expected area of convex hull of iid uniform perimeter points, sharp finite m maximum for circle among fixed perimeter plane convex bodies",
+        "Exact second-order expected area deficit of random inscribed m-gons from uniform arclength boundary samples: curvature cube integral first shape dependent coefficient m^-4",
+        "2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1"
+      ]
+    },
+    "rationale": "The closest primary sources concern generalized L-convex hulls from interior samples, higher-dimensional simple-polytope boundary hulls, inscribed-polygon expected perimeter, or optimal sampling for Hausdorff/ellipse approximation. None inspected states or implies a sharp all-m arclength-boundary mean-area circle bound plus an exact Fourier deficit and the C4 curvature-cube coefficient. Circle-only expected areas are prior background. Unindexed literature is a real residual risk.",
+    "residual_risks": [
+      "Historical results before recent indexing may already contain all-m perimeter-constrained sharp expected-area comparisons, especially in older stochastic geometry literature.",
+      "The 2020 expected-perimeter paper was read at abstract level only; no definitive full-document noncoverage assertion is made.",
+      "Priority is not established by absence of similar titles or database matches."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Different L-convex interior-sampling problem, no implication for the boundary-arclength all-m extremal inequality",
+        "evidence": [
+          "Their sampled points are uniform in the interior, and their generalized L-convex hull is an intersection of translates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2509.11702",
+        "material_read": "Full accessible publisher HTML introduction, Theorems 1.1 and 1.3, and sections on expectations and asymptotic expansions",
+        "method": "Read accessible journal HTML corresponding to arXiv source and compared sampling/hull definitions and theorem statements",
+        "title": "On generalized disc-polygons in plane convex bodies with a higher degree of smoothness",
+        "trigger": "2025 motivating paper on higher-order random polygon area expansions"
+      },
+      {
+        "assessment": "Deals with higher-dimensional simple polytopes and first-order missing volumes, not the asserted planar all-m sharp constant",
+        "evidence": [
+          "The principal theorem is formulated for a simple polytope in dimension at least three."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.05917",
+        "material_read": "Accessible full-text Springer HTML introduction and main expected-volume theorem including dimensional hypotheses",
+        "method": "Read complete accessible web paper sections and compare body class, dimension, and quantified conclusions",
+        "title": "The Convex Hull of Random Points on the Boundary of a Simple Polytope",
+        "trigger": "Closest classical random boundary hull model"
+      },
+      {
+        "assessment": "Advertises expected perimeter rather than area; uninspected full text remains residual priority risk",
+        "evidence": [
+          "The public abstract states average perimeter, not the area inequality."
+        ],
+        "identifier_or_url": "https://doi.org/10.21638/11701/spbu01.2020.108",
+        "material_read": "Article abstract and bibliographic description only; full proof not read",
+        "method": "Abstract/bibliographic comparison, no noncoverage inference from full text",
+        "title": "On the average perimeter of the inscribed random polygon",
+        "trigger": "Historical exact finite-sample inscribed polygon calculations"
+      },
+      {
+        "assessment": "Hausdorff error differs from expected area and does not imply sharp circle finite-m mean area",
+        "evidence": [
+          "The main result evaluates expected Hausdorff approximation, including polygonal cases."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00208-025-03186-7",
+        "material_read": "Open-access abstract and introduction describing boundary sampling and Hausdorff loss",
+        "method": "Compared precise distance functional with area loss",
+        "title": "Random approximation of convex bodies in Hausdorff distance",
+        "trigger": "Random boundary polytope approximation potential broader coverage"
+      },
+      {
+        "assessment": "Different random-polytope loss and optimal density; not a proof of whole-document noncoverage",
+        "evidence": [
+          "Reported Gumbel limit concerns Hausdorff approximation."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2508.16442",
+        "material_read": "Abstract and introduction summary only",
+        "method": "Abstract-level comparison limited to claimed Hausdorff statistic",
+        "title": "A limit theorem for Hausdorff approximation by random inscribed polytopes",
+        "trigger": "Recent boundary sampling near the motivating source date"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8f379410-b59c-4fc7-b730-de375046c9aa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A sharp expected-area upper bound for every finite number of boundary samples is strictly stronger than the classical area isoperimetric inequality applied after convex-hull inclusion. The nonnegative Fourier decomposition identifies all equality and geometric shape modes, and the curvature-cube correction isolates the first shape-dependent term in a universal leading-order asymptotic. This answers two natural stochastic geometry questions rather than computing an arbitrary slice.",
+    "status": "PASS"
+  }
+}
