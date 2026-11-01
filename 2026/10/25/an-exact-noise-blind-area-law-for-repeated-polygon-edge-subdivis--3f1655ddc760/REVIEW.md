@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The statement quantifies over every \(n\ge3\), all finite subdivision times, arbitrary convex initial polygons, and split laws with specified deterministic conditional means and pairwise zero conditional covariances. Expanding two distinct-edge variables gives a three-term recurrence for off-diagonal cyclic correlations. Its imaginary components close with zero boundary values, so the random and deterministic mean polygons have the same expected shoelace area. Fourier diagonalization gives the exact spectral factors. The regular-polygon contraction, diffusive limit, and correlated-edge counterexample follow directly. The embedded standalone checker replays exact arithmetic and numerical tests; they are corroboration rather than the proof.
+## correctness
 
-## Originality
-**PASS against inspected literature, provisional historical priority.** The closest same-object source is Nguyen–Volkov (arXiv:1506.04942): its introductory model, results on flattening and Lyapunov exponents, and section on dependence generalizations were inspected in full relevant context. It does not state a finite-time area-expectation identity, a distribution-free Fourier area profile, or a pairwise-decorrelated conditional extension. Volkov (arXiv:1112.0932) treats the triangle iteration and limiting shape, not the general \(n\)-gon exact area law. A published finding on random Minkowski symmetrization concerns a distinct operation, so its Fourier area-deficit covariance does not imply this theorem. These comparisons do not establish exhaustive historical priority.
+PASS
 
-## Mathematical value
-**PASS.** The cited literature treats almost-sure flatness and Lyapunov exponents, for which higher randomness matters. The exact cancellation of all diagonal split variances from the **entire multi-step mean area** is a structural fact not supplied by these typical-shape results; it yields an exact all-polygon spectral observable, a sharp rate for regular initial polygons, and a deterministic diffusive scale. A fully dependent counterexample shows the result is not automatic from the mean-split operation. This is a motivated new observable, not merely a relabeling of an existing shape-limit theorem.
+Conditional common means and cross-edge zero covariance imply all off-diagonal imaginary cyclic correlations I_d(s) satisfy a closed tridiagonal recursion with coefficient μ_s(1−μ_s); variance-only diagonal C0 is real and disappears. The same recurrence governs deterministic mean split vertices, so shoelace area expectations agree for every t. Discrete Fourier diagonalization gives the stated product, regular-polygon geometric decay and n² diffusive exponential limit. Shared Bernoulli counterexample shows covariance hypothesis essential. Independently enumerated a joint-dependent but pairwise-independent two-stage rational test: expectation and deterministic mean area both 3/16.
 
-## Residual risks and limits
-The first moment does not determine concentration or almost-sure flattening rates. Literature search is not exhaustive and older treatments of triangle mean areas could contain special cases; the claim is deliberately for the general correlated-conditional edge model and finite-time all-polygon formula. Analytical proof applies to the stated assumptions; independent audit is not yet performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Nguyen–Volkov and Volkov random subdivisions treat almost-sure shapes and Lyapunov rates of the same process but inspected primary 2015 full text does not state this exact all-time expected-area identity under only conditional pairwise decorrelation. Related Resultary random Minkowski symmetrization result is a distinct operation. An implicit consequence of known stochastic matrix moment methods remains a priority risk.
+
+## value
+
+PASS
+
+Exact finite-time expectation insensitive to full edge-split laws is a useful structural invariant of natural random polygon subdivision; extension to conditional pairwise uncorrelated non-independent splits and a sharp failure mode identify mathematical mechanism and boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
