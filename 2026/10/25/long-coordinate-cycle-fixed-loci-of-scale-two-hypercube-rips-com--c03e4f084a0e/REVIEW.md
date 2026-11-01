@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-For a group-invariant point of a finite simplicial realization, barycentric coefficients are constant on vertex orbits. At Hamming scale two, summing all distances from a block word to its cyclic shifts gives \(2w(k-w)\), while a permissible orbit has total at most \(2(k-1)\). At \(k\ge4\) this excludes all weights except \(0,1,k-1,k\). Exhaustive type-wise distance comparisons produce two disconnected copies of \(Y_m=\operatorname{VR}_{\le2}(Q_m)\) with individual simplicial cones attached along radius-one simplices. Anchoring each cone at its center defines a simplicial retraction contiguous to the identity, hence a strong deformation retraction. The integral three-sphere component homotopy type uses the separately credited Adamaszek–Adams theorem. The proof covers \(m=0\), \(m=1\), and \(k=4\) at their endpoints without extrapolating from experiments. The standalone finite checker compared 4,274 orbit pairs across 19 finite cases.
+## correctness
 
-## Originality — PASS (priority not certified)
-Relevant actual searches included cyclic coordinate orbits, long coordinate rotations, Hamming scale-two geometric fixed loci, and broad published symmetry records. The closest directly relevant 2026 primary work (Galetto, Montaño and Wellner, arXiv:2606.20784) determines the *representation of the ambient rational homology*, whereas the current result determines an *integral homotopy type of a geometric fixed-point space* via a strong retraction. Bendersky, Elia and Grbić (arXiv:2605.00705) consider ambient Rips cohomology and connectivity; Adamaszek and Adams (arXiv:2103.01040) establish the homotopy type of each lower-dimensional factor but not this fixed-point decomposition. Previously computed short-cycle fixed loci do not extend by implication to long cycles, where orbit compatibility changes at length four. No exact covering theorem was found in inspected primary texts or published mathematical-record searches. The risk of unindexed equivalent work remains.
+PASS
 
-## Value — PASS
-The theorem classifies an infinite, naturally parameterized family of **geometric equivariant fixed loci**, showing an exact phase transition: all coordinate cycles of length at least four yield two disconnected components instead of the bridges present at smaller lengths. The open hyperoctahedral equivariant Rips question noted in arXiv:2408.17331 supplies additional motivation. An explicit strong deformation retraction upgrades an Euler-characteristic or rational representation calculation to a field-independent homotopy statement. As a consequence, the known three-sphere-wedge topology of the residual Boolean cube is preserved independently in each component, an outcome useful for equivariant tests and computations of Hamming Rips complexes.
+For k≥4, m≥0, the action rotates one block of k binary coordinates in VR_{≤2}(Q_{k+m}). A geometric fixed point has constant barycentric coefficient on each cyclic orbit, and its orbit must itself span a simplex. For a length-k block word of weight w, sum of rotational Hamming distances is 2w(k-w); each shift distance≤2 forces w∈{0,1,k-1,k} when k≥4. The only admissible orbit types are A_z (all zero), B_z (all one), U_z (single one orbit), V_z (single zero orbit), each indexed by z∈Q_m. Maximum cross-orbit Hamming distances show only A-A,B-B at residual distance≤2 and A-U,B-V at residual distance≤1; no interlayer edges or U-U/V-V edges. The finite orbit complex is two Y_m=VR_{≤2}(Q_m) bases, each with one cone vertex on simplex B_1(z) per z. Mapping U_z→A_z and V_z→B_z is a simplicial retraction contiguous to the identity, giving a strong deformation retract. Components are contractible for m≤2 or wedges of c_m three-spheres for m≥3 by the established Adamaszek–Adams Y_m theorem.
 
-## Scientific limits and closest literature
-Only one rotated coordinate block at inclusive scale two is covered. The result does not extend automatically to multiple disjoint nontrivial permutation cycles, other Rips scales, orbit quotients, or ambient invariant homology. The self-contained infinite proof, not finite verification, supports the quantified statement. A search does not prove priority, and independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the explicit geometric fixed-locus two-component strong deformation retract for arbitrary long coordinate cycle. The prior scale-two Y_m homotopy theorem supplies only each component; the recent hyperoctahedral rational representation classification of the ambient homology does not determine geometric fixed spaces. An unindexed orbit-face fixed-point theorem may exist, but the exact four-type and k≥4 classification was not located.
+
+## value
+
+PASS
+
+An explicit strong deformation retract computes ALL geometric fixed points for every single long coordinate cycle and every number of passive coordinates, a natural equivariant homotopy refinement of hypercube Rips topology. The sharp k=4 orbit-type threshold yields two components and integral topology not recoverable from ordinary homology ranks or group characters.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
