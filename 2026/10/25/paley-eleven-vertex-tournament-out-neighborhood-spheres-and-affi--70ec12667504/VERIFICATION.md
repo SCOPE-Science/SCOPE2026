@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the finite Paley tournament claim
+# Independent mathematical audit
 
-Run `python PALEY11_VERIFY.py` with Python 3.10 or later, standard library only. The source constructs the actual out-neighborhood family \(x+\{1,3,4,5,9\}\) over \(\mathbb F_{11}\). It asserts the face vector \((11,55,110,55,11)\), all 242 nonempty faces and 715 Hasse covers, a complete disjoint matching with 110 pairs and critical counts (one vertex; 21 triangles), and acyclicity by a full directed-Hasse topological sort. These steps are necessary for the integral homotopy assertion: face counts or mod-two ranks alone would not suffice.
+## correctness
 
-The same program independently enumerates the 55 affine symmetries of the complex and their exact signed fixed-face traces. It asserts class counts 1, 10 and 44, with respective traces 21, -1 and 1, and confirms the invariant dimension by exact integer arithmetic. Expected successful marker: `PALEY11_CERTIFICATE_PASSED`.
+PASS
 
-Limits: this certificate treats one finite tournament and its specified affine group, not all tournaments or all field orders. Algebraic identification of the representation uses rational character theory; this does not identify its integral lattice. Independent audit remains unperformed.
+Each five-vertex out-neighborhood is x+R, R={1,3,4,5,9} modulo 11. Exhaustive independent face construction found (11,55,110,55,11), 242 nonempty faces. Independent reproducible elementary-collapse matching yielded exactly 110 face-coface pairs and 22 critical cells (one vertex, 21 triangles); reversing match edges in all 715 Hasse incidences gave acyclic directed graph with all 242 nodes topologically sorted. This gives the integral wedge of 21 two-spheres. Signed Lefschetz checks of all 55 affine symmetries yield (21,-1,1), the character of 1+2 Aug(Q[11]); quotient rational H2 rank 1 follows by averaging.
+
+## originality
+
+PASS
+
+Dochtermann–Singh directly define directed out-neighborhood complexes as the Hom of an oriented edge and study general topology and tournament examples, including five-vertex tables and realizability constructions. The accessible full manuscript does not provide the 11-vertex quadratic-residue tournament’s exact wedge decomposition or its affine rational character.
+
+## value
+
+PASS
+
+A complete integral homotopy and symmetry calculation for the canonical order-11 Paley tournament is a concrete, independently reusable benchmark for directed Hom/neighborhood topology, distinct from small-order census and general existence results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
