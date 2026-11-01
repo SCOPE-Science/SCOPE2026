@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof rests on \(K_ms=s\) for balanced sign vectors, exact sinusoidal exchange, and the derivative spectrum of \(I_m-h\cos\delta K_m\). The strict monotonicity of \(2\delta/\sin\delta\) and \(\delta\cot\delta\) establishes uniqueness of both roots and all open parameter inequalities. The inverse-function theorem establishes the persistence for each fixed interior pair of leaf count and step size. A first-order small-angle expansion gives the asymptotic window width.
+## correctness
 
-The supplied executable checker uses ordinary numerical arithmetic to test \(m=4,6,8,10,12\), all balanced patterns, orbit return, and finite-difference Jacobian entries. These tests cannot establish universal quantifiers, historical priority, or nonlinear stability at either multiplier-one endpoint; those facts are not claimed from the code. This package contains no independent mathematical audit.
+PASS
+
+For each even m>=4, K=I+11^T maps any balanced sign vector s to itself. With z±=π1±δs, h sinδ=2δ (unique 0<δ<π for h>2) gives exact prime-two exchange. Both Jacobians are I−h cosδ K, with eigenvalues 1−h cosδ (m−1 times) and 1−(m+1)h cosδ. Squared two-return eigenvalues are <1 exactly for δ_m<δ<π/2, where (m+1)δ_m cotδ_m=1, equivalently h_m<h<π. At h_m or π a unit multiplier precludes strict linear attraction; for h>π the branch repels. Signs modulo s↔−s count C(m,m/2)/2 distinct cycles, with disjoint local basins. IFT continues each hyperbolic cycle for small positive edge-weight perturbations at fixed m,h. From δ_m=π/2−2/[π(m+1)]+O(m^-2) one obtains π−h_m=4/[π(m+1)]+O(m^-2). Not all cycles are classified.
+
+## originality
+
+PASS
+
+The motivating Huygens paper establishes the phase map and small-step dynamics; its accessible theorem scope does not imply exponentially many stable two-cycles for all even-leaf stars in h_m<h<π. Published related phase-network findings concern distinct couplings or local asymptotics. This is best-of-knowledge, qualified by inability to inspect all antecedent pages.
+
+## value
+
+PASS
+
+A shared sharp stability window supporting C(m,m/2)/2 distinct attracting period-two star-network states is a motivated dynamical phenomenon, exponentially growing in leaf count and robust to individual edge-weight perturbations. It is not merely a finite numerical observation or renaming of the small-step theorem. The result establishes this explicit family, not global enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
