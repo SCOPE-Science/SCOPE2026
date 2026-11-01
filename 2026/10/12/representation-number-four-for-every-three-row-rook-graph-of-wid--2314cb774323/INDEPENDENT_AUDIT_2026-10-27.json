@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:01:25.498448Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 9a950bb0f96e6622c7c64f052f63d1e57d356838; claim, normal form, finite-complete merge lemma and propagation",
+        "Assigned verify_interval_merge.cpp Git blob c414f222b4b7534853c1c8ad2040143d6472213b; compiled g++ -O3 -std=c++17, completed 125316 pairs, 158483130 leaves, found 0, exit 0",
+        "Assigned verify_mask_automaton.cpp Git blob bc72afee1da581846a02f1eba9e311a22ab65497; independently compiled, 354 projections, 125316 pairs, 238188 matching leaves, zero full words, exit 0",
+        "Assigned verify_upper.py Git blob 85409a4f75074b9e8ff03c8ea759be539b763b1c; exact word alternation tests PASS for widths 2..10",
+        "Assigned twelve-file Git tree: SHA 0dc95289d9a52403cbf1d50650ff729effbc72ee equals server-assigned source tree",
+        "Kitaev--Pyatkin 2026 Section 2.3 R(3,3)=3; Broere--Zantema 2019 published Cartesian-product theorem"
+      ],
+      "rationale": "The final claim is R(K_3 Cartesian K_n)=4 for each integer n>=4. A clique projection of any 3-uniform word must repeat one permutation three times; cyclic rotation and column relabeling normalize row A to (A0A1A2A3)^3. Every A+B projection has a B permutation and exactly 24*binom(23,11)=32,449,872 interleavings; no case is omitted. The two source-Git-blob-matched C++ programs independently enumerate the pair structures (354 admissible projections), all 354^2=125,316 ordered (A+B,A+C) pairs, and all gapwise interleavings preserving B/C row orders. Exact direct-merge implementation counted 158,483,130 complete B+C arrangements with zero satisfying all sixteen B_i,C_j adjacency predicates; bitmask/automaton implementation independently found 238,188 arrangements satisfying the four required matching alternations, zero satisfying all twelve nonedge constraints. Both actual compiled programs exited 0 with claimed counts. Upper bound uses Broere--Zantema product theorem on the explicit 2-uniform word for K_n; the exact assigned verify_upper.py Git blob replayed 2<=n<=10 correctly, finite widths only corroborating the universal known theorem. The published R(3,3)=3 subgraph excludes k<=2 on R(3,4); an induced 3x4 rook graph propagates k>=4 to all n>=4. Boundary n=3 expressly excluded. The entire assigned twelve-file Git object tree was independently reconstructed and matched.",
+      "residual_risks": [
+        "Computer-assisted negative theorem relies on source-code correctness and complete combinatorial normalization, not formally verified by Lean; two independent algorithms have been materially inspected and replayed.",
+        "The counts for n=4 alone are exhaustive by the proved normal form; upper tests for finite n do not establish the general theorem without the published Cartesian-product theorem.",
+        "The theorem is only for the three-row n>=4 family, not arbitrary row count or stronger absence of finite word representation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Broere--Zantema theorem: k-representable G with k>1 implies (k+r-1)-representability of G Cartesian K_r; using a 2-word for K_n gives 4-representability but not non-3-representability.",
+          "Kitaev--Pyatkin Theorem 8 treats R_{2,n}, not three-row n>=4; its negative numerical observation is declared unproved.",
+          "Colbrook--Drysdale applies to bipartite graphs, whereas R_{3,n} contains a K_3, hence their bound cannot establish this result."
+        ],
+        "reasoning": "The general Cartesian-product construction covers the submitted upper bound exactly and is credited. It cannot imply an exact minimum without an obstruction to three-uniform words. Published bipartite bounds concern different graph domains. No verified stronger theorem supplies the missing lower bound.",
+        "searches": [
+          "Broere Zantema The k-dimensional cube is k-representable arXiv:1808.01800 2019 Section 5 Cartesian product theorem",
+          "On the representation number of chessboard graphs Kitaev Pyatkin 2026 Theorem 8 Table 2",
+          "Resultary: 3-uniform word representability graph R_3,4 computer proof Kitaev Pyatkin chessboard graphs (22 hits)",
+          "Crown graphs maximise the representation number of bipartite graphs Colbrook Drysdale arXiv:2609.35842"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00236-026-00547-w Section 2.3 and Section 3 (full primary HTML)",
+        "arXiv:2609.22311v1 (underlying public preprint)",
+        "Broere--Zantema 2019 DOI:10.25596/jalc-2019-003 publisher theorem/abstract; arXiv:1808.01800",
+        "arXiv:2609.35842 Colbrook--Drysdale (bipartite bound)",
+        "Resultary mathematical published records: three semantic queries, 24/21/22 hits, no logically relevant direct lower theorem",
+        "Targeted current web searches for 3x4 rook graph/K3 Cartesian Kn/L(K3,n) exact 3-uniform obstruction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier Theorem 8 proves R_{2,n}=3 and supplies R_{3,3}=3; neither excludes a 3-uniform representation at 3x4.",
+          "Earlier paper states computational suspicion of R_{3,4}>=4 and expressly leaves proof open; a suspected statement does not establish theorem implication.",
+          "Earlier Cartesian theorem yields R_{3,n}<=4; current exact R_{3,4} finite obstruction propagates to all n>=4 by induced restriction and supplies the strict reverse inequality."
+        ],
+        "reasoning": "Combining only antecedents gives 3<=R(R_{3,n})<=4, not equality. The audited exhaustive finite lemma closes that exact mathematical gap. It is a natural computationally certified existence/nonexistence distinction, rather than a substitution into the prior upper bound.",
+        "searches": [
+          "Kitaev--Pyatkin Acta Informatica 63 (2026) Article 33 Sections 1.4,2.3,3 full OA HTML",
+          "Broere--Zantema Journal of Automata, Languages and Combinatorics 24 (2019), Theorem 1, publisher abstract and arXiv abstract",
+          "Kitaev--Pyatkin \"We do not regard this computation as a proof\"",
+          "\"K_3 \\square K_n\" \"4\" \"representation number\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kitaev--Pyatkin, On the representation number of chessboard graphs, Section 1.4: rook graph R_{3,n}=K_3 Cartesian K_n=L(K_{3,n}); the same parameter on the same graph.",
+          "Kitaev--Pyatkin Section 2.3 final paragraph explicitly says its search for R_{3,4} is not a proof; Section 3 leaves R_{m,n} for n>=4, 3<=m<=n open.",
+          "Resultary top rook-graph hits concern cut-complex homology/Čech homology, not alternating-letter representation number; word-representable simplified de Bruijn graph concerns a different graph."
+        ],
+        "reasoning": "Isomorphism of rook, Hamming and complete-bipartite line-graph formulations makes their exact representation-number statements equivalent. The search compared this identical mathematical question, not merely titles; no reviewed antecedent yields three-uniform impossibility. Failure to find a source is not by itself proof of originality.",
+        "searches": [
+          "Resultary: word representation number of rook graph K3 Cartesian K4 and all K3 Cartesian Kn n at least 4, lower bound no 3-uniform word via exhaustive 12 vertex search (24 hits)",
+          "Resultary: word representable graph line graph complete bipartite K3,n Hamming graphs representation number 4 rook graph (21 hits)",
+          "\"K_3\" \"K_n\" \"representation number\" rook graph 4 word",
+          "word representation number \"line graph\" \"complete bipartite\" upper bound K3n 2026"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Kitaev--Pyatkin 2026 Table 2, Section 2.3: 3x4 exact minimum not tabulated as a theorem; prior computer search did not include a rigorous exhaustive certificate.",
+          "Current complete canonical enumeration: 24*C(23,11)=32,449,872 two-row shuffles, 354 admissible projections, 125,316 ordered pairs and 158,483,130 gap-compatible complete shuffles; zero valid 3-word representations."
+        ],
+        "reasoning": "A reported negative search without a mathematically complete exhaustive argument is not a certified exact database or table. The new finite lemma establishes exhaustivity and tests every candidate. No source was found explicitly certifying this exact lower bound; searches alone are not a novelty proof.",
+        "searches": [
+          "\"representation number\" \"rook\" \"3,4\" 2026",
+          "\"Rook_{3,4}\" \"word\" \"representable\"",
+          "Kitaev Pyatkin 2026 Table 2 rook representation numbers",
+          "Resultary exact rook graph three-row finite census queries (24/21/22 hits)"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority survives precisely for the rigorously exhaustive lower obstruction R(K_3 square K_4)>=4 and consequent exact all-width three-row family. Kitaev--Pyatkin (Acta Informatica 63 (2026), Article 33, Section 2.3) states an unsuccessful computer search but expressly says it is not proof and lists this bound open in Section 3. Broere--Zantema 2019 Theorem 1 supplies the four-uniform Cartesian-product upper construction but no lower bound follows from an existence theorem. The present enumerators exhaust the normalized finite set with exact counts, not an inferred failure from a timeout. Three independent Resultary semantic queries and targeted original-paper/alternative-formulation web searches did not identify a published logically covering certificate. This is best of knowledge, not a declaration of absolute priority.",
+      "residual_risks": [
+        "Absolute historical priority is not certified; an unindexed or very recently published equivalent finite certificate may exist.",
+        "The complete Broere--Zantema primary full text could not be read (arXiv/OA inaccessible; Oxford VPN disconnected). Its stated published theorem covers only the upper bound, and no whole-document noncoverage claim is made.",
+        "Two source-verified C++ exhaustive implementations are ordinary programs, not formal proof assistant certificates; their algorithms and completeness were independently inspected and run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL: establishes R(3,3)=3 and R(2,n)=3, gives a tentative failed computer search for 3x4 but explicitly disavows its status as proof and leaves the lower bound open.",
+          "evidence": [
+            "Section 2.3 immediately after Theorem 8: the authors say their computation is not regarded as proof and establishing/refuting R(3,4)>=4 remains open.",
+            "Section 3 lists rook R_{m,n}, n>=4 and 3<=m<=n among open problems; online publication 18 September 2026."
+          ],
+          "identifier_or_url": "Sergey Kitaev, Artem Pyatkin, Acta Informatica 63, article 33 (2026), DOI:10.1007/s00236-026-00547-w; https://link.springer.com/article/10.1007/s00236-026-00547-w",
+          "material_read": "Full publicly accessible primary HTML, definition Section 1.1, graph identification Section 1.4, Table 2, Theorem 8 and full Section 2.3, Section 3 open problem and citations.",
+          "method": "Full-text semantic implication comparison against the finite obstruction and induced-subgraph propagation.",
+          "title": "On the representation number of chessboard graphs",
+          "trigger": "Same representation-number problem for precisely the 3-by-4 rook graph and surrounding 3-by-n family."
+        },
+        {
+          "assessment": "COVERS THE UPPER BOUND, NOT DECISIVELY COMPARABLE FOR FULL LOWER: the explicitly stated theorem gives R<=4; full original proof was inaccessible this run, which remains a documented priority-risk limitation rather than a fabricated whole-document disjointness.",
+          "evidence": [
+            "Publisher abstract states: if G is k-representable, k>1, then G Cartesian K_r is (k+r-1)-representable.",
+            "For G=K_n with its 2-uniform word and r=3, this proves a 4-uniform word for R_{3,n}; it does not logically exclude 3-uniform words."
+          ],
+          "identifier_or_url": "Bas Broere, Hans Zantema, J. Automata, Languages and Combinatorics 24(1) (2019), 3--12, DOI:10.25596/jalc-2019-003; arXiv:1808.01800",
+          "material_read": "Primary one-page published journal abstract PDF (including screenshot), arXiv abstract and theorem statement. Full preprint HTML/PDF and lawful OA full-text requests did not load; authorized Oxford returned vpn_disconnected and was not bypassed. No complete-paper negative coverage assertion.",
+          "method": "Apply the published general Cartesian-product theorem statement directly to K_n and K_3, distinguish an upper bound from exact minimum and inspect independently replayed explicit constructive word.",
+          "title": "The k-dimensional cube is k-representable",
+          "trigger": "General theorem might already dominate exact 3-by-n representation number via Cartesian products."
+        },
+        {
+          "assessment": "INAPPLICABLE: R_{3,n} contains triangles and is not bipartite.",
+          "evidence": [
+            "Theorem bounds N-vertex bipartite graphs; each rook row contains K_n, with n>=4."
+          ],
+          "identifier_or_url": "Matthew J. Colbrook, Catherine Drysdale, arXiv:2609.35842v1 (24 September 2026)",
+          "material_read": "Public metadata, abstract and stated main theorem (bipartite graphs).",
+          "method": "Check graph-class hypotheses against clique-containing rook graphs.",
+          "title": "Crown graphs maximise the representation number of bipartite graphs",
+          "trigger": "New broad representation-number upper bound for a large graph class."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kitaev--Pyatkin 2026 Section 3 identifies R_{m,n}, n>=4 and 3<=m<=n as open; Section 2.3 singles out 3x4",
+        "Exact source-matched exhaustive computations: 354 valid two-row projections; 158483130 full merges; none valid",
+        "Broere--Zantema 2019 exact product upper-bound theorem; resulting sharpness of lower obstruction"
+      ],
+      "rationale": "A genuinely motivated exact infinite-family graph invariant is determined: the motivating 2026 primary work explicitly leaves the 3-by-4 minimum as an open lower-bound question, after obtaining the 3-by-3 boundary and 2-by-n family. The first missing 3x4 obstruction is sufficient by induced-subgraph monotonicity to settle every 3-by-n width n>=4, and the existing product construction supplies the matching upper bound. A fully checked but finite 12-vertex obstruction is valuable because it resolves the complete natural 3-row family, not because it merely recomputes a table or increases a sample size. The evidence is computation-assisted, with exact complete search rather than a heuristic timeout. No claim is made for four-or-more-row classification.",
+      "residual_risks": [
+        "The proof technique is an exhaustive finite enumeration rather than a conceptual closed-form forbidden-pattern characterization.",
+        "Independent interest is limited to K3 Cartesian Kn and its exact representation number, not a general classification of all Hamming graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
