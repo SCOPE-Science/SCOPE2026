@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T19:12:11Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at frozen commit 7114b2e91c83d844d5a46a85c8a46887759567e5 (GitHub fetched blob 31e94e379c6590608d54b88fba04980dde15f792)",
+        "Fresh independent_checks.py numerical diagnostics and results",
+        "Mathematical proof and parameter boundary analysis"
+      ],
+      "rationale": "Differentiating the Dirichlet gamma moment identity at mixed exponents gives the exact H-Q covariance. The rational term is strictly negative since A²-sum(alpha_i²)=2 sum_{i<j}alpha_i alpha_j>0; a weighted covariance of alpha with strictly increasing digamma is nonnegative. Along fixed-sum tangent vectors the second variation of V=-Cov is [2a(Ka+1)trigamma(a+1)-1]sum(v_i²)/[Ka(Ka+1)²(Ka+2)]. The integral a*trigamma(a+1)=integral_0^infty e^-u [(u/a)/(e^(u/a)-1)] du increases strictly from 0 to 1, hence exactly one positive threshold; strict local maximum before, minimum after, with no assertion at zero curvature. Independent numerical differentiation of raw gamma moments and closed formula agreed for five nonsymmetric/symmetric shape vectors to 6.1e-16; the symbolic argument, not finite checks, covers every positive real shape and integer K>=2.",
+      "residual_risks": [
+        "No global shape-vector extremum is asserted. At the critical value where quadratic variation vanishes, higher-order behavior is not determined."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Generic Dirichlet gamma moment identities algebraically imply each mixed moment after differentiation. Known Gini-Simpson marginal formulas do not automatically give the constrained Hessian sign transition."
+        ],
+        "reasoning": "The computation of raw mixed moments is covered by stronger general moment machinery and is not novel on its own. The assessed sign/unique transition requires extra positivity and strict monotonicity steps absent from the specifically compared statements.",
+        "searches": [
+          "Botha Ferreira Bekker 2021 Alternative Dirichlet Priors for Estimating Entropy via a Power Sum Functional",
+          "Bissiri Corradin Ongaro 2026 Gini-Simpson index prior posterior moments",
+          "Dirichlet Shannon entropy Simpson collision index exact covariance anticorrelation symmetric concentration local Hessian trigamma threshold"
+        ]
+      },
+      "checked_sources": [
+        "Source RESULT.md at immutable commit 7114b2e91c83d844d5a46a85c8a46887759567e5",
+        "Resultary semantic search: Dirichlet Shannon entropy Simpson collision index exact covariance anticorrelation symmetric concentration local Hessian trigamma threshold",
+        "Alternative Dirichlet Priors for Estimating Entropy via a Power Sum Functional, https://doi.org/10.3390/math9131493",
+        "Nonparametric Bayesian inference for the Gini–Simpson index, https://arxiv.org/abs/2607.25737"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior power-sum moment formula can derive covariance as a corollary of analytic differentiation; it does not itself classify its sign under all asymmetric priors nor the unique Hessian sign switch."
+        ],
+        "reasoning": "The final proposition is stronger than exhibiting an explicit mixed moment: it proves an inequality and unique transition at fixed total concentration. Marginal mean/variance formulas alone are insufficient to assert these conclusions. Historical general inequality coverage remains a risk.",
+        "searches": [
+          "Botha et al DOI:10.3390/math9131493",
+          "Bissiri et al arXiv:2607.25737",
+          "Dirichlet Shannon entropy Simpson collision index exact covariance anticorrelation symmetric concentration local Hessian trigamma threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gini-Simpson diversity is 1-Q, so its covariance with H has opposite sign; Dirichlet power sum at exponent two equals Q."
+        ],
+        "reasoning": "Search includes collision probability, Simpson diversity complement, homozygosity and power-sum conventions, and fixed-total pseudo-count perturbations. These descriptions are mathematically equivalent but the compared research does not state both the strict sign and local Hessian threshold.",
+        "searches": [
+          "Dirichlet Shannon entropy Simpson collision index exact covariance anticorrelation symmetric concentration local Hessian trigamma threshold",
+          "Dirichlet covariance entropy Simpson Gini-Simpson power sum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns Bernoulli-sum collision entropy and sample richness versus Simpson index, which involve different probability objects from Dirichlet law of P."
+        ],
+        "reasoning": "No directly matching exact formula/table in bounded checked records; that negative result cannot prove historical originality.",
+        "searches": [
+          "Dirichlet Shannon entropy Simpson collision index exact covariance anticorrelation symmetric concentration local Hessian trigamma threshold",
+          "Resultary search: Dirichlet Shannon entropy collision covariance Hessian",
+          "Resultary: universal positive covariance richness unbiased Gini Simpson diversity"
+        ]
+      },
+      "rationale": "Qualified PASS for combined universal asymmetric sign and unique fixed-A Hessian reversal; raw Dirichlet mixed moments and both marginal diversity indices are established background, not a novelty claim. Botha–Ferreira–Bekker (2021) provide power-sum Dirichlet moments, and Bissiri–Corradin–Ongaro (2026) provide marginal Gini–Simpson posterior dispersion, but the material compared does not supply this exact sign plus unique constrained-curvature statement.",
+      "residual_risks": [
+        "Raw mixed covariance formula is mechanically derivable from standard Dirichlet product moments; novelty depends on the structural sign and one-time symmetry switch.",
+        "A broader uninspected Dirichlet inequality/mixed moment paper could already state both structural assertions.",
+        "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_MOMENT_ANTECEDENT",
+          "evidence": [
+            "2021 paper supplies power-sum/Dirichlet moment technology, acknowledged prior work; no verified full-document exclusion."
+          ],
+          "identifier_or_url": "https://doi.org/10.3390/math9131493",
+          "material_read": "Publisher/indexed material on Dirichlet priors, expected power sums and entropy estimator; complete document not independently verified in this execution.",
+          "method": "Web scholarly source comparison of relevant definitions and principal statements.",
+          "title": "Alternative Dirichlet Priors for Estimating Entropy via a Power Sum Functional",
+          "trigger": "Same Dirichlet power-sum functional and potentially dominating moment theory."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_OBSERVABLE",
+          "evidence": [
+            "Marginal Gini–Simpson moments do not themselves state cross-covariance with Shannon entropy or fixed-A unique Hessian switch."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.25737",
+          "material_read": "Accessible abstract and source summaries of marginal Gini–Simpson prior/posterior statistics; full text not independently read in this execution.",
+          "method": "Compared accessible marginal-statistic statements with the joint entropy–collision law; retained fuller-text coverage risk.",
+          "title": "Nonparametric Bayesian inference for the Gini–Simpson index",
+          "trigger": "Same prior model and one of two indices."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact mathematical invariant and its natural motivating primary literature",
+        "Correctness proof reconstructed from actual RESULT.md"
+      ],
+      "rationale": "Shannon entropy and collision concentration are complementary but non-equivalent ecological/Bayesian diversity summaries. Identifying their universal Dirichlet covariance sign and a concentration-dependent change in sensitivity to symmetry breaking is a natural nontrivial structural phenomenon; the critical surface is exact, not a numerical threshold sample.",
+      "residual_risks": [
+        "Statistical estimation or decision-theoretic advantage is not proved by a covariance sign."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No global shape-vector extremum is asserted. At the critical value where quadratic variation vanishes, higher-order behavior is not determined.",
+    "Raw mixed covariance formula is mechanically derivable from standard Dirichlet product moments; novelty depends on the structural sign and one-time symmetry switch.",
+    "A broader uninspected Dirichlet inequality/mixed moment paper could already state both structural assertions.",
+    "Bounded semantic retrieval and inaccessible/unindexed literature cannot establish absolute historical priority; a stronger equivalent theorem might exist.",
+    "Statistical estimation or decision-theoretic advantage is not proved by a covariance sign.",
+    "Oxford institutional full-text access remained disconnected; no authentication bypass; no external formal or expert certification implied."
+  ],
+  "schema_version": 1
+}
