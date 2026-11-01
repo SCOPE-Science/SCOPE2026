@@ -1,0 +1,170 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:51:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reviewed the actual RESULT.md proof, CHECK.py, SLOGAN.txt, REVIEW.md and administrative source blobs at the assigned Git tree. Define T as unordered K3 count, P as induced 2-edge triples, and W as the sum over vertices of binom(deg(v),2), so P=W-3T. For each fixed triangle, exactly 3 potential wedges reuse 2 triangle edges, 6(n-3) reuse 1, and 3*binom(n,3)-3-6(n-3) reuse 0; for paired triangles 1 is identical, 3(n-3) share an edge, and the others share none. Under G(n,m), with M=binom(n,2) and q_r=(m)_r/(M)_r, these give exact ETW and ET^2 expressions by edge-union sizes 3,4,5 and 3,5,6; subtract ET EW and 3 Var(T). An independently written SymPy derivation from these overlap sums exactly factors to -4*m*(m-1)*(m-2)*(M-m)*(M-m-1)*[(n-1)(n^2-n-4)+m(n^2-3n-8)]/[(n+1)^2(n+2)(M-5)(M-4)(M-2)^2]. The bracket is positive for n>=5 since each coefficient is positive, and for n=4 it is 24-4m>0 at m=3,4; all other factors have the claimed sign for 3<=m<=M-2. At m<=2, T identically vanishes; at m=M-1, P=n-2 deterministically; at m=M, P=0. Under G(n,p), q_r=p^r gives exactly 3*binom(n,3)*p^4*(1-p)*[2(n-3)-(3n-8)p], with threshold 2(n-3)/(3n-8) in (0,1) for all n>=4. An independent exhaustive direct graph census enumerated all 64, 1024 and 32768 labeled graphs for n=4,5,6, matching every fixed-m covariance and the Bernoulli covariance at p=1/5,1/2,4/5. These bounded tests support, but do not replace, the uniform overlap algebra and positivity proof. No claim about negative association or other graph models follows.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Goldschmidt–Griffiths–Scott (2020), arXiv:1902.06830, Theorem 2.4 and Proposition 7.1 yield moderate-deviation and asymptotic conditional-increment covariance estimates; their Sec. 7 compares XV and X_triangle-3s XV, not this global finite-n P covariance.",
+          "Alvarado–de Oliveira–Griffiths, arXiv:2305.04326v2, Theorem 1.8 concerns cherry-count deviations and Sec. 2.3 martingale representation; no all-m P versus T covariance sign asserted there.",
+          "Janson 1990 DOI 10.1002/rsa.3240010103 abstract addresses asymptotic induced-subgraph counts; Janson 1994 Memoirs AMS 534 orthogonal decomposition is plausible broader machinery, but full text not accessible via arXiv/OA or institutional access."
+        ],
+        "reasoning": "The general theory covers overlapping count decompositions and asymptotic covariances, but the inspected statements do not directly imply the finite-parameter sign and the exact independent-edge threshold. Because orthogonal decompositions could have closed formulas for this pair, treat missing 1994 full text as significant residual risk, not a novelty proof or automatic failure.",
+        "searches": [
+          "Goldschmidt Griffiths Scott 2019 moderate deviations subgraph counts Gnm path triangle covariance pdf",
+          "Janson subgraph counts induced subgraph random graphs covariance fixed edge model 1990 1994",
+          "Janson \"Orthogonal decompositions and functional limit theorems for random graph statistics\" pdf free",
+          "site:arxiv.org \"Orthogonal decompositions and functional limit theorems for random graph statistics\" \"Janson\"",
+          "site:math.uu.se/~svante/papers \"Orthogonal decompositions\""
+        ]
+      },
+      "checked_sources": [
+        "Goldschmidt–Griffiths–Scott, arXiv:1902.06830 / Transactions AMS 373 (2020), full relevant primary sections read",
+        "Alvarado–de Oliveira–Griffiths, arXiv:2305.04326v2, relevant full-text sections read",
+        "Janson 1990, DOI 10.1002/rsa.3240010103, publisher abstract (not full text)",
+        "Janson 1994, DOI 10.1090/memo/0534, bibliographic synopsis only, full text inaccessible",
+        "Berkowitz 2016, arXiv:1610.01281, dated abstract",
+        "Published Resultary 2026-10-04 component–triangle covariance record, full RESULT.md",
+        "Resultary semantic searches of equivalent open-triad, cherry, closed-triple and fixed-edge covariance terms",
+        "Targeted primary-web searches of exact mixed moments and motif covariance tables"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For every fixed n,m, hypergeometric overlap terms q3,q4,q5,q6 can be obtained from general random-graph counting methods; however the full strict negativity is the non-obvious cancellation and factor positivity after P=W-3T.",
+          "Goldschmidt–Griffiths–Scott (2020) Sec. 7, Proposition 7.1 estimates conditional increment covariances at scaling n large, not the stated fixed-edge unconditional exact covariance.",
+          "Alvarado–de Oliveira–Griffiths (2025 arXiv v2) Thm 1.8 bounds cherry deviation tails, not this cross covariance.",
+          "Janson (1990) abstract notes induced-subgraph distribution asymptotics, not a finite exact T,P sign theorem."
+        ],
+        "reasoning": "A generic ability to compute mixed moments is weaker than a previously demonstrated sharp all-parameter inequality, but a genuinely explicit older moment formula that simplifies mechanically to the current statement would undercut originality. That comparison is unresolved for inaccessible Janson 1994 and is recorded as a priority risk. The inspected named primary theorems do not subsume the exact claim.",
+        "searches": [
+          "Moderate deviations of subgraph counts G(n,m) triangle path of length two exact covariance",
+          "Goldschmidt Griffiths Scott moderate deviations subgraph counts G(n,m) arxiv 2019",
+          "random graph closed triples open triples motif correlation network transitivity clustering independent edge",
+          "Svante Janson 1994 orthogonal decompositions random graph statistics induced subgraph exact covariance"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact identity P=W-3T with W=sum_v binom(deg(v),2) converts induced paths to noninduced cherries and triangles; Goldschmidt–Griffiths–Scott, arXiv:1902.06830, Sec. 2 Lemma 2.7 gives general induced/noninduced inclusion–exclusion.",
+          "Inspected Goldschmidt–Griffiths–Scott Section 7 Proposition 7.1 has asymptotic increments XV and X_triangle, not a finite covariance sign for P=W-3T.",
+          "Resultary published finding \"Three-point connectivity exactly controls component–triangle covariance\", 2026/10/4, concerns global component count K and T, not induced wedge P and T."
+        ],
+        "reasoning": "Equivalent observables include wedge minus thrice triangle, cherry-minus-triangle, closed/open-triple covariance, and the mixed moments of W,T. Directly compared these mathematical forms, not only title strings. The published component–triangle covariance does not algebraically imply a covariance with P without an independent relation between component count K and P, which is absent.",
+        "searches": [
+          "covariance number of triangles induced paths length 2 G(n,m) negative correlation",
+          "Covariance \"triangles\" \"2-stars\" \"random graphs\" conditional number edges",
+          "exact covariance induced open wedge triad count number of triangles in uniform fixed number edges random graph G(n,m)",
+          "Resultary query: exact covariance induced open wedge triad count number of triangles in uniform fixed number edges random graph G(n,m)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic searches retrieved the 2026 component–triangle covariance record and unrelated motif-count results, with no exact T,P formula or equivalent table in surfaced records.",
+          "The inspected source sections give analytic deviation statements and moment methods, not a table of this exact two-motif covariance.",
+          "No graphlet covariance database or numerical table was found establishing the all-(n,m) factorization; absence from searches is not definitive coverage evidence."
+        ],
+        "reasoning": "An indexed exact table entry equivalent to the two displayed rational formulas would cover the finding, even without its sign text; the searches did not identify one. The data are symbolic all-parameter laws, not a one-off small-graph graphlet census.",
+        "searches": [
+          "joint moments triangle open triple counts random graphs negative covariance fixed m",
+          "exact joint distribution covariance of triads in Erdős–Rényi random graphs G(n,p) transitivity",
+          "Resultary query: conditional covariance triangle wedges given edge count threshold sign independent edge random graph",
+          "Resultary query: random graph closed triples open triples motif correlation network transitivity clustering independent edge"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as the combined exact finite all-m negative induced-open-triad covariance and exact G(n,p) sign trichotomy. Existing martingale and induced-subgraph decomposition results treat the same triangle/cherry primitives but the inspected theorem statements and relevant full-text sections do not assert these sharp all-parameter covariance signs. Mere general methods for evaluating joint moments do not by themselves prove the factored sign theorem; nevertheless the formula is accessible through classical overlap enumeration and an older explicit special-case corollary remains a substantial priority risk.",
+      "residual_risks": [
+        "Janson 1994 general orthogonal-decomposition memoir might include or directly imply exact finite covariances; full text not read because arXiv/OA attempts failed and authorized Oxford retrieval returned VPN disconnected.",
+        "Janson 1990 full text not read; abstract cannot justify whole-document NOT_COVERING.",
+        "Older exact mixed-motif covariance tables or textbooks may provide equivalent finite formulas via the P=W-3T relation; targeted searches do not prove historical novelty.",
+        "The algebraic ingredients are classical overlap enumeration; priority attaches only to the complete all-parameter sign/reversal classification rather than the moment method."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact induced/noninduced linearization and asymptotic increment covariance machinery are prior. The cited passages do not state the all-n all-m induced-triad strict sign or Bernoulli sharp transition.",
+          "evidence": [
+            "Goldschmidt–Griffiths–Scott, arXiv:1902.06830, Lemma 2.7 (induced inclusion–exclusion), Proposition 7.1 (increment covariance approximation), introduction points (i)-(iv)."
+          ],
+          "identifier_or_url": "https://people.maths.ox.ac.uk/scott/Papers/moderatedeviations.pdf",
+          "material_read": "PDF introduction and definition pages 1-4, Theorem 2.4 and Lemma 2.7 at pp. 13-15, and Section 7 Proposition 7.1 and neighboring remarks at pp. 43-45; rendered first, 14th and 43rd physical PDF pages inspected visually, relevant passages text-inspected.",
+          "method": "lawful author-hosted open-access manuscript PDF, searchable text and PDF page screenshots",
+          "title": "Moderate deviations of subgraph counts in the Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Closest full-text same mathematical model treatment of both triangle and two-edge-path counts"
+        },
+        {
+          "assessment": "Deviation theorems, not a finite cross-covariance identity for induced open triples and triangles.",
+          "evidence": [
+            "arXiv:2305.04326v2, Theorem 1.8 and Section 2.3; the count N_V is the noninduced path/cherry."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.04326",
+          "material_read": "PDF title/abstract and Sections 1.1-1.4 (pp. 1-11); Theorem 1.8 cherry deviations at printed p. 10; Section 2.3 martingale representation at printed pp. 16-17; relevant sections located by full-text keyword search. Front-page screenshot inspected.",
+          "method": "arXiv full text PDF and text search with PDF visual check",
+          "title": "Moderate deviations of triangle counts in sparse Erdős–Rényi random graphs G(n,m) and G(n,p)",
+          "trigger": "Same subgraph count primitives, models and cherry statistics"
+        },
+        {
+          "assessment": "Foundational asymptotic general theory, cannot exclude exact special-case coverage without full text.",
+          "evidence": [
+            "Janson 1990, Random Structures & Algorithms 1:15-37, DOI 10.1002/rsa.3240010103; publisher abstract explicitly covers G(n,p), G(n,m), induced motifs asymptotically."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240010103",
+          "material_read": "Publisher abstract, bibliographic information, and description of induced-subgraph applications; full mathematical text inaccessible.",
+          "method": "publisher record and bibliographic search",
+          "title": "A functional limit theorem for random graphs with applications to subgraph count statistics",
+          "trigger": "Foundational fixed-edge and induced-subgraph statistical comparison"
+        },
+        {
+          "assessment": "Material priority uncertainty: general orthogonal decomposition might supply an explicit equivalent covariance, but uninspected full text alone does not establish coverage.",
+          "evidence": [
+            "Janson 1994, Memoirs of the American Mathematical Society 111 no. 534, overview mentions orthogonal basis, G(n,p), G(n,m), and subgraph applications."
+          ],
+          "identifier_or_url": "https://doi.org/10.1090/memo/0534",
+          "material_read": "Bibliographic and synopsis records from the author publication list, WorldCat, and catalogues only; no mathematical chapters accessible.",
+          "method": "arXiv and lawful author/OA full-text discovery unsuccessful; authorized institutional retrieval attempted and blocked (VPN disconnected), not retried/bypassed.",
+          "title": "Orthogonal Decompositions and Functional Limit Theorems for Random Graph Statistics",
+          "trigger": "Most plausible broad exact random-graph covariance framework, Memoirs AMS 534 (1994)"
+        },
+        {
+          "assessment": "Studies Cov(component-count K, triangle-count T) for independent bond percolation on a base graph; no conditional G(n,m) wedge P or Bernoulli Cov(P,T) threshold.",
+          "evidence": [
+            "Resultary published 2026-10-04: Eq. (1) Cov(K,T) via three-component connectivity partition; different left-hand observable."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-three-point-connectivity-exactly-controls-component-triangle-cov--f947a72b3174",
+          "material_read": "Complete public RESULT.md, including theorem, proof and comparison to earlier work",
+          "method": "public GitHub primary content fetched and read",
+          "title": "Three-point connectivity exactly controls component–triangle covariance",
+          "trigger": "Closest published Resultary finding returned by targeted motif covariance semantic searches"
+        },
+        {
+          "assessment": "Univariate G(n,p) triangle local limit, no supported conclusion about covariance with induced P.",
+          "evidence": [
+            "Berkowitz 2016, arXiv:1610.01281, abstract explicitly describes univariate local limit in G(n,p)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1610.01281",
+          "material_read": "Dated arXiv abstract and submission history only; not treated as whole-document inspection.",
+          "method": "arXiv metadata/abstract",
+          "title": "A Quantitative Local Limit Theorem for Triangles in Random Graphs",
+          "trigger": "Cited triangle local limit reference in the audited package"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Both complete three-vertex motifs and induced open triads are natural network-clustering and transitivity observables. The same pair changes from a sharp sign-changing covariance in G(n,p), with exact threshold p*=2(n-3)/(3n-8), to universal strict negative covariance at every nondegenerate fixed edge count in G(n,m). This comparison gives an exact finite-sample calibration warning that conditioning the edge count changes dependence qualitatively. The complete all-n all-m sign classification is not merely a one-parameter substitution or a small-table enumeration; its sign requires a nontrivial cancellation of mixed triangle/wedge overlap terms. It is a self-contained, motivated invariant, without implying negative association or stronger inference claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every n>=4 and 0<=m<=M=binom(n,2), the covariance of unordered triangles T and induced open two-edge triples P in uniform G(n,m) is zero iff m<=2 or m>=M-1 and strictly negative for 3<=m<=M-2, with the factored rational formula stated in RESULT.md. In iid-edge G(n,p), 0<p<1, Cov(T,P)=3*binom(n,3)*p^4*(1-p)*[2(n-3)-(3n-8)p], changing sign at p*=2(n-3)/(3n-8).",
+  "limitations": [
+    "Undirected labeled simple graphs only, n>=4; P counts induced, unordered open 3-vertex paths.",
+    "The G(n,m) sign proof uses the uniform fixed-edge hypergeometric model; the G(n,p) formula uses iid edges of common probability.",
+    "Covariance does not imply negative association, negative regression or stochastic ordering; no generalization to heterogeneous or regular random graph models.",
+    "Novelty is best-of-knowledge: relevant older Janson full texts inaccessible and exact historical priority not certified.",
+    "Original publication preparation was incomplete; the historical administrative limitation does not change the mathematical assessment."
+  ],
+  "schema_version": 1
+}

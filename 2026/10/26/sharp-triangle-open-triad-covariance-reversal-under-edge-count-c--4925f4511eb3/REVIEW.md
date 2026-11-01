@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The exact fixed-edge covariance derives from explicit three-/four-/five-/six-edge intersection counts, a polynomial rational factorization, and positive-factor sign analysis. Direct exhaustive graph enumeration for four through six vertices and rational overlap calculations across larger sizes reproduce the formula. The Bernoulli formula follows from the same overlap accounting and gives its sharp sign transition. Finite verification is supplementary to the proof.
+PASS
 
-## Originality
+Reviewed the actual RESULT.md proof, CHECK.py, SLOGAN.txt, REVIEW.md and administrative source blobs at the assigned Git tree. Define T as unordered K3 count, P as induced 2-edge triples, and W as the sum over vertices of binom(deg(v),2), so P=W-3T. For each fixed triangle, exactly 3 potential wedges reuse 2 triangle edges, 6(n-3) reuse 1, and 3*binom(n,3)-3-6(n-3) reuse 0; for paired triangles 1 is identical, 3(n-3) share an edge, and the others share none. Under G(n,m), with M=binom(n,2) and q_r=(m)_r/(M)_r, these give exact ETW and ET^2 expressions by edge-union sizes 3,4,5 and 3,5,6; subtract ET EW and 3 Var(T). An independently written SymPy derivation from these overlap sums exactly factors to -4*m*(m-1)*(m-2)*(M-m)*(M-m-1)*[(n-1)(n^2-n-4)+m(n^2-3n-8)]/[(n+1)^2(n+2)(M-5)(M-4)(M-2)^2]. The bracket is positive for n>=5 since each coefficient is positive, and for n=4 it is 24-4m>0 at m=3,4; all other factors have the claimed sign for 3<=m<=M-2. At m<=2, T identically vanishes; at m=M-1, P=n-2 deterministically; at m=M, P=0. Under G(n,p), q_r=p^r gives exactly 3*binom(n,3)*p^4*(1-p)*[2(n-3)-(3n-8)p], with threshold 2(n-3)/(3n-8) in (0,1) for all n>=4. An independent exhaustive direct graph census enumerated all 64, 1024 and 32768 labeled graphs for n=4,5,6, matching every fixed-m covariance and the Bernoulli covariance at p=1/5,1/2,4/5. These bounded tests support, but do not replace, the uniform overlap algebra and positivity proof. No claim about negative association or other graph models follows.
 
-PASS under the accessible scientific comparisons, with nontrivial priority risk. Berkowitz (2016) proves local limits for individual triangle counts; Goldschmidt–Griffiths–Scott (2019) prove broad deviation results for noninduced path and triangle counts and asymptotic increment-covariance formulas; Alvarado–de Oliveira–Griffiths (2023) concerns deviations of triangles and cherries. None of their materially checked statements directly asserts the finite all-density induced-triad sign result and sharp Bernoulli reversal. Janson's earlier general orthogonal-decomposition work may provide an alternative implication and was not inspected in full.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Network transitivity is frequently evaluated through a closed-versus-open three-vertex motif contrast. The theorem identifies a sharp and counterintuitive change in the covariance null depending on whether edge count is fixed or fluctuates, and supplies a rational finite-sample formula for each regime.
+Best-of-knowledge original as the combined exact finite all-m negative induced-open-triad covariance and exact G(n,p) sign trichotomy. Existing martingale and induced-subgraph decomposition results treat the same triangle/cherry primitives but the inspected theorem statements and relevant full-text sections do not assert these sharp all-parameter covariance signs. Mere general methods for evaluating joint moments do not by themselves prove the factored sign theorem; nevertheless the formula is accessible through classical overlap enumeration and an older explicit special-case corollary remains a substantial priority risk.
 
-## Limits and closest literature
+## value
 
-Claims do not include negative association or implications for heterogeneous sampling; historical priority is not independently audited. Exact-parameter sign implications of general historical subgraph-statistic methods remain a residual risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Both complete three-vertex motifs and induced open triads are natural network-clustering and transitivity observables. The same pair changes from a sharp sign-changing covariance in G(n,p), with exact threshold p*=2(n-3)/(3n-8), to universal strict negative covariance at every nondegenerate fixed edge count in G(n,m). This comparison gives an exact finite-sample calibration warning that conditioning the edge count changes dependence qualitatively. The complete all-n all-m sign classification is not merely a one-parameter substitution or a small-table enumeration; its sign requires a nontrivial cancellation of mixed triangle/wedge overlap terms. It is a self-contained, motivated invariant, without implying negative association or stronger inference claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
