@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T10:59:03.332043Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/unique-event-time-reversal-for-angular-escape-versus-absorption--29b1d6cdbfba/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/unique-event-time-reversal-for-angular-escape-versus-absorption--29b1d6cdbfba/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261029T1043/independent_checks.py"
+      ],
+      "rationale": "For angular Brownian exit T from (−L,L), generator D∂² and independent Exp(κ) E, solve backward ODE: F=E[e^(−κT)]=cosh(uz)/cosh z, u=|θ0|/L,z=L√(κ/D). Conditional E[T|T<E]=−F’/F and E[E|E<T]=1/κ+F’/(1−F), so signed difference is H(z,u)/[κ(1−F)]. H(z,0)>0, H(z,u)<0 near u=1; its derivative changes from negative to positive exactly once since Q(w)=sech(w)+(w/sinh w)sech²w decreases. Exactly one interior zero follows. Taylor expansion gives u_c=1/√5+(8√5/1875)z²+O(z⁴); u=1−w/z limit w/2−1+exp(−w) yields w*=1.59362426004... positive root. Independently numerically evaluated thresholds z=.2..40 and confirmed strong layer; analytic proof covers all positive parameters.",
+      "residual_risks": [
+        "Model is only one sticking episode with unbiased D>0 and constant killing κ>0; does not cover return trajectories or nonexponential killing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bressloff 2023 conditional means are given for the same model and plotted; generalized sticky/encounter-boundary papers consider other termination laws."
+        ],
+        "reasoning": "Source formula covers start point and rates but not a structural all-rate comparison theorem; generic FPT transforms do not establish one crossing without monotonic derivative analysis.",
+        "searches": [
+          "Resultary: Brownian exit from interval independent exponential killing conditioned killing escape time unique crossover starting position",
+          "Bressloff Proceedings Royal Society A 479:2273"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/371196507_Trapping_of_an_active_Brownian_particle_at_a_partially_absorbing_wall",
+        "arXiv:2302.09105",
+        "doi:10.1103/PhysRevE.107.064121",
+        "Resultary: Brownian exit from interval independent exponential killing conditioned killing escape time unique crossover starting position"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bressloff exact conditional-time equations imply the function H by algebra. The uniqueness and positive root constants follow after proving Q strictly decreasing and Taylor/boundary-layer analyses."
+        ],
+        "reasoning": "Underlying conditional means are prior work; analytic sign-shape theorem is a nonautomatic nontrivial implication derived here, so the whole claim is not already contained as an explicit source theorem.",
+        "searches": [
+          "Resultary: Brownian exit from interval independent exponential killing conditioned killing escape time unique crossover starting position",
+          "Bressloff Eq(3.12)-(3.14) Figure4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Angular model = Brownian first exit from a finite interval competing with an independent exponential killing clock. Source Bressloff eqs 3.12–3.14 condition on which terminal event occurs."
+        ],
+        "reasoning": "The equivalence matches the exact stochastic law, but prior conditional mean formulas alone do not determine uniqueness of their crossing for all rates.",
+        "searches": [
+          "Resultary: Brownian exit from interval independent exponential killing conditioned killing escape time unique crossover starting position",
+          "Bressloff arXiv:2302.09105 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary Brownian escape/absorption semantic query returned other first-exit and threshold results but no w* crossover table.",
+          "The Bressloff Figure 4 curves are existing numerical data, not the uniqueness theorem or sharp asymptotics."
+        ],
+        "reasoning": "No exact one-crossing theorem table found; plotting cannot prove universal uniqueness.",
+        "searches": [
+          "Resultary: Brownian exit from interval independent exponential killing conditioned killing escape time unique crossover starting position"
+        ]
+      },
+      "rationale": "Bressloff 2023 already derives both conditional times and plots their angle dependence; these quantities themselves are NOT new. The source’s full accessible §3/figure 4 does not contain the all-rate one-crossing theorem with its analytic small/large-rate limiting constants. The new global sign-shape proof is a motivated continuation; possible broader killed-Brownian theorem remains risk.",
+      "residual_risks": [
+        "A differently worded unindexed competing exponential-clock Brownian exit theorem could imply the crossover.",
+        "Only one wall episode with constant killing; no bulk return FPT theorem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS formulas and figures; no inspected proof of unique global crossing or both sharp endpoint laws.",
+          "evidence": [
+            "Figure 4 shows angular conditional MFPT curves and states their monotonicity; it does not establish one crossing for all κ."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/371196507_Trapping_of_an_active_Brownian_particle_at_a_partially_absorbing_wall",
+          "material_read": "Primary full text rendered as HTML (3275 lines); inspected §3.2–3.3, equations 3.12–3.14, Figure 4 and its written interpretation.",
+          "method": "Full-text accessible researcher copy, focus on exact competing-clock formulas and plotted conditional times",
+          "title": "Paul C. Bressloff, Trapping of an active Brownian particle at a partially absorbing wall",
+          "trigger": "Same angular diffusion, exponential killing, conditional event times"
+        },
+        {
+          "assessment": "Occupation-time/sticky-boundary model broader in mechanism but does not demonstrate the specific angular one-event time ordering.",
+          "evidence": [
+            "No full-text exclusion asserted."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.107.064121",
+          "material_read": "Primary publisher abstract only; full text not reread",
+          "method": "Publisher abstract comparison",
+          "title": "Paul C. Bressloff, Close encounters of the sticky kind: Brownian motion at absorbing boundaries",
+          "trigger": "Alternative prior sticky-boundary setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/unique-event-time-reversal-for-angular-escape-versus-absorption--29b1d6cdbfba/RESULT.md",
+        "https://www.researchgate.net/publication/371196507_Trapping_of_an_active_Brownian_particle_at_a_partially_absorbing_wall",
+        "arXiv:2302.09105"
+      ],
+      "rationale": "The unique angular event-order crossover for every reaction/diffusion ratio is a natural structural fact about two different conditional first-passage times already known separately. It replaces plotted behavior by a universal monotonicity theorem and gives two nontrivial endpoint scales, including a physical √(D/κ) boundary layer.",
+      "residual_risks": [
+        "Parameter-specific analytic theorem, not full-channel absorption dynamics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A differently worded unindexed competing exponential-clock Brownian exit theorem could imply the crossover.",
+    "Only one wall episode with constant killing; no bulk return FPT theorem.",
+    "Model is only one sticking episode with unbiased D>0 and constant killing κ>0; does not cover return trajectories or nonexponential killing."
+  ],
+  "schema_version": 1
+}

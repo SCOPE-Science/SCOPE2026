@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The finding is a theorem about a one-dimensional angular diffusion during **one bound episode** at a reactive wall. Its proof uses the exact exit-time Laplace transform, event-conditioning identities, an analytic one-minimum argument for the sign function, and small-/large-rate expansions. These analytic steps establish all continuum parameter values; numerical sampling is not substituted for them.
+## correctness
 
-## Direct checks
+PASS
 
-The formula \(F=\cosh(uz)/\cosh z\) is the unique solution to the backward diffusion boundary problem and reproduces the angular Green-function result in Bressloff's equations (3.18)–(3.25). The exact identity
-\[
-\tau_{\rm esc}-\tau_{\rm abs}=\frac{H(z,u)}{\kappa(1-F)}
-\]
-allows a sign check without subtracting two potentially close conditional means. The derivative proof gives exactly one interior root, because the comparison function has a single strict minimum and its endpoint signs are fixed. Taylor expansion to order \(z^6\) and the layer substitution \(u=1-w/z\) give the two endpoint laws. An independent moment calculation of \(\mathbb E[T]\) and \(\mathbb E[T^2]\) recovers the weak-killing threshold \(u=1/\sqrt5\).
+For angular Brownian exit T from (−L,L), generator D∂² and independent Exp(κ) E, solve backward ODE: F=E[e^(−κT)]=cosh(uz)/cosh z, u=|θ0|/L,z=L√(κ/D). Conditional E[T|T<E]=−F’/F and E[E|E<T]=1/κ+F’/(1−F), so signed difference is H(z,u)/[κ(1−F)]. H(z,0)>0, H(z,u)<0 near u=1; its derivative changes from negative to positive exactly once since Q(w)=sech(w)+(w/sinh w)sech²w decreases. Exactly one interior zero follows. Taylor expansion gives u_c=1/√5+(8√5/1875)z²+O(z⁴); u=1−w/z limit w/2−1+exp(−w) yields w*=1.59362426004... positive root. Independently numerically evaluated thresholds z=.2..40 and confirmed strong layer; analytic proof covers all positive parameters.
 
-## Standalone computation
+## originality
 
-Run `python3 checker.py` from the extracted package directory. It requires only the Python standard library. The script checks the root/sign relation at \(z=0.5,1,3,10,30\), verifies equality of conditional means at those numerically located roots, and tests the weak- and strong-killing limits. Floating-point checks cannot certify uniqueness or asymptotics by themselves; the proof in `RESULT.md` supplies the universal quantifiers.
+PASS
 
-## Known limits
+Bressloff 2023 already derives both conditional times and plots their angle dependence; these quantities themselves are NOT new. The source’s full accessible §3/figure 4 does not contain the all-rate one-crossing theorem with its analytic small/large-rate limiting constants. The new global sign-shape proof is a motivated continuation; possible broader killed-Brownian theorem remains risk.
 
-At \(u=1\), killing before escape has zero probability and its conditional mean is undefined, so the theorem explicitly assumes \(u<1\). At \(\kappa=0\), killing never happens, so the weak-killing threshold describes the right-sided limit only. The result does not cover memory-dependent killing, drift in orientation, or bulk excursions and returns.
+## value
+
+PASS
+
+The unique angular event-order crossover for every reaction/diffusion ratio is a natural structural fact about two different conditional first-passage times already known separately. It replaces plotted behavior by a universal monotonicity theorem and gives two nontrivial endpoint scales, including a physical √(D/κ) boundary layer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
