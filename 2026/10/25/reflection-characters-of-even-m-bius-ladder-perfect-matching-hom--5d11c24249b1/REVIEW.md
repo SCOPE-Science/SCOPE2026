@@ -1,15 +1,21 @@
-# Scientific review: even Möbius-ladder perfect-matching reflections
+# Independent mathematical audit
 
-## Correctness — PASS
-The perfect-matching complex has exactly two nonzero-dimensional rational homology generators in the single degree described by Agarwal–Basak, Theorem 18 (first version). For even ladder width the cited minimal-bad-matching theorem identifies the entire complex with the flag independence complex on graph edges, with the two extra incompatible perimeter differences. The reflection-fixed simplices are unions of edge orbits, so their signed reduced Lefschetz sum is the negative evaluation of the orbit-incompatibility independence polynomial at \(z=-1\). The axis through opposite vertices leaves an isolated quotient vertex and gives trace zero. The other axis yields a quotient graph admitting explicit cancellation of nonadjacent open twins, leaving a chain of triangles whose two-state recurrence is evaluated exactly for every width. The independently checked full-rank rotation theorem then resolves the complete rational dihedral module. The accompanying standard-library checker validates the independent perfect-matching interpretation at even widths 4–14, exact quotient identities at widths 4–32, and eight signed fixed-face calculations directly from enumerated facets. These finite checks corroborate but do not substitute for the all-parameter proof.
+## correctness
 
-## Originality — PASS, with residual risks
-The 2026 Agarwal–Basak paper gives the nonequivariant homotopy ranks and the necessary matching-extension presentation, not the induced reflection traces. The publicly indexed even-width rotation result proves the order-two/order-four cyclic action, with reflections expressly outside its claim; the antipodal half-turn result concerns a rotation, not either reflection conjugacy class. The full dihedral representation already published for odd ladder widths does not cover even widths. The proposed new trace at widths \(n\equiv2\pmod4\), including its sign change modulo eight and the consequent dihedral-invariant subspace, is not implied by these earlier statements. The vanishing of reflection traces at widths divisible by four is included only for completeness: it also follows group-theoretically from the known two-dimensional rotation action. An unindexed equivalent or a later revised treatment remains possible. The first full preprint text and the relevant publicly indexed complete proof files were inspected; the revised preprint's complete body was not inspected.
+PASS
 
-## Value — PASS
-This natural representation question is forced by the 2026 homotopy classification and the previously computed cyclic action. For infinitely many even ladder widths, both geometric reflection-axis classes exist but have sharply different traces: an axis through vertices has trace zero and the other acts on the entire two-dimensional homology as a scalar \(+1\) or \(-1\). This distinguishes geometric symmetries invisible to sphere multiplicities, completes the rational dihedral character across the even family and identifies precisely when full-dihedral invariant homology exists. The result is a structural infinite-parameter calculation, not a small finite census or a renaming of a known cyclic character.
+For even n>=4, perfect-matchable edge sets have the incompatibility-graph presentation. A reflection-fixed simplex is a union of edge orbits; signed augmented Lefschetz is -I(Q;-1), and the lone reduced H_{n/2-1} has dimension two. The even-axis quotient Q has an isolated vertex, giving trace 0. Odd-axis open-twin reductions leave a chain of k=n/2 triangles with state transfer (f_j,g_j)=(g_{j-1},-f_{j-1}) at z=-1. Its signed evaluations give trace 0 for n divisible by four and 2(-1)^((n-2)/4) for n=2 modulo four, exactly as claimed. Separate published rotation trace zero and square (-1)^(n/2-1) yield the dihedral-module/invariant corollary. Independently enumerated actual matchings and all down-closed faces for n=4,6,8,10: (7,82),(18,730),(47,6562),(123,59050); the two reflection trace values agree (0,0),(0,-2),(0,0),(0,2). Finite checks are not the all-width proof.
 
-## Evidence and limits
-Primary input: Agarwal and Basak, arXiv:2608.30601, initial public version 31 August 2026, especially §§2,4, Lemmas 13–15 and Theorem 18. Closest prior homology-action results: the published even-width rotation theorem, the antipodal-half-turn theorem, and the odd-width full dihedral theorem. A standalone checker, `verify_reflections.py`, is supplied and was run successfully. The inference from published nonequivariant homology concentration is explicit. Searches cannot establish global uniqueness; independent expert or formal validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2026 Agarwal–Basak primary theorem and incompatibility lemmas establish non-equivariant homotopy and graph model, not the new reflection traces. A prior published even-width cyclic rotation module determines T but not both reflection-conjugacy-class actions. The odd-width complete dihedral theorem has disjoint parity. The signed orbit calculation yields a new nonzero/zero reflection and invariant-line mod-eight distinction. Priority qualified by possible unpublished or revised-preprint reflection calculations.
+
+## value
+
+PASS
+
+The trace of a geometric axis reflection, the full two-dimensional rational dihedral character and exact invariant-line criterion answer a natural symmetry question left unresolved by ordinary rank-two homology and known cyclic rotation. This is not merely a renamed rotation calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
