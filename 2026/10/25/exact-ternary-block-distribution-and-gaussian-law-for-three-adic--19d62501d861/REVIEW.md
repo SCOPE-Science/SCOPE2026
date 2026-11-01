@@ -1,19 +1,21 @@
-# Review of exact ternary-block Catalan valuation distribution
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The all-\(2\) base-three string, the strings with zero trailing \(2\)s, and those with positive trailing \(2\)s form an exhaustive disjoint partition. Kummer's carry identity minus \(\nu_3(n+1)\) yields the explicitly calculated two-state transition matrix. Its rational resolvent gives the exact polynomial identity for every integer \(L\geq0\). Derivatives and root asymptotics establish finite moments, fixed-valuation tails and the normal limit. Independent factorial-valuation enumeration checks through \(L=9\) agree. Finite checks are not relied upon to prove infinite claims.
+PASS
 
-## Originality
+By Kummer ν3(C_n)=number of ternary carries in n+n−ν3(n+1). Split length-L ternary strings at the first non-2 digit and account for cancellation of trailing-two carries; subsequent positions use transition matrix T(u)=[[2,u],[1,2u]]. The inverse (I−zT)^{-1} gives Σ_{L≥0}P_L(u)z^L=[1+(1−2u)z]/[1−2(1+u)z+3uz²] with P0=1,P1=3, and recurrence P_L=2(1+u)P_{L−1}−3uP_{L−2}. Differentiation at u=1 gives exact mean L/2−3/4+3/(4·3^L) and variance [8L−15+24·3^{−L}−9·3^{−2L}]/16. Dominant root λ+(u)=1+u+sqrt(1−u+u²), with log(λ+(e^s)/3)=s/2+s²/4+O(s³), proves normal limit centered L/2 and scaled sqrt(L/2). At u=0 gives zero count 3·2^{L−1}; support 0..L−1 realized with explicit ternary digits; fixed-r singular root expansion gives claimed polynomial asymptotics. Independent Legendre-factorial enumeration for every n<3^L up to L=9, exact rational moments and polynomial histograms all matched. Finite cases not used as proof for unbounded L.
 
-PASS under inspected evidence, with residual priority risk. OEIS A067397 gives individual valuations and a digit-block recurrence, not the joint bivariate block-length/valuation census with exact variance and a normal limit. Deutsch--Sagan's Catalan congruence results and Chen--Jiang's prime-power congruences do not give the claimed aggregate distribution. Li (2018) gives valuation algorithms. The prime-power divisibility paper of Alter--Kubota (1973) is a particularly relevant unavailable full-text source and may contain a stronger result. Published-result searches and semantic mathematical record searches did not identify the same census. Search absence is not proof of uniqueness.
+## originality
 
-## Value
+PASS
 
-PASS. The statistic simultaneously counts every three-adic valuation over complete natural base-three windows, rather than reporting a digit-by-digit lookup or merely the zero-valuation density. The closed rational generating function supplies the full finite-scale law; the exact variance, central limit theorem and fixed-valuation asymptotics separate typical from rare behavior.
+Existing prime-power divisibility, individual 3-adic valuation recurrences and Catalan congruence sources do not state or obviously imply the exact all-valuation distribution over the complete aligned ternary blocks, with rational bivariate GF, exact moments and a Gaussian law. The work organizes carry statistics via a nontrivial weighted transfer and spectral asymptotics. Historical priority qualified because the 1973 primary Alter–Kubota full text could not be obtained.
 
-## Limitations and closest literature
+## value
 
-The scope is the single prime \(3\) and aligned windows of length \(3^L\). No all-prime distribution, effective local central limit theorem or off-grid counting formula is asserted. Key related sources: OEIS A067397 (2002, expanded 2015); Alter--Kubota (1973, full text unavailable); Deutsch--Sagan (arXiv:math/0407326v1, 2004); Chen--Jiang (Integers 13, A36, 2013); Li (2018).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full distribution of a natural p-adic valuation over canonical complete digital blocks, not just divisibility at individual indices, is a meaningful exact enumerative invariant. The bivariate rational generating function gives every finite-scale histogram; the exact mean/variance and CLT describe typical fluctuations, while fixed-r asymptotics treat rare tails. These nontrivial aggregate conclusions add information beyond a digitwise lookup and have natural future use for Catalan divisibility statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

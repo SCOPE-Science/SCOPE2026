@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md",
+        "Kummer carry theorem",
+        "verify.py actual blob 4e1663e73ae9c2132d9bc02c6224e5332e25ab5e",
+        "independent_scope05_checks.py"
+      ],
+      "rationale": "By Kummer ν3(C_n)=number of ternary carries in n+n−ν3(n+1). Split length-L ternary strings at the first non-2 digit and account for cancellation of trailing-two carries; subsequent positions use transition matrix T(u)=[[2,u],[1,2u]]. The inverse (I−zT)^{-1} gives Σ_{L≥0}P_L(u)z^L=[1+(1−2u)z]/[1−2(1+u)z+3uz²] with P0=1,P1=3, and recurrence P_L=2(1+u)P_{L−1}−3uP_{L−2}. Differentiation at u=1 gives exact mean L/2−3/4+3/(4·3^L) and variance [8L−15+24·3^{−L}−9·3^{−2L}]/16. Dominant root λ+(u)=1+u+sqrt(1−u+u²), with log(λ+(e^s)/3)=s/2+s²/4+O(s³), proves normal limit centered L/2 and scaled sqrt(L/2). At u=0 gives zero count 3·2^{L−1}; support 0..L−1 realized with explicit ternary digits; fixed-r singular root expansion gives claimed polynomial asymptotics. Independent Legendre-factorial enumeration for every n<3^L up to L=9, exact rational moments and polynomial histograms all matched. Finite cases not used as proof for unbounded L.",
+      "residual_risks": [
+        "Limit CLT in distribution only, no local CLT or effective error term; only p=3, base-three aligned windows."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alter and Kubota, Prime and prime power divisibility of Catalan numbers (1973), DOI 10.1016/0097-3165(73)90072-1 (full unavailable)",
+          "Deutsch–Sagan 2004",
+          "Chen–Jiang 2013 Catalan numbers modulo prime powers"
+        ],
+        "reasoning": "General divisibility and congruence results can determine residue tests for individual n; inspected material does not provide the simultaneous distribution P_L or limit law. The unavailable Alter–Kubota full text is explicitly retained as priority risk, not a ground to reject O.",
+        "searches": [
+          "Three adic valuation of Catalan numbers exact ternary blocks central limit generating polynomial"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A067397",
+        "Deutsch–Sagan 2004",
+        "Alter–Kubota 1973 abstract",
+        "Resultary Q3",
+        "Chen–Jiang 2013"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "OEIS A067397 digit recursion",
+          "Kummer (classical carries)",
+          "Deutsch–Sagan 2004"
+        ],
+        "reasoning": "Existing digit recurrences make this theorem derivable by a nontrivial aggregation step; general algorithms alone do not entail the specified closed rational GF and CLT without diagonalizing the carry automaton and analyzing moments. The strongest unavailable possible direct antecedent remains Alter–Kubota.",
+        "searches": [
+          "Three adic valuation of Catalan numbers exact ternary blocks central limit generating polynomial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A067397 individual ν3(C_n) digit algorithms; Alter–Kubota (1973) prime power divisibility",
+          "Deutsch–Sagan (2004) Catalan congruences",
+          "two-state Kummer carry automaton in audited proof"
+        ],
+        "reasoning": "Digitwise valuation evaluation is equivalent input to the bivariate transfer matrix, but it does not directly supply the exact block-count polynomial, moments, large-L central limit and fixed valuation asymptotics.",
+        "searches": [
+          "Three adic valuation of Catalan numbers exact ternary blocks central limit generating polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A067397, https://oeis.org/A067397",
+          "Resultary Q3",
+          "finite small-L rows from original source verify.py"
+        ],
+        "reasoning": "OEIS records individual valuation sequence and 2015 digit-block recurrence, but no table of the full bivariate polynomial for all L or exact Gaussian limit in inspected record.",
+        "searches": [
+          "Three adic valuation of Catalan numbers exact ternary blocks central limit generating polynomial"
+        ]
+      },
+      "rationale": "Existing prime-power divisibility, individual 3-adic valuation recurrences and Catalan congruence sources do not state or obviously imply the exact all-valuation distribution over the complete aligned ternary blocks, with rational bivariate GF, exact moments and a Gaussian law. The work organizes carry statistics via a nontrivial weighted transfer and spectral asymptotics. Historical priority qualified because the 1973 primary Alter–Kubota full text could not be obtained.",
+      "residual_risks": [
+        "Alter–Kubota (1973) full article could contain aggregate valuation distribution not accessible; Oxford returned vpn_disconnected.",
+        "Another digit automaton law may express equivalent statistics without the same title."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_FULL_BLOCK_LAW",
+          "evidence": "Individual ν3(C_n) terms and recurrence distinct from sum_n u^{ν3(C_n)} with CLT.",
+          "identifier_or_url": "https://oeis.org/A067397",
+          "material_read": "Sequence entry, references and digit-block recurrence descriptions materially inspected.",
+          "method": "primary indexed database record",
+          "title": "OEIS A067397: Maximal power of 3 that divides n-th Catalan number",
+          "trigger": "Exact same valuation invariant and possible digit recurrence"
+        },
+        {
+          "assessment": "NOT_COVERING_BLOCK_DISTRIBUTION",
+          "evidence": "Congruence/valuation per index, not the exact bivariate ternary-block census and Gaussian law.",
+          "identifier_or_url": "https://arxiv.org/abs/math/0407326",
+          "material_read": "Full lawful primary PDF introductory statement and Theorem 2 pages read; PDF page0 screenshot.",
+          "method": "arXiv full text/relevant sections",
+          "title": "Congruences for Catalan and Motzkin numbers and related sequences",
+          "trigger": "General prime-power congruence formulas might dominate"
+        },
+        {
+          "assessment": "UNREAD_PLAUSIBLE_PRIORITY_RISK",
+          "evidence": "No whole-document NOT_COVERING conclusion. Specific potential historical overlap is recorded.",
+          "identifier_or_url": "https://doi.org/10.1016/0097-3165(73)90072-1",
+          "material_read": "Bibliography and abstract; actual original full article unavailable via lawful OA and institutional connection returned vpn_disconnected.",
+          "method": "abstract and bibliographic record ONLY",
+          "title": "Prime and prime power divisibility of Catalan numbers",
+          "trigger": "Most directly relevant pre-1975 possible stronger result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Kummer theorem",
+        "OEIS A067397",
+        "Deutsch–Sagan and Chen–Jiang"
+      ],
+      "rationale": "The full distribution of a natural p-adic valuation over canonical complete digital blocks, not just divisibility at individual indices, is a meaningful exact enumerative invariant. The bivariate rational generating function gives every finite-scale histogram; the exact mean/variance and CLT describe typical fluctuations, while fixed-r asymptotics treat rare tails. These nontrivial aggregate conclusions add information beyond a digitwise lookup and have natural future use for Catalan divisibility statistics.",
+      "residual_risks": [
+        "No claim concerning other primes, joint p-adic valuations or arbitrary cutoffs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unknown analogous formula for other primes",
+    "1973 Alter–Kubota full article unavailable, explicit priority risk recorded"
+  ],
+  "schema_version": 1
+}
