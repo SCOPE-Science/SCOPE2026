@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:09:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "immutable RESULT.md and actual Rule 60 verify.py source",
+        "new 570-case direct bit-vector rank check",
+        "finite-field group-algebra proof and verified assigned tree"
+      ],
+      "rationale": "The time-jq observation rows of one fixed Rule 60 site correspond to 1,H,H²,... in F2[X]/(X^n-1) for H=(1+X)^q; row rank is the degree of the minimal polynomial of H, with initial powers independent. Over F_(2^r), X^n-1 splits into m=2^r-1 distinct mth roots, each of local thickness 2^a. The root at X=1 yields nilpotent exponent ceil(2^a/q), whereas each other root has leading nonzero w^(2^b) term, exponent 2^max(a-b,0); power-map collisions on F_(2^r)^× number h=m-1 if gcd(u,m)=1, otherwise m/gcd(u,m). Their LCM yields R=ceil(2^a/q)+2^max(a-b,0)h for all r>=2,a>=0,q>=1. Comparison with n proves perfect recovery iff (a=0 and gcd(q,m)=1) or (a>=1 and q=1). Independently computed actual bit rows and Gaussian-eliminated ranks for 570 parameter triples, all matching, without inferring infinity from those tests.",
+      "residual_risks": [
+        "Only Mersenne-multiple cyclic rings and one noiseless fixed sensor; 2022 similar observability papers not inspected in full."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2021 general Kalman criterion is applicable to each finite instance, but does not state a closed rank for all r,a,q. Both 2022 abstracts cover bounded or affine CA observability, mobile sensors and RNG examples, without disclosing an identical theorem in accessible material."
+        ],
+        "reasoning": "A general algorithm to compute finite ranks does not mathematically imply the stated closed form without the local-algebra evaluation. The unread 2022 papers cannot be adjudged not covering in full; priority risk remains.",
+        "searches": [
+          "El Yacoubi et al. 2021 Complex Systems 30, Theorems 5-6",
+          "Plénet et al. DOI:10.1080/00207721.2022.2064556",
+          "Plénet et al. J. Cell. Autom. 16(5-6) 401-422 (2022)"
+        ]
+      },
+      "checked_sources": [
+        "El Yacoubi et al. 2021 full PDF observation criteria",
+        "Plénet et al. 2022 bounded CA abstract",
+        "Plénet et al. 2022 affine CA/RNG abstract",
+        "Resultary Rule60 semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic observability iff rank O_T=n and reconstructibility ker(O_T) subset ker(A^T) are known. A rule-reconstruction problem from nonconsecutive whole-state images is distinct from known-rule fixed-coordinate state recovery."
+        ],
+        "reasoning": "The current theorem explicitly computes n-R and the optimal first R samples for all q, using Jordan collisions that generic criteria leave unevaluated; no inspected precise implication covers the formula.",
+        "searches": [
+          "El Yacoubi 2021 Theorems 5-6 full text",
+          "2022 Plénet bounded/mobile CA paper publisher abstract",
+          "2022 Plénet affine RNG paper publisher abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact system equivalently asks for degree of the minimal polynomial of an additive circulant (I+S)^q, or rank of one-site temporal Hankel/Kalman observability matrix. El Yacoubi Theorem 5 gives a generic rank condition, not this evaluated polynomial."
+        ],
+        "reasoning": "The general minimal-polynomial identity is standard background; the nontrivial evaluated exponent and gcd collision formula is the assessed increment, not a renamed rank test.",
+        "searches": [
+          "Resultary semantic: Rule 60 additive cellular automata single cell observability rank time decimation cyclic Mersenne",
+          "minimal polynomial (1+X)^q modulo X^(2^a(2^r-1))-1",
+          "El Yacoubi 2021 observability of affine cellular automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest corpus hits concern unrelated CA phase modes, affine clocks or other cellular rules; no checked published table of the all-parameter gcd formula."
+        ],
+        "reasoning": "No exact rank table identified, but negative database search is not a novelty certificate and not the basis of this originality PASS.",
+        "searches": [
+          "Resultary same Rule 60 fixed-cell observation rank query",
+          "finite periodic additive cellular automata 2-adic Mersenne observability rank table"
+        ]
+      },
+      "rationale": "Best-knowledge PASS for explicit nilpotent/spectral gcd formula across all specified ring sizes and strides. General Kalman rank criterion is known and not new; potential earlier specialized derivations in inaccessible 2022 full texts remain a material risk.",
+      "residual_risks": [
+        "Full texts of both highly relevant 2022 Plénet papers remain unread, so historical priority is qualified. An authorized institutional retrieval attempt on related unavailable literature was safety-blocked; no retry or bypass."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_GENERIC_KALMAN_TEST_ONLY",
+          "evidence": "Theorem 5 says affine CA observable iff observability matrix full rank, with no Mersenne Rule60 stride rank evaluation.",
+          "identifier_or_url": "doi:10.25088/ComplexSystems.30.3.391",
+          "material_read": "Open 23-page 2021 article, Section 3 definitions and Theorems 5-6, observation matrix, relevant pages 404-407",
+          "method": "complete primary PDF available, section text and page screenshots inspected",
+          "title": "Some Control and Observation Issues in Cellular Automata",
+          "trigger": "Direct generic one-site linear/affine CA observability antecedent"
+        },
+        {
+          "assessment": "UNREAD_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Abstract gives generic criteria and examples, not sufficient to conclude absence of the submitted formula in the full paper.",
+          "identifier_or_url": "doi:10.1080/00207721.2022.2064556",
+          "material_read": "Published abstract, bibliographic details and discussion of fixed/mobile sensor criteria; complete subscriber full text unavailable",
+          "method": "publisher abstract and research index, preprint/open access search attempted",
+          "title": "Observability and reconstructibility of bounded cellular automata",
+          "trigger": "Potential stronger fixed-sensor rank computation in precisely the same class"
+        },
+        {
+          "assessment": "UNREAD_FULL_TEXT_PRIORITY_RISK",
+          "evidence": "Abstract highlights time-varying output/mobile sensors and RNG; snippets cannot exclude a fixed Rule60 result in the full paper.",
+          "identifier_or_url": "Journal of Cellular Automata 16(5-6):401-422 (2022)",
+          "material_read": "Journal publisher abstract and bibliographic record only; complete full text not obtained",
+          "method": "publisher abstract, OA/preprint search; authorized institutional retrieval was safety-blocked and not retried",
+          "title": "Observability and Reconstructibility of Affine Cellular Automata: Example on Random Number Reconstruction",
+          "trigger": "Potential same affine model and stationary RNG reconstruction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "actual group-algebra local argument",
+        "general 2021 CA observability motivation",
+        "new bit-rank comparison"
+      ],
+      "rationale": "Sparse fixed-cell time sampling is an intrinsic observability question. Exact rank and nullity for infinite arithmetic ring families, including a sharp even-ring no-thinning criterion, expose information lost to nilpotent and finite-field power-map aliasing. This is not a routine fixed-size Kalman determinant evaluation.",
+      "residual_risks": [
+        "No extension to noisy sensors, moving observers, general n or arbitrary CAs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Only Mersenne-multiple cyclic rings and one noiseless fixed sensor; 2022 similar observability papers not inspected in full.; Full texts of both highly relevant 2022 Plénet papers remain unread, so historical priority is qualified. An authorized institutional retrieval attempt on related unavailable literature was safety-blocked; no retry or bypass.; No extension to noisy sensors, moving observers, general n or arbitrary CAs.",
+  "schema_version": 1
+}

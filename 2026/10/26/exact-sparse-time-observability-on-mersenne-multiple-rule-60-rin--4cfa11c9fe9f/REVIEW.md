@@ -1,15 +1,21 @@
-# Scientific review: sparse-time Rule 60 observability
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem's domain is \(r\ge2\), \(a\ge0\), \(q\ge1\), with a binary cyclic Rule 60 update and one stationary observed coordinate. Observation rows identify with powers of \(H=(1+X)^q\) in the cyclic group algebra; their rank is the degree of the minimal polynomial because the cyclic vector is the unit. Over \(\mathbb F_{2^r}\), the ring factorization has \(2^r-1\) roots, each with multiplicity \(2^a\). The root \(1\) yields nilpotence index \(\lceil2^a/q\rceil\); all other roots have nilpotence index \(2^{\max(a-v_2(q),0)}\), with eigenvalue collisions counted by the odd-part gcd. The least-common-multiple calculation produces the claimed formula and proves the first-observation independence. A separate exhaustive/rand-seeded Boolean rank checker agreed on 744 parameter cases. Finite tests are corroborative and not the basis of the all-parameter proof.
+## correctness
 
-## Originality — PASS under inspected evidence
-The classical additive-automaton paper of Martin–Odlyzko–Wolfram develops the polynomial treatment of dynamics but not the evaluated one-site, stride-\(q\) observation rank. El Yacoubi et al. (2021) supply a general affine observability-rank criterion, not this closed gcd-and-Jordan classification. Elser (2021) has the distinct problem of recovering unknown rules from full-state snapshots. The finite-volume affine clock-factor and two-frame shift-sensor research records concern different observation objects and do not imply this formula. A 2022 article on bounded CA observation and a 2022 paper on RNG reconstruction were available at abstract level only, so earlier equivalent treatment in their full texts is a residual priority risk. The searches have not established worldwide uniqueness.
+PASS
 
-## Mathematical value — PASS
-Sparse observation of a known linear dynamical system asks an identifiable and natural question: how many initial-state bits can a single fixed instrument recover at an imposed clock rate? The theorem solves this exactly over infinitely many growing ring sizes and sampling intervals, exposes a prime-to-two spectral collision law, separates the singular zero mode, and proves the sharp even-ring impossibility for any omitted time step. The infinite-family closed result is nontrivial beyond running the standard Kalman matrix-rank test for individual instances, and it determines information loss exactly. Scope does not include noisy recovery or arbitrary ring lengths.
+The time-jq observation rows of one fixed Rule 60 site correspond to 1,H,H²,... in F2[X]/(X^n-1) for H=(1+X)^q; row rank is the degree of the minimal polynomial of H, with initial powers independent. Over F_(2^r), X^n-1 splits into m=2^r-1 distinct mth roots, each of local thickness 2^a. The root at X=1 yields nilpotent exponent ceil(2^a/q), whereas each other root has leading nonzero w^(2^b) term, exponent 2^max(a-b,0); power-map collisions on F_(2^r)^× number h=m-1 if gcd(u,m)=1, otherwise m/gcd(u,m). Their LCM yields R=ceil(2^a/q)+2^max(a-b,0)h for all r>=2,a>=0,q>=1. Comparison with n proves perfect recovery iff (a=0 and gcd(q,m)=1) or (a>=1 and q=1). Independently computed actual bit rows and Gaussian-eliminated ranks for 570 parameter triples, all matching, without inferring infinity from those tests.
 
-## Limits
-The mathematical result is proved for a specific infinite family, not every ring length. Some relevant 2022 full texts remained unavailable, and no independent historical-priority validation has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-knowledge PASS for explicit nilpotent/spectral gcd formula across all specified ring sizes and strides. General Kalman rank criterion is known and not new; potential earlier specialized derivations in inaccessible 2022 full texts remain a material risk.
+
+## value
+
+PASS
+
+Sparse fixed-cell time sampling is an intrinsic observability question. Exact rank and nullity for infinite arithmetic ring families, including a sharp even-ring no-thinning criterion, expose information lost to nilpotent and finite-field power-map aliasing. This is not a routine fixed-size Kalman determinant evaluation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
