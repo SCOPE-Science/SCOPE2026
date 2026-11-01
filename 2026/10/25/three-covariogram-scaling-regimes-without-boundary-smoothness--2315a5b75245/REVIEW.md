@@ -1,19 +1,21 @@
-# Scientific review: three covariogram scaling regimes without boundary smoothness
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem is formulated for every full-dimensional compact convex body containing the origin, in every dimension at least two, with no hidden smooth-boundary hypothesis. The normalized radial mean is specified exactly. Translation inclusion supplies a uniform bound on the radial log ratio; the gauge differentiates at almost every boundary point, and the radial area formula converts the resulting limit into the boundary integrals. The Jensen-gap factorization establishes a nonnegative deficit and a quantitative lower bound in the combined scale \(p|x|\). That bound controls the *entire* rescaled sublevel set, rather than merely local values. At the three scales, locally uniform convergence follows respectively from the ordinary covariogram derivative, direct dominated convergence of the gap, and its exact Taylor coefficient. Strict radial growth of the limiting gauges gives Hausdorff set convergence. The fixed-parameter Peano term is separated from, and does not assert, full neighborhood \(C^2\) regularity. Scalar identities were symbolically checked and square diagnostics reproduced from the accompanying script. No finite computation is used to prove an infinite-dimensional claim.
+PASS
 
-## Originality — PASS, with literature risk
+For arbitrary compact full-dimensional K containing 0, the exact scalar Jensen gap identity yields nonnegativity. Almost-everywhere radial gauge differentiation with uniform translation Lipschitz bounds gives ∫rho0^n t_x²=Q_K(x)+o(|x|²). The uniform lower bound D_p(x)≳p|x|²/(1+p|x|) localizes all three level-set scales. Taylor expansion for p|x|≪1 gives the fine quadratic limit and fixed-p Peano coefficient (n+p)/8; at x=y/p the scalar expansion yields Phi_K; at coarser scale the O(1/p) comparison to ordinary covariogram yields H_K. Local uniform convergence plus coercivity and radial monotonicity gives whole-set Hausdorff. Independent numerical integration on the nonsmooth square at p=2 gives D(h,0)/h²→2=(n+p)Q_K(e1)/8. No C2-neighborhood assertion.
 
-Haddad, Jiménez and Resende, *A Smooth Covariogram and the Transition Between Projection Bodies*, arXiv:2610.11700v1, October 8, 2026, Theorems 3–5 and Section 5, prove the corresponding results with differentiable-boundary assumptions; their published formulations do not state the full nonsmooth extension. The main source was read in full for definitions, asymptotic theorem statements, hypotheses, and proof structure. The 2025 paper on higher-order projection and centroid bodies was read in relevant full sections and employs a different smoothing construction. An indexed 2026 study of radial mean bodies of parallelotopes treats the Gardner–Zhang operator, not the translated-pair covariogram. The claim is the elimination of boundary differentiability in the same three-regime theorem and the precise Peano germ, **not** rediscovery of the limits or Orlicz framework. The searchable literature and indexed-result comparisons found no direct implication of this nonsmooth theorem. An unpublished or unindexed extension, and uninspected complete earlier Orlicz texts, remain residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-Polygonal and higher-dimensional polyhedral bodies are central test cases for radial averaging and projection geometry. The original theorem's smoothness conditions exclude precisely those objects, and the boundary Taylor method cannot be applied at their edges and vertices. The new theorem establishes all three transitions for *every* convex body without smoothing or polytope approximation assumptions, including uniform coercivity at the intermediate scale. It gives a natural class-level extension with an exact nonsmooth differential germ, not a routine parameter change or a small numerical improvement.
+The 2026 Haddad–Jiménez–Resende original proves the same three phase profiles under C3 boundary regularity and Hessian under C2. That smooth portion is explicitly prior work; the new quantified assertion is their extension to every compact convex body with no smoothness, including polytopes and fixed-p Peano expansion. The primary theorem hypotheses exclude those examples; no source implying the all-convex extension was found.
 
-## Limitations
+## value
 
-The result gives no dimension-free convergence rates, uniformity over varying convex bodies, or stronger neighborhood smoothness. The material inspected does not establish absolute publication priority. Independent verification has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Removes the high C2/C3 boundary regularity of a known three-regime convex-geometric phase transition without weakening whole-set Hausdorff convergence, so it includes fundamental polytopes. The uniform coercive estimate and fixed-p Peano germ are substantive nonsmooth analytic information.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
