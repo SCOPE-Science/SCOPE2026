@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T08:15:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/global-predator-extinction-and-its-exact-logarithmic-rate-under--55d343ecff9b",
+        "https://www.tandfonline.com/doi/full/10.1080/17513758.2024.2332279",
+        "assigned RESULT.md, SLOGAN.txt, VERIFICATION.md and verify.py",
+        "independent_predator_check.py, independent_predator_results.json (private mathematical corroboration)"
+      ],
+      "rationale": "The model and positivity domain were reconstructed from actual RESULT.md at the assigned source tree and matched Enatsu (2024) equations (15a)-(15b): n>0 and p>0 for all finite time by multiplicative prey equation and positive scalar DDE variation of constants (including tau=0). Logistic comparison gives finite K for prey. For h>=q=e^{-beta tau}, qH(n,p)=q z/(1+h z)<q/h<=1 for every finite z=(1+alpha p)n, so constant history supremum P bounds predator p(t)<=P by scalar method of steps. The finite K,P yield A=qH(K,P)<1 *even at h=q*. The root rho_A in (0,1) of rho_A+A exp(rho_A tau)=1 makes P exp(-rho_A t) a valid supersolution with dominating negative-time history, giving global p(t)->0 exponentially and excluding blowup. With d=(1+alpha p)p/[1+h(1+alpha p)n]->0, reciprocal prey u=1/n solves u'=(-sigma+d)u+sigma/kappa, whose eventual coefficient squeeze gives n->kappa. Thus a(t)=qH(n(t-tau),p(t-tau))->a_*=q kappa/(1+h kappa) in (0,1). For every eta with 0<a_*-eta<a_*+eta<1, two-sided scalar positive DDE exponential comparison after time T yields -rho_-(eta)<=liminf log p/t<=limsup log p/t<=-rho_+(eta), with rho_-(eta)>rho_+(eta) the unique roots for gains a_*-eta,a_*+eta; letting eta->0 proves the exact logarithmic rate -rho_*. Tau=0 is included by the same scalar root/ODE argument. If h<q and kappa>1/(q-h), N(v)=1/((q-h)(1+alpha v)) lies inside (0,kappa) and F(v)=q sigma N(v)(1-N(v)/kappa)-v switches from positive at v=0 to negative at infinity, so a strictly positive equilibrium exists for any positive sigma,alpha; this proves only parameter-uniform threshold sharpness. The independently written checker corroborated 11 exact rational saturation/equilibrium or bounded characteristic/root envelopes; it cannot prove universal DDE statements.",
+      "residual_risks": [
+        "The predator exponential comparison uses the negative-time supersolution P exp(-rho_A s)>=P for s in [-tau,0], not only at t=0.",
+        "Two-sided rate squeeze establishes the logarithmic exponent but not a positive asymptotic prefactor or full spectral expansion.",
+        "All-history theorem requires strictly positive continuous history and finite tau; it is not asserted for nonnegative zero-predator data, state-dependent delays or stochastic forcing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Full same mathematical model Resultary periodic theorem concerns only strictly positive T-periodic orbits, not arbitrary histories; its proof integrates over a period.",
+          "Peng–Jiang 2025 uses prey logistic time lag in (3), while this claim uses delayed predator recruitment with q=e^{-beta tau}; not a dominating model.",
+          "Generic scalar positive-delay comparison is a proof ingredient, not an inspected earlier full model-specific parameter-uniform theorem.",
+          "Vishwakarma 2025 preview insufficient to decide full-text coverage."
+        ],
+        "reasoning": "No inspected stronger theorem implies both global extinction for every positive delay history at h>=q (including equality and arbitrary alpha) and the log tail root. Related published results are either weaker in quantifiers, different dynamical systems, or inaccessible; the last remains explicit residual risk.",
+        "searches": [
+          "Global extinction predator prey hunting cooperation maturation delay saturation q/h threshold exact logarithmic decay all positive histories",
+          "Enatsu Roy Banerjee 2024 predator free globally asymptotically stable hunting cooperation maturation delay delay differential equation predator rate",
+          "Vishwakarma 2025 predator prey maturation delay hunting cooperation global extinction handling time",
+          "Dynamical Regimes in a Delayed Predator Prey Model with Predator Hunting Cooperation bifurcations stability complex dynamics MDPI 2025 10.3390/modelling6030084 full text model",
+          "predator extinction e^-beta tau cooperative hunting saturation threshold global stability 2024 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/global-predator-extinction-and-its-exact-logarithmic-rate-under--55d343ecff9b",
+        "https://www.tandfonline.com/doi/full/10.1080/17513758.2024.2332279",
+        "https://www.mdpi.com/2673-3951/6/3/84",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-mean-variance-law-and-maturation-delay-ceiling-for-oscilla--9e2eea7a6257/RESULT.md",
+        "https://doi.org/10.1007/s40819-025-01879-w",
+        "https://www.researchgate.net/publication/389948088_Dynamics_of_a_Predator-Prey_Model_with_Maturation_Delay_and_Hunting_Cooperation_in_Predator",
+        "https://openalex.org/W4408559456"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Enatsu 2024, Theorem 3.1: equilibrium counts; Section 3 predator-free local stability; Section 4 attractor descriptions use numerical bifurcation plots.",
+          "Same mathematical model published period identity: positive nonconstant cycles require h<q, but infinitely many other nonperiodic retarded omega limits are not ruled out by that result alone.",
+          "Independent proof: finite K,P yield uniform A=qH(K,P)<1 even at h=q; hence p<=P exp(-rho_A t), prey n->kappa; a(t)->a_*, and upper/lower scalar DDE comparison implies log p(t)/t -> -rho_*; for h<q, kappa>1/(q-h) yields a positive equilibrium."
+        ],
+        "reasoning": "Prior coexistence/nonexistence and local stability statements do not mathematically imply the claimed full positive-history global behavior or exact rate without new global estimates. The source is correctly acknowledged as providing the model, boundary physics and equilibrium analysis. The surviving theorem is a model-specific quantified extension, although it uses standard comparison methods.",
+        "searches": [
+          "\"hunting cooperation\" \"maturation delay\" \"global asymptotic\" \"predator-free\"",
+          "\"hunting cooperation\" \"maturation delay\" \"exponential extinction\"",
+          "predator prey maturation delay hunting cooperation handling time e^-beta tau global attractivity extinction logarithmic exponential convergence 2025",
+          "Global extinction predator prey hunting cooperation maturation delay saturation q/h threshold exact logarithmic decay all positive histories",
+          "Enatsu Roy Banerjee 2024 10.1080/17513758.2024.2332279 predator prey hunting cooperation maturation delay sharp global extinction log decay e^{-beta tau} handling time"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Enatsu 2024 equation (15): q=e^{-beta tau}, handling h_1, H(n,p)=(1+alpha p)n/(1+h_1(1+alpha p)n). h_1 e^{beta tau}>=1 is exactly h>=q.",
+          "The source predator-free linear equation p'=a_* p(t-tau)-p with a_*=q kappa/(1+h kappa) has characteristic real root -rho_*. This local spectral rate is not the global asymptotic of every positive history without a global convergence/projection argument.",
+          "Same mathematical model published periodic law yields h_1 e^{beta tau}<1 for positive nonconstant cycles, weaker than global all-history convergence."
+        ],
+        "reasoning": "Parameter aliases and local spectral rates agree, but local stability/no equilibria/no periodic orbits are not equivalent to global attraction and history-independent logarithmic rate in an infinite-dimensional retarded phase space; the added strictly subcritical finite-history comparison and two-sided tail squeeze are substantive quantifier extensions.",
+        "searches": [
+          "Enatsu Roy Banerjee Hunting cooperation in a prey predator model with maturation delay 2024 2332279 full text equation (15) extinction global stability",
+          "\"Hunting cooperation in a prey–predator model with maturation delay\" \"global\" extinction proof",
+          "\"hunting cooperation\" \"maturation delay\" \"global asymptotic\" \"predator-free\"",
+          "Global extinction predator prey hunting cooperation maturation delay saturation q/h threshold exact logarithmic decay all positive histories"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Enatsu article tabulates/plots equilibria and bifurcations rather than an analytic all-parameter exact logarithmic extinction rate.",
+          "The Resultary exact mean–variance record supplies period-mean bounds and h>=q no-cycle restriction, not a rate table."
+        ],
+        "reasoning": "An analytic root formula over a continuum of parameters and all strictly positive histories is not a lookup of a finite table or previously published exact rate. No matching table appeared in the inspected literature; failed searches alone do not prove novelty.",
+        "searches": [
+          "predator prey maturation delay hunting cooperation handling time e^-beta tau global attractivity extinction logarithmic exponential convergence 2025",
+          "\"hunting cooperation\" \"maturation delay\" \"exponential extinction\"",
+          "\"Hunting cooperation in a prey–predator model with maturation delay\" \"global\" extinction proof"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the *combined all-history/global sharp barrier and exact log-rate* on the exact delayed Enatsu–Roy–Banerjee system, not for the model, saturation inequality, equilibrium census, or generic scalar-DDE comparison theory. The 2024 primary Theorem 3.1 gives no-positive-equilibrium cases and local stability; those cannot logically imply attraction of every continuous strictly positive delay history or any tail exponent. A public same mathematical model periodic average theorem excludes periodic coexistence but explicitly leaves nonperiodic omega limits uncontrolled. The 2025 open-access Peng–Jiang delay acts on prey logistic feedback, a different dynamical equation. The closely titled Vishwakarma 2025 paper remains full-text inaccessible (only preview/abstract inspected); no positive evidence of coverage was found, but it is a genuine unresolved priority risk and failed searches are not treated as novelty proof. The exact all-history comparison argument including equality and the root limiting rate survives the inspected primary comparisons.",
+      "residual_risks": [
+        "Vishwakarma (2025), DOI 10.1007/s40819-025-01879-w, has a highly related title and only its abstract plus first publisher-preview page were inspected; institutional full-text access returned vpn_disconnected. Its uninspected body may contain stronger model-specific theorems.",
+        "A general positive-DDE global comparison theorem might have been previously specialized to this exact model in unindexed ecological literature; search non-detection is not uniqueness proof.",
+        "The rate is the spectral root of the predator-free linearization once global attraction is known; no claim that this generic spectral fact alone is new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the all-positive-history global attraction and exact logarithmic rate as a theorem. Theorem 3.1 is an equilibrium census; predator-free linear stability is local; numerical language about a unique attractor is not a universal proof. Same model and some boundary inequalities are prior.",
+          "evidence": [
+            "Equation (15) has same delayed predator recruitment q H(n(t-tau),p(t-tau))p(t-tau), q=e^{-beta tau}; Theorem 3.1 classifies positive equilibria.",
+            "Section 3.1 analyzes local predator-free stability; Sections 4-5 present numerical and qualitative conclusions. Neither derives the positive-history exponential supersolution or a limit log p(t)/t."
+          ],
+          "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/17513758.2024.2332279",
+          "material_read": "Open-access full publisher HTML: model (15a)-(15b), Section 3.1 and Theorem 3.1 with proof, predator-free characteristic stability discussion, Section 4 numerical bifurcation interpretation and Section 5 discussion.",
+          "method": "Read mathematical equations and results in full HTML rendering; compared quantified claims and implications rather than publication title.",
+          "title": "Hunting cooperation in a prey–predator model with maturation delay",
+          "trigger": "Exact original nonlinear delayed recruitment system (15) and handling-time barrier h_1 e^{beta tau} >= 1."
+        },
+        {
+          "assessment": "NOT_COVERING the all-positive-history global convergence or exact logarithmic exponent: proves period-mean identity and excludes strictly positive nonconstant periodic orbits when h_1 e^{beta tau}>=1; nonperiodic omega limits are not controlled.",
+          "evidence": [
+            "Period integration yields h_1 e^{beta tau}<1 as a necessary condition for positive nonconstant periodic coexistence.",
+            "Explicit limitation: no claim for nonperiodic recurrent delay dynamics; no global extinction or rate is established."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-mean-variance-law-and-maturation-delay-ceiling-for-oscilla--9e2eea7a6257/RESULT.md",
+          "material_read": "Entire publicly available RESULT.md, including hypotheses, integral proof, positive-periodic obstruction, relationship to prior work and limitations.",
+          "method": "Read theorem and proof from public research repository; compared quantifiers and conclusions.",
+          "title": "Exact mean–variance law and maturation-delay ceiling for oscillatory coexistence",
+          "trigger": "Published result on exact same delayed Enatsu–Roy–Banerjee model at same handling threshold."
+        },
+        {
+          "assessment": "NOT_COVERING, distinct flow: delays prey density in logistic self-limitation r u(t)(1-u(t-tau)/K) and has instantaneous predator recruitment, not the Enatsu delayed predator recruitment with survival q. Studies local coexistence stability, Hopf and chaos, not its sharp global extinction barrier.",
+          "evidence": [
+            "Displayed equation (3) delays u in prey logistic feedback and gives predator v derivative without delayed recruitment.",
+            "Conclusion concerns stability switches and bifurcating cycles."
+          ],
+          "identifier_or_url": "https://www.mdpi.com/2673-3951/6/3/84",
+          "material_read": "Publisher open-access full article: Introduction and equations (2)-(3), main stability-switch and Hopf discussion, conclusions and references.",
+          "method": "Compared locations of delay in the actual equations and mathematical conclusions.",
+          "title": "Dynamical Regimes in a Delayed Predator–Prey Model with Predator Hunting Cooperation: Bifurcations, Stability, and Complex Dynamics",
+          "trigger": "Later full-access article with similar delay and hunting-cooperation terminology and possible global coverage."
+        },
+        {
+          "assessment": "UNCERTAIN_FULL_TEXT_INACCESSIBLE. Available abstract focuses on coexistence stability, Hopf and Bogdanov–Takens bifurcations; this does NOT justify whole-document noncoverage. A model-specific global theorem is not verifiable from the accessible material.",
+          "evidence": [
+            "2025 publication, DOI 10.1007/s40819-025-01879-w, publisher preview first page says focus is stability of interior equilibria and bifurcations.",
+            "Available pages do not establish the complete theorem contents."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s40819-025-01879-w",
+          "material_read": "Open publication metadata, ResearchGate-authorized Springer publisher-preview first page and abstract/introduction opening; no subsequent theorems or appendices obtained.",
+          "method": "Searched for arXiv/preprint and lawful open full text first; publisher preview was only the first page. Authorized institutional full-text attempt returned disconnected VPN; not bypassed.",
+          "title": "Dynamics of a Predator–Prey Model with Maturation Delay and Hunting Cooperation in Predator",
+          "trigger": "Plausibly relevant primary 2025 study with overlapping model ingredients and possible stronger result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/global-predator-extinction-and-its-exact-logarithmic-rate-under--55d343ecff9b",
+        "https://www.tandfonline.com/doi/full/10.1080/17513758.2024.2332279",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-mean-variance-law-and-maturation-delay-ceiling-for-oscilla--9e2eea7a6257/RESULT.md",
+        "https://www.mdpi.com/2673-3951/6/3/84"
+      ],
+      "rationale": "This is a motivated global-dynamics problem left open by equilibrium/local-bifurcation analysis of an established cooperative-hunting maturation-delay model. The exact uniform handling-time criterion h>=e^{-beta tau}, including equality, yields a strong all-positive-history extinction conclusion regardless of cooperation strength alpha; the formula rho_* gives a natural quantitative observable (predator log-decline speed) and identifies its independence of initial history and alpha. The positive coexistence equilibrium for some tuples below the boundary supplies a sharp uniform obstruction. These conclusions are broader and more consequential than only checking the absence of equilibria or cycles. Standard comparison steps are used, but the parameter-uniform global theorem with sharpness and exact rate is independently useful for the specific nonlinear delayed model. It is not offered as a general theory for h<q or arbitrary delays.",
+      "residual_risks": [
+        "The exact root is local linearization data once prey recovery is established; the value rests on rigorously proving global applicability, not on novelty of solving a scalar characteristic equation.",
+        "Biological model idealizes constant finite delays and fixed positive parameters; no ecology beyond these equations is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The log-rate is not a nonzero prefactor convergence claim.",
+    "No persistence classification for h<q.",
+    "No formal Lean proof or external expert attestation."
+  ],
+  "schema_version": 1
+}
