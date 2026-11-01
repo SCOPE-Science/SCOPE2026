@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T02:54:22.794470Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual assigned RESULT.md sha 2231ded61020a0e379c658c0edd7c6b7befb78b6",
+        "Actual Git-blob-verified verify.py sha af9031cef34e3a2c8d930c42ac34f713af69712a",
+        "Direct independent symbolic polynomial transformations for p>=3 and p>=2",
+        "Actual seven-file Git tree verified against 680552663489661ed2d67d0a6ea03c47a18dedbc"
+      ],
+      "rationale": "Reconstructed from original RESULT.md Git blob 2231ded6...: writing n=p^a q^b, p<q, rad(n)^2|sigma(n) is exactly p^2|sigma(q^b) and q^2|sigma(p^a). Since sigma(p)=p+1<q^2 and sigma(p^2)=p^2+p+1<q^2, a>=3. For a+b<=5 the complete possible exponent pairs are (3,1),(3,2),(4,1). For (3,2), q cannot divide p+1; then q^2 divides p^2+1<q^2 for odd p, impossible; p=2 gives sigma(8)=15, without odd prime-square divisors. For (3,1), p^2|q+1 implies q>=p^2-1; for p>=3, (p^2-1)^2-sigma(p^3)=p(p^3-p^2-3p-1)>0, checked as positive-coefficient polynomial after p=t+3. p=2 cannot give q^2|15. For (4,1), q+1=kp^2. If k>=2, q^2>=(2p^2-1)^2>sigma(p^4), with the last difference 3p^4-p^3-5p^2-p positive after p=t+2. Thus k=1 and q=p^2-1, composite for odd p; p=2 gives q=3 and 9∤31. Finally sigma(96)=252, rad(96)^2=36, 252/36=7, Omega=6. No other exponent case is omitted.",
+      "residual_risks": [
+        "Finite verifier covers only p<q<=5000; the universal theorem is derived from the symbolic case split, not enumeration.",
+        "No uniqueness at Omega=6, or solution classification beyond the minimum, is claimed."
+      ],
+      "status": "PASS",
+      "verification": {
+        "independent_symbolic_checks": [
+          "(p^2-1)^2-sigma(p^3) at p=t+3 equals t^4+11t^3+42t^2+62t+24",
+          "(2p^2-1)^2-sigma(p^4) at p=t+2 equals 3t^4+23t^3+61t^2+63t+18"
+        ],
+        "original_verifier_result": "VERIFY_OK prime_limit=5000 low_multiplicity_cases=2234460 hits=[] inequality_checks=1337 sharpness_n=96 sharpness_quotient=7",
+        "scope": "Universal proof independent of finite checks"
+      }
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2012 JIS Section 6 gives full {2,3}-support family i≡5(mod6), j odd, and notes other prime pairs (2,1093),(83,4871), without a uniform Omega minimum.",
+          "2014 JNT Theorem 3 proves finiteness with fixed prime support P and fixed rational theta for a fixed arithmetic-function equality; divisibility allows variable theta and unrestricted p<q.",
+          "Resultary returned nearby sum-of-divisors sigma_{2,2} pairs and other two-prime divisor-function findings, not this cross-divisibility cutoff."
+        ],
+        "reasoning": "Fixed support and fixed ratio/equality conclusions do not dominate an unbounded uniform theorem over arbitrary pairs and arbitrary integer sigma(n)/rad(n)^2. The 2012 fixed-{2,3} statement already proves attainability but not minimality across other prime pairs.",
+        "searches": [
+          "Broughan De Koninck Kátai Luca JIS 2012 Section 6 reverse divisibility",
+          "Broughan Delbourgo Zhou JNT 2014 Theorem 3 fixed-support general sigma^alpha phi^beta=theta n^mu gamma^tau",
+          "Resultary: squarefree core squared divisibility sigma prime support arithmetic sigma(p^a)",
+          "GitHub SCOPE2026 code searches: gamma(n)^2; core-square divisibility; squarefree core sigma"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/profile/Jean-Marie-De-Koninck/publication/266717607_On_integers_for_which_the_sum_of_divisors_is_the_square_of_the_squarefree_core/links/543bcaa10cf204cab1db320a/On-integers-for-which-the-sum-of-divisors-is-the-square-of-the-squarefree-core.pdf",
+        "https://researchcommons.waikato.ac.nz/bitstreams/6ac356fc-7e75-4ddb-81c7-4c30bbf0acd6/download",
+        "https://oeis.org/A173615",
+        "https://oeis.org/A338790",
+        "Resultary searches for exact two-prime radical-square divisibility and lower Omega bound",
+        "Published SCOPE repository keyword searches: no matched source from returned results"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2012 congruences imply 2^5*3 belongs to the solution family, but do not rule out p^3q, p^4q or p^3q^2 for all other p<q.",
+          "The 2014 result fixes theta in an equality sigma(n)^alpha phi(n)^beta=theta n^mu gamma(n)^tau and only supports on a specified finite P.",
+          "The present proof rules out every candidate low exponent shape using q^2|sigma(p^a) plus p^2|sigma(q^b) and polynomial size bounds."
+        ],
+        "reasoning": "None of the stated prior results implies the universal low-exponent exclusion. The known witness and same-object database narrow novelty substantially; unindexed elementary arguments remain a priority risk.",
+        "searches": [
+          "JIS Article 12.7.5 final remarks support {2,3} full characterization",
+          "OEIS A173615 complete public entry October 2026",
+          "JNT 137 (2014) 50-66 Theorem 3 and introduction",
+          "Resultary: sharp lower bound Omega(n) >= 6 for rad(n)^2 dividing sum of divisors sigma(n) with two prime support"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For n=p^a q^b with p<q, self-factor nondivisibility p∤sigma(p^a),q∤sigma(q^b) shows rad(n)^2|sigma(n) iff p^2|sigma(q^b) and q^2|sigma(p^a).",
+          "A173615 defines precisely rad(k)^2|sigma(k), and the 2012 paper Section 6 uses gamma(n)^2|sigma(n)."
+        ],
+        "reasoning": "Aliases squarefree core, radical rad, gamma and product of distinct prime divisors are mathematically identical here. The proposed exponent barrier is equivalent to the universal absence of cross-divisibility pairs with a+b<=5; an ordered table of n-values is not that quantifier.",
+        "searches": [
+          "Resultary: Integers n with exactly two distinct prime divisors p q, radical gamma(n)^2 divides sigma(n), minimal total exponent Omega(n) for p^a q^b",
+          "web: \"rad(n)^2\" \"sigma(n)\" \"Omega\" two primes",
+          "web: \"gamma(n)^2\" \"sigma(n)\" \"two\" primes Omega",
+          "OEIS A173615"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A173615, originally entered in 2010, defines the identical predicate and starts 1,96,864,1080,1782; it explicitly gives rad(96)^2=36|sigma(96)=252.",
+          "The displayed OEIS prefix and code are enumerations by magnitude n, not a proof excluding all arbitrarily large numbers of the form p^a q^b with a+b<=5.",
+          "OEIS A338790 is the difference rad(n)^2-sigma(n), which concerns a different equality/zero fiber."
+        ],
+        "reasoning": "A173615 establishes the predicate and witness were known; originality must not be claimed for either. However finite n-ordered data cannot cover the global exponent bound because primes are unbounded even at fixed Omega.",
+        "searches": [
+          "OEIS A173615 Numbers k such that rad(k)^2 divides sigma(k)",
+          "OEIS A338790 rad(n)^2-sigma(n)",
+          "web: site:oeis.org \"sigma(n)\" \"rad(n)^2\" divides"
+        ]
+      },
+      "rationale": "The exact predicate and the witness 96 predate the submission: the 2012 source studies gamma(n)^2|sigma(n) in its final remarks, and OEIS A173615 tabulates the same predicate. The claimed new part is the uniform unbounded exclusion of all p^a q^b, p<q, with a+b<=5, not the predicate, the example 96, or the fixed {2,3} characterization. The two accessible relevant primary texts and OEIS entry were compared at the level of hypotheses and implications; none of the inspected statements establishes the all-prime-pair exponent cutoff. This is a best-of-knowledge assessment, not certification of priority.",
+      "residual_risks": [
+        "A173615 established the exact predicate and witness 96 before the finding; the only candidate novelty is the uniform bound for arbitrary two-prime supports.",
+        "An equivalent six-factor exclusion might exist in an unindexed elementary note or problem discussion, or follow implicitly from an unexamined stronger paper.",
+        "The search of published SCOPE code and Resultary is bounded, not a proof of absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_PREDICATE_PRIOR; fixed-support and example results, but no universal total-exponent cutoff identified.",
+          "evidence": "Section 6 states gamma(n)^2|sigma(n), {2,3} solutions i≡5(mod6), j odd; notes exceptional pairs (2,1093),(83,4871) and larger-support solutions.",
+          "identifier_or_url": "https://www.researchgate.net/profile/Jean-Marie-De-Koninck/publication/266717607_On_integers_for_which_the_sum_of_divisors_is_the_square_of_the_squarefree_core/links/543bcaa10cf204cab1db320a/On-integers-for-which-the-sum-of-divisors-is-the-square-of-the-squarefree-core.pdf",
+          "material_read": "Full indexed 13-page PDF with particular focus on introduction, Sections 2-3, final remarks Section 6 and references; rendered original pages 12-13 inspected.",
+          "method": "Public lawful full PDF text and rendered page inspection, 2026-10-27.",
+          "title": "On Integers for Which the Sum of Divisors is the Square of the Squarefree Core",
+          "trigger": "Direct source of the identical divisibility predicate and the fixed {2,3} result."
+        },
+        {
+          "assessment": "RELATED_NOT_DOMINATING: equality with a fixed rational theta and prescribed support, not variable-ratio divisibility for all prime pairs.",
+          "evidence": "Theorem 3 fixes parameters (alpha,beta,mu,tau,theta) and finite P; final section discusses only equality class K and difficulty of a bounded-support extension.",
+          "identifier_or_url": "https://researchcommons.waikato.ac.nz/bitstreams/6ac356fc-7e75-4ddb-81c7-4c30bbf0acd6/download",
+          "material_read": "Accessible full 17-page PDF, introduction, hypotheses and Theorem 3, final comments and references, with rendered pp. 64 and 66 inspected.",
+          "method": "Lawful university repository author manuscript/full PDF, text and rendered page inspection, 2026-10-27.",
+          "title": "A conjecture of De Koninck regarding particular square values of the sum of divisors function",
+          "trigger": "Same arithmetic functions and an apparently more general fixed-support theorem."
+        },
+        {
+          "assessment": "EXACT_DATABASE_ALREADY_KNOWN; ordered finite data and example, not the global Omega lower-bound theorem.",
+          "evidence": "Terms 1,96,864,1080,1782; example explicitly states rad(96)^2=36 and sigma(96)=252.",
+          "identifier_or_url": "https://oeis.org/A173615",
+          "material_read": "Complete public HTML entry including definition, initial terms, comments, references, example, programs, date and author.",
+          "method": "Full web page inspection, 2026-10-27.",
+          "title": "OEIS A173615: Numbers k such that rad(k)^2 divides sigma(k)",
+          "trigger": "Identical predicate, possible known table and witness."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://www.researchgate.net/profile/Jean-Marie-De-Koninck/publication/266717607_On_integers_for_which_the_sum_of_divisors_is_the_square_of_the_squarefree_core/links/543bcaa10cf204cab1db320a/On-integers-for-which-the-sum-of-divisors-is-the-square-of-the-squarefree-core.pdf",
+        "https://oeis.org/A173615",
+        "The proof cases (3,1),(3,2),(4,1) are unbounded in p,q despite their small exponent count"
+      ],
+      "rationale": "The precise first Omega layer is a motivated structural invariant of the two-prime-support component of the reverse core-square divisor-sum problem explicitly considered by Broughan et al. and tabulated in OEIS A173615. A magnitude-ordered table showing 96 first cannot preclude arbitrarily large p^a q^b of smaller total exponent. The theorem gives a uniform cross-support obstruction and proves the exact optimal total multiplicity 6. Its contribution is modest and elementary, but supplies a size-independent cutoff a future classification or search over all prime pairs can rely on; it is neither an arbitrary slice nor a known-table recomputation.",
+      "residual_risks": [
+        "The elementary character of the cutoff limits its breadth; it does not classify all Omega=6 or arbitrary prime-support solutions.",
+        "The witness 96 and the identical sequence predicate were already known, and alone contribute no new value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No GitHub mutation performed in this execution. Publication plan is staged only; server/importer must validate source guards, destination, and generated certificates before publication.",
+    "OEIS A173615 preprints the exact predicate and example 96; priority claim limited to global exponent cutoff.",
+    "Best-of-knowledge originality with bounded literature search, no claim of exhaustive global priority.",
+    "Proof concerns exactly two prime factors and the optimal minimum Omega, not complete classification."
+  ],
+  "schema_version": 1
+}
