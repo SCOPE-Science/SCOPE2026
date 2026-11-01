@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For \\(m=2r\\), an old-zero peripheral bit adopts one iff \\(k_i+c\\ge r+1\\) and an old-one bit retains one iff \\(k_i+c\\ge r+1\\): hence all members of each clique agree after one step. A monochromatic clique remains so because its \\(m-1\\) internal neighbors form at least a tie-resistant majority against the hub. For odd n the hub becomes the strict majority of these frozen clique bits at time two, proving \\(F^3=F^2\\). The explicit \\((n+1)/2\\) cliques with \\(k_i=r+1\\), others zero, and initial hub zero witness sharpness for every \\(n\\ge3,r\\ge2\\). The initial hub conditions give \\(u_m\\) and \\(v_m\\) choices independently per clique, so individual basin weights follow; summing yields \\(2^{nm+1}\\). The central-binomial Stirling approximation and triangular-array binomial CLT yield \\(\\Phi(\\sqrt{2\\lambda/\\pi})\\); Chebyshev handles \\(n/m\\) tending to infinity. Two independent direct graph-update checkers replayed all 8192, 524288, and 2097152 states in their reported test cases. This is a mathematical proof for the entire stated domain; enumeration is corroborative only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles and Olivos (1980), DOI:10.1016/0012-365X(80)90121-1, gives eventual period at most two for symmetric threshold maps.",
+        "Benjamini et al., arXiv:1405.2486v1, Theorems 1 and 2, treat unimodular graph convergence and random-graph unanimity.",
+        "Kaaser et al., arXiv:1508.03519v1, Theorem 1.2, bounds voting time through graph modules, without enumerating basins."
+      ],
+      "reasoning": "Generic eventual period-two theory does not distinguish the all-fixed property, two-step sharpness, or which fixed point attracts each initial state. Module-based voting-time bounds also do not supply the exact finite basin distribution or the fair-spin hub memory crossover. Random-graph unanimity concerns neither this deterministic family nor its initial-hub/final-hub correlation.",
+      "searches": [
+        "arxiv majority dynamics finite graphs synchronous tie breaking 2015 periodic 2 graph article",
+        "majority dynamics on sparse random graphs",
+        "arxiv majority dynamics graph windmill clique 2014"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1307.4035v1, original public release July 15 2013",
+      "arXiv:1405.2486v1, original public release May 11 2014",
+      "arXiv:1508.03519v1, original public release August 14 2015",
+      "Goles and Olivos, DOI:10.1016/0012-365X(80)90121-1, bibliographic abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1508.03519v1, §§1,3: graph family contraction bounds worst voting time; our basin formula concerns every fibre and creates a new two-scale limit.",
+        "arXiv:1307.4035v1, results on bounded-degree families; in the proposed limit the windmill hub degree is nm and the peripheral degree m, so both degrees diverge.",
+        "arXiv:1405.2486v1, §3, establishes random-graph consensus probabilities, not a fixed deterministic graph family with one hub."
+      ],
+      "reasoning": "The present claim is not a special case of an identified stronger formula: the cited results lack the relevant finite graph-specific conditional distribution. In particular, knowing that a trajectory becomes periodic, or knowing an upper bound on its transient length, leaves its terminal fixed point and basin size undetermined.",
+      "searches": [
+        "On the Voting Time of the Deterministic Majority Process 1508.03519",
+        "Majority Dynamics and the Retention of Information 1307.4035",
+        "Convergence unanimity and disagreement in majority dynamics 1405.2486"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1508.03519v1, pp. 1-5 and 11-15: modules and convergence-time upper bounds, not a count of fibres of the global map.",
+        "arXiv:1307.4035v1, §§1.1-1.2 and §3: information retention and general Lyapunov arguments, but no clique-windmill finite basin formula."
+      ],
+      "reasoning": "The single-step clique collapse can also be stated as a product of threshold filters followed by a majority gate. That equivalent encoding does not make the exact two-term basin weights or the \\(n/m\\) Gaussian limit an instance of an identified prior theorem. The previously known \\(m=2\\) friendship case has different fixed petal size and cannot imply the claimed formula for every even \\(m\\ge4\\).",
+      "searches": [
+        "\"majority dynamics\" \"windmill graph\"",
+        "\"friendship graph\" \"majority\" \"dynamics\" basins",
+        "strict neighbor-majority tie-retention friendship graph fixed basin count hub persistence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public graph-family references identify W_{n,m}=K_1 join nK_m as a clique windmill, but do not present a threshold-system basin census.",
+        "Available published mathematical-record summaries near these searches concern non-dynamical windmill invariants or general majority phenomena, rather than the same exact conditional binomial distribution."
+      ],
+      "reasoning": "No exact table for these individual attraction basins or the \\(n/m\\) crossover was identified. This is a negative search finding, not proof of global novelty; unindexed or inaccessible literature remains a risk.",
+      "searches": [
+        "\"windmill graphs\" \"majority\" \"consensus\" dynamics",
+        "majority dynamics on clique windmill graphs even petals odd number petals exact fixed basin counts central binomial coefficient",
+        "majority dynamics modular graph two-level majority voting normal CDF Gaussian crossover"
+      ]
+    },
+    "rationale": "The contribution is the full two-scale parameter-family basin formula and the \\(n/m\\) Gaussian memory crossover, not the general period-two theorem or the smaller triangle-windmill case. Full-text targeted comparison of arXiv:1508.03519v1, arXiv:1405.2486v1 and arXiv:1307.4035v1 found bounds on convergence or general information retention rather than a stronger implication of the exact basin result. Broader searches of majority dynamics and published mathematical records found no known equivalent formula; this is qualified by the stated remaining risks.",
+    "residual_risks": [
+      "The 1980 general threshold paper could not be compared in full, although its available abstract does not assert exact graph-family basin counts.",
+      "Unindexed and non-open earlier work could contain an equivalent windmill-specific basin formula.",
+      "A known triangle-windmill family has similar one-step clique collapse; the genuinely new content concerns even peripheral clique sizes at least four and two-scale Gaussian memory."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides general upper bounds on voting time and module reduction, not the counted fibres or Gaussian hub retention limit.",
+        "evidence": "arXiv:1508.03519v1, August 14 2015, Theorem 1.2 and Section 3.",
+        "identifier_or_url": "https://arxiv.org/pdf/1508.03519",
+        "material_read": "PDF title/abstract, Sections 1 and 1.2, Theorem 1.2, Sections 3 and 3.2 (module contraction and proof locus), targeted checks for windmill, basin, attractor, and clique",
+        "method": "Public arXiv full-text rendering with page-one visual inspection and targeted section comparison",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Closest primary work on deterministic majority and clique modules"
+      },
+      {
+        "assessment": "Gives general retention/combinatorial results, not the exact windmill attraction-basin formula or n/m double scaling.",
+        "evidence": "arXiv:1307.4035v1, July 15 2013, Theorems 1.5-1.8.",
+        "identifier_or_url": "https://arxiv.org/pdf/1307.4035",
+        "material_read": "PDF title, abstract, introduction/definitions, Section 1.2 results, relevant Section 3 material, and targeted full-text terms windmill, clique, basin",
+        "method": "Public arXiv full-text rendering with page-one visual inspection and examination of theorem statements",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Directly relevant notion of information retention by majority dynamics"
+      },
+      {
+        "assessment": "The random graph and unimodular-graph theorems do not determine fixed basins of this clique-windmill family.",
+        "evidence": "arXiv:1405.2486v1, May 11 2014, Theorems 1-2.",
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486",
+        "material_read": "PDF title/abstract, Section 1 statement of dynamics, Theorems 1-2 and random-graph setting, targeted search for windmill",
+        "method": "Public arXiv full-text rendering with page-one visual inspection and comparison of theorem hypotheses/conclusions",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Closest primary account of majority convergence and probability under fair random opinions"
+      },
+      {
+        "assessment": "Abstract supports only eventual period at most two; a direct full-text comparison is unavailable and is recorded as residual risk.",
+        "evidence": "Goles and Olivos, Discrete Mathematics 30 (1980), 187-189.",
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Public bibliographic metadata and abstract; full paper was not accessed",
+        "method": "Public institutional bibliographic abstract",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Classical general period-at-most-two theorem for symmetric threshold systems"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63be71cf-719a-4908-836c-34e0fc4a558a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a canonical articulation of highly connected modules in opinion dynamics, where local-majority amplification and the exceptional hub create two nested scales. An exact natural invariant, the fibre sizes of each terminal fixed state, has a closed expression, reveals unique extremal fixed configurations, and determines the initial-hub/final-hub correlation. The Gaussian transition when \\(n/m\\) tends to a constant isolates a nontrivial competition between module size and number that is not available from general period-two or voting-time bounds. This is a structurally motivated all-parameters classification, rather than an arbitrary finite sample or a routine parameter increment.",
+    "status": "PASS"
+  }
+}
