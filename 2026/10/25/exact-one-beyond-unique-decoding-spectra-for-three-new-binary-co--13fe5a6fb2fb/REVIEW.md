@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The binary Hamming-ball lemma, disjoint-error-support argument, and unique majority for every close triangle were checked with their radius and minimum-distance boundary cases. The embedded checker exhaustively calculates all pair, triangle, and four-clique incidence counts from the reproduced codewords, confirms the exact stated spectra and that all successful four-cliques have distinct centers (excluding five-lists), and verifies the original code parameters. Separate full-Hamming-cube accumulation independently reproduced the distributions. No infinite assertion is inferred from finite enumeration.
+## correctness
 
-**Originality (PASS; best-knowledge assessment).** The closest original paper is Ota--Osa--Harada, arXiv:2610.11609, Sections 3--4. It supplies the codebooks and minimum distances but does not publish their one-beyond-unique list multiplicities, graph triangle counts, or four-clique center incidences. Existing binary-code tables give size bounds, not these distributions. Similar published code-spectrum records inspect different code families, with no implication of these exact three profiles. The code lists mathematically determine the census, but deriving exact higher-incidence spectra is distinct from merely asserting a minimum-distance bound. Unindexed prior computations cannot be excluded.
+PASS
 
-**Value (PASS).** These are canonical new record-sized explicit codes. Their exact ambiguity spectra immediately beyond guaranteed unique correction distinguish a three-list code from two four-list codes; the rare four-list centers (eight and ninety-six) and their absence in the third code quantify finite-block ambiguity rather than simply repeat distance parameters. The proof's majority reduction is reusable for other binary codes of minimum distance \(2r-1\).
+PASS: The exact source codebooks have the claimed lengths, cardinalities, and minimum distances 9,9,11; the independent bitwise count found pair-near edges 2064/7288/1517, near triangles 20388/79312/16965, valid fourfold centers 8/96/0 with all valid quartet centers distinct. For d>=2r-1, any r-ball-common pair has distance 2r-1 or 2r and has exactly binomial(2r,r) common centers, even in the odd-distance case. Every triple common center equals its binary coordinate-majority, which is forced by error-support disjointness; thus each near triangle contributes one center. A valid quadruple has a unique common center; if a five-list existed it would force at least five four-tuples sharing one center, contradicting distinctness. Inverting moments m*Vol(n,r), E*binomial(2r,r), T, Q yields all five bins and totals 2^n. This is an exhaustive finite proof for these three explicit books, not a statement about every code of the same parameters or a general optimal-code theorem.
 
-Scientific limits: only the specified codebooks/radii; no distributional channel-error conclusion and no general optimality assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: The newly determined invariant is the full one-error-past-unique-decoding ambiguity spectrum of three explicitly published codebooks. The underlying constructions and their minimum-distance bounds belong to Ota, Osa and Harada and are not re-claimed; their results do not state ball overlap multiplicities. A distance spectrum alone would not in general supply all triple/quadruple Hamming intersection counts.
+
+## value
+
+PASS
+
+PASS: Exactly one error beyond the guaranteed unique-decoding radius is the first natural list-decoding regime where performance is not captured by minimum distance. The complete size histogram determines the probability of any ambiguity, worst list size and counts of three- and four-way collisions for genuinely new high-density codes; the majority-center structural reduction is itself motivated and reusable. This is a self-contained, nontrivial exact finite invariant, not a restatement of the original packing bounds or an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

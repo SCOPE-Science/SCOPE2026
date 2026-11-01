@@ -1,0 +1,85 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The exact source codebooks have the claimed lengths, cardinalities, and minimum distances 9,9,11; the independent bitwise count found pair-near edges 2064/7288/1517, near triangles 20388/79312/16965, valid fourfold centers 8/96/0 with all valid quartet centers distinct. For d>=2r-1, any r-ball-common pair has distance 2r-1 or 2r and has exactly binomial(2r,r) common centers, even in the odd-distance case. Every triple common center equals its binary coordinate-majority, which is forced by error-support disjointness; thus each near triangle contributes one center. A valid quadruple has a unique common center; if a five-list existed it would force at least five four-tuples sharing one center, contradicting distinctness. Inverting moments m*Vol(n,r), E*binomial(2r,r), T, Q yields all five bins and totals 2^n. This is an exhaustive finite proof for these three explicit books, not a statement about every code of the same parameters or a general optimal-code theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ota et al. Proposition 3.1 proves only A_2(22,9)>=84, A_2(24,9)>=196 and A_2(25,11)>=65 and publishes witnesses in Section 4; its minimum-distance verification does not determine individual decoding-ball multiplicities."
+        ],
+        "reasoning": "Broader standard packing/unique-decoding bounds apply through radius floor((d-1)/2), one below the target; they do not imply the precise beyond-radius ambiguity histogram.",
+        "searches": [
+          "Web: Ota Osa Harada Three Improved Lower Bounds for Binary Error-Correcting Codes; general binary code table",
+          "Resultary: one beyond unique decoding list size spectrum ..."
+        ]
+      },
+      "checked_sources": [
+        "Ota, Osa, Harada (2026), arXiv:2610.11609, Proposition 3.1 and Section 4 (accessible full text reproduction)",
+        "Resultary semantic query on beyond-unique-decoding codeword list spectra (2026-10-29)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A_2(n,d)>=M plus complete codeword lists imply minimum distances, but do not by a general parameter theorem fix a code-specific receiver distribution. New exact calculations use all pair/triple/quadruple incidence information."
+        ],
+        "reasoning": "Compared actual statements, not identical parameter appearances: source theorem is a construction/lower bound, final theorem is the precise one-step list-decoding ambiguity law for those constructions.",
+        "searches": [
+          "Web: Three Improved Lower Bounds for Binary Error-Correcting Codes (2610.11609) Section 4 verification",
+          "Resultary Hamming code list spectrum query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A radius-r list-size profile is the binary Hamming multi-cover distribution of a fixed codebook. Ota et al. give Section 4 codeword witnesses but not receiver-list frequencies."
+        ],
+        "reasoning": "Compared the identical objects by their Hamming-ball incidence map rather than by code-parameter labels. The three additional exact spectra require enumerating overlaps of pairs, triples and quartets of those actual words.",
+        "searches": [
+          "Resultary: one beyond unique decoding list size spectrum received words Ota Osa Harada binary codes (22,84,9) (24,196,9) (25,65,11) radius 5 6",
+          "Web: Three Improved Lower Bounds for Binary Error-Correcting Codes Ota Osa Harada codewords radius list decoding"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published numerical table lists packing lower bounds and full codeword arrays, not a table of counts N_0 through N_4. No exact same profile returned from the searched index."
+        ],
+        "reasoning": "Explicit codeword data permits eventual computation, but the listed table does not contain or logically state the claimed higher overlap counts; the primary witness is credited without conflating its existence with a tabulated profile.",
+        "searches": [
+          "Ota et al. Table 1 and Section 4 (arXiv:2610.11609)",
+          "Resultary: same three code parameters near radius 5/6"
+        ]
+      },
+      "rationale": "PASS: The newly determined invariant is the full one-error-past-unique-decoding ambiguity spectrum of three explicitly published codebooks. The underlying constructions and their minimum-distance bounds belong to Ota, Osa and Harada and are not re-claimed; their results do not state ball overlap multiplicities. A distance spectrum alone would not in general supply all triple/quadruple Hamming intersection counts.",
+      "residual_risks": [
+        "The original primary PDF was not accessible: authorized retrieval returned vpn_disconnected; article text was read through an accessible reproduction, not certified against every original page.",
+        "Older or unindexed explicit Hamming multi-cover tables of these freshly published codebooks could exist.",
+        "The claim is only about the three specified codebooks, not every code with their size/distance parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the radius-r receiver-list distributions; CODES_AND_DISTANCE are unambiguously prior",
+          "evidence": "Lists (22,84,9), (24,196,9), (25,65,11), Table 1 covers packing improvements; Section 4 publishes codewords and verifies pair distances, no N_j spectra",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11609",
+          "material_read": "Accessible complete article reproduction: abstract, Sections 1-4, Proposition 3.1, Table 1, three Section 4 codebooks",
+          "method": "Full mathematical article text on PaperPeel https://www.paperpeel.com/paper/2610.11609; independent primary-PDF access blocked by institutional VPN",
+          "title": "Three Improved Lower Bounds for Binary Error-Correcting Codes",
+          "trigger": "Exact same three codes and explicit codeword arrays"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exactly one error beyond the guaranteed unique-decoding radius is the first natural list-decoding regime where performance is not captured by minimum distance. The complete size histogram determines the probability of any ambiguity, worst list size and counts of three- and four-way collisions for genuinely new high-density codes; the majority-center structural reduction is itself motivated and reusable. This is a self-contained, nontrivial exact finite invariant, not a restatement of the original packing bounds or an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "The exact Hamming-ball list multiplicity distributions at radii 5, 5, 6 for the specified Ota-Osa-Harada binary codebooks (22,84,9), (24,196,9), (25,65,11) are respectively (1716840,1998088,459012,20356,8), (7665396,7433580,1599216,78928,96), and (18981285,13205369,1350813,16965,0), where entry j counts received words within radius of exactly j codewords; there is no list of size >=5.",
+  "limitations": [
+    "Full preprint PDF access blocked; article text reproduction and source record provide the original codebooks.",
+    "No claim about other codes with equal size and distance; exhaustive data computation does not prove general packing optimality."
+  ],
+  "schema_version": 1
+}
