@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Build `verify_minimum.cpp` with any conforming C++17 compiler; no external libraries or downloaded datasets are used:
+## correctness
 
-```sh
-c++ -std=c++17 -O2 -Wall -Wextra -pedantic verify_minimum.cpp -o verify_minimum
-./verify_minimum
-python3 verify_roots.py
-```
+PASS
 
-`verify_minimum.cpp` independently sieves all primes up to \(2339\), tests every nonzero residue for each, and asserts the exact six roots, least-prime property, all \(345\) smaller primes, and their multiplicity histogram \((121,140,65,14,4,1)\). The integer recurrence is justified in `RESULT.md`. It prints `VERIFY_OK` only after successful assertions; no external dataset or approximation is used.
+For every prime p<=2339 the exact recurrence w_j=r w_(j-1), b_j=j b_(j-1)+w_j (mod p), b_0=w_0=1, computes a_r for all r in [1,p-1]; Eratosthenes covers every p. An independently implemented factorial/inverse-factorial modular computation over the same finite domain verified exactly 345 smaller primes, complete histogram (121,140,65,14,4,1), earliest five-root p=593, and the six and only six residues 156,470,520,589,1092,2170 at p=2339. This proves a sharp finite least-prime cutoff, not unboundedness of lambda(p) or higher prime-power claims.
 
-`verify_roots.py` verifies the six-root set using a second modular representation with invertible factorials for \(0\le j<2339\). Its loops likewise enumerate every \(1\le r<2339\) and print `VERIFY_OK` after exact comparison. Both source programs were compiled/executed or interpreted from their actual file paths; results agreed.
+## originality
 
-The conclusion is finite. Neither verification program checks all primes beyond the finite cutoff, settles unboundedness, or certifies independent scholarly novelty. Independent audit status remains not performed.
+PASS
+
+Miska explicitly tabulated smaller Schenker root multiplicities and asked Question 4 about arbitrary m; that literature supplies the residue reduction but does not list the exhaustive first six-root cutoff. The new finite census resolves a motivated next threshold rather than asserting an infinite prime theorem. A search not finding another census is qualified evidence only.
+
+## value
+
+PASS
+
+The least prime where multiplicity reaches the first previously unlisted level six is a natural exact threshold in the original root-class question, with an exhaustive and independently implementable certificate. Exact earliest witnesses and their root residue set can be useful in later Schenker arithmetic or experimental conjectures; no unboundedness claim is implied.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
