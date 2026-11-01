@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The dual polynomial quotient follows from the two squarefree odd-period factors, the finite-field intersection, and Frobenius multiplicity. The translation-order calculation detects the full odd and two-primary parts. The six-element fractional-linear symmetry arguments reduce the possible semisimple relations to the trivial relation except for the degree-two exceptional field; the polynomial root-count obstruction excludes the spurious order-three candidate for every larger even field degree. Comparing first nonzero powers of the squarefree factor excludes additional nilpotent-thickening relations. The top-coefficient pairing proves that a single actual configuration realizes the full faithful translation image. The result is explicitly quantified and the verifier corroborates separate computations.
+PASS
 
-## Originality
+Verified the finite-field intersection of roots of X^(2^a-1)+1 and (1+X)^(2^b-1)+1 and Frobenius multiplicities, yielding gcd H_g^r, H_g=(X^(2^g-1)+1)/(X+1). Confirmed individual orders L via primitive roots and nilpotent H_g-adic valuation, including r=1 and g=1. The S3 actions lambda->lambda^-1 and lambda->1+lambda constrain semisimple relations; for g>=4 even a polynomial degree bound excludes the exceptional diagonal; for g=2 an explicit H2-adic lowest-term unit argument leaves exactly three. The coefficient-of-highest-degree pairing in F2[X]/H_g^r is nondegenerate, furnishing one faithful-orbit witness rather than an unsupported genericity assumption. Reconstructed 15 bounded independent GF2 kernel/group cases; all-parameter conclusions follow from the polynomial proof.
 
-PASS on currently inspected full-text evidence, with material priority risks. The 2014 and 2015 Miles–Ward papers already contain the dual-module framework and general subgroup-fixed-point counts, including a square Mersenne-period specialization. This review does not claim the number-of-points computation as new. Their inspected passages do not assert the finite-subsystem joint action kernel, the sharp exceptional diagonal three-subgroup, or a maximal-orbit witness. The general point-count formula could indirectly imply individual stabilizer and orbit information after substantial subgroup extraction, but fixed-subgroup counts alone do not specify the underlying \(\mathbb F_2[\mathbb Z^2]\)-linear module up to isomorphism. Such deduction is not established in the source and remains a residual risk for the orbit portion. D. Lind's 1996 source was not available in full text. published-finding corpus queries found related but noncovering dynamical and finite-field records; absence of an indexed match is not a priority proof.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The family arises canonically by imposing paired Mersenne/power-of-two periods on the archetypal nonmixing-of-order-three algebraic \(\mathbb Z^2\)-action. The theorem determines the exact finite linearly equivariant system type and faithful quotient of the full two-shift translation group and proves one configuration realizes it, revealing an exceptional 3-torsion collapse at the smallest nontrivial field intersection and showing that no other field degree or thickening creates hidden relations. These are structural invariants governing orbit geometry, not routine number-of-point tabulation.
+Ledrappier periodic point counts are prior work and Miles–Ward 2015 Example 4.1 treats this same action in the general algebraic Z^d point-count setting. The audited result explicitly does not claim point-count novelty. Inspected source gives the dual system and periodic count, but the exact translation-group kernel for this special rectangular family, exceptional F4 diagonal and exhibited orbit witness were not stated in examined material. Qualified priority risk from Lind 1996 and extraction from general subgroup-count results.
 
-## Closest sources and limitations
+## value
 
-Miles–Ward arXiv:1504.04973 Example 4.1 is directly relevant and has explicit square-period counts; Miles–Ward arXiv:1411.5295 studies directional phenomena. Both were read in substantial relevant full-text sections. Lind's older zeta-function discussion and Silberger's work on subshifts remain access/priority risks. The finite verifier does not prove unrestricted assertions. Independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Provides the explicit full finite group action beyond scalar periodic point counts: exactly which translations act trivially and a maximal orbit realized in each natural Mersenne-power torus, including an exceptional degree-two case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
