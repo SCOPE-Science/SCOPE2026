@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:48:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed matching conditions at two imaginary potential impurities: t=1/[(1+X)(1+Y)-XY exp(2ikd)], r=[-X(1+Y)-Y(1-X)exp(2ikd)]/denominator. With k=pi/2 and d even the phase is +1 and absorption collapses to 2b/(1+b)^2. For odd d phase -1, transmission denominator D=1+b+2x(b-x)>0 and reflection numerator R=b-2(b+1)x+2x^2, yielding A=1-(1+R^2)/D^2; transmission remains nonzero for every finite b. Differentiating gives A_prime=8P_b(x)/D^3. Under z=x/(b-x) the quartic has negative coefficients for z^4,z^3,z^2, an arbitrary z coefficient and positive constant, so Descartes plus endpoint signs gives exactly one positive root. It strictly increases then decreases and the interior maximizer beats both endpoint splits. The phase-dependence inequality is positive for every split in the interior, so odd optimum strictly outperforms even constant baseline. Substituting asymptotic series into the unique polynomial root yields x*=b/2-b^2/8+O(b^3) near zero, x*=1/2-1/(4b)+1/(4b^2)+O(b^-3) large, with deficit 1/(4b^2)+O(b^-3). Independently verified symbolic quartic derivative and z-conjugacy and eight positive-budget uniqueness cases. Numerical tests are corroboration, not all-budget proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Two-delta transfer maps give general scattering amplitudes; Merkel et al demonstrate near-perfect one-sided acoustic absorption; PT-symmetric double impurity studies have one gain and one loss."
+        ],
+        "reasoning": "The generic scattering formula and near-perfect absorption are already established, hence not counted as new. The prior broader physical models do not supply the exact fixed-sum optimization across all b>0 for two purely dissipative lattice defects at k=pi/2.",
+        "searches": [
+          "two point delta non-Hermitian scattering transfer matrices parity critical coupling",
+          "Joglekar 2010 PT symmetric tight-binding gain loss sites",
+          "Merkel 2015 acoustic one-sided perfect absorption"
+        ]
+      },
+      "checked_sources": [
+        "Burke et al. arXiv:1910.07439 primary PDF single imaginary impurity",
+        "Merkel et al. arXiv:1509.01443 one-sided absorption",
+        "Guilarte and Munoz-Castaneda arXiv:1010.3116 continuum two delta",
+        "Joglekar PT-symmetric gain-loss lattice paper primary abstract",
+        "Resultary 14-hit semantic search for exact two-loss budget parity optimization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Burke et al use a single imaginary on-site impurity; Merkel et al establish the general near-perfect one-sided absorption phenomenon; Guilarte et al examine double-delta mostly real continuum interactions."
+        ],
+        "reasoning": "None of these inspected result statements logically forces the odd/even separation dichotomy together with the unique fixed-total-loss optimum and its high-budget law in the infinite uniform tight-binding lattice. General matching methods are prior; the complete budget classification is the assessed remainder.",
+        "searches": [
+          "Burke Wiersig Haque 2020 non-Hermitian scattering on a tight-binding lattice single imaginary impurity",
+          "Merkel Theocharis et al 2015 coupled resonators one-sided absorption",
+          "Guilarte Munoz-Castaneda 2010 continuum two delta scattering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Single-defect imaginary potential has r=-X/(1+X), t=1/(1+X), A=2X/(1+X)^2; with two defects the transfer-matrix phase exp(2ikd) produces an additional interference term."
+        ],
+        "reasoning": "The even-d branch reproduces an effective single absorber at total strength b, which is prior mechanism; the odd branch is not algebraically equivalent to a single defect, and the exact unique optimizer uses quartic sign analysis not present in the single-site prior.",
+        "searches": [
+          "Burke Wiersig Haque 2019 non-Hermitian scattering imaginary onsite impurity tight-binding absorption",
+          "two absorbers band centre parity fixed loss budget unique optimum",
+          "Resultary semantic query two imaginary absorbing sites tight binding lattice band centre parity fixed loss budget optimal allocation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No inspected exact numerical table gives the root P_b(x) for all b>0, nor the large-budget optimizer asymptotic."
+        ],
+        "reasoning": "The finding is a universal symbolic optimization over continuum b and loss split rather than a finite table. A table, even if it showed few near-perfect points, would not establish unique optimizer for all budgets.",
+        "searches": [
+          "published tight-binding double defect absorption fixed-sum optimum tables",
+          "Resultary search lattice two absorber budget parity optimization"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact parity dichotomy and uniquely optimal loss allocation for two absorbing lattice sites is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.",
+      "residual_risks": [
+        "An older specialized dissipative double-defect lattice study may contain the exact fixed-sum optimum under different vocabulary.",
+        "No off-band-center, broad bandwidth, finite wave packet, disorder or power-budget optimization follows from the theorem; near-perfect absorption in general is not novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING single-site absorption and its strong-loss suppression; NOT COVERING two absorbers with variable fixed-total budget.",
+          "evidence": "The investigated Hamiltonian is a single local imaginary impurity, unlike two distinct absorbers at 0 and d.",
+          "identifier_or_url": "https://arxiv.org/abs/1910.07439",
+          "material_read": "Primary PDF accessible: introduction and single-site scattering sections including reflection/transmission/absorption, with page visually inspected.",
+          "method": "Primary PDF read and checked with page screenshot",
+          "title": "Non-Hermitian scattering on a tight-binding lattice",
+          "trigger": "same lattice and imaginary onsite absorption"
+        },
+        {
+          "assessment": "COVERING near-perfect one-sided absorption as a phenomenon; NOT a fixed-sum lossy tight-binding theorem.",
+          "evidence": "Experimentally motivated coupled acoustic scatterers are not two imaginary on-site defects in an infinite homogeneous lattice.",
+          "identifier_or_url": "https://arxiv.org/abs/1509.01443",
+          "material_read": "ArXiv paper abstract and described setup; no claim of inspecting all technical sections.",
+          "method": "Accessible primary bibliographic text/abstract inspection",
+          "title": "Control of acoustic absorption in 1D scattering by indirect coupled resonant scatterers",
+          "trigger": "prior near-perfect one-sided absorption and resonator design"
+        },
+        {
+          "assessment": "Relevant transfer method, predominantly real continuum two-delta model; cannot assert global noncoverage from abstract alone.",
+          "evidence": "General double-delta interference and matching are explicitly credited as antecedents.",
+          "identifier_or_url": "https://arxiv.org/abs/1010.3116",
+          "material_read": "Primary abstract and identified model scope, not a full-paper exclusion claim.",
+          "method": "Scoped primary abstract inspection",
+          "title": "Double-delta potentials: one dimensional scattering",
+          "trigger": "two-scatterer transfer formalism as potential dominating prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed total imaginary onsite loss is a natural resource constraint in two-port wave scattering. Even/odd site separation produces a structural parity switch, while all-budget uniqueness solves a nonconvex allocation problem globally and shows that a two-site arrangement overcomes strong-loss reflection of a single defect. The exact near-perfect scaling and upstream design limit have specific physical and mathematical meaning, while generic near-perfect one-sided absorption is explicitly acknowledged as prior.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "At k=pi/2 on the infinite nearest-neighbor chain with two lossy on-site impurities separated by d>=1 and fixed total loss gamma_L+gamma_R=2b>0: even d gives constant absorption 2b/(1+b)^2 for all splits; odd d has an exact rational absorption profile with a unique interior global optimum for every b>0, which tends to near-perfect absorption with 1/(4b^2) deficit while the optimal upstream loss tends to gamma_L=1.",
+  "limitations": "At one band-centre momentum only, ideal infinite uniform lattice with imaginary onsite losses and a sum-of-loss-magnitudes budget, not a finite device or robust band absorption.",
+  "schema_version": 1
+}

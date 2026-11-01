@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The discrete two-impurity matching conditions yield exact \(r,t\) for arbitrary propagating momentum, hence the absorption and the band-centre parity alternatives. With fixed budget and odd separation, differentiating the explicit rational formula gives a quartic; the Möbius change \(z=x/(b-x)\) turns this quartic into a polynomial with exactly one coefficient sign change. Its opposite end signs prove a unique global interior maximizer for **every** positive budget. Exact leading asymptotics follow from the polynomial implicit equation. The included independent matching solver passed 500 random complex-amplitude tests, 180 optimization grids, and phase and singular-limit checks; symbolic algebra independently confirmed the derivative and polynomial conjugacy.
+## correctness
 
-## Originality — PASS (scope-restricted)
-The reviewed sources distinguish the precise new proposition from close antecedents. Burke–Wiersig–Haque's single absorbing defect does not imply a two-site allocation theorem; Miroshnichenko–Kivshar's conservative decorated networks and Guilarte–Muñoz-Castañeda's predominantly real continuum double-deltas likewise do not provide it. Merkel et al. **already demonstrate near-perfect one-sided absorption**, so generic near-perfect absorption is explicitly excluded from the originality claim. Longhi's edge-loss setting has a different number of leads and an initial-state-controlled transient question. The precise candidate claim combines parity-specific exact flux, strict global optimality for every fixed positive budget, and the high-budget limiting upstream allocation. Search coverage cannot establish historical uniqueness; undiscovered equivalent two-defect scattering optimizations are a residual risk. The proof concerns only the exact model in RESULT.md.
+PASS
 
-## Mathematical value — PASS
-Fixed material or dissipation budgets are a natural design constraint in non-Hermitian scattering. The parity dichotomy is structural, and the exact optimizer answers a nonconvex global resource-allocation question without local-minimum ambiguity. The strong-loss contrast is consequential: under identical total strength, single-defect absorption vanishes but a two-site odd-separation design approaches unit absorption. This makes the precise allocation rule, not merely the correct scattering algebra, the valuable result. Its limitations are ideal coherent single-frequency incidence and no robustness theorem.
+Reconstructed matching conditions at two imaginary potential impurities: t=1/[(1+X)(1+Y)-XY exp(2ikd)], r=[-X(1+Y)-Y(1-X)exp(2ikd)]/denominator. With k=pi/2 and d even the phase is +1 and absorption collapses to 2b/(1+b)^2. For odd d phase -1, transmission denominator D=1+b+2x(b-x)>0 and reflection numerator R=b-2(b+1)x+2x^2, yielding A=1-(1+R^2)/D^2; transmission remains nonzero for every finite b. Differentiating gives A_prime=8P_b(x)/D^3. Under z=x/(b-x) the quartic has negative coefficients for z^4,z^3,z^2, an arbitrary z coefficient and positive constant, so Descartes plus endpoint signs gives exactly one positive root. It strictly increases then decreases and the interior maximizer beats both endpoint splits. The phase-dependence inequality is positive for every split in the interior, so odd optimum strictly outperforms even constant baseline. Substituting asymptotic series into the unique polynomial root yields x*=b/2-b^2/8+O(b^3) near zero, x*=1/2-1/(4b)+1/(4b^2)+O(b^-3) large, with deficit 1/(4b^2)+O(b^-3). Independently verified symbolic quartic derivative and z-conjugacy and eight positive-budget uniqueness cases. Numerical tests are corroboration, not all-budget proof.
 
-## Closest literature and priority risk
-[1] Miroshnichenko–Kivshar, arXiv:cond-mat/0505023; [2] Merkel et al., arXiv:1509.01443; [3] Guilarte–Muñoz-Castañeda, arXiv:1010.3116; [4] Burke–Wiersig–Haque, arXiv:1910.07439; [5] Longhi, DOI:10.3390/photonics13060574. An unlocated equivalent allocation theorem in specialized non-Hermitian scattering studies remains a plausible priority risk. A published technical review may uncover an equivalent earlier treatment.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact parity dichotomy and uniquely optimal loss allocation for two absorbing lattice sites is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.
+
+## value
+
+PASS
+
+A fixed total imaginary onsite loss is a natural resource constraint in two-port wave scattering. Even/odd site separation produces a structural parity switch, while all-budget uniqueness solves a nonconvex allocation problem globally and shows that a two-site arrangement overcomes strong-loss reflection of a single defect. The exact near-perfect scaling and upstream design limit have specific physical and mathematical meaning, while generic near-perfect one-sided absorption is explicitly acknowledged as prior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
