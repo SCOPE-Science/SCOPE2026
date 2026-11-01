@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is for all integers \(r\ge3,m\ge2\) and all real \(h\ge0\). Three explicit spectral projectors reduce every matrix entry to one of three exact rational functions; both off-diagonal types are positive at every positive step. The quartic numerator of the diagonal controls entrywise positivity. Three positive-coefficient polynomial certificates prove all unconditional cases, monotonicity covers the one smaller case, and four parameter-family witnesses cover all remaining integers. Descartes' rule and the opposite signs at zero, a witness, and infinity prove exactly two distinct positive boundary roots in every failing family. An exact-arithmetic program independently reconstructs the algebraic identities and seven finite matrix instances. These are corroborations, not replacements for the all-parameter proof.
+## correctness
 
-## Originality — PASS (bounded literature assessment)
-The closest general sources are the Padé/positive-systems articles of Zappavigna, Colaneri, Kirkland and Shorten (2010; 2012), and the Radau-method exposition of Hairer and Wanner. Neither source's inspected mathematical results gives an equal-part complete multipartite \(r\ge3\) sharp positivity classification. The complete-bipartite Radau classification concerns exactly two parts and the fourth-order Gauss classification uses a different stability map; neither implies the full statement here, especially the proof that the unsafe set has precisely one connected component for every admissible integer pair. Search-based historical noncoverage remains provisional: an equivalent specialized result in poorly indexed literature could exist.
+PASS
 
-## Value — PASS
-This answers a motivated numerical diffusion safety question for every balanced complete multipartite network with at least three nontrivial communities: exact unconditional safety families, and sharp two-sided timestep reentry limits for all others. The threshold occurs at twelve vertices within this family, and the complete positivity set is never merely inferred from finite simulation. The distinction between stability, positivity, and positivity reentry is consequential when numerical states represent concentrations or probabilities.
+The Laplacian decomposes into J/N, I−E, E−J/N with eigenvalues 0,(r−1)m,rm. Its Padé functional calculus yields two nonnegative off-diagonal types and a diagonal numerator C_{r,m}(z). Recomputed all three symbolic entry identities, all three split-interval positive polynomial certificates for the safe cases, and exact negative witnesses; Descartes two sign changes plus C(0)>0, C(infty)>0 and a negative witness yield exactly two positive roots for every other integer pair. Checked 143 integer parameter pairs. The r>=6 witness and m-monotonic extension supply the infinite parameter argument; finite checks alone do not.
 
-## Limits
-The theorem does not claim unequal part sizes, arbitrary Markov generators, internal-stage positivity, or independently reviewed validity. Exact thresholds are given as algebraic roots instead of radical expressions. The identified literature comparison does not prove historical uniqueness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+The exact all-parameter safety classification and surprising negative middle timestep window with large-step reentry solve a natural entrywise-positivity question for the named implicit integrator on a structured network family. It is not a generic stability observation or a one-off numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
