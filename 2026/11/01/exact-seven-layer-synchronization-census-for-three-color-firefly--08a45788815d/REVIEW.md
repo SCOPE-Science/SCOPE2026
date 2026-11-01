@@ -1,0 +1,12 @@
+# Scientific assessment
+
+**Correctness — PASS.** The original synchronous update depends only on the center color and the set of occupied leaf colors, giving exactly \(21\) support states for all star sizes. Every support transition is explicitly written in the result, all seven first-hit classes and the sole recurrent nonsynchronous class are exhaustive, and each fibre has the exact surjection weight \(U_j(r)\). Summing all eight categories returns the full \(3^{r+1}\) configuration space. Independent exhaustive labelled-state simulation for star sizes \(1\) through \(9\) agrees. Risk: no independent audit; the proof's critical finite transition table is human-checkable and verifier-replayable.
+
+**Originality — PASS, qualified.** Lyu's 2014 work supplies the rule and qualitative tree synchrony criteria; a 2016 follow-up supplies broad recurrence and complexity results and uses star obstructions. Neither inspected discussion supplies the full seven-layer, all-degree exact synchronization-time histogram, the sharp uniform six-step conditional bound, or its limiting three-way split. General recurrence criteria alone are not numerically equivalent to the enumerated first-hit classes. Semantic mathematical-record searches found related but different models; lack of a match is not conclusive. Residual risk: an unindexed equivalent finite-state star enumeration could exist.
+
+**Value — PASS.** Degree-threshold synchronization theory does not quantify which labelled starts fail, nor how long successful starts require. The exact \(r\)-dependent first-hit histogram shows that even as nearly one-third of all starts never align, the successful population divides into two macroscopically large arrival-time layers at exactly five and six updates; this is a natural complete basin census for the simplest branching tree and an explicit quantitative refinement of the published local-global threshold.
+
+## Closest literature and limits
+H. Lyu, *Synchronization of finite-state pulse-coupled oscillators*, arXiv:1407.1103, Definition 1, Theorems 3–4, and Section 4. H. Lyu, *Time complexity of Synchronization of discrete pulse-coupled oscillators on trees*, arXiv:1610.00837, Theorem 1 and Sections 2–3. These give the model and qualitative tree conclusions and are not displaced by the new enumerative theorem. Independent external checking remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.

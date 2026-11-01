@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The \\(21\\)-state support transition certificate is exact and exhaustive for every integer \\(r\\ge1\\): the map on (center color, occupied leaf-color set) closes because equal-colored leaves remain identical. The transition graph has one asynchronous recurrent support state \\((2,\\{0,1,2\\})\\), and every other state synchronizes by step \\(6\\), with the complete certificate displayed in RESULT.md. A fixed \\(j\\)-element leaf support has \\(U_j(r)\\) surjective labellings by inclusion-exclusion. Multiplying the support counts yields all eight masses, whose sum is \\(3^{r+1}\\). A distinct labelled-state exhaustive verifier agrees for \\(1\\le r\\le9\\); finite experiments supplement rather than replace the all-size proof. Sharpness has an explicit witness with center color \\(0\\) and leaves of colors \\(0\\) and \\(2\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1610.00837, introduction Theorem 1: for 3–6 colors, every initial state synchronizes on a tree iff maximum degree is below number of colors; the rest of its time bounds assume a degree constraint.",
+        "arXiv:1407.1103, Theorem 4: 3-color tree trajectories synchronize iff every vertex blinks infinitely often; an infinite-degree-family time histogram is not stated."
+      ],
+      "reasoning": "These broader topological criteria imply the existence of nonsynchronizing starts for degree at least three but do not give their exact labelled populations, seven conditional arrival-time strata, or the sharp six-step horizon for the successful starts even at unbounded star degree.",
+      "searches": [
+        "Hanbaek Lyu 2014 pulse-coupled oscillator firefly three states star graph non synchronizing probability 1/3 and degree boundary",
+        "Hanbaek Lyu 2014 2016 firefly star center frozen all three leaf phases exact basin of attraction time six",
+        "arXiv:1610.00837 Sections 1–3 (finite trees, k-star, time bound)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1407.1103",
+      "https://arxiv.org/abs/1610.00837",
+      "Mathematical research index: exact semantic queries enumerated in originality checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2014 paper proves the criterion for universal tree synchronization and provides a persistent inhibited-center construction.",
+        "2016 paper proves recurrence/degree results and high-color star examples; the inspected full paper sections do not state the three-color exact first-hitting census."
+      ],
+      "reasoning": "The nonsynchronizing-center configuration is prior art and not asserted to be novel. The final claim is the single complete exact distribution; neither published criterion yields the numbers of starts with \\(T=1,\\ldots,6\\) by direct parameter specialization. The 21-state case classification and surjection enumeration are the additional steps. The possibility of an unindexed equivalent is explicitly retained.",
+      "searches": [
+        "firefly networks 3-periodic star graph K1,r exact basin size synchronization time 6 first synchronization counts and initial center blinking",
+        "Hanbaek Lyu 2014 pulse-coupled oscillator firefly three states star graph non synchronizing probability 1/3 and degree boundary",
+        "Hanbaek Lyu 2014 2016 firefly star center frozen all three leaf phases exact basin of attraction time six",
+        "arXiv:1407.1103 Theorem 3, Theorem 4, Section 4",
+        "arXiv:1610.00837 Theorem 1, Sections 2–3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1407.1103: Definition 1 states the exact rule; Section 4 proves a blinking/synchrony criterion but no 21-state weighted complete arrival-time table in the inspected sections.",
+        "The support-quotient is the same model as the source, not an artificially rebranded update."
+      ],
+      "reasoning": "Time-to-global-synchrony is the first time all labelled leaves and center share a color; quotient support is lossless for that observable, since equal-colored leaves never split. The source qualitative statements are not algebraically equivalent to the seven exact arrival-time populations without additional finite-state classification.",
+      "searches": [
+        "firefly networks 3-periodic star graph K1,r exact basin size synchronization time 6 first synchronization counts and initial center blinking",
+        "three state inhibitory pulse coupled firefly oscillator stars all configurations support classes exact transient synchrony census",
+        "\"firefly cellular automaton\" \"star\" \"synchronization time\" exact",
+        "arXiv:1407.1103 Section 4 (star, opposite-leaf lemma)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic research-index searches returned mathematically different ternary semigroup trace, continuous oscillator and spectral results, rather than the three-color firefly star first-hit table.",
+        "The exact table here is constructed from the 21 explicit support states and is checked independently on nine finite graph sizes."
+      ],
+      "reasoning": "No exact same-object six-step time-by-degree table was identified in the queried sources. Negative search results alone cannot establish uniqueness; no database or earlier published table is claimed to have been exhaustively searched.",
+      "searches": [
+        "three-color firefly cellular automaton on star K1 r exact synchronization time histogram counts 3^r 2^r",
+        "pulse coupled inhibitory three color oscillator synchronizing initial colorings of star counting 3^r-3*2^r+3",
+        "\"three-color\" \"firefly\" \"star\" synchronization count configurations"
+      ]
+    },
+    "rationale": "Closest primary studies already prove the firefly rule and qualitative tree synchronization/recurrence criteria, including star counterexamples. This claim explicitly excludes those. The complete exact seven-first-hit-layer histogram, uniform sharp six-update successful-entry bound for all star degrees, and limiting trichotomy are not determined as numerical consequences by simply setting a degree in the inspected theorems. The new finite support transition classification plus surjection lift is substantive additional content. An earlier unindexed exact enumeration remains a risk.",
+    "residual_risks": [
+      "The inspected literature and semantic index cannot rule out an unindexed equivalent statement.",
+      "General tree blinking criteria have strong relevance and may permit another independent derivation; the complete labelled first-arrival histogram is the substantive asserted novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Model and degree obstruction covered; seven exact first-synchrony layers not identified in inspected material",
+        "evidence": [
+          "Definition 1 and formula (1) specify the precise inhibitory update.",
+          "Theorem 3 and Theorem 4 establish qualitative tree criteria.",
+          "Section 4 proves n=3 case by opposite-leaf and branch arguments without the seven-layer labelled enumeration."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1407.1103",
+        "material_read": "Accessible full-text rendering: Definition 1, introductory main theorems, Section 3 branch pruning, Section 4 transient local configurations and three-color case, and conclusions",
+        "method": "Read primary full-text mathematical statements and inspect star/initial-condition terminology and formulas",
+        "title": "Synchronization of finite-state pulse-coupled oscillators",
+        "trigger": "Original definition and closest qualitative tree/finite-star synchronization theorem"
+      },
+      {
+        "assessment": "Strong surrounding tree coverage, but first-hit population census and unconditional six-step star-bound for synchronizing starts not identified",
+        "evidence": [
+          "Theorem 1 states a topological all-configurations criterion; its time estimates concern low-degree cases.",
+          "Section 3 constructs higher-color periodic star examples; the 3-color weighted star census is not stated in inspected sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1610.00837",
+        "material_read": "Accessible full-text rendering: introduction, Theorem 1, Section 2 branch width, Section 3 star counterexamples, relevant Section 5 star local-dynamics propositions",
+        "method": "Read primary statements and inspect sections describing stars, recurrence and complexity",
+        "title": "Time complexity of Synchronization of discrete pulse-coupled oscillators on trees",
+        "trigger": "Near-identical firefly model on finite trees and maximum synchronization-time estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "08a45788-815d-4f97-a4d1-bf5ed04ccaaa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural degree-three obstruction is qualitative; knowing it exists does not measure its initial-condition frequency or the time distribution among synchronizers. The theorem gives all finite-size basin weights and exact first-arrival layers uniformly over an infinite unbounded-degree family. Its sharp six-step conditional cutoff and nontrivial 1/3-1/3-1/3 asymptotic trichotomy are useful quantitative dynamical invariants, rather than arbitrary finite enumeration or a renamed condition.",
+    "status": "PASS"
+  }
+}
