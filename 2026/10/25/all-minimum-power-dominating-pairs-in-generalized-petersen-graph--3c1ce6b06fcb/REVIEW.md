@@ -1,19 +1,21 @@
-# Scientific review: minimum power-dominating pairs in generalized Petersen graphs
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(n\ge9\), a complete list of the \(6n\) successful size-two sensor sets is established. In the stable range \(n\ge21\), all pairs within distance three are classified into explicit four-column-propagating or stalled types, and all pairs at distance at least four stall immediately. The four-column expansion proves sufficiency. The finite range \(9\le n\le20\) is exhaustively certified by a standalone checker using three forcing implementations, including the original edge-monitoring rules. Exact exchange-graph properties follow from the line-graph isomorphism. The \(n=13\) distance-three counterexample is verified both algebraically and independently by code.
+PASS
 
-## Originality — PASS, with residual risk
+For GP(n,2), cubic graph with vertices a_i,b_i, edges outer a_i a_(i+1), spokes a_i b_i, inner b_i b_(i+2), one sensor cannot propagate for n≥9. The full successful pair list is n outer pairs a_i,a_(i+3), n inner b_i,b_(i+1), and 4n mixed pairs a_i,b_(i±3,±4), total 6n. For n≥21, length≤3 walks give an exhaustive local type table; four observed consecutive columns propagate, and every omitted type stalls. Smaller n=9..20 exhausted exactly with independent forcing rules; fresh independent enumeration also verified 9..24,29,37,61. Successful-pair graph on 2n sensor sites has 6-regular degree and 6n edges; its line graph is connected, 10-regular, 30n edges. For n≥13 exactly n of 7n distance-three pairs fail: b_i,b_(i+6). n=13 b0,b6 distance 3 and stalls with 10/26 observed. A finite sample is not the all-n proof; all-n step uses stable combinatorial local argument.
 
-The full seven-page Barrera--Ferrero 2010 article was read (especially Section 5); it establishes upper bounds and the numerical minimum for some subfamilies, not the all-optimal-pairs theorem. The primary publisher-indexed Girish--Somasundaram 2024 Lemma 4 is a *contrary sufficient-condition assertion* disproved by the explicit pair, rather than a prior version of the corrected theorem. Exact searches for the sensor-pair classification, equivalent distance-three forms, power-domination counting, and single-site reconfiguration found no covering result. Xu--Kang 2011 is relevant and its abstract is known, but its full text could not be read, leaving an explicit residual coverage risk. Unindexed equivalent work also remains possible; the search is evidence, not universal novelty certification.
+## originality
 
-## Value — PASS
+PASS
 
-A natural optimal placement problem on a classical infinite graph family now has its complete solution-set classification, exact cardinality, and a connected degree-regular exchange space. Its one-in-seven obstruction resolves the exact boundary of a published distance-three criterion rather than merely improving a scalar bound. The resulting explicit counterexample is mathematically motivated and independently checkable.
+Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Barrera–Ferrero prove power domination cardinality results for related generalized Petersen subfamilies; no all-minimum-pair identity follows from a value γ_P=2. Xu–Kang 2011 abstract promises bounds and selected exact minimum numbers but full text inaccessible; this alone is not negative originality evidence. Girish–Somasundaram 2024 Lemma 4’s stronger sufficiency assertion is actually false for GP(13,2) b0,b6.
 
-## Uncertainties
+## value
 
-A complete external survey of unindexed writing is not possible, and the Xu--Kang primary full text was unavailable through the available lawful sources. The finite verifier does not itself prove statements for arbitrary \(n\); those are supplied by the symbolic argument. Only the stated Lemma 4 of the 2024 paper, not other claims in that paper, is evaluated here.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact parametrized classification of every minimum power-dominating pair in a canonical generalized Petersen graph family, including a connected exchange graph and sharp correction of a published erroneous distance-three criterion, provides a substantive graph-observability result beyond the known minimum cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

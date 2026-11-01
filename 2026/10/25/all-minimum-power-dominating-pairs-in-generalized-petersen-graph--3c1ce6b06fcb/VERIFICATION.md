@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-`verify.py` is standalone Python 3. Run `python3 verify.py` from the directory containing this file and the checker. The script prints `ALL_VERIFY_OK` only after these checks:
+## correctness
 
-1. Build each graph directly from its three edge families. Independently compare synchronous neighborhood forcing, sequential one-force-at-a-time closure, and the vertex/edge monitoring rules for **every unordered pair** for \(9\le n\le20\).
-2. Enumerate every singleton, and prove none power dominates in that range; compare the enumerated successful pairs exactly to the three listed families. Thus the finite range is exhaustively checked rather than sampled.
-3. Build the complete optimum exchange graph and verify \(6n\) vertices, degree \(10\), \(30n\) edges, and connectedness for every \(9\le n\le20\).
-4. Independently compute graph distances and prove that the only failed distance-three pairs are the \(n\) inner offsets-six pairs for every \(13\le n\le20\).
-5. Enumerate all pairs in additional graphs of orders indexed by \(n\in\{21,22,23,29,37,61\}\); independently check local stable-case forcing, and stalled states at \(n\in\{21,22,49,97\}\).
-6. Verify the displayed \(n=13\) pair has graph distance three and stalls after observing exactly ten of its twenty-six vertices.
+PASS
 
-The all-parameter conclusion for \(n\ge21\) uses the proven finite walk-type classification and four-column expansion argument in `RESULT.md`; larger-number computations are consistency tests, not substitutes for that proof. No external certification or independent audit was performed.
+For GP(n,2), cubic graph with vertices a_i,b_i, edges outer a_i a_(i+1), spokes a_i b_i, inner b_i b_(i+2), one sensor cannot propagate for n≥9. The full successful pair list is n outer pairs a_i,a_(i+3), n inner b_i,b_(i+1), and 4n mixed pairs a_i,b_(i±3,±4), total 6n. For n≥21, length≤3 walks give an exhaustive local type table; four observed consecutive columns propagate, and every omitted type stalls. Smaller n=9..20 exhausted exactly with independent forcing rules; fresh independent enumeration also verified 9..24,29,37,61. Successful-pair graph on 2n sensor sites has 6-regular degree and 6n edges; its line graph is connected, 10-regular, 30n edges. For n≥13 exactly n of 7n distance-three pairs fail: b_i,b_(i+6). n=13 b0,b6 distance 3 and stalls with 10/26 observed. A finite sample is not the all-n proof; all-n step uses stable combinatorial local argument.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Barrera–Ferrero prove power domination cardinality results for related generalized Petersen subfamilies; no all-minimum-pair identity follows from a value γ_P=2. Xu–Kang 2011 abstract promises bounds and selected exact minimum numbers but full text inaccessible; this alone is not negative originality evidence. Girish–Somasundaram 2024 Lemma 4’s stronger sufficiency assertion is actually false for GP(13,2) b0,b6.
+
+## value
+
+PASS
+
+An exact parametrized classification of every minimum power-dominating pair in a canonical generalized Petersen graph family, including a connected exchange graph and sharp correction of a published erroneous distance-three criterion, provides a substantive graph-observability result beyond the known minimum cardinality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

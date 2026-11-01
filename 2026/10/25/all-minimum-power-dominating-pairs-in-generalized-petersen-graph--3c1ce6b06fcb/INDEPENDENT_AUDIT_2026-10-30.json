@@ -1,0 +1,147 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:08:47.750947Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen RESULT.md blob 37b975b12f3f21ece31ba4347f4fc24612218fb6",
+        "actual verify.py blob 8a9a37556ddae0b2c4298ca8f0fc99f5bfd95fd8",
+        "independent_checks.py",
+        "independent_results.json"
+      ],
+      "rationale": "For GP(n,2), cubic graph with vertices a_i,b_i, edges outer a_i a_(i+1), spokes a_i b_i, inner b_i b_(i+2), one sensor cannot propagate for n≥9. The full successful pair list is n outer pairs a_i,a_(i+3), n inner b_i,b_(i+1), and 4n mixed pairs a_i,b_(i±3,±4), total 6n. For n≥21, length≤3 walks give an exhaustive local type table; four observed consecutive columns propagate, and every omitted type stalls. Smaller n=9..20 exhausted exactly with independent forcing rules; fresh independent enumeration also verified 9..24,29,37,61. Successful-pair graph on 2n sensor sites has 6-regular degree and 6n edges; its line graph is connected, 10-regular, 30n edges. For n≥13 exactly n of 7n distance-three pairs fail: b_i,b_(i+6). n=13 b0,b6 distance 3 and stalls with 10/26 observed. A finite sample is not the all-n proof; all-n step uses stable combinatorial local argument.",
+      "residual_risks": [
+        "Finite experiments and exact checks do not alone establish infinite/uniform quantifiers; proof reconstructed from original RESULT.md."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+          "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+          "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+          "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+        ],
+        "reasoning": "Barrera–Ferrero prove power domination cardinality results for related generalized Petersen subfamilies; no all-minimum-pair identity follows from a value γ_P=2. Xu–Kang 2011 abstract promises bounds and selected exact minimum numbers but full text inaccessible; this alone is not negative originality evidence. Girish–Somasundaram 2024 Lemma 4’s stronger sufficiency assertion is actually false for GP(13,2) b0,b6.",
+        "searches": [
+          "generalized Petersen graph GP(n,2) power domination all minimum pairs distance 3 counterexample",
+          "GP(n,2) power domination minimum sensor pairs distance three",
+          "generalized Petersen graphs GP(n,2) minimum power dominating sets all pairs"
+        ]
+      },
+      "checked_sources": [
+        "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+        "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+        "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+        "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+          "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+          "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+          "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+        ],
+        "reasoning": "The earlier power-domination number γ_P=2 does not determine identities/count of all minimum sets or their line-graph exchange structure. The challenged distance-three sufficiency would have implied false extra successful pairs, so it is not prior coverage; n=13 counterexample is independently checked.",
+        "searches": [
+          "generalized Petersen graph GP(n,2) power domination all minimum pairs distance 3 counterexample",
+          "GP(n,2) power domination minimum sensor pairs distance three",
+          "generalized Petersen graphs GP(n,2) minimum power dominating sets all pairs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+          "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+          "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+          "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+        ],
+        "reasoning": "Power-domination forcing equals observed-vertex with one remaining unobserved neighbour, and also the original edge-monitoring closure; success pairs form the edge set of a 6-regular graph, whose line graph encodes single-sensor exchanges.",
+        "searches": [
+          "generalized Petersen graph GP(n,2) power domination all minimum pairs distance 3 counterexample",
+          "GP(n,2) power domination minimum sensor pairs distance three",
+          "generalized Petersen graphs GP(n,2) minimum power dominating sets all pairs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+          "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+          "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+          "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+        ],
+        "reasoning": "Complete new exhaustive successful-pair lists computed for n=9..24,29,37,61 from actual graph adjacency; no matching 6n family table in inspected full Barrera–Ferrero source or Resultary searches. Finite computations complement symbolic n≥21 proof.",
+        "searches": [
+          "generalized Petersen graph GP(n,2) power domination all minimum pairs distance 3 counterexample",
+          "GP(n,2) power domination minimum sensor pairs distance three",
+          "generalized Petersen graphs GP(n,2) minimum power dominating sets all pairs"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the same final mathematical statement and direct implications, including exact-model primary sources, relevant general theorems and named residual priority risks. Absence of a matching search hit is not presented as proof of novelty. Barrera–Ferrero prove power domination cardinality results for related generalized Petersen subfamilies; no all-minimum-pair identity follows from a value γ_P=2. Xu–Kang 2011 abstract promises bounds and selected exact minimum numbers but full text inaccessible; this alone is not negative originality evidence. Girish–Somasundaram 2024 Lemma 4’s stronger sufficiency assertion is actually false for GP(13,2) b0,b6.",
+      "residual_risks": [
+        "Xu–Kang 2011 primary full text unavailable after lawful OA/preprint attempt; authorized institutional request reported vpn_disconnected (job b785be71bd42a9d27700a6d6866e7a1d)",
+        "The primary Girish–Somasundaram 2024 lemma text inspected, but remaining complete paper was not read due HTTP 429",
+        "Exhaustive validation at finite n does not replace the proof of stable local classification for n≥21"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proves cardinality/bounds in subfamilies; does not enumerate every successful pair or exchange graph",
+          "evidence": [
+            "Barrera–Ferrero Section 5, Lemma 5.1 and Corollary 5.2"
+          ],
+          "identifier_or_url": "DOI:10.1002/net.20413",
+          "material_read": "Full lawful author-hosted paper, particularly Section 5, Lemma 5.1, Corollary 5.2",
+          "method": "Original PDF text and inspected page image",
+          "title": "Power domination in cylinders, tori, and generalized Petersen graphs",
+          "trigger": "Original numerical power-domination theorem for this graph family"
+        },
+        {
+          "assessment": "Primary lemma says any distance-three pair power dominates GP(n,2); direct n=13 b0,b6 counterexample disproves that sufficient condition. Not extrapolating to other claims in source",
+          "evidence": [
+            "Girish–Somasundaram 2024, Lemma 4: stated geodesic-distance-three sufficiency"
+          ],
+          "identifier_or_url": "DOI:10.3390/sym16070781",
+          "material_read": "Indexed primary Lemma 4 statement read; remaining full article inaccessible due HTTP 429",
+          "method": "Publisher-indexed primary theorem text; targeted lookup of Lemma 4",
+          "title": "Bound for the k-Fault-Tolerant Power-Domination Number",
+          "trigger": "Explicit universal distance-three sufficiency claim challenged by new witness"
+        },
+        {
+          "assessment": "Abstract states upper bounds and exact results for a subfamily, but exact all-pair coverage cannot be ruled out from abstract alone; plausible inaccessible source is residual priority risk",
+          "evidence": [
+            "Xu–Kang 2011 abstract; authorized institutional status vpn_disconnected"
+          ],
+          "identifier_or_url": "DOI:10.1007/s10878-010-9293-y",
+          "material_read": "Publisher-indexed abstract only; no full paper obtained",
+          "method": "ArXiv/OA bibliographic searches then authorized Oxford request; returned vpn_disconnected without bypass",
+          "title": "On the power domination number of the generalized Petersen graphs",
+          "trigger": "Strongly related same-family primary classification possibility"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "R. Barrera and D. Ferrero, Power domination in cylinders, tori, and generalized Petersen graphs, Networks 58 (2011), Section 5, DOI:10.1002/net.20413",
+        "L. Girish and K. Somasundaram, Bound for the k-Fault-Tolerant Power-Domination Number, Symmetry 16 (2024), Lemma 4, DOI:10.3390/sym16070781",
+        "G. Xu and L. Kang, On the power domination number of the generalized Petersen graphs, J Comb Optim 22 (2011), DOI:10.1007/s10878-010-9293-y, abstract only; full text unavailable (VPN disconnected)",
+        "Resultary other generalized Petersen Rips and chain graph power domination findings (distinct invariants/objects)"
+      ],
+      "rationale": "An exact parametrized classification of every minimum power-dominating pair in a canonical generalized Petersen graph family, including a connected exchange graph and sharp correction of a published erroneous distance-three criterion, provides a substantive graph-observability result beyond the known minimum cardinality.",
+      "residual_risks": [
+        "Claims only n≥9 and size-two power-dominating sets, not full power-domination polynomial or optimal propagation time"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Xu–Kang 2011 primary full text unavailable after lawful OA/preprint attempt; authorized institutional request reported vpn_disconnected (job b785be71bd42a9d27700a6d6866e7a1d)",
+    "The primary Girish–Somasundaram 2024 lemma text inspected, but remaining complete paper was not read due HTTP 429",
+    "Exhaustive validation at finite n does not replace the proof of stable local classification for n≥21",
+    "Claims only n≥9 and size-two power-dominating sets, not full power-domination polynomial or optimal propagation time",
+    "Existing METADATA.json and AUDIT.json contain a private operational provenance key scope_run_id; not all complete original Git blob bytes are locally materialized for verified privacy-neutral replacement. No exact-blob-guarded sanitized complete replacements with UTF-8 SHA-256 are staged, so publishing unchanged public administrative files would risk disclosure."
+  ],
+  "schema_version": 1
+}
