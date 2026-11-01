@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The group-algebra multiplication identities reduce the square-zero equation to two explicit equations in the length-eight truncated polynomial ring. The valuation strata \(0,2,\ge4\) yield the all-even-field counts; odd valuations cannot occur. The binary rank spectra are a complete finite calculation over every coordinate vector with a reconstructible group multiplication table and ordinary Gaussian elimination. A second, independently organized decomposition checks the same binary spectra and additional four-element-field totals. Risks: the binary rank refinement is deliberately not asserted for arbitrary larger fields; finite enumeration is not substituted for the all-field proof.
+## correctness
 
-**Originality (O): PASS at best knowledge, with residual risk.** Holm--Zimmermann, arXiv:0807.0688v1, studies generalized Reynolds ideals, derived equivalence and characteristic-two tame blocks, not the exact square-zero rank census. Closest preceding rank-spectrum findings for dihedral and dicyclic groups cover order \(8m\) with odd \(m\); the present order-16 maximal-class groups do not satisfy that hypothesis, and the rank-eight fingerprints are nonimplied. Search comparisons also considered aliases quasi-dihedral and semidihedral, square-zero and nilpotent terminology, full-multiplication ranks, and exact count tables. No statement with stronger covering parameters was identified. Unread historical articles or a general classification could still imply the finite rank table indirectly; no priority certification is claimed.
+PASS
 
-**Value (V): PASS.** Order \(16\) is the first order where all three maximal-class tame-defect types can be compared. The theorem gives a field-uniform square-zero census (an infinite family of finite-field instances) and a complete canonical binary rank fingerprint. The surprising agreement of six lower-rank coefficients, coupled with three distinct acyclic counts, identifies a natural boundary invisible to the low-rank tail. This is an algebraic/homological invariant of the regular module, not an arbitrary selected matrix entry or a duplicate of a prior odd-index family.
+The three presentations G(r,c), (r,c)=(7,0),(3,0),(7,4), give A=R+Rb, R=F_q[t]/(t^8), x=u+vb, x^2=0 iff u^2+delta_c v sigma_r(v)=0 and v(u+sigma_r(u))=0. With q even, Frobenius coefficientwise square-root conditions exclude v-valuations 1 and 3; v in t^4R gives q^8 pairs; valuation 2 contributes 2(q-1)q^8; v unit contributes respectively 2(q-1)q^8, (q-1)q^8, and zero. This proves all-q counts by summing, not interpolation. Independently reconstructed the actual group tables and exhaustively computed binary x^2 and GF(2) ranks for all 65,536 elements in each group: rank distributions [1,1,6,16,72,0,288,0,896], [1,1,6,16,72,0,288,0,640], [1,1,6,16,72,0,288,0,384]. Independently enumerated the ring equations at q=2 and q=4, confirming totals 1280/1024/768 and 851968/655360/458752. The general formula rests on the valuation equations; the binary enumeration is exhaustive finite evidence only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Order-16 characteristic-two square-zero totals and rank counts are not among the inspected generalized Reynolds/derived equivalence invariants. Earlier odd-index dihedral and dicyclic spectra do not cover order16. GroupNames identifies the three actual group types, not their modular square-zero elements. The exact all-q totals and rank-eight separation survive this comparison as best-of-knowledge, subject to broader modular group-algebra classification risks.
+
+## value
+
+PASS
+
+The first shared order of the three nonabelian maximal-class 2-group families permits a meaningful natural comparison of regular-module nilpotent multiplication. Complete rank spectra through the homologically meaningful acyclic rank 8 distinguish the families after an unexpectedly identical lower-rank distribution. The exact q-uniform square-zero census is a natural algebraic invariant, not an arbitrary picked coefficient.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
