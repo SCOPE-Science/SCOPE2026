@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The clique classification partitions the scale-two incidence complex into a contractible point-simplex piece and a piece containing the join of discrete parallel classes. All inclusions are collineation equivariant. Natural Mayer–Vietoris connecting maps and integral join Künneth identify both homology modules, with the essential permutation-of-join-factors sign accounted for by the direction determinant line. The Hodge-free character computations use the incidence graph chain character and the cyclic trace on tensor factors. The translation-quotient rank uses exact character averaging and rational homology of finite quotients after barycentric subdivision. The independent finite checker enumerated 949 simplices, computed mod-two Betti ranks, and verified all 432 signed Lefschetz character identities. It does not independently certify the infinite theorem or integral chains; that depends on the supplied structural proof.
+
+## Originality — PASS, with residual uncertainty
+The closest full published statement and proof, *Affine-plane incidence Rips complexes have two sphere dimensions* (public record dated 2026-10-11), determines the nonequivariant wedge homotopy type. Its clique decomposition is a valid input, but its statement does not identify any collineation representation or translation quotient. Comparing homotopy-equivalence statements is insufficient to infer these modules: the signed join-factor action and induced action on graph cycles require equivariant analysis. Two other complete public results on multipartite prisms and theta graphs use similar homological machinery but their graph families do not contain affine-plane incidence graphs. Indexed searches found no dominating all-collineation result. Residual risk: the earlier combinatorial decomposition makes this refinement accessible, so an implicit equivalent computation or unindexed treatment could exist.
+
+## Value — PASS
+The result is a complete integral group-action classification across every existing finite affine plane of order at least three, including non-Desarguesian examples, not just a small numerical case. Full traces depend on fixed flags and direction monodromy; ordinary Betti numbers cannot recover them. The translation-quotient corollary detects a sharp change from rational acyclicity at order three to nonzero high-dimensional quotient homology at all available higher prime-power orders, with rank eighteen already at order four. The specific symmetry refinement is naturally motivated by incidence geometry, parallel classes and topological quotients. The work does not purport to establish a new nonequivariant homotopy classification.
+
+## Remaining risks
+Self-review is not independent validation; unindexed equivalent literature and implicit interpretation of the predecessor's proof remain possible. Results about rational translation quotients do not determine quotient integral torsion.
+
+Self-review: passed. Independent audit: not yet performed.
