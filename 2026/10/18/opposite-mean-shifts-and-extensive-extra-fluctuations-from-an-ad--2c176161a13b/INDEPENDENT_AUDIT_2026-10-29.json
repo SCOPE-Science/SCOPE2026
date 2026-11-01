@@ -1,0 +1,219 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T17:47:08.948136Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof and assumptions at frozen tree",
+        "Assigned verify.py recurrence examined for exact scope; replayed independent checker",
+        "Penrose-Sudbury (2005) Theorem 11 inspected in original arXiv PDF"
+      ],
+      "rationale": "For even cycle C_{2m} (m>=3), independent Exp(1) rim attempts and one Exp(lambda) hub attempt, the path first-arrival recurrence n a_n=n+2sum_{j<=n-2}a_j gives A(z)=(1-e^{-2z})/[2(1-z)^2], so mu_m=(1-e^{-2})m+O(1). Penrose-Sudbury Theorem 11 gives path variance e^{-4} per site; deleting one cycle edge perturbs only factorial-tail descending-priority clusters, yielding Var(K_m)/m ->2e^{-4}. For wheel, hub must be earliest, probability lambda/(2m+lambda), independent of the relative rim order. Its count is 1 on that event and K_m otherwise; exact mixture gives both claimed limits. For gear, the hub is accepted precisely when before the first baseline-accepted even vertex: then final count m+1, else K_m. The accepted-even avoidance H_m(s/m)->e^{-s} follows from no-even-clock probability and a 2m O(t^2) union bound on rejected early even clocks; disjoint triple events yield integrable exp(-cmt) tails, whence m P(hub accepted)->lambda. A descending-clock causal-radius truncation with factorial tails and a bounded 2R-dependence fourth-moment bound O(m^2R^2+mR^3), R=ceil(3log m), yields P(|K_m/m-r|>epsilon)=o(1/m). Thus K_m/m->r conditionally on hub acceptance, for first and second moments. Subtracting squares yields positive gear variance increment lambda e^{-4}m and wheel increment lambda (1-e^{-2})^2m/2, with the respective mean defects lambda e^{-2} and -lambda(1-e^{-2})/2. A separate exact-moment dynamic program checked 15 finite (m,lambda,graph) cases (m=3..7, lambda=1,2,3), and independently checked all 5,040 orders at m=3 for wheel and gear pathwise identities (10,080 cases). These finite tests are corroborative, not the infinite proof.",
+      "residual_risks": [
+        "The cycle-edge cutoff transfer uses factorial-tail locality and moment covariance; no Lean or external expert certification was claimed.",
+        "No claim for lambda depending on m or any graph beyond wheel/alternating-spoke gear."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Penrose and Sudbury (2005) Theorem 11 determines baseline e^{-4} per site only.",
+          "Brightwell et al. (2015) Theorem 1.1 gives jamming density for random given-degree graphs under hypotheses, not fixed deterministic spoke-graph shift constants.",
+          "Krivelevich et al. (2024) obtains local-limit density and vanishing relative variance rather than exact extensive variance excess.",
+          "Shaikh (2026) gives a triangle-free variance bound but no exact wheel/gear coefficients in its accessible abstract."
+        ],
+        "reasoning": "The applicable general results concern paths, bounded/local-limit degree hypotheses, normalized density or upper bounds. Even when a general theorem permits high maximum degree, it cannot be specialized directly to these signed subleading expectation terms and leading O(m) variance increments. A general formula for finite graphs may permit derivation after independent asymptotic analysis; no implication-dominating prior statement was found in inspected full primary sources.",
+        "searches": [
+          "Resultary query: Blocking deposition cycle high degree central vertex hub rare event variance order n opposite mean shifts",
+          "random greedy independent set wheel graph random sequential adsorption hub star variance",
+          "Brightwell, Janson, Luczak (2015/2017), The greedy independent set in a random graph with given degrees, arXiv:1510.05560, https://arxiv.org/pdf/1510.05560",
+          "Krivelevich, Meszaros, Michaeli, Shikhelman (2024), Greedy maximal independent sets via local limits, DOI:10.1002/rsa.21200, https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+          "Shaikh (2026), Variance of random greedy independent sets in triangle-free graphs, arXiv:2609.14826, https://arxiv.org/abs/2609.14826",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f"
+        ]
+      },
+      "checked_sources": [
+        "Penrose and Sudbury (2005), Exact and approximate results for deposition and annihilation processes on graphs, arXiv:math/0503519, Theorem 11, https://arxiv.org/pdf/math/0503519",
+        "Brightwell, Janson, Luczak (2015/2017), The greedy independent set in a random graph with given degrees, arXiv:1510.05560, https://arxiv.org/pdf/1510.05560",
+        "Krivelevich, Meszaros, Michaeli, Shikhelman (2024), Greedy maximal independent sets via local limits, DOI:10.1002/rsa.21200, https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+        "Pippenger (1989), Random Sequential Adsorption on Graphs, DOI:10.1137/0402034, SIAM J. Discrete Math. 2:393-401",
+        "Shaikh (2026), Variance of random greedy independent sets in triangle-free graphs, arXiv:2609.14826, https://arxiv.org/abs/2609.14826",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baseline mu_m = (1-e^{-2})m+O(1) and Var(K_m)/m -> 2e^{-4} are prior 1D results; they are credited, not claimed new.",
+          "The hub-first wheel mixture is a simple special graph calculation; the gear requires its first successful even arrival probability asymptotic to lambda/m and conditional concentration.",
+          "Recent triangle-free variance bounds and local-limit density results do not give the exact signed mean and variance shifts."
+        ],
+        "reasoning": "From the prior path coefficient alone one cannot infer the hub defect: a probability of order 1/m has a macroscopic m-sized count jump. The wheel first-arrival coupling plus gear rare-event asymptotic and conditional second moments are additional arguments. No compared published result implies both the opposite-sign means and same-sign extensive variance limits. Risk remains that an earlier full joint generating function or a Pippenger specialization implies them.",
+        "searches": [
+          "Penrose and Sudbury (2005), Exact and approximate results for deposition and annihilation processes on graphs, arXiv:math/0503519, Theorem 11, https://arxiv.org/pdf/math/0503519",
+          "Brightwell, Janson, Luczak (2015/2017), The greedy independent set in a random graph with given degrees, arXiv:1510.05560, https://arxiv.org/pdf/1510.05560",
+          "Krivelevich, Meszaros, Michaeli, Shikhelman (2024), Greedy maximal independent sets via local limits, DOI:10.1002/rsa.21200, https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+          "Shaikh (2026), Variance of random greedy independent sets in triangle-free graphs, arXiv:2609.14826, https://arxiv.org/abs/2609.14826",
+          "Jahangir graphs alternating spokes hub gear graph random greedy independent set jamming expectation variance asymptotic"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Random-order maximal independent set = terminal one-shot blocking RSA under iid continuous priorities, source Penrose and Sudbury (2005), pp 2-4.",
+          "Wheel graph W_{2m+1} has universal hub; the alternating spoke gear is also described as a cogwheel/Jahangir J_{2,m}, with one hub attached to every second rim vertex.",
+          "The exact signed fixed-lambda limits in the current RESULT.md were not identified in three Resultary and multiple bibliographic searches."
+        ],
+        "reasoning": "Comparison used the common greedy-MIS/monomer-RSA process, weighted first-arrival clocks and equivalent wheel/cogwheel terminology. Known generic RSA formulas are not identical to a joint asymptotic statement about an order-one mean defect and an order-m variance defect. Lack of search hits is not proof of novelty; the inaccessible Pippenger full text remains a risk.",
+        "searches": [
+          "Resultary query: Random sequential adsorption greedy maximal independent set on wheel and gear graphs, central hub arriving rate lambda, limiting occupancy mean and variance compared to even cycle",
+          "Resultary query: Jahangir graphs alternating spokes hub gear graph random greedy independent set jamming expectation variance asymptotic",
+          "random sequential adsorption wheel gear graph occupancy expectation asymptotic variance",
+          "random sequential adsorption Jahangir graph random independent set",
+          "Penrose and Sudbury (2005), Exact and approximate results for deposition and annihilation processes on graphs, arXiv:math/0503519, Theorem 11, https://arxiv.org/pdf/math/0503519",
+          "Pippenger (1989), Random Sequential Adsorption on Graphs, DOI:10.1137/0402034, SIAM J. Discrete Math. 2:393-401"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete published RESULT.md on complete multipartite graph variance concerns a size-biased part-size law.",
+          "Complete published RESULT.md on threshold graph random greedy laws assumes isolated/dominating creation sequence.",
+          "Complete published RESULT.md on chain graphs assumes nested Ferrers neighborhoods, which gear graphs lack.",
+          "No exact indexed wheel/gear limit table with these four constants was identified."
+        ],
+        "reasoning": "Exact indexed counts for other graph families do not cover wheel W_{2m+1} or alternating-spoke gear J_{2,m}; a finite enumeration table cannot alone entail the m->infinity four-limit result. This database comparison is not taken as a proof of historical novelty.",
+        "searches": [
+          "Resultary query: Random sequential adsorption greedy maximal independent set on wheel and gear graphs, central hub arriving rate lambda, limiting occupancy mean and variance compared to even cycle",
+          "Resultary query: Jahangir graphs alternating spokes hub gear graph random greedy independent set jamming expectation variance asymptotic",
+          "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+          "random greedy independent set wheel graph variance random vertex order"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS specifically for the pair of opposite order-one occupancy shifts and same-sign extensive variance increases caused by one high-degree hub on wheel versus alternating-spoke gear. Baseline one-dimensional RSA density/variance and general random-greedy MIS models are prior mathematics. Inspected primary complete sources and published exact-family results do not imply both leading defect coefficients for these fixed graphs. The 1989 Pippenger primary paper was not read in full (OA download 403, authorized Oxford vpn_disconnected); unindexed special hub calculations remain a genuine priority risk, not automatic originality failure.",
+      "residual_risks": [
+        "Pippenger 1989 primary full text inaccessible: open repository PDF returned HTTP 403, authorized Oxford access vpn_disconnected. Its abstract does not rule out an unindexed hub specialization.",
+        "Full text of Shaikh (2026) not retrievable; only its precise abstract theorem could be compared.",
+        "A differently indexed exact wheel/cogwheel RSA generating function could cover the result; search failure alone cannot prove priority.",
+        "Absolute extensive variance effects are not ruled out by general relative-variance decay theorems; they must be compared explicitly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 11 proves per-site blocking variance e^{-4} at terminal time for 1D path, used as prior lemma. The inspected material does not give exact wheel/alternating-spoke hub mean and variance differences.",
+          "evidence": [
+            "Theorem 11: n^{-1} Var S_1(L_n,L_n) -> e^{-4}.",
+            "Proof uses path correlations and factorial descending-priority locality, consistent with boundary transfer."
+          ],
+          "identifier_or_url": "arXiv:math/0503519; https://arxiv.org/pdf/math/0503519",
+          "material_read": "Full public arXiv PDF accessed; introductions/process definition pp 1-5, Theorem 11 on printed p 14 and proof on printed pp 35-36, and descending-path bound. Page 14 visually checked.",
+          "method": "arXiv PDF text/visual inspection; targeted theorem and proof reading",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Same blocking deposition model and exact 1D bulk variance normalization used in proof"
+        },
+        {
+          "assessment": "Main theorem is jamming density in random configuration-model graphs with degree hypotheses; fixed deterministic wheel/cogwheel order-one shifts and O(m) variance excess are not consequences of the inspected results.",
+          "evidence": [
+            "Theorem 1.1 uses random multigraph and additional bounded second-moment condition for uniform simple graph case.",
+            "Cycle baseline density (1-e^{-2})/2 explicitly acknowledged as classical."
+          ],
+          "identifier_or_url": "arXiv:1510.05560; https://arxiv.org/pdf/1510.05560",
+          "material_read": "Accessible 25-page arXiv PDF; abstract, model introduction, Theorem 1.1 and 1.2 conditions, path/cycle discussion on PDF pages 0-3. PDF page 2 visually checked.",
+          "method": "arXiv PDF text/visual theorem inspection",
+          "title": "The greedy independent set in a random graph with given degrees",
+          "trigger": "Equivalent random-priority greedy MIS and possible high-degree/dominating graph results"
+        },
+        {
+          "assessment": "The framework yields limiting greedy MIS densities and variance of normalized counts tending to zero under hypotheses, but not the present centered O(1) mean differences nor exact O(m) variance increments.",
+          "evidence": [
+            "Theorems 1.2/1.3 address local-limit density, not defect correction constants.",
+            "Introduction notes variance of greedy independence ratio decays rather than determining absolute-order variances."
+          ],
+          "identifier_or_url": "DOI:10.1002/rsa.21200; https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21200",
+          "material_read": "Open-access full HTML: abstract, main theorems and hypotheses, Sections 1-3 including discussion of variance-density decay, and tree/path applications.",
+          "method": "publisher full HTML targeted scientific reading and in-document searches for variance/cycle/hub",
+          "title": "Greedy maximal independent sets via local limits",
+          "trigger": "Potentially broader graph-family local-limit framework, variance statements and high degree"
+        },
+        {
+          "assessment": "Abstract focuses regular graphs, high girth and certain lattice cases; no whole-document NOT_COVERING conclusion. Potential hidden special cases remain a historical-priority risk.",
+          "evidence": [
+            "1989 abstract specifies d-regular and graphs where each edge lies in at most one short cycle.",
+            "Full nine-page text was not read; no negative coverage claim for complete article."
+          ],
+          "identifier_or_url": "DOI:10.1137/0402034; https://scholarship.claremont.edu/hmc_fac_pub/117/",
+          "material_read": "Repository abstract and journal bibliographic abstract only; full document unavailable. Institutional download returned vpn_disconnected and was not retried.",
+          "method": "bibliographic/abstract-only comparison; OA full-text link returned 403 and authorized Oxford access unavailable",
+          "title": "Random Sequential Adsorption on Graphs",
+          "trigger": "Plausible older same-object paper (1989) on graph random sequential adsorption"
+        },
+        {
+          "assessment": "The output has size-biased part-size law and maximal variance ~27n^2/256; cycles and alternating-spoke wheels are not complete multipartite for m>=3, so no exact hub coefficients follow.",
+          "evidence": [
+            "RESULT.md explicitly restricts to connected complete multipartite graphs K_{n1,...,nr}."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-random-greedy-mis-variance-complete-multipartite--9cd73ef8690f",
+          "material_read": "Full published RESULT.md including exact law, extrema, proof, limitations",
+          "method": "GitHub published repository blob sha dde94e53a97c9fabb201dfe4cc20d4cdf67a2271",
+          "title": "Sharp variance of random greedy maximal independent sets on complete multipartite graphs",
+          "trigger": "Published exact greedy MIS variance with a high degree vertex"
+        },
+        {
+          "assessment": "Creation-sequence threshold recurrence can handle a universal-vertex addition only when the remaining graph is threshold; rim cycle C_{2m} is not threshold for m>=3, so full wheel law does not follow.",
+          "evidence": [
+            "RESULT.md recurrence for isolated/dominating steps P_k(x)=x/k+(k-1)P_{k-1}(x)/k."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-independent-set-law-on-threshold-graphs--13703984bf2d",
+          "material_read": "Full published RESULT.md, recurrence P_k(x), proof, limitations and references",
+          "method": "GitHub published repository blob sha b713da19300371951c38b52585e43b271acda6ad",
+          "title": "Exact random-greedy independent-set law on threshold graphs",
+          "trigger": "Published exact full law for graph classes with dominating vertices"
+        },
+        {
+          "assessment": "Chain graphs are 2K2-free bipartite and have nested neighborhoods; alternating-spoke gear contains disjoint rim edges and is not in that class for m>=3, so family-specific theorem does not cover claim.",
+          "evidence": [
+            "RESULT.md assumes neighborhoods N(a_h) are nested prefixes; the gear rim violates this."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-random-greedy-maximal-independent-set-law-on-chain-graphs--36fe61ce32de",
+          "material_read": "Full published RESULT.md, nested-neighborhood assumptions, factorized law and proof",
+          "method": "GitHub published repository blob sha 15321ed9b1c67ce46689da5130ab5deb4ed62248",
+          "title": "Exact random-greedy maximal-independent-set law on chain graphs",
+          "trigger": "Published exact bipartite greedy MIS model, potentially relevant to bipartite gear"
+        },
+        {
+          "assessment": "Proved graph-wide upper bound Var X <= e((n-2)/n)^2; applies to bipartite gear but does not fix the limiting variance or wheel-versus-cycle difference. Full-paper hidden comparisons are residual.",
+          "evidence": [
+            "Abstract states triangle-free edge-count bound and star equality; it is not an exact formula for this specific gear."
+          ],
+          "identifier_or_url": "arXiv:2609.14826; https://arxiv.org/abs/2609.14826",
+          "material_read": "Public preprint abstract only; full PDF fetch returned DisabledError; not treated as full-paper inspection",
+          "method": "arXiv abstract and attempted permitted PDF retrieval",
+          "title": "Variance of random greedy independent sets in triangle-free graphs",
+          "trigger": "Recent stronger bound potentially applying to triangle-free gear family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wheel/gear topologies and full terminal first/second moment theorem in assigned RESULT.md",
+        "Prior baseline and graph-family comparison in Penrose-Sudbury (2005) and Krivelevich et al. (2024)",
+        "Independent finite moment and eventwise checker"
+      ],
+      "rationale": "Wheel and alternating-spoke gear are natural contrasting ways to attach one adsorption hub to a one-dimensional rim. The sign of mean occupancy reverses, but both attachments amplify variance by order system size through a rare probability Theta(1/m) event with a Theta(m) count impact. The exact fixed-rate coefficients reveal a non-local fluctuation mechanism invisible to purely bounded-degree bulk limits; they are meaningful benchmarks for random greedy independent sets/irreversible blocking deposition, not a trivial single-vertex table or a mere restatement of known path variance. Restricted to these two families at fixed lambda, with no higher-order/finite-rate-uniform conclusions.",
+      "residual_risks": [
+        "Specific two-family asymptotic calculation, not an all-hubs universality theorem.",
+        "The polynomial-size variance response is a high-degree rare-event phenomenon at fixed lambda, not a finite-size uniform error bound."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific originality is best-of-knowledge, with inaccessible 1989 Pippenger full text explicitly named and no invented NOT_COVERING conclusion.",
+    "Finite exact checks cannot establish limiting assertions; proof was reconstructed analytically.",
+    "Existing Lean and expert-attestation statuses left as not_performed; no independent certificate fabricated.",
+    "No public file edits or GitHub writes during this audit; administrative privacy prevents publication as-is."
+  ],
+  "schema_version": 1
+}
