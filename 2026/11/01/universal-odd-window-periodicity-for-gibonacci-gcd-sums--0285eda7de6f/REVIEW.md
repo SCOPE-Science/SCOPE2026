@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The two normalized window gcds reduce to respectively two and three explicit differences of recurrence states. The invariant \(N(x,y)=y^2-xy-x^2\) changes sign at each step, yielding \(2\mu\) divisibility for odd window lengths in both cases. Since the recurrence is invertible modulo the fixed positive integer \(M=2|\mu|\), state periodicity gives an effective common even shift. Nonzero and zero seeds and nonprimitive scaling have been separately handled. The explicit proof in `RESULT.md` is self-contained; `verify.py` confirms \(5{,}040\) direct finite window cases and shifted periods and cannot substitute for the infinite proof.
+
+**Originality — PASS within bounded search.** Guyer–Mbirika (2021) already give the first-power gcd formula; Mbirika–Spilker (2022) already give the square-gcd formula and square divisibility. Those facts are explicitly excluded from the novelty claim. Nevertheless the latter paper explicitly poses the condition for periodicity as Question 6.4 in Section 6.2, whereas the present theorem proves the definitive universal condition (all integer initial pairs), with an effective joint period. Searches of the exact question, aliases, fixed norm modulus and prior mathematical record did not surface an intervening resolution. This is a concise consequence of powerful old formulas, so unlocated implicit coverage is a real bibliographic risk.
+
+**Mathematical value — PASS.** A published open question asks for the exact initial-condition criterion. The answer is not a parameter sample or a computational table: all integer seeds are covered, and the theorem gives a constructive period and bounded gcd formula. It resolves two simultaneous gcd functions, including negative and nonprimitive inputs, in one unified argument.
+
+**Closest literature and limits.** Guyer–Mbirika (2021), arXiv:2104.12262; Mbirika–Spilker (2022), arXiv:2204.12626, especially Theorem 3.4 and Question 6.4. The computed period can be nonminimal; only odd lengths and powers one/two are treated. Independent checking may find implicit implications or later resolutions not visible in the searched sources.
+
+Self-review: passed. Independent audit: not yet performed.

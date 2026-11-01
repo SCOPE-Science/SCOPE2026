@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "An explicit self-contained proof establishes a quadratic norm changing sign, first-power order-two gcd, square order-three gcd, and odd-length divisibility by 2|mu|. The modular recurrence is an invertible permutation, so an effective common even period follows for all seed pairs. Handles normalization and zero pair. Standalone exact 5040 brute window comparisons and 5040 shifted comparisons passed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guyer–Mbirika (2021), Theorem 15, gives exact gcd for first powers for all lengths.",
+        "Mbirika–Spilker (2022), Theorems 3.4 and 4.8, give exact square gcd for all lengths and the odd-k square-divisibility bound."
+      ],
+      "reasoning": "Both source theorems are computationally more general in k. They are essential ingredients and strictly cover the stated gcd formulas, which are disclaimed as novelty. The distinct claim is uniform *global* periodicity for all seeds and an effective common period, requiring the norm bound for first-power windows plus modular finite-state reasoning. Whether the new conclusion should be categorized as an implicit old corollary remains the principal originality risk.",
+      "searches": [
+        "published-finding corpus: periodicity gcd sums of k consecutive squares Gibonacci for odd k norm 2 mu",
+        "published-finding corpus: All odd window lengths gcd consecutive Gibonacci terms squares are simultaneously periodic for every integer initial pair, finite period modulo twice Cassini invariant.",
+        "published-finding corpus: Generalized Fibonacci window sums gcd on odd k divisors of twice norm discriminant Pisano period"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2204.12626v2, full HTML and PDF",
+      "arxiv:2104.12262v2, full PDF",
+      "Fibonacci Quarterly publisher metadata for DOI 10.1080/00150517.2022.12427444",
+      "published-finding corpus semantic queries listed in the four originality checks",
+      "Accessible local current-week own ledger generation g000018 for nonoverlap only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mbirika–Spilker (2022), Question 6.4 explicitly asks which initial pairs produce odd-length periodicity.",
+        "The 2022 article itself states the square-gcd bound and the formula in advance of that question.",
+        "Guyer–Mbirika (2021) gives the first-power gcd formula."
+      ],
+      "reasoning": "The prior theorems imply the finite gcd expressions and already establish the square-side bound. They do not explicitly state the full claimed conclusion; adding the sign-changing quadratic invariant to bound the first-power gcd and then using finite modular-state dynamics yields a new short proof of the precise open question. This is not independent of old facts, and implicit-deduction coverage must be investigated by an independent specialist.",
+      "searches": [
+        "published-finding corpus: gcd sums odd k consecutive Fibonacci generalized Gibonacci periodicity 2 mu norm 2022 Mbirika Spilker Question 6.4",
+        "published-finding corpus: Generalized Fibonacci window sums gcd on odd k divisors of twice norm discriminant Pisano period",
+        "Web: \"Mbirika\" \"Spilker\" \"6.4\" periodicity gcd odd Gibonacci"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mbirika–Spilker (2022), Section 6.2, explicit Question 6.4 concerns the existence of periods for both gcd sequences.",
+        "No equivalent published statement found among the inspected source statements and targeted search results."
+      ],
+      "reasoning": "Equivalent reformulations include the odd-indexed gcd sequences being finite-state functions of the normalized Gibonacci state modulo twice the Cassini norm; and both functions having a common even modular-Pisano period. Existing checked texts do not assert these universal conclusions; database searches were semantic and not exhaustive.",
+      "searches": [
+        "published-finding corpus: gcd sums odd k consecutive Fibonacci generalized Gibonacci periodicity 2 mu norm 2022 Mbirika Spilker Question 6.4",
+        "published-finding corpus: Question 6.4 Mbirika Spilker odd k periodic GCD Fibonacci squares",
+        "published-finding corpus: Solution to Mbirika Spilker Question 6.4 periodicity for odd k of GCD sums squares generalized Fibonacci initial values"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mbirika–Spilker (2022), Example 6.3 gives a particular seed (-1,3) with periods 6 and 30, followed by Question 6.4.",
+        "The closest published-finding corpus match concerns a different even-even Lucas period equality and not odd-window gcds."
+      ],
+      "reasoning": "An example table giving one seed is not an all-integer initial-condition classification; no matching exact table for the universal theorem appeared in the checked sources.",
+      "searches": [
+        "published-finding corpus: Question 6.4 Mbirika Spilker odd k periodic GCD Fibonacci squares",
+        "published-finding corpus: Solution to Mbirika Spilker Question 6.4 periodicity for odd k of GCD sums squares generalized Fibonacci initial values"
+      ]
+    },
+    "rationale": "The inspected motivating 2022 paper explicitly asks Question 6.4 about odd-window periodicity and supplies only sample initial values. The new all-seed periodicity and effective simultaneous period answer this precise question. Previously known gcd formulas and square bound are acknowledged, not rebranded; related recent published records and targeted published-finding corpus searches did not show equivalent coverage. Implicit derivability remains the principal documented risk.",
+    "residual_risks": [
+      "published-finding corpus similarity retrieval is not exhaustive; a differently worded published resolution could be missed.",
+      "The result is a short additional corollary of powerful already known gcd formulas; an expert may regard its central claim as implicitly subsumed.",
+      "The normalized-period bound can be nonminimal.",
+      "Other historical ledgers outside the accessible local current-week part were not verified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Prior-covered: exact square-window gcd and odd-k bound. Not found: universal all-seed simultaneous period; the work poses it as open.",
+        "evidence": [
+          "arxiv:2204.12626v2, Theorem 3.4, Section 6.2, Example 6.3 and Question 6.4."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2204.12626v2",
+        "material_read": "Full accessible 15-page paper, including Sections 1, 3.1, 3.2, 4, 5 and 6.2 (Question 6.4, Example 6.3), with final PDF page visually inspected.",
+        "method": "Read arXiv HTML and original PDF; compare theorem 3.4, odd-k divisibility, Table 2, Example 6.3 and explicit Question 6.4.",
+        "title": "GCD of sums of k consecutive squares of generalized Fibonacci numbers",
+        "trigger": "Explicit Question 6.4 and exact square-window gcd formulas"
+      },
+      {
+        "assessment": "First-power finite gcd formula and Pisano interpretation already proved; simultaneous universal odd-length periodicity not stated.",
+        "evidence": [
+          "arxiv:2104.12262v2, Theorem 15; article abstract and relevant norm and periodicity sections."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2104.12262",
+        "material_read": "Full 25-page arXiv PDF accessible; read relevant foundational recurrence/norm and gcd sections.",
+        "method": "Compared Theorem 15, modular-period formulation and quadratic norm lemmas against the proposed all-seed odd-length theorem.",
+        "title": "GCD of sums of k consecutive Fibonacci, Lucas, and generalized Fibonacci numbers",
+        "trigger": "Foundational first-power gcd and generalized Pisano characterization"
+      },
+      {
+        "assessment": "Same motivating paper, no separate result counted.",
+        "evidence": [
+          "Fibonacci Quarterly 60 (2022), 255–269, publisher display and arXiv:2204.12626v2."
+        ],
+        "identifier_or_url": "https://www.tandfonline.com/doi/full/10.1080/00150517.2022.12427444",
+        "material_read": "Publisher abstract, bibliographic metadata, displayed established square-gcd formula; full article text not relied on because lawful arXiv version was accessible.",
+        "method": "Compared bibliographic identity and abstract, then inspected arXiv full text for substance.",
+        "title": "GCD of Sums of k Consecutive Squares of Generalized Fibonacci Numbers, publisher article",
+        "trigger": "Journal-version cross-check"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0285eda7-de6f-4419-9ce4-7cdcc6260ba9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Answers a named published open problem, Mbirika–Spilker 2022 Question 6.4, for all integer initial conditions and both gcd functions simultaneously; supplies an effective period through the normalized Cassini invariant. This is structurally motivated rather than an arbitrary finite invariant or a mere verification table.",
+    "status": "PASS"
+  }
+}
