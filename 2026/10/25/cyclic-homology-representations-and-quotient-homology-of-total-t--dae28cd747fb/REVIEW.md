@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The Alexander dual is precisely the clique complex of the same cycle power. Equivariant duality introduces the vertex-permutation sign. Odd rotational orbits of cliques reduce to a shorter cycle power with invariant gap \(m=n-2p\); even orbits contain an antipodal nonedge. The known cyclic clique-complex sphere classification converts this to an exact signed Lefschetz trace. Homology concentration then yields the full representation and averaging yields rational quotient homology. The 235 signed calculations and independent finite homology checks reproduce the derived formulas. Scope: \(p\ge3\), \(2p+3\le n\le3p\), rational coefficients.
+## correctness
 
-## Originality — PASS
-The closest prior result, A. Carnero Bravo (arXiv:2602.21427, Sections 1, 3 and 5.3), already proves the nonequivariant cycle-power two-cut homotopy classification, so that is explicitly excluded. M. Adamaszek (arXiv:1104.0433) classifies cyclic clique-complex homotopy types; Adamaszek et al. (arXiv:1410.4336, Sections 7–8) calculate dihedral representations of different nerve complexes, distinguishing these from clique complexes and describing a map between differently sized complexes without equivariant compatibility under one-step rotation. Searches of published mathematical records yielded no stronger statement of the total two-cut complex's full cyclic module or quotient criterion. The principal residual originality risk is an unpublished or unindexed equivariant transfer observation, or a source not located by the searches.
+PASS
 
-## Value — PASS
-The already known sphere counts do not determine the action of the natural cyclic rotation group. The explicit dichotomy between the sign line and an inflated augmentation module gives every trace, all rational eigenvalue multiplicities, and a sharp parity criterion for rational quotient homology, simultaneously for an infinite parameter range. The orbit-to-shorter-cycle reduction is a structural explanation rather than a table recomputation.
+By the complement definition, the total 2-cut complex is Alexander dual to L=Cl(C_n^p); combinatorial Alexander duality twists rational homology by ambient permutation sign ε_n and shifts by n-i-3. Adamaszek clique classification gives a single nonzero degree, with wedge rank m-1 in critical m|p, else one sphere. For rotation r^a, cyclic orbit length t even precludes a fixed nonempty clique, while odd t reduces invariant cliques to C_h^P with h=gcd(n,a) and P=p-(t-1)h/2; h-2P=m. The signed reduced Lefschetz trace is m-1 exactly for m|p and m|a and otherwise -1. Multiplying degree sign yields inflated C_m augmentation character in critical case, or trivial clique character in noncritical, both twisted by ε_n. Rational quotient homology is the invariants: rank one iff (noncritical and n odd) or (critical and m even). An independent direct exhaustive clique-orbit trace enumerator verified 364 rotation tests across p=3..8, not universal proof.
 
-## Limits
-The result does not classify integral lattices, quotient homotopy types, or dihedral reflection modules. Finite computations only corroborate the symbolic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2011 cyclic clique-complex homotopy theorem supplies the sphere-degree premise; Chauhan–Shukla–Vinayak and Carnero Bravo give total cut complexes nonequivariant topology. Adamaszek–Adams–Frick–Peterson–Previte-Johnson treat rotation representations of circular-arc nerve complexes, but their clique/nerve homotopy equivalences change the cyclic vertex set and do not canonically intertwine original one-step C_n rotations. A published cycle-power three-cut cyclic-character theorem is a different cut construction and parameter range. Thus no inspected stronger prior result mathematically implies this exact C_n-module and quotient criterion.
+
+## value
+
+PASS
+
+The theorem extracts an exact symmetry module and rational quotient homology from a natural well-studied cycle-power cut complex. The orientation twist and critical divisibility make a meaningful distinction invisible in nonequivariant sphere counts; it covers a nontrivial infinite parameter range.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
