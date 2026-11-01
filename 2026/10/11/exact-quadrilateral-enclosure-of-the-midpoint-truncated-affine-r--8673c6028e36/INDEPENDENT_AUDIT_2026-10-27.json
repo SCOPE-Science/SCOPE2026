@@ -1,0 +1,189 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:16:30Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/verify_midpoint_truncation.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/VERIFICATION.md",
+        "https://arxiv.org/pdf/2108.00326",
+        "https://studylib.net/doc/11359539/the--monge--array---an--abstraction-...-james--kimbrough-...",
+        "/mnt/data/scope_worker01_20261027T0501Z/independent_pentagon_enclosure_check.py"
+      ],
+      "rationale": "For phi=(1+sqrt(5))/2, the six explicitly given vertices form the convex midpoint-corner truncation H of the affine-regular pentagon. The five-vertex P using apex (0,1/2) lies in H (the apex is the midpoint of H’s top edge). An explicit four-halfplane trapezoid contains H and its exact shoelace area is q=2+3sqrt(5)/4. For the lower bound, the published DePano/Park/Hong optimal-configuration lemma specialized to a strictly convex pentagon admits a minimizing quadrilateral with at least three sides flush with the five P edges and a fourth either flush or balanced at a vertex. For three chosen flush sides and a balanced vertex v, the fourth normal must lie on ±[(h_j−n_j·v)n_i+(h_i−n_i·v)n_j], as follows from opposing half-segment endpoints and midpoint v. This yields exactly 10*(2+3*5*2)=320 candidates. I independently reconstructed the five edge normals from P’s vertex coordinates in Q(sqrt(5)), recomputed all candidate normals and exact four-line intersections/halfplane feasibility and shoelace areas, and obtained 35 feasible (20 flush-four-edge, 15 balanced-vertex), with every area >= q and one exact equality witness (flush sides 1,2,3, fourth top side through v=(0,1/2)). The independent checker also confirmed |H|=9/4+sqrt(5)/2 and q/|H|=(42+11sqrt(5))/61. Thus q(P)>=q and P⊂H⊂Q force q(H)=q. The finite enumeration proves global optimality only because the referenced structural theorem exhausts all candidate optima; it is not a generic sampling argument.",
+      "residual_risks": [
+        "Full completeness depends on the published four-sided DePano/Park/Hong lemma; the independently checked finite exact certificate alone cannot rule out configurations omitted by a false or misapplied structural lemma.",
+        "Some historical presentation of DePano has k>4, but Park 1991 explicitly treats 3<d<n and Hong 2021 Lemma 2.1 covers n=4; the result is assessed under those later four-sided statements.",
+        "Only the canonical midpoint truncation and its nonsingular affine images are covered; other truncation fractions and degenerations are unproved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hong–Ismailescu–Kwak–Park, arXiv:2108.00326 Lemma 2.1: an optimum may be taken with at least three input-edge flush sides and all enclosing side midpoints inside the pentagon; Theorem 3.1: q(P)/|P| <= 3/sqrt(5) for a pentagon.",
+          "Fodor–Grundbacher, arXiv:2506.05185 Theorem 1.1 proves a global quadrilateral enclosure factor below sqrt(2); this is only an upper comparison for arbitrary bodies.",
+          "Vígh, arXiv:2610.08168 §§1–5 treats chord-enclosure versions of the Kuperberg problem and a different hexagonal example, not the exact H optimum.",
+          "James Kimbrough Park 1991 thesis §5.3 Lemma 5.18 states the DePano flush-or-balanced structure for 3<d<n, supporting its application at d=4."
+        ],
+        "reasoning": "Universal bounds, finite-candidate algorithms and the natural extremal pentagon do not mathematically determine both upper and matching lower bounds of the specified nonregular hexagon; the finite candidate-comparison is needed. No checked general all-truncations theorem supplies this exact q(H).",
+        "searches": [
+          "Resultary semantic query: minimum circumscribed quadrangle five-gon six-gon pentagonal core cutoff half-edge vertices DePano quadrilateral benchmark",
+          "Web fast: On the smallest area (n-1)-gon containing a convex n-gon DePano Lemma 2.1",
+          "Web fast: On the minimal area of quadrangles circumscribed about planar convex bodies Fodor Grundbacher",
+          "Web: A note on Kuperberg quadrilateral conjecture Viktor Vigh 2026",
+          "https://arxiv.org/pdf/2108.00326",
+          "https://arxiv.org/html/2506.05185",
+          "https://arxiv.org/pdf/2610.08168"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2108.00326",
+        "https://arxiv.org/html/2506.05185",
+        "https://arxiv.org/pdf/2610.08168",
+        "https://archive.org/details/minimumareacircu00agga",
+        "https://studylib.net/doc/11359539/the--monge--array---an--abstraction-...-james--kimbrough-...",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/verify_midpoint_truncation.py",
+        "Resultary 2026/10/11 SCOPE exact enclosing parallelogram profile and sharp affine stability for symmetric hexagons",
+        "Resultary 2026/10/11 SCOPE exact minimum-area enclosing parallelograms for regular polygons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The assigned proof has both an explicit trapezoid upper bound and a 320-configuration exact lower certificate: 20 four-edge instances and 300 balanced-vertex instances, 35 feasible, one attaining q(H).",
+          "Hong et al. structural lemma and Park §5.3.2 characterize possible optimizers, but contain no finite Q(sqrt(5)) evaluation for this shape.",
+          "Hong 3/sqrt(5) and Fodor <sqrt(2) are upper bounds; neither establishes the required lower q(H)>=2+3sqrt(5)/4.",
+          "Vígh investigates related sharp quotient bounds and provides a different irregular hexagon but does not identify the assigned exact value."
+        ],
+        "reasoning": "A finite general algorithm is an enabling method but does not logically imply a particular exact answer without actually evaluating the input. The added exact enumeration and its concrete tight witness separate this claim from known qualitative/existence and universal upper-bound statements.",
+        "searches": [
+          "https://arxiv.org/pdf/2108.00326",
+          "https://arxiv.org/html/2506.05185",
+          "https://arxiv.org/pdf/2610.08168",
+          "https://archive.org/details/minimumareacircu00agga",
+          "https://studylib.net/doc/11359539/the--monge--array---an--abstraction-...-james--kimbrough-...",
+          "Resultary semantic query: minimum circumscribed quadrangle five-gon six-gon pentagonal core cutoff half-edge vertices DePano quadrilateral benchmark"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The invariant q(H)/|H| is affine invariant for H formed by deleting a single regular pentagon corner at the two adjacent midpoints; the pentagonal P core provides an alternative five-vertex formulation.",
+          "The only direct Resultary hit for this same shape and exact radical is the assigned research record itself, not independent prior work.",
+          "Hong et al. Lemma 2.1 supplies geometric configurations and Theorem 3.1 determines the universal regular-pentagon ratio, but not the exact midpoint-truncated H minimum.",
+          "Vígh arXiv:2610.08168 studies quadrilateral enclosure and near-regular-pentagon hexagons, but its cited hexagon has different ratio/geometry."
+        ],
+        "reasoning": "Affinely regular pentagon, midpoint-truncated pentagon, six-vertex corner-clipped polygon and five-vertex pentagonal core are genuine aliases/reductions to check. The core equivalence supplies a lower-bound method rather than a preexisting evaluated shape theorem.",
+        "searches": [
+          "Resultary semantic query: exact smallest area quadrilateral containing a midpoint truncated regular pentagon, affine-regular pentagon corner cut enclosing quadrangle ratio",
+          "Resultary semantic query: minimum circumscribed quadrangle five-gon six-gon pentagonal core cutoff half-edge vertices DePano quadrilateral benchmark",
+          "Web slow: smallest enclosing quadrilateral truncated pentagon regular exact algebraic computation golden ratio DePano",
+          "Web fast: minimum quadrilateral truncated regular pentagon area",
+          "https://arxiv.org/pdf/2108.00326",
+          "https://arxiv.org/pdf/2610.08168"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independently indexed exact-table entry matching (42+11 sqrt(5))/61 or 2+3 sqrt(5)/4 was returned in the performed queries.",
+          "The exact Resultary record with the same number is the assigned item, not an external corroborating table.",
+          "The known general pentagon 3/sqrt(5) and disjoint enclosing-parallelogram tables optimize different objects or admissible containers."
+        ],
+        "reasoning": "Numerical coincidence or absence of exact-string search results is not proof of novelty. Distinguish the present quadrilateral enclosure of this nonsymmetric hexagon from regular-pentagon, central-hexagon or parallelogram tables. An older unindexed diagram or computational geometry table remains a risk.",
+        "searches": [
+          "Web exact-radical query: \"42+11 sqrt(5)\" \"61\" enclosing quadrilateral",
+          "Web exact-area query: \"2 + 3 sqrt(5)/4\" quadrilateral pentagon truncation",
+          "Web exact-geometry query: \"midpoint-truncated\" pentagon minimum area circumscribed quadrilateral",
+          "Resultary semantic query: exact smallest area quadrilateral containing a midpoint truncated regular pentagon, affine-regular pentagon corner cut enclosing quadrangle ratio"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the exact affine-equivalence class and enclosing-area invariant found no independent published formula or stronger theorem determining q(H). Hong–Ismailescu–Kwak–Park and the earlier DePano algorithm give the necessary three-flush-side/midpoint reduction and the global pentagon extremal factor 3/sqrt(5), not the specialized evaluated optimum for the six-vertex midpoint truncation. Fodor–Grundbacher gives a general convex-body upper bound, not a matching lower bound. Vígh 2026 studies Kuperberg-type quadrilateral ratios, generic near-regular-pentagon perturbations and a different irregular hexagon, without an evaluated midpoint-cut example. The finite Q(sqrt(5)) optimization is the additional fact. Exact-radical, shape-alias and stronger-form searches did not find independent coverage; this is not absolute priority proof.",
+      "residual_risks": [
+        "A forgotten or unindexed exact treatment of the same midpoint corner cut (including old problem compilations and affine-invariant tables) remains possible; failed searches are not novelty proof.",
+        "The original 1985 DePano formulation visible in historical OCR mentions k>4, so the 4-side instance is justified using later explicit d=4 versions (Hong 2021 Lemma 2.1 and Park 1991 Lemma 5.18), not by silently extending a k>4 statement.",
+        "This theorem says nothing about arbitrary truncation depth, unequal cuts, all hexagons or sharp stability bounds; comparisons to such stronger problems must not be presented as solved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_INGREDIENT; geometry lemma and global pentagon sharp ratio but no full midpoint-truncated hexagon exact enclosure.",
+          "evidence": [
+            "Lemma 2.1: exists a minimum n-gon with at least n-1 edge flush contacts and midpoint contacts.",
+            "Theorem 3.1: global pentagon factor 3/sqrt(5), distinct from q(H)/|H|."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.00326",
+          "material_read": "ArXiv preprint pages 1–9, Sections 1–3, specifically Lemma 2.1, Theorem 3.1, proof and pentagon example.",
+          "method": "Open-access arXiv PDF extracted text and inspected page image for the lemma.",
+          "title": "On the smallest area (n−1)-gon containing a convex n-gon",
+          "trigger": "Direct primary source of structural flush/midpoint lemma and exact pentagon benchmark."
+        },
+        {
+          "assessment": "NOT_COVERING the target equality: a strict universal upper comparison cannot entail the shape-specific matching lower bound.",
+          "evidence": [
+            "Theorem 1.1 controls quadrilateral area universally below sqrt(2)*area(K).",
+            "Proposition 2.1 gives midpoint contact geometry, not the target radical q(H)."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2506.05185",
+          "material_read": "Open-access full HTML: introduction, statement of Theorem 1.1, Section 2 side-midpoint proposition, main universal estimate and relevant proof discussion.",
+          "method": "ArXiv HTML scientific-text inspection.",
+          "title": "On the minimal area of quadrangles circumscribed about planar convex bodies",
+          "trigger": "Highly relevant recent general enclosure theorem potentially dominating exact special class."
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: its hexagon and general inequalities differ from the canonical corner-midpoint truncation, and do not evaluate the latter.",
+          "evidence": [
+            "Discusses chord-quadrilaterals and general Kuperberg ratios; Figure 1 irregular hexagon is not H and has a distinct ratio ~1.1947.",
+            "No displayed formula 2+3sqrt(5)/4 or (42+11sqrt(5))/61 for the assigned H."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.08168",
+          "material_read": "Nine-page open-access preprint, Sections 1–5 and the displayed near-pentagonal hexagon illustration and numerical ratio.",
+          "method": "ArXiv PDF text with first-page screenshot; targeted reading and searching across relevant sections.",
+          "title": "A note on Kuperberg’s quadrilateral conjecture",
+          "trigger": "New October 2026 primary paper on same quadrilateral optimization with near-pentagon and hexagon examples."
+        },
+        {
+          "assessment": "ALGORITHMIC_PRECURSOR, no identified numerical optimum for the exact midpoint-truncated affine-regular pentagon; original k>4 statement requires care for d=4 and is cross-checked against later sources.",
+          "evidence": [
+            "Aggarwal–Chang–Yap 1985 structural characterization and minimum-area circumscribed polygon algorithm.",
+            "Later explicit d=4 treatment occurs in Hong Lemma 2.1 and Park 1991 thesis Lemma 5.18."
+          ],
+          "identifier_or_url": "https://archive.org/details/minimumareacircu00agga",
+          "material_read": "Accessible full-text presentation of introduction, geometric structural lemma and algorithm discussion; did not claim complete PDF inspection.",
+          "method": "Authorized public Internet Archive/plain-text presentation and WorldCat bibliographic page.",
+          "title": "Minimum Area Circumscribing Polygons",
+          "trigger": "Historical original computational geometry source underlying DePano edge/midpoint reduction and potential exact-polygon tables."
+        },
+        {
+          "assessment": "CONFIRMS_STRUCTURAL_PREMISE but no evaluated radical for this specific polygon.",
+          "evidence": [
+            "Lemma 5.18: for 3<d<n an optimum enclosing d-gon is either all flush, or d-1 flush with one balanced d-edge.",
+            "With (d,n)=(4,5), this directly covers the pentagonal core configuration count."
+          ],
+          "identifier_or_url": "https://studylib.net/doc/11359539/the--monge--array---an--abstraction-...-james--kimbrough-...",
+          "material_read": "Section 5.3 and Lemma 5.18 plus adjacent algorithmic discussion in accessible thesis text; not claiming the entire thesis was read.",
+          "method": "Search-indexed full section in a public online thesis transcription.",
+          "title": "The Monge Array: An Abstraction...",
+          "trigger": "Independent historical applicability check for DePano structural lemma specifically to four-sided enclosures."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2108.00326",
+        "https://arxiv.org/html/2506.05185",
+        "https://arxiv.org/pdf/2610.08168",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-quadrilateral-enclosure-of-the-midpoint-truncated-affine-r--8673c6028e36/verify_midpoint_truncation.py"
+      ],
+      "rationale": "The sharp affine-invariant quadrilateral area-enclosure ratio is a natural classical convex-geometric invariant; the regular pentagon is a sharp/extremal comparison body in the Kuperberg quadrilateral enclosure problem. Removing a corner at its two incident edge midpoints is a geometrically canonical first six-vertex deformation. Knowing its EXACT minimum, not merely a universal upper bound or an exhibited trapezoid, supplies a credible quantitative stability/benchmark example for exact enclosure algorithms and for understanding how the extremal pentagon behaves under a controlled corner cut. The genuinely new mathematical component is a complete shape-specific lower certificate using the structural lemma and exact algebraic enumeration, not a renaming of q or substitution into a precomputed table. The narrow result does not claim any general stability modulus, but researchers comparing near-extremal polygon families could reasonably need this independently evaluable exact value.",
+      "residual_risks": [
+        "One isolated midpoint cut is a restricted shape family and is not itself a stability theorem or a resolved global conjecture.",
+        "The long-term usefulness is as a precise, nontrivial benchmark; no specific later theorem relying on this value is established.",
+        "An older evaluated exact table, if found, would alter both originality and independent value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
