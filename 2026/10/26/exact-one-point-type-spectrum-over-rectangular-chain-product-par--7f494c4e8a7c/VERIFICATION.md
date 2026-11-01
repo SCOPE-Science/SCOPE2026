@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of rectangular one-type spectrum
+# Independent mathematical audit
 
-`verify_grid.py` requires Python 3 and only its standard library. Run `python3 verify_grid.py`; the expected output is included as `verification_output.txt`.
+## correctness
 
-Three separate finite checks were executed. The first compares the proposed closed binomial expression against its unsimplified double-convolution identity over all \(0\le a,b\le16\) (289 configurations). The second explicitly enumerates all bitmasked down-sets and up-sets and tests the cross-order condition for 29 small grids, including the \(4	imes4\) grid. The third enumerates every ternary relation state of a new point to each named grid vertex and checks all transitivity implications of the full strict order, for 24 configurations. The direct checker does not call the closed formula to generate relation states. All assertions pass; the run concludes with `ALL_TESTS_PASS`.
+PASS
 
-The checker establishes finite agreement only. The general theorem is justified by the written coordinate-maxima bijection and a marked-lattice-path convolution calculation in the proof. No external independent scientific audit or validation was performed.
+Every nonalgebraic type uniquely specifies a lower ideal L, an upper filter U with all l<u, and the random-poset extension property realizes each such one-point extension. Lower-set coordinate maxima (i,j) admit J(i−1,j−1) lower sets; the upper-right filter J(a−i+1,b−j+1) has precisely one forbidden option when the corner is included. Summing over all maxima and using marked monotone lattice-path inclusion–exclusion yields the exact two-binomial closed form. Equality types contribute ab; elementary binomial identities yield square asymptotic and fixed-a leading coefficient. Independent direct exhaustive enumeration for all 16 grids 1≤a,b≤4 agrees and computes square counts through 8.
+
+## originality
+
+PASS
+
+A published exact random-poset 1-type counting theorem already supplies the full general ideal/filter characterization and #P-completeness for arbitrary parameter posets; this general structural correspondence is NOT original. Its complete result/proof, read directly at the published repository, gives only chain/antichain examples rather than a closed evaluated grid formula. Dolinka–Mašulović likewise use lower/upper sets for one-point extensions, not this rectangular bivariate convolution. The proposed exact C_a×C_b count and polynomial-width vs square-exponential growth distinction are not directly implied as closed formulas by these published statements. Pretzel 1980 insertion-poset paper remains an access/priority risk, not automatic O failure.
+
+## value
+
+PASS
+
+A closed exact two-parameter type enumeration and the sharp switch from fixed-width polynomial to square-grid exponential growth refine a hard general counting problem on a canonical structured parameter family, with exact asymptotics and equality-type normalization. This is a natural distinct invariant, not merely a substitution of known chain/antichain table values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
