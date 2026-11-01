@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:52:10.956371Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For three candidates, strong nonnesting forces a unique optimal singleton A and a unique disjoint optimal pair BC (otherwise each pair meets some optimal singleton). In ballot variables (p,q,r,u,v,w,t,e) for A,B,C,AB,AC,BC,ABC,empty, strict scores imply v-w>=3,u-w>=3 and q,r>=p+2; hence n >= e+3p+3w+t+10 >=10. Equality forces p=w=t=e=0, q=r=2,u=v=3. Direct harmonic scores are A=6,B=C=5 for singletons, and BC=10, AB=AC=19/2 for pairs, giving unique disjoint winners. Ordering ballots B-only,AB,AC,C-only makes each approval interval. Independently enumerated exactly 19,448 anonymous profiles through n=10 over seven nonempty ballot types; none below ten and three at ten, matching the analytic all-n proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Janson Section 13.4 has an AB/AC/B/C PAV nonnesting instance with a larger electorate; Section 5 tie-sensitive violations",
+          "Brill Example 7.1 has same size-ten ballot multiset, but concerns leximax-/var-Phragmen, which have distinct objective functions"
+        ],
+        "reasoning": "These show existence and even a prior identical minimal witness, but not the assertion that no PAV instance with fewer than ten voters can be strongly nonnested. Neither proves the all-optimal-committee uniqueness classification.",
+        "searches": [
+          "Janson Phragmen and Thiele Election Methods arXiv:1611.08826",
+          "Brill, Freeman, Janson, Lackner Phragmen Voting Methods and Justified Representation 2023",
+          "Resultary query above"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10858002/#Sec25 (Example 7.1)",
+        "https://arxiv.org/abs/1611.08826",
+        "https://arxiv.org/abs/2604.05953",
+        "Resultary PAV three-candidate sharp nonnesting search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Manurangsi-Sornat proves concavity of optimal VALUES on voter-interval ballots, not nesting of optimizing ARGMAX sets",
+          "Brill proves same ballots fail committee monotonicity for two Phragmen rules, not the harmonic PAV minimum",
+          "Janson supplies PAV nonmonotonicity but no ten-voter sharp lower bound in inspected sections"
+        ],
+        "reasoning": "No inspected antecedent logically yields the all-profile ten-voter PAV lower bound and rigidity. Retaining an explicit credit for the prior profile is necessary for a sound priority conclusion.",
+        "searches": [
+          "Manurangsi-Sornat arXiv:2604.05953 Theorem 5",
+          "Janson arXiv:1611.08826",
+          "Brill et al. 2023 Example 7.1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "PAV is harmonic Thiele optimization; a robust violation means optimal singleton and pair are disjoint even with ties",
+          "Brill et al. Example 7.1 lists 2 a-only, 3 ac, 3 bc, 2 b-only; a candidate renaming exactly matches 2 B-only,3 AB,3 AC,2 C-only"
+        ],
+        "reasoning": "House/committee monotonicity and Phragmen load-balancing provide nearby but distinct objectives. Crucially the exact witness profile is already printed in a primary work for Phragmen; only the PAV minimum/uniqueness theorem may be new.",
+        "searches": [
+          "Resultary: proportional approval voting PAV three candidates minimum ten voters house monotonicity tie independent committee size one two",
+          "Janson arXiv:1611.08826 sections 5 and 13.4",
+          "Brill et al. PMC10858002 Example 7.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact published ten-ballot data exist, so originality of the sample itself is refuted",
+          "No cited exact PAV-specific minimal-electorate census through 10 was identified; current proof establishes all n via strict inequalities"
+        ],
+        "reasoning": "An existing specific example is not equivalent to a theorem of smallest size plus classification; nevertheless the earlier identical ballots materially narrow any novelty claim.",
+        "searches": [
+          "Resultary query above",
+          "Brill et al. PMC Example 7.1",
+          "Janson arXiv:1611.08826 examples"
+        ]
+      },
+      "rationale": "PAV house nonmonotonicity is classical, including smaller tie-sensitive examples and much larger tie-independent witnesses. Important exact overlap: Brill-Freeman-Janson-Lackner published in Example 7.1 of their 2023/2024 Phragmen methods study the SAME ten-ballot multiset up to candidate relabeling, explicitly for leximax- and var-Phragmen rules, not PAV. Therefore the ten-voter pattern itself is PRIOR, not a novel witness. The surviving original statement is sharp PAV-specific MINIMALITY among all profiles, complete minimal-layer rigidity and voter-interval PAV implication; the inspected older examples and methods do not state/prove that minimum. Qualified PASS rests on that narrower nonimplied result.",
+      "residual_risks": [
+        "The exact ten-voter approval multiset is not novel: Brill et al. 2023, Example 7.1, use it for Phragmen rules.",
+        "An unindexed proof of PAV minimum ten/complete rigidity may predate this audit; public example overlap must remain explicit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS identical ten-ballot configuration for other voting objectives, NOT a sharp PAV minimality/rigidity theorem",
+          "evidence": "Example 7.1: 2 a-only,3 ac,3 bc,2 b-only; leximax-Phragmen/var-Phragmen choose c for k=1 and ab for k=2.",
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10858002/",
+          "material_read": "Full accessible HTML: introduction, Section 7 (Example 7.1 and adjacent apportionment discussion), conclusion",
+          "method": "primary open-access full-text HTML",
+          "title": "Phragmen’s voting methods and justified representation",
+          "trigger": "Identical ten-ballot profile in related voting method"
+        },
+        {
+          "assessment": "Covers PAV nonmonotonicity, not the claimed exact ten-voter boundary",
+          "evidence": "Section 13.4 has 12 AB,12 AC,10 B,10 C; earlier tie-sensitive example needs fewer voters.",
+          "identifier_or_url": "https://arxiv.org/abs/1611.08826",
+          "material_read": "Primary full-text PDF relevant Sections 5, 13.4 and example profiles (PDF screenshot checked)",
+          "method": "arXiv PDF textual inspection and page screenshot",
+          "title": "Phragmen’s and Thiele’s Election Methods",
+          "trigger": "Canonical PAV/Thiele committee monotonicity literature"
+        },
+        {
+          "assessment": "Optimal-value concavity is weaker than inclusion of maximizing committees",
+          "evidence": "No maximizer nesting follows from concave optimum score sequence.",
+          "identifier_or_url": "https://arxiv.org/abs/2604.05953",
+          "material_read": "Theorem 5 statement and contextual objective-value concavity description in cited primary source",
+          "method": "arXiv primary theorem comparison",
+          "title": "Polynomial-Time Algorithm for Thiele Voting Rules with Voter Interval Preferences",
+          "trigger": "Potential result implying interval-domain nesting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strong set-valued failure of nesting is a natural robust version of house monotonicity, avoiding artefacts from tie-breaking. A globally sharp smallest electorate and exact complete extremizer classification are motivated invariants; the voter-interval condition shows a structured preference domain does not restore the property, a distinction from score-value concavity.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Among exactly three candidates under unweighted harmonic PAV, strong tie-independent nonnesting between optimal 1-seat and 2-seat committees requires at least ten voters, with exactly three anonymous labeled minimal profiles forming one candidate-renaming orbit and a voter-interval representative.",
+  "limitations": [
+    "Exactly three candidates, unweighted voters, harmonic PAV, and strong tie-independent nonnesting; the ten-voter witness is already published for other voting rules.",
+    "The theorem does not establish minimum for ordinary tie-dependent failures or more candidates."
+  ],
+  "schema_version": 1
+}
