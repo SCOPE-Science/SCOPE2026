@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the exact forth/back conditions for finite reflexive posets. Maximal vertex-worlds must map to fan tips. Each edge-world is then uniquely determined by endpoint colors, and the two-tip/three-or-more-tip distinction gives the all-size count. The marked polynomial is the binary cut enumerator, and orthogonality gives cycle-matroid recovery. Small-order sharpness is proved structurally and checked by independent exhaustive enumeration. Finite tests supplement, not substitute for, the proof.
+## correctness
 
-**Originality — PASS, qualified.** The identified preceding theory includes the classical p-morphism definition, Whitney's cycle/cut-matroid correspondence, and Almeida's (2024) general maximal-color extension to nonempty-subset posets. The local coloring principle is close to, and may be viewed as a special case of, Almeida's general construction. The assessed joint statement goes further in a specific motivated Kripke-source family: it completely classifies scalar fan spectra, identifies exactly the graphic-matroid content of edge-marked morphisms, and proves the two sharp information-loss thresholds. Targeted published and mathematical-record searches located no direct covering claim. Implicit unpublished or previously unindexed coverage remains possible.
+PASS
 
-**Value — PASS.** The question is whether natural families of simple finite modal targets and reasonable marking of maps distinguish source frames. The answer is a complete information hierarchy with sharp first failures: scalar data forget almost all graph structure, whereas marking recovers cycle-matroid structure but not tree branching. These are structural limitations of an entire family of invariants, rather than an arbitrary finite calculation or relabelling of a known parameter.
+Reconstructed p-morphism forth/back on the edge-below-vertices poset: maximal vertex worlds must map to one of m incomparable tops, and an edge with distinct endpoint colors can map to bottom iff m=2; otherwise components must be monochromatic, yielding b2=2^v and bm=m^c. For m=2, marked bottom edges are precisely graph cuts; each cut has 2^c colorings from component flips, yielding exact polynomial; its support spans binary cut space, whose orthogonal complement is cycle space. All small graphs v+e≤8 were independently enumerated by graph isomorphism and parameters to establish sharp 6/7/8 world thresholds, including 2K2 vs P3+K1 and C4 vs triangle+pendant. Direct enumeration of bounded morphisms and cut weights for 12 graph/fan cases independently confirmed formulas. Unrestricted all-graph argument uses elementary color/lift proof; finite enumeration only sharp boundary.
 
-**Closest known work and limitations.** Katz (2012) reviews Whitney's cycle-space theorem; Almeida (2024), Proposition 5.2, is the strongest general maximal-extension comparison. Neither is claimed to be superseded. The central mathematical risk is that combining this existing machinery could render the presented Kripke-incidence characterization implicit in specialized literature. Independent audit has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Whitney and Katz establish that the binary cycle space determines the graphic matroid up to 2-isomorphism, so that part is not new. Almeida’s primary p-morphism/poset free-construction paper gives abstract lifting machinery, not this enumerated incidence-fan scalar/marked invariant or exact six/eight-world thresholds in the inspected full text. The composite explicit modal count, cut-space weight enumerator and minimal thresholds do not follow as a quoted previously evaluated theorem, although the coloring mechanism is a short specialization of classical Kripke p-morphisms. Best-of-knowledge qualified priority risk that this is an easy implicit corollary of general maximal-point maps.
+
+## value
+
+PASS
+
+Identifies exactly how a natural finite-modal fan-morphism scalar invariant collapses graph data, how edge marking recovers precisely cycle-matroid structure, and the minimal finite thresholds where information is lost or recovered. These are motivated sharp graph/logic reconstruction boundaries, not a new statement of Whitney’s theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
