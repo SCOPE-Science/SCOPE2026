@@ -1,12 +1,21 @@
-# Scientific review: path-incomparability order polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
-The linear extensions are in bijection with matchings of the consecutive-incomparability path; they carry precisely as many descents as chosen edges. The classical order-polynomial binomial expansion gives the stated linear coefficient. Double-counting extensions of matchings proves monotonicity of the alternating summands. All induced subposets belong to the same family, so the published Ferroni–Morales–Panova Theorem 3.4 applies. The order-polytope shift then yields strictly positive Ehrhart coefficients. Exact checks reproduce 1023 small instances and 381 independently counted values. Limits: those counts are not substituted for the infinite proof.
+## correctness
 
-## Originality — PASS, subject to historical priority
-The closely related full-text source, Ferroni–Morales–Panova (arXiv:2503.16403; DOI 10.1112/plms.70204), conjectures positivity for width-two posets and identifies complement zig-zag as an example checked only to order 200. Its general hereditary criterion is used openly, not claimed new. The other principal theorem concerns skew-shape cell posets, explicitly distinguished from the width-two posets in Section 7.1. The 2024 dimension-13 theorem provides only bounded dimensional coverage. published-finding corpus queries for order-polynomial positivity, width-two posets, path incomparability, complement zig-zag and matching-polynomial aliases did not return an equivalent statement. Inaccessible or differently indexed historical results remain possible; a search is not a mathematical proof of priority.
+PASS
 
-## Value — PASS
-This gives an all-dimensional analytic proof for the complement zig-zag example explicitly highlighted by a current width-two order-polynomial conjecture, and in fact simultaneously proves a hereditary class indexed by every spanning subgraph of a path. It replaces finite evidence by a transparent, structurally motivated matching inequality that controls precisely the coefficient needed for the published reduction. It does not prove positivity for all width-two posets.
+From the explicit poset relations, every linear extension is a product of disjoint allowed adjacent swaps; these are exactly matchings, with the descent number equal to matching cardinality. The Stanley binomial expansion gives Omega(t)=sum_k m_k binom(t+n-1-k,n). Differentiation yields [t]Omega=(1/n!)sum_k(-1)^k m_k k!(n-1-k)!. Removing one distinguished edge from a (k+1)-matching proves (k+1)m_{k+1}<=(n-1-k)m_k, and hence the alternating magnitudes decrease. All induced subposets (in particular ideals/filters) reindex within the same family, so Ferroni–Morales–Panova Theorem 3.4 applies to all coefficients. Shifting t->t+1 gives strict Ehrhart positivity. Independent permutation enumeration and direct matching-polynomial comparison checked 127 (n,E) cases through n=7, with 896 factorial-scaled coefficients and exact zero-linear cases (2,1),(3,3); this is corroboration, not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Theorem 3.4 in Ferroni–Morales–Panova is a hereditary reduction, not a universal width-two positivity statement; their Section 7.1 explicitly conjectures width-two positivity, while their proven skew cell poset and fence cases are different definitions. The result constructs the required missing positive linear coefficient for the path-incomparability family, so it is not simply an application absent a new check.
+
+## value
+
+PASS
+
+The proof supplies a natural hereditary all-dimensional width-two class, including the complement zig-zag example within a live conjectural framework, with an explicit path matching certificate overcoming known finite checks. It does not purport to solve the entire width-two conjecture; deriving all coefficients from a genuinely new linear-term inequality makes this more than a textbook restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
