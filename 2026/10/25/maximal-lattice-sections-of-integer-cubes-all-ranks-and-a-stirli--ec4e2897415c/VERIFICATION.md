@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the cubical maximal-section count
+# Independent mathematical audit
 
-The complete analytic proof is contained in `RESULT.md`. In particular, the injective coordinate-projection argument, full-grid equality condition, integer-affine coefficient classification, no-double-counting signed-block rule, and Stirling-number identity establish the theorem for all integers \(d\ge2\), \(k\ge1\), and \(1\le\ell\le d-1\).
+## correctness
 
-The accompanying standard-library file `verify_maximal_grid_flats.py` checks ten small triples by enumerating affine spans using exact rational reduced-row-echelon representation, comparing all distinct winning flats to the proposed formula. It also verifies 231 independent parameter identity comparisons. The successful local output ends with `CUBICAL_MAXIMAL_FLATS_OK exhaustive_cases=10 formula_identities=231`.
+PASS
 
-These finite computations do not certify the infinite parameter domain, which is proved analytically. No third-party or independent scientific validation has been performed. Historical-priority limitations are discussed in `REVIEW.md`.
+Projection onto ell independent coordinates injects grid intersection into (k+1)^ell tuples; equality makes remaining affine coordinate functions integral with sum absolute slope coefficients ≤1. Thus coordinates are constants, t_i or k−t_i; canonical signed blocks counted without duplicate by binomial/Stirling factors. Independent rational-grid and integer finite-difference tests checked d=3 hyperplanes k=1,2 and 220 formula identities; general conclusion follows from the infinite-domain proof, not experiments.
+
+## originality
+
+PASS
+
+Best-of-knowledge new all-rank, all-dilation signed-block equality classification and Stirling enumeration. The old cubical projection bound is credited. Actual Resultary semantic search and primary reading did not establish dominating exact counting prior art; equivalence to older signed combinatorial subspaces is residual priority risk.
+
+## value
+
+PASS
+
+A natural exact optimizer-count invariant for every rank, dimension and dilation; the equality classification and closed polynomial, leading binomial coefficient and generating function address a meaningful cube case of general lattice-section counting beyond a textbook maximum inequality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
