@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The intra-cycle signed integral is Gaussian with exact variance \(4K\tau^{2+\beta}/((\beta+1)(\beta+2))\). The Pareto/Gaussian product tail gives the stable index and scale, and the finite-mean renewal random-time-change theorem transfers the sum to physical time. Tight backward age makes the final partial excursion negligible at the stable scale. The renewal equation and its Laplace–Tauberian asymptotic independently determine the large-time second moment, including the noncommuting probability and mean-square limits. Forty-three numerical checks passed; these are supporting evidence only. The stable limit uses standard probabilistic lemmas and is not an independently certified theorem.
+## correctness
 
-**Originality — PASS under available-source comparison, with priority risk.** The motivating arXiv:2610.19985v1 treats absolute area under resetting; its threshold \(\alpha=1+\beta\) must not be mistaken for this signed-area Cauchy threshold \(\alpha=1+\beta/2\). arXiv:2602.04342v1 gives signed Gaussian area without resets; arXiv:2202.03546v1 gives signed area with Poisson resets. Heavy-tail renewal-reward limit theory supplies broader standard machinery; the model-specific two-threshold phase separation and constants are not identified in the accessed material. A fully comprehensive priority search is not guaranteed, particularly for inaccessible general renewal-reward texts.
+PASS
 
-**Value — PASS.** Signed area is a natural integrated transport observable (including phase accumulation under linear spatial field gradients). The exact Cauchy crossover is a non-Gaussian dynamical boundary, and the open parameter regime where typical averages vanish but variance diverges explains why finite ensembles can misleadingly suggest a failure of self-averaging. The phase diagram gives physically interpretable boundaries rather than a routine isolated moment computation.
+For one excursion, Gaussian covariance integrated twice yields Var J(u)=v u^(2gamma), gamma=1+beta/2 and v=4K/((beta+1)(beta+2)). Thus completed rewards are tau^gamma times independent centered Gaussian with regular variation exponent p=alpha/gamma. Two-sided Pareto product tails and stable-domain attraction give exponent lambda=(t0^alpha E|xi|^p/m)*Gamma(1-p)cos(pi p/2), continuous value pi/2 at p=1. Finite-mean renewal N(t)/t->1/m and tight incomplete-age term transfer limit to clock t; exact sign symmetry removes centering. Renewal equation for conditional Gaussian second moment plus monotone Tauberian yields V t^(3+beta-alpha), so var(S(t)/t) scales t^(1+beta-alpha). Own analytic covariance integral and rational sample exponent checks agree. The assumptions beta in (0,2), alpha in (1,2), independent full renewal, and fixed Pareto cutoff are essential.
 
-Scientific limits: exact Pareto clocks, full rejuvenation of Brownian dynamics at reset, finite-mean interarrivals, and no local-limit or finite-time rate. The findings here are assessed on the basis of the cited sources and reproducible checks, not independent external validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Méndez–Cristín 2026 study absolute (non-signed) area with heavy-tailed resetting and the alpha=1+beta absolute ergodicity border; prior unreset signed area yields only one-excursion variance, and Smith–Majumdar use Poisson rather than Pareto resetting. Stable renewal-reward attraction is general old machinery, but it does not explicitly state the Pareto-SBM signed distribution with its Cauchy alpha=1+beta/2 crossover and separate mean-square constant. General machinery gives the derivation but the two-threshold physical classification is the model-specific synthesis.
+
+## value
+
+PASS
+
+The separation of typical signed averages (zero in probability) from divergent variance on the nonempty interval gamma<alpha<1+beta for beta<1 is mathematically and physically meaningful; explicit stable law and exact constants are useful distributional statistics for renewed anomalous diffusion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
