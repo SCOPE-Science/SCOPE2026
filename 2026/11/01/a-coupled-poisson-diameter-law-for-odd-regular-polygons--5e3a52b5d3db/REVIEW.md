@@ -1,0 +1,19 @@
+# Scientific review: coupled Poisson diameter law for odd regular polygons
+
+## Correctness
+
+**PASS — within the precise stated assumptions.** The longest diagonals of a regular odd-sided polygon form a cyclic graph, so every vertex contributes to two diameter directions. In local unit-edge coordinates the directional derivatives are \(p=\sin(\pi/(2m))\) and \(q=\sin(3\pi/(2m))\); both are positive. The cone Jacobian divided by polygon area equals \(2/m\), giving independent corner Poisson processes. Reusing each process for its two directional minima is essential and is done explicitly. A compactness/localization argument and uniform quadratic Taylor remainder establish the \(\sqrt N\) weak limit. The bivariate survival function is the void probability of the union of two explicitly measured triangles. The \(t^4\) coefficient follows by integrating a sum of two independent Weibull minima at distinct endpoints, with joint diagonal collisions bounded by \(O_m(t^6)\). The executable runs 194 deterministic and seeded consistency checks, including direct polygon cap clipping and independent finite-sample comparisons. The limit theorem is analytic; those checks cannot prove it alone.
+
+## Originality
+
+**PASS under documented best-knowledge comparison, with residual priority risk.** The nearest result is Lao (2010), Chapter 6, Theorem 6.8: area-uniform sampling in even-sided regular polygons, where diametral vertex pairs are disjoint and all corner deficits can be independent. His Chapter 5, §5.2, has odd-sided regular polygons but samples points uniformly by boundary arclength, not interior area; scaling and local laws differ. Mayer and Molchanov (2006) explicitly state that the Appel–Najim–Russo (2002) result assumes a unique longest chord, which the current objects lack. Neither the ball limit of Mayer–Molchanov nor the two-point polygon distance literature implies the correlated cycle law. Full text of the old 2002 paper was inaccessible; its hypothesis description in the accessible 2006 full text is strong evidence of inapplicability but not a substitute for independent historical review. An unpublished or differently indexed joint Poisson-cone formulation remains possible. Title/keyword absence by itself is not a novelty argument.
+
+## Value
+
+**PASS.** This answers a natural, missing parity case of a classical geometric extreme-value question without an arbitrary parameter slice: every fixed odd regular polygon, including the triangle, is covered, and the graph of longest diagonals forces a dependence not present in the known even case. The bivariate survival function permits exact numerical evaluation and reproducible simulation of the entire limit. The explicit leading coefficient of the lower tail is a precise statistic of independent interest; comparing it with the established even-sided result produces distinct parity asymptotic constants with ratio \(32/9\) under successive limits. A known generic Poisson approximation would not automatically deliver this shared-endpoint law.
+
+## Closest sources and limits
+
+The nearest full-text inspection is W. Lao, *Some Weak Limit Laws for the Diameter of Random Point Sets in Bounded Regions* (2010), §§5.2 and 6.4, DOI: 10.5445/KSP/1000019800. The introduction of M. Mayer and I. Molchanov, arXiv:math/0605289 (2006), explicitly contrasts the unique-major-chord theorem of Appel–Najim–Russo (2002). S. R. Jammalamadaka and S. Janson (2015), DOI: 10.1214/14-AAP1082, treat spherically symmetric random vectors rather than finite shared-endpoint diameter graphs. The result is limited to a fixed odd number of polygon sides, fixed radius up to similarity, and uniform interior samples. No claim of a simultaneous side-number limit, arbitrary polygon theorem, or independent certification is made.
+
+Self-review: passed. Independent audit: not yet performed.

@@ -1,0 +1,142 @@
+{
+  "correctness": {
+    "rationale": "For each fixed odd m≥3, all maximal chords join the m cyclic vertex pairs. Both tangent-cone directional losses are strictly positive linear forms, with coefficients sin(π/(2m)) and sin(3π/(2m)); polygon cone Jacobian/area is exactly 2/m. Disjoint vertex corner point processes converge jointly to independent Poisson processes, and a uniform O(N^-1) expansion plus vertex localization gives the claimed N^1/2 weak limit with each vertex process reused in both directions. The bivariate joint survival is a Poisson void probability for two intersecting triangles; the shoelace area formula is verified. Each longest-diagonal deficit sum has small-t CDF λ² t⁴/6; overlaps involving at least three distinct vertex clouds are O(t⁶). This yields the stated m λ²/6 coefficient and correct parity comparison. The standalone checker executed 194 deterministic and seeded tests; experiments are only ancillary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lao (2010), Theorem 6.8, page 114, explicitly assumes 2m sides and independent Weibull deficits; the text notes that its crucial geometric property is disjoint longest-axis endpoints.",
+        "Lao (2010), §5.2, page 78, explicitly assumes random points distributed uniformly on the boundary of a (2m+1)-gon."
+      ],
+      "reasoning": "A general theorem for finite diameter pairs with overlapping endpoints might subsume the result, but none of the inspected works provides one. Even-side and boundary-odd coverage are neither broader nor dominating under a change of scale or sampling law.",
+      "searches": [
+        "random sample convex polygon diameter limiting joint law tangent cone vertex Poisson processes first small t t fourth coefficient",
+        "regular triangular pentagonal heptagonal polygon maximum interpoint distance distribution n half limiting Weibull correlated vertex endpoint",
+        "https://publikationen.bibliothek.kit.edu/1000019800/105664897"
+      ]
+    },
+    "checked_sources": [
+      "Appel, Najim and Russo, Advances in Applied Probability 34 (2002), DOI: 10.1239/aap/1019160946 (abstract and retrospective hypothesis report only)",
+      "Mayer and Molchanov (2006), arXiv:math/0605289 (full arXiv text)",
+      "Lao (2010), DOI: 10.5445/KSP/1000019800 (primary full text §§5.2, 6.4)",
+      "Jammalamadaka and Janson (2015), DOI: 10.1214/14-AAP1082 (accessible article text)",
+      "Tong, Ahmadi and Pan (2013), arXiv:1312.2498 (abstract/scope)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Appel–Najim–Russo (2002) published abstract states sufficient geometric conditions without a publicly accessible full proof.",
+        "Mayer–Molchanov (2006) explicitly states that the 2002 theorem assumes a unique longest chord.",
+        "Lao (2010) Theorem 6.8 has independent vertex endpoints only for even polygons, in contrast with the odd cycle."
+      ],
+      "reasoning": "The statement cannot be obtained by substituting odd for even in Lao’s independent-minimum law, since the same local point cloud controls two neighboring edges. A unique-major-axis theorem is inapplicable because every vertex of an odd regular polygon belongs to two diameter pairs. Full direct comparison with the 2002 paper remains a stated priority risk.",
+      "searches": [
+        "\"Limit laws for the diameter of a random point set\" pdf Appel Najim Russo arxiv",
+        "\"Limit laws for the diameter of a random point set\" open access pdf 2002",
+        "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/abs/limit-laws-for-the-diameter-of-a-random-point-set/ACCF0CA4482E1687FED4782F26325C46"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mayer–Molchanov (2006) introduction, arXiv:math/0605289, explains Appel–Najim–Russo (2002) assumes a unique longest chord; the odd regular polygon has m longest chords with shared endpoints.",
+        "Lao (2010), §§5.2, 6.4, has distinct boundary-odd and area-even settings; neither gives a bivariate cone-minimum cycle for interior-odd sampling."
+      ],
+      "reasoning": "Possible equivalent representations via a cyclic diameter graph or Poisson cloud minima were considered; the published conditions exclude the shared-vertex interior odd case in the available closest full texts. Reindexing the cycle or rewriting the bivariate survival as an intersection-area copula does not constitute a different theorem.",
+      "searches": [
+        "odd regular polygon iid area uniform maximal pair distance weak limit coupled Poisson tangent cone",
+        "odd sided regular polygons iid uniformly sampled interior points sample maximum Euclidean distance n to infinity coupled vertex Poisson processes bivariate cone minima non-independent",
+        "https://arxiv.org/abs/math/0605289"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest fixed-pair polygon paper (Tong, Ahmadi and Pan, arXiv:1312.2498) studies a single random distance, not a growing-sample diameter law.",
+        "The available published closed formulas and tables in Lao (2010) concern the even interior-sampling limit or an odd boundary-sampling law, rather than the present coefficient c_m."
+      ],
+      "reasoning": "A scalar two-point distance table would yield a first rare-pair expectation but not imply the full coupled process law or justify neglecting shared-endpoint clusters. No exact matching limit or small-tail coefficient was identified in inspected sources.",
+      "searches": [
+        "regular odd even polygons maximal interpoint distance tail probability parity coefficient",
+        "two uniform points in convex polygon distance near diameter tail fourth power tangent cone density",
+        "https://arxiv.org/abs/1312.2498"
+      ]
+    },
+    "rationale": "The closest inspected primary full text, Wei Lao (2010), has area-uniform regular polygons only in the even-sided case (Theorem 6.8); its odd-sided chapter samples boundary points, which is a different process and scaling. Mayer–Molchanov (2006) explicitly report the unique-longest-chord hypothesis of Appel–Najim–Russo (2002), not met here. The positive joint survival correction uses the same vertex PPP twice and cannot follow from independent even-sided axes. Other studies of random interpoint distances treat ball-supported distributions or a single fixed pair. No equivalent odd-interior-area shared-endpoint law was found; residual historical risk is explicitly recorded.",
+    "residual_risks": [
+      "The 2002 Appel–Najim–Russo article could not be read in full despite public searches and an unsuccessful lawful access attempt; its unique-chord hypothesis is reported by the inspected 2006 full text.",
+      "The claim could have an equivalent representation in less visible stochastic geometry or general polytope extreme-distance literature.",
+      "The side-count parity asymptotics are sequential limits; a coupled limit as side count and sample size increase is neither established nor asserted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: area-uniform theorem assumes even side count; odd-side theory samples on edges, not interior.",
+        "evidence": [
+          "PDF page 137: Theorem 6.8 begins regular convex polygon with 2m sides and derives independent Weibull variables.",
+          "PDF page 101: §5.2 explicitly states points sampled on the boundary of the odd regular polygon."
+        ],
+        "identifier_or_url": "https://publikationen.bibliothek.kit.edu/1000019800/105664897",
+        "material_read": "Chapter 5 §5.2 introductory assumptions (PDF pages 101–102), Theorem 5.2 and associated extracted text (page 104), concluding discussion (page 107), and Chapter 6 §6.4 theorem and proof (PDF pages 136–138 plus text at page 139).",
+        "method": "Read first-party PDF extracted text and directly inspected PDF images at pages 101–102 and 136–138.",
+        "title": "Some Weak Limit Laws for the Diameter of Random Point Sets in Bounded Regions",
+        "trigger": "Closest theorem for uniformly sampled regular polygons and nearest case with an odd number of sides."
+      },
+      {
+        "assessment": "NOT_COVERING: ball-supported distribution and unique-longest-chord prior comparison, not odd polygons with shared diameter endpoints.",
+        "evidence": [
+          "Introduction explicitly describes Appel–Najim–Russo as assuming a unique longest chord.",
+          "Theorem 1.1 addresses uniform points on a Euclidean ball."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0605289",
+        "material_read": "Introduction, historical comparison, main theorem, Poisson technique and assumptions on distribution support in the accessible full arXiv text.",
+        "method": "Read first-party full-text arXiv HTML and available PDF pages.",
+        "title": "A limit theorem for the maximal interpoint distance of a random sample in the unit ball",
+        "trigger": "Early prior generalized extreme distance limit and retrospective description of the 2002 theorem."
+      },
+      {
+        "assessment": "ACCESS_LIMITED: subsequent full-text summary specifies unique-longest-chord condition, which fails here, but a direct comparison with all 2002 propositions remains unavailable.",
+        "evidence": [
+          "Published 2002 abstract discusses geometric sufficient conditions.",
+          "Mayer–Molchanov (2006) introduction, paragraph discussing the 2002 paper, states unique longest chord."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/aap/1019160946",
+        "material_read": "Publisher abstract, publication record and explicit summary of the hypotheses in Mayer–Molchanov (2006); full 2002 article not obtained.",
+        "method": "Read publisher abstract and publicly accessible primary-source retrospective description; the full 2002 text was not obtained.",
+        "title": "Limit laws for the diameter of a random point set",
+        "trigger": "Earlier maximal-distance theorem with potentially relevant general planar support assumptions."
+      },
+      {
+        "assessment": "NOT_COVERING: assumptions are spherical symmetry, not discrete shared diametral endpoint configurations.",
+        "evidence": [
+          "Theorem 1.1 assumes spherically symmetric random vectors.",
+          "The introduction explicitly contrasts joint distance extremes and dependence limitations."
+        ],
+        "identifier_or_url": "https://doi.org/10.1214/14-AAP1082",
+        "material_read": "Accessible article introduction and assumptions of Theorem 1.1, including the spherically symmetric support and discussion of the extreme-distance Poisson method.",
+        "method": "Read primary freely accessible article text.",
+        "title": "Asymptotic distribution of the maximum interpoint distance in a sample of random vectors with a spherically symmetric distribution",
+        "trigger": "Broad later extreme-value comparison involving dependencies between distances."
+      },
+      {
+        "assessment": "SCOPE_DIFFERENCE: one fixed pair of points, not a sample maximum or coupled extreme law.",
+        "evidence": [
+          "Abstract expressly treats the distribution of distance between two random points in triangles."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1312.2498",
+        "material_read": "Title and abstract describing the two-point distance problem; no complete primary full text relied upon.",
+        "method": "Read arXiv descriptive page; not used for a full-text negative conclusion.",
+        "title": "Random Distances Associated with Arbitrary Triangles: A Systematic Approach between Two Random Points",
+        "trigger": "Possible exact table for polygonal random distances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5e3a52b5-d3db-4aa7-ad18-770dccf14016",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The odd regular polygon interior-sampling diameter problem is a missing natural parity half of an established family (Lao 2010), and shared diametral endpoints make the coupling genuinely different. A full explicit bivariate extreme-value law and m-fold finite representation solve the probabilistic dependence problem; the natural exact lower-tail coefficient and parity ratio 32/9 provide informative and non-arbitrary benchmarks. The theorem is not a special case of the independent-axis even theorem.",
+    "status": "PASS"
+  }
+}
