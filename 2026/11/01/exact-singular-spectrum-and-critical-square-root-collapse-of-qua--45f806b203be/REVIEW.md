@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The result is reduced to a positive trace-class Gaussian kernel. The Gaussian integral identity, the smaller squeezed-state root, and the intertwining identity give one eigenvector for each claimed geometric eigenvalue. Equality of their sum with a separately computed Hilbert–Schmidt trace ensures that no other positive eigenvalues exist. Coherent states verify the exact boundedness boundary and noncompactness of the limiting operator; a first-nonzero-coefficient argument gives the ordinary spectrum. The reproducibility script passed 125 finite checks, which support but do not replace the infinite proof.
+
+## Originality — PASS (provisional literature-based assessment)
+The 2018 Coburn–Hitrik–Sjöstrand treatment yields rapid singular-value decay in its strictly positive Gaussian operator regime, rather than the singular ratio or its limit at criticality. Their 2023 work and Xiong's 2023 extension study qualitative boundedness and compactness of metaplectic Toeplitz operators. Seyoum–Mengestie's 2021 Theorem 3.1 supplies the ordinary, not singular, spectrum of compact weighted composition operators. Benahmadi–Ghanmi (2020) give singular values for a different Gaussian-to-bidisk Bergman integral transform; Mengestie–Takele (2023) give a Schatten-membership criterion on faster-than-Gaussian Fock-type weights. Dong–Zhu (2025) calculate geometric singular sequences for the canonical kernel containing equal-and-opposite holomorphic/antiholomorphic quadratic terms; the present weighted-composition kernel has the antiholomorphic quadratic coefficient identically zero. Direct coefficient matching fails unless the quadratic multiplier vanishes. A hidden unitary/metaplectic equivalence is an unresolved novelty risk. Sang–Zhao (2026) cover the broader five-parameter Gaussian kernel, but their quantitative result is the Hilbert–Schmidt norm, together with qualitative compactness and Schatten membership rather than the full singular sequence or sharp critical Schatten constant. The closest record searches about Fock Toeplitz Schatten behavior and exact singular spectra concern different operators. This theorem supplies an explicit exact ratio, all-Schatten norm formula and square-root critical constant. Residual risk: a classical Gaussian integral-operator/Mehler theorem or a different squeezed-state parameterization might already express this specialization.
+
+## Mathematical value — PASS
+The precise singular spectrum resolves the nonnormal amplification hidden by the multiplier-independent ordinary spectrum, and the critical asymptotic quantifies how infinitely many geometric modes simultaneously flatten as compactness fails. These are natural operator invariants for a standard quadratic-Gaussian class, not arbitrary numerical slices.
+
+## Scope and limits
+One complex dimension, real contraction \(0<t<1\), any complex quadratic coefficient, exact normalization. No claim of an independent proof audit, a multivariable extension or an exhaustive search of all historical Gaussian-operator literature.
+
+Self-review: passed. Independent audit: not yet performed.
