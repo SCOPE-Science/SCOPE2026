@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** A direct addition of both logistic equations yields the exact mean-population identity. Summing and subtracting the chemical equations gives unique chemical coordinates. Their substitution into the population-difference balance reduces all positive equilibria, without approximation, to a scalar hyperbolic-tangent equation. An exact addition-law factorization gives the complete admissible interval. Two strictly increasing positive terms prove global bijectivity and rule out any folds or additional equilibria. Endpoint evaluation gives the strict high-bias survival dichotomy. Seventy-two numerical parameter-state checks corroborate, but do not replace, these proofs.
+
+**Originality — PASS with residual historical risk.** The closest paper, Kim–Zhang–Zhao–Cooney (arXiv:2610.31049v1), analyzes the linear threshold, numerically plots patterned states and proves a Jensen mass deficit. It does not state or imply the complete count for arbitrary chemotactic sensitivity, the no-fold scalar parametrization, or the survival transition at \(2r=\eta_n\). The one-dimensional continuum Keller–Segel PDE results of Wang–Yan–Gai (arXiv:1312.0258v4) concern another dynamical object. Searches for general multiple-patch logistic migration and published comparison records did not reveal the same softmax two-patch result; nonexhaustive search is not proof of absolute priority. The historical generality risk is recorded in AUDIT.json.
+
+**Mathematical value — PASS.** A linear Turing threshold and numerical branch plots alone do not exclude disconnected positive equilibrium branches, subcritical persistence or folds. Complete counting and a monotone global branch give the exact stationary phase diagram. The sharp \(2r/\eta_n=1\) dichotomy resolves a concrete question of how severely extreme directional migration empties a patch despite local logistic replenishment. These properties require nonlinear analysis beyond the previously known Jensen deficit.
+
+**Limits.** Stationarity only; no claims about nonlinear orbital stability, transient basins, other graph sizes or nonlogistic growth. The accompanying diagnostics are finite. Comprehensive historical priority and independent mathematical validation remain unperformed.
+
+Self-review: passed. Independent audit: not yet performed.
