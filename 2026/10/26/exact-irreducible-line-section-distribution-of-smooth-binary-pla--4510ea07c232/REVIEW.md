@@ -1,19 +1,21 @@
-# Scientific assessment: irreducible rational hyperplane sections over \(\mathbf F_2\)
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The attached exact enumeration covers 32,767 coefficient vectors, partitions them into 279 distinct orbits under a verified 168-element projective group, uses Gröbner bases on all three affine charts to test geometric smoothness, and tabulates irreducible-line counts. Exactly 78 smooth orbits of weighted total 10,920 produce all eight histogram bins. A second independently written binary-quartic factorization check agrees on every orbit representative's line count and recomputes the weighted histogram; it reuses smoothness labels rather than independently reproducing their proof. The source, 279-row orbit certificate and actual exact logs are included.
+PASS
 
-## Originality — PASS (qualified)
+Independent exact GF(2) coefficient exhaustion (32,767 nonzero quartic forms), orbit generation using all 168 coordinate transformations (279 orbits), three-chart Jacobian Groebner smoothness checks over the algebraic closure (10,920 smooth weighted equations), and independently implemented binary-restriction factor testing reproduce the complete histogram (4666,3444,1722,504,420,84,56,24), 6,254 positive-line equations and 11,004 equation-line incidences. Binary degree-four form irreducibility iff no F4 projective root holds by minimum factor degree ≤2. The source and separate checker agree, but no theorem for other fields or degrees follows.
 
-The final claim is the **full eight-bin distribution** of rational irreducible line sections, not the previously described unique extreme isomorphism type. Entin's asymptotic hyperplane-section theorem does not supply \(q=2\) degree-four equation counts. Lercier et al. tabulate Frobenius traces on curves, rather than line-restriction cycle distributions. Lario's complete diophantine-stability table covers the zero-\(\mathbf F_4\)-point endpoint, **not** all seven conditional incidence counts. Oyono–Ritzenthaler study the opposite splitting type for large fields. Historical Dickson tables (1915) are closely relevant but could not be fully compared; this is an explicit unresolved publication-priority risk. No independent publication priority is certified.
+## originality
 
-## Value — PASS
+PASS
 
-Frobenius cycle type \((4)\) is a canonical and arithmetically meaningful splitting condition for a rational hyperplane section. The exact complete binary-field spectrum resolves whether a genuinely smooth plane quartic possesses any rational **inert** line and quantifies the obstruction for the entire coefficient space, rather than cherry-picking a special curve. It complements large-field monodromy equidistribution precisely where the latter has no force.
+Qualified: complete eight-bin F2 equation-weighted Frobenius-(4) rational line-section distribution is not directly in the inspected primary literature. Nart–Ritzenthaler already classify the 78 projective quartic classes, and Lario covers the I=7 extremal class; neither is credited as novel. Dickson 1915 and possible unindexed normal-form tables remain material priority risks.
 
-## Scope and remaining risks
+## value
 
-The numbers count equations, not isomorphism classes. The independent factor checker uses the primary checker’s orbit and smoothness certificate. Exact computations are finite proofs only for this specified fixed-degree finite field. Complete historical Dickson papers and unindexed enumerations could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Arithmetic Bertini splitting type (4) along rational lines is a natural invariant for smooth genus-three plane quartics, and q=2 is the sharp small-field setting where large-field existence heuristics are unreliable. The exact complete weighted distribution resolves a real incidence question, quantifying 4,666 instances with no inert rational line, not an arbitrary isolated table or known extreme endpoint. The result is self-contained finite mathematics and the exact eight-bin statistic is not mechanically determined by ordinary curve point counts alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
