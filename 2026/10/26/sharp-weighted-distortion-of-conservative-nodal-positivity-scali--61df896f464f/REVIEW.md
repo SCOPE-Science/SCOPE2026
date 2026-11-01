@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The identity \(u=(m+a)p-a\mathbf1\), the weighted Cauchy--Schwarz lower bound for any positive mean-preserving correction, and the mass-concentration upper bound for radial scaling yield the exact two-smallest-weight inequality. The explicit single-negative-coordinate limit sequence attains its sharp supremum. The LGL specialization uses both endpoint weights. Exact rational tests agree with the analytical argument; no extrapolation from finite tests is required.
+## correctness
 
-**Originality — PASS, with residual literature risk.** The underlying ray limiter and conservative projection principles are established prior art. Liu--Guo--Jiang--Sun and Wu supply full entropy/positivity admissibility mechanisms, not the correction-ratio theorem. Fu--Cheng--Shu directly contrast scaling and projection and observe that scaling may damp more, but do not give the exact weight-dependent supremum or its quadratic-in-degree LGL form in the inspected text; their projection optimizes a different weighted-coordinate objective. The Laiu--Hauck comparative 2018/2019 manuscript remained partially inaccessible; broader prior coverage cannot be ruled out.
+PASS
 
-**Mathematical value — PASS.** The new quantitative answer isolates the precise cost of conservative nodal radial limiting and shows a sharp unbounded degree-dependence for a standard quadrature. This is more informative than the elementary statement that metric projection is shortest and is relevant to limiter selection, quadrature choice, and the analysis of correction-induced damping. It does not claim entropy-feasible optimality or PDE error bounds.
+Let i index a minimal u_i=-a<0, m>0, p=(u+a1)/(m+a), hence L=mp and u-L=a(p-1). Since p_i=0, p>=0 and sum w p=1, concentration of weighted mass at the smallest remaining weight w_j yields ||u-L||_w^2 <= a^2(1-w_j)/w_j. For any feasible z, h=z-u has h_i>=a and sum w h=0; Cauchy-Schwarz on complementary coordinates yields ||h||_w^2 >= a^2 w_i/(1-w_i). The resulting bound is maximized at the two smallest weights. A single-negative-coordinate family with u_i=-epsilon and other small positive coordinates approaching zero concentrates p at j; the actual weighted orthogonal projection zeros i and shifts all other coordinates by a common offset, giving asymptotic equality. LGL endpoint weights 1/[N(N-1)] are minimal because |P_{N-1}(x)|<=1. For N=2 ratio=1. Independently verified near-sharp examples with weights (.05,.07,.18,.7), (.1,.1,.3,.5), (.3,.7), and LGL endpoints for N=2..10.
 
-**Sources and scope.** Primary numerical-analysis source: arXiv:2603.27478, first posted 2026-03-29, primary MSC 65M60. Nearby work: arXiv:2604.00301, Fu--Cheng--Shu (2026) §§3.3 and 4, and Laiu--Hauck, J. Sci. Comput. 78 (2019). The theorem concerns nodal positivity in weighted \(\ell_2\), one conserved quadrature average, and strictly positive quadrature weights. It does not cover positivity between nodes, simultaneous entropy constraints, or a complete time-marching solver.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after comparing the precise statements and implications, original scope, related general theorems and aliases, with the specific residual priority limitations below; lack of a search hit is not itself evidence of novelty.
+
+## value
+
+PASS
+
+Distinguishes the exact and potentially quadratically large correction cost of a standard nodal positivity limiter from the least weighted Euclidean modification under identical conservation. It quantifies a real design tradeoff beyond the tautology that projections minimize distance, with degree-dependent sharpness for standard LGL discretizations. No claim about entropy or full PDE evolution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
