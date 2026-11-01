@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem is a complete finite statement, with no extrapolation. Enumerating the twelve matching-complex vertices gives face vector \((12,42,44,9)\). The supplied pivot-based Morse matching has \(51\) pairs and exactly one zero-cell and four two-cells; every one of the \(252\) Hasse relations is checked for acyclicity. This proves the required integral wedge homotopy type. The natural signed-coordinate group contains all \(48\) cube automorphisms, and the signed fixed-simplex trace formula is verified for each element. The resulting character matches the two stated irreducible representations in all ten conjugacy classes, with the full class multiplicities. The finite-group invariant-functor argument proves the rational quotient statements. Risk: this is an exact computer-assisted finite calculation rather than a handwritten listing of all oriented faces; all construction and assertions are embedded for reproducibility.
+
+## Originality — PASS
+The known homotopy type \(\bigvee^4S^2\), including its ordinary Betti number, is excluded from the new claim. Braun and Hough discuss planar small grids and related independence-complex families, not this full cube symmetry representation. Exact same-object earlier work determines only the nonequivariant homotopy. The nearest equivariant results concern matching complexes of the octahedral graph, matching complexes **of** the cuboctahedral graph, and the cube three-cut complex, all distinct simplicial objects with different homology degrees or dimensions; none implies the complete degree-two cube-matching character. Actual checks of published mathematical records and accessible prior claims found no direct equivalent. Risk: an unindexed computation or an indirect consequence of published representation machinery could still cover the formula; absence from the searched index does not establish absolute priority.
+
+## Value — PASS
+The four-dimensional \(H_2\) rank alone does not determine how all \(48\) cube symmetries act. The irreducible decomposition separates a three-dimensional central-even component from a central-odd line; full rotations eliminate every nonzero rational class, while inversion alone retains three. This is a natural complete equivariant invariant for the ordinary matching complex of a canonical graph, not an arbitrary parameter slice, and supplies concrete quotient homology consequences. It is modest in scope but mathematically meaningful without a paper-sized general theorem.
+
+## Closest sources and remaining limitations
+Braun–Hough, arXiv:1606.01204v1 (3 June 2016); the publicly indexed exact cube matching homotopy result; the full octahedral **octahedral-graph** matching module; cuboctahedral-graph matching homotopy; and the cube three-cut representation. The full representation is only claimed over \(\mathbb Q\), for one graph, with publication priority not independently established.
+
+Self-review: passed. Independent audit: not yet performed.
