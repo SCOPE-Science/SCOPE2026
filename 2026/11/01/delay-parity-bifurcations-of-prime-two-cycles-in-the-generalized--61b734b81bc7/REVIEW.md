@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The classification follows from two jointly sufficient identities obtained by adding and subtracting the full alternating-delay equations. The same-sign, opposite-sign and zero-boundary cases are exhaustive. In the opposite-sign case the exact linear system has denominator \(a^2+sh\) for odd nonlinear delay and \(a^2-sh\) for even nonlinear delay; its sign conditions supply necessary **and** sufficient thresholds. At the singular denominator the original equations contradict each other, so division does not omit a solution. The critical continua and all three divergence regimes were checked algebraically. The standalone exact-rational tests independently confirm 18,150 noncritical chamber classifications and representative boundary cases. Those finite tests are supplementary, not a proof of all parameters.
+
+## Originality — PASS within inspected literature
+The actual full source defining the arbitrary-delay Lozi family (Bilal–Ramaswamy, 2020, Section II) supplies fixed points and bifurcation diagrams, but no complete two-cycle parity classification. The classical planar formulas **are covered** by Botella-Soler et al. (2011, equations (4) and (9)–(10)), and are treated strictly as earlier cases. Ou (2022) concerns a planar orientation-preserving Lozi perturbation and proves a different itinerary existence theorem. Existing recorded findings on Lozi stationary moment constraints and unrelated two-cycle classifications do not imply the unrestricted pair-delay result. The central noncovered comparison is the even nonlinear delay, odd linear delay threshold \(a=\sqrt{\nu(2-\nu)}\) and its pole-to-continuum trichotomy. Equivalent unindexed or unpublished work remains possible; novelty is not proved by absence from search hits.
+
+## Mathematical value — PASS
+Least-period-two existence is a natural first classification invariant of the delay family studied for bifurcations. The theorem classifies the complete, non-artificial family of all positive integer pairs of delays and exposes a nonlocal phase transition invisible to the fixed-point threshold: at \(k=2,d=3,\nu=1/2,a=1\), the exact orbit \(\{2,-6\}\) exists while the negative fixed point does not. In the same natural parity class, cycles are born at infinity with both amplitudes diverging for \(\nu<1\), but with one amplitude bounded at \(\nu=1\), and from a finite continuum for \(\nu>1\). The dimension-independent parity mechanism and complete exceptional-set census are substantially more informative than a routine single parameter check.
+
+## Closest literature and limitations
+The planar period-two formula and bisecting lines are already known; the claim does not repackage those as novel. The result does not classify attracting sets, nonlinear stability, endpoints \(\nu=0,2\), or higher periods. The proof establishes existence and uniqueness of algebraic periodic trajectories, not their physical observability. Publication-priority risk from unindexed work remains; external independent validation was not performed.
+
+Self-review: passed. Independent audit: not yet performed.
