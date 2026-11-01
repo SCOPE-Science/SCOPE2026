@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The mathematical proof is in `RESULT.md`. The standalone numerical checker is `verify_allee.py` (Python with NumPy/SciPy as described in `requirements.txt`). Invoke `python verify_allee.py` in the directory containing the script; an expected successful run reports `VERIFICATION_OK`, 96 randomized parameter sets, and two roots near 0.145029705606619 and 0.654970294393381 in the soluble symmetric example.
+# Independent mathematical audit
 
-The verifier integrates the scalar equation with absolute tolerance 2e-14 and relative tolerance 2e-12, locates two crossings independently in their analytically established brackets, and samples the sign pattern at 101 points for each test case. It is a non-exhaustive numerical cross-check, not an infinite-dimensional or universal proof. The proof's decisive ingredients are exact differentiation of the scalar flow, a single curvature sign change, and strict endpoint signs. The asymptotic limits are established analytically, not certified by finite-horizon plots.
+## correctness
 
-No independently conducted mathematical audit has been performed.
+PASS
+
+The scalar autonomous flow F_t is strictly increasing. Independently rederived for f(x)=x(x−a)(1−x): sign F_t″(x) equals sign[2(1+a)−3(x+F_t(x))] times positive r ∫_0^t F_s′(x) ds. Since x+F_t(x) increases strictly from 0 to 2, F_t′ has a unique maximum. Therefore the fixed-width increment D(x)=F_t(x+q)−F_t(x) is strictly unimodal. Its value relative to q is strictly negative at 0 and 1−q but strictly positive at a−q and a, proving exactly two simple roots with positions as stated. The inverse-flow argument confines the upper root below F_t^{-1}(1−q). Uniform short-time Taylor expansion gives an explicit quadratic with two distinct interior roots; limits of bistable flow yield large-time a−q and a. Independent exact polynomial identity and closed-form a=1/2 example roots 0.14502970560661888 and 0.6549702943933814 reproduced. No conclusion for q outside the stated strict range.
+
+## originality
+
+PASS
+
+The source growth law and treatment-before/after-growth motivation are prior, but their coupled control conditions and selected discrete simulations do not logically entail two crossings for every continuous positive t with exact root asymptotics.
+
+## value
+
+PASS
+
+The all-horizon exactly-two-root classification gives a sharp sign rule, both limiting crossover densities and an intrinsic no-overstocking domain for a minimal cubic Allee rescue problem; it is not a one-scenario simulation or an empirical management prescription.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
