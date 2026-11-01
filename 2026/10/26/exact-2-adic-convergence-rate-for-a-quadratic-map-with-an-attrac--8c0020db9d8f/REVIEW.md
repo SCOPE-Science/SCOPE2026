@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The claim is supported by a complete contraction argument on \(B=(1-\lambda)+8\mathbb Z_2\), followed by exact valuation computations. The nonstandard step is the absence of cancellation in the second-iterate expansion: its linear coefficient has valuation \(3\), and every higher-order contribution has strictly larger valuation for \(v_2(u)\ge3\). The global finite-quotient formula then separates all possible early cycle hits from the guaranteed basin-entry cases.
+PASS
 
-## Originality
+From λ≡3 mod4, B=(1−λ)+8Z2 consists of v2(x)=1 and f² maps B into itself. For x,y∈B, f²(x)−f²(y)=(x−y)(x+y)(x²+y²−2λ), where x+y divisible by 4 and the third factor has v2=1, giving contraction ≥3 valuation gains per two iterations; Banach gives unique β, α=f(β) odd. Every odd x maps into B in one step, even in two. For u=y−β with k=v2(u)≥3, f(y)−α=u(2β+u) has v2=k+2; expansion f²(β+u)−β=u[4αβ+(6β²−2λ)u+4βu²+u³] has leading bracket valuation exactly3 and all others >3, proving k+3 per even iteration by induction. The h_N depth formula handles even/odd offsets; global branch exceptions for already-on-cycle and immediate one-step hits give the genuinely least T_N. Independent direct iteration through all residues mod 2^N (N=1..11) for λ=3,7,11,15,19,23 returned 24,564 exact agreement checks. Analytic valuation proof covers all Z2 parameters; finite experiments alone do not.
 
-The closest primary literature is Fan–Liao, *On minimal decomposition of \(p\)-adic polynomial dynamical systems*, Theorem 6.1. It establishes the qualitative global attracting 2-cycle for the same family and parameter class, but the inspected theorem and proof do not state the exact valuation increments or the pointwise minimal-preperiod formula on every finite quotient. The claim is deliberately limited to this quantitative refinement and does not claim the qualitative basin classification as new. A broader unindexed source could still contain a related computation.
+## originality
 
-## Value
+PASS
 
-The formula gives the exact globally minimal preperiod of every residue modulo \(2^N\), with no enumeration cutoff. It also gives the exact number of additional iterations required after entry into the canonical basin ball. The result does not aggregate the pointwise preperiods into a histogram.
+Fan–Liao established qualitative unique attracting 2-cycle for precisely λ≡3 mod4. Their cited primary theorem scope is global attraction and minimal decomposition; the submitted nonstandard quantitative refinement is an exact three-bit/two-step valuation gain and globally pointwise least preperiod on every mod 2^N quotient. These details are not stated in accessible summaries, but could be implicit in proof of qualitative contraction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Minimal preperiod of every residue modulo 2^N is a natural invariant of p-adic dynamics and finite quotient phase portraits. The exact three-bit/two-step contraction is a useful quantitative refinement of qualitative attraction; the formula handles all finite precision levels and early-hit exceptions, not an arbitrary tiny case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
