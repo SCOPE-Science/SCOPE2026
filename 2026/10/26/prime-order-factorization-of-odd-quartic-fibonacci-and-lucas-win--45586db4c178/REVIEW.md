@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** Quartic Binet decomposition has five unit spectral coefficients at each prime at least seven; the five modes are distinct, and the Vandermonde matrix is invertible. This establishes both the necessary and sufficient p-adic order condition, with exact valuations fixed by the constant mode. Residue arguments separately exclude the prime three and the prime five and establish the exact two-adic exponent. The standalone verifier checked 960 complete five-window gcds.
+## correctness
 
-**Originality: PASS within inspected evidence.** Mbirika and Spilker, arXiv:2204.12626, establish square-power results and ask about higher powers, while Guyer and Mbirika, arXiv:2104.12262, establish first-power analogues. The existing odd cubic-window classification does not imply the quartic result. No equivalent quartic odd-window prime-order factorization was identified in the inspected sources, targeted mathematical-record searches, or accessible claim overlap. A broader unindexed recurrence result remains a residual risk.
+PASS
 
-**Value: PASS.** This is a complete exact answer for two natural infinite families in the discriminant-unramified odd-length regime, explaining nontrivial prime divisors through a quadratic-unit order and the equality of two sequences. This advances the higher-power GCD direction rather than recomputing a known table.
+Binet quartic identities yield exactly 5 modes 1,rho±1,rho±2 where rho=−alpha² has monic quadratic t²+3t+1. Window-sum sequences obey an integer fifth-order recurrence with invertible constant term, reducing their all-translation gcd to five initial windows. For each p≥7, distinct modes and unit coefficients give invertible Vandermonde modulo p^e; all windows vanish iff p^e|k and rho^k=1 modulo p^e. Mod-p order r_p divides k as necessary and p-adic binomial lifting makes it sufficient through valuation ν_p(k). For p=3, nonzero-index fourth-power indicators have period 4, so odd k cannot annihilate every window; p=5 excluded by 5∤k and the mod5 residue indicators; p=2 yields exactly one factor iff 3|k for odd k. Independent integers and finite-algebra modular-order checker verified 80 odd k<200 (5∤k) for both sequences, comparing the first five exact windows; recurrence proves those five exhaust translations, and primewise argument proves all odd permitted lengths.
 
-**Scientific limits.** Odd lengths divisible by five, even lengths, and arbitrary generalized initial conditions are outside the claim. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for the explicit common quartic Fibonacci/Lucas odd-length gcd prime-order factorization. First and second power formulas are prior; same-mode general recurrence divisibility theory could implicitly cover this exact arithmetic specialization, which remains a qualified risk.
+
+## value
+
+PASS
+
+The all-translation gcd is a motivated recurrence-sequence arithmetic invariant, and this exact prime-order rule simultaneously handles two distinct quartic sequences for every odd k coprime to five. It directly addresses a higher-power gap posed after the square case rather than a single small numerical computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
