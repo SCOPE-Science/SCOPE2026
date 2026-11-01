@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The event is precisely the nonpositive dot-product event. The normalized direction law and Fourier signs were checked against the triangle benchmark. Uniform twice-integrated remainder bounds justify the harmonic expansion and its absolute termwise summation; the fifth and seventh coefficients follow from the exact Dirichlet beta evaluations. The checker agrees with an independent discretized angular convolution. No numerical sample is treated as an infinite proof.
+## correctness
 
-**Originality: PASS, qualified.** The 2025 Math Stack Exchange discussion already includes the regular-polygon Fourier integral, the qualitative modulo-four sign, and the regular-triangle extremal observation; Rabinowitz (2026) contains the triangle formula and general directional transfer. None is claimed novel. The present narrower claim evaluates the previously unreported first two nonzero coefficients of the *regular-polygon-to-circle* spherical-depth defect, proves the remainder uniform across infinitely many angular harmonics, and establishes the exact fifth-order sensitivity. The generic integral representation does not itself state these coefficients or the sharp asymptotic. No directly containing quantitative evaluation was located in inspected sources and available indexed records. A mathematical reduction in unindexed work remains possible.
+PASS
 
-**Value: PASS.** Spherical depth is a canonical probability measure for geometric centrality. The rate at which its regular-polygon benchmark approaches the disk is a natural invariant, and the leading fifth power is not the polygon's second-order Hausdorff approximation rate. The exact beta-valued constant and next nonzero term quantify the unusually strong cancellation and enable sharply calibrated asymptotic comparisons of regular polygonal sampling laws. These facts give more than a rephrasing of the existing sign rule; the work does not claim a general extremal theorem for convex bodies.
+Reconstructed from the actual RESULT.md. For area-uniform X in a regular n-gon, polar integration gives f(theta)=sec^2(t)/(2n tan(pi/n)) in each side-normal sector. The disk-diameter criterion is X·Y≤0; the indicator Fourier cosine series has coefficient -2(-1)^((ell-1)/2)/(pi ell) for odd ell. Independent angles give squared Fourier coefficients and dihedral symmetry kills harmonics not divisible by n; even n therefore gives exactly 1/2. For odd n, A_{n,j}= [n tan(pi/n)]^-1 int_0^pi sec^2(u/n)cos(ju)du. Two integrations by parts bound the uniform Taylor remainder by O(j^-2 n^-6). Independent SymPy integration verified the two polynomial cosine moments and coefficients A=(-1)^j[2/(j²n²)+(2pi²/j²-16/j⁴)/n⁴+O(j^-2n^-6)]; squaring and summing against 1/j yields O(n^-9). Beta(5)=5pi^5/1536 and beta(7)=61pi^7/184320 give 5pi^4/192 and 7pi^6/720 with asserted mod-four sign. Independent mpmath harmonic quadrature for odd n=5,7,9,11,21,41,81,161 corroborated the asymptotics; finite harmonic truncations DO NOT prove the uniform infinite remainder. The proof, not the source verifier output, supports the infinite assertion.
 
-**Closest sources and boundaries.** Rabinowitz, arXiv:2608.27491 (triangle exact formula and cone measure); Bremner–Shahsavarifar, arXiv:1702.07399 (general depth algorithm); Math Stack Exchange 5101873 (2025 Fourier representation and sign); Elmore–Hettmansperger–Xuan (definition). Indexed regular-polygon normal and chord laws measure different random variables. Priority beyond the checked material is not certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge originality for the TWO evaluated asymptotic constants with a uniform O(n^-9) remainder. The October 2025 Math Stack Exchange answer already gives the all-n Fourier representation, a parity sign and an O(n^-5)-scale upper estimate; none of those antecedents is novel. Its explicit spectral integral is a serious predecessor and mathematically determines the depth, but its displayed bounds do not give the sharp nonzero coefficient or seventh-order term. Extracting these requires a simultaneous n-inverse expansion uniform across infinitely many harmonics, after which exact Dirichlet beta(5), beta(7) sums give the constants. Inspected accessible primary statements and published-result comparisons did not give the claimed evaluated asymptotic; not guaranteed global priority.
+
+## value
+
+PASS
+
+The uniform depth of the center is a canonical geometric probability for a natural regular-polygon family. MSE already gives a fifth-order upper-bound scale, but the positive sharp coefficient (proving the exponent cannot be improved), exactly evaluated seventh-order correction, and uniform n^-9 remainder are motivated quantitative facts not tabulated in the inspected predecessors. They measure a strong cancellation beyond second-order geometric polygonal approximation, enabling precise regular-polygon benchmarks; a broad convex-body extremal theorem is not demanded by the value standard. This is a narrow, explicitly bounded asymptotic evaluation, not a new underlying definition, qualitative parity rule or finite experiment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:04:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Exact frozen RESULT.md and all six other assigned Git blobs",
+        "/mnt/data/scope_worker01_20261030T0657Z/independent_depth_check.py",
+        "/mnt/data/scope_worker01_20261030T0657Z/independent_depth_results.json"
+      ],
+      "rationale": "Reconstructed from the actual RESULT.md. For area-uniform X in a regular n-gon, polar integration gives f(theta)=sec^2(t)/(2n tan(pi/n)) in each side-normal sector. The disk-diameter criterion is X·Y≤0; the indicator Fourier cosine series has coefficient -2(-1)^((ell-1)/2)/(pi ell) for odd ell. Independent angles give squared Fourier coefficients and dihedral symmetry kills harmonics not divisible by n; even n therefore gives exactly 1/2. For odd n, A_{n,j}= [n tan(pi/n)]^-1 int_0^pi sec^2(u/n)cos(ju)du. Two integrations by parts bound the uniform Taylor remainder by O(j^-2 n^-6). Independent SymPy integration verified the two polynomial cosine moments and coefficients A=(-1)^j[2/(j²n²)+(2pi²/j²-16/j⁴)/n⁴+O(j^-2n^-6)]; squaring and summing against 1/j yields O(n^-9). Beta(5)=5pi^5/1536 and beta(7)=61pi^7/184320 give 5pi^4/192 and 7pi^6/720 with asserted mod-four sign. Independent mpmath harmonic quadrature for odd n=5,7,9,11,21,41,81,161 corroborated the asymptotics; finite harmonic truncations DO NOT prove the uniform infinite remainder. The proof, not the source verifier output, supports the infinite assertion.",
+      "residual_risks": [
+        "The numerical Fourier sums used finite harmonic cutoffs and the n=161 ninth-scaled error is contaminated by truncation; they are not used to claim an exact ninth-order coefficient.",
+        "The argument proves only the asymptotic for odd n→∞ and even-n equality, not a universal finite-n two-term error constant."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902 : exact Fourier series plus integration-by-parts bound, lines 314-321, yields an order n^-5 bound, but no sharp expansion.",
+          "https://arxiv.org/pdf/1702.07399 : 2017 arXiv PDF abstract and §2.1 treat finite input data and an O(N log N) spherical-depth algorithm.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653/RESULT.md : line direction uniform, center-passing chord length; not independent area-uniform endpoint sampling.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-average-normal-deficit-of-regular-odd-polygons--6b1be049a38f/RESULT.md : averaged Euclidean polygon normals, not spherical depth."
+        ],
+        "reasoning": "The MSE representation is the strongest broader predecessor and already dominates the qualitative side-count phenomenon and gives a fifth-order upper bound. Turning it into the precise two-term asymptotic is not an immediate parameter specialization: the leading rate must be shown sharp and the next constant computed through uniformly summed beta-valued Fourier harmonics. The other general and polygonal results do not supply a dominating evaluated asymptotic for this probability.",
+        "searches": [
+          "web: Bremner Shahsavarifar 2017 spherical depth optimal planar algorithm, arXiv 1702.07399",
+          "web: Rabinowitz 2608.27491 triangle incenter random diameter disk polygon cone measure",
+          "Resultary: exact center chord laws of regular polygons and odd normal count, two original RESULT.md files read"
+        ]
+      },
+      "checked_sources": [
+        "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902",
+        "https://arxiv.org/abs/2608.27491",
+        "https://arxiv.org/pdf/1702.07399",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-average-normal-deficit-of-regular-odd-polygons--6b1be049a38f/RESULT.md",
+        "Resultary semantic search: center regular n-gon spherical depth beta(5)/beta(7), 12 hits",
+        "Resultary semantic search: random diameter disk regular polygon Fourier asymptotic, 12 hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902 : exact all-n coefficient integral, parity sign, and summable upper bound; the prior answer does not evaluate beta(5), beta(7), or establish an O(n^-9) two-term expansion.",
+          "https://arxiv.org/abs/2608.27491 : article abstract proves polygonal cone-measure transfer and triangle incenter formula, without a displayed regular n-gon limit theorem.",
+          "https://arxiv.org/pdf/1702.07399 : geometric criterion for discrete spherical depth, not an infinite regular-polygon asymptotic."
+        ],
+        "reasoning": "The earlier exact integral certainly contains the information and the new expression is a mathematically derived refinement; it is not independent discovery of the probability model, Fourier identity, rate upper bound or sign. The asserted increment is the uniform sharp quantitative evaluation, not any special n-value. This is a real priority-overlap risk: an alternative expansion or older equivalent harmonic asymptotic could cover the entire increment.",
+        "searches": [
+          "web: full MSE question/answers 5101873, 2025-10-14 to 2025-10-18",
+          "web: arXiv 2608.27491 Rabinowitz original paper and OA searches",
+          "web: arXiv 1702.07399 Bremner–Shahsavarifar PDF",
+          "Resultary searches listed above"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902 : 2025-10-17/18 Marco answer, lines 303-321, expresses exactly the same probability as Fourier harmonics of the squared radial boundary function, and supplies a side-count-dependent integral for its nonzero coefficients.",
+          "https://arxiv.org/abs/2608.27491 : 2026-08-26 abstract describes the same diameter-disk event and normalized cone measure for polygons, but explicit displayed theorem concerns triangles."
+        ],
+        "reasoning": "The original event is equivalently X·Y≤0 (Thales) and the radial autocorrelation against the obtuse-angle indicator. The previously published Fourier formula is an exact representation for each n, so the angular reduction, qualitative mod-four sign and upper rate cannot be claimed. No inspected text supplies the evaluated sharp asymptotic constant and its seventh-order correction or uniform ninth-order remainder; that is the single narrower scientific finding.",
+        "searches": [
+          "Resultary semantic query: Spherical depth at center of regular polygon, diameter disk, fifth/seventh n^-5 asymptotic Dirichlet beta (12 hits)",
+          "Resultary semantic query: regular n-gon depth random diameter Fourier expansion (12 hits)",
+          "web: original Math Stack Exchange 5101873, regular polygon Fourier answers 2025",
+          "web: spherical depth regular polygon Fourier asymptotic 5 pi^4 /192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902 : discussion has a single pentagon integral/numerical comment and exact Fourier-coefficient integral, no table of fifth/seventh constants.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653/RESULT.md : chord variance decays as n^-4 for a distinct random-line law.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-average-normal-deficit-of-regular-odd-polygons--6b1be049a38f/RESULT.md : normals deficit decays as n^-4 for a different invariant."
+        ],
+        "reasoning": "Neither the retrieved scientific tables nor the near-neighbor published results list the two regular-polygon spherical-depth coefficients. A negative indexed search is only a bounded absence finding, never proof of priority.",
+        "searches": [
+          "web: regular polygon probability n^-5 5 pi^4/192 and 7 pi^6/720",
+          "web: spherical depth regular n-gon quantitative asymptotic 2026",
+          "Resultary nearest hits: parity-resolved central-chord laws, exact average-normal deficit; their RESULT.md read"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the TWO evaluated asymptotic constants with a uniform O(n^-9) remainder. The October 2025 Math Stack Exchange answer already gives the all-n Fourier representation, a parity sign and an O(n^-5)-scale upper estimate; none of those antecedents is novel. Its explicit spectral integral is a serious predecessor and mathematically determines the depth, but its displayed bounds do not give the sharp nonzero coefficient or seventh-order term. Extracting these requires a simultaneous n-inverse expansion uniform across infinitely many harmonics, after which exact Dirichlet beta(5), beta(7) sums give the constants. Inspected accessible primary statements and published-result comparisons did not give the claimed evaluated asymptotic; not guaranteed global priority.",
+      "residual_risks": [
+        "The complete August 2026 Rabinowitz preprint could not be read. Public arXiv/OA full-text retrieval failed, and authorized Oxford service explicitly returned vpn_disconnected; only abstract-level scope is supported.",
+        "The October 2025 MSE exact Fourier identity and n^-5 upper estimate are strong prior coverage, and routine derivation from that identity may narrow perceived originality/value; the evaluated constants and sharp uniform remainder remain the assessed increment.",
+        "Older unindexed exact asymptotic or equivalent Fourier-series computations could cover both constants; keyword/semantic negative searches are not a novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers event, triangle baseline, even-n half depth, odd mod-four qualitative sign, an exact Fourier integral and n^-5-scale upper bound; does not present evaluated fifth/seventh constants or ninth-order uniform remainder.",
+          "evidence": [
+            "2025-10-17/18 Marco answer lines 303-324: Fourier coefficients only at multiples of side number, integration-by-parts bound; October 2025 David K reply lines 231-243: qualitative odd parity distinction."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902",
+          "material_read": "Full retrieved page: original question, four answers, regular-polygon graphical argument lines 231-243, Fourier derivation and bounds lines 303-324 and dated comments.",
+          "method": "Public full HTML retrieved through web, explicit mathematical statement comparison.",
+          "title": "What planar convex shape maximizes the probability that a random circle contains the centre?",
+          "trigger": "Same exact continuous random-diameter event and general regular-polygon Fourier expression, direct potentially covering predecessor."
+        },
+        {
+          "assessment": "The accessible statement concerns triangles and a general directional transfer, not the evaluated regular n-gon asymptotic; no whole-document noncoverage assertion.",
+          "evidence": [
+            "arXiv 2608.27491, posted 2026-08-26; abstract: radial boundary transfer for any convex polygon and exact triangle formula; full paper unavailable this run."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.27491",
+          "material_read": "Full indexed title, abstract, displayed polygon transfer and triangle incenter formula; attempts to fetch arXiv HTML/PDF and lawful OA full text failed.",
+          "method": "ArXiv indexed abstract with unavailable full-text retrieval; authorized Oxford attempt returned vpn_disconnected, not bypassed.",
+          "title": "The Probability That the Incenter of a Triangle Lies in a Random Diameter Disk",
+          "trigger": "Newest same-event primary preprint with a polygonal cone-measure transfer theorem."
+        },
+        {
+          "assessment": "Computational treatment of finite point datasets, not a statement of sharp area-uniform regular-polygon-to-disk asymptotics; remaining uninspected PDF pages not asserted noncovering.",
+          "evidence": [
+            "arXiv 1702.07399, PDF p1 abstract: O(N log N) planar algorithm; PDF p4 angular criterion."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1702.07399",
+          "material_read": "ArXiv PDF abstract, §1, §2 definitions and angular sorting algorithm through page 4; rendered screenshots of PDF pages 1 and 4 inspected.",
+          "method": "Public arXiv PDF text plus page screenshots.",
+          "title": "An Optimal Algorithm for Computing the Spherical Depth of Points in the Plane",
+          "trigger": "Foundational spherical-depth computation might subsume the event."
+        },
+        {
+          "assessment": "Random variable is chord length of a uniformly angular center-passing line, not the disk-inclusion probability for two area-uniform points.",
+          "evidence": [
+            "Full distributional law L_n=r(sec bU+sec b(1-U)) for odd n; n^-4 chord variance."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653/RESULT.md",
+          "material_read": "Entire RESULT.md including finding, full proof, scope and references.",
+          "method": "Published-result original GitHub file through read-only connector.",
+          "title": "Parity-resolved central-chord laws for regular polygons",
+          "trigger": "Closest published mathematical record with regular-polygon parity and asymptotics."
+        },
+        {
+          "assessment": "Mean count of Euclidean normals through an area-random point differs from spherical-depth probability, with n^-4 deficit rather than the asserted n^-5 probability bias.",
+          "evidence": [
+            "Exact normals average 8-2(sec(pi/n)-1)^2, n^-4 deficit."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-average-normal-deficit-of-regular-odd-polygons--6b1be049a38f/RESULT.md",
+          "material_read": "Entire RESULT.md including finding, proof and scope.",
+          "method": "Published-result original GitHub file through read-only connector.",
+          "title": "Exact average-normal deficit of regular odd polygons",
+          "trigger": "Nearby published regular-odd-polygon asymptotic result."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902",
+        "https://arxiv.org/abs/2608.27491",
+        "https://arxiv.org/pdf/1702.07399",
+        "Original RESULT.md argument and independent symbolic coefficient checker"
+      ],
+      "rationale": "The uniform depth of the center is a canonical geometric probability for a natural regular-polygon family. MSE already gives a fifth-order upper-bound scale, but the positive sharp coefficient (proving the exponent cannot be improved), exactly evaluated seventh-order correction, and uniform n^-9 remainder are motivated quantitative facts not tabulated in the inspected predecessors. They measure a strong cancellation beyond second-order geometric polygonal approximation, enabling precise regular-polygon benchmarks; a broad convex-body extremal theorem is not demanded by the value standard. This is a narrow, explicitly bounded asymptotic evaluation, not a new underlying definition, qualitative parity rule or finite experiment.",
+      "residual_risks": [
+        "The new coefficients arise from the already known Fourier integral by asymptotic expansion, so their research significance is that of a sharp exact quantitative benchmark, not a general theory.",
+        "No downstream application or arbitrary-convex-set optimality is proven."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://math.stackexchange.com/questions/5101873/what-planar-convex-shape-maximizes-the-probability-that-a-random-circle-contains/5101902",
+    "https://arxiv.org/abs/2608.27491",
+    "https://arxiv.org/pdf/1702.07399",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-parity-resolved-central-chord-laws-for-regular-polygons--de9bb055a653/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-average-normal-deficit-of-regular-odd-polygons--6b1be049a38f/RESULT.md",
+    "Resultary semantic search: center regular n-gon spherical depth beta(5)/beta(7), 12 hits",
+    "Resultary semantic search: random diameter disk regular polygon Fourier asymptotic, 12 hits"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The sharp n^-5 and n^-7 expansion holds only along odd integers n tending to infinity; no all-n finite error constant or convex-shape extremal theorem.",
+    "Rabinowitz full text unavailable, Oxford VPN disconnected; bounded originality judgment explicitly qualified.",
+    "Source script not blindly executed; independent symbolic and bounded numerical script supplied; no formal or expert verification upgraded."
+  ],
+  "residual_risks": [
+    "The complete August 2026 Rabinowitz preprint could not be read. Public arXiv/OA full-text retrieval failed, and authorized Oxford service explicitly returned vpn_disconnected; only abstract-level scope is supported.",
+    "The October 2025 MSE exact Fourier identity and n^-5 upper estimate are strong prior coverage, and routine derivation from that identity may narrow perceived originality/value; the evaluated constants and sharp uniform remainder remain the assessed increment.",
+    "Older unindexed exact asymptotic or equivalent Fourier-series computations could cover both constants; keyword/semantic negative searches are not a novelty certificate.",
+    "The numerical Fourier sums used finite harmonic cutoffs and the n=161 ninth-scaled error is contaminated by truncation; they are not used to claim an exact ninth-order coefficient.",
+    "The argument proves only the asymptotic for odd n→∞ and even-n equality, not a universal finite-n two-term error constant.",
+    "The new coefficients arise from the already known Fourier integral by asymptotic expansion, so their research significance is that of a sharp exact quantitative benchmark, not a general theory.",
+    "No downstream application or arbitrary-convex-set optimality is proven."
+  ],
+  "schema_version": 1
+}
