@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:18:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md Git blob 43529735beb6fd82c515b7dac678f29b77d2d2ef; verified Git tree c88be6f2afe422dea194f3c2ecc7cb3191fe5f6b; frozen VERIFY.py blob ad815fe199b8f642de86351270853712661435f0.",
+        "Independent enumeration of n=0..262143 for k=1..9 matches the density exactly for k<=8; k=9 differs by one count owing to a finite high-end carry boundary. See independent_batch_results.json.",
+        "Proposition 3.2, Sobolewski–Spiegelhofer, arXiv:2309.00142, supplies the original full-shift recurrences; comparison checks no conflict."
+      ],
+      "limitations": [
+        "The theorem addresses natural density of nondecrease for only shifts 2^k-1 and does not settle arbitrary shifts or full difference laws.",
+        "Finite prefix counts do not establish infinite natural density."
+      ],
+      "rationale": "The exact parity-conditioned increment law for r(q+1)-r(q) follows from the trailing-ones carry. Splitting n=2^kq+a and averaging over the two high-block parities yields P_k=(2+sum_{1<=a<2^k}(G_even(d+hprime)+G_odd(d-h)))/2^(k+1). For k>=4 classify a by v2(a): interior weights W0=W1=37/8 and Wj=8-27/2^(j+2) for j>=2, with two explicitly handled boundary valuation classes. The finite geometric sum is exactly 83*2^(k-6) for T_k and gives P=83/128. Short k direct exact residue evaluation gives listed initial fractions. The infinite limit follows from truncating long carry runs, whose omitted density tends to zero, not from the finite checker.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 2.1 requires a large number of distinct 1-runs of t, whereas t=2^k-1 has one run for every k."
+        ],
+        "reasoning": "Gaussian many-run theorem is not a bound of useful precision here, let alone an exact one-run probability. General all-t recurrences create a priority/implication risk but do not yield the displayed uniform expression as an evaluated prior theorem.",
+        "searches": [
+          "arXiv:2309.00142 Theorem 2.1",
+          "binary adjacent-one number of 11 occurrences under addition Mersenne shift 2^k-1 density r(n+t)>=r(n) exact stabilization 83/128"
+        ]
+      },
+      "checked_sources": [
+        "Sobolewski–Spiegelhofer, arXiv:2309.00142; complete primary PDF",
+        "B. Sobolewski, arXiv:2412.15851, binary blocks general asymptotic; cited comparison only",
+        "Resultary query and superadditivity hit listed in equivalent/table checks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full vector-valued recurrence in prior Proposition 3.3 can compute c_t for any fixed integer t; it does not assert the exact stabilization across all k."
+        ],
+        "reasoning": "No stronger already evaluated bound/theorem is identified; in principle a specialization of the 2023 recurrence might offer a shorter proof, so equivalence or earlier hidden derivation remains a risk.",
+        "searches": [
+          "arXiv:2309.00142 Proposition 3.2 and Proposition 3.3",
+          "binary adjacent-one number of 11 occurrences under addition Mersenne shift 2^k-1 density r(n+t)>=r(n) exact stabilization 83/128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sobolewski–Spiegelhofer (2023) defines exactly the same adjacent-11 difference d(t,n) and its density distributions c_t; general recursive components a_t,b_t."
+        ],
+        "reasoning": "The identical object is recognized, not renamed. Its recurrences recursively determine individual t, but deriving a closed constant simultaneously for arbitrarily long one-run shifts requires a family-level invariant and summation absent from the inspected paper.",
+        "searches": [
+          "binary adjacent-one number of 11 occurrences under addition Mersenne shift 2^k-1 density r(n+t)>=r(n) exact stabilization 83/128",
+          "arXiv:2309.00142 Proposition 3.2; §3.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary most relevant hit: Superadditivity of summatory all-one block counts, 2026/10/4/SCOPE-superadditivity-of-summatory-all-one-block-counts--6618f31b8fde; object is cumulative block counts, not sign of a fixed-shift difference.",
+          "OEIS A014081 supplies r(n), not the Mersenne-shift nondecrease-density table."
+        ],
+        "reasoning": "No identical table or exact-family formula found in these actual checks; failed retrieval is not proof that no unindexed entry exists.",
+        "searches": [
+          "Resultary semantic query: binary adjacent-one number of 11 occurrences under addition Mersenne shift 2^k-1 density r(n+t)>=r(n) exact stabilization 83/128",
+          "OEIS A014081"
+        ]
+      },
+      "rationale": "The genuinely uniform evaluation P_k=83/128 for every k>=4 is not explicitly given in the inspected all-shift recursive prior source. The earlier work supplies general computational recurrences and a central-limit statement depending on many 1-runs, but its recurrence does not itself display or establish uniform stabilization for this one-run family; the novel content is the nontrivial all-k summation.",
+      "residual_risks": [
+        "A not-indexed specialization of Sobolewski–Spiegelhofer all-shift recurrences might already tabulate the Mersenne family; this is best-of-knowledge novelty, not a guarantee.",
+        "OEIS and secondary literature were not exhaustively scanned."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General recursion covers computation for every fixed t, but no inspected exact closed stabilization for t=2^k−1.",
+          "evidence": "Proposition 3.2 parity recurrences a_{4t+i},b_{4t+i}; Theorem 2.1 requires many 1-runs of the shift.",
+          "identifier_or_url": "https://arxiv.org/pdf/2309.00142",
+          "material_read": "Full 19-page preprint: abstract, Definitions (2.1), Theorem 2.1, Propositions 3.2–3.3, recurrences, remarks on one-run hard cases and proof sections.",
+          "method": "Lawful arXiv full PDF, text and page screenshots, with direct formula comparison.",
+          "title": "Block occurrences in the binary expansion",
+          "trigger": "Same r(n), same d(t,n), closest possible full coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Uniform positive margin 83/128−1/2=19/128 for all arbitrarily long one-run shifts."
+      ],
+      "limitations": [
+        "No result for general shifts."
+      ],
+      "rationale": "The adjacent-11 analogue of a Cusick-type sign-bias problem is a motivated digital-arithmetic question. The infinite family 2^k−1 stays outside the many-run central-limit regime; an exact rational density independent of k from k=4 gives a substantive arithmetic stabilization, rather than an arbitrary finite enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Sobolewski–Spiegelhofer, arXiv:2309.00142; complete primary PDF",
+    "B. Sobolewski, arXiv:2412.15851, binary blocks general asymptotic; cited comparison only",
+    "Resultary query and superadditivity hit listed in equivalent/table checks",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-mersenne-shift-bias-for-adjacent-one-counts-in-binary-expa--1b399a3bc79f/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each integer k>=1 the density of r(n+2^k-1)>=r(n), with r counting overlapping binary 11, exists and equals 13/16,47/64,87/128 for k=1,2,3 and 83/128 for every k>=4.",
+  "limitations": [
+    "The theorem addresses natural density of nondecrease for only shifts 2^k-1 and does not settle arbitrary shifts or full difference laws.",
+    "Finite prefix counts do not establish infinite natural density.",
+    "No result for general shifts."
+  ],
+  "residual_risks": [
+    "A not-indexed specialization of Sobolewski–Spiegelhofer all-shift recurrences might already tabulate the Mersenne family; this is best-of-knowledge novelty, not a guarantee.",
+    "OEIS and secondary literature were not exhaustively scanned."
+  ],
+  "schema_version": 1
+}
