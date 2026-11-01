@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof's critical exact identity is \(M^3=(n-1)I_3\); it follows by multiplying the explicit matrices in the result. The three reflected path forms evaluate respectively to \(u^\mathsf T N M^{3h+1}e=0\), \(u^\mathsf T M^{3h+1}e=0\), and \(u^\mathsf T N M^{3h-2}Ne=n(n-1)^h\). The homology-concentration premise is Theorem 22 of arXiv:2307.12401.
+## correctness
 
-A second, independent finite implementation constructs the original categorical-product graph, its reflection vertex orbits and their forbidden internal edges, then recursively computes the exact integer signed independence count of the orbit graph. A separate implementation applies the transfer matrices. Exact agreement holds for all \(1\le r\le5\), \(2\le n\le5\), and both reflection-axis types where applicable. A third method enumerates every original independent set and its signed orbit cycles for \((m,n)=(3,3),(6,3),(6,4),(9,3)\), agreeing with the preceding two checks. Run `python3 cycle_reflections_checker.py`.
+PASS
 
-Limits: the finite checker is not a proof for unbounded \(r,n\); the matrix identity and folding argument supply that proof. No statement about joint nontrivial color permutations, integral representations or independent external validation is made.
+Define categorical-product edges by adjacent cycle layers and unequal colors. Augmented Hopf trace for a reflection on a complex with rational reduced homology only in odd degree 2r−1 yields trace = sum over invariant independent faces (−1)^(number of vertex-orbits). Such a face is an independent set of allowable reflection vertex-orbits; a reflected edge imposes an end cap forbidding multiple colors. Free/capped folded path layer states empty/singleton/multiple give M=[[1,1,1],[-n,-1,0],[n−1,0,0]], N=[[1,1,1],[-n,-1,0],[0,0,0]]. Independent symbolic multiplication confirms M³=(n−1)I, uᵀNMe=0, uᵀMe=0, uᵀNMNe=n(n−1). Free/capped lengths yield 0 (r odd), 0 (r even vertex axis), n(n−1)^(r/2) (r even edge axis) for all r≥1,n≥2. The homology concentration is the same-family published Theorem22 premise, which was verified in its displayed primary theorem excerpt.
+
+## originality
+
+PASS
+
+Best-of-knowledge novelty PASS for the full reflection character, not the antecedent non-equivariant homotopy or general Lefschetz method. The distinction of two even-cycle reflection classes is not inferable from homology ranks or cyclic characters.
+
+## value
+
+PASS
+
+The formulas determine actual dihedral symmetry of rational homology on an infinite natural categorical-product family, including axis-dependent reflection eigenspace imbalance. This provides genuinely new equivariant information invisible to the known sphere counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
