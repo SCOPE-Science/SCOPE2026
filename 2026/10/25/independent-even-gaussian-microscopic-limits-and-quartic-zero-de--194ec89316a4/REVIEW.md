@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The reciprocal identity explicitly converts the two microscopic windows to even Gaussian cosine sums. Their individual covariance kernels converge by Riemann sums to the same nondegenerate entire kernel, while the alternating cross-covariances vanish on every compact set; circularity makes the Gaussian limits independent. Gaussian analytic tightness and Hurwitz's theorem give zero-process convergence. The Edelman–Kostlan Laplacian applied to the exact limiting diagonal covariance yields \(\rho(w)=4|w|^2/(45\pi)+O(|w|^4)\), so disk integration gives \(\(2r^4/45+O(r^6)\)\). Conditional absolute continuity of the central Gaussian coefficient excludes finite-degree unit-circle zeros, yielding the exact half split. Symbolic bivariate Taylor and finite Gaussian moments are replayed in `verify.py`; the infinite assertions are analytic.
+## correctness
 
-## Originality — PASS under inspected evidence
-The full-text October 8, 2026 iid/random-sign radial-law study of Kawada does not supply a mirrored-coefficient cosine-transform two-window limit. The closest full-text comparative source is Kabluchko–Khoruzhenko–Marynych (2025): it treats **conjugate-reversed self-inversive** polynomials, whose unit-circle restriction is real and supports positive unit-circle zero density. Our model uses **unconjugated reversed** coefficients; its restriction is complex, giving almost surely zero boundary roots and a distinct even complex GAF. General Gaussian analytic intensity identities and independent-coefficient local universality are acknowledged and not claimed new. Searches found no covering model-specific two-fixed-point quartic law; historical literature may still hide an equivalent formulation. Independent literature assessment is outstanding.
+PASS
 
-## Value — PASS
-Near a reciprocal fixed point, the symmetry forces the first derivative of the holomorphic field to vanish, changing the expected local zero mass from the generic quadratic small-disk order to a rigorously computed quartic order. The result identifies the complete scaling field, establishes asymptotic independence of the two geometrically distinguished windows despite shared finite coefficient randomness, and proves the exact finite-degree interior/exterior split. This is a natural structural boundary case for recent random-polynomial radial-limit work, not an arbitrary finite coefficient extraction.
+PASS: After factoring z^n, the two analytic rescalings are even Gaussian sums with opposite signs (-1)^j. On compacts, diagonal covariance tends by Riemann sum to 4∫cosh(tw)conj(cosh(tv))dt; off-diagonal alternating sum O(1/n) and zero pseudo-covariance establish independence. Uniform Gaussian moment bounds give compact-open tightness, and Hurwitz/argument principle give zero-count convergence. Independently computed K(w,w)=sinh(2x)/x+sin(2y)/y, Δlog K = (16/45)(x²+y²)+O(|w|⁴) and EN(B_r)=(2/45)r⁴+O(r⁶); finite-n exact moment coefficients converge. Conditioning on independent ξ_n shifts a smooth planar curve away from 0 almost surely, proving no finite-degree unit-circle zeros; reciprocity then pairs inside/outside. Limits require fixed compact w sets, not uniform in growing windows.
 
-## Closest literature and limitations
-Sources: Kawada, arXiv:2610.11324v1; Kabluchko, Khoruzhenko and Marynych, arXiv:2511.12302v1; Edelman–Kostlan framework in Hough–Krishnapur–Peres–Virág; nearby Tao–Vu independent-coefficient universality and Noda finitely dependent Gaussian work. Scope is fixed-point windows of Gaussian palindromic models only; non-Gaussian universality, global root statistics and independent historical priority verification remain unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge: the primary 2025 Kabluchko–Khoruzhenko–Marynych paper treats independent-coefficient regular-variation polynomials and self-inversive conjugated-reverse coefficients, with real unit-circle boundary traces; our mirrored half-coefficients are non-conjugated self-reciprocal and yield an even complex Gaussian entire field, with zero-free finite unit circle. Classic Edelman–Kostlan intensity and Hurwitz imply the technique but not this covariance or two-window decorrelation. A general dependent Gaussian analytic field theorem could subsume formulation, so priority is qualified.
+
+## value
+
+PASS
+
+PASS: a natural reciprocal-symmetry random polynomial exhibits exact two-fixed-point decorrelation while having quadratic local intensity depletion and quartic zero-count growth. The exact local exponent and coefficient expose a geometric symmetry obstruction and distinguish self-reciprocal from self-inversive zero laws.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
