@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T06:08:19Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Six unordered pair states plus merger sink encode the original game by the published localization lemma. The Bob-first least attractor with all reply lengths <k classifies membership; for unrestricted replies a simple path visits at most six nonsingleton vertices, so R6 and Rω agree on nonsingleton outcomes. An independently implemented C++ exact enumeration covered all 256²=65,536 ordered transition pairs, independently reproduced A1..A6=51,520;25,360;22,384 x4, category counts 14,016;26,160;2,976;22,384, and 1,474 symmetry orbits (359;551;62;502) and checked sharp witness A2 not A3. Exhaustive finite enumeration constitutes full domain proof, not sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.2 establishes optimal global k(n)=n(n-1)/2 for arbitrary alphabets, with higher-letter witnesses.",
+          "Earlier games study single-letter alternation or different avoiding/reset thresholds."
+        ],
+        "reasoning": "The known broader class theorem cannot prove stabilization at k=3 for a binary-restricted class. Distinguish other games and counting parameters.",
+        "searches": [
+          "arXiv:2601.18362 Theorem 5.2",
+          "FUN 2022 The Synchronization Game on Subclasses of Automata",
+          "Resultary 5-state binary avoiding threshold classes"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2601.18362 Sections 2, 3 and 5",
+        "FUN 2022 published result description",
+        "Resultary semantic automata search",
+        "actual frozen verifier files verify_bobfirst.py, verify_alicefirst.cpp, verify_orbits.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original gives localization plus a sharp arbitrary-alphabet k6 bound and examples with extra letters.",
+          "Exhaustive binary enumeration shows no strict level beyond k3 and exhibits A2∖A3 witness; under state/letter group action counts 359/551/62/502."
+        ],
+        "reasoning": "A universal k6 theorem has no implication that all binary 4-state examples stabilize already at k3; the latter requires a separate restricted proof.",
+        "searches": [
+          "arXiv:2601.18362 Section 5.1 and Theorem 5.2",
+          "arXiv:2601.18362 Lemma 2.3",
+          "The Synchronization Game on Subclasses of Automata DOI:10.4230/LIPIcs.FUN.2022.14"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lipin–Volkov Lemma 2.3 characterizes whole-automaton winners by pair games; Theorem 5.2 gives unrestricted-alphabet cutoff C(4,2)=6.",
+          "The evaluated 6-pair attractor uses Bob reply-word reachability with exactly these rules."
+        ],
+        "reasoning": "The pair-automaton game is mathematically equivalent to the claim. The original general cutoff is weaker on binary alphabets and does not yield the 3 cutoff or distribution.",
+        "searches": [
+          "Resultary: adversarial synchronization binary four state automata hierarchy 3 reset game enumeration",
+          "arXiv:2601.18362 Lemma 2.3, Section 5",
+          "synchronization game fixed alphabet 4 states binary"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source packet claims 51,520/25,360/22,384 and 1,474 orbits; independent checker reconstructed 65,536 transition tables and symmetry orbits and reproduced all figures.",
+          "No prior matching all-table classification was returned by these searches."
+        ],
+        "reasoning": "The exact finite census is inherently tabulatable; independent reconstruction rules out a source-counting error but not unknown prior publication.",
+        "searches": [
+          "exact count 22384 A3 Aomega 4-state binary automata",
+          "1474 orbits adversarial synchronization binary four-state",
+          "Resultary automata semantic search"
+        ]
+      },
+      "rationale": "Lipin–Volkov define the adversarial games, localize to pairs, and prove a sharp cutoff of six for four states with unrestricted alphabets. Their construction uses more symbols to obtain later strict levels. The binary-specific stabilization at k=3 and complete 65,536-table and 1,474-orbit distribution were independently established and not implied by the all-alphabets theorem.",
+      "residual_risks": [
+        "An unindexed exact binary four-state enumeration could preempt the census despite no match in source searches.",
+        "Class membership is for ordered two-letter DFAs, not transition semigroup isomorphism; no larger-n cutoff asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides localization and general k6 cutoff, not the specific binary k3 census.",
+          "evidence": [
+            "Lemma 2.3 p.5; Theorem 5.2 p.26; hierarchy remark p.29"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.18362",
+          "material_read": "34-page primary PDF accessible; read Section 2.3 Lemma 2.3, pair-game recursion in Section 3, and Section 5.1 Theorem 5.2 plus hierarchy remark and witnesses.",
+          "method": "primary arXiv PDF, page/section text",
+          "title": "Adversarial Synchronization",
+          "trigger": "identical game definitions, four-state cutoff"
+        },
+        {
+          "assessment": "Studies another alternating-letter game and subclasses; no exact bounded-word hierarchy table established from inspected material.",
+          "evidence": [
+            "FUN 2022 abstract and statement scope"
+          ],
+          "identifier_or_url": "https://doi.org/10.4230/LIPIcs.FUN.2022.14",
+          "material_read": "Published abstract and model description examined, not asserted to be exhaustively read.",
+          "method": "published abstract/description",
+          "title": "The Synchronization Game on Subclasses of Automata",
+          "trigger": "nearby named game"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact binary-alphabet refinement of a natural adversarial synchronization hierarchy is a genuine restricted-alphabet cutoff and complete orbit classification. The sharp level-three boundary and explicit witness can inform later fixed-alphabet classifications; the result does not extrapolate to five states.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2601.18362 Sections 2, 3 and 5",
+    "FUN 2022 published result description",
+    "Resultary semantic automata search",
+    "actual frozen verifier files verify_bobfirst.py, verify_alicefirst.cpp, verify_orbits.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All scientific statements and certificates are bounded to the specific hypotheses in RESULT.md; finite tests are not infinite proofs.",
+    "Only a subset of every longer primary paper was read despite full-text access; no whole-document noncoverage assertion is made.",
+    "No existing verification, expert or formal channel is upgraded by this assessment."
+  ],
+  "residual_risks": [
+    "An unindexed exact binary four-state enumeration could preempt the census despite no match in source searches.",
+    "Class membership is for ordered two-letter DFAs, not transition semigroup isomorphism; no larger-n cutoff asserted."
+  ],
+  "schema_version": 1
+}

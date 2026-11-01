@@ -1,19 +1,21 @@
-# Review of the binary four-state adversarial synchronization census
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The game is reduced to its six pair positions by the established pair-localization lemma. The finite winning-region iteration is an exact least fixed point of the alternating quantified game operator, including empty replies. The full \(256\times256\) ordered transition-table set is enumerated, and the unrestricted-reply closure is checked independently of any finite-horizon conjecture. Independent Alice-first and Bob-first programs agree exactly on every class count; an independent canonicalization program verifies the symmetry orbit counts. The finite scripts were executed from the package sources.
+PASS
 
-## Originality
+Six unordered pair states plus merger sink encode the original game by the published localization lemma. The Bob-first least attractor with all reply lengths <k classifies membership; for unrestricted replies a simple path visits at most six nonsingleton vertices, so R6 and Rω agree on nonsingleton outcomes. An independently implemented C++ exact enumeration covered all 256²=65,536 ordered transition pairs, independently reproduced A1..A6=51,520;25,360;22,384 x4, category counts 14,016;26,160;2,976;22,384, and 1,474 symmetry orbits (359;551;62;502) and checked sharp witness A2 not A3. Exhaustive finite enumeration constitutes full domain proof, not sampling.
 
-PASS within the inspected record. Lipin--Volkov's general four-state cutoff at \(6\) does not imply the binary cutoff at \(3\), and their decidability theorem does not supply the exact table or orbit frequencies. Fernau--Haase--Hoffmann classify related single-letter games on restricted automata families rather than this complete binary bounded-response census. Searches for exact frequency values, alphabet-restricted stabilization, and equivalent game formulations did not identify a covering theorem. Unindexed enumerations and the unavailable conference text remain risks.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The sharp binary cutoff distinguishes alphabet-sensitive adversarial dynamics from the already-known alphabet-unrestricted sharp bound. The exact complete census and orbit decomposition quantify how often synchronized control withstands bounded versus unrestricted interference and provide a fully reproducible small-state benchmark. The level-two versus level-three separation is witnessed by an explicit automaton; the result is not merely a program that checks individual instances. No higher-state extrapolation is asserted.
+Lipin–Volkov define the adversarial games, localize to pairs, and prove a sharp cutoff of six for four states with unrestricted alphabets. Their construction uses more symbols to obtain later strict levels. The binary-specific stabilization at k=3 and complete 65,536-table and 1,474-orbit distribution were independently established and not implied by the all-alphabets theorem.
 
-## Scope and risk
+## value
 
-The result is confined to complete deterministic four-state two-letter automata. Exact data for three states are controls, not a second claimed discovery. Full coverage of every published or unpublished enumeration cannot be guaranteed, and no independent scientific audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact binary-alphabet refinement of a natural adversarial synchronization hierarchy is a genuine restricted-alphabet cutoff and complete orbit classification. The sharp level-three boundary and explicit witness can inform later fixed-alphabet classifications; the result does not extrapolate to five states.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
