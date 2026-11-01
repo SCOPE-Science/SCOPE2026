@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:56:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned `CHECK.py` reconstructs disconnected triples, dual faces and exact fixed-simplicial-chain signs at n=5..7; finite checker does not replace shellability theorem.",
+        "Independently counted B_n and L_n faces for n=5,6,7 and obtained b_n=1,19,71 by Euler identity.",
+        "Algebraic n>=5 proof uses published multiple-chessboard shellability, integral universal coefficients and Alexander duality; the group signs follow from row swap and orientation of all 2n vertices."
+      ],
+      "rationale": "For crown G_n=K_(n,n) minus a perfect matching (n>=5), a disconnected induced triple is exactly the obstruction defining the Alexander dual L of the ordinary three-cut complex X. A subset of L with at least three vertices must have at most two from each part and at most one from each omitted pair, hence L is the two-row capacity-two, one-per-column multiple chessboard B_n together with n extra isolated-in-2-skeleton edges a_i b_i. The cited published shellability theorem applies for n>=5, making B_n a pure three-dimensional wedge of b_n=1+n(n-2)(n-3)(n-5)/4 three-spheres. Since adjoining n edges creates n free independent 1-cycles, L has free reduced homology Z^b_n in degree3 and Z^n in degree1. Integral Alexander duality on 2n vertices yields free reduced H_{2n-6}(X)=Z^b_n and H_{2n-4}(X)=Z^n, no other degrees. The former non-top homology obstructs shellability of pure X. Signed fixed-face enumeration of the chessboard core gives T_0=Q(c1)-2c2P(c1)+c2(c2-1) and T_1=1-2c2+4 binom(c2,2)-2c4. Equivariant Alexander duality adds vertex permutation orientation (-1)^{n eps}, while the extra edges give (-1)^eps c1; the stated two full rational characters follow. Independent complete A/B subset counts for n=5,6,7 reproduced chessboard f-vectors, the n exceptional edges, and b_n=1,19,71.",
+      "risks": [
+        "The uniform torsion-free conclusion relies on the cited shellability theorem for the exact row/column-capacity regime; it is not proved by modular rank tests.",
+        "No integral representation decomposition or full homotopy type of original X_n is asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jojić–Vrećica–Živaljević supply shellability of B_n for n>=5, not the n added matched edges nor Alexander dual X_n.",
+          "Known general 2-cut theorems use a different cut order, and rook results do not cover the crown graph."
+        ],
+        "reasoning": "Even combining the known B_n core homology with graph definitions requires the new exact dual and equivariant edge action. Prior stronger theorems located did not imply the complete n>=5 two-band characters.",
+        "searches": [
+          "arXiv:1412.0386 Theorem 4.4 multiple chessboard shellability",
+          "arXiv:2304.13675 Theorem 6.4 2-cut for triangle-free",
+          "Resultary: complete multipartite and rook graph cut complexes"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1412.0386",
+        "https://arxiv.org/abs/2304.13675",
+        "https://arxiv.org/abs/2407.08158",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+        "Actual source `CHECK.py` proof certificate and separate n=5..7 enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B_n shellability is a known ingredient. L_n=B_n with n extra matched edges is an additional combinatorial identification.",
+          "The orientation-twisted homology-character formulas require signed fixed-face sums; neither a bare shellability theorem nor homology rank forces the two characters."
+        ],
+        "reasoning": "The claim is not a trivial substitution of a known chessboard theorem; the extra-edge decomposition, Alexander dual, and S_n×C2 action have to be supplied. Historical general cut theorem coverage is bounded by inspected material.",
+        "searches": [
+          "arXiv:1412.0386 theorem stated shellability criterion",
+          "arXiv:2304.13675 and 2407.08158 cut-complex frameworks",
+          "Resultary published rook three-cut homology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Crown graph is K_(n,n)-M, with n=4 isomorphic to Q3; previous cube calculations cover only n=4.",
+          "The rook graph K_m square K_n has different edges from the matching-deleted complete bipartite graph."
+        ],
+        "reasoning": "The exact ordinary Δ_3 cut definition, crown alias and chessboard dual were compared. Other complexes with the word cut or chessboard do not determine the crown Alexander dual with exceptional matched edges.",
+        "searches": [
+          "Resultary: three-cut complex crown graph complete bipartite minus matching",
+          "Resultary: rook graph three-cut equivariant homology",
+          "arXiv:2304.13675 and arXiv:2407.08158 cut complexes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A published n=4 cube result and a rook graph all-parameter result were explicitly compared.",
+          "Independent n5..7 counts match exact formula; searching numeric coincidences alone does not identify an equivalent theorem."
+        ],
+        "reasoning": "These are a whole infinite family of natural cut complexes; exact small-n ranks serve as tests, not as a substitute for all-n evidence. No matching prior table was identified.",
+        "searches": [
+          "Resultary: crown n5 n6 n7 3 cut homology rank 1 19 71",
+          "Resultary: hypergraph cut complex crown 3-cut exact Betti table",
+          "arXiv:2304.13675 and 2407.08158 published examples"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution: The claim is not a trivial substitution of a known chessboard theorem; the extra-edge decomposition, Alexander dual, and S_n×C2 action have to be supplied. Historical general cut theorem coverage is bounded by inspected material.",
+      "residual_risks": [
+        "The high-relevance general cut-complex paper and chessboard source were not read in full during this run; uninspected appendices and unindexed crown specializations remain priority risks.",
+        "Shellability is a cited standard theorem, not a new proof; novelty is limited to the dual decomposition and resulting all-n original cut homology/characters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known premise establishes shellability under n>=5, not crown cut characters; full-text noncoverage not asserted",
+          "evidence": [
+            "Theorem 4.4 identified as sharp connectivity/shellability in abstract.",
+            "The required inequality specializes to n>=2+2+2-1=5."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1412.0386",
+          "material_read": "Accessible abstract and Theorem 4.4 identification; full-text HTML retrieval unavailable during run",
+          "method": "Compare cited hypothesis n>=sum capacities+rows-1 with k1=k2=2",
+          "title": "Multiple chessboard complexes and the colored Tverberg problem",
+          "trigger": "Exact auxiliary shellability theorem for B_n"
+        },
+        {
+          "assessment": "No verified whole-document noncoverage; compare only identified cut-order hypotheses",
+          "evidence": [
+            "Relevant theorem concerns Δ_2 connected triangle-free graphs, unlike Δ_3(G_n)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2304.13675",
+          "material_read": "Accessible abstract and named theorem summaries; original entire text not accessed in this run",
+          "method": "Check definition and known 2-cut versus requested 3-cut",
+          "title": "Topology of Cut Complexes of Graphs",
+          "trigger": "Definition and broad potential coverage of ordinary cut complexes"
+        },
+        {
+          "assessment": "Graph K_m square K_n differs combinatorially; no full-document noncoverage inference",
+          "evidence": [
+            "Rook graph uses within-row/column adjacency, unlike crown graph cross adjacency with deleted matching."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-integral-and-equivariant-homology-of-three-cut-complexes-of-rook--bd50464fc17f",
+          "material_read": "Resultary ranked title and precise summary, not the full result file",
+          "method": "Compare graph families and conclusions in available summary",
+          "title": "Integral and equivariant homology of three-cut complexes of rook graphs",
+          "trigger": "Same cut order and representation question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Infinite family n>=5 with exact two nonzero integral homology degrees and closed S_n×C2 rational characters.",
+        "Natural connection between ordinary three-cut complexes and a multiple-chessboard complex with exceptional edges."
+      ],
+      "rationale": "This gives a complete all-n integral and equivariant homology classification for a canonical connected bipartite graph family and detects non-shellability despite purity. Two separated homological degrees and complete S_n×C2 characters make it a structural cut-complex result, not a recomputation of the shellable chessboard core.",
+      "risks": [
+        "Does not identify full homotopy type, integral character extensions, cup products or other cut orders."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

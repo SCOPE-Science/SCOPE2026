@@ -1,15 +1,21 @@
-# Scientific review — crown-graph three-cut homology and symmetry
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of the ordinary \(3\)-cut complex makes its Alexander dual the forbidden-disconnected-triple complex. Every face of size at least three must and does satisfy the two-row, two-per-row, one-per-column chessboard constraints. All other allowed faces beyond that core are exactly the \(n\) matched edges. Jojić–Vrećica–Živaljević's Theorem 4.4 is applicable precisely because \(n\ge5\), establishing a pure shellable three-dimensional core. The explicit face vector and reduced Euler characteristic yield the integer sphere rank. Attaching the matched edges yields \(n\) additional one-cycles. Integral Alexander duality and the universal coefficient theorem give the stated torsion-free groups without extrapolating from finite computations. Signed fixed-face enumeration proves the two rational characters, including the orientation twist in duality. The standalone finite tester independently checks the low-parameter identities, ranks over two prime fields, and every conjugacy type in \(n=5,6,7\).
+## correctness
 
-## Originality — PASS on inspected evidence
-The same graph at \(n=4\) is the already studied three-cube, and that previously known classification is not claimed. The 2014/2015 multiple-chessboard paper already proves the shellability used as an input, and explicitly discusses small cases. Neither of the two cut-complex primary papers inspected establishes the crown-graph three-cut results, and their broader complete-multipartite or disjoint-union statements do not imply the matching-deleted graph case. The adjacent published two-row-rook-neighborhood result uses the crown graph as a gluing locus but computes a different complex. Direct database searches under crown, bipartite matching deletion, multiple chessboard duality, and equivariant characters found no covering claim. The remaining risk is an equivalent result outside indexed and inspected sources, not mathematical uniqueness.
+PASS
 
-## Value — PASS
-Deleting a perfect matching from a complete bipartite graph is a canonical and parameter-uniform perturbation. The result identifies its three-cut complexes as an infinite family of **pure nonshellable** complexes with two separated free integral homology degrees, with an exact all-parameter formula for both ranks and the complete symmetry characters. Symmetry information distinguishes action not visible in the Betti numbers, including part-swap orientation parity. This goes beyond a finite example or a restatement of shellability of the auxiliary chessboard complex.
+For crown G_n=K_(n,n) minus a perfect matching (n>=5), a disconnected induced triple is exactly the obstruction defining the Alexander dual L of the ordinary three-cut complex X. A subset of L with at least three vertices must have at most two from each part and at most one from each omitted pair, hence L is the two-row capacity-two, one-per-column multiple chessboard B_n together with n extra isolated-in-2-skeleton edges a_i b_i. The cited published shellability theorem applies for n>=5, making B_n a pure three-dimensional wedge of b_n=1+n(n-2)(n-3)(n-5)/4 three-spheres. Since adjoining n edges creates n free independent 1-cycles, L has free reduced homology Z^b_n in degree3 and Z^n in degree1. Integral Alexander duality on 2n vertices yields free reduced H_{2n-6}(X)=Z^b_n and H_{2n-4}(X)=Z^n, no other degrees. The former non-top homology obstructs shellability of pure X. Signed fixed-face enumeration of the chessboard core gives T_0=Q(c1)-2c2P(c1)+c2(c2-1) and T_1=1-2c2+4 binom(c2,2)-2c4. Equivariant Alexander duality adds vertex permutation orientation (-1)^{n eps}, while the extra edges give (-1)^eps c1; the stated two full rational characters follow. Independent complete A/B subset counts for n=5,6,7 reproduced chessboard f-vectors, the n exceptional edges, and b_n=1,19,71.
 
-## Scope and scientific limits
-This conclusion is about reduced integral homology and rational characters; it does not assert a wedge decomposition for the cut complex, an integral module splitting, or external independent certification. The only previous small crown case and the core shellability result are fully credited; published papers were examined for domination by general results. Equivalent unindexed coverage remains a residual risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original contribution: The claim is not a trivial substitution of a known chessboard theorem; the extra-edge decomposition, Alexander dual, and S_n×C2 action have to be supplied. Historical general cut theorem coverage is bounded by inspected material.
+
+## value
+
+PASS
+
+This gives a complete all-n integral and equivariant homology classification for a canonical connected bipartite graph family and detects non-shellability despite purity. Two separated homological degrees and complete S_n×C2 characters make it a structural cut-complex result, not a recomputation of the shellable chessboard core.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
