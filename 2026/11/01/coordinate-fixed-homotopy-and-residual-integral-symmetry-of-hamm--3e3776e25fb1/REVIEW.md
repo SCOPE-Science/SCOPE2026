@@ -1,0 +1,11 @@
+# Review of coordinate-fixed Hamming total two-cut complexes
+
+**Correctness (PASS).** The fixed-point barycentric triangulation is canonical, not an inference from invariant ambient homology. A nonconstant histogram orbit contains a two-position transposition pair, and any two distinct constant words are nonadjacent because \(n\ge2\). This determines every face and gives the exact dual as \(q\) isolated constant vertices, with no extra edge. Two contractible-piece gluing and the simplex-skeleton recurrence establish \(\bigvee^{q-1}S^{T-3}\), including the disconnected extreme case. Signed integral Alexander duality produces the coaugmentation quotient lattice with the permutation-orientation twist. Eleven exhaustive finite cases and 46 character checks corroborate critical steps; none are substituted for general proofs.
+
+**Originality (PASS with residual risk).** Carnero Bravo (arXiv:2602.21427, Theorem 52) gives nonequivariant ambient homotopy, and the closest published published-finding corpus item `719066eb9684` gives an ambient rational automorphism character, not geometric fixed-space homotopy or the integral residual action. The remaining cited works concern general total cuts, products with paths or cycles, or two-factor special cases. Direct comparisons of statements and relevant theorem text found no implication of the new claim. Web and published-finding corpus searches cannot rule out unindexed equivalent fixed-point results; this remains a meaningful risk.
+
+**Value (PASS).** This classifies a natural infinite bivariate family of *geometric fixed loci* with unbounded dimensions, gives a canonical PL model and all integral reduced homology, and captures the nontrivial residual alphabet-group integral lattice. Unlike a rank-only computation, the coaugmentation quotient with its orientation twist answers an equivariant question invisible to previously reported nonequivariant Betti numbers or ambient fixed vectors.
+
+**Scope and limitations.** Applies to the whole coordinate-permutation subgroup, not arbitrary subgroups, and identifies an integral homology module, not an equivariant homotopy splitting. Independent validation and exhaustive novelty screening remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
