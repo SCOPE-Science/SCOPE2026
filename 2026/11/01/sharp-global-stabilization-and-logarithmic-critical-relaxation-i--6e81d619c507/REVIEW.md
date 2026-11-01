@@ -1,0 +1,19 @@
+# Scientific review: global stabilization and critical relaxation
+
+## Correctness — PASS
+
+For all \(a,b,c>0\), the theorem treats finite-time continuation, all equilibria and all real initial conditions. The exact cancellation \(\dot H=-w^2+(c-b)w\) makes solutions globally forward complete. For \(c>b\), differentiation of the proper quadratic form gives \(\dot V_q=-ax^2-q(z-c)^2\), establishing convergence by LaSalle and local exponential stability by the Hurwitz spectrum. For \(c=b\), the omega-limit set is compact, full and contained in \(w=0\); its only compact full invariant subset is the equilibrium, establishing the endpoint without assuming strict negativity. For \(c<b\), two additional explicit equilibria and a positive eigenvalue exclude global attraction. Direct verification of the center-manifold invariance equations gives a cubic term and its quintic correction; their reciprocal-square reduction yields both exact coefficients and a convergent additive remainder. Standard exponential stable-foliation tracking lifts the full expansion to all nonexceptional trajectories. The attached executable independently checks the crucial polynomial identities and finite trajectories. No numerical experiment is mistaken for an infinite proof.
+
+## Originality — PASS within accessible evidence
+
+The primary text of Yan–Liu–Jie–Hong (2024), including the printed equation, equilibrium section, parameter-dependent attractor figures, and conclusion, was read. It establishes neither the exact global attraction boundary nor the critical inverse-square/logarithmic clock. Searches for the exact equation, paper title, local/global stability aliases, quadratic Lyapunov identities and other Lorenz-like pitchfork results found no theorem implying this result for this vector field. Closest published research records concern the different classical Lorenz flow, the five-dimensional Lorenz flow, a distinct Zhao–Lin–Dai quadratic system, and a four-dimensional Rabinovich model; the systems differ at the level of defining equations. General LaSalle and center manifold theorems provide proof tools, not the parameter-specific Lyapunov cancellation and five-jet coefficients. Unindexed or inaccessible publications may still contain equivalent work; originality is limited to the inspected evidence.
+
+## Mathematical value — PASS
+
+The source treats a chaos-producing flow and its numerical regimes. The exact closed boundary \(c\ge b\) globally excludes all nontrivial recurrent behavior in a substantial parameter region, with the nonhyperbolic equality case resolved rather than omitted. The exact logarithmic correction and the exceptional two-dimensional fast set distinguish two asymptotic mechanisms that local equilibrium eigenvalues and finite-time numerics cannot detect. These are natural dynamical invariants of the specified flow, not an arbitrarily sliced calculation. The result does not classify the chaotic parameter region \(c<b\) or prove any particular chaotic attractor there.
+
+## Closest sources and residual risks
+
+Primary: Yan, Liu, Jie, Hong, *Scientific Reports* **14**, 4059 (2024), DOI 10.1038/s41598-024-54458-2; full openly accessible article inspected. Nearby general mechanisms: sharp critical relaxation in classical/five-dimensional Lorenz variants; general center-manifold theory (Carr, *Scholarpedia*, 2006). These do not contain the present exact coefficient without redoing the vector-field-specific calculation. Search coverage is not exhaustive, especially for nonindexed theses, older texts or papers with reparameterized equations. The distinction between nonlinear global stabilization and unstable off-origin branches is made explicit. No external independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.

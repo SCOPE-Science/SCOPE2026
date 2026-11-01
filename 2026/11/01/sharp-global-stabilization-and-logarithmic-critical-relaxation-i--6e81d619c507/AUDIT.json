@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs all equilibria for \\(a,b,c>0\\) and shows forward completeness from the exact derivative \\(\\dot H=-(z-b)^2+(c-b)(z-b)\\). For \\(c>b\\) a positive proper quadratic has derivative \\(-ax^2-b(z-c)^2/(c-b)\\); the only invariant zero-derivative state is E_c, with a Hurwitz linearization. For \\(c=b\\) the compact full omega-limit argument excludes all states except E_b, and for \\(c<b\\) two additional equilibria and a positive eigenvalue preclude global attraction. A symbolic polynomial calculation verifies center manifold \\(x=(b/a)u+Bu^3\\), \\(z-b=(b/a)u^2+Du^4\\) and reduced \\(\\dot u=-(b/a)^2u^3-\\ell u^5+O(u^7)\\). The exact coefficient ell/k yields the logarithmic correction; integrability of the residual proves finite additive C, and exponential foliation tracking transports it to all nonexceptional physical trajectories. A locally two-dimensional strong-stable manifold and countable inverse images establish the measure-zero exception. Symbolic and numerical executable checks passed; finite tests do not stand in for proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2026/10/11/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-class--0635d2dc2449: critical relaxation in the classical Lorenz equations, different three-dimensional vector field.",
+        "2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c: a quintic correction in a five-dimensional Lorenz extension.",
+        "2026/10/11/SCOPE-global-stability-on-the-equal-feedback-slice-of-the-four-dimensi--8d3aa96710ed: strict stability on an equal-feedback slice of a four-dimensional Rabinovich system.",
+        "Carr (2006), Center Manifold, DOI 10.4249/scholarpedia.1826, provides general center manifold principles, not this flow’s five-jet."
+      ],
+      "reasoning": "General LaSalle, center-manifold and foliation theorems are used in the proof, but do not specify \\(q=b/(c-b)\\), the critical full convergence boundary or \\(\\ell/k=2(a^2+ab^2+b^2)/a^3\\). Exact classical/five-dimensional Lorenz results are not covering general theorems for every Lorenz-like quadratic flow, and their equations do not transform into this model by a documented parameter or coordinate change.",
+      "searches": [
+        "Quadratic Lyapunov function x²+(1+q)y²+q(z-c)² for Lorenz-type flow with c>b; nonhyperbolic center manifold 1/sqrt(t) convergence",
+        "Flow dot x=-a x+y z, dot y=x(b-z), dot z=-z+xy+c: inverse squared y critical relaxation logarithm",
+        "doi:10.1038/s41598-024-54458-2 Yan Liu Jie Hong stabilization c>=b global attractor critical",
+        "center manifold theorem exponential tracking foliation stable center manifold dynamics asymptotic phase initial conditions near equilibrium"
+      ]
+    },
+    "checked_sources": [
+      "Yan et al. (2024), exact primary HTML full text, https://www.nature.com/articles/s41598-024-54458-2.",
+      "PubMed PMID 38374235 date/abstract.",
+      "published-finding corpus records: 2026/10/4/SCOPE-exact-first-hopf-threshold-and-recurrence-half-space-in-a-variab--3d56139cf3bb; 2026/10/11/SCOPE-sharp-recurrence-threshold-and-critical-relaxation-in-a-quadrati--fbbb7113cf97; 2026/10/11/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-class--0635d2dc2449; 2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c; 2026/10/11/SCOPE-global-stability-on-the-equal-feedback-slice-of-the-four-dimensi--8d3aa96710ed.",
+      "Accessible prior published claims screened for same source, shifted ODE, Lyapunov boundary and critical logarithmic relaxation.",
+      "Carr (2006), Center Manifold, Scholarpedia, standard theorem description (not full-primary novelty evidence)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary https://www.nature.com/articles/s41598-024-54458-2 derives divergence -a-1 and discusses numerical chaos for a=5,b=8,c=1, strictly in \\(c<b\\) regime; no proof for \\(c\\ge b\\) is given.",
+        "2026/10/11/SCOPE-sharp-recurrence-threshold-and-critical-relaxation-in-a-quadrati--fbbb7113cf97 proves a discriminant recurrence condition in another system rather than the property for the exact Yan–Liu–Jie–Hong polynomial vector field.",
+        "2026/10/11/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-class--0635d2dc2449 and 2026/10/4/SCOPE-first-logarithmic-correction-to-critical-relaxation-in-the-five--d722eecc3b3c obtain other vector fields’ logarithmic clocks; matching decay exponents does not imply matching coefficients or global attraction.",
+        "2026/10/11/SCOPE-global-stability-on-the-equal-feedback-slice-of-the-four-dimensi--8d3aa96710ed has a different state-space dimension and distinct coupling cancellation."
+      ],
+      "reasoning": "The new theorem asserts (i) forward completeness and sharp global attraction of E_c iff \\(c\\ge b\\) for every \\(a,b,c>0\\), (ii) a complete critical global vs strong-stable dichotomy, and (iii) the parameter-dependent log coefficient. Primary literature’s local spectra, fixed-point algebra and simulations cannot imply all-initial-data convergence at equality, and analogous generic weak-center dynamics cannot fix the new coefficient without the presented invariance calculation. No inspected prior result logically contains all or any identical stronger model-specific statement.",
+      "searches": [
+        "For the Lorenz-like chaotic flow xdot=-a x+y z, ydot=b x-x z, zdot=-z+x y+c, sharp global asymptotic stability for c>=b and algebraic critical decay at c=b",
+        "Yan Liu Jie Hong (2024) 'Construction and implementation of wide range parameter switchable chaotic system' sharp global stability c>=b Lyapunov threshold",
+        "doi:10.1038/s41598-024-54458-2 Yan Liu Jie Hong stabilization c>=b global attractor critical",
+        "Flow dot x=-a x+y z, dot y=x(b-z), dot z=-z+xy+c: inverse squared y critical relaxation logarithm"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Yan et al. exact defining Equation (1), https://www.nature.com/articles/s41598-024-54458-2; centering z=b gives \\(\\dot x=-ax+by+yw,\\;\\dot y=-xw,\\;\\dot w=-w+xy+(c-b)\\).",
+        "published-finding corpus closest different-equation record 2026/10/4/SCOPE-exact-first-hopf-threshold-and-recurrence-half-space-in-a-variab--3d56139cf3bb, describing a Yan–Jie–Zhang variable-index flow, not the Yan–Liu–Jie–Hong flow."
+      ],
+      "reasoning": "Searches used the exact right-hand sides, shifted coordinates and title-author aliases rather than just the words chaos or Lorenz. No equivalent exact global threshold with five-jet log coefficient was identified. The similar Yan–Jie–Zhang record is not a dual representation: its stated parameters and right-hand sides are different.",
+      "searches": [
+        "For the Lorenz-like chaotic flow xdot=-a x+y z, ydot=b x-x z, zdot=-z+x y+c, sharp global asymptotic stability for c>=b and algebraic critical decay at c=b",
+        "Minxiu Yan Xindi Liu Jingfeng Jie Yue Hong 2024 -ax+yz bx-xz -z+xy+c boundary global Lyapunov and center",
+        "doi:10.1038/s41598-024-54458-2 Yan Liu Jie Hong stabilization c>=b global attractor critical",
+        "\"dx/dt=-ax+yz\" \"dy/dt=bx-xz\" \"dz/dt=-z+xy+c\" stability"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Yan et al., https://www.nature.com/articles/s41598-024-54458-2, Table 1 treats equilibrium stability and Figures 3–5 numerically explore bifurcation and attractor coexistence at \\(c<b\\).",
+        "published-finding corpus closest 2026/10/11/SCOPE-sharp-recurrence-threshold-and-critical-relaxation-in-a-quadrati--fbbb7113cf97 treats discriminant \\(\\Delta=d^2+4bc\\) and critical \\(t(z-d/(2c))\\) in another quadratic flow."
+      ],
+      "reasoning": "No primary-source theorem, table, database entry or published mathematical record inspected supplies the present log coefficient, exact exceptional strong-stable set and global boundary. The source’s equilibrium table concerns linear point stability only; neither a fixed point table nor a simulated trajectory provides the claimed all-initial-data theorem.",
+      "searches": [
+        "doi:10.1038/s41598-024-54458-2 Yan Liu Jie Hong stabilization c>=b global attractor critical",
+        "Yan Liu Jie Hong (2024) 'Construction and implementation of wide range parameter switchable chaotic system' sharp global stability c>=b Lyapunov threshold",
+        "exact x dot minus a x plus y z y dot b x minus x z z dot minus z plus x y plus c period dynamics stability"
+      ]
+    },
+    "rationale": "The full primary open-access 2024 article was inspected in its exact ODE, equilibrium, numerical/bifurcation and conclusions sections. It has local spectra and simulations but no closed global stabilization surface or critical five-jet logarithmic law. Related indexed research records and Lorenz-type publications have different defining vector fields; their theorems do not imply the present model-specific identity or coefficient. Actual published-finding corpus searches and own accessible prior claim checks found no equivalent result. Search coverage is nonexhaustive and prior publication remains a risk.",
+    "residual_risks": [
+      "Unindexed theses, conference proceedings, earlier preprints or reparameterized classical flow literature may contain equivalent model-specific results.",
+      "Nearby general Lorenz and center manifold results use analogous techniques; absence of a hit is not a mathematical proof of publication novelty.",
+      "Only the original exact system was analyzed, not the source paper’s switched nonlinear-term variants.",
+      "No external independent proof audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defining source, NOT_COVERING the claimed sharp global and asymptotic theorem in inspected full text.",
+        "evidence": [
+          "https://www.nature.com/articles/s41598-024-54458-2 Equation (1), Table 1, sections Dynamics analysis and Conclusion."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s41598-024-54458-2",
+        "material_read": "Open-access HTML full article: abstract; system-model and equilibrium section (Equation 1 and Table 1); Lyapunov exponents, bifurcation figures and coexisting attractors; switching Eq. 3 onward; conclusion; publication metadata.",
+        "method": "Material text read directly from open publisher HTML, including exact equations and adjacent result claims; searched for global/convergence/stability/critical/logarithmic terms.",
+        "title": "Construction and implementation of wide range parameter switchable chaotic system",
+        "trigger": "The exact vector field in Equation (1) defines the problem; possible same-paper coverage of global attraction or critical asymptotics must be checked."
+      },
+      {
+        "assessment": "Supports date and source identity only; abstract alone does not support absence of mathematical result.",
+        "evidence": [
+          "PMID 38374235, electronic publication 2024-02-19, DOI 10.1038/s41598-024-54458-2."
+        ],
+        "identifier_or_url": "https://pubmed.ncbi.nlm.nih.gov/38374235/",
+        "material_read": "Bibliographic metadata and abstract, including publication date 2024-02-19 and DOI.",
+        "method": "Direct HTML metadata reading.",
+        "title": "Construction and implementation of wide range parameter switchable chaotic system (PubMed bibliographic record)",
+        "trigger": "Independent verification of earliest public online date and stable publication identifier."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6e81d619-c507-44fd-bdce-02787e91f31d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source numerically explores competing equilibrium and chaotic regimes without determining the exact global boundary. Resolving the equality \\(c=b\\) by compact omega-limit arguments separates genuine global stabilization from local linearization and dissipative-volume heuristics. At that nonhyperbolic boundary the sharp universal \\(t^{-1/2}\\) amplitude, explicit logarithmic correction and codimension-one algebraic-versus-exponential basin split are substantive structural dynamical information, not a routine numerical update. The exact natural parameter surface and full initial-condition quantifiers motivate this invariant. No conclusions about chaos inside \\(c<b\\) are inferred.",
+    "status": "PASS"
+  }
+}
