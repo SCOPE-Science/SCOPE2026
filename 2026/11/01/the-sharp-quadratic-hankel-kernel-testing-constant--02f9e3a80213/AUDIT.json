@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "The exact 2-by-2 Hankel block yields N=(A+sqrt(A^2+4B^2))/2. Kernel tests give G^2=max_{0<=r<=1}(1-r^2)((A+Br)^2+B^2). After N=1, A=1-b^2. For b<=1/2 the admissible test r=b gives F=1-b^4>=15/16>25/27. For b>=1/2, fixed r0=1/sqrt6 gives minimum F(b,r0)=25/27 uniquely at b0=sqrt(2/3), as its b derivative factors into 2(1-r0^2)(b-r0)(2b^2-br0-1). At b0 the exact identity 25/27-F(b0,r)=(t-1)^2(t^2+4t+8)/54 (t=sqrt6*r) proves the global maximum, equality radius and sharp coefficient. Complex phases align freely and cannot improve the radial bound. Pure monomial boundaries have ratio one. The standalone exact-polynomial and finite tests passed, with no infinite assertion inferred from sampling.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "published-finding corpus finite-rank shifted-Blaschke classification identifies when the difference is zero, not an optimal comparison constant for arbitrary positive gaps.",
+        "Treil and Bonsall treat general reproducing-kernel testing boundedness/comparability; no exact quadratic constant is reported in the material inspected.",
+        "Brevig 2021 and Brevig-Seip 2023 address minimal/maximal Hankel norms, not the optimal Garsia-to-Nehari norm ratio for degree two."
+      ],
+      "reasoning": "General RKT estimates for all Hankel operators are broader in object class but weaker in the optimized constant and do not imply an exact quadratic extremal family. Qualitative SRKT classifications determine only equality at ratio one, leaving the sharp worst-case ratio unresolved. The nonpolynomial Hilbert Hankel gap is a single different symbol and does not dominate the all-quadratic statement.",
+      "searches": [
+        "strong reproducing kernel thesis Hankel operators Hardy space H2 polynomial symbols degree two finite Hankel matrices kernel test norm equality Dyakonov Garsia",
+        "sharp quantitative gap reproducing kernel testing versus full operator norm two-term quadratic polynomial Hardy Hankel rank two",
+        "published-finding corpus:2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f",
+        "Treil A remark on the reproducing kernel thesis for Hankel operators 2015; Bonsall Boundedness of Hankel matrices 1984"
+      ]
+    },
+    "checked_sources": [
+      "K. M. Dyakonov, arXiv:2609.33242v3 (full seven-page manuscript, same paper originally public 2026-09-27).",
+      "published-finding corpus bc8369ca1a24 (full RESULT.md).",
+      "published-finding corpus c64bd5a5783f (full RESULT.md).",
+      "published-finding corpus 80a74524cde0 (ranked mathematical record and summary).",
+      "Brevig 2022 arXiv:2107.01680 (abstract).",
+      "Brevig-Seip 2023 arXiv:2301.07937 (abstract).",
+      "Treil 2015 arXiv:1201.0063 (abstract).",
+      "Bonsall 1984 (references through full Dyakonov paper)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The own accessible two-monomial claim establishes strictness for every positive coefficient and local c-downarrow-zero asymptotics; it does not optimize the norm ratio globally.",
+        "The published logarithmic/Hilbert symbol has an exact sqrt(2) gap for an infinite-rank nonpolynomial operator; it does not imply the best ratio 3sqrt(3)/5 on the quadratic class.",
+        "The motivating source records a suitable quadratic counterexample, without the sharp global coefficient/equality characterization.",
+        "The exact algebraic ratio and unique modulus extremizer are new information not implied by the inequalities or qualitative classifications inspected."
+      ],
+      "reasoning": "A prior strictness theorem says ratio>1 for each mixed symbol but supplies no supremum over the coefficient projective line. A result for a single nonpolynomial symbol provides no quadratic upper bound. The new claim establishes a sharp uniform upper bound and constructs every equality case; neither follows from these prior statements.",
+      "searches": [
+        "strong reproducing kernel thesis sharp stability polynomial-symbol degree two Hankel sup kernel norm ratio",
+        "For quadratic Hardy Hankel symbol psi(z)=a z+b z^2 best global operator norm divided by supremum normalized Szego kernel norm equals 3 sqrt(3)/5, sharp at |a|/|b|=1/sqrt(6)",
+        "OWN: b4983d32-4094-45dd-8f8b-6a328a1197cb (two-monomial Garsia transitions and small-c expansion)",
+        "published-finding corpus:2026/10/11/SCOPE-an-exact-square-root-two-srkt-gap-for-the-logarithmic-hilbert-ha--80a74524cde0"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Dyakonov arXiv:2609.33242v3 equations (3)-(7) identify the kernel-testing/Hankel ratio with Garsia/Nehari comparison.",
+        "The full 2026-10-04 polynomial-classification RESULT.md proves zero gap precisely for monomials; it does not provide a uniform worst-case ratio.",
+        "The new extremal value is 3 sqrt(3)/5 with equality exactly at |a|/|b|=1/sqrt(6), which is a strictly stronger quantitative question than classifying ratio one."
+      ],
+      "reasoning": "Garsia versus Nehari quotient norms, Hankel testing versus the full operator norm, and the normalized two-by-two Hankel compression are mathematically equivalent formulations in this family. Searches included these aliases and the exact algebraic constant. They found zero-gap classifications and isolated single-symbol gaps, but no best global coefficient for all two-coefficient quadratics.",
+      "searches": [
+        "For quadratic Hardy Hankel symbol psi(z)=a z+b z^2 best global operator norm divided by supremum normalized Szego kernel norm equals 3 sqrt(3)/5, sharp at |a|/|b|=1/sqrt(6)",
+        "Garsia norm versus Hankel operator norm for psi(z)=a z+b z squared exact optimal ratio quadratic symbols",
+        "rank two Hankel Hardy strong reproducing kernel thesis sharp factor quadratic coefficients",
+        "published-finding corpus:2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Exact matrix profile is derived directly: N=(A+sqrt(A^2+4B^2))/2 and G^2=max_r(1-r^2)((A+Br)^2+B^2).",
+        "The exact minimum normalized profile is 25/27 at B=sqrt(2/3); no matching constant, table entry or full extremal family was returned by these searches."
+      ],
+      "reasoning": "There is no dependency on a published computational table: a complete algebraic two-regime lower certificate and factorization establish the global optimum. Absence from a search index is not used as proof of priority.",
+      "searches": [
+        "optimal universal reproducing-kernel test norm constant for analytic quadratic Hankel symbols az+bz^2 squared 25/27, sqrt27/5",
+        "quantitative Garsia Nehari quotient norm comparison polynomials degree two uniform 5 over 3sqrt3",
+        "sharp norm kernel ratio finite-rank Hankel 2-by-2 symmetric matrix leading 1/3 sqrt(2/3)"
+      ]
+    },
+    "rationale": "The quantified exact constant 3sqrt(3)/5 and unique coefficient modulus ratio 1/sqrt(6) optimize over every quadratic analytic Hardy Hankel symbol. The introducing 2026 paper only notes a qualitative quadratic counterexample and later an equality classification. Published polynomial/finite-rank result records identify zero-gap cases but do not compute the global quadratic test gap. The accessible own two-monomial result gives strictness and local asymptotics, not the sharp global ratio. published-finding corpus and literature searches for exact and alias formulations returned no dominating theorem. A plausible historical matrix-norm rephrasing is a residual risk, not treated as proof of priority.",
+    "residual_risks": [
+      "An older sharp constant for two-by-two Hankel matrix tests under different terminology could have escaped the search.",
+      "The full texts of earlier general Hankel RKT and minimal/maximal norm papers were not all retrieved; available abstracts do not settle publication priority.",
+      "No independent publication-priority verification or external proof audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the sharp global quadratic comparison coefficient or all optimal coefficient ratios; it supplies the motivating question, a qualitative example, and later equality cases.",
+        "evidence": "Paper equations (3)-(7), p.5 sentence noting psi(z)=cz+z^2 for a suitable c>0, and p.6 addendum formula (13).",
+        "identifier_or_url": "https://borowiecki.dev/pdf/2609.33242 (arXiv:2609.33242v3)",
+        "material_read": "Full seven-page primary manuscript: page 3 operator definition/Bonsall/Garsia formulas, pages 4-5 statement/examples including quadratic counterexample, page 6 addendum identifying norm-attaining equality class, pages 1-2 contextual definitions and page 7 references.",
+        "method": "Full text and mathematical page screenshots for the relevant pages.",
+        "title": "The Strong Reproducing Kernel Thesis for Hankel Operators and the Garsia Norm",
+        "trigger": "Introduces exact Hardy Hankel SRKT problem and explicitly singles out a two-term quadratic failure."
+      },
+      {
+        "assessment": "Covers the zero-gap classification but not the optimal positive quadratic gap.",
+        "evidence": "Finding: a polynomial has the SRKT exactly when it is a monomial; no quantitative ratio bound or degree-two maximizer is asserted.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-monomial-rigidity-for-polynomial-symbol-hankel-operators-obeying--bc8369ca1a24",
+        "material_read": "Complete RESULT.md, including theorem, proof, relationship to prior work and limitations.",
+        "method": "Repository file read.",
+        "title": "Monomial rigidity for polynomial-symbol Hankel operators obeying the strong reproducing kernel thesis",
+        "trigger": "Same polynomial Hardy Hankel objects and kernel equality question."
+      },
+      {
+        "assessment": "Determines exactly when the gap vanishes; does not upper bound or optimize nonzero gaps on all quadratics.",
+        "evidence": "Equality holds for shifted finite Blaschke symbols; polynomial subclass reduces to monomials.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-shifted-blaschke-classification-of-finite-rank-srkt-hankel-opera--c64bd5a5783f",
+        "material_read": "Complete RESULT.md, including proof, norm formula, comparison, and limitations.",
+        "method": "Repository file read.",
+        "title": "Shifted-Blaschke classification of finite-rank SRKT Hankel operators",
+        "trigger": "Broader object class and possible dominating statement."
+      },
+      {
+        "assessment": "Described result classifies minimal Hankel norm equality, not exact kernel-testing versus full norm comparison in quadratic family; full-text comparison remains a limitation.",
+        "evidence": "Brevig 2022 abstract: minimal norm iff a constant multiple of an inner function in one variable.",
+        "identifier_or_url": "arXiv:2107.01680",
+        "material_read": "Abstract and bibliographic summary; full manuscript not accessed in this run.",
+        "method": "Public bibliographic record and primary-source reference list.",
+        "title": "Minimal norm Hankel operators",
+        "trigger": "Classical potential reduction of kernel norm optimization to minimal Hankel norm."
+      },
+      {
+        "assessment": "Its maximal/minimal norm rigidity is a different norm equality; no quantitative quadratic kernel-test ratio in accessible statements.",
+        "evidence": "Brevig-Seip abstract states maximal norm iff operator norm equals supremum norm, and conditions for norm-attaining operators.",
+        "identifier_or_url": "arXiv:2301.07937",
+        "material_read": "Detailed published abstract and bibliographic record; full manuscript not accessed in this run.",
+        "method": "Public research abstract.",
+        "title": "Maximal norm Hankel operators",
+        "trigger": "Potential stronger norm extremal theorem for Hardy Hankel symbols."
+      },
+      {
+        "assessment": "General boundedness/comparability context; no reported optimum for the degree-two Hankel family. Residual priority risk preserved.",
+        "evidence": "Treil abstract describes a simple proof of RKT for Hankel operators.",
+        "identifier_or_url": "arXiv:1201.0063",
+        "material_read": "Abstract and bibliographic summary; full manuscript was not retrieved.",
+        "method": "Public research record.",
+        "title": "A remark on the reproducing kernel thesis for Hankel operators",
+        "trigger": "General RKT could imply a comparison constant covering a subclass."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02f9e3a8-0213-4043-a737-d0101974d7a6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating 2026 manuscript explicitly cites mixed quadratics as the first simple failures of the strong reproducing kernel thesis. Determining the worst underestimation by kernel testing across all those symbols is a natural sharp invariant, not a chosen point or a qualitative rephrasing. The theorem gives a surprisingly small algebraic optimal constant and the complete projective modulus equality family, a precise calibration benchmark for this finite-rank model. It leaves broader polynomial and infinite-rank cases open without inflating significance.",
+    "status": "PASS"
+  }
+}
