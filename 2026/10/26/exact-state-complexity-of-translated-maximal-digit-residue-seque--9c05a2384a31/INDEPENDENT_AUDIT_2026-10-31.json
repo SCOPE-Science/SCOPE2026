@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:51:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Each finite LSD-first prefix u of length j yields an exact residual output function F_(t,a)(x)=1_{d_b(x+t)+a≡0}, t=⌊(c+u)/b^j⌋ and a=d_b((c+u) mod b^j) mod m. The carry transition (t,a)→(⌊(t+z)/b⌋,a+1_{(t+z) mod b=b−1}) is total, handles redundant high zero digits, and includes the empty word. Equality of two binary residual indicator functions under arbitrary appended high maximal-digit blocks forces the digit-count congruence itself; choosing x=b^K−max(s,t), with b≥3 and K variable, shows t≠s impossible because the high block contains K−L maximal digits. Thus all reachable (t,a) states are Myhill–Nerode distinct. Quotients t≥2 occur in unique depth layers because b≥3, while t=0 contributes all m residues and t=1 exactly R[0,c); this proves the interval formula, including j=0/empty intervals. Power shifts and one-below powers yield the drop formula. Independent residual-state enumerator checked 1,296 base/modulus/shift combinations and 64 adjacent-power comparisons; exact proof, not finite sampling, establishes all b,m,c.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Moradi et al. contain general linear-subsequence upper bounds and particular Thue–Morse msd-first bounds; §4 Theorems 19–21.",
+          "Charlier–Cisternino–Massuir (2019), §3 constructs automata for mT+r, not the shifted-input indicator 1_T(n+c)."
+        ],
+        "reasoning": "General automaton closure and bounds do not imply the displayed exact formula. The forward image {mn+r:n∈T} and inverse translate {n:n+c∈T} are different operations, even if both are regular.",
+        "searches": [
+          "arxiv:2610.03837v1",
+          "arxiv:2512.10017",
+          "arxiv:1910.08543"
+        ]
+      },
+      "checked_sources": [
+        "Allouche et al., arxiv:2610.03837v1, complete lawful HTML",
+        "Moradi, Rampersad, Shallit, arxiv:2512.10017, primary PDF",
+        "Charlier, Cisternino, Massuir, arxiv:1910.08543, primary PDF",
+        "Resultary actual search: minimal DFAO state complexity shifted base b maximal digit count mod m least significant first translation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Allouche et al. Theorem 7: base-four digit-three selector is 2-automatic and has non-2-regular abelian complexity; no assertion of shifted automaton size.",
+          "Moradi et al. Theorem 20 bounds msd-first shift of Thue–Morse and uses different base-specific construction."
+        ],
+        "reasoning": "The assessed exact state count is not a corollary of factor-count nonregularity nor of generic automaton existence or upper bounds; it requires explicit carry residual inequivalence and quotient-layer disjointness.",
+        "searches": [
+          "arxiv:2610.03837v1",
+          "arxiv:2512.10017"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Allouche–Rampersad–Rigo–Shallit–Stipulanti, arxiv:2610.03837v1, §2 establishes the unshifted base-four digit-three sequence and §3–4 studies abelian complexity, not state complexity.",
+          "Moradi–Rampersad–Shallit, arxiv:2512.10017, Theorem 20 is about msd-first state counts of shifts of Thue–Morse."
+        ],
+        "reasoning": "Digit-congruence sequence under input shift is not the factor abelian-complexity invariant or the general msd-first Thue–Morse problem. No exact all-shift maximal-digit LSD formula was identified.",
+        "searches": [
+          "Resultary: minimal DFAO state complexity shifted base b maximal digit count mod m least significant first translation",
+          "arxiv:2610.03837v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned adjacent automata problems but no database formula for this translated maximal-digit-count family.",
+          "Independent exact count tests matched N_(4,3)(4^r−1)=4r, N_(4,3)(4^r)=3r+3 for r≥3."
+        ],
+        "reasoning": "No matching exact table was located; a negative database search alone is not a novelty certificate.",
+        "searches": [
+          "Resultary: minimal DFAO state complexity shifted base b maximal digit count mod m least significant first translation"
+        ]
+      },
+      "rationale": "Allouche et al. (2026) introduce the base-4 digit-three residue automatic sequence and analyze its abelian-factor complexity, not minimal DFAO size under arbitrary additive input shifts. Moradi–Rampersad–Shallit (2025/26) give general subsequence constructions and msd-first translated Thue–Morse complexity bounds; Charlier–Cisternino–Massuir compute automata for forward images mT+r rather than the inverse shifted-input set. Neither theorem implies the exact LSD-first all-shift digit-interval count or unbounded adjacent-power downward jumps. A binary digit-sum translation analogue is not interchangeable because quotient levels overlap for b=2.",
+      "residual_risks": [
+        "An older theorem in terms of LSD-first arithmetic transducers/carry kernels may imply the interval count.",
+        "The b=2 case is explicitly outside scope; direct extension fails because quotient levels overlap.",
+        "The related forward-image exact automata literature is substantial and may contain a disguised equivalence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for translated DFAO state complexity",
+          "evidence": "Proves abelian complexity nonregularity; does not study n↦f(n+c) state minimality.",
+          "identifier_or_url": "arxiv:2610.03837v1",
+          "material_read": "Complete lawful arXiv HTML paper, sections 1–4, construction Lemma 3, Theorem 7, abelian-complexity Proposition 8",
+          "method": "arXiv HTML full-text and PDF first-page screenshot",
+          "title": "An example of an automatic sequence with non-regular abelian complexity",
+          "trigger": "Exactly the same motivating base-four mod-three automatic sequence"
+        },
+        {
+          "assessment": "NOT_COVERING for claimed exact b≥3 LSD family",
+          "evidence": "Generic bounds and msd-first binary-Thue–Morse special case do not supply exact maximal-digit residue shift formula.",
+          "identifier_or_url": "arxiv:2512.10017",
+          "material_read": "Primary 30-page PDF, §§3–4 and Theorems 19–21, especially theorem 20 on msd-first translated Thue–Morse",
+          "method": "PDF text and targeted page screenshots 16–17",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Potentially stronger general bounds for shifts"
+        },
+        {
+          "assessment": "NOT_COVERING for inverse translates of maximal digit count",
+          "evidence": "Studies mT+r forward image of a binary Thue–Morse set rather than shifts of input n by c in bases b≥3.",
+          "identifier_or_url": "arxiv:1910.08543",
+          "material_read": "Primary 34-page PDF, abstract, intro, §3 main construction and statement",
+          "method": "PDF text and title screenshot",
+          "title": "Minimal automaton for multiplying and translating the Thue–Morse set",
+          "trigger": "Same words: translation and minimal automaton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem completely computes a natural state-complexity invariant for all additive shifts in an infinite automatic sequence family, including the recently studied base-four mod-three sequence. Its injective residual-pair classification provides structural minimality, and the unbounded unit-shift drop identifies a sharp unexpected instability in automaton size rather than a trivial renaming or constructed upper bound.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Allouche et al., arxiv:2610.03837v1, complete lawful HTML",
+    "Moradi, Rampersad, Shallit, arxiv:2512.10017, primary PDF",
+    "Charlier, Cisternino, Massuir, arxiv:1910.08543, primary PDF",
+    "Resultary actual search: minimal DFAO state complexity shifted base b maximal digit count mod m least significant first translation"
+  ],
+  "disposition": "passed",
+  "final_claim": "For b≥3,m≥2,c≥0, the minimal complete least-significant-digit-first DFAO for 1_{d_b(n+c)≡0 (mod m)} has N(0)=m, and for c≥1 N(c)=m+|R[0,c)|+Σ_{j=0}^{⌊log_b c⌋}(1_{q_j≥2}|R[r_j,b^j)|+|R[0,r_j)|), where q_j=⌊c/b^j⌋, r_j=c−q_j b^j and R are attainable maximal-digit-count residues. For r≥m the adjacent-power state-count drop N(b^r−1)−N(b^r)=r−m, unbounded as r grows.",
+  "limitations": [
+    "b≥3, maximal digit count only, complete LSD-first DFAO including empty and redundant high zeros.",
+    "No arbitrary marked digit or most-significant-digit-first claim."
+  ],
+  "schema_version": 1
+}
