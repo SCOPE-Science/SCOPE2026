@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every eight-state completely reachable binary automaton has one cyclic letter (cited theorem) and a rank-seven other letter (rank-seven reachability). The normal form counts exactly \(\binom82\cdot8\cdot7\cdot6!=1{,}128{,}960\) maps. Exhaustive complete breadth-first search on \(255\) nonempty state subsets yields \(1{,}093{,}632\) completely reachable cases and \(544\) exceptions, each with one six-element exceptional subset at distance \(17\). The second, separately implemented enumeration enumerates rank-seven maps by collision/output factors and propagates shortest word counts independently. The orbit script independently verifies all \(68\) canonical representatives. Both enumerate all cases, not a sample. Critical restrictions and output numbers were reproduced from the included source files.
+## correctness
 
-**Originality — PASS within examined evidence.** Zhu's 2024 Section 4/Table 1 already identifies \(68\) exceptional isomorphism classes and an explicit witness; neither the total nor the existence of counterexamples is claimed new. The actual comparisons concern the *per-automaton unique exceptional subset* and the numbers of distinct shortest reaching words, which are not implied by the class total, upper bounds, or an explicit word. A related indexed two-defect reachability theorem localizes possible antipodal obstructions but does not report the optimal-word multiplicity histogram. Relevant searches of primary papers, related records, and the local claim index found no covering theorem. The incomplete access to that relevant indexed full text and possible older unindexed computations remain risks; absence from search is not a novelty proof.
+PASS
 
-**Value — PASS.** The eight-state binary completely reachable automata are the *first* known finite boundary of the Don-conjecture failure (Zhu's table). Knowing whether a counterexample has one or several difficult targets and how many optimal reaching controls exist is a natural structural refinement: the answer is an exact complete classification, with only four multiplicities and precisely determined prevalence, not an arbitrary hand-picked automaton. Finite enumerations do not generalize automatically to larger state counts; no such claim is made.
+After the published cyclic-letter theorem normalizes a to the 8-cycle, full reachability forces other letter b to rank seven. Collision-pair/excluded-image/duplicated-image/bijection parametrization exhausts C(8,2)*8*7*6!=1,128,960 maps. Full-mask BFS on the 255 nonempty subsets calculates exact shortest-image distances; shortest-path dynamic programming along both labeled letter edges counts distinct words, not transformations. I implemented and ran independent C++ enumeration, independent of the repository source, obtaining 1,093,632 reachable maps, 544 violations, none at sizes other than six or lengths other than 17, precisely one exceptional antipodal-complement subset for each, target masks 119,187,221,238 (136 each), and multiplicity histogram 384/96/32/32. The repository contains reach_census.cpp and separately enumerating independent_waves.cpp; both were inspected with their bounded methodology. The cyclic-orbit quotient gives 68 equal eight-element orbits; no infinite-state claim is made.
 
-**Closest prior work and limits.** Zhu (2024) supplies the already-known 68 count. Szykuła (2026) surveys synchronization complexity. An accessible research-record abstract on cyclic defect-one two-defect reachability has relevant antipodal coverage but not this exact spectrum. Full text of that record was not examined; later discovery could change originality assessment. There is no independent external validation or formal proof assistant certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zhu 2024 already proves eight-state counterexamples and tabulates 68 isomorphism classes, and the existence of the cyclic normalization is prior theory. Full primary reading of Zhu Section 4 and Table 1 did not identify uniqueness per automaton or the four-way shortest-word multiplicity census. The independently reproduced census supplies novel conditional invariants, subject to possible older ancillary enumeration.
+
+## value
+
+PASS
+
+A complete exact conditional shortest-path distribution is an intrinsic reconfiguration invariant of the canonical minimal counterexample class. Uniqueness of the offending subset and the optimal-word multiplicity spectrum go beyond the known mere existence and class total; a complete well-motivated eight-state obstruction classification has durable use as a benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

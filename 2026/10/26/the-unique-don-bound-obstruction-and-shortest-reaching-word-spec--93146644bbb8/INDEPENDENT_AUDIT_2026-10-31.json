@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:53:42.194851Z",
+  "axes": {
+    "correctness": {
+      "rationale": "After the published cyclic-letter theorem normalizes a to the 8-cycle, full reachability forces other letter b to rank seven. Collision-pair/excluded-image/duplicated-image/bijection parametrization exhausts C(8,2)*8*7*6!=1,128,960 maps. Full-mask BFS on the 255 nonempty subsets calculates exact shortest-image distances; shortest-path dynamic programming along both labeled letter edges counts distinct words, not transformations. I implemented and ran independent C++ enumeration, independent of the repository source, obtaining 1,093,632 reachable maps, 544 violations, none at sizes other than six or lengths other than 17, precisely one exceptional antipodal-complement subset for each, target masks 119,187,221,238 (136 each), and multiplicity histogram 384/96/32/32. The repository contains reach_census.cpp and separately enumerating independent_waves.cpp; both were inspected with their bounded methodology. The cyclic-orbit quotient gives 68 equal eight-element orbits; no infinite-state claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhu Section 4 constructs and classifies Don counterexamples, including 68 eight-state isomorphism classes",
+          "Circularity/normalization is prior; source enumerates finer individual exceptional-subset counts and word multiplicities"
+        ],
+        "reasoning": "Known general circularity and Don-bound falsification do not imply the exact per-automaton uniqueness and optimal word counts without further finite classification. No stronger all-n theorem was found that yields the counts.",
+        "searches": [
+          "arxiv:2402.19089 complete reachable Don conjecture 8 states section 4",
+          "cyclic letter theorem binary completely reachable Hoffmann 2020"
+        ]
+      },
+      "checked_sources": [
+        "Pinned 2026/10/26 record RESULT.md; reach_census.cpp; independent_waves.cpp; AUDIT.json; METADATA.json; actual 14-entry Git tree",
+        "Y. Zhu 2024 arXiv:2402.19089 Section 4/Table 1, inspected primary PDF",
+        "Hoffmann circularity primary abstract arXiv:2011.14404",
+        "Resultary semantic published-findings search; nearby distinct reset-word projects"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhu 68 classes and explicit violation imply the existence of obstructions, not the theorem that each has exactly one or its distribution of shortest reaching words",
+          "Independent 1,128,960-map exhaustive computation produces genuinely different statements"
+        ],
+        "reasoning": "The prior counterexample and class census contain less data than the optimal-word multiplicity distribution; overlap in 68 is explicitly excluded from claimed novelty.",
+        "searches": [
+          "Zhu Around Don conjecture 2024 table counts",
+          "Szykuła 2026 synchronizing automata problems"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhu arXiv:2402.19089 Section 4/Table 1 already gives 68 exceptional classes",
+          "Current exact multiplicity 2:384,3:96,4:32,5:32 counts labeled shortest words rather than rank compression or reset words"
+        ],
+        "reasoning": "Image reachability under 2-letter action is a subset automaton; shortest reaching word multiplicity is the number of labeled shortest paths in that deterministic subset graph. Existing shortest-reset or rendezvous word counts are inequivalent targets. The inherited 68 total is not claimed as new.",
+        "searches": [
+          "binary completely reachable automata 8 state Don bound exceptional subsets unique word multiplicity",
+          "Resultary: Binary completely reachable automata 8 states Don bound exceptional six subset antipodal shortest reaching words multiplicities cyclic automata Zhu"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Zhu Table 1 supplies the already known total 68 and examples, not the exact four multiplicities in the material read",
+          "Resultary returned distinct 7-state reset-word and 8-state synchronization censuses"
+        ],
+        "reasoning": "The historical 68 is in an exact published table and acknowledged; the four-column word census and uniqueness were searched separately. Negative database search alone does not certify novelty.",
+        "searches": [
+          "Zhu 2024 Table 1 eight-state 68 isomorphism classes",
+          "Resultary shortest reset multiplicity automata state 8 cyclic defect one"
+        ]
+      },
+      "rationale": "Zhu 2024 already proves eight-state counterexamples and tabulates 68 isomorphism classes, and the existence of the cyclic normalization is prior theory. Full primary reading of Zhu Section 4 and Table 1 did not identify uniqueness per automaton or the four-way shortest-word multiplicity census. The independently reproduced census supplies novel conditional invariants, subject to possible older ancillary enumeration.",
+      "residual_risks": [
+        "An unpublished or ancillary machine-readable eight-state Zhu enumeration could implicitly contain the same multiplicities",
+        "Circularity normalization is a necessary cited prior theorem, not independently reproved for all automata",
+        "This is a sharp eight-state finite census, not an all-n general theorem"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the total 68 and earlier counterexample; no word-count spectrum in examined primary text",
+          "evidence": "Section 4 and Table 1 report 68 eight-state binary counterexamples",
+          "identifier_or_url": "https://arxiv.org/abs/2402.19089",
+          "material_read": "Full accessible source, especially Section 4 and Table 1 on page 6; PDF page image inspected",
+          "method": "arXiv primary PDF, text and page screenshot",
+          "title": "Around Don’s conjecture for binary completely reachable automata",
+          "trigger": "Exact eight-state counterexample and class census"
+        },
+        {
+          "assessment": "Supports known normalization but not the new 8-state finite census",
+          "evidence": "Binary completely reachable automata admit cyclic-letter normal form",
+          "identifier_or_url": "https://arxiv.org/abs/2011.14404",
+          "material_read": "Accessible title, abstract and theorem description concerning circularity; not represented as full-page examination",
+          "method": "public preprint abstract and theorem-description search",
+          "title": "Recognizing Completely Reachable Automata Using Codimension One Reachability and Monoid Structure",
+          "trigger": "Required cyclic-letter normal form for binary completely reachable automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A complete exact conditional shortest-path distribution is an intrinsic reconfiguration invariant of the canonical minimal counterexample class. Uniqueness of the offending subset and the optimal-word multiplicity spectrum go beyond the known mere existence and class total; a complete well-motivated eight-state obstruction classification has durable use as a benchmark.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned 2026/10/26 record RESULT.md; reach_census.cpp; independent_waves.cpp; AUDIT.json; METADATA.json; actual 14-entry Git tree",
+    "Y. Zhu 2024 arXiv:2402.19089 Section 4/Table 1, inspected primary PDF",
+    "Hoffmann circularity primary abstract arXiv:2011.14404",
+    "Resultary semantic published-findings search; nearby distinct reset-word projects"
+  ],
+  "disposition": "passed",
+  "final_claim": "Every eight-state binary completely reachable automaton violating d(S)<=8(8-|S|) has exactly one exceptional subset, a six-element complement of an antipodal pair at distance 17. Among 1,093,632 normalized completely reachable automata, 544 violate, and shortest-reaching-word counts 2,3,4,5 occur for 384,96,32,32 of them; their 68 cyclic classes partition 48,12,4,4.",
+  "limitations": [
+    "Only eight states and two distinguished letters",
+    "The earlier 68-class census and cyclic normal form are prior results",
+    "Historical unseen enumeration could bear on the originality qualification"
+  ],
+  "schema_version": 1
+}

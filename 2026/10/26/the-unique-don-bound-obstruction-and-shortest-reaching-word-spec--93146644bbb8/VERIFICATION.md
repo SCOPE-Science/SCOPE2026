@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-All computations are exhaustive finite checks with an explicitly justified complete normal form, not experiments extrapolated to larger state sets. Compile `reach_census.cpp`, `independent_waves.cpp` and `violation8.cpp` with a C++17 compiler; execute `reach_census.cpp` with argument `8` and execute the other two without arguments. The resulting `violation8.txt` is the input to `orbit_check.py`, run in the directory containing the file.
+## correctness
 
-The first program enumerates all \(8^8\) second-letter maps, filtering rank seven, and visits reachable nonempty subsets using forward BFS. The second enumerates all \(\binom82\cdot8\cdot7\cdot6!\) rank-seven maps in a different order and independently computes complete reachability and shortest-path multiplicities via levels. Both agree on \(1{,}128{,}960\) rank-seven maps, \(1{,}093{,}632\) completely reachable maps and \(544\) violating maps. Every violation has one hard six-subset, at distance \(17\); no other size violates. The word histogram is \(384,96,32,32\) for multiplicities \(2,3,4,5\). The rotation-orbit checker confirms \(68\) classes in orbits of size eight, partition \(48,12,4,4\), and independently computes shortest-path counts for each representative.
+PASS
 
-The embedded execution results were produced from the included source files, and the third enumerator output was compared byte-for-byte with the embedded canonical list. This does not establish historical priority or independent expert validation. The full text of one related scientific record was not accessible; no external audit was undertaken.
+After the published cyclic-letter theorem normalizes a to the 8-cycle, full reachability forces other letter b to rank seven. Collision-pair/excluded-image/duplicated-image/bijection parametrization exhausts C(8,2)*8*7*6!=1,128,960 maps. Full-mask BFS on the 255 nonempty subsets calculates exact shortest-image distances; shortest-path dynamic programming along both labeled letter edges counts distinct words, not transformations. I implemented and ran independent C++ enumeration, independent of the repository source, obtaining 1,093,632 reachable maps, 544 violations, none at sizes other than six or lengths other than 17, precisely one exceptional antipodal-complement subset for each, target masks 119,187,221,238 (136 each), and multiplicity histogram 384/96/32/32. The repository contains reach_census.cpp and separately enumerating independent_waves.cpp; both were inspected with their bounded methodology. The cyclic-orbit quotient gives 68 equal eight-element orbits; no infinite-state claim is made.
+
+## originality
+
+PASS
+
+Zhu 2024 already proves eight-state counterexamples and tabulates 68 isomorphism classes, and the existence of the cyclic normalization is prior theory. Full primary reading of Zhu Section 4 and Table 1 did not identify uniqueness per automaton or the four-way shortest-word multiplicity census. The independently reproduced census supplies novel conditional invariants, subject to possible older ancillary enumeration.
+
+## value
+
+PASS
+
+A complete exact conditional shortest-path distribution is an intrinsic reconfiguration invariant of the canonical minimal counterexample class. Uniqueness of the offending subset and the optimal-word multiplicity spectrum go beyond the known mere existence and class total; a complete well-motivated eight-state obstruction classification has durable use as a benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
