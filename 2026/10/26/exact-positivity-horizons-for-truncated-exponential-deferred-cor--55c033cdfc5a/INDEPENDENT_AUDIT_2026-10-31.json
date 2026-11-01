@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:15:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 6efe7ffd83836c52328172f3f336f72b3d85eb79",
+        "Assigned verify.py Git blob f8c97d33af55b9b9327a7505bddf3c3030761a0d",
+        "Micalizzi & Torlo arXiv:2210.02976 Theorem 6.1, primary full PDF",
+        "Independent rational transition polynomial matrix checker"
+      ],
+      "rationale": "The checked primary Theorem 6.1 in Micalizzi–Torlo identifies the common endpoint scalar stability polynomial P_p(z)=sum_{j=0}^p z^j/j! for the specified bDeC-family variants on constant linear systems. For Q with d transient pure-birth states and one absorbing state, binomial expansion of the transient block −I+S gives A_{p,k}=h^k/k! P_{p−k}(−h), and the absorbing column equals h^r/(r−1)! G_{p−r,r}(h), G_{m,r}=sum_{j=0}^m(−h)^j/[j!(r+j)]=integral_0^1 t^(r−1)P_m(−ht)dt. Even m factors stay positive; odd m P_m and G_m,r are strictly decreasing to negative infinity and have unique positive zeros. Thus the minimum finite root set is an exact first-and-only positivity horizon for all initial probability rows. Comparison of increasing odd P roots and G_m,r>beta_m proves H_{p,d}=1 for d≥p, p/(p−1) for d=p−1 and beta_3 for d=p−2, p≥3. Fixed d asymptotics follow via the exact Taylor integral remainder, endpoint Laplace estimate and Stirling: W_0(e^(−1)) except d=1 even orders with e^(−1). Independent rational arithmetic verified 3276 entries for p=2..8, d=1..8, h∈{1/3,4/3,11/5}; it is not substituted for the infinite asymptotics.",
+      "residual_risks": [
+        "The theorem concerns endpoint nonnegativity for all rows of equal-rate pure-birth generators, not intermediate bDeC stages or variable-rate/general Markov generators.",
+        "The high-order limit keeps d fixed; jointly increasing p,d was not established by the proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Horváth treats general positivity thresholds/absolute monotonicity; available material did not assert this dimension staircase.",
+          "Modified Patankar methods alter the endpoint map, unlike fixed polynomial P_p."
+        ],
+        "reasoning": "Class-uniform SSP bounds can explain h≤1 when a long chain exposes P_1; they do not, without extra finite nilpotent-block analysis, supply H_{p,d}>1 for small d or the d=1 parity split. A hidden specialized corollary remains a risk.",
+        "searches": [
+          "Z Horváth On the positivity step size threshold of Runge-Kutta methods doi:10.1016/j.apnum.2004.08.026",
+          "Micalizzi Torlo 2210.02976",
+          "Offner Torlo 1905.09237"
+        ]
+      },
+      "checked_sources": [
+        {
+          "assessment": "Theorem supplies common P_p scalar stability polynomial but does not directly state the finite pure-birth horizon in material read",
+          "material_read": "Full-text PDF mathematical stability section, especially Section 6 Theorem 6.1 and screenshot of theorem page",
+          "source": "https://arxiv.org/pdf/2210.02976"
+        },
+        {
+          "assessment": "Possible broader sufficient/necessary SSP cone statements, not certified noncovering as a whole",
+          "material_read": "Abstract and bibliographic search result only",
+          "source": "https://doi.org/10.1016/j.apnum.2004.08.026"
+        },
+        {
+          "assessment": "Different endpoint update; not a direct theorem for unmodified P_p",
+          "material_read": "Abstract and source relation to nonlinear modified scheme; full text not obtained during this run",
+          "source": "https://arxiv.org/abs/1905.09237"
+        },
+        {
+          "assessment": "Rational Padé endpoint, different from P_p and no direct implication",
+          "material_read": "Resultary indexed summary only",
+          "source": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab"
+        }
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known polynomial identity is a premise, not a full proof of positivity.",
+          "Padé/SDIRK rational maps are not polynomial P_p and can exhibit reentrant sign behavior absent here."
+        ],
+        "reasoning": "Prior work does not directly dominate the all-(p,d) claim, though absolute-monotonicity bounds give some sufficient restrictions and classical Szegő theory supplies the constant in isolation.",
+        "searches": [
+          "Micalizzi Torlo primary polynomial theorem",
+          "Horváth 2005 abstract/general thresholds",
+          "Resultary Padé and SSP-SDIRK2(2) records"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Theorem 6.1 yields P_p but does not in the inspected stability section give entrywise pure-birth positivity horizons.",
+          "Resultary 2026/9/20 Padé Markov positivity and 2026/10/4 SSP-SDIRK2(2) use rational stability functions, not P_p."
+        ],
+        "reasoning": "The endpoint polynomial coincides with Taylor-RK on linear problems, so older absolute monotonicity/Jordan-chain results must be considered aliases. No located theorem identifies all finite d sharp horizons for P_p.",
+        "searches": [
+          "Resultary semantic query: truncated exponential Taylor stability polynomial positivity Markov pure birth chain finite states SSP deferred correction order dimension threshold",
+          "Micalizzi Torlo arXiv 2210.02976 Theorem 6.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Root beta_m is a classical exponential-partial-sum root.",
+          "A table of beta_m values alone does not classify all matrix entries, integral G_{m,r} roots, or dimensions d."
+        ],
+        "reasoning": "Known polynomial zeros are not claimed new; the new exact invariant is the minimum over all entries of a finite absorbing Markov endpoint, plus its dimension staircase. No matching database/table located.",
+        "searches": [
+          "Resultary Markov positivity pure birth Taylor polynomial query",
+          "Varga Asymptotics for the Zeros of the Partial Sums of exp(z) DOI 10.1137/1.9781611970111.ch4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the exact dimension-dependent stochasticity horizon of the unmodified Taylor endpoint and fixed-dimension p-asymptotics. The underlying common stability polynomial and asymptotics of zeros of exponential partial sums are known. Finite-constraint minimum and dimension staircase are separate Markov-cone statements not implied by generic SSP constants or results for Padé/SDIRK rational maps.",
+      "residual_risks": [
+        "Horváth 2005 and old SSP/Jordan-block literature were not read fully; a general result might imply a finite-dimensional specialization.",
+        "No novelty is claimed for the Lambert W constant or common bDeC stability polynomial."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem supplies common P_p scalar stability polynomial but does not directly state the finite pure-birth horizon in material read",
+          "evidence": [
+            "Theorem 6.1, arXiv:2210.02976; primary source, stability section"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2210.02976",
+          "material_read": "Full-text PDF mathematical stability section, especially Section 6 Theorem 6.1 and screenshot of theorem page",
+          "method": "arXiv PDF open and screenshot",
+          "title": "A New Efficient Explicit Deferred Correction Framework: Analysis and Applications to Hyperbolic PDEs and Adaptivity",
+          "trigger": "Same bDeC family and linear endpoint stability polynomial"
+        },
+        {
+          "assessment": "Possible broader sufficient/necessary SSP cone statements, not certified noncovering as a whole",
+          "evidence": [
+            "DOI 10.1016/j.apnum.2004.08.026 abstract"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.apnum.2004.08.026",
+          "material_read": "Abstract and bibliographic search result only",
+          "method": "search indexed abstract",
+          "title": "On the positivity step size threshold of Runge–Kutta methods",
+          "trigger": "Closest general Runge-Kutta positivity theory"
+        },
+        {
+          "assessment": "Different endpoint update; not a direct theorem for unmodified P_p",
+          "evidence": [
+            "arXiv:1905.09237"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.09237",
+          "material_read": "Abstract and source relation to nonlinear modified scheme; full text not obtained during this run",
+          "method": "arXiv metadata/abstract comparison",
+          "title": "Arbitrary high-order conservative and positivity preserving Patankar-type deferred correction schemes",
+          "trigger": "Potential dominating positivity theorem"
+        },
+        {
+          "assessment": "Rational Padé endpoint, different from P_p and no direct implication",
+          "evidence": [
+            "Resultary hit 2026/9/20/...-4aad2a3f58ab"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab",
+          "material_read": "Resultary indexed summary only",
+          "method": "Resultary semantic search",
+          "title": "Eight-state barrier for Markov positivity of the [2/2] Padé map",
+          "trigger": "Relevant prior published Markov positivity threshold"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Independent checked scientific primary and specialty sources as listed under originality",
+        "Independent mathematical verification/replay as recorded under verification"
+      ],
+      "rationale": "The exact Markov-chain positivity window is a natural and practically relevant numerical-analysis invariant. It exposes strict separation between all-generator SSP restrictions and finite absorbing-state endpoints, including two sharp finite-size staircase transitions and an unusual even/odd p split for one transient state. It is not merely a reparameterization of a known scalar stability interval.",
+      "residual_risks": [
+        "The result applies to an equal-rate one-way chain and endpoint time stepping; broad high-order positivity for all Markov generators and stages is not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "No claims about unequal-rate generators, negative internal stages, floating-point roundoff or p,d jointly growing.",
+  "schema_version": 1
+}
