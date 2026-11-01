@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:53:39Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md: 2026/10/26/finite-time-consensus-and-exact-basin-times-for-decreasing-memor--49a880376a06/RESULT.md, Git blob 04bd3364cced82aba2204bb949fdee705eb3c2a0",
+        "Independent verification artifact: independent_checks.py; check_results.txt",
+        "Classical lemmas/primary theorems identified in the proof above"
+      ],
+      "rationale": "Directly reconstructed the sign-preservation lemma: writing q=sum w_j u_(j-1), next score q' differs by w1*sigma + sum_(j=1)^(L-1)(w_(j+1)-w_j)u_(j-1)-wL*u_(L-1). For sigma=+ the lower bound q'-q>=w1-sum(w_j-w_(j+1))-wL=0, and for - the reverse bound, so tie-breaking by the NEW current symbol preserves sigma. Induction gives constant emission; after t steps state has t new signs followed by the original prefix, yielding exact settling time. Global negation swaps equal-size basins. The sharp maximum follows from whether some initial sign can disagree with weighted-majority sign. Uniform count fixes first disagreeing index and counts remaining positive bits by binomial tails with even-length tie adjustment. Independent exhaustive iterates and counts for 329 nonincreasing weight vectors checked, not relied upon for general result.",
+      "residual_risks": [
+        "Reduced signed-majority memory recurrence is not identical to all transient configurations of a full clover network.",
+        "Synchronous update and current-bit tie breaking are essential; nonmonotone/negative weights may cycle."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General memory-consensus papers use network protocols distinct from this exact deterministic shift, and source clover theorem allows arbitrary signed cycles, so neither a more general all-monotone convergence result nor the histogram was found in inspected portions."
+        ],
+        "reasoning": "Potential conceptual translations from threshold automata remain a risk, but known single-dominant-coefficient result has strictly narrower hypothesis in weights.",
+        "searches": [
+          "weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state",
+          "España–Funez–Ugalde arXiv:2509.03654 Proposition 2 and Section 4; Marzagão et al AAAI 2021 memory consensus.",
+          "https://arxiv.org/abs/2509.03654",
+          "https://doi.org/10.1609/aaai.v35i13.17342"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2509.03654",
+        "https://doi.org/10.1609/aaai.v35i13.17342",
+        "Resultary semantic search: weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source derives F, so recurrence itself is covered. Its stability under a single strict leading term does not imply sign persistence for all decreasing weights, where w1 may be less than sum_{j>1}w_j."
+        ],
+        "reasoning": "The new algebraic telescoping inequality and binomial basin-time classification are not immediate statements of the source proposition.",
+        "searches": [
+          "weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state",
+          "España–Funez–Ugalde arXiv:2509.03654 Proposition 2 and dominant-coordinate discussion.",
+          "https://arxiv.org/abs/2509.03654",
+          "https://doi.org/10.1609/aaai.v35i13.17342"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "España et al Proposition 2 supplies the weighted recurrence. Its strict single-coefficient dominance regime does not include w1=...=wL=1 for L>=3, where the proposed theorem applies."
+        ],
+        "reasoning": "Coordinate dominance implies eventual fixed behavior in a subregion; it does not imply the persistence proof or basin histogram on all monotone-lag vectors.",
+        "searches": [
+          "weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state",
+          "Deterministic weighted majority shift register, delayed threshold automaton, finite memory consensus, signed clover Boolean recurrence, prefix-sign invariance.",
+          "https://arxiv.org/abs/2509.03654",
+          "https://doi.org/10.1609/aaai.v35i13.17342"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hits include different exponential fading-memory consensus on continuous networks, not same binary shift. No applicable finite list/table precomputes all 2^L basin assignments and settling times for each L."
+        ],
+        "reasoning": "The uniform histogram is an all-L exact combinatorial law, not a finite numerical table or isolated simulation.",
+        "searches": [
+          "weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state",
+          "Resultary weighted majority map nonincreasing memory weights finite-time consensus binary shift register tie to current state; source paper numerical examples in Section 4",
+          "https://arxiv.org/abs/2509.03654",
+          "https://doi.org/10.1609/aaai.v35i13.17342"
+        ]
+      },
+      "rationale": "España, Funez and Ugalde derive this same clover delay recurrence and analyze strict one-coordinate domination, which covers some easy regimes but not the full nonincreasing-weight cone with comparable weights (including all ones). New result: persistence under monotone lags, all basin and exact settling-time structure, and the full uniform histogram.",
+      "residual_risks": [
+        "Older weighted-threshold shift-register/Boolean delay literature may give a sign-invariance lemma under monotone weights.",
+        "The translated assertion concerns the reduced clover recurrence; unknown full-network transient results must not be conflated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS delay recurrence and stricter dominance setting, not complete monotone-memory settling theorem",
+          "evidence": "Prop 2 reduction; dominant-vertex hypothesis in Section 4.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.03654",
+          "material_read": "Proposition 2, Section 4 strict coefficient dominance, discussion/conclusion",
+          "method": "Full accessible primary arXiv HTML relevant mathematical parts",
+          "title": "Dominant vertices and attractors’ landscape for Boolean networks",
+          "trigger": "Identical signed-clover induced majority delay recursion"
+        },
+        {
+          "assessment": "A distinct network model; terminological rather than established logical coverage",
+          "evidence": "No identified identical deterministic shift map in inspected summary.",
+          "identifier_or_url": "https://doi.org/10.1609/aaai.v35i13.17342",
+          "material_read": "Abstract and model summary",
+          "method": "Primary abstract and source references; no whole-document noncoverage claim",
+          "title": "The Influence of Memory in Multi-Agent Consensus",
+          "trigger": "Similar terminology in network majority consensus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2509.03654",
+        "https://doi.org/10.1609/aaai.v35i13.17342"
+      ],
+      "rationale": "A full phase-space classification, basin sizes and exact settling-time histogram of a nontrivial infinite family of deterministic memory majority dynamics is a natural exact dynamical invariant; the monotonicity condition sharply excludes a simple cycling example.",
+      "residual_risks": [
+        "Does not characterize the maximal class of all weights ensuring convergence; only a natural sufficient cone."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For deterministic binary memory shift F(u)=(sgn_{u0}(sum_{j=1}^L w_j u_{j-1}),u0,...,u_{L-2}) with nonnegative nonincreasing weights w1>=...>=wL, every future emitted bit equals its first sign, so exactly two fixed attractors have 2^(L-1) states each. Exact least settling time is L minus first disagreement index (0 for constant). Max settles in L iff w1<sum of remaining weights (otherwise L-1 for L>=2; L=1 gives 0). In uniform weights full binomial settling-time histogram holds, with a (1,2) two-cycle outside the monotone cone.",
+  "limitations": [
+    "Reduced signed-majority memory recurrence is not identical to all transient configurations of a full clover network.",
+    "Synchronous update and current-bit tie breaking are essential; nonmonotone/negative weights may cycle.",
+    "Older weighted-threshold shift-register/Boolean delay literature may give a sign-invariance lemma under monotone weights.",
+    "The translated assertion concerns the reduced clover recurrence; unknown full-network transient results must not be conflated.",
+    "Does not characterize the maximal class of all weights ensuring convergence; only a natural sufficient cone."
+  ],
+  "schema_version": 1
+}

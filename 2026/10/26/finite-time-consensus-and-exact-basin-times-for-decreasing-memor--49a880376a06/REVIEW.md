@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. A telescoping score inequality proves that once the first majority decision is made, the next weighted score cannot cross back through zero; current-bit tie resolution preserves the same decision. Subsequent shift-register filling proves the exact stopping-time and two-basin theorem. The sharp maximum follows from a weight threshold and a matching history. Counting first-disagreement positions yields the displayed binomial histogram, checked against all histories in 1286 small parameter vectors.
+## correctness
 
-## Originality
-PASS on the checked sources, subject to residual priority risk. España--Funez--Ugalde, arXiv:2509.03654, give the recurrence and a strict single-coefficient dominance class, but do not imply the non-dominant decreasing-memory consensus and full settling-time classification. Published-result queries for weighted Boolean delay majority, clover attractors, and finite-time consensus returned other network/protocol statements, not a stronger result covering this theorem. An older multi-agent consensus article was accessible at abstract level only; that limitation is preserved.
+PASS
 
-## Value
-PASS. This gives a full attractor and basin/settling classification for a structurally meaningful unbounded-memory family, with a sharp finite-time cutoff, exact full histogram for equal weights, and an explicit two-cycle immediately outside the monotone-weight assumption. It supplies a rule-sensitive alternative to general attractor bounds even when no single lag dominates.
+Directly reconstructed the sign-preservation lemma: writing q=sum w_j u_(j-1), next score q' differs by w1*sigma + sum_(j=1)^(L-1)(w_(j+1)-w_j)u_(j-1)-wL*u_(L-1). For sigma=+ the lower bound q'-q>=w1-sum(w_j-w_(j+1))-wL=0, and for - the reverse bound, so tie-breaking by the NEW current symbol preserves sigma. Induction gives constant emission; after t steps state has t new signs followed by the original prefix, yielding exact settling time. Global negation swaps equal-size basins. The sharp maximum follows from whether some initial sign can disagree with weighted-majority sign. Uniform count fixes first disagreeing index and counts remaining positive bits by binomial tails with even-length tie adjustment. Independent exhaustive iterates and counts for 329 nonincreasing weight vectors checked, not relied upon for general result.
 
-## Limits
-The theorem concerns the induced recurrence and not unrestricted early transients of the original graph; negative/nonmonotone weights and asynchronous protocols are not covered. Neither external priority nor independent validation is certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+España, Funez and Ugalde derive this same clover delay recurrence and analyze strict one-coordinate domination, which covers some easy regimes but not the full nonincreasing-weight cone with comparable weights (including all ones). New result: persistence under monotone lags, all basin and exact settling-time structure, and the full uniform histogram.
+
+## value
+
+PASS
+
+A full phase-space classification, basin sizes and exact settling-time histogram of a nontrivial infinite family of deterministic memory majority dynamics is a natural exact dynamical invariant; the monotonicity condition sharply excludes a simple cycling example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
