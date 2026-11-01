@@ -1,0 +1,19 @@
+# Scientific review: sharp nonquadrature phase-slip onset
+
+## Correctness — PASS
+
+The two-cluster manifold is invariant for the exact finite-population map. Subtraction gives the stated real lift \(F(x)=x-A\sin x+B(1-\cos x)\). At the lower cut, \(A\le1\) is exactly necessary and sufficient. At the upper cut, the minimum of \(H_A(t)=(t-A\sin t)/(1-\cos t)\) is unique because \(t\cot(t/2)\) decreases strictly from \(2\) to \(0\). The envelope is strictly decreasing and intersects the positive physical coupling ray once. The exact factorization of \(F(x)-x\) proves the repelling interior phase lock and global monotone convergence to the two endpoint representatives. At the unique critical tangency, \(G_{yy}=D_c>0\) and \(G_K=-t_c/K_c<0\) establish the square-root opening by the one-dimensional fold theorem. The cusp and weak-lag expansions follow from Taylor series with uniform local remainders. The standard-library verifier passed 40,916 finite numerical diagnostics, including checks against the unreduced oscillator equations. The checks do not prove infinitely many parameters or trajectories; the analytical proof does.
+
+## Originality — PASS under the inspected evidence
+
+The motivating 2026 study treats the mean-field instability of incoherence, not this exact finite unequal-two-cluster global no-slip diagram. A publicly indexed 2026 quadrature result covers the special case \(\beta=\pi/2\), including its parabolic decay, and already derives the general scalar reduction. That prior result is acknowledged explicitly: it does **not** assert a nonquadrature \(0<\beta<\pi/2\) coupling boundary, its unique interior repeller, geometric endpoint relaxation, or its fold and weak-lag cusp. The 2018/2019 Kuramoto–Sakaguchi article studies continuous-time stochastic two-cluster dynamics; its limiting flow cannot imply an exact discrete step-size cutoff. The new scalar lift is algebraically a standard Arnold sine-circle map; existence of a stable fixed point or zero rotation number is weaker than preserving the *specific synchronization-selected interval in one step*. Standard circle-map literature could contain an equivalent implicit confinement theorem; that genuine historical priority risk persists. Targeted published-record and primary literature searches found no decisive stronger coverage; searches alone are not a novelty proof.
+
+## Mathematical value — PASS
+
+The unique threshold answers a natural finite-step synchronization question left open by a continuum calculation: which couplings guarantee that every two-cluster phase ordering stays within a chosen fundamental interval while converging to synchrony? The complete sharp classification exposes a boundary between exact ordering preservation and immediate phase slip, the repelling nonsynchronous phase lock, the geometric versus parabolic (quadrature) relaxation mechanism, a universal fold-width coefficient, and a weak-lag cusp. This is not a mere relabeling of the quadrature theorem: the qualitative dynamical structure changes for every strictly nonquadrature lag. The result does not claim full-system transverse stability or a global classification beyond the one-step cut.
+
+## Closest work and remaining limitations
+
+Sources inspected include Gade–Gupta (arXiv:2609.22715v1, full accessible article), the prior public quadrature result (the complete RESULT.md record), Gong–Zheng–Toenjes–Pikovsky (arXiv:1812.05883v2, particularly two-cluster section), and Goncharuk–Yampolsky (arXiv:2307.15195v2, introductory circle-map definitions). The last source is inspected only for the standard-map background, not as a full-document noncoverage certification. The fixed-interval confinement condition should not be conflated with Arnold-tongue phase locking. An unindexed specialized sine-map confinement result remains a priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
