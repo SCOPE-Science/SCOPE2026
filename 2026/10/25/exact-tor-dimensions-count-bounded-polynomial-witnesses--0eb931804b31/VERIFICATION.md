@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Mathematical verification and limits
+# Independent mathematical audit
 
-1. Induction gives \(f^n(t,x_1,\ldots,x_m,y_1,\ldots,y_m)=(t+n,x_1,\ldots,x_m,y_1F_{1,n},\ldots,y_mF_{m,n})\).
-2. Pullback of \((y_1,\ldots,y_m,P(x,t))\) is the stated ideal \(I_n\).
-3. The regular-sequence hypothesis makes the Koszul complex a free resolution of \(R/I_n\); tensoring with \(R/J\) computes the required Tor group.
-4. Under \(R/J\cong k[x_1,\ldots,x_m]\), the first \(m\) equations are \(H_n(x_i)=\prod_{j=0}^n(x_i-j)\). Characteristic zero makes each polynomial square-free, and the Chinese remainder theorem identifies their quotient with one copy of \(k\) per grid point.
-5. First Koszul homology is the kernel of multiplication by \(P(x,n)\) on that product algebra. The kernel has dimension one at each zero coordinate and zero at every nonzero coordinate, proving the count identity.
+## correctness
 
-Limits: the theorem is not asserted when the displayed generators fail to be a regular sequence. No independent audit or independent validation is claimed.
+PASS
+
+Induction verifies f^n=(t+n,x_i,y_i product_{j=1}^n(x_i-t-j)) and the stated pullback ideal. Restriction to J=(t,y_i-x_i) gives the Koszul complex on H_n(x_i)=product_{j=0}^n(x_i-j) and P(x,n). The first m generators form an A-regular sequence, whose quotient B is the product of k over the finite grid by CRT, since char k=0. Koszul-cone homology gives H_1=ker(P(x,n):B->B); diagonal multiplication has exactly one zero coordinate per witness. The I_n regular-sequence condition is genuinely needed; the result does not assert it for every P.
+
+## originality
+
+PASS
+
+Bell proves return times equal bounded polynomial existential zeros and a special square-time first-Tor nonvanishing example; the new result yields general exact first-Tor multiplicities conditionally on regular sequences, not merely positivity. The method is a standard Koszul/CRT deduction and its originality is confined to this exact dynamical quantitative reading.
+
+## value
+
+PASS
+
+For the known Diophantine return construction, the Tor dimension is a natural finer invariant than return/nonreturn. It exactly counts bounded solutions for arbitrary m and polynomial P (subject to regularity), making homological multiplicity explicit in arithmetic dynamics. The algebraic tools are standard; the mathematical value is this motivated structural counting bridge, not a new Koszul theorem or generic textbook identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
