@@ -1,11 +1,21 @@
-# Scientific review of reentrant RKL2 endpoint positivity
+# Independent mathematical audit
 
-**Correctness — PASS.** The three-stage RKL2 polynomial is reconstructed by expanding the third Legendre polynomial and satisfying consistency and second-order conditions. Exact multiplication of the three-state pure-birth generator gives the two sign-controlling entries. The diagonal and residual entries are nonnegative until \(h=15/4\), by the elementary \([-1,1]\) bound on the third Legendre polynomial. The two-stage all-dimension argument examines every diagonal and off-diagonal polynomial entry, not a finite enumeration. The two-state three-stage argument reduces every generator to its sole nonzero spectral mode and shows there can be no positivity return. All boundaries are inclusive and all \(h>15/4\) fail for the witness. The finite exact-rational checker is supplementary.
+## correctness
 
-**Originality — PASS with priority risk.** Comparison against the full available texts of the two motivating RKL studies, published work on Heston super-time-stepping instability, accessible earlier finite-Dirichlet-path RKL positivity claims, and published results for SSP-SDIRK2(2) and the \([2/2]\) Padé map did not reveal an implication of the joint exact phase diagram and simultaneous stage/state minimality. The RKL stability polynomial itself is standard. The accessible abstract of Dawes (2021) treats Dirichlet-boundary nonmonotonicity, whereas the present theorem concerns a conservative directed pure-birth chain; its inaccessible full text is a substantive residual priority uncertainty. Unsuccessful searches alone are not proof of novelty.
+PASS
 
-**Mathematical value — PASS.** Distinguishing scalar spectral stability from preservation of the probability simplex is a motivated stability question for explicit super-time-stepping on conservative nonsymmetric generators. The finding identifies an exact detached restoration window and proves that neither fewer stages nor fewer states can produce such a window. It persists for an open family of nonidentical transition rates, avoiding an isolated numerical coincidence. It does not assert stagewise positivity or benefits for arbitrary physical discretizations.
+For the exact RKL2 stability polynomial R3(z)=1+z+z^2/2+z^3/15 and Q=[[-1,1,0],[0,-1,1],[0,0,0]], direct multiplication gives R3(hQ)=[[r(h),h(1-h+h^2/5),h^2(1/2-2h/15)],[0,r(h),1-r(h)],[0,0,1]], with r(h)=1-h+h^2/2-h^3/15. Factoring the two independent offdiagonal signs proves exactly [0,(5-sqrt(5))/2] union [(5+sqrt(5))/2,15/4], with r(h) and 1-r(h) positive over the candidate interval using the Legendre bound for 0<=h<=5. For every finite Markov generator, R2(hQ) has strictly positive diagonal entries and offdiagonal entries h(q_ij+h(Q^2)_ij/2), each with a nonnegative initial interval. On at most two states Q^2=-lambda Q; for R3 the offdiagonal multiplier 1-r(lambda h) stays nonnegative and diagonal positivity cannot return after z>=5. Strict signs at h=3,3.7,4 establish robustness for a neighborhood of the two birth rates. Independent SymPy exact matrix computation confirms the three diagnostic step signs. This proves endpoint positivity only, not positivity of internal stages.
 
-**Closest literature and limits.** Aggul et al. (arXiv:2601.14508v1) focus on eigenvalue estimates, adaptivity, and accuracy for DG/finite-difference diffusion. Tan et al. (arXiv:2507.17062) prove monotonicity in structured heat-equation settings. Dawes (2021) discusses nonmonotonicity with Dirichlet boundaries but was inspected only at the abstract level. The method's one-step polynomial is well known; the proposed new contribution is strictly the directed Markov phase classification plus the minimality theorem. Numerical checks cannot establish either infinite assertion and are not treated as doing so.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published RKL diffusion/STSt literature analyzes scalar stability, spatial monotonicity and positivity near Dirichlet boundaries; no inspected original theorem gives this three-state directed pure-birth reentrance and simultaneous stage/state minimality. Other published mathematical maps SSP-SDIRK2(2) and [2/2] Pade concern different stability functions and do not imply it.
+
+## value
+
+PASS
+
+A smallest possible state count and method stage count for loss-recovery-loss positivity is a natural structural boundary in numerical Markov integration. The two separated exact admissible step intervals and their robustness distinguish endpoint positivity from scalar absolute stability and are not a routine derivation of the RKL polynomial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:10:18.592120Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source Git tree 691bef14d1b75708f7956646172a4d5bdf1f531a, RESULT blob 37b3f9a12119c397f31c2e2ca6c97871fae77d2b",
+        "Exact independent SymPy R3 matrix entries",
+        "h=3 negative, h=37/10 positive, h=4 negative",
+        "Original verify.py read as source only, not executed"
+      ],
+      "rationale": "For the exact RKL2 stability polynomial R3(z)=1+z+z^2/2+z^3/15 and Q=[[-1,1,0],[0,-1,1],[0,0,0]], direct multiplication gives R3(hQ)=[[r(h),h(1-h+h^2/5),h^2(1/2-2h/15)],[0,r(h),1-r(h)],[0,0,1]], with r(h)=1-h+h^2/2-h^3/15. Factoring the two independent offdiagonal signs proves exactly [0,(5-sqrt(5))/2] union [(5+sqrt(5))/2,15/4], with r(h) and 1-r(h) positive over the candidate interval using the Legendre bound for 0<=h<=5. For every finite Markov generator, R2(hQ) has strictly positive diagonal entries and offdiagonal entries h(q_ij+h(Q^2)_ij/2), each with a nonnegative initial interval. On at most two states Q^2=-lambda Q; for R3 the offdiagonal multiplier 1-r(lambda h) stays nonnegative and diagonal positivity cannot return after z>=5. Strict signs at h=3,3.7,4 establish robustness for a neighborhood of the two birth rates. Independent SymPy exact matrix computation confirms the three diagnostic step signs. This proves endpoint positivity only, not positivity of internal stages.",
+      "residual_risks": [
+        "Independent finite checks corroborate only bounded cases; infinite/all-parameter assertions rest on reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md and verify.py at assigned tree",
+          "Aggul et al arXiv:2601.14508",
+          "Tan et al arXiv:2507.17062",
+          "Dawes DOI 10.1016/j.compfluid.2020.104762",
+          "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+        ],
+        "reasoning": "Tan--Aslam--Bertozzi study monotone STS in structured constant-coefficient spatial heat equations; Aggul--Francisquez--Reynolds--Amihere examine diffusion discretizations; their spatial hypotheses do not include the nonreversible upper triangular CTMC witness. SSP-SDIRK and Pade results are distinct polynomial/rational maps.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval",
+          "Primary-literature search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at assigned tree",
+        "Aggul et al arXiv:2601.14508",
+        "Tan et al arXiv:2507.17062",
+        "Dawes DOI 10.1016/j.compfluid.2020.104762",
+        "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md and verify.py at assigned tree",
+          "Aggul et al arXiv:2601.14508",
+          "Tan et al arXiv:2507.17062",
+          "Dawes DOI 10.1016/j.compfluid.2020.104762",
+          "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+        ],
+        "reasoning": "A general assertion of RKL positivity for a special spatial Laplacian would not imply positivity for every directed generator and cannot exclude this directed counterexample. No matching earlier theorem of reentrant positivity with three-stage RKL2 was found in the inspected full text and searches; this is a qualified novelty assessment.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval",
+          "Primary-literature search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md and verify.py at assigned tree",
+          "Aggul et al arXiv:2601.14508",
+          "Tan et al arXiv:2507.17062",
+          "Dawes DOI 10.1016/j.compfluid.2020.104762",
+          "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+        ],
+        "reasoning": "For Markov Q, endpoint nonnegativity of R_s(hQ) means stochasticity of the step map; this is different from scalar absolute stability and positivity of every internal Runge-Kutta stage. The exact eigenvalues are not enough to determine entrywise signs for a nonnormal pure-birth generator.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval",
+          "Primary-literature search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md and verify.py at assigned tree",
+          "Aggul et al arXiv:2601.14508",
+          "Tan et al arXiv:2507.17062",
+          "Dawes DOI 10.1016/j.compfluid.2020.104762",
+          "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+        ],
+        "reasoning": "The exact three-state signs follow analytically from matrix-polynomial entries and are not an interpolation of an already published SSP or table. A numerical RKL stability-region table does not determine 3x3 Markov entrywise phase diagrams or a universal minimality boundary.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval",
+          "Primary-literature search 2026-10-30: Runge Kutta Legendre RKL2 three-stage endpoint positivity nonnegative Markov generator reentrant positivity interval"
+        ]
+      },
+      "rationale": "Published RKL diffusion/STSt literature analyzes scalar stability, spatial monotonicity and positivity near Dirichlet boundaries; no inspected original theorem gives this three-state directed pure-birth reentrance and simultaneous stage/state minimality. Other published mathematical maps SSP-SDIRK2(2) and [2/2] Pade concern different stability functions and do not imply it.",
+      "residual_risks": [
+        "Dawes 2021 primary full text not inspected; an exact reentrant RKL2 example there or in another spatial paper cannot be excluded",
+        "RKL stage normalization and Markov row conventions essential; witness is endpoint-only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "No directed Markov endpoint step-positivity classification identified in the material read",
+          "evidence": [
+            "RKL/DG and FD diffusion, stability and adaption rather than entrywise monotonicity of arbitrary Markov transition polynomials"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.14508",
+          "material_read": "Accessible full arXiv HTML including method definition, stability/adaptivity discussion and experiments",
+          "method": "Read primary arXiv HTML; compared settings and conclusions",
+          "title": "Super Time Stepping Methods for Diffusion using Discontinuous-Galerkin Spatial Discretizations",
+          "trigger": "Three-stage RKL2 may be treated in this diffusion numerical methods paper"
+        },
+        {
+          "assessment": "Partial comparison only; cannot assert whole paper omits result",
+          "evidence": [
+            "Reported Dirichlet-boundary RKL positivity phenomena; precise full derivation not inspected"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.compfluid.2020.104762",
+          "material_read": "Abstract and secondary bibliographic summary only, not primary full text",
+          "method": "Search and abstract comparison",
+          "title": "Some properties of the Runge-Kutta-Legendre super-time-stepping explicit methods",
+          "trigger": "Closest potential prior positivity analysis of RKL"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and verify.py at assigned tree",
+        "Aggul et al arXiv:2601.14508",
+        "Tan et al arXiv:2507.17062",
+        "Dawes DOI 10.1016/j.compfluid.2020.104762",
+        "Resultary SSP-SDIRK2(2) and Pade 2026 findings"
+      ],
+      "rationale": "A smallest possible state count and method stage count for loss-recovery-loss positivity is a natural structural boundary in numerical Markov integration. The two separated exact admissible step intervals and their robustness distinguish endpoint positivity from scalar absolute stability and are not a routine derivation of the RKL polynomial.",
+      "residual_risks": [
+        "Dawes 2021 primary full text not inspected; an exact reentrant RKL2 example there or in another spatial paper cannot be excluded"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Dawes 2021 primary full text not inspected; an exact reentrant RKL2 example there or in another spatial paper cannot be excluded",
+    "RKL stage normalization and Markov row conventions essential; witness is endpoint-only.",
+    "The public administration records were not privacy sanitized, so scientific assessment is complete but publication is NOT READY."
+  ],
+  "schema_version": 1
+}
