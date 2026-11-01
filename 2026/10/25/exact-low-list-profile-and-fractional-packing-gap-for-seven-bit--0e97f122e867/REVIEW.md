@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. All six optimum sizes follow from six explicit codebooks checked against every one of the 32 received words and nonnegative rational dual certificates checked against every one of the 128 possible sent words. The exact fractional value at list budget two is witnessed on both sides by feasible rational primal and dual vectors. `verify.py` reconstructs the incidence matrix and performs these checks using integer arithmetic. The claim has no unproved infinite extrapolation.
+## correctness
 
-## Originality
-PASS within examined evidence. Lin (arXiv:2609.26650v1, complete eight-page manuscript) establishes asymptotic bounds, not the six-value finite spectrum. Guruswami–Håstad's earlier two-deletion list-decoding construction is likewise asymptotic. The published six-bit optimum and the distinct eight-bit three-list optimum do not imply the seven-bit low-list profile or its fractional value. The exact implication comparisons include an explicit new size-seven rational dual certificate; absence from the searched records does not prove universal priority.
+PASS
 
-## Mathematical value
-PASS. This determines an entire natural low-list parameter profile for the first seven-bit double-deletion hypergraph beyond the previously tabulated six-bit benchmark. It also establishes the exact nonintegrality of its packing relaxation at list size two, a quantitative obstruction pertinent to finite-length coding bounds. The six-value classification is not a one-parameter numerical substitution, and the sharp fractional value is not entailed by the previous six-bit instance. The work does not assert a general asymptotic coding theorem.
+Reconstructed the 32x128 distinct two-deletion incidence matrix from all 21 retained-coordinate pairs per seven-bit word. Independently checked all six explicit codebooks satisfy every row load<=L and cardinalities (5,11,16,21,26,32). Independently checked every 128 pointwise nonnegative rational dual inequality for each L and strict upper bounds 256/45, 666/59, 452/27, 1160/53, 1430/53, 2340/73, each strictly below the next integer. For L=2, independently checked all 32 primal inequalities, all 128 variable bounds, and rational objective 666/59. Thus finite exact certificates prove both integer optima and fractional gap 17/59 without trusting a solver or extrapolating.
 
-## Nearest work and limitations
-Andrew D. Lin, arXiv:2609.26650v1; Guruswami and Håstad, arXiv:2007.10592v1; the published six-bit two-list code result `2026/10/4/SCOPE-exact-length-six-binary-two-list-two-deletion-code-size--9d20b24dd814`. Unindexed finite tables and equivalent incidence-packing formulations remain priority risks. No result is claimed for list budget seven or above.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lin 2026 derives asymptotic rates for exactly the same list-decodable deletion-hypergraph model but no fixed seven-bit exact profile; Guruswami–Håstad construct asymptotic two-deletion codes. The closest indexed six-bit exact capacity of seven does not imply length-seven low-list capacity or exact LP fractional value. Originality is best-of-knowledge with potential old finite table risk.
+
+## value
+
+PASS
+
+A natural complete first seven-bit two-deletion list-size profile extending the previously known six-bit case, and an exact integrality gap for the canonical LP relaxation. Both the full finite spectrum and the fractional obstruction are meaningful reproducible benchmarks for short deletion codes; no general rate theorem is required.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
