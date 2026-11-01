@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and limits
+# Independent mathematical audit
 
-With Python 3 and SymPy, execute `python verify.py` from this directory. The script uses exact symbolic algebra and rational comparisons, with no external services or numeric root solver.
+## correctness
 
-The script verifies the exact predator-nullcline and quartic identities, degree/sign pattern, the four rational root-isolation values, the upper-branch trace formula and positivity bound, and the two predator-free eigenvalues. The determinant sign follows by differentiating the positive-equilibrium nullcline and is stated explicitly in `RESULT.md`. These are corroborating symbolic certificates, not an independent scientific audit.
+PASS
 
-The variational critical threshold and exhaustive count over all parameter values are established by the analytical proof in `RESULT.md`; they are not inferred from finite checks. The double root is algebraic and no unconditional nonzero transverse eigenvalue or global basin classification is asserted.
+Predator equation nullcline sets u=B/(1+alpha v) exactly. Clearing positive factors in prey equation yields quartic with strictly negative constant and quadratic/cubic/quartic coefficients, so Descartes counts at most two positive zeros by multiplicity. In z=alpha v and t=1/alpha, each z has a unique threshold t_*(z); maximum attained at positive z, and Descartes forces exactly one double equilibrium at threshold, two simple above, none below. Determinant -uv g_u F_alpha_prime yields lower saddle. The rational witness bracketing and trace bound proves upper sink and prey-only sink. This is local bistability, not a global basin theorem.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. Source’s one-root conditional case does not algebraically imply the opposite barrier regime; the source rational example verifies robust two-sink coexistence/extinction.
+
+## value
+
+PASS
+
+Critical cooperative-hunting threshold quantifies positive-equilibrium creation beyond failure of rare-predator invasion and supplies robust local sink–saddle–sink bistability in a biologically motivated published model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

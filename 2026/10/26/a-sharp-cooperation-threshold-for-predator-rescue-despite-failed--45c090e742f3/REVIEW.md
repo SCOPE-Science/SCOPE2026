@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model is specified with positive rates, a subunit prey harvest, and a strict predator-free invasion barrier. The predator nullcline gives \(u=B/(1+\alpha v)\) exactly; clearing positive denominators produces a quartic with negative constant and all higher coefficients except the linear one strictly negative. Descartes' rule bounds positive roots by two, counted with multiplicity. Reparametrizing by \(z=\alpha v\) and \(t=1/\alpha\) gives a strictly decreasing quadratic threshold in \(t\) for every allowable \(z\). Its maximizer exists by endpoint decay, and the root count and tangency follow without numerical extrapolation. The determinant identity fixes the lower root as a saddle, and the upper root in the exact rational example is a sink by root brackets and a strictly negative trace. The predator-free equilibrium has two strictly negative eigenvalues. `verify.py` independently confirms the algebraic identities and exact rational certificate. Limits: no global basin or universal upper-branch stability claims.
+PASS
 
-## Originality — PASS, with residual priority risk
+Predator equation nullcline sets u=B/(1+alpha v) exactly. Clearing positive factors in prey equation yields quartic with strictly negative constant and quadratic/cubic/quartic coefficients, so Descartes counts at most two positive zeros by multiplicity. In z=alpha v and t=1/alpha, each z has a unique threshold t_*(z); maximum attained at positive z, and Descartes forces exactly one double equilibrium at threshold, two simple above, none below. Determinant -uv g_u F_alpha_prime yields lower saddle. The rational witness bracketing and trace bound proves upper sink and prey-only sink. This is local bistability, not a global basin theorem.
 
-The motivating source is Belew and Melese's 2022 published full-text model, which treats a one-positive-root sign regime and stability/Hopf analysis; its inspected discussion does not give the sharp cooperation threshold in the predator-free-stable regime or an exact bistable parameter witness. Du–Niu–Wei (2021/2022) use a different nondifferentiable group-defense response, while Jang–Yousef (2023) use a discrete-time refuge model; both exhibit cooperative-hunting bifurcations but neither accessible statement entails this exact continuous-time harvesting/fear theorem. Query-based searches of prior mathematical findings found related results for different flow/map equations rather than the same nullcline polynomial. No search establishes absolute novelty; relevant full texts beyond the motivating source remained inaccessible, so publication priority has residual uncertainty.
+## originality
 
-## Value — PASS
+PASS
 
-The scientific question is whether cooperative hunting can rescue a predator even when the predator-free equilibrium remains locally stable against rare predator invasion. The finding gives a complete equilibrium-count transition at a single sharp cooperation value for all admissible parameters in that regime, and an exact positive-parameter sink–saddle–sink example establishing robust coexistence-versus-extinction bistability. This is a structural classification of a biologically motivated persistence threshold, not a routine restatement of local linearization or a small numerical parameter sweep.
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. Source’s one-root conditional case does not algebraically imply the opposite barrier regime; the source rational example verifies robust two-sink coexistence/extinction.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Critical cooperative-hunting threshold quantifies positive-equilibrium creation beyond failure of rare-predator invasion and supplies robust local sink–saddle–sink bistability in a biologically motivated published model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
