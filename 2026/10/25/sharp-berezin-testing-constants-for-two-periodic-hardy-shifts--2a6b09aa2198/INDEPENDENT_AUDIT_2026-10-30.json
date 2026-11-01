@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:15:51.582277Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 04489745f21fb80c0419e758322bb9ce99db5647",
+        "Assigned verify.py blob e60d5b7116231d1177da0dc31cbcd5a3dd361cbe",
+        "independent_batch_checks.py: 6006 coefficient-phase samples"
+      ],
+      "rationale": "PASS. Direct normalized Szegő-kernel summation gives ber(T)=sup_{0<=r<1}r|a+br²|/(1+r²). The operator norm is max(|a|,|b|); a gauged positive half-line Jacobi matrix with alternating weights has numerical radius (|a|+|b|)/2 by row-sum upper bound and long blocks. For |a|>=|b| the r=1/2 witness is strictly stronger; for |b|>=|a| the r=sqrt(2)-1 and boundary r->1 witnesses have envelopes meeting uniquely at a/b=-(4sqrt(2)-5). Differentiating the extremal radial profile confirms both constants, the unique equality family and the fully attained Berezin disk via interior r=sqrt(2)-1. Independently tested 6006 complex coefficient phases and 1500 radial sample points; finite grids corroborate but do not prove infinite-dimensional sharpness.",
+      "residual_risks": [
+        "Kernel sup includes a nonattained boundary limit in intermediate estimates; actual extremal circle is attained at an interior radius."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bhattacharya–Patra Section 3.3 Theorem 3.18 gives centered-disk result for real weighted shifts, not both sharp quantitative ratios with unique complex extremizers.",
+          "Augustine–Garayev–Shankar focuses finite-rank Berezin-range convexity."
+        ],
+        "reasoning": "Although earlier weighted-shift geometry covers part of the RESULT range assertion, the tested quantitative comparisons are not a corollary of a centered-disk assertion or generic norm bounds.",
+        "searches": [
+          "Resultary: Berezin number two periodic unilateral weighted shift norm numerical radius sharp lower bound Szego kernel",
+          "arxiv:2601.02334",
+          "arxiv:2411.10771"
+        ]
+      },
+      "checked_sources": [
+        "Bhattacharya–Patra arxiv:2601.02334 Section 3.3",
+        "Augustine et al arxiv:2411.10771 (abstract-level)",
+        "Wang–Wu 2011 DOI 10.1016/j.jmaa.2011.04.010 (bibliography)",
+        "Resultary: Berezin number two periodic unilateral weighted shift norm numerical radius sharp lower bound Szego kernel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.18 establishes the centered-disk property for real bounded weighted shifts.",
+          "Candidate computes constants 3-2sqrt(2) and (sqrt(2)-1)/2 and unique complex ratio a/b=-(4sqrt(2)-5)."
+        ],
+        "reasoning": "The prior centered disk need not have a lower bound on its radius relative to shift norm; its theorem does not imply the displayed optimal constants. The common extremal was checked separately.",
+        "searches": [
+          "arxiv:2601.02334",
+          "Resultary: Berezin number two periodic unilateral weighted shift norm numerical radius sharp lower bound Szego kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Berezin transform is the radial Fourier character z(a+b|z|²)/(1+|z|²); rotating z gives disks.",
+          "Bhattacharya–Patra 2026 studies q-Berezin geometry of Hardy weighted shifts."
+        ],
+        "reasoning": "Formulate both inequalities as infima of ber(T)/norm and ber(T)/numerical-radius over complex 2-periodic weights, not the question whether each individual Berezin range is a centered disk.",
+        "searches": [
+          "Resultary: Berezin number two periodic unilateral weighted shift norm numerical radius sharp lower bound Szego kernel",
+          "arxiv:2601.02334"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Wang–Wu numerical-range calculations can imply the numerical radius (|a|+|b|)/2, which is used as a premise, not novel.",
+          "No earlier exact equality list for both testing ratios found in reviewed source sections."
+        ],
+        "reasoning": "A known numerical-radius formula does not determine the infimum over Berezin-kernel testing or the shared optimizing phase. No claim that lack of search hits proves novelty.",
+        "searches": [
+          "Resultary: Berezin number two periodic unilateral weighted shift norm numerical radius sharp lower bound Szego kernel",
+          "DOI:10.1016/j.jmaa.2011.04.010"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge: the two simultaneous SHARP lower testing constants and common complex equality family for periodic Hardy shifts are a motivated independent computation beyond pre-existing centered Berezin-disk geometry or ordinary numerical-radius identities. Some range geometry is explicitly prior, not claimed new.",
+      "residual_risks": [
+        "An exact 2-periodic Berezin/numerical radius estimate may appear in older weighted-shift literature not inspected in full.",
+        "The centered-disk subclaim is covered and must not be counted as independent novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Centered-disk geometry for real weights previously known; no shared sharp 2-periodic testing constants in inspected section.",
+          "evidence": [
+            "Theorem 3.18 centers the disk for real weighted shifts; it is not a sharp norm/numerical-radius comparison."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.02334",
+          "material_read": "Primary PDF Section 3.3 including Theorem 3.18 and nearby weighted-shift discussion; inspected rendered relevant page.",
+          "method": "full primary PDF read at relevant section and screenshot page 14",
+          "title": "q-Berezin Range of Operators in Hardy Space",
+          "trigger": "same operator space and weighted-shift Berezin ranges"
+        },
+        {
+          "assessment": "Known weighted-shift numerical-range theory is an input, no whole-document noncoverage claimed.",
+          "evidence": [
+            "The result does not claim its numerical-radius identity as original."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2011.04.010",
+          "material_read": "Bibliographic abstract/title-level comparison, not complete 2011 paper.",
+          "method": "bibliographic metadata",
+          "title": "Numerical ranges of weighted shifts",
+          "trigger": "numerical-radius precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Bhattacharya–Patra 2026 q-Berezin work"
+      ],
+      "rationale": "PASS. Sharp simultaneous norm and numerical-radius constants quantify the loss in testing an infinite Hardy shift only on normalized Szegő kernels. Rigidity of a common complex extremizer, even with cancellation of alternating weights, is an independently meaningful operator-theoretic fact, not just an unmotivated restricted slice.",
+      "residual_risks": [
+        "Only q=1, two-periodic unilateral shifts, classical Hardy kernel."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No general all-weight or higher-period testing constant claimed."
+  ],
+  "schema_version": 1
+}
