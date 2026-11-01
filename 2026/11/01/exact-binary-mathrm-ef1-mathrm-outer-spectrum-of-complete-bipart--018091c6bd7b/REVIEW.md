@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact domain is common, nonnegative binary additive valuations on the vertices of \(K_{a,b}\) with \(a\ge b\ge1\) and \(1\le k\le a+b\). For \(k\le b\), cyclicly distributing one-valued goods balances total value while ensuring no side requires more than its available zero-valued fillers to connect the bundles; placing leftover zeros in a minimum-valued bundle protects every maximum-valued bundle's outer removable one. For \(k\ge a\), a matching of \(a+b-k\) cross-part edges separates the low-value and high-value regimes by whether the total number of ones is at most the number of agents. The all-ones instance disproves every intermediate agent count. Finite exhaustive checks and constructive checks corroborate, but do not replace, the unrestricted proof.
+
+**Originality — PASS with residual publication-priority risk.** Bei et al., arXiv:1908.05433, Proposition 4.8, prove ordinary EF1 for \(k\le b\), not outer EF1 with the full biclique agent-count classification. Chen–Zwicker, arXiv:2402.05884, prove universal high-agent results covering only a terminal subinterval. Bousquet et al., arXiv:2608.29902v1, study outer-EF1 and establish spectra on trees, without an equivalent biclique theorem in their inspected relevant sections. Targeted searches for the equivalent formulation, larger coverage, exact spectra/tables, and implications of these source results did not reveal a dominating theorem. Similar results could exist under other terminology, and relevant papers were inspected only in the identified relevant sections.
+
+**Value — PASS.** The complete biclique family is the simplest dense nontraceable graph class with an adjustable imbalance, and graph fair-division spectra have an explicit conjectural yes–no–yes structure. The theorem gives all parameter boundaries, a binary-valuation sharp obstruction, and explicit polynomial-time constructions across both feasible ranges, extending the previously known sufficient conditions on this natural model. It is not merely an isolated small finite enumeration.
+
+**Limitations.** No extension to arbitrary valuations follows from this proof. The matching and all-ones arguments establish precisely the stated common-binary result. The science has received no independent audit.
+
+Self-review: passed. Independent audit: not yet performed.

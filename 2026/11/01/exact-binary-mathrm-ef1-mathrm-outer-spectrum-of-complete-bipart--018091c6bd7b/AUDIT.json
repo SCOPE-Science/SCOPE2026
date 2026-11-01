@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The finite parameters and graph/valuation definitions are explicit. For k<=b cyclic placement yields floor/ceil values; a>=k and b>=k ensure enough zero connectors, and low-bundle storage leaves a removable valued vertex in every high bundle. For k>=a a matching of p=a+b-k edges avoids two ones when W<=k, or absorbs every zero in zero-one edges when W>k; all remaining singles and pairs differ in value by at most one and pairs permit outer deletion. For b<k<a all-one values force a singleton and a connected bundle with at least three vertices, violating outer-EF1. The actual bundled standard-library checker independently enumerated 3362 small profiles and ran 5451 construction profiles; these are tests rather than unrestricted proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bei et al. Proposition 4.8 guarantees ordinary EF1 for every number of agents no larger than either bipartition side, for arbitrary valuations. It does not impose outer deletion or characterize the high-agent segment.",
+        "Chen and Zwicker Observation 2 and Theorem 5 give outer-EF1 for k>=|V|-1 universally and k=|V|-2 under a graph condition, and the 2026 paper characterizes common binary tree spectra."
+      ],
+      "reasoning": "The low-k part partially strengthens a known ordinary-EF1 guarantee by imposing outer removal in a restricted valuation domain. The high-k part for b>=3 includes k=a=|V|-b beyond the cited |V|-2 theorem; the exact biclique obstruction for every b<k<a completes a spectrum rather than merely restating a covered special case.",
+      "searches": [
+        "https://arxiv.org/pdf/1908.05433",
+        "https://arxiv.org/pdf/2402.05884",
+        "https://arxiv.org/html/2608.29902v1",
+        "nontraceable complete bipartite graph fair division EF1outer positive n <= b and n >= a"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2608.29902v1",
+      "https://arxiv.org/pdf/1908.05433",
+      "https://arxiv.org/pdf/2402.05884"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ordinary connected EF1 does not entail outer-EF1, as the permissible removed vertex may be a cut vertex.",
+        "A general k>=|V|-2 guarantee cannot entail the full biclique k>=a range for b>=3.",
+        "The published 2026 tree result excludes general complete bipartite graphs containing cycles."
+      ],
+      "reasoning": "Claims are compared by implication: stronger fairness is not forced by the earlier ordinary EF1 theorem; earlier high-agent guarantees imply only a subset, and tree statements apply only to a different graph class. No direct equivalence, duality or dominating result is established by the inspected primary statements.",
+      "searches": [
+        "https://arxiv.org/pdf/1908.05433",
+        "https://arxiv.org/pdf/2402.05884",
+        "https://arxiv.org/html/2608.29902v1",
+        "Bousquet Connor Totschnig Zeitoun Fair Division of Graphs Beyond Traceability"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2026 manuscript considers binary outer-EF1 spectra on trees, and double-sun universal guarantees; no complete biclique formula appears in its read introduction, definitions or principal theorem statements.",
+        "The related published mathematical records found by these actual searches concerned different invariants of bipartite graphs (e.g. released packing, crown b-spectra), not connected allocation spectra."
+      ],
+      "reasoning": "The alternative expressions binary common connected EF1 with outer deletion, biclique spectrum, and outer-EF1 fair division were checked. Result titles or a nonreturn are not treated as novelty proofs; the affirmative assessment rests on contrasting quantified statements in the inspected primary sources.",
+      "searches": [
+        "EF1 outer connected allocation complete bipartite graph with common additive binary valuations and arbitrary agents exact spectrum",
+        "outer envy-free up to one vertex complete bipartite graph matching singleton pairs common binary",
+        "EF1_outer connected fair division complete bipartite graphs universal guarantee",
+        "https://arxiv.org/html/2608.29902v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Chen and Zwicker develop yes/no spectra and give worked examples, including a five-pointed star, but not a general common-binary biclique closed spectrum in the inspected Section 5.",
+        "The directly reviewed 2019 Theorem 4.9 classifies three-agent *ordinary EF1* with arbitrary valuations, not the same valuation class and outer condition over all k."
+      ],
+      "reasoning": "No exact table or graph-class classification with the same quantifiers and stronger/identical fairness notion was identified in checked literature or published-record searches. This is a best-knowledge comparison rather than a uniqueness certificate.",
+      "searches": [
+        "fair division complete bipartite graph EF1 outer common binary spectrum",
+        "https://arxiv.org/pdf/2402.05884",
+        "EF1 outer connected allocation complete bipartite graph with common additive binary valuations and arbitrary agents exact spectrum"
+      ]
+    },
+    "rationale": "The exact all-k common-binary outer-EF1 spectrum for bicliques and explicit full positive/negative classification is not implied by the compared 2019 ordinary-EF1 proposition, the 2024 general tail guarantees, or the 2026 tree and double-sun results. Search and inspection remain fallible; no absolute global novelty is claimed.",
+    "residual_risks": [
+      "An independent priority survey or indexed paper in other terminology may contain an equivalent classification.",
+      "Only relevant manuscript portions, not every lemma and appendix page, were inspected; hidden stronger source implications cannot be completely excluded.",
+      "The positive k<=b statement is close to the earlier ordinary-EF1 result, while the high-agent guarantee shares a terminal range with the 2024 general theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No biclique spectrum in the inspected core statements; restricted graph-class setting differs from trees and double suns",
+        "evidence": [
+          "2026-08-30 initial arXiv version; Theorem 5 concerns double suns; the tree spectrum statement is explicitly for trees and binary valuations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2608.29902v1",
+        "material_read": "Abstract; Introduction including contributions and related work; Preliminaries; double-sun definitions and main statements; Section 4 and closing sections identified by contents but not fully read",
+        "method": "Accessible HTML text and direct focused theorem comparison",
+        "title": "Fair Division of Graphs: Beyond Traceability",
+        "trigger": "Same outer-EF1 notion and binary-valuation graph spectrum question"
+      },
+      {
+        "assessment": "Ordinary EF1 for k<=b and three-agent characterization with arbitrary valuations; outer-EF1 binary full spectrum not stated",
+        "evidence": [
+          "Proposition 4.8, Theorem 4.9 and Appendix B reference."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1908.05433",
+        "material_read": "Abstract and introduction; PDF pages 23-26 on Proposition 4.8 and Theorem 4.9, including proof and algorithm commentary",
+        "method": "Full-text extracted PDF portions and visually inspected pages 24 and 26",
+        "title": "The Price of Connectivity in Fair Division",
+        "trigger": "Complete bipartite fair division EF1 for arbitrary agents"
+      },
+      {
+        "assessment": "General end-of-spectrum guarantees and conjectural pattern; not exact common-binary biclique formula",
+        "evidence": [
+          "Observation 2 yields k>=|V|-1, Theorem 5 treats k=|V|-2 for graphs without certain adjacent leaves."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2402.05884",
+        "material_read": "Introduction and preliminaries; PDF Section 5 pages 18-20; Observation 2, Theorem 5, Conjecture 1, examples",
+        "method": "PDF text read and pages 18 and 20 visually inspected",
+        "title": "Cutsets and EF1 Fair Division of Graphs",
+        "trigger": "Prior definition and known universal high-agent EF1outer spectrum results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "018091c6-bd7b-4578-86a2-62636461475f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An explicit complete connected-fair-division spectrum for an infinite, natural and often nontraceable bipartite graph class answers the sharply parameterized existence question prompted by recent spectrum research. The constructive matching and cyclic-balance regimes bridge a genuine gap between previous low-k and generic terminal positive guarantees, and the all-one obstruction matches the boundaries. It is a structural classification, not an arbitrary tiny parameter slice.",
+    "status": "PASS"
+  }
+}
