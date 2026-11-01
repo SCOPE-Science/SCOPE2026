@@ -1,11 +1,21 @@
-# Assessment of the near-maximal minimum-enclosing-disk radius law
+# Independent mathematical audit
 
-**Correctness — PASS.** The random triangle has a two-site enclosing circle precisely in the obtuse regime and a three-site enclosing circle precisely in the acute regime. Exact pair-distance density and uniformly controlled exceptional overlaps prove the first term; the six-dimensional circumcircle change of variables, exact acute-direction integral and a uniform logarithmic boundary-layer expansion prove the second. The attached checker ran and corroborated the nonstandard Jacobian and angular integration. Finite simulations are not proof.
+## correctness
 
-**Originality — PASS relative to inspected primary sources.** Finch (2010) proves the known pair-distance density and so subsumes the starting unmarked near-diameter pair coefficient; that part is not presented as a new standalone result. The deterministic enclosing-ball existence/uniqueness study and the spatial-statistics 2024 empirical enclosing-radius distribution do not assert a sharp three-support logarithmic coefficient or the conditional two-versus-three asymptotic. Published-record searches were compared by implication, not title. Priority remains provisional; index incompleteness is the main risk.
+PASS
 
-**Value — PASS.** The natural random minimum-enclosing-disk statistic has two geometrically different support mechanisms. Their different sharp powers and a logarithm quantify a rare-support transition and provide a usable asymptotic for random-site neighborhood sampling.
+Checked exact diameter-pair marginal using normalized disk-overlap f(d), overlap 4t^(3/2)/3 and inclusion-exclusion error O(ε³). Circumcenter Jacobian is r³ |det(u2−u1,u3−u1)|; independently numerically integrated acute angular gap determinant for five η and matched H(η). For r=1−s, center d integration yields 24s²log(1/s)+O(s²), so P(S=3,R>1−ε)=16/π² ε³log(1/ε)+O(ε³). Long-pair coefficient 128√2/(5π) and their ratio checked. The proof is asymptotic for exactly 3 area-uniform points; finite quadratures are not proof.
 
-**Limits.** Exactly three independent area-uniform disk sites, near the maximal enclosing radius; no general-radius law, arbitrary convex-region analogue or independently audited proof is established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: The S=2 coefficient is an elementary 3-pair amplification of a known marginal and receives no separate originality credit; the conditional support log asymptotic does not follow from that marginal. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+The support-number composition of an extreme random minimum enclosing disk is a natural stochastic-geometry observable. Exact log-suppressed three-contact tail and conditional comparison measure a rare-event mechanism that known pair marginals miss.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
