@@ -1,0 +1,203 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T00:50:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md (definition, Sections 1-4 proof), SLOGAN.txt, theta_verify.py and VERIFICATION.md at exact inspected Git blob SHAs",
+        "Independently written /mnt/data/scope_worker02_run_20261029T0043/independent_check.py; Floyd-Warshall plus forward shortest DFS, no execution or import of original verifier",
+        "arXiv:2105.04292 definitions; independently reconciled graph-geodesic normalization"
+      ],
+      "rationale": "Reconstructed exact edge-geodesic definition (no shortest vertex-to-vertex path contains >=3 selected edges). Every full arm is an s-t geodesic; disjoint edge partition gives at most 2 chosen per arm and gp_e<=2m. For any a in [1,floor(L/2)], the positions a and b=L+1-a on every arm are feasible: a two-arm geodesic through s requires x+y<=L, whereas a forbidden triple would force x>=b and y>=a, hence x+y>=L+1; the t route needs x+y>=L, but a triple forces x<=a-1 and y<=b-1, hence <=L-1. One-arm and terminal-endpoint cases cannot contain a triple. At equality 2m, let selected positions be a_i<b_i. For ordered distinct i,j, a forbidden s route exists if b_i+a_j<=L, forcing b_i+a_j>=L+1; a forbidden t route exists if a_i+b_j>=L+2, forcing a_i+b_j<=L+1. These forced endpoints lie inside arms under the respective contradiction assumptions, so no boundary loophole. Swapping ordered indices yields a_i+b_j=L+1 for all i!=j. For m>=3 a third arm forces all a_i equal and all b_i=L+1-a. The inequality a<b gives exactly floor(L/2) distinct labelled maxima. I independently constructed each graph, computed distances with Floyd-Warshall, enumerated geodesics by increasing-distance DFS, formed all forbidden triples and checked maximum candidate subsets: 13 cases (m=3,L=2..7; m=4,L=2..5; m=5,L=2..4), 12 full edge-subset cases and one full two-per-arm candidate space; observed count floor(L/2) in every case. Those finite checks corroborate but do not prove the all-integer theorem; the written inequalities do.",
+      "residual_risks": [
+        "The method assumes exactly m internally disjoint equal-length L arms, m>=3 and L>=2; it does not prove a cycle m=2 or unequal-arm theorem.",
+        "Finite enumeration alone would not prove the infinite assertion; the universal proof uses exact cross-arm inequalities.",
+        "No Lean or external expert attestation has been performed; source verification logs alone were not used as proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Manuel-Prabha-Klavzar (2022), Lemma 2.4: gp_e(G)<=2*gcover_e(G) for k=3. Covering theta by its m s-t arms gives gp_e<=2m.",
+          "Cao-Ji-Wang (2025), proof of Theorem 3.1: in a noncactus theta subgraph, a five-edge edge-GP witness contradicts gp_e(G)=4; it neither matches 2m for m>=3 nor classifies extremizers.",
+          "Tian-Klavzar-Tan (2024), Sections 2 and 3: classification for gp_e=3, |E|-1 and block graphs, not cyclic theta graphs of arbitrary length.",
+          "Manuel-Prabha-Klavzar (2021), Lemma 2.2: analogous cover upper bound without equality or maximum-set count."
+        ],
+        "reasoning": "The cover bound matches only the proposed upper bound. Sharpness needs a symmetric construction, and necessity requires the two-pole cross-arm forbidden-triple inequalities, neither of which follows from a generic cover inequality. The theta witness of the 2025 paper is a weaker bound in a different classification, and block-graph theorems do not apply.",
+        "searches": [
+          "arXiv:2207.07357 edge k-general position geodesic cover Lemma 2.4",
+          "arXiv:2105.04292 partial-cube class/geodesic cover Lemma 2.2",
+          "DOI:10.1007/s40840-025-01873-x theta-subgraph five-edge construction in proof of Theorem 3.1",
+          "DOI:10.1007/s00373-024-02770-z Theorems 2 and 3 and Section 3 block graphs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2105.04292 (complete primary PDF text/sections; observed page screenshot)",
+        "arXiv:2207.07357 (full lawful public author-posted version at ResearchGate)",
+        "DOI:10.1007/s00373-024-02770-z (2024 open publisher full text)",
+        "DOI:10.1007/s40840-025-01873-x (2025 public author-posted complete manuscript)",
+        "DOI:10.1007/s40840-024-01788-z (2024 generalized-theta but vertex gp_d)",
+        "Resultary 2026-10-04 spider-tree RESULT.md (read)",
+        "Resultary 2026-10-04 complete multipartite geodesic-cover RESULT.md (read)",
+        "Resultary semantic searches three actual phrase variants, plus web exact-phrase searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For any m geodesics covering all theta arms, generic duality implies at most two selected edges per arm; it does not force existence of a feasible 2m-edge set.",
+          "The submitted proof derives b_i+a_j>=L+1 and a_i+b_j<=L+1 for all distinct arms, hence a_i+b_j=L+1 and for m>=3 uniform a_i=a, b_i=L+1-a.",
+          "The 2025 theta five-edge lower bound is below 2m for m>=3 and proves no set-count assertion.",
+          "The 2024 dual gp_d(theta) result is on vertices, not edges, so a zero dual vertex-general-position value cannot imply the present maximum edge-GP number."
+        ],
+        "reasoning": "Explicit implication comparison isolates the new content as equality and universal characterization of equality cases, not the known arm-cover upper bound. The exact all-pair inequality argument is additional mathematical content not derivable from the cited generic results. The check is best-of-knowledge and not a global-priority certificate.",
+        "searches": [
+          "arXiv:2105.04292 v1 full paper Sections 2-4 and conclusions",
+          "arXiv:2207.07357 v1 full manuscript Lemma 2.4 and Sections 3-6",
+          "DOI:10.1007/s00373-024-02770-z entire available publisher HTML",
+          "DOI:10.1007/s40840-025-01873-x author-posted full manuscript Theorem 3.1 theta proof",
+          "DOI:10.1007/s40840-024-01788-z Proposition 3.6 generalized theta"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary/2026/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123/RESULT.md: a spider is a tree with ONE hub and k pendant arms; its max edge-general-position sets use one edge per arm, unlike two-terminal theta graphs with two per arm.",
+          "DOI:10.1007/s40840-024-01788-z, Proposition 3.6: gp_d(Theta) is a dual VERTEX-general-position number and the theorem gives zero/nonzero conditions, not edge gp_e or optimum edge-set rigidity.",
+          "arXiv:2105.04292, Section 2 definition of edge general position and Sections 3-4: tree, hypercube and path-product families."
+        ],
+        "reasoning": "Both graph shape and selected objects matter. The spider-tree theorem is not a reduction of the two-pole theta graph; its geodesics cross one branch vertex rather than choosing between two poles. The generalized-theta dual gp_d uses vertex sets and additional convexity conditions, so its zero theorem does not determine gp_e. No equivalent theta maximum-edge-set classification appeared in the actual targeted searches.",
+        "searches": [
+          "Resultary: edge general position theta graph m equal length paths maximum sets rigidity symmetric edge levels",
+          "Resultary: edge general position number generalized theta graphs exact enumeration",
+          "Web: \"edge general position\" \"theta graphs\" number maximum configurations",
+          "Web: \"edge general position\" \"parallel paths\" \"theta\" maximum sets",
+          "2024 DOI:10.1007/s40840-024-01788-z Proposition 3.6 generalized theta graphs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "For L=2, Theta_{m,2}=K_{2,m} has diameter two. arXiv:2105.04292, Lemma 2.1, already gives gp_e=|E|=2m for this boundary case.",
+          "The published Resultary complete-multipartite geodesic-cover result gives gp_e(G)=|E(G)| for every complete multipartite graph and thus the same L=2 specialization.",
+          "The indexed published Resultary spider-tree result has a different maximum-set count product_i L_i, not floor(L/2)."
+        ],
+        "reasoning": "The L=2 numerical special case is already covered by the diameter-two theorem; it does not imply the L>=3 level-rigidity and floor(L/2) extremizer count for all m. No exact database or table found that lists the complete infinite-family theorem; search absence is not asserted to prove novelty.",
+        "searches": [
+          "Resultary: maximum edge general position sets edge-geodesic theta graph parallel terminal paths",
+          "Web: \"edge general position number\" \"theta\" \"equal\"",
+          "Web: \"edge general position\" generalized theta graphs 2m optimal",
+          "Resultary/2026/2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578/RESULT.md"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the full all-m, all-L maximum-set rigidity and labelled-extremizer enumeration. The known edge-geodesic-cover inequality proves only the 2m upper bound. The 2025 theta argument supplies a five-edge witness only within a gp_e=4 exclusion theorem. A published generalized-theta proposition concerns dual VERTEX general position, not edge general position. The 2021 foundational paper computes hypercubes, trees, and grids, and the 2024 extremal work treats block graphs/small values. Two relevant published Resultary calculations were read: spider TREE all-set enumeration (one pole, different geodesic constraint) and complete-multipartite edge-geodesic covers (only L=2 is a theta member). No inspected stronger statement implies all paired levels synchronized for arbitrary m>=3,L>=2; lack of an indexed match is not a novelty proof.",
+      "residual_risks": [
+        "Best-of-knowledge, not a bibliographic completeness certificate: an obscure thesis, unindexed publication, or later equivalent theta maximum-set enumeration could exist.",
+        "The L=2 numerical special case is already covered by diameter-two/complete-multipartite results; only the unrestricted L>=3 equality and structural rigidity remain distinctive.",
+        "The proof does not cover m=2 cycles, unequal arm lengths or multigraph parallel-edge L=1; scientific novelty/value must be assessed only for stated m>=3,L>=2."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes diameter-two gp_e(G)=|E| and generic cover bound, and specific families; does not directly give theta L>=3 optimizer rigidity.",
+          "evidence": [
+            "arXiv:2105.04292 Lemmas 2.1-2.2, Theorems 3.2, 3.3, 4.1, 4.2"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04292",
+          "material_read": "PDF title/abstract, definitions and Lemmas 2.1-2.2, Sections 3-4 (hypercube, tree, grid results), conclusions; page 3 directly inspected as rendered image.",
+          "method": "lawful open-access arXiv PDF, parsed text and PDF screenshot",
+          "title": "Edge General Position Problem",
+          "trigger": "Founding paper for invariant and possible universal maximal-set theorem"
+        },
+        {
+          "assessment": "Lemma 2.4 gives only k=3 upper bound by 2 times geodesic cover; other sections address different network families.",
+          "evidence": [
+            "arXiv:2207.07357 Lemma 2.4 and Sections 3-6",
+            "DOI:10.26493/2590-9770.1745.5f4"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/362065905_Generalization_of_edge_general_position_problem",
+          "material_read": "Author-posted full text covering definitions, Lemma 2.4, torus, hypercube, Benes examples and conclusion; arXiv abstract/date checked.",
+          "method": "lawful full public author-posted manuscript HTML text from arXiv:2207.07357",
+          "title": "Generalization of edge general position problem",
+          "trigger": "Potential general theorem dominating the m-arm cover and equal-arm optimizers"
+        },
+        {
+          "assessment": "Small-value and block-graph results do not give the all m>=3 equal-arm theta maximum-set classification.",
+          "evidence": [
+            "DOI:10.1007/s00373-024-02770-z Sections 2-3"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00373-024-02770-z",
+          "material_read": "Open-access complete publisher HTML including introduction, characterization statements and proofs in Section 2, block graph results in Section 3.",
+          "method": "lawful publisher full-text HTML",
+          "title": "Extremal Edge General Position Sets in Some Graphs",
+          "trigger": "Primary extremal classification that might cover arbitrary theta graphs"
+        },
+        {
+          "assessment": "Uses a five-edge theta witness solely to exclude gp_e(G)=4 noncactus graphs; does not enumerate all maximum sets of theta with equal L.",
+          "evidence": [
+            "DOI:10.1007/s40840-025-01873-x, Theorem 3.1 proof"
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/391511435_The_Edge_General_Position_Number_of_Some_Graphs",
+          "material_read": "Public author-posted full text, especially Theorem 3.1 and proof around pp.9-10 explaining its theta five-edge witness.",
+          "method": "lawful author-posted complete manuscript HTML",
+          "title": "The Edge General Position Number of Some Graphs",
+          "trigger": "Very close work explicitly discussing theta-subgraph edge-GP sets"
+        },
+        {
+          "assessment": "Treats subsets of V(G) and dual general position gp_d, not edge subsets or gp_e; no implication for this theorem.",
+          "evidence": [
+            "DOI:10.1007/s40840-024-01788-z, Theorem 3.1 and Proposition 3.6"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40840-024-01788-z",
+          "material_read": "Publisher full HTML definitions, Section 3 dual general position and Proposition 3.6 generalized-theta cases.",
+          "method": "lawful publisher open HTML article",
+          "title": "Variety of General Position Problems in Graphs",
+          "trigger": "Generalized theta result potentially equivalent under a different general-position variant"
+        },
+        {
+          "assessment": "Proves a different one-pole tree theorem with maximum sets one edge per arm; not a theorem on two-pole theta graphs.",
+          "evidence": [
+            "Resultary 2026-10-04 spider-tree RESULT.md, Finding and Proof"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-edge-general-position-sets-of-spider-trees--96369ffaa123",
+          "material_read": "Complete RESULT.md proof and size enumerator from actual published Git file.",
+          "method": "authorized read-only GitHub source inspection",
+          "title": "All edge general-position sets of spider trees",
+          "trigger": "Closest published graph-family count in the same edge-GP invariant"
+        },
+        {
+          "assessment": "Covers the L=2 numerical gp_e=2m special case but no L>2 geometry or optimizer rigidity.",
+          "evidence": [
+            "Resultary 2026-10-04 complete-multipartite RESULT.md"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578",
+          "material_read": "Complete RESULT.md exact complete-multipartite geodesic cover/partition theorem and proof.",
+          "method": "authorized read-only GitHub source inspection",
+          "title": "Edge-geodesic cover and partition numbers of complete multipartite graphs",
+          "trigger": "L=2 theta specialization K_{2,m} and possible dominating cover equality"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Source RESULT.md theorem and complete rigidity proof with explicit m=2, L>=2 boundary",
+        "Manuel-Prabha-Klavzar arXiv:2207.07357 generic dual upper bound contrasted with equality classification",
+        "Published Resultary spider-tree all-set enumerator, a natural comparison showing theta cycles alter maximum-set structure"
+      ],
+      "rationale": "The invariant edge general position is established and the two-terminal equal-arm theta graph is a canonical cyclic network family with unbounded m and L. The sharp value 2m is not the entire contribution: a generic cover argument does not construct extremizers or decide which of exponentially many two-edges-per-arm patterns are feasible. The all-extremizers rigidity theorem proves global edge-level synchronization, exactly floor(L/2) labelled maxima independent of the number of arms. The m>=3 condition is essential to the structural argument and the m=2 cycle differs, giving a motivated boundary rather than arbitrary parameter slicing. The exact count is a useful nontrivial combinatorial invariant of a natural graph family; no downstream theorem is needed.",
+      "residual_risks": [
+        "Significance is confined to equal-arm two-terminal graphs and exact maximum sets; no claim of a general graph optimizer algorithm.",
+        "Part of numerical value for L=2 was already known; the surviving value is primarily the L>=3 structural and counting theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All claims restricted to m>=3 equal-length arms L>=2 in finite simple graphs; no unequal-arm/m=2/multigraph theorem.",
+    "Finite independent checks corroborate an analytic all-integers proof; they are not infinite verification.",
+    "Originality is qualified best-of-knowledge with an unindexed or equivalent thesis risk.",
+    "METADATA.json:scope_run_id and AUDIT.json:scope_run_id are confidential operational fields in potentially public files.",
+    "METADATA.json:first_public_date names a 2021 foundational paper, not verified first disclosure of the reviewed result.",
+    "No complete privacy-sanitized exact-blob-guarded replacement files were staged; publication is withheld.",
+    "Lean and expert attestation were not performed and must not be inferred from source Python verification."
+  ],
+  "schema_version": 1
+}
