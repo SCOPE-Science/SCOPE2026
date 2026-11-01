@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The signed monomial branch derivatives give the exact identity between each labeled column stretch and the occupation counts of a fair lazy directed walk on \(\mathbb Z/M\mathbb Z\). The originating full paper explicitly gives fair i.i.d. branch coding under normalized Lebesgue measure. An explicit finite-state Poisson solution has conditional martingale increments equal to \(\pm f\); its ergodic quadratic variation is exactly the uniform spatial variance of \(f\). Bounded increments yield the multivariate CLT, and the quadratic bound from the martingale gives uniform integrability and the sharp expected condition-number growth constant. The boundary-null, fixed-dimension and covariance-degeneracy hypotheses are stated. A standalone script passed 2550 exact derivative-word checks, 984 exact Poisson/variance checks and 45 exact finite-law comparisons; these corroborate rather than replace the proof.
+
+## Originality — PASS within checked evidence
+The original full-text source proves Bernoulli coding, mixing and nonuniform *periodic-point* expansion, but not a multivariate stationary singular-value fluctuation limit. The closest public derivative result, *Exact real-spectrum residue law for the twisted baker map*, classifies real/nonreal **eigenvalues at periodic points** and their word counts; it does not imply the typical-trajectory logarithmic singular-value covariance or the Gaussian-range condition-number law. The standard finite-state CLT proves a limit once a Poisson equation is known; it does not provide the map-specific exact isotropic covariance without the cocycle reduction. Remaining risk: an equivalent derivative/occupation calculation may appear in unindexed literature, and the originating coding makes the new result accessible to existing methods.
+
+## Value — PASS
+The original motivation of the twisted baker model includes the tension between twisting and expansion. Its periodic-orbit exponents can be arbitrarily nonuniform, so determining the typical derivative anisotropy is natural, not an arbitrary parameter slice. This theorem resolves the complete fixed-dimension Gaussian covariance and sharp condition-number distribution/expected coefficient. The equal Lyapunov exponents coexist with a nontrivial \(\sqrt n\) logarithmic condition-number scale; the scalar range is an operational measure of sensitivity to the initial direction. These structural distinctions are not given by earlier periodic eigenvalue counts or position-observable covariance laws.
+
+## Closest literature and limitations
+Saiki–Takahasi–Yorke, arXiv:2202.04304v3 (full text inspected); *Exact real-spectrum residue law for the twisted baker map*, 11 October 2026 (full public RESULT.md inspected). General finite-state martingale CLT is a standard premise; no independent validation is asserted. The result applies only under normalized Lebesgue probability for each fixed integer dimension, with derivatives defined almost everywhere, and absolute priority cannot be established by searches alone.
+
+Self-review: passed. Independent audit: not yet performed.
