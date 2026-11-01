@@ -1,16 +1,21 @@
-# Scientific review: Petersen three-colouring Kempe geometry
+# Independent mathematical audit
 
-## Correctness — PASS
-The independent-set classification establishes that every proper vertex three-colouring of the Petersen graph has the unique large star and two smaller classes, one a star and one a triangle. This gives exactly twenty palette-orbits, each containing six labelled colourings. A direct decomposition of each of the three two-colour induced subgraphs proves the quotient graph's complete adjacency rule. The line-graph isomorphism and quotient diameter three follow without computation. The labelled diameter and shell distribution are finite claims supported by the complete stand-alone verifier, which compares two exhaustive colouring generators and two independent Kempe-component generators and checks shortest paths from every one of the 120 states. Computation was run and returned `VERIFY_OK`. Risk: the labelled distance assertion is computer-assisted, although the finite search is small and reproducible; no general-graph metric claim is made.
+## correctness
 
-## Originality — PASS, with limitations
-Feghali, Johnson, and Paulusma's first-public 2015 work (arXiv:1503.03430, Theorem 1.1) proves Kempe *connectivity* for the nonexceptional cubic graphs, which includes the Petersen graph, but it does not determine the exact metric, degree, palette quotient, or structural line-graph identification. Its HTML full text was examined, including the main theorem and proof; searches for “Petersen,” “diameter,” and “120” found no occurrence. Prior adjacent work on four-colour single-vertex recolouring, four-edge-colour Kempe changes, and vertex three-colourings of a different cubic graph has different state spaces and moves and does not imply this claim. Targeted literature and mathematical-record searches located no statement with equivalent or stronger metric and quotient coverage. The article *Perfect 3-Colorings of The Petersen Graph* (2018) reports parameter matrices for equitable/perfect colourings, rather than ordinary Kempe moves; only its abstract could be inspected. Risk remains from the unavailable full text of that article or another unindexed enumeration. Absence of a search hit is not taken as proof of uniqueness.
+PASS
 
-## Value — PASS
-The Petersen graph is a canonical three-chromatic cubic graph, and Kempe changes are a standard colouring-reconfiguration move. For this smallest snark the theorem identifies the *entire palette-unlabelled move graph* as an elementary, familiar graph construction: the line graph of the once-subdivided complete graph on five vertices. The sharp diameter three in that quotient and the sharp labelled diameter four describe exact shortest transformation complexity, strictly beyond a connectivity-only statement. This is a complete natural finite classification, not an arbitrary filtered count. Risk: the result is restricted to this graph and does not provide an infinite-family diameter theorem.
+Reconstructed KG(5,2) vertices as ten 2-subsets and edges as disjointness. Any proper 3-colouring uses a unique four-member independent colour class, which must be a star, and complementary size-three star/triangle classes. These give 5*4=20 ordered-pair palette-free labels with six colour-name assignments each. For each labelled state the six Kempe flips are precisely whole connected bichromatic components; the combinatorial quotient adjacency sends (i,j) to (i,k) for k distinct from i,j, or to (j,i). Thus the palette quotient is the line graph of once-subdivided K5, with 20 vertices and 40 edges. Independently generated all 120 colourings, all 360 undirected Kempe edges, and ran exhaustive all-source BFS from every state: labelled shells (1,6,25,61,27), quotient shells (1,4,6,9), diameters 4 and 3 respectively. This is exhaustive finite verification and a structural argument, not a sampled conjecture.
 
-## Closest literature and unresolved comparisons
-- C. Feghali, M. Johnson, D. Paulusma, *Kempe Equivalence of Colourings of Cubic Graphs*, arXiv:1503.03430 (2015): complete readable HTML; general connectivity theorem, no matching metric or quotient assertion.
-- M. Alaeiyan, H. Karami, S. Siasat, *Perfect 3-Colorings of The Petersen Graph* (2018), doi:10.22342/jims.24.2.246.47-53: abstract-level inspection only; different perfect-colouring objective; full-text residual uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for full explicitly enumerated Kempe reconfiguration graph and palette quotient, not for cubic-graph connectivity or the elementary Petersen graph itself. The 2015/2017 cubic Kempe theorem implies connectedness but not edge count, oriented-edge quotient, full all-source shells, or exact diameter. The 2018 GP(5,2) perfect-colouring parameter-matrix paper addresses equitable colourings, not proper-colouring Kempe moves. No exact covering Resultary item was identified; residual risk is an earlier dedicated small-graph enumeration or unpublished table.
+
+## value
+
+PASS
+
+Complete exact structure and metric classification for the canonical Petersen graph is mathematically motivated by Kempe equivalence and reconfiguration distances. The 120-state graph is reduced to a natural 20-vertex line graph and both all-source distance profiles are exact; this is more informative than textbook 3-colourability or connectivity. Finite scope is deliberate and natural, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

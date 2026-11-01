@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification of the finite Kempe census
+# Independent mathematical audit
 
-The structural quotient proof in `RESULT.md` is independent of computation. The labelled distance-shell and exact edge-count assertions have a complete finite witness in `verify.py`. Running `python3 verify.py` (Python 3 standard library, no downloaded modules or files) returned:
+## correctness
 
-```
-VERIFY_OK
-states=120 edges=360 degree=6 radius=diameter=4
-labeled_distance_shells=1,6,25,61,27
-palette_quotient_states=20 edges=40 degree=4 radius=diameter=3
-palette_quotient_shells=1,4,6,9; line graph of subdivided K5
-```
+PASS
 
-The verifier builds the Petersen graph as the disjointness graph of all ten two-subsets of a five-set. It obtains the entire state set both by complete backtracking over three palette labels and by the explicit canonical partition into large star, small star and triangle followed by all palette permutations. It independently computes every Kempe move with (a) component breadth-first search and (b) disjoint-set union, checks equality of neighbour sets at all 120 vertices, checks undirectedness and degrees, identifies quotient states directly from colour classes, compares quotient adjacency with the line graph of the explicitly subdivided complete graph, and executes all-source breadth-first distances in both graphs. The reported shell totals exhaust their respective vertex sets, and all assertions passed.
+Reconstructed KG(5,2) vertices as ten 2-subsets and edges as disjointness. Any proper 3-colouring uses a unique four-member independent colour class, which must be a star, and complementary size-three star/triangle classes. These give 5*4=20 ordered-pair palette-free labels with six colour-name assignments each. For each labelled state the six Kempe flips are precisely whole connected bichromatic components; the combinatorial quotient adjacency sends (i,j) to (i,k) for k distinct from i,j, or to (j,i). Thus the palette quotient is the line graph of once-subdivided K5, with 20 vertices and 40 edges. Independently generated all 120 colourings, all 360 undirected Kempe edges, and ran exhaustive all-source BFS from every state: labelled shells (1,6,25,61,27), quotient shells (1,4,6,9), diameters 4 and 3 respectively. This is exhaustive finite verification and a structural argument, not a sampled conjecture.
 
-The proof does not infer infinite or universal statements from finite enumeration. The computation is exact integer arithmetic and complete search for this specified graph, not a random sample. The code and theorem use the same palette quotient and same connected-component switch definition. No external or independent validation was performed.
+## originality
+
+PASS
+
+Best-of-knowledge originality for full explicitly enumerated Kempe reconfiguration graph and palette quotient, not for cubic-graph connectivity or the elementary Petersen graph itself. The 2015/2017 cubic Kempe theorem implies connectedness but not edge count, oriented-edge quotient, full all-source shells, or exact diameter. The 2018 GP(5,2) perfect-colouring parameter-matrix paper addresses equitable colourings, not proper-colouring Kempe moves. No exact covering Resultary item was identified; residual risk is an earlier dedicated small-graph enumeration or unpublished table.
+
+## value
+
+PASS
+
+Complete exact structure and metric classification for the canonical Petersen graph is mathematically motivated by Kempe equivalence and reconfiguration distances. The 120-state graph is reduced to a natural 20-vertex line graph and both all-source distance profiles are exact; this is more informative than textbook 3-colourability or connectivity. Finite scope is deliberate and natural, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

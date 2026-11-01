@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:11:53.415566Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob 0afab77b0db2301dab2be737d5e917900f8eecaf",
+        "actual verify.py blob 923ea50f8ea9d8499d90ad2fbe789d8708b69079",
+        "independent_checks.py",
+        "independent_results.json",
+        "frozen source tree db6aca3fffce0308c333cadeaa8a1136a0055984"
+      ],
+      "rationale": "Reconstructed KG(5,2) vertices as ten 2-subsets and edges as disjointness. Any proper 3-colouring uses a unique four-member independent colour class, which must be a star, and complementary size-three star/triangle classes. These give 5*4=20 ordered-pair palette-free labels with six colour-name assignments each. For each labelled state the six Kempe flips are precisely whole connected bichromatic components; the combinatorial quotient adjacency sends (i,j) to (i,k) for k distinct from i,j, or to (j,i). Thus the palette quotient is the line graph of once-subdivided K5, with 20 vertices and 40 edges. Independently generated all 120 colourings, all 360 undirected Kempe edges, and ran exhaustive all-source BFS from every state: labelled shells (1,6,25,61,27), quotient shells (1,4,6,9), diameters 4 and 3 respectively. This is exhaustive finite verification and a structural argument, not a sampled conjecture.",
+      "residual_risks": [
+        "The theorem concerns exactly proper vertex 3-colourings with named colours and single-component two-colour Kempe changes; not edge colourings, equitable/perfect 3-colourings, or other recolouring adjacencies."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/html/1503.03430v2, Theorem 1.1 complete cubic-graph Kempe connectivity",
+          "https://www.researchgate.net/publication/347525028_Perfect_3-Colorings_of_The_Petersen_Graph, 2018 paper introduction/section statements"
+        ],
+        "reasoning": "The general cubic equivalence theorem covers connectivity of this example but has no numerical metric or line-graph quotient. The other same-graph primary source tabulates equitable colourings, which do not imply the proper 3-colouring Kempe graph.",
+        "searches": [
+          "web: Feghali Johnson Paulusma Kempe equivalence colourings cubic graphs 2015 Petersen",
+          "Resultary: Petersen graph vertex 3 coloring Kempe reconfiguration graph modulo palette permutation"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/1503.03430v2",
+        "https://www.researchgate.net/publication/347525028_Perfect_3-Colorings_of_The_Petersen_Graph",
+        "Resultary query as recorded in searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/html/1503.03430v2, Theorem 1.1",
+          "https://www.researchgate.net/publication/347525028_Perfect_3-Colorings_of_The_Petersen_Graph, article full text"
+        ],
+        "reasoning": "All 3-colourings of Petersen are Kempe equivalent is implied by general cubic theorem and is credited; the sharper 6-regular 120-state graph, distance profile and quotient cannot be inferred from a mere connectedness assertion.",
+        "searches": [
+          "web: Kempe Equivalence of Colourings of Cubic Graphs Theorem 1.1 Petersen",
+          "web: Perfect 3-Colorings of The Petersen Graph equitable parameter matrices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/html/1503.03430v2, definitions Section 1 and Theorem 1.1",
+          "https://www.jims-a.org/index.php/jimsa/article/view/246, definition of perfect colouring"
+        ],
+        "reasoning": "The assessed graph uses a Kempe-switch adjacency on all proper vertex 3-colourings. Connectivity classes alone are coarser than the reconfiguration graph. Perfect colouring means equitable partition, not the same equivalence.",
+        "searches": [
+          "Resultary: Petersen graph vertex 3 coloring Kempe reconfiguration graph modulo palette permutation 20 ordered pairs line graph subdivision K5 diameter 4 labelled 120",
+          "web: Petersen graph Kempe reconfiguration graph proper 3-colorings 120 line graph subdivision K5 diameter four"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact matching entry among returned Resultary graph-colouring hits (nearby Heawood Hom and Petersen Čech entries concern different graphs/invariants)",
+          "independent 120-state complete enumeration and ordered-pair isomorphism"
+        ],
+        "reasoning": "No matching named graph structure or exact shells table was found; a negative search is not a novelty certificate, so unindexed recreational/small-graph computations remain priority risk.",
+        "searches": [
+          "Resultary semantic query: Petersen 3-color Kempe 120 360 20 40 diameter",
+          "web: Petersen graph Kempe equivalence 3 colorings diameter graph connectivity line graph"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for full explicitly enumerated Kempe reconfiguration graph and palette quotient, not for cubic-graph connectivity or the elementary Petersen graph itself. The 2015/2017 cubic Kempe theorem implies connectedness but not edge count, oriented-edge quotient, full all-source shells, or exact diameter. The 2018 GP(5,2) perfect-colouring parameter-matrix paper addresses equitable colourings, not proper-colouring Kempe moves. No exact covering Resultary item was identified; residual risk is an earlier dedicated small-graph enumeration or unpublished table.",
+      "residual_risks": [
+        "Unindexed computation of Petersen Kempe graph, small reconfiguration graph tables, or alternate quotient conventions could duplicate exact structural data."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all proper 3-colouring connectivity of Petersen; does not state the concrete reconfiguration graph/quotient/diameter",
+          "evidence": "Theorem 1.1; Section 2",
+          "identifier_or_url": "https://arxiv.org/html/1503.03430v2",
+          "material_read": "Introduction, Theorem 1.1, proof framework and conclusion",
+          "method": "Lawful arXiv HTML full paper",
+          "title": "Kempe Equivalence of Colourings of Cubic Graphs",
+          "trigger": "Same exact Kempe adjacency; stronger class of cubic graphs"
+        },
+        {
+          "assessment": "Different invariant: perfect/equitable parameter colourings; no Kempe move operation or quotient",
+          "evidence": "Introduction defines perfect colouring as equitable partition; Kempe not found",
+          "identifier_or_url": "https://www.researchgate.net/publication/347525028_Perfect_3-Colorings_of_The_Petersen_Graph",
+          "material_read": "Author-uploaded full article, abstract, Introduction, definition and parameter-matrix goal",
+          "method": "Lawful publicly available author manuscript HTML text",
+          "title": "Perfect 3-Colorings of the Petersen Graph / GP(5,2)",
+          "trigger": "Same Petersen and three colour names, plausible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/html/1503.03430v2",
+        "independent_results.json"
+      ],
+      "rationale": "Complete exact structure and metric classification for the canonical Petersen graph is mathematically motivated by Kempe equivalence and reconfiguration distances. The 120-state graph is reduced to a natural 20-vertex line graph and both all-source distance profiles are exact; this is more informative than textbook 3-colourability or connectivity. Finite scope is deliberate and natural, not an arbitrary parameter slice.",
+      "residual_risks": [
+        "No general theorem about all cubic graphs reconfiguration diameters; value resides in exact canonical case."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The theorem concerns exactly proper vertex 3-colourings with named colours and single-component two-colour Kempe changes; not edge colourings, equitable/perfect 3-colourings, or other recolouring adjacencies.",
+    "Unindexed computation of Petersen Kempe graph, small reconfiguration graph tables, or alternate quotient conventions could duplicate exact structural data.",
+    "No general theorem about all cubic graphs reconfiguration diameters; value resides in exact canonical case.",
+    "Frozen public AUDIT.json and METADATA.json both contain a confidential operational provenance key. The exact full original administrative-file bytes have been examined through authorized Git reads, but complete privacy-neutral replacement files have not been faithfully staged and rehashed in the writable audit container. Publication without exact-blob-guarded verified complete replacements could reveal confidential provenance. Scientific review itself is complete."
+  ],
+  "schema_version": 1
+}
