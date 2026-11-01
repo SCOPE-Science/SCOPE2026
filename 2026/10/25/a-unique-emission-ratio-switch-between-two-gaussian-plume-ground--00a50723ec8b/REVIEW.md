@@ -1,15 +1,21 @@
-# Scientific review: global-hotspot switch for two elevated Gaussian plumes
+# Independent mathematical audit
 
-## Correctness — PASS
-The steady Gaussian-plume normalization is derived explicitly. The stationary-point function has a complete quadratic discriminant classification, and the envelope derivative gives strict monotonicity of the two peak-height difference. Opposite boundary signs prove exactly one global-height tie. The high-contrast expansion and the cubic onset follow from nondegenerate local expansions and a balanced Maxwell-area comparison. The standalone standard-library checker corroborates representative values and parameter regimes without being used as a substitute for infinite-range proof.
+## correctness
 
-## Originality — PASS (provisional, with specific risks)
-The identical local bimodality threshold is already covered by equal-shape gamma-mixture theory, especially Došlá (2009, Proposition 6), and is credited rather than presented as new. Zoumakis (1998) treats global maximum concentrations of multiple source plumes by numerical optimization; Ahmed, Goria and Hussein (2008) cover gamma-mixture modes and inflection geometry; Lushi and Stockie (2009) cover multiple-source Gaussian plume construction. Their materially inspected statements do not establish the unique fixed-meteorology exchange of the two global peak heights, the \(-e\) and next high-contrast coefficients, or the balanced cusp scaling. A more general mixture or bitangency theorem might imply portions of this result, and mathematical priority has not been independently certified.
+PASS
 
-## Value — PASS
-The global hotspot is the relevant maximizer for receptor screening within this model, not merely the existence of two local peaks. The theorem distinguishes two possible competing downwind positions, proves the emission-ratio switch cannot repeat, gives an asymptotically quantitative operating threshold, and determines how the bistable-window size and hotspot separation emerge at the height-contrast boundary. It is a structural diagnostic for a natural two-stack limit of the standard plume approximation, not an arbitrary numerical slice.
+PASS. With r=(H2/H1)^2>1 and q=Q2/Q1>0, substitution t=H1^2/(2k_z^2 x^2) turns the two-source centerline concentration into a positive parameter-independent multiple of F(t)=t(e^{-t}+q e^{-rt}); x>0 reverses the t ordering. F prime is positive on (0,1/r], negative on [1,infinity), and inside (1/r,1) has the sign of q-h_r(t), where h_r=e^{(r-1)t}(1-t)/(rt-1). Differentiating log h_r gives the quadratic whose fold discriminant changes at r_c=3+2sqrt2, with turning locations t_±=(r+1±sqrt((r-3)^2-8))/(2r). The two-maximum interval is exactly q_-<q<q_+. For two smooth maxima, the envelope derivative of their height difference equals t_far exp(-r t_far)-t_near exp(-r t_near)>0, because t exp(-rt) decreases for t>1/r. At the fold edges the ordering reverses; hence there is exactly one equal-height q_b and one global hotspot jump, not two. Expansion of F_t around the cusp (r_c,2-sqrt2,q_c), with exact independently checked nonzero mixed and cubic coefficients, establishes the square-root peak separation and 3/2-width of bimodality, while separate near-1 and near-1/r expansions yield q_b=r-e+e(1-e/2)/r+O(r^-2). The normalization to real x and positive source parameters is exact. The result is for a fixed meteorological 1/x dispersion law, not variable stability or changing vertical dispersion exponents.
 
-## Scientific limitations
-Only two horizontally coincident sources, a single steady wind direction, linear dispersion widths, fixed effective heights and an ideal reflected nonreactive Gaussian plume are covered. The result makes no regulatory or empirical exposure predictions. The pre-existing gamma-mixture modality classification and possible more general bitangency results remain material priority considerations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best of knowledge on the narrow contribution. The profile is exactly a positive multiple of a two-component Gamma(shape 2, different rates) mixture. Došlá (2009) Proposition 6 already classifies local bimodality and fold interval, and Ahmed–Goria–Hussein (2008) analyzes gamma mixture modal and inflection regions. This important mathematical coverage is acknowledged; it is not a novel discovery of multimodality. The submitted result adds a unique global equal-peak swap as q varies, its direction, and sharp large-rate and cusp expansions, which the inspected gamma mixture theorems and Zoumakis multiple-source numerical optimizer do not state. Earlier Maxwell-set/equal-mode theory could overlap, and this is a significant residual risk.
+
+## value
+
+PASS
+
+PASS. For two positive ground-concentration profiles the global exposure hotspot can jump discontinuously while each local extremum moves smoothly. A complete one-switch phase diagram, critical height-contrast threshold, exact singular width scaling, and non-obvious q_b=r-e+... large-contrast law directly answer a motivated optimization problem beyond textbook derivative solving. The claim does not assert that a simple plume is a complete atmospheric hazard model; it is a mathematically sharp reference example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

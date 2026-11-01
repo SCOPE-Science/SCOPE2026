@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:55:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual source RESULT.md blob 096c5ade6cc77ffeb2f59974faa0b7c92d7bbb3e and full verification Python blob 5e5dd3de540305b0969f7787dea6b143f4a7acc7 read.",
+        "Independent SymPy differentiated F_t at r_c,t_c along the reference fold q_ref, showing exact claimed mixed coefficient and negative cubic coefficient (both ratios simplify to 1).",
+        "Source full physical normalization algebra and global envelope derivative were independently reconstructed, not inferred from sample output.",
+        "Došlá 2009 Proposition 6 covers the local two-Gamma common-shape bimodality condition, acknowledged as prior."
+      ],
+      "rationale": "PASS. With r=(H2/H1)^2>1 and q=Q2/Q1>0, substitution t=H1^2/(2k_z^2 x^2) turns the two-source centerline concentration into a positive parameter-independent multiple of F(t)=t(e^{-t}+q e^{-rt}); x>0 reverses the t ordering. F prime is positive on (0,1/r], negative on [1,infinity), and inside (1/r,1) has the sign of q-h_r(t), where h_r=e^{(r-1)t}(1-t)/(rt-1). Differentiating log h_r gives the quadratic whose fold discriminant changes at r_c=3+2sqrt2, with turning locations t_±=(r+1±sqrt((r-3)^2-8))/(2r). The two-maximum interval is exactly q_-<q<q_+. For two smooth maxima, the envelope derivative of their height difference equals t_far exp(-r t_far)-t_near exp(-r t_near)>0, because t exp(-rt) decreases for t>1/r. At the fold edges the ordering reverses; hence there is exactly one equal-height q_b and one global hotspot jump, not two. Expansion of F_t around the cusp (r_c,2-sqrt2,q_c), with exact independently checked nonzero mixed and cubic coefficients, establishes the square-root peak separation and 3/2-width of bimodality, while separate near-1 and near-1/r expansions yield q_b=r-e+e(1-e/2)/r+O(r^-2). The normalization to real x and positive source parameters is exact. The result is for a fixed meteorological 1/x dispersion law, not variable stability or changing vertical dispersion exponents.",
+      "risks": [
+        "No uniform claim when wind shear, terrain, buoyancy plume rise, source offsets, or non-linear x dependence are allowed.",
+        "A numerical bounded test of cusp and large-r terms is corroborative; all-r conclusions derive from the monotonicity/envelope argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zoumakis (1998) discusses variable meteorology/receptor optimization with a quasi-Newton numerical search; full web article text inspected.",
+          "Došlá (2009) full PDF, Proposition 6 provides necessary and sufficient local modality condition and fold boundaries.",
+          "Ahmed et al. (2008) full PDF, Sections 2–4 provide bimodal and inflection parameter intervals and L-moments."
+        ],
+        "reasoning": "These are broader in source count or gamma mixture shape but their precise theorems do not assert the narrow global-mode exchange, unique q_b or its asymptotic coefficients. Generic numerical optimization is not an exact result on all r>r_c.",
+        "searches": [
+          "Zoumakis 1998 Characteristics Maximum Concentrations Multiple Point Sources full text",
+          "Došlá 2009 gamma mixture Proposition 6",
+          "Ahmed Goria Hussein 2008 gamma mixture bitangentiality global maxima"
+        ]
+      },
+      "checked_sources": [
+        "Došlá 2009 15-page primary PDF Section 3.5 Proposition 6",
+        "Ahmed–Goria–Hussein 2008 full 16-page primary PDF",
+        "Zoumakis 1998 publisher full HTML text",
+        "Resultary mixture two gamma shape two densities unequal rates equal height peaks global switch parameter Gaussian plume"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known prior: a mixture is bimodal iff shape/rate/weight enter a parameter interval.",
+          "Submitted extra: derivative of optimized max-height difference t_far e^{-r t_far}-t_near e^{-r t_near}>0 and opposite fold-boundary signs, plus r_c cusp constants."
+        ],
+        "reasoning": "Local bimodality does not specify which of the two maxima is higher or show that their heights cross exactly once. Physical quasi-Newton optimization at fixed parameters does not give exact formulas across all ratios. The original global assertion therefore survives despite clearly covered modality ingredient.",
+        "searches": [
+          "Došlá 2009 Proposition 6 gamma mixture modality q interval vs equal heights",
+          "Zoumakis 1998 global concentration optimization versus emission ratio sweep"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The centerline F(t) is proportional to p Gamma(2,1)+(1-p) Gamma(2,r) with p/(1-p)=r²/q.",
+          "Došlá, Conditions for bimodality and multimodality of a mixture of two unimodal densities, Kybernetika 45 (2009), Proposition 6: same-shape gamma mixture strict bimodality region.",
+          "Ahmed et al., Gamma Mixture: Bimodality, Inflexions and L-Moments (2008), full text Sections 2–4."
+        ],
+        "reasoning": "The local two-mode phase is covered via Gamma mixtures and is treated as prior. A theorem locating a unique exchange in the global maximum and its cusp/high-r constants was not present in these inspected full texts. Search for a general Maxwell set remains bounded and incomplete.",
+        "searches": [
+          "two gamma shape two densities unequal rates equal height peaks global switch parameter Gaussian plume",
+          "two-component gamma shape 2 rate-mixture equal height local modes Maxwell set mixing weight",
+          "Gamma Mixture Bimodality Inflexions L Moments 2008 PDF"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic matches include gamma-sum quantile curvature, two-Laplace tails, but not a gamma MIXTURE equal-maxima switching formula.",
+          "The r=9 benchmark q_b≈6.1195712176 is given in submitted actual code, not located in the inspected prior paper tables."
+        ],
+        "reasoning": "Exact local-modality tables exist; a corresponding global maximum switching table or large-r/cusp constants were not identified. Failure to identify is not proof of publication priority.",
+        "searches": [
+          "Resultary mixture two gamma shape two densities unequal rates equal height peaks global switch parameter Gaussian plume",
+          "two gamma mixture mode equal heights large r q_b r minus e 2sqrt2"
+        ]
+      },
+      "rationale": "PASS, best of knowledge on the narrow contribution. The profile is exactly a positive multiple of a two-component Gamma(shape 2, different rates) mixture. Došlá (2009) Proposition 6 already classifies local bimodality and fold interval, and Ahmed–Goria–Hussein (2008) analyzes gamma mixture modal and inflection regions. This important mathematical coverage is acknowledged; it is not a novel discovery of multimodality. The submitted result adds a unique global equal-peak swap as q varies, its direction, and sharp large-rate and cusp expansions, which the inspected gamma mixture theorems and Zoumakis multiple-source numerical optimizer do not state. Earlier Maxwell-set/equal-mode theory could overlap, and this is a significant residual risk.",
+      "residual_risks": [
+        "A general result for Maxwell sets and global-mode swaps in two-gamma mixtures could imply the submitted uniqueness and part of its asymptotics under a different vocabulary.",
+        "The local bimodality threshold r_c and fold interval are already covered by Došlá 2009 and must not be misrepresented as wholly novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Gamma mixture bimodality threshold, not unique global tie or asymptotic q_b.",
+          "evidence": [
+            "Proposition 6 gives local two-peak region for common-shape gamma densities; fold discriminant has shape=2 threshold r_c."
+          ],
+          "identifier_or_url": "https://www.kybernetika.cz/content/2009/2/279/paper.pdf",
+          "material_read": "15-page PDF full searchable text, Section 3.5 pp. 288–290, Proposition 6 and surrounding proof; first-page aims, references and residual text.",
+          "method": "Full open-access PDF plus rendered screenshot of Proposition 6.",
+          "title": "Conditions for bimodality and multimodality of a mixture of two unimodal densities",
+          "trigger": "Same Gamma(2,rate) mixtures after exact normalization."
+        },
+        {
+          "assessment": "Existing local modality/inflection and tangency region analysis does not state the global equal-height unique exchange/large-r cusp coefficients.",
+          "evidence": [
+            "p-interval regions for gamma mixtures, equal-shape specialization, and first 4 L-moments; bitangentiality concerns inflections, not equal local maximum heights."
+          ],
+          "identifier_or_url": "https://stat.ethz.ch/pipermail/r-help/attachments/20080702/0db0ac8e/attachment.pdf",
+          "material_read": "Complete freely retrievable 16-page PDF, Abstract, Introduction, Section 2 modal conditions, Section 3 inflection and bitangency descriptions, and concluding context.",
+          "method": "PDF full text and rendered screenshot page 6 showing critical discriminants.",
+          "title": "Gamma Mixture: Bimodality, Inflexions and L-Moments",
+          "trigger": "Same Gamma(2,rate) mixture, possible covering theorem for mode and equal heights."
+        },
+        {
+          "assessment": "Multi-source numerical meteorology/receptor search, no exact fixed-meteorology two-source q-sweep theorem in material read.",
+          "evidence": [
+            "Quasi-Newton worst-case joint meteorology and receptor optimization; publication July 1998."
+          ],
+          "identifier_or_url": "https://journals.ametsoc.org/view/journals/apme/37/7/1520-0450_1998_037_0730_comcfm_2.0.co_2.xml",
+          "material_read": "Publisher-accessible full HTML article, abstract, model setup, numerical methodology, search iteration and conclusions.",
+          "method": "Full publisher HTML article text and model comparison.",
+          "title": "Characteristics of Maximum Concentrations from Multiple Point Sources",
+          "trigger": "Physical Gaussian multiple-source hotspot optimization potentially covering submitted formula."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "limits": [
+        "Fixed common meteorology, co-located source centerlines and sigma proportional to x; no field-validation or extrapolation to general plume models."
+      ],
+      "rationale": "PASS. For two positive ground-concentration profiles the global exposure hotspot can jump discontinuously while each local extremum moves smoothly. A complete one-switch phase diagram, critical height-contrast threshold, exact singular width scaling, and non-obvious q_b=r-e+... large-contrast law directly answer a motivated optimization problem beyond textbook derivative solving. The claim does not assert that a simple plume is a complete atmospheric hazard model; it is a mathematically sharp reference example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
