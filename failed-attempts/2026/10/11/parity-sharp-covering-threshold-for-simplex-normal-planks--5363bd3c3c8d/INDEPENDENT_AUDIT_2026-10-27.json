@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:15:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git tree RESULT.md SHA 952efcae6cd84e925e905e8acc30482a697b0632, full proof Sections 1-3",
+        "Frozen verify.py SHA ff44596442cb24fc515dcccb9bf824a41e70f5e1, inspected algorithm not executed as certification",
+        "Independent simplex checker and independent results saved in local private artifacts"
+      ],
+      "rationale": "The frozen RESULT.md proof was independently reconstructed with the normalizations ⟨u_i,u_j⟩=-1/d, sum u_i=0, sum u_i u_i^T=(d+1)I/d. The analysis y_i=⟨u_i,x⟩ maps the unit sphere bijectively to sum y_i=0, sum y_i²=(d+1)/d, with inverse x=(d/(d+1))sum y_i u_i. For h=min|y_i|>0, b=y/h has |b_i|≥1 and two nonempty sign groups of sizes p and q=m-p. Let positive mass s=negative mass≥max(p,q). Cauchy gives sum b_i²≥s²(1/p+1/q)≥m max(p,q)/min(p,q). Thus h²≤min(p,q)/(d max(p,q)), optimized by balanced p,q. Equality requires constant sign-group magnitudes, larger group magnitude 1, smaller group magnitude max/min; b from RESULT.md realizes equality. Hence the formulas tau_d²=1/d for odd d and 1/(d+2) for even d, with exact equality direction vectors, antipodal line counts, and zero-sum reconstruction, are correct for all integers d≥2. Covering the ball follows by radial contraction from sphere; t<tau leaves the equality unit vector uncovered. Angular distance to normal great subsphere equals arcsin|y_i| and full zone width is 2 arcsin tau. An independent bounded exact-Fraction checker verified the sign-size rational optimization, Gram normalization and equality witnesses for d=2..100 and tested 19,000 Gaussian-sampled zero-sum directions at d=2..20; these finite diagnostics do not prove the infinite dimension quantifier.",
+      "residual_risks": [
+        "The computer check is finite and numerical sampling cannot certify all dimensions; the sharp all-dimensional conclusion is supported by the analytic two-group inequality and exact equality conditions.",
+        "No changes of plank normals, translations, heterogeneous widths, or d<2 cases are covered."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Har-Peled–Robson p.2–3 shows all minimum-width projection directions are balanced sign groups, with exact asymmetric levels in even n; those are precisely all proposed max-min directions. The paper identifies older Alexander (1977) and Gritzmann–Klee (1992) width formula sources.",
+          "Published regular-simplex erosion result explicitly proves the complete balanced subset-sum norm formula (|G_I|²=d p q/(d+1)²), recovering the sharp max-min upper bound once the sign groups are fixed.",
+          "Akopyan–Polyanskii full two-page 2026 manuscript proves arbitrary symmetric plank sum bound only, not the fixed-normal calculation. Jiang–Polyanskii 2017 Theorem 1 only supplies sum zone-width bound and special planar equality."
+        ],
+        "reasoning": "Unrestricted plank/zone theorems are strictly weaker numerically at d>=3 and are not the basis of the rejection. The decisive broader coverage is the complete two-level and balanced-partition geometry of the earlier regular-simplex width analysis, supported by the subset-sum norm formula and the elementary implication derived below.",
+        "searches": [
+          "Har-Peled Robson 2023 On the Width of the Regular n-Simplex",
+          "Resultary: exact width of regular simplex extremal two level sign partition",
+          "arXiv:2609.36163v1 full manuscript",
+          "arXiv:1703.10550v2 Theorem 1 zones",
+          "DOI 10.1112/blms.70230 survey Ball plank Fejes Toth"
+        ]
+      },
+      "checked_sources": [
+        "Har-Peled and Robson, On the Width of the Regular n-Simplex (2023), complete 3-page PDF, Lemmas 1.2-1.3 and Corollary 1.4: https://sarielhp.org/p/23/width_simplex/width_simplex.pdf",
+        "Published Resultary finding Bang’s homothetic core is exact for every simplex (2026), complete RESULT.md, regular-simplex subset-gradient formula, record 2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4",
+        "Akopyan and Polyanskii, A short proof of Ball’s plank theorem, arXiv:2609.36163v1, entire alternate-OA PDF: https://pdfs.assets.alphaxiv.org/2609.36163v1.pdf",
+        "Jiang and Polyanskii, Proof of László Fejes Tóth’s zone conjecture, arXiv:1703.10550v2, Theorem 1 and equality material: https://arxiv.org/pdf/1703.10550",
+        "2024 Mathematics Stack Exchange question 4894174, full reverse min-max problem and answers",
+        "Resultary semantic searches recorded under the four named originality checks, excluding the submitted record itself"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For P={i:<u_i,x>>0}, |P|=p, complement q=d+1-p, let h=min_i|<u_i,x>| and s=sum_{i in P}<u_i,x>. Zero sum implies s is also the total magnitude of the negative group, so s>=max(p,q)h.",
+          "The known regular-simplex subset-sum identity gives s<=||sum_{i in P}u_i||=sqrt(pq/d), hence h<=sqrt(min(p,q)/(d max(p,q))). The maximum over p is balanced and equals 1/sqrt(d) (d odd) or 1/sqrt(d+2) (d even).",
+          "Equality forces x parallel to sum_{i in P}u_i with the larger group projections all of magnitude h; its two-level Gram projections, counts and antipodal identification are exactly the previously described balanced subset-sum/minimum-width directions.",
+          "Homogeneity and spherical distance arcsin(h) add no independent extremal geometry."
+        ],
+        "reasoning": "This explicit direct implication covers the entire final theorem, including all higher-even dimensions and extremal counts. The older 2023 paper solves a different objective; the transfer is an elementary single subset-sum estimate and known equality normalization, rather than a separate structural inequality or unresolved optimization. Distinguish this mathematical corollary from a literal quotation: no claim that either prior paper prints the fixed-plank formula word-for-word.",
+        "searches": [
+          "Har-Peled–Robson PDF Lemmas 1.2–1.3 and Corollary 1.4",
+          "Resultary published Bang homothetic core RESULT.md regular simplex corollary",
+          "Jiang–Polyanskii arXiv:1703.10550v2 Theorem 1",
+          "MSE 4894174 April 2024"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact normalized regular-simplex frame is the zero-sum subspace: sum_i y_i=0, sum_i y_i²=(d+1)/d.",
+          "Har-Peled–Robson 2023, Lemmas 1.2 and 1.3, already classify the balanced two-level directions of the same zero-sum unit sphere for the simplex width; their even-n smaller coordinate beta=sqrt(n/((n+1)(n+2))) becomes 1/sqrt(n+2) for normalized vertex projections.",
+          "The 2024 min-max question is a genuinely different quantifier order. Its odd-dimensional balanced witness overlaps; its even-dimensional zero-coordinate candidate is not a max-min witness."
+        ],
+        "reasoning": "The spherical angular distance to each normal great subsphere equals arcsin of its absolute projection, so the plank, zone and max-min descriptions are exactly equivalent to each other. Regular-simplex minimum width is a distinct optimization (min range), but its known equality vectors and two-level algebra directly supply the submitted extremizers and candidate threshold; a short subset-sum inequality verifies global max-min optimality without a new nonstandard lemma.",
+        "searches": [
+          "Resultary: simplex normal hyperplanes spherical zone covering radius maximum minimum scalar products parity",
+          "Regular simplex hyperplane arrangement spherical covering radius",
+          "https://sarielhp.org/p/23/width_simplex/width_simplex.pdf",
+          "https://math.stackexchange.com/questions/4894174/minimum-of-the-dot-product-over-the-vertices-of-a-regular-n-simplex/4898192"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the candidate itself (excluded from originality evidence) and published Bang homothetic-core result 2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4, whose full RESULT.md was read and gives all balanced sign-partition direction vectors.",
+          "Har-Peled–Robson, Corollary 1.4, records exact even/odd simplex width; Lemmas 1.2–1.3 give the exact two-level vector entries, from which the proposed threshold is obtained by the same unit-normal scaling.",
+          "Other Resultary hits on simplex spheres and sectional volumes concern different objects/invariants; no independent tabulation of the named threshold was found."
+        ],
+        "reasoning": "The existing width formula is not literally a table of this covering invariant; nonetheless, the full known equality-vector entries determine its proposed exact values and line counts by routine normalization and balanced-subset enumeration. A missing exact string match is therefore not evidence for a new theorem.",
+        "searches": [
+          "Resultary search: exact maximum of minimum absolute inner products with vertices of regular simplex frame simplex normal planks spherical zone covering odd even parity",
+          "Resultary search: simplex normal hyperplanes spherical zone covering radius maximum minimum scalar products parity",
+          "Resultary search: exact width of regular simplex extremal two level sign partition",
+          "\"1/sqrt(d+2)\" \"simplex\" \"hyperplanes\" \"covering\"",
+          "Har-Peled Robson 2023 regular simplex parity width formula"
+        ]
+      },
+      "rationale": "A directly relevant, genuinely earlier primary mathematical source was missed in the original comparison: Har-Peled–Robson (2023), Lemmas 1.2–1.3, derives the same balanced two-level projection vectors, precise magnitudes and parity split as the proposed extremizers. A separately published related regular-simplex result writes the same balanced subset-sum norm exactly. The submitted fixed-plank objective is not literally the prior simplex-width objective, but its entire threshold, equality set, and binomial line counts are routine algebraic consequences of that known balanced subset-sum geometry: for sign groups of sizes p,q, sum_{positive} <u_i,x>=s>=max(p,q) h while s<=||sum_{positive}u_i||=sqrt(pq/d). Therefore h<=sqrt(min(p,q)/(d max(p,q))) with equality for precisely the known balanced two-level subset-sum directions. The maximum gives h=1/sqrt(d) for odd d and 1/sqrt(d+2) for even d, with all equality directions and their counts. This provides demonstrated mathematical coverage of the claimed higher-even novelty, not merely similar wording or a failed search. The difference in optimization vocabulary is acknowledged; the older sources do not state this named covering threshold verbatim.",
+      "residual_risks": [
+        "The direct mathematical comparison to width theorem involves an elementary new presentation of the max-min objective. The rejection treats this as a corollary of known optimizer geometry, not as a theorem literally stated in the 2023 source; a reader may place a different publication-value threshold on this corollary.",
+        "The 1977 Alexander and 1992 Gritzmann–Klee primary width papers were not separately read; the fully inspected 2023 proof independently establishes the necessary prior facts.",
+        "The related published Resultary finding shares the 2026-10-11 public release date with the assessed finding, so no intra-day historical priority is asserted for that comparison. The 2023 paper predates both.",
+        "No claim that search completeness proves non-novelty: rejection follows the explicit derivation from checked stronger geometric facts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides the balanced-sign two-level extremizing directions, their projection magnitudes and odd/even formulas for the regular simplex width. The width objective (min projection range) is not literally the submitted max-min modulus, but the only purported higher-even novelty is recovered by a one-line signed subset-sum bound and these same already-described directions.",
+          "evidence": [
+            "Lemma 1.2 says no other minimizing directions for odd n; proof in p.2 forces only two coordinate levels. Lemma 1.3 p.3 gives the even-n levels alpha=-sqrt((n+2)/(n(n+1))) and beta=sqrt(n/((n+1)(n+2))) in the zero-sum unit model.",
+            "Normalize the coordinate analysis map by sqrt((n+1)/n): smaller even-n absolute projection is exactly 1/sqrt(n+2). Complementary balanced support sets give the same binomial line count."
+          ],
+          "identifier_or_url": "https://sarielhp.org/p/23/width_simplex/width_simplex.pdf (Sariel Har-Peled and Eliot W. Robson, 2023)",
+          "material_read": "Entire three-page PDF, especially p.1 width definitions, p.2 Lemma 1.2 and equality directions, p.3 Lemma 1.3 and formulas for positive and negative projection levels and Corollary 1.4.",
+          "method": "Opened complete public original PDF, read text lines and visually inspected PDF pages 2 and 3; recomputed its unit-circumradius normalization and balanced split.",
+          "title": "On the Width of the Regular n-Simplex",
+          "trigger": "Precisely the same regular-simplex normalized zero-sum coordinates, parity split and extremal two-level directions; strongest independent earlier mathematical comparison."
+        },
+        {
+          "assessment": "Publishes |G_I|²=d|I|(d+1-|I|)/(d+1)² with G_I=(d/(d+1))sum_{i in I}u_i, and says the balanced vertex subsets are all minimizing-width directions for a regular simplex. Its erosion target is different, so it is evidence of previously worked-out optimizer geometry, not an assertion it expressly states the fixed-normal zone threshold.",
+          "evidence": [
+            "Regular-simplex corollary: g_i=d/(d+1)q_i, |G_I|²=d|I|(d+1-|I|)/(d+1)², largest for balanced partitions.",
+            "This algebra is exactly the signed subset-sum norm needed to bound the min absolute projection and classify equality."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4/RESULT.md",
+          "material_read": "Complete mathematical RESULT.md (finding, assumptions, barycentric polar proof, regular-simplex corollary, limitations).",
+          "method": "Retrieved published GitHub source file (Git blob c7a4887d9b69a99c9fdf1e1e90074a29f2f5e98f) and verified the explicit regular-simplex subset-sum formula.",
+          "title": "Bang's homothetic core is exact for every simplex",
+          "trigger": "Published related simplex plank result with exact minimum-width optimizing vectors expressed by gradients of barycentric coordinates."
+        },
+        {
+          "assessment": "General symmetric-plank relative-width theorem, giving t>=1/(d+1) for d+1 equal planks on the Euclidean unit ball. It contains no fixed-simplex-normal parity calculation or two-level enumeration. Thus it is not itself the decisive covering source; original inaccessible-source risk is resolved for this paper.",
+          "evidence": [
+            "p.1 core theorem concerns arbitrary linear functionals ell_i with ell_i(x_i)=1 and an Euclidean norm bound sqrt(n).",
+            "p.2 proof analyzes optimal orthonormal bases and signs, with no hypothesis imposing a regular simplex Gram matrix."
+          ],
+          "identifier_or_url": "arXiv:2609.36163v1; https://pdfs.assets.alphaxiv.org/2609.36163v1.pdf",
+          "material_read": "Full two-page open-access manuscript, including warm-up, core theorem, proof with optimal orthonormal bases, last-page references and disclosure.",
+          "method": "ArXiv direct PDF/HTML unavailable, then lawful alternate OA alphaXiv PDF link succeeded; opened and visually inspected both pages, no institutional download necessary.",
+          "title": "A short proof of Ball's plank theorem",
+          "trigger": "Directly motivating 2026 plank preprint, previously recorded as inaccessible."
+        },
+        {
+          "assessment": "Theorem 1 gives total spherical width >= pi, implying t>=sin(pi/(2(d+1))) for equal zones; sharp for the planar case but strictly below the constructed simplex threshold for d>=3. It does not supply the higher-even formula.",
+          "evidence": [
+            "Theorem 1: sum of full spherical widths >= pi; equality characterized by coplanar normals arranged cyclically.",
+            "Unit-simplex normals are not all coplanar for d>=3, so the general equality case cannot yield the fixed-normal sharp value."
+          ],
+          "identifier_or_url": "arXiv:1703.10550v2; https://arxiv.org/pdf/1703.10550",
+          "material_read": "Public full PDF accessible; materially read abstract and introduction, Theorem 1 and its equality characterization on p.2, the relevant duality corollary, and inspected proof setup and argument passages.",
+          "method": "Opened PDF through web and visually inspected page 2; distinguished the unrestricted total-width inequality from fixed-frame sharpness.",
+          "title": "Proof of László Fejes Tóth's zone conjecture",
+          "trigger": "Potentially stronger universal theorem for sphere covering by zones."
+        },
+        {
+          "assessment": "Asks min_x max_i |<u_i,x>|, not the submitted max_x min_i. The odd-dimensional equimodular witness nevertheless directly covers the odd-dimensional pattern, and the even case discussed there predicts a zero coordinate, not the current two-level extremum.",
+          "evidence": [
+            "Question formula r_n=inf_{unit e} max_j |<e,v_j>|.",
+            "Answer supplies balanced +/- coordinates for odd n, but its even-n direction has one coordinate zero and hence min_j |<e,v_j>|=0."
+          ],
+          "identifier_or_url": "https://math.stackexchange.com/questions/4894174/minimum-of-the-dot-product-over-the-vertices-of-a-regular-n-simplex/4898192",
+          "material_read": "Whole question, mathematical answers and relevant comments dated April 2024.",
+          "method": "Read primary Q/A page with displayed formulas and contrasted min-max and max-min quantifier orders.",
+          "title": "Minimum of the dot product over the vertices of a regular n-simplex",
+          "trigger": "Exactly the same simplex frame, absolute inner products and unit directions."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Har-Peled–Robson 2023 exact simplex-width equality directions, read in full",
+        "Published Bang homothetic core for every simplex, complete RESULT.md and balanced subset-sum norm"
+      ],
+      "rationale": "The threshold of centrally positioned equal planks for fixed regular-simplex normals is a natural geometric number, and its zone interpretation is valid. However, the entire claimed higher-even contribution—the balanced unequal two-level directions, exact angular cutoff and line counts—is a short normalization/corollary of published regular-simplex width optimizer geometry and the published subset-sum norm identity. The only additional step is s>=max(p,q)h<=||sum_P u_i|| with a trivial balanced cardinality optimization; the paper supplies no independent structural lemma, unknown invariant beyond those prior optimizer coordinates, or new covering phenomenon. Under the shared mathematical-value standard this is an informative reference corollary, but a routine deduction from known work rather than a separately valuable new research finding. This is not a rejection for finite dimension, lack of a downstream theorem, or mathematical incorrectness.",
+      "residual_risks": [
+        "Some practitioners may value packaging an exact plank threshold as a standalone corollary; the judgment here concerns independent scientific contribution of the proposed theorem, not its pedagogical usefulness."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Har-Peled and Robson, On the Width of the Regular n-Simplex (2023), complete 3-page PDF, Lemmas 1.2-1.3 and Corollary 1.4: https://sarielhp.org/p/23/width_simplex/width_simplex.pdf",
+    "Published Resultary finding Bang’s homothetic core is exact for every simplex (2026), complete RESULT.md, regular-simplex subset-gradient formula, record 2026/10/11/SCOPE-bang-s-homothetic-core-is-exact-for-every-simplex--b077f6e663a4",
+    "Akopyan and Polyanskii, A short proof of Ball’s plank theorem, arXiv:2609.36163v1, entire alternate-OA PDF: https://pdfs.assets.alphaxiv.org/2609.36163v1.pdf",
+    "Jiang and Polyanskii, Proof of László Fejes Tóth’s zone conjecture, arXiv:1703.10550v2, Theorem 1 and equality material: https://arxiv.org/pdf/1703.10550",
+    "2024 Mathematics Stack Exchange question 4894174, full reverse min-max problem and answers",
+    "Resultary semantic searches recorded under the four named originality checks, excluding the submitted record itself"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Earlier geometric width results cover the optimizer directions but have a distinct stated objective; the algebraic transfer is expressly supplied and checked, not treated as literal quotation.",
+    "No independent claim about non-Euclidean or translated plank coverings."
+  ],
+  "schema_version": 1
+}
