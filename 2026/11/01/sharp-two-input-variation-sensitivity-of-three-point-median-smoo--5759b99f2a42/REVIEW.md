@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The theorem specifies real finite paths, an endpoint-preserving three-point median, arbitrary positive edge weights and two-input weighted variation. A strict-order cell is an explicit coordinate selector. Its induced BV seminorm equals its largest step-column ratio by a telescoping decomposition. Locality bounds columns by one or three edge weights; explicit strict-order input pairs attain every candidate. Partitioning a line segment across selection chambers proves the global inequality. The Perron eigenvector and Collatz–Wielandt prove the exact unique optimal weight profile. The separate \(n=2\) identity and \(n=3\) boundary are included. Exhaustive exact finite checks independently substantiate the formulas, not their infinite-range proof.
+
+**Originality — PASS, with risk.** Restrepo–Chacon's public abstract provides *one-input* variation smoothing, which does not dominate a two-input difference-of-outputs modulus. Maragos–Schafer's examined OA sections provide min/max and morphological structure, not the weighted BV Lipschitz coefficient. Suomela's readable 2014 arXiv work provides algorithmic sorting equivalence. Actual mathematical-index searches and accessible historical deduplication reveal related but noncovering median, isotonic, linear smoothing and maximal-operator results. The full text of Restrepo–Chacon (1994) was inaccessible; an implicit equivalent lemma in nonlinear filtering remains possible and has not been ruled out by snippet-only inspection.
+
+**Mathematical value — PASS.** The result distinguishes signal smoothing from perturbation robustness, determines the exact sharp amplification for each positive weighting, and determines the unique best weighting for all path lengths. For four vertices the uniform sensitivity is \(3\), while the optimally weighted sensitivity is \(2\); the minimal modulus then grows toward \(3\). It is a complete classification of a natural nonlinear operator's sensitivity, rather than a mere finite experimental observation.
+
+The literature search cannot prove global novelty. No external independent scientific audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
