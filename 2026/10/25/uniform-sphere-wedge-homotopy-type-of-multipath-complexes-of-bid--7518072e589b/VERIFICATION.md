@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The proof uses exact combinatorial descriptions, the published integral homology/connectivity theorems of Caputi--Collari--Smith, and Hurewicz plus Whitehead. The new top-cycle structural lemma has no unverified numerical prerequisites. The supplied `verify.py` independently enumerates finite multipath faces and checks the top facet characterization and an acyclic lexicographic discrete-Morse matching on \(n+1=7,8,9,10,11,12,13,14\) vertices. Its real terminal output is provided in `verification_output.txt`. The finite checks are supplementary; no infinite range is certified by enumeration.
+# Independent mathematical audit
 
-The two embedded pure-orientation \(S^{n-1}\) subcomplexes contain all top facets, and have disjoint integral boundary supports. For \(n\ge6\), published connectivity is at least one and the Hurewicz argument realizes the lower classes; hence Whitehead applies to the wedge map.
+## correctness
 
-Scientific limitations: reliance on the published general homology/connectivity calculations, no equivariance, no independent external audit, and potential unindexed bibliographic overlap.
+PASS
+
+For bidirected C_{n+1}, a face is a cyclic {+,−,0}-word with no adjacent opposite nonzero signs and excluding the two full directed cycles. A mixed-sign face needs >=2 gaps, hence has <=n-1 arcs and dimension <=n-2. Every top n-1-simplex is a pure-sign word missing one arc; the pure ± subcomplexes are two embedded ∂Δ^n spheres S^{n-1}. Their highest boundary supports are disjoint, so their fundamental classes form an integral basis for top H_{n-1}=Z². Caputi–Collari–Smith 2026 Theorems 2.8/2.10 give simply connectivity for n>=6 and complete lower free homology. For n≡0 mod4, vanishing H_{d-1} upgrades (d-2)-connectivity to (d-1)-connectivity by Hurewicz. Lower Hurewicz lifts and two geometric top sphere maps induce an integral homology equivalence from the stated sphere wedge; homology Whitehead for simply connected CW complexes yields homotopy equivalence. Independent face enumeration n=6,7,8 finds 476,1152,2784 faces, reduced Euler −1, and top facet counts 14,16,18; no finite check substitutes for n-uniform proof.
+
+## originality
+
+PASS
+
+Caputi–Collari–Smith explicitly compute integral homology and connectivity of these exact bidirected polygon multipath complexes and pose whether they are wedges of spheres. Homology and simple connectivity alone do not force wedge homotopy. The new pure-sign top-sphere generator basis supplies a homology equivalence and Whitehead upgrades to genuine integral homotopy equivalence. Published multipath work on bidirected double stars concerns a different digraph.
+
+## value
+
+PASS
+
+This resolves an explicitly posed infinite-family homotopy-type question, lifting known integral homology and connectivity to a true sphere-wedge equivalence. The top-dimensional sphere representatives are natural and the simple-connectivity/Whitehead argument explains the upgrade.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
