@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:13:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md full root, positivity cone, exponential-start and irrational-rotation proofs; blob 8bbbced15f8bb53efbcc394446f4eea7b4289c3a",
+        "frozen verify.py inspected (blob a44a48476456c192da66a45f5b91b0ff6d4accb5)",
+        "fresh independent SymPy discriminant/root derivative and numerical first-negative diagnostics"
+      ],
+      "rationale": "The exact constant-step scalar recurrence has characteristic P_s(ζ)=(10+6s)ζ³−15ζ²+6ζ−1. Its discriminant −108(9s²−12s+5)<0 gives one positive simple real root r and one conjugate complex pair of modulus q, all inside the unit disk. Using Vieta r q²=(10+6s)^{-1} and the root equation gives q>r iff r<2/5. Implicit differentiation yields decreasing r(s); P_{15/16}(2/5)=0, so the unique crossover is s*=15/16. Distinct-root spectral decomposition y_n=c r^n+2Re(d z^n) proves the open perpetual-positivity cone at and below the threshold and exact positive real-eigenray when q>r. Any d≠0 above threshold gives both signs infinitely often. For exact exponential initial values the Lagrange coefficients c=|t−z|²/|r−z|² and d=(t−r)(t−conj z)/[(z−r)(z−conj z)] are nonzero as required. At s* c>2|d| is proved by explicit exponential bounds. The angular phase cosθ*=7/10 has irrational θ*/π; compactness yields bounded waiting to a negative arc near critical, matching the lower envelope and giving (s−s*)N_−→(125/96)log H*=4.579428036... . Independent symbolic checks reproduced the cubic discriminant and r′(s*)=−32/125, plus four near-threshold first-negative indices (301,609,1541,4567); finite tests are not proof of the asymptotic limit.",
+      "residual_risks": [
+        "The claim is only scalar fixed-step dissipative linear ODE with exact arithmetic; stability of the method does not imply nonlinear positivity.",
+        "First-negative asymptotic is for exact exponential starters at s↓15/16 from above; not all histories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "NASA 2010 full paper Sections III-IV with root-locus stability and fluid simulation",
+          "Jensen–Ketcheson–Lóczi public abstract stiff mode damping",
+          "Resultary cf66315c5a14 BDF2 delayed sign loss"
+        ],
+        "reasoning": "Classical root conditions ensure decay and grant spectral decomposition but do not calculate the real/complex modulus crossover. BDF2 record uses a different degree-two characteristic and near-boundary sqrt delay, not the BDFL3 reciprocal law. Exact 2026 same mathematical model content could not be fully compared.",
+        "searches": [
+          "BDF2OPT(4) scalar decay positivity positive history cone",
+          "BDFL3 BDF2OPT(4) positive histories spectral root moduli sign oscillations first negative index threshold"
+        ]
+      },
+      "checked_sources": [
+        "NASA NTRS 20100002944 full primary PDF",
+        "Jensen–Ketcheson–Lóczi arxiv:2610.22685 abstract only",
+        "Resultary semantic query 5",
+        "Resultary BDF2 delayed sign-loss record cf66315c5a14"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work states A-stability and optimized accuracy; it allows oscillating but decaying roots",
+          "New theorem separates q<r, q=r, q>r and sharp sign-delay constant"
+        ],
+        "reasoning": "A-stability only says all roots lie inside the unit disk, not which mode is dominant or positivity of the resulting sequence. The old method statements do not visibly imply this exact exponential-starter first-negative law; the complete same-method 2026 manuscript is an explicit unread risk.",
+        "searches": [
+          "NASA NTRS 20100002944 page 4",
+          "arxiv:2610.22685 public abstract",
+          "BDFL3 BDF2OPT(4) positive histories spectral root moduli sign oscillations first negative index threshold"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "NASA NTRS 20100002944, page 4 BDF2OPT(4) A-stable parameter β=1/2",
+          "Jensen Ketcheson Lóczi 2026 arXiv 2610.22685, optimized stiff multistep methods"
+        ],
+        "reasoning": "Alias BDF2OPT(4) is explicitly acknowledged as the SAME recurrence, so the older method is not novelty. However the current theorem concerns cone of positive histories and delay under exact scalar decay, not A-stability coefficients.",
+        "searches": [
+          "BDFL3 BDF2OPT(4) positive histories spectral root moduli sign oscillations first negative index threshold",
+          "BDFL3 BDF2OPT(4) scheme identification 2010 NASA"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Jensen et al. 2026 source abstract and publicly indexed scheme name",
+          "Resultary BDF2 threshold 1/2, N~π√(2/(s−1/2))"
+        ],
+        "reasoning": "Published coefficient tables cover the recurrence but do not themselves tabulate s*=15/16 and its positive-history classification. No matching exact spectral/delay table located in bounded searches; absence is not a novelty proof.",
+        "searches": [
+          "BDFL3 BDF2OPT(4) positive histories spectral root moduli sign oscillations first negative index threshold",
+          "BDFL3 15/16 positivity",
+          "BDF2OPT(4) 125/96 first negative index"
+        ]
+      },
+      "rationale": "BDFL3 has the historical alias BDF2OPT(4); its coefficients and A/L-stability are prior work, including the 2010 NASA analysis, and are not claimed new. The contribution is the exact root-modulus crossing, classification of all scalar positive-history cones, and reciprocal-distance first-negative index for exact exponential starter. The 2010 full text analyzes stability loci and numerical fluid dynamics rather than the positivity cone. Jensen–Ketcheson–Lóczi (2026) supplies the scheme and stiff-mode damping; only abstract and metadata were accessible this run because direct full-text retrieval failed and authorized institutional access reported VPN disconnected. The BDF2 delayed sign loss record concerns a different recurrence and square-root scaling. Qualified best-of-knowledge PASS; unread same mathematical model 2026 sections are a substantial residual priority risk.",
+      "residual_risks": [
+        "Full same-method 2026 paper inaccessible in this run; no whole-paper claim of noncoverage.",
+        "A historical positivity or root-dominance treatment under BDF2OPT(4) alias could imply the same threshold.",
+        "Institutional retrieval reported disconnected VPN; access was not bypassed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior coefficient and stability analysis, not the new positivity-history theorem in inspected scientific sections",
+          "evidence": "2010 AIAA Paper 2010-0122, Section III Table 2, page 4 BDF2OPT(4) β=1/2",
+          "identifier_or_url": "https://ntrs.nasa.gov/api/citations/20100002944/downloads/20100002944.pdf",
+          "material_read": "Accessible complete 15-page NASA full text, especially Sections III-IV, stability diagrams, and PDF page 4 visibly inspected",
+          "method": "Web PDF extraction and required page screenshot",
+          "title": "Re-evaluation of an Optimized Second Order Backward Difference (BDF2OPT) Scheme for Unsteady Flow Applications",
+          "trigger": "Historical alias BDF2OPT(4) is same method"
+        },
+        {
+          "assessment": "Contains method provenance and stability aims. Unread full paper may include positivity analysis; no whole-document noncoverage assertion",
+          "evidence": "2026-10-15 arXiv abstract: optimized implicit second-order A-stable stiff methods, damping and error constants",
+          "identifier_or_url": "https://arxiv.org/abs/2610.22685",
+          "material_read": "Public full abstract, author/date/subject metadata only; arXiv full HTML access disabled in this execution",
+          "method": "Public abstract; preprint/full-text attempt then institutional authorized retrieval",
+          "title": "Optimized linear multistep methods for stiff problems",
+          "trigger": "Exact 2026 BDFL3 scheme and likely same mathematical model coverage"
+        },
+        {
+          "assessment": "Different BDF2 recurrence and sqrt divergence; cannot rule out unrelated broader implication hidden in text",
+          "evidence": "Summary states threshold 1/2 and N~π√(2/(s−1/2))",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-delayed-sign-loss-just-beyond-bdf2-s-positivity-boundary--cf66315c5a14",
+          "material_read": "Returned Resultary title and substantive summary only; original full text not read",
+          "method": "Semantic search result comparison",
+          "title": "Exact delayed sign loss just beyond BDF2’s positivity boundary",
+          "trigger": "Very close finite-step sign delay phenomenon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md with exact stated theorem",
+        "independent source comparison and mathematical assessment"
+      ],
+      "rationale": "The optimized L-stable method can be absolutely stable on scalar decay while positive-history robustness collapses to a ray at s=15/16. This is a nontrivial exact spectral boundary distinct from routine A-stability, with an explicit 4.5794/(s−s*) delay explaining misleading finite-time positive simulations near threshold. It supplies precise diagnostics for a physically motivated numerical scheme without making unsupported nonlinear or adaptive-step claims.",
+      "residual_risks": [
+        "No proof about general stiff systems, matrix generators, floating-point or variable step sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Above s* every non-eigenray real history oscillates in sign infinitely while decaying.",
+    "At subcritical steps only an open cone of perpetually positive histories is asserted, not every positive start."
+  ],
+  "schema_version": 1
+}
