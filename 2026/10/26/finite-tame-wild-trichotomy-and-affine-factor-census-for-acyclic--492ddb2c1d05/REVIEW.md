@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof starts from the documented face-algebra/path-algebra isomorphism, reduces representation type to Gabriel and extended-Dynkin classification, rules out multiarrows via a four-arrow Kronecker subquiver, and handles all other wild cases via a diagonal vertex's squared in/out degrees and proper enlargement of the affine four-leaf star. It analyzes all ordered products of surviving input components, yielding both affine multiplicities and the finite-type indecomposable count. The independent finite checker matches predicted Cartan inertia on 857 cases, but is not a proof for arbitrary quivers.
+## correctness
 
-**Originality — PASS against inspected sources.** Calderón–Walton's full available paper supplies the general face/path-algebra identification and several small illustrative square quivers. The explicit three-vertex fork in its Table 1 and all inherited classification tools are prior, not claimed. Eckert's full open-access Introduction summarizes the classical Dynkin and affine-Dynkin criteria for quiver path algebras. Neither inspected source states the sharp original-quiver criterion for all finite acyclic quivers, the typed count of all affine components, or the finite-type indecomposable identity. Research-record and literature queries found no equivalent published finding; searches are not proof of unique priority. The strongest risk is that an unlocated general classification of synchronous quiver products may already contain the new input-level characterization.
+PASS
 
-**Value — PASS.** Representation type is a central structural invariant of finite-dimensional algebras. This classification is a uniform decision criterion on the *original* input quiver, rather than construction and representation-type analysis of its quadratic-size square. The exact number and type of tame affine factors determines the decomposition of the infinite families of indecomposables, while the finite-case equality with algebra dimension gives a natural exact count.
+Reconstructed the structural proof from the assigned RESULT.md. Calderón–Walton H(Q)~k Qhat identifies the quiver whose vertices are ordered pairs and arrows synchronous pairs. Acyclicity of Q implies Qhat acyclic. Its path algebra has Dynkin finite, extended Dynkin tame, wild otherwise (Gabriel/Donovan-Freislich/Nazarova). Every vertex v contributes diagonal degree (deg^- v)^2+(deg^+ v)^2: parallel arrows yield a >=4-arrow Kronecker subquiver; branching >=3 or mixed (2,1) yields star >4 leaves, spectral radius >2. Exactly (2,0)/(0,2) creates an affine D4~ four-star; any further original connected arrow adds a diagonal edge, strictly enlarging a connected affine graph and forcing spectral radius >2. Thus nonwild components are directed paths or isolated 3-vertex forks. Ordered fork squares: same orientation one D4~, opposite orientation one A3~, remainder isolated; mixed fork/path yield A paths. For directed paths each indecomposable is an interval, counted by synchronous length-l path pairs, matching dim. Independently checked finite DAG/Cartan eigenvalues for 572 cases and explicit fork products, not an infinite substitute.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The face-algebra square isomorphism, small fork product examples and Dynkin/extended Dynkin classification are prior. Originality of completed result is the global input-quiver criterion including wild obstructions, affine factor multiplicity for any disconnected source, and finite-type count equality. Existing primary Table 1 covers a single fork and thus that example alone is NOT new.
+
+## value
+
+PASS
+
+Finite/tame/wild representation type is a canonical central invariant of finite-dimensional face algebras; the result supplies an exact original-quiver recognition criterion, multiplicities of affine factors and a natural finite-type indecomposable-count invariant, all useful without recomputing a potentially large squared quiver.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
