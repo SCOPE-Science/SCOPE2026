@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:10:18.592132Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source Git tree bb45d030f1b4f321150f1ef0352cabe9a756544c, RESULT blob c710f9e159ebbdcce48ac0a30e0c01b96da20300",
+        "Original C99 full source read; 189587 labeled missing-edge mask cases specified",
+        "Independent exact SymPy 7vertex witness",
+        "Independent 821 atlas augmentation checks, 142 connected unlabeled types"
+      ],
+      "rationale": "For connected simple unweighted G with oriented incidence B (one row deleted), the Euclidean cycle-space orthogonal projection is C_G=I-B^T(BB^T)^-1 B; all column-sum norms can be computed exactly as integer cofactors divided by the matrix-tree determinant. The inspected C99 verifier enumerates all labeled connected graph masks on n=2,...,6 (connected counts 1,4,38,728,26704), all 189587 missing-edge additions, and compares exact rational norms by cross-multiplication with no cycle-norm decrease. Finite exhaustive enumeration proves the finite bound if the arithmetic algorithm is sound; independently, graph_atlas_g yielded all 142 unlabeled connected isomorphism types through six vertices, and exact SymPy calculations checked all 821 non-isomorphic representatives' missing-edge insertions with no decreases. The explicit 7-vertex edge list and insertion (1,5) independently yield 313/153 to 55/27, difference 4/459. Arbitrary orientation conjugates by diagonal sign and cannot change induced l1/linfty norms. Finite assertion is genuinely exhaustive, not an extrapolation.",
+      "residual_risks": [
+        "Independent finite checks corroborate only bounded cases; infinite/all-parameter assertions rest on reconstructed proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Frozen RESULT.md, verify.c",
+          "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+          "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+        ],
+        "reasoning": "General invariant or minimum projection constant theorems concern different optimizations than norm of the fixed Euclidean projector; restricting to cactus, tori or Hamming graphs does not cover every connected graph of order six or the seven-vertex witness.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices",
+          "Primary-literature search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, verify.c",
+        "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+        "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Frozen RESULT.md, verify.c",
+          "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+          "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+        ],
+        "reasoning": "Any previously proven monotonicity of effective resistance would involve diagonal L^+ information and does not entail absolute column-sum monotonicity of I-B^T L^-1 B. The published projection framework describes the operators but not the exact n=7 transition.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices",
+          "Primary-literature search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Frozen RESULT.md, verify.c",
+          "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+          "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+        ],
+        "reasoning": "Cycle flow space ker D is orthogonal to cut space; its canonical projector C_G=I-Q_G for the cut projector Q_G. The l1 norm is maximum absolute column sum; symmetry also yields l_infinity norm. Effective resistance expresses diagonal of Q_G, but Rayleigh order does not control the entire absolute column-sum norm.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices",
+          "Primary-literature search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Frozen RESULT.md, verify.c",
+          "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+          "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+        ],
+        "reasoning": "The claimed threshold is a finite exhaustive computation across all labeled masks n<=6, not an assumption based on a graph atlas table. Our independent unlabeled atlas enumeration gave 821 augmentations and the exact seven-vertex counterexample; a known table of graph counts alone cannot imply these rational projection-norm comparisons.",
+        "searches": [
+          "Resultary semantic search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices",
+          "Primary-literature search 2026-10-30: orthogonal projection graph cycle space l1 norm edge insertion monotonicity counterexample minimal vertices"
+        ]
+      },
+      "rationale": "Dilworth--Kutzarova--Ostrovskii 2023 study minimal/invariant cycle-space projections, including special graph families, but the present object is specifically the Euclidean orthogonal projector and changes its ambient edge space under insertion. Their invariant-projection constructions do not imply all-small-graph monotonicity or this sharp counterexample.",
+      "residual_risks": [
+        "Exact minimal cutoff rests on a finite algorithm and its independent atlas corroboration, not a structural noncomputational classification",
+        "Possible unindexed enumeration of Euclidean graph cycle-projection norms is a residual novelty risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different optimization; the exact Euclidean projection norm under edge insertion is not its stated universal classification",
+          "evidence": [
+            "Theorems on invariant/minimal cycle projections and special graph family symmetries vs orthogonal projector of arbitrary small graphs"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.12582",
+          "material_read": "Accessible primary arXiv HTML: introduction, projection definitions, invariant/minimal projection focus, tori and Hamming graph sections",
+          "method": "Read accessible arXiv full HTML and compared statements, projection choices and graph scopes",
+          "title": "Cycle spaces: invariant projections and applications to transportation cost",
+          "trigger": "Direct prior graph cycle-space projection work"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md, verify.c",
+        "Dilworth, Kutzarova, Ostrovskii arXiv:2305.12582",
+        "Resultary sharp coordinate-projection norms for edge-bases of cactus transportation spaces 2026"
+      ],
+      "rationale": "The sharp onset at graph order seven for a natural canonical projection norm is a meaningful finite classification of how graph edge insertion fails to preserve an operator norm, despite effective-resistance Rayleigh monotonicity. A concrete exact witness and exhaustive lower-order barrier make the cutoff independently useful.",
+      "residual_risks": [
+        "Exact minimal cutoff rests on a finite algorithm and its independent atlas corroboration, not a structural noncomputational classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact minimal cutoff rests on a finite algorithm and its independent atlas corroboration, not a structural noncomputational classification",
+    "Possible unindexed enumeration of Euclidean graph cycle-projection norms is a residual novelty risk.",
+    "The public administration records were not privacy sanitized, so scientific assessment is complete but publication is NOT READY."
+  ],
+  "schema_version": 1
+}

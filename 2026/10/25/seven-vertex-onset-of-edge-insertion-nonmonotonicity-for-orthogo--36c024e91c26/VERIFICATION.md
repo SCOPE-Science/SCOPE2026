@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Compile the supplied `verify.c` as follows:
+## correctness
 
-```sh
-cc -O2 -std=c99 -Wall -Wextra verify.c -o verify
-./verify
-```
+PASS
 
-This program uses solely the standard C library. It evaluates the integer adjugate formula for the exact orthogonal cycle-projection norm. For each vertex count \(2\) through \(6\) it processes every bit mask of possible edges, checks connectedness and checks all single missing-edge insertions. It does not use floating point or assume any graph catalogue is complete. The observed labelled-connected graph counts are \(1,4,38,728,26704\); the numbers of insertions are \(0,3,84,3140,186360\). There were zero cycle-projection norm decreases in all \(189587\) tested insertions.
+For connected simple unweighted G with oriented incidence B (one row deleted), the Euclidean cycle-space orthogonal projection is C_G=I-B^T(BB^T)^-1 B; all column-sum norms can be computed exactly as integer cofactors divided by the matrix-tree determinant. The inspected C99 verifier enumerates all labeled connected graph masks on n=2,...,6 (connected counts 1,4,38,728,26704), all 189587 missing-edge additions, and compares exact rational norms by cross-multiplication with no cycle-norm decrease. Finite exhaustive enumeration proves the finite bound if the arithmetic algorithm is sound; independently, graph_atlas_g yielded all 142 unlabeled connected isomorphism types through six vertices, and exact SymPy calculations checked all 821 non-isomorphic representatives' missing-edge insertions with no decreases. The explicit 7-vertex edge list and insertion (1,5) independently yield 313/153 to 55/27, difference 4/459. Arbitrary orientation conjugates by diagonal sign and cannot change induced l1/linfty norms. Finite assertion is genuinely exhaustive, not an extrapolation.
 
-For the explicit seven-vertex witness, exact grounded Laplacian determinants are \(153\) before addition and \(243\) after addition. The checked cut-projection norms were \(\frac{284}{153}\) and \(\frac{16}{9}\); the cycle-projection norms were \(\frac{313}{153}\) and \(\frac{55}{27}\). The printed final success line confirms the exact strict difference \(\frac4{459}\). The correct mathematical inference is an exhaustive finite threshold, **not** a general infinite-graph monotonicity statement.
+## originality
 
-An additional symbolic exact-rational cross-check, using separately constructed incidence matrices with SymPy and all 142 connected unlabelled NetworkX Graph Atlas representatives on at most six vertices, passed all 821 edge insertions. This cross-check is ancillary; the shipped C program is self-contained and verifies the full labelled domain.
+PASS
 
-The computation confirms mathematical statements under the specified conventions; it is not an independent mathematical audit or an external certification.
+Dilworth--Kutzarova--Ostrovskii 2023 study minimal/invariant cycle-space projections, including special graph families, but the present object is specifically the Euclidean orthogonal projector and changes its ambient edge space under insertion. Their invariant-projection constructions do not imply all-small-graph monotonicity or this sharp counterexample.
+
+## value
+
+PASS
+
+The sharp onset at graph order seven for a natural canonical projection norm is a meaningful finite classification of how graph edge insertion fails to preserve an operator norm, despite effective-resistance Rayleigh monotonicity. A concrete exact witness and exhaustive lower-order barrier make the cutoff independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
