@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Explicit exact-arithmetic algorithm, SPD matrix and sketch law. \\(V=\\sqrt{\\ell} R^{-1}\\) gives \\(H=RAR^{-1}\\), and symbolic expansion yields \\(h_{13}=C_\\ell/r_{33}\\). Bartlett independent QR variables give \\(r_{33}\\sim\\chi_{\\ell-2}\\), with \\(C_\\ell\\) independent, nonzero and finite at moment \\(\\ell-2\\); chi inverse moments prove the iff boundary. Small-chi CDF asymptotic and dominated convergence yield the stated exact tail constant, and chi concentration/Slutsky gives \\(N(0,2)\\). 900 direct Gaussian sketch Arnoldi-versus-QR comparisons and exact symbolic identities passed in a standalone verifier. No finite experiment is used to prove the infinite quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2011.05090: randomized Gram-Schmidt/Arnoldi construction and stability",
+        "arXiv:2210.09953: randomized Cholesky QR and sketch-based stability",
+        "DOI:10.1002/nla.70022: stabilized sketched Krylov recurrence analysis"
+      ],
+      "reasoning": "High-probability subspace-embedding or finite-precision stability bounds do not force unconditional polynomial tails or finite-moment thresholds. General randomized QR algorithms do not imply this particular nontridiagonal Arnoldi coefficient formula without the present reduction. No inspected broader theorem subsumes all asserted moments and exact tail.",
+      "searches": [
+        "randomized orthogonal projection Krylov 2302.07466 Timsit Grigori Balabanov 2023",
+        "Timsit Grigori Balabanov randomized Arnoldi Hessenberg above-superdiagonal coefficients Gaussian sketches chi tails moments",
+        "\"randomized Arnoldi\" \"Hessenberg\" \"Gaussian\" \"tail\" moments",
+        "\"randomized Gram Schmidt\" \"Hessenberg\" \"heavy tailed\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2302.07466v3",
+      "https://arxiv.org/abs/2011.05090",
+      "https://arxiv.org/abs/2210.09953",
+      "https://doi.org/10.1002/nla.70022"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The primary paper explicitly motivates a Gaussian-noise model by an empirical histogram and formulates a later implication conditional on Gaussian noise.",
+        "The claimed exact unconditional inverse-chi tails include infinite variance at sketch size four, while Gaussian random variables have finite moments of every order.",
+        "Bartlett decomposition, as a standard input, does not state the particular similarity coefficient in randomized Arnoldi."
+      ],
+      "reasoning": "A stronger version of the primary Gaussian hypothesis cannot imply this theorem because that hypothesis is not proved for these coefficients and in this finite-sketch setting is incompatible with the proven heavy tails. Algorithm and embedding theorems permit the reduction but do not imply the sharp full moment spectrum automatically. No claim-versus-prior implication was established in inspected primary mathematical content.",
+      "searches": [
+        "arXiv:2302.07466 Section 3.2 randomized Arnoldi and Section 4.1 noise above superdiagonal",
+        "arXiv:2011.05090 randomized Gram-Schmidt and GMRES",
+        "arXiv:2210.09953 randomized Cholesky QR",
+        "Timsit Grigori Balabanov randomized Arnoldi Hessenberg above-superdiagonal coefficients Gaussian sketches chi tails moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The coefficient is \\(e_1^{\\mathsf T}RAR^{-1}e_3\\), an affine-rational function of Gaussian QR entries, divided by a terminal chi variate.",
+        "Primary source arXiv:2302.07466, Section 4.1, discusses coefficients above the superdiagonal as approximately Gaussian, not a conditional t or inverse-chi exact law."
+      ],
+      "reasoning": "Checked direct Hessenberg language, Gaussian-sketch QR/Bartlett/Student aliases and ratio-statistic formulations. No retrieved result states equivalent \\(p<\\ell-2\\) integrability and the nonzero power-tail constant for this full coefficient. A classical chi-ratio ingredient is acknowledged but by itself does not give the algorithm-specific numerator and the claimed theorem.",
+      "searches": [
+        "sketched Arnoldi Hessenberg above superdiagonal Gaussian sketch coefficient heavy tail inverse chi degrees of freedom",
+        "randomized Arnoldi Gaussian sketch QR Bartlett decomposition moment threshold fourth moment tail",
+        "sketched Krylov symmetric tridiagonal matrix non Gaussian Hessenberg noise Student t distribution",
+        "\"sketched Arnoldi\" \"Student t\" Hessenberg distribution",
+        "\"sketched Arnoldi\" \"chi\" \"Bartlett\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical-record similarity search returned no exact Hessenberg/Arnoldi ratio table; the nearest thematic matches were Gaussian fluctuations for Haar-spectrum CG and general randomized projection literature.",
+        "Classical chi inverse-moment thresholds are textbook gamma integrals, not a known table for this Hessenberg coefficient in the checked sources."
+      ],
+      "reasoning": "The object is a continuous Gaussian-sketch coefficient indexed by all \\(\\ell\\ge3\\), not a finite enumeration. No checked table or exact database value supplies its claimed distributional classification; standard chi tables cover only the isolated denominator, not the complete algorithm-specific statement.",
+      "searches": [
+        "sketched Arnoldi Hessenberg above superdiagonal Gaussian sketch coefficient heavy tail inverse chi degrees of freedom",
+        "Timsit Grigori Balabanov randomized Arnoldi Hessenberg above-superdiagonal coefficients Gaussian sketches chi tails moments",
+        "\"Gaussian sketch\" Arnoldi Hessenberg \"tail\" \"moments\"",
+        "\"sketched Arnoldi\" \"chi\" \"Bartlett\""
+      ]
+    },
+    "rationale": "The original sketched Arnoldi paper treats apparent Gaussianity of above-tridiagonal coefficients empirically and in an explicitly conditional Gaussian lemma, not an unconditional inverse-chi ratio law. Related randomized Gram-Schmidt, QR and stabilized Krylov material establishes framework and stability rather than the exact full moment/tail spectrum on the minimal SPD example. Actual semantic-record and web searches yielded no result whose statement implies the final theorem. Publication priority remains qualified by potential specialized QR-ratio literature; standard Bartlett/chi facts themselves are not new.",
+    "residual_risks": [
+      "Unlocated specialized probability literature on entries of Gaussian QR similarity transforms may already imply this coefficient as a special case.",
+      "Full texts inspected by sections relevant to claims; unseen remarks in unrelated sources or later work may affect publication priority.",
+      "A small three-dimensional matrix is a sharp diagnostic of one distribution, not a general theorem about arbitrary randomized Arnoldi procedures."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DOES_NOT_IMPLY exact unconditional finite-sketch p-moment threshold for one SPD 3x3 path coefficient: Gaussianity is empirical/assumed and no Bartlett ratio moment theorem is stated in inspected relevant sections.",
+        "evidence": "Section 4.1 explicitly says the coefficients above the superdiagonal resemble Gaussian noise and conditions a later lemma on Gaussian distribution. No exact inverse-chi ratio or finite-moment cutoff appears in the inspected analysis.",
+        "identifier_or_url": "https://arxiv.org/html/2302.07466v3",
+        "material_read": "Randomized Arnoldi Section 3.2, Section 4.1 Impact of randomization based on sampling, its empirical Figure 3 discussion and Gaussian-assumption lemma, plus preliminary method notation",
+        "method": "Read mathematical text and algorithm/assumption context in the full accessible arXiv HTML",
+        "title": "Randomized Orthogonal Projection Methods for Krylov Subspace Solvers",
+        "trigger": "Primary original method with reported approximately Gaussian coefficients above the tridiagonal band"
+      },
+      {
+        "assessment": "Related method framework; sketch orthogonality/high-probability numerical stability does not imply the unconditional distribution or chi-tail exponent of this coefficient.",
+        "evidence": "Develops randomized Gram-Schmidt and applies it to Arnoldi/GMRES; the inspected distribution discussion does not determine this coefficient law.",
+        "identifier_or_url": "https://arxiv.org/abs/2011.05090",
+        "material_read": "Introduction and randomized Gram-Schmidt/Arnoldi algorithm and stability sections of the full accessible arXiv text",
+        "method": "Read full-text HTML extraction and the algorithmic/stability sections",
+        "title": "Randomized Gram-Schmidt process with application to GMRES",
+        "trigger": "Original sketch Gram-Schmidt and Arnoldi method construction"
+      },
+      {
+        "assessment": "Gives sketch QR methodology, but the relevant inspected results do not treat the Arnoldi similarity entry \\(h_{13}\\), its full moment spectrum or tail.",
+        "evidence": "Analyzes algorithms that recover an R factor from sketched matrices, emphasizing stability and computation, not a coefficient distribution for \\(RAR^{-1}\\).",
+        "identifier_or_url": "https://arxiv.org/abs/2210.09953",
+        "material_read": "Introduction and randomized QR algorithms, sketch R-factor stability and proofs from accessible full-text extraction",
+        "method": "Read related mathematical sections in the lawful open arXiv text",
+        "title": "Randomized Cholesky QR factorizations",
+        "trigger": "Sketch-based QR factorization and possible stronger coverage via R statistics"
+      },
+      {
+        "assessment": "Its inspected contributions concern stabilized recurrences and embedding diagnostics rather than exact three-column Gaussian sketch Hessenberg ratio moments.",
+        "evidence": "Numerical/stability and recurrence comparisons; no explicit inverse-chi threshold for the specified minimal SPD example in relevant inspected sections.",
+        "identifier_or_url": "https://doi.org/10.1002/nla.70022",
+        "material_read": "Open-access introduction, recurrence/stability discussion and experimental sections of full HTML text",
+        "method": "Read published open-access article HTML, not just search snippets",
+        "title": "Stabilized Krylov Subspace Recurrences via Randomized Sketching",
+        "trigger": "Later directly topical randomized Krylov recurrence treatment could dominate distribution analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "03c67305-5715-4a2d-8f67-eb3851cc6ffa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first nontrivial above-tridiagonal noise coefficient in sketched Arnoldi is a natural benchmark because primary algorithmic analysis discusses its Gaussian appearance. An exact sharp sketch-size budget for existence of first, second and fourth moments—together with a Gaussian weak limit and a nonzero polynomial-tail constant—demonstrates that central Gaussian histograms and unconditional moment control are different mathematical claims. This is a structural, all-sketch-dimensions distribution result, not an arbitrary parameter example or a recomputation of a known table; it explicitly excludes unproved solver-performance consequences.",
+    "status": "PASS"
+  }
+}
