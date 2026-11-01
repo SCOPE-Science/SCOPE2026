@@ -1,0 +1,90 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T12:11:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The finite graph H joining torus pairs at distance >4 is 5-regular on 36 vertices with 90 edges. Full independent-set enumeration of 892444 faces and exact F2 boundary ranks r1..r12=(35,505,3935,18277,52967,98150,118210,92606,46080,13536,1872,36) give β0=1,β5=23,β8=2 and β9..β12=0. A separately coded C++ full-chain reduction reproduced all face counts, 12 ranks and upper-degree vanishing. Full dimensional cutoff =12; no claim about integral homology.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Same paper has general theorems for small scales and neighboring pairs (5,3), (7,4), but lists (6,4) homotopy question open."
+        ],
+        "reasoning": "None of those general hypotheses covers the desired all-degree homology for (6,4); specifically the published computational table stops at eight and does not dominate the complete computation.",
+        "searches": [
+          "Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2",
+          "https://www.researchgate.net/publication/388919897_Vietoris-Rips_complexes_of_torus_grids"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/388919897_Vietoris-Rips_complexes_of_torus_grids",
+        "https://arxiv.org/abs/2502.07134",
+        "Resultary search: Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior entry has no (i:0) annotation and the caption defines it as homology computed only through greatest shown degree i=8. Target finite chain complex has dimensions through 12."
+        ],
+        "reasoning": "A nonzero group in H9, H10, H11 or H12 is logically consistent with the prior table; full elimination gives zero in each, a strictly stronger complete homology statement.",
+        "searches": [
+          "Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2",
+          "https://www.researchgate.net/publication/388919897_Vietoris-Rips_complexes_of_torus_grids",
+          "Adams et al. Table1 caption lines 311–320"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact same graph-metric scale-four Rips complex appears as 6-row/4-column entry 5:23,8:2."
+        ],
+        "reasoning": "The prior cell is an equivalent parameterization for low degrees, so all of those ranks must be credited. Its stated truncation prevents it from proving the complete higher-degree vanishing.",
+        "searches": [
+          "Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2",
+          "https://www.researchgate.net/publication/388919897_Vietoris-Rips_complexes_of_torus_grids",
+          "Adams et al. 2025 Table 1, caption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact prior table entry 5:23,8:2 was found, refuting the original package statement that no such entry exists."
+        ],
+        "reasoning": "The database/table check explicitly identifies numerical prior coverage; the remaining full vanishing is beyond the explicitly bounded table, irrespective of exact rank coincidence.",
+        "searches": [
+          "Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2",
+          "Table 1 and caption in arXiv:2502.07134",
+          "Resultary search: Vietoris Rips torus grid T6x6 scale 4 mod 2 homology Betti 23 2"
+        ]
+      },
+      "rationale": "Crucial source correction: Adams et al. (2025) Table 1 ALREADY publishes beta_5=23, beta_8=2 for the exact (6,4) torus Rips complex. Its table caption expressly says this entry was calculated only through degree eight, without a (i:0) terminal marker. The surviving new scientific claim is complete homology including the previously unchecked H9–H12 vanishing, not rediscovery of those low-degree Betti ranks.",
+      "residual_risks": [
+        "Novel part is confined to confirming H9–H12=0, not claimed low Betti ranks or homotopy type. Earlier full computations outside inspected literature could exist.",
+        "Finite mod-two calculation cannot resolve integral torsion or the explicitly open homotopy problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_COVERS beta5=23 and beta8=2, but NOT_COVERING degrees above 8 per explicit caption",
+          "evidence": [
+            "Adams et al., arXiv:2502.07134, Table 1 (row n=6,col k=4) entry 5:23,8:2; caption defines no (i:0) as computed only through i; Question 8.2 homotopy open."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/388919897_Vietoris-Rips_complexes_of_torus_grids",
+          "material_read": "Complete readable 2025 arXiv preprint text, including full Table 1, table legend, family theorems and explicit Question 8.2",
+          "method": "Read full source text and checked same parameters and exact truncation convention",
+          "title": "Vietoris–Rips complexes of torus grids",
+          "trigger": "Exactly same (n,k)=(6,4), metric, coefficients and published numeric values"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The primary article explicitly singles out this (6,4) topological case, publishing only homology up to degree eight. A full high-dimensional chain calculation rules out every upper-degree mod-two class (degrees 9–12), completing the natural coefficient-specific homology invariant needed to constrain later homotopy investigations. Although narrower than a general theorem, it is not a mere copy of the known partial table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "final_claim": "REPAIRED: Full F2 homology of VR_≤4((Z/6)^2), specifically new vanishing in every degree 9–12 beyond Adams et al. 2025 Table 1, whose previously published ranks β5=23,β8=2 are explicitly credited.",
+  "limitations": [
+    "Only mod-two homology at the single parameter (6,4), not integral type, products or homotopy.",
+    "Published 2025 table already establishes all displayed low-degree ranks; the new assertion is only upper-degree vanishing."
+  ],
+  "schema_version": 1
+}
