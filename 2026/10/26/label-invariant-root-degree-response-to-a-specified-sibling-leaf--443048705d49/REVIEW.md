@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Independent-parent conditioning fixes the two designated parents and excludes the two leaf labels from future parent choices. Each non-forced parent variable remains independently uniform over its allowed set, yielding the event probability \(1/((n-1)(n-2))\) and a telescoping, label-invariant root-degree shift. Indicator summation proves the exact covariance and positive sign for all \(n\ge3\). An exhaustive rational-arithmetic verifier checked all recursive trees up to nine vertices (434 exact identities). No finite test is used as a proof of the arbitrary-size assertion.
+## correctness
 
-## Originality — PASS (best-knowledge, historical-priority risk)
-The closest indexed work gives root-degree covariance with total leaf count, rather than the count of unordered leaf-child pairs. Janson's degree-count results concern outdegree frequencies, not the present labeled leaf-sibling conditioning. Feng–Mahmoud treat fixed complete fringe shapes and do not count a sibling pair inside arbitrarily large parent branches. Gopaladesikan discusses fringe motif counts and uses cherries in broader proofs; its unavailable full text is a residual historical-priority risk. No inspected claim implies this exact all-label cancellation or the rational mixed covariance. Index searches do not prove uniqueness.
+PASS
 
-## Mathematical value — PASS
-Sibling-leaf pairs measure local terminal clustering rather than terminal abundance. The theorem supplies a complete universal response for every labeled triple and an exact global covariance with a nonzero constant limit, permitting a concrete distinction between root attachment and higher-order terminal clustering. This is an all-size structural cancellation, not a small-n recomputation or arbitrary parameter slice.
+Under E_{vab}, exactly P_a=P_b=v are forced, and later attachment choices exclude each leaf from subsequent parent selections. Product telescoping gives probability 1/((n−1)(n−2)); two forced root indicators and two harmonic sums cancel a,b dependence, leaving 2*1[v=1]−1/(n−2)−1/(n−1). Summing all n choose 3 event indicators yields E[Z]=n/6 and Cov(R,Z)=(4n²−15n+12)/(6(n−1)(n−2)), positive for all integer n≥3. Independently enumerated parent vectors n=3..7 and 150 rational identities; this does not replace infinite proof.
 
-## Limits
-The general relative-shape literature remains a potential priority risk; no joint limit law is claimed. All claims are proved only for the independent-uniform-parent recursive-tree model.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fixed-labelled sibling-leaf event and its root-degree regression distinguish a non-fringe pair-count from ordinary leaves, complete fringe cherry counts, or generic unlabeled motif asymptotics. The inspected sources do not entail the exact conditional response or covariance; best-knowledge only.
+
+## value
+
+PASS
+
+The count Z is a natural higher-order terminal-clustering statistic in recursive trees, not the ordinary leaf count. The exact label-insensitive root-degree conditional response and mixed covariance with a nonzero 2/3 limit are usable all-size structural identities, rather than unmotivated small instances.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
