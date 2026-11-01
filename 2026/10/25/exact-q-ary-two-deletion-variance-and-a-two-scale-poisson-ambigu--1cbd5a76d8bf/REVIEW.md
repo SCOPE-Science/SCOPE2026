@@ -1,11 +1,21 @@
-# Review of exact q-ary double-deletion sphere fluctuations
+# Independent mathematical audit
 
-**Correctness (PASS).** Greedy embedding gives an exact disjoint classification of deletion-position pairs and hence the pointwise formula; the independent-neighbor representation and explicit sole covariance yield exact moments. Mixed factorial moments of bounded-span equality edges establish the two independent Poisson limits, from which the joint deficit convergence follows. Direct enumerations for 39,669 inputs agreed with the finite formulas. Finite tests are not used to establish the limit theorem.
+## correctness
 
-**Originality (PASS, with residual risk).** The published 2026 q-ary reconstruction paper studies pairwise intersections and extremal balls, not single-center random variance. The archived 2026 binary variance is already known and reproduced at \(q=2\), not claimed as new. Earlier work on expected total random subsequences does not establish the variance of exactly-two-deletion balls or the growing-alphabet two-scale joint law. Matching-implication searches found no stronger coverage, but an unindexed equivalent remains possible.
+PASS
 
-**Value (PASS).** The all-\(q\) variance plus a nontrivial coupled two-scale fluctuation law describe a natural coding-theory sphere-size invariant. At \(q\) comparable to word length, the probability of a full-volume center tends to a specific nonzero constant; the second scale exposes independent lag-two collision effects not visible from the leading deficit.
+The greedy earliest embedding of each deletion output partitions the two skipped positions; the four cases combine using the three-letter identity u_i(1−u_{i+1})+u_{i+1}(1−j_i)=1−j_i to give B=binom(K,2)+n−1−J. Under independent uniform q-ary letters, the adjacent-inequality variables and the distance-two equality variables each form independent Bernoulli families because their constraint edges are forests. Only neighboring u_i u_(i+1) and j_i have nonzero quadratic covariance p/q², giving the exact mean and variance. Write Z=n−1−K, H=binom(n,2)−B=nZ−Z(Z+3)/2+J. Mixed factorial moments for Z,J converge to independent Poisson(θ) because all overlapping edge patterns have vanishing weight when q~n. Continuous mapping gives the two-scale joint limit. H=0 iff Z=J=0 for n>=3, and counting words with both distances unequal gives the exact max probability.
 
-**Scope and risk.** Only exactly two deletions, iid uniform letters, and \(n/q\to\theta>0\) for the limit theorem are asserted; no higher-radius, nonuniform, or independent external verification claims. The deterministic identity may be derivable from earlier combinatorics.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The q=2 variance is already known and is explicitly conceded. The new scope covers all q>=3 and a genuinely two-scale growing-alphabet limit, where local equality patterns yield two independent Poisson variables. The closest nonbinary ball literature studies extremal center words, and the reconstruction literature studies intersections of balls from two centers; neither implies the random single-center joint law in the inspected texts.
+
+## value
+
+PASS
+
+A natural random deletion-sphere statistic in coding theory receives exact finite-alphabet fluctuations for every q and a nontrivial two-level ambiguity transition at q of order n. The joint limit identifies both leading and residual Poisson mechanisms; the formula also characterizes the maximum-volume threshold exactly.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
