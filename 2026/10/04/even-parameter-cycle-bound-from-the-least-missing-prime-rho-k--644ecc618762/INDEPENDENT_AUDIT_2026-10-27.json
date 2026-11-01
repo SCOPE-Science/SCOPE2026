@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T12:54:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob c7e4e54696fda3381e7a7c9eaaa19e631a5ed206",
+        "Original verify.py Git blob 31b881f1e9148e909d773a984dbc6557d3667a5b; actual successful replay",
+        "Dubickas Lemma 1, DOI:10.3390/axioms13020107, original proof"
+      ],
+      "rationale": "For any even k>=2, rho(k) is the least prime not dividing k. For any prime p>B(k)>=rho(k), p is odd and p≠rho. Since k is invertible mod rho, one of p,p+k,...,p+(rho-1)k is divisible by rho; the first such positive-index composite occurs by ell<=rho-1. As k even, c=p+ell*k is odd composite, hence P^+(c)<=c/3<= (p+k(rho-1))/3<p whenever p>k(rho-1)/2. A periodic orbit contains a prime; if all its primes exceeded B, consecutive prime-block transitions would strictly descend, contradicting cyclicity. Distinct orbits are disjoint and inject into primes<=B, giving L(k)<=pi(B). For even k>=4 with 3∤k, rho=3 and B=k; for 6|k,5∤k, rho=5 and B=2k; k=2 B=3. Git-blob-verified verify.py replay returned VERIFY_OK for finite ranges, but symbolic proof establishes all even k.",
+      "residual_risks": [
+        "The argument is conditional on the precise prime/composite definition for all states>=2 and rho(k) being a prime.",
+        "Finite tests do not prove all-k arithmetic; proof uses modular divisibility and 1/3 odd-composite inequality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Das Theorem 2.7 proves finitely many loops and Remark 2.8 gives a generic k sqrt(k)/2 prime locator.",
+          "Dubickas Theorems 1–2 control broader iterative sequences with bounds depending on the starting term and general composite contraction; his Lemma 1 has sharp N(k) prime-run control.",
+          "The published finite odd-k 36-loop census controls a disjoint parameter class rather than the full even family."
+        ],
+        "reasoning": "A universal start-independent bound forcing a prime <=B(k) into each even-k loop would cover this claim; neither full inspected prior text establishes that. The new scale improves Das for even k>=8 with 3∤k. Dubickas has broader object coverage but not the specifically stronger cycle-location conclusion.",
+        "searches": [
+          "arXiv:2312.06629v1 Das Theorem 2.7, Remark 2.8 generic prime in cycle",
+          "DOI:10.3390/axioms13020107 Dubickas Theorems 1–3 and Lemma 1 N(k)",
+          "Web: A Family of Iterated Maps loops bound primes even k 2025 2026",
+          "Resultary: prime divisor x+k iterated maps bound pi(k)"
+        ]
+      },
+      "checked_sources": [
+        "Angsuman Das, arXiv:2312.06629v1, full PDF.",
+        "Artūras Dubickas, Axioms 13 (2024) 107, DOI:10.3390/axioms13020107, full text.",
+        "Resultary published same-map record on 36 loops for odd k=20735, full RESULT.md.",
+        "Three semantic Resultary searches and targeted primary-literature and exact-form searches."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Das supplies finite periodicity and a generic prime locator; the parity-based improvement B(k) is not stated.",
+          "Dubickas supplies finite prime-run ceiling but its general global trajectory theorem uses a weaker composite contraction and initial-state-dependent bound.",
+          "The published 36-loop theorem applies to odd k and its prerequisite prime<=k is Das’s odd-k descent, so it does not prove an even-k claim."
+        ],
+        "reasoning": "Combining Dubickas’s run ceiling ell<=rho(k)-1 with the odd composite property at even k yields q=P^+(p+ell*k)<=(p+ell*k)/3<p for p>k(rho-1)/2. This quantitative combination is not a restatement of either prior final claim. It is elementary once both antecedents are assembled, so unindexed equivalent deductions remain a real priority risk.",
+        "searches": [
+          "Das arXiv:2312.06629v1 Lemmas 2.1–2.3, Theorem 2.7, Remark 2.8",
+          "Dubickas DOI:10.3390/axioms13020107 Lemma 1 and Theorems 1–2",
+          "Resultary published comparison SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Source map n↦n+k on primes and n↦P^+(n) on composites coincides with Das, arXiv:2312.06629v1, Definition 1.2.",
+          "The exact arithmetic alias N(k)=rho(k) and prime progression lemma occur in Dubickas, DOI:10.3390/axioms13020107, Lemma 1.",
+          "Published mathematical records yielded the same submitted result itself and the related odd-k 36-loop census, not an independent earlier all-even locator."
+        ],
+        "reasoning": "The map, P^+ notation, rho=N(k), cycle-prime locator, and L(k)<=pi(B) reformulations were compared by mathematical content. The candidate theorem requires the even-k odd-composite factor 1/3, unlike the broadly applicable contraction used by Dubickas. No distinct earlier equivalent upper bound emerged; direct self-record is excluded as independent prior art.",
+        "searches": [
+          "Resultary: Angsuman Das largest prime divisor map cycles k even least prime nondividing k bound loops",
+          "Resultary: Dubickas N(k) prime arithmetic progression largest prime factor dynamical cycles",
+          "Web: largest prime factor map prime p+k cycles least missing prime bound even k",
+          "Web: least prime not dividing k largest prime divisor cycles"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The available explicit cycle table in Das concerns L(k) over small k, not an all-even analytic theorem.",
+          "Dubickas tables the least-missing-prime quantity N(k), not a table determining all cycles or the asserted universal upper bound.",
+          "The 36-loop published record is a finite odd parameter census, no implication for even k."
+        ],
+        "reasoning": "The claim is a universal theorem rather than a single exact database entry. Checked the most directly relevant primary results and published tables for exact values, thresholds, and stronger coverage. No listed or inspected table supersedes the even-k bound; absence of a table is not itself originality proof.",
+        "searches": [
+          "Resultary three semantic searches for same map, N(k), rho(k), pi(k)",
+          "Full primary Das arXiv:2312.06629v1, Remark 2.8, open issues",
+          "Full primary Dubickas DOI:10.3390/axioms13020107, N(k), Lemma 1, bounds",
+          "Published RESULT.md for 36 distinct loops at odd k=20735"
+        ]
+      },
+      "rationale": "Best of knowledge: the exact least-missing-prime run-length lemma of Dubickas and the generic finite-cycle mechanism of Das are antecedents, not new. Neither inspected primary theorem implies the claimed parity-sensitive intrinsic cycle threshold B(k)=max{rho(k),k(rho(k)-1)/2} without the new combination with the odd-composite one-third contraction. The distinct published odd-k census is not an all-even-parameter upper bound. The bound and corollary L(k)<=pi(k) for even k>=4, 3∤k, were not found as earlier established theorems. Novelty is qualified because an elementary consequence of close antecedent lemmas can appear in unindexed work or be considered implicit.",
+      "residual_risks": [
+        "The conclusion follows by a short combination of existing published ingredients, so a previous unindexed derivation or an implicit independently observed corollary is plausible.",
+        "Published-result searches cannot certify priority; the same-map preprint could be revised or elsewhere restated.",
+        "This proof does not count exact cycles or claim optimality of B(k)."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines identical map; finite cycles and a generic k sqrt(k)/2 scale do not establish this even-k least-missing-prime bound.",
+          "evidence": "Lemma 2.3 treats descent for even k via a coarse threshold; Remark 2.8 gives a generic prime-in-loop threshold; Theorem 2.7 proves finiteness.",
+          "identifier_or_url": "arXiv:2312.06629v1; https://arxiv.org/pdf/2312.06629",
+          "material_read": "Complete seven-page PDF text, including definitions, Lemmas 2.1–2.3, Theorem 2.7, Remark 2.8 and open issues; critical PDF pages also viewed rendered.",
+          "method": "Open-access arXiv PDF text extraction and visual page screenshots.",
+          "title": "A Family of Iterated Maps on Natural Numbers",
+          "trigger": "Original exact deterministic map, cycle theorem, and strongest stated prime locator"
+        },
+        {
+          "assessment": "Lemma 1 supplies prime-run ceiling; the theorems use generic trajectory control and do not provide the parity-specific intrinsic cycle locator.",
+          "evidence": "Lemma 1 exceptional start at N(k); Theorems 1 and 2 give bounds with starting-value dependence; their general contraction parameter permits 1/2 rather than exploiting 1/3 for odd composites.",
+          "identifier_or_url": "DOI:10.3390/axioms13020107; https://doi.org/10.3390/axioms13020107",
+          "material_read": "Full available article text, including definitions and N(k) estimates, Lemma 1 and its proof, Theorems 1–3 and global bound proofs.",
+          "method": "Open full-text article inspection with targeted textual searches and surrounding proof context.",
+          "title": "A Class of Bounded Iterative Sequences of Integers",
+          "trigger": "Precisely the least-missing-prime parameter and a candidate broader iterative-sequence theorem"
+        },
+        {
+          "assessment": "Finite exact census for odd k up to 20735, not a bound for all even k.",
+          "evidence": "Scope restricts to odd 3<=k<=20735 and uses Das’s odd-k lemma p<=k; no even-k universal statement.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-thirty-six-distinct-loops-for-das-s-map-at-k-20735--c588f79a1e3b/RESULT.md",
+          "material_read": "Entire published RESULT.md: theorem, odd-k reduction, exhaustive computation, relationship to prior work, limitations.",
+          "method": "GitHub full source document retrieval.",
+          "title": "Thirty-six distinct loops for Das’s map at k=20735",
+          "trigger": "Closest distinct published same-map research hit in semantic search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Das arXiv:2312.06629v1 Remark 2.8 and open issues.",
+        "Dubickas Axioms 13 (2024), Lemma 1 and general bounds.",
+        "Frozen mathematical proof in RESULT.md."
+      ],
+      "rationale": "This provides a start-independent, parameter-explicit localization of every periodic orbit for a natural arithmetic dynamical map and bounds the number of cycles. For the infinite congruence family of even k>=8 with 3∤k it replaces Das’s k sqrt(k)/2 prime-locator scale with the linear bound B=k; for 6|k,5∤k it gives the similarly explicit B=2k. The mathematical reason is a structural parity-specific 1/3 contraction after a prime-run bounded by rho(k), not a finite empirical gain or renaming. This is useful for exact searches and for the open study of cycle growth; it does not determine L(k) exactly or solve its unboundedness.",
+      "residual_risks": [
+        "Not optimal for every small even parameter; no claim of sharpness or exact cycle enumeration.",
+        "An elementary synthesis may have limited independent methodological novelty even though quantitative family-wide improvement is mathematically motivated."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
