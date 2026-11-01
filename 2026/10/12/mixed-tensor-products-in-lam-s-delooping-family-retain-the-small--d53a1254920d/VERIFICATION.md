@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-The symbolic proof checks the following chain.
+# Independent mathematical audit
 
-1. Lam’s endpoint simple \(T_r\) has \(\operatorname{Ext}_{A_r}^i(T_r,A_r)\cong k\) only for \(i=1\) and \(i=r\).
-2. Künneth therefore places the mixed Ext groups only in degrees \(2\), \(m+1\), \(n+1\), and \(m+n\), so degrees \(3\) through \(q=\min\{m,n\}\) vanish.
-3. That vanishing makes the successive syzygy inclusions left projective approximations and reduces \(\Sigma^{q+1}\Omega^qS\) to the local module \(\Sigma^3\Omega^2S\).
-4. The local projectives used in Lam’s three-step calculation have the same Loewy structure with unequal parameters, so the resulting module is supported on \(\{(1,1),(1,2),(2,1),(2,2)\}\).
-5. The corresponding rectangular set \(\{(i,j):i\le m+1,\ j\le n+1\}\) is successor-closed, while the minimal total tensor resolution puts \((m+2,q+1)\) in \(\operatorname{supp}(\Omega^qS)\). This prevents the stable retract required for delooping level at most \(q\).
+## correctness
 
-`verify_mixed_delooping.py` independently checks the Ext-degree convolution, successor closure, local projective supports, and uniqueness of the outside-support carrier for every \(2\le m,n\le12\). Its recorded output is `CHECK_OK pairs=121 range=2..12`.
+PASS
 
-The program does not certify the infinite theorem and is not used as a substitute for the symbolic argument. The theorem does not determine the exact delooping level of the tensor product.
+The package defines A_r as a radical-square-zero quiver algebra with loop at 1 and endpoint T_r, and makes the bound for every m,n≥2. Lam’s Ext profile (degrees 1,r), combined with the tensor Künneth spectral-free decomposition, yields possible degrees 2,m+1,n+1,m+n; hence Ext_R^j(S,R)=0 for 3≤j≤q with q=min(m,n). Dimension shifting gives left projective approximation inclusions at j=3,…,q and Σ^{q+1}Ω^qS≅Σ³Ω²S. The crucial local three-approximation support inclusion W={(1,1),(1,2),(2,1),(2,2)} was independently modeled via actual quiver module matrices and Hom maps for both equal and unequal low parameters, supporting the tail-independence argument. V={i≤m+1,j≤n+1} is successor-closed. In the minimal total tensor resolution the (0,q) component has a unique degree-q carrier of v=(m+2,q+1) and nonzero vertical differential, so Ω^qS has a nonprojective summand outside V. Such a summand cannot stably retract into Ω^{q+1}Σ³Ω²S, contradicting the Gélinas criterion for dell_R(S)≤q. For q=2 the Ext-vanishing interval is vacuous, and the local calculation still applies; m=n is the source diagonal case. The result is a lower bound, not an exact delooping value.
+
+## originality
+
+PASS
+
+Best-of-knowledge new two-parameter ordinary-delooping lower bound. Lam establishes the same obstruction for diagonal self-tensors A_r⊗A_r, but a diagonal statement does not imply the rectangular one for A_m⊗A_n; Guo’s related general results involve the derived invariant with finite-global-dimension hypotheses violated here. The new argument checks mixed Ext-degree vanishing and endpoint support for unequal factors; it does not merely rename a parameter. No covering same-invariant rectangular statement was found, but searches alone do not prove priority.
+
+## value
+
+PASS
+
+Ordinary delooping under tensor products is a natural homological invariant problem; Lam established its sharp qualitative nonadditivity only in self-tensor examples. The mixed result separates the two factors and controls the obstruction by min(m,n), producing unbounded defects along genuinely nonisomorphic rectangular pairs (r,2r). Its proof needs mixed projective resolution and support analysis, so the precise all-parameter lower bound is a motivated structural extension rather than an arbitrary substitution or isolated computation. Value is incremental and focused; it neither establishes an exact level nor introduces a new delooping method.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
