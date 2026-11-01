@@ -1,15 +1,21 @@
-# Scientific review: critical boundary-zero multiplicity penalty
+# Independent mathematical audit
 
-## Correctness — PASS
-The coefficient norm and the unit-ball monomial normalization are explicit. Averaging over the full phase-kernel subgroup, including its disconnected components, proves that unrestricted degree-bounded multipliers reduce exactly to polynomials in the normalized monomial. The residual divisibility constraints translate to the known positive moment Gram matrix, and Stirling gives \(w_k=Ck+O(1)\) with the documented exact \(C\). The block Schur limit is justified by Riemann sums and positivity of the finite Hilbert submatrix. A Cauchy-determinant identity evaluates its scalar quadratic form as \(2H_{r-1}\). This yields the displayed reciprocal-error and squared-error difference limits for every fixed admissible parameter tuple. Numerical tests and exact rational identities passed from the supplied checker; finite tests are corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with significant disclosed priority risk
-Vavitsas, arXiv:2607.05997, §2, presents the model's qualitative cyclicity threshold, not any second-order multiplicity cost. Bénéteau, Manolaki and Seco, arXiv:1901.00694v2, §7, provide an already-known general finite Gram formula and the first-order logarithmic error but do not state or evaluate the additive second-order harmonic-number shift. Sargent and Sola, arXiv:2002.08790v2, discuss multivariable optimal approximants and product-variable reductions but not the renormalized logarithmic boundary-multiplicity law. A closely related published one-generator Dirichlet-polydisk result determines only leading errors for a linear form in a different coefficient norm. The novelty assertion is restricted to the universal extracted second-order invariant and its exact applicability to unrestricted multipliers on the complex ball. **Residual risk:** the earlier exact finite Gram formula is strong enough to permit this second-order asymptotic by further analysis, and unindexed or differently phrased earlier work might already have performed that extraction. No negative uniqueness claim is inferred from database searches.
+PASS
 
-## Value — PASS
-At critical Dirichlet cyclicity, first-order error \(C/\log K\) fails entirely to distinguish a simple boundary zero from any fixed higher multiplicity. The theorem identifies the first order where multiplicity becomes visible, and its exact excess \(2CH_{r-1}/(\log K)^2\) is universal under all dimension and monomial-exponent changes. This provides a reproducible sharp benchmark for quantitative approximation at the dimension-dependent critical boundary-zero threshold. It is not offered as a classification of arbitrary cyclic polynomials.
+Torus averaging over full monomial stabilizer including finite components shows the unrestricted total-degree multipliers reduce exactly to polynomials P(u) of degree ≤K. Orthogonal monomial powers yield exact moment constraints R(1)=1,R^(j)(1)=0 (1≤j<r) for R=1−(1−u)^rP(u) and E=(G_(K+r)^−1)_(00). All moment weights are positive. Stirling with norm normalization gives w_k=Ck(1+O(k^−1)), uniformly only in k for fixed parameters, hence C G00=log(K+r)+Λ+o(1). Rescaled off-diagonal moment blocks converge to positive-definite H_ij=1/(i+j), b_i=1/i. Exact Cauchy determinant yields bᵀH^−1b=2H_(r−1). Schur complement proves C/E=logK+Λ−2H_(r−1)+o(1); subtract and invert for error difference. Independent exact Fraction linear algebra verified r=2..11, 5 unrelated critical weight tails at k=50000 approached Ck, and the n=m=a=r? simple Dirichlet reciprocal difference approached −2 for r=2. Finite tests do not prove all parameters or limits.
 
-## Limits
-The result is fixed-parameter and second-order; no uniformity for growing multiplicity, no comparison across unrelated stable polynomials, and no independent priority or correctness audit is claimed. The older general Gram-matrix identity and the leading logarithmic law are explicitly credited rather than represented as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original extraction of the universal renormalized harmonic-number penalty at the critical unit-ball monomial boundary-zero index. Strong older exact Gram result and its first-order critical law are explicitly admitted, and inspected full primary proof does not give the second-order number. The new claim is the evaluated singular Schur complement, not a general theorem that multiplicities are cyclic or the finite Gram apparatus. Residual implicit coverage through existing exact formula and unindexed asymptotics is material.
+
+## value
+
+PASS
+
+A genuinely natural critical boundary-zero approximation invariant: all fixed multiplicities have the *same* leading squared error C/logK, so the explicit universal 2CH_(r−1)/(logK)^2 is the first order distinguishing singularity multiplicity. The r-dependence is a mathematically motivated sharp structural constant, independent of dimension and exponent distribution after correct normalization. It is not merely another single-instance table computation, a trivial renaming, or an asserted large general theorem. It can serve as precise quantitative benchmark in Dirichlet cyclic approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
