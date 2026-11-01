@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is the 27-point ternary three-cube under inclusive Hamming threshold two. Exact complete face enumeration yields 5,949 nonempty simplices. Bitset elimination computes all eight mod-two boundary ranks, thereby bounding rational homology; the Euler characteristic fixes the sole rational Betti rank 46 in degree three. The 1,296 automorphism actions are enumerated and checked for 22 wreath classes. A vertex-orbit inclusion sum and independently signed simplex Lefschetz traces agree on each class representative. Induced rational wreath-character inner products are exact integers and give the seven stated constituents with multiplicity one, dimensions totaling 46; zero multiplicities for all other irreducibles. Reproducibility is supplied by `verify.py`.
+PASS
 
-## Originality — PASS (qualified)
+Reconstructed the Hamming adjacency (agree in >=1 coordinate) and all 5,949 flag faces. Complete F2 chain ranks (26,217,728,954,666,279,72,9) imply no rational homology outside H3 and dim 46 via Euler characteristic. Independently calculated 1296 wreath actions, their fixed-oriented face Euler characters, 22 class invariants and inner products against 22 induced Specht-wreath irreducibles: exactly seven constituents of multiplicity one, all others zero, sum dims 46; normalization by group order 1296 checked. Finite calculation is exhaustive for this FIXED finite complex, not an infinite extrapolation.
 
-Two closest full-text published results determine the **same** ternary complex's 46-sphere nonequivariant homotopy type and ordinary persistence, not its symmetry module. Antolín Camarena–Carnero Bravo formulate the relevant categorical-product question. Goyal–Shukla–Singh address other products, while Galetto–Montaño–Wellner's broader equivariant decomposition addresses binary hypercubes, not this ternary metric space. Targeted searches by the identical complex, the categorical-product alias, the full group, the 46-dimensional character, and the 22 classes did not reveal equivalent coverage. Residual novelty risk: unindexed equivalent character tables or theorem.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is the complete rational automorphism action, not merely a restatement of a known rank. The multiplicity-free seven-irreducible decomposition detects two distinct one-dimensional sign constituents, a base-invariant line with nontrivial coordinate action, and absence of full-group invariants. A classification of all 22 class traces for a natural 27-point complex is a reusable benchmark for equivariant persistent topology and related graph-product complexes. The result is finite and exact, with no claim for larger parameters.
+PASS best of knowledge: the nonequivariant topology of this complex is known; the full S3 wr S3 rational homology character and seven irreducibles refine it beyond published same-object results.
 
-## Limitations
+## value
 
-There is no integral equivariant lattice classification, infinite-parameter theorem, or independent mathematical audit. Exhaustive code is an exact certificate contingent on standard Python/integer execution. An unindexed equivalent source could affect novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete symmetry decomposition answers a natural question left open by the already known integral wedge-46 homotopy type, distinguishing G invariant and base-invariant lines and giving all 22 traces for a natural Hamming metric space. A single finite complex is a meaningful and reusable exact equivariant invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with a standard Python 3 interpreter. No network, repository checkout, data files, libraries, or external tools are needed. The program constructs the 27 points and all 5,949 flag simplices directly from the metric and checks all eight bitset boundary ranks, the mod-two Betti vector, all 22 cycle-product conjugacy classes, all 1,296 symmetry traces, independently signed Lefschetz traces for every class representative, and all 22 rational wreath-product irreducible character inner products.
+## correctness
 
-Expected success line: `TERNARY_HAMMING_WREATH_CHARACTER_VERIFIED 5949 22 1296 7`. The computation is exact over integers and binary finite fields. The rational homology step uses the comparison of rational with mod-two matrix ranks together with the Euler characteristic; no inference of integral homology from modular ranks is made.
+PASS
 
-The verifications establish a finite, fixed 27-vertex result; they do not certify an infinite family, an integral G-module, or a genuine equivariant wedge decomposition. The checks are self-review only, not independently audited.
+Reconstructed the Hamming adjacency (agree in >=1 coordinate) and all 5,949 flag faces. Complete F2 chain ranks (26,217,728,954,666,279,72,9) imply no rational homology outside H3 and dim 46 via Euler characteristic. Independently calculated 1296 wreath actions, their fixed-oriented face Euler characters, 22 class invariants and inner products against 22 induced Specht-wreath irreducibles: exactly seven constituents of multiplicity one, all others zero, sum dims 46; normalization by group order 1296 checked. Finite calculation is exhaustive for this FIXED finite complex, not an infinite extrapolation.
+
+## originality
+
+PASS
+
+PASS best of knowledge: the nonequivariant topology of this complex is known; the full S3 wr S3 rational homology character and seven irreducibles refine it beyond published same-object results.
+
+## value
+
+PASS
+
+A complete symmetry decomposition answers a natural question left open by the already known integral wedge-46 homotopy type, distinguishing G invariant and base-invariant lines and giving all 22 traces for a natural Hamming metric space. A single finite complex is a meaningful and reusable exact equivariant invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
