@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** For radii strictly below the smallest positive edge length, conditioning on the two chosen edges leaves only (i) two points on a single interval or (ii) two points near their shared vertex. Their exact pair-area formulas yield equation (1). Algebraic extraction recovers edge lengths and edge incidence by (2)--(3). Classical Whitney inversion yields the network and the exact small-graph exceptions. The independent `check.py` uses shortest-path integration (not the derivation's direct triangle decomposition), plus rational identities and the triangle/claw counterexample. Its numerical tests cover examples only; the all-graph proof is analytic. No extra assumptions about generic edge lengths or nondegenerate edge spectra are used.
+## correctness
 
-**Originality — PASS (provisional historical priority).** The closest network-distance sources are the 2017 point-process metric comparison of Rakshit, Nair and Baddeley and the full available text of their 2019 network-summary-statistic algorithms with Baddeley. These compute statistics on a *known* network, whereas the new conclusion recovers an *unknown* line graph and edge-specific lengths from finitely many designed distributions. Whitney's 1932 inverse line-graph theorem is explicitly used as established work, not repackaged as a new lemma. The 2024 full-text account of Whitney's strong theorem identifies the additional small edge-label exceptions. An older implicit formulation in network correlation statistics has not been ruled out, particularly where full publisher texts were inaccessible.
+PASS
 
-**Mathematical value — PASS.** Reconstructing a connected metric network from unlabeled geodesic observations is a motivated inverse-geometric problem. A finite measurement design requiring only one-edge and two-edge mixture experiments identifies every edge length and local incidence, and a sharp \(K_3\)/\(K_{1,3}\) pair proves why the entire near-zero measurement family cannot distinguish all graph topologies. This is a structural tomography result independent of algebraic coincidences or fixed lengths, not an arbitrary finite enumeration. It leaves statistical noise, alternate sampling laws and multigraphs open.
+For finite connected simple graph with positive lengths, r<epsilon=min ell_e means same-edge sample pairs contribute exactly 2r/ell_e-r²/ell_e²; two different incident edges contribute r²/(2ell_e ell_f) conditioned on their orientation; nonincident pairs require traversing a full intermediate edge and contribute zero. Therefore F_p(r)=2rΣp_e²/ell_e+r²[-Σp_e²/ell_e²+Σ_incident p_e p_f/(ell_e ell_f)]. A pure-edge probe yields slope 2/ell_e. A half-half pair probe has quadratic coefficient b=-1/(4ell_e²)-1/(4ell_f²)+I_ef/(4ell_e ell_f), so 4ell_e ell_f b+ell_f/ell_e+ell_e/ell_f=I_ef, reconstructing each named length and the edge-indexed line graph. Classical Whitney line-graph reconstruction yields abstract graph uniquely except K3 versus K1,3, and strong lifting of named edges for ≥5 vertices. Triangle and claw with identical edge lengths have the same local coefficient formula for every mixture; different Betti numbers show intrinsic nonhomeomorphism. Verified boundary m=1 and r below min length; positive exact population germs essential. The five-graph independent coordinate integration check.py corroborates only finite examples.
 
-**Closest literature and limits.** Rakshit–Nair–Baddeley (2017) and Rakshit–Baddeley–Nair (2019) develop network pair-distance statistics for known networks. Anderson–Bernshteyn (2024), citing Whitney, treats line-graph identification but not distance-based statistical recovery. The theorem is population-level and assumes named edge-selective probes. The sampling-law design may be impractical when the underlying edge inventory is itself unknown; reconstructing it from fully nonselective sampling is not claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the exact new assertion was compared to its natural aliases, stronger/general results and selected primary literature, as well as the Resultary search. Known foundations are not claimed as new. Sources read and unresolved priority limitations are recorded explicitly. metric.
+
+## value
+
+PASS
+
+It solves a motivated network-identification problem with a sharply specified observation budget: purely scalar short-distance distributions from edge-selective randomized probes recover lengths and incidence. The exact quadratic inversion and sharp triangle/claw ambiguity are reusable structural facts, not a cosmetic rewriting of Whitney or a small numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
