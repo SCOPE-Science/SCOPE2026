@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact prime-power factors yield the five-coordinate transition. The weighted potential drops by one precisely during a non-idle \(3\)-factor step; a proved invariant shows that two simultaneous \(3\)-factors prevent later service gaps. With a positive \(13\)-factor, either the initial positive \(11\)-factor supplies this buffer after one step, or the \(13\)-factor supplies it after two steps. The resulting initial service gaps give the two-case closed formula. A symbolic termwise comparison proves the strictly stronger inequality on this family. An independent exact integer implementation checked 6480 exponent vectors, with 52,488 independent exponent-trajectory comparisons. Exhaustive finite experiments do not substitute for the general proof.
+## correctness
 
-**Originality — PASS, with qualified literature risk.** Defant's *On Arithmetic Functions Related to Iterates of the Schemmel Totient Functions* (2015), especially Section 4 and Conjecture 20, states the global question, not the new exact formula. White's *Iterations of Generalized Euler Functions* (1962) addresses different hypotheses and additivity. Harrington and Jones's 2010 paper concerns \(C_2=R_2-1\) with its main results restricted to inputs and iterates containing no prime congruent to \(1\) modulo \(3\); every claimed number is divisible by \(13\), so that coverage does not directly apply. Its full text could not be inspected; an equivalent assertion elsewhere is an explicit residual risk. Earlier 7-smooth classifications do not contain the required \(13\)-factor.
+PASS
 
-**Mathematical value — PASS.** The complete invariant natural family of odd 13-smooth integers divisible by 13 is the first layer where the \(13\to11\to3^2\) feed makes the process a delayed branching queue, rather than only a serial transfer chain. The theorem determines every first-passage time, isolates the exact one- or two-step startup penalty, and proves Defant's proposed lower bound strictly on the whole family. It does not prove the global conjecture.
+The five-prime exponent transition follows literally from L2(p^u)=p^(u-1)(p-2), including 13->11->3^2 and 7->5->3. W=a+b+c+2d+2e decreases by [a>0] per step. Proved positive-a buffer invariant makes all idle steps occur at startup: with initial d>0 at most the first step; with d=0,e>0 at most first two steps, whose exact conditions are [a=0] and [a<=1 and b=0]. This yields R2=W+[a=0]+[d=0,a<=1,b=0]. Primewise comparison yields 7^R/n >=49/13>49/15, hence 49n<15*7^R. Independent literal exponent iteration matched 1024 complete starting vectors.
 
-**Limitations.** No formulas for integers containing primes above 13, no independent validation, and residual risk from inaccessible or unlocated prior work. All checked computations were repeated from the packaged `verify.py` rather than from another experiment's logs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Defant (2015) states a global inequality as Conjecture 20 and studies Schemmel iteration but gives no 13-supported closed stopping-time formula. Harrington–Jones (2010) analyzes a related C2=R2-1 convention under a domain excluding p≡1 mod 3; e>=1 ensures a factor 13≡1 mod3 and excludes their domain. Existing 7-smooth evaluations cannot give the 13->11->3^2 start-up correction without new branching analysis. Unread Harrington–Jones full text is a genuine residual risk, not an automatic failure.
+
+## value
+
+PASS
+
+Exact first-hitting times across an infinite, naturally invariant 13-smooth prime-support family and strict nontrivial sector of an explicit published conjecture; the first 13->11->3^2 branching changes the weight and delay law. Not merely a fixed finite table or restated 7-smooth substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
