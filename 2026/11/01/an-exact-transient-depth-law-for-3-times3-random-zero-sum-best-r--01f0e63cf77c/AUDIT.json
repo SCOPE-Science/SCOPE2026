@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "Every relative payoff order has probability 1/9!, and every order has exactly one candidate row-minimum/column-maximum map. The nine-element linear-extension recurrence counts each map without omission or overlap; its 729 weighted map totals sum to 362880. The independent brute-force enumerator visits every one of those 362880 permutations, obtaining the same eight cycle/max-depth counts and five vertex-depth counts; the results total 6*9! for rooted starts. A separate 72*96 maximal-chain calculation and explicit matrix witness certify the sharp tail. Theorem scope is finite and complete, not an infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Karelas–Lugosi–Zhang, arXiv:2610.29153v1, Section 6, formula (6.4), gives integrals for the probability of a specified zero-sum best-response cycle; their Section 5 path-count theorem concerns common-interest payoffs B=A.",
+        "Heinrich et al., DOI 10.1007/s00182-023-00837-4, study random-game convergence under varying playing sequences with a distinct independently sampled payoff model."
+      ],
+      "reasoning": "A cycle-count formula does not supply distances of nonrecurrent vertices to the cycle. For example, graphs with the identical single 4-cycle type in the new classification can have maximum distance either 1 or 2. The common-interest path theorem and independent-payoff convergence model impose materially different hypotheses, so neither dominates the new zero-sum transient-depth law.",
+      "searches": [
+        "random zero sum game best response dynamics two-cycle saddlepoint cyclic sink three by three classification exact census",
+        "\"random zero-sum\" \"best-response\" \"path length\" expected",
+        "https://arxiv.org/html/2610.29153v1",
+        "https://link.springer.com/article/10.1007/s00182-023-00837-4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.29153v1 — same zero-sum best-response graph, relevant primary full text",
+      "doi:10.1007/s00182-023-00837-4 — independent-payoff random games, primary open-access full text",
+      "Goldman (1957), The probability of a saddlepoint — formula checked through Karelas–Lugosi–Zhang, not independently inspected as a full primary paper"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karelas–Lugosi–Zhang (2026), Section 6, determines the probability of specified cycles, whereas the new theorem additionally counts transient forests attached to cycles.",
+        "The two possible 4-cycle/maximum-depth pairs in the exact table give a direct counterexample to determining transient depth from cycle type alone.",
+        "The 2023 convergence work is based on a different probability law for the payoff matrices and does not specialize to B=-A."
+      ],
+      "reasoning": "Even the complete marginal cycle-length law leaves conditional transient arrangements undetermined. A separate enumeration of row minima and column maxima is required for the probability of hitting-time 4 and for the complete hitting-time law. The older pure-saddle formula is acknowledged prior work; it is not asserted new.",
+      "searches": [
+        "Probability of coexistence of a pure Nash equilibrium and another cyclic best-response attractor in random strictly competitive matrix games, finite three-strategy zero-sum games",
+        "random zero sum game best response dynamics two-cycle saddlepoint cyclic sink three by three classification exact census",
+        "https://arxiv.org/html/2610.29153v1",
+        "https://link.springer.com/article/10.1007/s00182-023-00837-4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Karelas–Lugosi–Zhang (2026), introduction and Section 6, explicitly define alternating best-response digraphs for B=-A.",
+        "The proposed invariant is distance to the recurrent directed cycle, not cycle length or number of pure Nash equilibria."
+      ],
+      "reasoning": "Entry time is also a directed-forest depth, preperiod, absorption delay, or first-hit time to an attractor in the six-vertex functional digraph. Searches under those formulations yielded no equivalent exact finite law in the checked sources. The exact law is not claimed unique merely because searches did not find it.",
+      "searches": [
+        "exact distribution of transient depth, absorption time and expected first entry into recurrent best-response cycles for three-by-three random zero-sum games, expected delay 179/315, four-step delay 1/315",
+        "random game best reply convergence times transient path lengths row minima and column maxima extreme alternating graph on three-by-three matrix",
+        "i.i.d. random zero sum bimatrix best response digraph hitting-time distribution longest transient chain probability 2/105 three actions"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The checked primary zero-sum Section 6 reports cycle probabilities, a general integral and asymptotic cycle properties, not a nine-entry rank-table or finite hitting-time distribution.",
+        "Semantically related published records located by the stated searches concerned other stochastic delay systems, random-cycle laws or unrelated finite games, without the claimed payoff model and invariant."
+      ],
+      "reasoning": "The exact five-point law, eight joint cycle/depth counts and expected entry time were compared against the accessible published records and relevant primary full text. No same-table result was recovered; absence of a hit is not affirmative uniqueness proof.",
+      "searches": [
+        "exact distribution of transient depth, absorption time and expected first entry into recurrent best-response cycles for three-by-three random zero-sum games, expected delay 179/315, four-step delay 1/315",
+        "i.i.d. random zero sum bimatrix best response digraph hitting-time distribution longest transient chain probability 2/105 three actions",
+        "random game best reply convergence times transient path lengths row minima and column maxima extreme alternating graph on three-by-three matrix"
+      ]
+    },
+    "rationale": "The nearest source, Karelas–Lugosi–Zhang (2026), analyzes the same zero-sum best-response graph but the inspected Section 6 addresses cycle probabilities and asymptotic cycle statistics; it does not state or imply the entry-time law from only those cycle counts. Its path-length theorem in Section 5 assumes B=A, not B=-A. Heinrich et al. (2023) use a distinct payoff-dependence model. Exact literature and result searches under transient/absorption/preperiod aliases found no stronger coverage. Unindexed equivalent finite enumerations remain a residual risk.",
+    "residual_risks": [
+      "An uncatalogued or inaccessible source may contain an equivalent exact transient-depth census.",
+      "A reader may confuse the six-vertex graph entry time with time to a Nash action profile under arbitrary playing sequences; the theorem explicitly fixes the graph and the vertex-selection convention."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides cycle probabilities and asymptotic cycle statistics; does not provide the finite root-to-recurrent-class hitting-time or transient-depth law.",
+        "evidence": [
+          "Section 5 treats common-interest best-response paths.",
+          "Section 6 treats zero-sum cycle probabilities and longest-cycle asymptotics.",
+          "The cycle-type table alone cannot determine preperiod depths."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.29153v1",
+        "material_read": "Open-access full HTML: abstract and introductory definitions, related work, Sections 5 and 6 including formula (6.4) and proof, concluding remarks and references.",
+        "method": "Direct reading of arXiv HTML with targeted section and terminology comparisons.",
+        "title": "Cycle structure of best-response dynamics in random bimatrix games",
+        "trigger": "Same exact zero-sum payoff model and alternating best-response digraph, with a general cycle probability formula."
+      },
+      {
+        "assessment": "Studies a different random-game model and its convergence properties; does not entail the exact 3-by-3 B=-A transient-depth distribution.",
+        "evidence": [
+          "Two independently drawn player-payoff matrices are not the zero-sum relationship B=-A.",
+          "The work emphasizes large-game convergence and playing-sequence distinctions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00182-023-00837-4",
+        "material_read": "Open-access full article text: abstract, model assumptions, introduction, clockwork convergence analysis and relevant references.",
+        "method": "Direct reading of publisher open-access HTML; comparison of the sampled-payoff dependence structure and observable.",
+        "title": "Best-response dynamics, playing sequences, and convergence to equilibrium in random games",
+        "trigger": "Published primary analysis of clockwork best-response convergence and playing sequences."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01f0e63c-f77c-4b2d-b9a2-cdb46275fd78",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact time until deterministic alternating best-response dynamics enter a recurrent class is a natural algorithmic and game-dynamical observable, and it cannot be reconstructed from the previously treated cycle count. The first square zero-sum size with a four-edge transient is three strategies per side; the complete hitting-time law, its distribution-free mean 179/315, and the sharp delay frequency 2/105 form a full natural finite classification. The result is motivated by the literature on cycle structure and has uses as a finite-game calibration benchmark without requiring an unproved downstream theorem.",
+    "status": "PASS"
+  }
+}
