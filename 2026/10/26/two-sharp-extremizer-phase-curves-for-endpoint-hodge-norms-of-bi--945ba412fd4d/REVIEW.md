@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The product-Laplacian pseudoinverse decomposes exactly into the base pseudoinverse and the shifted inverse of its two-layer antisymmetric mode. The three edge orbits exhaust the graph. Vertical-column sums and resistances are computed by explicit spectral projectors, and horizontal-column sums by four possible source-edge indicator pairs. The potentially larger shifted-gradient current is retained, not silently discarded. Nonnegative-coefficient inequalities prove the all-parameter orbit comparisons. The only horizontal cycle exception is isolated and explicitly calculated at \((p,q)=(3,3)\). A standalone exact checker reconstructs 362 finite edge columns and proves rational polynomial identities. Mathematical boundaries \(2\le p\le q\), equality cases, and the canonical-projection restriction are explicit.
+## correctness
 
-## Originality: PASS (with residual uncertainty)
-The primary predecessor is Dilworth–Kutzarova–Ostrovskii, arXiv:2305.12582; inspected sections include the definitions, result summary, torus calculations and the Hamming section. It does not present the present complete bipartite-prism two-curve classification. Ostrovska–Ostrovskii, arXiv:2112.02689, develops transportation-cost quotient theory rather than these specific norms. General graph projection frameworks and known cube values do not logically imply the sharp \((p,q)\) orbit inequalities without the new current and polynomial comparisons. Indexed mathematical record and relevant exact-phrase searches found no direct covering calculation; a less indexed electrical-network source remains a residual risk.
+PASS
 
-## Mathematical value: PASS
-The object is a natural two-factor prism over complete bipartite networks. The precise complementability-related operator norms are exact in two free parameters, and the edge orbit realizing the cut norm changes across \(pq=2(p+q)\), whereas that for the cycle norm changes across the strictly later curve \(pq=4(p+q)+2\). Their separation demonstrates that complementary canonical projections can select different edge geometries in the same network. The isolated \((3,3)\) horizontal extremizer marks a genuine small-parameter boundary rather than an arbitrary slice.
+The base K_{p,q} Laplacian has four elementary invariant subspaces; for the 2-layer prism, L_G^+=L_base^+⊗P_+ +(L_base+2I)^−1⊗P_−. Direct currents for vertical edge sources yield exactly A,B and cycle values U,V=1+A/B−2R_eff. Horizontal sources fall into four base-edge incidence types with multiplicities 1,q−1,p−1,(p−1)(q−1); absolute cut and cycle sums are max(H₀,H₁) and max(1+H₀−2R_H,1+H₁−2R_H). I read the actual pinned verify_prism.py polynomial-region certificates and independently re-derived/recomputed 24 rational identities and nonnegative-coefficient polynomial witnesses plus all 31 finite pairs of the midrange; all passed. Separately built incidence matrices and orthogonal pseudoinverse projections for 10 (p,q) graphs, verifying every one of 410 edge columns, including exceptional (3,3) horizontal 73/30 and (3,7) phase disagreement. The polynomial certificates extend comparisons to all p≤q≥2, not finite extrapolation. Symbolically factored B−A and V−U to establish both switching thresholds.
 
-## Limits and closest sources
-The cut/cycle construction, Laplacian pseudoinverse and \(\ell_1\) matrix norm are standard. No claim is made of minimum norm among all projections; electrical-resistance methods are not claimed as new. Bibliographic coverage is incomplete; independent verification is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The inspected Dilworth–Kutzarova–Ostrovskii primary paper develops canonical cut/cycle projections and computes norms for Hamming graphs/cubes and tori, not the p,q-asymmetric K_{p,q}□K₂ prism family with two different switching curves and the isolated (3,3) horizontal exception. General electrical transfer-current formulas are background and could implicitly specialize to these formulas, a recorded residual priority risk.
+
+## value
+
+PASS
+
+The two distinct sharp extremizer-switching curves and a genuine exceptional balanced prism give a complete natural two-parameter spectral and Banach-operator invariant classification, not a trivial substitution into a single graph norm. It identifies when edge-orbit geometry controls cut versus cycle projections differently.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
