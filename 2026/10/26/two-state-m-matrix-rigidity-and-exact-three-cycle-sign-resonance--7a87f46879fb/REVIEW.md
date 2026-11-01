@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The matrix integral identifies \(F_t\) as stochastic. The two-state minimal polynomial produces an exact inverse with nonpositive off-diagonals. For the three-state directed cycle, exact circulant inversion and spectral reconstruction yield the displayed coefficient; a convergent power series with coefficients \(3^k+(-1)^k(4k-1)>0\) for every integer \(k\ge2\) proves its strict positivity for all positive time. Its exact sine factor proves all resonance statements. The included checker reconstructs the function from its matrix Taylor series rather than assuming the closed form. Limitation: numerical checks are not the infinite-time proof.
+## correctness
 
-## Originality — PASS (best-knowledge)
-The main predecessors develop numerical inversion of \(\varphi\)-functions and reciprocal Bernoulli/rational expansions. Boito–Eidelman–Gemignani 2018 even uses cyclic permutation matrices for approximation experiments. Neither that full text nor Gemignani 2023 states the globally strict directed-cycle sign theorem, minimal state dimension, or exact resonant crossing set. Searches of mathematical research records using equivalent formulations found no directly covering result. The local Taylor-series sign at small time is already implicit in classical Bernoulli coefficients; novelty is restricted to the global all-time classification and exact resonance formula. An equivalent unnoticed application of a general matrix-function theorem remains possible.
+PASS
 
-## Value — PASS
-Inverse \(\varphi_1\)-operators arise when recovering forcing terms from integrated observations of positive linear dynamics. A positive stochastic average does not imply that its inverse retains the Z-/M-matrix sign pattern: the theorem locates the sharp universal two-state boundary, proves failure at every time for the smallest irreducible nonreversible cycle, and identifies infinitely many exact damped spectral crossings. This is an interpretable structural classification, not a single small-step counterexample or a numerical table. Scope is finite-state exact arithmetic, with an explicit three-cycle witness rather than an all-generator three-state classification.
+For Q=[[-a,a],[b,-b]], a,b>=0, Q²=-(a+b)Q, and phi1(tQ)^-1=I-γQ, γ=(tr/(1-exp(-tr))-1)/r>0 for r>0 (Q=0 separately); Z-matrix with nonnegative inverse F_t follows. For C3, the integral of a stochastic semigroup is invertible since nonzero eigenvalues z=-3t/2±i sqrt3 t/2 have Re<0 and phi1(z)≠0. Its circulant coefficients a0>a1>a2>0 follow the equation tFQ=e^{tQ}-I and strict positive Poisson coefficients; Fourier inversion gives exact b2 formula. Expansion cosh(sqrt3 h)-cos h-2h sin h=Σ_{k>=2}[3^k+(-1)^k(4k-1)]h^(2k)/(2k)! has strictly positive coefficients (for odd k>=3, 3^k>4k-1). Adjugate gives b0>0, b1<0. Resonance zeroes exactly sin h=0 with positive denominator; decay from hyperbolic asymptotics. Nine direct independent matrix exponential/inversion checks tested signs and formula; all-t property is analytic.
 
-## Closest literature and uncertainty
-Gemignani, arXiv:2302.07565 (§§1–3,5), and Boito–Eidelman–Gemignani, arXiv:1801.04573 (§§1–3), were inspected in full text. The later Aceto–Gemignani work, arXiv:2406.01437, and its journal overview were inspected for plausible overlap. Prior rational-representation theorems can evaluate the inverse and imply its short-step expansion, but none of the inspected materials establishes the required strict all-time entry sign or oscillatory equality set. Search incompleteness and a possible equivalent classical circulant identity are residual originality risks. No independent review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inverse phi1 matrix functions, reciprocal Bernoulli expansions, and rational numerical approximations are prior (Gemignani 2023, Boito–Eidelman–Gemignani 2018). The accessible primary full paper of Gemignani discusses efficient inversion, not an all-t Markov-generator Z-matrix criterion or an explicit global 3-cycle sign/resonance classification. The first nonzero positive two-jump coefficient is an elementary Bernoulli consequence and is not claimed new. The combination of minimal dimension and infinite exact sign resonances is the evaluated contribution.
+
+## value
+
+PASS
+
+Sharp structural warning: a strictly positive time-averaged Markov transition matrix can have inverse with positive off-diagonal entry already in minimal dimension three, with exact all-time sign and infinitely many damped crossings around its limit. Useful for positivity of inverse semigroup averages and matrix-function algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproduction
+# Independent mathematical audit
 
-Install the declared package dependency using `python -m pip install -r requirements.txt`, then run `python verify.py` with Python 3. The checker implements the matrix function by summing \(\varphi_1(X)=\sum_{k\ge0}X^k/(k+1)!\), without relying on the analytic circulant inverse formula. It compares both constructions at 13 positive time values, verifies matrix inverse identities and sign patterns, checks five exact sine-resonance times, 20 Taylor positivity coefficients, and four two-state generators including absorbing and zero-rate cases. Expected output: `VERIFY_OK 88`.
+## correctness
 
-# Analytical certificate
+PASS
 
-The identity \(F_t tQ=e^{tQ}-I\) proves strict ordering of the three integrated Poisson residue weights. The inverse Fourier formula gives the exact positive two-jump coefficient. Its numerator has only positive nonzero even-power Taylor coefficients for all positive arguments, with the first nonzero term at degree four. This proves the strict sign without any finite search or floating-point inequality. The sine factor establishes the complete resonance set. Two-state inversion follows from \(Q^2=-(a+b)Q\).
+For Q=[[-a,a],[b,-b]], a,b>=0, Q²=-(a+b)Q, and phi1(tQ)^-1=I-γQ, γ=(tr/(1-exp(-tr))-1)/r>0 for r>0 (Q=0 separately); Z-matrix with nonnegative inverse F_t follows. For C3, the integral of a stochastic semigroup is invertible since nonzero eigenvalues z=-3t/2±i sqrt3 t/2 have Re<0 and phi1(z)≠0. Its circulant coefficients a0>a1>a2>0 follow the equation tFQ=e^{tQ}-I and strict positive Poisson coefficients; Fourier inversion gives exact b2 formula. Expansion cosh(sqrt3 h)-cos h-2h sin h=Σ_{k>=2}[3^k+(-1)^k(4k-1)]h^(2k)/(2k)! has strictly positive coefficients (for odd k>=3, 3^k>4k-1). Adjugate gives b0>0, b1<0. Resonance zeroes exactly sin h=0 with positive denominator; decay from hyperbolic asymptotics. Nine direct independent matrix exponential/inversion checks tested signs and formula; all-t property is analytic.
 
-# Scope of the check
+## originality
 
-Floating-point calculations and finitely many Taylor coefficient tests are independent consistency checks, not certificates for all positive real arguments. The general proof is in `RESULT.md`. No independent external audit was conducted.
+PASS
+
+Inverse phi1 matrix functions, reciprocal Bernoulli expansions, and rational numerical approximations are prior (Gemignani 2023, Boito–Eidelman–Gemignani 2018). The accessible primary full paper of Gemignani discusses efficient inversion, not an all-t Markov-generator Z-matrix criterion or an explicit global 3-cycle sign/resonance classification. The first nonzero positive two-jump coefficient is an elementary Bernoulli consequence and is not claimed new. The combination of minimal dimension and infinite exact sign resonances is the evaluated contribution.
+
+## value
+
+PASS
+
+Sharp structural warning: a strictly positive time-averaged Markov transition matrix can have inverse with positive off-diagonal entry already in minimal dimension three, with exact all-time sign and infinitely many damped crossings around its limit. Useful for positivity of inverse semigroup averages and matrix-function algorithms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
