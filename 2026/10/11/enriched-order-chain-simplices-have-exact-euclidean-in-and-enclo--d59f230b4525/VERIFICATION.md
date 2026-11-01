@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-The arbitrary-\(n\) derivation is in `RESULT.md`.
 
-Critical checks:
-- the signed-filter definition on a chain reduces to suffix vectors \(u_k\) and \(v_k\);
-- \(u_k=(u_{k-1}+v_{k-1})/2\) and \(0=(u_n+v_n)/2\), leaving exactly \(n+1\) simplex vertices;
-- the displayed \(a_k\) and \(b\) are the complete facet normals with support constant \(1\);
-- \(\|a_k\|=N_{n-k}\) and \(\|b\|=N_{n-1}\);
-- \(b+\sum_k2^{k-1}a_k=0\);
-- the incenter equations give the displayed \(r_n\) and coordinate formula;
-- the perpendicular-bisector recurrence gives \(q_j=1/2-2^{-j}\);
-- all vertices have squared distance \(n/4+4/3-2^{-n}-4^{-n}/3\) from \(q\);
-- \(q\) satisfies \(0\le q_1\le\cdots\le q_n\le1\), placing it in the ordinary order polytope and therefore in the enriched order polytope;
-- center-in-contact-convex-hull gives minimum-enclosing optimality and uniqueness.
+# Independent mathematical audit
 
-`verify.py` performs exact symbolic checks for \(1\le n\le12\), including every vertex-facet incidence, the normal dependence, both inradius expressions, every incenter tangency equation, every circumsphere equation, and the center-membership inequalities. Finite computation is corroborative only and does not assess originality.
+## correctness
+
+PASS
+
+Verified from the primary signed-filter definition that the chain hull has exactly n+1 affinely independent u,v_k vertices. Reconstructed every facet a_k,b from vertices, norms N_{n-k}, and positive dependency b+sum 2^(k-1)a_k=0; for any inball (c,r), summing facet-clearance inequalities proves r<=2^n/(N_{n-1}+sum 2^(k-1)N_{n-k}). The facet-equality linear system attains that bound uniquely, yielding the asserted incenter coordinates. Bisector equations give q_j=1/2-2^-j; all vertices lie at squared distance n/4+4/3-2^-n-4^-n/3. q is in ordinary chain order polytope, hence in their enriched hull, so convex contact weights and parallel-axis identity prove the unique minimum enclosing sphere. Checked n=1 endpoint and asymptotic n->infinity. Independently recovered facets via matrix inversion, solved Chebyshev LP and exact circumcenters and nonnegative barycentric contact weights for n=1..10; finite checks only corroborate universal proof. Source verify.py uses floating-point inradius checks (contrary to prose claim of exact symbolic checks), but the analytic derivation does not rely on those tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge independent comparison of complete statements and implications: primary full-text sources establish enriched-polytope definitions, facets and transfer but not chain-specific metric radii; generic signed and marked poset radius theorems apply to different canonical objects and do not imply the asserted paired radii. Exact Resultary hit is mirror of audited claim, excluded from independent priority. Historical generic-simplex reduction remains a stated risk.
+
+## value
+
+PASS
+
+The chain gives a canonical, geometrically natural family of all-dimensional reflexive simplices, and the inball and minimum enclosing ball are natural metric invariants rather than arbitrary finite slices. The explicit pair of centers/radii and sharp aspect ratio n^(3/2)/(2sqrt(3)) distinguish the enriched-order realization from its Ehrhart-equivalent enriched-chain crosspolytope partner (ratio sqrt(n)); these are not furnished by the known Ehrhart/transfer results, and a researcher comparing geometry of enriched poset polytopes could need these exact values. Elementary linear algebra after specialization is transparently acknowledged; no general arbitrary-poset radii claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

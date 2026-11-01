@@ -1,0 +1,188 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T09:20:31Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/verify.py",
+        "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+        "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes"
+      ],
+      "rationale": "Verified from the primary signed-filter definition that the chain hull has exactly n+1 affinely independent u,v_k vertices. Reconstructed every facet a_k,b from vertices, norms N_{n-k}, and positive dependency b+sum 2^(k-1)a_k=0; for any inball (c,r), summing facet-clearance inequalities proves r<=2^n/(N_{n-1}+sum 2^(k-1)N_{n-k}). The facet-equality linear system attains that bound uniquely, yielding the asserted incenter coordinates. Bisector equations give q_j=1/2-2^-j; all vertices lie at squared distance n/4+4/3-2^-n-4^-n/3. q is in ordinary chain order polytope, hence in their enriched hull, so convex contact weights and parallel-axis identity prove the unique minimum enclosing sphere. Checked n=1 endpoint and asymptotic n->infinity. Independently recovered facets via matrix inversion, solved Chebyshev LP and exact circumcenters and nonnegative barycentric contact weights for n=1..10; finite checks only corroborate universal proof. Source verify.py uses floating-point inradius checks (contrary to prose claim of exact symbolic checks), but the analytic derivation does not rely on those tests.",
+      "residual_risks": [
+        "Independent numerical inradius replay limited to n<=10 and not a stand-in for general proof; exact symbolic circumcenter and facet checks cover those tested n only."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md defines signed order polytopes by unit/two-coordinate root halfspaces and cube bounds, unlike this enriched-order chain simplex with normals having powers-of-two support across many coordinates.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md treats a marked-chain continuous interpolation, not the enriched-order simplex and its minimum enclosing sphere.",
+          "https://link.springer.com/article/10.1007/s40879-020-00403-2 general facet theory alone gives no stated Euclidean radius formula."
+        ],
+        "reasoning": "General facet and simplex textbook results let one calculate metrics given normals, but neither source actually supplies the asserted closed all-dimensional answer. Signed order polytopes and marked chain interpolants are different standard-Euclidean realizations and their reported radius results do not imply both enriched-order radii. A generic simplex formula is a historical-priority/value risk but not a cited covering radius theorem.",
+        "searches": [
+          "Resultary: exact inradius circumradius minimum enclosing sphere enriched order polytope chain poset simplex",
+          "Resultary: reflexive simplex chain enriched Hibi polytope Euclidean radius center facet normals",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md",
+          "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+          "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes"
+        ]
+      },
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+        "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525",
+        "Resultary semantic search (three listed queries)",
+        "targeted web searches for enriched-order and enriched-Hibi metric aliases"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes proves enriched transfer/Ehrhart equality (Theorem 1.3) but this bijection is not Euclidean-isometric.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100 gives radii for enriched chain polytopes, with chain specialization crosspolytope, not enriched-order simplex.",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md has only unit and two-coordinate root facets; for n>=3 the enriched-order chain facet a_1 has dense powers-of-two coefficients and does not satisfy that hypothesis in canonical coordinates."
+        ],
+        "reasoning": "No inspected independent predecessor entails both r_n and R_n and their distinct scaling by matching the same object with the same metric. Prior comparison is implication-based: Ehrhart equivalence does not preserve metric radii, ordinary and signed order simplices are different families, and a general facet theorem stops before the metric specialization.",
+        "searches": [
+          "Resultary: exact inradius circumradius minimum enclosing sphere enriched order polytope chain poset simplex",
+          "Resultary: Ehrhart equivalent enriched order chain simplex enriched chain crosspolytope metric aspect ratio",
+          "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+          "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://link.springer.com/article/10.1007/s40879-020-00403-2 Section 6 supplies facet representations, not inball or smallest-enclosing-ball center formulas.",
+          "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes first-version introduction and Proposition 2.1 supply signed-filter definition and chain inequalities; no metric radius statement found in inspected searchable text.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525 is a mirror of the *same* assigned result, not independent prior art."
+        ],
+        "reasoning": "Searched enriched-order, enriched-Hibi, exact Euclidean inball, Chebyshev center and smallest enclosing ball formulations. Neither inspected same-object original paper states the two all-n metric centers and radii. A mirror of the same result is not independently covering.",
+        "searches": [
+          "Resultary: exact inradius circumradius minimum enclosing sphere enriched order polytope chain poset simplex",
+          "Resultary: reflexive simplex chain enriched Hibi polytope Euclidean radius center facet normals",
+          "Web: \"enriched order polytope\" \"circumcenter\"; \"enriched Hibi\" \"inradius\" simplex; \"enriched order polytope\" \"inradius\" circumradius",
+          "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+          "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returns the assigned exact-match mirror as its highest-ranked item, and separate polytopes with distinct realizations. No independent enriched-order-chain Euclidean radius table found.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100 exact enriched-chain radius result concerns the crosspolytope partner, not the non-isometric enriched-order simplex."
+        ],
+        "reasoning": "Unlike an enumerative-only claim this is an all-dimensional exact formula, but prior finite data could indicate coverage. Targeted exact-data searches found no relevant independent table; lack of search hits is a residual risk, not a novelty proof.",
+        "searches": [
+          "Resultary: exact inradius circumradius minimum enclosing sphere enriched order polytope chain poset simplex",
+          "Resultary: reflexive simplex chain enriched Hibi polytope Euclidean radius center facet normals",
+          "Resultary: Ehrhart equivalent enriched order chain simplex enriched chain crosspolytope metric aspect ratio",
+          "Web: \"enriched order polytope\" \"circumcenter\"; \"enriched Hibi\" \"inradius\" simplex; \"enriched order polytope\" \"inradius\" circumradius"
+        ]
+      },
+      "rationale": "Best-of-knowledge independent comparison of complete statements and implications: primary full-text sources establish enriched-polytope definitions, facets and transfer but not chain-specific metric radii; generic signed and marked poset radius theorems apply to different canonical objects and do not imply the asserted paired radii. Exact Resultary hit is mirror of audited claim, excluded from independent priority. Historical generic-simplex reduction remains a stated risk.",
+      "residual_risks": [
+        "An uncatalogued general simplex metric theorem specialized to the exact chain vertices could cover the closed formulas despite no matching keywords.",
+        "Resultary exact-match is a same-claim mirror and not independent; existence of that copy does not certify independent priority.",
+        "Web search and inspected open sources are not exhaustive global literature certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Reflexivity, Ehrhart equivalence and complete facet theory; no stated all-n Euclidean inradius/minimum enclosing sphere formula in inspected text.",
+          "evidence": [
+            "Springer article Sections 1,6 (lines 43-46, 429-517), theorem 6.2.",
+            "Full-text searches for inradius, incenter and sphere returned no same-object metric result."
+          ],
+          "identifier_or_url": "arXiv:1903.00909; DOI:10.1007/s40879-020-00403-2; https://link.springer.com/article/10.1007/s40879-020-00403-2",
+          "material_read": "Full HTML available; inspected the enriched order construction, Sections 1 and 6 including Proposition 6.1 and Theorem 6.2, and searched all rendered article text for inradius, incenter, sphere.",
+          "method": "Publisher full-text HTML and in-page term searches.",
+          "title": "Enriched order polytopes and enriched Hibi rings",
+          "trigger": "Introducing full-text paper for exactly the same polytope, with general facets."
+        },
+        {
+          "assessment": "Establishes source definitions, transfer and general facets, not the Euclidean radius pair for chains in inspected material.",
+          "evidence": [
+            "Definition F^(e), ordinary inclusion and Theorem 1.3 at lines 176-224.",
+            "Proposition 2.1 at lines 404-431; none of the directly searched Euclidean metric terms identified a matching theorem."
+          ],
+          "identifier_or_url": "arXiv:2003.12271; DOI:10.1007/s00026-023-00679-7; https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes",
+          "material_read": "Accessible full-text 2020 preprint rendering, introduction defining signed-filter convex hull and ordinary order inclusion (lines 176-214), enriched transfer Theorem 1.3 (lines 218 onward), Section 2.2 Proposition 2.1 and chain-inequality definitions (lines 404-431); searched rendered 28-page text for inradius, circumradius, minimum enclosing and Chebyshev.",
+          "method": "Author-uploaded open preprint text rendering, cross-check with journal abstract.",
+          "title": "Two enriched poset polytopes",
+          "trigger": "Later directly relevant geometric primary paper and cited definition."
+        },
+        {
+          "assessment": "Different polytope class; its source normal/root restrictions do not contain these enriched-order chain facet normals. Also no minimum enclosing sphere.",
+          "evidence": [
+            "It assumes root facets with at most two nonzero coordinates and cube facets, whereas source a_1 has coefficients 2^{n-1},-2^{n-2},..., -1 for n>=3."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+          "material_read": "Complete public RESULT.md including hypotheses, source facet types, weighted-path formula, proof and limitations.",
+          "method": "GitHub public raw text through authenticated read connector.",
+          "title": "A longest signed path gives the exact Euclidean inradius of every signed order polytope",
+          "trigger": "Potentially dominating general signed-order-polytope metric result returned by semantic search."
+        },
+        {
+          "assessment": "A distinct marked-order to marked-chain transfer simplex; neither the enriched-order simplex coordinates nor the enclosing radius is covered.",
+          "evidence": [
+            "Its endpoint r_m(0)=1/(2+(m-1)sqrt(2)) and r_m(1)=1/(m+sqrt(m)), not the enriched-order formula."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md",
+          "material_read": "Complete public RESULT.md including marked-poset interpolation definition, endpoint formulas and proof.",
+          "method": "GitHub public raw text through authenticated read connector.",
+          "title": "Uniform chain interpolants have an exact Euclidean inradius profile",
+          "trigger": "Related all-dimensional chain-simplex inradius result with a potential parameter reduction."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/RESULT.md",
+        "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+        "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100"
+      ],
+      "rationale": "The chain gives a canonical, geometrically natural family of all-dimensional reflexive simplices, and the inball and minimum enclosing ball are natural metric invariants rather than arbitrary finite slices. The explicit pair of centers/radii and sharp aspect ratio n^(3/2)/(2sqrt(3)) distinguish the enriched-order realization from its Ehrhart-equivalent enriched-chain crosspolytope partner (ratio sqrt(n)); these are not furnished by the known Ehrhart/transfer results, and a researcher comparing geometry of enriched poset polytopes could need these exact values. Elementary linear algebra after specialization is transparently acknowledged; no general arbitrary-poset radii claimed.",
+      "residual_risks": [
+        "Specialized simplex computations are elementary and their standalone importance is limited to metric comparison of these canonical realizations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/AUDIT.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/REVIEW.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/SLOGAN.txt",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/enriched-order-chain-simplices-have-exact-euclidean-in-and-enclo--d59f230b4525/verify.py",
+    "https://link.springer.com/article/10.1007/s40879-020-00403-2",
+    "https://www.researchgate.net/publication/340270792_Two_enriched_poset_polytopes",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-longest-signed-path-gives-the-exact-euclidean-inradius-of-ever--bd0fdb1bb195/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-uniform-chain-interpolants-have-an-exact-euclidean-inradius-prof--23330098dfe9/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-height-and-width-are-the-exact-euclidean-radii-of-enriched-chain--db93f92ff100"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Metric specific to canonical chain realization.",
+    "No general enriched-order arbitrary-poset inradius/circumball is claimed.",
+    "Same-claim indexed mirror is not independent novelty evidence.",
+    "Finite replay is corroborative.",
+    "Original public administrative metadata contain provenance fields, so publication is withheld until complete privacy-safe files are verified."
+  ],
+  "residual_risks": [
+    "An uncatalogued general simplex metric theorem specialized to the exact chain vertices could cover the closed formulas despite no matching keywords.",
+    "Resultary exact-match is a same-claim mirror and not independent; existence of that copy does not certify independent priority.",
+    "Web search and inspected open sources are not exhaustive global literature certification."
+  ],
+  "schema_version": 1
+}
