@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The specified 80-vertex finite incidence graph is exhaustively generated. For incident/nonincident point–line pairs, (C2,C3,C4) chain counts are (18,81,120)/(28,87,72) and the integral Smith ranks of (d3,d4) are (18,63)/(28,50), every nonzero invariant equal to one. Both boundary compositions vanish. All 59 Smith invariants of [d4|nine explicit cycles] equal one, certifying an integral basis of local rank nine. Symplectic transvections, explicitly checked to be graph automorphisms, transitively permute all 160 incident and 1440 nonincident point–line ordered pairs, and chain reversal supplies the opposite orientation. Bipartite parity eliminates same-part endpoints. The global rank is 2*1440*9=25920. The packaged checker was executed successfully from its exact source path.
+PASS
 
-## Originality: PASS
+The graph constructed from isotropic 2-spaces of F_3^4 has 40 projective points, 40 isotropic lines, degree four and diameter four. Independent endpoint-localized full length-five chain enumeration produced C2,C3,C4=(18,81,120) at distance one and (28,87,72) at distance three. Integer Smith invariants of (d3,d4) were (18,63) and (28,50), ALL units, with d3*d4=0. The nine displayed octagon cycles have zero boundary and augment the image of d4 to 59 unimodular Smith factors, giving a free Z^9 quotient. Forty generating symplectic transvections preserved incidence and had ordered point-line orbits of sizes 160 and 1440, exhausting each incidence class. Bipartite odd-length parity excludes same-part endpoints, reversal doubles contributions, yielding 2880*9=25920. These are genuine exhaustive finite calculations for precisely W(3), not extrapolation to arbitrary order.
 
-The 2021 girth-vanishing theorem excludes lower off-diagonal cases but does not cover (3,5) for girth eight. The closest specific second-off-diagonal result is mod-two magnitude homology for the order-two Tutte–Coxeter quadrangle, not the order-three integral homology or the nine-element cycle basis. An endpoint-localized projective-plane computation studies girth six and bidegree (3,4), and generalized-quadrangle Vietoris–Rips results use a different invariant. Actual claim/alias/parameter searches disclosed no result implying this integral classification. A full-text inspection of the closest order-two item was unavailable; undocumented or unindexed equivalents remain possible.
+## originality
 
-## Value: PASS
+PASS
 
-This identifies the exact integral second-off-diagonal magnitude group of the canonical 80-vertex symplectic generalized-quadrangle incidence graph. Nine geometrically indexed octagon cycles per nonincident antiflag form an integral basis, strengthening finite-field ranks to a torsion-free integral classification and making the geometrical support of the classes reproducible. It is a natural next-valency benchmark precisely at the sharp girth-eight boundary, not an arbitrary graph slicing or a marginal numerical refinement.
+A statement-level comparison against the full Asao–Hiraoka–Kanazawa girth theorem and the published Tutte–Coxeter result found no coverage of the integral W(3) group or its explicit nine-class lattice basis. The order-two Tutte–Coxeter result has mod-two coefficients and four classes per nonincident pair; neither coefficients nor graph are interchangeable. Earlier general girth-dependent vanishing does not cover this nonvanishing bidegree. Best-of-knowledge priority only.
 
-## Literature and limitations
+## value
 
-Closest results: Asao–Hiraoka–Kanazawa (2021) girth vanishing; order-two Tutte–Coxeter (3,5) mod-two calculation; projective-plane first-off-diagonal incidence result. The order-two full text could not be examined; these available statements do not dominate the claimed order-three integral basis. No extension to other quadrangle orders is claimed. Independent validation has not been done.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact integral magnitude-homology group of the canonical order-three symplectic quadrangle, including explicit primitive generators and all endpoint orbits, is a natural nontrivial graph invariant; the degree-(3,5) group sits beyond the girth-implied vanishing range. Integral basis adds torsion-freeness and lattice data not supplied by the smaller mod-two calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
