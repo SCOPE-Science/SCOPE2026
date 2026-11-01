@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The unordered 2-particle cubical model is an equivariant quotient of the standard graph deleted-product model. Its degree-two boundary has 72 columns and rank 60, established by an explicit finite-field computation and the twelve independent integral kernel vectors. The twelve selected signed product-torus cycles have a coordinate minor of determinant \(-1\); this certifies their saturated integral span, not merely rational generation. Six explicitly enumerated signed relations have unit coefficients on distinct omitted generators and span all relations. A standalone Python checker independently recomputes boundaries, exact determinant, and relations. The proof is finite and exhaustive for the specified graph; no extrapolation is made.
+## correctness
 
-**Originality — PASS (with identified bibliographic risk).** Barnett–Farber and Farber–Hanbury provide the ordered intersection theory and complete-bipartite ordered Betti calculations. Ramos–Yun Section 3.3 is the strongest comparison: it computes rational representations of both ordered and unordered configurations, and rational toric submodules for ordered \(K_{4,4}\). Neither those statements nor the inspected proofs give a saturated *integral* basis of twelve *unordered* four-cycle product tori or the six-relation integral presentation. Planar generation theorems do not cover \(K_{4,4}\). An inaccessible 2010 thesis and unindexed equivalent work remain residual risks; a failed search is not a proof of novelty.
+PASS
 
-**Value — PASS.** The complete, canonically indexed integral geometric presentation resolves a natural distinction left by rational representation calculations: whether product tori span without a hidden lattice index. The smallest complete bipartite graph capable of holding two disjoint cycles is a motivated test of how geometric torus classes interact with nonplanarity. The explicit basis and all six integral relations are useful for further cycle-level computations, while the claim does not assert a general theorem for larger graphs.
+Use the standard two-particle unordered deleted-product cubical model for K4,4 with 28 vertices, 96 oriented vertex–edge cells and 72 oriented disjoint edge-pair squares, no cells in degree 3. The signed 96x72 boundary has rank 60 over F3, hence rational rank>=60. Construct all 18 tori as products of complementary 4-cycles; each is a 16-term closed integral 2-chain. Twelve selected torus columns indexed (0,1,2,3,4,6,7,8,9,10,12,13) have determinant -1 on the explicitly specified square rows, showing independence and ambient-primitivity. This forces rank_Q boundary<=60, so kernel_Z boundary has rank 12; the full-rank primitive sublattice of Z^72 equals its kernel. Six displayed relations hold as exact integer chain equalities and have unit pivots on each omitted generator 5,11,14,15,16,17, yielding all Z relations. Independent fresh matrix construction reproduced all cell counts, rank_F3=60, determinant -1 and six exact relations. The discretized model applies because K4,4 has enough edges between essential vertices for two particles; no claim for arbitrary K_m,n.
 
-The result is limited to this fixed graph and is not independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Barnett–Farber and Farber–Hanbury supply ordered graph configuration topology and ordered Betti information. Ramos–Yun (2026) investigates stable rational representations of ordered/unordered two-particle configurations on complete bipartite graphs, with a rational ordered torus module for K4,4, but their primary Section 3.3 does not present these 18 UNORDERED geometric torus classes as an INTEGRAL basis or the entire six-generator integral relation lattice. The new integral saturation and signed geometric presentation are substantive refinements, not mere Betti recomputation. An older dissertation might contain equivalent integral homology generators; priority is qualified.
+
+## value
+
+PASS
+
+An explicit primitive integral cycle basis and complete relation module for a natural nonplanar graph configuration space are useful exact geometric and equivariant inputs beyond a mere rational rank. Unit determinant distinguishes possible torsion/saturation, making it a mathematically motivated finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

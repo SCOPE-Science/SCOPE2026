@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The standalone `verify.py` reconstructs the complete unordered two-particle cubical model for the specified graph, using only the standard Python library. It checks the two-cell boundary on all 72 cells, every signed product-torus boundary, all 18 geometric torus cycles, all six complete integer relations, exact finite-field rank 60, and an exact determinant \(-1\) for the specified 12-by-12 coordinate minor.
+# Independent mathematical audit
 
-The implications of the finite certificates are integral and exhaustive **for this fixed graph**: the mod-three matrix rank gives a lower bound on rational boundary rank; the twelve independent cycles give the matching upper bound; the unimodular minor proves primitive full integral generation. The six relations have distinct unit pivot coefficients and so generate the entire relation lattice. The code performs no infinite-parameter inference. The earlier ordered homology and rational representations are supplied as contextual sources, not independently re-proven here.
+## correctness
 
-Run `python3 verify.py`; see `verification_output.txt`. This verification is reproducibility of the stated result, not an independent scientific audit.
+PASS
+
+Use the standard two-particle unordered deleted-product cubical model for K4,4 with 28 vertices, 96 oriented vertex–edge cells and 72 oriented disjoint edge-pair squares, no cells in degree 3. The signed 96x72 boundary has rank 60 over F3, hence rational rank>=60. Construct all 18 tori as products of complementary 4-cycles; each is a 16-term closed integral 2-chain. Twelve selected torus columns indexed (0,1,2,3,4,6,7,8,9,10,12,13) have determinant -1 on the explicitly specified square rows, showing independence and ambient-primitivity. This forces rank_Q boundary<=60, so kernel_Z boundary has rank 12; the full-rank primitive sublattice of Z^72 equals its kernel. Six displayed relations hold as exact integer chain equalities and have unit pivots on each omitted generator 5,11,14,15,16,17, yielding all Z relations. Independent fresh matrix construction reproduced all cell counts, rank_F3=60, determinant -1 and six exact relations. The discretized model applies because K4,4 has enough edges between essential vertices for two particles; no claim for arbitrary K_m,n.
+
+## originality
+
+PASS
+
+Barnett–Farber and Farber–Hanbury supply ordered graph configuration topology and ordered Betti information. Ramos–Yun (2026) investigates stable rational representations of ordered/unordered two-particle configurations on complete bipartite graphs, with a rational ordered torus module for K4,4, but their primary Section 3.3 does not present these 18 UNORDERED geometric torus classes as an INTEGRAL basis or the entire six-generator integral relation lattice. The new integral saturation and signed geometric presentation are substantive refinements, not mere Betti recomputation. An older dissertation might contain equivalent integral homology generators; priority is qualified.
+
+## value
+
+PASS
+
+An explicit primitive integral cycle basis and complete relation module for a natural nonplanar graph configuration space are useful exact geometric and equivariant inputs beyond a mere rational rank. Unit determinant distinguishes possible torsion/saturation, making it a mathematically motivated finite invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
