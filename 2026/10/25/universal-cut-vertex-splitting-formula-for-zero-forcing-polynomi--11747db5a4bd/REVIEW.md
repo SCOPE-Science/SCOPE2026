@@ -1,19 +1,21 @@
-# Review of the cut-vertex splitting theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The proof supplies exact definitions for each of the four local polynomials, with disjoint A/B branch types and a separate root-activation flag. The essential monotonicity lemma establishes deterministic passive closure. Distinguishing initially-blue from initially-white roots yields all-A/exactly-one-B, and excludes precisely the nonactivating white-root cases. The resulting polynomial identity has correct coefficients for every size. The independent global enumerator was compared with the local-state enumerator on 1,974 complete rooted graph assemblies and 23 clique-bouquet checks. Exhaustive finite checks are corroboration, not the proof for infinite graph families.
+PASS
 
-## Originality
+For a rooted one-vertex union of k>=2 finite simple connected nontrivial graphs, inspected the root-suppressed deterministic nonroot closure. An eligible force persists until its target becomes blue, so the saturation is order independent. With initially blue root, nonroot branch states must all be A (self-completing) or exactly one B (needs one root force); at most one root force is possible. With initially white root, first saturate nonroot moves with root held white; completion additionally requires one branch activation alpha=1 to color the root. A/B branches with no activation are removed by barred polynomials. Thus Z(G;z)=(1+z)R((A_i),(B_i))-R((bar A_i),(bar B_i)), with R=prod A_i + sum_i B_i prod_{j!=i} A_j. Independently implemented ordinary global forcing and direct branch-state enumeration, exactly compared all coefficient dictionaries across 1,849 ordered 2-branch rooted assemblies of 43 connected labeled graphs of orders 2..4 plus 125 ordered 3-branch assemblies from 5 rooted graphs of orders 2..3: all 1,974 cases matched. The exact all-graph theorem rests on confluence and complete root-blue/root-white cases, not finite tests.
 
-**PASS with residual bibliographic uncertainty.** Boyer et al. (arXiv:1801.08910, Section 6, Question 1) explicitly request cut-vertex splitting formulas, but their published decomposition is a disjoint-union product rather than a one-point-union identity. Menon and Singh (DOI:10.1016/j.disc.2025.114516) obtain coefficientwise graph-operation comparisons, not the present exact four-state factorization. German (arXiv:2605.10836) establishes path-extremal inequalities, not exact rooted splitting. Special-family enumerations, including friendship graphs and bridge barbells, do not logically entail the unrestricted formula. Search-based comparisons cannot establish uniqueness; older cut-vertex work on minimum zero-forcing numbers was not fully inspected, and independently published equivalent expressions may exist.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result provides a constructive answer to a precisely posed 2018 structural problem for arbitrary one-vertex separators: the entire zero-forcing polynomial is composed from finite rooted-state data. It applies to graph families containing unrestricted cyclic blocks, not merely paths or cliques, and distinguishes whether activation of the cut vertex is needed. This is a motivated structural theorem, rather than an incremental small-graph census or a restatement of a special-family polynomial.
+The full ordinary zero-forcing polynomial and separated-root problem are established mathematics. The original foundational article explicitly poses a cut-vertex splitting formula as a question, and the most relevant later wedge and split-decomposition results inspected establish inequalities or path-extremal reductions rather than unrestricted exact four-state polynomial composition. Best-of-knowledge PASS with historical exact formula risk.
 
-## Boundaries
+## value
 
-The four rooted polynomials can require exponential-time enumeration; no efficient general algorithm or separator-size-two result is claimed. Only the ordinary zero-forcing rule is addressed. Exact duplicate publications remain a bibliographic risk. Independent mathematical audit and validation have not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact full coefficient polynomial at an arbitrary articulation is a significant motivated structural graph invariant theorem, answering a published explicit splitting-formula question. Four constructive rooted state polynomials count root-white activation and handle arbitrary cycles/blocks; it is substantially more informative than minimum forcing number and specialized bouquet formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

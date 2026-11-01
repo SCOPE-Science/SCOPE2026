@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone Python 3 checker `verify.py` requires only the standard library. Execute `python3 verify.py` beside `verify_output.txt`; expected terminal output is exactly the single line recorded in the latter file. The checker compares the direct unrestricted zero-forcing polynomial for each assembled graph against the independently computed four-local-polynomial splitting identity, covering every ordered pair from 43 connected rooted labeled graph instances of orders two through four and every ordered triple from five rooted graph instances of orders two and three. It also compares 23 clique-bouquet examples against their displayed closed form.
+## correctness
 
-All integers and polynomials are computed exactly. The tests enumerate 1,974 rooted assemblies and 23 clique bouquets; they do not establish an infinite identity by themselves. The unrestricted theorem is proved combinatorially in `RESULT.md`, especially the monotonicity of root-suppressed closure and the complete root-blue/root-white case split. No external or independent scientific review has occurred.
+PASS
+
+For a rooted one-vertex union of k>=2 finite simple connected nontrivial graphs, inspected the root-suppressed deterministic nonroot closure. An eligible force persists until its target becomes blue, so the saturation is order independent. With initially blue root, nonroot branch states must all be A (self-completing) or exactly one B (needs one root force); at most one root force is possible. With initially white root, first saturate nonroot moves with root held white; completion additionally requires one branch activation alpha=1 to color the root. A/B branches with no activation are removed by barred polynomials. Thus Z(G;z)=(1+z)R((A_i),(B_i))-R((bar A_i),(bar B_i)), with R=prod A_i + sum_i B_i prod_{j!=i} A_j. Independently implemented ordinary global forcing and direct branch-state enumeration, exactly compared all coefficient dictionaries across 1,849 ordered 2-branch rooted assemblies of 43 connected labeled graphs of orders 2..4 plus 125 ordered 3-branch assemblies from 5 rooted graphs of orders 2..3: all 1,974 cases matched. The exact all-graph theorem rests on confluence and complete root-blue/root-white cases, not finite tests.
+
+## originality
+
+PASS
+
+The full ordinary zero-forcing polynomial and separated-root problem are established mathematics. The original foundational article explicitly poses a cut-vertex splitting formula as a question, and the most relevant later wedge and split-decomposition results inspected establish inequalities or path-extremal reductions rather than unrestricted exact four-state polynomial composition. Best-of-knowledge PASS with historical exact formula risk.
+
+## value
+
+PASS
+
+An exact full coefficient polynomial at an arbitrary articulation is a significant motivated structural graph invariant theorem, answering a published explicit splitting-formula question. Four constructive rooted state polynomials count root-white activation and handle arbitrary cycles/blocks; it is substantially more informative than minimum forcing number and specialized bouquet formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
