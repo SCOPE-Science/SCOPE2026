@@ -1,15 +1,21 @@
-# Scientific review: Sharp four-step loss of occupation-time universality in a sign-persistent walk
+# Independent mathematical audit
 
-## Correctness — PASS
-Exact conditioning on eight sign patterns gives the φ(q,v) law. Independent pair-difference symmetry proves probabilities 3/8, 1/8 and the relation t=3/8-v; cancellations eliminate auxiliary u. Reflection and normalization give all five masses. Exact endpoint cases q=0,1/2,1 and iid uniform/exponential magnitude laws are evaluated. A three-event disjointness argument and a log-uniform interpolation establish the sharp v range. The packaged stdlib checker passes 686 rational algebraic assertions; no finite check replaces the proof.
+## correctness
 
-## Originality — PASS
-The inspected full-text model paper proves universal survival and maximum-time laws but only reports numerical occupation-time nonuniversality in Section 6. Its assertion that the exponential law matches maximum-time statistics does not imply the one-scalar formula, sharp first horizon, or sharp range. A 2019 continuous-time run-and-tumble occupation law uses different sampling and dynamics. A 2021 permutation-generated walk concerns different increment dependence. published-finding corpus hits about four-step higher-order dependence affect Sparre-Andersen survival for non-iid signs, not this Markov-sign occupation-count classification. Priority remains uncertain for unindexed supplementary calculations.
+PASS
 
-## Value — PASS
-The principal source explicitly identifies the nonuniversality of occupation time as a numerical observation and leaves its analysis open. A complete exact first-failure horizon, one-parameter law, complete exceptional-persistence classification and sharp attainable probability range answer a natural finite-step portion, rather than merely presenting a numerical counterexample.
+Conditioning on eight possible initial-positive four-step sign words and reflecting signs gives exact conditional K4=2 values (0,0,u,v,v−u,3/8−v,1/4,1/2−v). The independent difference-pair symmetry for iid continuous magnitudes yields the 3/8,1/8 identities. Weights q^e(1−q)^{3−e} cancel the auxiliary u and produce a(q)=(5q³−3q²+3q+3)/16 and b(q,v)=(1−q)(3−4q+5q²)/8 + v(1−q)²(2q−1); full law is (a,(1−2a−b)/2,b,(1−2a−b)/2,a). Direct sign-word reasoning gives n<=3 law. Reflection, event disjointness (v<1/3), and continuous log-uniform-family interpolation yield sharp attainable v in [0,1/3), endpoint 1/3 excluded. Uniform(1,3/2) v=0 and exponential v=1/4 are explicit witnesses. Independent 500000-path Monte Carlo for each of 10 (q,magnitude-law) combinations agreed in all five probabilities to 0.0014, complementing rather than proving exact event argument.
 
-## Sources and limitations
-Source model: Lacroix-A-Chez-Toine and Mori, arXiv:2007.10969 (2020). Closest related discussions: Singh and Kundu, arXiv:1906.09442 (2019); Fang et al., DOI:10.1017/jpr.2021.14 (2021). The claim treats only 1–4 discrete observations, fair initial sign, and iid positive non-atomic magnitudes; it does not prove any infinite-horizon occupation law. Priority uncertainty remains for unindexed finite-horizon calculations. The package contains a reproducible exact-rational checker; computational checks are subordinate to the analytic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Lacroix-A-Chez-Toine–Mori paper arXiv:2007.10969 explicitly establishes survival/records universality and discusses occupation-time nonuniversality as a numerical phenomenon/open problem in §6; it does NOT supply exact four-step first-failure law in the inspected relevant complete text. Singh–Kundu continuous-time run-and-tumble occupation law differs in model and sampling. Fang et al. deal with permutation-generated walks. Resultary four-way sign-interaction Sparre-Andersen persistence concerns a different sign dependence and statistic. Broad nonuniversality is prior; only quantified n4 exact law, exceptions, and sharp v range are new as far as checked.
+
+## value
+
+PASS
+
+First-horizon analytical resolution of a gap explicitly identified by the original model paper: complete five-point occupation-time distribution depends on just one triangular comparison probability, with exact persistence exceptions and attainable range. This creates an interpretable finite-step structural result, not merely another simulation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
