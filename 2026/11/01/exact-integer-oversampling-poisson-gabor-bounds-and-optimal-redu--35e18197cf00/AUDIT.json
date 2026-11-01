@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "With Fourier convention exp(-2 pi i t xi), the Poisson transform is (pi/w)exp(-2 pi w|xi|). Two geometric series give the exact Zak symbol. Parseval in integer redundant lattice yields precisely sum_{j=0}^{q-1}|Zg(x,omega+j/q)|^2, including multiplicity. Every term is strictly increasing in cos(2 pi x); frequency optimization reduces to a finite hyperbolic sum with unique extremal phases. The resulting exact formula has positive A for every q>=2. The torus symbol is continuous, hence its connected image is the entire frame spectrum. For q=2, the condition-number derivative has a quartic that becomes 4t^4+6t^3-2t^2-5t-2 on t>0; one Descartes sign change plus endpoint signs proves a unique critical point/minimizer. A replayed standalone check ran 951 deterministic assertions. Numerical testing alone proves no infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Janssen (1996) gives general integer-oversampling frame-bound representation and reports calculations for several unspecified windows; full text unavailable.",
+        "Kloos–Stöckler (arXiv:1311.7359) treats other window classes and frame-property criteria.",
+        "Published spline bounds have sharp constants for hat or tent windows but do not cover rational Poisson windows.",
+        "An earlier two-coset time-staggered Poisson bound has full q=2 coverage under dilation, but its two cosets do not cover arbitrary q>=3, where frequency-cell minimizers of q-term sums do not reduce to a single pair of minimizers."
+      ],
+      "reasoning": "Compared whether a general theorem implies our exact hyperbolic constants or optimum as a direct specialization. Generic essential-infimum formulas are not evaluations and require the Poisson-specific Zak formula, spatial monotonicity, finite cosh sum, and quartic optimization. No inspected stronger statement supplies these conclusions. Janssen full-text gap is disclosed rather than dismissed. The q=2 result is explicitly subsumed and excluded from new sharp-constant claims. A general two-coset theorem has no stated all-q version; an arbitrary q-term hyperbolic sum and its global extrema are required.",
+      "searches": [
+        "Gabor Poisson window exact optimal frame bounds integer oversampling hyperbolic",
+        "Janssen \"Some Weyl-Heisenberg frame bound calculations\" Poisson Cauchy Lorentzian 1996",
+        "arxiv:1311.7359",
+        "doi:10.1016/0019-3577(96)85088-9",
+        "2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c",
+        "2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+        "2026/10/11/SCOPE-sharp-shifted-sampling-bounds-and-two-tight-phases-for-asymmetri--acaeec402fe4"
+      ]
+    },
+    "checked_sources": [
+      "Belov–Semenov 2026 arxiv:2610.30037 (available full preprint text)",
+      "Belov–Kulikov–Lyubarskii arxiv:2212.08915 (available full preprint text)",
+      "Kloos–Stöckler arxiv:1311.7359 (available full preprint text)",
+      "Janssen, Indagationes Mathematicae 7 (1996), DOI:10.1016/0019-3577(96)85088-9 (publication abstract only)",
+      "Published sharp Gabor bounds for hat splines and tent splines (public titles and summaries only)",
+      "Accessible prior local scientific claims on complex and harmonic analysis (claim-level overlap comparison only)",
+      "Existing exact two-coset time-staggered Poisson Gabor theorem (claim-level implication comparison; q=2 sharp constants covered by dilation)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Belov–Semenov: frame yes/no for arbitrary semi-regular sets; does not state sharp bounds.",
+        "Belov–Kulikov–Lyubarskii: one-sided Cauchy, not even Poisson.",
+        "Janssen: general sharp bound expression as ess inf and ess sup, which is a premise rather than the particular optimized values.",
+        "Hat-spline and tent-spline records: different compactly supported generators.",
+        "Prior exact Poisson two-coset time-staggering: on dilation, its q=2 frame bounds coincide with the present formulas; hence q=2 sharp constants are fully covered. It does not state q>=3 bounds."
+      ],
+      "reasoning": "Existing qualitative and related-window theorems fail to determine the q>=3 constants. The exact q=2 constants are NOT novel, as verified algebraically via g_{w/2} under dilation. This necessary subtraction of prior coverage leaves the all-q>=3 closed forms and complete spectral intervals as the primary new statement; width minimization at q=2 is a new displayed computational corollary but relies on previously available sharp bounds. The prior frame criterion is too weak to give numerical optimal constants; even a full generic Zak representation does not imply explicit minima, maxima, or unique width without the new Poisson-specific algebra. The Cauchy and spline results cannot be transferred as identical symbols. The inaccessible Janssen paper is the only material unresolved strong comparison.",
+      "searches": [
+        "arxiv:2610.30037",
+        "arxiv:2212.08915",
+        "arxiv:1311.7359",
+        "doi:10.1016/0019-3577(96)85088-9",
+        "width optimization of redundancy-two Poisson Gabor frame condition number quartic polynomial 4y^4-10y^3+4y^2+y-1, unique minimizer",
+        "2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c",
+        "2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For integer density 1/q, the Gabor operator is a multiplication operator in Zak coordinates, with scalar multiplier sum_{j=0}^{q-1}|Zg(x,omega+j/q)|^2.",
+        "The motivating arXiv:2610.30037 gives a frame-property criterion for the same Poisson profile rather than explicit multiplier extrema.",
+        "The one-pole Cauchy kernel in arXiv:2212.08915 has distinct one-sided frequency support; it is not identical to the even two-pole Poisson kernel.",
+        "Earlier exact Poisson frame bounds for integer modulations and two time-translation cosets at half-offset imply exactly the q=2 bounds after dilation and division by 8, so q=2 constants have explicit prior coverage."
+      ],
+      "reasoning": "A unitary dilation by factor 1/2 maps a previous time-staggered Poisson system to the q=2 modulation-oversampled lattice: U_{1/2}g_{w/2}=2 sqrt(2)g_w, so the old sharp constants divided by 8 equal the present q=2 formulas. This is explicitly treated as prior coverage. No such implication is available for q>=3 from the two-coset theorem. The additional exact all-q hyperbolic sum and q=2 optimal width are separately proved.",
+      "searches": [
+        "Poisson kernel g(t)=(t^2+w^2)^{-1}, exact optimal Gabor frame bounds for lattice Z by q^{-1} Z; sum of squared Zak transforms yields sinh ratio and two extremizers",
+        "Poisson kernel Gabor frame sharp optimal lower upper frame bounds redundancy two M=half integer translations integer exact Zak hyperbolic cosh",
+        "Cauchy Poisson window Gabor frame bounds oversampling factor two explicit Zak transform minimum maximum",
+        "arxiv:2610.30037",
+        "arxiv:2212.08915"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant published mathematical summaries found exact Gabor values for splines, other cyclic windows, or Gaussian problems, but none yielded a Poisson formula with these parameters.",
+        "No table with the specific quartic optimizer or the all-q hyperbolic bounds was located by these comparisons."
+      ],
+      "reasoning": "Searched exact parameterization and transformed hyperbolic expressions, as well as aliases Poisson/Lorentzian/even rational/Cauchy. A database absence is not a uniqueness proof; a historical missing complete article remains a named risk.",
+      "searches": [
+        "Poisson kernel g(t)=(t^2+w^2)^{-1}, exact optimal Gabor frame bounds for lattice Z by q^{-1} Z; sum of squared Zak transforms yields sinh ratio and two extremizers",
+        "width optimization of redundancy-two Poisson Gabor frame condition number quartic polynomial 4y^4-10y^3+4y^2+y-1, unique minimizer",
+        "sharp Gabor frame bounds for the Poisson kernel t^2+w^2 inverse at every integer oversampling q exact hyperbolic sinh coth formulas",
+        "Poisson kernel Gabor rectangular lattice time step one modulation step 1/q optimal lower upper constants sinh(2 pi w)/sinh(2 pi w/q)",
+        "2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c",
+        "2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148"
+      ]
+    },
+    "rationale": "The new sharp-constant portion concerns every integer q>=3 for the even Poisson window, plus the explicitly optimized q=2 width as a corollary. An accessible historical claim for two staggered time-translation cosets with integer modulations already implies the q=2 bounds by unitary dilation, so q=2 sharp constants are not novel and are not counted toward O. The same earlier statement does not cover the q>=3 frequency-oversampled family. Belov–Semenov proves qualitative frame status; generic Janssen/Zak machinery does not evaluate the Poisson symbol at all q. The inaccessible 1996 Janssen complete text remains the material originality risk.",
+    "residual_risks": [
+      "Janssen (1996), full text not accessible: its abstract concerns several unspecified windows and exact integer-redundancy frame bounds, so implicit direct coverage cannot be excluded.",
+      "Unindexed or unpublished explicit Poisson-window frame-bound evaluations may exist.",
+      "Publicly indexed record summaries cannot rule out stronger theorems hidden in uninspected complete articles.",
+      "The q=2 constants are derivable from a previously obtained staggered-time result, so they do not independently establish originality; originality rests on the q>=3 all-integer family."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes a qualitative frame criterion and applications, but does not supply exact optimal lower/upper lattice bounds, full scalar spectrum or unique width optimizer.",
+        "evidence": "Belov and Semenov, public arXiv submission 2026-10-21; its main theorem classifies frame status for M × αZ rather than optimizing a Poisson Zak-fiber symbol.",
+        "identifier_or_url": "https://arxiv.org/abs/2610.30037",
+        "material_read": "Full available preprint text including setup, frame-property criterion and proof sections.",
+        "method": "Lawful open-access preprint HTML inspection.",
+        "title": "Irregular Gabor Frames for the Poisson Kernel",
+        "trigger": "Same Poisson window and overlapping semi-regular frame problem with arbitrary frequency sets."
+      },
+      {
+        "assessment": "Its generator is one-sided Cauchy, not the symmetric two-pole even Poisson generator. Neither the symbol nor its extrema give the present two-sided Poisson formulas.",
+        "evidence": "Belov, Kulikov and Lyubarskii, arXiv:2212.08915; Cauchy generator has one-sided exponential Fourier transform whereas the present g_w has an even two-sided exponential Fourier transform.",
+        "identifier_or_url": "https://arxiv.org/abs/2212.08915",
+        "material_read": "Available full arXiv HTML discussion of the Cauchy-window frame operator and bounds.",
+        "method": "Lawful open-access preprint HTML inspection.",
+        "title": "Gabor frame operator for the Cauchy kernel",
+        "trigger": "Closely related one-pole rational time-frequency window; possible stronger explicit frame bounds."
+      },
+      {
+        "assessment": "General frame/Zak principles are acknowledged; the paper does not evaluate the Poisson-specific all-q hyperbolic extrema or optimize its width.",
+        "evidence": "Kloos and Stöckler, arXiv:1311.7359, focuses on totally positive functions and exponential B-splines.",
+        "identifier_or_url": "https://arxiv.org/abs/1311.7359",
+        "material_read": "Available full arXiv HTML with Zak-transform methods and spline/totally-positive family results.",
+        "method": "Lawful open-access preprint HTML inspection.",
+        "title": "Zak transforms and Gabor frames of totally positive functions and exponential B-splines",
+        "trigger": "Potential broad Zak transform frame criteria and explicit special-function symbols."
+      },
+      {
+        "assessment": "Abstract reports sharp frame-bound calculations for several unspecified windows at integer redundancy, but it is unknown whether the even Poisson window is among them. No not-covering inference is drawn from an unread complete article.",
+        "evidence": "Janssen (1996), Indagationes Mathematicae 7, 165–183; abstract says “several” windows and general complementary-lattice method without identifying every profile.",
+        "identifier_or_url": "https://doi.org/10.1016/0019-3577(96)85088-9",
+        "material_read": "Publication record and abstract only; full text not obtained.",
+        "method": "Bibliographic/abstract inspection; bounded open-access and institutional retrieval attempts unsuccessful.",
+        "title": "Some Weyl–Heisenberg frame bound calculations",
+        "trigger": "Potential direct predecessor on exact integer-redundancy frame bounds, with an especially broad title."
+      },
+      {
+        "assessment": "The input is a compactly supported hat spline and its parameter is lattice dilation, not the Poisson width or the all-q Poisson formula.",
+        "evidence": "The published summary reports hat-spline frame bounds over a restricted lattice range and a quadratic collapse.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-gabor-frame-bounds-and-quadratic-collapse-for-the-hat-spli--c8f151d17e5c",
+        "material_read": "Published title and scientific summary, not the full paper.",
+        "method": "Public mathematical-record summary comparison.",
+        "title": "Sharp Gabor frame bounds and quadratic collapse for the hat spline at half-density",
+        "trigger": "Semantic record returned for exact Gabor bounds at redundancy two."
+      },
+      {
+        "assessment": "Its compactly supported tent spline has a frame obstruction and parameter onset absent in the strictly positive Poisson frame profile.",
+        "evidence": "The published summary studies q-dependent threshold b=2+1/(2q) and quadratic onset, with a different generator.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-quadratic-onset-of-the-tent-spline-gabor-lower-frame-bound--9587a4647148",
+        "material_read": "Published title and scientific summary, not the full paper.",
+        "method": "Public mathematical-record summary comparison.",
+        "title": "Sharp quadratic onset of the tent-spline Gabor lower frame bound",
+        "trigger": "Semantic record returned for integer-oversampling sharp Gabor bounds."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "35e18197-cf00-4a9d-a35e-919448763f16",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The quantitative frame problem for Poisson windows is natural. The new sharp bounds for every integer q>=3 form an unbounded family of exact frequency-oversampled stability constants and full frame spectra not supplied by a qualitative frame criterion or a prior two-coset result. The calculation requires a Poisson-specific Zak symbol, global monotonicity and a finite hyperbolic-sum optimization. The q=2 optimal width is useful but is explicitly distinguished from the already-covered q=2 frame constants. The result is not an arbitrary cutoff or merely a finite computation.",
+    "status": "PASS"
+  }
+}
