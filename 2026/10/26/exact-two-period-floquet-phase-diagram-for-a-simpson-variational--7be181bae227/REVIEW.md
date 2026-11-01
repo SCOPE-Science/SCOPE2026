@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The stated map is the canonical harmonic-oscillator Simpson step in dimensionless coordinates. Exact polynomial factorization proves the full strict Floquet classification, and the monotone off-diagonal ratio resolves all neutral boundaries. The reciprocal-product identity and local resonance exponent are proven algebraically. The executable exact-rational polynomial verifier reports success. No finite test is substituted for an infinite statement.
+## correctness
 
-**Originality — PASS on examined evidence.** The 2023 primary work derives the constant-step symplectic map, fixed-step stability and preserved modified energy. It does not present an alternating-step Floquet phase diagram. Skeel's 1993 result shows variable-step Störmer/Verlet instability, which motivates the question but does not determine this method's exact two-parameter stability region. The accessible summary of the 2024 general-quadratic Simpson follow-up describes a fixed-step implicit scheme and multidegree-of-freedom benchmarks, not the stated switching result. Semantic database searches found no matching implication. The inaccessible complete follow-up and classical literature are residual originality risks, not claimed absence-of-evidence proofs.
+PASS
 
-**Value — PASS.** The complete two-step switching classification directly addresses whether fixed-step symplectic energy control survives periodic step adaptation. It identifies both a sharp resonance with arbitrarily small perturbations and a nontrivial stable curve under large changes of steps. These are structural design boundaries for a recently proposed geometric integrator rather than an arbitrary sample computation.
+Re-derived one-step M(s) directly from source Eq. (26) in scaled momentum-position coordinates; verified det M=1 by exact identity A²+BC=4D², and independently factored tr(M(t)M(s))±2 with multivariate exact polynomial arithmetic. In the open square (0,sqrt(8))², Q=s²t²−8(s+t)²+192>0 by negative partial derivatives and zero corner limit, so trace<2. The sign of Δ=F(s,t)F(t,s) is therefore equivalent to strict elliptic/hyperbolic 2x2 symplectic classification. Boundary trace −2 has Jordan growth except P=−I; monotonic positive off-diagonal magnitude ratio enforces s=t=s0. Substituting st=4 makes both F factors negative. Antisymmetric expansion near s0 gives tr P=−2−gamma²δ²+O(δ^4) and log spectral radius=gamma|δ|+O(|δ|³). Checked rational stable/unstable witnesses and exact identities; proof handles all continuous parameters.
 
-**Limits.** The exact theorem is restricted to the specified one-mode canonical map and repeated two-step switching; it does not establish general adaptive-scheme, nonlinear, or floating-point results. Published methods may use different variable-step conventions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dubois and Rojas-Quintero provide precisely the one-step Simpson map, symplecticity and step-dependent conserved energy, but their inspected source does not analyze composing distinct steps. Skeel documents variable-step instability for another method (Verlet), which establishes the phenomenon generally without this Simpson-specific exact two-period polynomial diagram and resonance coefficient. Closest 2024 quadratic-Lagrangian followup describes implicit integration, not the same explicit canonical two-step product. Qualified originality; possible specialized older Floquet calculation.
+
+## value
+
+PASS
+
+Alternating individually stable symplectic time steps can become hyperbolically unstable. The exact phase region, neutral Jordan versus semisimple boundaries, protected reciprocal-step curve and sharp first-order resonance law provide a nontrivial parameter-selection/stability result for a named integrator beyond conventional fixed-step analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
