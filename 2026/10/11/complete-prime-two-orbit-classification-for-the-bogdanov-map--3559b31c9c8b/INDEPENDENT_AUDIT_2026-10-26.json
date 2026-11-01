@@ -1,0 +1,183 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T00:12:15Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md Git blob 532d956f1e73baa59e1f51a2e7fd22b609ffa6ee",
+        "Pinned verify_period2.py Git blob e86cee227c4222c11e33bfa705ffbd68f976259b, read but no reliance solely on exit code",
+        "Independent checks in independent_checks.py and independent_checks.json: derivation, three special-curve identities and five exact sample points",
+        "Actual Git source tree 1f1606fa1e7c884f2db3fe56df477f19ebd265c7 with seven individually inspected file blobs"
+      ],
+      "rationale": "Independently reconstructed the exact least-two equations from x_next=x+Y. For p0=(u,-d), p1=(v,d), d=v-u≠0, the two Y updates lead to E1=d(2+epsilon+mu*u)-k*u(u−1)=0, E2=−d(2+epsilon+mu*v)-k*v(v−1)=0. Their independent difference is d[(k+mu)S−k+4+2epsilon], and sum equals −1/2[(k+2mu)d²−kS(2−S)]. Because d≠0 and sum/difference are invertible, the two constraints are fully necessary and sufficient. Exhaustive case splits on k, k+mu and k+2mu yield generic R>0 one orbit, R≤0 none; at μ=−k/2 and k≠0, S=0 or S=2 produce exactly two reflection lines only at stated ε; at μ=−k and k≠0, required ε yields d²=S(S−2) and the Möbius-invariant smooth hyperbola; at k=0 the equations force μ=0, ε=−2 and a global involution. The two d signs encode the same 2-cycle. Excluded origin/(1,0) are exactly F-fixed points on special curves. All nonfixed points on special curves satisfy F²=id; differentiating along smooth invariant curves gives multiplier 1. Independent SymPy derives the sum/difference constraints, computes F on each curve and verifies pointwise F²=id plus the global involution, using exact arithmetic. Finite examples corroborate, not substitute for universal reversible derivation.",
+      "residual_risks": [
+        "No stability classification for the unique generic two-cycle is claimed, beyond nonhyperbolicity along the exceptional continua.",
+        "The classification is for all real parameters and least period two only; no claim about larger periods, global attraction, generic bifurcation unfolding or chaos."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Djellit–Boukemara (2004) local period-doubling and numerical attractor diagrams do not state a full parametric two-cycle census.",
+          "Coomes, Koçak & Palmer (2026), \"A Computable Criterion for the Existence of Homoclinic Tangencies\", treats the μ=0 Bogdanov slice and homoclinic intersection/tangency for periods 3,4,5 rather than exact all-parameter period-two points.",
+          "Arrowsmith et al. 1993 introductory abstract names mode-locking, Hopf and Hénon connection but no explicit all-parameter coverage; source unavailable in full and assessed only to abstract level."
+        ],
+        "reasoning": "No inspected published theorem with assumptions encompassing arbitrary real (k,mu,epsilon) yields both generic uniqueness and the exact three exceptional full-curve families. A local flip bifurcation condition epsilon=k/2-2 without the transverse condition mu=-k/2 cannot imply an entire pointwise F²-fixed line.",
+        "searches": [
+          "Bogdanov map period doubling two cycles analytical fixed points F squared Hénon conjugacy",
+          "quadratic Bogdanov map exact period 2 orbit classification k mu epsilon",
+          "Bogdanov map Arrowsmith paper pdf chao dyn 9402006v3",
+          "https://faculty.kfupm.edu.sa/math/akca/papers/djellit-i.pdf",
+          "https://link.springer.com/article/10.1007/s10884-026-10533-y"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:chao-dyn/9402006; doi:10.1142/S021812749300074X",
+        "https://faculty.kfupm.edu.sa/math/akca/papers/djellit-i.pdf",
+        "https://www.math.u-szeged.hu/ejqtde/p564.pdf",
+        "https://link.springer.com/article/10.1007/s10884-026-10533-y",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-prime-two-orbit-classification-for-the-bogdanov-map--3559b31c9c8b",
+        "Resultary semantic searches: Bogdanov map real three parameter complete period two cycles exceptional curves involutions hyperbola | Bogdanov map period doubling two cycles analytical fixed points F squared Hénon conjugacy | quadratic Bogdanov map exact period 2 orbit classification k mu epsilon"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2004 flip equality epsilon=k/2-2 matches only one scalar condition of the S=0 full-line family, which additionally requires mu=-k/2; local flip does not imply a continuum of two-cycles.",
+          "The 2011 Bogdanov example at (k,mu,epsilon)=(1.44,-0.1,0.0025) concerns attractor basins and does not determine generic prime-two orbit counts.",
+          "The published Bogdanov covariance theorem proves that equality in a variance inequality forces period at most two; it is a necessary dynamical condition, not a sufficient algebraic orbit classification or a count of all period-two points.",
+          "The conservative Hénon conjugacy is a special parameter slice and cannot imply the full three-parameter census or μ=-k and μ=-k/2 exceptional families."
+        ],
+        "reasoning": "Check logical directions: the new theorem explicitly solves F²p=p, Fp≠p for every real parameter, whereas local bifurcation, recurrence rigidity and invariant-measure moment identities do not solve these equations or identify precisely where their solution sets become curves. No strong prior implication was established.",
+        "searches": [
+          "Bogdanov map period doubling two cycles analytical fixed points F squared Hénon conjugacy",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e",
+          "https://faculty.kfupm.edu.sa/math/akca/papers/djellit-i.pdf",
+          "https://www.math.u-szeged.hu/ejqtde/p564.pdf",
+          "arxiv:chao-dyn/9402006; doi:10.1142/S021812749300074X",
+          "https://link.springer.com/article/10.1007/s10884-026-10533-y"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Djellit–Boukemara (2004) gives precisely F(x,y)=(x+Y,Y), Y=(1+epsilon+mu*x)*y+k*x*(x-1), establishing a local origin-flip condition epsilon=k/2-2 but not the global pair equations or exceptional continua.",
+          "Arrowsmith et al. (1993) abstract describes classical map and a conservative Hénon conjugacy restricted to a special slice; original full text is unavailable.",
+          "Full Resultary Bogdanov invariant-measure theorem derives Cov(x,y)=Var(y)/2, with equality implying T²=id on measure support; explicitly it does not classify all two-cycles or their parameter loci."
+        ],
+        "reasoning": "The relevant equivalent coordinates are (u,v), their sum S and nonzero difference d, and fixed points of F² excluding F-fixed points. The Hénon-conjugate conservative subfamily and the covariance/equality implication do not entail the exhaustive three-parameter system (k+mu)S=k-4-2epsilon, (k+2mu)d²=kS(2-S), nor its exceptional divisors.",
+        "searches": [
+          "Bogdanov map real three parameter complete period two cycles exceptional curves involutions hyperbola",
+          "Bogdanov map period doubling two cycles analytical fixed points F squared Hénon conjugacy",
+          "\"Bogdanov map\" \"period-2\" orbits equation",
+          "\"Bogdanov map\" \"period two\" \"mu\" epsilon",
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary hit for the three searches is the assigned result itself at https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-prime-two-orbit-classification-for-the-bogdanov-map--3559b31c9c8b; it is excluded as independent prior coverage.",
+          "Another same-map published Resultary record https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e concerns invariant-measure covariance and rigidity, not a table of period-two locations.",
+          "Other ranked exact period-two tables concern Duffing, Tinkerbell, Rulkov, Gumowski–Mira and other distinct systems, not the Bogdanov family.",
+          "Neither 2004 nor 2011 full primary PDF exhibits the all-parameter exact classification table."
+        ],
+        "reasoning": "Explicit database phrase/semantic queries and relevant tables yielded no independent record exactly or implication-wise covering the three branches, but indexing/search failure is expressly not treated as proof of novelty.",
+        "searches": [
+          "Bogdanov map real three parameter complete period two cycles exceptional curves involutions hyperbola",
+          "Bogdanov map period doubling two cycles analytical fixed points F squared Hénon conjugacy",
+          "quadratic Bogdanov map exact period 2 orbit classification k mu epsilon",
+          "\"Bogdanov map\" \"period-2\" orbits equation",
+          "\"Bogdanov map\" \"period two\" \"mu\" epsilon",
+          "\"Bogdanov map\" involution hyperbola two-cycle",
+          "Bogdanov map exact period-two orbit classification quadratic two dimensional map Hamiltonian discrete dynamics"
+        ]
+      },
+      "rationale": "Best-of-knowledge new parameter-wide classification of all real least-period-two orbits of the exactly defined Bogdanov map. The primary 2004 full text analyzes a local flip curve and numerical bifurcations, not the complete global solution for all (k,mu,epsilon). The 2011 full text is a numerical basin study at one parameter point. A contemporary full HTML study treats a two-parameter homoclinic-tangency problem. Full mathematical text of the 1993 introducing paper was inaccessible and remains a concrete historical-priority risk, not affirmative coverage. The exact published Resultary mirror is the same assigned finding and therefore not independent prior work. A distinct Resultary finding on invariant-measure covariance proves equality rigidity onto period-two dynamics but does not classify locations or the parameter locus of all two-cycles. No inspected external result was found to imply the census; failed searches alone are not novelty proof.",
+      "residual_risks": [
+        "Complete 1993 Arrowsmith–Cartwright–Lansbury–Place text remained inaccessible: a section/appendix could contain a period-two result or an implication; only abstracts were inspected, and no full-text exclusion is asserted. Institutional route returned vpn_disconnected and requires user-controlled connection.",
+        "An older unindexed algebraic study in a different Bogdanov/Hénon/Takens coordinate convention might imply the three-parameter classification.",
+        "Resultary includes the exact mirror of this assigned finding, excluded as its publication rather than independent prior evidence; corpus searches are not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for accessible full text: local and numerical treatments, not global prime-two orbit census.",
+          "evidence": [
+            "Same (k,mu,epsilon) map with origin flip ε=k/2−2, but no transverse cancellation μ=−k/2 or hyperbola classification.",
+            "PDF 16 pages: https://faculty.kfupm.edu.sa/math/akca/papers/djellit-i.pdf"
+          ],
+          "identifier_or_url": "https://faculty.kfupm.edu.sa/math/akca/papers/djellit-i.pdf",
+          "material_read": "All 16 PDF pages: map definition, equilibrium multiplier derivations, origin flip line epsilon=k/2-2, numerical bifurcation/attractor figures, conclusion and references.",
+          "method": "Lawful open-access primary PDF; extracted/full page text and visual page screenshot inspected.",
+          "title": "Bifurcations and Attractors in Bogdanov Map",
+          "trigger": "Same exact three-parameter polynomial Bogdanov map and origin period-doubling threshold"
+        },
+        {
+          "assessment": "NOT_COVERING: selected-parameter attractor/basin calculation, no universal algebraic period-two classification.",
+          "evidence": [
+            "§6.2 numerical Bogdanov example and basin plots, not all (k,mu,epsilon).",
+            "https://www.math.u-szeged.hu/ejqtde/p564.pdf"
+          ],
+          "identifier_or_url": "https://www.math.u-szeged.hu/ejqtde/p564.pdf",
+          "material_read": "All 11 PDF pages, including §6.2 Bogdanov example at (k,mu,epsilon)=(1.44,-0.1,0.0025), methods, figures, conclusion.",
+          "method": "Lawful open-access full article, extracted text inspected with page screenshot.",
+          "title": "Attractors and basins of dynamical systems",
+          "trigger": "Same Bogdanov family and numerical periodic/attractor information"
+        },
+        {
+          "assessment": "FULL_TEXT_INACCESSIBLE, no whole-paper NOT_COVERING verdict. Named residual historical priority risk; does not alone force scientific FAIL.",
+          "evidence": [
+            "Arrowsmith, Cartwright, Lansbury, Place, International Journal of Bifurcation and Chaos 3 (1993) 803–842, DOI 10.1142/S021812749300074X.",
+            "Available abstracts emphasize bifurcations, invariant circles, mode locking, conservative Hénon correspondence; absence of listed prime-two theorem in abstracts is NOT proof of absence from the article."
+          ],
+          "identifier_or_url": "arxiv:chao-dyn/9402006; doi:10.1142/S021812749300074X",
+          "material_read": "Public arXiv bibliographic/version history and abstract; publisher landing abstract. NOT full text.",
+          "method": "Tried original arXiv/OA/preprint and alternate lawful mirrors without successful complete PDF; authorized institutional retrieval attempted and returned vpn_disconnected with manual connection required; no bypass.",
+          "title": "The Bogdanov Map: Bifurcations, Mode Locking, and Chaos in a Dissipative System",
+          "trigger": "Founding 1993 work on exactly this map; possible significant historical priority"
+        },
+        {
+          "assessment": "NOT_COVERING: specialized μ=0 homoclinic tangency criteria/period-three-to-five numerical/computable problem, not global prime-two classification.",
+          "evidence": [
+            "Coomes, Koçak, Palmer (2026), published Sept 23, 2026, Springer DOI 10.1007/s10884-026-10533-y; the μ=0 subfamily is strictly narrower."
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s10884-026-10533-y",
+          "material_read": "Accessible full HTML article: hypotheses, map/slice definition, principal tangency theorem, computations and applications.",
+          "method": "Primary publisher open-access full HTML materially inspected.",
+          "title": "A Computable Criterion for the Existence of Homoclinic Tangencies",
+          "trigger": "Very recent mathematical literature on the Bogdanov map and higher-period homoclinic trajectories"
+        },
+        {
+          "assessment": "NOT_COVERING: covariance/variance invariants characterize equality measures supported on period-two dynamics without classifying all prime-two points.",
+          "evidence": [
+            "The proof gives Cov(x,y)=Var(y)/2 and T²=id a.s. for equality measures; limitations explicitly disclaim complete location/stability classification of two-cycles."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-covariance-geometry-and-fixed-point-strip-excursion-in-the--f51d19a4fa5e",
+          "material_read": "Entire published RESULT.md, including all statements, proof, equality argument and limitations.",
+          "method": "Read GitHub pinned published text through read-only repository connector.",
+          "title": "Exact covariance geometry and fixed-point-strip excursion in the Bogdanov map",
+          "trigger": "Same polynomial map and explicit period-two equality rigidity, possible implication to orbit census"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Pinned RESULT.md theorem/proof/three exceptional branches",
+        "Djellit–Boukemara 2004 same-map local flip and bifurcation study",
+        "Arrowsmith et al. 1993 founding map introduction/abstract; full-text risk stated",
+        "Other Bogdanov published invariant-measure result: equality on two-cycles without global location census"
+      ],
+      "rationale": "The full period-two orbit locus of the standard three-parameter quadratic Bogdanov map is a natural dynamical invariant with direct relevance to period-doubling continuation and singular bifurcation boundaries. Explicitly identifying exactly when the number changes from zero/one isolated orbit to uncountably many, and discovering the two reflection-line continua plus a Möbius-involution hyperbola, is a motivated complete parameter classification rather than a textbook generic flip threshold or arbitrary parameter experiment. The two algebraic constraints provide a concise exact description valid even at singular denominator parameter values. Identifying the common global involution and proving a unit tangent multiplier gives structural information useful when analyzing perturbations; no larger general theorem or paper-sized result is required for this exact natural classification.",
+      "residual_risks": [
+        "Significance is limited to period two; it does not prove a new global chaotic invariant or quantify unfolding near degeneracies."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Original founding 1993 paper full text was not obtained despite arXiv/OA and authorized institutional attempt (vpn_disconnected); no inference of NOT_COVERING from its abstract.",
+    "No statement about period >=3, global attractors or stability away from exceptional continua.",
+    "Publication not_ready is an operational privacy/guarded-file delivery limitation rather than scientific incompleteness."
+  ],
+  "schema_version": 1
+}
