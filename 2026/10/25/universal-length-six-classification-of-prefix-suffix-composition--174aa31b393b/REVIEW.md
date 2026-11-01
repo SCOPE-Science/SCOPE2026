@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reduces a deck to two unordered inward Parikh paths and establishes a unique-matching lemma whenever both path vertices are separated at consecutive depths. At length six, an independent choice modulo reversal requires two separated excursions joined at depth two; this forces and completely classifies the four-word fibers. Counting palindromes and reversal doubletons gives the exact distribution for every finite alphabet size. The standard-library checker independently computes two deck representations and tests all fibers for alphabet sizes two through seven and word lengths one through six. Finite checks do not establish the unrestricted alphabet case; the matching lemma and case analysis do.
+PASS
 
-## Originality — PASS, with residual risk
+The deck separates by substring length and determines the total Parikh vector T and unordered inward prefix/suffix path vertices {L_i,R_i}. Complement identities L_(n-i)=T-R_i, R_(n-i)=T-L_i reconstruct outer layers; at odd n the central symbol T-L_m-R_m is forced and must be one unit vector. When successive layer vertices A!=B and C!=D, both perfect matchings cannot simultaneously use only unit-coordinate increments, because they would force two distinct target vertices to agree. Thus orientation is unique across each non-meeting interval, with independent exchanges only at levels of equal vertices. For n<=5 there is at most one nontrivial separated excursion, hence one reversal orbit; for n=6 a second separated excursion requires L1!=R1, L2=R2, L3!=R3, exactly the displayed four words. The length-one deck and length-three difference from the common length-two vector recover the unordered outer pair and unordered center pair, ensuring distinct fiber indexing. Palindromes give q^3 unique singleton decks; others not in quadruples pair under reversal, yielding the exact formula. Independent DIRECT enumeration of full multiset decks for q=2,3,4,5 gives lengths-six totals 35,369,2044,7775 and the exact (1,2,4)-fiber counts for all four sizes. The finite tests support, but do not prove, the universal q statement.
 
-Ye–Elishco (arXiv:2208.14963, Example III.6 and Corollary III.12) proves the binary minimal collision and the binary short-length reconstruction threshold; these are acknowledged as prior. The present claim adds all alphabet sizes, a canonical bijection of four-word fibers with ordered pairs of two-element subsets, the full exact fiber distribution and the resulting code cardinality. The inspected Gabrys–Pattabiraman–Milenkovic source (arXiv:2110.02352) addresses binary multistring reconstruction and rates; the inspected Chen work (arXiv:2503.12342) addresses binary error correction. Searches of mathematical records and published sources did not identify the alphabet-uniform formula. Unknown equivalences under alternate terminology remain a risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The first failure length and complete obstruction families are intrinsic reconstruction properties. In contrast to merely counting a few words, the theorem provides a full alphabet-uniform classification, an exact zero-error code-size benchmark and genuinely four-symbol collision families that cannot arise by binary relabeling. The result is limited to lengths through six; it does not claim an asymptotic extension.
+Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. The full binary n=6 collision is credited; its all-q classification and new four-symbol q=4 fibers are not implied by a binary-only theorem.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural exact polymer/string-observation reconstruction problem has a sharp first ambiguity at length six; the complete q-ary fiber and code-capacity classification is an exact structural invariant useful independently of broader code construction questions. The q=4 four-symbol fibers and binomial-pair distribution cannot be inferred merely by relabeling the known binary collision.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
