@@ -1,0 +1,239 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T15:11:27Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Full assigned RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py and all seven source files at assigned source snapshot",
+        "Independent_forest_check.py independently enumerating induced graph vertex masks"
+      ],
+      "evidence": [
+        "Assigned RESULT.md Git blob 60a5a95a523811fe622f88cabbde5b82bf9fd7e6 contains explicit fully quantified formula, classification and disjoint case counts.",
+        "Assigned verify.py blob ea9a64208f647ce85337abca7d1e34a136baabf0 separately implements union-find enumeration; saved VERIFY_OK is not the sole proof.",
+        "Independent_forest_check.py and independent_forest_results.json created this run: exact DFS cycle/component test, 163 triples, 413040 subsets, 326 path comparisons, crowns 3..9 all PASS.",
+        "Source tree reconstructed from 7 exact Git blob SHA-1 identities with regular file modes; actual assigned tree 43891157ed44d63c79ea2ae0215d3cb5ccafdceb."
+      ],
+      "rationale": "For a selected subset with a left vertices, b right vertices and d missing matching pairs, the induced graph has ab-d edges with d<=min(a,b,t). If a,b>=3, any selected 3-by-3 contains at least 9-3=6 edges on six vertices, hence a cycle; if (a,b) dominates (2,4) or (4,2), the 2-by-4 subgraph has at least 8-2=6 edges on six vertices, hence a cycle. The only forest cases left are subsets contained in one side; subsets with exactly one vertex of one side (a star possibly plus its unique nonadjacent matched vertex); (2,2) with precisely one missing matching pair yielding P4 or two missing pairs yielding 2K2; and (2,3)/(3,2) with exactly two missing matching pairs yielding P5. The one-small-side generating-function terms count unmatched/matched center choices and an isolate when the partner is selected; both directions double-count exactly (1,1) cross selections, whose adjacent/nonadjacent weights are subtracted. The one- and two-missing-edge 2-by-2 counts are t(p-1)(q-1)-t(t-1) and binom(t,2); the 2-by-3 count is binom(t,2)(p+q-4). This gives the asserted Phi for all p,q>=2 and 0<=t<=min(p,q). P4/P5 and maximum-induced-forest/feedback vertex consequences follow by reading coefficients, with crown special values (6,32,2n for n=3,4,n>=5). Independent new standard-library DFS enumeration for 163 parameter triples and 413040 vertex subsets confirmed all bivariate coefficients and both path counts, plus crown maxima n=3..9. A bounded check is corroboration only; the general theorem comes from exhaustive mathematical category proof.",
+      "residual_risks": [
+        "Finite regression reaches p,q<=7 only; no exhaustive computation over all p,q.",
+        "Closed form depends essentially on the deleted edges forming a MATCHING, not arbitrary removed bipartite edges; graph vertices considered labeled but forest subsets unlabelled only by chosen vertex set."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Barton et al. 2022 gives graph-generic structural observations and exact acyclic polynomial examples for complete graphs/cycles, with no located crown/partial-crown matching deletion formula in 36-page searchable PDF; generic definition alone does not yield explicit coefficients.",
+          "Chappell–Pelsmajer 2013 studies extremal induced forest order in bounded treewidth classes and not the proposed exact order-and-components coefficients.",
+          "Axenovich et al. 2018, Proposition 3 proof, notes forests in K_{k,k+1} must be stars for induced edge-arboricity. It does not treat all forest vertex subsets of K_{p,q}-M_t."
+        ],
+        "reasoning": "The known broader properties bound or algorithmically count different objects; a graph-polynomial definition or general graph enumeration technique is not a pre-existing symbolic specialization fixing the submitted three-parameter forest coefficients. The previously published exact P4 counts are explicitly carved out as covered consequences rather than newly credited.",
+        "searches": [
+          "Induced forests and feedback vertex sets of matching-deleted bicliques partial crown graph exact enumeration induced P4 P5",
+          "forest generating polynomial crown graph K n n minus perfect matching induced forest component count",
+          "arXiv:1803.02152 induced and weak induced arboricities",
+          "doi:10.37236/3826 maximum induced forests of bounded treewidth",
+          "Barton–Brown–Pike 2022 acyclic polynomial general graphs",
+          "Tittmann et al. 2011 subgraph component polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+        "Barton, Brown & Pike (2022), Acyclic polynomials of graphs, https://ajc.maths.uq.edu.au/pdf/82/ajc_v82_p146.pdf",
+        "Tittmann, Averbouch & Makowsky (2011), arXiv:0812.4147",
+        "Liao & Hou (2014), arXiv:1311.6856",
+        "Axenovich, Dörr, Rollin & Ueckerdt (2018), arXiv:1803.02152",
+        "Chappell & Pelsmajer (2013), DOI:10.37236/3826",
+        "Resultary published-record semantic searches, three different queries for bivariate forest, FVS and acyclic polynomial aliases",
+        "Web searches for crown-graph forest/acyclic polynomials, matching-deleted bicliques and component enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier non-CIS-pair theorem on the same G=K_{p,q}-M_t gives eta(G)=t((p-1)(q-1)-t+1). Its non-CIS pairs consist of a deleted matching pair plus an existing disjoint cross-part edge; those four vertices induce exactly one P4. Conversely every induced P4 determines that pair, proving eta(G)=N_{P4}(G) without relying on matching names.",
+          "Earlier geodesic-subpath counting theorem on the same family counts per missing edge ((p-1)(q-1)-t+1) length-3 shortest paths; summing t yields the same P4 count and shows that this submitted corollary was already implied.",
+          "Neither prior result conditions on arbitrary forest vertex subsets nor tracks components. A P5 is formed by selecting two missing disjoint edges and one additional third-side vertex, hence N_{P5}=binom(t,2)(p+q-4); this count and Phi are not fixed by the cited P4 identities.",
+          "Tittmann et al. 2011, Corollary 19, gives Q(K_{p,q};x,y) for the undeleted graph and counts cyclic subgraphs as well; it cannot be equated with Phi(K_{p,q}-M_t;x,y)."
+        ],
+        "reasoning": "A decisive comparison shows that the P4 numerical formula and the crown specialization n(n-1)(n-2) are COVERED, despite different invariant names. They are not counted as originality. The independent content surviving this coverage is the simultaneously graded forest enumeration for every allowed triple, including disconnected forests and exceptional P5 cases. That entire statement is neither a corollary of just a P4 count nor evidently a known parameter substitution.",
+        "searches": [
+          "Induced forests and feedback vertex sets of matching-deleted bicliques partial crown graph exact enumeration induced P4 P5",
+          "Induced-forest generating polynomial of complete bipartite graphs K_{p,q} minus a matching all vertex induced acyclic subsets",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "Tittmann et al. 2011 Corollary 19",
+          "Barton et al. 2022 acyclic polynomial §1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Induced-forest vertex sets are exactly complements of feedback vertex sets/decycling sets; setting y=1 reduces the audited Phi to the acyclic polynomial A(G;x) defined by Barton et al. (2022), §1, but their 2022 paper supplies no matching-deletion three-parameter closed formula in the examined material.",
+          "Tittmann et al. (2011) Q(G;x,y) records vertex-subset size and component number WITHOUT an acyclicity condition; §5.2 Corollary 19 states Q(K_{s,t};x,y), not Phi(K_{p,q}-M_t;x,y).",
+          "The missing-edge family is also called a partial crown; t=min(p,q)=p=q gives the crown graph K_{n,n}-M_n."
+        ],
+        "reasoning": "The audited polynomial is a forest-filtered version of a general subgraph-component polynomial, and its y=1 specialization is the standard acyclic polynomial. Neither prior framework automatically gives the specific coefficient identities for H_{p,q,t}; a previously computed value of Q for unperturbed K_{p,q} cannot count vertex-induced acyclic strata after a deleted matching. No published formula for the full claimed polynomial was established.",
+        "searches": [
+          "Bivariate induced forest polynomial crown graph complete bipartite graph with perfect matching deleted full coefficient formula by size and components",
+          "Induced-forest generating polynomial of complete bipartite graphs K_{p,q} minus a matching all vertex induced acyclic subsets",
+          "crown graphs induced forest polynomial acyclic polynomial vertex subsets matching deleted bipartite graph",
+          "Barton–Brown–Pike 2022 \"Acyclic polynomials of graphs\", https://ajc.maths.uq.edu.au/pdf/82/ajc_v82_p146.pdf",
+          "Tittmann–Averbouch–Makowsky 2011 arXiv:0812.4147"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published same-family non-CIS-pair formula t((p-1)(q-1)-t+1) is an exact table/formula for the P4 portion, but it is not a table of all acyclic vertex subsets graded by both size and components.",
+          "The same-family geodesic-subpath published formula also implies the P4 coefficient, not Phi or the P5 coefficient.",
+          "Liao and Hou 2014 §3.4 studies how Q(G;x,y) determines P4 and C4 numbers for REGULAR bipartite graphs, but no full matching-deleted forest polynomial was located."
+        ],
+        "reasoning": "The requested invariant is a symbolic formula for all p,q,t, not a small numeric graph table. Exact prior P4 values are real overlaps and documented; no covering table of full bivariate forest counts was found in the examined primary literature/published research corpus. Unindexed exact tables remain a residual priority risk.",
+        "searches": [
+          "Bivariate induced forest polynomial crown graph complete bipartite graph with perfect matching deleted full coefficient formula by size and components",
+          "crown graphs induced forest polynomial acyclic polynomial vertex subsets matching deleted bipartite graph",
+          "forest generating polynomial crown graph K n n minus perfect matching induced forest component count",
+          "Resultary semantic search for crown, feedback-vertex-set and acyclic forest polynomials",
+          "Liao–Hou 2014 arXiv:1311.6856 Theorem 3.4",
+          "Wolfram MathWorld Crown Graph; Induced Forest"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the FULL three-parameter order-by-component induced-forest enumerator, not for its individual P4 consequence. Two earlier published exact results for precisely K_{p,q} minus a matching already imply the P4 coefficient t((p-1)(q-1)-t+1): respectively the number of disjoint maximal-clique/maximal-stable-set pairs and the number of length-three geodesics between missing matched pairs. They do not determine the entire forest polynomial, the P5 enumeration or the component-stratified all-size counts. The 2022 acyclic polynomial covers the univariate INVARIANT in general, but did not provide this family's matching deletion formula; the 2011 Q(G;x,y) counts ALL induced subgraphs, including cycles, rather than their forest-only subset, and treats K_{p,q} without deletions in Corollary 19. Related graph-wide extremal/induced-arboricity papers do not imply the family-specific coefficient theorem. Search failure is not novelty proof; older obscure tables/derivations remain possible.",
+      "residual_risks": [
+        "Specific P4 enumeration and crown P4 count are ALREADY COVERED by two published same-family results; do not advertise those as independent discoveries.",
+        "An unindexed older family-specific acyclic/forest polynomial or a bivariate forest-table derivation could subsume the full remaining claim; unsuccessful searches cannot prove uniqueness.",
+        "Only material specifically identified above, not every page of every full 36-/39-page paper, was examined substantively; stronger overlooked results remain possible.",
+        "The archived Resultary research-record corpus is not a complete bibliography, and exact P5 or full-forest formulas may appear under unfamiliar names."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Directly covers P4 enumeration (and crown P4 count) by bijection between a non-CIS pair and an induced P4; does not supply full bivariate forest enumeration.",
+          "evidence": [
+            "Full theorem eta=t((p-1)(q-1)-t+1), proof counts surviving edges disjoint from each missing matched pair.",
+            "Each such pair determines 4 vertices forming induced P4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+          "material_read": "Entire published RESULT.md, including theorem, proof, specializations and limitations.",
+          "method": "Direct GitHub connector read of the source document at published record.",
+          "title": "Exact non-CIS-pair count for matching-deleted complete bipartite graphs",
+          "trigger": "Same three-parameter object and identical expression to submitted P4 coefficient."
+        },
+        {
+          "assessment": "Length-three geodesics counted across missing pairs correspond to induced P4 configurations. Gives a second prior implication for P4, but neither P5 counts nor full forest-component polynomial.",
+          "evidence": [
+            "Each deleted cross pair has ((p-1)(q-1)-t+1) geodesics of length 3.",
+            "A length-3 geodesic between deleted pair endpoints uses four vertices with exactly one missing matching cross edge, i.e. P4."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "material_read": "Entire published RESULT.md, including counting proof and balanced specialization.",
+          "method": "Direct GitHub connector read of published record.",
+          "title": "Geodesic subpath numbers of bicliques with a deleted matching",
+          "trigger": "Same exact matching-deleted biclique family; counts paths between missing matched vertices."
+        },
+        {
+          "assessment": "Defines and investigates A(G;x)=sum_S forest x^{|S|}. Does not establish in the examined mathematical material the full three-parameter deleted-matching biclique coefficients, and has no component y-grading.",
+          "evidence": [
+            "Vol.82(2) 2022 pp146–181, lines 36–50 define A(G;x), lines 64–89 connect to feedback vertex sets.",
+            "§1.3 gives examples for complete graphs, cycles, cographs; family-specific matching-deleted bipartite formula not identified."
+          ],
+          "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/82/ajc_v82_p146.pdf",
+          "material_read": "Accessed full 36-page searchable PDF; examined abstract, §1.1–1.3, complete-graph and cycle examples, polynomial relationships, and searched graph-family terms in the accessible full-text index.",
+          "method": "Lawful public journal PDF text with on-page rendered evidence; later screenshot fetch failed (previous visual inspection completed).",
+          "title": "Acyclic polynomials of graphs",
+          "trigger": "Exact same univariate forest-subset invariant after specialization y=1; plausible stronger general theorem."
+        },
+        {
+          "assessment": "Corollary 19 computes Q(K_{s,t};x,y) for ALL induced subgraphs of an unperturbed complete bipartite graph. Counts cycles and lacks the matching-deleted forest restriction.",
+          "evidence": [
+            "Corollary 19, arXiv PDF p.11, states Q(K_{s,t};x,y).",
+            "Definition counts each induced subgraph by component number irrespective of acyclicity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/0812.4147",
+          "material_read": "Full primary arXiv PDF accessible; examined definition and component counting, §5.2 Theorem 18/Corollary 19, and adjacent universality discussion; visually inspected relevant page.",
+          "method": "Primary arXiv PDF extracted text, keyword/section search and PDF page screenshot.",
+          "title": "The Enumeration of Vertex Induced Subgraphs with Respect to the Number of Components",
+          "trigger": "Bivariate order-and-component graph polynomial might dominate the proposed Phi."
+        },
+        {
+          "assessment": "For k-regular bipartite graphs, Q determines P4 and C4 counts; this is partly relevant to crown regularity, but no all-parameter forest-subset polynomial or matching deletion formula established.",
+          "evidence": [
+            "Theorem 3.4 (arXiv PDF p.4) concerns P4/C4 counts as consequences of Q for regular bipartite graphs.",
+            "Q lacks a cycle-free filter."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.6856",
+          "material_read": "Full primary arXiv PDF accessible; examined abstract, definition, §3 Theorem 3.4 and §4 classifications; page screenshot inspected.",
+          "method": "ArXiv PDF full searchable text, targeted theorem examination and screenshot.",
+          "title": "Note on the Subgraph Component Polynomial",
+          "trigger": "Potential prior recovery of induced P4 and stronger bivariate component data."
+        },
+        {
+          "assessment": "Edge-cover induced arboricity and an observation that forests in unperturbed K_{k,k+1} are stars. Does not imply forest vertex-set/component enumeration after deleting matching.",
+          "evidence": [
+            "Proposition 3 proof treats K_{k,k+1} and induced stars, not the perturbed biclique family."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1803.02152",
+          "material_read": "Primary 13-page arXiv PDF accessible; examined definitions, Proposition 3 and its proof, related examples, with page screenshots.",
+          "method": "ArXiv PDF searchable text and image inspection.",
+          "title": "Induced and Weak Induced Arboricities",
+          "trigger": "Forest structure of complete bipartite graphs appears as a lemma for graph covering invariant."
+        },
+        {
+          "assessment": "Bounds for graph classes of bounded treewidth, not the exact order-and-component polynomial for matching-deleted complete bipartite graphs.",
+          "evidence": [
+            "2013 EJC 20(4), #P8, discusses minimum feedback vertex sets and treewidth; not a closed-form induced-forest coefficient table for H_{p,q,t}."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i4p8/pdf/",
+          "material_read": "Full 39-page primary paper accessible; examined introduction, basic definitions, theorem scope and targeted textual searches, with page screenshot.",
+          "method": "Lawful open journal PDF searchable text and screenshot.",
+          "title": "Maximum Induced Forests in Graphs of Bounded Treewidth",
+          "trigger": "Foundational maximum induced forest/feedback vertex set paper might dominate forest-size consequences."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Barton, Brown & Pike 2022 on acyclic polynomial and FVS",
+        "Tittmann, Averbouch & Makowsky 2011 on component-graded vertex subgraphs",
+        "Published exact P4 prior results on same matching-deleted bicliques"
+      ],
+      "evidence": [
+        "Barton et al. 2022 introduced the acyclic polynomial because it encodes decycling/feedback-vertex-set order, a concrete mathematical motivation for specializing it.",
+        "The closed Phi(x,y) records component counts even for disconnected 2K2 configurations and isolate-plus-star cases, information missing from y=1 specialization.",
+        "Full three-parameter classification p,q,t and the crown boundary t=n distinguish the perturbation of complete-bipartite graphs with a missing matching."
+      ],
+      "rationale": "The complete vertex-induced forest polynomial is a natural refinement of the acyclic polynomial and feedback-vertex-set number: for one basic three-parameter graph family it gives every order-by-component stratum and minimum feedback-set solution multiplicity, rather than an arbitrary finite slice. Matching deletion changes the unperturbed biclique star-only structure by exactly P4, 2K2 and P5 exceptions, a motivated finite structural classification. Although the P4 number by itself is known, neither that number nor a generic graph-polynomial definition determines the full bivariate component-resolved distribution; counting all disjoint forests is independently useful. The balanced P4-versus-P5 equality criterion and crown maximum-forest counts are exact consequences of that enumeration and not offered as independent unrelated achievements. No general arbitrary-deletion complexity result or a substantially more general graph family is claimed.",
+      "residual_risks": [
+        "The derivation uses elementary combinatorial case counting and is not claimed to be a general graph-theoretic breakthrough.",
+        "Novel value would be diminished if a prior whole-polynomial formula is found; P4 subclaim already has a prior mathematical explanation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Full assigned RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py and all seven source files at assigned source snapshot",
+    "Independent_forest_check.py independently enumerating induced graph vertex masks",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-non-cis-pair-count-for-matching-deleted-complete-bipartite--fb55fa5d8edb",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+    "Barton, Brown & Pike (2022), Acyclic polynomials of graphs, https://ajc.maths.uq.edu.au/pdf/82/ajc_v82_p146.pdf",
+    "Tittmann, Averbouch & Makowsky (2011), arXiv:0812.4147",
+    "Liao & Hou (2014), arXiv:1311.6856",
+    "Axenovich, Dörr, Rollin & Ueckerdt (2018), arXiv:1803.02152",
+    "Chappell & Pelsmajer (2013), DOI:10.37236/3826",
+    "Resultary published-record semantic searches, three different queries for bivariate forest, FVS and acyclic polynomial aliases",
+    "Web searches for crown-graph forest/acyclic polynomials, matching-deleted bicliques and component enumeration",
+    "Barton, Brown & Pike 2022 on acyclic polynomial and FVS",
+    "Tittmann, Averbouch & Makowsky 2011 on component-graded vertex subgraphs",
+    "Published exact P4 prior results on same matching-deleted bicliques"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite regression reaches p,q<=7 only; no exhaustive computation over all p,q.",
+    "Closed form depends essentially on the deleted edges forming a MATCHING, not arbitrary removed bipartite edges; graph vertices considered labeled but forest subsets unlabelled only by chosen vertex set.",
+    "Specific P4 enumeration and crown P4 count are ALREADY COVERED by two published same-family results; do not advertise those as independent discoveries.",
+    "An unindexed older family-specific acyclic/forest polynomial or a bivariate forest-table derivation could subsume the full remaining claim; unsuccessful searches cannot prove uniqueness.",
+    "Only material specifically identified above, not every page of every full 36-/39-page paper, was examined substantively; stronger overlooked results remain possible.",
+    "The archived Resultary research-record corpus is not a complete bibliography, and exact P5 or full-forest formulas may appear under unfamiliar names.",
+    "The derivation uses elementary combinatorial case counting and is not claimed to be a general graph-theoretic breakthrough.",
+    "Novel value would be diminished if a prior whole-polynomial formula is found; P4 subclaim already has a prior mathematical explanation."
+  ],
+  "schema_version": 1
+}
