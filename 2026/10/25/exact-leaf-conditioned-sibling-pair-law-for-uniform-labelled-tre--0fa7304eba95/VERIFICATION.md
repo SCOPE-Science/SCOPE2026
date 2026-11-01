@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Reproduction and evidence
+# Independent mathematical audit
 
-The proof of the infinite statement is the leaf-core/Prüfer calculation in `RESULT.md`. The included `verify.py` independently enumerates all \(n^{n-2}\) labelled trees by Prüfer words for each \(3\le n\le8\), reconstructs adjacency lists, and computes actual leaf and sibling-pair counts. It separately evaluates the claimed generating polynomial through integer allocations, checks full distributions, validates normalization and first two conditional factorial moments, and compares the exact support.
+## correctness
 
-Command: `python3 verify.py` (Python 3 standard library only). Executed result: 
+PASS
 
-```text
-n=3 trees=3 leaf/cherry-cells=1 PASS
-n=4 trees=16 leaf/cherry-cells=2 PASS
-n=5 trees=125 leaf/cherry-cells=3 PASS
-n=6 trees=1296 leaf/cherry-cells=6 PASS
-n=7 trees=16807 leaf/cherry-cells=9 PASS
-n=8 trees=262144 leaf/cherry-cells=15 PASS
-PASS: 90 independent exact table, moment, and support checks
-```
+Removing all ell original leaves yields an m=n-ell vertex labelled core tree; every core leaf requires >=1 attached original leaf, and every other core vertex may have >=0. Prufer degree enumeration gives the exact coefficient [u^(m-2) z^ell] (exp(u)H(z,y)-1)^m times the label factorials, with H=sum(z^a/a!)*y^choose(a,2). Expanding by the binomial theorem yields the alternating j^(m-2) expression. Differentiating at y=1 and using Stirling sums gives both factorial-moment ratios. A path with any two prescribed positive-leaf core endpoints realizes each allowed occupancy vector, proving complete support and balanced-minimum and (ell-1,1)-maximum bounds. The star case ell=n-1 and n=3 are explicit. Independently enumerated all 280,391 labelled Prufer trees of orders 3..8 and 45 exact conditional normalizations/moment checks; finite enumeration corroborates rather than proves all n.
 
-The script tests finitely many sizes and does not independently verify historical novelty or an asymptotic statement; it does not replace the all-size combinatorial proof. The printed checker counts refer only to the specified finite computations. No independent audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS. Isaev–Southwell–Zhukovskii (arXiv:1912.09838) studies asymptotic normality of local-pattern counts for uniform fully labelled trees, not this exact finite bivariate polynomial at fixed leaf count. Choi–Thompson–Wu (2020) gives cherry/pitchfork distribution in binary phylogenetic trees, where only leaves are labelled and all nonleaves have degree three, a distinct sample space and different cherry statistic when internal degrees exceed three. Choi–Kaur–Wu (2021) studies asymptotic PDA/YHK laws, also different. Resultary Cayley-tree endpoint-degree record is a different conditional statistic; no covering exact law identified.
+
+## value
+
+PASS
+
+PASS: quantifies a genuinely natural local clustering feature conditional on the total number of leaves for every finite Cayley-tree size. Full conditional support, exact mean and variance and all coefficients provide usable finite-sample null distributions beyond degree counts. It is a complete natural classification, not an arbitrary tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

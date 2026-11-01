@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:09:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Removing all ell original leaves yields an m=n-ell vertex labelled core tree; every core leaf requires >=1 attached original leaf, and every other core vertex may have >=0. Prufer degree enumeration gives the exact coefficient [u^(m-2) z^ell] (exp(u)H(z,y)-1)^m times the label factorials, with H=sum(z^a/a!)*y^choose(a,2). Expanding by the binomial theorem yields the alternating j^(m-2) expression. Differentiating at y=1 and using Stirling sums gives both factorial-moment ratios. A path with any two prescribed positive-leaf core endpoints realizes each allowed occupancy vector, proving complete support and balanced-minimum and (ell-1,1)-maximum bounds. The star case ell=n-1 and n=3 are explicit. Independently enumerated all 280,391 labelled Prufer trees of orders 3..8 and 45 exact conditional normalizations/moment checks; finite enumeration corroborates rather than proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Isaev et al. general asymptotic CLT for small patterns; Choi et al. Section 2 defines only leaf-labelled binary phylogenetic trees"
+        ],
+        "reasoning": "An asymptotic distribution theorem for any local parameter does not determine exact finite conditional moments/support. A finite phylogenetic law on a different set of trees does not specialize to the arbitrary-degree fully labelled model. General Prufer bijection is prior but the constrained multivariate leaf-core extraction remains extra work.",
+        "searches": [
+          "Isaev Southwell Zhukovskii local tree parameter CLT",
+          "Choi Thompson Wu exact cherry pitchfork distribution PDA YHK",
+          "Prüfer sequence generating function leaf degree conditioned"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1912.09838",
+        "https://ueaeprints.uea.ac.uk/id/eprint/74353/2/unrooted_TPB_Rev_20200120.pdf",
+        "https://link.springer.com/article/10.1007/s00285-021-01667-2",
+        "Resultary semantic search: Cayley leaf count conditional sibling pairs"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Isaev et al. assumes uniform Cayley trees but proves limiting local pattern CLTs, not finite conditional joint identity; Choi et al. requires internal degree three and leaf-only labels"
+        ],
+        "reasoning": "Same model in Isaev is insufficient for coverage because output and quantifiers differ; same cherry name in Choi is insufficient because the object and probability measure differ. The reviewed main statements do not logically imply the coefficient formula without new core-degree enumeration.",
+        "searches": [
+          "arxiv:1912.09838 Section 1-2",
+          "doi:10.1016/j.tpb.2020.02.001 Section 2",
+          "arxiv:2101.07488"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Isaev et al. arXiv:1912.09838, uniform fully labelled model; Choi et al. doi:10.1016/j.tpb.2020.02.001, binary leaf-labelled model"
+        ],
+        "reasoning": "The aliases cherries/sibling pairs/pairs of pendant leaves overlap, but phylogenetic cherry is restricted to binary internal degree three, whereas C sums choose(a_v,2) over arbitrary leaf multiplicities in Cayley trees. Neither is the same joint finite polynomial.",
+        "searches": [
+          "Resultary: uniform labeled Cayley tree exact distribution number leaves and pairs of leaves sharing same parent cherry count conditioned leaf number",
+          "web: uniform labeled trees cherries sibling leaves conditioned leaf count generating polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Classical Cayley n^(n-2) and Stirling formula for number of leaves known; the submitted formula refines by common neighbors",
+          "Source checker enumerates all n<=8 but this is not an existing published table; no prior exact bivariate (L,C) table located."
+        ],
+        "reasoning": "The exact marginal L distribution and simple degree counts are not new; the full joint conditional support and factorial moment refinement has independent new information not recoverable from only a leaf-count table.",
+        "searches": [
+          "Cayley tree joint leaves cherries exact distribution table",
+          "Resultary exact Cayley sibling leaf distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS. Isaev–Southwell–Zhukovskii (arXiv:1912.09838) studies asymptotic normality of local-pattern counts for uniform fully labelled trees, not this exact finite bivariate polynomial at fixed leaf count. Choi–Thompson–Wu (2020) gives cherry/pitchfork distribution in binary phylogenetic trees, where only leaves are labelled and all nonleaves have degree three, a distinct sample space and different cherry statistic when internal degrees exceed three. Choi–Kaur–Wu (2021) studies asymptotic PDA/YHK laws, also different. Resultary Cayley-tree endpoint-degree record is a different conditional statistic; no covering exact law identified.",
+      "residual_risks": [
+        "An older general labelled-tree combinatorial species generating function or planted-tree leaf-allocation formula might subsume this bivariate coefficient result; unindexed sources remain possible.",
+        "The proof does not yield asymptotic normality of C conditioned on L, nor compare different leaf-count conditional stochastic orders."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same probability space but asymptotic results do not give submitted exact conditional bivariate law",
+          "evidence": "arXiv:1912.09838v2, Introduction and main theorem sections",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.09838",
+          "material_read": "36-page paper model in Introduction, CLT statements and methods for local parameters and asymptotic normality, with page images",
+          "method": "Read primary arXiv PDF and inspected introduction image",
+          "title": "Distribution of tree parameters by martingale approach",
+          "trigger": "Same Cayley sampling measure and local pattern statistics"
+        },
+        {
+          "assessment": "All interior vertices degree three and only leaves labelled; neither law is for fully labelled arbitrary-degree Cayley trees",
+          "evidence": "doi:10.1016/j.tpb.2020.02.001, Section 2.1, PDF p. 3",
+          "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/74353/2/unrooted_TPB_Rev_20200120.pdf",
+          "material_read": "26-page accepted manuscript, full model definitions in Section 2 and exact/recurrent distributions in Sections 3-4; examined page 3 image",
+          "method": "Read accessible university repository primary PDF and inspected model-definition page",
+          "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+          "trigger": "Exact cherry distribution might dominate the claim"
+        },
+        {
+          "assessment": "PDA/YHK phylogenetic trees and asymptotic joint laws, not all-size conditioned Cayley tree distribution",
+          "evidence": "Journal of Mathematical Biology 83 (2021), article 40",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-021-01667-2",
+          "material_read": "Open access article abstract, model descriptions and main asymptotic statements",
+          "method": "Read primary open HTML summary and model definitions",
+          "title": "On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees",
+          "trigger": "Named cherry and pitchfork related theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: quantifies a genuinely natural local clustering feature conditional on the total number of leaves for every finite Cayley-tree size. Full conditional support, exact mean and variance and all coefficients provide usable finite-sample null distributions beyond degree counts. It is a complete natural classification, not an arbitrary tiny example.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1912.09838",
+    "https://ueaeprints.uea.ac.uk/id/eprint/74353/2/unrooted_TPB_Rev_20200120.pdf",
+    "https://link.springer.com/article/10.1007/s00285-021-01667-2",
+    "Resultary semantic search: Cayley leaf count conditional sibling pairs"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An older general labelled-tree combinatorial species generating function or planted-tree leaf-allocation formula might subsume this bivariate coefficient result; unindexed sources remain possible.",
+    "The proof does not yield asymptotic normality of C conditioned on L, nor compare different leaf-count conditional stochastic orders."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Same probability space but asymptotic results do not give submitted exact conditional bivariate law",
+      "evidence": "arXiv:1912.09838v2, Introduction and main theorem sections",
+      "identifier_or_url": "https://arxiv.org/pdf/1912.09838",
+      "material_read": "36-page paper model in Introduction, CLT statements and methods for local parameters and asymptotic normality, with page images",
+      "method": "Read primary arXiv PDF and inspected introduction image",
+      "title": "Distribution of tree parameters by martingale approach",
+      "trigger": "Same Cayley sampling measure and local pattern statistics"
+    },
+    {
+      "assessment": "All interior vertices degree three and only leaves labelled; neither law is for fully labelled arbitrary-degree Cayley trees",
+      "evidence": "doi:10.1016/j.tpb.2020.02.001, Section 2.1, PDF p. 3",
+      "identifier_or_url": "https://ueaeprints.uea.ac.uk/id/eprint/74353/2/unrooted_TPB_Rev_20200120.pdf",
+      "material_read": "26-page accepted manuscript, full model definitions in Section 2 and exact/recurrent distributions in Sections 3-4; examined page 3 image",
+      "method": "Read accessible university repository primary PDF and inspected model-definition page",
+      "title": "On cherry and pitchfork distributions of random rooted and unrooted phylogenetic trees",
+      "trigger": "Exact cherry distribution might dominate the claim"
+    },
+    {
+      "assessment": "PDA/YHK phylogenetic trees and asymptotic joint laws, not all-size conditioned Cayley tree distribution",
+      "evidence": "Journal of Mathematical Biology 83 (2021), article 40",
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00285-021-01667-2",
+      "material_read": "Open access article abstract, model descriptions and main asymptotic statements",
+      "method": "Read primary open HTML summary and model definitions",
+      "title": "On asymptotic joint distributions of cherries and pitchforks for random phylogenetic trees",
+      "trigger": "Named cherry and pitchfork related theorem"
+    }
+  ]
+}
