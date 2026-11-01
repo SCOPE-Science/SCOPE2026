@@ -1,134 +1,84 @@
 # Complete even centro-affine facet spectrum of the regular cross-polytope
+
 ## Finding
-Let
+For every integer \(n\ge2\), let
 \[
-C_n=\left\{x\in\mathbb R^n:\sum_{i=1}^n|x_i|\le1\right\},\qquad n\ge2,
+C_n=\left\{x\in\mathbb R^n:\sum_{i=1}^{n}|x_i|\le1\right\}.
 \]
-be the regular cross-polytope. Equip its facets with the masses and ridge conductances introduced by Hu and Ivaki. Then the entire generalized facet-network spectrum is
+Equip its facets with the masses and ridge conductances of Hu and Ivaki. The complete generalized facet-network spectrum, including the noneven modes, is
 \[
-\lambda_k=(n-1)k,
-\qquad
-\operatorname{mult}(\lambda_k)=\binom nk,
-\qquad
-0\le k\le n.
+\lambda_k=(n-1)k,\qquad \operatorname{mult}(\lambda_k)=\binom nk,
+\qquad k=0,1,\ldots,n.
 \]
+The antipodal even subspace consists exactly of the even Walsh levels. Its full generalized spectrum is therefore
+\[
+\boxed{\lambda_{2j}=2j(n-1),\qquad
+\operatorname{mult}(\lambda_{2j})=\binom n{2j},\qquad
+0\le j\le\lfloor n/2\rfloor.}
+\]
+In particular, the first nonconstant even eigenvalue is \(2(n-1)\), of multiplicity \(\binom n2\); for the regular octahedron in dimension three it is \(4\), of multiplicity three.
 
-The antipodal involution on facets sends a sign vector \(\sigma\) to \(-\sigma\). Restricting to even facet functions therefore keeps precisely the even Walsh levels. Thus the full even spectrum is
+## Definitions and normalization
+For a facet \(F_i\) with unit outer normal \(u_i\) and support number \(h_i>0\), put
 \[
-\boxed{
-\lambda_{2j}=2j(n-1),
-\qquad
-\operatorname{mult}(\lambda_{2j})=\binom n{2j},
-\qquad
-0\le j\le\left\lfloor\frac n2\right\rfloor .
-}
+m_i=h_i\mathcal H^{n-1}(F_i).
 \]
-In particular,
+For adjacent facets \(F_i,F_j\) with common ridge and angle \(\theta_{ij}\) between their unit normals, put
 \[
-\boxed{\lambda_{1,e}(C_n)=2(n-1)}
+c_{ij}=\frac{h_i h_j\mathcal H^{n-2}(F_i\cap F_j)}{\sin\theta_{ij}};
 \]
-with multiplicity
+otherwise put \(c_{ij}=0\). The Dirichlet form is
 \[
-\binom n2.
+\mathsf L_P(f,f)=\sum_{\{i,j\}}c_{ij}(f_i-f_j)^2,
 \]
-
-For \(n=3\), the regular octahedron therefore has first nonconstant even eigenvalue \(4\), of multiplicity \(3\).
-
-## Assumptions and scope
-The spectrum is the generalized spectrum associated with the Hu--Ivaki Dirichlet form
-\[
-\mathsf L_P(f,f)=\sum_{\{i,j\}}c_{ij}(f_i-f_j)^2
-\]
-and facet-mass quadratic form
-\[
-\sum_i m_i(f_i-\bar f)^2.
-\]
-The calculation uses only the definitions of facet mass, ridge conductance, and evenness from the source. It does not rely on the source's variational local-minimizer theorem, so possible issues in later nonsimple-variation arguments are irrelevant here.
-
-The normalization is the standard cross-polytope with vertices \(\{\pm e_i\}_{i=1}^n\). Centro-affine scale invariance makes this normalization natural for the spectral computation.
+where each unordered adjacent pair occurs once. Generalized eigenvalues use the facet mass form; on even functions the first positive eigenvalue is the quotient of \(\mathsf L_P\) by \(\sum_i m_i(f_i-\bar f)^2\). This is the Hu--Ivaki normalization, not a normalized random-walk Laplacian. The chosen regular cross-polytope has vertices \(\{\pm e_i\}\).
 
 ## Proof
-A facet is indexed by a sign vector
+For \(\sigma\in\{\pm1\}^n\), the facet
 \[
-\sigma=(\sigma_1,\ldots,\sigma_n)\in\{\pm1\}^n
+F_\sigma=\operatorname{conv}\{\sigma_1e_1,\ldots,\sigma_ne_n\}
 \]
-and is the simplex
+has unit outer normal \(u_\sigma=\sigma/\sqrt n\) and support number \(h=1/\sqrt n\). The Gram matrix of its \(n-1\) edge vectors has diagonal \(2\) and off-diagonal \(1\), so its determinant is \(n\). Consequently
 \[
-F_\sigma=\operatorname{conv}\{\sigma_1e_1,\ldots,\sigma_ne_n\}.
+\mathcal H^{n-1}(F_\sigma)=\frac{\sqrt n}{(n-1)!},\qquad
+m_\sigma=\frac1{(n-1)!}.
 \]
-Its supporting hyperplane is
-\[
-\langle x,u_\sigma\rangle=h,
-\qquad
-u_\sigma=\frac{\sigma}{\sqrt n},
-\qquad
-h=\frac1{\sqrt n}.
-\]
-The Gram matrix of the \(n-1\) edge vectors from one facet vertex has diagonal entries \(2\) and off-diagonal entries \(1\), hence determinant \(n\). Therefore
-\[
-\mathcal H^{n-1}(F_\sigma)=\frac{\sqrt n}{(n-1)!}
-\]
-and every facet has mass
-\[
-m=h\,\mathcal H^{n-1}(F_\sigma)=\frac1{(n-1)!}.
-\]
-
-Two facets are adjacent exactly when their sign vectors differ in one coordinate. If \(\sigma\) and \(\tau\) differ in one coordinate, their common ridge is an \((n-2)\)-simplex whose analogous Gram determinant is \(n-1\), so
+Two facets share a ridge exactly when their signs differ in one coordinate. The \(n-2\) ridge edge vectors have the analogous Gram determinant \(n-1\), and therefore
 \[
 \mathcal H^{n-2}(F_\sigma\cap F_\tau)=\frac{\sqrt{n-1}}{(n-2)!}.
 \]
-The unit facet normals satisfy
+For \(n=2\), this uses the ordinary zero-dimensional Hausdorff measure of one ridge point. When exactly one sign differs,
 \[
-\langle u_\sigma,u_\tau\rangle=\frac{n-2}{n},
-\qquad
-\sin\theta_{\sigma\tau}=\frac{2\sqrt{n-1}}{n}.
+\langle u_\sigma,u_\tau\rangle=\frac{n-2}{n},\qquad
+\sin\theta_{\sigma\tau}=\frac{2\sqrt{n-1}}n.
 \]
-Consequently every edge of the facet network has the same conductance
+Substitution into the conductance definition gives the same positive value on every edge:
 \[
-c=rac{h^2\mathcal H^{n-2}(F_\sigma\cap F_\tau)}{\sin\theta_{\sigma\tau}}
-=rac1{2(n-2)!}.
+\boxed{c=\frac{h^2\mathcal H^{n-2}(F_\sigma\cap F_\tau)}{\sin\theta_{\sigma\tau}}
+=\frac1{2(n-2)!},\qquad \frac{c}{m}=\frac{n-1}{2}.}
 \]
-In particular,
-\[
-\frac cm=\frac{n-1}{2}.
-\]
-
-The facet-adjacency graph is therefore exactly the Boolean hypercube on \(\{\pm1\}^n\), with constant vertex mass \(m\) and constant edge conductance \(c\). For a subset \(S\subseteq\{1,\ldots,n\}\), define the Walsh character
+Thus the facet-adjacency graph with its exact weights is the Boolean hypercube \(Q_n\), with constant mass \(m\) and edge conductance \(c\). For every subset \(S\subseteq\{1,\ldots,n\}\), define
 \[
 \chi_S(\sigma)=\prod_{i\in S}\sigma_i.
 \]
-If \(|S|=k\), flipping a coordinate in \(S\) changes the sign of \(\chi_S\), while flipping any other coordinate leaves it unchanged. Hence the unweighted hypercube Laplacian sends \(\chi_S\) to \(2k\chi_S\). After inserting the ratio \(c/m=(n-1)/2\), the generalized eigenvalue is
+A coordinate flip changes \(\chi_S\) precisely when that coordinate lies in \(S\). Writing \(|S|=k\), the unweighted cube graph Laplacian has
 \[
-\lambda_k=(n-1)k.
+(L_{Q_n}\chi_S)(\sigma)=2k\chi_S(\sigma).
 \]
-There are \(\binom nk\) subsets of cardinality \(k\), and the Walsh characters form a basis, giving the complete spectrum.
+The generalized mass operator is \((c/m)L_{Q_n}\), so its eigenvalue is \((n-1)k\). The Walsh characters form a basis of all \(2^n\) facet functions and give multiplicity \(\binom nk\). No unlisted eigenvalues remain.
 
-Finally,
+Antipodal inversion acts by
 \[
-\chi_S(-\sigma)=(-1)^{|S|}\chi_S(\sigma).
+\chi_S(-\sigma)=(-1)^k\chi_S(\sigma),
 \]
-Thus the even facet space is exactly the direct sum of the Walsh levels with even \(|S|\). Removing the constant level \(k=0\), the first surviving level is \(k=2\), which proves
-\[
-\lambda_{1,e}(C_n)=2(n-1)
-\]
-with multiplicity \(\binom n2\).
+so exactly the even values of \(k\) survive on even facet functions. The constant level \(k=0\) is simple. The first subsequent level is \(k=2\), proving all claimed formulas.
 
-## Verification
-The bundled checker reconstructs the sign-vector facet graph for dimensions \(2\) through \(8\) and verifies, with exact rational arithmetic, that every Walsh character is a generalized eigenvector with eigenvalue \((n-1)|S|\). It also checks the antipodal parity rule and the multiplicities of every even level.
+The facet mass and ridge conductance are both multiplied by \(|\det A|\) under an invertible linear map \(A\): the codimension-one and codimension-two Jacobians cancel the transformed unit-normal and angle factors. Thus the generalized spectrum is unchanged for invertible linear images of \(C_n\); this extension does not claim the same spectrum for arbitrary combinatorially equivalent simplicial polytopes.
 
-The checker is a finite stress test of the closed-form proof, not the proof of the all-dimensional statement. The general result follows from the explicit facet and ridge volumes, the exact dihedral angle, and the Walsh basis identity.
+## Verification and relationship to prior work
+The included exact-rational checker tests all Walsh eigen-equations, antipodal parity, and multiplicities for \(2\le n\le8\). The all-dimensional conclusion comes from the geometric formulas and Walsh basis, not from finite enumeration.
 
-## Relationship to prior work
-Hu and Ivaki introduce the weighted facet network and define the first nonconstant even eigenvalue for every origin-symmetric polytope. Their paper does not discuss the cross-polytope or octahedron, and it does not compute this spectrum explicitly. The present calculation specializes their definitions to a canonical nonsimple family and obtains every generalized eigenvalue, not only the first one.
-
-A previously published companion computation determines the even facet spectrum of parallelotopes, where every nonconstant even mode has the single eigenvalue \(n\). The cross-polytope is qualitatively different: its even spectrum forms the ladder \(0,2(n-1),4(n-1),\ldots\). For \(n\ge3\), the polar cube and regular cross-polytope therefore have different first even facet-network eigenvalues, showing that this discrete spectrum is not preserved by polarity.
-
-Targeted searches for a centro-affine cross-polytope spectrum, a regular-octahedron computation, and a hypercube realization of the Hu--Ivaki facet network found no statement containing this formula.
+Hu and Ivaki, *Centro-affine spectral geometry of polytopes* (arXiv:2609.21670v1, September 18, 2026), introduced these precise facet masses, ridge weights, and even spectral quotient, but did not provide this all-dimensional cross-polytope spectrum. The standard Boolean-cube graph spectrum is classical; the identified facet-network weights yield the specific centro-affine scaling. A published parallelotope computation gives even spectrum \(\{0,n\}\), contrasting with the regular cross-polytope's even ladder for \(n\ge3\). A separate three-dimensional cube--octahedron interpolation computation has a regular-octahedron boundary specialization compatible with \(\lambda_{1,e}=4\); that lower-dimensional overlap does not determine the formulas for \(n\ge4\). No novelty or chronological-priority claim is made for that octahedral specialization.
 
 ## Limitations
-The result computes the spectrum only for the regular cross-polytope and its linear images under the natural centro-affine equivalence. It does not classify spectra of arbitrary simplicial or unconditional polytopes, and it does not assert that the regular cross-polytope is a local extremizer of \(\lambda_{1,e}\).
-
-The main proof uses only the source's definitions, not its local-minimizer theorem. Bibliographic novelty is assessed against the focal full text, targeted public searches, and the closest published parallelotope computation; an equivalent calculation under unrelated graph-spectral terminology remains a residual risk.
-
-## References
-1. Y. Hu and M. N. Ivaki, *Centro-affine spectral geometry of polytopes*, arXiv:2609.21670v1, 18 September 2026. Primary MSC 2020: 52B11.
+This is an explicit calculation for regular cross-polytopes and their invertible linear images. It does not prove a local-extremizer statement, a universal spectral bound, or a classification for arbitrary simplicial, unconditional, or combinatorially equivalent polytopes. The Hu--Ivaki variational local-minimizer theorem is not used. The formula uses the particular conductance normalization specified above; a different graph normalization gives different eigenvalues.

@@ -1,15 +1,14 @@
-# Same-model review
+# Mathematical review
 
-## Correctness
-PASS. The facet and ridge Gram determinants are \(n\) and \(n-1\), respectively. Together with the exact dihedral angle they give constant mass \(1/(n-1)!\), constant conductance \(1/[2(n-2)!]\), and ratio \((n-1)/2\). The facet graph is the Boolean \(n\)-cube, whose Walsh characters diagonalize the Laplacian. Antipodal evenness selects exactly even Walsh degree. This proves the full spectrum and multiplicities without invoking the source's later variational theorem.
+## Final assessment
+Correctness: **PASS**. The Hu--Ivaki facet mass and conductance are constant on the regular cross-polytope; the precise ratio is \((n-1)/2\). The cube graph Laplacian has eigenvalue \(2k\) on Walsh degree \(k\), with \(\binom nk\) eigenvectors. The antipodal even subspace retains exactly even degrees. The independent rational check covered \(2\le n\le7\); the proof establishes all \(n\ge2\).
 
-## Originality
-PASS. The focal full text introduces the invariant but contains no cross-polytope or octahedron computation. Targeted searches found the published parallelotope spectrum as the nearest same-invariant result; that theorem concerns a different family and has a flat nonzero spectrum, so it does not imply the cross-polytope ladder. Current and prior ledgers were checked for source, object, alias, and implication overlap.
+Originality: **PASS, best of knowledge**, for the complete all-dimensional Hu--Ivaki cross-polytope spectrum. The general weighted-facet definition is due to Hu and Ivaki; the Boolean-cube graph spectral theorem is classical. The published all-dimensional parallelotope spectrum concerns a different class, and the sharp three-dimensional cube--octahedron interpolation has a compatible octahedral boundary value but does not cover \(n\ge4\). The latter specialization is not claimed as novel. A not-yet-indexed equivalent weighted calculation remains possible.
 
-## Value
-PASS. The regular cross-polytope is a canonical nonsimple family for the new polyhedral centro-affine spectrum. The complete all-dimensional diagonalization gives a clean benchmark, exposes an exact hypercube structure, and shows a strong contrast with the polar cube/parallelotope computation.
+Mathematical value: **PASS**. A canonical origin-symmetric nonsimple polytope receives a complete exact spectral benchmark in all dimensions. Its nonzero even spectrum is not the flat polar-parallelotope spectrum, and the distinction is relevant when evaluating geometric properties of the new invariant.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Correction, verification, scope
+The corrected RESULT.md repairs one malformed LaTeX fraction macro and explicitly notes the three-dimensional prior overlap. The mathematical statements are unchanged. The proof requires the exact mass/conductance normalization and the Walsh basis, not a finite experiment or an unverified local-minimizer theorem. The finite exact-rational test is corroborative only. No Lean proof or external expert attestation is claimed.
 
-## Closest literature and limitations
-The closest primary literature is Hu--Ivaki's arXiv:2609.21670v1, which defines the invariant. The closest explicit published spectrum is the parallelotope computation. The theorem does not address arbitrary simplicial polytopes, local extremality, or stability under perturbation.
+## Sources
+Y. Hu and M. N. Ivaki, *Centro-affine spectral geometry of polytopes*, arXiv:2609.21670v1, equations (1.2)--(1.3), relevant definitions and Theorem 1.1. *Exact even centro-affine facet spectrum of parallelotopes* (published mathematical result, October 4, 2026). *Sharp centro-affine spectral gap along the cube--octahedron interpolation* (published mathematical result, October 11, 2026). Classical Boolean-hypercube graph spectral theorem.

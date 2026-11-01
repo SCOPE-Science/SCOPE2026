@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,28 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For the standard cross-polytope, the proof checks the following exact identities:
-\[
-\mathcal H^{n-1}(F)=\frac{\sqrt n}{(n-1)!},
-\qquad
-m=\frac1{(n-1)!},
-\]
-\[
-\mathcal H^{n-2}(R)=\frac{\sqrt{n-1}}{(n-2)!},
-\qquad
-\sin\theta=\frac{2\sqrt{n-1}}n,
-\qquad
-c=\frac1{2(n-2)!},
-\]
-and therefore
-\[
-\frac cm=\frac{n-1}{2}.
-\]
+# Independent mathematical audit
 
-The facet graph is the Boolean cube. For every Walsh character of degree \(k\), exactly \(k\) coordinate flips reverse its sign, so the ordinary graph Laplacian eigenvalue is \(2k\). Multiplication by \(c/m\) gives the generalized eigenvalue \((n-1)k\). Antipodal inversion multiplies a degree-\(k\) Walsh character by \((-1)^k\), so the even space consists exactly of the even levels.
+## correctness
 
-The bundled checker reconstructs this operator for \(2\le n\le8\) using exact rational arithmetic and verifies every Walsh eigen-equation, parity condition, and multiplicity. This finite replay is a consistency test; the all-dimensional proof is the symbolic argument above.
+PASS
 
-No claim is made about local minimality of the cross-polytope or spectra of arbitrary simplicial polytopes.
+Under the actual Hu--Ivaki normalization the facet normal/support are sigma/sqrt(n), 1/sqrt(n); Gram determinants n and n-1 give facet mass m=1/(n-1)! and ridge Hausdorff measure sqrt(n-1)/(n-2)!. Adjacent normals have sin(theta)=2sqrt(n-1)/n, hence every hypercube edge has c=1/[2(n-2)!] and c/m=(n-1)/2. The Walsh character of cardinality k is an eigenfunction of the unweighted cube Laplacian of eigenvalue 2k; completeness of the Walsh basis yields all 2^n eigenvectors with multiplicity binomial(n,k). Antipodal inversion retains exactly even k; first nonzero even degree is two. n=2 uses H^0=1 for a ridge point and satisfies the formulas. An independent exact-rational enumeration n=2..7 checked all Walsh eigen-equations, parity and multiplicities; the analytic argument, not finite cases, proves all n.
+
+## originality
+
+PASS
+
+Best-of-knowledge new all-dimensional specialization of Hu--Ivaki facet weights to the regular n-cross-polytope, n>=4, with exact spectrum and even multiplicities. The classical Q_n Walsh spectrum supplies the diagonalization, and a published three-dimensional interpolation covers the octahedral n=3 boundary specialization; neither gives the geometric weight ratio and full result for n>=4. The parallelotope result computes a different polytope class. The claimed originality is limited to the complete weighted centro-affine cross-polytope spectrum, not to the Walsh diagonalization, the invariant definition, or the n=3 numerical value.
+
+## value
+
+PASS
+
+The cross-polytope is a canonical nonsimple origin-symmetric polytope for the recently introduced centro-affine weighted facet-network invariant. The complete all-dimensional even ladder, including binomial multiplicities, is a natural benchmark that a later study can use when comparing classes and testing conjectured gap behavior. The gap 2(n-1) differs for n>=3 from the polar parallelotope gap n, demonstrating that the discrete invariant is not preserved by polarity. The calculation is elementary once the network is identified, but the exact normalization, full spectrum and polarity comparison are self-contained useful facts beyond a single tiny numeric check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

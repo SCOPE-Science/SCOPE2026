@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T19:58:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under the actual Hu--Ivaki normalization the facet normal/support are sigma/sqrt(n), 1/sqrt(n); Gram determinants n and n-1 give facet mass m=1/(n-1)! and ridge Hausdorff measure sqrt(n-1)/(n-2)!. Adjacent normals have sin(theta)=2sqrt(n-1)/n, hence every hypercube edge has c=1/[2(n-2)!] and c/m=(n-1)/2. The Walsh character of cardinality k is an eigenfunction of the unweighted cube Laplacian of eigenvalue 2k; completeness of the Walsh basis yields all 2^n eigenvectors with multiplicity binomial(n,k). Antipodal inversion retains exactly even k; first nonzero even degree is two. n=2 uses H^0=1 for a ridge point and satisfies the formulas. An independent exact-rational enumeration n=2..7 checked all Walsh eigen-equations, parity and multiplicities; the analytic argument, not finite cases, proves all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hu--Ivaki define the network and prove only a conditional bound for local minimizers, not this explicit spectrum.",
+          "All-dimensional parallelotope theorem covers the polar cube family, not C_n for n>=3.",
+          "Interpolation theorem is dimension three and for 1<c<3, with a compatible n=3 endpoint but no n>=4 parameters."
+        ],
+        "reasoning": "A conditional lower bound, a theorem about the polar object, and a three-dimensional interpolation do not logically determine all higher-dimensional weighted cross-polytope eigenvalues or multiplicities.",
+        "searches": [
+          "arXiv:2609.21670v1 equations (1.2)--(1.3), Theorem 1.1, Remark 1.2",
+          "Resultary: Hu Ivaki parallelotope cube polar octahedron first even eigenvalue regular crosspolytope",
+          "Full RESULT: cube--octahedron interpolation 2026-10-11"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.21670v1, pp.1--5 and global term searches",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-even-centro-affine-facet-spectrum-of-parallelotopes--96d0f3f42485/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-centro-affine-spectral-gap-along-the-cube-octahedron-inter--4397c6b224a3/RESULT.md",
+        "https://en.wikipedia.org/wiki/Hypercube_graph",
+        "Resultary searches for exact weighted facet spectrum and octahedral specialization"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct calculation gives m=1/(n-1)!, c=1/[2(n-2)!], hence c/m=(n-1)/2.",
+          "Previously known cube spectrum 2k implies the eigenvalues after this geometric identification.",
+          "The 3D interpolation admits an n=3 specialization with eigenvalue 4, while the n>=4 spectrum has even levels beyond this example."
+        ],
+        "reasoning": "The general theorem for n>=4 is not an implication of a different family, a three-dimensional special case, or the generic conditional bound. The weight calculation is elementary but specific and exact; n=3 is acknowledged as covered at the boundary, not presented as independent novelty.",
+        "searches": [
+          "Full Hu--Ivaki 2026 paper: definitions, theorem and relevant full-document search",
+          "Full Resultary/2026 parallelotope proof",
+          "Full Resultary/2026 cube--octahedron interpolation proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For regular cross-polytopes the Hu--Ivaki weighted graph is Q_n; the standard graph has spectrum 2k with binomial multiplicity.",
+          "The facet weighting adds the geometry-specific factor (n-1)/2.",
+          "The nearest indexed exact calculation explicitly concerns the assigned cross-polytope finding itself, not a distinct predecessor."
+        ],
+        "reasoning": "Plain hypercube eigenvalues and Walsh characters are classically known, so the graph-theory part is not new. An equivalent prior full claim must also supply the exact Hu--Ivaki mass/conductance ratio for C_n (n>=4); none of the inspected non-identical records does.",
+        "searches": [
+          "Resultary semantic query: centro-affine spectral geometry regular cross polytope Hu Ivaki facet network eigenvalues even Walsh hypercube",
+          "Public web: \"centro-affine\" \"cross-polytope\" \"spectrum\" facets eigenvalue",
+          "Hypercube graph Laplacian spectral theorem"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the exact assigned result, an all-dimensional parallelotope record, and a 3D interpolation; no separate earlier matching cross-polytope table.",
+          "The Hu--Ivaki PDF lacks the key cross-polytope or octahedron terms.",
+          "The graph spectrum table contains 2k rather than geometrically normalized (n-1)k."
+        ],
+        "reasoning": "A standard graph-spectrum table is not itself a precomputed table of the new centro-affine invariant, though it makes the last diagonalization step routine once the weights are known.",
+        "searches": [
+          "Resultary semantic query: exact weighted facet spectrum cross-polytope octahedron hypercube eigenvalues centro affine",
+          "Public web: \"centro-affine\" \"cross-polytope\" \"spectrum\"",
+          "Primary paper term search: cross-polytope, octahedron, hypercube"
+        ]
+      },
+      "rationale": "Best-of-knowledge new all-dimensional specialization of Hu--Ivaki facet weights to the regular n-cross-polytope, n>=4, with exact spectrum and even multiplicities. The classical Q_n Walsh spectrum supplies the diagonalization, and a published three-dimensional interpolation covers the octahedral n=3 boundary specialization; neither gives the geometric weight ratio and full result for n>=4. The parallelotope result computes a different polytope class. The claimed originality is limited to the complete weighted centro-affine cross-polytope spectrum, not to the Walsh diagonalization, the invariant definition, or the n=3 numerical value.",
+      "residual_risks": [
+        "A recent unindexed source could state the exact weighted cross-polytope spectrum under a different name.",
+        "The Walsh cube spectrum is classical and the geometric weighting calculation is short; the originality does not extend to these individually.",
+        "The n=3 result overlaps the octahedron boundary of the published three-dimensional interpolation, so no chronological or mathematical priority is claimed for that specialization."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIONS_NOT_ALL_DIMENSION_CROSS_POLYTOPE_SPECTRUM",
+          "evidence": "Facet mass m_i=h_i H^{n-1}(F_i), c_ij=h_i h_j H^{n-2}(ridge)/sin(theta_ij), unordered-edge Dirichlet form, antipodal even quotient; Theorem 1.1 gives only a local-minimizer conditional bound. No cross-polytope or octahedron statement was found.",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21670v1",
+          "material_read": "Pages 1--5 of the full 53-page version, especially equations (1.2)--(1.3), Theorem 1.1, Remark 1.2, and Section 2 definitions; full-document term searches for cross-polytope, octahedron, hypercube and parallelotope.",
+          "method": "Full primary PDF reading of relevant sections and page-three visual inspection, plus full-document term search.",
+          "title": "Centro-affine spectral geometry of polytopes",
+          "trigger": "Primary definition of the exact Hu--Ivaki finite facet mass, ridge conductance and even Rayleigh quotient."
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_POLYTOPE_CLASS",
+          "evidence": "All origin-symmetric parallelotopes have even spectrum 0 (once), n (multiplicity n-1), but are not cross-polytopes for n>=3; the proof has no cross-polytope facet weights or Walsh ladder.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-even-centro-affine-facet-spectrum-of-parallelotopes--96d0f3f42485/RESULT.md",
+          "material_read": "Entire RESULT.md: finding, affine covariance, box mass/conductance proof, Rayleigh identity, limitations.",
+          "method": "Primary published scientific statement and complete proof read.",
+          "title": "Exact even centro-affine facet spectrum of parallelotopes",
+          "trigger": "Nearest published all-dimensional same-invariant spectrum, for a polar-combinatorial family."
+        },
+        {
+          "assessment": "THREE_DIMENSIONAL_BOUNDARY_OVERLAP_NOT_ALL_DIMENSIONS",
+          "evidence": "The family is K_c=[-1,1]^3 cap c B_1^3 for 1<c<3; its diagonal zero-sum branch T(c) tends to 4 as c decreases to 1 with multiplicity three. It supports the octahedral n=3 value but neither states nor implies the n>=4 cross-polytope spectrum.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-sharp-centro-affine-spectral-gap-along-the-cube-octahedron-inter--4397c6b224a3/RESULT.md",
+          "material_read": "Entire RESULT.md: exact three- and seven-pair facet descriptions, mass/weight cases, four even eigenvalue branches, proof and endpoint restrictions.",
+          "method": "Complete published proof and implication comparison.",
+          "title": "Sharp centro-affine spectral gap along the cube--octahedron interpolation",
+          "trigger": "Very close same-invariant theorem whose three-dimensional octahedral endpoint overlaps the n=3 case."
+        },
+        {
+          "assessment": "CLASSICAL_GRAPH_STEP_ONLY",
+          "evidence": "The unweighted hypercube Laplacian has eigenvalues 2k with multiplicities binomial(n,k); this is an established input, not a new spectral theorem by itself. It does not supply Hu--Ivaki geometric facet masses or conductances.",
+          "identifier_or_url": "https://en.wikipedia.org/wiki/Hypercube_graph",
+          "material_read": "Graph eigenvalue and multiplicity description for the ordinary cube Laplacian.",
+          "method": "Reference overview, confirmed independently by direct Walsh-character computation.",
+          "title": "Hypercube graph spectrum",
+          "trigger": "Standard graph-spectral reduction could cover the Walsh eigenvalue step."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cross-polytope is a canonical nonsimple origin-symmetric polytope for the recently introduced centro-affine weighted facet-network invariant. The complete all-dimensional even ladder, including binomial multiplicities, is a natural benchmark that a later study can use when comparing classes and testing conjectured gap behavior. The gap 2(n-1) differs for n>=3 from the polar parallelotope gap n, demonstrating that the discrete invariant is not preserved by polarity. The calculation is elementary once the network is identified, but the exact normalization, full spectrum and polarity comparison are self-contained useful facts beyond a single tiny numeric check.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "limitations": [
+    "The theorem is limited to regular n-cross-polytopes, n>=2, and their invertible linear images; it does not characterize arbitrary simplicial polytopes or imply local minimality.",
+    "A published three-dimensional interpolation result overlaps the octahedral n=3 specialization; the new all-dimensional content starts in n>=4.",
+    "Finite rational testing n=2..7 corroborates but does not establish the infinite family; the Gram and Walsh argument does.",
+    "The original RESULT.md had a form-feed character in place of a backslash in one displayed conductance fraction. The supplied full RESULT.md corrects this display while preserving the mathematical claim and makes prior-work scope more explicit.",
+    "No external expert attestation or Lean formalization was performed; originality remains best-of-knowledge with explicitly listed residual risks."
+  ],
+  "schema_version": 1
+}
