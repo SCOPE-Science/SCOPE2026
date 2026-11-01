@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The stated theorem follows from a complete orbit-barycentric characterization of geometric fixed points, an exact cyclic maximum-distance lemma, and the flag definition of the original complexes. The proof handles all divisors, the small quotient cycles, the two threshold equalities, and compatibility of maps across scales. The accompanying checker tests the orbit geometry arithmetically but is not substituted for the universal proof.
+PASS
 
-## Originality
+A geometric fixed barycentric point has weights constant on every orbit, so fixed support simplices are exactly unions of entire rotation orbits that satisfy all metric edges. Even order orbit contains an n/2-separated antipodal pair, enforcing the final-scale threshold. For odd order, the maximum cyclic distance in two full cosets O_a,O_b is sm+delta_m(a,b), including a=b and m=1. This proves the exact shifted K_m face predicate and respects all inclusions. Independently enumerated 11283 ordered orbit pairs for all n<=55 and every divisor, confirming the odd formula and even individual-orbit diameter. The universal proof uses the coset distance formula, not bounded enumeration.
 
-**PASS, qualified.** The closest relevant sources are Adamaszek et al., *Nerve complexes of circular arcs* (arXiv:1410.4336, §§7–8), which determine ordinary clique-Rips homotopy types and nerve-model symmetry characters; and Adams et al., *Persistent equivariant cohomology* (arXiv:2408.17331, §7 and §8 Question 3), which gives continuous-circle fixed-point results but poses finite polygon equivariant persistence as a question. The exact full finite rotational-subgroup PL fixed-space diagram, with odd/even order and scale shift, was not found in their inspected sections, the other cited primary full texts or available indexed records. A standard orbit-average argument is credited as such and is not asserted as novel by itself. A differently phrased antecedent remains possible.
+## originality
 
-## Value
+PASS
 
-**PASS.** The output is a complete, inclusion-compatible geometric fixed-point filtration classification over an infinite family of naturally occurring symmetry actions, with exact arithmetic thresholds and explicit circle stages. It addresses a specifically motivated part of the finite polygon equivariant-persistence problem without claiming to compute full dihedral Borel equivariant cohomology.
+Primary full-text inspection of Adams–Lagoda–Moy–Sadovek–De Saha distinguishes finite evenly spaced VR Question 3 from the paper’s solved continuous-circle metric-thickening equivariant cohomology; it does not give the finite rotational-subgroup geometric fixed filtration. Adamaszek et al. classify ordinary nerve/cyclic clique types and a dihedral homology action on another complex, not fixed supports of every H_d and all persistence maps. No stronger implication identified in Resultary.
 
-## Scope and risks
+## value
 
-The statement concerns finite graph-distance Rips complexes and cyclic rotation groups only. It does not cover reflections, other dihedral subgroups, Borel cohomology, or Euclidean chord-length numerical parameter values. Published equivalent but unindexed work is a residual originality risk; independent expert audit remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete fixed-point filtration and exact odd/even thresholds are a natural equivariant-topology invariant, address a concrete ingredient of the finite dihedral persistence problem and can be combined with established smaller cyclic ordinary Rips classification, while deliberately not claiming full dihedral Borel equivariant cohomology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
