@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T22:53:35Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual source RESULT.md Git blob 4817ffdd0620b0f5e03b1302c73ff674ecf8f85e, complete six-band and minimax argument.",
+        "Fresh independent Python reconstruction found 15/15 pair dots =1/sqrt5 and all 20 triple threshold values in the asserted 10+10 classes; not relying on stored verifier logs.",
+        "Original verify.py Git blob 72ef35519317818cf8cedf1eab4f64a2569f21ad inspected: computes primitive quadratures, vertex-pair shadow diameters and Haar samples as finite corroboration.",
+        "Identity J_k derivative verified by differentiating the explicit arctan and arcsine primitive; six-band inclusion-exclusion is exact before first triple overlap."
+      ],
+      "rationale": "For 12 antipodal icosahedron vertices at radius R, every projected shadow has diameter 2R sqrt(1-m(U)^2), m(U)=min_i |U·a_i|. Hence the upper-tail event is the union of six spherical equator bands. All 15 absolute pairwise axis dots equal 1/sqrt(5); independent enumeration of 20 three-axis Gram matrices gives ten minimax thresholds t*=sqrt((1-2/sqrt(5))/3) and ten 1/sqrt(5), establishing no positive-area triple overlap on 0<=t<=t*. Pair-band derivative is 2/pi times [asin(phi*t/sqrt(1-t²))+asin(t/(phi*sqrt(1-t²)))], with primitive J_phi+J_1/phi. Inclusion-exclusion gives exactly 6t-30/pi [J_phi+J_1/phi]. Direct differentiation and Taylor series give the claimed t²,t^4 and near-maximal-diameter coefficients; strict endpoint and real inverse-trigonometric domains checked. The result is ONLY this upper branch and does not claim a full CDF.",
+      "risks": [
+        "Finite Haar-sampling checks cannot certify continuous distribution or the exact sharp endpoint; this follows from the Gram/minimax proof.",
+        "No statement below the first triple-overlap diameter, or for deformed solids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kabluchko–Litvak–Zaporozhets Section 3 gives a general higher-moment formula for scalar directional width and examples for regular simplices/crosspolytopes.",
+          "Finch 2016 full HTML sections address triangle, square, tetrahedron, cube scalar widths; Resultary icosahedron record gives central-section polygon type."
+        ],
+        "reasoning": "General one-dimensional width-moment laws do not dominate the two-dimensional planar-shadow diameter distribution; equiangular-line geometry is a geometric ingredient, not a published offset-band probability theorem in inspected sources.",
+        "searches": [
+          "Resultary: Orthogonal projection diameter random regular icosahedron exact distribution upper tail six great-circle bands Haar view sphere",
+          "regular icosahedron random planar shadow diameter distribution six spherical bands"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1511.08479v3 primary HTML sections 1 and 3",
+        "arXiv:1110.0671v2 primary HTML sections 1-4",
+        "Resultary published 2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f",
+        "Original package RESULT.md and verified Git source tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kabluchko–Litvak–Zaporozhets random width moments refer to a different projection dimension; the first new branch requires pair-zone integration, not the cited scalar moment formula.",
+          "Finch computes width densities/moments of the tetrahedron and cube, not the icosahedral planar shadow."
+        ],
+        "reasoning": "Neither antecedent statement implies the claimed exact CDF by specialization. Classical great-circle arrangements constrain combinatorics but do not alone calculate area of the band union.",
+        "searches": [
+          "Resultary: Orthogonal projection diameter random regular icosahedron exact distribution upper tail six great-circle bands Haar view sphere",
+          "regular icosahedron random planar shadow diameter distribution six spherical bands",
+          "arxiv:1511.08479 Section 3 random width and arxiv:1110.0671 Sections 3-4"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The statistic m(U)=min_i |U·a_i| is the minimum of six equiangular spherical coordinates, while one-dimensional width is the range of scalar support projections.",
+          "Kabluchko et al. Section 3 defines W_K as projected length onto a random line (arXiv:1511.08479); Finch defines mean support-plane width along a normal."
+        ],
+        "reasoning": "The natural aliases random planar-shadow diameter, equator-band union area, and six-axis minimum absolute dot agree with THIS target, but the inspected prior width/central-section quantities are different and do not by a change of variables determine its CDF.",
+        "searches": [
+          "Resultary: Orthogonal projection diameter random regular icosahedron exact distribution upper tail six great-circle bands Haar view sphere",
+          "icosahedron random orthogonal shadow projected diameter exact near maximum distribution six vertex axes spherical zones"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returned Oct 11, 2026 exact Haar polygon-type law for central icosahedron sections, not projected diameters.",
+          "No inspected numerical database or table of six thickened icosahedral equators includes the reported J_phi branch."
+        ],
+        "reasoning": "The claim is a continuum probability law with exact first triple-overlap cutoff, not a known finite tabulation. Search nondetection is not proof of uniqueness.",
+        "searches": [
+          "Resultary: Orthogonal projection diameter random regular icosahedron exact distribution upper tail six great-circle bands Haar view sphere",
+          "icosahedron random orthogonal shadow projected diameter exact near maximum distribution six vertex axes spherical zones"
+        ]
+      },
+      "rationale": "A regular icosahedron planar-shadow diameter is not the same random variable as the directional width of its one-dimensional projection, or the diameter of a CENTRAL SECTION. Finch (2016) and Kabluchko–Litvak–Zaporozhets (2016) study regular-polytope width moments/distributions for random LINES, not this maximum length within a random plane. Published icosahedral central-section type record classifies polygon types, not planar projected diameter. The finite six-belt union and its sharp first triple-touch threshold were not covered by inspected primary results. Originality is best-of-knowledge; older six-great-circle arrangement monographs could conceal an equivalent zone-union law.",
+      "residual_risks": [
+        "Historical spherical-zone literature or Popko 2012 chapter not read; an equivalent exact six-circle band formula may predate this.",
+        "The upper-tail law stops at t*, not the full shadow-diameter distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this planar-shadow diameter statistic",
+          "evidence": [
+            "Section 3 explicitly defines W_K as LENGTH of projection onto a line and computes moments for regular polytopes; no random two-dimensional shadow diameter CDF."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1511.08479v3",
+          "material_read": "Full accessible HTML abstract, definitions of W_K and Section 3 higher moments/random width theorems, relevant examples, section outline checked",
+          "method": "Primary HTML reading",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Potential broader regular-polytope random projection theorem"
+        },
+        {
+          "assessment": "NOT_COVERING icosahedral shadow diameter",
+          "evidence": [
+            "The three-dimensional objects explicitly analyzed are tetrahedron and cube; random width is a scalar supporting-plane separation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1110.0671v2",
+          "material_read": "Full accessible HTML introduction and Sections 1–4 scalar-width definitions and tetrahedron/cube results examined",
+          "method": "Primary HTML reading",
+          "title": "Width Distributions for Convex Regular Polyhedra",
+          "trigger": "Earlier distribution of random convex-body widths"
+        },
+        {
+          "assessment": "UNRESOLVED historical possibility",
+          "evidence": [
+            "Known great-circle arrangement does not establish whether old work integrates thickened band unions."
+          ],
+          "identifier_or_url": "Popko (2012), book bibliographic reference",
+          "material_read": "Bibliographic mention only; original book chapter not accessed",
+          "method": "Bibliographic identification, NOT full-text examination",
+          "title": "Divided Spheres: Geodesics and the Orderly Subdivision of the Sphere",
+          "trigger": "Historically plausible six-icosahedral-great-circle geometry overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:1511.08479v3 primary HTML sections 1 and 3",
+        "arXiv:1110.0671v2 primary HTML sections 1-4",
+        "Resultary published 2026/10/11/SCOPE-exact-haar-polygon-type-law-for-central-icosahedron-sections--65970a533c4f",
+        "Original package RESULT.md and verified Git source tree"
+      ],
+      "rationale": "The Haar orientation statistic of a canonical Platonic solid is mathematically natural. An explicit interval carrying about 0.744 of the shadow-diameter upper-tail mass, with a geometrically sharp triple-overlap phase boundary and exact arctangent law, is a motivated quantitative geometry result; it is not a mere table of sample orientations.",
+      "residual_risks": [
+        "Historical spherical-zone literature or Popko 2012 chapter not read; an equivalent exact six-circle band formula may predate this.",
+        "The upper-tail law stops at t*, not the full shadow-diameter distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
