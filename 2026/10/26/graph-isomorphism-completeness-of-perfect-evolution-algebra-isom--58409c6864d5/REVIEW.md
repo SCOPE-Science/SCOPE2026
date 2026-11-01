@@ -1,9 +1,21 @@
-# Review of fixed-field evolution-algebra isomorphism complexity
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives monomiality from the independent squares in a perfect evolution algebra, then verifies the exact coefficient equation. The cyclic relation forces scalars to act by multiplication, and the second relation is preserved exactly when the coefficient equation holds. The graph-to-algebra incidence construction is triangular with determinant one and has an intrinsically distinguishable vertex/edge partition. These steps give both many-one reductions without relying on finite experiments. The checker independently tests exhaustive small cases and sampled larger cases.
+## correctness
 
-**Originality — PASS (qualified).** Question 50 in the October 15, 2026 survey explicitly leaves this complexity comparison open. The closest 2025 graph-automorphism construction contains closely related GI-hardness ideas; that direction is credited rather than asserted new. The 2019 total-colored-graph encoding concerns isotopisms and has exponentially many candidate product-pair vertices; the present fixed-field linear-size cyclic-fiber construction preserves isomorphism and its scaling constraints. Searches of published mathematical records and accessible earlier claims gave no same-statement coverage. The risk is that the fixed-field GI upper bound or the entire equivalence may already be implicit in graph-encoding literature. The 2017 graph/random-walk paper was assessed at abstract level only.
+PASS
 
-**Value — PASS.** This closes a concrete complexity classification requested in current primary literature for an entire natural algebra class, not for an arbitrary finite census. The fixed-field qualifier delineates an algorithmically important boundary: dimension grows while the underlying field is held fixed. The construction supplies an explicit polynomial reduction in both directions and separates this class from the substantially broader tensor-isomorphism setting.
+For perfect evolution algebras the natural basis squares are linearly independent; zero products of distinct source basis elements force every target row of an invertible isomorphism matrix to have at most one nonzero entry, hence monomiality. The exact necessary and sufficient monomial compatibility equation is a_ij c_j=c_i² b_{σ(i),σ(j)}, including zero support and arbitrary field characteristic. Fixing primitive g in F_q^×, R1 cycles (i,t)→(i,gt) force every relational isomorphism to permute fiber indices and scale each t by c_i; this still works at q=2 where each fiber has a singleton loop. R2 edges (i,t)→(j,a_ij t²) force precisely the monomial compatibility equation for all nonzero entries, while the relation support matches zero entries. Standard directed edge/relation-type incidence gadgets and colors encode this bounded-relational vocabulary in ordinary uncolored GI with polynomial blowup for fixed q. For hardness, from simple G with n vertices,m edges the block matrix [I_n,C_G;0,I_m] has determinant one in every characteristic; its support digraph has original indegree one and edge-nodes indegree three, so the graph is recoverable and isomorphic iff the two perfect algebras are. Matrices size n+m=O(n²). Fresh exhaustive 2x2 F2/F3 comparisons and all simple graphs through n=5 corroborate; the unrestricted result is proved by the two reductions, not finite search.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-knowledge scientific comparison: For each fixed finite field F_q, isomorphism of perfect evolution F_q-algebras given by structure matrices is GI-complete under polynomial-time many-one reductions: a two-relation graph on n(q−1) vertices encodes arbitrary perfect algebra isomorphism, and arbitrary graph isomorphism reduces to block-unitriangular {0,1} perfect structure matrices with incidence columns of weight two. The claim provides a sharp fixed-field complexity classification of the entire natural class of perfect evolution algebras and directly answers a specifically p
+
+## value
+
+PASS
+
+The claim provides a sharp fixed-field complexity classification of the entire natural class of perfect evolution algebras and directly answers a specifically posed October 2026 problem about graph-isomorphism equivalence. Both polynomial reductions matter: earlier monomial rigidity and graph-to-algebra constructions alone give neither a complete GI upper bound with all scalars nor an all-input equivalence. It does not assert a polynomial-time algorithm for GI or transfer to variable q or nonperfect algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

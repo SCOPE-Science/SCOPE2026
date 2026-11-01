@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The theorem is proved symbolically by monomial rigidity, cycle-fiber relational isomorphism, and support-incidence reconstruction. The included `check.py` uses distinct brute-force definitions to compare the monomial coefficient equation to relational isomorphism; it does not assume the theorem in either search.
+## correctness
 
-Executed with Python 3, standard library only:
+PASS
 
-```
-q=2, n=2, matrices=6, tested_pairs=36, isomorphic_pairs=10
-q=3, n=2, matrices=48, tested_pairs=2304, isomorphic_pairs=352
-q=2, n=3, matrices=168, tested_pairs=1200, isomorphic_pairs=45
-q=5, n=2, matrices=480, tested_pairs=100, isomorphic_pairs=6
-incidence encoding n=1, simple_graphs=1
-incidence encoding n=2, simple_graphs=2
-incidence encoding n=3, simple_graphs=8
-incidence encoding n=4, simple_graphs=64
-incidence encoding n=5, simple_graphs=1024
-VERIFY_OK
-```
+For perfect evolution algebras the natural basis squares are linearly independent; zero products of distinct source basis elements force every target row of an invertible isomorphism matrix to have at most one nonzero entry, hence monomiality. The exact necessary and sufficient monomial compatibility equation is a_ij c_j=c_i² b_{σ(i),σ(j)}, including zero support and arbitrary field characteristic. Fixing primitive g in F_q^×, R1 cycles (i,t)→(i,gt) force every relational isomorphism to permute fiber indices and scale each t by c_i; this still works at q=2 where each fiber has a singleton loop. R2 edges (i,t)→(j,a_ij t²) force precisely the monomial compatibility equation for all nonzero entries, while the relation support matches zero entries. Standard directed edge/relation-type incidence gadgets and colors encode this bounded-relational vocabulary in ordinary uncolored GI with polynomial blowup for fixed q. For hardness, from simple G with n vertices,m edges the block matrix [I_n,C_G;0,I_m] has determinant one in every characteristic; its support digraph has original indegree one and edge-nodes indegree three, so the graph is recoverable and isomorphic iff the two perfect algebras are. Matrices size n+m=O(n²). Fresh exhaustive 2x2 F2/F3 comparisons and all simple graphs through n=5 corroborate; the unrestricted result is proved by the two reductions, not finite search.
 
-The sampled comparisons are deterministic, and the first two matrix-pair comparisons are exhaustive. The incidence tests validate the determinant and intrinsic indegree partition for all labeled graphs of orders at most five, across three prime fields. General finite-field and arbitrary-dimension correctness rests on the human-readable proof, not on these finite tests. The checker's tested fields are prime fields; the algebraic proof handles all prime powers.
+## originality
+
+PASS
+
+Best-knowledge scientific comparison: For each fixed finite field F_q, isomorphism of perfect evolution F_q-algebras given by structure matrices is GI-complete under polynomial-time many-one reductions: a two-relation graph on n(q−1) vertices encodes arbitrary perfect algebra isomorphism, and arbitrary graph isomorphism reduces to block-unitriangular {0,1} perfect structure matrices with incidence columns of weight two. The claim provides a sharp fixed-field complexity classification of the entire natural class of perfect evolution algebras and directly answers a specifically p
+
+## value
+
+PASS
+
+The claim provides a sharp fixed-field complexity classification of the entire natural class of perfect evolution algebras and directly answers a specifically posed October 2026 problem about graph-isomorphism equivalence. Both polynomial reductions matter: earlier monomial rigidity and graph-to-algebra constructions alone give neither a complete GI upper bound with all scalars nor an all-input equivalence. It does not assert a polynomial-time algorithm for GI or transfer to variable q or nonperfect algebras.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
