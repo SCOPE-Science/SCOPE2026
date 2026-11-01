@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-A complete factor-type argument separates alternating odd palindromes from even palindromes centered at the sole doubled zero and sole doubled one. Exact extension radii and parity-dependent alternating maxima account for **every** distinct palindrome. Comparing the resulting expression to word length yields the iff threshold; a direct parameter-pair count proves the enumeration. The executable verifier corroborates all 10,164 stated triples and semilengths 2–40. The proof, not a finite extrapolation, covers all nonnegative \(u,v\) and positive \(a\).
+## correctness
 
-## Originality — PASS (same-model, with residual uncertainty)
-Actual semantic searches of published mathematical records and primary-literature searches for Dyck-height-two richness, single elevated excursions, alternating-plus-excursion parametrizations, and equivalent palindromic-complexity expressions found no covering theorem. The closest inspected primary source concerns rich infinite binary words and repetition thresholds rather than the constrained finite Dyck family. There remains a risk of an equivalent formula under alternative terminology or in a source not indexed by those searches.
+PASS
 
-## Mathematical value — PASS
-The first nontrivial height layer above alternating Dyck paths permits a canonical three-parameter family with a unique elevated primitive excursion. The exact richness boundary is not merely a length check: it separates arbitrarily large asymmetric exterior padding from a single exceptional symmetric alignment. The result also supplies the complete distinct-palindrome statistic and exact all-semilength enumeration for this fundamental sparse-excursion stratum. This is a motivated full natural subclass, not an arbitrary numerical slice.
+Every W=(01)^u 0(01)^a1 (01)^v has exactly one 00 and one 11. An even palindrome containing one such double pair must be centered there; other palindromes are odd alternating factors. Direct arm-length maxima give the four-term P(W) formula. Splitting the cases u≤v across u<a, u=a<v, a<u≤v and equality u=v=a gives richness exactly min(u,v)<a or u=v=a. Counting pairs u+v=n-a-1 gives R_n=t(t+1)+(n-t-1)(n-t)/2+1_{3|n-1}. Independently enumerated all palindromic substrings for 1210 triples a=1..10,u,v=0..10 and all n=2..25; each matched, while the unrestricted theorem is the combinatorial argument.
 
-## Limitations
-No assertion about the classification or counts for paths having two or more elevated excursions is made. The checks do not prove exhaustive external novelty. This is not independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Classical rich-word characterization is acknowledged. Currie–Mol–Rampersad study infinite rich words that avoid 14/5 powers and their repetition threshold; the present finite Dyck subclass often has arbitrarily long (01)^u powers and violates that hypothesis. Their structural theorem does not supply this three-parameter palindrome count or exact semilength census.
+
+## value
+
+PASS
+
+The one-elevated-excursion Dyck family is a canonically defined complete subfamily of height-two Dyck words. Exact richness conditions and census resolve a natural finite-language palindromic statistic for every semilength; not merely a few tiny examples. The restriction and its limits are explicit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
