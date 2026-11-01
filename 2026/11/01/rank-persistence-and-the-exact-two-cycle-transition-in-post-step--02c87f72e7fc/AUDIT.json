@@ -1,0 +1,146 @@
+{
+  "correctness": {
+    "rationale": "Fixed initial singular bases remain invariant under a polar correction of a scalar multiple. The recurrence \\(r\\mapsto|sr-\tau|\\) is an \\(s\\)-contraction away from absorbed zeros, with fixed radius \\(\tau/(1+s)\\). Its complete zero-preimage set is derived by unique backward induction. Eventual coefficient sign behavior proves fixed-point versus two-cycle limits for every rectangular real input. A standalone numerical/exact-rational verifier gave 156222 supplementary checks; proof does not rely on them.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Combettes--Pesquet 2007, Proximal Thresholding Algorithm for Minimization over Orthonormal Bases, DOI 10.1137/060669498: genuinely proximal iteration.",
+        "Published result 2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f: matrix-completion SVT update.",
+        "A related exact-line-search nuclear-scaled polar-gradient calculation on isotropic quadratics has a separate step normalization and does not give the fixed-step postgradient polar map."
+      ],
+      "reasoning": "General constant-step subgradient neighborhood bounds do not supply a full classification of the exact matrix polar update, and true soft thresholding uses \\(\\max(s r-\tau,0)\\) rather than \\(|sr-\tau|\\). The other two named numerical studies employ different update formulas, so their conclusions do not imply this fixed-step classification.",
+      "searches": [
+        "constant stepsize subgradient method nuclear norm strongly convex cycles periodic orbit matrix",
+        "subgradient method constant step scalar l1 quadratic two-cycle exact formula",
+        "Spectral Weight Decay Inducing Low Rank Structure in Neural Network Weights Beznosikov Veprikov Andriianov exact post-step polar shrinkage isotropic quadratic long-time rank"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.11730v1",
+      "arxiv:2607.22484",
+      "doi:10.1137/060669498",
+      "https://www.lamda.nju.edu.cn/yudz/finite-time-nonsmooth-signum-muon.html",
+      "2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f",
+      "2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Andriianov--Veprikov--Beznosikov 2026, https://www.paperpeel.com/paper/2610.11730, lines corresponding to Section 4 and Appendix A: un-clipped signed crossing noted, but no repeated-iterate classification for centered quadratic.",
+        "Becker 2026, arXiv:2607.22484: computes exact proximal singular-value clipping using a polar decomposition, not post-step polar subtraction.",
+        "Published rank-staircase result addresses a dual SVT matrix-completion recurrence, while the SOAP result studies stale-basis optimizer normalization."
+      ],
+      "reasoning": "A statement that one polar correction can cross zero does not imply the full global contraction, complete exceptional rank-collapse set, fixed-point versus two-cycle boundary and dimension-dependent objective floor without additional repeated-iterate reasoning. The compared proximal, dual-SVT and SOAP iterations cannot be reduced to the same map while preserving the claims. Scalar sign cycling is acknowledged as a known mechanism, limiting the novelty claim to the algorithm-specific matrix classification.",
+      "searches": [
+        "\"Spectral Weight Decay\" \"theorem\" \"order\" proximal decoupled nuclear threshold",
+        "Spectral Weight Decay Inducing Low Rank Structure in Neural Network Weights Beznosikov Veprikov Andriianov exact post-step polar shrinkage isotropic quadratic long-time rank",
+        "fixed-step spectral weight decay exact polar nonzero singular value floor all singular values equal generic full rank and two-cycle under quadratic loss",
+        "2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f",
+        "2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.11730, source Section 4.1 and Appendix A.2, sets \\(Z-\tau Q(Z)\\) against soft thresholding but treats primarily individual steps.",
+        "https://www.lamda.nju.edu.cn/yudz/finite-time-nonsmooth-signum-muon.html discusses scalar sign-method cycling for different objectives and momentum.",
+        "Published closest: 2026/10/4/SCOPE-a-sharp-flip-frontier-for-the-polar-express-surrogate-on-scalar--5f6e926df82f, a different polar surrogate."
+      ],
+      "reasoning": "For positive \\(q\\), the one-coordinate update is equivalent to constant-step subgradient descent on an absolute-value-regularized quadratic, so basic cycling is not claimed novel. The complete singular-value resonance preimages, matrix rank preservation and partial-isometry sign classification are not stated by the compared material. The Polar-Express surrogate is a different smooth polynomial direction update.",
+      "searches": [
+        "\"spectral weight decay\" \"two-cycle\" \"oscillation\" singular values",
+        "\"polar-factor\" weight decay \"two-cycle\" quadratic",
+        "fixed-step spectral weight decay exact polar nonzero singular value floor all singular values equal generic full rank and two-cycle under quadratic loss",
+        "scalar signed-shrinkage proximal gradient approximate nuclear norm polar under threshold periodic two cycle overrelaxation resonance step size"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact-table identification was found among returned published finding records for these terms.",
+        "A fully specified sequence \\(R_j=\tau(s^{-j}-1)/(1-s)\\) is derived analytically, not obtained from a finite numerical database."
+      ],
+      "reasoning": "This is an exact all-dimension recurrence theorem with real-valued parameters, not an entry in a preexisting finite computation table. Lack of a database hit is not treated as a proof of novelty.",
+      "searches": [
+        "rank-preserving versus finite rank-loss exceptional singular values in additive polar spectral weight decay",
+        "\"signed singular value shrinkage\" limit cycle linear iteration",
+        "\"spectral weight decay\" \"cycles\" \"singular\" \"rank\" signed"
+      ]
+    },
+    "rationale": "The first-public 2026 post-step polar-decay source gives the map and one-step behavior, whereas its inspected full manuscript sections do not give the exact all-rank, all-stepsize asymptotic law, resonance set, and matrix fixed-point/two-cycle split. Closest published numerical results and classical sign-cycling and proximal work concern distinct statements or recursions. No exhaustive historical priority certificate is claimed.",
+    "residual_risks": [
+      "Generic constant-step subgradient cycling is classical and is expressly excluded from the novelty claim.",
+      "Becker 2026 and some historical nuclear-norm subgradient literature were not available for exhaustive full-text inspection; stronger ancillary results could already imply an equivalent classification.",
+      "An embedding/source database search cannot prove global priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No long-time homogeneous-quadratic singular-radius and rank-resonance classification found in inspected result statements. The one-step polar update itself is from this source.",
+        "evidence": [
+          "2026-10-08 first public arXiv date, arXivlens metadata",
+          "https://www.paperpeel.com/paper/2610.11730, Section 4, Appendix A.2"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.11730",
+        "material_read": "Readable main text Sections 1, 2, 4.1, 5, 6, and Appendix A.1--A.3, including signed subthreshold crossing and proximal comparison.",
+        "method": "Full manuscript text as accessible through open HTML mirror, not merely search snippets.",
+        "title": "Spectral Weight Decay: Inducing Low-Rank Structure in Neural Network Weights",
+        "trigger": "Defines the exact update and is the motivating source with the same polar correction."
+      },
+      {
+        "assessment": "Abstract describes exact SVT computation, a different (clipped) map; residual possibility of relevant ancillary statements is documented.",
+        "evidence": [
+          "https://discuria.org/paper/singular-value-soft-thresholding-via-the-polar-decomposition",
+          "https://www.one9founders.com/research/2607.22484"
+        ],
+        "identifier_or_url": "arxiv:2607.22484",
+        "material_read": "Publicly available abstract only; full PDF was not inspected.",
+        "method": "Publisher/index summaries and abstracts; full text inaccessible in this pass.",
+        "title": "Singular value soft-thresholding via the polar decomposition",
+        "trigger": "Polar-factor methods might dominate the claimed matrix iteration."
+      },
+      {
+        "assessment": "Genuinely proximal thresholding strongly converges; cannot imply nonproximal signed-polar dynamics directly.",
+        "evidence": [
+          "https://epubs.siam.org/doi/10.1137/060669498"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/060669498",
+        "material_read": "Published abstract, model description, and bibliographic classification only.",
+        "method": "Journal abstract inspection; not full-text noncoverage.",
+        "title": "Proximal Thresholding Algorithm for Minimization over Orthonormal Bases",
+        "trigger": "Possible stronger convergence theorem for spectral thresholding."
+      },
+      {
+        "assessment": "Explains related scalar cycling; concerns sign momentum and nonsmooth objective, not the un-clipped polar decay rank resonance classification.",
+        "evidence": [
+          "https://www.lamda.nju.edu.cn/yudz/finite-time-nonsmooth-signum-muon.html"
+        ],
+        "identifier_or_url": "https://www.lamda.nju.edu.cn/yudz/finite-time-nonsmooth-signum-muon.html",
+        "material_read": "Displayed setup, constant-step two-cycle proposition, and Muon-to-diagonal sign reduction.",
+        "method": "Open HTML exposition containing the relevant mathematical statements.",
+        "title": "Finite-Time Nonsmooth Convergence of Signum and Muon",
+        "trigger": "Exact two-cycles for sign-based matrix updates may subsume the one-dimensional mechanism."
+      },
+      {
+        "assessment": "Dual matrix-completion SVT map is different; finite termination contrasts with signed polar persistence.",
+        "evidence": [
+          "2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-rank-staircase-and-finite-termination-resonance-for-svt-on--008b7842a13f",
+        "material_read": "Published mathematical summary available in semantic search, not complete article.",
+        "method": "Published summary comparison, with no assertion about unseen sections.",
+        "title": "Exact rank staircase and finite termination resonance for SVT on matching samples",
+        "trigger": "Title and conclusion mention exact rank resonances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02c87f72-e7fc-4f66-bc23-243b0df999f7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The proposed low-rank inducing regularizer generically does not reduce exact rank on the simplest centered convex matrix problem; all nonzero singular values equalize at a positive floor, with a sharp exceptional set and a singular gradient-stepsize resonance. This exact phase diagram and objective error quantify a concrete difference between un-clipped polar subtraction and genuine proximal thresholding; it is a natural algorithmic reliability benchmark rather than a mere scalar iteration observation.",
+    "status": "PASS"
+  }
+}
