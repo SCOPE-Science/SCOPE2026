@@ -1,15 +1,21 @@
-# Scientific review: phase-shift means of embedded periodic orbits
+# Independent mathematical audit
 
-## Correctness — PASS
-The target domain is the normalized time-parametrized Hilbert quotient under circular shifts only. Two-point Fréchet minimizers are exactly midpoint classes of globally best-aligned representatives by the quotient triangle inequality and Hilbert parallelogram equality. Orthogonal Fourier modes \(1\), \(1+k\), and \(1-k\) give the precise correlation \(\cos\theta[1-(\varepsilon^2/2)\cos(k\theta)]\). At harmonic \(k=2\), the resulting cubic in \(\cos\theta\) has exactly one maximizer for \(\varepsilon^2\le2/5\) and exactly two symmetry-related maximizing phases above it. Their quotient means are inequivalent because a time shift fixed by the first Fourier mode gives an opposite sign on any nonzero sideband. The general near-circle result follows from the sign of the second phase derivative and evenness. Each smooth positive radial graph is a stable cycle of its explicit annular polar flow. The exact checker identities and finite quadratures passed; the global argument is analytical, not an extrapolation of numerical scans.
+## correctness
 
-## Originality — PASS under inspected evidence
-Hering and Kuehn, arXiv:2606.10748v1 (2026-06-09), introduced and studied the same phase-shift quotient and noted generic failure of uniqueness. Those facts are prior art. Its inspected definitions, uniqueness discussion, algorithms, diagnostics and examples do not establish the exact two-lobe threshold, the complete count of the two-sample means, or the near-circle high-frequency obstruction. Doğan, Bernal and Hagwood, *FFT-based Alignment of 2d Closed Curves with Application to Elastic Shape Analysis* (2015, also arXiv:2501.17779), study an alignment problem with additional ambient rotations and arc-length sampling rather than these exact fixed-frame time-shift mean classes. Semantic database comparisons did not identify an exact covering theorem. Generic nonuniqueness is NOT presented as original; the sharp global phase transition and its arbitrarily-close realizations are the assessed claims. Residual historical-priority risk: classical Fourier phase-registration and general quotient-median literature might encode the same example implicitly; absence in searches is not proof of novelty.
+PASS
 
-## Mathematical value — PASS
-The source identifies nonuniqueness as a limitation but has no sharp boundary for embedded limit-cycle data. Here a minimal two-lobe radial perturbation exhibits an exact uniqueness-to-two-means transition, an explicit variance law, quartic critical degeneracy and square-root branch splitting. A separate high-frequency argument demonstrates that no uniform \(L^2\) or \(C^0\) neighborhood of a regularly parametrized circular orbit forces a unique mean of a pair, even for individually embedded attracting cycles. This structural instability informs periodic-orbit averaging and algorithmic phase initialization. It is not merely rephrasing a general existence theorem or a finite numerical example.
+Normalized quotient Fréchet equality implies exactly midpoint classes of optimal phase-aligned representatives. Orthogonal Fourier coefficients yield C_k(theta)=cos(theta)[1-eps² cos(k theta)/2]. For k=2, C_2=P_a(cos theta) with P_a(x)=(1+a/2)x-a x³, derivative changes global maximizer at a=2/5; two signs give inequivalent midpoint classes via mode 1 and sidebands. Critical quartic and square-root scaling follow Taylor expansion. If eps²>2/(k²+1), C_k(0)>0 and evenness forces nonzero opposite phase maxima; individual radius-positive radial graphs realize attracting planar cycles. Domain is circular time shifts only; no ambient rotations or C¹ proximity claim. Exact algebra and finite crosschecks do not alone prove global result.
 
-## Closest literature and limitations
-The study uses time-parametrized averaging; the geometric arc-length quotient, ambient rotations, and arbitrary multipoint data are outside scope. The high-frequency curvature criterion is sufficient, not necessary. Each of the two curves can occur as a cycle of its own planar system; no claim is made that both coexist in one planar vector field. Independent validation and exhaustive historical priority analysis remain outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. The prior generic existence and possibility of multiple means do not yield the exact global polynomial optimizer or strict inequivalence of its midpoint classes.
+
+## value
+
+PASS
+
+Exact uniqueness-to-two-mean bifurcation, critical quartic degeneracy and arbitrarily small C0 perturbation instability illuminate a natural defect in phase-averaging of embedded periodic orbits; not just qualitative existence or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

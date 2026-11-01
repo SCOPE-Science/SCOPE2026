@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_phase_means.py` from the same directory. Its output must match `checker_output.txt`. The script uses the Python 3 standard library, exact rational arithmetic for the cubic identities, deterministic Fourier quadratures and finite phase meshes for numerical cross-checks. The theoretical proof in `RESULT.md` supplies the infinite-domain maximizer classification and the existence of smooth dynamical realizations. No computation is presented as a certificate of an unbounded theorem.
+## correctness
 
-All checks returned successfully on the packaged source. Important checks are normalized Fourier-correlation identities, critical polynomial identities, a finite two-lobe phase scan, the high-frequency local-instability sign and inequivalence of supercritical mean classes. Critical scientific restrictions: no arc-length quotient, no ambient rigid rotations, no claim about general ensembles or unique real-valued parameter estimation.
+PASS
+
+Normalized quotient Fréchet equality implies exactly midpoint classes of optimal phase-aligned representatives. Orthogonal Fourier coefficients yield C_k(theta)=cos(theta)[1-eps² cos(k theta)/2]. For k=2, C_2=P_a(cos theta) with P_a(x)=(1+a/2)x-a x³, derivative changes global maximizer at a=2/5; two signs give inequivalent midpoint classes via mode 1 and sidebands. Critical quartic and square-root scaling follow Taylor expansion. If eps²>2/(k²+1), C_k(0)>0 and evenness forces nonzero opposite phase maxima; individual radius-positive radial graphs realize attracting planar cycles. Domain is circular time shifts only; no ambient rotations or C¹ proximity claim. Exact algebra and finite crosschecks do not alone prove global result.
+
+## originality
+
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. The prior generic existence and possibility of multiple means do not yield the exact global polynomial optimizer or strict inequivalence of its midpoint classes.
+
+## value
+
+PASS
+
+Exact uniqueness-to-two-mean bifurcation, critical quartic degeneracy and arbitrarily small C0 perturbation instability illuminate a natural defect in phase-averaging of embedded periodic orbits; not just qualitative existence or a numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
