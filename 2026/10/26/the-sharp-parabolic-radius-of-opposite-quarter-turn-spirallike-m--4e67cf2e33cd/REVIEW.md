@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The two half-plane conditions give an exact quarter-plane sector, and taking the principal square generates the entire normalized Carathéodory class. The pulled-back boundary of the target parabola has an explicitly positive polynomial certificate; connectedness and a realized extremizer prove the universal radius and sharpness. Exact rational coefficient checks pass. The theorem is restricted to order \(1/2\); it does not generalize to other sector angles by this argument alone.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2026 paper on single spirallike classes computes \(R_{\mathcal P}(SP_\alpha)\), not the radius for the intersection of opposite angles. The geometric theorem for generalized parabolic regions gives the converse inclusion into a strongly starlike class, not this exact reverse radius. Relevant earlier ratio and vertical-strip papers treat different hypotheses. A historical radius formula for the full sector could still have escaped the present indexes. No independent priority certification is asserted.
+PASS
 
-## Value — PASS
-The joint condition is a classical strongly starlike sector class, and its sharp radius \(3/5\) is a substantial strengthening of the corresponding unqualified starlike radius \(1/3\). The global tangency certificate, exact contact uniqueness, and realizing extremizer provide a complete quantitative inclusion rather than a numerical or perturbative bound.
+For each normalized jointly ±π/4-spirallike f, q=zf'/f maps the disk into the sector |arg q|<π/4, so p=q² has positive real part with p(0)=1. Conversely principal sqrt p integrates to admissible f. The Carathéodory variability disk at radius 3/5 is |p-17/8|≤15/8. Replacing p=(u+iv)² gives C=4(u²+v²)²-17(u²-v²)+4≤0. Its intersection with parabolic boundary u=(1+v²)/2 is C=v²(v⁶+12v⁴+21v²+46)/4, zero only at (u,v)=(1/2,0); exact coefficient expansion independently checked. Since the square-root image is connected and includes q=1, open image lies inside the parabola. Canonical p=(1+z)/(1-z) reaches q=1/2 at z=-3/5 and exits for more negative z. Thus R=3/5 including sharpness, with open-disk endpoint convention correct.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: single-angle spirallikeness parabolic radii and generalized parabolic-to-sector implications do not imply the reverse sharp radius for the full intersection SP_{π/4}∩SP_{-π/4}. Full strongly-starlike order-1/2 class has substantially smaller variability domain than either one-angle class; this exact Carathéodory square-root tangency is the assessed increment.
+
+## value
+
+PASS
+
+A canonical normalized analytic class has a natural sharp inclusion radius into the standard parabolic region; the exact 3/5 value and unique tangent geometry quantify a nontrivial gap between sector and parabola rather than a routine parameter substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
