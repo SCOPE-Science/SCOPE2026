@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-Analytic verification: resolve coordinates into their mean and zero-sum component, integrate the conditional uniform-interval second moment against the Dirichlet gap simplex, and reconstruct the covariance eigenvalues and the determinant. Both forms of the covariance agree algebraically after the factorization \(1+(d+2)t+3dt^2+d^2t^3=(1+dt)(1+2t+dt^2)\). The rational derivative factorization and the curvature at \(t=1\) are checked symbolically.
+# Independent mathematical audit
 
-Numerical verification: `verify.py` independently triangulates the complete polytope boundary with the origin as interior apex for dimensions 2–4 and weights 1/4, 1, 3. The checks compare polytope volumes and raw integrated covariance matrices, not merely evaluated closed formulas. The proof, not the finite test set, covers all integers \(d\ge2\) and real \(t\ge0\).
+## correctness
 
-Independent validation has not been performed. The previously established uniqueness of the isotropic minimizer is credited to Kipp and is not offered as new.
+PASS
+
+For all d>=2 and t>=0, K_{d,t} is the cube Minkowski-summed with a diagonal segment. A mean-coordinate slice has interval length ell+t over the (d-1)-dimensional projection, and the ordered coordinate gaps with ell have the Dirichlet(1,...,1) simplex law. Its moments give vol=1+dt, transverse covariance (1+(d+2)t)/(12(1+dt)) and diagonal-direction covariance (1+2t+d t^2)/12, in the stated coordinate normalization. These eigenvalues yield the exact determinant profile, derivative and positive curvature at t=1; anisotropy gap is d*t^2*(3+d*t)/(12*(1+d*t)). Correct for t=0 (cube), t=1 and every real t>0; not Euclidean spectral invariance under arbitrary graph-incidence transforms.
+
+## originality
+
+PASS
+
+Best-of-knowledge new contribution is the exact parameterwise covariance operator, rational normalized determinant profile and sharp curvature; the previously known t=1 minimizing shape is excluded explicitly.
+
+## value
+
+PASS
+
+Full finite-parameter covariance and sharp quadratic response quantify anisotropy and stability of a natural one-edge deformation of cycle zonotopes. A researcher comparing isotropic normalization under edge perturbation can use these actual eigenvalues and curvature; the known minimizer alone does not supply them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
