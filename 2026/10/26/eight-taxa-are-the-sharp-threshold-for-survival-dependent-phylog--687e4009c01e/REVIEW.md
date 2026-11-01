@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The model specifies an unordered rooted full binary tree, unit branch lengths, independent identical tip survival, rooted PD, and protection of exactly one taxon. An ancestral edge is added by protection exactly when all of its descendant tips otherwise fail, producing the exact \(\sum q^{m_e}\) benefit. Cumulative clade-size dominance implies polynomial dominance for the full open probability interval by summation by parts. The recursion enumerates every unordered rooted full binary shape through eight leaves, tests all leaf profiles, and identifies exactly one shape lacking a cumulative-dominant leaf at eight, none below. The exception is handled by four explicit profiles and the exact factorization \(q^3(q^2+q-1)\). Direct subset enumeration at three rational probabilities checks all eight exceptional-tree leaves independently. These finite computations are exhaustive for the stated cutoff, not an extrapolation to arbitrarily many taxa; the analytic inequalities cover every real parameter in the stated range.
+PASS
 
-## Originality — PASS, with bibliographic risk
+With fixed unit edge lengths and all leaves independently surviving with common p, protection of x adds an edge e on its root path exactly when all m_e descendants originally fail, with probability q^{m_e}. The resulting polynomial sum is exact for every q=1−p in (0,1). Cumulative dominance of clade-size incidence vectors implies all-q dominance by discrete summation by parts. Independently generated canonical unordered rooted binary tree shapes n=2..8 have counts 1,1,2,3,6,11,23; none below eight lacks a globally cumulatively dominant leaf and exactly one at n=8 does. The eight-leaf exceptional shape has path profiles (3,1),(3,2,1),(5,1),(5,4,2,1), with the longer two dominant and difference R−L=q^3(q²+q−1). Thus the unique survival switch is p=(3−sqrt(5))/2 and the claimed numbers of maximizing leaves follow. Exhaustive n<=8 shape classification is finite and complete by child-pair recursion; the polynomial argument covers the entire continuum of p.
 
-Steel, Mimoto and Mooers (2007), Theorems 3.1 and 4.1, establish the rooted HED and HEDGE formulas; Martyn et al. (2012) establish efficient general HED evaluation and discuss changing conservation priorities. These earlier results encompass the baseline expected-diversity identity but do not state the exact eight-leaf least-size threshold, its exceptional topology uniqueness, or the exact survival switch. Hartmann and Steel (2006) supplies earlier relevant optimization context, but full-text inspection was unavailable; only its detailed public abstract and publisher metadata could be inspected. Searches under HED, HEDGE, uniform extinction, phylogenetic priority ranking reversals and binary-tree clade-size profiles did not reveal a dominating theorem or existing exact table; absence from search is not proof of publication novelty. The residual risk is earlier equivalence under phylogenetic distinctiveness, probability-polynomial ordering, or combinatorial binary-tree rankings.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The question asks whether a single species chosen for protection remains best when the common background extinction rate is uncertain. Equal risks and branch weights isolate topology as the cause of a conservation-priority reversal. The theorem identifies a sharp minimum tip count and classifies *all* shapes at that first failure size, giving a unique normal form and exact switch. This is a natural finite structural cutoff for a standard biodiversity objective rather than an arbitrary score computation. It is a baseline mathematical model, not an empirical prediction: unit branch lengths need not be clocklike, and taxon-specific risks, heterogeneous branch lengths, and multi-taxon budgets are excluded.
+The HED/HEDGE conservation-benefit formula is explicitly credited to prior sources, notably Steel–Mimoto–Mooers (2007). The assessed increment is the exact first topology-driven optimizer switch at eight leaves, uniqueness of its exceptional unlabelled shape and exact threshold. The 2006 Hartmann–Steel paper was not read in full; coverage of this exact sharp unit-edge classification is a residual possibility, not automatic rejection.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The minimal eight-leaf topology-driven reversal, unique exceptional shape and explicit change threshold answer a natural robustness question in biodiversity-protection rankings even when all taxa and branch lengths are equal. This is a complete sharp finite threshold of a meaningful conservation objective.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
