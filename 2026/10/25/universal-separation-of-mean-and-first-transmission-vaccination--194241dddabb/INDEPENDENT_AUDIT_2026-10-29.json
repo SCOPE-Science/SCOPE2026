@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:55:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/universal-separation-of-mean-and-first-transmission-vaccination--194241dddabb/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/universal-separation-of-mean-and-first-transmission-vaccination--194241dddabb/verify.py",
+        "Independent local check: /mnt/data/independent_scope_worker02_20261029_check.py"
+      ],
+      "rationale": "Reconstructed the entire n>=2 and 0<p<1 proof. After deleting j, remaining lengths a=j-1,b=n-j, the random-seed mean is 1+2(F_p(a)+F_p(b))/(n-1), with F_p(k)=sum_{d=1}^{k-1}(k-d)p^d. Strictly increasing first differences sum_{d=1}^k p^d force balanced components. The non-singleton-cluster probability is [L_p(a)+L_p(b)]/(n-1), L_p(0)=L_p(1)=0 and L_p(k)=2p+(k-2)(2p-p^2) for k>=2. For n>=5, two nontrivial residual components have risk numerator larger by p^2 than removal at j=2 or n-1; endpoint removal larger by 2p-p^2. n=4 and n=2,3 cases directly checked, and all <=4-vertex trees are paths or the star with a uniquely dominating center. Thus all optimizers and the smallest-tree P5 boundary are correct. An independent distance-weight and vertex-degree checker (not packaged code) exactly checked all n=2..11 at p=1/5,1/2,4/5. Finite tests alone do not imply the all-n theorem.",
+      "residual_risks": [
+        "Uniform residual seed selection, edge-independence, and one perfectly removed vertex are essential; no claim extends to correlated recovery processes or other graph families."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Yuan et al. analyze two noninteracting well-mixed populations with vaccination allocation and explicitly optimize probability of zero onward infections (Alternate Cost Functions), but not a single deletion on a path.",
+          "Holme analyzes all connected graphs with 3-7 vertices for several SIR node-importance scores, but the vaccination objective is expected outbreak, not the risk criterion here."
+        ],
+        "reasoning": "The broader papers supply model motivation and comparison criteria, but neither provides an implication-dominating theorem about both current path objectives.",
+        "searches": [
+          "Yuan Alderson Stromberg Carlson 2015 Alternate Cost Functions doi 10.1371/journal.pone.0115826",
+          "Holme 2017 three faces of node importance arxiv 1708.06456 complete preprint"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4331427/",
+        "https://arxiv.org/html/1708.06456v3",
+        "Resultary searches: optimal one-vertex vaccination on path P_n and bond-percolation random-seed cluster 2026-10-29"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Yuan supplies a broad qualitative divergence of loss functions, which does NOT imply the path positions or smallest-tree threshold.",
+          "Holme node deletion and mean-outbreak ranking alone cannot infer the opposite probability objective; its SIR law has different transmission dependencies."
+        ],
+        "reasoning": "The present precise all-n, all-p pair of extremizer sets is not a corollary of either inspected primary result; only the general motivation is prior.",
+        "searches": [
+          "Yuan 2015 full text alternate cost functions",
+          "Holme 2017 full arXiv HTML sections II and III",
+          "Resultary published records path extremality through eight vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a uniformly sampled residual vertex, E[X]=sum_{u,v connected}P(u<->v)/(n-1) and Pr[X>=2]=average_v(1-(1-p)^deg(v)); these are the relevant equivalent component statistics.",
+          "Holme (2017) full HTML sections II.1-II.3 uses mean outbreak only for vaccination and continuous-time SIR, rather than risk of any secondary infection."
+        ],
+        "reasoning": "Checked alternative names: random-seed cluster susceptibility, vaccine-vertex deletion, local non-singleton cluster, epidemic final size. The exact paired optimizer conclusion is not supplied by the inspected texts.",
+        "searches": [
+          "path graph percolation random seed deletion minimize average retained component size vs non-singleton cluster probability",
+          "Resultary semantic search: Exact optimal one-vertex vaccination on path P_n under independent bond transmissibility"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Holme has exact small-graph results for mean-outbreak vaccination, influence, and sentinel detection; the non-singleton-cluster risk optimizer is not tabulated.",
+          "Resultary highest related path hits concern zero forcing, cover-free sets, or unrelated path graph invariants."
+        ],
+        "reasoning": "No actual exact tabulation of the two optimizer sets was found in the inspected material. Failure to find one is not itself novelty evidence.",
+        "searches": [
+          "Resultary semantic search vaccination paths mean first-transmission non-singleton cluster",
+          "Holme arXiv 1708.06456 section III exact small connected graph tables"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the exact joint path optimizer classification and sharp smallest-tree boundary, not for the general observation that outbreak-size loss functions disagree. Primary Yuan et al. (2015) and Holme (2017) were inspected in accessible full text; they do not mathematically imply the specified center-versus-second-nearest-endpoints classification for independent-bond seed clusters. Published-result semantic searches found path/graph extremality for unrelated invariants, not this objective pair. This is a qualified priority assessment, not a proof that no older equivalent exists.",
+      "residual_risks": [
+        "Older optimization under susceptibility, random-cluster immunization, or reliability terminology may contain an equivalent path theorem and is not excluded by semantic searches.",
+        "The proof is elementary once the two statistics are reduced to distance and residual vertex degree; mathematical value rests on the complete natural structural contrast, not technical difficulty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior motivation and divergent optimization objectives; different two-population mixing model, no percolation path optimizer theorem",
+          "evidence": [
+            "2015 PLOS ONE 10 e0115826; Alternate Cost Functions discusses probability of no further infection and threshold risk on populations of hundreds."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4331427/",
+          "material_read": "Entire accessible full-text PMC HTML article, especially Methods, Results, Alternate Cost Functions and Discussion",
+          "method": "Read primary open-access full HTML",
+          "title": "Optimal Vaccination in a Stochastic Epidemic Model of Two Non-Interacting Populations",
+          "trigger": "Explicitly compares expected outbreak and probability of no further infection"
+        },
+        {
+          "assessment": "Vaccination objective is expected outbreak in continuous-time SIR; influence and sentinel criteria differ, and no non-singleton path risk comparison is established",
+          "evidence": [
+            "arXiv:1708.06456v3 sections II.1-II.3 and III; vaccination importance minimizes Omega from random seed; all graphs through seven vertices."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1708.06456v3",
+          "material_read": "Accessible full arXiv HTML v3, introduction, definitions, SIR process, finite-graph calculation, results and discussion",
+          "method": "Read full-text primary preprint",
+          "title": "Three faces of node importance in network epidemiology: Exact results for small graphs",
+          "trigger": "Closest exact small-graph node vaccination study"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4331427/",
+        "https://arxiv.org/html/1708.06456v3",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/universal-separation-of-mean-and-first-transmission-vaccination--194241dddabb/RESULT.md"
+      ],
+      "rationale": "The two loss criteria are independently motivated in primary vaccination literature. The result classifies the exact optimizer sets for an entire canonical infinite family of paths at every transmission probability, and identifies the sharp five-vertex minimum among all trees for disjoint optima. It quantifies an explicit tradeoff on P5 (extra mean p^2/2 for a p^2/4 decrease in onward-infection probability). This is a natural complete extremizer/boundary classification, not an arbitrary tiny instance or a claim of realistic optimal epidemiological policy. The required proof is elementary but solves the specifically stated motivated optimization problem.",
+      "residual_risks": [
+        "Applicability is limited to equal independent bond transmission, uniformly sampled seed, one perfect vaccination, and paths; no biological robustness is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is best-of-knowledge with source access gaps recorded, not an absolute priority or independent expert attestation.",
+    "Independent computations verify specified identities and finite cases only; unrestricted proof is separately reconstructed.",
+    "No repository mutation or downstream publication is performed by this read-only review."
+  ],
+  "schema_version": 1
+}
