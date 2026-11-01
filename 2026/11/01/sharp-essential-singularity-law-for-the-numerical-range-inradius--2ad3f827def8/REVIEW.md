@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The eigenvalue formula is verified directly on the orthonormal Dirichlet basis. Every numerical-range value of the diagonal normal operator belongs to the closed convex hull of its eigenvalues. The positive-imaginary spiral maximum gives the sharp upper bound. Two explicitly indexed *integer* eigenvalues and the eigenvalue 1 form a triangle containing zero whose three side distances have asymptotic lower bound equal to that maximum. The ceiling/logarithm estimates are uniform in the fixed positive shift, and the factor \(e^{-1}\) follows from \(a\arctan(1/a)\to1\). The finite checker supports but does not substitute for this proof.
+
+**Originality — PASS, best-knowledge and not independently established.** The closest directly matching work is Finet–Queffélec's normal-operator numerical-range polygon characterization, reproduced by Lahiri–Ojha–Halder–Birbonshi (2026), Proposition 2.8(c). This polygon result is *prior input*: it does not state the sharp centered disk inradius collapse. The 2026 disk-inclusion results concern more general weighted operators but do not give the small-nonreal-shift boundary law. A related published result about geometric-spectrum contracting dilations has a nonconstant fractional-phase prefactor; it is not the ordinary Dirichlet-series translation spectrum. The full 2004 source was inaccessible through available literature routes, and a previously known indirect calculation remains the main priority risk.
+
+**Mathematical value — PASS.** The centered numerical-range inradius is the optimal strength of the closed-disk inclusion considered by the recent paper, not an arbitrary parameter. The exact essential-singularity constant quantifies how numerical-range geometry degenerates at positive real translations despite qualitative disk inclusion for every nonreal shift. It also distinguishes dense logarithmic sampling from a related geometric-spectrum fractional-phase phenomenon. This is a natural structural boundary value even without a downstream general theorem.
+
+The result holds for fixed positive real shifts and makes no uniform, arbitrary-weight, or finite-shift exact-formula claim. The full 2004 primary text was unavailable for priority comparison.
+
+Self-review: passed. Independent audit: not yet performed.
