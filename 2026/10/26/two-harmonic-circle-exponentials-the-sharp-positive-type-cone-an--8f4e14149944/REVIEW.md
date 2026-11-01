@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier criterion on \(\mathbb T\) is correctly normalized: multiplication by the strictly positive constant \(e^{-a-b}\) does not affect coefficient signs. Positive Bessel convolution proves every admissible coefficient's sign and the exact gcd support. For necessity, the proof does not mistake experiments for a universal theorem: if only finitely many coefficients were negative, correcting them by a finite Laurent polynomial would enforce the complex-circle inequality \(|\Phi(re^{i\theta})|\le\Phi(r)+2P(r)\). Explicit angles force incompatible exponential growth for each forbidden sign combination. The quotient-circle Vandermonde step proves the sharp strictness statement. The checker reproduces supplementary finite calculations, but the proof handles arbitrary harmonic integers, parameters, and finite configurations.
+## correctness
 
-## Originality — PASS under bounded comparison
-The closest inspected primary source, Janke–Kleinert (arXiv:hep-lat/9504010v1, 1995), treats generalized Bessel coefficients of the two-harmonic exponential when the frequencies are one and two; its analysis concerns a few low-order weights and lattice phase-transition mechanisms, not the entire coefficient sign sequence or the sharp quadrant across arbitrary harmonic pairs. Gatto–Jammalamadaka (2007) studies positive probability densities, not stationary positive-type kernels. Gneiting (arXiv:1111.7077) gives the spectral criterion rather than the signed-coefficient classification. Indexed comparisons with sparse trigonometric-polynomial extremal theorems concern different objects and do not subsume the present exponential-kernel assertion. General or unindexed results might still contain an equivalent consequence; novelty is not certified beyond these inspected comparisons.
+PASS
 
-## Mathematical value — PASS
-The object is a natural two-harmonic exponential covariance profile related to generalized von Mises and compact-model Bessel coefficients. The theorem gives a full, non-obvious admissibility classification across every pair of integer harmonics, strengthens failure to infinitely many negative frequencies, identifies the precise strictness quotient, and explains why a finite sampling grid can miss a small illegal signed perturbation. This is structural information about a motivated family rather than a single arbitrary computation.
+The Laurent series Phi(z)=exp[(a/2)(z^p+z^-p)+(b/2)(z^q+z^-q)] has real symmetric coefficients; multiplying by exp(-a-b)>0 preserves their signs. For a,b>=0, the convergent modified-Bessel convolution is termwise positive on the active gcd lattice and zero elsewhere. Necessity is the crucial nonstandard step: finitely many negative Laurent coefficients could be canceled by a Laurent polynomial P with nonnegative coefficients, forcing |Phi(re^{i theta})|<=Phi(r)+2P(r). If b<0, theta=pi/q makes the leading q-harmonic grow exponentially whereas Phi(r)+2P(r) is only polynomial. If b>0,a<0, theta=2pi/q leaves positive q-growth unchanged while enhancing the negative p-growth by exp(c r^p), overwhelming P(r)/Phi(r)->0. If b=0,a<0 use theta=pi/p. This exhausts all boundaries. The Fourier/Bochner criterion and Vandermonde system in e^{id x_j} prove necessity and exact strictness for arbitrary finite distinct sites modulo 2pi/d. Independently checked selected Bessel/Fourier coefficients and negative signed examples; those finite samples are not an all-frequency proof.
 
-## Boundaries and reproducibility
-All nontrivial sign combinations and \(a=0\) or \(b=0\) boundaries are covered. No claim is made about three or more harmonics, arbitrary phases, or a quantitative universal witness size. `checker.py` needs Python 3 only; experiments support, but do not certify, the analytic proof. Literature comparison and model-level review are bounded, and independent audit is pending.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The two-frequency generalized von Mises density and p=1,q=2 lattice-model Bessel coefficients are known, as is the Fourier positivity criterion on a compact circle. Their statements do not alone give the signed-parameter iff classification with infinitely many negative coefficients for all harmonic pairs and the precise gcd strictness. The direct Laurent growth obstruction was evaluated against relevant Fourier/generalized-Bessel formulations, with genuine residual historical-priority uncertainty.
+
+## value
+
+PASS
+
+A common stationary covariance family and generalized von Mises spectral family has a full sign-admissibility classification, stronger infinite spectral obstruction, exact support and quotient strictness. These explain why finite fixed-grid PSD tests can miss arbitrarily small forbidden negative parameters, a mathematically motivated structural phenomenon rather than a single numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
