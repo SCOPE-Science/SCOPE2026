@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-The standalone `verify.py` uses only Python's standard library and directly counts the relevant finite-field parameter sets over prime fields. Running `python verify.py` yielded:
+# Independent mathematical audit
 
-```text
-basis 3 96 96 True
-ciani 3 16 16 True
-basis 5 6000 6000 True
-ciani 5 800 800 True
-basis 7 61824 61824 True
-ciani 7 6624 6624 True
-basis 11 1198560 1198560 True
-F3_FIBERS_OK: 16 quartics, 48 forms each (24 projective presentations)
-VERIFY_OK
-```
+## correctness
 
-The `basis` computation enumerates linearly independent triples of pairwise coprime squarefree projective binary quadratics. The independently structured `ciani` computation enumerates all scalar-normalized six-term coefficients and checks the necessary and sufficient nonsingularity conditions on their associated quadratic Gram forms. A further exhaustive raw nine-coefficient computation verifies the size of each presentation fiber over the smallest odd prime field. Exact finite enumeration is corroboration, not an infinite proof; the all-prime-power result relies on the involution count and the odd-dimensional similarity argument in `RESULT.md`. Neither mathematical originality nor independent validation is certified by this script.
+PASS
+
+The Gram/Jacobian criterion reduces smoothness to three nonzero diagonals, three 2x2 principal minors and determinant, equivalent to separability, pairwise coprimality and linear independence of a binary-quadratic triple. Split/nonsplit deck-involution fiber counts establish the exact ordered-triple polynomial for any odd finite field; ternary nondegenerate quadratic similitudes and SO3(Fq)=PGL2(Fq) yield the free transitive fiber and quotient. Independent projective coefficient enumeration corroborated N3=16,N5=800,N7=6624. Not extrapolated from prime fields.
+
+## originality
+
+PASS
+
+The literature examines general conic-bundle discriminant maps, 63 quartic representations, discriminant covers and a one-parameter complex Ciani pencil; the marked full six-term odd-q mass and diagonal PGL2 fiber are not implied by those inspected statements. Priority remains qualified due partial access to full texts.
+
+## value
+
+PASS
+
+The full six-dimensional marked Ciani family is natural in algebraic geometry; an exact all-odd-prime-power smoothness mass and presentation-fiber torsor provide a reusable nontrivial finite-field classification, not an arbitrary slice or generic 63-representation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

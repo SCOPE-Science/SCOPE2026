@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Ciani quartic's geometric singular points are exhaustively partitioned by the number of nonzero coordinates. This gives an exact equivalence between smoothness and the three binary quadratics being squarefree, mutually coprime, and linearly independent. A degree-two map of the projective line has a unique deck involution in odd characteristic; counting its reduced rational fibers of the two possible Frobenius types gives the closed formula. Orthogonal similitudes of a nondegenerate ternary form have square multiplier over a finite field, and the adjoint \(\operatorname{PGL}_2\)-action is transitive on Gram presentations. Independent finite enumeration checks several primes, but is not substituted for the proof.
+## correctness
 
-**Originality — PASS, with residual risks.** The motivating 2024 conic-bundle moduli paper describes discriminants and a general degree-63 map, whereas the result concerns the marked diagonal six-term subspace and its exact uniform odd-characteristic count. The 2022 conic-bundle paper fixes an étale discriminant cover when discussing uniqueness; it does not determine the diagonal presentation orbit over a given marked Ciani curve. The 2023 Ciani-pencil paper treats complex bitangent geometry, not all six-term forms over finite fields. The previously known value \(16\) in characteristic three is subsumed but not credited as new. A previously unindexed equivalent point-count formula remains a plausible residual overlap risk.
+PASS
 
-**Value — PASS.** The six-term Ciani locus is the natural involution-invariant locus of plane quartics appearing as discriminants of diagonal \((2,2)\) conic bundles. The theorem gives the exact arithmetic size of its smooth locus for all odd finite fields and explains the uniform \(\operatorname{PGL}_2\)-torsor of diagonal presentations. This goes beyond computing isolated examples and distinguishes coordinate-marked counts from abstract moduli counts.
+The Gram/Jacobian criterion reduces smoothness to three nonzero diagonals, three 2x2 principal minors and determinant, equivalent to separability, pairwise coprimality and linear independence of a binary-quadratic triple. Split/nonsplit deck-involution fiber counts establish the exact ordered-triple polynomial for any odd finite field; ternary nondegenerate quadratic similitudes and SO3(Fq)=PGL2(Fq) yield the free transitive fiber and quotient. Independent projective coefficient enumeration corroborated N3=16,N5=800,N7=6624. Not extrapolated from prime fields.
 
-**Limits.** Characteristic two, non-diagonal branch surfaces, abstract isomorphism classes, and rationality of the resulting threefolds are not determined. The verification program checks prime fields only, while the proof covers all odd prime powers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The literature examines general conic-bundle discriminant maps, 63 quartic representations, discriminant covers and a one-parameter complex Ciani pencil; the marked full six-term odd-q mass and diagonal PGL2 fiber are not implied by those inspected statements. Priority remains qualified due partial access to full texts.
+
+## value
+
+PASS
+
+The full six-dimensional marked Ciani family is natural in algebraic geometry; an exact all-odd-prime-power smoothness mass and presentation-fiber torsor provide a reusable nontrivial finite-field classification, not an arbitrary slice or generic 63-representation count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
