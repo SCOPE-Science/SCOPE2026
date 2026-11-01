@@ -1,0 +1,187 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T20:44:45.842168Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The published simplex projection formula reduces brightness exactly to the ℓ1 norm of a Haar direction in H0. Represent U as centered iid normal vector Y/||Y||; each coordinate has known sphere-coordinate beta moment and pair Y_i,Y_j correlation −1/(m−1). The exact Gaussian absolute-product identity E|Z1Z2|=(2/π)(sqrt(1−r²)+r arcsin r), together with independence of spherical radius, yields E|UiUj|=(2/(πm))(sqrt(1−r²)+r arcsin r). Summation gives both finite moments; gamma Stirling and Taylor yield the displayed −1/(4πm) variance correction. Centering an iid Gaussian vector changes its ℓ1 norm by O_P(1) and squared radius by O_P(1), hence normalized ℓ1 by o_P(1); the established spherical cube-width CLT or the multivariate delta method gives Gaussian variance 1−3/π. Independently recomputed formula and asymptotic variance corrections at m=3,4,8,100,1000; m×[1−3/π−Var] tends toward 1/(4π). Checked the actual verification script. All-size proof is analytic, not based on simulations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pandis and Jakimiuk–Pandis establish extremal bounds/stability for simplex projections, not in the inspected statements a Haar moment profile; the cube width CLT covers the asymptotic Gaussian limit."
+        ],
+        "reasoning": "Extremal volume/projection stability and random line-width moments for different bodies do not dominate the dimension-specific zero-sum norm variance identity.",
+        "searches": [
+          "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+          "arXiv:2601.18436",
+          "arXiv:2610.23489",
+          "arXiv:1511.08479"
+        ]
+      },
+      "checked_sources": [
+        "actual frozen Git RESULT.md and verify_projection_brightness.py; tree 6ac5e809f2116c9834a36c9517e8aba8fe4ec45b",
+        "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+        "arXiv:2601.18436 (Theorem 1.2)",
+        "arXiv:1511.08479 (cube limit)",
+        "arXiv:2610.23489",
+        "DOI:10.1007/BF02187839 (abstract only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The existing cube limit implies the present Gaussian limit given the centering-error lemma, but the complete finite m moment formula needs an explicit dependent-coordinate bivariate Gaussian integral."
+        ],
+        "reasoning": "The stated novelty must exclude the already-known projection normalization and cube Gaussian limit. The exact centered-sphere covariance moment and sharp first correction survive as independent exact finite-size content.",
+        "searches": [
+          "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+          "arXiv:2601.18436 Theorem 1.2",
+          "arXiv:1511.08479 Theorem 3.6, Section 6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projection volume is exactly a normalized ℓ1 norm of U constrained by ΣUi=0; a cube-width ℓ1 norm uses independent Gaussian/spherical coordinates with no zero-sum constraint."
+        ],
+        "reasoning": "The known projection identity does not itself give exact Haar moments. The known unconstrained cube CLT explains the limiting distribution via a new centering comparison but not the exact finite m variance or correction.",
+        "searches": [
+          "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+          "Pandis arXiv:2601.18436 Theorem 1.2",
+          "Kabluchko–Litvak–Zaporozhets arXiv:1511.08479 Theorem 3.6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest published Resultary hit 2026/10/11/...aa90c887fe90 concerns random central-section face-vector chi-square fluctuations, not volume of a projection."
+        ],
+        "reasoning": "A table of a few low-dimensional projection means would not establish the exact m-dimensional variance and its m⁻¹ correction; no direct covering table identified.",
+        "searches": [
+          "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+          "Resultary published regular simplex section and projection hits"
+        ]
+      },
+      "rationale": "Pandis gives the exact all-direction simplex projection identity and extremizers; that is the stated input rather than a newly proved formula. Kabluchko–Litvak–Zaporozhets give the cube ℓ1 CLT used for the limiting Gaussian; this limiting law is not independently new. The remaining exact finite-dimensional zero-sum sphere brightness moments and the first finite-size variance correction are not stated in examined relevant primary material. A hidden older exact zero-sum spherical ℓ1 moment table is a plausible priority risk.",
+      "residual_risks": [
+        "Unindexed exact moments of ℓ1 norm on a zero-sum sphere could contain the same finite formula.",
+        "The limiting Gaussian is already a consequence of known cube width CLT, not novel by itself.",
+        "1992 Affentranger–Schneider full text was not read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.2 supplies the exact normalization used; the inspected result does not state the random exact variance or its correction.",
+          "evidence": [
+            "Theorem 1.2: simplex projected hyperplane volume as scaled sum |Ui|."
+          ],
+          "identifier_or_url": "arXiv:2601.18436",
+          "material_read": "Primary PDF introduction and statement/argument of Theorem 1.2 concerning projection formula and extremal directions",
+          "method": "Open PDF with visual page inspection and comparison to Haar integration",
+          "title": "On Extremal Volume Projections of the Simplex and the Cube",
+          "trigger": "Direct projection identity, possible stronger moment theorem"
+        },
+        {
+          "assessment": "Cube line-width CLT is an acknowledged input; it does not itself give the displayed finite zero-sum-sphere pair moment.",
+          "evidence": [
+            "Theorem 3.6 concerns cube-width Gaussian limit, used via Slutsky."
+          ],
+          "identifier_or_url": "arXiv:1511.08479v3",
+          "material_read": "Accessible cited theorem description, Theorem 3.6/Section 6 references; complete article not re-read in this execution",
+          "method": "Statement-level comparison via primary-paper identifier and source theorem cross-reference",
+          "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+          "trigger": "Already-established cube-width CLT"
+        },
+        {
+          "assessment": "Stability/extrema rather than exact Haar first and second moments in examined material.",
+          "evidence": [
+            "Stability of extremal projection geometries."
+          ],
+          "identifier_or_url": "arXiv:2610.23489",
+          "material_read": "Accessible summary and equation (1.2)/Theorem 1.1 attribution, not entire article",
+          "method": "Compare subject and type of conclusion",
+          "title": "Stability of Hyperplane Projections of the Regular Simplex and Lp-Projection Bodies",
+          "trigger": "Extremal stability result potentially stronger"
+        },
+        {
+          "assessment": "Uninspected full paper could include relevant moments; retained as priority risk.",
+          "evidence": [
+            "1992 random projection work."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF02187839",
+          "material_read": "Bibliographic record and abstract only",
+          "method": "No full-source noncoverage claim",
+          "title": "Random Projections of Regular Simplices",
+          "trigger": "Older plausible projection distribution paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Haar brightness dispersion is a natural intrinsic probabilistic invariant of regular-simplex projection geometry, not an arbitrary restriction; the exact first and second moments quantify concentration/variability at each dimension and provide a sharp finite-size correction to the nonzero asymptotic variance. It distinguishes dependent zero-sum coordinates from the familiar unrestricted spherical cube-width limit. This is a motivated, reusable exact invariant even without higher-moment theorems.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "actual frozen Git RESULT.md and verify_projection_brightness.py; tree 6ac5e809f2116c9834a36c9517e8aba8fe4ec45b",
+    "Resultary semantic search: regular simplex random hyperplane projection brightness volume moments variance Haar zero sum sphere l1 norm asymptotic",
+    "arXiv:2601.18436 (Theorem 1.2)",
+    "arXiv:1511.08479 (cube limit)",
+    "arXiv:2610.23489",
+    "DOI:10.1007/BF02187839 (abstract only)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For m≥3, the normalized random regular-simplex hyperplane projection brightness S_m=Σ|U_i| on the (m−1)-dimensional zero-sum sphere has explicit gamma-ratio mean and arcsine/square-root second moment, with variance 1−3/π−1/(4πm)+O(m⁻²) and centered Gaussian limit of variance 1−3/π.",
+  "limitations": [
+    "Uniform normal direction, edge length √2 regular simplices; m≥3.",
+    "No higher moments or general convex body random projection theorem."
+  ],
+  "residual_risks": [
+    "Unindexed exact moments of ℓ1 norm on a zero-sum sphere could contain the same finite formula.",
+    "The limiting Gaussian is already a consequence of known cube width CLT, not novel by itself.",
+    "1992 Affentranger–Schneider full text was not read."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 1.2 supplies the exact normalization used; the inspected result does not state the random exact variance or its correction.",
+      "evidence": [
+        "Theorem 1.2: simplex projected hyperplane volume as scaled sum |Ui|."
+      ],
+      "identifier_or_url": "arXiv:2601.18436",
+      "material_read": "Primary PDF introduction and statement/argument of Theorem 1.2 concerning projection formula and extremal directions",
+      "method": "Open PDF with visual page inspection and comparison to Haar integration",
+      "title": "On Extremal Volume Projections of the Simplex and the Cube",
+      "trigger": "Direct projection identity, possible stronger moment theorem"
+    },
+    {
+      "assessment": "Cube line-width CLT is an acknowledged input; it does not itself give the displayed finite zero-sum-sphere pair moment.",
+      "evidence": [
+        "Theorem 3.6 concerns cube-width Gaussian limit, used via Slutsky."
+      ],
+      "identifier_or_url": "arXiv:1511.08479v3",
+      "material_read": "Accessible cited theorem description, Theorem 3.6/Section 6 references; complete article not re-read in this execution",
+      "method": "Statement-level comparison via primary-paper identifier and source theorem cross-reference",
+      "title": "Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables",
+      "trigger": "Already-established cube-width CLT"
+    },
+    {
+      "assessment": "Stability/extrema rather than exact Haar first and second moments in examined material.",
+      "evidence": [
+        "Stability of extremal projection geometries."
+      ],
+      "identifier_or_url": "arXiv:2610.23489",
+      "material_read": "Accessible summary and equation (1.2)/Theorem 1.1 attribution, not entire article",
+      "method": "Compare subject and type of conclusion",
+      "title": "Stability of Hyperplane Projections of the Regular Simplex and Lp-Projection Bodies",
+      "trigger": "Extremal stability result potentially stronger"
+    },
+    {
+      "assessment": "Uninspected full paper could include relevant moments; retained as priority risk.",
+      "evidence": [
+        "1992 random projection work."
+      ],
+      "identifier_or_url": "DOI:10.1007/BF02187839",
+      "material_read": "Bibliographic record and abstract only",
+      "method": "No full-source noncoverage claim",
+      "title": "Random Projections of Regular Simplices",
+      "trigger": "Older plausible projection distribution paper"
+    }
+  ]
+}
