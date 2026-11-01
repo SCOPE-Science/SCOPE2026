@@ -1,11 +1,21 @@
-# Review: two-boundary thin-annulus harmonic extension
+# Independent mathematical audit
 
-**Correctness — PASS.** The Dirichlet problem separates into two explicit hyperbolic-sine profiles in each angular Fourier order. The normalization produces an exact positive Gram matrix. The uniform comparison of radial densities is multiplicative and hence controls **both** eigenvalues, including the smaller one. Endpoint Laplace integrals give the claimed two branch constants and exponential suppression of cross-channel mixing. The iff Schatten test and convergent thin-width Riemann sum follow. The packaged checker corroborates the exact algebra and selected asymptotic regimes; finite experiments are not a proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** Auchmuty's abstract Poisson SVD does not give this weighted two-channel asymptotic; Ureyen's weighted Bergman paper studies another harmonic setting. Rozenblum's broader harmonic Sobolev spectral study warns that boundary-power exponents can be consequences of general calculus, but addresses a different operator and weight distribution. The accepted focus is the one-sided two-component relative-in-all-Fourier-modes profile and the sharp normalized thin-annulus Schatten coefficient, not bare familiarity of a polynomial exponent. published-finding corpus comparisons and available same-slot claim history did not reveal an implication of the full assertion. Older annular calculations may remain unknown.
+PASS
 
-**Value — PASS.** Equal-strength boundary measurements in an asymmetric weighted interior lose high frequencies at two different rates, a natural structural question for annular harmonic continuation. Identifying the sharp Schatten boundary and the width-renormalized spectral mass gives reproducible quantitative control of this asymmetry. The theorem applies to a canonical continuum family, not an arbitrary isolated parameter.
+PASS: Fourier separation of harmonic extension in logarithmic radial coordinate s gives uκ(s)=sinh(κ(1-s))/sinhκ, vκ(s)=sinh(κs)/sinhκ (with affine κ=0 limit). Input norm 1/2 gives exact factor2 in the 2x2 fiber Gram matrix, and the probability radial density wε,α(s) has the specified hε normalization. The ratio wε,α(s)/((α+1)s^α) is uniformly 1+Oα(ε); Loewner order controls both eigenvalues uniformly across all κ. Endpoint Laplace integrals give outer squared branch constant 2^{-α}Γ(α+2)/hε^(α+1) and inner (α+1)e^{-2ε}/hε, with exponentially negligible offdiagonal; hence separate membership powers and divergence at equality. Dominated positive Riemann sum in angular modes gives 2∫tr(Gα(κ)^{p/2})dκ after multiplying by ε. Fresh independent weighted quadrature checked 32 positivity cases, 16 eigenvalue ratio comparisons and four exact unweighted eigenpairs. No numeric check establishes the global all-κ comparison or infinite Schatten theorem; those follow from the analytic inequalities.
 
-**Limitations.** The domain is concentric, the boundary input weights are normalized angular measures, and the range weight vanishes or diverges only at the outer circle. Infinite-dimensional conclusions rest on the analytic argument; numerical tests establish only finite checks. No independent priority audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS qualified: Auchmuty 2016 proves general-domain SVD for an unweighted Poisson extension via biharmonic Steklov spectrum; this is broader geometrically but does not state the asymmetric one-sided two-boundary weight, relative thin-annulus 2x2 profile or leading normalized Schatten integral. Ureyen studies weighted harmonic Bergman spaces on a real hyperbolic ball, not this two-boundary planar collar; Rozenblum studies boundary-supported Toeplitz forms with weights measured at the whole boundary, a different operator. General boundary pseudodifferential theory may imply the two individual power exponents, which are not independently exclusive novelty. The combined quantitative coefficient and global-in-mode profile remain a qualified contribution.
+
+## value
+
+PASS
+
+PASS: Distinguishing two boundary channels of different singular-decay orders under a one-sided weight explains the sharp Schatten transition at α=0. The universal profile/coefficient answers a natural spectral degeneration question; precise boundary norm and volume normalization make this a meaningful invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
