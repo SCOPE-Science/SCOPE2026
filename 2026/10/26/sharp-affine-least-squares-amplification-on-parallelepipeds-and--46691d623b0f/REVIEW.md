@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalized-cube affine Gram matrix is diagonal, giving the exact reproducing kernel \(1+3\sum_i x_i y_i\). Convexity forces the maximum absolute kernel mass to a vertex, and the sign function attains it. The Irwin--Hall volume formula gives the alternating rational expression without numerical approximation. Conditioning and strict Jensen inequality prove monotonicity; the two exact fractions force the dimension-five cutoff. The second asymptotic coefficient follows from a Fourier integral with a controlled small-/intermediate-/large-frequency split. The included checker independently integrates recursively convolved uniform densities for the first nine dimensions.
+PASS
 
-## Originality — PASS within reviewed evidence
+Affine coordinate change reduces each parallelepiped to uniform [-1,1]^d; the affine polynomial orthonormal basis {1,√3 y_i} gives reproducing kernel K(x,y)=1+3Σx_i y_i. For |f|≤1 the exact norm is max_x∫|K(x,y)|dμ(y), attained by sign K. Convexity in x forces a maximum at a cube vertex; symmetry makes all vertices extremal. Thus Λ_d=E|1+3ΣY_i| for independent uniform Y_i∈[−1,1], and nonnegative f defect equals (Λ_d−1)/2 (negative-part kernel integral). The Irwin–Hall clipped-cube CDF integrated at a=(3d+1)/6 yields the stated exact rational binomial formula. Jensen conditional on adding one symmetric uniform makes Λ_{d+1}>Λ_d strictly, while exact Λ4=75437/25920<3 and Λ5=46973/14580>3 give first f≥0 excursion below −1 at dimension 5. Fourier |z| representation and controlled sinc^d/cos expansions give Λ_d=√(6d/π)(1+13/(60d)+o(d−1)). Independent exact-Fraction checker computed all Λ1…12 and verified first five, strict growth in those dimensions and the crossing; the analytic derivation proves all d and the asymptotic.
 
-Closest known exact record: *Exact positivity defect and max norm of the affine least-squares projector on a simplex* (published 2026-10-04). Its Dirichlet kernel determines simplex norms but not the parallelepiped/Irwin--Hall norm; the different growth rates prohibit implication by affine equivalence. A published reverse-projection calculation of a centered Irwin--Hall absolute first moment does not cover the shift \(1/6\), the projector norm, or the positivity classification. The primary Hangelbroek--Narcowich--Sun--Ward paper (arXiv:1005.2424) concerns manifold-kernel projector bounds; Foucart concerns one-dimensional splines. Defant et al. (arXiv:2208.06467, Chapter 8) analyze counting-measure projections on the discrete Boolean cube, not continuous uniform-cell affine projection. Searches for cube/parallelepiped aliases and the displayed finite rational values found no covering exact statement. Historical priority remains uncertain because classical polynomial projection literature is extensive.
+## originality
 
-## Value — PASS
+PASS
 
-Local unconstrained least-squares affine reconstruction is a standard approximation component. The complete all-dimensional sharp norm and attaining bounded sign input give a meaningful robustness invariant; the first dimension that permits an output below \(-1\) despite input in \([0,1]\) is an exact natural cutoff. A two-term law distinguishes \(\sqrt d\) amplification on parallelepipeds from \(d\)-order amplification on simplices, a mathematically motivated geometry-dependent stability difference. No extension to global finite-element coupling or higher polynomial degree is asserted.
+PASS best of knowledge for the continuous uniform parallelepiped exact affine-projector norm, positivity cutoff and two-term asymptotic. Standard kernel and Irwin–Hall formulas are prior tools; the simplex, discrete Boolean cube and general manifold projector sources have different measures/objects and cannot entail this exact value without additional proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Unweighted local least-squares affine projections on parallelepiped elements are canonical in approximation and numerical analysis. The sharp L∞ stability constant, precise first dimension of severe positivity loss and contrasting √d versus simplex d growth give a motivated geometry-dependent classification, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

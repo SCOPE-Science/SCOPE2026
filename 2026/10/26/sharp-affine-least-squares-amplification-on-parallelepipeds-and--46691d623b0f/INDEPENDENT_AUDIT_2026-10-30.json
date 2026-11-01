@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T07:58:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@68645bf4619cec1151436ccc53f5d66aab9d4541:2026/10/26/sharp-affine-least-squares-amplification-on-parallelepipeds-and--46691d623b0f/RESULT.md",
+        "Independent locally written scope_worker02_fresh_checks_20261030.py and scope_worker02_fresh_check_results_20261030.txt"
+      ],
+      "rationale": "Affine coordinate change reduces each parallelepiped to uniform [-1,1]^d; the affine polynomial orthonormal basis {1,√3 y_i} gives reproducing kernel K(x,y)=1+3Σx_i y_i. For |f|≤1 the exact norm is max_x∫|K(x,y)|dμ(y), attained by sign K. Convexity in x forces a maximum at a cube vertex; symmetry makes all vertices extremal. Thus Λ_d=E|1+3ΣY_i| for independent uniform Y_i∈[−1,1], and nonnegative f defect equals (Λ_d−1)/2 (negative-part kernel integral). The Irwin–Hall clipped-cube CDF integrated at a=(3d+1)/6 yields the stated exact rational binomial formula. Jensen conditional on adding one symmetric uniform makes Λ_{d+1}>Λ_d strictly, while exact Λ4=75437/25920<3 and Λ5=46973/14580>3 give first f≥0 excursion below −1 at dimension 5. Fourier |z| representation and controlled sinc^d/cos expansions give Λ_d=√(6d/π)(1+13/(60d)+o(d−1)). Independent exact-Fraction checker computed all Λ1…12 and verified first five, strict growth in those dimensions and the crossing; the analytic derivation proves all d and the asymptotic.",
+      "residual_risks": [
+        "Only local unweighted degree-one affine projection on parallelepipeds, not coupled finite elements, weighted measures or multilinear higher degree."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published Resultary exact simplex affine least-squares projector record 2026-10-04 (id 99c2b9dd9b34): exact norm 2(d+1)((d+1)/(d+2))^d−1 for simplices, O(d) growth; different affine shape/distribution from continuous cube O(sqrt d).",
+          "Hangelbroek–Narcowich–Sun–Ward, Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector, arXiv:1005.2424, primary 25-page paper, Theorem 5.1: boundedness of kernel-generated approximation projectors on manifolds, not exact local affine projection on a uniform d-cube.",
+          "Defant–Galicer–Mansilla–Mastyło–Muro, Projection constants for spaces of multivariate polynomials, arXiv:2208.06467 Chapter 8, discrete Boolean cube counting measure rather than continuous independent uniform coordinates."
+        ],
+        "reasoning": "General projector-boundedness results imply stability existence, not exact dimension-specific constants or positivity threshold. Simplex result controls a distinct element geometry with different O(d) asymptotic. Standard Irwin–Hall distribution supplies a computational ingredient but no full projector-norm statement.",
+        "searches": [
+          "Resultary semantic: affine L2 least squares projection cube parallelepiped L infinity Lebesgue constant positivity degree one projection",
+          "Resultary SCOPE exact positivity defect max norm affine least-squares projector on a simplex 99c2b9dd9b34",
+          "arXiv:1005.2424 Theorem 5.1 kernel L infinity L2 projector",
+          "arXiv:2208.06467 Chapter 8 discrete Boolean cube projection constants"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "https://arxiv.org/abs/1005.2424",
+        "https://arxiv.org/abs/2208.06467"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published Resultary exact simplex affine least-squares projector record 2026-10-04 (id 99c2b9dd9b34): exact norm 2(d+1)((d+1)/(d+2))^d−1 for simplices, O(d) growth; different affine shape/distribution from continuous cube O(sqrt d).",
+          "Hangelbroek–Narcowich–Sun–Ward, Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector, arXiv:1005.2424, primary 25-page paper, Theorem 5.1: boundedness of kernel-generated approximation projectors on manifolds, not exact local affine projection on a uniform d-cube.",
+          "Defant–Galicer–Mansilla–Mastyło–Muro, Projection constants for spaces of multivariate polynomials, arXiv:2208.06467 Chapter 8, discrete Boolean cube counting measure rather than continuous independent uniform coordinates."
+        ],
+        "reasoning": "The simplex exact norm cannot imply parallelepiped norm under affine transformation because a simplex is not affinely equivalent to a parallelepiped in d≥2. Continuous cube coordinates are uniform rather than Boolean Bernoulli, and independent first-moment sums have different distributions. New proof calculates exact kernel integral and sharp threshold.",
+        "searches": [
+          "Resultary semantic: affine L2 least squares projection cube parallelepiped L infinity Lebesgue constant positivity degree one projection",
+          "Resultary SCOPE exact positivity defect max norm affine least-squares projector on a simplex 99c2b9dd9b34",
+          "arXiv:1005.2424 Theorem 5.1 kernel L infinity L2 projector",
+          "arXiv:2208.06467 Chapter 8 discrete Boolean cube projection constants"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published Resultary exact simplex affine least-squares projector record 2026-10-04 (id 99c2b9dd9b34): exact norm 2(d+1)((d+1)/(d+2))^d−1 for simplices, O(d) growth; different affine shape/distribution from continuous cube O(sqrt d).",
+          "Hangelbroek–Narcowich–Sun–Ward, Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector, arXiv:1005.2424, primary 25-page paper, Theorem 5.1: boundedness of kernel-generated approximation projectors on manifolds, not exact local affine projection on a uniform d-cube.",
+          "Defant–Galicer–Mansilla–Mastyło–Muro, Projection constants for spaces of multivariate polynomials, arXiv:2208.06467 Chapter 8, discrete Boolean cube counting measure rather than continuous independent uniform coordinates."
+        ],
+        "reasoning": "Compared Lebesgue/L∞ norm of orthogonal affine projector, its worst positive-data overshoot, independent-uniform absolute first moment (Irwin–Hall), Boolean Walsh projection constants, and simplex Dirichlet kernel. The Boolean and simplex norms involve different support measures and do not give continuous cube values.",
+        "searches": [
+          "Resultary semantic: affine L2 least squares projection cube parallelepiped L infinity Lebesgue constant positivity degree one projection",
+          "Resultary SCOPE exact positivity defect max norm affine least-squares projector on a simplex 99c2b9dd9b34",
+          "arXiv:1005.2424 Theorem 5.1 kernel L infinity L2 projector",
+          "arXiv:2208.06467 Chapter 8 discrete Boolean cube projection constants"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary exact simplex affine least-squares projector record 2026-10-04 (id 99c2b9dd9b34): exact norm 2(d+1)((d+1)/(d+2))^d−1 for simplices, O(d) growth; different affine shape/distribution from continuous cube O(sqrt d).",
+          "Hangelbroek–Narcowich–Sun–Ward, Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector, arXiv:1005.2424, primary 25-page paper, Theorem 5.1: boundedness of kernel-generated approximation projectors on manifolds, not exact local affine projection on a uniform d-cube.",
+          "Defant–Galicer–Mansilla–Mastyło–Muro, Projection constants for spaces of multivariate polynomials, arXiv:2208.06467 Chapter 8, discrete Boolean cube counting measure rather than continuous independent uniform coordinates."
+        ],
+        "reasoning": "Known simplex Resultary record and finite-dimensional projection values are compared explicitly. The target is an all-d rational formula with a sharp positivity crossing and two-term asymptotic, not merely recomputation of a numeric table; historical unindexed projector tables remain a risk.",
+        "searches": [
+          "Resultary semantic: affine L2 least squares projection cube parallelepiped L infinity Lebesgue constant positivity degree one projection",
+          "Resultary SCOPE exact positivity defect max norm affine least-squares projector on a simplex 99c2b9dd9b34",
+          "arXiv:1005.2424 Theorem 5.1 kernel L infinity L2 projector",
+          "arXiv:2208.06467 Chapter 8 discrete Boolean cube projection constants"
+        ]
+      },
+      "rationale": "PASS best of knowledge for the continuous uniform parallelepiped exact affine-projector norm, positivity cutoff and two-term asymptotic. Standard kernel and Irwin–Hall formulas are prior tools; the simplex, discrete Boolean cube and general manifold projector sources have different measures/objects and cannot entail this exact value without additional proof.",
+      "residual_risks": [
+        "Equivalent continuous-cube affine projection constant could exist in older least-squares or approximation-theory tables not found by semantic search.",
+        "Only local unweighted degree-one affine projection on parallelepipeds, not coupled finite elements, weighted measures or multilinear higher degree."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SIMPLEX COVERED, CONTINUOUS PARALLELEPIPED NOT IMPLICATED by its shape-specific Dirichlet integral",
+          "evidence": [
+            "Published Resultary exact simplex affine least-squares projector record 2026-10-04 (id 99c2b9dd9b34): exact norm 2(d+1)((d+1)/(d+2))^d−1 for simplices, O(d) growth; different affine shape/distribution from continuous cube O(sqrt d)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+          "material_read": "Published Resultary finding summary and exact d-dependent simplex formula; not full independent proof",
+          "method": "Resultary mathematical record result and formula comparison",
+          "title": "Exact positivity defect and max norm of the affine least-squares projector on a simplex",
+          "trigger": "Closest exact local affine projector and positivity defect on different element geometry"
+        },
+        {
+          "assessment": "BOUNDEDNESS/APPROXIMATION prior, not exact local continuous cube affine norm",
+          "evidence": [
+            "Hangelbroek–Narcowich–Sun–Ward, Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector, arXiv:1005.2424, primary 25-page paper, Theorem 5.1: boundedness of kernel-generated approximation projectors on manifolds, not exact local affine projection on a uniform d-cube."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Complete 25-page arXiv PDF; Theorem 5.1 and its kernel-generated manifold hypotheses, rendered PDF pages",
+          "method": "Primary lawful arXiv full-text and PDF page screenshots",
+          "title": "Kernel Approximation on Manifolds II: The L-infinity-norm of the L2-projector",
+          "trigger": "Broader general L∞ projector norm theory"
+        },
+        {
+          "assessment": "DIFFERENT MEASURE, no assertion of whole-document noncoverage",
+          "evidence": [
+            "Defant–Galicer–Mansilla–Mastyło–Muro, Projection constants for spaces of multivariate polynomials, arXiv:2208.06467 Chapter 8, discrete Boolean cube counting measure rather than continuous independent uniform coordinates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2208.06467",
+          "material_read": "Published source description of Chapter 8 and discrete Boolean cube results; full separate paper not read",
+          "method": "ArXiv bibliographic and source-summary comparison",
+          "title": "Projection constants for spaces of multivariate polynomials",
+          "trigger": "Polynomial projection norm on discrete vs continuous cubes"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE-Science/SCOPE2026@68645bf4619cec1151436ccc53f5d66aab9d4541:2026/10/26/sharp-affine-least-squares-amplification-on-parallelepipeds-and--46691d623b0f/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34",
+        "https://arxiv.org/abs/1005.2424",
+        "https://arxiv.org/abs/2208.06467"
+      ],
+      "rationale": "Unweighted local least-squares affine projections on parallelepiped elements are canonical in approximation and numerical analysis. The sharp L∞ stability constant, precise first dimension of severe positivity loss and contrasting √d versus simplex d growth give a motivated geometry-dependent classification, not an arbitrary numerical slice.",
+      "residual_risks": [
+        "Equivalent continuous-cube affine projection constant could exist in older least-squares or approximation-theory tables not found by semantic search."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For uniform parallelepipeds in every d, the sharp local affine L2 projection L∞ norm is the explicit Irwin–Hall rational sum, strictly grows with d, has the first below−1 positive-data excursion at d=5, and asymptotic √(6d/π)(1+13/(60d)+o(1/d)).",
+  "limitations": [
+    "The norm is local, unweighted, affine degree one on parallelepipeds; no assertion about global finite elements or arbitrary elements.",
+    "Historical exact cube projector tables could contain the same formula."
+  ],
+  "schema_version": 1
+}
