@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The shape and normalization are fixed (width one, odd \(n\), volume of radius-\(1/2\) ball \(\pi/6\)). The exact volume identity derives from both axial principal radii and integration by parts; the parity cancellations require an odd constant-width perturbation and are tracked in the proof. Rescaling \(F_n(t)=n^2f_n(t/n)\) yields an exactly forced periodic ODE and a convergent differentiated Fourier series. The triangular derivative limit has mean-square value \(\pi^2/48\); weighted homogenization doubles this mean and the volume identity multiplies by \(\pi/2\), proving the final \(\pi^3/48\). The support and disk-volume approaches agree numerically within \(10^{-9}\) for five independent orders. The numerical checks do not replace the infinite proof.
+
+**Originality — PASS, with residual historical uncertainty.** Hynd (arXiv:2501.16940) proves all such revolutions are *extreme*, which is treated as established. His accessible full text does not give this volume-deficit law. Similar available records on planar regular Reuleaux geometry concern the Estermann measure, moment, or isotropic constants; the axial smooth one-mode Legendre record concerns a different body family. Actual exact coefficient, alias, and implied-claim searches and their matched records are detailed in `AUDIT.json`. A classical volume formula for these solids may exist under older terminology; definitive historical priority is not asserted.
+
+**Mathematical value — PASS.** The canonical regular odd-n sequence is a geometrically motivated approximation of the ball through *extreme* constant-width bodies. The exact deficit identifies a sharp physically meaningful scale for how near an extreme member may lie in volume to the maximizing ball. The result is an all-order structural asymptotic rather than a one-off calculation or arbitrary parameter restriction.
+
+The theorem makes no assertion about a global stability constant, a next-order term, or monotonicity. The strongest novelty risk is undiscovered older body-of-revolution volume literature. The proof uses standard support geometry and Fourier averaging; no third-party numerical tables or uninspected PDFs are relied upon.
+
+Self-review: passed. Independent audit: not yet performed.
