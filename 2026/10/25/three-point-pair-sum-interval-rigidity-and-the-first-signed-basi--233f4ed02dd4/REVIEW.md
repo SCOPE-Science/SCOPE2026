@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For arbitrary three distinct integer generators the six pair sums are explicitly sorted by the two successive positive gaps. Their unit-gap runs prove the complete pointwise classification. An additional parity-of-block-start argument shows that a run beginning at zero cannot stop at three. Explicit signed and nonnegative witnesses establish every claimed value. The standalone exact-arithmetic verifier returned `VERIFY_OK` for 50,000 translated gap triples and a separate subset census. Finite checks do not replace the universal proof.
+PASS
 
-## Originality — PASS (subject to independent priority assessment)
+Exact distinct pair sums (after subtracting 2a) are 0,x,2x,x+y,2x+y,2x+2y; ordering gives gap words x,x,y−x,x,y for x<y, x,y,x−y,y,y for x>y, or four x when x=y. Consecutive unit-gap runs prove complete four-row classification for all x,y>0. Whenever there is a five-term run it starts at even integer 2a or 2a+2; requiring 0,1,2,3 forces its start to 0 and hence includes 4, excluding anchored length3. Explicit witnesses produce lengths 0,1,2,4; nonnegative presence of 0 and 1 forces 2, excluding length1. Independent separate exhaustive run checked all 39,601 pairs x,y=1..199; unrestricted scope rests on symbolic sorted-gap proof.
 
-Nathanson, arXiv:2605.26425v3, Problems 7–9, poses signed and arbitrary-interval spectra and gives related low-rank data; its inspected Theorem 4 is a reduction of nonnegative initial spectra. The full October 2026 signed three-generator paper of van Doorn, Monticone, and Nathanson, arXiv:2610.19470v1, establishes maximal origin-anchored coverage. Those results bound the attainable values but do not determine intermediate lengths or the exact successive-gap inverse theorem. Searches found no statement covering all four rows. A logically equivalent older exercise or unindexed general theorem remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result gives a complete exact classification in the smallest nontrivial three-generator/two-summand case of an explicitly motivated signed-interval problem. It proves a structural forbidden intermediate length and the new signed-only length one, while distinguishing initial and arbitrary interval phenomena. The scope is intentionally finite rank and is not claimed to solve general higher-rank or higher-order problems.
+Best-of-knowledge originality with disclosed antecedents and material access limits. The problem is a concrete first nontrivial slice of established signed basis spectra, not a general additive combinatorial theorem. Unlike unsigned maximum formulas, the signed anchored length1 and forbidden length3 require exact classification. No checked prior result was shown to entail all rows and signed/nonnegative distinction; this is a modest exact first-case classification, not an unresolved broad conjecture.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Nathanson formulated exact signed and unanchored basis spectra as natural problems, and the first three-generator/two-summand case has a complete inverse classification with unexpected forbidden coverage length 3 and signed length1 absent without negatives. The proof is elementary, but the precise first-case attainable-set spectrum is independently useful; no artificial general-theorem requirement is imposed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
