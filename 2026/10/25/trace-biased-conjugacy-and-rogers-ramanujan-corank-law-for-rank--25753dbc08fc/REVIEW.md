@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives the unique pair \((E,C)\) directly from both averaging identities and idempotence, including the nonzero scaling condition. The trace-pairing reduction holds in all characteristics, and the strata are genuine smooth irreducible affine-hyperplane bundles; distinct idempotent ranks have distinct characteristic polynomials in every characteristic. The counting uses complementary-subspace enumeration, the class-orbit reduction uses the stabilizer of a standard idempotent, and the trace-one orbit correction follows from a nontrivial additive-character Euler product. The Rogers–Ramanujan limit uses an explicit summable dominant sequence. The attached checker directly tested all defining matrix-unit equations for the rank-one maps on \(M_2(\mathbb F_2)\) and \(M_2(\mathbb F_3)\) and separately checked trace-stratified similarity classes through dimension three. The infinite proof does not rely on these finite calculations.
+## correctness
 
-**Originality — PASS, with residual historical-priority risk.** Pei–Guo (arXiv:1401.7386, Proposition 2.3) supplies the known general characterization of an idempotent averaging projection. That general characterization implies preliminary projection-space conditions; they are explicitly not claimed as independent discoveries. Fulman (arXiv:math/9712239) gives classical rational canonical and Rogers–Ramanujan tools, but the inspected relevant passages do not give the complete matrix-algebra averaging-operator census, its trace-biased conjugacy series, or this operator corank law. Cao (arXiv:1401.7389) is related but its abstract/contents and terminology checks did not resolve this specialized enumeration. Published-record and targeted literature searches found nearby rank-one factorization, general projection, finite-field matrix-similarity, and nil-clean findings; none of the identified statements entails this four-part operator formula. The exact orbit and limit statements, rather than the elementary rank-one normalization or the classical Rogers–Ramanujan identity, are the assessed original content. Broader classical conditional-expectation work, unexamined sections and comprehensive historical priority remain risks.
+PASS
 
-**Value — PASS.** The theorem gives a complete natural parameter-space census of the first nonzero operator-rank stratum of idempotent averaging maps on every full matrix algebra, including geometric components and an exact orbit count sensitive to field characteristic. The sharp limiting corank law exposes a genuinely structured, nontrivial product distribution rather than merely a parameterization; all possible ranks occur, and the trace-one correction has explicit characteristic-sensitive consequences. The precise operator census is not supplied by the cited general projection criterion or by standard matrix similarity counts alone without the new reduction and subsequent enumeration.
+From P(X)=φ(X)B and P²=P, both averaging identities force B²=λB and λφ(I)=1, hence λ≠0. Put E=B/λ=P(I), obtain E²=E and φ normalization; the nondegenerate trace pairing yields unique C with EC=CE=C, tr C=1. GL_n acts transitively on rank-r E; the stabilizer GL_r×GL_{n-r} identifies C with an affine trace-one hyperplane and gives dimension 2nr−r²−1 and {n bracket r}_q q^(nr−1) points. Conjugation reduces to trace-one r×r matrix similarity. Rational canonical forms and additive character orthogonality give (K_q(r)−1_{p|r}K_q(r/p))/q orbits. Fixed-q corank weights {n bracket j}_q q^(−nj) converge by summable t^(j²) bounds; Rogers–Ramanujan evaluates the norm. Independently counted M2(F2) as 6+8 and M2(F3) as 12+27, including both averaging laws; this is finite corroboration, not proof of all n.
 
-**Scientific limits.** Only operator-rank one, idempotence, full matrix algebras, reduced variety structure and simultaneous matrix conjugation are covered. The standalone computation covers prime fields \(\mathbb F_2\) and \(\mathbb F_3\), not an exhaustive range of fields or dimensions. Independent mathematical checking and absolute publication-priority verification are outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pei–Guo already provide the general idempotent averaging projection/decomposition criterion; rational canonical parameterization, finite-field similarity counts and Rogers–Ramanujan are classical. The assembled GL_n matrix-algebra stratum census, trace-one characteristic-sensitive orbit series, and induced operator corank limit are not supplied by those inspected statements; qualified best-of-knowledge originality.
+
+## value
+
+PASS
+
+Natural complete operator-rank-one stratum of a canonical noncommutative algebra, with exact geometric dimension, all prime-power counts, characteristic-dependent conjugacy orbits and a nontrivial limiting corank distribution. These motivate and require the precise facts independently of a broader new theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

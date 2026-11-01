@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification details
 
-The proof reconstructs each rank-one idempotent two-sided averaging operator \(P:M_n(k)\to M_n(k)\) as a unique pair \((E,C)\) with \(P(X)=\operatorname{tr}(CX)E\), \(E^2=E\ne0\), \(EC=CE=C\), and \(\operatorname{tr}C=1\). Its finite-field enumeration and trace-one similarity-orbit count use complementary-subspace flags and an additive-character Euler product. Its asymptotic law follows from dominated convergence and the classical Rogers–Ramanujan identity. These are written arguments for all the stated fields and dimensions.
+# Independent mathematical audit
 
-Run `python3 check_averaging.py` with Python 3 standard library. It tests both averaging identities and idempotence on all matrix-unit pairs for all normalized rank-one maps on \(M_2(\mathbb F_2)\) and \(M_2(\mathbb F_3)\). It also enumerates characteristic and minimal polynomials of all matrices of sizes one through three over those prime fields. The computations match the formulas for exact operator counts and trace-one similarity-class counts and conclude with `RANK_ONE_AVERAGING_AND_TRACE_CLASSES_OK`.
+## correctness
 
-The executable is supplementary finite-field evidence, not an infinite proof or independent audit. Prime-field arithmetic in the checker does not directly verify extension fields, which are instead covered by the written field-independent arguments. Full publication priority, positive-characteristic scheme structure, and any higher operator rank remain unverified or outside scope.
+PASS
+
+From P(X)=φ(X)B and P²=P, both averaging identities force B²=λB and λφ(I)=1, hence λ≠0. Put E=B/λ=P(I), obtain E²=E and φ normalization; the nondegenerate trace pairing yields unique C with EC=CE=C, tr C=1. GL_n acts transitively on rank-r E; the stabilizer GL_r×GL_{n-r} identifies C with an affine trace-one hyperplane and gives dimension 2nr−r²−1 and {n bracket r}_q q^(nr−1) points. Conjugation reduces to trace-one r×r matrix similarity. Rational canonical forms and additive character orthogonality give (K_q(r)−1_{p|r}K_q(r/p))/q orbits. Fixed-q corank weights {n bracket j}_q q^(−nj) converge by summable t^(j²) bounds; Rogers–Ramanujan evaluates the norm. Independently counted M2(F2) as 6+8 and M2(F3) as 12+27, including both averaging laws; this is finite corroboration, not proof of all n.
+
+## originality
+
+PASS
+
+Pei–Guo already provide the general idempotent averaging projection/decomposition criterion; rational canonical parameterization, finite-field similarity counts and Rogers–Ramanujan are classical. The assembled GL_n matrix-algebra stratum census, trace-one characteristic-sensitive orbit series, and induced operator corank limit are not supplied by those inspected statements; qualified best-of-knowledge originality.
+
+## value
+
+PASS
+
+Natural complete operator-rank-one stratum of a canonical noncommutative algebra, with exact geometric dimension, all prime-power counts, characteristic-dependent conjugacy orbits and a nontrivial limiting corank distribution. These motivate and require the precise facts independently of a broader new theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
