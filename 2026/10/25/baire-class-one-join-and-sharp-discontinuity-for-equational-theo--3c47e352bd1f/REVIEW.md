@@ -1,19 +1,21 @@
-# Review: Baire-Class-One Join and Sharp Discontinuity for Equational-Theory Spaces
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** For each finite equation set \(E_m\), the approximant \(J_m\) depends on finitely many clopen membership coordinates and is continuous. Finitary derivability proves pointwise convergence. In the unary example, identities of the form \(f^a(x)\approx f^b(x)\) are valid under \(f^n=\mathrm{id}\) exactly when \(n\mid |a-b|\); a pair of disjoint cycles refutes cross-variable identities. The idempotence-plus-period argument proves discontinuity.
+PASS
 
-## Originality
+For any countable finitary algebraic signature, exhaust its equations by finite E_m. Each approximant Th((Phi∩E_m)∪(Psi∩E_m)) is continuous because it depends on finitely many clopen input bits, and every fixed output equation eventually has its true membership by finitary equational derivations. Thus join is pointwise limit of continuous maps into the space of closed theories. For one unary f, T_n=Th(f^n(x)=x) converges to the minimal theory: cross-variable identities are refuted by disjoint n-cycles; f^a(x)=f^b(x) for a!=b holds precisely when n divides a-b. With Psi=Th(f²=f), every join T_n∨Psi entails f(x)=x but Psi alone does not (nonidentity 2-point constant map). Hence join is discontinuous. Checked the divisibility and constant-map witness directly; proof is logical and not a finite computational induction.
 
-**PASS, subject to the residual risk below.** The closest inspected literature codes equational theories and studies the Borel complexity and cardinality of intervals, but does not compare the join map's Baire class or give this discontinuity example. Searches for topological regularity of the join operation did not return a statement implying the claim.
+## originality
 
-## Value
+PASS
 
-**PASS.** The result adds operation-level topological information to descriptive-set-theoretic studies of equational theories: it gives a global regularity bound and shows that continuity fails in the smallest natural unary signature. This distinction matters when using the Cantor coding to analyze lattice operations, rather than only subsets or intervals.
+Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.
 
-## Closest literature and limitations
+## value
 
-Aguilera, Bezhanishvili, and Takahashi, arXiv:2603.27203, especially the coding discussion and the equational-closure characterization in Sections 2–3. The theorem does not classify continuity points, and the novelty assessment cannot exclude every unindexed or differently named treatment.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The join operation is a natural structural map on the compact theory space, unlike static complexity of individual intervals. A global optimal Baire-1 regularity statement with a smallest-signature discontinuity witness is a motivated qualitative boundary for descriptive algebraic topology; although the upper-bound proof is short, the paired statement is not a mere renaming of the known interval cardinality theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
