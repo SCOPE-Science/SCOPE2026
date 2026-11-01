@@ -1,0 +1,190 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:14:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual source RESULT.md, SLOGAN.txt, REVIEW.md, verify.py with verified Git object identities",
+        "Independent_profile_check.py and independent_profile_results.json; exact sympy, literal q-ary enumeration, Euler vector enumeration"
+      ],
+      "rationale": "All claims were reconstructed from the actual RESULT.md and seven frozen Git blobs (tree SHA independently recomputed). The observed length-one counts and length-two unordered adjacent-pair multiplicities correspond to undirected looped Euler trails. Euler existence holds exactly when positive-degree support is connected and odd-degree count 0 or 2. The identity 2*v_i=d_i+t_i proves one singleton profile for two odd endpoints and exactly |S| for all-even degrees, including loops and n=1 boundary q. For q=3, partition by positive support size 1,2,3; the cross-edge count is (3z^2-2z^3)/(1-z)^3, all-even cross-edge series (z^3+3z^4-2z^6)/(1-z^2)^3, and free loops supply (1-z)^(-3). Their symbolic sum equals the claimed rational series. For fixed q, E unordered edge types give binomial(m+E-1,E-1) vectors, any missing edge is O(m^(E-2)), and nonzero cut characters of the even-parity degree group have at least one (1+z) and one (1-z) factor, leading to O(m^(E-2)) cancellation in each character. The full-support parity-weight sum q+choose(q,2)=E gives E/[2^(q-1)(E-1)!]. An independent checker separately enumerated literal word profiles and looped-multigraph multiplicity vectors at q=2 n<=10, q=3 n<=9, q=4 n<=7, q=5 n<=5, all q=3 graph counts n<=15, and symbolic generating-function/pole identities; the value P3(28)=282873 was recovered. Finite checks corroborate but are not substituted for the all-n Euler-trail/parity proof.",
+      "residual_risks": [
+        "The q>=4 theorem gives leading asymptotics only, not exact generating functions or ambiguity-class sizes.",
+        "The parity Fourier estimate assumes fixed q; no uniform-in-q or q-growing-with-n theorem proved.",
+        "No formal Lean/expert verification or numerical robustness claim is made; source self-check results are not substituted for proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+          "Gabrys and Milenkovic, Unique Reconstruction of Coded Strings from Multiset Substring Spectra, arXiv:1804.04548, Section II; https://arxiv.org/pdf/1804.04548",
+          "Jacquet, Knessl, Szpankowski, Counting Markov Types, DMTCS 2010, DOI:10.46298/dmtcs.2768, Sections 1-3 and Theorem 1; https://dmtcs.episciences.org/en/articles/2768/download",
+          "Jacquet, Knessl, Szpankowski, Counting Markov Types, Balanced Matrices, and Eulerian Graphs, IEEE TIT 58 (2012) 4261-4272, DOI:10.1109/TIT.2012.2191476 (abstract/index only; full expanded text not read)"
+        ],
+        "reasoning": "Ye–Elishco defines the broad q-ary length-limited model (Definition VIII.1) and Lyndon-based reconstruction constructions (Section VIII) but does not deduce the maximum number of r=2 profiles for q=3 or the fixed-q coefficient. Gabrys–Milenkovic retain directed substring identities; a result for this richer observable does not determine the coarser unordered-composition quotient. Jacquet et al. count cyclic directed Markov types with q=3 growth degree 6, whereas the reviewed undirected linear count grows with degree 5. The 2012 expanded journal article has the same directed cyclic asymptotic stated in its abstract; its full text was not read, a residual priority risk.",
+        "searches": [
+          "ternary alphabet exact count distinct unordered adjacent pair composition multisets for strings length two plus singleton counts generating function Eulerian multigraph profiles asymptotic",
+          "length limited substring composition reconstruction binary r=2 number of profiles ternary words graph edge-count equivalence",
+          "Eulerian undirected graph Markov types unordered pairs symbol sequence profile enumeration",
+          "Counting Markov Types Balanced Matrices Eulerian Graphs Jacquet Knessl Szpankowski 2012 pdf theorem symmetrized"
+        ]
+      },
+      "checked_sources": [
+        "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+        "Gabrys and Milenkovic, Unique Reconstruction of Coded Strings from Multiset Substring Spectra, arXiv:1804.04548, Section II; https://arxiv.org/pdf/1804.04548",
+        "Jacquet, Knessl, Szpankowski, Counting Markov Types, DMTCS 2010, DOI:10.46298/dmtcs.2768, Sections 1-3 and Theorem 1; https://dmtcs.episciences.org/en/articles/2768/download",
+        "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "Jacquet, Knessl, Szpankowski, Counting Markov Types, Balanced Matrices, and Eulerian Graphs, IEEE TIT 58 (2012) 4261-4272, DOI:10.1109/TIT.2012.2191476 (abstract/index only; full expanded text not read)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+          "Jacquet, Knessl, Szpankowski, Counting Markov Types, DMTCS 2010, DOI:10.46298/dmtcs.2768, Sections 1-3 and Theorem 1; https://dmtcs.episciences.org/en/articles/2768/download",
+          "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "Resultary binary theorem explicitly states its limitation to alphabet {0,1}; its complete result was read at its source Git blob.",
+          "The general q proof gives E/[2^(q-1)(E-1)!] with E=binom(q+1,2), which is not the directed cyclic Markov constant."
+        ],
+        "reasoning": "A special case or corollary would be covered even if it never stated n^5/80 explicitly. Here the binary q=2 formulas cannot logically imply q=3 coefficients nor the uniform fixed-q claim. The directed balanced cyclic Markov result does not imply an undirected linear Euler-trail quotient, since the observation drops orientation and stores singleton/endpoint data. Ye–Elishco gives general code constructions rather than exact equality to an all-profile count; no implication to the exact q=3 generating function was established in its inspected relevant full text.",
+        "searches": [
+          "ternary alphabet exact count distinct unordered adjacent pair composition multisets for strings length two plus singleton counts generating function Eulerian multigraph profiles asymptotic",
+          "length limited substring composition reconstruction binary r=2 number of profiles ternary words graph edge-count equivalence",
+          "Eulerian undirected graph Markov types unordered pairs symbol sequence profile enumeration",
+          "Counting Markov Types Balanced Matrices Eulerian Graphs Jacquet Knessl Szpankowski 2012 pdf theorem symmetrized",
+          "ternary length two substring composition exact enumeration generating function Euler trail"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+          "Jacquet, Knessl, Szpankowski, Counting Markov Types, DMTCS 2010, DOI:10.46298/dmtcs.2768, Sections 1-3 and Theorem 1; https://dmtcs.episciences.org/en/articles/2768/download",
+          "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "Euler-trail signature is a connected undirected looped edge-multiplicity vector together with symbol endpoint counts; full-source theorem gives support-weight |S| or 1 depending on degree parity."
+        ],
+        "reasoning": "The relevant aliases are unordered two-gram/adjacency Markov types, looped undirected Eulerian multigraphs with terminal signatures, and length-limited substring-composition channels. For q=2 the published run decomposition gives a quadratic sequence; its hypotheses do not include ternary q=3. Jacquet et al. use balanced directed matrices for cyclic reads, which retain pair orientation and impose equal in/out degree, instead of the current undirected edge counts and independent endpoint signatures. Equating these observations would be mathematically false, and no all-q quotient identity was found. Prefer a general theorem if one is subsequently located.",
+        "searches": [
+          "ternary alphabet exact count distinct unordered adjacent pair composition multisets for strings length two plus singleton counts generating function Eulerian multigraph profiles asymptotic",
+          "length limited substring composition reconstruction binary r=2 number of profiles ternary words graph edge-count equivalence",
+          "Eulerian undirected graph Markov types unordered pairs symbol sequence profile enumeration",
+          "unordered Markov types count symmetric matrix sequences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "Published binary count R2(2m)=3m^2-2m+2; R2(2m+1)=3m^2+m+2 is a different q and different sequence.",
+          "The q=3 generating-function coefficient list begins 3,6,18,45,108,228,447,807,1377,2226,3456,5169. No inspected relevant indexed sequence gave these all-length values."
+        ],
+        "reasoning": "A genuine identical table for every ternary n, a general undirected Markov-type generating function specialized to q=3, or an all-q theorem implying the coefficient would count as prior coverage. Targeted numeric and description searches did not identify one; absence of a hit is not novelty proof. The published exact binary table and the unrelated directed Markov examples have different domains and implications.",
+        "searches": [
+          "ternary alphabet exact count distinct unordered adjacent pair composition multisets for strings length two plus singleton counts generating function Eulerian multigraph profiles asymptotic",
+          "length limited substring composition reconstruction binary r=2 number of profiles ternary words graph edge-count equivalence",
+          "composition multiset length two ternary profiles generating function",
+          "3 6 18 45 108 228 447 807 sequence",
+          "n^5/80 ternary words Markov profiles"
+        ]
+      },
+      "rationale": "Best-of-knowledge original for the exact ternary all-length composition-profile generating function and sharp fixed-q asymptotic constant. The primary same-observable Ye–Elishco paper gives coding constructions, not this quotient enumeration; the complete public binary result explicitly excludes q>=3. Ordered substring spectra and directed cyclic Markov types have different observables and cannot imply the unordered linear Euler-trail count without an additional nontrivial quotient/endpoint analysis. No examined primary theorem, public result, or table implies the full pair of claims. This is not proof of global priority.",
+      "residual_risks": [
+        "Unindexed undirected Euler-trail/Markov-type enumeration could imply q=3 rational generating function or fixed-q leading coefficient even under different words.",
+        "The expanded 2012 Jacquet–Knessl–Szpankowski IEEE paper was compared at abstract level only; its complete body was not inspected. It is not claimed as whole-document noncoverage.",
+        "A general parity-lattice-point argument might have published the asymptotic constant independently even if the exact ternary rational series remains new.",
+        "Targeted search and relevant-reading support best-of-knowledge originality, never a proof that no equivalent prior theorem exists."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines C_{<=r} but its Section VIII construction does not furnish the exact q=3 fixed-r=2 profile generating function or fixed-q leading constant.",
+          "evidence": [
+            "arXiv:2208.14963, Definition VIII.1 and Corollary VIII.3 and conclusion; public PDF Section VIII and inspected screenshots"
+          ],
+          "identifier_or_url": "arXiv:2208.14963; https://arxiv.org/pdf/2208.14963",
+          "material_read": "25-page primary PDF introduction, Section VIII (Definition VIII.1, Corollary VIII.3, construction), concluding scope; pages including Section VIII inspected visually",
+          "method": "Read PDF mathematical statements/definition and construction, compared maximum profile quotient rather than code size lower bounds",
+          "title": "Reconstruction of a Single String from a Part of its Composition Multiset",
+          "trigger": "Primary same-observable length-limited composition channel for arbitrary alphabets"
+        },
+        {
+          "assessment": "Retains pair orientations, so does not supply a count after identifying ij with ji.",
+          "evidence": [
+            "arXiv:1804.04548 Section II defines multiset substring spectrum with actual ordered factor strings"
+          ],
+          "identifier_or_url": "arXiv:1804.04548; https://arxiv.org/pdf/1804.04548",
+          "material_read": "17-page arXiv primary PDF introduction, Section II model/definitions and coding discussion, relevant page rendered for inspection",
+          "method": "Compared the ordered substring spectrum M_L(x) and distinguishability theorem assumptions to unordered compositions",
+          "title": "Unique Reconstruction of Coded Strings from Multiset Substring Spectra",
+          "trigger": "Possible prior reconstruction capacity theorem for observed adjacent pair multisets"
+        },
+        {
+          "assessment": "Counts directed cyclic first-order types with q=3 degree 6, not the unordered linear r=2 composition profiles with q=3 degree 5.",
+          "evidence": [
+            "DMTCS 2010 pp. 387-400, model equations (1)-(3), Theorem 1, q=3 directed example"
+          ],
+          "identifier_or_url": "DOI:10.46298/dmtcs.2768; https://dmtcs.episciences.org/en/articles/2768/download",
+          "material_read": "Full 14-page primary PDF, abstract, Sections 1-3, Theorem 1 and q=3 example; pages rendered for visual comparison",
+          "method": "Compared directed cyclic balanced matrices/degree-exponent with undirected looped trail classes and endpoint count",
+          "title": "Counting Markov Types",
+          "trigger": "Potentially dominating general Eulerian/Markov-type enumeration"
+        },
+        {
+          "assessment": "Binary case only; proves no ternary/all-q asserted numbers and explicitly leaves nonbinary alphabets outside its scope.",
+          "evidence": [
+            "Published exact binary theorem gives R2(2m)=3m²-2m+2 and R2(2m+1)=3m²+m+2; Limitations explicitly excludes nonbinary."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+          "material_read": "Complete public RESULT.md read from source Git blob 536b75ee1499870d77111c98960323b0a28d0ac9, including theorem, proof, scope, limitations",
+          "method": "Compared q=2 restriction, exact formulas and explicit nonbinary exclusion with final q=3 rational series and fixed-q leading coefficient",
+          "title": "Exact binary r=2 length-limited composition reconstruction",
+          "trigger": "Most relevant previously published identical observable and exact code-size result"
+        },
+        {
+          "assessment": "Abstract states directed balanced Markov types, fixed-q exponent q²-q, unlike this q=3 exponent 5. Detailed expansions could contain an unindexed related corollary and remain a residual priority risk.",
+          "evidence": [
+            "IEEE TIT 58(7):4261-4272 DOI:10.1109/TIT.2012.2191476 abstract and 2010 DMTCS predecessor"
+          ],
+          "identifier_or_url": "DOI:10.1109/TIT.2012.2191476",
+          "material_read": "Bibliographic record and abstract only; complete expanded journal body not obtained",
+          "method": "Abstract-level source comparison with accessible 2010 primary full paper, not inferred full-text noncoverage",
+          "title": "Counting Markov Types, Balanced Matrices, and Eulerian Graphs",
+          "trigger": "Later journal expansion of the closest directed Markov-type paper"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+        "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "Actual RESULT.md statement and proof, independently tested enumerations"
+      ],
+      "rationale": "The minimum nontrivial observation length in substring-composition reconstruction is r=2. Counting distinct observation classes equals the exact maximum zero-error code size, a natural invariant with genuine information-theoretic motivation. The first nonbinary q=3 case is classified for every blocklength by an explicit rational generating function; fixed-q asymptotic growth has an exact constant for all finite alphabets. The Euler-trail endpoint contribution makes the enumeration fundamentally different from merely counting nonnegative edge-multiplicity vectors and from the previously classified binary run count. This supplies reusable exact benchmarks and a structural asymptotic result, not a tiny instance, a change of notation, or a table recomputation. No novelty or downstream theorem beyond the explicitly proved finite-alphabet law is claimed.",
+      "residual_risks": [
+        "The exact ternary series does not classify profile-fiber sizes or longer observed substring lengths.",
+        "The value assessment assumes the exact q=3 all-length enumerator is not already known under an equivalent undirected-trail formulation."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ye and Elishco, Reconstruction of a Single String from a Part of its Composition Multiset, arXiv:2208.14963, Section VIII and conclusion; https://arxiv.org/pdf/2208.14963",
+    "Gabrys and Milenkovic, Unique Reconstruction of Coded Strings from Multiset Substring Spectra, arXiv:1804.04548, Section II; https://arxiv.org/pdf/1804.04548",
+    "Jacquet, Knessl, Szpankowski, Counting Markov Types, DMTCS 2010, DOI:10.46298/dmtcs.2768, Sections 1-3 and Theorem 1; https://dmtcs.episciences.org/en/articles/2768/download",
+    "Exact binary r=2 length-limited composition reconstruction, published mathematical finding 2026-10-04, https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+    "Jacquet, Knessl, Szpankowski, Counting Markov Types, Balanced Matrices, and Eulerian Graphs, IEEE TIT 58 (2012) 4261-4272, DOI:10.1109/TIT.2012.2191476 (abstract/index only; full expanded text not read)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For linear labeled q-ary words with observations comprising the multisets of length-one and unordered length-two substring compositions, P_3(n) is given by 3(1-2z+2z²+3z³-2z⁴+z⁶-z⁷)/[(1-z)^6(1+z)^2] as sum_{n>=1}P_3(n)z^{n-1}; for fixed q>=2 and E=binom(q+1,2), P_q(n)=E*n^(E-1)/[2^(q-1)*(E-1)!]+O_q(n^(E-2)).",
+  "limitations": "The proof concerns labeled linear words with exact multiplicity for lengths one/two only. Fixed q in all-q asymptotic; no exact q>=4 rational series, noisy or cyclic readings, variable q or fiber-size classification. Only relevant mathematical sections of two primary full PDFs and the full 2010 Markov paper were read; the 2012 journal expansion is abstract-only and not treated as fully cleared. No formal verification/independent third-party attestation. Staged scientific audit and sanitized administrative changes are not published.",
+  "residual_risks": [
+    "Unindexed undirected Euler-trail/Markov-type enumeration could imply q=3 rational generating function or fixed-q leading coefficient even under different words.",
+    "The expanded 2012 Jacquet–Knessl–Szpankowski IEEE paper was compared at abstract level only; its complete body was not inspected. It is not claimed as whole-document noncoverage.",
+    "A general parity-lattice-point argument might have published the asymptotic constant independently even if the exact ternary rational series remains new.",
+    "Targeted search and relevant-reading support best-of-knowledge originality, never a proof that no equivalent prior theorem exists.",
+    "The q>=4 theorem gives leading asymptotics only, not exact generating functions or ambiguity-class sizes.",
+    "The parity Fourier estimate assumes fixed q; no uniform-in-q or q-growing-with-n theorem proved.",
+    "No formal Lean/expert verification or numerical robustness claim is made; source self-check results are not substituted for proof.",
+    "The exact ternary series does not classify profile-fiber sizes or longer observed substring lengths.",
+    "The value assessment assumes the exact q=3 all-length enumerator is not already known under an equivalent undirected-trail formulation."
+  ],
+  "schema_version": 1
+}
