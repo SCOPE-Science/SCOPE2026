@@ -1,15 +1,21 @@
-# Research assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is an all-size if-and-only-if classification. Irreducible Jacobi recurrence guarantees simple eigenvalues and disjoint symmetric/antisymmetric spectra for every positive central conductance. The Neumann sector gives the exact gcd obstruction; the antisymmetric end condition gives precisely the displayed trigonometric exceptional weights, including the exclusion of zero denominators and nonpositive weights. Simultaneous numerator/denominator zero cannot create a missing case because a vanishing last eigenvector coordinate contradicts irreducibility. The modulo-periodicity follows by simultaneous sign reversal. Exact polynomial checks cover 462 rational cases and 22 additional second-vertex checks; these are corroboration of the written analytic proof.
+PASS
 
-## Originality — PASS, with residual risk
+Reflection splits the 2m-vertex weighted path Laplacian into irreducible Jacobi matrices N_m and N_m+2w e_me_mᵀ. Their spectra are simple and disjoint for w>0 by final-coordinate recurrence. PBH detects zeros of sensor coordinate. Neumann cosine eigenvectors vanish at j iff gcd(m,2j-1)>1; antisymmetric zeros have θ=(2r-1)π/(2j-1) with 1≤r<j, and the terminal boundary equation gives the exact positive W_r with nonzero denominator. Conversely any such W_r yields a nonzero zero-sensor eigenvector. Periodicity m↦m+(2j-1) changes numerator and denominator signs together. For j=2, residues m mod3 give all weights / {1/2} / empty; simple spectrum makes the unobservable dimension one. Independent 390 numerical eigenvector zero tests agree; they are not proof for unbounded m and real w.
 
-The closest full-text source, Parlangeli–Notarstefano (arXiv:1109.3556), solves the fixed **unweighted** path/cycle problem. Its general PBH and tridiagonal spectral ingredients apply, but the quantified positive-parameter boundary resonance set and exact modulo-length persistence do not follow as a quoted theorem. Monshizadeh–Zhang–Camlibel (arXiv:1403.4868) studies all-weight guarantees through zero forcing, not the exceptional weights for an interior observer. Bianchin–Frasca–Gasparri–Pasqualetti (2016/2016 expanded manuscript) treats structured perturbations of adjacency models and an endpoint-sensed line, not this interior-sensor weighted Laplacian. A previously established one-weight **cycle** classification is on a distinct graph and has different resonances. The remaining risk is specialized Jacobi boundary-perturbation literature that may encode an equivalent theorem implicitly; this comparison is scientific, not a proof of universal novelty.
+## originality
 
-## Value — PASS
+PASS
 
-The object is a natural parameter-dependent consensus observer: changing just one central conductance can selectively erase a mode. The complete formula settles an infinite two-parameter family of single-sensor questions, proves a length-periodicity mechanism, and identifies a sharp three-class robustness distinction at the second vertex. Notably, entire infinite families can be immune to every positive central-edge adjustment, whereas others fail at exactly one conductance. This is a substantive binary robustness classification rather than a finite numerical threshold fit. It does not claim noise-robust estimation bounds.
+Best-of-knowledge PASS for the complete interior-sensor resonance weights and all-length arithmetic periodicity for a single *central edge weight* in an even path. Uniform-path number theory, strong structural zero forcing and endpoint weighted adjacency radii are related but do not imply the specific all-w exceptional sets.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A natural one-defective-edge path is the simplest weighted perturbation of a graph signal system; the result completely identifies all positive conductances at which a specified single interior sensor fails, with a striking exact periodic residue law and exact nullspace multiplicity. Useful in sensor placement and fragility analysis, not just endpoint textbook controllability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

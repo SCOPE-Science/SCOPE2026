@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:09:05.811440Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md analytical proof §§1-5 at frozen Git commit",
+        "assigned verify.py blob 9b540849... inspected exact polynomial gcd code",
+        "independent_checks.py weighted_path_observability (390 cases)"
+      ],
+      "rationale": "Reflection splits the 2m-vertex weighted path Laplacian into irreducible Jacobi matrices N_m and N_m+2w e_me_mᵀ. Their spectra are simple and disjoint for w>0 by final-coordinate recurrence. PBH detects zeros of sensor coordinate. Neumann cosine eigenvectors vanish at j iff gcd(m,2j-1)>1; antisymmetric zeros have θ=(2r-1)π/(2j-1) with 1≤r<j, and the terminal boundary equation gives the exact positive W_r with nonzero denominator. Conversely any such W_r yields a nonzero zero-sensor eigenvector. Periodicity m↦m+(2j-1) changes numerator and denominator signs together. For j=2, residues m mod3 give all weights / {1/2} / empty; simple spectrum makes the unobservable dimension one. Independent 390 numerical eigenvector zero tests agree; they are not proof for unbounded m and real w.",
+      "residual_risks": [
+        "Ideal noiseless state observability, not Gramian conditioning.",
+        "Unit weights except central positive edge; combinatorial not normalized Laplacian."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Monshizadeh–Zhang–Camlibel 2014 zero forcing provides sufficient all-weights strong controllability, notably endpoints, not exceptional interior-sensor edge weights.",
+          "Bianchin et al 2016 observability radius studies weighted-adjacency networks and endpoint-observed line model."
+        ],
+        "reasoning": "General all-weights endpoint conditions do not classify precisely which w causes unobservability at arbitrary interior j.",
+        "searches": [
+          "single defect weighted path Laplacian observability central edge sensor arithmetic resonance eigenvector vanishing",
+          "zero forcing strong structural controllability path endpoints all edge weights"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1109.3556 primary mathematical sections",
+        "arXiv:1403.4868 abstract/known zero-forcing statement",
+        "arXiv:1612.06120 accessible model abstract",
+        "Resultary q1, 14 candidates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Parlangeli–Notarstefano 2011/2012 §§II-III assumes unweighted uniform paths and gives arithmetic observability subsets.",
+          "The present theorem allows a continuously varying single central edge, where w=1/2 can create new zero modes absent at w=1."
+        ],
+        "reasoning": "The prior uniform case is a subfamily and cannot recover the positive-weight exceptional values or their periodicity without additional boundary spectral analysis.",
+        "searches": [
+          "single defect weighted path Laplacian observability central edge sensor arithmetic resonance eigenvector vanishing",
+          "Parlangeli Notarstefano observability uniform path graphs laplacian 2012"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tridiagonal Jacobi eigenvector vanish at sensor is the PBH formulation; split by central reflection into Neumann/Robin sectors.",
+          "Parlangeli–Notarstefano arXiv:1109.3556 analyzes uniform path Laplacian unobservability via rational gcd conditions."
+        ],
+        "reasoning": "Standard Jacobi and PBH formulas make calculation possible but previous uniform conditions cover only w=1; variable w positive resonance set differs.",
+        "searches": [
+          "single defect weighted path Laplacian observability central edge sensor arithmetic resonance eigenvector vanishing",
+          "PBH zero sensor component Jacobi matrix Robin boundary defect weighted Laplacian path"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact second-vertex law w=1/2 for m≡1 mod3, no exceptional positive w for m≡2 mod3; result checked against 390 eigensensor cases.",
+          "Resultary q1 surfaced normalized-path sampling, not an exact weighted-Laplacian central-edge resonance table."
+        ],
+        "reasoning": "This is an infinite parameter resonance classification, not a numerical table recomputation; no inspected source lists these parameter values.",
+        "searches": [
+          "single defect weighted path Laplacian observability central edge sensor arithmetic resonance eigenvector vanishing",
+          "center edge weighted path observability table m residue 3 central conductance half"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete interior-sensor resonance weights and all-length arithmetic periodicity for a single *central edge weight* in an even path. Uniform-path number theory, strong structural zero forcing and endpoint weighted adjacency radii are related but do not imply the specific all-w exceptional sets.",
+      "residual_risks": [
+        "Alternate Robin/Jacobi boundary literature could imply the trigonometric parameterization under a different nomenclature.",
+        "The Bianchin expanded paper was not fully inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uniform unweighted path/cycle classification; does not vary a single positive central-edge conductance",
+          "evidence": "arXiv:1109.3556, 2011; paper §§II-III",
+          "identifier_or_url": "arXiv:1109.3556; ResearchGate full HTML paper",
+          "material_read": "Full available primary-text introduction, unweighted path/cycle model definitions, PBH/spectral sections and observability criterion",
+          "method": "read ResearchGate hosted primary text mathematical sections",
+          "title": "On the reachability and observability of path and cycle graphs",
+          "trigger": "same path Laplacian and arithmetic sensor observability"
+        },
+        {
+          "assessment": "Weighted-adjacency observability radius and endpoint-driven line are distinct from exact interior-sensor weighted combinatorial Laplacian resonance; full text remains risk",
+          "evidence": "ACC 2016 abstract and expanded preprint metadata",
+          "identifier_or_url": "arXiv:1612.06120; DOI:10.1109/ACC.2016.7524913",
+          "material_read": "Accessible primary abstract and model/line setup only; full text not read",
+          "method": "abstract-level source comparison",
+          "title": "The observability radius of network systems",
+          "trigger": "possible stronger arbitrary weighted-path observability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "Parlangeli–Notarstefano 2011 uniform case"
+      ],
+      "rationale": "A natural one-defective-edge path is the simplest weighted perturbation of a graph signal system; the result completely identifies all positive conductances at which a specified single interior sensor fails, with a striking exact periodic residue law and exact nullspace multiplicity. Useful in sensor placement and fragility analysis, not just endpoint textbook controllability.",
+      "residual_risks": [
+        "No noise-robustness or arbitrary multiedge guarantee."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "w strictly positive, j in reflected half, 2m vertices m≥2.",
+    "Finite eigensensor tests corroborative only."
+  ],
+  "schema_version": 1
+}

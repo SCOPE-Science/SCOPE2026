@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and scope
+# Independent mathematical audit
 
-Run `python verify.py` with a working installation of SymPy. The expected output is embedded in `verify_output.txt`. The program forms the weighted path Laplacian's tridiagonal characteristic polynomial and the product of the two characteristic polynomials obtained by deleting the sensor vertex. Because the weighted path is an irreducible symmetric Jacobi matrix, its spectrum is simple and a common characteristic root is exactly a zero-at-sensor eigenmode. SymPy computes exact greatest common divisors over rational polynomial coefficients; no floating eigenvalue or rank tolerance is involved in this algebraic observability decision.
+## correctness
 
-The 462 observed decisions are compared to the analytic exceptional-set formula evaluated numerically away from denominator zeros; the code separately checks all 22 second-vertex test cases at central conductance \(1/2\) or \(1\). The finite range is \(2\le m\le12\). The infinite result, all positive real conductances, period law, and exact trigonometric equalities are established by the analytic argument in `RESULT.md`, not by this finite program.
+PASS
 
-The code uses the normalized convention that each ordinary path edge has conductance one, the unique central edge has conductance \(w>0\), and the sensor is numbered from the left endpoint. The code and its output are package-local and do not require earlier datasets or external downloads.
+Reflection splits the 2m-vertex weighted path Laplacian into irreducible Jacobi matrices N_m and N_m+2w e_me_mᵀ. Their spectra are simple and disjoint for w>0 by final-coordinate recurrence. PBH detects zeros of sensor coordinate. Neumann cosine eigenvectors vanish at j iff gcd(m,2j-1)>1; antisymmetric zeros have θ=(2r-1)π/(2j-1) with 1≤r<j, and the terminal boundary equation gives the exact positive W_r with nonzero denominator. Conversely any such W_r yields a nonzero zero-sensor eigenvector. Periodicity m↦m+(2j-1) changes numerator and denominator signs together. For j=2, residues m mod3 give all weights / {1/2} / empty; simple spectrum makes the unobservable dimension one. Independent 390 numerical eigenvector zero tests agree; they are not proof for unbounded m and real w.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete interior-sensor resonance weights and all-length arithmetic periodicity for a single *central edge weight* in an even path. Uniform-path number theory, strong structural zero forcing and endpoint weighted adjacency radii are related but do not imply the specific all-w exceptional sets.
+
+## value
+
+PASS
+
+A natural one-defective-edge path is the simplest weighted perturbation of a graph signal system; the result completely identifies all positive conductances at which a specified single interior sensor fails, with a striking exact periodic residue law and exact nullspace multiplicity. Useful in sensor placement and fragility analysis, not just endpoint textbook controllability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
