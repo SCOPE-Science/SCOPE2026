@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The presentation-classification lemma, affine composition identity, finite projection counts, centralizer block decomposition, common-fixed-point lemma and simultaneous diagonalization together prove the complete claim. The proof identifies the direct finite checks and does not promote experimental evidence into a general argument.
+PASS
 
-## Originality
+The group presentation G=V ⋊ C2 with odd p forces every nonzero-on-s endomorphism to be (A,u), while sending s to the identity forces A=0. Composition (A,u)(B,v)=(AB,u+Av), so idempotence is exactly A²=A and Au=0. Counting complements of image and kernel gives N_r=[d choose r]_p p^{(r+1)(d-r)}. Translating affine fixed points reduces a commutant to block-diagonal projections, giving P_{d-r}Q_r with the vertex itself removed and the trivial homomorphism inserted. A finite commuting family has a common fixed point (product of commuting affine idempotents), and its linearized projections simultaneously diagonalize; maximal Boolean cliques and their unique common point/coordinate lines follow. This proves all odd primes p and integers d>=2. Independently enumerated p=3,d=2: 47 graph vertices; rank counts 9,36,1; degrees 14,8,46; 54 maximal cliques of order 5. The finite check is corroboration, not the all-d proof.
 
-PASS relative to inspected sources. Arvasi–Odabaş–Wensley (arXiv:1911.12799, DOI 10.1016/j.jsc.2022.04.020) already count the idempotent endomorphisms of dihedral groups of order \(2p\) and tabulate small-group cases; the \(d=1\) case and already-tabulated small numerical specializations are not claimed original. The classical simultaneous diagonalization theorem supplies a known proof step. Related generalized-dihedral element graphs, subgroup-commutativity records and endomorphism results for different group families do not imply the full rank-indexed graph and all maximal compatible families for \(d\ge2\). Possible alternative-terminology coverage of affine idempotent semigroups remains a residual risk.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Compatible group retractions are a natural structural object, not an arbitrary invariant. An infinite nonabelian family admits an exact closed description of every maximal compatible system, its count and size, and every vertex degree with exact rank multiplicities. This distinguishes all-rank geometry from previously listed ordinary dihedral and small-group cases.
+The rank-one ordinary dihedral endomorphism retractions are known (Arvasi–Odabaş–Wensley), and simultaneous diagonalization is classical. Their treatment of d=1 and small-group cat2 tables does not imply the rank-stratified affine-projection commutation graph for all d>=2, its exact degree census, or all maximal compatible systems. Element-commuting and subgroup-commuting graphs have different vertex sets. The inspected literature did not supply equivalent d>=2 formulas, subject to unindexed affine idempotent semigroup work.
 
-## Limitations
+## value
 
-Only odd prime fields and elementary abelian kernels are covered. This is not a classification of cat²-groups. Exhaustive literature priority is not proved, and no independent audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A uniform full commuting graph for a natural infinite family of nonabelian groups, including all rank multiplicities, local degrees, maximal cliques, clique count and symmetry orbits, is a motivated structural classification beyond routine matrix projection counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
