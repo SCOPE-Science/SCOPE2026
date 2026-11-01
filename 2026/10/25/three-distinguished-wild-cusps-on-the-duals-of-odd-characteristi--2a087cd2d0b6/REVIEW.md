@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The original degree-\(q+2\) plane curve is smooth for odd characteristic: its gradient cannot vanish with all coordinates nonzero, and the vertices are directly nonsingular. At a chosen vertex, the sole local branch of the dual is parametrized using the Gauss map. The two dual-coordinate valuations are \(q\) and \((q+1)^2+1\), which are coprime for odd \(q\). The elementary distinct-monomial valuation argument below their first collision \(q((q+1)^2+1)\), combined with the two-generator conductor, proves the *complete* value semigroup, not merely two contained generators. The tangent line has just one tangent preimage, proving unibranchness. The numerical-semigroup gap count gives the conductor and delta invariant. The finite verifier is not mistaken for a universal proof.
+## correctness
 
-## Originality — PASS, subject to residual historical risk
-Homma–Kim describe smooth plane-filling minimum-degree curves. Duran Cunha, Sections 2–4, gives the geometric Pellikaan form, special tangent orders, and Weierstrass semigroup of a point on the original smooth curve; these do not directly give the dual singularity's branch semigroup, the novel higher generator, or delta invariant. Komeda studies dual singularities of degree-\(q^2+q+1\) curves with inseparable Gauss map rather than this degree-\(q+2\) curve. Actual repository-record and literature searches found no equivalent result, but no finite search proves global novelty. Related projective-dual claims for characteristic-two Klein curves in the accessible local records concern a different characteristic and are not dominating statements.
+PASS
 
-## Mathematical value — PASS
-The three flexes are canonical rather than arbitrarily selected points. The theorem recovers intrinsic singularity invariants of their dual images throughout an unbounded family, explaining how exceptional tangency translates into wild high-delta singularities. The conductor and full value semigroup contain considerably more geometry than the previously known primal contact multiplicity \(q+1\), and the Frobenius orbit gives the associated finite-field arithmetic distinction.
+At P0, X=0 has divisor (q+1)P0+P2, with P2 having a different tangent, proving unique dual branch. The local smooth curve x+t^(q+1)+x^(q+1)t=0 yields ord_t u=q and ord_t v=M=(q+1)²+1 for the Gauss map. For odd q, gcd(q,M)=1; cancellations cannot produce values below qM beyond monomial valuations, and the conductor of <q,M> is (q−1)(M−1)<qM, yielding exact semigroup, delta and conductor. Frobenius permutes the Tallini special tangent points, whereas coordinate points in Pellikaan model are rational. Independent q=3,5,7,9 formal-series and gap checks corroborate, without replacing uniform proof.
 
-## Literature and limitations
-Closest full primary sources: Homma–Kim, arXiv:0903.1918; Duran Cunha, arXiv:1805.07345. Distinct dual-curve comparison: Komeda, arXiv:2002.10691. Remaining risk: an unindexed older local analysis of these dual germs. No global classification of the dual is asserted. The characteristic-two case is out of scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Published plane-filling Tallini/Pellikaan geometry includes the original curve, its Weierstrass semigroups and special tangent contacts. That does not determine the complete value semigroup of a singular branch of the DUAL curve. The dual-coordinate orders q and M=(q+1)^2+1 are coprime for odd q and produce the claimed explicit cusp invariants. Komeda studies an unrelated degree q²+q+1 family with inseparable Gauss map.
+
+## value
+
+PASS
+
+An exact uniform local-semigroup classification at three geometrically distinguished singular dual points is useful for positive-characteristic plane-curve geometry, including conductor and delta invariants. The odd-char boundary and Frobenius distinction have independent meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

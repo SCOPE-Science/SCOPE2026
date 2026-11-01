@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,18 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the claim for every odd prime power from local equations and numerical-semigroup theory; exhaustive enumeration over several finite fields is not offered as an infinite proof.
+## correctness
 
-The standalone `verify_dual_cusps.py` was executed in Python 3 with SymPy and printed:
+PASS
 
-```
-q=3, dual valuations=(3,17), delta=16; exact symbolic Hessian identity; formal fixed-point iterations=4
-q=5, dual valuations=(5,37), delta=72; exact symbolic Hessian identity; formal fixed-point iterations=4
-q=7, dual valuations=(7,65), delta=192; exact symbolic Hessian identity; formal fixed-point iterations=4
-q=9, dual valuations=(9,101), delta=400; exact symbolic Hessian identity; formal fixed-point iterations=4
-VERIFY_OK
-```
+At P0, X=0 has divisor (q+1)P0+P2, with P2 having a different tangent, proving unique dual branch. The local smooth curve x+t^(q+1)+x^(q+1)t=0 yields ord_t u=q and ord_t v=M=(q+1)²+1 for the Gauss map. For odd q, gcd(q,M)=1; cancellations cannot produce values below qM beyond monomial valuations, and the conductor of <q,M> is (q−1)(M−1)<qM, yielding exact semigroup, delta and conductor. Frobenius permutes the Tallini special tangent points, whereas coordinate points in Pellikaan model are rational. Independent q=3,5,7,9 formal-series and gap checks corroborate, without replacing uniform proof.
 
-The arithmetic uses truncated formal power series over prime fields, with exponents \(q\) permitted to be non-prime powers of the characteristic. The script's SymPy determinant computation is optional, while all formal-series and semigroup checks use the standard library. The series truncation is sufficient for the reported leading valuations; it does not certify an arbitrarily high coefficient. In the general argument the exact identities are symbolic for all odd prime powers, and the semigroup completeness follows from a conductor bound. The calculation does not classify other dual singularities or characterize full Frobenius splitting of their branches.
+## originality
+
+PASS
+
+Published plane-filling Tallini/Pellikaan geometry includes the original curve, its Weierstrass semigroups and special tangent contacts. That does not determine the complete value semigroup of a singular branch of the DUAL curve. The dual-coordinate orders q and M=(q+1)^2+1 are coprime for odd q and produce the claimed explicit cusp invariants. Komeda studies an unrelated degree q²+q+1 family with inseparable Gauss map.
+
+## value
+
+PASS
+
+An exact uniform local-semigroup classification at three geometrically distinguished singular dual points is useful for positive-characteristic plane-curve geometry, including conductor and delta invariants. The odd-char boundary and Frobenius distinction have independent meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
