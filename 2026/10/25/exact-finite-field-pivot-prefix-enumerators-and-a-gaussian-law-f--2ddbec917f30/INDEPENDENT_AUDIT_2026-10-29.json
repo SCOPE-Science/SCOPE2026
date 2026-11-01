@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:07:33.305795Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned frozen Git RESULT.md and all text/scientific files; independent mathematical checker in /mnt/data/independent_scope_worker02_checks_20261029.py",
+        "Validated the conditional rank transition formula by row/column normal form; checked drift and analytic dominant pole argument.",
+        "Independently enumerated 5 full histograms at small q,n and compared to exact first-return series."
+      ],
+      "rationale": "For an infinite iid uniform finite-field matrix, the leading-corner nullity D_n is a homogeneous Markov chain: up probability q^(−2d−1), down (1−q^(−d))² for d≥1, otherwise stay. Its zero-return generating function F=1−1/U with U=Σ a_{q,k}z^k and a=∏(1−q^(−j)), so joint probability of exactly b positive zero-visits ending at n is [z^n]F^b. Multiplying by q^(n²) gives exact integer count of GL_n with B_n=b. Drift to zero gives exponential first-return tails and aperiodicity. Renewal mean 1/c_q, variance (2A_q+c_q−1)/c_q², so analytic renewal-pole coefficient asymptotics yield conditioned CLT with asymptotic count variance 2c_q A_q−c_q(1−c_q)>0. Independently enumerated all matrices at q2 n≤3 and q3 n≤2 and matched exact renewal histograms. Fixed q, n→∞, all prime powers; finite samples alone not infinite proof.",
+      "residual_risks": [
+        "Finite exact checks do not prove infinite/all-parameter claims; analytic derivations reconstructed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lvov Theorem 1 applies Markov/reversible chain structure to arbitrary profinite local rings, much broader objects."
+        ],
+        "reasoning": "This theorem dominates the Markov prerequisite but does not give the finite-field conditioned return-count enumeration or central limit variance. Broader process theorem alone not identical distributional conclusion.",
+        "searches": [
+          "finite field random matrix invertible leading principal minors number count renewal Markov chain central limit theorem",
+          "https://arxiv.org/pdf/2610.00134"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2610.00134",
+        "https://arxiv.org/abs/2609.10894",
+        "https://doi.org/10.1214/13-AOP889",
+        "Resultary semantic query: finite field random matrix invertible leading principal minors number count renewal Markov chain central limit theorem"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A general renewal theorem can imply asymptotic visit-count normality once exponential moments hold."
+        ],
+        "reasoning": "But the explicit first-return distribution from q-product, q-specific variance formula and conditioned exact finite-n enumeration are additional calculations; standard renewal CLT itself is recognized as prior.",
+        "searches": [
+          "finite field random matrix invertible leading principal minors number count renewal Markov chain central limit theorem",
+          "https://arxiv.org/pdf/2610.00134"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Counting successful leading corners is the count of zero-cokernel visits of the Lvov corank Markov chain, conditioned to end at zero."
+        ],
+        "reasoning": "First-return decomposition U=1/(1−F) is a standard renewal equivalence; the exact coefficient distribution arises from performing it on this specific q-series.",
+        "searches": [
+          "finite field random matrix invertible leading principal minors number count renewal Markov chain central limit theorem",
+          "https://arxiv.org/pdf/2610.00134"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Known finite-field invertibility Euler product a_{q,n} and one-time rank law."
+        ],
+        "reasoning": "That marginal product is the renewal return probability, not an exact table of numbers of intermediate invertible corners or their q-specific Gaussian variance.",
+        "searches": [
+          "finite field random matrix invertible leading principal minors number count renewal Markov chain central limit theorem",
+          "https://doi.org/10.1214/13-AOP889"
+        ]
+      },
+      "rationale": "Lvov arXiv:2610.00134, 15-page full text, Theorems 1–4, explicitly covers this exact leading-principal-corner **corank Markov chain** and recurrence; its introduction even calls the finite-field chain classical. The fundamental Markov property and transitions are therefore not original. That paper is about reversibility and recurrence over profinite local rings; it does not state the conditional finite-n count-by-number-of-zero-visits convolution or the explicit fixed-q Gaussian law and Euler-product variance. Independent renewal processing produces those exact natural count invariants. Best-of-knowledge PASS limited to enumerator and CLT, with strong prior premise and risk that a standard renewal-reward theorem implies the CLT generically.",
+      "residual_risks": [
+        "The Markov process and zero-state recurrence are fully covered by Lvov, 2026; originality limited to coefficient enumerator and conditioned explicit variance.",
+        "An earlier finite-field renewal visit-count paper could prestate the same formulas; fixed-q parameter only, no q-growing CLT."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_MARKOV_CHAIN_AND_RECURRENCE",
+          "evidence": [
+            "Introduction lines 10–25 states corank of leading principal finite-field minors is Markov and recurrent; Theorems 1–4 extend to profinite rings; no explicit count-of-zero-visits conditional Gaussian law identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2610.00134",
+          "material_read": "Complete 15-page PDF including Introduction §1, Theorems 1–4, finite-field recurrence in §5, transition operators §§4,6 and final reference material; PDFs pages 1 and 8 visually checked.",
+          "method": "arXiv full PDF and page screenshots",
+          "title": "Markov chains arising in the study of random matrices over pro-finite rings",
+          "trigger": "Exact same finite-field leading principal corank chain"
+        },
+        {
+          "assessment": "PRIOR_ERGODIC_ZERO_VISIT_LAW",
+          "evidence": [
+            "Proves Markov/ergodic behaviour and limiting frequency, not finite-size B_n histogram or its explicit CLT coefficient in inspected statements."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.10894",
+          "material_read": "Full six-page author-available primary mathematical paper, including zero-state ergodic limit and general statements; relevant pages visually checked.",
+          "method": "lawful author OA primary PDF",
+          "title": "A dynamic point of view on universality for random matrices over finite local rings",
+          "trigger": "Same nested cokernel process in earlier research"
+        },
+        {
+          "assessment": "MARGINAL_ONLY",
+          "evidence": [
+            "Single-matrix rank distribution does not determine joint ordered leading-corner count."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/13-AOP889",
+          "material_read": "Title, abstract and one-time rank theorem descriptions; full document not inspected here.",
+          "method": "primary abstract",
+          "title": "Stein’s Method and the Rank Distribution of Random Matrices over Finite Fields",
+          "trigger": "Possible stronger finite-field law"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Natural mathematical domain and invariant in the frozen RESULT.md",
+        "Published mathematical analogues compared in originality section"
+      ],
+      "rationale": "The exact joint count of nonsingular leading principal corners in a uniform invertible matrix is a natural elimination-pivot statistic, not given by the one-time rank distribution; the exact finite-size enumerator and explicit positive fixed-field fluctuation constant quantify its persistent dependence and give a useful distributional classification.",
+      "residual_risks": [
+        "Value concerns exactly the stated domain and normalization; no broader universality or external formal certification claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The Markov process and zero-state recurrence are fully covered by Lvov, 2026; originality limited to coefficient enumerator and conditioned explicit variance.",
+    "An earlier finite-field renewal visit-count paper could prestate the same formulas; fixed-q parameter only, no q-growing CLT.",
+    "Finite exact checks do not prove infinite/all-parameter claims; analytic derivations reconstructed.",
+    "Publication not ready because privacy-sanitized complete guarded public administrative files are not staged."
+  ],
+  "schema_version": 1
+}

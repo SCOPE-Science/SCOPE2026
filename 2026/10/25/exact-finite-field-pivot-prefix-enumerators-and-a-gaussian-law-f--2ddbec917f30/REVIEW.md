@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Formula (3) follows by conditioned rank-normal-form analysis for each possible nullity, and gives an exact homogeneous renewal chain at zero. Direct first-return coefficient extraction proves the finite-field matrix counts without approximation. A uniform geometric drift establishes exponential return tails, which supports the analytic moving-pole argument and the Gaussian limit. Explicit expansion of the single-time invertibility Euler product gives the positive variance. The packaged checker exhaustively verifies seven full matrix histograms and three families of one-step transition probabilities. The extension to all dimensions and prime powers is proven analytically, not inferred from finite tests.
+## correctness
 
-## Originality — PASS, conditional on stated bibliographic risk
-The motivating 2026 finite-local-ring process paper's accessible abstract establishes an ergodic perspective but does not assert the explicit finite-size bivariate matrix-corner enumeration or the conditional Gaussian variance. The known one-time rank-distribution work of Fulman–Goldstein and Cooper concerns marginal rank, not the complete ordered sequence of invertible leading corners. The implication comparison distinguishes a general Markov-chain return principle, already standard, from the explicit enumerator and q-series fluctuation invariant supplied here. The highly relevant 2026 preprint full text could not be read, and an unindexed equivalent remains possible. No uniqueness is inferred merely from database silence.
+PASS
 
-## Mathematical value — PASS
-For finite-field matrices, the full collection of leading-corner determinant tests controls whether ordinary elimination can proceed without pivoting at each prefix. An exact arithmetic histogram for all prefix successes and an explicit positive Gaussian fluctuation variance are useful structural statistics beyond the usual count of invertible matrices or their mean frequency. The q-dependence and matrix-size conditioning make the result more specific than a generic law of large numbers.
+For an infinite iid uniform finite-field matrix, the leading-corner nullity D_n is a homogeneous Markov chain: up probability q^(−2d−1), down (1−q^(−d))² for d≥1, otherwise stay. Its zero-return generating function F=1−1/U with U=Σ a_{q,k}z^k and a=∏(1−q^(−j)), so joint probability of exactly b positive zero-visits ending at n is [z^n]F^b. Multiplying by q^(n²) gives exact integer count of GL_n with B_n=b. Drift to zero gives exponential first-return tails and aperiodicity. Renewal mean 1/c_q, variance (2A_q+c_q−1)/c_q², so analytic renewal-pole coefficient asymptotics yield conditioned CLT with asymptotic count variance 2c_q A_q−c_q(1−c_q)>0. Independently enumerated all matrices at q2 n≤3 and q3 n≤2 and matched exact renewal histograms. Fixed q, n→∞, all prime powers; finite samples alone not infinite proof.
 
-## Closest literature and limitations
-Lvov, arXiv:2609.10894 (first public September 9, 2026), covers the nested cokernel process and ergodic behavior but could not be compared at full-text resolution. Fulman–Goldstein (2015) and Cooper (2000) give rank distributions for individual matrices, not ordered-corner histogram formulas. Exact coefficient counts and limiting distribution are proven under uniform sampling and fixed field order. Full bibliographic priority remains for future review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lvov arXiv:2610.00134, 15-page full text, Theorems 1–4, explicitly covers this exact leading-principal-corner **corank Markov chain** and recurrence; its introduction even calls the finite-field chain classical. The fundamental Markov property and transitions are therefore not original. That paper is about reversibility and recurrence over profinite local rings; it does not state the conditional finite-n count-by-number-of-zero-visits convolution or the explicit fixed-q Gaussian law and Euler-product variance. Independent renewal processing produces those exact natural count invariants. Best-of-knowledge PASS limited to enumerator and CLT, with strong prior premise and risk that a standard renewal-reward theorem implies the CLT generically.
+
+## value
+
+PASS
+
+The exact joint count of nonsingular leading principal corners in a uniform invertible matrix is a natural elimination-pivot statistic, not given by the one-time rank distribution; the exact finite-size enumerator and explicit positive fixed-field fluctuation constant quantify its persistent dependence and give a useful distributional classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
