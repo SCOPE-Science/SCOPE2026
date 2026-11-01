@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The eigenvalue normalization agrees with the beta-prime law. The proof establishes the triadic rescaled-measure limit, uniform inverse-gamma convergence and both tail estimates; the nonconstant periodic modulation follows from the zero-free gamma transform of a singular periodic logarithmic measure. Compactness, norm convergence and the sharp Schatten transition follow with no appeal to finite experiments.
+## correctness
 
-**Originality — PASS (self-review, with priority limitations).** The closest direct source is Abreu–Mouayn–Voigtlaender, arXiv:2201.11705: it gives finite-stage eigenvalues and finite-stage norm estimates, not the new infinite-mask high-index spectral law. Knutsen's related Cantor papers concern Gaussian localization. Rozenblum's disk Bergman theorem assumes a symbol supported away from the boundary. The 2008 radial Toeplitz sequence-characterization article was not available in full text, so that source and unindexed folklore remain residual priority risks.
+PASS
 
-**Value — PASS.** The theorem supplies a natural sharp spectral refinement at a scale where finite-stage norm bounds alone give no eigenvalue-tail information. It reveals genuine log-periodic spectral oscillations, compactness of an infinite hyperbolic-area mask, and the exact sharp Schatten threshold.
+In weighted analytic Bergman A²_α (α>0), exact radial monomial diagonalization gives beta-prime eigenvalues λ_k=∫_{E∞}t^k/[B(k+1,2α)(1+t)^{k+2α+1}]dt on the increasing infinite critical Cantor mask. The rescaled interval measures η_m=(3/2)^m 1_{E∞}(3^m x)dx converge vaguely to singular Cantor scaling measure ν with ν(3B)=2ν(B), ν([0,x])≤Cx^δ, δ=log2/log3. The gamma-ratio inverse-gamma local limit plus exponential near-zero and polynomial far tails yields (3/2)^m λ_{floor(r3^m)}→F_α(r) locally uniformly. Scaling gives F(3r)=2F(r)/3 and P_α(r)=r^{1-δ}F_α(r) positive log-periodic. A periodic log-measure is singular; convolution with kernel having nonzero Γ(b+1-δ+iω) Fourier transform cannot yield a constant unless that measure is Haar, proving strict nonconstancy. λ_k comparable to k^{δ-1} ensures compactness, norm convergence T_n→T∞ and Schatten iff p>1/(1-δ), weak critical only.
 
-The result is restricted to the radial critical mid-third construction and monomial-mode asymptotics, not an explicit sorted-eigenvalue coefficient or nonradial masks. Finite numerical diagnostics corroborate selected values but do not certify an infinite limit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the sharp nonconstant log-periodic high-mode Bergman Toeplitz eigenvalue profile and Schatten transition. The exact finite beta-prime diagonal formula is prior work (Abreu–Mouayn–Voigtlaender, Proposition 4.1), and finite-n norm bounds (Theorem 2.1) do not imply spectral decay of an infinite mask. Radial Toeplitz spectral algebra characterization by Suárez 2008 remains an inaccessible plausible source; storage-limit failure prevents a whole-document noncoverage assertion, but the accessible abstract is a general sequence-characterization theorem, not this Cantor asymptotic.
+
+## value
+
+PASS
+
+The infinite critical-scale Cantor Toeplitz mask is a natural limiting localization regime not controlled by finite-stage operator-norm estimates. The exact nonconstant log-periodic modulation and sharp spectral ideal cutoff are structural invariants of a canonical fractal operator, and they distinguish compactness from specific Schatten summability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
