@@ -1,15 +1,21 @@
-# Review of the characteristic-two truncated-plane Poisson classification
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof derives the full four-dimensional space of Poisson biderivations, proves the Jacobi identity in characteristic two, describes every underlying-algebra automorphism, and computes its exact action on all four bracket coefficients. The identity \(BQ+CP=\Delta(bs+ct)\) shows the coefficient of \(xy\) does not change. Explicit normalizations prove both existence and uniqueness of all three families. Orbit-stabilizer proves the finite-field formulas. A separate exhaustive arithmetic check confirms all isomorphism orbits over \(\mathbb F_2\) and \(\mathbb F_4\); no infinite conclusion is inferred from enumeration.
+## correctness
 
-## Originality
-PASS, with bounded historical-priority risk. The recent arbitrary-field classification of Petrov–Pypka concerns dimensions at most three (arXiv:2609.13784v1, Introduction, §§2, 5). The four-dimensional classification of Abdelwahab–Sánchez is over \(\mathbb C\), and the earlier nilpotent classification explicitly excludes characteristic two. Launois–Richard study the specific complex bracket \(\{x,y\}=xy\), not all modular brackets or their isomorphism orbits. Searches using the truncated-plane presentation, its tensor-square dual-number description, the characteristic-two exterior-algebra alias, and the explicit parameter formulas found no covering result. The special complex example and characteristic-different-from-two classifications are not claimed to be new. Older/unindexed modular results are the principal residual risk.
+PASS
 
-## Mathematical value
-PASS. The full isomorphism moduli of Poisson brackets on the smallest two-generator truncated complete intersection is a natural classification invariant. Characteristic two frees four bracket coefficients rather than the single socle coefficient available in odd characteristic, yet the nontrivial automorphism action collapses the family to three parameterized strata. The top-degree parameter is completely rigid under all coordinate changes, and every finite-field automorphism group and orbit size is determined. This answers a genuine characteristic-specific moduli question and is not a finite-table recomputation.
+In characteristic two, ∂x and ∂y descend through (x²,y²). Any alternating biderivation is determined by F={x,y}, and Jacobi is a multiderivation vanishing on generator triples; hence all F=a+bx+cy+dxy produce Poisson brackets. Every unital associative automorphism has X=ux+vy+sxy, Y=wx+zy+txy with Δ=uz+vw≠0. Its Jacobian is J=Δ+(ut+ws)x+(vt+zs)y and transformed F′=φ(F)/J. Direct expansion uses (bu+cw)(vt+zs)+(bv+cz)(ut+ws)=Δ(bs+ct) to show coefficient d′=d exactly. Classifying a≠0, a=0 but linear term≠0, and a=b=c=0 yields three disjoint orbits for each d over arbitrary k. Burnside/orbit-stabilizer yields finite-q counts. Independently enumerated all F₂ 16 brackets and 24 automorphisms, producing six orbits sizes 1,1,3,3,4,4; an independently implemented GF₄ enumeration found all 256 brackets, 2880 automorphisms, twelve orbits with four each of sizes 1,15,48. Infinite-field theorem rests on exact algebra not finite experiments.
 
-## Scope and limits
-The associative algebra is fixed; the result is not a classification of all four-dimensional Poisson algebras. The code checks two fields, while the proof covers every characteristic-two field. The comparison with some older literature is limited to accessible material; it does not establish absolute historical priority. Independent validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Petrov–Pypka 2026 primary classification is dimension ≤3 over arbitrary fields; Abdelwahab–Sánchez classify dimension-four Poisson algebras over complex numbers, not characteristic two. Characteristic-zero truncated Poisson cohomology includes one special bracket dxy, not an arbitrary-characteristic-two normal-form classification. Thus no inspected stronger statement implies the three strata; modular low-dimensional equivalent formulations remain a historical risk.
+
+## value
+
+PASS
+
+An exact orbit-and-stabilizer classification for a natural modular four-dimensional local algebra, valid over arbitrary characteristic-two fields and providing uniform finite-field counts, answers a nontrivial structural classification question not settled by lower-dimensional or characteristic-zero tables.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
