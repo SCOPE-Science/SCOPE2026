@@ -1,11 +1,21 @@
-# Scientific review: explicit cubic integration-root Weierstrass models
+# Independent mathematical audit
 
-**Correctness — PASS.** The homogeneous order-shift and linear transformation are explicit and invertible for every cubic with \(a_0a_3\ne0\). The symbolic checker verifies the equation, discriminant, singular-stratum algebra and concrete examples using exact expressions. A direct local Jacobian analysis proves the smooth/node/cusp classification, irreducibility and normalization genera. The \(j\)-formula follows from the standard invariant calculation after making the equation monic.
+## correctness
 
-**Originality — PASS, subject to historical priority uncertainty.** Lawless (arXiv:2610.12498) gives the starting polynomial family, its irreducibility, and a generic genus bound; the exact cubic geometric genus and elliptic identification are explicitly left as questions. The new result supplies a global projective model, explicit coefficient discriminant, complete nodal/cuspidal cases and \(j\)-invariant. Galligo (2013) builds a related derivative-order stem, potentially equivalent after order reversal; a full-text comparison was unavailable. The negative targeted index searches do not independently certify originality.
+PASS
 
-**Value — PASS.** An explicit question about a natural algebraic curve of integration-root trajectories is resolved completely for the first genus-one case. The exact singularity and moduli formulas classify both regular and degenerate coefficient configurations and furnish reproducible examples.
+Gamma ratios for monomial fractional integrals yield the cubic order polynomial after removing x^alpha and rescaling. In homogeneous [T:X:W], the inverse change W=(V+a1 U+3a0 Z)/(4a0) is defined for all projective points because a0!=0, and exact symbolic substitution gives 8a0 F=V²Z-f_homog(U,Z). With a3!=0 the only point at Z=0 is [0:1:0] and is smooth, with its tangent of multiplicity three. In affine chart singularity requires v=0=f(u)=f'(u); a degree-three f has at most one distinct multiple root, yielding node at double root and cusp at triple root; odd degree ensures irreducibility. Symbolic discriminant/E=cubic-subdiscriminant give cusp iff a2=-a1²/(48a0), a1³=162a0²a3; monic Weierstrass c4 and discriminant yield exact j. Independently checked the projective, discriminant and cusp identities in SymPy and all 3 example types. Standard genus theory gives genus one versus rational normalization.
 
-**Limitations.** No higher-degree genus theorem, analytic real-order root classification, individual branch monodromy or independent scientific audit is asserted. The inaccessible historical source is a priority risk but does not affect the algebraic proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lawless arxiv:2610.12498 supplies the root-family polynomial, irreducibility and generic genus bounds but reports exact cubic genus/elliptic identification as an open problem. The audited coefficient-specific global linear Weierstrass transformation, singularity discriminant and j invariant add this missing identification. Classical cubic classification is standard. Galligo 2013 related fractional derivative order curves might be equivalent after parameter change; full text inaccessible; best-of-knowledge O PASS remains qualified.
+
+## value
+
+PASS
+
+The original integration-root problem leaves the first elliptic cubic parameter case without an exact geometric identification; this explicit projective Weierstrass model resolves its smooth, nodal and cuspidal strata and moduli invariant for every admissible coefficient, a natural classification rather than a generic routine example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
