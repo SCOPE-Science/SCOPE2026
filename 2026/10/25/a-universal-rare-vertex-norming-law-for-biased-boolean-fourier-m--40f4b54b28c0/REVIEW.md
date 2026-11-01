@@ -1,15 +1,21 @@
-# Review: universal rare-vertex norming for biased Boolean Fourier multipliers
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement quantifies over every finite independently biased Boolean product, every complex family of Fourier multiplier coefficients, every evaluation vertex, and every real-valued convex function on the complex plane. The product Walsh kernel has a direct orthonormal expansion. Conditional on every other coordinate, its dependence on one coordinate is an affine image of a centered two-point random variable; the rare evaluation gives the mean-preserving outer spread on \([-1,\rho]\). The chord inequality proves the row-wise convex order and iterates without requiring positive coefficients, real coefficients, or spectral symmetry. Algebraic kernel symmetry establishes equality of the sharp \(L^1\) and \(L^\infty\) operator norms. The binomial quadratic formula follows from the identity for the second elementary symmetric polynomial. The fixed-positive-bias Gaussian coefficient follows from the classical central limit theorem, law of large numbers and verified uniform integrability. Exact rational checks cover \(744\) kernel rows, \(65\) independently evaluated quadratic norms, and \(60\) bias comparisons. The infinite theorem relies on the analytic proof, not those tests.
+## correctness
 
-## Originality — PASS, with identified risks
-A prior affine projection theorem on heterogeneous Bernoulli products is a genuine special case, explicitly excluded from the new contribution. The new statement is a coefficient-uniform convex ordering and exact norm formula for **every** Fourier multiplier, not merely the affine projection. Direct comparisons of the actual statements show that the 2013 biased FKN result and the 2014 biased Fourier framework describe the orthogonal basis and Boolean stability, not the universal endpoint norm. The general projection-constant theorem for the uniform Boolean group treats translation-invariant Haar measure, so it does not imply a rare vertex for unequal biases. A published \(q\)-ary Hamming degree-two formula covers homogeneous reciprocal-integer rare biases for that particular level; these covered cases are not asserted as individually new. The closest published 2026 uniform quadratic formula likewise does not imply arbitrary nonuniform spectra. Relevant full research sections and available claims were inspected, with an unresolved possibility of an equivalent unindexed convex-order theorem.
+PASS
 
-## Mathematical value — PASS
-The result identifies one fixed evaluation vertex which norms the **entire** complex Fourier-diagonal operator algebra for each product measure. Consequently, every spectral mask, sparse nonlinear interaction selection, and signed spectral filter has an exact sharp endpoint constant computable as one product expectation, without maximizing across \(2^n\) operator rows. The convex-order form is strictly stronger than a single-norm statement and gives a global monotonicity principle under bias balancing. This is a structural property of product orthogonal systems, not a numerical lookup, a relabeling of the affine case, or a routine arbitrary parameter slice. The homogeneous quadratic formula exhibits its implication for the stability of low-degree least-squares Fourier truncations.
+For a finite independent Bernoulli product, the biased Fourier characters form an orthonormal tensor basis. Each kernel K_lambda(x,Y)=sum_S lambda_S chi_S(x)chi_S(Y) is affine in chi_i(x_i)chi_i(Y_i) conditional on other coordinates. The rare-value evaluation yields mean-zero W_rho supported on [-1,rho]; the alternative evaluation yields mean-zero V_rho supported inside this interval, so the secant/chord inequality proves W_rho dominates V_rho for every complex-affine convex Phi. Successive coordinate replacement gives the claimed convex ordering at the all-rare vertex for *every* complex mask lambda_S. Since K(x,y)=K(y,x) algebraically and measure has full support, the sharp L1 and L∞ operator norms equal the same rare-row absolute expectation E|sum_S lambda_S prod_{i∈S}U_i|. A second chord comparison proves monotonicity in alpha_i. The degree<=2 projection follows from the elementary symmetric square identity; fixed alpha>0 CLT+LLN with bounded L2 moments gives limit norm/n=((1−alpha)/alpha)sqrt(2/(pi e)). Independent exact rational tests checked 90 nonnegative/negative signed masks over dimensions 1..5 and all row masses; convexity for every complex Phi follows analytically, not by testing finitely many Phi.
 
-## Closest sources and limitations
-Nayar (2013) treats biased Fourier stability; O'Donnell (2014) sets out p-biased characters; Defant et al. (arXiv:2302.00233) prove uniform-cube projection-constant formulas; published homogeneous degree-two Walsh and Hamming results cover symmetric or special-bias cases. None of their inspected statements includes the asserted universal rare-row convex ordering for all complex spectral multipliers. The theorem does not cover dependent coordinates, all projections with a common range, infinite products, or a dimension-uniform small-bias central limit theorem. The possibility of equivalent prior convex-order language remains the material originality uncertainty.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The homogeneous Haar-cube projection norm formulas and earlier heterogeneous affine projector are strict special cases and are not new individually. The fresh claim is a single fixed rare vertex that dominates every evaluation row in complex convex order for the entire Fourier diagonal multiplier algebra, regardless of mask, degree, sign or complex phases; no such theorem was found in the inspected Boolean analysis sources.
+
+## value
+
+PASS
+
+A common norming vertex for every diagonal Fourier multiplier is an operator-algebraic structural theorem, not a disguised bound for one projector. It replaces maximization over all 2^n evaluation rows by a single explicit product expectation and yields a strong convex ordering/monotonicity principle. These are natural and potentially reusable invariants for biased Fourier truncation and signed filters, beyond the already-known affine and symmetric masks.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
