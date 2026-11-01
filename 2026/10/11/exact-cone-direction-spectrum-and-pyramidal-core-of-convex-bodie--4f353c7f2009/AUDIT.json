@@ -1,103 +1,134 @@
 {
   "correctness": {
-    "rationale": "Every apex is the unique off-base extreme point; different cone directions have different apexes. Affine base functionals isolate apexes and imply affine independence. With fewer than n+1 apices, any residual extreme point belongs to every base hyperplane; its translations make the k normals independent. The common section has dimension n-k, giving a full-dimensional k-fold pyramid. Counts k=n or k=n-1 would force a simplex, contradiction, while simplices have n+1. Exact cross-polytope pyramids realize 0,...,n-2. All steps are proved for arbitrary compact full-dimensional convex bodies; 35 exact-rank tests are supplemental finite checks only.",
+    "rationale": "For a genuine supporting-base pyramid K=conv(F∪{a}), every extreme point besides a lies in F and the apex is unique. Distinct cone directions have distinct apexes because the base is the closed convex hull of all extreme points except the apex. For k directions, affine functionals ell_i vanish on respective bases, are positive at a_i and vanish at all other apexes; these imply the apices are affinely independent, k<=n+1. If k=n+1, all other extreme points would lie in the empty intersection of the simplex facet hyperplanes, forcing K to be that simplex. If k<=n, full-dimensionality gives another extreme point b lying in every H_i; translating the functionals to b makes their linear normals independent, so the common affine intersection L has dimension n-k. With B=K∩L, Krein–Milman (finite-dimensional) gives K=conv(B∪{a_i}) and full-dimensionality forces dim B=n-k. For k=n or n-1 this makes B a point or segment and K a simplex, contradicting k<n+1. Conversely simplices have n+1 apex directions. For every 0<=k<=n-2, pyramid over an m=n-k>=2 cross-polytope has exactly k cone apexes: deleting any ±e_j leaves a set affinely spanning the base m-space, so no cross-polytope vertex is an apex. Separately coded exact SymPy rank checks verified every k for 2<=n<=10 (54 cases), corroborating witness arithmetic only, not providing the universal proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent": true,
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "No universal computational certificate.",
+    "Older affine-join literature may provide an equivalent historical predecessor."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Pineda-Villavicencio–Ugon–Yost, arXiv:1509.08218, opening pages, give standard multifold-pyramid and triplex constructions and discuss their face counts.",
-        "Feldman Lemma 8 covers all full-dimensional convex bodies but offers no numerical upper bound better than finiteness."
+        "Feldman 2026 Lemma 8 establishes finiteness in every full-dimensional compact convex body, with the n+1 simplex conjecture explicitly left open.",
+        "Pineda-Villavicencio–Ugon–Yost 2019 p.4 defines multifold pyramids and triplexes in the context of edge and higher face-number extremals; its assertions there do not bound all cone directions.",
+        "Werner–Wotzlaw Lemma 3.7 assumes every facet omits at most two vertices, a condition not imposed on an arbitrary convex body."
       ],
-      "reasoning": "The cited f-vector work is restricted to special polytopes and does not imply a cone-direction count for nonpolyhedral bodies. The all-body finiteness theorem has broader object scope but strictly weaker conclusion. No inspected source dominates the n+1 exact spectrum or n-1,n forbidden gap.",
+      "reasoning": "The universal object class in Feldman is the same, but its conclusion is weaker (finiteness). The older papers prove strong graph/face assertions for polytopal subclasses, not a dominating all-body theorem with exact counts and the nonpolyhedral residual base.",
       "searches": [
-        "2026 convex geometry valuations intrinsic volumes polytopes sharp inequality 2026",
-        "pyramid apexes all other extreme points in hyperplane affine independence n+1",
-        "sharp bound count of pyramid directions: cone apices are affinely independent and form an iterated pyramid over a convex base"
+        "convex body pyramid vertex apex at most d-2 unless simplex structural theorem",
+        "Lower bound theorems for general polytopes Pineda-Villavicencio Ugon Yost free join multifold pyramid",
+        "cone directions convex bodies sharp finite conjecture n+1 Feldman"
       ]
     },
     "checked_sources": [
-      "https://arxiv.org/html/2608.04516v1 §3.1 Lemma 8 (primary full text)",
-      "https://arxiv.org/pdf/1509.08218 opening pages and p.4 multifold-pyramid definition (primary full PDF passage)",
-      "https://arxiv.org/abs/2608.04516 (arXiv v1 05 Aug 2026 publication stamp)"
+      "David V. Feldman, Arranging convex bodies for maximum intersection volume: the sharp efficiency of centroid alignment, arXiv:2608.04516v1, §3.1 Lemma 8 and immediately following parenthetical.",
+      "G. Pineda-Villavicencio, J. Ugon, D. Yost, Lower bound theorems for general polytopes, European J. Combin. 79 (2019), 27-45; arXiv:1509.08218v4, p.4.",
+      "A. Werner, R. F. Wotzlaw, Linkages in Polytope Graphs, arXiv:0710.3726v1, §3.3 Lemma 3.7."
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Feldman arXiv:2608.04516v1 Lemma 8 proves only finitely many cone directions and immediately conjectures n+1 with simplex-only equality.",
-        "Pineda-Villavicencio–Ugon–Yost arXiv:1509.08218 discussed face counts of multifold pyramids and their relation to free joins."
+        "The Feldman primary manuscript explicitly says it suspects the true maximum n+1, achieved only by simplices.",
+        "Werner–Wotzlaw §3.3, Lemma 3.7 classifies all polytope facet complements of size <=2, but places a hypothesis on every facet rather than directly proving an all-body count of singleton-complement facets.",
+        "Pineda-Villavicencio–Ugon–Yost 2019 studies f_m(P) of triplexes M_{k,d-k}, not the set of every cone direction of a general convex body."
       ],
-      "reasoning": "Finiteness by itself cannot yield n+1 or determine the missing n-1 and n counts. An f-vector bound for a particular family of polytopes does not imply the universal count of their pyramid apices, much less extension to general convex bodies. The proposed proof supplies an independent affine-functional argument.",
+      "reasoning": "Finiteness cannot logically imply the sharp n+1 or the forbidden n−1,n counts; specialized f-vector and linkedness results do not imply the assertion without the new isolating-affine-functionals and residual-extreme-point argument. The claim does not strengthen the independent edge-count or linkedness conclusions of those papers.",
       "searches": [
-        "convex body cone pyramid in finitely many directions at most n+1, equality iff simplex",
-        "An n dimensional convex body can be a cone in at most n+1 directions and equality iff a simplex; other possible numbers of cone directions 0 through n-2",
-        "Feldman 2026 Lemma 8 cone directions at most n+1, forbidden n and n-1 except simplex"
+        "Feldman arxiv 2608.04516 cone directions lemma 8 conjecture n+1 2026",
+        "polytope number pyramid vertices pyramid apexes simplex all but two vertices multi pyramid theorem",
+        "Linkages in Polytope Graphs pyramid vertices arxiv:0710.3726 Lemma 3.7"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The candidate counts supporting directions where every non-apex extreme point lies on one facet; equivalently, it counts pyramid vertices with hyperplane bases.",
-        "Feldman, arXiv:2608.04516v1 §3.1, Lemma 8 and its immediate conjectural remark use the exact same notion."
+        "Feldman arXiv:2608.04516v1 §3.1 defines precisely the same supporting-base cone direction.",
+        "Werner–Wotzlaw arXiv:0710.3726v1 §3.3 uses loops in the graph of facet-complements to represent pyramid vertices in polytopes."
       ],
-      "reasoning": "Searches targeted cone apex, supporting base, affinely independent apexes, and iterated pyramid; Feldman is definitionally equivalent but proves only finiteness. The searched free-join literature may hide a classical equivalent, which remains a residual risk.",
+      "reasoning": "One cone direction corresponds to one apex with all other extreme points on a base facet; for a polytope this is a loop in the facet-complement incidence hypergraph. Feldman uses the identical object and proves finiteness only; Werner–Wotzlaw treats the stronger global hypothesis that each facet has at most two vertices outside and classifies special polytope joins. These inspected statements do not enumerate cone directions in arbitrary compact convex bodies.",
       "searches": [
-        "convex body cone pyramid in finitely many directions at most n+1, equality iff simplex",
-        "pyramid apexes all other extreme points in hyperplane affine independence n+1",
-        "An n dimensional convex body can be a cone in at most n+1 directions and equality iff a simplex; other possible numbers of cone directions 0 through n-2"
+        "Cone directions of convex bodies, pyramids, pyramid vertices, iterated pyramid, exact number of cone apex directions, simplex n+1 forbidden n and n-1",
+        "\"pyramid vertices\" \"simplex\" \"pyramid\" polytopes number",
+        "polytope all vertices except one in hyperplane pyramid vertex characterization number of pyramidal vertices"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The requested invariant is the number of all supporting cone directions of any convex body; it is not an individual finite polytope count or previously computed table.",
-        "Feldman explicitly leaves the global maximum conjectural."
+        "A publicly indexed copy contains the same mathematical statement; it is not an independent predecessor.",
+        "Feldman §3.1 after Lemma 8 conjectures the sharp bound rather than tabulating it."
       ],
-      "reasoning": "The final theorem is infinite-dimensional-parameter structural classification (all dimensions and bodies), not a record or table reconstruction. Searches for the exact counts and their aliases found no directly covering database or theorem; search failure alone is not novelty proof.",
+      "reasoning": "The exact-match copy is the present result rather than prior art. The invariant is a universal geometric spectrum, not a finite database; searches do not constitute historical-priority certification.",
       "searches": [
-        "2026 convex hull random chords Minkowski asymmetry planar polygon",
-        "David Feldman central core conjecture number of cone directions sharp n+1 simplex",
-        "Feldman 2026 Lemma 8 cone directions at most n+1, forbidden n and n-1 except simplex"
+        "finite cone directions of convex bodies Feldman sharp bound n+1 simplex pyramid apex structure and decomposition",
+        "multifold pyramids all apex vertices characterization convex polytopes geometry",
+        "cone directions convex bodies sharp finite conjecture n+1 Feldman"
       ]
     },
-    "rationale": "The generating primary text proves only finiteness and explicitly conjectures the n+1 simplex bound. The closest classical construction paper supplies multifold-pyramid terminology and f-vector facts but no universally quantified cone-direction spectrum. Actual semantic searches for equivalent affine apex and free-join formulations did not retrieve a dominating statement. This supports an original claim with explicitly stated residual historical risk, not a global priority guarantee.",
+    "rationale": "On inspected evidence Feldman establishes only finiteness while explicitly conjecturing the bound; prior join and facet-complement work does not imply the full universal statement. Earlier equivalent affine-join formulations remain a priority risk.",
     "residual_risks": [
-      "An equivalent affine-matroid or free-join characterization in older unindexed literature may already imply the complete cone-direction spectrum.",
-      "The finite semantic-search coverage and selected primary-source inspection do not establish global literature exhaustiveness."
+      "Classical polytope join or affine-matroid texts may state an equivalent universal pyramidal-apex lemma without these terms.",
+      "The 2019 PDF inspection emphasized pertinent pp.1–4, not every lemma of its 26 pages; uninspected portions could contain indirectly related facts.",
+      "Searches cannot prove historical originality; no exhaustive thesis/book search was performed."
     ],
     "source_inspections": [
       {
-        "assessment": "The source proves finiteness only; it conjectures n+1 with simplex-only equality. No count spectrum, forbidden gap, or residual-base decomposition in the inspected passages.",
+        "assessment": "Finiteness only; sharp bound explicitly stated as conjecture, not derived.",
         "evidence": [
-          "arXiv:2608.04516v1 §3.1 Lemma 8: any full-dimensional compact convex body has finitely many cone directions.",
-          "The next parenthetical explicitly suspects n+1, attained exactly by simplices; its proof handles infinite sets without a finite sharp bound."
+          "§3.1 lines 164–175 define cone directions, prove finitely many and then conjecture n+1 and simplex equality."
         ],
         "identifier_or_url": "https://arxiv.org/html/2608.04516v1",
-        "material_read": "Abstract; introduction; section 2 supporting and centroid geometry; section 3.1, particularly Lemmas 6, 7 and 8 and the paragraph immediately following; section 5 questions; appendix headings and source-context limitations.",
-        "method": "Read primary full-text arXiv HTML version 1, including Lemma 8 proof and its conjectural parenthetical.",
+        "material_read": "Accessible full-text HTML: abstract, introduction and main claims, §3.1 including complete Lemma 8 proof and following conjectural remark; connection with strictness argument in §3.3.",
+        "method": "Read live arXiv HTML at exact v1 and compared all relevant quantifiers, theorem and proof.",
         "title": "Arranging convex bodies for maximum intersection volume: the sharp efficiency of centroid alignment",
-        "trigger": "Exact same definition of cone direction and a conjectural sharp upper bound printed immediately after Lemma 8."
+        "trigger": "Same definition of cone directions; paper contains explicit conjecture on the upper bound."
       },
       {
-        "assessment": "The explicit result there is about f-vectors and triplex/free-join models; this does not assert a bound or forbidden gap for all supporting cone directions of arbitrary convex bodies.",
+        "assessment": "Works with face numbers of particular polytopes, not the exact count of all cone directions for any convex body.",
         "evidence": [
-          "Page 4 defines triplex as a free join of a prism and simplex, and defines M_{k,d-k} as a (d-k)-fold pyramid over a k-dimensional simplicial prism.",
-          "The same passage focuses on numbers and types of facets and extremal face counts, rather than enumerating all cone directions."
+          "§3 p.4 defines M_{k,d−k}, discusses facets and f-vector minimization."
         ],
         "identifier_or_url": "https://arxiv.org/pdf/1509.08218",
-        "material_read": "Primary PDF opening pages, with detailed reading of page 4 (page index 3): the multifold-pyramid and triplex definition and the following face-number discussion.",
-        "method": "Opened primary arXiv PDF as full text, inspected passage and page image for definition and focus.",
+        "material_read": "PDF abstract/introduction, pp.1–4 and relevant continuation of §3, including p.4 definition of triplex and multifold pyramid; p.4 screenshot inspected.",
+        "method": "Read PDF extracted text and inspected rendered page 4 of 26.",
         "title": "Lower bound theorems for general polytopes",
-        "trigger": "Potential stronger equivalent coverage by classical multiple-pyramid or free-join classification."
+        "trigger": "Classical free joins and repeated pyramid structural descriptions could dominate the geometric decomposition."
+      },
+      {
+        "assessment": "The relevant classification requires every facet to have <=2 excluded vertices and concerns polytope linkedness; it does not imply a universal exact count for arbitrary convex bodies.",
+        "evidence": [
+          "§3.3 Lemma 3.7, p.9 classifies P where |V(P)\\V(F)|<=2 for every facet; this is not the candidate hypothesis."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0710.3726",
+        "material_read": "PDF abstract, §1, §3.1–3.3 including the statement and beginning proof of Lemma 3.7; page 9 screenshot inspected.",
+        "method": "Read PDF parsed text and rendered page image.",
+        "title": "Linkages in Polytope Graphs",
+        "trigger": "Uses the potentially equivalent concept of a pyramid vertex and a loop in facet-complement graphs."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "The base affine functionals isolate cone apexes; shared residual extreme points show independent normals and a full-dimensional residual base, giving the count spectrum.",
+      "status": "PASS"
+    },
+    "originality": {
+      "rationale": "Prior comparison identified Feldman’s finiteness lemma and ordinary multifold-pyramid constructions, not an explicit sharp spectrum; classical implicit equivalents remain possible.",
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The result settles a motivated sharp maximum question and gives a structural decomposition.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "independent_audit",
   "schema_version": 1,
-  "scope_run_id": "4f353c7f-2009-431c-bc57-576581f827f3",
+  "scientific_scope": "all compact full-dimensional convex bodies in real Euclidean dimensions n>=2; supporting hyperplane cone directions",
   "value": {
-    "rationale": "The originating full-text paper explicitly singles out the n+1 bound with simplex equality as a conjecture. The result resolves that question, completely classifies the possible counts in every dimension, proves the forbidden gap n-1,n, and gives a canonical structural decomposition for all nonsimplices. This is a motivated exact geometric invariant rather than a routine substitution, arbitrary slice, or mere finite computation.",
+    "rationale": "The theorem settles the specific n+1 simplex-only cone-direction question posed immediately after Feldman’s 2026 finiteness lemma. It strengthens that bound to the full dimension-by-dimension set of possible counts, excludes n and n−1 outside simplices and canonically identifies the residual base of every nonsimplex cone in arbitrary full-dimensional convex bodies, including nonpolytopal ones. These are motivated precise structural facts not arbitrary finite slices or a mere numerical test. The proof uses elementary affine geometry, but the explicit recently stated question and additional decomposition give it independent mathematical significance.",
     "status": "PASS"
   }
 }
