@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:54:23Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Read exact Git RESULT.md and verify.py; independently rebuilt seven-file source Git tree from blob SHAs.",
+        "Independent functional-graph implementation for k=1..6 (5,25,125,625,3125,15625 residue vertices) peeled all noncycle vertices, determined cycles/tail depths and checked every cycle vertex critical-leaf count and local period. Exactly 3k-1 cycles at each level.",
+        "The all-k proof is mathematical: Taylor/Hensel period lifting, unit quadratic character invariance and root counts; k<=6 exhaustive computations are independent consistency checks only."
+      ],
+      "rationale": "On Z/5^k, k>=1, residues 2 and -1 mod5 are periodic disks; 1,3 have depth 1 and 0 depth 2. The p-adic period-lifting lemma for g congruent to identity derivative modulo 5 and displacement valuation >=2 establishes cycle lengths 2*5^(k-t-1) in 2-disk and 4*5^(k-t-1) in -1-disk, with fixed roots 2,-1 and total 3k-1 cycles. On each near-2 valuation shell, the normalized quadratic character epsilon distinguishes the two same-length cycles. Incoming depth-2 roots of z+2 via Hensel have count 5^floor(k/2) at 2, 2*5^(t/2) exactly at even t with epsilon=+1, zero otherwise; no deeper branches. Thus complete rooted graph with multiplicities.",
+      "risks": [
+        "The valuation-lifting lemma needs h>=2; the proof applies only to f^2 or f^4 with displacement valuation t+1>=2, not arbitrary tangent maps at h=1.",
+        "The periodic part is largely covered by 2026 general Chebyshev period theory and is not offered as original."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first prior paper supplies fixed and exact periods across prime-power rings and explicitly treats nonperiodic tree classification as separate work; Li et al. assumes permutation and has no transient incoming trees."
+        ],
+        "reasoning": "General periodic point formulas dominate ONLY periodic census. Neither inclusion of the finite-ring preperiodic branch multiplicity at a specific cycle nor normalized quadratic-character distribution follows solely from periodic counts.",
+        "searches": [
+          "Panraksa Tangboonduangjit arXiv:2605.04417v2 periodic point theorem and concluding future work",
+          "Li Lu Tan Chen arXiv:2209.14658 full paper permutation hypothesis",
+          "Diarra Sylla 2013 local Siegel discs"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.04417v2 Panraksa Tangboonduangjit",
+        "arXiv:2209.14658 Li Lu Tan Chen",
+        "arXiv:1209.4396 Gassert",
+        "Diarra Sylla 2013 Proposition 15",
+        "Resultary semantic Chebyshev/Dickson functional graph search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Two distinct cycles at near-2 valuation t have identical lengths but different depth-two incoming leaf multiplicity if t even; periodic counts cannot distinguish them."
+        ],
+        "reasoning": "The precise epsilon cycle splitting and Hensel square-root preimage count require additional data beyond any earlier theorem restricted to periods. The 2022 permutation hypothesis is false here since f modulo5 has critical and multiple residues.",
+        "searches": [
+          "Panraksa Tangboonduangjit 2026 periodic-point enumeration",
+          "arXiv:2209.14658 permutation graph theorem",
+          "Diarra Sylla 2013 Proposition 15"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "D_2(x,1)=x²-2 is conjugate by scaling 2 to T_2 for odd prime powers."
+        ],
+        "reasoning": "Compared monic Dickson and Chebyshev formulations, p-adic graph language and local dynamical residue-disk descriptions; exact incoming trees are invariant under the conjugacy, and the nonpermutation hypothesis matters.",
+        "searches": [
+          "Resultary: Chebyshev Dickson polynomial x squared minus 2 functional graph modulo powers 5 preperiodic trees",
+          "Chebyshev polynomial modulo 5^k Dickson D2 x²-2 p-adic critical point tails",
+          "Panraksa Tangboonduangjit arXiv:2605.04417"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Available finite-field graph tables do not encode rooted trees modulo every 5^k; submitted result is all-k shell-and-character formula."
+        ],
+        "reasoning": "This is a natural prime-power family, not an isolated finite lookup; no table containing the full valuation-level branch placements was located.",
+        "searches": [
+          "Chebyshev functional graph tables mod 5 powers preperiodic",
+          "Resultary semantic finite rings dynamics x^2-2",
+          "Gassert arXiv:1209.4396 finite field functional graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge original component is branch-by-branch critical depth-two incidence and complete rooted components. Earlier all-degree Chebyshev period counts cover cycle lengths but not placement of incoming nonperiodic trees.",
+      "residual_risks": [
+        "Unindexed computational dynamics literature may already state this specific 5-adic critical branch spectrum.",
+        "The general periodic census must not be advertised as novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS periodic subclaims, explicitly separates nonperiodic tree classification as further question; no prior cycle-by-cycle critical preimage incidence identified.",
+          "evidence": "Prime-power period classification does not distinguish two near-2 cycles by quadratic sign.",
+          "identifier_or_url": "https://arxiv.org/abs/2605.04417",
+          "material_read": "Public full 23-page primary PDF: theorem statements for period counts and concluding discussion of nonperiodic trees; inspected with page screenshots in this run.",
+          "method": "arXiv preprint, full PDF and scanned conclusion.",
+          "title": "Fixed points and exact periods of Chebyshev polynomials modulo odd prime powers",
+          "trigger": "Closest same polynomial class/prime power general theorem."
+        },
+        {
+          "assessment": "Covers polynomial degrees satisfying permutation conditions, inapplicable to x²−2 mod5 where 0 and ±2 coalesce under reduction.",
+          "evidence": "Abstract explicitly restricts to Chebyshev permutation polynomials.",
+          "identifier_or_url": "https://arxiv.org/pdf/2209.14658",
+          "material_read": "Primary 15-page PDF abstract, definitions and permutation-hypothesis sections; screenshot of p1.",
+          "method": "arXiv full-text.",
+          "title": "Graph Structure of Chebyshev Permutation Polynomials over Ring Z_{p^k}",
+          "trigger": "Very close title and potentially all graph components."
+        },
+        {
+          "assessment": "Disk invariance does not state finite-ring rooted leaf counts by quadratic character.",
+          "evidence": "Local p-adic neighborhood dynamic statement, not exact finite quotient branch multiplicities.",
+          "identifier_or_url": "https://padic2013.mi-ras.ru/Diarra.pdf",
+          "material_read": "Relevant Proposition 15 and local Siegel-disc interpretation inspected as documented; not an exhaustive whole-document negative finding.",
+          "method": "Lawful academic preprint relevant passage.",
+          "title": "p-Adic Dynamical Systems of Chebyshev Polynomials",
+          "trigger": "Possible local 5-adic invariant disks and preperiodic tree coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "All levels k>=1 resolved by valuation and quadratic-character data, yielding complete rooted graph up to isomorphism.",
+        "Exact depth-two multiplicities identify a critical-point ramification effect not visible in periodic data."
+      ],
+      "rationale": "Classifies a natural nonpermutation Chebyshev/Dickson dynamical system on every prime-power ring, including critical-branch incidence that period counts omit. The distinction between equally long near-2 cycles with and without critical descendants is a mathematically structural finite-ring phenomenon, not an arbitrary small-k census.",
+      "risks": [
+        "Does not generalize to arbitrary primes, degree or all preperiodic Chebyshev maps."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
