@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` from the extracted package directory. The observed output was `VERIFY_OK: exact adjacent-sector integrals and sharp angular-energy bound`.
+## correctness
 
-The script integrates the positive-quadrant adjacent-side distance constraint by composite Simpson quadrature for six distinct interior angles, independently compares with the sector/Jacobian prediction, and checks the angle-energy inequality for five alternating normal-gap sequences. The analytic proof covers every convex polygon; this finite verification checks numerical consistency only. There is no independent scientific audit.
+PASS
+
+Locality radius below shortest side, adjacent-side angular reach and disjoint-side separation makes the chord-pair integration exact for all sufficiently small r. Same-side ordered parameter area sum equals 2Pr−nr²; adjacent sides make a cone of opening β with Jacobian sinβ and contribute βr²/sinβ per vertex; baseline boundary-arc CDF is 2r/P. Therefore exact excess r²/P² Σ(β/sinβ−1) with no higher terms. Power series for x/sin x has positive even coefficients and f>1/3, so Jensen yields universal 1/6 angle variance and only equiangular equality; alternating β on tangential n-gons for n→∞ gives optimality. Square direct check gives quadratic coefficient π/8−1/4.
+
+## originality
+
+PASS
+
+Published polygon short-distance angular stability result, examined in full, concerns AREA-uniform interior pairs with a quartic coefficient and does not imply the boundary arclength versus intrinsic-arc quadratic law. Mean boundary distances, random chords and area-uniform polygon algorithms are different measures/invariants. Older perimeter-point short-distance computations may overlap; best-of-knowledge qualification.
+
+## value
+
+PASS
+
+A structurally motivated intrinsic-versus-extrinsic proximity defect on a convex polygon has an exact local law, angle-only coefficient and optimal stability for equiangular configurations; unlike an arbitrary polygon number, this quantifies how corners shorten Euclidean paths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
