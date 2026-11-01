@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:16:07Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Taking leaf coordinate differences yields exactly −(1+λh)(u_j−v_j), so all active pairs are equal and either zero or y=1−1/(λh). The scalar cubic is strictly single-peaked on 0<y<1−1/λ, with maximum 4k(λ−1)^3/(27λ); hence precisely 0/1/2 branches and exact binomial subset count. Every inactive petal has Jacobian eigenvalue −1+λh>0. For full support, the two-dimensional hub-symmetric block has negative trace, determinant (3λy−2(λ−1))/(λ(1−y)−1), positive only on upper branch, and all transverse leaf modes have negative real parts. Independently checked the exact Jacobian determinant reduction, fold maximum, and rational m=2,λ=4,y=1/4 equilibrium using symbolic arithmetic, corroborating the inspected verify.py. Boundary λ=λ_m is nonhyperbolic, not claimed exponentially stable.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Multi-group theorems require an irreducible pairwise A in their key boundary-equilibrium and stability statements."
+        ],
+        "reasoning": "Here pairwise rate is exactly zero, so irreducible A assumptions fail; existing sufficient conditions do not imply the graph-specific full equilibrium census or transverse instability signs.",
+        "searches": [
+          "Cisneros-Velarde & Bullo arXiv:2005.11404 Theorems/assumptions",
+          "Kiss et al. arXiv:2309.12752"
+        ]
+      },
+      "checked_sources": [
+        "Iacopini et al. arXiv:1810.07031",
+        "Cisneros-Velarde & Bullo arXiv:2005.11404, §4–5",
+        "Kiss et al. arXiv:2309.12752 (abstract comparison)",
+        "Resultary pure three-body SIS friendship graph windmill graph partial equilibrium endemic stability multiplicity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior work proves/observes generic bistability, not the exponential number of unstable partial-support equilibria in a sparse pure-triad friendship graph."
+        ],
+        "reasoning": "The determinant and block decomposition are specific to the star of triangles, and the exact subset formula cannot be read off from the scalar mean-field fold or generic irreducible-pairwise theorem.",
+        "searches": [
+          "Iacopini et al. 2019 Eq.(1)",
+          "Cisneros-Velarde & Bullo 2021, Proposition and Theorem statements",
+          "Resultary pure three-body SIS friendship graph windmill graph partial equilibrium endemic stability multiplicity"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The displayed ODE is a pure triadic graph-specific specialization of a higher-order SIS mean-field model."
+        ],
+        "reasoning": "Matching infection mechanism is not sufficient for prior coverage: the older homogeneous scalar fold has one endemic variable and cannot index 2^m different boundary support patterns.",
+        "searches": [
+          "pure three-body SIS friendship graph windmill graph partial equilibrium endemic stability multiplicity",
+          "Iacopini et al. arXiv:1810.07031 Eq.(1)",
+          "Cisneros-Velarde & Bullo arXiv:2005.11404 §4–5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching published table N_m(λ)=1+sum binomial supports with thresholds 4k(λ−1)^3=27λ found."
+        ],
+        "reasoning": "This is an analytically defined family, not an entry in a standard database; searched for exact threshold and graph aliases rather than inferring novelty from a title mismatch.",
+        "searches": [
+          "Resultary pure three-body SIS friendship graph windmill graph partial equilibrium endemic stability multiplicity",
+          "friendship windmill SIS higher-order equilibrium literature"
+        ]
+      },
+      "rationale": "Simplicial SIS bistability and generic multi-group dynamics are established prior work, but the exact graph-family active-petal subset census and sharp partial-support stability classification do not follow from the inspected homogeneous/irreducible-pairwise models. A different hypergraph/chemical-network reformulation might encode the same subset bifurcations.",
+      "residual_risks": [
+        "A prior exact windmill/hypergraph or chemical-reaction equilibrium classification using different terminology may exist outside indexed sources.",
+        "The census concerns the stated deterministic mean-field ODE, not stochastic SIS or nonlinear stability at folds."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General class matches mechanism but principal theorems requiring irreducible A do not apply to β1=0 pure-triad boundary supports",
+          "evidence": "Definition 4.1 and the statement preceding Theorem 5.1; boundary exclusion in §5",
+          "identifier_or_url": "https://arxiv.org/abs/2005.11404",
+          "material_read": "Full arXiv PDF: model definition §4, equilibrium/stability assumptions §5 and irreducible pairwise hypothesis, including page 6 screenshot",
+          "method": "lawful OA arXiv PDF text plus PDF page inspection",
+          "title": "Multi-group SIS Epidemics with Simplicial and Higher-Order Interactions",
+          "trigger": "Directly covers multi-group SIS dynamics"
+        },
+        {
+          "assessment": "Prior scalar homogeneous-mixing bistability, not a full windmill partial-support equilibrium table",
+          "evidence": "Iacopini et al. 2019 scalar Eq.(1) as referenced in later primary text",
+          "identifier_or_url": "https://arxiv.org/abs/1810.07031",
+          "material_read": "Full public arXiv PDF, especially homogeneous mean-field derivation Eq.(1) on page 15 and bistable phase diagram; independent page inspection",
+          "method": "arXiv open-access PDF text and original-page screenshot",
+          "title": "Simplicial models of social contagion",
+          "trigger": "Canonical introduction of triadic SIS response"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The friendship graph is the canonical overlapping-triangle sparse family. Unlike the usual two-branch mean-field picture, it yields an explicit exponentially large set of physical but unstable partial-support equilibria, ordered sharp fold thresholds and a complete local stability classification. These structural facts reveal how localized higher-order contagion affects equilibrium multiplicity; no claims are made about global basins.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Iacopini et al. arXiv:1810.07031",
+    "Cisneros-Velarde & Bullo arXiv:2005.11404, §4–5",
+    "Kiss et al. arXiv:2309.12752 (abstract comparison)",
+    "Resultary pure three-body SIS friendship graph windmill graph partial equilibrium endemic stability multiplicity"
+  ],
+  "disposition": "passed",
+  "final_claim": "For pure-three-body node-wise SIS dynamics on a friendship graph with m triangular petals, every equilibrium is the zero state or is indexed by a subset of k active petals and one/two roots of k λ y²(λ(1−y)−1)=1, with sharp folds 4k(λ_k−1)^3=27λ_k, a closed binomial equilibrium census, partial-support transverse instability, and only the zero and upper full-support branches exponentially stable when λ>λ_m.",
+  "limitations": [
+    "The assessment has best-of-knowledge prior-art scope; absence of a search result is not proof of historical novelty.",
+    "Finite checker verifies only stated finite checks; universal claims rest on the reconstructed analytical proofs.",
+    "Public administrative files were not sanitized for publication in this read-only run."
+  ],
+  "residual_risks": [
+    "A prior exact windmill/hypergraph or chemical-reaction equilibrium classification using different terminology may exist outside indexed sources.",
+    "The census concerns the stated deterministic mean-field ODE, not stochastic SIS or nonlinear stability at folds."
+  ],
+  "schema_version": 1
+}
