@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:55:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md blob 55d0b215dfc619d78ab5c951cb78f4a1ae1a9f88",
+        "Independent exact rational Gram inverses 78 (r,d) pairs, r<=6 and d<=13",
+        "Dow 2003 published Toeplitz inverse recurrence and r=2 case"
+      ],
+      "rationale": "For r,d>=1, zero-extended backward r-th difference D:C^d→C^{d+r} has SPD Gram Toeplitz H_ij=(-1)^(i-j)binom(2r,r+i-j) for |i−j|<=r. Sharp point evaluation is G_jj=(H^{-1})_jj by Hilbert Cauchy–Schwarz; equality sequences are nonzero complex multiples of Ge_j. An explicit first inverse column c_j=R_{r−1}(j)R_r(d−j+1)/((r−1)!R_r(d+r)) solves Hc=e1 via degree 2r−1 discrete polynomial and exact boundary correction. Gohberg–Semencul Toeplitz identity gives G_{j+1,j+1}−G_jj=(d−2j)R_{r−1}(j+1)²R_{r−1}(d−j+1)²/(((r−1)!)²R_{2r−1}(d+1)). This proves central maximal indices and positive sum formula for all orders and lengths; Riemann sum yields C_r,d~d^{r−1/2}/(2^{2r−1}(r−1)!sqrt(2r−1)). Independently inverted exactly all H for r=1..6,d=1..13 and matched entire first column, diagonal, and central maximum. Finite tests corroborate proof, not infinite order.",
+      "residual_risks": [
+        "Zero extension and full index range 1..d+r are essential; alternative end conditions yield different Gram and constants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gohberg–Semencul gives general inversion from first column, but leaves explicit first-column formula and diagonal monotonicity for this family to prove.",
+          "Dow (2003) provides a general algorithm and an explicit r=2 case, not stated all-order closed formulas."
+        ],
+        "reasoning": "A general algorithm for calculating a specific finite matrix does not by itself imply its uniform all-order product-sum closed form, exact maximizer location, and asymptotic, absent a dominating theorem.",
+        "searches": [
+          "sharp discrete Sobolev inequality pointwise l_infty rth finite difference zero boundary Toeplitz Green diagonal central",
+          "Gohberg Semencul Trench Toeplitz inverse all r banded binomial matrix sharp discrete Sobolev"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2610.19010v1 full HTML",
+        "M. Dow, ANZIAM J 44 (2003), primary PDF §3.3",
+        "Resultary semantic query on discrete finite Sobolev/Toeplitz Green diagonal"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hindov’s ℓ¹ bound provides a generally nonsharp upper bound on ℓ∞ norm, so it does not fix central evaluation or equality vectors.",
+          "Dow’s recurrence, combined with this paper’s explicitly solved first column, gives a simple factorization for the diagonal increments; this separate derivation is needed."
+        ],
+        "reasoning": "Neither prior theorem alone logically asserts every r,d central maximum and exact rising-product coefficient, although the general Toeplitz machinery is acknowledged as a critical published input.",
+        "searches": [
+          "arxiv:2610.19010",
+          "Dow 2003 Explicit inverses Toeplitz Section 3.3",
+          "sharp discrete Sobolev inequality pointwise l_infty rth finite difference zero boundary Toeplitz Green diagonal central"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The point evaluation norm equals a Green diagonal of the binomial Toeplitz matrix; Dow 2003 Section 3.3 explicitly computes its order-2 version.",
+          "Hindov et al arxiv:2610.19010 Theorem 1 concerns the ℓ¹ target, not the ℓ∞ point-evaluation norm."
+        ],
+        "reasoning": "The paper compares its formulation with exact Toeplitz/Green aliases; r=2 is acknowledged, but not sufficient to cover the all-r factorized central diagonal.",
+        "searches": [
+          "sharp discrete Sobolev inequality pointwise l_infty rth finite difference zero boundary Toeplitz Green diagonal central",
+          "binomial Toeplitz inverse diagonal finite differences Fisher Hartwig discrete Green matrix all orders"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11 logarithmic boundary layer in sharp discrete Dirichlet interpolation treats half-line mixed first-order energy and different boundary geometry.",
+          "Dow supplies a 4th-order inverse special table already covered, not arbitrary integer r."
+        ],
+        "reasoning": "No exact all-(r,d) central sharp constants database found in the consulted source records, with unindexed old tables still possible.",
+        "searches": [
+          "sharp discrete Sobolev inequality pointwise l_infty rth finite difference zero boundary Toeplitz Green diagonal central",
+          "Resultary discrete Dirichlet point evaluation half line Green sharp constants"
+        ]
+      },
+      "rationale": "Hindov et al 2026 prove a sharp all-order discrete difference inequality with an ℓ¹ target, not the ℓ∞ point-evaluation target. Dow 2003 supplies classical Toeplitz inverse machinery and the r=2 inverse specifically, explicitly not new. The uniform rising-product inverse first column, factorized sign formula for all r,d, sharp central evaluation norms, and asymptotic are the assessed extension. Possible existing all-order Green diagonal formula is real priority risk.",
+      "residual_risks": [
+        "Older discrete Green-function or Fisher–Hartwig Toeplitz literature may state equivalent all-orders diagonal formula.",
+        "The r=2 specialization and Toeplitz inverse identity are prior and cannot independently establish originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING claimed ℓ∞ sharp finite point-evaluation constants",
+          "evidence": [
+            "The 2026 theorem is for ℓ¹ of sequences against ℓ² of differences; it does not give max-coordinate constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.19010v1",
+          "material_read": "Full arXiv HTML including introductory theorem and major proof sections, target ℓ¹ condition",
+          "method": "Read mathematical theorem and compared target norm, end effects, equality claims",
+          "title": "A sharp discrete Sobolev inequality and left inverses of higher order differences",
+          "trigger": "Same differences and all positive integer orders, potential stronger target result"
+        },
+        {
+          "assessment": "COVERS Toeplitz inverse recurrence and r=2; general r formula not in materially inspected section",
+          "evidence": [
+            "Dow gives the fourth-order inverse and Gohberg–Semencul/Trench method; no asserted all-order sharp central pointwise constant theorem in Section 3.3."
+          ],
+          "identifier_or_url": "https://journal.austms.org.au/ojs/index.php/ANZIAMJ/article/view/493/357",
+          "material_read": "Full primary PDF, Section 3 and particularly 3.3, including direct fourth-order example",
+          "method": "Read mathematical derivation and inspected page image of Section 3.3",
+          "title": "Explicit inverses of Toeplitz and associated matrices",
+          "trigger": "Classical exact Toeplitz recurrence and possible r-uniform formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact rising-product formula and center-only extremizer classification",
+        "Analytic Green/Töplitz factorization and Riemann asymptotic",
+        "Comparison with all-order ℓ¹ prior and r=2 special case"
+      ],
+      "rationale": "The exact finite-section point-evaluation norm, all maximizer indices and extremizing Green vectors are natural discrete Sobolev questions for any derivative order, complementing a recent ℓ¹ sharp theory. The uniform positive factorization of diagonal increments is a nontrivial structural localization theorem, with exact large-d scaling. This goes beyond recomputing the known r=2 example.",
+      "residual_risks": [
+        "No other ℓ^q norm or boundary type; possible broad existing Green formula is recorded as originality risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Zero extension and full index range 1..d+r are essential; alternative end conditions yield different Gram and constants.",
+    "No other ℓ^q norm or boundary type; possible broad existing Green formula is recorded as originality risk.",
+    "Older discrete Green-function or Fisher–Hartwig Toeplitz literature may state equivalent all-orders diagonal formula.",
+    "The r=2 specialization and Toeplitz inverse identity are prior and cannot independently establish originality."
+  ],
+  "schema_version": 1
+}
