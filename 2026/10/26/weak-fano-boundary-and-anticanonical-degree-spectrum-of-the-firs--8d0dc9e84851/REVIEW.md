@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim reduces to published smooth toric/Bott identifications plus a finite exhaustive Bruhat interval graph calculation. Each of the \(16\) vertices has four tangent characters determined by root labels; exact equivariant Chern-class differences along all \(32\) edges give degrees \(0^{\times4},2^{\times24},4^{\times4}\). Toric Mori cone theory establishes nefness; a zero-degree curve excludes ampleness. Four independent cocharacter localization sums all yield \((-K_X)^4=320\), hence bigness. The enclosed exact verifier was executed from its packaged bytes.
+## correctness
 
-## Originality — PASS, with specified priority risk
-Gorsky–Kim–Scroggin–Simental (2025), Gorsky–Kim–Sherman-Bennett (2026), and Elek (2026) identify the variety, toric moment polytopes, and Bott-tower structure; their inspected statements do not give the exact anticanonical spectrum and weak-Fano boundary. Chary and Suyama provide general Bott Fano criteria, acknowledged here. The different 4-crown Richardson threefold discussed in the 2026 source does not imply these numerical results. Explicit moment-polytope information in the literature might have earlier yielded them implicitly; complete historical priority remains unverified.
+PASS
 
-## Mathematical value — PASS
-The calculation resolves a natural numerical/birational question about an important newly studied four-dimensional toric Richardson variety. The four contracted invariant curves and anticanonical volume \(320\) identify specific constraints on its contraction. No general classification beyond the named object is asserted.
+The rank-matrix Bruhat criterion enumerates the complete interval of exactly 16 permutations with ranks 1,4,6,4,1 and 32 undirected length-one covers; prior toric Richardson theory identifies the intrinsic toric fixed-point one-skeleton with this graph. For each vertex u, the four standard torus tangent weights alpha_{u,u(i j)}=epsilon_{u(j)}-epsilon_{u(i)} give c1(TX)|u=S(u). On each edge S(u)-S(u_prime)=d alpha, giving the complete integer degree histogram 0:4,2:24,4:4 and exactly the four displayed zero pairs. Toric invariant curves generate the Mori cone, hence nef, and a zero-degree effective invariant curve excludes ample. ABBV localization of c1^4 from the 16 fixed points, independently evaluated with three unrelated generic cocharacters, is the exact integer 320, implying big; the complete toric anticanonical morphism is therefore birational. Reconstructed complete Bruhat enumeration and rational sums independently from actual assigned RESULT.md. Prior external smooth toric/Bott identification is necessary and not proven by finite script.
 
-## Sources and limitations
-See `RESULT.md` and `AUDIT.json` for the complete comparisons. The method does not classify all curves in the anticanonical exceptional locus, the target singularities, or other hypercube Richardson varieties. Published method theorems and their specializations are distinguished.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gorsky–Kim–Sherman-Bennett explicitly construct this very Richardson toric polytope and identify the Bruhat Hasse graph; Elek proves this interval is a Bott tower via a magic word. Their complete original geometry is prior and not claimed new. Their inspected theorems/Example 5.2 do not report the exact anticanonical degree multiset, four zero curves, weak-Fano boundary or volume 320. General Bott Mori/Fano criteria do not numerically specialize these invariants automatically without substantial additional computation; explicit published polytope data may nonetheless implicitly determine the same result.
+
+## value
+
+PASS
+
+Determining nef/non-Fano and anticanonical contraction for a canonical newly studied Richardson fourfold is a natural birational-geometric invariant, with all 32 curve degrees and exact volume and exceptional toric curves. It is a self-contained exact classification for this distinguished variety, not an arbitrary numeric slice or general classification claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
