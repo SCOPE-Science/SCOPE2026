@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:18:46.369530Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every finite simple undirected graph, graphic edge closure is connectivity closure. For a chordless cycle C, the rooted path E(C)\\{e} is minimally nonclosed, adds exactly e, and every proper subset is closed. Chord-splitting induction derives any missing edge from induced-cycle rules; the first nontrivial application excludes all other pseudo-intents under their recursive definition. Minimal nonclosed premises force each canonical implication in every sound complete basis. For one simultaneous pass, a simple path joining endpoints of e is a minimal stem; one rooted all-cycle rule per stem is forced in a direct-unit basis. DG direct iff all simple cycles induced; maximal premise size<=2 iff graph chordal; finite disconnected/acyclic cases are included. K_n cycle counts yield 3*C(n,3) versus n!/2*sum_{j=0}^{n-3}1/j!; wheel rim r>=4 has r hub triangles and one induced rim giving 4r. An independently written checker enumerated all 1096 simple graphs on 3–5 vertices and all 59805 edge subsets, comparing DSU closure, recursively computed pseudo-intents, induced-cycle rules, all rooted simple-cycle direct rules; all passed. K_n orders 3–6 and wheels r4–7 count identities checked. The finite checks are corroboration, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wild 2014 Thm. 2: for ANY finite closure operator, the stem-based canonical direct implicational basis has minimum cardinality, with every stem forced as a premise.",
+          "Wild 2014 Sec. 4.1.4: binary-matroid closed circuits produce the unique optimum basis; graphic matroids are included.",
+          "For graphic edge closure the stems of a missing edge are exactly simple paths joining its endpoints; hence Wild Thm. 2 directly specializes to rooted all-simple-cycle direct basis."
+        ],
+        "reasoning": "Two pre-existing general statements dominate both central basis classifications at a higher level of generality. The direct-unit version takes the unit expansion; here each graphic stem has only its missing edge as a root, so the unit and grouped versions coincide. No special graph-only hypothesis escapes this coverage.",
+        "searches": [
+          "Wild arXiv:1411.6432 Theorem 2 and Sec. 4.1.4",
+          "Wild 1994 DOI 10.1006/aima.1994.1069",
+          "Bertet–Monjardet 2010 DOI 10.1016/j.tcs.2009.12.021",
+          "Baixeries–Napoli arXiv:2404.12229"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1411.6432",
+        "https://doi.org/10.37236/3068",
+        "https://arxiv.org/abs/2404.12229",
+        "https://arxiv.org/abs/1802.04032",
+        "https://doi.org/10.1006/aima.1994.1069",
+        "https://doi.org/10.1016/j.tcs.2009.12.021",
+        "Resultary: three specific mathematical semantic queries (stored in axes.originality)",
+        "Published mathematical repository search: three exact equivalent phrase variants",
+        "Independent mathematical checker: 1096 all graphs on 3–5 vertices, 59805 edge-subset closures"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wild establishes unique optimal basis of all closed binary-matroid circuits; applying to graphic matroids yields exactly the headline induced-cycle basis because closed graphic circuits are chordless cycles.",
+          "Wild Theorem 2 establishes direct one-step minimality for all stems; graph closure stems are rooted simple paths, giving the all-simple-cycle formula.",
+          "The chordality and completeness conditions then compare the two known basis families; complete-graph asymptotics are the usual simple-cycle count."
+        ],
+        "reasoning": "This is decisive prior implication coverage, not merely overlapping terminology or parameters. The published binary-matroid optimal-basis theorem is stronger than the main graph-specific basis result; the published universal direct-basis theorem is stronger than the alleged direct-unit classification. Even if the precise factorial coefficient was not previously displayed, it follows by a short counting substitution into the older stronger results. O therefore FAILS, despite a correct self-contained proof.",
+        "searches": [
+          "Wild 2014/2017 Section 3.3 Thm 2, Sec 4.1.4",
+          "Kashiwabara–Nakamura 2013 prime stems and pseudo-closed sets",
+          "Baixeries–Napoli arXiv:2404.12229 min vs direct basis comparison"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wild 2014/2017 Sec. 4.1.4: every binary matroid has the UNIQUE optimum implication basis over all closed circuits K with roots x ∈ K; every graphic matroid is binary.",
+          "Kashiwabara–Nakamura 2013 p. 3: in a graphic matroid prime stems are exactly chordless-cycle rooted paths, prime stems are pseudo-closed.",
+          "In any simple graphic matroid a circuit is a simple cycle and is a closed circuit iff it is chordless, since closure adds all edges among its vertices."
+        ],
+        "reasoning": "The asserted induced-cycle basis and minimum representation arise by specializing Wild’s earlier stronger binary-matroid theorem to graph edge closures. The graph-specific identification closed circuit = induced cycle is immediate and explicitly supported by the 2013 graphic prime-stem characterization. The recursive pseudo-intent converse in the package is a valid extra proof but does not restore priority to an already known optimum basis.",
+        "searches": [
+          "Resultary: graphic matroid closure pseudo-closed sets pseudo intents chordless cycles induced cycle canonical Duquenne Guigues implication basis direct basis",
+          "Resultary: prime stems rooted circuits Kashiwabara Nakamura theorem canonical basis optimality matroid graph chordless cycle",
+          "Wild 2014 arXiv:1411.6432 Section 4.1.4",
+          "Kashiwabara–Nakamura 2013 DOI 10.37236/3068 section on graphic matroids"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No ranked Resultary record or exact table directly displaying b_direct(K_n) = n!/2 sum 1/j! identified; this is only a negative search result.",
+          "Existing structural bases imply b_DG(K_n)=3 binom(n,3), since closed cycles of K_n are triangles, and b_direct(K_n)= sum_{l=3}^n binom(n,l)l!/2 by elementary enumeration."
+        ],
+        "reasoning": "Lack of the identical numeric formula in a table is NOT evidence of originality. It is an immediate counting corollary of earlier closed-circuit and all-stem basis classifications. Database search findings do not change the covered status.",
+        "searches": [
+          "Resultary: graphic matroid closure pseudo-closed sets pseudo intents chordless cycles induced cycle canonical Duquenne Guigues implication basis direct basis",
+          "Resultary: prime stems rooted circuits Kashiwabara Nakamura theorem canonical basis optimality matroid graph chordless cycle",
+          "Resultary: minimal one pass direct basis graphic closure all simple cycles factorial complete graphs",
+          "Resultary published mathematical corpus: same closure and cycle-premise theorem",
+          "GitHub Resultary/2026 code search: Duquenne Guigues; prime stems; graphic matroid closure",
+          "count rooted simple cycles in K_n all simple cycles factorial"
+        ]
+      },
+      "rationale": "Prior published mathematics decisively covers the structural claim by implication. Wild (arXiv:1411.6432, full text Sections 3.3 and 4.1.4, referencing original 1994 theorem) establishes both the unique optimum basis consisting of closed circuits for ALL binary matroids, explicitly including graphic matroids, and universal minimum one-pass direct bases made from all closure stems. Closed graphic circuits are exactly induced cycles, whereas missing-edge stems are exactly rooted simple paths. Kashiwabara–Nakamura 2013 separately explicitly identifies chordless graphic prime stems and proves them pseudo-closed. The remaining chordality test and the K_n factorial-vs-cubic enumeration are immediate specializations and elementary graph-cycle counts. Exact same wording/formula need not be previously printed for a covered corollary. Thus O FAIL, despite an independently correct proof; this is not a rejection based merely on limited literature access.",
+      "residual_risks": [
+        "The 1994 original Wild article and 2010 Bertet–Monjardet complete texts were not read; later author full-text theorem statements already decisively establish coverage, so access limitation does not weaken the O rejection.",
+        "The computed examples through order five alone do not certify general finite graphs; a separate complete graph-theoretic argument establishes C.",
+        "No publication or provenance certification; no assertion about alternate total-literal minimum or nonunit direct-basis interpretations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: prior universal direct-basis theorem and prior unique-optimum binary-matroid basis dominate both headline basis classifications",
+          "evidence": [
+            "Wild arXiv:1411.6432 lines 185–201: Theorem 2 all closure operators and forced stems",
+            "Wild arXiv:1411.6432 lines 382–388: binary matroids and unique optimum basis from closed circuits; graphic matroids binary"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1411.6432",
+          "material_read": "Accessible complete arXiv HTML text; Sections 3.2, 3.3 (Theorem 2, proof), 4.1.4 including explicit binary-matroid statement, references",
+          "method": "Read primary full-text arXiv HTML and compared mathematical quantifiers and implications",
+          "title": "The joy of implications, aka pure Horn formulas: mainly a survey",
+          "trigger": "Direct text linking binary matroids, closed circuits, optimum implications, and universal direct bases"
+        },
+        {
+          "assessment": "COVERING ingredient: chordless graphic cycles are exactly prime stems; prime stems are pseudo-closed. Combined with Wild stronger result yields submitted basis statement",
+          "evidence": [
+            "2013 EJC 20(1) P22 p. 3 graphic prime stems iff chordless cycles",
+            "Theorem 11 every prime stem pseudo-closed; Theorems 14–15 on canonical and optimal bases"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/3068",
+          "material_read": "Accessible complete published 2013 PDF; pages including definition, graphic example, Theorems 11, 14, 15 and references; rendered PDF pages checked",
+          "method": "Read entire primary PDF, cross-check graphic-cycle characterization and implication theorem statements",
+          "title": "The prime stems of rooted circuits of closure spaces and minimum implicational bases",
+          "trigger": "Same graphic-matroid chordless-cycle prime-stem question"
+        },
+        {
+          "assessment": "General context; not itself needed for decisive coverage from Wild",
+          "evidence": [
+            "arXiv:2404.12229 sections introducing direct and minimal bases; no graphic-matroid special theorem found"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.12229",
+          "material_read": "Accessible full arXiv PDF, definitions and main comparison sections; text searched for graph and matroid specializations",
+          "method": "Primary full-text reading and PDF page inspection",
+          "title": "A minimal base or a direct base? That is the question!",
+          "trigger": "General minimum-vs-direct implicational-basis comparison"
+        },
+        {
+          "assessment": "General size context; no exact graph-specific direct/canonical pair needed for the verdict",
+          "evidence": [
+            "arXiv:1802.04032 paper introduction and size comparisons"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1802.04032",
+          "material_read": "Accessible 2018 arXiv full PDF and relevant introductory/size sections",
+          "method": "Primary full-text reading with PDF screenshot and searches",
+          "title": "Average Size of Implicational Bases",
+          "trigger": "Potential preceding stronger exact size theorem"
+        },
+        {
+          "assessment": "HIGHLY RELEVANT PRIORITY: earlier primary source explicitly credited for encompassing stronger binary-matroid theorem; full original not required to reject on directly readable 2014 author statement",
+          "evidence": [
+            "1994 Advances in Mathematics 108:118–139, DOI 10.1006/aima.1994.1069",
+            "Wild 2014 Section 4.1.4 explicitly cites [W3] for unique optimum binary-matroid basis"
+          ],
+          "identifier_or_url": "https://doi.org/10.1006/aima.1994.1069",
+          "material_read": "Published abstract and bibliographic/full-text landing page, plus complete original theorem statement quoted and credited in the readable 2014/2017 Wild survey; 1994 original PDF not fully read",
+          "method": "Metadata, abstract, secondary direct-author theorem attribution; did not claim 1994 full-text inspection",
+          "title": "A theory of finite closure spaces based on implications",
+          "trigger": "Wild 2014/2017 explicitly attributes the binary-matroid unique optimum closed-circuit theorem to 1994 [W3]/[63]"
+        },
+        {
+          "assessment": "Additional relevant antecedent risk, but universal direct-basis coverage is independently established in fully accessible Wild 2014 Theorem 2",
+          "evidence": [
+            "Bertet–Monjardet, Theoretical Computer Science 411 (2010) 2155–2166, DOI 10.1016/j.tcs.2009.12.021"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.tcs.2009.12.021",
+          "material_read": "Publisher metadata/abstract only; arXiv search and lawful HAL OA retrieval failed; authorized institutional access unavailable (VPN disconnected)",
+          "method": "Bibliographic and accessible metadata; not falsely marked fully read",
+          "title": "The multiple facets of the canonical direct unit implicational basis",
+          "trigger": "Potential explicit prior universal unit-implication direct basis"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The comparison of canonical and one-pass direct representations for graphic edge closure is mathematically motivated: it supplies a natural all-graph directness criterion and shows an exact factorial versus cubic representation-size tradeoff on complete graphs, relevant for finite closure inference. This is not an arbitrary isolated count. Nonetheless the content is already implied by broader published theorems, so its mathematical interest does not rescue its failed originality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1411.6432",
+    "https://doi.org/10.37236/3068",
+    "https://arxiv.org/abs/2404.12229",
+    "https://arxiv.org/abs/1802.04032",
+    "https://doi.org/10.1006/aima.1994.1069",
+    "https://doi.org/10.1016/j.tcs.2009.12.021",
+    "Resultary: three specific mathematical semantic queries (stored in axes.originality)",
+    "Published mathematical repository search: three exact equivalent phrase variants",
+    "Independent mathematical checker: 1096 all graphs on 3–5 vertices, 59805 edge-subset closures"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Rejected for strong prior implication coverage, not mathematical incorrectness.",
+    "General theorem correctness established analytically; finite checker is supportive.",
+    "1994 original text and 2010 direct-unit article not fully accessible; author full-text 2014 survey clearly states earlier theorems and their all-matroid/all-closure quantifiers.",
+    "Publication operation is staged only; no GitHub write or dispatcher closeout."
+  ],
+  "residual_risks": [
+    "The 1994 original Wild article and 2010 Bertet–Monjardet complete texts were not read; later author full-text theorem statements already decisively establish coverage, so access limitation does not weaken the O rejection.",
+    "The computed examples through order five alone do not certify general finite graphs; a separate complete graph-theoretic argument establishes C.",
+    "No publication or provenance certification; no assertion about alternate total-literal minimum or nonunit direct-basis interpretations."
+  ],
+  "schema_version": 1
+}
