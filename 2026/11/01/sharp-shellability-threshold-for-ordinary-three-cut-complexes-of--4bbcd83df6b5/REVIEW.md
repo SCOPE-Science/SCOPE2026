@@ -1,0 +1,15 @@
+# Scientific review: fourth-power cycle three-cut shellability
+
+## Correctness — PASS
+The domain is every simple graph \(C_n^4\) with integer \(n\ge3\), under the standard ordinary three-cut convention. The void case uses a bound on nonneighbors. In each nonvoid lower case, the exact checker enumerates all facets and all subfaces and reduces all binary simplicial boundary matrices, yielding positive reduced homology below the pure top dimension. The four upper boundary cases are proved by exhaustive explicit facet-order certificates: coverage, the equivalent pure-shelling witness condition for *every* preceding facet, and spanning-facet counts are all checked. The general tail invokes the exact published bound \(n\ge6p-3\). All arithmetic and incidence comparisons are finite, exact, and executed. Residual correctness risk is ordinary software implementation error, mitigated by direct graph-reachability reconstruction, a mathematical proof of the witness criterion, and independent overlap with the published Betti numbers.
+
+## Originality — PASS
+Chauhan--Shukla--Vinayak (arXiv:2406.01979, Table 2 and Conjecture 4.2) already recorded the relevant Betti ranks and conjectured the \(4p+1\) shellability transition; neither supplies a shelling for \(p=4\) at the four boundary integers. Chauhan--Shukla (arXiv:2603.23155, Theorem 1.4) proves shellability only for \(n\ge6p-3\), and hence begins at \(n=21\) when \(p=4\). The earlier third-power classification and indexed cyclic homology representation for the known tail do not logically cover a fourth-power shelling at \(17\le n\le20\). Relevant primary manuscripts were inspected in their substantive theorem, table, and conclusions; indexed mathematical claims and targeted literature phrases were compared. The new contribution is specifically *four explicit shellings and the resulting sharp p-four classification*, not the known homology or general tail. An equivalent unindexed finite shelling remains a residual risk.
+
+## Value — PASS
+The result proves a complete natural instance of the explicit sharp-threshold conjecture of Chauhan--Shukla--Vinayak. Shellability is strictly stronger than the tabulated field homology and yields a combinatorial facet order and pure Cohen--Macaulayness; therefore the four boundary certificates supply the missing structural information rather than routine numerical increments. They complete all fourth-power parameters when joined to the published infinite-tail theorem. No theorem about powers greater than four is asserted.
+
+## Closest literature and scientific limits
+Primary comparisons: arXiv:2406.01979 (Conjecture 4.2, Table 2); arXiv:2603.23155 (Theorem 1.4, Section 4). Ancillary indexed comparisons include the previously known third-power threshold and representations for the range \(n\ge6p-3\). The finite certificates do not independently prove the infinite tail; the lower cases establish non-shellability over \(\mathbb F_2\) without a classification of their integral homotopy types. Scientific originality remains subject to unindexed literature.
+
+Self-review: passed. Independent audit: not yet performed.
