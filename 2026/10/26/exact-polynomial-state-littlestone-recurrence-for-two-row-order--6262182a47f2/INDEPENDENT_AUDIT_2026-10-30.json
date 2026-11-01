@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:48:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every ideal is uniquely (a,b) with 0<=b<=a<=n, and every membership query constrains only one coordinate by a threshold. Version spaces thus have four integer endpoint bounds (A,B,C,D) intersected with b<=a. Normalization A=max(A,C), D=min(D,B) preserves all pairs. A nonconstant row-one query ranges A<t<=B and row-two C<t<=D; each has both nonempty branches because normalized D<=B and A>=C. The minimax recursion F=max_query (1+min(F_zero,F_one)) follows from the complete binary shattered-tree definition, with singleton value zero; each branch reduces the number of feasible ideals so induction proves equality for *every* n, and at most (n+1)^4 states times 2n queries proves complexity. Independent memoized integer evaluation checked BOTH sides of ALL ten adjacent thresholds from n=0 through n=52, with n51 dimension 9 and n52 dimension 10; proof of monotonicity of dimension in n makes adjacent checks enough. Independently fetched the actual published depth10_n52_witness.json Git blob c12fee0d... and traversed 1023 internal nodes and all 1024 root-to-leaf paths verifying each imposes feasible ordered row bounds at n52. For VC dimension, any three cells contain two threshold-nested row queries and fail shattering, while (1,2),(2,1) are shattered at n>=2. Independent product threshold subfamily and class cardinality show 2log_2(n)+O(1). Finite certificate supports only depth-ten cutoff; full all-n recurrence comes from closure proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghazi et al Proposition 2.3 bounds Ldim of arbitrary Boolean aggregations by O(k d log k), for general classes, not equality; Malliaris/Moran develop excellent sets and stability from online methods."
+        ],
+        "reasoning": "The generic aggregation upper bound and stability frameworks can bound or contextualize Ldim but provide neither the precise four-state recurrence nor the first ten depth cutoffs. A prior specialist result for nested thresholds could still be equivalent and remains a risk.",
+        "searches": [
+          "Ghazi Golowich Kumar Manurangsi arXiv:2007.03668 Proposition 2.3 closure bounds",
+          "Malliaris Moran arXiv:2108.05569 excellent sets online Littlestone",
+          "online learning monotone conjunction 2 parameter grid thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Ghazi et al arXiv:2007.03668 full HTML (definitions and Proposition 2.3)",
+        "Malliaris/Moran arXiv:2108.05569 primary HTML selected sections",
+        "Resultary semantic 14-hit search on two-row online mistake bounds and Young diagrams",
+        "Actual Git depth-ten witness certificate and independent recurrence through n=52"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghazi et al Proposition 2.3 gives Ldim(G(H_1,...,H_k))<=O(kd log k), not equality on nested 2-row ideals. Malliaris/Moran describe connections to stability and online learning and do not assert the concrete finite threshold sequence in inspected material."
+        ],
+        "reasoning": "The exact adaptive branch recurrence requires exploiting the Ferrers inequality and interval closure; a general worst-case O(kd log k) bound cannot logically force F(0,n,0,n) or sharp n=52 threshold. Thus generic prior machinery does not cover the final claim.",
+        "searches": [
+          "arXiv:2007.03668 Proposition 2.3 and 2.5 full primary HTML",
+          "arXiv:2108.05569 main excellent sets theorem primary HTML",
+          "nested thresholds online mistake tree Young diagrams"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The hypothesis space is pairs (a,b) with b<=a, and each query tests one coordinate threshold; equivalently a constrained two-threshold class, Ferrers diagram, or 0-1 monotone 2xn matrix membership."
+        ],
+        "reasoning": "This is not the indicator class of a single interval of a chain: at n=3 the class has Littlestone dimension 3 while interval indicators have dimension 2. The restriction b<=a is essential, so an unconstrained product formula does not immediately give the reported exact thresholds.",
+        "searches": [
+          "Littlestone dimension two-row Young diagram order ideals nested thresholds online mistake bound",
+          "Resultary semantic query Littlestone dimension two-row Young diagram order ideals online learning triangular threshold class"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Actual assigned certificate depth10_n52_witness.json encodes 1023 queries/1024 feasible paths; independent DP computed threshold pairs through depth ten. Neither identified external source has the numerical ten-value sequence as a stated theorem."
+        ],
+        "reasoning": "This is an exact finite classification *within* a proven all-n recurrence; the numerical table is not itself evidence of a formula for all n. Exact boundary computations were reproduced rather than trusted from a log or previous audit.",
+        "searches": [
+          "Littlestone dimension two row grid Young diagram thresholds 1 2 3 5 8 12 17 25 36 52",
+          "two dimensional order ideals online shattering table",
+          "Resultary relevant published records"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact polynomial-state Littlestone recurrence for two-row order ideals is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.",
+      "residual_risks": [
+        "Equivalent earlier exact ranks may use terms Ferrers concept class, monotone matrix online shattering, nested thresholds, or Young-diagram adversarial prediction.",
+        "The ten numerical cutoffs are finite; a closed all-depth threshold formula is neither proved nor claimed.",
+        "The finite witness is an independently rechecked certificate, not a formal proof of all-n theorem or novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING general closure upper bound, NOT an exact nested-threshold-class rank or sharp finite cutoffs.",
+          "evidence": "Proposition 2.3 is O(kd log k) for arbitrary aggregations; does not give equality in the constrained two-threshold model.",
+          "identifier_or_url": "https://arxiv.org/html/2007.03668v1",
+          "material_read": "Full accessible 7-page arXiv HTML: introduction, Section 2 definitions and Proposition 2.3 proof, closure bounds, threshold dimension section and future work.",
+          "method": "Primary full HTML read, central Proposition 2.3 compared",
+          "title": "Near-tight closure bounds for Littlestone and threshold dimensions",
+          "trigger": "potentially dominating all-class Boolean-closure theorem"
+        },
+        {
+          "assessment": "Provides connections and existence theorems, not the class-specific recurrence in inspected text.",
+          "evidence": "Main focus epsilon-excellent sets for k-edge stable graphs and general Littlestone/majority relations.",
+          "identifier_or_url": "https://arxiv.org/html/2108.05569v3",
+          "material_read": "Accessible arXiv HTML abstract, introduction/main theorem overview, selected learning and excellent-set passages; not a full-document exclusion claim.",
+          "method": "Scoped primary HTML material read",
+          "title": "Agnostic Online Learning and Excellent Sets",
+          "trigger": "model-theoretic result on Littlestone dimension"
+        },
+        {
+          "assessment": "CONFIRMS depth-ten witness, not originality or absence of larger Ldim.",
+          "evidence": "1023 internal nodes and 1024 feasible depth-10 paths; Git blob SHA c12fee0dcfe3eff54fab144d51dd9444beaa1ae7.",
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/7114b2e91c83d844d5a46a85c8a46887759567e5/2026/10/26/exact-polynomial-state-littlestone-recurrence-for-two-row-order--6262182a47f2/depth10_n52_witness.json",
+          "material_read": "Entire 40,509-character JSON witness tree from pinned Git blob read and independently traversed.",
+          "method": "Read-only GitHub blob fetch, independent JS path-feasibility evaluation",
+          "title": "The assigned two-row order-ideal witness certificate",
+          "trigger": "critical finite n=52 computation and proof boundary"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The two-row Young-diagram ideal concept class is the smallest nontrivial monotone staircase, a natural constrained product of online thresholds. Its exact polynomial-state adaptive-shattering rank, ten sharp integer cutoffs, and unbounded Littlestone-versus-bounded VC separation are interpretable learning-theoretic invariants, not arbitrary slices or routine VC bounds. A researcher can use the DP for exact online mistake limits of these structured classes.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For all n>=0 the Littlestone dimension of order ideals of [2]x[n], encoded as two nested threshold row lengths, is computed exactly by the four-endpoint dynamic recurrence with O(n^4) states and O(n^5) time. Sharp minimum n for depths d=1..10 are 1,2,3,5,8,12,17,25,36,52; VC dimension is min(n,2) despite Littlestone dimension growing 2log_2(n)+O(1).",
+  "limitations": "VC and Littlestone results are for membership concepts of two-row rectangular order ideals only, ordinary realizable adaptive online prediction; no closed expression for all depth cutoff values, no claims about higher row counts.",
+  "schema_version": 1
+}

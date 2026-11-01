@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The critical normal-form lemma is exact: membership observations impose only independent upper and lower bounds on the two row lengths, and the ideal condition is the single inequality \(b\le a\). The four-endpoint recurrence enumerates every nonconstant query and both nonempty resulting branches, so induction on the number of feasible ideals proves the all-\(n\) formula. A separate concept-bitset implementation agrees through \(n=16\). All ten adjacent threshold boundary evaluations were replayed, including \(n=51\) of depth nine and \(n=52\) of depth ten. A standalone witness realizes every one of the \(1024\) paths at depth ten and a separate checker reads that certificate without regeneration. Complexity is polynomial because there are four bounded endpoints. Finite computation is used only for the displayed numerical cutoffs and witnesses, not to infer the general recurrence.
+PASS
 
-## Originality — PASS, with residual risk
+Every ideal is uniquely (a,b) with 0<=b<=a<=n, and every membership query constrains only one coordinate by a threshold. Version spaces thus have four integer endpoint bounds (A,B,C,D) intersected with b<=a. Normalization A=max(A,C), D=min(D,B) preserves all pairs. A nonconstant row-one query ranges A<t<=B and row-two C<t<=D; each has both nonempty branches because normalized D<=B and A>=C. The minimax recursion F=max_query (1+min(F_zero,F_one)) follows from the complete binary shattered-tree definition, with singleton value zero; each branch reduces the number of feasible ideals so induction proves equality for *every* n, and at most (n+1)^4 states times 2n queries proves complexity. Independent memoized integer evaluation checked BOTH sides of ALL ten adjacent thresholds from n=0 through n=52, with n51 dimension 9 and n52 dimension 10; proof of monotonicity of dimension in n makes adjacent checks enough. Independently fetched the actual published depth10_n52_witness.json Git blob c12fee0d... and traversed 1023 internal nodes and all 1024 root-to-leaf paths verifying each imposes feasible ordered row bounds at n52. For VC dimension, any three cells contain two threshold-nested row queries and fail shattering, while (1,2),(2,1) are shattered at n>=2. Independent product threshold subfamily and class cardinality show 2log_2(n)+O(1). Finite certificate supports only depth-ten cutoff; full all-n recurrence comes from closure proof.
 
-The statement concerns the adaptive shattering rank of two *ordered* thresholds subject to \(b\le a\), not the VC dimension, one-row thresholds, unrestricted products, or interval indicators on a single line. In the inspected main statements of Malliaris--Moran, the emphasis is stability/excellent sets; Ghazi et al. provide generic aggregation bounds. Neither contains the specific exact four-bound recurrence or sharp threshold list in the material read. Searches using Young-diagram/poset ideal, nested threshold, grid staircase, and online mistake terminology did not produce a result implying these precise statements. A separate interval-indicator result differs already at the three-column case and cannot imply the reported values by substituting notation. Publication-priority risk remains because an older exact result may use a different name or be unindexed.
+## originality
 
-## Value — PASS
+PASS
 
-Two-row order ideals are a canonical constrained two-threshold concept class: they model membership in a monotone staircase and are the smallest nontrivial distributive-lattice extension of a chain. The four-bound state closure gives a polynomial-time *exact* online rank algorithm for arbitrary chain length rather than a generic exponential enumeration over concepts. The ten sharp finite cutoffs locate when adversarial mistake trees become possible, while the VC dimension remains two even though the Littlestone dimension diverges. These are intrinsic, reusable quantities for the specified natural family, not a chosen arbitrary restriction.
+Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact polynomial-state Littlestone recurrence for two-row order ideals is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.
 
-## Scope and uncertainty
+## value
 
-No formula for all future threshold cutoffs is claimed. The code and certificate are replayable but do not constitute independent validation. Historical indexing and terminology differences remain a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The two-row Young-diagram ideal concept class is the smallest nontrivial monotone staircase, a natural constrained product of online thresholds. Its exact polynomial-state adaptive-shattering rank, ten sharp integer cutoffs, and unbounded Littlestone-versus-bounded VC separation are interpretable learning-theoretic invariants, not arbitrary slices or routine VC bounds. A researcher can use the DP for exact online mistake limits of these structured classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
