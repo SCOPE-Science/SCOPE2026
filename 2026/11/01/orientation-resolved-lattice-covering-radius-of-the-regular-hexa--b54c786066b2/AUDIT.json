@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md, proof: triangle-cover lemma, six-facet gauge computations, lattice exclusion, trigonometric branch switch",
+      "verify.py, executed with Python standard library: PASS: 119356 deterministic covering-profile diagnostics"
+    ],
+    "rationale": "A regular circumradius-one hexagon has exact norm N(u,v)=max(|u|+|v|/sqrt(3),2|v|/sqrt(3)). On a reduced angular interval, each of two displayed points simultaneously belongs to the radius-r hexagon translates about 0,e1,e2; the triangle-cover lemma covers half a fundamental square, and central reflection covers its complement. At the same points every lattice vector is at gauge distance at least r: the fourth corner is excluded by a support functional and all noncorner points are at Euclidean distance at least one while r<1. Exact linear-form substitutions show which witness applies on either side of the algebraically identified angle. Strict monotonicity and endpoint comparison yield complete equality classes. The embedded Python verifier ran successfully with 119356 diagnostics; finite checks are supporting evidence, not an infinite proof.",
+    "risks": [
+      "Numerical verification only samples finitely many orientations, but the continuum theorem is established symbolically."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2019 Xue full text: general lattice-point covering sufficient criterion via Steiner symmetrization, and hexagon sharp worst-rotation dilation.",
+        "2026-10-04 published regular N-gon result: exact value of worst-rotation Z(H_N), which includes N=6.",
+        "Codenotti, Freyer and Krivokuća (2026) full accessible text: covering-minimal polytopes and planar Minkowski-sum inequalities, not a hexagonal angle profile."
+      ],
+      "reasoning": "The Xue and regular-N theorems give a stronger quantification in rotation only at one scalar threshold; that does not provide the sharper per-orientation threshold or the strict optimizer. General convex-body covering-radius inequalities supply no equality computation of the angle dependence in this case.",
+      "searches": [
+        "lattice covering radius of rotated regular hexagonal disk on integer grid",
+        "orientation-dependent lattice covering radius of rotated regular hexagon by square lattice Z^2 sharp minimizing angle phase transitions 15 degrees",
+        "published-result:2026-10-04-regular-polygons-two-modulo-four",
+        "arxiv:1810.03555",
+        "arxiv:2606.14442"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1810.03555 (published Xue 2019 article, full text)",
+      "published-result:2026-10-04-regular-polygons-two-modulo-four",
+      "arxiv:2606.14442",
+      "Targeted web and published-finding corpus semantic queries for covering radius, normed-plane equivalents, angle-star and exact algebraic constant"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xue Theorem 4 gives the sharp number valid for every translation and every rotation; a single maximum.",
+        "The later regular-polygon full result proves the same kind of over-rotation extremum for an entire N-family, not the pointwise minimization over θ.",
+        "The present explicit formula has smaller value sqrt((11+6sqrt(3))/39) than 1/(3-sqrt(3)); the two are not equivalent scalar invariants."
+      ],
+      "reasoning": "A universal covering guarantee at r=0.788675... bounds all fixed-angle radii above but does not force the exact lower envelope r=0.740621..., a cusp, or the pair of optimal oblique directions. Existing results are consistent with many radically different orientation functions having the same maximum; the new pointwise law is not their formal corollary.",
+      "searches": [
+        "arxiv:1810.03555",
+        "published-result:2026-10-04-regular-polygons-two-modulo-four",
+        "arxiv:2606.14442",
+        "regular hexagon square integer lattice orientation-dependent exact covering radius mu(theta) minimum arctan((4-sqrt3)/13)",
+        "nonstandard rotation of regular hexagon optimal square lattice covering mu min sqrt((11+6sqrt3)/39)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full text Xue (2019), DOI 10.37236/8245, Theorem 4 and proof pp. 5–7: least dilation valid under any rotation, not the orientation-resolved law.",
+        "Published regular-polygon result, full RESULT.md: defining invariant Z(H_N) explicitly quantifies over every rotation and translation."
+      ],
+      "reasoning": "The reciprocal view through the rotated hexagonal Minkowski gauge, and the lattice-covering view through integer translates, are equivalent by the exact norm definition. The cited prior quantifies over all rotations at once, whereas the present theorem computes a nonconstant function of the fixed orientation and classifies its minima. The scalar supremum alone does not determine the function or its minimizer.",
+      "searches": [
+        "regular hexagon square integer lattice orientation-dependent exact covering radius mu(theta) minimum arctan((4-sqrt3)/13)",
+        "fixed orientation regular hexagon integer translate covering plane three-fold intersection triangles",
+        "hexagonal norm Z2 lattice covering rotated regular hexagon best orientation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published regular-polygon result is an exact-radius table for all N=4m+2, including the hexagon worst-case number 1/(3-sqrt(3)), but contains no fixed-angle spectrum.",
+        "No covering data table or published exact fixed-angle angle-star entry appeared in targeted indexed searches."
+      ],
+      "reasoning": "A table of worst-case values indexed by number of polygon sides does not subsume a continuous profile indexed by fixed angle. Absence from indexed results is not treated as a definitive novelty proof.",
+      "searches": [
+        "regular hexagon square integer lattice orientation-dependent exact covering radius mu(theta) minimum arctan((4-sqrt3)/13)",
+        "nonstandard rotation of regular hexagon optimal square lattice covering mu min sqrt((11+6sqrt3)/39)",
+        "rotation angle regular hexagon optimal lattice covering square grid",
+        "\"11+6 sqrt(3)\" \"39\" hexagon lattice covering"
+      ]
+    },
+    "rationale": "A complete fixed-orientation covering-radius function and its strict non-axial global minimizers are not implied by the known worst-over-all-rotations radius. The closest full text (Xue 2019) establishes the rotation-uniform radius and its sufficient Steiner-symmetrization inequalities, while the published later regular-polygon generalization likewise computes only the worst-over-rotation constant. The 2026 motivating source treats minimal covering bodies and Minkowski-sum inequalities rather than this exact orientation optimization. Targeted semantic and web searches did not identify equivalent branch formulas; historical priority remains uncertain.",
+    "residual_risks": [
+      "The same exact profile may exist in older normed-plane Voronoi/critical-hole literature under unfamiliar terminology.",
+      "Historical-priority checking is limited to accessible and indexed sources; no independent external audit has been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Calculates least radius uniformly for all rotations, with angle-dependent auxiliary Steiner estimates; does not give the sharp fixed-θ radius or minimizing orientation.",
+        "evidence": "Theorem 4(2), its hexagon proof and equations (2),(3), section on Steiner symmetrization.",
+        "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v26i2p9/pdf/",
+        "material_read": "Full 11-page article available; in particular Theorem 4, necessary/sufficient conditions, §5 proof of regular hexagon, pages 2–7 (with PDF page image inspection).",
+        "method": "Full-text PDF extraction and page-image confirmation of the hexagon proof.",
+        "title": "On the Lattice Point Covering Problem in Dimension 2",
+        "trigger": "Same regular hexagon and integer lattice; plausible stronger covering theorem."
+      },
+      {
+        "assessment": "Its Z(H_N) explicitly requires all rotations and translations. Hexagon case returns known maximum but does not imply the full fixed-orientation profile.",
+        "evidence": "RESULT.md, Finding/Assumptions/Proof/Relationship to prior work.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-lattice-point-covering-radii-for-all-regular-polygons-with--35b1a362e217",
+        "material_read": "Full RESULT.md through public repository, including definitions, proof, verification, relationship and limitations.",
+        "method": "Read complete publicly available result text; compared quantifiers and formula.",
+        "title": "Exact lattice-point covering radii for all regular polygons with two modulo four sides",
+        "trigger": "Published extension contains same hexagon in its main scope."
+      },
+      {
+        "assessment": "General covering-minimality and Minkowski-sum theorems; not an exact rotation-resolved regular-hexagon formula.",
+        "evidence": "2026 preprint abstract, principal covering theorems, planar covering-radius inequalities.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.14442",
+        "material_read": "Accessible full 2026 manuscript text via an open full-text reproduction, including statements of the main structural and radius inequalities and relevant sections.",
+        "method": "Read main statements and relevant covering/minimality arguments; searched full text for rotation-specific hexagon claims.",
+        "title": "Minimal covering bodies and Brunn-Minkowski type inequalities for the covering radius",
+        "trigger": "Recent direct motivation about planar lattice coverings and Minkowski-sum radii."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b54c7860-66b2-4770-909b-cde103d22b42",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a canonical rigid regular Euclidean hexagon relative to a canonical square lattice; orientation optimization is an independent natural geometric covering problem. The full continuum law identifies two genuinely competing critical holes and a nontrivial cusp at a strict symmetry-breaking optimal rotation, with unique minimizers modulo the known group actions. Exact bounds and equality classes are potentially useful test cases for anisotropic covering and lattice-hole geometry, and are not numerical recomputation of the previously known worst-rotation constant.",
+    "risks": [
+      "The theorem does not address variable lattice, arbitrary centrally symmetric hexagons or higher dimensions."
+    ],
+    "status": "PASS"
+  }
+}
