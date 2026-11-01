@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "Every paired rim edge freezes to a monochrome pair after one update; \\(a,b,m\\) are exhaustive. The center switches in round one iff \\(b>a\\) and finishes opposite its initial vote iff \\(b>n/2\\) or \\(b=n/2\\) with \\(m>0\\); the resulting state is fixed and the two-step event is exactly \\(a<b<n/2\\). The central coefficient of \\((2+z+z^{-1})^n\\) gives the initial flip probability; a \\(\\operatorname{Bin}(n,1/4)\\) tail minus the sole even-size tie exception gives the permanent flip probability, and the same argument works at bias p using \\(\\operatorname{Bin}(n,p^2)\\). Stirling, bounded geometric tail ratios, and triangular-array CLTs justify all displayed asymptotics. Independent adjacency-list enumeration checked 174760 labelled states and 42 exact rational bias instances in the packaged verifier; these tests do not substitute for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The classical Goles–Olivos theorem guarantees periods at most two but not this graph-specific period-one cutoff.",
+        "arXiv:1207.0893v1 Sec. 3.1 derives a positive probability of wrong aggregation on a distinct clique-core model without a sharp parameter boundary.",
+        "arXiv:1405.2486v1 studies transitive/unimodular and random graph classes, not the high-degree-hub finite family."
+      ],
+      "reasoning": "Potential stronger qualitative theorems were inspected for logical implication of the exact data. They do not provide a two-update invariant or a Bernoulli square-bias reduction from which both threshold values and exact reversal counts follow.",
+      "searches": [
+        "arXiv:1207.0893v1",
+        "arXiv:1307.4035v2",
+        "arXiv:1405.2486v1",
+        "doi:10.1016/0012-365X(80)90121-1"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1207.0893v1",
+      "arXiv:1307.4035v2",
+      "arXiv:1405.2486v1",
+      "doi:10.1016/0012-365X(80)90121-1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1207.0893v1 Section 3.1: clique-core with self-loops and one-sided aggregation failure.",
+        "arXiv:1307.4035v2 Theorems 1.5–1.6: generic temporal bound and neighborhood persistence.",
+        "arXiv:1405.2486v1 Theorem 1.1 cites eventual period at most two."
+      ],
+      "reasoning": "Generic information-loss possibility does not imply the proposed model’s exact two-round reversal equivalence. Nor does eventual period-at-most-two rule out primitive two-cycles or give the \\(1/\\sqrt2\\) bias threshold. The claimed finite-size Gaussian profiles follow from a specific pairwise binomial reduction not contained in these general conclusions.",
+      "searches": [
+        "arXiv:1207.0893v1",
+        "arXiv:1307.4035v2",
+        "arXiv:1405.2486v1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1207.0893v1 Sec. 3.1 uses a core and many larger cliques with self-loops, not a single hub and disjoint edges.",
+        "arXiv:1307.4035v2 Sec. 1.2 studies majority-information retention and bounds, not exact fixed-state distribution.",
+        "arXiv:1405.2486v1 Sec. 1 states general eventual period-two behavior."
+      ],
+      "reasoning": "Compared the edge-level synchronous tie-retention rule, the vertex-pair reduction, phase distinctions, and the exact binomial/CLT statements. Distinct graph families and mere eventual-periodicity conclusions are not equivalent to the full exact theorem.",
+      "searches": [
+        "arXiv:1207.0893v1",
+        "arXiv:1307.4035v2",
+        "arXiv:1405.2486v1",
+        "doi:10.1016/0012-365X(80)90121-1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary full texts have no displayed friendship-graph two-threshold count or Gaussian finite-size table.",
+        "The closest retrieved public record explicitly naming friendship graphs concerned fractional edge resolvers, not majority dynamics.",
+        "Indexed mathematical-record comparisons also surfaced general threshold and graph automaton papers with other dynamics."
+      ],
+      "reasoning": "The title/statement/graph-alias comparisons found no exact matching table or archived record. Search absence is not a uniqueness certificate; the remaining possibility of unindexed or differently phrased work is retained.",
+      "searches": [
+        "arXiv:1207.0893v1",
+        "arXiv:1307.4035v2",
+        "arXiv:1405.2486v1"
+      ]
+    },
+    "rationale": "No inspected published primary comparison implies the complete friendship-graph two-update dynamics, the exact majority-reversal census, the distinct first/permanent hub bias thresholds, or the matching Gaussian crossover limits. Prior global period-at-most-two and information-aggregation counterexamples are credited, not re-claimed. A plausible unindexed historical equivalent remains a stated originality risk.",
+    "residual_risks": [
+      "An unindexed or differently named historical friendship-network theorem could provide the same two-threshold formula.",
+      "The 2012 clique-core antecedent establishes qualitative aggregation failure, so the original contribution is restricted to the explicit friendship-graph exact laws and crossover."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact friendship-graph statements",
+        "evidence": "The antecedent graph has a multi-vertex core, cliques of parameter-dependent size, and peripheral self-loops. It proves a probability lower bound, not this two-step exact distribution.",
+        "identifier_or_url": "https://arxiv.org/abs/1207.0893",
+        "material_read": "Full HTML, Sections 1–3, in particular Section 3.1 lines 221–234 describing the entire counterexample graph and bound",
+        "method": "Direct online full-text inspection and statement-to-statement comparison",
+        "title": "Majority Dynamics and Aggregation of Information in Social Networks",
+        "trigger": "Closest earlier explicit information-loss example with a small social type"
+      },
+      {
+        "assessment": "Background qualitative/bounded-growth results; no dominance of the exact finite graph census",
+        "evidence": "Theorem 1.5 bounds times of change; theorem 1.6 gives a frozen-neighborhood sufficient condition, neither computes the three initial pair types.",
+        "identifier_or_url": "https://arxiv.org/html/1307.4035v2",
+        "material_read": "Sections 1.1–1.2, Theorems 1.5–1.7 and graph families; reviewed available section-level results",
+        "method": "Online open full-text HTML inspection",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Possible broad result on information retention for majority dynamics"
+      },
+      {
+        "assessment": "Not covering this explicit loopless friendship-graph two-round result",
+        "evidence": "Theorem 1.1 guarantees eventual period at most two on finite graphs. The other results address unimodular or random graphs, not the exact friendship fixed-point attraction states.",
+        "identifier_or_url": "https://arxiv.org/html/1405.2486v1",
+        "material_read": "Abstract, Contents and Section 1 including Theorem 1.1 and statements on random-graph unanimity; examined full-section structure",
+        "method": "Online open full-text HTML inspection",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Relevant general period and consensus framework"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "035eb4d8-b16a-4a41-a133-bfca7fda2ed5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural center-plus-triangle-pairs network exhibits a robust difference between transient aggregate majority and stable aggregate majority: one half of unbiased starts reverse the global majority, despite a vanishingly small permanent center flip probability. At fixed biased peripheral input the two separate natural thresholds \\(1/2\\) and \\(1/\\sqrt2\\) delimit a high-probability two-round reversal interval, with explicit Gaussian scaling. The exact fixed-state census and phase boundary describe nontrivial global attraction statistics on an infinite family, beyond a finite example or a generic period-two theorem.",
+    "status": "PASS"
+  }
+}
