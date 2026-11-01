@@ -1,0 +1,177 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:11:04Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Current RESULT.md source blob 85e62514f072230a07f48dd82057b3b73a0dcdd4",
+        "Frozen Git artifacts subtree 7378abde7dfb954fbcfe7bd7644d698b3541d304 contains independent source verifier and output blobs",
+        "From-scratch independent_checks.py builds faces, matching, full incidence DAG and all 18 signed attaching degrees"
+      ],
+      "rationale": "Independently built the 12-vertex Cartesian rook graph, generated all 12 open neighborhoods and all 270 faces with face vector (12,66,120,60,12). Reconstructed 125 disjoint greedy matching pairs and topologically sorted all 792 oriented Hasse incidence arcs; critical cells exactly (1 vertex,1 edge,18 triangles). Evaluated signed integral Morse projection of each triangle to the unique critical edge: all eighteen attaching degrees zero. A CW model with 1 circle and 18 null 2-cell attachments has integral wedge S1 ∨ 18 S2 and pi1=Z. This is stronger than modulo-two Betti checks and a complete finite certificate.",
+      "risk": [
+        "No claim about graph families beyond K3□K4."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General rook quotient theorem only identifies cofiber K/K0 and k>=3 homology, explicitly excludes H1,H2 and π1.",
+          "Complete-graph cycle wedge theorem applies n>=5; the n=3 case breaks uniqueness of centers in original proof."
+        ],
+        "reasoning": "A broader theorem with weaker invariant and a general theorem with unfulfilled hypotheses do not cover this full integral homotopy classification.",
+        "searches": [
+          "2026-10-11 Resultary row-column boundary spheres full theorem",
+          "2026-10-11 Resultary mixed-dimensional K_m□C_n full theorem"
+        ]
+      },
+      "checked_sources": [
+        "Resultary query open neighborhood complex 3 by 4 rook graph K3 Cartesian K4 homotopy S1 18 spheres",
+        "Full current RESULT.md, artifacts/verify_rook34.py referenced by Git tree",
+        "Published full same-object rectangular rook K/K0 theorem, 2026-10-11",
+        "Published full K_m square C_n theorem for n>=5, 2026-10-11",
+        "Shukla 2019 arxiv:1802.04526 abstract"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior K/K0 wedge cannot fix attaching maps of 1-,2-cells: even known H>=3 is compatible with multiple low homotopy types.",
+          "For m=4 n=3, substitution gives 18 spheres, but theorem proof uses a unique center property false for C3."
+        ],
+        "reasoning": "Neither result logically entails π1=Z or the null attachments of all eighteen 2-cells; new certificate supplies them.",
+        "searches": [
+          "Row-column boundary source proof and explicit limitations",
+          "K_m square C_n Step 1 hypothesis n>=5"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K3□K4 = K4□C3 = L(K3,4).",
+          "Open Lovasz N(G), not closed N[G] or rook independence complex."
+        ],
+        "reasoning": "Checked all natural aliases; known same object general partial result does not determine low homotopy.",
+        "searches": [
+          "open neighborhood complex 3 by 4 rook graph K3 Cartesian K4 homotopy S1 18 spheres",
+          "K4 Cartesian C3 Lovasz open neighborhood",
+          "line graph K3,4 neighborhood complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No independent exact 3-by-4 integral homotopy table located."
+        ],
+        "reasoning": "Search absence alone not proof; the theorem comparison and independent signed Morse certificate establish the new evaluated invariant.",
+        "searches": [
+          "open neighborhood complex 3 by 4 rook graph K3 Cartesian K4 homotopy S1 18 spheres",
+          "3 by 4 rook neighborhood complex betti 1 18 table"
+        ]
+      },
+      "rationale": "PASS best of knowledge: the closest exact open-rook general theorem leaves the integral low-degree and fundamental group unknown, while the complete-graph-cycle theorem assumes n>=5 and cannot be specialized to n=3 by logic; exact integer attaching degrees resolve this previously uncovered boundary.",
+      "residual_risks": [
+        "An unindexed explicit open-neighborhood integral wedge computation for 3x4 may already exist.",
+        "Result only for open (not closed) neighborhood and this graph, not all rectangular rook graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Partial coverage: relative cofiber wedge and Hk for k>=3; explicitly does NOT give π1, H1,H2, or full homotopy of 3x4.",
+          "evidence": [
+            "Theorem K/K0 ≃ wedge^{mn((m-1)(n-1)-1)}S2; high homology k>=3 only; low homology not determined."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-row-column-boundary-spheres-control-higher-neighborhood-homology--f09a20a3ee45/RESULT.md",
+          "material_read": "Read full GitHub RESULT.md including main general quotient theorem, proof, limitations and applicability m=3,n=4",
+          "method": "Fetched exact current public primary-result blob 27e06c6a5e6df2d5dfcf64c813414c0e19b8b17f",
+          "title": "Row–column boundary spheres control higher neighborhood homology of rook graphs",
+          "trigger": "Same graph and open-neighborhood functor, broader m,n>=3 family"
+        },
+        {
+          "assessment": "HYPOTHESES EXCLUDE C3; necessary unique-center lemma fails at n=3, so numerical substitution agrees but does not prove case.",
+          "evidence": [
+            "Theorem for m>=4,n>=5; Step 1 demands opposite-layer pair unique common center; C3 violates this."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c/RESULT.md",
+          "material_read": "Read full RESULT.md complete proof of m>=4,n>=5 wedge formula, unique-center collapse and stated boundaries",
+          "method": "Fetched public primary-result blob 2f21d5fbcdcd09def68a07221db342df38c1ec2d",
+          "title": "Mixed-dimensional neighborhood homotopy of complete-graph cycle products",
+          "trigger": "Same graph is K4 square C3, near-exact numerical specialization but outside theorem"
+        },
+        {
+          "assessment": "Rook K3 square K4 has degree five, outside maximum-degree 3 or specific 4-regular families",
+          "evidence": [
+            "Shukla 2019 graph class degree upper bound does not cover 5-regular R."
+          ],
+          "identifier_or_url": "arxiv:1802.04526",
+          "material_read": "Read indexed abstract and source bibliography scope, not full work",
+          "method": "ArXiv original abstract and theorem scope comparison",
+          "title": "Homotopy type of neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulants",
+          "trigger": "Potential broader Lovasz neighborhood classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "A 4-dimensional 270-face complex collapses to CW with 1 critical edge and 18 zero-attaching triangles",
+        "Published 2026-10-11 rook cofiber theorem explicitly leaves low homology/open π1 unanswered"
+      ],
+      "rationale": "Exact full integral homotopy at the minimal excluded short-cycle boundary of a natural published all-parameter rook/cycle-product theorem is a motivated self-contained topological fact. It determines π1 and H1/H2 left open by the general same-object result, and provides a new benchmark for low-complexity Lovasz neighborhood complexes.",
+      "risk": [
+        "No claims for remaining n<=4 cycle cases or any equivariant S3xS4 action."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary query open neighborhood complex 3 by 4 rook graph K3 Cartesian K4 homotopy S1 18 spheres",
+    "Full current RESULT.md, artifacts/verify_rook34.py referenced by Git tree",
+    "Published full same-object rectangular rook K/K0 theorem, 2026-10-11",
+    "Published full K_m square C_n theorem for n>=5, 2026-10-11",
+    "Shukla 2019 arxiv:1802.04526 abstract"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An unindexed explicit open-neighborhood integral wedge computation for 3x4 may already exist.",
+    "Result only for open (not closed) neighborhood and this graph, not all rectangular rook graphs.",
+    "No claim about graph families beyond K3□K4.",
+    "No claims for remaining n<=4 cycle cases or any equivariant S3xS4 action."
+  ],
+  "residual_risks": [
+    "An unindexed explicit open-neighborhood integral wedge computation for 3x4 may already exist.",
+    "Result only for open (not closed) neighborhood and this graph, not all rectangular rook graphs."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Partial coverage: relative cofiber wedge and Hk for k>=3; explicitly does NOT give π1, H1,H2, or full homotopy of 3x4.",
+      "evidence": [
+        "Theorem K/K0 ≃ wedge^{mn((m-1)(n-1)-1)}S2; high homology k>=3 only; low homology not determined."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-row-column-boundary-spheres-control-higher-neighborhood-homology--f09a20a3ee45/RESULT.md",
+      "material_read": "Read full GitHub RESULT.md including main general quotient theorem, proof, limitations and applicability m=3,n=4",
+      "method": "Fetched exact current public primary-result blob 27e06c6a5e6df2d5dfcf64c813414c0e19b8b17f",
+      "title": "Row–column boundary spheres control higher neighborhood homology of rook graphs",
+      "trigger": "Same graph and open-neighborhood functor, broader m,n>=3 family"
+    },
+    {
+      "assessment": "HYPOTHESES EXCLUDE C3; necessary unique-center lemma fails at n=3, so numerical substitution agrees but does not prove case.",
+      "evidence": [
+        "Theorem for m>=4,n>=5; Step 1 demands opposite-layer pair unique common center; C3 violates this."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-mixed-dimensional-neighborhood-homotopy-of-complete-graph-cycle--3a53c8927b3c/RESULT.md",
+      "material_read": "Read full RESULT.md complete proof of m>=4,n>=5 wedge formula, unique-center collapse and stated boundaries",
+      "method": "Fetched public primary-result blob 2f21d5fbcdcd09def68a07221db342df38c1ec2d",
+      "title": "Mixed-dimensional neighborhood homotopy of complete-graph cycle products",
+      "trigger": "Same graph is K4 square C3, near-exact numerical specialization but outside theorem"
+    },
+    {
+      "assessment": "Rook K3 square K4 has degree five, outside maximum-degree 3 or specific 4-regular families",
+      "evidence": [
+        "Shukla 2019 graph class degree upper bound does not cover 5-regular R."
+      ],
+      "identifier_or_url": "arxiv:1802.04526",
+      "material_read": "Read indexed abstract and source bibliography scope, not full work",
+      "method": "ArXiv original abstract and theorem scope comparison",
+      "title": "Homotopy type of neighborhood complexes of graphs of maximal degree at most 3 and 4-regular circulants",
+      "trigger": "Potential broader Lovasz neighborhood classification"
+    }
+  ]
+}

@@ -1,15 +1,21 @@
-# Scientific review: open neighborhood complex of \(K_3\square K_4\)
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain is the open-neighborhood complex of the explicitly labeled twelve-vertex rook graph, not the closed-neighborhood or independence complex. The reproducible certificate enumerates all 270 nonempty faces, verifies all 125 matched incidences and the acyclic orientation on all 792 Hasse covers, then computes all 18 signed integral attaching degrees as zero. Forman's theorem gives a CW model with cells \((1,1,18)\); degree-zero loops on its one-circle skeleton attach nullhomotopically. Thus the full claimed homotopy type follows. The independent mod-two chain ranks \((11,54,48,12)\) agree but do not replace the integer attachment certificate.
+## correctness
 
-## Originality — PASS against inspected literature
-Primary full text: Shukla, arXiv:1802.04526 (maximum degree three and certain four-regular circulants), Matsushita, arXiv:1210.2803 (general fundamental-group correspondence), and Matsushita–Wakatsuki, arXiv:2312.02639 (general duality) do not classify this graph. Closest public prior exact-graph work computes a row–column homotopy cofiber and higher homology, expressly leaving low-dimensional homology and homotopy open; the square four-by-four rook graph has a different two-torsion type. A related formula for \(K_m\square C_n\) assumes \(n\ge5\), and its essential unique-center condition fails at the present \(n=3\). The new theorem is not logically implied by simply substituting an excluded parameter. Search cannot exclude obscure equivalent work; see structured comparisons and residual risks in `AUDIT.json`.
+PASS
 
-## Value — PASS
-This answers the full integral homotopy question at a natural shortest-cycle boundary of an existing infinite-family theorem. The excluded case is structurally different because the three-cycle is complete. It also supplies a clear twelve-vertex, five-regular contrast to the two-torsion in the sixteen-vertex four-by-four rook graph. The exact fundamental group and sphere multiplicity are stronger than the general published cofiber and high-homology information; the claim does not extrapolate to other cases.
+Independently built the 12-vertex Cartesian rook graph, generated all 12 open neighborhoods and all 270 faces with face vector (12,66,120,60,12). Reconstructed 125 disjoint greedy matching pairs and topologically sorted all 792 oriented Hasse incidence arcs; critical cells exactly (1 vertex,1 edge,18 triangles). Evaluated signed integral Morse projection of each triangle to the unique critical edge: all eighteen attaching degrees zero. A CW model with 1 circle and 18 null 2-cell attachments has integral wedge S1 ∨ 18 S2 and pi1=Z. This is stronger than modulo-two Betti checks and a complete finite certificate.
 
-## Limits
-The theorem is a single natural finite graph classification, not a general rook-graph theorem, symmetry representation, or independent validation. The checker is complete for its finite input and does not establish priority in unindexed sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: the closest exact open-rook general theorem leaves the integral low-degree and fundamental group unknown, while the complete-graph-cycle theorem assumes n>=5 and cannot be specialized to n=3 by logic; exact integer attaching degrees resolve this previously uncovered boundary.
+
+## value
+
+PASS
+
+Exact full integral homotopy at the minimal excluded short-cycle boundary of a natural published all-parameter rook/cycle-product theorem is a motivated self-contained topological fact. It determines π1 and H1/H2 left open by the general same-object result, and provides a new benchmark for low-complexity Lovasz neighborhood complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
