@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The hub-normalized feasible set is a compact Lipschitz polytope with positive-definite centered variance Hessian, so every maximizer is a vertex. Components of tight rim edges must meet a spoke bound, yielding exactly four possible levels for 1/2<t<1. Exact pairwise-variance algebra excludes one-extreme-sign vertices; counting the number of smaller-level rim vertices, with an odd-parity sign-sum comparison, excludes all configurations with more than two interfaces. Construction meets the bound and fixes all equality cases. At t=1 use the quadratic rescaling sandwich and a separate ternary-level integer argument. The two formulas give the derivative jump by direct differentiation. The included exact-rational checker independently confirms 45 (n,t) settings including 218571 feasible four-level labelled assignments and symbolically guided competitor comparisons; finite checks do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Addario-Berry–Janson–McDiarmid, arXiv:0902.1156, introduction and Section 7 discuss random-graph spread and random edge lengths, not a deterministic weighted wheel threshold.",
+        "Yancey, arXiv:1705.09725, introductory extremizer and cycle sections treat Lipschitz spread and cycle geometry; wheel-spoke parameter and the two-interface equality classification are not stated in the examined sections.",
+        "A published wheel symmetric-edge-polytope Löwner ellipsoid result determines an ellipsoid optimized over root directions rather than variance optimized over a bounded Lipschitz polytope."
+      ],
+      "reasoning": "A generic extremal-point theorem or a bound on random or wheel-derived geometric functionals does not determine the sign patterns, exact weighted formula, or derivative discontinuity. The surveyed broader results do not imply the statement without a new sharp optimization. The wheel ellipsoid result is not the polar norm and has no direct implication for this spread constant.",
+      "searches": [
+        "\"sharp variance of 1 Lipschitz functions on wheel graph n-cycle with universal hub\"",
+        "\"graph spread variance Lipschitz wheel graph exact maximum wheel\"",
+        "\"extremal Lipschitz functions wheel graph circular rim and cone vertex, two interface defects\""
+      ]
+    },
+    "checked_sources": [
+      "Alon–Boppana–Spencer (1998) author-hosted PDF, intro and Section 2: https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+      "Addario-Berry–Janson–McDiarmid (2009), arXiv:0902.1156, intro and Section 7: https://arxiv.org/pdf/0902.1156",
+      "Yancey (2017), arXiv:1705.09725, intro and cycle/extremizer sections: https://arxiv.org/pdf/1705.09725",
+      "Public summary of wheel symmetric-edge-polytope Löwner ellipsoid: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "1998 Alon–Boppana–Spencer: integer extremizers for unweighted graph metrics; claimed theorem concerns real uniform t and exact four-level optimizer rigidity.",
+        "2009 Addario-Berry–Janson–McDiarmid: random weighted edges, which are probabilistic bounds not the deterministic all-n/all-t formula.",
+        "2017 Yancey: structure of cycle extremizers, but cone over a cycle adds constraints that force different interface geometry.",
+        "Public wheel symmetric-edge-polytope ellipsoid and weighted-cycle numerical index results address distinct functionals, not this sharp centered variance."
+      ],
+      "reasoning": "None of the compared statements computes maximal centered squared deviation on spoke-weighted wheels, determines that exactly two domain-wall vertices appear above t=1/2, or forces the parity-dependent first derivative jump. They are related background but do not dominate the claim by a corollary, a duality identity, or a stronger numerical table. This is a claim-by-implication comparison, not a title comparison.",
+      "searches": [
+        "\"sharp Lipschitz variance graph spread wheel graphs hub cycle join\"",
+        "\"graph spread of hub and cycle with weighted spokes 2 t 1 and sharp Lipschitz variance\"",
+        "\"wheel graph Lipschitz spread variance wheel with spoke lengths radial\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A real hub-normalized one-Lipschitz function on a wheel is exactly a vector satisfying |x_i|<=t and |x_i-x_(i+1)|<=1; the objective is a centered quadratic form.",
+        "Alon–Boppana–Spencer (1998), pp. 411–436, introduce spread of graph metrics; examined sections do not give an exact weighted-wheel formula."
+      ],
+      "reasoning": "The sought invariant is simultaneously the largest uniform-probability variance over the wheel Lipschitz polytope, the sharp uniform-measure Lipschitz–Poincaré variance constant, and graph spread. Searches used these conceptual formulations and spoke deformation aliases. Existing general integrality in unweighted graphs does not imply intermediate bridge values ±(1-t) when t lies strictly between 1/2 and 1.",
+      "searches": [
+        "\"wheel graph\" \"spread\" \"Lipschitz\" \"variance\"",
+        "\"weighted wheel\" \"spread\" \"Lipschitz\" variance",
+        "\"wheel graph\" \"spread\" \"Alon\" Boppana Spencer"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Specific formula and domain-wall search terms found no equivalent mathematical table in the publicly inspected literature.",
+        "The candidate produces a continuous family in real spoke parameter t, an odd-even exact parity term, and an optimizer classification for all n>=4; it is not a finite computation or tabulated entry."
+      ],
+      "reasoning": "An existing exact table for unweighted graph families could potentially contain the t=1 endpoint, but would not cover the open weighted interval or the sharp derivative jump. A missing indexed match cannot establish absolute novelty; this remains a residual risk.",
+      "searches": [
+        "For weighted wheel cycle with n rim vertices spoke length t 1/2<t<1, maximum variance of 1-Lipschitz real functions is ((n-2)t^2+2(1-t)^2)/(n+1) minus odd parity (3t-2)^2/(n+1)^2; two transition vertices and balanced extreme blocks",
+        "\"weighted wheel\" \"spread\" \"Lipschitz\" variance",
+        "\"wheel graphs spread constant variance Lipschitz graph wheel\""
+      ]
+    },
+    "rationale": "The closest inspected literature establishes general graph spread and extreme-point methods, random weighted-graph spread, and cycle extremizers. The public wheel ellipsoid statement concerns a different objective. None of these statements implies the all-n weighted-wheel exact variance, its complete two-domain-wall equality classification, or its parity-sensitive derivative discontinuity. Search under wheel, cone over cycle, graph spread, and the exact formula found no coverage. Equivalence under unindexed terminology or an unread original wheel ellipsoid manuscript remains a concrete priority risk.",
+    "residual_risks": [
+      "Search and partial primary-text inspection cannot establish priority against all inaccessible or unindexed literature.",
+      "Original complete text of the wheel symmetric-edge-polytope ellipsoid item was not available; only its abstract was comparable, though its described invariant differs.",
+      "The result has not been independently peer reviewed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides context and general graph variance machinery but does not state or imply the continuous spoke-weighted wheel formula.",
+        "evidence": [
+          "N. Alon, R. Boppana, J. Spencer, GAFA 8 (1998), 411–436, sections 1–2."
+        ],
+        "identifier_or_url": "https://web.math.princeton.edu/~nalon/PDFS/iso7.pdf",
+        "material_read": "Full-text PDF, introductory definition and Section 2 including the relevant extremal integral-potential argument; text search for wheel.",
+        "method": "Examined mathematical statement and proof scope in PDF text and page image.",
+        "title": "An Asymptotic Isoperimetric Inequality",
+        "trigger": "Foundational graph-spread definition and integral extremizer principle could cover wheel formula."
+      },
+      {
+        "assessment": "No corresponding deterministic weighted wheel identity or equality classification found in material read; related upper estimates do not imply an exact formula.",
+        "evidence": [
+          "L. Addario-Berry, S. Janson, C. McDiarmid, arXiv:0902.1156, first dated public posting 2009-02-06."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0902.1156",
+        "material_read": "First-preprint PDF introduction and Section 7 random-edge-weight analysis; searches for wheel.",
+        "method": "Inspected mathematical text and PDF page image, distinguishing random weighted graphs from deterministic wheel metrics.",
+        "title": "On the Spread of Random Graphs",
+        "trigger": "Published source directly concerns Lipschitz spread, including random edge lengths."
+      },
+      {
+        "assessment": "Cycle-specific extremizer results do not give the spoke-weighted wheel formula or parity-sensitive derivative jump.",
+        "evidence": [
+          "M. P. Yancey, arXiv:1705.09725, first public 2017-05-26."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1705.09725",
+        "material_read": "PDF introduction and variance/extreme-point and cycle sections, with page image and term search for wheel.",
+        "method": "Read accessible material and compared the extremizer implications to the weighted cone-over-cycle inequalities.",
+        "title": "Probabilistic and Geometrical Applications to Graph Theory",
+        "trigger": "Analyzes Lipschitz variance extremizers including cycle constraints plausibly applicable to wheels."
+      },
+      {
+        "assessment": "Different objective and parameterization: no stated implication for sharp Lipschitz spread; originality comparison limited by inaccessible underlying full text.",
+        "evidence": [
+          "Public summary states a Löwner ellipsoid for K_1*C_m and exponential rim/spoke weight stabilization; it does not state a Lipschitz variance identity."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-exact-l-wner-ellipsoid-and-exponential-edge-weight-stabiliza--39d62ea47ea0",
+        "material_read": "Public abstract/record summary only; original full text could not be fetched.",
+        "method": "Compared the precise available statement: minimum-volume enclosing ellipsoid of edge roots versus maximum centered quadratic form under spoke-Lipschitz inequalities.",
+        "title": "The exact Löwner ellipsoid and exponential edge-weight stabilization for wheel symmetric edge polytopes",
+        "trigger": "Uses wheel graph symmetric-edge polytope; closest same-object published title."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2e13b85c-333c-44dd-8784-538e7859efea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Uniform spoke-length deformation of wheel graph metrics is a natural test of geometric constraints in sharp Lipschitz variance: the rim inequalities become active exactly at t=1/2. A complete all-parameter formula, every maximizing function, exact two-interface rigidity, the even/odd derivative-jump constant, and an explicit large-rim wall penalty constitute a structural sharp inequality rather than a routine tabulation or a small numerical improvement.",
+    "status": "PASS"
+  }
+}
