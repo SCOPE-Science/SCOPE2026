@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The graph and unnormalized Fourier coefficient are explicitly defined over every finite field, including field-trace normalization. Polarization gives the Sylvester linear map \(X\mapsto BX+XB\), and exact character orthogonality reduces Fourier vanishing and magnitude to its radical. In odd characteristic the radical contributes a zero quadratic term, yielding four disjoint matrix strata with linear image conditions. In characteristic two the radical is the centralizer, and Frobenius trace duality turns the residual quadratic phase into the two stated affine constraints. Matrix counts give all multiplicities. The included exact checker verifies all 256 frequencies for \(q=2\), all 6561 frequencies for \(q=3\), and representative nonprime fields, without using finite experiments to prove the universal claim. The result does not assert phases of nonzero coefficients.
+
+## Originality — PASS (bounded comparison)
+Iosevich–Koh's 2008 paraboloid calculations (arXiv:0805.0814, Sections 2–3 and Lemmas 5–6, inspected in full HTML) give the standard scalar quadratic Gauss mechanism, not the matrix-square map's singular Sylvester strata or the characteristic-two affine conditions. Iosevich–Koh arXiv:0804.4505 supplies older quadratic-surface context, but only an accessible abstract was inspected. Carlet–Gong–Tan arXiv:1410.2903 studies finite-field quadratic functions and zero-difference phenomena; its inspected abstract does not establish this matrix Fourier support. The closest indexed published results inspected by summary concerned scalar paraboloid Fourier frames and rank-one matrix coordinate frames, different operators and restrictions. No equivalent exact matrix-square support theorem was identified in the accessible comparisons; this is not evidence of absolute priority. The greatest remaining risk is a broader established quadratic-form/Jordan-algebra Fourier theorem from which the specialization is immediate.
+
+## Mathematical value — PASS
+The matrix-square graph is a canonical noncommutative quadratic graph. Its complete Fourier-null set and every convolution singular-value multiplicity determine a natural exact spectral invariant across all finite fields. The opposite characteristic-asymptotic regimes, support fraction tending to one in odd characteristic and to zero in characteristic two, are not visible from the ordinary nondegenerate scalar paraboloid calculation and provide a structural boundary relevant to matrix-valued Fourier sampling. The result has a complete natural parameter range, not an arbitrary finite table.
+
+## Limitations and comparison risk
+The standard quadratic Gauss-sum reduction is classical; the distinct contribution assessed here is the full matrix-specific rank stratification and characteristic-two classification. The available search and historical comparisons are bounded, and no claim of exhaustive priority is made. The exact checker is corroboration rather than an independent proof.
+
+Self-review: passed. Independent audit: not yet performed.
