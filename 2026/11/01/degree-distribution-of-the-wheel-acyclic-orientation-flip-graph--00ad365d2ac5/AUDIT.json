@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every directed wheel orientation is partitioned by its spoke word. Mixed spoke words require exactly B-to-A boundary rim arcs, giving an even number of runs and acyclicity. Reversibility is proved via alternative directed paths: all boundary rim arcs are nonflippable, within-run rim arcs are flippable, and spokes are flippable exactly at sources/sinks of internally oriented path runs. The path-source polynomial follows from exact virtual-boundary sign-change counting, yielding the rational run generating function. Constant spokes require a separately proved one-minority-rim correction. Summing cyclic compositions gives the displayed degree polynomial with all normalizations (2m/k) accounted for. The Lucas formula follows by a factored logarithmic generating function. Minimum and maximum degree bounds are sharp for every m>=3; m=3 is isolated explicitly. Independent direct all-orientation DAG/reachability enumeration for m=3..8 and algebraic/composition checks for m=3..12 passed, while the symbolic proof covers all m.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Grujic Theorem 1.1 produces all global face counts from chromatic-symmetric-function specialization; one-skeleton face count yields only the sum of degrees.",
+        "Savage--Squire--West Section 4.3 describes allowed rim directions given spoke words but constructs Hamiltonian Gray codes, without enumerating flippable spokes or local degrees.",
+        "General statement flippable arc iff it is in transitive reduction gives a criterion, not an evaluated wheel-specific distribution."
+      ],
+      "reasoning": "The degree polynomial is strictly finer than total vertices, edges, total faces, Hamiltonicity, or generic flippability tests; none of these aggregate statements determines the count of degree-m vertices or the exact maximum-degree multiplicities. The earlier orientation-degree results in other graph families also do not cover wheel graphs.",
+      "searches": [
+        "graphical zonotope wheel simple vertices degree n and nonsimple vertices degree distribution",
+        "\"wheel graphic arrangement\" \"simplicial chambers\"",
+        "\"wheel\" \"acyclic orientations\" \"transitive reduction\"",
+        "arXiv:1604.06931 Theorem 1.1 and Section 5",
+        "Savage Squire West 1993 Gray code results acyclic orientations wheel full text"
+      ]
+    },
+    "checked_sources": [
+      "Savage, Squire, West (1993) primary author-hosted full PDF: https://dwest.web.illinois.edu/pubs/aograph.pdf",
+      "Grujic (2016) arXiv:1604.06931 primary full PDF: https://arxiv.org/pdf/1604.06931",
+      "Stanley (1973) acyclic orientation theorem, referenced in both inspected sources (general framework only)",
+      "Four semantic mathematical-record queries on wheel acyclic-orientation degrees, zonotope adjacency and extremal degrees; closest returned unrelated wheel topological and complete-multipartite zonotope records.",
+      "Focused web searches for wheel degree distributions, graphic arrangement simplicial chambers, and equivalent zonotope terminology.",
+      "Earlier exact graph-orientation degrees for complete bipartite and complete split graphs (different underlying graphs); wheel spanning-tree exchange results (different state space)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1993 wheel orientation theorem gives 3^m-3 and rim/spoke parametrization, which this proof extends by identifying which arcs are separately reversible.",
+        "The 2016 global face formula fixes f_0 and f_1 but not the multiset of vertex degrees, nor local simple-vertex counts.",
+        "Accessible prior graph-degree findings treat complete bipartite or complete split graphs; the wheel spanning-tree exchange graph has spanning trees rather than acyclic orientations as states."
+      ],
+      "reasoning": "The result specializes general orientation and zonotope objects to an all-wheel local count. It is not a corollary of the named earlier numerical or aggregate invariants. A stronger yet-unlocated theorem for graphic-arrangement chamber wall distributions could cover it, so priority is not certified.",
+      "searches": [
+        "arXiv:1604.06931v1/v2 formula global f-polynomial",
+        "Savage-Squire-West-1993 AO(W_n) Sections 3 4.3",
+        "degree polynomial of complete bipartite acyclic-orientation flip graphs (statement comparison)",
+        "degree polynomial of complete split acyclic-orientation flip graphs (statement comparison)",
+        "eccentricities of wheel spanning-tree exchange graphs (statement comparison)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Savage, Squire and West (1993), Sections 3 and 4.3: arc-flip graph AO(W_n), acyclic spoke/rim pattern and 3^n-3 total orientations; no degree polynomial in examined wheel sections.",
+        "Grujic, arXiv:1604.06931, Sections 1, 2, 4, 5: graphical zonotope one-skeleton corresponds to acyclic orientations and global face counts; no count by individual vertex degree."
+      ],
+      "reasoning": "AO(W_n), the graphical-zonotope one-skeleton, and the region adjacency graph of the graphic arrangement are equivalent objects. The check compared local degree distributions and simplicial-chamber counts under all these descriptions; no statement that enumerates these wheel local-degree classes was identified.",
+      "searches": [
+        "degree distribution of acyclic orientation reconfiguration flip graph of wheel W_n, graphical zonotope one skeleton degrees by source blocks, degree generating function",
+        "wheel acyclic orientation graph degree polynomial m 3^m 1993 Savage Squire West rim spoke flippable arcs",
+        "\"wheel\" \"acyclic orientation\" \"degree distribution\" flip",
+        "\"wheel\" \"zonotope\" \"vertex degree\"",
+        "\"wheel graph\" \"graphical zonotope\" degree polynomial",
+        "\"simplicial chambers\" \"wheel graph\" count Lucas"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact matching wheel degree histogram or Lucas simple-vertex sequence appeared in the targeted research-archive results or cited mathematical literature.",
+        "New direct exhaustive finite histograms m=3..8 appear in the attached reproducibility source and agree with the closed general formula."
+      ],
+      "reasoning": "The computed numerical rows are used only as finite checks; the priority claim is the entire m-parameter statement. A database absence is not an absolute uniqueness certificate and unindexed tabulations remain a risk.",
+      "searches": [
+        "wheel AO(W_n) number of degree n orientations, maximum degree 3n/2, graph degree sequence",
+        "\"wheel\" \"Lucas\" \"acyclic orientations\" simplicial",
+        "\"simple vertices\" \"graphical zonotope\" wheel number",
+        "\"degree sequence\" \"acyclic orientation graph\" wheel"
+      ]
+    },
+    "rationale": "The claimed new assertion is a full local-degree polynomial for the wheel acyclic-orientation flip graph, with Lucas-number simple-vertex enumeration and exact maximum-degree multiplicities. Savage--Squire--West (1993) establish the same acyclic orientation objects, their spoke/rim constraints, cardinality, and Hamiltonian properties, but do not state the local-degree profile. Grujic (2016) derives global f-polynomials of graphical zonotopes, which determine the total edge count but do not determine vertex-degree multiplicities. Earlier reported degree results for complete bipartite and split graph orientation spaces, and wheel spanning-tree exchange spaces, concern different graphs or states and do not imply this wheel orientation degree profile. Semantic archive and primary-literature searches produced no equivalent/covering statement. Residual risk is unindexed or otherwise inaccessible prior coverage; independent scholarly priority verification has not occurred.",
+    "residual_risks": [
+      "Historical prior art might use alternative chamber-wall or local normal-cone enumeration vocabulary not represented in searchable text.",
+      "No independent external scholarly audit or global priority certificate has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS starting state-space and wheel count; does not state degree polynomial, simple-vertex multiplicities or maximum-degree count.",
+        "evidence": [
+          "1993 paper Theorem 3.1 states |A(W_n)|=3^n-3 and even-rim non-Hamiltonicity.",
+          "Section 4.3 characterizes rim edges forced by adjacent spokes and constructs Hamiltonian paths for odd rim length."
+        ],
+        "identifier_or_url": "https://dwest.web.illinois.edu/pubs/aograph.pdf",
+        "material_read": "Abstract, Sections 1–3, wheel Sections 4.3 across PDF pp. 15–19, definitions of forced/free rim edges and listed wheel results.",
+        "method": "Opened author-hosted full PDF; extracted and inspected section text with page-image checks for the wheel and cardinality proof.",
+        "title": "Gray Code Results for Acyclic Orientations",
+        "trigger": "Same acyclic-orientation flip graph, and the wheel treated explicitly in the original primary paper."
+      },
+      {
+        "assessment": "COVERS global face polynomial and total edge counts; DOES NOT COVER distribution of 1-skeleton degrees across vertices.",
+        "evidence": [
+          "Theorem 1.1 gives f(Z_G,q)=(-1)^|V| chi_{-q}(G,-1), aggregating all k-faces.",
+          "Sections 5.1–5.4 give examples for complete graphs, trees, cycles, wedges, and 2-isomorphic graphs, not local wheel degrees."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.06931",
+        "material_read": "Full nine-page paper: introductory definitions, Theorem 1.1, proof in Section 4, all examples and conclusions in Section 5, bibliography.",
+        "method": "Opened arXiv primary full PDF, read text sections and checked PDF page images.",
+        "title": "Counting faces of graphical zonotopes",
+        "trigger": "Closest general polyhedral counting theorem; could subsume local degree profile if it determined individual adjacency counts."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00ad365d-2ac5-43b8-9636-f856df0ed224",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A wheel is a canonical planar nonchordal family whose acyclic-orientation flip graph already featured prominently in the 1993 Gray-code literature. A complete local degree polynomial gives all transformation branching counts, far finer than the known total number of states and global f-vector. The nontrivial Lucas-number formula counts exactly the simple vertices of the corresponding graphical zonotope, and proves their proportion decays exponentially. Sharp maximal degree and multiplicities add an exact all-size local extremal classification. This is a natural combinatorial gap, not an arbitrary small parameter slice or a recomputation of a known global count.",
+    "status": "PASS"
+  }
+}
