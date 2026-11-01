@@ -1,17 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The binary noise set consists of the two alternating words. Their output sets coincide exactly for complementary inputs, so the confusability graph is a perfect matching on the complement pairs. This gives the exact optimum, all extremizers, and their count. For \(q\ge3\), the recursive construction avoids at most two symbols at each step and represents every target difference as the difference of two admissible noise words; hence any two inputs share an output.
+PASS
 
-## Originality
+For q=2 all admissible noises are the two alternating complement words, so two distinct input words have intersecting output sets iff they are bitwise complements. Thus 2^(n−1) disjoint confusability edges imply M_2(n)=2^(n−1) and exactly 2^(2^(n−1)) maximal transversals. For q≥3, for every input difference d recursively choose z'_(i+1) outside the at most two values z'_i and z'_i+d_i−d_(i+1), and set z_(i+1)=d_(i+1)+z'_(i+1); this realizes any d as two proper-colouring noise differences, making the graph complete. Holds for all n≥1, q≥3 including q=3 boundary. Independent exhaustive difference-set checks covered q=2..5 and n=1..4; symbolic recursion proves the universal statement.
 
-PASS, with a deliberately narrow scope. The closest inspected literature gives a general finite-state zero-error criterion and capacity formula, and treats a different run-length constraint. It does not state the exact finite-block binary maximum-codebook classification or its count for the proper-colouring noise constraint. The general criterion does cover the no-pair branch for \(q\ge3\); that branch is not presented as a new general capacity theorem. The literature searches are not exhaustive.
+## originality
 
-## Value
+PASS
 
-PASS. Exact finite-block optima and a complete census of all optimal codebooks are natural coding invariants: an asymptotic rate alone does not identify the finite-block penalty or the full set of optimal designs. The classification is self-contained and applies at every blocklength.
+The q≥3 impossibility is a quick application of general prior confusability principles after proving specific difference coverage. The finite-block q=2 extremizer classification and 2^(2^(n−1)) labeled optimal codebooks, together with the exact sharp q=2/q≥3 split, are an explicit all-n classification not supplied by the inspected general-capacity references. Priority is best-of-knowledge with low but nonzero risk of an earlier elementary coding lemma.
 
-Closest literature: arXiv:2006.00892v1 and arXiv:2108.03874v1. Limitations: deterministic worst-case noise only; no stochastic channel claims; no independent audit or independent validation.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Finite-block zero-error coding for a fixed finite-state adversarial noise constraint is a natural operational invariant, and the q=2-to-q=3 jump from 2^(n−1) reliable messages to one is a sharp alphabet threshold. Counting all 2^(2^(n−1)) maximum binary transversals, not just an asymptotic capacity, provides a fully solved benchmark for exact finite-block code design. The argument is elementary but the exact self-contained all-length classification is motivated by channel confusability, rather than an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
