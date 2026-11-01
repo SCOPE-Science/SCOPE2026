@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python3 verify_spider.py` using Python 3 and the standard library, from the directory containing this file. It reconstructs each finite spider as a graph, tests all induced connected components to enumerate allowable faces, computes complete mod-two reduced homology by independent exact elimination, constructs the claimed discrete-Morse matching on the hub link and checks that **every** cover relation orients an acyclic Hasse graph, then compares integral signed-Lefschetz alternating simplex counts with the character of \(\det(\mathbb Z^J)\otimes\bigwedge^t U_Z\).
+## correctness
 
-Observed output:
+PASS
 
-`PASS 158 mod-two Betti plus acyclic-Morse checks and 576 signed-Lefschetz checks, arms 3 to 5, 3-4 arms, at most 12 nonhub vertices`
+For spider arms of edge lengths ell_i>=3, b>=3 and r>=max ell_i, deletion of hub is a full simplex. Its hub link has a contractible invariant part where at least one of N=sum(ell_i-1) interior vertices is missing. Terminal-leaf toggle in the first such arm is an acyclic fiber matching; the all-interior fiber has subsets of b tips of size at most t=r-N-1 and exactly binom(b-1,t) top critical faces in nontrivial range. Suspension proves a wedge in dimension r-1, with contractibility outside 0<=t<=b-1. Relative integral boundary on full interior faces is contraction by the sum functional on leaf exterior powers; top kernel equals wedge^t U_Z and interior orientation gives det(Z^J), establishing free integral G-module, not just mod-two Betti numbers. Independent direct graph-complex GF(2) homology covered 25 parameter cases on <=12 vertices with no mismatch. Finite checks corroborate universal proof; no equivariant wedge equivalence claimed.
 
-The check covers every ordered tuple of three or four arm lengths in \(\{3,4,5\}\) whose sum is at most \(12\), and every integer parameter \(r\) from the maximum arm length through one more than the sum of arm lengths. The verifier's finite checks are not an infinite-parameter proof and its mod-two computations do not alone establish integral torsion-freeness; that comes from the integral chain argument in RESULT.md. Exact signed Lefschetz traces determine the claimed representation characters on tested permutations, not an external certification.
+## originality
 
-**Scientific boundaries:** The theorem requires all arms to have at least three edges and \(r\ge\max_i\ell_i\). It does not claim an equivariant homotopy wedge decomposition, a lower-parameter classification or independent validation.
+PASS
+
+The exact stable-range binomial sphere multiplicities and integral arm-permutation homology representations are not supplied by the inspected all-tree vertex-decomposability theorem or the narrower fully-whiskered and leaf-adjacent exact theorems. The proof is genuinely more than a two-arm path or two-edge-arm spider formula; no dominating published statement was found. This is a qualified priority assessment.
+
+## value
+
+PASS
+
+A uniform all-parameter classification for a natural multiarm tree family, including a sharp transition and an integral symmetry module that distinguishes parity of equal arm lengths. It solves a concrete structural topology question beyond qualitative vertex decomposability; an individual sample computation would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

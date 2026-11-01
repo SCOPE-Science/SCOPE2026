@@ -1,11 +1,21 @@
-# Scientific review of long-arm spider higher-independence topology
+# Independent mathematical audit
 
-**Correctness — PASS.** The deletion at the hub is the full simplex precisely because each arm has at most \(r\) vertices. The link admits a patchwork acyclic matching: a missing interior vertex makes the corresponding terminal vertex freely toggleable, leaving only the fully interior-selected faces. Their remaining matching has \(\binom{b-1}{t}\) top-dimensional critical cells, so the claimed sphere wedge follows. The invariant contractible subcomplex and truncated integral exterior chain complex give the exact integral permutation representation, including its orientation sign. A standalone independent face enumeration, mod-two homology computation, Hasse acyclicity test, and signed-Lefschetz character check succeeded on 158/158 graph-parameter cases and 576/576 symmetry actions. Finite cases are corroboration, not a replacement for the proof.
+## correctness
 
-**Originality — PASS, qualified by stated residual risk.** Deshpande–Singh's exact whiskering formulas require every internal node to meet a leaf, which fails for all arm lengths at least three; its path formulas apply only to two arms. Ghosh–Selvaraja's shellability and Sawant's all-tree vertex-decomposability do not imply the explicit binomial homotopy rank or the integral automorphism module. Searches of indexed mathematical records and accessible earlier claims located only a two-edge-arm higher-independence result and distinct Morse/multipath results; the short-arm case is explicitly excluded. No covering long-arm theorem was located. Equivalent unindexed work remains a genuine risk.
+PASS
 
-**Value — PASS.** An entire infinite class with arbitrarily many distinct arm lengths has stable-range topology depending on only the number of arms and the total number of internal arm vertices, with an exact sharp noncontractible window. The integral equivariant refinement reveals a systematic orientation-parity switch, not implied by Betti numbers or abstract shellability. Both the multivariate length invariance and integral symmetry lattice make the precise classification motivated and useful.
+For spider arms of edge lengths ell_i>=3, b>=3 and r>=max ell_i, deletion of hub is a full simplex. Its hub link has a contractible invariant part where at least one of N=sum(ell_i-1) interior vertices is missing. Terminal-leaf toggle in the first such arm is an acyclic fiber matching; the all-interior fiber has subsets of b tips of size at most t=r-N-1 and exactly binom(b-1,t) top critical faces in nontrivial range. Suspension proves a wedge in dimension r-1, with contractibility outside 0<=t<=b-1. Relative integral boundary on full interior faces is contraction by the sum functional on leaf exterior powers; top kernel equals wedge^t U_Z and interior orientation gives det(Z^J), establishing free integral G-module, not just mod-two Betti numbers. Independent direct graph-complex GF(2) homology covered 25 parameter cases on <=12 vertices with no mismatch. Finite checks corroborate universal proof; no equivariant wedge equivalence claimed.
 
-Closest literature: Deshpande–Singh, arXiv:2001.05448 (Theorems 3.8, 3.10 and paths); Ghosh–Selvaraja, arXiv:2505.06614 (shellability); Sawant, arXiv:2605.25150v1 (all-tree vertex decomposability). Scope is restricted to \(r\ge\max_i\ell_i\), at least three arms, and arm lengths at least three. Primary limitations are absence of lower-range classification and residual unindexed-literature overlap risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact stable-range binomial sphere multiplicities and integral arm-permutation homology representations are not supplied by the inspected all-tree vertex-decomposability theorem or the narrower fully-whiskered and leaf-adjacent exact theorems. The proof is genuinely more than a two-arm path or two-edge-arm spider formula; no dominating published statement was found. This is a qualified priority assessment.
+
+## value
+
+PASS
+
+A uniform all-parameter classification for a natural multiarm tree family, including a sharp transition and an integral symmetry module that distinguishes parity of equal arm lengths. It solves a concrete structural topology question beyond qualitative vertex decomposability; an individual sample computation would not suffice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
