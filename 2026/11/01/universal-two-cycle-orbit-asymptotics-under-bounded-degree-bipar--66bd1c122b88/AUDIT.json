@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Complementarity of two-phase firing vectors follows from the connected-graph Laplacian; independent threshold intervals give the exact cut-degree weight. Two binomial local-CLT factors yield the sharp \\(\\sqrt{\\pi n}/4\\) constant; an endpoint maximal-binomial bound establishes tightness. Each deleted edge contributes exactly \\(2/n\\) to the logarithmic correction and bounded-degree hypergeometric variances force concentration, uniformly for all allowed missing-edge patterns. The degree-product logarithm completes the equivalence. Direct state-level finite checks and independently computed combinatorial formulas agree; finite experiments are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jiang, arXiv:1003.0943, §§2–3, describes all possible period lengths on complete bipartite graphs.",
+        "Ji–Li–Wang, arXiv:2408.10508, Theorems 1 and 3, prove period exclusions and middle-range period two for balanced complete bipartite graphs, without counting all primitive two-cycle orbits.",
+        "arXiv:2608.04153 available abstract states a period-two result for a chip-count interval, not an orbit-number formula."
+      ],
+      "reasoning": "Even a universal period-two existence assertion for an initial chip-count interval does not yield the global census over all conserved masses, its sharp normalization, or its firing-density limit. The general-graph exact formula must be asymptotically evaluated; that is the new proof.",
+      "searches": [
+        "\"parallel chip firing\" \"near-complete bipartite\" count",
+        "arXiv:2408.10508 introduction and Theorems 1–3",
+        "arXiv:2608.04153 abstract"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1003.0943 full-text §§1–3",
+      "arXiv:1211.6786 full-text §§2,6,7",
+      "doi:10.1137/130933770 journal abstract and MSC",
+      "arXiv:2408.10508 full-text abstract, introduction, main results",
+      "arXiv:2608.04153 abstract only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Existing general graph cut-degree enumerator implies equation (1) only; new concentration bounds evaluate its logarithm under arbitrarily irregular deletions.",
+        "The known balanced-biclique arcsine law is exactly the \\(R=0\\) case; it does not force stability for \\(R\\ge1\\).",
+        "Main period theorems in the primary papers do not count phase-specific two-cycle chip configurations."
+      ],
+      "reasoning": "The proof isolates the incremental nontrivial assertion: conditional on the firing counts, deleted-edge correction has expectation exactly \\(2m/n\\) and vanishing variance uniformly in all bounded-degree deletion patterns. That establishes a genuinely stronger family asymptotic than any of the cited baseline statements.",
+      "searches": [
+        "arXiv:1003.0943 period structure K_(a,b)",
+        "arXiv:1211.6786 firing pattern characterisation",
+        "arXiv:2408.10508 middle-chip range",
+        "arXiv:2608.04153 middle-chip range"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The known period-two cut-degree enumerator is a finite exact formula for every connected graph, hence directly covers the starting identity (1), but not a uniform large-n evaluation on deleted-edge families.",
+        "The complete-bipartite asymptotic and \\(\\operatorname{Beta}(1/2,1/2)\\) firing-phase marginal cover exactly the empty-deletion case.",
+        "Jiang–Scully–Zhang, arXiv:1211.6786, pp. 3 and 13–17 (Sections 6–7), establishes permissible firing patterns but not orbit number universality."
+      ],
+      "reasoning": "The theorem is phrased both as a relative factor \\(e^{-2m/n}\\) and as a degree-product asymptotic. They are equivalent in the fixed-degree regime via the degree-product logarithm. Graph switching, relabelling, and the deletion of a perfect matching are included but do not exhaust the arbitrary irregular family.",
+      "searches": [
+        "\"parallel chip firing\" \"period two\" \"number\" \"dense\" graph",
+        "\"chip firing\" \"arcsine\" \"complete bipartite\" period two",
+        "arXiv:1003.0943 §§2–3",
+        "arXiv:1211.6786 §§2,6–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete-biclique exact count at zero deletions is established and reproduced for comparison.",
+        "Specific crown-graph references returned by searches concern unrelated graph invariants, not the period-two chip-firing orbit count.",
+        "Independent small-graph enumeration is used only as a verification diagnostic."
+      ],
+      "reasoning": "A hypothetical exact table for finitely many crown graphs would not imply the theorem uniformly for every bounded-degree missing-edge graph sequence. No inspected catalogue gives the claimed uniform asymptotic; nonindexed tables remain a possible overlap source.",
+      "searches": [
+        "\"period two chip firing crown graph complete bipartite graph minus perfect matching exact orbit count\"",
+        "\"parallel chip firing period two orbit count after deleting bounded degree bipartite edges from complete bipartite graph asymptotic universality arcsine firing fraction\""
+      ]
+    },
+    "rationale": "The precise new claim is robustness of the complete-bipartite two-cycle count and arcsine marginal to arbitrary fixed-bounded-degree missing-edge patterns. The known exact cut-degree enumerator and no-deletion baseline are acknowledged as background. The inspected primary papers address period existence or firing patterns but do not derive the uniform deleted-edge correction; the key hypergeometric concentration and per-edge expectation are additional arguments. Unindexed equivalent work remains possible.",
+    "residual_risks": [
+      "A reformulation as a random weighted cut or fixed-size hypergeometric free-energy ratio could have appeared under another terminology.",
+      "The 2026 universal middle-stair period theorem was not accessible in full; its public abstract describes only period existence in a mass window.",
+      "The theorem does not attempt to quantify the optimal error rate for R fixed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes firing-count conservation and possible periods, not a bounded-degree-deletion orbit-count asymptotic.",
+        "evidence": [
+          "arXiv:1003.0943, §§1–3, in particular Lemmas 2.1–2.5 and the Section 3 period claims"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1003.0943",
+        "material_read": "Full-text introduction, Section 2 definitions, lemmas and Section 3 scope/results",
+        "method": "Read arXiv PDF text and checked relevant page images",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "Same discrete-time update and complete bipartite family"
+      },
+      {
+        "assessment": "Theorem 6.2 prevents clumpy patterns; no matching sharp orbit-count or deletion-universality statement in inspected results.",
+        "evidence": [
+          "arXiv:1211.6786, §§2,6,7; SIAM J. Discrete Math. 29 (2015), 615–630"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "Introduction, definitions, Sections 6–7 and theorem discussion",
+        "method": "Read arXiv PDF text and inspected page images",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Potential stronger periodic firing-sequence results"
+      },
+      {
+        "assessment": "Period exclusions and density-window behavior; does not provide the claimed uniform count over edge deletions.",
+        "evidence": [
+          "arXiv:2408.10508, Theorems 1,3"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2408.10508",
+        "material_read": "Full-text abstract, introduction, main theorems and definitions",
+        "method": "Read arXiv PDF text and inspected page images",
+        "title": "Non-Stabilizing Parallel Chip-Firing Games",
+        "trigger": "Related middle-firing regime on K_(n,n)"
+      },
+      {
+        "assessment": "States a period-two criterion within a mass interval, not a count of all two-cycles; residual full-text overlap risk disclosed.",
+        "evidence": [
+          "arXiv:2608.04153, available abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04153",
+        "material_read": "Accessible abstract only; full text unavailable",
+        "method": "Examined public abstract and bibliographic description; did not pretend to inspect PDF",
+        "title": "All parallel chip-firing games with 2|E|-|V|<|sigma|<2|E| have period 2",
+        "trigger": "Potential universal stronger graph theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "66bd1c12-2b88-4441-b9a6-51a96887dabb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The theorem characterizes a natural, nontrivial graph-perturbation universality class for an infinite family of discrete dynamical systems. Arbitrary sparse but adversarial edge defects destroy complete-biclique symmetry, yet both the sharp orbit-count normalization and a nonuniform beta/arcsine firing law persist with an exact exponential defect correction. This is a structural stability theorem, not a table lookup or a single parameter extension.",
+    "status": "PASS"
+  }
+}
