@@ -1,0 +1,155 @@
+{
+  "correctness": {
+    "rationale": "For each pair of iid uniform spherical sites, the coarea formula applied to the bisector F(z)=z·(Xi-Xj)=0 has the exact gradient |Xi-Xj| on its zero set. Conditional on equal uniform site heights c, the chance that all n-2 other sites lie below c is ((1+c)/2)^(n-2). Relative azimuth contributes sin(Delta/2); after spherical area, height and azimuth density normalizations, the expected pair-interface measure has density sqrt(1-c²) sin(Delta/2) ((1+c)/2)^(n-2) dc dDelta. The transformations U=(1+c)/2 and Z=cos(Delta/2) give independent Beta(n-1/2,3/2) and uniform[-1,1], hence V=1-Z² is Beta(1,1/2). Its integral yields 16B(n-1/2,3/2) per pair, the exact binomial formula for expected total length, all Q moments and the Exp(1) limit by beta-gamma multiplication. Algebraic rational moment checks and independent geometric simulation from the embedded checker passed. A zero-arclength triple-tie set is treated correctly; the n=2 full great-circle boundary is included.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The inspected 2017 Poisson result concerns asymptotic large-cell geometry, with a different random number of sites.",
+        "The inspected 2019–2021 binomial result gives exact face-number expectations but not the metric interface law.",
+        "The 2005 Muche Euclidean Poisson edge theory involves an infinite stationary Euclidean point process; it does not automatically specialize to a fixed number of points on a curved sphere."
+      ],
+      "reasoning": "Neither limit-based Poisson theorems nor binomial combinatorial duality imply the stated all-n metric beta product and chord moments. Possible generalized old formulae cannot be conclusively excluded because Miles 1971 could not be read in full.",
+      "searches": [
+        "spherical Voronoi interface length weighted beta generating sites chord distance exact joint distribution independent variables",
+        "spherical Voronoi all-n mean total boundary length n(n-1) gamma n-1/2",
+        "annealed typical Voronoi edge on sphere nearest two nuclei joint distance asymptotic exponential",
+        "spherical Voronoi Beta(n-1/2,3/2) interface void cap",
+        "arxiv:1709.06522, full original abstract, introduction, Poisson–Voronoi results",
+        "doi:10.1007/s00454-021-00315-2, main theorems and proofs"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1709.06522, original 2017 HTML principal results and Section 10",
+      "arxiv:1709.06522, revised full-text Section 10–11",
+      "arxiv:1911.07221 and doi:10.1007/s00454-021-00315-2, full open-access principal results",
+      "L. Muche (2005) publisher abstract, Euclidean Poisson edge model",
+      "R. E. Miles (1971) bibliographic evidence only, full text inaccessible"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 2.4 of Kabluchko–Thäle relates expected face counts of spherical Voronoi diagrams to counts of facets of an inscribed polytope, not to their spherical lengths.",
+        "Hug–Reichenbacher identifies Poisson typical cell distributions and curvature-scale deviation bounds, without a fixed-n joint interface length-mark formula.",
+        "A prior three-site spherical Voronoi result establishes a labelled cell-area distribution and deterministic perimeter for n=3; that isolated n=3 special case does not imply arbitrary n."
+      ],
+      "reasoning": "The old results are weaker on metric information or apply to different input distributions. The proposed result is not derived by substituting a parameter in their formulas; its essential new step is a coarea-derived pair-interface mark density and beta factorization.",
+      "searches": [
+        "arxiv:1911.07221, Theorems 2.3, 2.4, 3.1 and formula (2.5)",
+        "arxiv:1709.06522, original Section 10 and Theorem 10.3",
+        "spherical Voronoi interface length weighted beta generating sites chord distance exact joint distribution independent variables",
+        "spherical Voronoi all-n mean total boundary length n(n-1) gamma n-1/2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kabluchko–Thäle Theorems 2.3–2.4 and 3.1 describe face vectors or face counts, not the length-biased joint generator-height and chord law.",
+        "Hug–Reichenbacher original section 10 develops a Poisson spherical Voronoi model and large-cell deviation bounds; it does not give a finite-binomial pair-interface Palm density."
+      ],
+      "reasoning": "An equality of face-count laws or a typical-cell representation does not determine spherical arclength along interfaces or the two-generator chord mark. Both are genuinely metric quantities; no equivalent factorization was observed in the inspected material.",
+      "searches": [
+        "spherical binomial Voronoi tessellation n uniform sites exact expected total intrinsic edge length perimeter beta distribution distance to nearest generating sites on cell boundary",
+        "length biased spherical Voronoi edge point squared cosine of generator distance Beta(n-1/2,3/2) distribution",
+        "Voronoi tessellation sphere total edge length expected 16 choose n 2 beta(n-1/2 3/2)",
+        "spherical Voronoi interface length weighted beta generating sites chord distance exact joint distribution independent variables",
+        "arxiv:1911.07221, Sections 2–4",
+        "arxiv:1709.06522, Section 10"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The 2019–2021 primary article tabulates expected Voronoi face counts, which are dimensionless integers and cannot fix total arclength.",
+        "Actual semantic searches returned related but distinct Euclidean-lattice Voronoi boundary-clearance findings and spherical section-count or tessellation results; no matching beta interface-height and chord table was located."
+      ],
+      "reasoning": "No inspected exact table contains this pair of metric mark distributions or the all-k chord moment law. Search failure is evidence of search coverage only, not a proof of uniqueness.",
+      "searches": [
+        "spherical binomial Voronoi tessellation n uniform sites exact expected total intrinsic edge length perimeter beta distribution distance to nearest generating sites on cell boundary",
+        "length biased spherical Voronoi edge point squared cosine of generator distance Beta(n-1/2,3/2) distribution",
+        "Voronoi tessellation sphere total edge length expected 16 choose n 2 beta(n-1/2 3/2)",
+        "spherical Voronoi Beta(n-1/2,3/2) interface void cap",
+        "spherical Voronoi n uniform points expected total edge length Gamma beta formula perimeter",
+        "binomial Voronoi tessellation on sphere average edge length exact finite sample",
+        "spherical Voronoi tessellation typical cell expected perimeter n nuclei uniform sphere",
+        "spherical Voronoi random number points length distribution typical edge generator distance"
+      ]
+    },
+    "rationale": "The precise new contribution is the finite-binomial, annealed arclength-weighted joint law for the common site-height and generator chord factor, together with exact total interface length, all chord moments and their exponential scaling limit. The inspected primary theorems on binomial spherical Voronoi face counts do not imply metric-length formulas; spherical Poisson large-cell deviations are for another model and observable. The earlier accessible three-site area distribution and great-circle tessellation moments concern different statistics. Closest classical 1971 source is inaccessible and remains a specific historical priority risk rather than grounds for fabricated certification.",
+    "residual_risks": [
+      "R. E. Miles (1971), particularly any complete spherical Voronoi moment formulas, was not read in original full text. This is a specific unresolved historical priority comparison.",
+      "Publisher full text of Muche (2005) was unavailable; its Euclidean Poisson model differs but abstract-only review cannot exclude any indirect general identities.",
+      "Published findings from multiple repositories and synonymous parametrizations may be missed despite literal and semantic queries; no independence or external priority certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not an implication of the fixed-n arclength-weighted beta interface claim; input is a Poisson point process and target is shape deviation.",
+        "evidence": [
+          "Original arXiv posting 2017-09-19; original MSC primary 52A55 among other primaries.",
+          "Original Section 10 characterizes Poisson typical cells and large-cell deviations, not fixed-n edge-length marks."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.06522",
+        "material_read": "Publicly available original 2017 HTML abstract, introduction, principal statements and Section 10 on spherical Poisson–Voronoi tessellations; compared its large-cell and typical-cell assertions.",
+        "method": "Direct inspection of arXiv original HTML primary paper; specific theorem and section comparison.",
+        "title": "Geometric inequalities, stability results and Kendall's problem in spherical space",
+        "trigger": "Prior geometry work on spherical Voronoi tessellations and original primary MSC classification in the eligible date range."
+      },
+      {
+        "assessment": "Adds spherical Poisson typical-cell formalism and stability, not the stated arclength-weighted binomial mark factorization.",
+        "evidence": [
+          "PDF section 10 derives Poisson typical-cell and large-deviation properties; section 11 gives measure-theoretic typical-cell characterization.",
+          "Its 2025 revision date is not used as the first public source date."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1709.06522",
+        "material_read": "PDF introduction, section 10, section 11, bibliography and relevant theorem statements, including page images of the title and section 10; not claimed as a line-by-line reading of all 39 pages.",
+        "method": "Text and page-image inspection with targeted theorem, Voronoi, and perimeter searches.",
+        "title": "Geometric inequalities, stability results and Kendall’s problem in spherical space (revised text)",
+        "trigger": "Examine latest freely accessible full text and appendices for stronger coverage."
+      },
+      {
+        "assessment": "Its binomial-model face count laws do not determine expected intrinsic lengths, length-weighted pair geometry or all chord moments.",
+        "evidence": [
+          "Equations (2.4)–(2.7) express face identities and convex-hull duality.",
+          "Theorems 2.3–2.4 and Section 3 tabulate expected f-vectors; no interface perimeter formulas were located in text."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-021-00315-2",
+        "material_read": "Full open-access article HTML: abstract, Sections 2–4, especially Theorems 2.3–2.4, 3.1, their formulas and duality proof.",
+        "method": "Primary full-text theorem, definitions, results, and proof comparison.",
+        "title": "The Typical Cell of a Voronoi Tessellation on the Sphere",
+        "trigger": "Directly studies the same spherical binomial nearest-site Voronoi construction."
+      },
+      {
+        "assessment": "Euclidean stationary Poisson edge model differs from finite spherical binomial model; indirect implications not fully assessed without complete text.",
+        "evidence": [
+          "Abstract specifies homogeneous Poisson input in Euclidean space of arbitrary dimension and typical-edge relationships."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/advances-in-applied-probability/article/poissonvoronoi-tessellation-relationships-for-edges/171513A519A92789CA6DF1ABCAE0BBD5",
+        "material_read": "Publisher abstract and bibliographic model description only; original PDF not obtained.",
+        "method": "Publisher abstract inspection with model comparison.",
+        "title": "The Poisson–Voronoi tessellation: relationships for edges",
+        "trigger": "Potential competing metric edge distribution formulas."
+      },
+      {
+        "assessment": "UNRESOLVED PRIORITY RISK. Cannot classify this article as not covering the claim; no claims of complete original inspection.",
+        "evidence": [
+          "Hug–Reichenbacher original introduction describes fixed-number Voronoi tessellations as briefly mentioned in Miles (1971).",
+          "Direct publisher access yielded no full scholarly text."
+        ],
+        "identifier_or_url": "https://www.jstor.org/stable/25049720",
+        "material_read": "Bibliographic record, citations and modern papers citing its spherical Voronoi discussion; original article full text inaccessible.",
+        "method": "Search for arXiv and lawful open-access original; publisher page available without article body; institutional full-text route unavailable.",
+        "title": "Random points, sets and tessellations on the surface of a sphere",
+        "trigger": "Classical 1971 study of random spherical tessellations, possible older all-n geometry."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6411ccae-486f-450f-b775-d655a38150a7",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The problem is a standard natural finite-binomial spherical Voronoi model, but face counts alone leave metric interface behavior unknown. The theorem gives the complete arclength-weighted joint two-generator metric mark law, each chord moment at any n, an exact expected total interface length, a nontrivial curvature correction to its planar scaling and an exponential distance limit. These facts form a structurally informative finite-size benchmark, not arbitrary numerical recomputation or an elementary restatement of the face-vector theorems.",
+    "status": "PASS"
+  }
+}
