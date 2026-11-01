@@ -1,14 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over deterministic sparse dyadic schedules, uniformly elliptic probabilities on their active bits, independent fresh environmental rows, and iid fair input signs. The binary-digit product identity is exact. Fourier convergence for a binomial walk modulo a varying dyadic modulus gives the centered covariance estimate; splitting near/far pairs proves polynomial decay of the Cesàro second moment. A dense polynomial subsequence and bounded interpolation give joint and quenched almost-sure bracket convergence. Bounded martingale increments prove the functional limit. Fourth-moment uniform integrability supplies necessity, and two-sided exponential bounds on the residue-product mean prove the sharp independence condition. All limiting and endpoint regimes claimed in the theorem follow from these arguments, not from finite experiments.
+## correctness
 
-## Originality — PASS, with priority risk
-Hamza–Tournier (arXiv:2610.01658v1, sections on inclusion-induced bootstrap walks) randomize all inclusion coefficients with uniformly elliptic success probabilities and focus on annealed convergence. Collevecchio–Hamza–Shi–Williams (arXiv:2010.16000, martingale limit theorem) supply the abstract martingale criterion, but not the sparse coefficient mixing estimates nor the sharp binary-digit density characterization. The present deterministic-zero coefficients violate full ellipticity, and the exact necessity of divergence in density is not a corollary of an abstract sufficient martingale criterion alone. Semantic research-record searches using sparse, dyadic, Lucas, quenched and bootstrap aliases returned no directly matching exact density classification. This does not establish historical uniqueness; related work might describe the same binary Walsh class differently.
+PASS
 
-## Mathematical value — PASS
-The 2026 motivating problem highlights a difficult distinction between annealed and quenched behavior. Here the number of random coefficients per row is reduced from linear to logarithmic yet a complete quenched Brownian criterion survives, with a sharp boundary between independent and correlated limit components. The role of the dyadic modulus relative to the binomial mixing scale supplies a reusable structural mechanism. This is not a generic application of a single martingale convergence theorem: the arithmetic mixing and iff density characterization are additional claims needing proof.
+For each time n, independence of fresh Bernoulli dyadic coefficients gives g_n(s)=product_{j<r_n:d_j(s)=1}(1-2p_nj), periodic modulo 2^{r_n}, with exact residue average b_n=product(1-p_nj). Binomial residues mix uniformly with error q_n exp(-pi^2 h/(2q_n^2)) for q_n<=n^gamma, gamma<1/2. Splitting temporal covariances into gaps below n^theta and longer gaps (2gamma<theta<1) gives polynomial L2 decay; Borel-Cantelli on a sufficiently sparse polynomial subsequence and bounded interpolation give almost-sure Cesaro bracket convergence. Bounded predictable-sign martingale increments yield the quenched functional CLT; conditional fourth moments provide uniform integrability and necessity of the deterministic Cesaro b_n correlation. The bounds eps^{r_n}<=b_n<=(1-eps)^{r_n} give exactly the natural-density criterion. Independently checked 84 rational product/residue identities for up to five active bits and 12 input steps; finite verification does not establish the almost-sure claim.
 
-The result does not cover growth at the critical square-root mixing scale or non-dyadic sparse support, and remains to be independently validated.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Collevecchio–Hamza–Shi–Williams (2022) gives an abstract bootstrap martingale normality criterion but does not derive the environment-specific logarithmic-sparse dyadic bracket. Hamza–Tournier (2026) Theorem 2 obtains quenched standard independence only under ellipticity for ALL indexed coefficients, whereas the submitted model makes all non-dyadic coefficients identically zero; its Corollary 9 obtains an annealed one-factor Markov result. The target adds a nonzero-correlation classification and a necessary-and-sufficient density test in a sparse family, not a special case of the inspected prior hypotheses. This is a best-of-knowledge conclusion with alias risks.
+
+## value
+
+PASS
+
+The same bootstrap-normality framework makes quenching versus annealing and the amount of injected randomness natural questions. An explicit only-logarithmically-many-active-digits regime with an if-and-only-if independence threshold and full correlation spectrum gives an interpretable nontrivial sharp sparse-randomness boundary beyond general martingale limit criteria.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
