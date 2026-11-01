@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The finite-space furtherness cardinality is computed explicitly for each rank, with a distinction between subspaces containing and avoiding the fixed line. At birth stages the order complexes are the full bottom-rank selections of a geometric lattice; classical EL-shellability and the Gaussian Möbius formula give the exact torsion-free Betti numbers. At death stages the closure operator \(T\mapsto T+L\) has a least-element image, yielding a homotopy contraction. Constant intervals between consecutive threshold levels then prove the exact integral persistence splitting. The accompanying checker validates five entire prime-field instances by three independent coefficient-field boundary reductions, but the infinite-family conclusion comes from the proof.
+
+**Originality — PASS, with residual risk.** Badra–Singh arXiv:2610.16386 constructs the relevant filtration but its explicit classification is degree-zero. Their arXiv:2603.18580 supplies the definition. Hersh–Sundaram arXiv:2604.06479 establishes more general rank-selected homology statements, but not the center-dependent threshold maps. A related Boolean centered-subset theorem has different objects and does not entail the non-distributive subspace case. Kitajima arXiv:2606.15241 addresses rank-defined filtered order complexes, but its full text could not be inspected; abstract evidence alone leaves some uncertainty about possible related results. Index searches found no logically dominating exact persistence theorem, which is not a proof of uniqueness.
+
+**Value — PASS.** Exact all-degree integral persistence for finite projective subspace posets is a natural new invariant benchmark with Gaussian multiplicities, explicit subspace-count endpoints, an alternating shellable/contractible regime, and a one-level gap between successive homology bursts. A full classification for an infinite nondistributive lattice family is not reducible to a bare normalization check or isolated small calculation.
+
+The result is limited to a one-dimensional center. It does not claim equivariant decompositions or a theorem for arbitrary finite posets, and a separate scientific review would be needed before treating originality as definitively established.
+
+Self-review: passed. Independent audit: not yet performed.
