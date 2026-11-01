@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T17:12:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every polygon is the hull of some subset of the sixteen integer grid sites; monotone-chain integer determinant hull extraction deduplicates all subsets. The convex normal fan partitions objective directions by primitive edge-normal rays and open sectors, whose directed adjacency is constant. Exact integer shortest increasing-path DP on each direction is exhaustive. Independent enumeration found 2719 unique hulls, all seven (vertex-count, diameter) strata 516,1038,648,200,292,24,1; unique H eight vertices and diameter 4; checked all nongeneric rays. This is a genuine *finite exhaustive proof*, not an extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "SCOPE RESULT.md and source verify_monotone_census.py at tree 7aa1a745837ea26a7e057595d0b37f09fed4927b",
+        "arxiv:2609.08647v1",
+        "arxiv:2204.09129",
+        "arxiv:1704.01687",
+        "Resultary search"
+      ],
+      "rationale": "Black 2026 gives high-dimensional exponential examples for [0,3] grid boxes and Black 2022 treats [0,2] grid bounds, while Chadder–Deza address undirected graph diameter. None of these implies the 2719-polygon exact planar three-grid table. A prior exhaustive table or online database is a residual risk.",
+      "residual_risks": [
+        "An existing exact small-grid computation under a different naming convention may give the same table.",
+        "No result for [0,k]^2 at k>3 or any higher dimensions is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_PLANAR_CENSUS",
+          "evidence": "Main theorem gives exponential monotone diameter in dimensions 6d for grid parameter 3, no 2719 exact planar breakdown.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.08647",
+          "material_read": "Entire available seven-page primary PDF, theorem, proof construction and examples",
+          "method": "arXiv PDF text and rendered page inspection",
+          "title": "Monotone Diameters of Lattice Polytopes",
+          "trigger": "direct title, same [0,3] lattice setting"
+        },
+        {
+          "assessment": "INAPPLICABLE_GRID_PARAMETER",
+          "evidence": "Studies grid {0,1,2} and projection bounds, not exhaustive planar {0,1,2,3} polygon census.",
+          "identifier_or_url": "https://arxiv.org/abs/2204.09129",
+          "material_read": "Abstract and relevant bounded-grid statement",
+          "method": "arXiv primary overview",
+          "title": "Small Shadows of Lattice Polytopes",
+          "trigger": "potential stronger grid bound"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Graph shortest paths unconstrained by linear monotonicity differ from monotone diameter.",
+          "identifier_or_url": "https://arxiv.org/abs/1704.01687",
+          "material_read": "Abstract and research question, undirected edge diameter",
+          "method": "arXiv bibliographic and abstract review",
+          "title": "Computational determination of the largest lattice polytope diameter",
+          "trigger": "possible exhaustive lattice-polytope database"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-grid is a distinguished threshold setting in lattice-polytope monotone diameter research; an exact natural small-dimension classification, sharp extremum and unique geometric witness offer useful benchmark data beyond arbitrary small-instance computational noise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE RESULT.md and source verify_monotone_census.py at tree 7aa1a745837ea26a7e057595d0b37f09fed4927b",
+    "arxiv:2609.08647v1",
+    "arxiv:2204.09129",
+    "arxiv:1704.01687",
+    "Resultary search"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An existing exact small-grid computation under a different naming convention may give the same table.",
+    "No result for [0,k]^2 at k>3 or any higher dimensions is asserted."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING_PLANAR_CENSUS",
+      "evidence": "Main theorem gives exponential monotone diameter in dimensions 6d for grid parameter 3, no 2719 exact planar breakdown.",
+      "identifier_or_url": "https://arxiv.org/abs/2609.08647",
+      "material_read": "Entire available seven-page primary PDF, theorem, proof construction and examples",
+      "method": "arXiv PDF text and rendered page inspection",
+      "title": "Monotone Diameters of Lattice Polytopes",
+      "trigger": "direct title, same [0,3] lattice setting"
+    },
+    {
+      "assessment": "INAPPLICABLE_GRID_PARAMETER",
+      "evidence": "Studies grid {0,1,2} and projection bounds, not exhaustive planar {0,1,2,3} polygon census.",
+      "identifier_or_url": "https://arxiv.org/abs/2204.09129",
+      "material_read": "Abstract and relevant bounded-grid statement",
+      "method": "arXiv primary overview",
+      "title": "Small Shadows of Lattice Polytopes",
+      "trigger": "potential stronger grid bound"
+    },
+    {
+      "assessment": "DIFFERENT_INVARIANT",
+      "evidence": "Graph shortest paths unconstrained by linear monotonicity differ from monotone diameter.",
+      "identifier_or_url": "https://arxiv.org/abs/1704.01687",
+      "material_read": "Abstract and research question, undirected edge diameter",
+      "method": "arXiv bibliographic and abstract review",
+      "title": "Computational determination of the largest lattice polytope diameter",
+      "trigger": "possible exhaustive lattice-polytope database"
+    }
+  ]
+}

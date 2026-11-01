@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify_monotone_census.py` and `python verify_jarvis_independently.py` with both files in the same directory. No nonstandard Python packages, external libraries, web services, files from other records, randomness, or approximations are needed. The main checker evaluates all 65536 point subsets, deduplicates exact strict-vertex hulls, exhausts all critical normal rays and open sectors, and verifies generic/non-generic agreement and the complete table. The secondary checker rebuilds the hull collection using gift wrapping and tests 288 nonzero objective vectors in the integer box \([-8,8]^2\) against the exact certificate for every polygon.
+## correctness
 
-Actual run of primary checker: `CERT_OK polygons 2719 diameters [(1, 516), (2, 1686), (3, 516), (4, 1)]` followed by the seven by-vertex strata and `UNIQUE_EXTREMAL` for the eight-vertex polygon. Actual run of secondary checker: `independent hulls 2719`; `independent objective sample consistency 2719`. Both exited successfully. The secondary finite direction sample corroborates rather than establishes objective completeness; the exact ray/sector coverage proof and primary certificate do that. Nothing in these checks amounts to independent scientific auditing or historical priority certification.
+PASS
+
+Every polygon is the hull of some subset of the sixteen integer grid sites; monotone-chain integer determinant hull extraction deduplicates all subsets. The convex normal fan partitions objective directions by primitive edge-normal rays and open sectors, whose directed adjacency is constant. Exact integer shortest increasing-path DP on each direction is exhaustive. Independent enumeration found 2719 unique hulls, all seven (vertex-count, diameter) strata 516,1038,648,200,292,24,1; unique H eight vertices and diameter 4; checked all nongeneric rays. This is a genuine *finite exhaustive proof*, not an extrapolation.
+
+## originality
+
+PASS
+
+Black 2026 gives high-dimensional exponential examples for [0,3] grid boxes and Black 2022 treats [0,2] grid bounds, while Chadder–Deza address undirected graph diameter. None of these implies the 2719-polygon exact planar three-grid table. A prior exhaustive table or online database is a residual risk.
+
+## value
+
+PASS
+
+The three-grid is a distinguished threshold setting in lattice-polytope monotone diameter research; an exact natural small-dimension classification, sharp extremum and unique geometric witness offer useful benchmark data beyond arbitrary small-instance computational noise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
