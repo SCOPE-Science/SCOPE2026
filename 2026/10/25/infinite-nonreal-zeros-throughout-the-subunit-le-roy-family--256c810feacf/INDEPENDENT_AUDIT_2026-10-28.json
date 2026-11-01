@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:56:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Analytic Gamma log Levy exponent with nonnegative Levy measure; exact Mellin transform Gamma(1+s)^tau, s>-1.",
+        "Stirling: exact entire order 1/p; Hadamard finite-zero factorization and real-axis positivity.",
+        "Negative real Laplace mixture strict complete monotonicity and divergent integral are proved independently of any root plot."
+      ],
+      "rationale": "For 0<p<1 set tau=1-p. The compensated Gamma Levy exponent makes log E, for E unit-exponential, infinitely divisible; its tau-power determines a real Y with E exp(sY)=Gamma(1+s)^tau for s>-1. Thus X=exp(Y)>0 has E X^n=(n!)^tau and all positive exponential moments, so E exp(zX)=F_p(z). Its E X^{-q}=Gamma(1-q)^tau diverges as q tends to 1 from below; restriction to X<=1 plus monotone convergence proves E X^{-1}=infinity. Tonelli gives integral_0^infty F_p(-x)dx=infinity while dominated convergence yields F_p(-x)->0. The coefficient order is 1/p finite. If F_p had finitely many zeros, Hadamard gives F_p=P exp(Q); positivity on the negative ray forces Q(-x) real modulo a constant phase. A nonconstant real polynomial Q(-x) either grows, contradicting F_p(-x)->0, or decays, contradicting nonintegrability; a constant Q makes F_p a polynomial, also impossible. Therefore infinitely many zeros, none on either real half-axis; conjugation yields infinitely many off-real pairs. The separate Rosas p>1 theorem and F_1=exp finish the positive-p classification.",
+      "risks": [
+        "Uses classical Levy-Khintchine existence and finite-order Hadamard factorization as named external theorems; does not quantify zeros or locate them."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rosas theorem assumes sum (n!c_n) z^n is entire. For c_n=(n!)^{-p} its transformed series has coefficients (n!)^{1-p}, radius zero when p<1.",
+          "The negative-ray Gamma-moment theorem from Simon supplies no finite-order inverse-moment zero obstruction."
+        ],
+        "reasoning": "A theorem covering the same series for all p>0 would dominate, but Rosas cannot imply the subunit claim: its analytic hypothesis is false precisely in the new range. An order-only argument may handle noninteger entire orders but misses p=1/m.",
+        "searches": [
+          "arXiv:2510.10054v1 Theorem 1.1 and Section 3 full HTML",
+          "web: Rosas Le Roy r>1 and parameter shift",
+          "Resultary: zero distribution Le Roy reciprocal-integer parameters"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2510.10054v1",
+        "https://www.researchgate.net/publication/347534585_Remark_on_a_Mittag-Leffler_function_of_Le_Roy_type",
+        "https://www.mdpi.com/2227-7390/9/12/1361",
+        "Resultary semantic zero-function and alias searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Simon constructs positive random-variable Mellin transforms, including the Gamma ratio and complete monotonicity.",
+          "Rosas proves infinite zeros only with coefficient-growth condition matching p>1.",
+          "The reviewed claim adds the inverse-moment obstruction, which combines divergence of a negative moment with Hadamard factorization."
+        ],
+        "reasoning": "The prior work establishes the positive mixing and the superunit case but does not imply the subunit infinity-of-nonreal-zeros conclusion without the distinct inverse-moment argument.",
+        "searches": [
+          "arXiv:2510.10054v1 Section 3 read directly",
+          "arXiv:2012.11018 preprint Theorem and Section 2 full text via ResearchGate",
+          "Resultary: complex zeros Le Roy subunit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Simon (2020/2021) Theorem (a) gives complete monotonicity of negative ray for gamma<=1, including F_p(-x).",
+          "COM-Poisson partition function Z(lambda,p) has exactly the same factorial-power series, but known positive-lambda normalizers do not by themselves classify nonreal zeros."
+        ],
+        "reasoning": "The exact Le Roy/COM-Poisson series and complete-monotonicity aliases were compared at statement level; no inspected theorem asserted infinitely many nonreal zeros throughout 0<p<1. The known Laplace representation is a prerequisite, not the new conclusion.",
+        "searches": [
+          "Resultary: Le Roy function F_p(z) series gamma factorial exponent p less than 1 infinitely many zeros complex",
+          "web: Le Roy entire function COM-Poisson normalizing entire zero-free parameter",
+          "arXiv:2012.11018v1 Simon full preprint via ResearchGate"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned nearby zero-theory findings but no matching Le Roy zero census.",
+          "The surveyed Le Roy type functions and COM-Poisson partition context provide series identities and other analytic properties, not a tabulation of zero counts for all subunit exponents."
+        ],
+        "reasoning": "The target is an infinite-zero classification, not a single finite numerical table; absence of a tabulation is only limited search evidence, not novelty proof.",
+        "searches": [
+          "Resultary: Le Roy factorial power zero family; COM-Poisson zeros",
+          "web: Series in Le Roy Type Functions 2021 survey",
+          "web: exact factorial-power partition zeros"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution: The prior work establishes the positive mixing and the superunit case but does not imply the subunit infinity-of-nonreal-zeros conclusion without the distinct inverse-moment argument.",
+      "residual_risks": [
+        "Best-of-knowledge, not a priority certification; older Le Roy/COM-Poisson entire-zero literature may contain an equivalent argument.",
+        "Moment/LK and Hadamard lemmas accepted as classical external foundations rather than independently reproved in this audit."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers p>1; analytic hypothesis fails p<1",
+          "evidence": [
+            "Theorem 1.1: transformed factorial series entire.",
+            "Section 3 Le Roy application explicitly states r>1."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2510.10054v1",
+          "material_read": "Full accessible HTML: Main Result, Lemmas 1.2 and 1.3, Section 3 applications and hypotheses",
+          "method": "Primary theorem and parameter-condition comparison",
+          "title": "If sum n! c_n z^n is entire ... infinitely many zeros",
+          "trigger": "Direct Le Roy zero theorem with same series"
+        },
+        {
+          "assessment": "Establishes CM and representing moments but not the all-subunit complex-zero count",
+          "evidence": [
+            "Theorem part (a) characterizes complete monotonicity for gamma<=1.",
+            "Section 2 states E exp(zX) is proportional to the Le Roy-type function."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/347534585_Remark_on_a_Mittag-Leffler_function_of_Le_Roy_type",
+          "material_read": "Full public preprint text visible in ResearchGate HTML: theorem, proof Section 2 and concluding problems",
+          "method": "Primary source theorem/argument comparison",
+          "title": "Remark on a Mittag-Leffler function of Le Roy type",
+          "trigger": "Same Le Roy negative-real Laplace and Gamma moment representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Sharp boundary p=1 is the unique zero-free positive exponent, p>1 previously known.",
+        "Strict complete monotonicity coexists with infinitely many nonreal zeros, an interpretable special-function phenomenon."
+      ],
+      "rationale": "The exact infinite/nonreal zero classification fills a natural missing regime of the factorial-power entire-function family, including delicate reciprocal-integer parameters where an order-only argument is insufficient. Its reusable inverse-moment criterion is a motivated analytic mechanism, not a routine numerical root count.",
+      "risks": [
+        "No zero-density or multiplicity description; significance is the zero classification and criterion, not those stronger unknowns."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
