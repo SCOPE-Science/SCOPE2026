@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, each pair of consecutive labelled configurations corresponds bijectively to a path in a fully specified 256-state transfer graph. The 400 allowed middle triples and 36 boundary pair entries are exhaustively enumerated. Exact integer evaluation proves p(T)e=0 (256 coordinates) with p=(z²−3z+1)(z³−1), and q(T_f)e_f=0 (256 coordinates) with q=(z−1)(z²−z−1), plus initial values; this is an exact finite certificate implying both recurrences for all n, not a finite-sample induction. A separate Lyapunov descent for a symmetric matrix with endpoint self-weights proves that higher periods are impossible. Brute-force simulation of all 87,376 binary states for 2<=n<=8 independently agrees. Quantifiers, endpoint tie normalization, labelled-orbit division by two, and asymptotics were checked. Code and its actual output are included in this row.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos 1980 generic theorem, quoted and discussed in Benjamini et al., arxiv:1405.2486, Theorem 1.1: eventual period at most two on any finite symmetric-threshold network.",
+        "Benjamini et al., arxiv:1405.2486, Sections 1–3: random/unimodular graph convergence and unanimity results, not exact orbit counts on a fixed ladder family.",
+        "published-finding corpus published records 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4 and 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7 concern mod-two parity, not Boolean majority."
+      ],
+      "reasoning": "A theorem restricting allowable orbit periods cannot supply multiplicities; it admits many graphs with radically different fixed and 2-cycle counts. More general topology and parity network results use different dynamical maps. No checked broader theorem determines the 256-state ladder transfer polynomial or this exact multiplicity.",
+      "searches": [
+        "published-finding corpus: exact number of synchronous binary majority rule 2-cycle configurations on open 2 by n ladder graph",
+        "published-finding corpus: majority dynamics rectangular grid strip width two periodic states enumeration",
+        "Web: parallel majority dynamics ladder graph exact count period 2 states fixed points golden ratio",
+        "arxiv:1405.2486 Theorem 1.1 and Section 2; arxiv:1307.4035 Section 3.4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/1307.4035v2",
+      "https://arxiv.org/abs/1405.2486",
+      "https://arxiv.org/abs/2205.08972",
+      "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+      "published-finding corpus record 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+      "published-finding corpus record 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+      "previous own finding f3e23a9b-5ed9-4688-839a-7319dd06ddcf",
+      "previous own finding a717e3ca-35e2-4a94-bda8-7a7fd9a73cd6",
+      "previous own finding 49891d3f-12fa-49eb-bc0d-06c86fd63c04"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior circular prism majority result (f3e23a9b-5ed9-4688-839a-7319dd06ddcf): cyclic horizontal edges instead of open boundary; not a value of its parameter at which the boundary-edge rule changes.",
+        "Prior three-row cylinder majority result (a717e3ca-35e2-4a94-bda8-7a7fd9a73cd6): different width and cylindrical boundary.",
+        "Prior open ladder result (49891d3f-12fa-49eb-bc0d-06c86fd63c04): degree-threshold parallel chip-firing, not majority opinion dynamics.",
+        "The transfer-vector annihilator (z²−3z+1)(z³−1) yields a modulo-three correction absent from the quoted general period bound."
+      ],
+      "reasoning": "No checked prior claim logically entails these labelled numbers by renaming, changing n, taking a graph subfamily, or a standard corollary. Edge deletion from a cyclic prism changes vertex degree and the tie mechanism, so cyclic period counts cannot simply be restricted to obtain this open-ladder count. The new finite computation supplies additional substantive input.",
+      "searches": [
+        "published-finding corpus: fixed and two-cycle counting majority dynamics ladder graph with tie retention",
+        "Accessible own prior claims f3e23a9b-5ed9-4688-839a-7319dd06ddcf; a717e3ca-35e2-4a94-bda8-7a7fd9a73cd6; 49891d3f-12fa-49eb-bc0d-06c86fd63c04",
+        "arxiv:2205.08972 related work and Theorem 1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Nakar–Ron, arxiv:2205.08972, Sections 1.1–1.6: single-row cyclic radius-r majority configurations are classified structurally, not the two-row open ladder orbit census.",
+        "Tamuz–Tessler, arxiv:1307.4035, Sections 1.1 and 3.4: synchronous majority, information retention and change bounds rather than two-row ladder enumeration.",
+        "Accessible previous finding f3e23a9b-5ed9-4688-839a-7319dd06ddcf concerns majority dynamics on cyclic prisms C_n square K_2, which have different open-edge and degree/tie rules."
+      ],
+      "reasoning": "Recasting rung pairs as a four-symbol spatial automaton does not make it the single-binary-row cyclic majority rule: the vertical rung interaction couples both rows and open endpoints have degree-two tie retention. Neither the published one-row structural theorem nor the cyclic-prism census states or implies the exact open-ladder Lucas/Fibonacci formulas.",
+      "searches": [
+        "published-finding corpus: majority automaton on ladder P_n Cartesian product K_2 fixed points period-two cycles Lucas Fibonacci",
+        "published-finding corpus: ladder graph binary majority two cycle periods fixed configurations Lucas",
+        "Web: zero temperature parallel Ising dynamics ladder strips absorbing states count Fibonacci Lucas",
+        "arxiv:2205.08972 (single-row cyclic majority)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact sequence/table entry identifying these counts as open-ladder synchronous majority periods was returned by the stated searches.",
+        "The characteristic polynomials and leading closed forms were derived from a fresh exhaustive 256-state transfer identity, not copied from a count table."
+      ],
+      "reasoning": "The values can be represented by Lucas and Fibonacci numbers, which are classical, but their interpretation as the precise fixed/period-two census under this update is an additional statement. Failure to find a matching database entry is not evidence of global novelty; it only bounds this search.",
+      "searches": [
+        "Web: site:oeis.org \"8,22,48,124,326\"",
+        "Web: \"8, 22, 48, 124, 326\" ladder majority",
+        "published-finding corpus: period-two majority dynamics ladder graph spectrum transfer matrix L_2n",
+        "published-finding corpus: fixed and two-cycle counting majority dynamics ladder graph with tie retention"
+      ]
+    },
+    "rationale": "Statement-level comparisons with the retrieved published-finding corpus hits, accessible prior claims, and relevant primary literature show no theorem implying the exact open-ladder P_n/Q_n counts or the n mod 3 correction. The generic period-two theorem only bounds periods. Cyclic-prism majority results and one-dimensional cyclic majority automata have different local/boundary maps; open-ladder chip-firing uses a distinct process. Search incompleteness and inaccessible original 1980 full text remain explicit risks.",
+    "residual_risks": [
+      "An unindexed or inaccessible equivalent ladder period-census may exist; failed searching is not a uniqueness proof.",
+      "The original Goles–Olivos 1980 full article was not read; its accessible abstract and later explicit quotation concern the general period bound.",
+      "The transfer identity was exhaustively checked by a reproducible integer script, not independently human-audited or proof-assistant-certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background only; no two-row open-ladder fixed/period-two multiplicities or Lucas/Fibonacci census.",
+        "evidence": [
+          "Section 1.1 defines synchronous neighbour-majority and symmetric tie handling; Section 3.4 gives per-vertex change bounds.",
+          "arXiv submission history confirms 2013-07-15 v1 publicly posted."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1307.4035v2",
+        "material_read": "Sections 1.1–1.2 and 3.1–3.4, including majority definition, Goles finite-period attribution, and combinatorial change bounds.",
+        "method": "Read accessible lawful full-text HTML and inspected model, main theorems, and combinatorial section.",
+        "title": "Majority Dynamics and the Retention of Information",
+        "trigger": "Earliest day-verifiable historical paper on synchronous majority and finite-network period-two Lyapunov methods."
+      },
+      {
+        "assessment": "General convergence and random graph phenomena, without exact two-row open ladder recurrent-state census.",
+        "evidence": [
+          "Theorem 1.1 quotes Goles–Olivos eventual period-two for finite graphs.",
+          "Theorems 2 and 3 concern random graph unanimity/disagreement, not number of labelled periodic states."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Available full HTML text: Introduction, Theorem 1.1, Section 2 potential argument, Section 3 summary.",
+        "method": "Read accessible arXiv HTML full text and inspected Theorem 1.1/claims for any graph-specific enumeration.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "General temporal period-two theorem and closest prior large-graph synchronous majority setting."
+      },
+      {
+        "assessment": "Single-row cyclic radius-r majority; structurally relevant but not a two-row open-ladder enumeration and not directly applicable.",
+        "evidence": [
+          "Definition of radius-r cyclic neighbourhood in Section 1.1; main theorem concerns spatially periodic single-row configurations.",
+          "Section 1.6 reviews configuration-space literature and does not give the claimed open-ladder counts."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+        "material_read": "Accessible full arXiv HTML, Sections 1.1–1.6, theorem statements, definitions of temporal/spatial periodicity, and related-work discussion.",
+        "method": "Read the primary full-text HTML and searched for ladder/two-row, while comparing the actual local map and boundary condition.",
+        "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata: From Cell Stability to Configuration Periodicity",
+        "trigger": "Plausible exact periodic-configurations treatment of majority cellular automata."
+      },
+      {
+        "assessment": "Established generic period upper bound; no evidence from available material of width-two ladder enumeration; incompletely inspected original retained as residual risk.",
+        "evidence": [
+          "Original bibliographic record (1980) states only eventual fixed point or period two for symmetric threshold functions.",
+          "Benjamini et al., Theorem 1.1, explicitly cite Goles–Olivos."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic abstract and main theorem statement as reproduced in the fully readable Benjamini et al. (2014) paper; original full text not obtained.",
+        "method": "Inspected indexed bibliographic/abstract record and the explicit historical theorem quoted in arxiv:1405.2486.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original general period-two theorem for symmetric threshold functions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "589e6314-b7c7-479e-a466-42ab71925a4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete, exact two-row strip dynamical census, a motivated step beyond single-row majority and qualitative finite-graph period bounds. It yields natural labelled invariants for every length, explicit numbers of primitive two-cycles, a nontrivial n mod 3 spatial resonance, and sharply different exponential scales for fixed versus period-two states. It is not an arbitrary finite slice or a routine restatement of the general period-two theorem. No attraction-basin claim is made.",
+    "status": "PASS"
+  }
+}
