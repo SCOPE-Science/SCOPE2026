@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The idempotent floor-map normal form and literal commutation obstruction are proved. Product closure, unique minimal nonempty index set, singleton-root insertion, left/right separation, and the maximal Cartesian-product property yield a reversible induction. The resulting tree count and size polynomial follow algebraically; a standalone literal-composition exhaustive verifier checks the first six cases.
+## correctness
 
-**Originality — PASS with qualified priority risk.** Ganyushkin–Mazorchuk (arXiv:1006.0316) establishes individual idempotent and quotient facts. Catarino–Higgins–Levi (2015), Theorem 2.7, establishes the semilattice nature of inverse subsemigroups in the larger order-preserving transformation monoid, but not this all-maximal-family tree classification or size profile. Known Catalan numbers and binary-search-tree counts alone are not the novelty claim. Solomon's original 1995 report could only be checked at abstract level, so related earlier work remains a real priority risk.
+PASS
 
-**Value — PASS.** The result completely classifies the maximal idempotent semilattices of a natural and heavily studied transformation monoid, describes their sharply nonuniform sizes, and gives a closed count plus recursive full size distribution. Maximal semilattices encode global commutation structure not recoverable merely from the count of idempotents or a pairwise incidence total. The class has a sharp nonpurity transition at four points.
+Every order-preserving order-decreasing idempotent fixes exactly {1}∪A and is the floor projection e_A, proved by monotonicity. Disjoint nonempty A,B cannot commute (evaluate at larger maximum); for commuting projections the composition is e_{A∩B}. Inclusion-maximal family is intersection closed and has unique minimal nonempty singleton {r}, forced by the fact singleton projection commutes with every member containing r. Splitting at r reduces commutation to independent left/right restriction families, and maximality forces their full Cartesian product. Induction reconstructs a unique binary search tree; index sets are precisely ancestor ideals. Catalan recursion counts the trees; s(T)=1+s(L)s(R) counts ideals and proves the size profile, sharp minimum n and exactly 2^{n-2} minimizing path trees. Independent complete clique brute force vs BST for n=2..6 agrees 1,2,5,14,42. These finite checks do not replace induction.
 
-The result concerns only full monotone decreasing transformations and their idempotents. No independent mathematical audit has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the maximal commuting transformation-idempotent families and their full size distribution. Classical Catalan idempotent counts and a separate binary-search-tree parametrization of semilattice *operations* are acknowledged. The latter similarity is a major priority risk and may allow an implicit derivation, but its inspected theorem concerns different operations, not the present inclusion-maximal sets of commuting floor maps; no decisive implication was established.
+
+## value
+
+PASS
+
+Natural maximal commuting subsemilattices of the Catalan monoid are classified constructively by BSTs; the full family-size distribution, exact minimum and nonpurity explain structure not available from merely counting all idempotents or all BSTs. The theorem is a motivated global classification rather than a re-labeled Catalan total alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

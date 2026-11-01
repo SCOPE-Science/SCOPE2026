@@ -1,0 +1,116 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:09:05.811454Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md recursive proof",
+        "assigned verify.py blob a51d6a84... inspected enumerator",
+        "independent_checks.py catalan_idempotents n=2..6"
+      ],
+      "rationale": "Every order-preserving order-decreasing idempotent fixes exactly {1}∪A and is the floor projection e_A, proved by monotonicity. Disjoint nonempty A,B cannot commute (evaluate at larger maximum); for commuting projections the composition is e_{A∩B}. Inclusion-maximal family is intersection closed and has unique minimal nonempty singleton {r}, forced by the fact singleton projection commutes with every member containing r. Splitting at r reduces commutation to independent left/right restriction families, and maximality forces their full Cartesian product. Induction reconstructs a unique binary search tree; index sets are precisely ancestor ideals. Catalan recursion counts the trees; s(T)=1+s(L)s(R) counts ideals and proves the size profile, sharp minimum n and exactly 2^{n-2} minimizing path trees. Independent complete clique brute force vs BST for n=2..6 agrees 1,2,5,14,42. These finite checks do not replace induction.",
+      "residual_risks": [
+        "n≥2, idempotents only; not all Catalan monoid elements or partial transformations.",
+        "Finite clique enumeration limited to six points."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ganyushkin–Mazorchuk arXiv:1006.0316 establishes idempotent normalizations in type-A Catalan/Kiselman monoids and |E_n|=2^{n-1}, but does not classify maximal commuting subfamilies.",
+          "Devillet–Teheux Theorem 4.7 and Proposition 4.17 show BST structure for monotone semilattice binary operations, not commuting idempotent subsets of C_n."
+        ],
+        "reasoning": "Prior counts of all idempotents do not imply maximal-clique distribution. The binary-tree semilattice literature is a stronger motif but requires a nontrivial identification absent from its stated result.",
+        "searches": [
+          "maximal commuting idempotents Catalan monoid floor projections binary search trees semilattice size",
+          "Ganyushkin Mazorchuk Kiselman quotients idempotents Catalan monoid",
+          "associative idempotent symmetric monotone operations chains binary search trees Catalan"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1006.0316 16-page primary manuscript",
+        "Devillet–Teheux 2020 full relevant text §§4",
+        "Solomon 1995 report abstract/presentation",
+        "Resultary q3, 13 candidates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Devillet–Teheux §§4, Thm4.7, Prop4.17 classify order-preserving binary operations; Ganyushkin–Mazorchuk §2 identifies monoid idempotents.",
+          "Order-preserving binary semilattice *products* on a chain need not be order-decreasing left transformations; hence an unproved direct bijection to the present maximal commuting retractions cannot be assumed."
+        ],
+        "reasoning": "These prior statements do not mechanically yield the present e_A-intersection root decomposition or recursive profile; possible hidden categorical equivalence is a live originality risk.",
+        "searches": [
+          "maximal commuting idempotents Catalan monoid floor projections binary search trees semilattice size",
+          "Devillet Teheux semilattice associative commutative binary operations on finite chains binary search tree 2020"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A maximal commuting idempotent family is a maximal composition semilattice within the Catalan transformation monoid.",
+          "Devillet–Teheux 2020 classifies associative commutative idempotent order-preserving binary operations on a chain using binary trees and Catalan counts."
+        ],
+        "reasoning": "Both are Catalan-indexed semilattice phenomena but different ambient objects; no theorem equating the operations with maximal families of floor retractions is given in the inspected sections.",
+        "searches": [
+          "maximal commuting idempotents Catalan monoid floor projections binary search trees semilattice size",
+          "maximal semilattices idempotents order preserving order decreasing transformation Catalan monoid binary tree"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Catalan number C_{n-1} alone is a known ubiquitous sequence and not a novelty indicator; new normal form maps concrete maximal families to trees.",
+          "Independent n=2..6 clique/size enumeration and explicit all-size H_m(z) recurrence from ideals."
+        ],
+        "reasoning": "The invariant is not a new numerical sequence alone: the exact family construction and size profile matter. No inspected table directly enumerates all maximal commuting floor-projection families.",
+        "searches": [
+          "maximal commuting idempotents Catalan monoid floor projections binary search trees semilattice size",
+          "OEIS maximal commuting idempotents Catalan monoid Catalan n size distribution"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the maximal commuting transformation-idempotent families and their full size distribution. Classical Catalan idempotent counts and a separate binary-search-tree parametrization of semilattice *operations* are acknowledged. The latter similarity is a major priority risk and may allow an implicit derivation, but its inspected theorem concerns different operations, not the present inclusion-maximal sets of commuting floor maps; no decisive implication was established.",
+      "residual_risks": [
+        "Very closely related binary-search-tree enumeration for monotone semilattice binary operations might imply a rephrasing by a non-obvious identification; needs further historic comparison.",
+        "Another semigroup publication may explicitly classify maximal idempotent semilattices under older terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Counts idempotents and describes Catalan monoid, not maximal pairwise-commuting idempotent subsets",
+          "evidence": "§1 definitions and §2 idempotents; no occurrence of phrase commuting",
+          "identifier_or_url": "arXiv:1006.0316; https://arxiv.org/pdf/1006.0316",
+          "material_read": "Relevant text in the full available 16-page preprint: abstract, §1 theorems and §2 idempotent classification, with keyword search for commuting subfamilies; not a cover-to-cover claim",
+          "method": "arXiv PDF text and page-1 screenshot",
+          "title": "On Kiselman quotients of 0-Hecke monoids",
+          "trigger": "same Catalan transformation monoid and idempotent structure"
+        },
+        {
+          "assessment": "BST/Catalan indexing for binary operations on chains, not stated as maximal families of commuting floor transformations; residual equivalence risk",
+          "evidence": "Theorem 4.7; Proposition 4.17",
+          "identifier_or_url": "Devillet–Teheux, Algebra Universalis 2020; ResearchGate complete article HTML",
+          "material_read": "Accessible full primary HTML read §§1,4, including Theorem 4.7, Proposition 4.17 and Corollary 4.10",
+          "method": "textual primary full-article mathematical sections",
+          "title": "Associative, idempotent, symmetric, and order-preserving operations on chains",
+          "trigger": "highly plausible stronger Catalan/BST correspondence for semilattices"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "Ganyushkin–Mazorchuk 2011 monoid context",
+        "Devillet–Teheux 2020 related binary-operation classification"
+      ],
+      "rationale": "Natural maximal commuting subsemilattices of the Catalan monoid are classified constructively by BSTs; the full family-size distribution, exact minimum and nonpurity explain structure not available from merely counting all idempotents or all BSTs. The theorem is a motivated global classification rather than a re-labeled Catalan total alone.",
+      "residual_risks": [
+        "Catalan totals themselves are classical; novelty/value rely on commuting-family interpretation and size profile."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only full order-preserving decreasing maps, and idempotents.",
+    "Related 2020 semilattice-operation BST theorem remains substantial originality caveat."
+  ],
+  "schema_version": 1
+}

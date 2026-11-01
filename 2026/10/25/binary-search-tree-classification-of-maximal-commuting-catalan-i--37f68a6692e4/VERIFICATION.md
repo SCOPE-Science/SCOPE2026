@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3 standard library only. The verifier independently constructs the idempotent transformations, composes every relevant ordered pair literally, forms their commutation graph, and finds all inclusion-maximal cliques using Bron–Kerbosch. For each integer from 2 to 7 it compares the **sets** of cliques to families generated from binary search trees, including complete cardinality profiles; for 8 and 9 it checks recursive uniqueness, Catalan total and minimum-size counts. The expected terminal line is `VERIFY_OK_CATALAN_MAXIMAL_IDEMPOTENT_CLIQUES`.
+# Independent mathematical audit
 
-Finite computations do not prove the all-dimension claim: proof is given in RESULT.md. This package does not contain independent human verification or certify literature priority.
+## correctness
+
+PASS
+
+Every order-preserving order-decreasing idempotent fixes exactly {1}∪A and is the floor projection e_A, proved by monotonicity. Disjoint nonempty A,B cannot commute (evaluate at larger maximum); for commuting projections the composition is e_{A∩B}. Inclusion-maximal family is intersection closed and has unique minimal nonempty singleton {r}, forced by the fact singleton projection commutes with every member containing r. Splitting at r reduces commutation to independent left/right restriction families, and maximality forces their full Cartesian product. Induction reconstructs a unique binary search tree; index sets are precisely ancestor ideals. Catalan recursion counts the trees; s(T)=1+s(L)s(R) counts ideals and proves the size profile, sharp minimum n and exactly 2^{n-2} minimizing path trees. Independent complete clique brute force vs BST for n=2..6 agrees 1,2,5,14,42. These finite checks do not replace induction.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the maximal commuting transformation-idempotent families and their full size distribution. Classical Catalan idempotent counts and a separate binary-search-tree parametrization of semilattice *operations* are acknowledged. The latter similarity is a major priority risk and may allow an implicit derivation, but its inspected theorem concerns different operations, not the present inclusion-maximal sets of commuting floor maps; no decisive implication was established.
+
+## value
+
+PASS
+
+Natural maximal commuting subsemilattices of the Catalan monoid are classified constructively by BSTs; the full family-size distribution, exact minimum and nonpurity explain structure not available from merely counting all idempotents or all BSTs. The theorem is a motivated global classification rather than a re-labeled Catalan total alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
