@@ -1,0 +1,180 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T21:57:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md, SLOGAN.txt, VERIFICATION.md and checker.cpp at frozen Git tree 4c50652cd58970072bab053f2fbdb1df34113266",
+        "Independent Python algebra + exact check at p=3 and 5000 seeded p=5 samples",
+        "Independent C++ exhaustive exact cyclotomic check at p=3 and p=5, run 2026-10-25 UTC"
+      ],
+      "rationale": "For arbitrary complex 3×3 matrices with unimodular entries, diagonal phase normalization gives the determinant condition (u−1)(t−1)=(v−1)(w−1). If nonzero, conjugation gives ut=vw and then u+t=v+w, forcing equal normalized rows or columns; the zero-factor case also gives such equality. In F_p^2 the proportionality equations say that every difference in the opposite index triple lies in the kernel of one nonzero functional. A noncollinear triple has 3 distinct edge directions, and each orthogonal direction admits exactly K=p*binom(p,3) collinear partner triples, all rank 2. A linear triple is controlled by the projection of the opposing 3 points to a p-element quotient: respectively 1/2/3 distinct values give rank 1/2/3; rank-3 partners p^3*binom(p,3), rank-1 partners K. Counting L=p(p+1)*binom(p,3), U=binom(p^2,3)−L yields R1=L*K, R2=3U*K+L*(T−p^3*C−K), R3=U*(T−3K)+L*p^3*C. Sympy independently factors these to (p+1)p^4(p−1)^2(p−2)^2/36 and (p+1)p^5(p−1)^3(p−2)/6 for R1,R2 and proves total T^2. Independently authored Python and separately written C++ exact primitive-root cyclotomic coefficient enumerators checked all 7056 pairs for p=3 and all 5,290,000 pairs for p=5, with rank totals (36,1296,5724) and (15000,600000,4675000), and zero incidence mismatches. These finite checks corroborate, not establish, the all-prime theorem.",
+      "residual_risks": [
+        "All-prime claim relies on the analytic unit-circle determinant lemma and finite-plane fiber counting; finite checks do not extend it.",
+        "The excluded p=2 case and larger minor sizes are not asserted."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Delvaux–Van Barel (2007) describes maximal rank-deficient Kronecker Fourier submatrices from tilings and links to uncertainty; the accessible abstract does not state a complete size-three pairwise rank census. The full text was not obtained in THIS run: KU Leuven PDF redirected to institutional login, CiteSeerX PDF returned 403, Oxford institutional retrieval reported vpn_disconnected.",
+          "Biró–Lev (2021) PDF pp. 1–8, 15 and appendix addresses support-size inequalities, exceptional cosets, and uncertainty of functions on F_p^2, without displaying the number of each rank of arbitrary 3x3 positional minors in the examined material.",
+          "Caragea–Lee (2025) Theorems 1.1–1.2 treat cyclic Fourier principal minors under N squarefree versus nonsquarefree, not this noncyclic all-minors table.",
+          "Herr–Wiegand (2021) concerns compatible primitive sets yielding Hadamard (orthogonal-row) submatrices of cyclic Fourier matrices; this is a distinct condition from rank deficiency; only abstract reviewed."
+        ],
+        "reasoning": "Do not claim the inaccessible Delvaux full paper is NOT_COVERING. Its closely relevant maximal-submatrix framework could contain an implicit special-case consequence, a live risk. However, the available theorem-level statements inspected from the other primary sources establish support bounds, principal-minor conditions, or complex Hadamard submatrix criteria, none of which logically determines all arbitrary 3x3 ranks and multiplicities for F_p tensor F_p. The blocked plausible source alone does not force a negative originality verdict.",
+        "searches": [
+          "https://doi.org/10.1016/j.laa.2007.05.009",
+          "https://www.cs.kuleuven.be/publicaties/rapporten/tw/TW477.pdf",
+          "https://real.mtak.hu/138965/2/1808.pdf",
+          "https://arxiv.org/html/2409.09793v4",
+          "https://arxiv.org/abs/1909.13145",
+          "web: Delvaux Van Barel rank-deficient submatrices Kronecker products Fourier matrices TW477 PDF 2006",
+          "web: TW470 Delvaux Van Barel rank deficient submatrices Fourier matrices PDF theorem prime power"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2409.09793v4",
+        "https://real.mtak.hu/138965/2/1808.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e/RESULT.md",
+        "https://doi.org/10.1016/j.laa.2007.05.009",
+        "https://arxiv.org/abs/1909.13145",
+        "Resultary semantic searches, three distinct queries 2026-10-25 UTC"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complex unit-modulus 3x3 singularity lemma is elementary: normalization yields (u−1)(t−1)=(v−1)(w−1), conjugation gives ut=vw, hence {u,t}={v,w}. It is not an independent novelty claim.",
+          "The stronger partial prior uncertainty inequalities allow many possible positional rank patterns and do not imply fixed triangular-support partner counts 3p*binom(p,3) or fixed linear-support nonsingular counts p^3*binom(p,3).",
+          "The cyclic p^2 theorem gives its own rank one and two counts; their (p+1) ratio to the audited noncyclic counts is a numerical relation, not an implication giving affine annihilator incidence."
+        ],
+        "reasoning": "The claim is the all-prime complete geometric rank classification plus its exact incidence distribution. A known determinant lemma and known Fourier uncertainty bounds supply tools/background but not the same completed classification in the inspected sources. Neither equal matrix dimension nor a scalar count coincidence permits substituting the cyclic theorem for the noncyclic one; a stronger theorem in the inaccessible full Kronecker paper remains a residual coverage risk.",
+        "searches": [
+          "https://real.mtak.hu/138965/2/1808.pdf",
+          "https://arxiv.org/html/2409.09793v4",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e/RESULT.md",
+          "https://doi.org/10.1016/j.laa.2007.05.009",
+          "web: three by three submatrices complex Hadamard singular iff proportional rows columns"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "F_p is the character matrix of the additive group F_p^2, equivalently F_p^(1D) tensor F_p^(1D). The determinant event for each pair of 3-point sets is the failure of exact interpolation of three Fourier samples.",
+          "Noncollinear triples correspond to three distinct difference directions; a collinear triple is one affine coset subset. Rank-two events for a triangular row triple require its column triple to lie in one of the three orthogonal line directions.",
+          "The complete cyclic Z_{p^2} 3x3 theorem classifies rank by residue-class occupancy, not affine-line geometry, and reports singular pairs 333 at p=3 versus 1332 for the noncyclic matrix."
+        ],
+        "reasoning": "Compared Fourier restriction, interpolation, annihilator-line and rank-deficient Kronecker formulations, not only titles. The cyclic order-p^2 character table is not unitarily equivalent by row and column permutation/phase to the character table of F_p^2; concrete ranks/counts differ. The examined finite-plane uncertainty theorems concern supports, not positional rank enumeration; an older unindexed equivalent rank census remains possible.",
+        "searches": [
+          "Resultary: rank deficiency 3 by 3 submatrices finite Fourier matrix elementary abelian group F_p^2 affine geometry collinear triangles number ranks",
+          "Resultary: Kronecker Fourier F_p tensor F_p three by three minors singular rank distribution directions incidence",
+          "Resultary: three by three minors character tables finite abelian groups Fourier matrix prime square rank classification",
+          "web: all 3x3 minors Fourier matrix elementary abelian p group Fp2 collinearity rank",
+          "web: three point interpolation Fourier transform finite affine plane singular 3 by 3 minors parallel lines",
+          "https://real.mtak.hu/138965/2/1808.pdf",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read complete published cyclic-prime-square RESULT.md: rank one for residue (C,C), rank two for (B,C)/(C,B), rank three otherwise; at p=3 its rank-deficient count is 333.",
+          "Read complete ternary-affine-plane 4x4 RESULT.md: one fixed p=3 and minor order 4, incidence counts 5670/10206; it is not a 3x3 all-p rank table.",
+          "The Resultary search also returned the assignment’s own mirrored title, which cannot serve as independent covering evidence."
+        ],
+        "reasoning": "Compared exact objects, ranks, and parameter domains. At p=3 the audited noncyclic matrix has rank counts (36,1296,5724), not the cyclic prime-square distribution. The 4x4 incidence table concerns a different rank/determinant size. The same-title mirror is the audited finding and is excluded as independent novelty evidence.",
+        "searches": [
+          "Resultary semantic searches for 3 by 3 Fourier F_p^2 prime affine plane rank census",
+          "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+          "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e/RESULT.md",
+          "Resultary: 2026/10/11/SCOPE-complete-three-by-three-fourier-minor-rank-geometry-on-prime-aff--ba0b52ec4cec"
+        ]
+      },
+      "rationale": "Best of knowledge: the complete all-prime F_p^2 3x3 rank-incidence classification is not present in the accessible full primary texts and exact Resultary comparisons. Closest cyclic prime-square all-minors result addresses a different group and produces different counts. Known rank-deficient block tilings/uncertainty and principal-minor theorems do not by themselves establish the fixed-support rank strata and closed multiplicities. The unit-modulus determinant lemma is elementary prior background, not a novelty component. The full Delvaux–Van Barel 2007 same-object Kronecker source could not be accessed and is recorded as a substantial risk, not deemed NOT_COVERING from its abstract. Failed searches are not a novelty proof.",
+      "residual_risks": [
+        "Full 2007 Delvaux–Van Barel Kronecker paper was inaccessible after lawful OA attempts and authorized Oxford retrieval returned vpn_disconnected; potential implicit or explicit prior coverage of the same size-three characterization remains unexcluded.",
+        "Older unindexed Fourier interpolation, complex-Hadamard, or finite-geometry rank literature could contain an equivalent table.",
+        "The basic 3x3 unimodular singularity lemma is classical/elementary and not independently novel."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem 1.1 concerns N-point cyclic principal 2x2 and 3x3 minors for squarefree N; Theorem 1.2 asserts existence of singular principal minors when N is nonsquarefree. Neither yields arbitrary 3x3 ranks/counts for F_p^2.",
+          "identifier_or_url": "https://arxiv.org/html/2409.09793v4",
+          "material_read": "Full 211-line arXiv HTML including Introduction, Theorems 1.1–1.2, Sections 2–4 and references",
+          "method": "Read full arXiv HTML and checked principal/cyclic quantifiers; compared proof hypotheses and determinant method",
+          "title": "On the principal minors of Fourier matrices",
+          "trigger": "Same Fourier-minor size and square-prime relevance"
+        },
+        {
+          "assessment": "NOT_COVERING_FOUND_IN_INSPECTED_THEOREMS",
+          "evidence": "Theorems 1–3 and Corollary 1 bound |supp f| and |supp fhat| and classify exceptional cosets. No exact positional 3x3 rank counts found in examined theorem statements, proofs and term searches.",
+          "identifier_or_url": "https://real.mtak.hu/138965/2/1808.pdf",
+          "material_read": "Lawful 30-page OA PDF: abstract and sections 1–2 including Theorems 1–3/Corollary 1, supporting selected proof sections, appendix passages; full-text term searches for rank and minor; page images 6 and 28 inspected",
+          "method": "Read PDF parsed text and inspect actual PDF page screenshots; contrasted full theorem statements with positional rank census",
+          "title": "Uncertainty in finite planes",
+          "trigger": "Identical underlying additive group F_p^2; potential stronger characterization of Fourier restrictions"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Cyclic group Z_{p^2} occupancy (A,B,C) gives rank counts differing at p=3 from elementary-abelian F_p^2; no canonical identification of the group character tables.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+          "material_read": "Complete published RESULT.md: theorem, assumptions, proof, counts, verification, relationship and limitations",
+          "method": "Read complete primary result via authenticated read-only GitHub connector, compared index group and formulas",
+          "title": "All singular three-by-three minors of prime-square Fourier matrices",
+          "trigger": "Identical minor size and matrix dimension p^2; strongest catalogued exact same-size table"
+        },
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Theorem tabulates only p=3 four-element minor supports (5670 singular pairs); no all-prime three-element support result.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e/RESULT.md",
+          "material_read": "Complete published RESULT.md theorem and exact finite enumeration argument",
+          "method": "Read full Resultary primary text and compare 4x4 versus 3x3 incidence",
+          "title": "The four-by-four Fourier-minor incidence of the ternary affine plane",
+          "trigger": "Exact same noncyclic Fourier matrix at p=3 but adjacent minor size"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE_NOT_CLEARED",
+          "evidence": "Published abstract describes maximal rank-deficient tilings and associated finite-abelian-group uncertainty. Full argument could potentially contain a size-three all-p characterization, so no whole-document NOT_COVERING is claimed.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2007.05.009",
+          "material_read": "Publisher and university archive abstracts and bibliographic information only; 2006 OA report unavailable from tested links",
+          "method": "Tried arXiv/preprint search and lawful OA university PDF (authentication redirect) and CiteSeerX (403), then institutionally authorized retrieval; Oxford VPN disconnected, did not bypass",
+          "title": "Rank-deficient submatrices of Kronecker products of Fourier matrices",
+          "trigger": "Direct same Kronecker matrix F_p tensor F_p and rank-deficient submatrices; plausibly dominating older theorem"
+        },
+        {
+          "assessment": "DISTINCT_PROBLEM_ABSTRACT_ONLY",
+          "evidence": "Tests for complex Hadamard submatrices of cyclic Fourier matrices; orthogonality does not characterize all singular minors of noncyclic F_p^2.",
+          "identifier_or_url": "https://arxiv.org/abs/1909.13145",
+          "material_read": "Accessible abstract only, not the full article",
+          "method": "Searched and read abstract, compared Hadamard row orthogonality with determinant singularity",
+          "title": "Identifying Complex Hadamard Submatrices of the Fourier Matrices via Primitive Sets",
+          "trigger": "Near-title small Fourier submatrices and primitive compatibility tests, including size 3"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned full RESULT.md exact theorem/proof",
+        "https://real.mtak.hu/138965/2/1808.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-all-singular-three-by-three-minors-of-prime-square-fourier-matri--feb52ea6712b/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-the-four-by-four-fourier-minor-incidence-of-the-ternary-affine-p--9f007d7c322e/RESULT.md"
+      ],
+      "rationale": "Exact 3×3 minors are the first nontrivial planar Fourier-interpolation rank condition. Their complete geometric classification and separate rank-one/rank-two/rank-three counts for all primes are a natural exact invariant of the character table of F_p^2. The rowwise refinement distinguishes line and triangle supports, gives every rank rather than merely support-size inequalities, and can be directly used to identify interpolation obstructions and design small harmonic subframes. The object and invariant are mathematically motivated, and this all-prime positional incidence is not just an arbitrary finite slice or recomputation of a cited rank table; a downstream theorem is not required.",
+      "residual_risks": [
+        "This is a specialized size-three result, not a complete classification for all Fourier submatrix sizes.",
+        "Some ingredients, especially the 3×3 unimodular determinant criterion, are routine; the value resides in the complete noncyclic affine incidence theorem and counts."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full high-relevance Delvaux–Van Barel primary text unavailable via lawful OA; Oxford authorization indicated VPN disconnected. This is an originality residual risk, not an independent scientific failure.",
+    "The 3x3 unit-modulus lemma alone is not novel.",
+    "All-prime theorem is analytic; p=3 and p=5 finite enumerations do not prove its universal quantifier.",
+    "No GitHub writes, package relocation or publication occurred."
+  ],
+  "schema_version": 1
+}
