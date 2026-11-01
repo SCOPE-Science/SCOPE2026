@@ -1,19 +1,21 @@
-# Review of the three-twist Weil-polynomial theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The source's Proposition 4.2 proves the full geometric automorphism group \(C_3\), together with genus \(4\) and \(3\)-rank \(2\), for precisely the displayed \(c=0\) curve. Constant Galois action gives exactly three cohomology classes of forms. For each class the two pole points and trace-zero criterion lead to an exact point-count formula; a dependency-free program checks the finite extensions through degree four both by trace counts and by direct \((x,y)\)-enumeration. Newton identities and the Weil functional equation yield the claimed complete polynomials. Modulo \(2\) only degree-four factors occur; modulo \(5\) only irreducible factors of degrees two and six occur, ruling out any proper rational factor of degree eight. Simplicity and non-isogeny are only over \(\mathbb F_3\), as explicitly stated.
+PASS
 
-## Originality — PASS, residual risk noted
+At poles x=0,infinity, both break orders are 2, giving genus4 and 3-rank2. The geometric automorphism C3 is explicitly an imported primary lemma, not independently proven here; its trivial F3 Galois action yields exactly three twists via H^1(Frob,C3). Independently enumerated all affine F_(3^m) solutions (plus two rational pole points) for 1<=m<=4, obtaining tables [5,5,44,113], [2,8,44,44], [5,17,44,89]. Newton identities and genus-four functional equation give three claimed degree-eight Weil numerators. Independently factored mod2 as quartic+quartic and mod5 as quadratic+sextic with irreducible components: incompatible proper-degree choices show Q irreducibility and hence simplicity; distinct numerators give nonisogeny over F3. Slopes 0²,(1/2)^4,1².
 
-Tafazolian–Kazemifard supply the same geometric curve and its automorphism classification but not the three Weil polynomials or arithmetic isogeny classes; inspection covered their Proposition 4.2 and later Jacobian/summary sections. Seven directed published mathematical-record searches and exact-equation literature searches found no stronger prior numerical coverage. Standard descent, character sums, and finite-field isogeny theory are credited. An equivalent older unindexed calculation is still a residual risk, not a claim of a uniqueness proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A geometrically unique genus-four curve with full automorphism group \(C_3\) has exactly three natural forms over its smallest ground field. Their complete arithmetic classification as curves and simple, pairwise non-isogenous Jacobians is an intrinsic finite-field invariant not controlled by geometric genus or p-rank; it supplies exact explicit isogeny benchmarks. The outcome is not a generic formula presented as novel or an unmotivated numerical slice.
+Tafazolian–Kazemifard construct this geometric genus-four curve and study its automorphisms, but their accessible stated objective is prescribed p-rank and minimal automorphisms; the 3-way constant-twist arithmetic Weil classification and pairwise non-isogeny are distinct. No published matching Weil numerator table was found in Resultary, though the unavailable full primary paper creates priority uncertainty.
 
-## Scope and independent review
+## value
 
-The classification is for the fixed geometric curve, and each simplicity claim is over \(\mathbb F_3\) only. The automorphism-group premise is taken from the cited full paper and is not asserted to have been independently re-proved here. The finite-field verification covers finite sums sufficient, via the known genus-four functional equation, to prove the infinite zeta identities.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact zeta-function and isogeny-class classification for every F3-form of an explicit genus-four curve with minimal geometric automorphisms. The three forms exhibit a meaningful twist effect: identical geometric Jacobians but three distinct simple finite-field isogeny classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of exact arithmetic
+# Independent mathematical audit
 
-Execute `python3 verify.py` using Python 3.9+ with its standard library only. On successful exact reproduction the program prints `VERIFY_OK`, followed by the point-count and polynomial coefficient tables.
+## correctness
 
-The program verifies that the four degree-\(1\) through degree-\(4\) finite-field moduli are irreducible over \(\mathbb F_3\); computes finite-field traces of \(x^2+x+x^{-2}\) for every nonzero field element; independently checks solutions of the equation by testing every affine pair \((x,y)\) for each \(c\in\{0,1,2\}\) and \(m=1,2,3,4\); confirms exactly two rational pole points and all twelve point totals; derives the four initial Weil coefficients by Newton identities and the rest by genus-four reciprocity; and checks exact reductions/factorizations modulo \(2\) and \(5\). For every claimed irreducible factor, it applies a finite-field gcd-and-power irreducibility test. Incompatible possible factor degrees prove rational irreducibility; no exhaustive infinite-field experiment is claimed.
+PASS
 
-The proof additionally invokes the published automorphism-group calculation of the source (Proposition 4.2) and the classical cohomological classification of forms and Tate finite-field isogeny criterion. Their mathematical hypotheses and finite-field scope appear in RESULT.md. No separate independent audit is asserted.
+At poles x=0,infinity, both break orders are 2, giving genus4 and 3-rank2. The geometric automorphism C3 is explicitly an imported primary lemma, not independently proven here; its trivial F3 Galois action yields exactly three twists via H^1(Frob,C3). Independently enumerated all affine F_(3^m) solutions (plus two rational pole points) for 1<=m<=4, obtaining tables [5,5,44,113], [2,8,44,44], [5,17,44,89]. Newton identities and genus-four functional equation give three claimed degree-eight Weil numerators. Independently factored mod2 as quartic+quartic and mod5 as quadratic+sextic with irreducible components: incompatible proper-degree choices show Q irreducibility and hence simplicity; distinct numerators give nonisogeny over F3. Slopes 0²,(1/2)^4,1².
+
+## originality
+
+PASS
+
+Tafazolian–Kazemifard construct this geometric genus-four curve and study its automorphisms, but their accessible stated objective is prescribed p-rank and minimal automorphisms; the 3-way constant-twist arithmetic Weil classification and pairwise non-isogeny are distinct. No published matching Weil numerator table was found in Resultary, though the unavailable full primary paper creates priority uncertainty.
+
+## value
+
+PASS
+
+Exact zeta-function and isogeny-class classification for every F3-form of an explicit genus-four curve with minimal geometric automorphisms. The three forms exhibit a meaningful twist effect: identical geometric Jacobians but three distinct simple finite-field isogeny classes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
