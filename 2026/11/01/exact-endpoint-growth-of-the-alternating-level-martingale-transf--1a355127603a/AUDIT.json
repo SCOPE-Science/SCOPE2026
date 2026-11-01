@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "For all b>=2 and m>=1, conditional-expectation kernels depend only on longest common prefix. Summation by parts gives K_r=(b-1-2b(-b)^r)/(b+1) off diagonal and K_m=(b-1)(1+(-1)^(m-1)b^m)/(b+1) on diagonal. All kernel coefficients are nonzero with signs fixed by parity; the exact probabilities (b-1)/b^(r+1) and b^-m give the claimed row integral after one geometric-series simplification. Kernel signs attain all rows, symmetry gives L1 dual equality, and orthogonal martingale difference projections give L2 norm 1. Standalone standard-library checker passed 1182 exact-rational assertions across 20 parameter configurations, not used in place of the all-parameter proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lacey arxiv:1501.05818, Theorem 2.4 asserts sparse domination with unspecified absolute constant; Theorem 2.6 gives Ap-weighted bounds for 1<p<infinity, excluding endpoint p=infinity.",
+        "Kerr arxiv:0906.4028, Theorem 4.1 gives sufficient conditions for uniform weighted L2 boundedness; it does not determine finite uniform b-ary L-infinity norms."
+      ],
+      "reasoning": "Neither qualitative domination nor interior-p norm bound implies this exact level-by-level endpoint row norm and b,m-dependent coefficient. The sharp weighted L2 estimate of Wittwer (2000) likewise concerns a different operator norm. There may nevertheless be older unindexed stronger endpoint identities.",
+      "searches": [
+        "web: finite dyadic martingale transforms exact L infinity norm depth n alternating signs sharp norm",
+        "web: homogeneous b-adic martingale transforms sharp infinity norm alternating",
+        "web: martingale transform finite depth exact L infinity norm",
+        "arxiv:1501.05818, Theorem 2.4 and Section 3",
+        "arxiv:0906.4028, Sections 2 and 4"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0906.4028 (PDF relevant primary sections)",
+      "arxiv:1501.05818 (PDF relevant primary sections)",
+      "doi:10.4310/MRL.2000.V7.N1.A1 (indexed opening only)",
+      "published-finding corpus semantic query results for three targeted formula/alias probes and earlier two operator queries",
+      "Accessible previous-claim claim IDs 19779f16-3091-4552-a882-4c9ee29e3f9e; cd26eef7-35c5-4661-8f88-fcf06f1908b3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kerr: weighted L2 boundedness, not quantitative endpoint finite-depth norm. Lacey: sparse bound and weighted Lp results for 1<p<infinity, no equality in the endpoint tree kernel.",
+        "Wittwer opening: optimal linear A2 characteristic dependence for dyadic transforms on weighted Hilbert space, not an unweighted L-infinity finite-tree coefficient.",
+        "Previous claims: one projection variation seminorm and one three-atom commutator spectral/endpoint compatibility curve, respectively."
+      ],
+      "reasoning": "Even applying general finite-dimensional norm comparisons to Hilbert-space transform bounds only gives dimension-dependent inequalities, not an identity with the exact rational parity correction; the prior conclusions do not logically imply the new equality or its unique per-row extremizer structure.",
+      "searches": [
+        "arxiv:0906.4028 Section 2 definition and Section 4 weighted L2 theorem",
+        "arxiv:1501.05818 Theorems 2.4 and 2.6",
+        "Wittwer doi:10.4310/MRL.2000.V7.N1.A1 opening and bibliographic abstract",
+        "Prior-claim claim IDs 19779f16-3091-4552-a882-4c9ee29e3f9e; cd26eef7-35c5-4661-8f88-fcf06f1908b3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kerr arxiv:0906.4028, Section 2 defines dyadic Haar-sign multipliers T_sigma via coefficients sigma(I)=±1 and studies two-weighted L2 bounds, not a finite-depth L-infinity norm.",
+        "Lacey arxiv:1501.05818, Sections 2–3 define martingale differences and establish sparse domination, not the exact uniform-tree row-sign kernel formula."
+      ],
+      "reasoning": "Haar multipliers and signed sums of martingale differences are equivalent operator definitions. The new claim fixes alternating coefficients on a uniform b-ary filtration and proves an exact finite-depth infinity norm, L1 dual equality and extremizer classification; no inspected equivalent formulation states these quantified conclusions.",
+      "searches": [
+        "published-finding corpus: Exact L infinity to L infinity norm of alternating-level Haar martingale transform on homogeneous b-ary tree, formula growth 2(b−1)/(b+1) times depth, boundary correction parity",
+        "published-finding corpus: Sharp endpoint norm for alternating conditional expectation martingale difference operators on regular filtrations, b-ary signs, levelwise checkerboard",
+        "web: \"alternating martingale transform\" \"supremum\" norm",
+        "web: \"alternating signs\" \"Haar multiplier\" operator norm"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus title found: 2026/10/11/SCOPE-exact-endpoint-norm-and-dyadic-parity-law-for-the-cyclic-hilbert--5a7ab3055d8e; its summary concerns a cyclic cotangent Hilbert kernel, not nested conditional expectations.",
+        "published-finding corpus hit 2026/9/21/SCOPE-exact-essential-norm-little-tree-lipschitz-multipliers--6b05c4d0072a concerns compactness/essential norms of pointwise multipliers on tree Lipschitz spaces.",
+        "Previously published claim 19779f16-3091-4552-a882-4c9ee29e3f9e studies variation norm of one binary conditional expectation over cyclic color classes, not compositions of increasing filtrations.",
+        "Previously published claim cd26eef7-35c5-4661-8f88-fcf06f1908b3 studies commutators of two conditional expectations on three atoms, not alternating-depth martingale transforms."
+      ],
+      "reasoning": "Available records do not contain an identical table or formula, and their operators act on different domains/norms. This negative search is only a bounded comparison, not a proof of absence elsewhere.",
+      "searches": [
+        "published-finding corpus: 2(b-1)/(b+1) m exact b-ary martingale Haar transform L infinity",
+        "published-finding corpus: alternating Haar multiplier finite b-adic Haar tree sharp L1 L infinity norm and pointwise extremizers",
+        "published-finding corpus: finite regular rooted b-ary tree martingale difference sign-change multiplier endpoint logarithmic growth",
+        "web: \"b-adic\" \"martingale transform\" norm \"infinity\"",
+        "web: \"alternating levels\" \"martingale transform\" operator"
+      ]
+    },
+    "rationale": "Inspected relevant primary sections of Kerr arxiv:0906.4028 and Lacey arxiv:1501.05818 on Haar/martingale operators and weighted L2 or interior-Lp estimates; these neither state nor imply an exact homogeneous finite b-ary alternating L-infinity norm, its depth/branching coefficient, or complete row-sign extremizers. Real published-finding corpus and accessible prior mathematical searches for equivalent formulas, aliases and parameter implications found no covering record. Wittwer 2000 was visible only in opening indexed material; historical priority remains qualified.",
+    "residual_risks": [
+      "The complete text of Wittwer (2000) could not be inspected; the indexed beginning discusses weighted L2, but an exact endpoint aside cannot be excluded.",
+      "The formula could occur in unindexed earlier martingale transform or finite Haar multiplier texts under other terminology; semantic search noncoverage is not a mathematical uniqueness proof.",
+      "Other sign patterns or nonhomogeneous branches were not classified; no implication that this is the largest transform norm is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines general transforms and weighted bounds; does not state exact finite homogeneous b-ary alternating coefficient norm or extremizer law.",
+        "evidence": [
+          "PDF p.2 definition (2.1) of T=sum epsilon_P Delta_P; p.3 Theorem 2.4 sparse domination; Theorem 2.6 for 1<p<infinity."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1501.05818",
+        "material_read": "Full PDF available; introduction, martingale transform definitions in Section 2, Theorem 2.4, Theorem 2.6, Section 3 proof and stated applications examined.",
+        "method": "Opened 12-page arXiv PDF, reviewed extracted numbered pages and page-2 screenshot, located Theorem 2.4 and endpoint and finite-level mentions.",
+        "title": "An elementary proof of the A2 bound",
+        "trigger": "Direct source about martingale transforms and sparse domination"
+      },
+      {
+        "assessment": "The weighted L2 objective and matrix-valued multipliers do not directly cover the exact unweighted L-infinity finite b-ary result.",
+        "evidence": [
+          "PDF p.2 T_sigma=sum sigma(I)<f,h_I>h_I; L2(V)->L2(U) scope; Theorem 4.1 conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0906.4028",
+        "material_read": "Full PDF available; abstract/introduction, Section 2 Haar multiplier definition, weighted L2 results in Section 4 and relevant scope examined.",
+        "method": "Opened 15-page arXiv PDF, viewed page 2 screenshot and searched Section 2/4 theorem and endpoint terms.",
+        "title": "Martingale transforms, the dyadic shift and the Hilbert transform: a sufficient condition for boundedness between matrix weighted spaces",
+        "trigger": "Classical Haar-transform paper plausibly containing multiplier norm estimates"
+      },
+      {
+        "assessment": "The available text concerns linear dependence on dyadic A2 weights in L2; complete verification of no equivalent endpoint identity is unavailable. Residual priority risk flagged.",
+        "evidence": [
+          "Opening paragraph explicitly describes linear A2 weight bound for martingale transforms and square functions; journal Mathematical Research Letters 7 (2000) 1–12."
+        ],
+        "identifier_or_url": "https://www.intlpress.com/site/pub/files/_fulltext/journals/mrl/2000/0007/0001/MRL-2000-0007-0001-a001.pdf",
+        "material_read": "The opening page was available in indexed search text; complete PDF was inaccessible with HTTP 403.",
+        "method": "Read bibliographic record and publisher-indexed introductory text, attempted full-text PDF access.",
+        "title": "A sharp estimate on the norm of the martingale transform",
+        "trigger": "Older sharp martingale-transform norm paper, potentially covering finite-tree formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1a355127-603a-4895-a3c0-8a7c6aff2cd2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical Haar multiplier with signs alternating across every generation has a complete exact L-infinity and L1 norm formula for all homogeneous branching factors and depths, sharp rowwise extremizers, a parity-sensitive finite-depth boundary correction and branching-dependent leading coefficient. The logarithmic endpoint divergence in leaf count contrasts sharply with the unit Hilbert norm and the bounded all-positive transform. This quantifies a genuine operator-norm boundary phenomenon rather than giving only a single unmotivated small example.",
+    "status": "PASS"
+  }
+}
