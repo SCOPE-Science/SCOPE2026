@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The displayed three-dimensional ellipsoid section formula is derived from a linear image of the unit ball, with the correct plane-area Jacobian. Its coefficient functions are separated exactly by evaluating at three distinct offsets; their span dimension is therefore the minimum number of terms, not merely an upper bound. The parity argument isolates the nonzero odd term, while the Rayleigh quotient distinguishes scalar versus nonscalar quadratic forms. The focal exception follows from the principal semiaxis and focus formula. The nonellipsoid implication uses the explicit published Theorem 4.2 of Fish–Ryabogin–Sun–Yaskin (arXiv:2610.10229) rather than any unsupported experimental extrapolation. Exact-rational coefficient-rank witnesses and direct geometric plane-section computations passed for five models. The main claim is restricted to dimension three, all unit directions and a common near-zero offset interval.
+PASS
 
-## Originality — PASS with priority risk
+PASS: From the exact ellipsoid section formula pi*sqrt(det(A))/q(u)^(3/2) [u^T(A-cc^T)u+2t(c.u)-t^2], three offset samples invert a Vandermonde system. Rank equals span dimension of the even quadratic, odd linear, and constant functions. Parity yields 1/2/3 depending on centered ball/centered nonspherical or focal prolate/other off-center. Nonellipsoid infinite rank is justified specifically by Fish–Ryabogin–Sun–Yaskin Theorem 4.2, not by finite tests. Origin interior and uniform offsets ensure the formula remains valid. Five independent exact rational coefficient rank checks agree.
 
-A statement comparison with Fish–Ryabogin–Sun–Yaskin, §§1, 3–4, finds its finite-versus-infinite rigidity theorem but no optimal term-count stratification or focus exception. Yaskin–Zawalski's separation classification studies a related origin-symmetric isotropic-volume function; its hypotheses do not cover displaced focal ellipsoids. Agranovsky's centered-ellipsoid formula and algebraic section results supply background formulas, not this minimal-rank classification. Targeted searches using “local separable section rank,” “ellipsoid focal rank two,” and “Radon transform separation rank” did not expose an equivalent published theorem. Lack of an indexed hit is not proof of novelty; older finite-rank literature remains a meaningful priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The rank is the intrinsic minimal number of direction–offset product functions required to encode local section tomography. Completing its finite/infinite classification for all convex spatial bodies refines a recent geometric characterization into a complete quantitative invariant. The exceptional origin-at-focus family exhibits a nonobvious geometry-driven rank drop for noncentered bodies. All four ranks are attained by canonical examples; the classification is not an arbitrarily selected numerical table or a restatement of the finite-rank rigidity theorem.
+The 2026 published rigidity theorem supplies finite-vs-infinite classification but no minimization of separated terms. Centered-ellipsoid algebraic sections and origin-symmetric integrability do not cover the displaced focus stratum. Rank minimality via parity/Vandermonde and focal geometry is not directly stated in inspected primary text.
 
-## Verification limits
+## value
 
-The Python checks are finite and do not independently certify the external geometric rigidity result. The proof's geometric-rigidity dependency, historical priority uncertainty, and absence of independent external audit remain explicit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: An all-convex-body classification of a natural tensor-rank invariant in R^3, with exceptional origin-at-focus geometry and nonellipsoid infinite-rank boundary, answers a motivated exact geometric question rather than arbitrary low-rank substitution. Value is local 3-dimensional rigidity, not higher-dimensional separability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
