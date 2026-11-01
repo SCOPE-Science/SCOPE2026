@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:13:57Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Exact Git-source RESULT.md bases and formulas, arXiv:1912.01358v1 original operator definitions, and explicit hand reconstruction of all polynomial solution cases.",
+        "Independent SymPy expansion from the four multiplication coefficients reconstructed residual systems: RB {-2ab-a lambda+b^2, -b(b+lambda), a(a+lambda)}; N {(a-b)^2}; centroid {-as+b,a-bs}; average {-ab(s-1),-b(as-b),b(a-b)}.",
+        "Independent exhaustively enumerated even endomorphisms over F_3, F_5, F_7, F_11, F_13 for every lambda and both k parities, confirmed Hom-associativity for all 8 graded basis triples and the stated counts (F_13 averaging odd 13, even 25). The finite checks only corroborate the universal polynomial proof.",
+        "Source verify.py and prior verify_output.txt were inspected but not treated as a stand-alone mathematical certificate."
+      ],
+      "rationale": "Reconstructed every assertion over all fields K with char(K)!=2, all scalar weights lambda and integer k. As A_{-1}=Ke2 and A_1=Ke1, every even map is diag(a,b) and automatically commutes with alpha. For the Rota–Baxter identity the complete four-basis-pair reduction is a(a+lambda)=0, b(b+lambda)=0, b^2=a(2b+lambda); in a field, lambda=0 forces a=b=0, and lambda!=0 leaves precisely (a,b)=(0,0),(-lambda,-lambda). Nijenhuis reduces to (a-b)^2=0 and hence a=b. Writing s=(-1)^k, centroid reduces to b=sa and a=sb, hence beta=a alpha^k. Averaging reduces to b(a-b)=b(as-b)=ab(s-1)=0: s=+1 yields b=0 or b=a; s=-1 with 2!=0 yields b=0. For F_q (q odd) the two lines intersect at the origin so union size 2q-1. All negative k are covered by alpha^{-1}=alpha; no use of finite experiments to establish arbitrary-field conclusions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "An and Bai, arXiv:0711.1389 Proposition 3.1 classifies a larger set of complex associative Rota–Baxter operators: genuine partial coverage on the untwisted complex specialization.",
+          "Bakayoko–Silvestrov 2021 gives general operator-to-construction mechanisms and the same Example 3, but no complete four-class solution on this example.",
+          "Basdouri–Mosbahi 2025 treats dendriform algebras with two splitting operations, not this single Hom-associative product with the alpha^k identities."
+        ],
+        "reasoning": "A broader result covers this claim only if it determines all four even-operator classes, with alpha^k parity, after the needed reduction. The located two-dimensional associative classification covers Rota–Baxter only and has complex-field restrictions; the general Hom-color constructions assume operators rather than solve their complete loci. Neither dominates the whole finding.",
+        "searches": [
+          "hom associative color algebra even operator Rota-Baxter Nijenhuis centroid averaging example operator rigidity",
+          "two dimensional commutative associative Rota Baxter operators An Bai Proposition 3.1",
+          "general Hom associative color averaging Nijenhuis centroid operators classification",
+          "Rota-type operators 2 dimensional dendriform algebras Basdouri Mosbahi"
+        ]
+      },
+      "checked_sources": [
+        "Bakayoko and Attan, Some structures of Hom-Poisson color algebras, arXiv:1912.01358v1, §§1–2, Example 1.12, Definitions 1.11/1.13/1.14/1.15, 2019 (2021 journal).",
+        "Bakayoko and Silvestrov, Hom-left-symmetric color dialgebras, Hom-tridendriform color algebras and Yau’s twisting generalizations, Afrika Matematika 32 (2021), DOI:10.1007/s13370-021-00871-z, §§2–4 and Example 3.",
+        "An and Bai, From Rota–Baxter Algebras to Pre-Lie Algebras, arXiv:0711.1389, §3 Proposition 3.1 (two-dimensional complex associative Rota–Baxter table).",
+        "Basdouri and Mosbahi, Rota-type operators on 2-dimensional dendriform algebras, arXiv:2411.15358v2 (2025), main definitions and low-dimensional classification tables.",
+        "Resultary mathematical records queried with three exact scientific descriptions; closest published Rota–Baxter result is on 4D exterior algebra over characteristic two, not this example.",
+        "Exact snapshot RESULT.md and all seven source Git files, verify.py and verify_output.txt at commit 6c379935c2e469fc18959fc6c387e31328c64bcf."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2019 paper asserts existence of R=-lambda I, not uniqueness, and defines the three other operator classes without calculating their solutions on Example 1.12.",
+          "The 2021 construction paper reuses R=-lambda I on the exact same algebra and gives operator constructions, not a complete parity-sensitive averaging locus.",
+          "The 2007/08 An–Bai table supplies strong prior coverage specifically for ordinary associative Rota–Baxter operators over C; it cannot alone produce the Nijenhuis, alpha-centroid and alpha-power averaging geometry."
+        ],
+        "reasoning": "Showing a particular map satisfies a defining identity does not determine the entire solution variety. Under the explicit associative untwist, an earlier Rota–Baxter table can substantially subsume the Rota–Baxter component for complex K, so novelty resides in the combined operator inventory and particularly the exact averaging parity split, not in the existence or a stand-alone uniqueness claim. No examined general theorem forces that full combination.",
+        "searches": [
+          "arXiv:1912.01358 Definition 1.11 Example 1.12 Definitions 1.13–1.15",
+          "DOI:10.1007/s13370-021-00871-z Example 3 and general construction theorems",
+          "arXiv:0711.1389 Proposition 3.1 2D complex commutative associative RB",
+          "classification averaging alpha^k Hom associative color algebra parity operator two dimensional"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In this example alpha is invertible and untwisting via nu=alpha^{-1}mu produces the associative algebra with unit -e1 and t=e2 satisfying t^2=-1, with alpha(t)=-t. This identifies a possible classical associative-algebra reformulation.",
+          "The original Example 1.12 gives only a single Rota–Baxter operator and adjacent general definitions, not all diagonal solution loci.",
+          "The An–Bai two-dimensional complex associative Rota–Baxter table concerns one operator class but not alpha^k-averaging for alternating alpha."
+        ],
+        "reasoning": "Searches explicitly included the exact structure, associative untwist, twist eigenspace restriction and parity/alpha-power wording. The classical associative reformulation can account for part of Rota–Baxter classification but has no checked prior table proving the complete four-operator profile or its alpha^k-averaging parity discontinuity.",
+        "searches": [
+          "Bakayoko Attan Example 1.12 Hom associative color algebra Rota Baxter Nijenhuis averaging centroid complete two dimensional operator classification",
+          "classification averaging alpha^k Hom associative color algebra parity operator two dimensional",
+          "Bakayoko Attan Example 1.12 e1e1=-e1 e2e2=e1 alpha(e2)=-e2 even operators",
+          "two dimensional associative algebra K[t]/(t^2+1) alpha(t)=-t averaging parity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The multiplication fingerprint e1^2=-e1, e1e2=e2, e2^2=e1 and twist alpha=diag(1,-1) exactly identify the Bakayoko–Attan published example and its Bakayoko–Silvestrov reprise.",
+          "The An–Bai Proposition 3.1 table has an entry for the split complex associative algebra but only Rota–Baxter operators; it does not tabulate alpha^k-averaging or centroids on the given Hom object.",
+          "Resultary found a four-dimensional exterior algebra in characteristic two, a different graph of operator equations and excluded ground characteristic."
+        ],
+        "reasoning": "Exact tables and equation fingerprints were compared by object, operator type, field and twist. A known Rota–Baxter table on a related untwist does not imply the four-locus parity classification. No exact published multi-class table for this algebra was located.",
+        "searches": [
+          "arXiv:1912.01358 Example 1.12 exact multiplication table Nijenhuis centroid averaging",
+          "arXiv:0711.1389 Proposition 3.1 A1 two dimensional commutative associative Rota Baxter table",
+          "Resultary weight zero Rota Baxter operators four dimensional exterior algebra F2",
+          "Bakayoko Attan Example 1.12 Hom associative color algebra Rota Baxter Nijenhuis averaging centroid complete two dimensional operator classification"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete four-class even-operator profile, particularly the alpha^k-averaging parity split on the exact Bakayoko–Attan example. The primary source only exhibits R=-lambda I and states the definitions; its successor reuses that example, but neither inspected treatment gives the exact full operator loci. IMPORTANT partial prior coverage: An–Bai Proposition 3.1 classifies weight-one Rota–Baxter operators on two-dimensional complex associative algebras, a class containing the untwisted complex form of this example; the bare Rota–Baxter subclaim receives no standalone novelty credit. The submitted combined theorem and alpha-power averaging geometry were not found implied by that table, the primary constructions, or relevant Resultary records. Searches do not prove absolute historical novelty.",
+      "residual_risks": [
+        "An unindexed four-class operator table may exist for the same Hom-color example, the equivalent graded algebra K[t]/(t^2+1), or its split complex realization.",
+        "Much of the Rota–Baxter component over the complex field falls within older 2D associative Rota–Baxter classifications after untwisting and restricting to maps commuting with alpha; this subclaim receives no separate originality credit.",
+        "Primary journal version of the 2019 paper was not used because its complete lawful arXiv v1 was available and inspected; a later edited version may have additional material.",
+        "Negative literature search results do not certify universal novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_EXAMPLE_AND_ONE_OPERATOR_EXHIBITED; NO_COMPLETE_FOUR_CLASS_LOCUS_IN_INSPECTED_PAPER",
+          "evidence": "Example 1.12 gives four products, alpha(e1)=e1, alpha(e2)=-e2, and R=-lambda I. Definitions 1.13–1.15 state averaging/centroid/Nijenhuis identities in general, without listing complete solutions for the example.",
+          "identifier_or_url": "https://arxiv.org/pdf/1912.01358",
+          "material_read": "The complete 12-page public preprint was examined, including front matter and §1 Definitions 1.11–1.15, the full Example 1.12 at PDF page 4, and §§2 constructions; PDF page-image inspection of the source definitions and example.",
+          "method": "Full-text primary PDF reading and page-image verification against the target equations and exact multiplication/twist.",
+          "title": "Some structures of Hom-Poisson color algebras",
+          "trigger": "Primary source defining the exact example, all operator types, and displayed weight-lambda map."
+        },
+        {
+          "assessment": "SAME_OBJECT_USED; NO_COMPLETE_ALPHA_POWER_OPERATOR_PROFILE_IN_EXAMINED_PAPER",
+          "evidence": "Example 3 repeats the two-dimensional algebra and R=-lambda I; general theorems construct new structures from operators, without classifying all even operators on that example.",
+          "identifier_or_url": "https://doi.org/10.1007/s13370-021-00871-z",
+          "material_read": "Full public HTML main sections including Hom-tridendriform constructions, Example 3, Nijenhuis/averaging and centroid conditions, and corollary relating invertibly twisted and associative algebras.",
+          "method": "Full-text HTML primary-source comparison, including exact repeated multiplication and operator example.",
+          "title": "Hom-left-symmetric color dialgebras, Hom-tridendriform color algebras and Yau’s twisting generalizations",
+          "trigger": "Later paper using identical algebra and scalar Rota–Baxter operator and general operator constructions."
+        },
+        {
+          "assessment": "PARTIALLY_COVERS_CLASSICAL_COMPLEX_ROTA_BAXTER_COMPONENT; NOT_FULL_FOUR_CLASS_PARITY_PROFILE",
+          "evidence": "Proposition 3.1 enumerates Rota–Baxter operators on commutative 2-dimensional complex associative algebras, including C⊕C, but does not address the specific Hom alpha^k-averaging, alpha^k-centroid or Nijenhuis loci.",
+          "identifier_or_url": "https://arxiv.org/pdf/0711.1389",
+          "material_read": "Full-text context around §3, especially Proposition 3.1 and its complete table of Rota–Baxter operators on all two-dimensional complex commutative associative algebras, with PDF page 10 image.",
+          "method": "Primary PDF reading, table inspected visually and compared to the explicit associative untwist of the target.",
+          "title": "From Rota–Baxter Algebras to Pre-Lie Algebras",
+          "trigger": "Strong possible broader low-dimensional operator classification of the untwisted associative algebra."
+        },
+        {
+          "assessment": "NOT_DIRECTLY_APPLICABLE_TO_SINGLE_HOM_ASSOCIATIVE_ALPHA_POWER_OPERATOR_SYSTEM",
+          "evidence": "Classified objects are dendriform with separate left/right operations and corresponding operator identities, whereas the target is one Hom-associative multiplication with an involutive alpha^k.",
+          "identifier_or_url": "https://arxiv.org/pdf/2411.15358",
+          "material_read": "Public PDF title, introduction, dendriform algebra hypotheses, low-dimensional classification descriptions and relevant operator tables; representative PDF pages visually inspected.",
+          "method": "Primary paper statement and hypothesis comparison across multiplication type and twist.",
+          "title": "Rota-type operators on 2-dimensional dendriform algebras",
+          "trigger": "Plausible overlapping small-algebra Rota–Baxter/Nijenhuis/averaging classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Bakayoko–Attan Example 1.12 explicitly proposes the example and R=-lambda I as a construction input; Bakayoko–Silvestrov Example 3 reuses it.",
+        "The averaging scheme depends on an integer power k of a nontrivial involution; its parity changes the Zariski geometry of solutions from one affine line to the union of two, not merely a relabeling.",
+        "All four solution varieties and finite-field cardinalities are exact, not sampled heuristics; the claim does not pretend to classify all Hom-associative color algebras."
+      ],
+      "rationale": "A modest but motivated exact structural classification: this is a specifically published two-dimensional Hom-associative color algebra chosen to exemplify a nonzero Rota–Baxter operator and subsequently reused as a construction seed. On this natural reference object, the complete solution varieties for the four named operator classes answer which actual admissible transformations exist; in particular, alpha^k-averaging has one line for odd k but two intersecting lines for even k, while centroid and Nijenhuis remain rigid. The parity boundary and complete geometry can be used when instantiating the published Hom-color operator constructions, and prevent assuming a richer family of compatible RB maps than actually exists. The elementary diagonal-equation calculation by itself is not a broad theorem; credit is confined to the complete first operator profile for the exact literature object and its distinct parity phenomenon.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Bakayoko and Attan, Some structures of Hom-Poisson color algebras, arXiv:1912.01358v1, §§1–2, Example 1.12, Definitions 1.11/1.13/1.14/1.15, 2019 (2021 journal).",
+    "Bakayoko and Silvestrov, Hom-left-symmetric color dialgebras, Hom-tridendriform color algebras and Yau’s twisting generalizations, Afrika Matematika 32 (2021), DOI:10.1007/s13370-021-00871-z, §§2–4 and Example 3.",
+    "An and Bai, From Rota–Baxter Algebras to Pre-Lie Algebras, arXiv:0711.1389, §3 Proposition 3.1 (two-dimensional complex associative Rota–Baxter table).",
+    "Basdouri and Mosbahi, Rota-type operators on 2-dimensional dendriform algebras, arXiv:2411.15358v2 (2025), main definitions and low-dimensional classification tables.",
+    "Resultary mathematical records queried with three exact scientific descriptions; closest published Rota–Baxter result is on 4D exterior algebra over characteristic two, not this example.",
+    "Exact snapshot RESULT.md and all seven source Git files, verify.py and verify_output.txt at commit 6c379935c2e469fc18959fc6c387e31328c64bcf.",
+    "Independent symbolic/finite verifier: independent_operator_check.py and independent_operator_results.json, freshly reconstructed equations and all F3/F5/F7/F11/F13 cases."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The independent proof establishes only even operator profiles on this one two-dimensional published example, all k and fields of characteristic not 2.",
+    "An–Bai earlier classify ordinary two-dimensional complex associative Rota–Baxter operators, so the Rota–Baxter component has significant direct prior coverage after untwisting.",
+    "A possible unindexed classification via split associative-algebra operators or alternative Hom-color notation remains a best-of-knowledge originality risk.",
+    "Finite-field exhaustive checks in five prime fields corroborate, but are not proof of, the infinite-field theorem.",
+    "The existing public AUDIT.json and METADATA.json retain operational scope_run_id; publication is not_ready and no public file changes were authorized.",
+    "No Lean proof or expert attestation was performed or invented."
+  ],
+  "schema_version": 1
+}
