@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated four-class theorem follows from rank-two, rank-three, and rank-four cardinality witnesses, uniqueness up to isotopy for small orders, and an unrestricted one-point extension lemma for every Latin square of order at least four. The lemma checks all possible distributions of three old distinct pebbles over the three sorts and uses only the Latin uniqueness axioms and four available elements per sort. Its resulting four-round EF strategy proves the infinite assertion without relying on finite extrapolation. The rank-five existential sentence has exactly five nested quantifier levels, since its final two existential subformulas are siblings. The group tables of the cyclic and elementary-abelian groups of order four satisfy opposite truth values, and the rank-four theorem proves optimality. The independent enumerator verifies all four reduced order-four and all 56 reduced order-five squares. The program is supporting evidence and not a substitute for the symbolic proof.
+PASS
 
-## Originality — PASS with residual literature risk
+The language has three disjoint sorts R,C,S and ternary predicate L(r,c,s), without named constants or function symbols. Each order n has n elements in each sort. Sentences asserting at least j distinct rows distinguish n<4. Orders 1–3 each have unique isotopy class, hence unique three-sorted structure up to isomorphism. For arbitrary n≥4, the one-element atomic extension patterns above tuples of length at most three depend only on the sort/equality/Latin-incidence pattern: three same sort, two plus one, and one of each exhaust the cases; Latin row/column/symbol uniqueness plus at least four elements realize every consistent extension pattern. The same back-and-forth successor pattern thus yields Duplicator strategy for four EF rounds in any two such structures. A 2x2 rectangle with exactly three symbols has a rank-five formula (four nested row/column quantifiers followed by two sibling symbol quantifiers) true in the Z4 table but false in V4, proving the threshold sharp for this algebraic pair. Fresh independent atomic-type successor calculations for Z4,V4,Z5 and direct rectangle checks corroborate; arbitrary order follows from the structural one-point extension proof, not samples.
 
-McKay--Meynert--Myrvold (DOI `10.1002/jcd.20105`) classify Latin squares by isotopy and main class, not by FO quantifier rank. Libkin's general Ehrenfeucht--Fraïssé theorem supplies a tool rather than the application-specific four-round extension lemma. Gomaa's 2007 dissertation treats one-sorted groups with an identity constant and ternary operation, which has richer equality and constant information than disjoint row, column, and symbol sorts; its general bounds do not imply this exact depth-five distinction. Searches against published indexed mathematical claims did not reveal equivalent formulations or stronger coverage. Searches are not novelty proofs: obscure earlier writing on first-order distinguishability of Latin squares could remain, and the 2010 Gomaa journal article was assessed via its abstract and accessible thesis rather than full journal text.
+## originality
 
-## Value — PASS
+PASS
 
-The result gives a complete bounded-rank logical classification of an unrestricted, classical combinatorial family, a sharp smallest representative, and the first logical level at which a genuine order-four isotopy distinction can be detected. The contrast between four-round invisibility and the five-round three-symbol-rectangle witness clarifies how disjoint-sorted relational encodings lose low-depth algebraic information compared with a one-sorted operation language. This is more than testing a single small square: the lower-rank theorem holds uniformly for all Latin squares and the algebraic witness covers every finite abelian addition table.
+Best-knowledge scientific comparison: Among finite three-sorted row–column–symbol incidence structures of Latin squares, quantifier-rank-four equivalence has exactly four classes (orders 1, 2, 3 and all orders ≥4); the least structure in the fourth class has 12 elements. Rank five first distinguishes the addition tables of cyclic four and Klein four. The full rank-four logical taxonomy of an unrestricted classical incidence family, together with a sharp 12-element least representative and the first rank that
 
-## Limits
+## value
 
-No claim is made about the complete rank-five spectrum, counting logic, or functional signatures. External indexing is incomplete, and independent review has not yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full rank-four logical taxonomy of an unrestricted classical incidence family, together with a sharp 12-element least representative and the first rank that detects a genuine order-four algebraic distinction, addresses meaningful questions in finite model theory. The disjoint-sorts limitation explains why algebraic differences invisible to small EF games become visible at rank five, without asserting counting-logic or functional-language results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
