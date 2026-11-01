@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:55:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Using the exact Gibbons–Veselov gamma=a band-edge factorization, w0=delta0 and wn=delta_n-delta_(n-1), where delta_n is the Dirichlet harmonic-oscillator energy excess above 2n, once delta_n>delta_(n-1) for sufficiently large a. For u_n=H_n exp(-x^2/2), differentiate the boundary-value solution with respect to energy; the Wronskian equals minus the half-line L2 mass I_n=2^(n-1)n!sqrt(pi). The growing solution u_n J_n, J_n=integral u_n^-2, gives delta_n=1/(I_n J_n(a)) up to exponentially smaller errors. Endpoint Laplace plus Hermite leading coefficients yields J_n=e^(a^2)/(2^(2n+1)a^(2n+1)) [1+(n^2+n+1)/(2a^2)+O_n(a^-4)]. Adjacent displacement ratio is n/(2a^2)+O_n(a^-4), so the relative bandwidth correction becomes (n+1)^2/2; the n=0 convention works. Independent high-precision Kummer zero calculations at n<=3, a=6,8 gave correctly signed/better two-term approximations, not an infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gannot asserts existence of full expansion but does not state the evaluated coefficient (n+1)^2/2 in the inspected corollary.",
+          "Gibbons–Veselov identify the relevant lattice and note large-separation bandwidth asymptotics as a remaining task."
+        ],
+        "reasoning": "A general existence-of-expansion theorem is not already an evaluated specific two-term bandwidth formula, though its coefficient recursion could imply it after routine work; priority remains qualified.",
+        "searches": [
+          "Gannot Effects of confinement for single-well potentials 2014 Theorem 1 full expansion",
+          "Helffer Kachmar Nicoleau 2026 singular oscillator Kummer first parameter zeros asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Gibbons and Veselov, arXiv:2610.00879v1, Proposition 5.1 and Section 7",
+        "Gannot, arXiv:1410.0068, Corollary 1.1",
+        "Helffer, Kachmar and Nicoleau, arXiv:2609.28076",
+        "NIST DLMF 13.7",
+        "Pinned RESULT.md 5719498ded0632b6300073cce844a748f0483f73"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior first theorem gives the exact relation wn=delta_n-delta_(n-1); second theorem gives leading delta_n but not its relative coefficient.",
+          "The audited endpoint expansion computes a new next term and correctly subtracts the preceding band-edge shift."
+        ],
+        "reasoning": "Exact factorization plus a leading O(a^-2) estimate cannot specify the first relative coefficient; the explicit Hermite/J_n expansion is necessary.",
+        "searches": [
+          "Gibbons Veselov 2610.00879 Proposition 5.1 Section 7",
+          "Gannot 1410.0068 Corollary 1.1 leading confined oscillator shift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gibbons–Veselov Prop. 5.1 gives precise edge-set factorization but not the first 1/a^2 width term.",
+          "Gannot Cor. 1.1 gives the leading exponential oscillator Dirichlet shift with relative O(a^-2), not its explicit coefficient."
+        ],
+        "reasoning": "Via exact edge reduction, the claim is equivalent to the next coefficient in the difference of adjacent Dirichlet shifts; literature must cover that explicit difference, not merely existence of asymptotic series.",
+        "searches": [
+          "arXiv:2610.00879 Gibbons Veselov band widths gamma a large separation harmonic Kronig Penney",
+          "arXiv:1410.0068 Gannot confined harmonic oscillator next coefficient a^-2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest quantum-graph band-width records concern different graph operators.",
+          "The tested Kummer zeros at fixed a are numerical checks, not prior exact coefficient tables."
+        ],
+        "reasoning": "No matching previously tabulated (n+1)^2/2 correction for the identical gamma=a lattice was identified.",
+        "searches": [
+          "harmonic delta comb constant gap bandwidth second correction spectral band table",
+          "Resultary: harmonic Kronig Penney lattice constant gap band width two term asymptotic Dirichlet oscillator confinement"
+        ]
+      },
+      "rationale": "Gibbons–Veselov (2026) already derive constant gap 2 and exact band edges for this operator, explicitly leaving precise large-a shrinking low-band widths for further investigation. Gannot (2014) proves the leading confined harmonic-oscillator displacement and existence of further expansion, but his inspected Corollary 1.1 does not evaluate the first relative coefficient or the subtraction of preceding level. Thus the exact displayed second band-width coefficient is not identified as a prior printed result. General all-order asymptotic machinery may mechanically yield it, which is a material priority/value limitation, not an automatic FAIL absent a previously evaluated implication.",
+      "residual_risks": [
+        "Gannot all-orders construction or another generic Kummer-zero expansion could contain enough explicit coefficient data to make this a known specialization.",
+        "Error expansion is fixed n only; at n growing with a the proved remainder is not uniform."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides original edge factorization and constant gaps; Section 7 explicitly identifies detailed exponentially shrinking band asymptotics as further work.",
+          "evidence": [
+            "Gibbons–Veselov (2026), Proposition 5.1; Section 7"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.00879v1",
+          "material_read": "Full accessible arXiv primary text, Proposition 5.1 and Section 7 discussion of low-band asymptotics",
+          "method": "Direct full HTML reading",
+          "title": "On spectrum of the harmonic Kronig–Penney model",
+          "trigger": "Exactly the same operator/coupling and possibly dominating spectral theorem"
+        },
+        {
+          "assessment": "States leading confined oscillator exponential displacement with O(a^-2) relative uncertainty, not the explicit adjacent-difference correction.",
+          "evidence": [
+            "Gannot (2014), Theorem 1 and Corollary 1.1"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1410.0068",
+          "material_read": "Primary PDF including Theorem 1/Corollary 1.1, page screenshots of oscillator statement",
+          "method": "arXiv PDF text and page image examination",
+          "title": "Effects of confinement for single-well potentials",
+          "trigger": "Potential generic all-order theorem dominating claimed correction"
+        },
+        {
+          "assessment": "Related singular-oscillator setting; insufficient full reading to rule out special-case coverage.",
+          "evidence": [
+            "Helffer–Kachmar–Nicoleau (2026), Appendix B cited in package"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.28076",
+          "material_read": "Accessible abstract, Appendix B equation cited in original package (not independently fully examined)",
+          "method": "arXiv primary metadata and source comparison",
+          "title": "Spectral Asymptotics of a Singular Harmonic Oscillator with Aharonov–Bohm Flux",
+          "trigger": "Potential Kummer zero asymptotics sharing coefficients"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fixed-band two-term exponentially small width law is a natural quantitative invariant of an explicitly solvable periodic quantum lattice. The correction encodes both single-well boundary confinement and the neighboring-level subtraction, going beyond known exact edge locations and leading exponential scale. The result is narrow but supplies a precise coefficient future spectral comparisons can use.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gibbons and Veselov, arXiv:2610.00879v1, Proposition 5.1 and Section 7",
+    "Gannot, arXiv:1410.0068, Corollary 1.1",
+    "Helffer, Kachmar and Nicoleau, arXiv:2609.28076",
+    "NIST DLMF 13.7",
+    "Pinned RESULT.md 5719498ded0632b6300073cce844a748f0483f73"
+  ],
+  "disposition": "passed",
+  "final_claim": "For fixed nonnegative band index n at repulsive coupling gamma=a, w_n(a)=2^(n+2)/(n! sqrt(pi))*a^(2n+1)*exp(-a^2)*(1-(n+1)^2/(2a^2)+O_n(a^-4)); no uniformity in n growing with a.",
+  "limitations": [
+    "Gannot all-orders construction or another generic Kummer-zero expansion could contain enough explicit coefficient data to make this a known specialization.",
+    "Error expansion is fixed n only; at n growing with a the proved remainder is not uniform."
+  ],
+  "schema_version": 1
+}

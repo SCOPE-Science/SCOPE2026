@@ -1,15 +1,21 @@
-# Scientific review: two-term harmonic Kronig–Penney bandwidth law
+# Independent mathematical audit
 
-## Correctness
-PASS. The operator, jump strength, and band indexing agree with the original harmonic Kronig–Penney spectral factorization. The exact edge identity reduces each sufficiently separated low band to the difference of adjacent Dirichlet shifts. An energy derivative of the parity-normalized oscillator solution, the Wronskian identity, and a growing-solution variation formula yield the displacement as the reciprocal of a Hermite-square integral. The explicit endpoint Laplace expansion gives \((n^2+n+1)/2\) for the Dirichlet shift, while subtraction changes it to \((n+1)^2/2\) for the actual band width. The normalization \(\int_0^\infty H_n(t)^2e^{-t^2}dt=2^{n-1}n!\sqrt\pi\) fixes the prefactor. Analytic root localization controls the neglected energy-Taylor terms beyond inverse powers. The bundled independent high-precision numerical checks passed 61 assertions; these do not replace the asymptotic proof.
+## correctness
 
-## Originality
-PASS, best-knowledge. The motivating Gibbons–Veselov paper establishes the constant gap and exact edge roots, but leaves precise low-band shrinking asymptotics open in its closing discussion. Gannot's 2014 Corollary 1.1 provides the exact leading confined-oscillator prefactor and a relative \(O(a^{-2})\) error; its abstract general theorem establishes existence of all orders, not an explicit second-order coefficient. The newer Helffer–Kachmar–Nicoleau Kummer result has the same leading exponential structure but likewise no explicit next coefficient for these widths. Moore–Marsiglio studies a different harmonic-well array with flat interwell barriers. Relevant published mathematical results and all accessible records in the existing collection were searched by model, coupling, special functions, and equivalent asymptotic expressions, with no equivalent two-term band-width result found. Residual risk: an unlocated specialization of existing all-order spectral-shift results could contain the coefficient or imply it after computation.
+PASS
 
-## Value
-PASS. Fixed-index spectral-band widths set the tunneling scale for low-lying Bloch excitations in a periodic model with the unusual exact constant-gap feature. The explicit relative correction \((n+1)^2/(2a^2)\) distinguishes the physical bandwidth from the shift of an isolated confined state at the first non-leading order, and permits controlled large-cell extrapolation beyond a leading exponentially small estimate. The claim addresses a specific asymptotic regime explicitly singled out for investigation in the motivating article rather than an arbitrary parameter slice.
+Using the exact Gibbons–Veselov gamma=a band-edge factorization, w0=delta0 and wn=delta_n-delta_(n-1), where delta_n is the Dirichlet harmonic-oscillator energy excess above 2n, once delta_n>delta_(n-1) for sufficiently large a. For u_n=H_n exp(-x^2/2), differentiate the boundary-value solution with respect to energy; the Wronskian equals minus the half-line L2 mass I_n=2^(n-1)n!sqrt(pi). The growing solution u_n J_n, J_n=integral u_n^-2, gives delta_n=1/(I_n J_n(a)) up to exponentially smaller errors. Endpoint Laplace plus Hermite leading coefficients yields J_n=e^(a^2)/(2^(2n+1)a^(2n+1)) [1+(n^2+n+1)/(2a^2)+O_n(a^-4)]. Adjacent displacement ratio is n/(2a^2)+O_n(a^-4), so the relative bandwidth correction becomes (n+1)^2/2; the n=0 convention works. Independent high-precision Kummer zero calculations at n<=3, a=6,8 gave correctly signed/better two-term approximations, not an infinite proof.
 
-## Scope and risks
-The index is fixed before the large-cell limit; there is no uniformity for moving indices or global dispersion. The paper relies on known exact edge identities and leading confinement results, and claims neither those results nor independent validation. Literature-wide priority remains to be independently assessed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Gibbons–Veselov (2026) already derive constant gap 2 and exact band edges for this operator, explicitly leaving precise large-a shrinking low-band widths for further investigation. Gannot (2014) proves the leading confined harmonic-oscillator displacement and existence of further expansion, but his inspected Corollary 1.1 does not evaluate the first relative coefficient or the subtraction of preceding level. Thus the exact displayed second band-width coefficient is not identified as a prior printed result. General all-order asymptotic machinery may mechanically yield it, which is a material priority/value limitation, not an automatic FAIL absent a previously evaluated implication.
+
+## value
+
+PASS
+
+A fixed-band two-term exponentially small width law is a natural quantitative invariant of an explicitly solvable periodic quantum lattice. The correction encodes both single-well boundary confinement and the neighboring-level subtraction, going beyond known exact edge locations and leading exponential scale. The result is narrow but supplies a precise coefficient future spectral comparisons can use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
