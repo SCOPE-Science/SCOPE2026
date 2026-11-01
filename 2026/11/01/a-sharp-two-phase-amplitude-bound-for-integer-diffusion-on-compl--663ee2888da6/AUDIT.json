@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "For a primitive two-cycle, divergence of the two signed edge-flow vectors sums to zero. Pairing with the sum of the configurations gives a sum of nonnegative edge terms, forcing each edge to stay tied in both phases or strictly reverse. Reversing across a shore edge of degrees b,a forces phasewise gap <=a+b-1. Normalize the global two-phase minimum to zero and split the same-shore values at H=a+b-1; the exact case analysis yields upper bound H+b-1 when the minimum is in shore L and H+a-1 when in R. The explicit pattern of a-1 zeros, one H-1 on one shore, and H on the other attains the larger bound after strict reversal. The standalone finite checker verified 169 extremal constructions and 261938 finite candidate configurations; it is not used to extrapolate the infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "ArXiv:1704.04295 treats all finite graphs but only eventual period one or two.",
+        "ArXiv:1805.05932 addresses a global initial floor for nonnegativity.",
+        "ArXiv:1609.05792 gives a priori bounds dependent on the initial labels."
+      ],
+      "reasoning": "Broader graph classes or universal chip floors do not dominate a smaller-class sharp recurrent width unless they explicitly give equal-or-stronger value-and-phase control; the identified results do not.",
+      "searches": [
+        "diffusion on graphs eventually periodic Long Narayanan theorem 1.1",
+        "diffusion game uniform bounds non negativity Carlotti Herrman",
+        "A Variation on Chip-Firing complete bipartite graph theorem 2.11"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1609.05792 full HTML (Sections 1,2.3,3.2)",
+      "arXiv:1704.04295 full HTML (Theorem 1.1, Section 2)",
+      "arXiv:1805.05932 full HTML (Theorems 1–2)",
+      "Semantic record queries for signed integer diffusion on complete bipartite graphs and sharp two-phase amplitudes",
+      "Accessible earlier local scientific claims on clique/star/bistar integer diffusion and biclique models"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Duffy et al. bound trajectories in terms of each initial configuration.",
+        "Long and Narayanan bound the period but do not optimize the joint two-phase span.",
+        "Carlotti and Herrman bound initial chip floor.",
+        "Earlier recurrence classifications used nonisomorphic cliques/stars/bistars or a distinct degree-triggered firing update."
+      ],
+      "reasoning": "An implication to the claimed formula needs a sharp bound over both recurrent phases, uniformly over all initial integer labels, plus extremizers for all a,b>=2. None of the identified comparisons supplies those assertions. A star is not a bistar or a K_{a,b} with both parts >=2; standard chip-firing transfers chips when a degree threshold is met rather than by pairwise sign comparisons.",
+      "searches": [
+        "arXiv:1609.05792 Theorem 2.11 Lemma 2.8",
+        "arXiv:1704.04295 Theorem 1.1 Lemma 2.2",
+        "arXiv:1805.05932 Theorems 1 and 2",
+        "own prior claims: clique diffusion, star diffusion, bistar diffusion, standard chip-firing on bicliques"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Theorem 2.11 of arXiv:1609.05792 speaks of eventual periodicity for each initial state, not uniform sharp recurrent orbit span.",
+        "Theorem 1.1 of arXiv:1704.04295 restricts period length but not label amplitude."
+      ],
+      "reasoning": "Aliases such as chip span, dynamic range, two-phase diameter and normalized alphabet were compared to the published graph diffusion descriptions. A period restriction and finite orbit size by themselves do not establish a sharp numeric amplitude across both phases.",
+      "searches": [
+        "integer diffusion game complete bipartite two-cycle maximal value range",
+        "primitive period two diffusion states global width both phases sharp recurrence cutoff",
+        "arXiv:1609.05792 Sections 2.3, 3.2; arXiv:1704.04295 Section 2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Accessible sections contain periodicity proofs and star special cases, not an exact two-phase amplitude table over all a,b.",
+        "Executable finite tables in the new package are verification, not published prior tabulations."
+      ],
+      "reasoning": "No matching exact width table was found in the inspected sources or semantic research-record query results; absence from a database is not a novelty proof.",
+      "searches": [
+        "complete bipartite diffusion recurrent configuration exact table amplitude",
+        "integer diffusion biclique period-two sorted states sharp width recurrence alphabet",
+        "arXiv:1609.05792 tables Section 2.3 and 3.2"
+      ]
+    },
+    "rationale": "The closest primary literature establishes eventual period, initial-label-dependent boundedness, or nonnegative starting floors, rather than the sharp translation-invariant two-phase range on K_{a,b} with both shores nonsingleton. This conclusion is provisional, based on available full-text comparisons and negative searches, not a guarantee of global priority.",
+    "residual_risks": [
+      "Older or unindexed mathematical literature could use another terminology for two-phase span.",
+      "General edge-sign reversal techniques are well known; the claim of originality is only the sharp biclique extremal width, not that lemma or periodicity.",
+      "No independent mathematical audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 2.11 proves eventual periodicity from an initial-dependent boundedness argument, not an optimum bound on the union of both phases of primitive two-cycles. The same mathematical model proof is specialized to a recurrence constraint.",
+        "evidence": [
+          "arXiv:1609.05792v5, Sections 2.3 and 3.2; Theorem 2.11, Lemma 2.8, and original recurrence definitions."
+        ],
+        "identifier_or_url": "arXiv:1609.05792",
+        "material_read": "Full accessible arXiv HTML: introduction and definitions, Section 2.3 (Lemma 2.8 and Theorem 2.11), Section 3.2, relevant conclusions.",
+        "method": "Read full HTML sections of the primary paper and compare quantified statements and invariant definitions.",
+        "title": "A Variation on Chip-Firing: the diffusion game",
+        "trigger": "Direct first treatment of synchronous integer diffusion, with a complete-bipartite periodicity theorem and star cases."
+      },
+      {
+        "assessment": "Establishes eventual periods one/two on arbitrary graphs and a potential with edge directions; does not give the sharp complete-bipartite two-phase amplitude or its attaining construction. Period restriction alone does not imply any uniform numerical amplitude bound.",
+        "evidence": [
+          "arXiv:1704.04295v2, Theorem 1.1 and Section 2, edge-sign potential and its consequences."
+        ],
+        "identifier_or_url": "arXiv:1704.04295",
+        "material_read": "Full HTML introduction and proof Section 2, especially Theorem 1.1 and Lemma 2.2.",
+        "method": "Read direct open-access HTML and compare period-two conclusion with bounded amplitude of complete-bipartite recurrent orbits.",
+        "title": "Diffusion on graphs is eventually periodic",
+        "trigger": "General theorem on possible periods and edge-sign potential, possible stronger coverage."
+      },
+      {
+        "assessment": "Bounds how many chips must be present at every vertex initially to guarantee no negative labels later; distinct from the maximal span of all labels over the two recurrent phases after translation. Neither statement implies the other.",
+        "evidence": [
+          "arXiv:1805.05932v1, Theorems 1 and 2; initial-chip floor rather than periodic amplitude."
+        ],
+        "identifier_or_url": "arXiv:1805.05932",
+        "material_read": "Full HTML abstract and introduction with Theorems 1–2, and nonnegativity arguments.",
+        "method": "Read law and the quantified hypotheses of published bounds, compare object and invariant.",
+        "title": "Uniform Bounds for Non-negativity of the Diffusion Game",
+        "trigger": "Title suggests possible stronger uniform bounds for the same dynamics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "663ee288-8da6-4664-9cba-66c0b66c7bfb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact two-phase amplitude is the smallest uniform translation-normalized alphabet for the full recurrent set of K_{a,b}. This converts an unbounded integer state space to a sharp, a,b-dependent finite search domain for recurrent configurations, strengthening prior initial-dependent trajectory-boundedness in a mathematically natural dense bipartite family. Both-shore degree dependence matters and an explicit extremal oscillation establishes that the cutoff cannot shrink; this is a substantive structural invariant, not an arbitrary small-parameter enumeration.",
+    "status": "PASS"
+  }
+}
