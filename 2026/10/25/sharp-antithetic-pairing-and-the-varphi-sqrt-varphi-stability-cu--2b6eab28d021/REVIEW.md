@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For each ordered component pair the two-stage rotation update is a scalar-plus-skew matrix; its squared norm is exactly \((1-\eta^2uv)^2+\eta^2v^2\) times the initial squared norm. This gives all three expectation multipliers and their affine coupling interpolation. Pairwise independence across iterations gives the exact power law for expected squared error; there is no reliance on sampling experiments for the infinite-horizon result. The stability thresholds reduce to three explicit quadratic inequalities, whose ordering follows from an exact reciprocal quartic factorization. The open example at \((a,b,\eta)=(1,2,3/5)\) is rationally verified. The checker supplies 1,490 independent exact-rational assertions, not a substitute for the proof.
+PASS
 
-## Originality — PASS (self-review)
+PASS for the stated iid-across-iterations two-component, equal-step, planar bilinear model. With J²=-I, the one-step product is ((1-eta²uv)I-eta v J); its squared norm has no cross term. Averaging the complete 2-by-2 fixed-uniform-marginal coupling matrix gives affine q(theta), so a linear objective selects endpoint coupling except at eta²=2/(a+b)². Exact polynomial factorization P(r)/r²=(r+1/r)²-2(r+1/r)-4 orders the three stability thresholds, yielding iff 1<r<phi+sqrt(phi), plus strict rational witness at a=1,b=2,eta=3/5: 751/625,109/100,1223/1250. Independently recomputed 36 rational parameter/coupling checks; these checks alone are not an all-parameter proof.
 
-A source-to-claim comparison was made with the original same-sample SEG analysis (Mishchenko et al., arXiv:1905.11373), general S/I-SEG convergence theory (Gorbunov et al., arXiv:2111.08611), bilinear last-iterate and averaging analysis (Li et al., arXiv:2107.00464), exact planar S/I-SEG multipliers (Yoon--Loizou, arXiv:2608.06182, Lemma 3.11), same-sample across-iteration flip-flop shuffling (Chae et al., arXiv:2501.00511), and antithetic midpoint randomization of a different method (Luo et al., arXiv:2603.22155). Closest mathematical records describe deterministic normal-operator extragradient minimax polynomials or mean-square thresholds for distinct optimizers. No checked statement entails a sharp fixed-marginal *within-step joint-sampling* optimum or the exact antithetic-only stability region. Residual risk: a specialized coupling/transport formulation or an unindexed note could contain an equivalent result; search absence is not proof of novelty.
+## originality
 
-## Value — PASS
+PASS
 
-Both sampling conventions are established implementations of stochastic extragradient with the same two oracle-evaluation budget. Their failure on bilinear problems is a fundamental algorithm-design issue. This finding supplies a nontrivial third choice, proves it is the globally optimal paired sampling law above an exact step-size crossing, and classifies precisely when it alone restores mean-square stability. The natural heterogeneity cutoff is an algebraic constant \(\varphi+\sqrt\varphi\), not an arbitrary numerical slice. The result does not claim universal efficacy beyond its explicitly solvable two-component class, and it does not equate mean-square expansion with almost-sure divergence.
+Best-of-knowledge PASS for exact optimization over within-iteration joint laws with fixed uniform marginals, the antithetic-only stability interval and phi+sqrt(phi) heterogeneity cutoff; earlier work has conventional same-sample/independent-sample stochastic extragradient analyses but does not in inspected material establish this pair-law optimization. Qualify because newer Yoon-Loizou full text was not accessible.
 
-## Closest literature and limitations
+## value
 
-The 2019 and 2021/2022 works motivate the distinction between same and independent samples but do not give a coupled-pair optimality theorem. The 2026 exact planar analysis shares the normal-form multiplier mechanism but studies the conventional pairing policies and different dynamical objectives; the explicit boundary and three-way separation are not consequences of its stated results. The generality is intentionally confined to two positive bilinear coefficients with uniform marginals, fixed equal stage steps, and independent pair draws between iterations. Publication-priority review remains subject to unindexed literature and independently conducted expert scrutiny.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS. The bounded but natural optimal-coupling question distinguishes two conventional two-oracle stochastic extragradient schemes from a third equally costly coupling. A sharp explicit threshold and rational strict-separation witness are informative about sampling correlation and mean-square stability rather than mere normalization or a textbook sign check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:15:51.582259Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md at Git blob 119dc3e7b5a8682ca518ff41409b9993f2ae90b1",
+        "Assigned CHECK.py at blob 8d0ee707647a3e8a0e018cddecca77ffbccf3cfc",
+        "independent_batch_checks.py: antithetic 36 exact rational cases"
+      ],
+      "rationale": "PASS for the stated iid-across-iterations two-component, equal-step, planar bilinear model. With J²=-I, the one-step product is ((1-eta²uv)I-eta v J); its squared norm has no cross term. Averaging the complete 2-by-2 fixed-uniform-marginal coupling matrix gives affine q(theta), so a linear objective selects endpoint coupling except at eta²=2/(a+b)². Exact polynomial factorization P(r)/r²=(r+1/r)²-2(r+1/r)-4 orders the three stability thresholds, yielding iff 1<r<phi+sqrt(phi), plus strict rational witness at a=1,b=2,eta=3/5: 751/625,109/100,1223/1250. Independently recomputed 36 rational parameter/coupling checks; these checks alone are not an all-parameter proof.",
+      "residual_risks": [
+        "Only mean-square decay, not almost-sure convergence; iid pairs across iterations essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The related published Resultary item optimizes deterministic normal strongly monotone degree-two updates, not random coupled stage indices.",
+          "General stochastic extragradient rate papers address reusable samples and minibatch sampling, with different optimization domains."
+        ],
+        "reasoning": "No inspected stronger result was shown to imply the exact antithetic-only heterogeneity interval. Prior general rate bounds are not a decisive coverage theorem for the fixed-coupling difference.",
+        "searches": [
+          "Resultary: stochastic extragradient two component bilinear antithetic coupling pair same sample independent opposite sample mean square golden ratio cutoff",
+          "Resultary record 2026/9/21/SCOPE-normal-extragradient-degree-two-minimax--486b3694d0f0",
+          "arxiv:2111.08611"
+        ]
+      },
+      "checked_sources": [
+        "Mishchenko et al 2020 arxiv:1905.11373",
+        "Gorbunov et al 2022 arxiv:2111.08611 (bibliographic/abstract comparison)",
+        "Yoon–Loizou 2026 arxiv:2608.06182 (abstract only)",
+        "Resultary: stochastic extragradient two component bilinear antithetic coupling pair same sample independent opposite sample mean square golden ratio cutoff"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Mishchenko et al AISTATS 2020 algorithm explicitly reuses one sample in both extragradient stages and contrasts independently sampled mirror-prox.",
+          "Yoon–Loizou 2026 abstract distinguishes same-sample and independent-sample; complete paper not inspected."
+        ],
+        "reasoning": "The two standard strategies are θ=1 and θ=0; the candidate new strict superiority of θ=-1 when both fail is not stated or established by the inspected earlier derivations. Unseen comprehensive 2026 text remains a priority risk.",
+        "searches": [
+          "arxiv:1905.11373",
+          "arxiv:2608.06182",
+          "Resultary: stochastic extragradient two component bilinear antithetic coupling pair same sample independent opposite sample mean square golden ratio cutoff"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Mean-square scalar update law can be expressed as an expected squared complex multiplier; the within-step joint law θ moves linearly between matched and unmatched components.",
+          "Mishchenko et al compare same-sample and independent-sample mirror-prox, which are particular θ choices."
+        ],
+        "reasoning": "The statement is not just convergence of stochastic extragradient: it optimizes the entire one-parameter coupling polytope and asks for three-way strict stability separation. A conventional-method rate formula cannot by itself imply this cutoff without an additional joint-law optimization.",
+        "searches": [
+          "Resultary: stochastic extragradient two component bilinear antithetic coupling pair same sample independent opposite sample mean square golden ratio cutoff",
+          "arxiv:1905.11373",
+          "arxiv:2608.06182"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search did not identify a table or closed-form pair-heterogeneity cutoff for this iid two-component family; checker tabulates only finite rational instances."
+        ],
+        "reasoning": "This is an all-real-parameter classification, not an existing numerical parameter table. The absence of an indexed match is not a novelty proof.",
+        "searches": [
+          "Resultary: stochastic extragradient two component bilinear antithetic coupling pair same sample independent opposite sample mean square golden ratio cutoff",
+          "source result: assigned CHECK.py"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact optimization over within-iteration joint laws with fixed uniform marginals, the antithetic-only stability interval and phi+sqrt(phi) heterogeneity cutoff; earlier work has conventional same-sample/independent-sample stochastic extragradient analyses but does not in inspected material establish this pair-law optimization. Qualify because newer Yoon-Loizou full text was not accessible.",
+      "residual_risks": [
+        "Full Yoon–Loizou 2026 manuscript could contain the exact pairing optimization or stronger coverage; Oxford VPN disconnected and no bypass attempted.",
+        "Specialized antithetic finite-sum bilinear literature under other terminology could contain a matching closed form."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong methodological antecedent; no displayed sharp fixed-uniform-marginal pair coupling theorem.",
+          "evidence": [
+            "Algorithm 1 uses the same sample twice; sampled mirror-prox is treated as separate baseline."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1905.11373",
+          "material_read": "Primary PDF algorithm statements and surrounding convergence discussion; sample-reuse algorithm and independently sampled mirror-prox comparison.",
+          "method": "read primary PDF and inspected relevant page image",
+          "title": "Revisiting Stochastic Extragradient",
+          "trigger": "same operators and competing sampling modes"
+        },
+        {
+          "assessment": "Coverage unresolved at whole-document level; not used to assert NOT_COVERING.",
+          "evidence": [
+            "Abstract names two conventional sampling regimes; full Lemma 3.11 could contain a relevant comparison and remains unchecked."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.06182",
+          "material_read": "Abstract only; full article unavailable through open-access attempts.",
+          "method": "arXiv abstract; authorized institutional request returned vpn_disconnected",
+          "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+          "trigger": "plausible exact scalar multipliers for same family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md",
+        "Mishchenko et al stochastic extragradient methodological antecedent"
+      ],
+      "rationale": "PASS. The bounded but natural optimal-coupling question distinguishes two conventional two-oracle stochastic extragradient schemes from a third equally costly coupling. A sharp explicit threshold and rational strict-separation witness are informative about sampling correlation and mean-square stability rather than mere normalization or a textbook sign check.",
+      "residual_risks": [
+        "No extension to nonbilinear, nonuniform sampling, noise, or almost-sure behavior."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Two positive scalar bilinear components, fixed equal step, uniform stage marginals and iid iteration pairs only."
+  ],
+  "schema_version": 1
+}
