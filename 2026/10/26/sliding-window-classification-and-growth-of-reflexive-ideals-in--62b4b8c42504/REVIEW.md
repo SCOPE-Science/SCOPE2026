@@ -1,12 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The semigroup closure and conductor follow directly from the two specified positive intervals. For every nonprincipal normalized ideal, explicit evaluation of the two ideal quotients gives the exact window-completion operator: the first quotient is precisely the allowed middle elements outside the union of marked windows, plus the conductor tail, and the second adds all upper gaps and precisely the lower gaps whose windows are contained in the marked union. Negative integers cannot enter the second quotient. A proof of the bidirectional run–window bijection yields a complete parametrization. The unique decomposition into endpoint runs, zero runs, and long interior one-runs gives the rational series. A simple unique smallest-modulus root of the denominator gives the exact coefficient asymptotic and the strict monotonicity of its growth constant. A standalone direct double-quotient enumeration confirms the entire set of ideals, not just its size, in 22 parameter cases (7,985 normalized ideals).
+## correctness
 
-## Originality — PASS, qualified
-Campochiaro, D’Anna and García-Sánchez, arXiv:2610.06426v1, is the closest primary literature: it establishes general double-quotient and ideal-decomposition theory but not the concrete arbitrary-terminal-block binary-language enumeration or growth series. A distinct earlier two-terminal-gap result covers only block length two, whose result is not reclaimed here; its single fixed-length formula does not imply the parameter-wide classification for all block lengths at least three. Chavan, arXiv:2304.13690, counts all ideals of different semigroup families, not this set of normalized divisorial ideals. Targeted equivalent-form, numerical-table and stronger-coverage searches found no matching statement. Residual risk: equivalent formulas may appear in unindexed literature or as a non-obvious consequence of an earlier general algorithm. In particular, only the abstract of the less closely related Chavan paper was checked, so its full text is not declared absent of equivalent arguments.
+PASS
 
-## Mathematical value — PASS
-The object is the natural family of numerical semigroups with a single terminal missing block immediately below twice the multiplicity. The invariant counts all translation classes of divisorial ideals, a concrete and motivated invariant in recent reflexive-ideal research. Instead of a single finite example or a small numerical improvement, the result completely classifies a two-parameter infinite family, constructs a nontrivial regular-language bijection, and exactly determines a rational counting series and a strictly decreasing continuum of exponential growth constants, beginning with the golden ratio. The containment order is likewise determined by inclusion of the binary supports. The count is not implied by the earlier two-gap formula alone. No classification is claimed for nonterminal or separated gap patterns.
+Directly computed the double ideal quotient I^v=S-(S-I). For I != S, S-I comprises conductor tail >=2m and those m+i in [m,2m-r-1] not struck by windows E_x=[L-x,L+r-1-x] intersect [0,L-1] from lower added x; I^v contains all terminal gaps and precisely lower x whose entire E_x is already covered. The monotone fixed points are unions Z of the length-r truncated windows, with I_Z=S union upper terminal gap block union {x:E_x subset Z}; each nonempty window ensures injectivity. Such unions are exactly words without short strictly internal one-runs; endpoints may be shorter. Decomposing one-runs and nonempty zero-runs yields the rational generating function. D_r(z)=(1-z)^2-z^(r+1) has one dominant simple positive zero rho_r, giving coefficient asymptotic rho_r^-L/[(1-rho_r)(2(1-rho_r)+(r+1)rho_r^r)]. Roots increase strictly to 1 in r; for r=3 the root is the reciprocal golden ratio. Independently enumerated all normalized gap subsets and computed the defining double quotients for twelve (m,r) instances r=3,4,5 and L=1..4; their exact sets match the word construction. SymPy coefficients at L=1..9 match 2,4,7,11,17,27,44,72,117. The infinite assertion follows from the window algebra and singularity argument, not enumeration.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge noncoverage after comparing the precise statements and implications, original scope, related general theorems and aliases, with the specific residual priority limitations below; lack of a search hit is not itself evidence of novelty.
+
+## value
+
+PASS
+
+Determines the complete translation-class spectrum and inclusion order of divisorial ideals in a natural two-parameter terminal-gap semigroup family, with a regular-language bijection, rational series and an r-dependent exact exponential growth law. An arbitrary small finite case would be insufficient, but the all-r classification and growth are substantive invariants motivated by current reflexive-ideal theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
