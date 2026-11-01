@@ -1,0 +1,9 @@
+# Self-review
+
+**Correctness — PASS.** The novel reflection calculation is supported by a direct orbit-admissibility characterization and a three-case proof that every geometric fixed dual decomposes into cones, an optional bridge, and isolated vertices. Equivariant Alexander duality supplies the correct ambient orientation-sign twist and Lefschetz theory converts component counts into homology traces. The all-width dependence on previously proved shellability and cyclic character is explicit. The standalone program returns `VERIFY_OK orbit_cases=126 orbit_faces=6447 direct_cut_cases=21` and includes direct signed chain computations on the *original* three-cut complexes. It is a cross-check, not an infinite proof.
+
+**Originality — PASS, with risk.** The nearest published result is *Rational cyclic homology representations of three-cut complexes of cycle powers* (2026-10-11, [2] in RESULT.md), whose complete RESULT was inspected: it explicitly excludes reflection traces. The 2026-03-24 source supplies nonequivariant shellability and rank; Bayer et al. concern unpowered cycles and a distinct exceptional squared-cycle regime. The full primary source PDF was not accessible, so an unindexed or hidden equivalent reflection statement cannot be completely excluded. The mathematical comparison is about the unprovided reflection character and geometric dual fixed locus, not a differently phrased cyclic character.
+
+**Value — PASS.** The theorem turns a rotation-only equivariant calculation into a complete rational dihedral character for an unbounded two-parameter family. It computes all reflection-axis traces, explicit dihedral invariant dimensions, and a geometric explanation in terms of components of fixed Alexander-dual spaces; none follows from the ambient Betti numbers or the cyclic restriction. This is substantive symmetry information rather than a numerical increment.
+
+Self-review: passed. Independent audit: not yet performed.
