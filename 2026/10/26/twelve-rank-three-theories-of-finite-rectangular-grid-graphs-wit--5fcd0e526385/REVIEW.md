@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** An explicit atomic-extension recurrence computes exact rank-three graph types; it is not a proxy. A self-contained seven-vertex path cutoff and a product-game congruence reduce every rectangular grid to twenty-eight cases. The standalone program classifies all twenty-eight, independently checks the sixty-six distinct representative comparisons using the full three-round game, and verifies the sharp ten-vertex bound. The universal assertion uses the proved reductions rather than experimental extrapolation. Residual risk is implementation error in the finite census, mitigated by distinct type and game algorithms.
+## correctness
 
-**Originality — PASS (best-knowledge assessment).** Brown–Hoshino's 2007 path/cycle game classification supplies path context but not Cartesian-product grid classes. The standard product-game congruence supplies only a twenty-eight-case bound, not its twelve-class collapse. Kopczyński's grid-axiomatization investigation concerns a richer relational signature and different theorems. An indexed search found no statement that dominates the complete rank-three grid classification. The precise cross-shape collision between a five-rung ladder and a three-by-four grid is not implied by merely knowing the factor classes. Unindexed or inaccessible specialist literature remains a genuine originality risk.
+PASS
 
-**Value — PASS.** This is a complete invariant for a natural infinite planar graph family in the minimal graph signature, with an optimal finite testing bound and explicit least-order representatives. The exact exceptional/bulk dichotomy shows that rank-three logic loses both aspect ratio and even a dimension change sooner than one might infer from factorwise distinguishability. It permits evaluation of any rank-three sentence on this family by testing twelve small graphs. It is a narrowly scoped finite-model-theoretic classification, not a claim about graph logic at arbitrary rank.
+PASS: Reconstructed exact ordered-triple atomic diagram and full back-and-forth type recursion τ1(x,y), τ2(x), τ3(H); equality of these signatures exactly matches equivalence for every rank-three sentence in the equality/adjacency signature. For paths length >=7, pair-extension categories depend only on adjacency, distance two, endpoint degree and whether closed neighborhoods have a joint nonneighbor; all needed categories stabilize by seven, producing one path three-round type. Playing EF games coordinatewise preserves adjacency in graph Cartesian products. Thus every grid reduces to the 28 canonical pairs 1<=m<=n<=7. Fresh independent exact atomic-extension enumeration recovered 12 classes, representatives ending with 2x5 of order10, and the 2x5/3x4 collision; five pairs beyond cutoff also corroborated. Finite census is exhaustive only on 28 canonical grids; infinite coverage uses the proven path cutoff and product lemma.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS qualified: Brown–Hoshino 2007 treats three-round EF games on paths and cycles, including path threshold seven, but no Cartesian-product equivalence classes. A standard logical composition/product lemma reduces dimensions, but a 28-grid census is required for the 12 exact classes; converses to factorwise preservation fail, as 2x5 and 3x4 show. Kopczyński investigates grid axiomatization with four directed adjacency relations and unary predicates, not rank-three pure adjacency equivalence. No exact 12-theory classification identified by actual searches; unindexed model-theory notes remain possible.
+
+## value
+
+PASS
+
+PASS: A complete rank-limited first-order theory partition of a canonical infinite graph family, and the sharp minimal ten-vertex testing kernel, are reusable structural invariants; the nontrivial collapse between different grid shapes is not implied by the standard factorwise cutoff alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
