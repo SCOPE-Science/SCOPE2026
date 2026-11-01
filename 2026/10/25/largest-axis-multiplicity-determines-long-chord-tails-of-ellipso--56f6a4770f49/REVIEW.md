@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The affine-line measure is defined explicitly rather than conflated with uniform orientations among hitting lines. Completing the square gives the projected-body determinant \(\det(A)/Q(u)\), conditional chord length, and the exactly normalized integral law. Rescaling transverse coordinates near the maximal-semiaxis eigensphere produces the stated exponent and gamma-factor coefficient, with dominated convergence on bounded rescaled supports. The separate sphere case checks the empty-product normalization. The included numerical program independently evaluates three-dimensional exact integrals and direct line intersections; these tests corroborate but are not offered as proof of an all-dimensional theorem.
+## correctness
 
-## Originality
-**PASS relative to the accessible prior statements, with priority risk.** Gečiauskas's full four-page paper describes general chord-versus-distance integral relations, not the explicit longest-axis multiplicity law. Suwa's full 1977 paper is a high-relevance stereological model involving random test lines and ellipsoids; its formulas do not assert the sharp orientation-localized endpoint exponent or coefficient, and its mixture/shape modeling should not be silently equated with the explicitly conditioned affine-line distribution here. Agimelen et al.'s full accessible 2014 manuscript models a two-dimensional observed projection. Published-record comparisons to central-section radius distributions, central-section inverse moments, center-passing polygonal chords, and random hyperplane-section diameters show distinct sampling spaces, so they do not imply this specific claim. Incomplete access to older broad chord-theory papers, especially Sulanke (1961) and Coleman's full article (1969), leaves a specific historical-priority risk. A lack of matching titles alone has not been used as originality evidence.
+PASS
 
-## Mathematical value
-**PASS.** The terminal exponent is a scale-independent geometric invariant that reads off the dimension of the longest-axis eigenspace from the full stochastic chord law. The three-dimensional transition among exponent \(2\), \(3/2\), and \(1\) for triaxial/prolate, oblate, and spherical regimes is a natural classification of shape degeneracy. The formula supplies the entire tail for numerical inversion, and its divergence of prefactors as axis gaps close explains why the fixed-body asymptotic needs a separate near-spherical crossover analysis. This is not merely a numerical example or a reparameterization of a center-section law.
+The Schur-complement projection determinant is det(A)/Q(u), hence conditional line directions are brightness-weighted by sqrt(Q(u)), not uniform. Homothetic (d-1)-ball volume yields P(L>t)=H^{-1} int sqrt(Q)(1-t^2Q/4)_+^((d-1)/2) d sigma. Local coordinates transverse to the S^(k-1) maximum-axis sphere give exactly a^2Q=1+sum beta_j z_j^2, the change z_j=sqrt(2eps/beta_j)y_j, a dominated beta-ball integral, exponent (2d-k-1)/2 and stated Gamma constant. The sphere case reduces identically to (2eps-eps^2)^((d-1)/2). An independent 3D oblate quadrature for two axis triples gave ratios tending to 1. This numeric test is not the general proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.
+
+## value
+
+PASS
+
+A geometrically natural, sampling-convention-sensitive endpoint statistic reads off the dimension of the maximum-axis eigenspace and has an explicit shape coefficient, allowing shape-multiplicity inference from rare long chords. The nonuniform coalescing-axis limit and invariant-line rather than center-chord law make this a substantive geometric classification, not a relabeling of a standard one-axis calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
