@@ -1,21 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The convolution operator is identified with \(u^2/(1+u)+v^2/(1+v)\) in the exact finite ring \(\mathbb F_p[u,v]/(u^{p^a},v^{p^b})\). The proof establishes a necessary and sufficient criterion for a nonzero power through a distinct lowest-bidegree monomial and Lucas's no-carry congruence. The odd-prime maximum is achieved by the unique top-degree pair, giving the last-step coefficient and the rank-one group-sum operator. For characteristic two, the bit-position obstruction gives the exact smaller extinction index. A direct cell-stencil checker passes 19 cases, but is not used as a substitute for the universal proof.
+PASS
 
-The boundary \(p=2,a=b=1\) is included; on a two-site cyclic side both directions are counted with multiplicity. The odd-prime surviving-state count uses the codimension-one kernel of the total-mass functional.
+Read exact operator in RESULT.md including repeated neighbors for 2-cycles and the -4f term. Via X=1+u,Y=1+v, the periodic group algebra becomes F_p[u,v]/(u^(p^a),v^(p^b)); the Laplacian multiplier is u^2/(1+u)+v^2/(1+v). Each candidate term A^j B^k has unique lowest bidegree (2j,2k) among j+k=t, preventing cancellation. Lucas no-carry criterion gives maximal surviving t: p odd j=(p^a-1)/2,k=(p^b-1)/2, while p=2 maximal t=2^(a-1)-1. Top odd-degree A^j B^k becomes u^(p^a-1)v^(p^b-1), equal to full group sum, with coefficient (-1)^(b(p-1)/2); rank-one kernel count then exact. Independent sparse-polynomial ring iteration verified 9 parameter triples including small 2-cycle sides. These finitely many tori are not proof of the general clock.
 
-## Originality — PASS under examined evidence
+## originality
 
-The closest motivating manuscript, Nowak-Kępczyk, arXiv:2511.17389 (first public version 2025-11-21; revised 2026-10-12), studies Frobenius revival and reconstruction phenomena and proves moving-corner periods, but its relevant computations concern unbounded or expanding lattices rather than the exact nilpotency index of the standard torus stencil. The precursor arXiv:2509.05815 concerns mostly the infinite lattice with only qualitative finite-torus periodicity commentary. A published result entitled *Prime-power digit factorization in modular Laplacian dynamics* gives Laurent-polynomial dilation congruences, not these finite-quotient extinction indices or the terminal rank-one map. The finite quotient, field characteristic, exact time, and last-step operator are additional data not implied by merely knowing the Frobenius time-dilation law. No covering statement was located in the mathematical-record and literature searches. Non-discovery in searches is not a novelty proof; earlier group-algebra or modular-graph theory may contain an equivalent theorem.
+PASS
 
-## Value — PASS
+The exact p-characteristic finite-torus extinction clock and odd-prime final rank-one group sum are additional to the inspected broad Frobenius dilation identity and the revised source paper. Residual group-algebra priority risk remains.
 
-The count is a complete sharp family-wide dynamical classification: it determines exactly how long all finite toroidal configurations can persist and identifies the full last-step image and surviving initial-state population in odd characteristic. It exposes a genuine characteristic-two versus odd-prime difference and, for odd primes, sensitivity to the shorter period dimension. This supplies exact finite-volume boundary information relevant to Frobenius-based cellular automata rather than an arbitrary small census or an unstated claim of broader dynamical significance.
+## value
 
-## Limitations and remaining risks
+PASS
 
-No corresponding formula is asserted for other masks, non-prime-power sides, or changing-modulus schedules. The earlier literature on modular graph Laplacians and group algebras is broad; an equivalent formula may have been previously proved under another name. Finite verification does not establish the infinite-parameter result. A separate scientific priority review is desirable.
+A complete universal extinction-time classification for a natural finite linear cellular automaton, including a striking characteristic-two versus odd-prime distinction and an explicit final one-dimensional image. It supplies mathematically useful precise transient and survival-count information not contained in a generic nilpotence assertion.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
