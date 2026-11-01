@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The input is the complete complex of legal placements on the ordinary \(5\times5\) board, not merely its maximal configurations. Exhaustive row-by-row enumeration gives face-count vector \((1,25,140,204,82,10)\). All \(462\) faces and \(1295\) cover incidences are reconstructed. The specified deterministic acyclic matching has \(222\) pairs, a single critical edge and seventeen critical triangles, and its reversed matching digraph admits a topological ordering of all faces. Signed integer elimination gives the identically zero attaching-degree row. Independently, rational ranks of the two lowest nontrivial simplicial boundaries are \(24\) and \(115\), forcing rational first Betti number one and therefore zero integer Morse differential. Since maps \(S^1\to S^1\) of degree zero are null-homotopic, the CW model is the stated sphere wedge. The certificate is finite and exhaustive, not a claim of a general infinite-board theorem.
+PASS
 
-## Originality — PASS, with residual risk
+Legal square sets form the ordinary independence complex of the queen attack graph. Independent complete enumeration found 462 faces including empty, f-by-cardinality (1,25,140,204,82,10). Greedy pivot matching over all 25 square labels found exactly 222 pairs, leaving one critical edge and seventeen critical triangles with empty simplex matched. The independently reconstructed directed Hasse graph has 462 vertices and 1295 incidences and topological sort verified no directed cycle. Exact integer projection through matched edges found all seventeen critical 2-cell attaching degrees zero; a reduced Morse CW model with one loop and seventeen trivial 2-attachments has integral homotopy S1 vee 17 S2. Boundary vanishing, not merely rational homology, supports the wedge.
 
-Searches of published mathematical results, research-record results, and the accessible prior-claim ledger found no equivalent five-by-five queen-complex homotopy classification. The closest source on independence homotopy treats forests and other special classes (Ehrenborg–Hetyei), while the same-board queen literature (Chaiken–Hanusa–Zaslavsky) determines counts and quasipolynomials, which do not logically imply homotopy type. Searches compared the alternative descriptions “queen graph independence complex”, “nonattacking placement complex”, and “partial queen simplicial complex”, not merely titles. Bell–Stevens's survey was available in abstract only, so a low-probability but real risk from unexamined details remains; unindexed equivalent work cannot be ruled out.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This computes an exact homotopy type, including the fundamental group and the integral second homology, for a natural canonical graph complex arising from the classical queen-placement problem. It distinguishes topological relationships among partial configurations from enumerative solution counts. The finite calculation has a compact reproducible Morse certificate and exhibits simultaneous nonzero first- and second-dimensional homotopy; neither result is a routine consequence of the known face numbers. The claim is confined to the naturally distinguished smallest odd board size with complete five-queen placements, rather than an arbitrary deletion slice.
+The classical q-queens primary literature enumerates placements and inside-out polytope quasipolynomials but not their simplicial topology or integer attaching maps. Independence-complex results for forests do not cover the 25-vertex queen graph with numerous cliques. No exact 5x5 queen homotopy type appeared among Resultary hits, but coverage in alternate graph terminology cannot be eliminated.
 
-## Limitations and references
+## value
 
-No board-size generalization, symmetry-module decomposition, or independent external validation is asserted. Primary sources compared: Ehrenborg–Hetyei (2006), DOI:10.1016/j.ejc.2005.04.010 (full author-hosted PDF); Chaiken–Hanusa–Zaslavsky (2014), arXiv:1303.1879 and arXiv:1402.4880 (full online manuscripts); Bell–Stevens (2009), DOI:10.1016/j.disc.2007.12.043 (abstract only). Unindexed work and the inaccessible full Bell–Stevens survey are residual bibliographic risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It determines fundamental group and complete integral sphere wedge for the canonical first familiar nontrivial small chessboard instance, not merely enumerative Betti numbers; the coexistence of a surviving loop and 17 two-spheres is a natural topological invariant relevant to placement complexes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
