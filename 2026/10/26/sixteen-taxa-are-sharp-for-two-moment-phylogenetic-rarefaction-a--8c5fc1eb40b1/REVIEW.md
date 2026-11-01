@@ -1,15 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rooted unit-edge model and sample distribution are specified. Edge-intersection indicators give the two exact moment expressions. Triangular binomial transforms prove equivalence with the size/union-size signature. Every pair of fixed-size subtrees has a valid interchange, including all incoming subtree edges; this yields the 16-tip witnesses. Exhaustive canonical recursion gives all 10,905 16-tip unlabelled rooted binary shapes and all smaller shapes. The only 16-tip pair matches the exhibited pair. The distinct two-tip histograms give an exact third-moment difference, while root-with-leaf grafting preserves indistinguishability for all larger numbers of tips. The attached checker regenerates the finite evidence from scratch; it is finite enumeration only, with no unjustified infinite extrapolation.
+## correctness
 
-## Originality — PASS
-Nipperess and Matsen's 2012/2013 exact moment identities under rarefaction are prior work and do not claim a sharp topology-identification threshold. Fischer, Hamann, and Wicke's 2025 clade-size sequence result already supplies a nine-tip ambiguity in *mean-only* statistics; the new finite classification tests both the first and second entire moment curves, which are equivalent to a more informative pairwise clade-union signature. The 2015 rarefaction review does not derive the 16-tip threshold. Published results and topical index searches consulted did not exhibit this precise sharp result or its third-moment separation. Novelty is a best-knowledge finding, not a mathematical proof that no other source exists.
+PASS
 
-## Mathematical value — PASS
-This resolves a natural identifiability limit for a commonly used biodiversity summary when both the expected rarefied PD and sampling uncertainty are known for every sampling depth. The exact smallest collision size and unique 16-tip witness are meaningful finite cutoffs; a general balanced subtree interchange explains the mechanism, an exact higher-moment calculation distinguishes the pair, and grafting shows that the obstruction is persistent rather than exceptional to one population size.
+For rooted PD Yk=sum_e 1{K meets distal clade}, inclusion-exclusion gives expectation and second moment in terms of clade sizes and pairwise-union sizes. Invertibility of the triangular matrix binom(n−s,k) (after terminal-size and k-boundary handling) makes equality of entire curves equivalent to equality of those histograms. Regrouping four equal-size subtrees preserves both histograms, and adding a new root tip preserves collisions for all n>16. Independently regenerated all rooted unordered binary shapes n<=16 (10,905 at 16), computed complete size/union signatures with bitmasks, found exactly one collision at n16 and none smaller, and independently enumerated all two-tip subsets of the displayed witnesses yielding third-moment gap −1/20. The finite census is exhaustive via canonical recursion, not sampled, and extension to infinity is analytic.
 
-## Closest literature and limitations
-The exact general rarefaction moment formulas are inherited from Nipperess and Matsen (arXiv:1208.6552). Clade-size sequence collisions are studied by Fischer, Hamann, and Wicke (doi:10.1007/s11538-025-01509-y). The assertion concerns rooted, unit-length full binary trees sampled uniformly by distinct tip taxa; it is not claimed for arbitrarily weighted edges, abundance sampling, or unrooted diversity. Other formulations of topological ambiguity might imply related statements and should be independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This identifies the sharp natural topology-identifiability threshold of the full first two rooted phylogenetic-diversity rarefaction curves, constructs the unique minimal ambiguity, and exhibits a third-moment separator. It is stronger than prior mean-only clade-profile nonuniqueness and independently useful for limitations of shape recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

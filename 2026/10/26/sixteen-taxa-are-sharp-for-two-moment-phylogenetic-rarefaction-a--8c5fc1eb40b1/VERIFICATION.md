@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Execute `python3 pd_moment_checker.py` with Python 3.10 or later; the program prints a JSON certificate to standard output. Compare it bytewise or parse and compare structurally with `pd_moment_certificate.json`. The script generates non-plane full binary shapes by the complete unordered-child recurrence through 16 leaves; records the exact descendant-size and pairwise-clade-union histograms for each tree; asserts zero collisions for 2–15 tips and one for 16 tips; and asserts that this collision is precisely the displayed pair. It then enumerates all nonempty subsets of the 16 leaves in each tree, and directly checks equality of sums of rooted phylogenetic diversity and its square at every cardinality. For the 120 two-leaf selections it also checks the exact frequency distributions and cube sums (54370 versus 54376).
+# Independent mathematical audit
 
-These are finite, reproducible exhaustive checks, not a computer proof of a universal theorem. The general equality of moments under equal-size subtree interchange and the extension to all larger tip counts are established by the explicit symbolic arguments in RESULT.md. No external validation or independent audit has been performed. The source-code interpreter and operating environment are not formal proof assistants.
+## correctness
+
+PASS
+
+For rooted PD Yk=sum_e 1{K meets distal clade}, inclusion-exclusion gives expectation and second moment in terms of clade sizes and pairwise-union sizes. Invertibility of the triangular matrix binom(n−s,k) (after terminal-size and k-boundary handling) makes equality of entire curves equivalent to equality of those histograms. Regrouping four equal-size subtrees preserves both histograms, and adding a new root tip preserves collisions for all n>16. Independently regenerated all rooted unordered binary shapes n<=16 (10,905 at 16), computed complete size/union signatures with bitmasks, found exactly one collision at n16 and none smaller, and independently enumerated all two-tip subsets of the displayed witnesses yielding third-moment gap −1/20. The finite census is exhaustive via canonical recursion, not sampled, and extension to infinity is analytic.
+
+## originality
+
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This identifies the sharp natural topology-identifiability threshold of the full first two rooted phylogenetic-diversity rarefaction curves, constructs the unique minimal ambiguity, and exhibits a third-moment separator. It is stronger than prior mean-only clade-profile nonuniqueness and independently useful for limitations of shape recovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
