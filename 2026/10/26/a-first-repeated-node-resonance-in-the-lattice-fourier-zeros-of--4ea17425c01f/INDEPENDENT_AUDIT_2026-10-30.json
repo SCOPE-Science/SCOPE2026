@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:55:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checks/verify.py",
+        "Baldoni et al arxiv:0809.2083 Corollary 12 exponential simplex formula",
+        "Borda arxiv:1608.02417 Section 2.3 Fourier contour formula",
+        "Independent confluent-residue checker"
+      ],
+      "rationale": "I reconstructed F(k) as fourth divided difference of exp at z_j=-2πi times the five integer nodes; the unnormalized simplex volume is 1/24 at zero, fixing normalizations. For distinct nodes exp(z_j)=1 gives zero divided difference. For repetitions, confluent residues yield a rational polynomial P(s) in s=i/(2π); transcendence of π prevents accidental vanishing of a nonzero rational polynomial. Partition enumeration of 5 identifies every pattern with a unique largest multiplicity: its lowest s degree has a single nonzero term. Only multiplicity 2+2+1 can cancel, and its s³ coefficient vanishes precisely when the singleton equals the midpoint of the repeated endpoints. I independently reconstructed the residue polynomial for all 210 multisets drawn from -3..3 containing zero, with exactly 15 all-distinct and 5 repeated zeros. Symbolic residue cancellation for symmetric {-h,-h,0,h,h} proves sufficiency for all integer gaps; the 2+2 pattern in smaller simplex dimensions gives nonzero s coefficient. The finite test supports, but is not the infinite proof.",
+      "residual_risks": [
+        "Restricted to integer lattice and standard simplex; not a classification over real frequencies or dimensions≥5."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Borda general formula allows arbitrary simplex and coincident projection values; this dominates transform existence, not stated discrete zero pattern.",
+          "Kolountzakis–Spyridakis study complex curves and entire spheres inside zero varieties rather than exact Z⁴ discrete lattice slice."
+        ],
+        "reasoning": "A larger geometric domain is not logically a stronger zero classification without a cancellation theorem. No inspected result implies exact first repeated-node dimension or endpoint-midpoint multiplicities.",
+        "searches": [
+          "Borda 2018 Theorem 3 Fourier transform arbitrary simplex",
+          "Kolountzakis Spyridakis Fourier zeros polytopal regions Pompeiu"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic search for simplex Fourier zeros",
+        "Borda arxiv:1608.02417 primary Section2.3/Theorem3",
+        "Baldoni arxiv:0809.2083 Corollary12",
+        "Kolountzakis Spyridakis arxiv:2404.03405"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baldoni et al exponential integral formula and Borda complex contour integral imply the confluent residue expression.",
+          "Additional coefficient comparison across every integer multiplicity pattern yields the exact iff statement."
+        ],
+        "reasoning": "The integrals themselves are known corollaries; the complete vanishing classification and minimal dimension are not explicitly supplied by cited methods. Whether someone published equivalent derived coefficient vanishing is a residual risk.",
+        "searches": [
+          "arxiv:0809.2083 Corollary 12",
+          "arxiv:1608.02417 Theorem 3 Section 2.3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The standard-simplex transform is a fifth-node exponential divided difference; Borda’s contour integral treats repeated vertex projections with residues.",
+          "Published formula already computes every F(k), but no extracted integer lattice vanishing classification was found in the inspected primary theorems."
+        ],
+        "reasoning": "The zero criterion is a nontrivial classification of all multiplicity partitions at the transcendental sampling parameter, not a new transform representation; potentially a corollary of general residue tools after independent arithmetic work.",
+        "searches": [
+          "Resultary standard simplex lattice Fourier zeros repeated nodes confluent divided difference",
+          "Borda simplex Fourier transform coincident vertex projections",
+          "Baldoni simplex exponential integral divided differences"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A complete 210-case local residue test has 20 zero patterns; this check is independently reproduced, not mistaken for a published table."
+        ],
+        "reasoning": "No known external integer-lattice zero database is used or treated as novelty proof; the unbounded classification requires the residue and transcendence argument.",
+        "searches": [
+          "Resultary complete simplex Fourier lattice zero integer 4-simplex",
+          "Borda four-dimensional standard simplex Fourier integer zeros table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original complete repeated-node integer-frequency zero classification. General Fourier/integral formulas for polytopes with coincident projections are prior and can compute any particular zero, but inspected primary theorems do not supply the if-and-only-if residue cancellation patterns.",
+      "residual_risks": [
+        "Other polytope-zero literature might derive the integer-lattice classification from the same confluent residues.",
+        "Only primary Borda Section 2.3/Theorem 3 was materially inspected, not every appendix or related dissertation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS Fourier contour formula and repeated-pole method, not the stated discrete iff zero classification in inspected theorem and adjoining discussion",
+          "evidence": "Theorem 3 complex integral for arbitrary simplex; repeated projections handled by higher poles.",
+          "identifier_or_url": "https://arxiv.org/abs/1608.02417",
+          "material_read": "Section 2.3 and Theorem 3 primary PDF, including the complex contour integral and handling of repeated projected vertices",
+          "method": "Open-access primary arXiv PDF textual reading",
+          "title": "Lattice points in algebraic cross-polytopes and simplices",
+          "trigger": "General transform of arbitrary simplex and coincident vertex projections"
+        },
+        {
+          "assessment": "COVERS integral formula, not sufficient to claim exact zero classification already published",
+          "evidence": "Vertex sum/divided difference is acknowledged as an established method.",
+          "identifier_or_url": "https://arxiv.org/abs/0809.2083",
+          "material_read": "Cited Corollary 12 and formula 10 as supplied in the actual audited package; independently reconstructed the resulting exact identity",
+          "method": "Primary arXiv bibliographic/cited formula, not full entire paper",
+          "title": "How to Integrate a Polynomial over a Simplex",
+          "trigger": "Known exponential-simplex divided-difference identity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Classical simplex Fourier transform and confluent interpolation",
+        "All-integer multiplicity classification and first dimension"
+      ],
+      "rationale": "The standard simplex is canonical in Fourier analysis, and its discrete zero set is central to harmonic tilings and sampling. The first repeated-node resonance is an exact structural boundary distinguishing distinct-phase cancellation from nontrivial confluent cancellation. Classifying all Z⁴ zeros is a mathematically motivated complete invariant, not an arbitrary finite list.",
+      "residual_risks": [
+        "No arbitrary affine-simplex or higher-dimension classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the standard Euclidean 4-simplex, its Fourier transform at integer k vanishes exactly when the five vertex phase nodes {0,k1,k2,k3,k4} are distinct or form an arithmetic progression with multiplicities 2,1,2, the first simplex dimension permitting a repeated-node lattice zero.",
+  "limitations": [
+    "Unnormalized Fourier transform with frequency -2πi convention.",
+    "The 210-case finite residue census is diagnostic only."
+  ],
+  "schema_version": 1
+}
