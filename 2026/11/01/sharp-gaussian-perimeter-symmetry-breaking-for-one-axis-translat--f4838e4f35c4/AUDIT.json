@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "For every finite d>=2 and positive halfwidths, exact integration over all 2d facets gives G(t)=C[phi(t-a)+phi(t+a)+Lambda(Phi(t+a)-Phi(t-a))]. The derivative has the strictly positive prefactor 2C phi(a)exp(-t^2/2)cosh(at) times f(t)=(a-Lambda)tanh(at)-t. For a-Lambda>0, f is strictly concave for t>0, with f(0)=0, f'(0)=a(a-Lambda)-1 and f(t)->-infinity, yielding the precise global sign classification, all maximizers, and the positive-root uniqueness. Direct integration or the derivative Taylor expansion yields quartic critical flatness and the sharp square-root/positive-gain coefficients. Standalone stdlib verification ran successfully (3046 checks), including direct facet Gaussian quadrature in dimensions two and three, random phase tests in dimensions two through nine, and near-critical scaling. Finite tests are not used as an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Csató–Giovagnoli arXiv:2610.11677v1, Theorems 1.2, 1.3, Sections 3–4: continuity and inclusion monotonicity assume increasing weights for monotonicity.",
+        "Nadimpalli–Pascale arXiv:2508.20079v1, Introduction and Section 3: optimize across variable convex sets in high dimension.",
+        "Barchiesi–Julin arXiv:1805.03161 abstract: constrained Gaussian perimeter plus barycenter penalty and symmetric minimizers."
+      ],
+      "reasoning": "Continuity under Hausdorff convergence and inclusion monotonicity for increasing weights do not order translations under decreasing Gaussian density. Arbitrary-convex-set global maximum bounds are not sharp optimizer statements on a fixed translation orbit. Symmetric minimization with fixed Gaussian mass does not determine a non-mass-constrained fixed-box maximum. No inspected theorem implies this claim.",
+      "searches": [
+        "Continuity and monotonicity of weighted perimeters of convex bodies arXiv 2610.11677",
+        "On the Maximal Gaussian Perimeter of Convex Sets Revisited arXiv 2508.20079",
+        "Gaussian symmetric isoperimetric problem Barchiesi Julin"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.11677v1 (full HTML)",
+      "arXiv:2508.20079v1 (full HTML)",
+      "arXiv:1805.03161 (abstract)",
+      "public mathematical records on width–brightness covariance of orthotopes and Gaussian Santaló ball products (claim summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Full-text Csató–Giovagnoli Sections 1–4 state no fixed-box Gaussian translation maximum.",
+        "Full-text Nadimpalli–Pascale Introduction, Preliminaries and Section 3 target growth of unconstrained global convex-set Gaussian perimeter, not an exact box translation phase.",
+        "No exact claim that forces the equation t=(a-Lambda)tanh(at) was found in accessible sources."
+      ],
+      "reasoning": "The new conclusion is an exact quantitative iff classification for all positive halfwidths and all dimensions, with precisely two off-center global maxima in the supercritical region. Neither the general inclusion/continuity statements nor the global maximum bounds determine the off-center locations, critical halfwidth, or quartic/square-root transitions. Therefore they do not subsume the claim.",
+      "searches": [
+        "one-axis translation of rectangular box Gaussian surface perimeter maximized off-center pitchfork bifurcation critical half width tanh",
+        "\"Gaussian perimeter\" \"rectangle\" \"translation\" \"maximum\"",
+        "\"Gaussian surface area\" \"rectangular\" \"translated\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gaussian Minkowski boundary content equals the standard Gaussian boundary-density integral for nondegenerate orthotopes, up to conventional normalization; arXiv:2508.20079v1 Definition 1.",
+        "The equivalent normal-probability or facet-density formulation leads to the same scalar f(t), not to a different statement."
+      ],
+      "reasoning": "Searches included the aliases Gaussian surface area, Gaussian perimeter, normal boundary content, and translated boxes. Different perimeter normalization multiplies all values by a positive constant and leaves the complete optimizer classification unchanged. The inspected definition does not supply the specific exact optimizer classification.",
+      "searches": [
+        "normal distribution surface content of rectangular box off center translation critical side length hyperbolic tangent",
+        "Gaussian surface area rectangular boxes translation axis symmetry breaking pitchfork threshold",
+        "Gaussian perimeter product rectangles along coordinate translate complete unimodality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Nearby published mathematical records: Sharp aspect-ratio phase diagram for width-brightness covariance of orthotopes (no Gaussian perimeter or translation).",
+        "Nearby published mathematical record: Quartic stabilization of the critical translation mode in the Gaussian Santaló product (different product and ball functional)."
+      ],
+      "reasoning": "The nearby width-brightness record integrates Euclidean directional width and brightness over random normals, not Gaussian boundary density of one translated box. The Santaló record varies a Gaussian volume product of a ball, not an orthotope Gaussian surface area. No matching exact table or equivalent published claim was identified in the checked sources. This is bounded evidence and cannot prove uniqueness.",
+      "searches": [
+        "one-axis translation of rectangular box Gaussian surface perimeter maximized off-center pitchfork bifurcation critical half width tanh",
+        "Gaussian boundary measure of axis-aligned rectangular cuboid translated in one coordinate, bifurcation off-center maxima",
+        "Gaussian perimeter of shifted orthotopes exact transition centered maximum two nonzero maxima lambda sum normal densities",
+        "Gaussian perimeter shifted boxes orthotopes exact threshold off-centre maximum half-width sum hazard ratios"
+      ]
+    },
+    "rationale": "The exact global phase diagram for Gaussian perimeter restricted to one-axis translations of an arbitrary fixed orthotope is not obtained from the inspected weighted-perimeter continuity or increasing-weight inclusion theorem, the global convex-set Gaussian surface-area growth bounds, or Gaussian isoperimetric symmetry/minimization. Public mathematical records with nearby names concern width-brightness covariance of orthotopes or Gaussian Santaló volume products, which do not imply the fixed-box Gaussian facet formula, two off-center global maximizers, or the threshold. Exhaustive historical priority is not established.",
+    "residual_risks": [
+      "Older Gaussian probability or stochastic-geometry literature may state an equivalent box-translation extremum under surface content or noise-sensitivity terminology.",
+      "No independent historical-priority audit has been performed.",
+      "The related 2018 Gaussian isoperimetric article was compared at abstract level only; noncoverage was not inferred from an unread full text."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General weighted-perimeter continuity and certain inclusion monotonicity do not imply the translation-orbit Gaussian perimeter phase diagram; Gaussian density is decreasing.",
+        "evidence": [
+          "arXiv:2610.11677v1 lines 44–89 (main theorems), 316–376 (counterexamples and inclusion proof), 377–411 (minimizers)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.11677v1",
+        "material_read": "Theorems 1.2 and 1.3; definition and hypotheses; Sections 1, 2, 3 and 4 including counterexamples and minimizers",
+        "method": "Read public arXiv HTML full text, checked statements and arguments for functional, hypotheses, and translation scope",
+        "title": "Continuity and monotonicity of weighted perimeters of convex bodies",
+        "trigger": "Fresh 2026 weighted-perimeter framework; plausible dominating general theorem"
+      },
+      {
+        "assessment": "Global dimension-growth bounds and Nazarov-style constructions do not classify translates of one fixed orthotope.",
+        "evidence": [
+          "arXiv:2508.20079v1 lines 38–76 (scope, principal theorems), 165 onward (construction); no box-translation maximum identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.20079v1",
+        "material_read": "Definition 1 and Theorems 2–3, Introduction, Preliminaries, Section 3, and thematic appendix coverage",
+        "method": "Read public arXiv HTML full text and searched for boxes and translations",
+        "title": "On the Maximal Gaussian Perimeter of Convex Sets, Revisited",
+        "trigger": "Potentially stronger global Gaussian perimeter maximization theorem"
+      },
+      {
+        "assessment": "Addresses Gaussian perimeter plus a barycenter term under Gaussian-volume constraints, not the stated box-translation problem; full-text uncertainty retained as a historical-priority risk.",
+        "evidence": [
+          "arXiv:1805.03161 abstract."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1805.03161",
+        "material_read": "Title and abstract; full text not used for a noncoverage conclusion",
+        "method": "Read arXiv abstract and publication summary",
+        "title": "Symmetry of minimizers of a Gaussian isoperimetric problem",
+        "trigger": "Plausible Gaussian symmetry-breaking optimization antecedent"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f4838e4f-35c4-4cc2-bc04-dc5d6fa0544f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Gaussian boundary measure is a central geometric/isoperimetric functional, while fixed-shape translation is a natural optimization orbit because Gaussian density breaks Euclidean translation invariance. The result completely resolves that orbit for every full-dimensional orthotope in all finite dimensions, gives an exact lateral Gaussian facet-to-mass threshold, and demonstrates and classifies a genuine two-maximizer symmetry-breaking phase. Sharp quartic criticality, square-root displacement and quadratic gain provide structural stability, not merely a routine special-case estimate. The transverse geometry enters through a nontrivial sum of hazard-type boundary-to-mass ratios.",
+    "status": "PASS"
+  }
+}
