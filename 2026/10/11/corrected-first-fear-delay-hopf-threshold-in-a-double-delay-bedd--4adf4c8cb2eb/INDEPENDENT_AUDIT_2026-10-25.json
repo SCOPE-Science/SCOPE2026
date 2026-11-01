@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T22:58:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "doi:10.3390/axioms12010073",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/verify.py",
+        "independent_spectral_check.py: independent SymPy/mpmath precision=65 numerical and analytic derivation"
+      ],
+      "rationale": "Reconstructed printed 2-state nonlinear model and tau_2=0 equilibrium independently (x*,y*)=(0.121908145169124554729929382673...,0.570158908561061634596216471872...). Independently symbolically differentiated vector field (SymPy rational coefficients) to obtain A11=-0.0295992170402710, A12=-0.04272458459092165, B12=-0.04781531925074255, A22=-0.11140317817122123, C21=0.44210677105029230,C22=0.05126950150910599. The determinant is lambda^2+P lambda+Q+R exp(-lambda tau1) with P=0.0897328937023862753,Q=0.0206687378849088765,R=0.0211394764006846687. Eliminating phase gives z^2+(P^2-2Q)z+(Q^2-R^2)=0, with one positive root z+=0.0338666086691450845 and one negative root z-=-0.000581125111531086; omega=sqrt(z+)=0.184028825647356356. Both sin and cos equations require principal positive phase phi=0.896531174337346... so first delay tau=4.8716888301798779245...; Delta(i omega,tau) magnitude <1e-60. At published tau=4.5923, Delta(i omega,tau) magnitude 0.001086779110941..., and uniqueness of positive frequency rules out any other imaginary crossing there. Zero-delay quadratic is Hurwitz since P>0, Q+R>0; Delta(0,tau)=Q+R>0, no zero eigenvalue. Implicit crossing speed Re(dlambda/dtau)=+0.00578097609286525. Retarded DDE spectral continuity therefore proves linear stability before first crossing and first instability at it. The paper's 3.5,5 simulations still straddle the true boundary. This does NOT prove nonlinear Hopf criticality or any two-delay region; high-precision signs are numerically robust but not machine-verified interval certificates.",
+      "residual_risks": [
+        "One-point high-precision calculation is not a formal interval-arithmetic certificate; the inequalities are separated from zero by substantial margins.",
+        "No validation of nonlinear periodic branch, other parameter sets or Case IV region is provided."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "doi:10.3390/axioms12010073 Eqs. (12)-(15) provide the underlying quasipolynomial and frequency condition and are specifically acknowledged as prior art; their phase/numerical presentation does not give the correct first crossing.",
+          "doi:10.3934/math.2023378 PDF Section 2 p.7537 model (2.1) uses prey, intermediate predator, top predator and two gestation delays; distinct from Cui et al. two-state fear-delay/gestation-delay model.",
+          "Resultary/2026:2026/10/11/SCOPE-the-printed-hybrid-controller-shifts-the-coexistence-equilibrium--2c6d85e14873/RESULT.md concerns a different controller in Ou et al. with delay delta and parameters h1,h2 etc.",
+          "Resultary/2026:2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md concerns a three-state fear-stage extinction threshold; no same spectral calculation."
+        ],
+        "reasoning": "Broader delay-Hopf methods are generic but do not determine this source-specific numerical correction without the exact characteristic coefficients and correct phase. The closest same-year paper and both full inspected published Resultary analogues have different dynamical systems/parameters. This does not exclude an unindexed stronger article.",
+        "searches": [
+          "Resultary semantic query: exact critical delay correction predator prey fear Beddington DeAngelis oscillation characteristic equation numerical Hopf eigenvalue",
+          "Resultary semantic query: delay differential equation double delays predator prey Beddington DeAngelis threshold transversality critical tau correction",
+          "web: Dynamics of a predator-prey model with fear effects and gestation delays Wang Shao Chai 2023 full text model three species",
+          "web: Role of Fear in a Predator Prey Model with Beddington DeAngelis Functional Response Pal Majhi Mandal Pal 2019 model abstract"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.3390/axioms12010073",
+        "doi:10.3934/math.2023378",
+        "doi:10.1515/zna-2018-0449",
+        "Resultary/2026:2026/10/11/SCOPE-the-printed-hybrid-controller-shifts-the-coexistence-equilibrium--2c6d85e14873/RESULT.md",
+        "Resultary/2026:2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+        "Resultary/2026:2026/10/11/SCOPE-corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/RESULT.md",
+        "openalex:W4315574374",
+        "openalex:W2943516434"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "doi:10.3390/axioms12010073 Eqs. (13)-(15) and parameters (32) permit rederivation but the asserted threshold 4.5923 and principal-arctan phase (17) do not establish the corrected positive first crossing.",
+          "At unique omega=0.184028825647..., characteristic residual at published tau=4.5923 is 0.00108677911094..., while corrected tau gives residual below 1e-60.",
+          "doi:10.3934/math.2023378 has dimension 3 and numerical first fear/gestation delays near 10.88/0.11, not the Cui et al. Case II values."
+        ],
+        "reasoning": "The source does contain strong methodological prior coverage: the correct quasipolynomial and frequency equation. The claim is not novelty of that algebra; it asserts a corrected threshold contradicting the paper's reported first delay, requiring reliable phase-branch reconstruction. Other inspected results do not imply the corrected numerical case through an identified reduction. This distinction is a residual risk because some novelty conventions would treat the numerical evaluation as mechanical consequence of known equations.",
+        "searches": [
+          "Primary-source full-text: Cui et al. Sections 3 (Case II Eqs. 11-17), 5 Case II/32",
+          "Primary-source PDF: Wang-Shao-Chai (2023) Section 2, model (2.1)",
+          "Published Resultary full RESULT files Resultary/2026:2026/10/11/SCOPE-the-printed-hybrid-controller-shifts-the-coexistence-equilibrium--2c6d85e14873/RESULT.md; Resultary/2026:2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "web: Cui Shao Xue Zhao 2023 \"4.5923\" corrected threshold erratum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "doi:10.3390/axioms12010073 Section 5 Case II explicitly reports 4.5923, not 4.8716888301798779.",
+          "doi:10.3390/axioms12010073 Eqs. (13)-(14): cos=(omega^2-Q)/R, sin=P omega/R, yield principal phase 0.896531174337346...; printed Eq. (17) uses uncorrected arctan branch and fails as a literal principal-phase formula for these coefficients.",
+          "Resultary exact self-record Resultary/2026:2026/10/11/SCOPE-corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/RESULT.md is the same finding, not an independent earlier result."
+        ],
+        "reasoning": "Equivalent descriptions as a corrected first Hopf/fear-delay, imaginary-characteristic root, or 0.18402882565 angular frequency were searched. The source contradicts the corrected numerical assertion; its general characteristic algebra is not claimed as new. No separate correction located; search noncoverage is not novelty proof.",
+        "searches": [
+          "Resultary semantic query: predator prey double delay Beddington DeAngelis fear delay corrected Hopf threshold Cui Shao Xue Zhao Case II 4.5923 4.871688830179877",
+          "web: \"4.5923\" \"Beddington\" \"Hopf\" correction",
+          "web: \"4.87168883\" predator prey",
+          "web: \"Cui\" \"Shao\" \"Xue\" \"Zhao\" \"4.5923\"",
+          "web: \"axioms12010073\" correction OR erratum"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "doi:10.3390/axioms12010073 Section 5 parameter vector Eq. (32) and critical value 4.5923, with simulations at tau_1=3.5 and 5.",
+          "OpenAlex W4315574374 and DOAJ a71eba11cb6c4b02b8244dd3cf885d74 confirm Axioms 12 (2023) article identity, not a corrected value.",
+          "No independent source-specific corrected numerical table identified in inspected results."
+        ],
+        "reasoning": "The obvious exact table is the source numeric Case II, but it prints an incompatible value. No separately published table of this specific first root was located; novelty remains best-of-knowledge rather than exhaustive.",
+        "searches": [
+          "web: Axioms 12 73 Section 5 Case II tau1 4.5923",
+          "web: 10.3390/axioms12010073 0.1219 0.5702",
+          "web: \"4.871688830179877\" predator prey delay",
+          "Resultary exact source and corrected critical delay search"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS restricted to an actual correction of a published false first-crossing numerical value and its phase-branch evaluation, not to the source's already published generic frequency polynomial or the classical imaginary-axis criterion. Cui et al., Axioms 12:73 (2023), Section 3 Case II Eqs. (12)-(17), derive the same characteristic equation and frequency quadratic but publish tau_1*=4.5923 in Section 5 Case II; their displayed arctan phase in Eq. (17) uses denominator Q-omega^2, which here is negative, and its literal principal branch does not yield a positive first delay. Simultaneously imposing their Eqs. (13)-(14) gives the correct quadrant-aware first phase 0.896531174337... and tau=4.871688830179..., whereas the source's printed first threshold does not satisfy its own root equation. Search and inspected adjacent full texts did not find this correction independently. The theoretical delay-crossing framework is prior art; the distinct surviving point is a material source-specific correction. Residual risk includes an unindexed erratum, alternate published computation, and the borderline originality of a numerically explicit consequence of known governing equations.",
+      "residual_risks": [
+        "An unindexed erratum, thesis, subsequent note or alternate source may have recomputed the exact first crossing.",
+        "The original paper Eqs.(13)-(15) and printed parameter vector already encode the necessary calculation; the originality is a corrected interpretation of their inconsistent numerical/phase information, not a new general theorem. A stricter mechanical-implication standard could reject this narrow novelty.",
+        "The 2019 Pal et al. full text was not obtained; only abstract-level claims are compared. It predates the 2023 numerical Case II and is not decisive.",
+        "The assigned RESULT.md bibliography misstates Wang-Shao-Chai page range and Pal et al. author list, and public METADATA/AUDIT include operational identifiers; no public correction staged."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "CONTRADICTED_ON_NUMERIC_VALUE: published 4.5923 is not first imaginary-root crossing; general spectral algebra known, apparent arctan phase-branch problem in Eq.(17) for these coefficients.",
+          "evidence": "Model (1); Eq.(12) characteristic quasi-polynomial; Eqs.(13)-(17) imaginary-frequency/phase; Section 5 Case II tau1*=4.5923, simulations tau=3.5 and 5.",
+          "identifier_or_url": "doi:10.3390/axioms12010073",
+          "material_read": "Accessible primary text of deterministic system (1), equilibrium equations (6), linear coefficients and characteristic equation (11), Case II (12)-(17) and proof of Theorem 6, Section 5 parameters (32), Case II simulation narrative and source references; publisher search-indexed full text plus ResearchGate licensed CC BY text mirror.",
+          "method": "Statement and formula-level direct comparison; independent symbolic derivatives and high-precision root reconstruction from printed equations.",
+          "title": "Dynamic Behavior of a Predator–Prey Model with Double Delays and Beddington–DeAngelis Functional Response",
+          "trigger": "Exact initiating paper, exact model and parameters, claimed conflicting published Case II value"
+        },
+        {
+          "assessment": "STRUCTURALLY_INAPPLICABLE: prey/intermediate/top predator with two gestation delays rather than Cui two-species fear and gestation delays.",
+          "evidence": "AIMS Mathematics 8 (2023), pp.7535–7559, Eq. (2.1) three species, Fig.3 caption first delay approximately 10.88; different model/parameter family.",
+          "identifier_or_url": "doi:10.3934/math.2023378",
+          "material_read": "Lawful OA publisher PDF, cover and Section 2 p.7537 model (2.1), abstract and displayed numerical figure captions; not a whole-paper theorem-by-theorem scan.",
+          "method": "Compared primary three-state equations and delay placement; visually inspected source PDF page 3 (zero-index 2).",
+          "title": "Dynamics of a predator-prey model with fear effects and gestation delays",
+          "trigger": "Close title, same-year, shared Yuanfu Shao, double gestation delays and Beddington-DeAngelis response"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY / RESIDUAL_ACCESS_RISK: 2019 fear strength bifurcation predates the 2023 printed Cui Case II numerical example; no asserted source-specific correction in examined abstract.",
+          "evidence": "Abstract describes fear-strength destabilization/re-stabilization, not the Cui 2023 double-delay Case II computation.",
+          "identifier_or_url": "doi:10.1515/zna-2018-0449",
+          "material_read": "OpenAlex W2943516434 bibliographic record and abstract only; full text not obtained.",
+          "method": "Title and abstract structural comparison without whole-document NOT_COVERING claim.",
+          "title": "Role of Fear in a Predator–Prey Model with Beddington–DeAngelis Functional Response",
+          "trigger": "Same functional-response fear effects background"
+        },
+        {
+          "assessment": "NOT_COVERING: Ou et al. controlled predator-prey model with corrected delta=2.96355, not Cui et al. double-delay fear response.",
+          "evidence": "Ou et al. equations (4.1),(7.2), parameters alpha1=.6, reported delta about 2.85; different source model.",
+          "identifier_or_url": "Resultary/2026:2026/10/11/SCOPE-the-printed-hybrid-controller-shifts-the-coexistence-equilibrium--2c6d85e14873/RESULT.md",
+          "material_read": "Complete public RESULT.md finding, scope, proof, verification and references.",
+          "method": "Compared dynamical equations, controlled vs uncontrolled parametric structures, and first crossing assertions.",
+          "title": "The printed hybrid controller shifts the coexistence equilibrium and reverses the reported Hopf-threshold effect",
+          "trigger": "Closest published correction of a predator-prey delay model threshold returned by Resultary"
+        },
+        {
+          "assessment": "NOT_COVERING: three-state stage-structured extinction condition RP<1, no Cui Case II Hopf-delay computation.",
+          "evidence": "Kong-Shao adult/juvenile predator equations, Lyapunov-Krasovskii extinction theorem, no relevant source parameters.",
+          "identifier_or_url": "Resultary/2026:2026/10/4/SCOPE-a-corrected-delay-independent-predator-extinction-threshold-in-a--83f0a9634cee/RESULT.md",
+          "material_read": "Complete public RESULT.md finding, scope, proof, verification and references.",
+          "method": "Compared model dimension, extinction statement, delay architecture and spectral threshold.",
+          "title": "A corrected delay-independent predator-extinction threshold in a fear-stage model",
+          "trigger": "Another close Resultary fear-and-delay model correction"
+        },
+        {
+          "assessment": "IDENTICAL_SELF_RECORD, not an independent earlier source or outside novelty evidence.",
+          "evidence": "Self-review, parameters, number, proof and bibliography as assigned SCOPE record.",
+          "identifier_or_url": "Resultary/2026:2026/10/11/SCOPE-corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/RESULT.md",
+          "material_read": "Complete published RESULT.md; identical mathematical content to assigned record.",
+          "method": "Exact-title and statement/number check of public duplicate.",
+          "title": "Corrected first fear-delay Hopf threshold in a double-delay Beddington–DeAngelis model",
+          "trigger": "Resultary semantic searches return the exact assigned record"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "doi:10.3390/axioms12010073",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/corrected-first-fear-delay-hopf-threshold-in-a-double-delay-bedd--4adf4c8cb2eb/RESULT.md",
+        "independent_spectral_check.py"
+      ],
+      "rationale": "Motivated numerical correction of the actual first delay-induced local stability boundary of a published prominent Case II example. The 0.2793888301798779 difference is about 6.08% of the printed value and changes the predicted linear stability for 4.5923<tau1<4.87169, not merely a rounding digit. It also diagnoses phase-branch handling as mathematically consequential and explains why published simulations at 3.5 and 5 did not expose the wrong number. The object/invariant are natural within a published DDE bifurcation diagram; exact first crossing is useful for reproduction and any later nonlinear analysis. It remains a single source-parameter correction, not a new general Hopf theorem.",
+      "residual_risks": [
+        "The contribution is deliberately narrow and numerical. It has no asserted nonlinear Hopf direction, global attractivity or general parametric sensitivity theorem.",
+        "The original paper already contains much of the analytic framework, lowering conceptual novelty but not the usefulness of correcting an incorrect stability interval."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No claim about existence or nonlinear criticality of a Hopf branch or about Case IV two-delay boundary.",
+    "Potential unindexed erratum or equivalent numerical correction remains unexcluded.",
+    "Original article already states determinant/frequency algebra; novelty is restricted to the corrected first-branch application, with explicit mechanical-implication risk.",
+    "Source-publication metadata contains private identifiers and RESULT bibliography contains factual errors; no fully guarded sanitizing scientific files staged."
+  ],
+  "schema_version": 1
+}
