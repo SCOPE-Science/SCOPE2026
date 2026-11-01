@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:11:03.925688Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cb93f84da9e814280050938ee403d9118eea74c5/2026/11/01/bessel-zero-spectral-blow-up-at-the-critical-dirichlet-hankel-bo--085a9fb456ac",
+        "2026/11/01/bessel-zero-spectral-blow-up-at-the-critical-dirichlet-hankel-bo--085a9fb456ac/RESULT.md",
+        "Re-derived Dirichlet matrix normalization, logarithmic step kernel, L² envelope and Bessel boundary equation.",
+        "Verified trace integral 1/4 and divergence of endpoint zero-input column.",
+        "Inspected exact check.py finite numerical tests without claiming those prove infinite limit."
+      ],
+      "rationale": "In basis 1,z^n/sqrt(n), positive-index Dirichlet matrix entries are sqrt(i/j)b_epsilon(i+j), while the zero row and column are o(1) after multiplying by epsilon in Hilbert-Schmidt norm. Beta/gamma bounds yield finite Hilbert-Schmidt sums for epsilon>0. Embed the positive indices in L²(0,infty) with intervals [epsilon log i, epsilon log(i+1)) to obtain step kernels epsilon sqrt(i/j)b_epsilon(i+j)/sqrt(ell_i ell_j). For a.e. x>y>0 they converge to e^(-x); for x<y to zero. The common C exp(-max(x,y)) square-integrable envelope proves HS convergence, hence norm/singular convergence, to Tf(x)=e^(-x)int_0^x f(y)dy. T*T kernel is e^(-2max(y,z))/2; differentiating its eigen-equation yields lambda(f_double_prime+2f_prime)+e^(-2y)f=0 and f_prime(0)=0, whose square-integrable solution e^(-y)J_1(e^(-y)/sqrt(lambda)) requires J_0(1/sqrt(lambda))=0. HS trace integral int_0^infty xe^(-2x)dx=1/4. At epsilon=0, input 1 produces divergent sum_i i/(i+1)^2. The packaged check.py was examined but its 54 recorded finite checks are not proof of this operator limit.",
+      "residual_risks": [
+        "The singular-value law is fixed-k only, not uniform in k; beta moments unnormalized and D norm fixed as displayed.",
+        "Uniform beta/gamma asymptotics and Sturm–Liouville solution invoke standard established analytic identities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bao–Guo–Sun–Wang arXiv:2401.09188 Theorems 1.1–1.4: boundedness/compactness and Widom/Carleson criteria for Dirichlet Hankel matrices.",
+          "Galanopoulos–Girela–Mas–Merchán (Results Math 2023 DOI 10.1007/s00025-023-01887-6) Theorem 1 and related results establish Carleson sufficient boundedness and examples of failure on D; no fixed-index epsilon singular blowup constants are given in the inspected statements."
+        ],
+        "reasoning": "Criteria for boundedness of an individual moment operator or compactness do not determine every fixed scaled singular-value limit of the approach to Lebesgue measure.",
+        "searches": [
+          "Resultary semantic: Dirichlet Hilbert space Hankel beta moments singular values scaled epsilon Bessel J0 Volterra critical boundary",
+          "primary source inspected: https://arxiv.org/abs/2401.09188",
+          "primary source inspected: https://doi.org/10.1007/s00025-023-01887-6"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2401.09188",
+        "https://doi.org/10.1007/s00025-023-01887-6",
+        "Resultary search: Dirichlet Hilbert space Hankel beta moments singular values scaled epsilon Bessel J0 Volterra critical boundary"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Galanopoulos et al. theorem on sufficient 1-logarithmic Carleson boundedness; Bao et al. individual boundedness/compactness characterizations; the new proof identifies an entire scaled compact spectral limit."
+        ],
+        "reasoning": "A beta measure with any epsilon>0 may satisfy compactness criteria, but those alone give no 1/epsilon coefficient or fixed-k Bessel indexing; hence no demonstrated prior-result implication. The singular spectrum of the limiting Volterra operator is not itself new and is separated from the contribution.",
+        "searches": [
+          "Resultary semantic: Dirichlet Hilbert space Hankel beta moments singular values scaled epsilon Bessel J0 Volterra critical boundary",
+          "primary source inspected: https://arxiv.org/abs/2401.09188",
+          "primary source inspected: https://doi.org/10.1007/s00025-023-01887-6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "After logarithmic rescaling the limiting nonselfadjoint operator is T=e^-x indefinite integration; its T*T is a max-exponential kernel with J0 reciprocal singular spectrum. This is an equivalent limit formulation, not an equality of finite-epsilon Hankel operators."
+        ],
+        "reasoning": "Searched under weighted Hardy/Volterra/Bessel and Hankel/Dirichlet names; existing Volterra Bessel spectral formulas could already give s_k(T), but do not alone provide the nontrivial HS convergence of epsilon H_epsilon to T.",
+        "searches": [
+          "Resultary semantic: Dirichlet Hilbert space Hankel beta moments singular values scaled epsilon Bessel J0 Volterra critical boundary",
+          "primary source inspected: https://arxiv.org/abs/2401.09188",
+          "primary source inspected: https://doi.org/10.1007/s00025-023-01887-6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned Bessel zeros for a geometric Rhaly operator and unrelated Cesaro/Volterra spectra but no table of beta-weight Dirichlet Hankel epsilon-asymptotic constants.",
+          "DLMF Chapter 10 lists J0 zeros and identities, which tabulate the limit model eigenparameters but do not prove the Hankel scaling."
+        ],
+        "reasoning": "A known Bessel-zero table is a numerical lookup only after the nonstandard limit kernel has been established; it does not cover the claimed operator-level asymptotic.",
+        "searches": [
+          "Resultary semantic: Dirichlet Hilbert space Hankel beta moments singular values scaled epsilon Bessel J0 Volterra critical boundary",
+          "primary source inspected: https://arxiv.org/abs/2401.09188",
+          "primary source inspected: https://doi.org/10.1007/s00025-023-01887-6"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and implications: Searched under weighted Hardy/Volterra/Bessel and Hankel/Dirichlet names; existing Volterra Bessel spectral formulas could already give s_k(T), but do not alone provide the nontrivial HS convergence of epsilon H_epsilon to T. Criteria for boundedness of an individual moment operator or compactness do not determine every fixed scaled singular-value limit of the approach to Lebesgue measure. A beta measure with any epsilon>0 may satisfy compactness criteria, but those alone give no 1/epsilon coefficient or fixed-k Bessel indexing; hence no demonstrated prior-result implication. The singular spectrum of the limiting Volterra operator is not itself new and is separated from the contribution.",
+      "residual_risks": [
+        "Earlier Volterra/Hardy and spectral Hankel literature may contain the same scaling using alternate normalization or transformation; search cannot certify absence."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_ASYMPTOTIC",
+          "evidence": [
+            "Main results characterize boundedness/compactness with Carleson/Widom conditions, not epsilon s_k -> 1/j0,k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.09188",
+          "material_read": "Primary 26-page open PDF inspected for definitions, main Theorems 1.1–1.4 and their criteria and stated limitations",
+          "method": "open-access primary PDF text and page image",
+          "title": "Hankel matrices acting on the Dirichlet space",
+          "trigger": "Same Dirichlet Hilbert space and moment-Hankel matrix"
+        },
+        {
+          "assessment": "NOT_COVERING_SPECIFIC_ASYMPTOTIC",
+          "evidence": [
+            "Boundedness under logarithmic Carleson assumptions and counterexamples; searches within full text found no singular-value/Bessel-zero theorem."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-023-01887-6",
+          "material_read": "Springer fully accessible article introduction, Theorem 1, Corollary 2 and sections on Hilbert and Cesaro mappings",
+          "method": "publisher open-access full-text HTML, sections and theorem statements",
+          "title": "Operators Induced by Radial Measures Acting on the Dirichlet Space",
+          "trigger": "Same measure-induced Hilbert operator on D"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cb93f84da9e814280050938ee403d9118eea74c5/2026/11/01/bessel-zero-spectral-blow-up-at-the-critical-dirichlet-hankel-bo--085a9fb456ac",
+        "https://arxiv.org/abs/2401.09188",
+        "https://doi.org/10.1007/s00025-023-01887-6"
+      ],
+      "rationale": "The endpoint is a real blowup in a canonical Dirichlet-space Hankel family; the result resolves the entire fixed-index singular sequence and exact Hilbert–Schmidt asymptotic, not only a norm bound. Bessel-zero constants and the limiting Volterra operator give a useful quantitative spectral model for a critical analytic Hilbert operator.",
+      "residual_risks": [
+        "No uniform high-rank asymptotic, higher-order epsilon expansion, or arbitrary measure classification is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The singular-value law is fixed-k only, not uniform in k; beta moments unnormalized and D norm fixed as displayed.",
+    "Uniform beta/gamma asymptotics and Sturm–Liouville solution invoke standard established analytic identities.",
+    "Earlier Volterra/Hardy and spectral Hankel literature may contain the same scaling using alternate normalization or transformation; search cannot certify absence.",
+    "No uniform high-rank asymptotic, higher-order epsilon expansion, or arbitrary measure classification is claimed.",
+    "Scientific PASS is an independent best-of-knowledge assessment, not a claim of publication, completed Lean proof, external expert attestation or absolute historical priority.",
+    "The separate publication plan is not_ready solely for source-file confidentiality/provenance and lack of complete authorized sanitized public bytes; scientific review is complete."
+  ],
+  "schema_version": 1
+}
