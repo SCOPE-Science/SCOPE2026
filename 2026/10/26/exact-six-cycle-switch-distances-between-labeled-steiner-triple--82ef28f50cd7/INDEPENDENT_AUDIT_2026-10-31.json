@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:50:13.371539Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md SHA e0cfca44ab3d7993786674f8e3c86e92f9c2505f",
+        "pinned verify_exact_cover.py SHA 39962387bb1dacc13857add348a1e5d2f5fd737c",
+        "pinned verify_affine_cosets.py SHA f54d3adcee784b2e92a9e329c37059ac752d869e",
+        "independent_checks.py / independent_check_results.json: independent exact-cover 840, all-root BFS",
+        "git_tree_results.json: reconstructed tree matches 6c1cb592ec1b7c7728f4dfcc44b59946da2fc2d7"
+      ],
+      "rationale": "Reconstructed the complete domain (12 triples cover each of 36 unordered pairs once), six-cycle switch operation, and exact reduction to a transposition on nine point labels. Two alternating perfect matchings on the six points away from an (a,b)-block form one alternating six-cycle. Affine STS(9) has stabilizer AGL(2,3) of order 432; the minimum transposition length in a permutation coset is min_{h in H}(9-cycles(pi*h)). The supplied exact-cover and affine-coset scripts were read, and a NEW independent exact-cover plus transposition-orbit construction generated 840 labeled systems and traversed all 840 BFS roots, confirming EVERY c-distance class: (12,0):1, (6,1):36, (4,2):27, (3,2):152, (2,2):216, (1,3):216, (0,3):192 per root. Unordered distance counts 15120,165900,171360; sum C(840,2). This is exhaustive for labeled order nine, not evidence for other orders.",
+      "risks": [
+        "The finite exhaustive proof assumes the explicit switching definition with labels fixed; changing switch moves or quotienting by isomorphism changes the metric."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical STS(9) affine uniqueness and AGL(2,3) stabilizer",
+          "Grannell–Griggs–Murphy, connectivity of R(9,6)"
+        ],
+        "reasoning": "The general transposition-generation/connectivity result proves existence of paths, not their shortest length. The affine group permits a coset minimization but the seven integer distance classes require a separate complete evaluation.",
+        "searches": [
+          "Resultary_Search: Steiner triple systems order 9 six-cycle switch graph transposition metric diameter intersection sizes distance 840",
+          "primary Grannell–Griggs–Murphy 1999 full text, switching graph"
+        ]
+      },
+      "checked_sources": [
+        "Grannell, Griggs and Murphy, Switching cycles in Steiner triple systems, 1999",
+        "Cameron, A Markov chain for Steiner triple systems, 2002",
+        "Chee, Ling and Shen, The fine intersection problem for Steiner triple systems, arXiv:0807.2500",
+        "Resultary semantic search with exact query recorded"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "1999 R(9,6) connectedness versus the seven-row all-pairs distance theorem",
+          "2002 Cameron markov chain requires two improper-system moves per point transposition for STS9"
+        ],
+        "reasoning": "Prior work supplies the underlying operation and connectivity. It does not directly imply diameter 3, degree layers, or the sharp metric-by-intersection classification without evaluating S9/AGL coset lengths or exhaustive BFS.",
+        "searches": [
+          "Resultary_Search: Steiner triple systems order 9 six-cycle switch graph transposition metric diameter intersection sizes distance 840",
+          "web primary graph switching results"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grannell–Griggs–Murphy (1999), Switching cycles in Steiner triple systems, author full PDF, https://grannell.net/Papers/SWITCH2.pdf",
+          "Cameron, A Markov chain for Steiner triple systems (2002), https://webspace.maths.qmul.ac.uk/p.j.cameron/csgnotes/random.pdf, §5"
+        ],
+        "reasoning": "The same six-cycle switch is a point-label transposition (so the graph is S_9/AGL(2,3) under transpositions). Grannell and collaborators establish graph R(9,6) connectivity and 840 vertices but do not exhibit the seven distance/intersection classes in inspected sections. Cameron uses a DIFFERENT transition graph through improper STS; its two-step transposition is not a one-step six-cycle switch.",
+        "searches": [
+          "Resultary_Search: Steiner triple systems order 9 six-cycle switch graph transposition metric diameter intersection sizes distance 840",
+          "web slow: Steiner triple system order 9 switch graph shortest path diameter 3 transposition 840 36 regular distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Lindner–Rosa classical intersection spectrum, cited in Chee–Ling–Shen arXiv:0807.2500 Theorem 2.1",
+          "Known 840 labeled systems; our distance table includes extra metric coordinates"
+        ],
+        "reasoning": "The previously known intersection numbers and number of systems do not determine shortest switch distance; no inspected exact-distance table includes 0/1 common blocks at distance 3.",
+        "searches": [
+          "Resultary_Search: Steiner triple systems order 9 six-cycle switch graph transposition metric diameter intersection sizes distance 840",
+          "web: STS(9) 840 designs intersection numbers all pairs switch distance"
+        ]
+      },
+      "rationale": "A new exact all-pairs geodesic profile of the known 840-vertex labeled six-cycle switch graph, not a novelty claim for the 840 states, connectivity, the affine model, or intersection possibilities.",
+      "residual_risks": [
+        "Unindexed small-order distance-regular/coset-graph tables, older computational catalogues or supplementary code may already give the same complete S9/AGL transposition-distance distribution. Search absence is not novelty proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING of operation, state count and connectivity, NOT demonstrated covering of complete geodesic-distance/intersection table",
+          "evidence": [
+            "web: , screenshot ; published Utilitas Mathematica 56 (1999)"
+          ],
+          "identifier_or_url": "https://grannell.net/Papers/SWITCH2.pdf",
+          "material_read": "Parsed the author preprint, relevant switching-cycle construction, transposition equivalence and R(9,6) connectivity theorem; searched for shortest-distance/diameter statements",
+          "method": "Primary full-text PDF read with PDF screenshot review",
+          "title": "Switching cycles in Steiner triple systems",
+          "trigger": "The same labeled STS order-nine switching graph and possible dominating theorem"
+        },
+        {
+          "assessment": "DIFFERENT move: a transposition requires two steps through proper/improper chains when n=9, rather than one six-cycle switch; no metric domination",
+          "evidence": [
+            "web:  lines 180–218, 268–334; screenshot "
+          ],
+          "identifier_or_url": "https://webspace.maths.qmul.ac.uk/p.j.cameron/csgnotes/random.pdf",
+          "material_read": "§§3–5: explicit proper/improper STS transition rule, order-nine case and transposition path via improper states",
+          "method": "Primary full-text PDF plus screenshot page 9",
+          "title": "A Markov chain for Steiner triple systems",
+          "trigger": "Alternative swap terminology, potential stronger graph diameter result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "pinned RESULT.md finding and proof §§1–5",
+        "all 705600 ordered pairs checked by independent all-roots breadth-first traversal"
+      ],
+      "rationale": "The STS(9) six-cycle switch graph is a canonical labeled trade graph with an established connectivity problem. Its complete shortest-path metric and sharp diameter 3 quantify exact reconfiguration cost; the c-to-distance classification and antipodal layers are not a trivial consequence of the 840 states or connectivity. An exact small finite result with a complete natural metric is independently useful as a benchmark for switching algorithms, without pretending to generalize to arbitrary STS orders.",
+      "risks": [
+        "Finite-order specialization only; all-orders switch-distance bounds remain open."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For any ordered pair of labeled STS(9), six-cycle-switch distance depends only on common block count c: 0 for c=12, 1 for c=6, 2 for c in {2,3,4}, and 3 for c in {0,1}. The 840-vertex graph has degree 36, radius and diameter 3 and layers 1,36,395,408.",
+  "limitations": [
+    "Only STS on nine labeled points, only the specified six-cycle trade, not the improper-system Markov-chain move.",
+    "The finite exhaustive proof assumes the explicit switching definition with labels fixed; changing switch moves or quotienting by isomorphism changes the metric.",
+    "Unindexed small-order distance-regular/coset-graph tables, older computational catalogues or supplementary code may already give the same complete S9/AGL transposition-distance distribution. Search absence is not novelty proof."
+  ],
+  "schema_version": 1
+}

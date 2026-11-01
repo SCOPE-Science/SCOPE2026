@@ -1,15 +1,21 @@
-# Scientific review: shortest six-cycle-switch distances in order-nine Steiner systems
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim fixes the labeled nine-point domain, the six-cycle operation, and the common-block statistic. An elementary two-perfect-matchings argument equates each legal six-cycle switch to a transposition of labels, and a cycle-count lemma converts shortest-switch distance to the exact minimum transposition length over the 432-element affine stabilizer. One full permutation/coset enumeration certifies each intersection-distance pair. Separately, exact-cover enumeration of all 840 systems followed by 840 independent BFS runs checks all 705,600 ordered pairs. Both attached scripts were executed from their package paths and their outputs match the recorded data. The proof concerns only the finite nine-point domain.
+## correctness
 
-## Originality — PASS, with named residual risks
-The 1999 Grannell–Griggs–Murphy preprint was read at the switching definitions, Theorem 4, and the order-nine discussion (pages 3–6); it explicitly **already proves** that the 840-vertex labeled graph is connected. The shortest-distance profile and classification by number of shared triples are absent from its text (searches for distance and diameter, plus inspection of the relevant theorem and proof). Chee–Ling–Shen's full 2008 paper restates Lindner–Rosa's order-nine intersection-size spectrum without adjacency or geodesic data. Khosrovshahi–Maimani (1999) classifies finite trade configurations; inspected pages address those local trades, not shortest paths. Related order-nineteen switching literature is not a theorem on this nine-point labeled graph. Database searches for the exact metric and group-coset descriptions did not surface a covering result. A different terminology or unindexed published computation is a real priority risk; no failed search is treated as a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Six-cycle switching of Steiner systems is a documented, independently motivated reconfiguration operation. Connectivity alone does not tell how many valid schedule/design switches are needed. The proposed refinement gives the **optimal** number for every ordered pair of 840 labeled systems by a readily computed invariant (common triples), a natural complete finite metric classification. The sharp three-step obstruction for disjoint or single-block-overlap systems adds structure not implied by the pre-existing reachability and intersection-spectrum theorems. The finding is deliberately finite and does not suggest unsupported larger-order consequences.
+Reconstructed the complete domain (12 triples cover each of 36 unordered pairs once), six-cycle switch operation, and exact reduction to a transposition on nine point labels. Two alternating perfect matchings on the six points away from an (a,b)-block form one alternating six-cycle. Affine STS(9) has stabilizer AGL(2,3) of order 432; the minimum transposition length in a permutation coset is min_{h in H}(9-cycles(pi*h)). The supplied exact-cover and affine-coset scripts were read, and a NEW independent exact-cover plus transposition-orbit construction generated 840 labeled systems and traversed all 840 BFS roots, confirming EVERY c-distance class: (12,0):1, (6,1):36, (4,2):27, (3,2):152, (2,2):216, (1,3):216, (0,3):192 per root. Unordered distance counts 15120,165900,171360; sum C(840,2). This is exhaustive for labeled order nine, not evidence for other orders.
 
-## Closest literature and limitations
-Primary: M. J. Grannell, T. S. Griggs and J. P. Murphy, *Switching cycles in Steiner triple systems*, Utilitas Mathematica 56 (1999), 3–21, https://grannell.net/Papers/SWITCH2.pdf. Supporting: Chee, Ling and Shen, arXiv:0807.2500, especially Theorem 2.1; Khosrovshahi and Maimani, Ars Combinatoria 52 (1999), 199–220; Erskine and Griggs (2025), doi:10.1002/jcd.21975. Some supplementary full-text material and potentially relevant alternate-indexing sources were not completely inspected. No external independent audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A new exact all-pairs geodesic profile of the known 840-vertex labeled six-cycle switch graph, not a novelty claim for the 840 states, connectivity, the affine model, or intersection possibilities.
+
+## value
+
+PASS
+
+The STS(9) six-cycle switch graph is a canonical labeled trade graph with an established connectivity problem. Its complete shortest-path metric and sharp diameter 3 quantify exact reconfiguration cost; the c-to-distance classification and antipodal layers are not a trivial consequence of the 840 states or connectivity. An exact small finite result with a complete natural metric is independently useful as a benchmark for switching algorithms, without pretending to generalize to arbitrary STS orders.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
