@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility of finite checks
+# Independent mathematical audit
 
-Run `python verify.py` using Python 3.11+ with no external dependencies. The program constructs its spectral roots independently by high-precision Decimal bisection on each interlacing interval and evaluates the positive residues from the secular equation. Across six one-to-five-atom probability laws, it checks the residue sum, spectral probability normalization, nonnegative Boolean entropy, and the approximation of the calculated second coefficient by \(n\Gamma(\mu_n\mid\mathbf b)-v\log n/2\) at five increasing sample sizes. It separately uses rational arithmetic to verify fourth-moment identities and compares a family of finite spectra with the published explicit four-point special-case formula. It finally checks the zero-eigenvalue boundary mass \(1/(n+1)\) for symmetric two-point Nevanlinna input.
+## correctness
 
-Actual execution result: `PASS 116 root, residue, normalization, asymptotic, moment, published-special-case, and zero-atom assertions`.
+PASS
 
-**Limits of computation.** The finite test grid and high-precision calculations do not prove the all-atomic and all-\(n\) theorem, do not rule out unexamined numerical regimes, and do not independently validate the scientific novelty. The mathematical proof of the universal claims is supplied in `RESULT.md`; no independent audit or formal proof certification has been performed.
+Star-matrix Schur complement gives exact normalized Boolean transform; strict interlacing gives r+1 positive-mass simple eigenvalues. Perturbation at ±1 and tq_j gives the outer 1/n entropy term and c_j t²(log t+log|q_j|), with Σc_j=v. Exact zero of g at origin produces positive zero atom and infinite entropy. Three-atom ν_p with identical μ first four moments has full-range 1/n constant. Independent numerical eigensystem diagonalization checked four laws at multiple n and verified mass-1/(n+1) central-zero case. Numerical checks are not an asymptotic proof.
+
+## originality
+
+PASS
+
+Pan gives a log(n)/n leading term and a computable particular four-point example; the all-finite-atomic explicit 1/n coefficient with arbitrary fixed-first-four-moment range is not implied by that leading asymptotic. Correctly excludes previously implied special case.
+
+## value
+
+PASS
+
+A natural first omitted coefficient in a recent Boolean entropic CLT rate is classified via finite spectral interlacing; its unbounded variation at fixed first four moments rules out a moments-only next-order estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

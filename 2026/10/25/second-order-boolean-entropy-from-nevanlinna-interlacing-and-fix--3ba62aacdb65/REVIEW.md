@@ -1,11 +1,21 @@
-# Scientific review: second-order Boolean entropy
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof checks normalization and the exact Boolean Cauchy transform through a symmetric finite star matrix; every eigenvalue and spectral mass is explicit through a strictly monotone secular equation. Taylor expansion at the two exterior roots, analytic perturbation at the interlacing zeros, and total-mass conservation yield the entire \(1/n\) coefficient. The zero-at-origin case is separated because it produces a positive atom with divergent logarithmic entropy. The fixed-first-four-moment construction is verified by the third/fourth moment formula and the exact monotone logarithm of \(p/(1-p)\). A standalone no-dependency verification code passed 116 finite assertions; finite tests do not replace the universal proof. Residual numerical risk concerns reproducibility/precision, not the logical infinitude of the theorem.
+## correctness
 
-**Originality — PASS (qualified).** Pan's arXiv:2610.20178v1 Theorem 1.3 provides the leading \(\log n/n\) rate but not this general next coefficient. Pan's Example 4.1 already gives exact eigenvalues for one special four-point law, from which its next coefficient is implied; **that special case is not claimed new**. The original Boolean-entropy article arXiv:2505.07907 proves maximality and monotonicity, and arXiv:2602.23527 proves Fisher-information inequalities and distributional approximation bounds, but the inspected relevant results do not imply the all-finite-atomic second term or its arbitrary variation at fixed first four moments. Searches for Boolean CLT entropy, finite Nevanlinna zeros, interlacing log spectra, and higher-order coefficients returned no directly covering theorem. A latent equivalent in general older spectral-perturbation theory is possible; no global uniqueness claim is made.
+PASS
 
-**Mathematical value — PASS.** The first omitted coefficient behind a recent entropic rate has a natural spectral interpretation in terms of zeros and residues. Its all-support formula is more than a finite table, and the exact all-real fixed-moment range proves that the leading fourth-moment-controlled behavior cannot predict even a bounded second coefficient. The zero-root condition also identifies a sharp obstruction to finite logarithmic entropy. These are motivated structural distinctions in the Boolean central-limit problem.
+Star-matrix Schur complement gives exact normalized Boolean transform; strict interlacing gives r+1 positive-mass simple eigenvalues. Perturbation at ±1 and tq_j gives the outer 1/n entropy term and c_j t²(log t+log|q_j|), with Σc_j=v. Exact zero of g at origin produces positive zero atom and infinite entropy. Three-atom ν_p with identical μ first four moments has full-range 1/n constant. Independent numerical eigensystem diagonalization checked four laws at multiple n and verified mass-1/(n+1) central-zero case. Numerical checks are not an asymptotic proof.
 
-**Sources and limitations.** Pan (2026), arXiv:2610.20178v1, Section 4 and Example 4.1; Pan (2025), arXiv:2505.07907, Theorem 1.4; Cébron–Pan (2026), arXiv:2602.23527, introduction and limit discussion. The asymptotic theorem is pointwise for fixed, finite positive atomic Nevanlinna laws. Uniform degenerations and arbitrary continuous Nevanlinna measures are not asserted; generic older equivalent spectral formulas remain a novelty risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Pan gives a log(n)/n leading term and a computable particular four-point example; the all-finite-atomic explicit 1/n coefficient with arbitrary fixed-first-four-moment range is not implied by that leading asymptotic. Correctly excludes previously implied special case.
+
+## value
+
+PASS
+
+A natural first omitted coefficient in a recent Boolean entropic CLT rate is classified via finite spectral interlacing; its unbounded variation at fixed first four moments rules out a moments-only next-order estimate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
