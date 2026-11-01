@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "A period-two return on a connected graph forces all vertices to fire once per two rounds; the two phase firing sets are complementary. For a prescribed phase cut, local threshold inequalities supply exactly c_v independent nonnegative chip heights at each vertex and hence the product of cross-cut degrees. The exact 16-state transfer enumerates all such cuts on either cubic closure by ordinary or row-exchange-twisted trace. It commutes with row swap and its plus/minus characteristic polynomials were recomputed symbolically from actual supplied code, yielding the stated recurrence sums for every n >= 3. An independent C++ graph-adjacency enumeration confirms each n=3,...,10, and fully constructs/iterates every counted two-cycle configuration for n=3,4; finite tests corroborate the algebra, not replace it. The parity and asymptotic conclusions follow from explicit real quadratic roots.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Prior general connected-graph cut-degree orbit-count polynomial (scientific claim identifier 5004d505-b623-49da-827b-adcb43713caa): P_G(z) enumerates primitive two-cycles on every connected graph by a sum over all cuts.",
+        "Prior exact open-ladder orbit count (scientific claim identifier 49891d3f-12fa-49eb-bc0d-06c86fd63c04) treats P_n square K_2, not either cyclic or twisted closure.",
+        "Levine 2008, arxiv:0811.2800, studies activity/periodicity on the complete graph, rather than a pair of cubic ladder graph families."
+      ],
+      "reasoning": "A generic sum over all cuts covers the exact orbit count computationally for every individual graph. The novel claim is intentionally narrowed to its nontrivial explicit simplification on the two natural closures and the strict even-odd reversal. The prior open ladder recurrence has the same dominant spectral root, but its open-boundary graph is not the periodic or twisted closure and does not entail the stated difference formula without a new derivation.",
+      "searches": [
+        "General exact primitive two-cycle orbit counting polynomial for all connected graphs via edge cuts product of cross-cut degrees and q integers",
+        "Open ladder primitive period two orbit generating function rational 18-11z-10z^2+z^3",
+        "previous connected-graph cut-degree orbit-count polynomial 5004d505-b623-49da-827b-adcb43713caa",
+        "prior open ladder 49891d3f-12fa-49eb-bc0d-06c86fd63c04"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0811.2800",
+      "arxiv:1211.6786",
+      "doi:10.1103/PhysRevE.82.031121",
+      "previous general cut-degree expression for finite connected graphs (opaque scientific ID 5004d505-b623-49da-827b-adcb43713caa)",
+      "previous open-ladder period-two recurrence (opaque scientific ID 49891d3f-12fa-49eb-bc0d-06c86fd63c04)",
+      "published-finding corpus semantic searches for circular/Möbius ladder chip-firing and equivalent transfer formulations"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:1211.6786, pp.1–4 and 13–17: applies general firing-pattern restrictions on any connected graph but states no exact primitive two-cycle totals on prisms or Möbius ladders.",
+        "arxiv:0811.2800, introduction and its description of Section 4: complete graph mode locking and short-period attractors, no transfer with twisted closure.",
+        "Fey–Levine–Wilson, The Approach to Criticality in Sandpiles, Section 7 full PDF on ladders: stationarity and critical density, not primitive two-cycle counts on regular cyclic closures.",
+        "Prior general connected-graph cut-degree orbit-count polynomial (scientific claim identifier 5004d505-b623-49da-827b-adcb43713caa): P_G(z) enumerates primitive two-cycles on every connected graph by a sum over all cuts.",
+        "Prior exact open-ladder orbit count (scientific claim identifier 49891d3f-12fa-49eb-bc0d-06c86fd63c04) treats P_n square K_2, not either cyclic or twisted closure."
+      ],
+      "reasoning": "A broader generic cut-degree formula logically determines the answer by a graph-dependent sum, hence is prior coverage of the raw counting problem. It does not already provide a sharp paired characteristic-polynomial evaluation, a uniform parity sign comparison or the asymptotic relative twist correction; obtaining these is exactly what is proved here. Tree, cycle, complete-graph, open-ladder and general firing-pattern theorems do not directly assert that boundary-twist parity law.",
+      "searches": [
+        "Parallel chip firing primitive two-cycle orbit counts on prism graphs circular ladders C_n Cartesian K_2 versus Möbius ladders twisted boundary",
+        "General exact primitive two-cycle orbit counting polynomial for all connected graphs via edge cuts product of cross-cut degrees and q integers",
+        "arxiv:1211.6786 Theorem 6.2 periodic firing pattern",
+        "arxiv:0811.2800 complete graph short period attractors",
+        "doi:10.1103/PhysRevE.82.031121 finite ladder stationary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang–Scully–Zhang 2012, arxiv:1211.6786, Theorem 6.2 classifies clumpy versus nonclumpy firing patterns but does not enumerate distinct period-two chip-configuration orbits on prism or Möbius ladders.",
+        "The exact weighted cut sum is an equivalent general counting representation but does not directly give the computed 10+6 characteristic factors or the parity-twist comparison.",
+        "Prior general connected-graph cut-degree orbit-count polynomial (scientific claim identifier 5004d505-b623-49da-827b-adcb43713caa): P_G(z) enumerates primitive two-cycles on every connected graph by a sum over all cuts."
+      ],
+      "reasoning": "Alternative vocabulary checked includes two-cycle, alternating firing pattern, fixed-energy sandpile, primitive orbit, circular ladder, prism, cylinder, Möbius strip closure and twisted ladder. The universal cut-degree expression gives a method for evaluating the count, not an already evaluated coupled closed recurrence/parity comparison. This assessment concerns that structural comparison as a whole, not claiming the generic counting representation is original.",
+      "searches": [
+        "Parallel chip firing primitive two-cycle orbit counts on prism graphs circular ladders C_n Cartesian K_2 versus Möbius ladders twisted boundary",
+        "transfer matrix counting firing patterns 2-cycles on cylindrical ladder and Möbius ladder",
+        "Parallel chip-firing on circular ladder prism vs Möbius ladder: closed Lucas-type recurrence and parity twist orbit count difference 1+(-1)^n+2((-2+sqrt5)^n+(-2-sqrt5)^n)",
+        "2012 Jiang Scully Zhang parallel chip firing nonclumpy firing patterns arxiv:1211.6786"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus indexed search returned nearby records on cyclic-ladder topological invariants, such as 2026/10/11/SCOPE-scale-two-rips-homotopy-types-of-finite-circular-ladders--ccd7a360a668, not a chip-firing orbit count.",
+        "Direct scientific search found a 2010 ladder sandpile density analysis, DOI:10.1103/PhysRevE.82.031121, whose tables are stationary height/density simulations, not the exact two-cycle totals.",
+        "Exact n=3,...,10 counts from independent cut enumeration and transfer computation agree; these finite values are reproducibility data, not a claim of exhaustive literature novelty."
+      ],
+      "reasoning": "Searched recurrent-count tables, finite-ladder analyses, and twisted boundary words. No indexed exact table or recurrence for both graph families was identified. A non-result from a search is explicitly not treated as proof of uniqueness.",
+      "searches": [
+        "Parallel chip firing primitive two-cycle orbit counts on prism graphs circular ladders C_n Cartesian K_2 versus Möbius ladders twisted boundary",
+        "synchronous chip firing periodic orbits on prism graphs and Möbius ladders exact recurrence",
+        "Two-cycle orbit count prism circular ladder and Möbius ladder and parity sensitive twisted boundary transfer matrix",
+        "\"parallel chip-firing\" \"circular ladder\" orbit count",
+        "\"parallel chip-firing\" \"Möbius ladder\" \"two-cycle\""
+      ]
+    },
+    "rationale": "The previously established general cut-degree polynomial already enumerates two-cycles on all connected graphs as an unevaluated graph-dependent cut sum, and an earlier open-ladder calculation already gives an open-boundary recurrence. Those contributions are explicitly excluded from novelty. The current result is the simultaneous explicit spectral evaluations for periodic and row-exchange-twisted rail boundary conditions, together with an exact parity-dependent sign reversal and asymptotic scale separation. The conclusion needs the nontrivial 10+6 transfer decomposition and is not a stated evaluated corollary of the broad finite sum. None of the material inspected in the relevant primary papers or indexed research-result searches establishes the same parity-twist identity. No independent historical priority determination is claimed.",
+    "residual_risks": [
+      "An unindexed or inaccessible exact transfer calculation may predate this evaluation.",
+      "The raw number for each fixed finite graph is already algorithmically covered by the established general cross-cut formula; the novelty is specifically the simultaneous closed evaluation and parity-twist sign law.",
+      "Automated literature retrieval cannot establish global historical priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the evaluated cubic-ladder period-two orbit counts; covers firing-pattern admissibility and nonclumpiness rather than sizes of individual graph-family two-cycle spaces",
+        "evidence": "arxiv:1211.6786, Theorem 6.2 on nonclumpy firing patterns, Section 7 discussion of trees and cycles.",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "Abstract and introduction, definitions in Section 2, theorem 6.2 and surrounding pages 13–14, Section 7 implications and concluding pages 16–17, references to known results",
+        "method": "Read extracted full-PDF text with a rendered visual inspection of page 13 (zero-index page 12)",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Most directly relevant characterization of ordinary parallel-chip-firing periodic firing sequences"
+      },
+      {
+        "assessment": "NOT_COVERING the new graph-family twist law: complete-graph activity and short periods do not imply exact cubic prism and Möbius period-two orbit totals",
+        "evidence": "arxiv:0811.2800, Introduction and Section 4 summary of short-period attractors on complete graphs.",
+        "identifier_or_url": "https://arxiv.org/abs/0811.2800",
+        "material_read": "ArXiv full HTML text, abstract, introduction and discussion of sections 2–4 and complete-graph theorems",
+        "method": "Reviewed full HTML presentation and located model definition, Section 4 and Theorem 23 references",
+        "title": "Parallel Chip-Firing on the Complete Graph: Devil’s Staircase and Poincaré Rotation Number",
+        "trigger": "Early rigorous period and activity analysis for the same synchronous chip-firing model"
+      },
+      {
+        "assessment": "NOT_COVERING the evaluated cubic prism and Möbius primitive two-cycle orbit counts: the ladder calculations concern stationary sandpile heights and critical density, not enumerating the paired cubic cyclic-boundary orbits",
+        "evidence": "Fey–Levine–Wilson, Section 7, density and stationary ladder-state tables.",
+        "identifier_or_url": "https://ir.cwi.nl/pub/17204/17204D.pdf",
+        "material_read": "Abstract, Section 5 on flower-graph dynamical periods and Section 7 on open finite ladder sandpile stationary and threshold densities, including ladder data table",
+        "method": "Read PDF text and visually inspected page 26 (zero-index page 25), Section 7",
+        "title": "The Approach to Criticality in Sandpiles",
+        "trigger": "Ladder-shaped sandpiles as plausible direct prior treatment"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3e46c744-62fe-42f7-9e89-e97c255f8a87",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The circular and Möbius ladders are natural twisted-versus-untwisted width-two boundary models. A strict inequality that reverses at every rung parity, even while the two totals share the dominant root 6+sqrt(35), is a structural spectral effect not visible in a broad cut sum. The exact second eigenvalue scale gives a sharp, exponentially vanishing relative defect. This is a motivated natural paired dynamical invariant rather than an arbitrary isolated count or textbook substitution.",
+    "status": "PASS"
+  }
+}
