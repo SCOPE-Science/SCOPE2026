@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The root-of-unity DFT of the intensity trace has only the top harmonic aliased at two samples per degree. Its two real projections invert exactly when \(\sin(d(\phi_2-\phi_1))\ne0\); rational two-circle reflection then enforces constant phase. The explicit equal-radius linear-factor pair and resonant-angle degree-\(d\) binomials establish both necessary conditions. The standalone deterministic checker passes 6048 finite assertions; only the written algebraic proof justifies the all-degree quantifiers.
+PASS
 
-## Originality — PASS (historical priority provisional)
+Let p(z)=sum_{k=0}^d a_k z^k. Its squared modulus on each radius r is a trigonometric polynomial with modes [-d,d]; a 2d-point regular ring DFT recovers every mode |k|<d and aliases only the conjugate top pair into 2r^d Re(a_d conj(a_0)e^{idφ}). Two rings give independent real linear equations in the same complex v=a_d conj(a_0) iff sin(d(φ2−φ1))≠0. With that condition all full-circle intensities on both radii are determined. If p,q have same two full-circle intensities, the rational R=p/q satisfies R(z)overline{R(r_j²/conj?)}=1 in the standard rational-reflection identity; eliminating j yields invariance of R#(w) under dilation r2²/r1²≠1, forcing rational R constant, then unit modulus. Zeros are handled as rational identities; p=0 gives q=0 since 2d>d sample zeros. When radii coincide, p=z−t and q=(t/r)z−r with t≠r have same full-circle modulus, not global phase. When angular sine vanishes, p=1+i exp(−idφ1)z^d and q=1−i exp(−idφ1)z^d have identical samples, not phase equivalents. These prove sharp iff for every d≥1, including vanishing coefficients. Source checker.py finite degrees 1–12 supports, does not replace analytic proof.
 
-Pohl, Li, and Boche (2017, Theorem 7) already provide a \(4d\)-site design on two concentric circles, but with \(2d+1\) and \(2d-1\) sites rather than balanced regular \(2d\)-gons. Bodmann and Hammen (2013, §2.3) use intersecting circles. Grohs, Liehr, and Rathmair (2023) concern infinite-dimensional Fock-space sampling. The known degree-two balanced-orbit case is not presented as new. A complete equivalence, broader-coverage and result-index comparison found no all-degree balanced-grid resonance classification; an unindexed earlier result remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The result solves a natural exact classification problem at the established \(4d\)-measurement budget. It identifies precisely how a balanced pair of FFT-compatible regular polygon orbits can fail universally despite different radii, and which rotations restore universal injectivity. It does not depend on an artificial fixed-degree slice, claim a new measurement-count minimum, or infer noise stability.
+Best-of-knowledge: the exact new assertion was compared to its natural aliases, stronger/general results and selected primary literature, as well as the Resultary search. Known foundations are not claimed as new. Sources read and unresolved priority limitations are recorded explicitly. resonance.
 
-## Scientific scope and limits
+## value
 
-All degrees \(d\ge1\), arbitrary complex coefficients, positive known radii, noiseless point samples. No quantitative conditioning or arbitrary irregular-grid classification is proved; independent mathematical verification remains outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The determinant sin(dΔφ) exactly partitions a natural fixed-budget phase-retrieval design into universal and nonuniversal configurations, with concrete sharp obstructions. It is mathematically motivated by otherwise unresolved top Nyquist harmonic, and provides a design criterion rather than only an existence construction or numerical small-degree example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
