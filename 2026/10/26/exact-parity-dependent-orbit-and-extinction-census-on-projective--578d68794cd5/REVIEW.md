@@ -1,11 +1,21 @@
-# Review of the projective-plane parity-dynamics classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The projective-plane incidence Gram identity over \(\mathbb F_2\) gives \(F^4=F^2\), with exact rank and fixed-space computations in both parity regimes. The proof treats all existing finite projective planes, rather than only coordinate examples, and derives sharp first-entry counts and Jordan blocks. The verifier independently corroborated the complete finite-field cases \(q=2,3,4,5,7,8,9\), including all 16,384 labelled order-two configurations. Those tests are supporting checks only, not a substitute for proof.
+## correctness
 
-**Originality — PASS, bounded.** The closest fully inspected paper (Lavrauw, Storme and Van de Voorde, arXiv:1201.3290) uses the identical incidence linear-algebra machinery in coding theory but gives neither dynamics nor a first-entry distribution. Other retrieved records on identical graphs concern graph topology or real spectra. The abstract of the Hall-plane coding paper (Key, McDonough and Mavron, DOI:10.1007/s00022-013-0189-8) supports genuine rank dependence but its full text was inaccessible, so an implicit earlier equivalent is a documented risk. Standard incidence identities and rank results are not claimed as new.
+PASS
 
-**Value — PASS.** The complete infinite-family classification exposes a sharp geometric parity dichotomy, distinguishes recurrent population scales of four versus \(2^{2v-2}\), and interprets the binary incidence rank via an exact transient-entry population. This is a natural dynamical invariant on an important family of graphs, not a selected numerical coincidence.
+For any existing finite projective plane of order q, v=q²+q+1 is odd, and point-line incidence N over F2 satisfies NNᵀ=NᵀN=(q mod 2)I+J and J²=J. Thus F=[[0,N],[Nᵀ,0]] has F⁴=F², and periodic states are exactly im F². Even q gives the 2-dimensional exchange subspace, four periodic states, two fixed and one 2-cycle; rank(F)=2ρ and the square-zero transient factor produce exact entry-time counts 4, 2^(2v-2ρ+2)-4, 2^(2v)-2^(2v-2ρ+2), and size-two zero blocks 2ρ-2. Odd q yields F³=F, recurrent dimension 2v-2, fixed dimension v-1 and precisely 3·2^(2v-2) states entering after one step. The q-even sharpness follows from ρ>1 (distinct nonzero incidence rows); q-odd sharpness from the two-dimensional zero factor. The source explicitly assumes plane existence, not arbitrary q. Independent binary matrix identities for PG(2,2), PG(2,3) and all 16384 states at q=2 reproduce entry counts (4,252,16128). These experiments corroborate, rather than prove, the all-plane assertion.
 
-Limits: existing planes only, binary synchronous open-neighborhood XOR only; numeric even-order entry distributions depend on the specific plane's rank; no independent validation or historical priority guarantee.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the dynamical Jordan and exact transient-orbit census of the projective incidence graph, not for the classical symmetric-design incidence equation or known binary p-ranks. Compared to Resultary parity dynamics on hypercubes and complete multipartite graphs, the graph family, invariant rho and orbit formula are materially different. A general theorem on linear CA of symmetric designs could imply this elementary specialization, which remains a priority risk.
+
+## value
+
+PASS
+
+The complete orbit partition and sharp extinction-entry times are mathematically natural dynamical invariants of a canonical finite-geometric incidence graph. The q-parity phase separation and explicit dependence on the binary incidence rank are useful even when the plane is non-Desarguesian; they distinguish states with immediate cyclic behavior from transient synchronization. This is more than a renamed incidence rank statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
