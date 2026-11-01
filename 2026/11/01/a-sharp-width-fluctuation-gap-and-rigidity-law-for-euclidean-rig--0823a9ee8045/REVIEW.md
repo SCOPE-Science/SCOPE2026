@@ -1,15 +1,21 @@
-# Self-review: sharp angular-width gap for right prisms
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact sphere-coordinate support-function decomposition and beta integrals yield the two scalar moments for arbitrary base. Positive definiteness and strict negative covariance prove a positive optimizer and an unavoidable positive gap. Completion of a rational square yields exact equality and the two-defect stability identity. The Gaussian-limit argument follows from joint moment convergence. The bundled checker reproduced the symbolic identity, numerical beta constants, unrelated test prisms, and large-dimensional asymptotics. These tests corroborate but cannot replace the analytic proof.
+## correctness
 
-## Originality — PASS (historical priority provisional)
-Akiyama and Kamae (arXiv:2201.06736v1) study width deviation of planar polygons and constant-width structures, not the ambient-dimension right-prism problem. A relevant public note, *Exact mean-square width of every uniform regular prism* (11 October 2026), gives the regular-base, fixed-height three-dimensional moment relation, and Kabluchko–Litvak–Zaporozhets (arXiv:1511.08479) provide general Gaussian moment formulas. These intermediate facts are credited. The checked statements do not provide the present sharp all-dimensional height/base optimization, its exact joint rigidity identity, or the Gaussian limiting constant. A classical caliper/width-equivalent source might remain undiscovered; the 2011 Finch paper was not inspected beyond its abstract.
+PASS
 
-## Mathematical value — PASS
-For the basic convex-body width observable, a Euclidean right prism cannot have constant projection width in its ambient space; the theorem determines exactly how small the resulting fluctuation can be, over all convex bases and heights, and which shapes achieve it. The exact defect formula quantifies base nonconstant-width and height mistuning separately. The d-dimensional and Gaussian asymptotic conclusions are natural structural outcomes, not an arbitrary parameter slice.
+PASS: A uniform sphere direction factors as (sqrt(1-Z²)V,Z), with independent V and Z. The support-function identity W=S w_B(V)+H|Z| is exact; beta integrals produce a,b,p,q,r. The second moment is p(1+eta)+2rt+qt² and the mean a+bt, so a direct positive definite quadratic-form completion gives the displayed exact defect identity. Opposite monotonicity of S and |Z| yields r<ab, so tau_d>0, while 1 not lying in the span of S,T proves gamma_d>0. eta=0 iff B has constant width. The large-d limit follows d(S-1)->-G²/2 and sqrt(d)|Z|->|G| with moment control, giving the Gaussian regression residual. Independently checked dimension-three gamma ~0.00567569671895 and tau ~0.751938393884. No extrapolation from finite numerical d tests.
 
-## Limitations
-Orthogonal products only, exact spherical sampling, and dimension at least three. Equality does not imply a circular base, and the stability metric is based on width variance rather than Hausdorff distance. Independent mathematical validation and exhaustive historical-priority verification have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS (bounded priority): Akiyama-Kamae treat planar polygonal width deviations, and published exact mean-square width of uniform regular unit-height prisms supplies moments for one restricted subclass. Neither implies the sharp all-d height-optimized nonnegative defect identity, all-base equality class, or Gaussian asymptotic. Standard beta integrals and mean-width decomposition are credited rather than claimed new.
+
+## value
+
+PASS
+
+PASS: The coefficient of variation of random directional widths is a natural stereological observable. A global sharp nonzero gap for all right prisms, an exact rigidity decomposition and its complete constant-width equality locus provide structural information unavailable from mere variance computation; the high-dimensional scaling adds an interpretable boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

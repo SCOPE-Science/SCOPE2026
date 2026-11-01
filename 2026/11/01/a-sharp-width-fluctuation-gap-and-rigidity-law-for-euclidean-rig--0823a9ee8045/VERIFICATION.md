@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility of the all-dimensional prism fluctuation theorem
+# Independent mathematical audit
 
-The mathematical proof is in `RESULT.md`. Run `python verify.py` using Python 3 with NumPy, SciPy and SymPy installed. The checker uses symbolic algebra for the dimension-three rational-square identity, independent numerical integration of spherical beta moments for dimensions 3–30, cross-dimensional defect tests, direct integration of circular-cylinder width moments, large-dimensional gamma-formula regression checks, and independent random-direction simulation of a square prism. The saved program reported `ALL_CHECKS_PASSED`.
+## correctness
 
-The checker does **not** validate any arbitrary-dimensional identity by exhaustive enumeration. The infinite claims rest on support-function additivity, exact beta integrations, positive definite moment geometry, an algebraic square identity, and classical convergence of scaled sphere-coordinate moments to those of a standard Gaussian. No independent third-party audit has been performed. Historical priority is provisional.
+PASS
+
+PASS: A uniform sphere direction factors as (sqrt(1-Z²)V,Z), with independent V and Z. The support-function identity W=S w_B(V)+H|Z| is exact; beta integrals produce a,b,p,q,r. The second moment is p(1+eta)+2rt+qt² and the mean a+bt, so a direct positive definite quadratic-form completion gives the displayed exact defect identity. Opposite monotonicity of S and |Z| yields r<ab, so tau_d>0, while 1 not lying in the span of S,T proves gamma_d>0. eta=0 iff B has constant width. The large-d limit follows d(S-1)->-G²/2 and sqrt(d)|Z|->|G| with moment control, giving the Gaussian regression residual. Independently checked dimension-three gamma ~0.00567569671895 and tau ~0.751938393884. No extrapolation from finite numerical d tests.
+
+## originality
+
+PASS
+
+PASS (bounded priority): Akiyama-Kamae treat planar polygonal width deviations, and published exact mean-square width of uniform regular unit-height prisms supplies moments for one restricted subclass. Neither implies the sharp all-d height-optimized nonnegative defect identity, all-base equality class, or Gaussian asymptotic. Standard beta integrals and mean-width decomposition are credited rather than claimed new.
+
+## value
+
+PASS
+
+PASS: The coefficient of variation of random directional widths is a natural stereological observable. A global sharp nonzero gap for all right prisms, an exact rigidity decomposition and its complete constant-width equality locus provide structural information unavailable from mere variance computation; the high-dimensional scaling adds an interpretable boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
