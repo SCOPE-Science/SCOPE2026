@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The kernel of the cyclic Rule 90 operator in even dimension is precisely the two-dimensional checkerboard subspace, while its image is the orthogonal complement. A two-by-two incidence pairing, independently reconstructed in the proof, determines the kernel–image intersection and thus the exact second iterate rank for any coordinate permutation. Finite-field bijectivity on the first image proves the full periodic/preperiod-one census when the dimension is two modulo four. The Jordan-chain count uses the standard nilpotent-block identity. Exact brute-force checks cover every permutation through length eight and sampled larger lengths. This is an all-dimension proof rather than an empirical extrapolation.
+## correctness
 
-**Originality — PASS under examined evidence.** Suzuki et al. (arXiv:2609.34542) define the same operators and prove an odd-dimension direct basin statement, but explicitly exclude even lengths and focus on long orbits of prefix-rotation wirings. The result here classifies the first two image ranks for even lengths for **every** site permutation and counts the entire direct basin where it exists. Searches for equivalent zero-mode, rank, parity-automaton and permutation-CA formulations found no dominating theorem in accessible research records. The older Onuki–Suzuki–Saito Neurocomputing paper and Onuki–Saito chapter were accessible only through metadata; full historical priority cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** The motivating literature highlights the factorial space of permutation connections and uses direct stable periodic orbits as a robustness measure, yet its theory leaves even dimensions untreated. An exact all-wiring phase transition between an immediately periodic core and unavoidable deeper nilpotent transients gives a nontrivial and useful classification, not just an isolated rank calculation. The second-image formula further resolves the full prefix-shift family's parity dependence at divisible-by-four lengths. It does not claim full eventual cycle structure when the dimension is divisible by four.
+For N even≥4, R over F₂ has kernel K=span(e_even,e_odd), and imR=K⊥. As P is invertible, rank T=N−2 and im T=P K⊥. The restriction of the pairing (v,w)→〈v,Pw〉 to K has B=[[q,q+m],[q+m,q]] over F₂, m=N/2 modulo two. Hence dim(kerT∩imT)=2−rankB and rank T²=N−4+rankB. When m odd det B=1 and rankT²=N−2; when m even B is all-q and rankT²=N−3 or N−4. Equal first/second images make T bijective on im T, yielding exactly 2^(N−2) periodic states and three times as many preperiod-one states, with four total inverse images per periodic state. For N divisible by four, dim(ker T∩im T)=2−q counts zero-Jordan blocks of size≥2; no full later-transient claim. Counting prefix rotations yields q=1 iff r≡2,3 mod4. Independent actual F₂ matrix computation checked 3744 small permutations including all N=4,6, first 3000 N=8. The universal conclusion follows from the two-by-two pairing identity, not finite sampling.
 
-**Residual risks.** Historical equivalence under polynomial or sequential-dynamical formulations remains possible; two cited 2025 sources were not accessible as full text. A separate independent validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Two 2025 Onuki/Suzuki/Saito papers on directly stable permutation cellular automata could contain mathematically equivalent even-length observations; complete primary text was not accessible. No inference that failure to locate an article proves novelty.
+
+## value
+
+PASS
+
+The motivating permutation-XOR automata study explicitly leaves even ring lengths outside its direct-basin theorem. The exact parity-incidence phase split across every possible wiring answers a natural general dynamical boundary: whether the first image is already periodic and, if not, the number of unavoidable nilpotent modes. The result has a nontrivial all-permutation statement and finite-state census; it is not merely a rank calculation for one chosen P.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

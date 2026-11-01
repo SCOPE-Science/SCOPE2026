@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:00:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md at Git blob 1acc002daca783aa229663119abf28fb3b857014",
+        "Reconstructed exact Git tree e5daba1cbbe8f68181f89a4b4369c2926819776b",
+        "Independent direct calculation: Fresh GF(2) row/column elimination and direct composition for 3744 small permutation matrices: RULE90_OK first_second_ranks 3744."
+      ],
+      "rationale": "For N even≥4, R over F₂ has kernel K=span(e_even,e_odd), and imR=K⊥. As P is invertible, rank T=N−2 and im T=P K⊥. The restriction of the pairing (v,w)→〈v,Pw〉 to K has B=[[q,q+m],[q+m,q]] over F₂, m=N/2 modulo two. Hence dim(kerT∩imT)=2−rankB and rank T²=N−4+rankB. When m odd det B=1 and rankT²=N−2; when m even B is all-q and rankT²=N−3 or N−4. Equal first/second images make T bijective on im T, yielding exactly 2^(N−2) periodic states and three times as many preperiod-one states, with four total inverse images per periodic state. For N divisible by four, dim(ker T∩im T)=2−q counts zero-Jordan blocks of size≥2; no full later-transient claim. Counting prefix rotations yields q=1 iff r≡2,3 mod4. Independent actual F₂ matrix computation checked 3744 small permutations including all N=4,6, first 3000 N=8. The universal conclusion follows from the two-by-two pairing identity, not finite sampling.",
+      "residual_risks": [
+        "Exact full period and further nilpotent chain lengths for 4|N are not determined.",
+        "Two 2025 relevant full texts inaccessible; originality qualified.",
+        "Finite permutation enumeration supports but does not prove all N and P."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Suzuki et al arxiv:2609.34542 §3.2 Remark 1 explicitly restricts their proof to odd N, after introducing the same T=P_rR family.",
+          "This finding extends to all coordinate permutations at even N, not just prefix rotations."
+        ],
+        "reasoning": "The inspected same-operator primary paper does not dominate the even all-wiring rank and direct-basin statements. Earlier 2025 references are access-qualified rather than declared noncovering.",
+        "searches": [
+          "Rule 90 even cycle coordinate permutation T=P R second image rank parity zero eigenvalue periodicity",
+          "arxiv:2609.34542 even ring remark 1",
+          "2025 Neurocomputing direct stable periodic orbits"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE record RESULT.md, source verify.py, REVIEW.md, AUDIT.json and tree",
+        "Suzuki–Okuyama–Takahashi–Saito arxiv:2609.34542 full HTML §§2–3",
+        "Onuki/Suzuki/Saito 2025 metadata and 2026 references"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Odd-dimensional R has a different kernel structure and can be invertible; the even-dimensional two-checkerboard kernel produces B=[[q,q+m],[q+m,q]].",
+          "For 4|N all wirings necessarily have lower rank at the second iterate, while N≡2 mod4 have immediate periodicity."
+        ],
+        "reasoning": "Odd-N periodicity results and generic linear algebra require a new even-kernel incidence computation to reach this dichotomy. The claim is not a restatement of the odd-length theorem.",
+        "searches": [
+          "Rule 90 even cycle coordinate permutation T=P R second image rank parity zero eigenvalue periodicity",
+          "arxiv:2609.34542 §3.2 Remark 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact invariant is dim(ker(PR)∩im(PR)) and the associated rank of (PR)^2.",
+          "The same quantity equals the number of zero-Jordan chains with length ≥2 in any F₂ linear model."
+        ],
+        "reasoning": "Translation between direct basin dynamics, zero-eigenvalue Jordan structure and a two-dimensional parity syndrome is exact. The current theorem computes the required pairing for all P; a generic Fitting theorem alone is not an equivalent classification.",
+        "searches": [
+          "Rule 90 even cycle coordinate permutation T=P R second image rank parity zero eigenvalue periodicity",
+          "Rule 90 permuted cellular automata Fitting decomposition kernel image parity",
+          "finite binary linear automata direct stable periodic orbits"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit on distance-two Boolean-cube parity automata uses a different adjacency operator, not the 1D ring Rule 90 matrix.",
+          "Suzuki paper contains characteristic-polynomial examples for odd ring prefix connections."
+        ],
+        "reasoning": "No exact table of ranks of (PR)^2 for arbitrary even-ring wiring was identified in the checked corpus. Different models or restricted odd-N tables do not imply the full classification.",
+        "searches": [
+          "Rule 90 even cycle coordinate permutation T=P R second image rank parity zero eigenvalue periodicity",
+          "Resultary mod-four orbit census parity automata",
+          "arxiv:2609.34542 characteristic polynomial tables"
+        ]
+      },
+      "rationale": "The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Two 2025 Onuki/Suzuki/Saito papers on directly stable permutation cellular automata could contain mathematically equivalent even-length observations; complete primary text was not accessible. No inference that failure to locate an article proves novelty.",
+      "residual_risks": [
+        "Two 2025 Onuki/Suzuki/Saito papers on directly stable permutation cellular automata could contain mathematically equivalent even-length observations; complete primary text was not accessible. No inference that failure to locate an article proves novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING the all-permutation even-length rank classification in inspected full HTML.",
+          "evidence": "Remark 1 explicitly says odd dimensional restriction; their main long-cycle statements use prefix rotations.",
+          "identifier_or_url": "arxiv:2609.34542",
+          "material_read": "Complete accessible arXiv HTML mathematical statement and relevant §3.2 Remark 1 plus comparisons to older studies",
+          "method": "Read primary arXiv full HTML, including even-dimension scope remark",
+          "title": "Permutation XOR cellular automata: partial-shift connections and half-primitive polynomials",
+          "trigger": "Same operator P_rR and explicit parity limitations"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK: cannot conclude its full text lacks the even-ring rank theorem.",
+          "evidence": "Same permutation-CA context per title and 2026 source references.",
+          "identifier_or_url": "doi:10.1016/j.neucom.2025.131510",
+          "material_read": "Bibliographic metadata and references in arxiv:2609.34542; no full text obtained",
+          "method": "Metadata and citations, full text inaccessible",
+          "title": "Permutation XOR cellular automata and direct stable periodic orbits",
+          "trigger": "Directly stable periodic orbits, possible earlier equivalent formulation"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK, no whole-chapter negative inference.",
+          "evidence": "Previous work on permutation elementary cellular automata and direct stable binary orbits.",
+          "identifier_or_url": "doi:10.1007/978-981-96-6948-6_27",
+          "material_read": "Bibliographic metadata and discussion in the accessible 2026 source, not full chapter",
+          "method": "Metadata only",
+          "title": "Analysis of Direct Stable Binary Periodic Orbits in Permutation Elementary Cellular Automata",
+          "trigger": "Directly related earlier permutation cellular automata"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE record RESULT.md, source verify.py, REVIEW.md, AUDIT.json and tree",
+        "Suzuki–Okuyama–Takahashi–Saito arxiv:2609.34542 full HTML §§2–3",
+        "Onuki/Suzuki/Saito 2025 metadata and 2026 references"
+      ],
+      "rationale": "The motivating permutation-XOR automata study explicitly leaves even ring lengths outside its direct-basin theorem. The exact parity-incidence phase split across every possible wiring answers a natural general dynamical boundary: whether the first image is already periodic and, if not, the number of unavoidable nilpotent modes. The result has a nontrivial all-permutation statement and finite-state census; it is not merely a rank calculation for one chosen P.",
+      "residual_risks": [
+        "Exact full period and further nilpotent chain lengths for 4|N are not determined.",
+        "Two 2025 relevant full texts inaccessible; originality qualified.",
+        "Finite permutation enumeration supports but does not prove all N and P."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact full period and further nilpotent chain lengths for 4|N are not determined.",
+    "Two 2025 relevant full texts inaccessible; originality qualified.",
+    "Finite permutation enumeration supports but does not prove all N and P."
+  ],
+  "schema_version": 1
+}
