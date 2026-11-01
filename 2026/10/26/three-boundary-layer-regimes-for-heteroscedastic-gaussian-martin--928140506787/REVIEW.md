@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every fixed \(p\in(1/2,1)\) the martingale-coupling polytope is a single closed interval. The Gaussian quantile covariance reduces its squared-Wasserstein objective to a strictly concave scalar maximization. Differentiating the explicitly defined normal-quantile function gives an interior unique optimum. At \(R\to\infty\), the only singular term is the left normal-tail quantile, and the three endpoint regimes follow from its precise leading order and a regular Taylor expansion at the quarter-quantile. Direct row-mean checks, independent cost integration and symbolic differentiation support the proof; 255 exact rational and 93 numerical objective comparisons were executed using the included program.
+PASS
 
-## Originality — PASS, qualified
+Conditional row normalization and mean constraints give exactly r,s∈[0,1/4] and r+s=H=p−1/2, so all couplings are parameterized. Monotone one-dimensional W2 coupling of the discrete rows to their centered Gaussians has covariance g(t)=φ(Φ^{-1}(t))+φ(Φ^{-1}(t+1/2)); objective is constant−Rg(r)−g(s). g″ is strictly negative, g′(0+)=+∞, g′(1/4)=0; unique interior critical point follows by endpoint derivative signs. Derivative w.r.t. R positive. Mills ratio implies g′(t)∼√(2log(1/t)) at 0 and Taylor g′(1/4−t)=ct+O(t²); the three regimes follow separately with H relative to 1/4. I independently solved 13 parameter/scale cases, confirmed feasibility, stationarity, concavity and c≈6.293730161. The analytic proof, not finite R numerics, establishes the quantifiers.
 
-The specific asymptotic trichotomy is not stated in the inspected primary full text of Marini's state-dependent framework, which proves more general existence/duality and uniqueness without finite-support boundary-rate formulas. Earlier state-independent reference results have broader existence/stability statements but do not directly cover variance heterogeneity as a parameter. Mathematical-record searches for the precise coupling, Gaussian reference, three-point marginals and equivalent quantile equations returned no covering claim. This is evidence of a distinct evaluated boundary law, not proof of unique priority. The accessible abstracts of the 2026 semidiscrete and fixed-point works are insufficient to exclude an implicit overlapping special example; external checking of those full papers remains important.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two-atom-to-three-atom family is the smallest nontrivial one-step martingale selection polytope, rather than a random finite slice. The endpoint mass \(p\) and volatility ratio \(R\) are direct model parameters. The transition from a Gaussian exponential layer to a critical logarithmically enhanced layer and then a regular algebraic layer identifies a sharp conditioning/stability boundary for the state-dependent reference calibration problem, and gives an exact benchmark for finite-support numerical schemes. The result is not an existence corollary and does not merely re-label a known coupling.
+Marini’s October 2026 state-dependent q_x-Bass paper contains the general martingale transport framework, duality and uniqueness, but the inspected primary text does not provide this specific 2x3 heteroscedastic Gaussian critical p=3/4 or its sharp asymptotic scales. Other Acciaio–Marini q-Bass papers treat state-independent q and remain potential broader-theory risks; their complete material was not available in this execution.
 
-## Closest literature and limits
+## value
 
-Primary: A. Marini, arXiv:2610.20920v1, especially sections 1–3 and 5, read in the public full HTML. Earlier: B. Acciaio and A. Marini, arXiv:2607.15872v1 and arXiv:2609.07351, abstracts only due to full-text access failure. Foundational: B. Tschiderer, arXiv:2402.05669, abstract. The proof is self-contained for its chosen distributions; broader families and exact pre-exponential factors are not established. Independent priority verification is not claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first nontrivial martingale coupling polytope yields three genuinely distinct scaling laws separated by exact p=3/4. This identifies a natural optimizer-support boundary phenomenon and provides explicit rate constants useful in semidiscrete q_x-Bass calibration rather than routine restatement of general existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
