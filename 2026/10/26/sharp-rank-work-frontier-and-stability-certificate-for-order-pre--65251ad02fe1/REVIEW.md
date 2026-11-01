@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof uses two explicitly parameterized simplices. For fixed image values, work is convex in cumulative multiplicities because the increments of each prefix sum are nondecreasing. For fixed multiplicities, work is convex in ordered image values. Each pair of vertices has its exact work computed by an elementary block calculation. The only extremal vertices yield precisely the stated maps, and the remaining weighted vertex gap gives the quantitative remainder. Boundary ranks and the one-point chain are handled explicitly. Finite enumeration and an independent dynamic program corroborate but do not replace this proof.
+PASS
 
-## Originality — PASS, with limitations
+For weakly increasing full chain maps n>=1 of image rank r, the double-simplex proof is valid. Convexity of prefix-sum work over the multiplicity simplex and convexity of absolute displacement over the image-gap simplex reduce the problem to (r)(r+1) vertices, each with work N(N+1)/2+N d_{mk}. The only maximum vertex pairs for r>=2 are (1,r) and (r,0); positivity of product weights forces the stated two endpoint-compressed maps. For r=1 strictly maximal constant maps are the two endpoints; for r=n the identity is sole possibility. The explicitly weighted nonnegative deficit certificate follows by subtracting Jensen bounds. A separate fresh exhaustive enumerator checked 33,098 weakly monotone maps through n=9, their ranks, exact maximizers, and rational stability remainders.
 
-East–McNamara (2011) determine total work over monoids and discuss its mean, not a sharp rank-specific maximum, its complete equality set, or the two-simplex remainder. The 2005 preprint was inspected separately and does not supply these fixed-rank results. Searches in the mathematical literature and published finding database, together with comparison against accessible previously recorded claims, did not identify an implication that covers this theorem. Lack of a match does not establish absolute priority: a less-indexed treatment of extremal displacement could exist.
+## originality
 
-## Value — PASS
+PASS
 
-Image rank and work are natural, jointly meaningful statistics of finite transformation semigroups. The theorem determines the entire rank-versus-work upper frontier for every chain length, locates all extremal maps and proves a quantitative, algebraically computable deficit bound for nonextremizers. This extends beyond the aggregate first moment in the foundational work literature and gives a precise structural extremal classification rather than an arbitrary finite coefficient calculation.
+The 2011 East–McNamara publication treats aggregate work of order-preserving semigroups, not a sharp maximum conditioned on image rank, complete attaining-set classification, or quantitative double-simplex deficit. The earlier East transformation work paper/preprint is not evidence that the later weakly order-preserving rank-resolved statement was established. Resultary searched aliases; high-ranking returned items were about unrelated norm/rearrangement problems. The work statistic, basic monotone-map enumeration and Jensen convexity are acknowledged prior tools.
 
-## Residual limits
+## value
 
-Full distributions of work and ranks, partial transformations, and other domain metrics are not determined. The originality assessment is limited by possible unindexed historical literature. Independent mathematical audit was not undertaken.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The full two-parameter frontier for displacement work in the natural monoid O_n, complete extremizers, and an explicit coefficientwise deficit are independently useful semigroup extremal information. Neither a trivial renaming of total work nor a tiny unmotivated test; the all-n rank layers and stability certificate address structure left unspecified by the aggregate statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
