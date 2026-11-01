@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The precise intersection form gives \(D^2=34\), \(D\cdot E=0\), and \(h\cdot D=17\). For every \(m\ge2\) the proof checks all cohomological inputs of Nasu's Hilbert-flag smoothness and pole-obstruction argument. The decisive endpoint, \(H^1(S,2h-E)=0\), is obtained from global quadrics restricting onto all quadrics on the line; all higher values follow by Kodaira vanishing for an ample-plus-nef divisor. Kawamata--Viehweg vanishing and Serre duality treat multiples of \(D\), and the nonstandard obstruction theorem is used only in its exact published hypotheses. The result is a proof for all integers in the specified range, not an inference from a finite check.
+
+**Originality — PASS, with residual literature risk.** The closest primary paper, Nasu [1], states the component theorem only when \(m\) is sufficiently large. The current result supplies the endpoint at \(m=2\) and every larger integer, neither guaranteed by that phrase nor obtained by merely evaluating its genus formula. The 2025 del Pezzo work [2] concerns a different ambient and different surface; additional earlier K3 deformation work is relevant background but not a demonstrated stronger covering theorem. Equivalence, broad-coverage, exact-entry and implication comparisons did not identify a covering source. An older unindexed effective argument cannot be excluded definitively.
+
+**Value — PASS.** The original existence theorem leaves entirely open how early its P5 K3 mechanism first works. This resolves the effective threshold for that mechanism and supplies a small explicit numerical component of smooth genus-\(69\) curves of degree \(34\) with three extra tangent dimensions. The result exposes the endpoint vanishing that controls the obstruction argument. It is a motivated full range, not a routine recomputation of a previously proved numerical example.
+
+**Limitations.** The construction is over \(\mathbb C\); no complete classification of all Hilbert components, multiplicities, or a nonexistence theorem at \(m=1\) is asserted. The published deformation-obstruction theorem is a substantive cited input. Definitive publication-priority assurance and independent audit are absent.
+
+Self-review: passed. Independent audit: not yet performed.
