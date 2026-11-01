@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:12:35Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/one-communicating-ground-state-class-and-an-exponential-bottlene--4639e5e1dc43/RESULT.md",
+        "2026/10/26/one-communicating-ground-state-class-and-an-exponential-bottlene--4639e5e1dc43/verify.py",
+        "independent_checks_results.json"
+      ],
+      "rationale": "For magnetizations s_A,s_B,s_C, same-spin edge energy E=(3m²+s_As_B+s_As_C+s_Bs_C)/2 has minimum m² precisely when two parts are monochrome in opposite colors; no other minima. Every configuration has an allowed nonincreasing purification path by successively fixing each part. Ground states form six Boolean m-cubes glued pairwise at six all-monochrome nonconstant junctions, hence one closed irreducible class of size 6(2^m−1); reverse tie flips imply uniform stationarity and Kac return 2^m−1. For a mixed interior of one cube, |S|=2^m−2 and exactly 2m directed exit edges imply conductance 2/[3(2^m−2)] and TV mixing bound ≥2^(m−1). Independent finite state enumeration verified all energy transitions and ground communication for m=1..4 (8,64,512,4096 states), and 2m crossings. Arbitrary-m claim follows from structure, not enumeration.",
+      "residual_risks": [],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original full text proves energy-based constraints on recurrent classes and analyzes cliques, bipartite graphs, paths, cycles and trees, not the complete three-part classification.",
+          "Positive-temperature complete multipartite Glauber studies use a different transition matrix and regime."
+        ],
+        "reasoning": "The general energy Lyapunov criterion is applicable to all graphs but alone does not imply unique recurrence, the 6(2^m−1) cardinality, or exponential slow mixing for K_{m,m,m}.",
+        "searches": [
+          "arXiv:1011.5119 §§2–5",
+          "stochastic minority dynamics complete balanced tripartite graph recurrent ground states mixing",
+          "arXiv:2102.05279"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1011.5119 full text",
+        "arXiv:2102.05279 abstract",
+        "Resultary query: stochastic minority dynamics complete balanced tripartite graph recurrent ground states mixing"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The original model energy principle ensures allowed flips do not increase same-spin edges, but does not give exact minimizers for K_{m,m,m} or their path accessibility.",
+          "Kac return-time and conductance bounds are standard tools, but their application needs the explicit six glued hypercubes and the 2m cut edge count."
+        ],
+        "reasoning": "No known cited graph-specific theorem directly implies all counts and the mixing lower bound; replacing the graph by a clique changes the energy minimizer structure.",
+        "searches": [
+          "arXiv:1011.5119 model and energy theorems",
+          "arXiv:2102.05279",
+          "stochastic minority dynamics complete balanced tripartite graph recurrent ground states mixing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rouquier–Regnault–Thierry (2010) model uses one-site closed-neighborhood minority, equivalent to zero-temperature antiferromagnetic update with energy-preserving tie flips.",
+          "Resultary hit on complete multipartite parity automata concerns deterministic/parity rules, not the stochastic minority transition kernel."
+        ],
+        "reasoning": "Compared zero-temperature antiferromagnetic Glauber, asynchronous minority, synchronous parity and positive-temperature heat bath. Only the first two describe the exact same chain; other graph families/rules cannot substitute.",
+        "searches": [
+          "stochastic minority dynamics complete balanced tripartite graph recurrent ground states mixing",
+          "arXiv:1011.5119",
+          "complete tripartite antiferromagnetic zero temperature Glauber dynamics recurrent classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result is an all-m theorem and graph Markov-chain classification, not a finite enumerated table; the exact formula was not located in the published result corpus."
+        ],
+        "reasoning": "The independent finite m≤4 census is supporting evidence only; the large-m exact graph structure and bottleneck follow analytically.",
+        "searches": [
+          "stochastic minority dynamics complete balanced tripartite graph recurrent ground states mixing",
+          "minority K m m m recurrent state count exact"
+        ]
+      },
+      "rationale": "The parent paper defines the same update and energy monotonicity; the new exact K_{m,m,m} ground geometry, global accessibility, stationary mass and bottleneck conductance require further structural argument. Other complete multipartite dynamics use different rules and do not dominate.",
+      "residual_risks": [
+        "An older zero-temperature antiferromagnetic Ising study of complete tripartite graphs could contain an equivalent ground-shell classification.",
+        "The mixing result gives only a lower bound and does not quantify hitting times to the recurrent class."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes model, energy and general recurrent-state constraints; inspected results do not classify K_{m,m,m} or its explicit mixing obstruction.",
+          "evidence": [
+            "Introduction states analyzed graph types: trees, cliques, bipartite; §3 energy classification."
+          ],
+          "identifier_or_url": "arXiv:1011.5119 (2010); DOI:10.1016/j.tcs.2011.02.028",
+          "material_read": "Entire accessible ar5iv primary full-text article, focusing on model §2, general energy §3 and topological case studies §§4–5",
+          "method": "Web opened full HTML and read relevant passages",
+          "title": "Stochastic Minority on Graphs",
+          "trigger": "same exact asynchronous model and known Lyapunov energy"
+        },
+        {
+          "assessment": "Heat-bath at positive temperature is not equivalent to asynchronous minority with zero-temperature tie flipping.",
+          "evidence": [
+            "Title specifies high-temperature Glauber dynamics."
+          ],
+          "identifier_or_url": "arXiv:2102.05279 (2021/2022)",
+          "material_read": "Abstract and bibliographic/model summary only",
+          "method": "ArXiv search and abstract",
+          "title": "Cutoff phenomenon of the Glauber dynamics for the Ising model on complete multipartite graphs in the high temperature regime",
+          "trigger": "same graph family, different Markov chain"
+        },
+        {
+          "assessment": "Synchronous parity automata have different transitions and cannot imply the stochastic recurrent-class geometry.",
+          "evidence": [
+            "Result summary is a period-four synchronous parity census."
+          ],
+          "identifier_or_url": "Resultary ID 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7",
+          "material_read": "Published summary only",
+          "method": "Resultary semantic query",
+          "title": "Sharp period-four census for complete multipartite parity automata",
+          "trigger": "semantic search nearest complete multipartite result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/one-communicating-ground-state-class-and-an-exponential-bottlene--4639e5e1dc43/RESULT.md",
+        "arXiv:1011.5119"
+      ],
+      "rationale": "For the original asynchronous stochastic minority chain, a complete recurrent-class classification and stationary law on a natural non-bipartite graph family is a motivated dynamical gap. The six-hypercube geometry explains an explicit exponential mixing bottleneck despite a unique communicating ground class, not merely a generic energy monotonicity fact.",
+      "residual_risks": [
+        "Quantitative transience/hitting times and matching mixing upper bounds are not established."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "An older zero-temperature antiferromagnetic Ising study of complete tripartite graphs could contain an equivalent ground-shell classification.",
+    "The mixing result gives only a lower bound and does not quantify hitting times to the recurrent class.",
+    "Publication remains not_ready due unsanitized public provenance fields; scientific acceptability and publishability are separate."
+  ],
+  "schema_version": 1
+}

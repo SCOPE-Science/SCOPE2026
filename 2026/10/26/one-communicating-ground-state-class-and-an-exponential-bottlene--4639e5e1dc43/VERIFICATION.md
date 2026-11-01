@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof in `RESULT.md` establishes the claim for every integer \(m\ge1\) using an explicit formula for monochromatic-edge energy, an energy-nonincreasing purification path, the ground-state class geometry, detailed balance, and an exact conductance calculation. These are mathematical arguments; no finite computation is substituted for them.
+# Independent mathematical audit
 
-`verify.py` (standard Python 3 only) exhaustively enumerates the full Boolean configuration space for \(m=1,2,3,4,5\), checks all active moves, and independently verifies the ground-state counts \(6,18,42,90,186\), connectivity, absence of upward-energy transitions, the constructive ground-reaching path, and the \(2m\) boundary-edge count for \(m\ge2\). `verification_output.txt` contains the recorded output of an actual execution.
+## correctness
 
-The checker does not prove any statement for \(m>5\), does not calculate mixing times, and does not constitute an independent mathematical audit. Those claims are supported by the analytical proof, not by finite data.
+PASS
+
+For magnetizations s_A,s_B,s_C, same-spin edge energy E=(3m²+s_As_B+s_As_C+s_Bs_C)/2 has minimum m² precisely when two parts are monochrome in opposite colors; no other minima. Every configuration has an allowed nonincreasing purification path by successively fixing each part. Ground states form six Boolean m-cubes glued pairwise at six all-monochrome nonconstant junctions, hence one closed irreducible class of size 6(2^m−1); reverse tie flips imply uniform stationarity and Kac return 2^m−1. For a mixed interior of one cube, |S|=2^m−2 and exactly 2m directed exit edges imply conductance 2/[3(2^m−2)] and TV mixing bound ≥2^(m−1). Independent finite state enumeration verified all energy transitions and ground communication for m=1..4 (8,64,512,4096 states), and 2m crossings. Arbitrary-m claim follows from structure, not enumeration.
+
+## originality
+
+PASS
+
+The parent paper defines the same update and energy monotonicity; the new exact K_{m,m,m} ground geometry, global accessibility, stationary mass and bottleneck conductance require further structural argument. Other complete multipartite dynamics use different rules and do not dominate.
+
+## value
+
+PASS
+
+For the original asynchronous stochastic minority chain, a complete recurrent-class classification and stationary law on a natural non-bipartite graph family is a motivated dynamical gap. The six-hypercube geometry explains an explicit exponential mixing bottleneck despite a unique communicating ground class, not merely a generic energy monotonicity fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

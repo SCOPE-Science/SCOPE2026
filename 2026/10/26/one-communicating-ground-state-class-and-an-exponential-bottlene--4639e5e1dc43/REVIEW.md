@@ -1,11 +1,21 @@
-# Review of the balanced-tripartite stochastic minority classification
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact model is the uniform single-site closed-neighborhood minority update, with ties among the *open* neighbors causing a flip. For part magnetizations \(s_A,s_B,s_C\), the monochromatic-edge energy is \((3m^2+s_As_B+s_As_C+s_Bs_C)/2\). An elementary inequality proves its minimum is \(m^2\), attained precisely with an opposite monochromatic pair. Consecutively purifying the three parts gives a non-increasing path to that minimum for every input. Ground states are six glued Boolean cubes with reversible single-spin transitions, yielding one aperiodic irreducible class of \(6(2^m-1)\) states and uniform stationarity. Direct boundary-edge counting establishes \(t_{\mathrm{mix}}(1/4)\ge2^{m-1}\) for \(m\ge2\). Exhaustive finite validation covers \(m=1,\dots,5\).
+## correctness
 
-**Originality — PASS (bounded best-knowledge).** The model, potential function, and general recurrent-class criterion are known from Rouquier–Regnault–Thierry (2010/2011). Relevant portions of that full text were read, including the model, potential, non-bipartite discussion, and complete-graph results. None of the inspected statements specializes to the exact balanced-tripartite graph geometry, recurrent count, stationary junction mass, or explicit mixing obstruction. Targeted literature and indexed-finding searches found no claim implying all of these. Existing complete-multipartite Ising mixing work uses different heat-bath/temperature regimes. Unindexed or inaccessible equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The result completes the recurrent-state and invariant-distribution classification of a natural non-bipartite family for the original stochastic minority model. The exact six-hypercube state-space geometry exposes an exponential equilibration bottleneck even though the chain has only one recurrent class; this provides a meaningful quantitative dynamical contrast rather than a count without interpretation.
+For magnetizations s_A,s_B,s_C, same-spin edge energy E=(3m²+s_As_B+s_As_C+s_Bs_C)/2 has minimum m² precisely when two parts are monochrome in opposite colors; no other minima. Every configuration has an allowed nonincreasing purification path by successively fixing each part. Ground states form six Boolean m-cubes glued pairwise at six all-monochrome nonconstant junctions, hence one closed irreducible class of size 6(2^m−1); reverse tie flips imply uniform stationarity and Kac return 2^m−1. For a mixed interior of one cube, |S|=2^m−2 and exactly 2m directed exit edges imply conductance 2/[3(2^m−2)] and TV mixing bound ≥2^(m−1). Independent finite state enumeration verified all energy transitions and ground communication for m=1..4 (8,64,512,4096 states), and 2m crossings. Arbitrary-m claim follows from structure, not enumeration.
 
-**Limits.** The mixing bound is one-sided. Only equal three-way parts and the exact tie convention are covered. The general theorem has an analytic proof, while computational verification is finite. The work has not received independent mathematical scrutiny.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The parent paper defines the same update and energy monotonicity; the new exact K_{m,m,m} ground geometry, global accessibility, stationary mass and bottleneck conductance require further structural argument. Other complete multipartite dynamics use different rules and do not dominate.
+
+## value
+
+PASS
+
+For the original asynchronous stochastic minority chain, a complete recurrent-class classification and stationary law on a natural non-bipartite graph family is a motivated dynamical gap. The six-hypercube geometry explains an explicit exponential mixing bottleneck despite a unique communicating ground class, not merely a generic energy monotonicity fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
