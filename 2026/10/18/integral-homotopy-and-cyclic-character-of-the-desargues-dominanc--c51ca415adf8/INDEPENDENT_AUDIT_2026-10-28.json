@@ -1,0 +1,179 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T23:50:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned Git files RESULT.md, verify_desargues.py and VERIFICATION.md at frozen blob SHAs; exact complete source graph, matching and trace definitions",
+        "Independent locally written /mnt/data/scope_worker02_run_20261028T2343/independent_check.py (no source verifier imported or executed)",
+        "Forman discrete Morse acyclic matching theorem, used only after complete DAG verification"
+      ],
+      "rationale": "Reconstructed graph GP(10,3) with 20 vertices, 30 distinct edges, degree three and closed neighborhoods of cardinality four, including the exact 20-bit face predicate N[x] not contained in sigma. Separate local checker independently tested all 2^20 masks without relying on the source recurrence, obtaining 434220 nonempty faces and the exact 14-entry f-vector. Reconstructed the deterministic pivot matching on all faces (217103 pairs) and the entire oriented Hasse graph (3663080 incidences); exact indegree topological sort visited all 434220 nodes, proving true acyclicity, and critical cells were exactly one dimension-zero and 13 dimension-nine faces. Acyclic-matching theorem therefore gives a CW with a single point and 13 9-cells, so an integral wedge of 13 S9 (no possible nontrivial attaching maps to a point). Independently computed all ten signed simplicial Lefschetz traces by fixed orbit unions and per-orbit permutation parity, yielding (13,-1,3,-1,3,-11,3,-1,3,-1). With H0=1 and reduced H9 in odd dimension, tr_H9=1-L. Rational C10 Ramanujan-character decomposition indeed has trivial multiplicity 1, sign 4, faithful cyclotomic10 2, order-five cyclotomic 0. Explicit 20-vertex isomorphism to bipartite Petersen double cover separately checked. All asserted homology over Z follows from homotopy, not a finite-field rank alone.",
+      "residual_risks": [
+        "This proves only D(GP(10,3)) for the explicitly defined closed-neighborhood-complement complex and the designated order-ten rotation; not arbitrary generalized Petersen graphs or full automorphism group.",
+        "C10 representation decomposition is over Q, not a classification of integral Z[C10]-lattices.",
+        "The exhaustive certificate was independently replayed in local Python; no external formal/Lean/expert attestation."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2312.02639 Thm 5.16/5.18 give homotopy classifications for cycles and P_n x P_2, while Section 6 treats homology of P_n x P_3, not GP(10,3). Its Thm 1.1 is a general duality, not an exact graph computation.",
+          "arxiv:2009.04145 Thm 1 proves a mod-two homological connectivity bound from vertex cover number, not exact integral homology or an equivariant C10 representation.",
+          "arxiv:2511.12608 Thm 1.2, Thm 1.4 and Example 3.5 cover canonical double-cover/closed-neighborhood relations and Cartesian products of complete graphs; these do not give the Desargues rank/character."
+        ],
+        "reasoning": "The three primary sources are highly relevant general machinery; their quantified statements do not give a dominating parameter or closed formula that specializes to the precise 20-vertex 13-sphere and C10-character claim. No broader covering theorem was identified. This is a qualified comparison, not a proof of historical novelty.",
+        "searches": [
+          "Web: dominance complex of generalized Petersen graphs Desargues graph homotopy",
+          "Web: closed neighborhood hypergraph independence complex generalized Petersen graph homotopy",
+          "arxiv:2312.02639 full 29-page primary preprint sections 1, 4-6 including Theorems 1.1, 5.16, 5.18",
+          "arxiv:2511.12608 full 24-page primary preprint introduction, Sections 3-4 and Theorem 1.4",
+          "arxiv:2009.04145 full 6-page primary preprint introduction and proof statements"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2312.02639",
+        "https://arxiv.org/pdf/2009.04145",
+        "https://arxiv.org/pdf/2511.12608",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-independence-complex-is-s-4-vee-bigvee-5-s-5--e9aae0fc2563",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-matching-complex-is-a-mixed-dimensional-wedge-of-s--67ff1e627721",
+        "GitHub source package frozen at cbd61aab71e4f01d305014a9520f769db8108742",
+        "Local independent computation: /mnt/data/scope_worker02_run_20261028T2343/independent_check.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known Desargues independence complex has homotopy in degrees 4 and 5 and is defined by excluding each graph edge; the target has closed-neighborhood 4-element minimal nonfaces and homotopy in degree 9.",
+          "The known Desargues matching complex is on 30 edge-vertices rather than 20 graph vertices; neither its integral homotopy computation nor its Morse boundary imply dominance C10 traces.",
+          "The general Alexander-dual and incidence-graph transfer statements can translate the problem but do not evaluate the specific relevant dual or yield the stated nontrivial rotation character."
+        ],
+        "reasoning": "The exact face sets and invariants rule out inferring this claim from nearby same-graph results by simple substitution. Standard duality supplies conceptual context but leaves a finite nontrivial computation. If a future source supplies this exact dual computation, the originality conclusion must be reconsidered.",
+        "searches": [
+          "Published SCOPE/Resultary exact Desargues independence and matching RESULTS: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-independence-complex-is-s-4-vee-bigvee-5-s-5--e9aae0fc2563 and https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-matching-complex-is-a-mixed-dimensional-wedge-of-s--67ff1e627721",
+          "arxiv:2312.02639 Theorem 1.1, Section 5 transfer theorems",
+          "arxiv:2511.12608 Sections 3-4 and arxiv:2009.04145 Corollary 4",
+          "Web: generalized Petersen GP(10,3) dominance vs neighborhood complex homotopy cyclic representation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For graph G, D(G) equals the independence complex of the 4-uniform hypergraph consisting of 20 closed-neighborhood sets N_G[x]; this is the exact submitted face definition.",
+          "Matsushita and Wakatsuki, arxiv:2312.02639 Theorem 1.1: the Alexander dual of D(G) is the open-neighborhood complex of the complement graph; an exact translation, not an explicit homotopy computation.",
+          "Matsushita, arxiv:2009.04145 p.3 Corollary 4: suspension of D(G) Alexander dual is an independence complex of its bipartite incidence graph. No Desargues-specific numeric result.",
+          "Matsushita, arxiv:2511.12608 Section 4, distinguishes open-neighborhood hypergraph independence from dominance via closed neighborhoods and repeats the general duality."
+        ],
+        "reasoning": "These are exact aliases and dualities for the object, but the general equivalences do not determine the integral wedge rank 13 or signed C10 character without an additional Desargues-specific calculation. The Desargues graph is also GP(10,3), the Levi graph of the (10_3) configuration, and bipartite double cover of Petersen; all these aliases were considered. No equivalence to the ordinary graph independence complex was assumed.",
+        "searches": [
+          "Resultary semantic: dominance complex Desargues graph GP(10,3) Petersen double cover 13 spheres homotopy cyclic character",
+          "Resultary semantic: domination complex closed neighborhood hypergraph Desargues graph 20 vertices wedge spheres",
+          "Web: \"Desargues\" \"dominance complex\"; \"GP(10,3)\" \"dominance\"; \"Petersen double cover\" \"dominance complex\"",
+          "arxiv:2312.02639 Theorem 1.1; arxiv:2009.04145 Section 2; arxiv:2511.12608 Section 4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published Resultary 2026/10/11 Desargues ordinary independence complex RESULT.md: 6211 nonempty faces and S4 wedge five S5, versus 434220 dominance faces and thirteen S9: these are different complexes and tables.",
+          "Published Resultary 2026/10/11 Desargues matching RESULT.md: 30 edges are simplex vertices, 113191 nonempty matching faces, and S5^5 wedge S6^45: not the closed-neighborhood vertex-subset complex.",
+          "No retrieved exact table lists the ten signed rotation traces (13,-1,3,-1,3,-11,3,-1,3,-1) or integral 13-sphere dominance homotopy type."
+        ],
+        "reasoning": "An earlier exact table would cover numerical novelty regardless of paper title, but the actual same-graph tables inspected count distinct face notions. Web and Resultary searches did not locate an exact dominance table; search failure alone does not certify priority.",
+        "searches": [
+          "Web: \"Desargues graph\" \"domination complex\" homotopy",
+          "Web: \"Desargues\" \"closed neighborhood\" \"homology\" complex",
+          "Web: \"Desargues graph\" \"dominance complex\" wedge sphere thirteen",
+          "Resultary semantic queries on Desargues dominance and close neighborhood hypergraphs",
+          "Resultary published 2026/10/11 Desargues ordinary independence and matching homotopy RESULT.md full texts"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as a specific integral homotopy and equivariant rational-character classification: direct primary mathematical reading and Resultary exact graph records did not supply the 13-fold 9-sphere wedge or signed C10 character. Stronger general Alexander duality, double-cover and connectivity theorems provide exact reductions but do not compute this graph-specific result. Same Desargues graph independence/matching calculations have categorically different face definitions. Remaining historical-priority risks are explicit; unsuccessful indexed searches are not novelty certification.",
+      "residual_risks": [
+        "Best-of-knowledge source search cannot exclude unpublished or unindexed Desargues dominance calculations under closed-neighborhood hypergraph, configuration, bipartite-Kneser aliases.",
+        "General duality and homology relations might combine with a presently unlocated exact calculation of the dual neighborhood complex; no such exact result was identified.",
+        "The source repository already contains a self-review; it is not independent literature corroboration.",
+        "No human expert or formal proof assistant certification is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same graph invariant and strong general duality; computations cover cycles, product paths and related grids, not the specific Desargues homotopy type or rotation character.",
+          "evidence": [
+            "PDF pp.1-3 Definition/Theorem 1.1; pp.11-18 Theorems 5.3, 5.16, 5.18; pp.18-29 graph product calculations; no occurrences of Desargues/Petersen in the document text."
+          ],
+          "identifier_or_url": "arxiv:2312.02639v2; https://arxiv.org/pdf/2312.02639",
+          "material_read": "Primary full-text 29-page PDF: definitions and introduction, Theorem 1.1, Sections 5.2-5.4 (Theorem 5.3, Theorem 5.16 and 5.18), Section 6 statements and graph-family scope; full text checked for Desargues and Petersen.",
+          "method": "Opened primary arXiv PDF, inspected page images and relevant theorem/proof text, searched exact aliases and compared quantified graph families.",
+          "title": "Dominance complexes, neighborhood complexes and combinatorial Alexander duals",
+          "trigger": "Foundational paper on exactly the same dominance complex, potentially stronger general Alexander-duality and computation theorems."
+        },
+        {
+          "assessment": "Gives bounds and dual incidence-graph identity, not exact Desargues wedge or C10 action.",
+          "evidence": [
+            "Theorem 1: conn_Z2(D(G))+2 <= vertex-cover number; Section 2 closed-neighborhood hypergraph and Corollary 4 dual-suspension formula."
+          ],
+          "identifier_or_url": "arxiv:2009.04145v2; https://arxiv.org/pdf/2009.04145",
+          "material_read": "Primary 6-page PDF: introduction, exact hypergraph definition in Section 2, Theorem 1 on mod-2 connectivity, Corollary 4 and graph examples; inspected primary page images.",
+          "method": "Read primary PDF theorem statements and proof sections, compared assumptions and strength of conclusions.",
+          "title": "Dominance complexes and vertex cover numbers of graphs",
+          "trigger": "Earlier treatment of the identical closed-neighborhood-complement complex and potentially covering homological bound."
+        },
+        {
+          "assessment": "Distinguishes open and closed neighborhood constructions and establishes general equivalences; no exact Desargues-specific dominance calculation or cyclic character.",
+          "evidence": [
+            "Theorem 1.2 suspension and double-cover, Theorem 1.4 open-neighborhood hypergraph dual; Section 4 explicitly restates D(G) as I({N_G[v]})."
+          ],
+          "identifier_or_url": "arxiv:2511.12608v2; https://arxiv.org/pdf/2511.12608",
+          "material_read": "Primary 24-page PDF: introduction/Definitions 1.1, Theorems 1.2/1.4, Examples 3.3-3.5, Section 4 hypergraph theorems; text searched for Desargues/Petersen.",
+          "method": "Read primary theorem and proof sections and inspected page images 3 and 11.",
+          "title": "Closed neighborhood complexes of graphs",
+          "trigger": "Same closed/open neighborhood hypergraph vocabulary and canonical double-cover equivalences; relevant competing reduction."
+        },
+        {
+          "assessment": "Non-covering: graph independence forbids edges, dominance forbids full closed neighborhoods.",
+          "evidence": [
+            "6211 nonempty independent faces, homotopy S4 wedge 5 S5, versus target 434220 faces and 13 S9."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-independence-complex-is-s-4-vee-bigvee-5-s-5--e9aae0fc2563",
+          "material_read": "Full published RESULT.md with precise vertex-subset criterion, face vector, homotopy and proof scope.",
+          "method": "Read primary published Resultary file through GitHub and compared forbidden configurations and face counts.",
+          "title": "The Desargues independence complex is S4 wedge five S5",
+          "trigger": "Published result on identical graph and adjacent topological graph invariant."
+        },
+        {
+          "assessment": "Non-covering: 30-edge matching complex with S5/S6 homotopy, not 20-vertex closed-neighborhood complex.",
+          "evidence": [
+            "Matching complex 113191 nonempty faces, S5^5 wedge S6^45, different from dominance face/homotopy data."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-matching-complex-is-a-mixed-dimensional-wedge-of-s--67ff1e627721",
+          "material_read": "Full published RESULT.md, definitions, exact face counts and proof structure.",
+          "method": "Compared simplex vertex universe (edges vs graph vertices) and homotopy statement.",
+          "title": "The Desargues matching complex is a mixed-dimensional wedge of spheres",
+          "trigger": "Published exact same-graph integral homotopy calculation potentially confused with target."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Primary dominance complex framework: https://arxiv.org/pdf/2312.02639",
+        "Published Desargues ordinary independence/matching calculations: https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-independence-complex-is-s-4-vee-bigvee-5-s-5--e9aae0fc2563; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-the-desargues-matching-complex-is-a-mixed-dimensional-wedge-of-s--67ff1e627721",
+        "Exact independent finite structural certificate in local independent_check.py"
+      ],
+      "rationale": "The Desargues graph is a distinguished highly symmetric cubic Levi graph of the ten-point Desargues configuration and canonical bipartite cover of Petersen; its dominance complex is a standard natural invariant with few exact homotopy computations. An exact integral homotopy type of thirteen S9s and the nontrivial full rational rotation character are two substantive, potentially reusable invariants, not a routine reformulation of graph parameters or a known table. The all-face, full oriented-Hasse certificate gives a meaningful complete classification for this canonical object. The cyclic trace additionally reveals sign and faithful cyclotomic constituents invisible to the sphere count. A uniform family theorem or paper-sized application is not needed for this motivated exact case.",
+      "residual_risks": [
+        "The result is a single canonical graph, with no all-GP(n,k) extension and no integral C10-module splitting.",
+        "Usefulness is as a complete benchmark/equivariant exact graph invariant; no particular downstream theorem is asserted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Single graph GP(10,3), not an infinite graph-family theorem.",
+    "Rational cyclic character only, not integral module decomposition or full automorphism group action.",
+    "Originality is best-of-knowledge, with unindexed/potentially equivalent computations a residual risk.",
+    "Source metadata fields scope_run_id in AUDIT.json and METADATA.json are private operational data and cannot enter a public package unchanged.",
+    "METADATA.json:first_public_date is 2023-12-05 (prior Matsushita-Wakatsuki paper), not a verified first public disclosure of this finding.",
+    "AUDIT.json original source has a malformed decoded mathematical escape in an illustrative earlier-comparison string; scientific RESULT.md remains unambiguous.",
+    "No formal proof assistant or expert attestation asserted."
+  ],
+  "schema_version": 1
+}
