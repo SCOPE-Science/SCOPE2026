@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T20:09:05.811459Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md all-length polynomial proof and extremal cases",
+        "assigned verify.py blob 6d9faf46... independently inspected, not blindly trusted",
+        "independent_checks.py complementary_factors independent direct factor sets"
+      ],
+      "rationale": "Classify all nonempty contiguous factors of 0^a1^b0^c1^d by run count: one-run complementary pairs contribute 2Σ_{k≤m}z^k, two-run pairs are indexed by the union Q of rectangles [1,p]×[1,q] and [1,q]×[1,r], and three-run pairs exist iff b=c, contributing 2Σ_{i≤p,j≤r}z^{b+i+j}. Four-run factors cannot have complements, as opposite orientation absent. At z=1, inclusion-exclusion gives C=2(m+pq+qr-h+1_{b=c}pr). For b=c=t, exact reduction C/2=max(t,min(a,d))+t(min(a,t)+min(d,t)) implies upper t(n-2t+1) with equality a,d≤t. Concave quadratic optimizes at t=ceil(n/4), and b≠c case proves C≤n²/4, strictly below target n≥6. n=4,5 direct cases. Independent brute force checked 1296 compositions up to individual run length 6 and all maxima/equality n=4..40. Infinite proof is symbolic run classification and inequalities, not extrapolation.",
+      "residual_risks": [
+        "Four nonempty linear alternating runs, distinct factor strings counted twice per complemented pair.",
+        "No claim about five+ runs, circular factors, positional occurrences or all-length distribution across compositions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Currie–Dvořáková–Ochem–Opočenská–Rampersad–Shallit arXiv:2209.09598 Theorems 3 and 4 optimize critical exponent for infinite words with bounded complemented factors, not maximum C over four-run finite words.",
+          "Sawada–Stevens–Williams de Bruijn complement-free cycle constructions are circular and cover one representative of each pair."
+        ],
+        "reasoning": "Neither stronger repetition-avoidance results nor de Bruijn constructions dominate a sharp fixed-run finite-word extremal classification.",
+        "searches": [
+          "complementary factors four-run binary word length spectrum sharp maximum",
+          "complement avoidance critical exponent binary words theorem 2025 infinite words"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.09598 full 23-page manuscript",
+        "DOI:10.37236/11555 journal abstract, publication 2025-10-17",
+        "DOI:10.1007/978-3-642-19094-0_19 abstract-level",
+        "Resultary q4, 15 retrieved candidates"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2209.09598 primary full 23-page preprint §§1–5 discusses infinite β-free words, critical exponents and bounded complemented factors; finite four-run compositions do not appear.",
+          "The derived condition b=c for 3-run complementary factors and sharp maximizer structure are not consequences of infinite-word avoidance formulas."
+        ],
+        "reasoning": "The prior paper establishes motivating invariant and asymptotic avoidance phenomena, not the present finite constrained maximization; its theorems cannot be specialized just by choosing n, since their object ranges differ.",
+        "searches": [
+          "complementary factors four-run binary word length spectrum sharp maximum",
+          "Currie 2025 Complement Avoidance Binary Words maximum complemented nonempty factors theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Currie et al arXiv:2209.09598 explicitly count complemented nonempty factor strings in infinite binary words; same complement involution and distinct-factor convention.",
+          "Four-run finite words reduce complementary pairs to at most three run-boundary classes, including special b=c three-run pairs."
+        ],
+        "reasoning": "The invariant name is not new; exact finite four-run length spectrum and composition extremizers are a different theorem from infinite-word avoidance.",
+        "searches": [
+          "complementary factors four-run binary word length spectrum sharp maximum",
+          "complementary pairs of contiguous substrings four blocks binary words 0^a1^b0^c1^d"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The result includes P_w(z), exact C and all equality quadruples, not only numeric maxima.",
+          "Independent brute-force direct substring factor-set enumeration for 1296 compositions and maxima n=4..40."
+        ],
+        "reasoning": "No inspected published table contains the four-run count formula; finite enumeration is corroboration, and absence from a database is not proof of novelty.",
+        "searches": [
+          "complementary factors four-run binary word length spectrum sharp maximum",
+          "finite four-run complemented factor count maximum floor n/4 OEIS"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for full length spectrum and sharp all-n extremum for exactly four-run words. Currie and coauthors study complement-avoidance thresholds and count complementary factors in *infinite* morphic words; this prior invariant is the same but their quantifiers and extremal family differ. No inspected theorem implies the four-run polynomial/equality classification.",
+      "residual_risks": [
+        "An earlier specialized four-run complementary-factor count may exist under string-algorithms terminology.",
+        "De Bruijn prior full text not inspected; not used to assert whole-document noncoverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Studies complemented factors in infinite words and repetition avoidance; no complete finite four-run spectrum or fixed-length extremum established",
+          "evidence": "Theorem 4 pp.5–6; §§1,4–5; 2025 journal publication DOI:10.37236/11555",
+          "identifier_or_url": "arXiv:2209.09598; https://arxiv.org/pdf/2209.09598",
+          "material_read": "Relevant mathematical sections of the full available 23-page arXiv preprint: introduction, Theorems 3–4, and complementary-factor count discussion; page-1 screenshot and four-run term search, not a cover-to-cover claim",
+          "method": "primary PDF reading, find/section inspection, page image",
+          "title": "Complement Avoidance in Binary Words",
+          "trigger": "same complemented-factor invariant and plausible dominating count theorem"
+        },
+        {
+          "assessment": "Finite circular de Bruijn coverage objective differs from arbitrary linear four-run factor intersections",
+          "evidence": "WALCOM 2011, LNCS 6552",
+          "identifier_or_url": "DOI:10.1007/978-3-642-19094-0_19",
+          "material_read": "Article title, abstract/citation context only; no full text inspected",
+          "method": "abstract/secondary bibliographic description",
+          "title": "De Bruijn Sequences for the Binary Strings with Maximum Density",
+          "trigger": "possible complement-pair enumeration via cyclic representation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "assigned RESULT.md",
+        "Currie et al 2023 arXiv / 2025 journal"
+      ],
+      "rationale": "The exact length spectrum and sharp fixed-size extremizers answer a natural finite combinatorics question for a simple nontrivial class of binary words. The structural b=c resonance produces an additive linear improvement over the best unequal-interior-run bound; the complete equality classification is useful beyond a mere scalar maximum.",
+      "residual_risks": [
+        "Scope restricted to exactly four runs, and no full distribution over all compositions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite four-run words only; distinct substring strings, not occurrences.",
+    "Originality is best-of-knowledge, not priority proof."
+  ],
+  "schema_version": 1
+}
