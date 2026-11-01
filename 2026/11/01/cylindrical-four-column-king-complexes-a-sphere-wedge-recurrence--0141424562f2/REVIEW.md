@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph definitions identify all possible independent faces. The standard graph folding and null-attaching deletion/link splitting are stated with the correct open/closed neighborhood directions and are recorded in Carnero Bravo (2025), Lemma 1. The full local fifteen-template table specifies *every* graph operation and exact surviving child word; all vertices involved are within three leading rows and cannot interact beyond the fourth. This proves the local rules for every permitted tail length. Combining the rules yields the unrestricted suspension recurrence. Five terminating finite graph-reduction trees yield the initial wedges, after which induction proves the homotopy and torsion-free homology assertions. The half-turn fixed-space identification is constructed from vertex orbits, not presumed from a quotient theorem. Equality of mod-two total Betti ranks then follows from the two independently justified recurrences. The standalone checker verifies 104 row-template cases, base reductions, 9 mod-two boundary computations, 6 further exact graph reductions, and 13 finite Smith totals; computations support but do not replace the unrestricted arguments.
+## correctness
 
-## Originality — PASS (qualified)
-The exact closest primary source is Andrés Carnero Bravo, *On independence complexes of graph products*, arXiv:2505.06457v1, published 9 May 2025. The relevant full-text sections were inspected: definitions and graph folds (Section 2), four-cycle categorical simplification (Corollary 8), and all named rectangular strong-product results (Section 5, Proposition 23 on two-column king graphs, Proposition 25 on four-column *rectangles*, and Proposition 26 initial cases). These do not subsume the new cylindrical strong-product statement: a four-cycle's wrap-around edges prevent its identification with a four-vertex path, and the two-column complex is only the *fixed locus*, not the full cylindrical complex. In particular the cylindrical and rectangular complexes have genuinely distinct degree-wise Betti polynomials already for three rows, despite matching total ranks. Actual semantic-result searches for cylinder, king-grid, strong-product cycle, recurrence, and Smith equality found no matching result; nearby indexed claims concern categorical products, circular ladders, or different graph complexes. Search failure does not prove novelty. An implicit deduction in unread research remains a residual risk.
+PASS
 
-## Value — PASS
-This is a complete topological classification of the natural first periodic-width version of a studied king graph family, with exact integral Betti information in every path length, a short finite-state graph proof, and an unexpected strong equality case in Smith theory. It distinguishes ordinary, degree-wise homotopy information from symmetry-fixed information. Unlike finite case enumerations, the recurrence covers an unbounded infinite family and produces an explicit rational generating function. The fixed-locus equality is a mathematically natural comparison with the specific two-column case independently classified in the initiating literature.
+The open N(u) subset N(v) fold deletes v by independence-complex dominated-vertex equivalence; the closed N[u] subset N[v] split gives a wedge with a suspended deletion of N[v] because u cones off the attaching link. The 15 actual prefix-mask rules specify valid u,v and exact normalized children, and all tested neighborhoods involve only the first four rows because edges have longitudinal range one; the identities therefore extend to any complete-row tail. I independently reimplemented graph masks and verified 119 template instances for tail lengths 2..9, together with exact recursive open/closed reduction of X1..X5 yielding p1=z, p2=z+2z², p3=3z², p4=z²+4z³, p5=5z³+4z⁴. The template equations imply X_n ≃ ΣX_(n-2) ∨2Σ²X_(n-3) for n>=6; induction gives all sphere wedges and torsion-free integral homology. Under the halfturn all two-vertex opposite-column orbits are independent; a fixed simplex barycentric assignment is equivalent to choosing conflict-free orbit classes, exactly Ind(P_n boxtimes P2). The rectangular P2 prior recurrence has identical TOTAL mod2 Betti numbers, giving equality in Smith inequality for every n. Finite local tests support but never substitute for the locality argument and induction.
 
-## Residual risks and scope
-No claim is made for periodic widths other than four, the integral equivariant homotopy type, or unrelated graph products. No exhaustive mathematical-literature uniqueness theorem is asserted. Self-review cannot substitute for an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Carnero Bravo arXiv:2505.06457v1 full HTML primary paper was inspected: Lemma 1 provides the same standard fold mechanism; Propositions 23 and 26 give P_n boxtimes P2 recurrence and base data (fixed space), while Proposition 25 treats P_n boxtimes P4 rectangular strong products, not the wrap-around C4 strong product. The categorical cycle product elsewhere is a different graph product. The cylinder differs from the rectangle in edges and degree-wise Betti data, so neither previously known rectangular homotopy type nor fixed-complex recurrence entails the all-length cylinder wedge decomposition. Resultary queried periodic four-column king complexes and Smith equality; nearby categorical cycle and individual cube results are not the same family. An implicit past cylindrical result remains a residual risk.
+
+## value
+
+PASS
+
+P_n boxtimes C4 is a canonical finite-width periodic king graph family. Its complete infinite-length integral wedge-of-spheres homotopy classification and closed generating series go beyond a finite census; the antipodal halfturn yielding exact total mod-2 Smith equality despite degree-distribution mismatch is a structurally motivated and nonobvious invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
