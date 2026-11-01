@@ -1,11 +1,21 @@
-# Scientific comparison and review
+# Independent mathematical audit
 
-**Correctness — PASS.** The operator and normalizations are explicit. Monomial/first-excited Hermite orthogonality yields a diagonal coefficient evaluated by the exact derivative of \(t^{n+1}e^{-t}\); the entire singular spectrum follows. A ratio test fixes all mode transitions. A Bessel series gives the Hilbert–Schmidt norm. A monotone sharp envelope and Stirling's formula prove the nonattained universal norm bound. Uniformly controlled Poisson tails justify the full continuum Schatten-power limit and fixed-threshold counting law. The packaged numerical checker passed 689 finite assertions; the asymptotic/infinite statements are proved analytically and do not rely on finite enumeration.
+## correctness
 
-**Originality — PASS (best-knowledge, priority-sensitive).** The closely relevant literature on single-window Hermite disk Toeplitz concentration (Abreu–Gröchenig–Romero, 2019), cross-Wigner zeros (Gröchenig–Jaming–Malinnikova, 2018 preprint), polyanalytic Toeplitz symbolic calculus (Keller–Luef, 2021), and multilevel Landau entropy (Leschke–Sobolev–Spitzer, 2020 online) was inspected in accessible full text. Their stated results do not give the complete positive singular spectrum, the sharp globally nonattained interlevel norm, or the arbitrary-positive-exponent Gaussian edge/counting constants for \(P_1\mathbf1_{D_x}P_0\). The distinction is operator-theoretic, not merely notational: the source's same-window Toeplitz diagonal is \(P_j\mathbf1_{D_x}P_j\), and mixed-level transfer requires an off-diagonal block. Literature priority remains unresolved beyond the inspected sources, particularly older quantum Hall physics calculations of interlevel radial matrix elements.
+PASS
 
-**Mathematical value — PASS.** The interlevel coupling vanishes strongly at large disk radius while maintaining a universal nonzero asymptotic norm. The result resolves all angular modes, identifies a sharply quantified boundary layer, and yields one formula governing every fixed positive Schatten power and the singular-value counting distribution. This characterizes a natural cross-band localization operator rather than an arbitrary finite or parameter-sliced calculation. The special-function norm and strict envelope allow benchmark computations for multiband Toeplitz localization.
+Gaussian orthonormal bases are u_n=z^n/sqrt(n!) in L0 and v_n=z^n(n+1-|z|²)/sqrt((n+1)!) in L1, plus v_-1=conj(z). Angular orthogonality diagonalizes the interlevel disk operator. The coefficient equals the radial integral int_0^x t^n(n+1-t)e^(-t)dt/sqrt(n!(n+1)!) = e^(-x)x^(n+1)/sqrt(n!(n+1)!) by differentiation of t^(n+1)e^(-t). It is strictly positive, decays factorially, so gives the complete singular sequence and all S_p. Ratio a_(n+1)/a_n=x/sqrt((n+1)(n+2)) proves log-concavity and modal ties. Summing squares matches x e^(-2x) I1(2x). Maximizing each n at x=n+1 gives b_n increasing strictly to C=(2pi)^(-1/2), so for each finite x max_n a_n<C and limit norm is C. The Poisson representation a_n=sqrt(n+1)P(Pois(x)=n+1) with Stirling and entropy H(y)=y log y-y+1 gives Gaussian local profile and uniform tail control for every fixed p>0; Riemann sums establish the Schatten edge and level counting. Fixed-mode decay plus uniform norm proves strong limit zero despite norm nonconvergence. The verifier is finite corroboration, not the proof.
 
-**Limitations.** One planar complex variable, first two adjacent Landau levels, and concentric hard disks only. No nonradial or all-level universality; fixed positive Schatten exponents and fixed thresholds. Historical originality is contingent on uninspected prior equivalents, and independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact statements and implications: Checked aliases interlevel Toeplitz, polyanalytic Fock, Hermite-window STFT, magnetic Landau disk and Poisson boundary mass. A known same-window localization diagonalization does not yield the cross-level singular laws as a theorem without extra boundary identification. General Toeplitz calculus or diagonal Landau level concentration does not, without further calculation, imply a sharp all-x cross-block norm and all-p edge law. The claim includes an identified cross-level block, a strict norm ceiling and fixed-p spectral-edge laws that are not proved by the inspected prior theorems. Caveat: an equivalent cross-level formula in physics could exist under another normalization.
+
+## value
+
+PASS
+
+This gives exact singular values for a natural discontinuous spectral projection between two distinct Landau levels, unifying sharp finite-radius inequalities and a universal Gaussian edge. The all-p Schatten and counting laws and strong-but-not-norm convergence are useful independent operator facts, not a mere basis normalization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T21:11:03.925701Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cb93f84da9e814280050938ee403d9118eea74c5/2026/11/01/boundary-gaussian-singular-spectrum-of-disk-transfer-between-the--04a288b07a35",
+        "2026/11/01/boundary-gaussian-singular-spectrum-of-disk-transfer-between-the--04a288b07a35/RESULT.md",
+        "Checked the exact radial derivative and orthogonal monomial–Laguerre basis normalization.",
+        "Verified ratio, I1 series, optimal individual-mode bounds, Poisson local limit and Gaussian tails as analytical steps.",
+        "Read packaged verify.py; did not convert finite numerical counts to proof of asymptotic quantifiers."
+      ],
+      "rationale": "Gaussian orthonormal bases are u_n=z^n/sqrt(n!) in L0 and v_n=z^n(n+1-|z|²)/sqrt((n+1)!) in L1, plus v_-1=conj(z). Angular orthogonality diagonalizes the interlevel disk operator. The coefficient equals the radial integral int_0^x t^n(n+1-t)e^(-t)dt/sqrt(n!(n+1)!) = e^(-x)x^(n+1)/sqrt(n!(n+1)!) by differentiation of t^(n+1)e^(-t). It is strictly positive, decays factorially, so gives the complete singular sequence and all S_p. Ratio a_(n+1)/a_n=x/sqrt((n+1)(n+2)) proves log-concavity and modal ties. Summing squares matches x e^(-2x) I1(2x). Maximizing each n at x=n+1 gives b_n increasing strictly to C=(2pi)^(-1/2), so for each finite x max_n a_n<C and limit norm is C. The Poisson representation a_n=sqrt(n+1)P(Pois(x)=n+1) with Stirling and entropy H(y)=y log y-y+1 gives Gaussian local profile and uniform tail control for every fixed p>0; Riemann sums establish the Schatten edge and level counting. Fixed-mode decay plus uniform norm proves strong limit zero despite norm nonconvergence. The verifier is finite corroboration, not the proof.",
+      "residual_risks": [
+        "Claims depend on centered hard disk, Gaussian scale exactly pi^-1 exp(-|z|²), and the specified L1 normalization; p and threshold eta remain fixed.",
+        "The displayed inequality outside y in [1/2,2] uses a positive linear lower bound for H(y), which is valid away from its unique minimum at 1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu–Gröchenig–Romero arXiv:1704.03042, journal 2019, §4 analyzes Hermite-window same-level concentration and Landau bulk/edge phenomena, not the off-diagonal first-excited-to-analytic map.",
+          "Keller–Luef DOI 10.1007/s00041-021-09843-0 treats polyanalytic Toeplitz symbolic calculus and Bargmann identifications, not hard disk cross-block singular-value constants."
+        ],
+        "reasoning": "General Toeplitz calculus or diagonal Landau level concentration does not, without further calculation, imply a sharp all-x cross-block norm and all-p edge law.",
+        "searches": [
+          "Resultary semantic: Landau Fock level 0 level 1 cross disk projection singular values Gaussian Poisson edge Schatten",
+          "primary source inspected: https://arxiv.org/abs/1704.03042",
+          "primary source inspected: https://doi.org/10.1007/s00041-021-09843-0"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1704.03042",
+        "https://doi.org/10.1007/s00041-021-09843-0",
+        "Resultary search: Landau Fock level 0 level 1 cross disk projection singular values Gaussian Poisson edge Schatten"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard fact radial disk multipliers preserve angular degree and the exact derivative of incomplete gamma functions provide local ingredients. Abreu–Gröchenig–Romero §4 treats same-window concentration, not cross-window singular operator."
+        ],
+        "reasoning": "The claim includes an identified cross-level block, a strict norm ceiling and fixed-p spectral-edge laws that are not proved by the inspected prior theorems. Caveat: an equivalent cross-level formula in physics could exist under another normalization.",
+        "searches": [
+          "Resultary semantic: Landau Fock level 0 level 1 cross disk projection singular values Gaussian Poisson edge Schatten",
+          "primary source inspected: https://arxiv.org/abs/1704.03042",
+          "primary source inspected: https://doi.org/10.1007/s00041-021-09843-0"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Cross-level map is the off-diagonal block P1 M_disk P0 of a two-level Landau localization, not the diagonal Toeplitz block Pq M_disk Pq. Diagonal radial disk localization corresponds to incomplete gamma eigenvalues; cross-level coefficient is a boundary derivative of that quantity."
+        ],
+        "reasoning": "Checked aliases interlevel Toeplitz, polyanalytic Fock, Hermite-window STFT, magnetic Landau disk and Poisson boundary mass. A known same-window localization diagonalization does not yield the cross-level singular laws as a theorem without extra boundary identification.",
+        "searches": [
+          "Resultary semantic: Landau Fock level 0 level 1 cross disk projection singular values Gaussian Poisson edge Schatten",
+          "primary source inspected: https://arxiv.org/abs/1704.03042",
+          "primary source inspected: https://doi.org/10.1007/s00041-021-09843-0"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Poisson probabilities and modified Bessel I1 are tabulated special functions, but not an exact table identifying all singular values of the off-diagonal disk transfer for every x.",
+          "Resultary Fock/Schatten hits concerned different symbols and diagonal operators."
+        ],
+        "reasoning": "The singular sequence is an infinite-parameter formula tied to geometric cross-projection; generic Poisson tables do not specify that operator or its global norm ceiling.",
+        "searches": [
+          "Resultary semantic: Landau Fock level 0 level 1 cross disk projection singular values Gaussian Poisson edge Schatten",
+          "primary source inspected: https://arxiv.org/abs/1704.03042",
+          "primary source inspected: https://doi.org/10.1007/s00041-021-09843-0"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of exact statements and implications: Checked aliases interlevel Toeplitz, polyanalytic Fock, Hermite-window STFT, magnetic Landau disk and Poisson boundary mass. A known same-window localization diagonalization does not yield the cross-level singular laws as a theorem without extra boundary identification. General Toeplitz calculus or diagonal Landau level concentration does not, without further calculation, imply a sharp all-x cross-block norm and all-p edge law. The claim includes an identified cross-level block, a strict norm ceiling and fixed-p spectral-edge laws that are not proved by the inspected prior theorems. Caveat: an equivalent cross-level formula in physics could exist under another normalization.",
+      "residual_risks": [
+        "An equivalent off-diagonal Landau disk formula might appear in physics/cross-window STFT literature under alternative gauge or radius normalization; not disproved by negative search.",
+        "Some nonexactly matching primary sources were only inspected to theorem/abstract scope rather than page-by-page full text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_CROSS_LEVEL",
+          "evidence": [
+            "The principal operators localize within a fixed Hermite/Landau level; no complete off-diagonal L0-to-L1 singular sequence or all-p edge limit identified."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1704.03042",
+          "material_read": "Primary open-access article inspected Introduction and Section 4, including Theorem 1.2, Propositions 4.1 and 4.2 on same-window Hermite concentration",
+          "method": "open primary full text and specific theorem passages",
+          "title": "Harmonic Analysis in Phase Space and Finite Weyl–Heisenberg Ensembles",
+          "trigger": "Same Gaussian/Hermite and disk localization background"
+        },
+        {
+          "assessment": "DOES_NOT_ESTABLISH_COVERAGE",
+          "evidence": [
+            "General symbolic calculus and isomorphisms; no directly comparable hard-disk cross-level singular spectral statement located."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00041-021-09843-0",
+          "material_read": "Abstract and available publisher summary, not a complete full-text inspection",
+          "method": "publisher public abstract",
+          "title": "Polyanalytic Toeplitz Operators: Isomorphisms, Symbolic Calculus and Approximation of Weyl Operators",
+          "trigger": "Polyanalytic Toeplitz equivalences possible stronger tool"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cb93f84da9e814280050938ee403d9118eea74c5/2026/11/01/boundary-gaussian-singular-spectrum-of-disk-transfer-between-the--04a288b07a35",
+        "https://arxiv.org/abs/1704.03042",
+        "https://doi.org/10.1007/s00041-021-09843-0"
+      ],
+      "rationale": "This gives exact singular values for a natural discontinuous spectral projection between two distinct Landau levels, unifying sharp finite-radius inequalities and a universal Gaussian edge. The all-p Schatten and counting laws and strong-but-not-norm convergence are useful independent operator facts, not a mere basis normalization.",
+      "residual_risks": [
+        "No higher Landau levels, nonradial masks, or moving p and eta are covered."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claims depend on centered hard disk, Gaussian scale exactly pi^-1 exp(-|z|²), and the specified L1 normalization; p and threshold eta remain fixed.",
+    "The displayed inequality outside y in [1/2,2] uses a positive linear lower bound for H(y), which is valid away from its unique minimum at 1.",
+    "An equivalent off-diagonal Landau disk formula might appear in physics/cross-window STFT literature under alternative gauge or radius normalization; not disproved by negative search.",
+    "Some nonexactly matching primary sources were only inspected to theorem/abstract scope rather than page-by-page full text.",
+    "No higher Landau levels, nonradial masks, or moving p and eta are covered.",
+    "Scientific PASS is an independent best-of-knowledge assessment, not a claim of publication, completed Lean proof, external expert attestation or absolute historical priority.",
+    "The separate publication plan is not_ready solely for source-file confidentiality/provenance and lack of complete authorized sanitized public bytes; scientific review is complete."
+  ],
+  "schema_version": 1
+}
