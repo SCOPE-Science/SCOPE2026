@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The analytic proof is self-contained in `RESULT.md`. The following checks were performed on the displayed assumptions:
+## correctness
 
-1. The positive coefficients obey exactly `c[n+1]/c[n]=(n+alpha)/(n+1)`; Stirling's formula yields the critical summability criterion.
-2. For fixed block start and fixed `m`, the diagonal discrepancy telescopes to a finite sum; no hidden limit interchange is used.
-3. Abel summation controls each off-diagonal geometric frequency by `2*q[N]/abs(1-rho)`. Dominated convergence is valid because the weights are summable and the normalized errors have a uniform bound.
-4. The residual estimate is uniform at every partial cutoff in a block, and the stagewise square norms have a summable upper envelope; therefore the constructed functions genuinely lie in the ordinary-series domain.
-5. On polynomials the output matrix is triangular with diagonal `sum(weights)>0`; thus every polynomial output is realized exactly, and dense zero-output approximants force full product graph closure.
-6. Poisson atomic recovery with growth `O((1-r)**(-alpha))` establishes that the Herglotz representing measure has no point mass when `alpha<1`.
+PASS
 
-Numerical sanity checks: with four distinct unit-circle phases, positive weights `(0.4,0.3,0.2,0.1)`, and phases `(0,0.03,1.3,2.6)` radians, the first normalized block-response error `abs(response/B-w[0])` for block start 9 decreased from approximately `0.095575` at length 1000 to `0.0473644` at length 150000 for `alpha=1/2`; for `alpha=3/4` it decreased from `0.0327231` to `0.0026691`. These are finite illustrations and do not prove the infinitely-many-phases theorem. The proof covers the infinite setting by dominated convergence.
+For c_n=(alpha)_n/n!, Stirling yields square-sum cutoff alpha=1/2. When alpha<1/2, symbol phi_alpha belongs to H², has strictly positive real part and is outer, so its polynomial multiples are dense and ordinary-formal zero row output implies f=0. When alpha>=1/2, finite Vandermonde correction on M+1 distinct phase frequencies cancels first M rows with arbitrarily small l² tail norm. Abel sums and dominated convergence in l¹ weights control ALL partial sums inside correction blocks, not merely endpoints. Consequently dense ordinary-series kernel and full-product graph closure follow. Poisson recovery shows no Herglotz atoms as alpha<1. Essential scope separates maximal formal transform from closed Smirnov Toeplitz.
 
-The domain is **not** that of the closed adjoint of multiplication by the Smirnov symbol. Independent evaluation of originality and correctness remains unperformed.
+## originality
+
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. Prior H2 coefficient formula and atomic pathology do not directly imply the atomless full-product graph, whose proof needs uniform-in-block Abel/Vandermonde control.
+
+## value
+
+PASS
+
+Sharp half-order boundary changes formal Hardy coefficient kernels from injective to dense-nullspace and full graph, even without any Herglotz atoms; an operator-domain distinction with substantial mathematical content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
