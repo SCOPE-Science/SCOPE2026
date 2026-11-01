@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "Every disjoint trap forces \\(0<u<1\\) and \\(p_\\varepsilon(u)\\le0\\); the exact critical factorization \\((u-u_c)^2H(u)\\) with \\(H(u)>0\\) on \\([0,1]\\), together with monotonicity in \\(\\varepsilon\\), excludes all such traps above \\(\\varepsilon_c\\) through \\(1/20\\). Strict sign and convexity yield two exact-image pairs below threshold. The lower pair is the smallest closed invariant reachable pair containing 0 and 1. Nondegenerate Taylor expansion proves the square-root collision and a reciprocal-increment argument proves \\(1/m\\) critical boundary decay. Source code independently checked 2232 finite diagnostics, not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lamb–Rasmussen–Tey, arXiv:2504.02776, abstract and §§1–2: set-valued and boundary-map formalism, numerics at invertible 2D Hénon parameters, rather than an algebraic 1D superstable period-two noise ceiling.",
+        "Tey–Olicón-Méndez–Lamb–Aihara, arXiv:2510.15057, §§1 and 1.1: extremal-map folds for order-preserving one-dimensional diffeomorphisms; not directly applicable to the noninvertible quadratic map \\(x\\mapsto1-x^2\\)."
+      ],
+      "reasoning": "Known broader set-valued boundary bifurcation theories supply the mechanism and vocabulary. They do not state the exact all-two-band necessity/sufficiency in this folding scalar map. The noninvertible critical point is essential to deriving the interval image formula.",
+      "searches": [
+        "noise logistic map period 2 critical noise amplitude superstable two cycles fold basin interval exact support boundary",
+        "noise induced crisis quadratic map 1-x^2 period two two-band attractor boundary fold",
+        "arxiv:2504.02776 bounded-noise Hénon boundary fold",
+        "arxiv:2510.15057 one-dimensional bounded noise extremal-map folds"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2504.02776 (2025-04-03 preprint, 2026 journal version)",
+      "arxiv:1811.03994 (2018 full PDF, particularly Eq. 12)",
+      "arxiv:2510.15057 (2025 initial, accessible arXiv HTML v2)",
+      "Steinsaltz 2001 Oxford repository abstract",
+      "Sano, Mitsui and Akimoto (2020) Phys. Rev. E 102, 062209 abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Sato et al. (2018) give a generic tangency condition for a third-iterate map at logistic growth 3.83, not an all-interval-traps theorem at growth 1+sqrt(5).",
+        "Lamb et al. (2025) address two-dimensional invertible noisy Hénon maps with spherical input and identify bifurcations numerically.",
+        "Tey et al. (2025) require an order-preserving \\(C^2\\) diffeomorphism in their main setup; \\(x\\mapsto1-x^2\\) violates both monotonicity and invertibility."
+      ],
+      "reasoning": "A generic tangency condition can motivate calculating a critical value, but additional global endpoint inequalities, factor-sign classification, and parabolic asymptotic are required for the claim. The new result explicitly credits all general fold theory and claims neither the stochastic model nor the general saddle-node mechanism as new.",
+      "searches": [
+        "arxiv:1811.03994 Eq. (12) topological bifurcation logistic parameter 3.83",
+        "arxiv:2504.02776 Hénon map additive spherical noise a 0.59 0.60 b 0.3",
+        "arxiv:2510.15057 order preserving diffeomorphism extremal map saddle node"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The affine substitution \\(x=(1+\\sqrt5)(z-1/2)\\) conjugates logistic growth \\(r=1+\\sqrt5\\) to the quadratic map \\(x\\mapsto1-x^2\\); the scalar noise rescales with \\(r\\).",
+        "Sato et al., arXiv:1811.03994, p.4 Eq. (12), formulate a tangency for a different, period-three logistic parameter; no radical threshold or all-trap iff for the superstable period-two orbit is stated."
+      ],
+      "reasoning": "The exact same special case can be phrased as a period-two superstable logistic map, so searches addressed that equivalence. Existing general tangency criteria explain why a fold is plausible but do not by themselves establish the universal obstruction for arbitrary interval traps, the radical ceiling, or critical endpoint asymptotics.",
+      "searches": [
+        "random logistic map period two additive noise exact critical threshold attractor support interval",
+        "sqrt(73-22 sqrt(11)) noise bifurcation quadratic map",
+        "arxiv:1811.03994 Eq. (12) composition-and-tangency criterion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Retrieved mathematical records about generic quadratic noise, Hénon moments, and periodic cycles, but no record reproducing epsilon=sqrt(73-22sqrt(11))/4 or an equivalent complete interval-trap classification.",
+        "2020 Sano–Mitsui–Akimoto, Phys. Rev. E 102, 062209 studies synchronization time in a nonchaotic randomly forced logistic map, not this exact interval ceiling."
+      ],
+      "reasoning": "The elimination polynomial and its physical interpretation were searched using exact radical and normalized-map aliases; no matching table, formula or database entry was identified. Absence of hits alone is not novelty proof.",
+      "searches": [
+        "Bounded additive noise quadratic map x next 1 minus x squared critical epsilon sqrt 73 minus 22sqrt11 4 two component invariant intervals",
+        "stochastic quadratic map f(x)=1-x^2 +/- epsilon disjoint two-interval stationary support tangency exact",
+        "random logistic map period two additive noise exact critical threshold attractor support interval"
+      ]
+    },
+    "rationale": "The 2018 random logistic study supplies general extremal-map tangency but treats a different period-three logistic parameter. The 2025 Hénon study supplies boundary-map language in a different two-dimensional invertible noisy model. The 2025 one-dimensional early-warning study assumes order-preserving diffeomorphisms. The assessed exact radical, all-interval-traps iff, persistent inter-band gap and parabolic boundary law were not found as prior claims; priority risk against unindexed earlier special computations remains.",
+    "residual_risks": [
+      "Full 26-page 2025 Hénon PDF was not continuously retrievable, although its main model, setup and primary figure discussion were inspected.",
+      "An unindexed specialized logistic-map calculation might already compute the same exact radical or a stronger all-traps theorem; generic tangency machinery is acknowledged as prior.",
+      "The 2001 Steinsaltz source was inspected only at abstract level, not as a full-text noncoverage certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related general boundary-map theory and numerical 2D dynamics; exact scalar superstable two-cycle threshold not established in material inspected; residual completeness risk noted",
+        "evidence": [
+          "Preprint dated 2025-04-03; MSC2020 37C70, 37B25, 37H20",
+          "Figure 1 uses b=0.3 and spherical 2D noise; present theorem uses scalar noninvertible quadratic map"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2504.02776",
+        "material_read": "Abstract, mathematical formulation (1.1), definitions of invariant minimal attractors, §§1–2 introductory setting and figure captions on two-component Hénon attractor; remainder not fully accessible in one continuous PDF view",
+        "method": "Primary open-access preprint textual rendering and publication record; PDF source intermittently returned a retrieval error",
+        "title": "Bifurcations of the Hénon Map with Additive Bounded Noise",
+        "trigger": "Motivating recent primary source on bounded-noise boundary bifurcations"
+      },
+      {
+        "assessment": "Important general tangency predecessor, at a period-three logistic parameter around 3.83; different from the superstable two-cycle exact noise ceiling",
+        "evidence": [
+          "Eq. (12) states a three-extremal-map composition tangency; its numerical example has noise threshold around 0.000251",
+          "No all-two-band classification, radical 0.04627 threshold, or parabolic endpoint law is stated"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1811.03994",
+        "material_read": "Relevant portions of the five-page primary PDF: model, noise-induced phase classification, extremal-composition Eq. (12) on p.4, and associated figures and discussion",
+        "method": "Primary PDF text and page rendering",
+        "title": "Dynamical characterization of stochastic bifurcations in a random logistic map",
+        "trigger": "Plausible direct predecessor on random logistic support bifurcations"
+      },
+      {
+        "assessment": "Assumes order-preserving C2 diffeomorphism, unlike the noninvertible quadratic map; related extremal-map mechanism, not this exact criterion",
+        "evidence": [
+          "§1.1: order-preserving C2 diffeomorphism",
+          "Numerical example fold near parameter a=0.175 with different forcing, not the exact two-band quadratic ceiling"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2510.15057v2",
+        "material_read": "Primary HTML Introduction, §1.1 hypotheses, extremal-map boundary-fold example and article section structure; no whole-paper noncoverage claim",
+        "method": "Primary arXiv HTML reading",
+        "title": "Anticipating bifurcations of random dynamical systems through tails of stationary densities",
+        "trigger": "New relevant work on bounded-noise one-dimensional boundary folds"
+      },
+      {
+        "assessment": "General random logistic convergence results; full paper not assessed for this calculation and remains a limited priority risk",
+        "evidence": [
+          "Steinsaltz (2001) proves convergence conditions using Lyapunov exponents; repository abstract does not present any exact two-band trap threshold"
+        ],
+        "identifier_or_url": "https://ora.ox.ac.uk/objects/uuid%3Af9ca160f-fb89-49f0-9103-02f53836552c",
+        "material_read": "Repository abstract and bibliographic data only",
+        "method": "Open bibliographic abstract",
+        "title": "Random logistic maps and Lyapunov exponents",
+        "trigger": "Background literature on stationary random logistic synchronization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "07647d15-7e25-4ee5-b1d5-681d167ce3d9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The maximum noise permitting robust preservation of the two alternating reachable components is a natural exact resilience invariant for a superstable quadratic cycle. The sharp threshold is an algebraic constant and the fold is reached while the spatial gap is still >0.58, demonstrating loss of robust band separation without a band collision. The globally necessary endpoint inequality and one-sided critical slowing are a substantive, reproducible finite-dimensional dynamical benchmark, not merely a numerical tangency estimate.",
+    "status": "PASS"
+  }
+}
