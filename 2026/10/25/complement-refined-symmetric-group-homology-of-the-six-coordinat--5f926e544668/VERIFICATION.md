@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible checks and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document. The checker uses Python 3 standard library only; it reconstructs all subsets, adjacency, clique faces, binary boundary matrices, group actions and irreducible characters. It prints `REPRODUCIBLE_RIPS_S6_C2_CHARACTER_PASS` on successful completion.
+## correctness
 
-Observed exact completion data: `EXHAUSTIVE_SCALE_TWO_F_VECTOR (30, 210, 520, 480, 132, 20)`; `MOD_TWO_BOUNDARY_RANKS [29, 181, 339, 112, 20] BETTI [1, 0, 0, 29, 0, 0]`; `ALL_JOINT_GROUP_TRACES 1440`; `S6_TIMES_C2_DECOMPOSITION {(3, 1, 1, 1): (1, 0), (2, 2, 1, 1): (0, 1), (2, 1, 1, 1, 1): (1, 1)}`; `SCALE_FOUR_CROSS_POLYTOPE 15 ANTIPODAL_PAIRS`.
+PASS
 
-The rational degree concentration is justified by the published scale-two wedge theorem of Feng–Nukala for the exact two-rank input. The exhaustive binary rank verification is an independent finite corroboration; it does not alone certify all integral invariants. The integer Lefschetz counts and finite-group character inner products give an exact rational module calculation. This does not verify any homology representation at unlisted ranks or for a larger coordinate set. Independent mathematical audit: not performed.
+With exactly the 30 two- and four-subsets of [6], distances are 0,2,4,6, giving exactly four Rips stages. Known Feng–Nukala Theorem 18 supplies degree-three wedge concentration at r=2, with Euler f-vector (30,210,520,480,132,20) yielding rank 29. Independently enumerated all 1392 faces and signed Lefschetz traces in each of the eleven S6 conjugacy classes and both complement cosets; the resulting character pair matches the package for all classes. Character orthogonality decomposes complement-even rank 15 as Specht (3,1,1,1)+(2,1,1,1,1) and complement-odd rank 14 as Specht (2,2,1,1)+(2,1,1,1,1). At r=4 the 15 complementary pairs form join (S0)^*15=S14, its S6 orientation character is +1 and complement acts -1. r>=6 is a simplex. Explicitly nonequivariant wedge result is borrowed, not independently new.
+
+## originality
+
+PASS
+
+Feng–Nukala already proves the nonequivariant wedge for these Boolean layers, so only the joint S6×C2 action is original. Briggs–Feng–Wells study full cubes and single ranks. Galetto–Montaño–Wellner 2026 computes full-cube hyperoctahedral homology, not the induced two-weight layer’s character; full-cube homology cannot be restricted to the subcomplex to obtain its homology. Its accessible abstract and overview were checked but full original was inaccessible, so substantial residual priority risk is recorded, not treated as automatic failure.
+
+## value
+
+PASS
+
+The complete rational symmetry module, including complement parity 15+14 and antipodal top orientation, is a natural strengthening of known 29-sphere topology and is useful for symmetry-aware persistence and quotient homology; exact finite equivariant invariant is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

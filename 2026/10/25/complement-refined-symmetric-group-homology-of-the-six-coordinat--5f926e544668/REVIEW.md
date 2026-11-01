@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The full 30-vertex metric flag complex is reconstructed rather than inferred from a picture. Feng–Nukala Theorem 18 supplies integral wedge-of-three-spheres concentration at scale two for the precise two-/four-level complex. The Euler characteristic from its exhaustive face count gives exactly 29 spheres. A separate exact binary boundary-rank computation confirms every Betti number. Signed face-permutation traces on all 1,440 symmetry operations, together with Murnaghan–Nakayama character orthogonality, establish the four claimed rational constituents. At scale four an exact fifteen-pair antipodal description determines the top orientation character.
+PASS
 
-## Originality — PASS (scope-qualified)
+With exactly the 30 two- and four-subsets of [6], distances are 0,2,4,6, giving exactly four Rips stages. Known Feng–Nukala Theorem 18 supplies degree-three wedge concentration at r=2, with Euler f-vector (30,210,520,480,132,20) yielding rank 29. Independently enumerated all 1392 faces and signed Lefschetz traces in each of the eleven S6 conjugacy classes and both complement cosets; the resulting character pair matches the package for all classes. Character orthogonality decomposes complement-even rank 15 as Specht (3,1,1,1)+(2,1,1,1,1) and complement-odd rank 14 as Specht (2,2,1,1)+(2,1,1,1,1). At r=4 the 15 complementary pairs form join (S0)^*15=S14, its S6 orientation character is +1 and complement acts -1. r>=6 is a simplex. Explicitly nonequivariant wedge result is borrowed, not independently new.
 
-Feng–Nukala previously proved the nonequivariant scale-two wedge type for precisely the family containing this example; no priority is claimed for the 29 spheres. The checked primary papers concerning full hypercubes or single Hamming layers do not state or imply the symmetry representation of this rank-two union. Direct examination of two nearby published character calculations—constant-weight-three and cumulative weight-at-most-three—found different underlying complexes; their symmetry modules do not restrict to the present homology module. Targeted comparisons for the exact levels, their complement action, aliases, and broader full-cube homology did not locate the joint 29-dimensional module. Possible unindexed equivalent calculations and the inability to inspect one full-cube equivariant preprint in full are residual risks, not proof of absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The two complementary ranks form the smallest natural self-complementary, nontrivial two-rank instance of the Feng–Nukala two-separated-layer family. Both the coordinate-permutation group and the complement involution preserve the metric and are canonical. The decomposition detects four irreducible constituents and the 15/14 parity split, invisible from the known wedge count. It gives rational symmetry-quotient invariants at two nontrivial scales and a reusable exact method for equivariant tests on Boolean-layer complexes, without implying an unproved uniform theorem.
+Feng–Nukala already proves the nonequivariant wedge for these Boolean layers, so only the joint S6×C2 action is original. Briggs–Feng–Wells study full cubes and single ranks. Galetto–Montaño–Wellner 2026 computes full-cube hyperoctahedral homology, not the induced two-weight layer’s character; full-cube homology cannot be restricted to the subcomplex to obtain its homology. Its accessible abstract and overview were checked but full original was inaccessible, so substantial residual priority risk is recorded, not treated as automatic failure.
 
-## Scientific limits
+## value
 
-Rational modules only; no integral equivariant splitting; this is a finite 30-point instance. The nontrivial topology at scale two is cited, not rediscovered. The packaged character certificate is exhaustive but no independent external review was performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete rational symmetry module, including complement parity 15+14 and antipodal top orientation, is a natural strengthening of known 29-sphere topology and is useful for symmetry-aware persistence and quotient homology; exact finite equivariant invariant is meaningful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
