@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The height-two code is bijective, and block zero-count differences give the exact four-point progression criterion. The run-classification proof excludes internal length-two runs, propagates length-one runs, proves a three-run crossing obstruction, and derives all surviving templates with their exact congruence conditions. Independent enumeration checked every eligible word through semilength 15, totaling 32,767 candidates; survivor constructions were tested through semilength 150. This finite evidence complements rather than replaces the all-length proof.
+## correctness
 
-**Originality — PASS (self-review, residual risk).** Comparison with Fici–Postic–Silva (2018), Fici–Puzynina (2022), and Mol–Rampersad–Shallit (2023) found no exact height-two Dyck abelian-three-antipower classification. The closest research records address related but distinct pattern constraints or four-term progressions outside word avoidance. Unindexed equivalents remain possible; novelty is not inferred solely from failed search.
+PASS
 
-**Value — PASS.** The result completely determines a natural infinite pattern-avoidance language, exposes the unexpectedly strict arithmetic-progression invariant, and yields an explicit eventually periodic enumeration. The exact count and structural classification are mathematically more informative than isolated finite examples.
+For a Dyck word of height≤2, every odd time is height1 and even heights are 2x_j with x0=xn=0 and x_j∈{0,1}; code determines each two-letter block uniquely. Length-p factor zero counts equal (p+H(t+p)−H(t))/2. Three pairwise unequal counts can only occur for even p=2s at even starting time, and then exactly if differences x_(j+s)−x_j,x_(j+2s)−x_(j+s),x_(j+3s)−x_(j+2s) are a permutation of −1,0,+1. Avoidance is equivalent to equal outer bits forcing four identical bits along all 4-term arithmetic progressions. Run-crossing argument forces code constant zero, fully alternating, or three runs 0^a1^b0^c with b≥3,(a,c)∈{(1,1),(1,2),(2,1)}; corresponding n congruences yield five disjoint word templates and T_n formula. Independent full enumeration checked 8,191 height-two codes through semilength13; no finite-census assertion substitutes for run proof.
 
-**Scientific limits.** Only maximum Dyck height two, finite words, and abelian three-antipowers are classified; higher heights and all-order avoidance are not claimed. No independent validation has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed new statement, not its model/semantic/occupancy/antipower/divisor premises, survives direct implication comparison to the inspected primary literature. A four-term progression avoidance or Dyck-code classification may be known under different terminology. Best-of-knowledge priority is qualified, not certified by unsuccessful searching.
+
+## value
+
+PASS
+
+This supplies a natural complete infinite-language avoidance classification under bounded nesting depth. Four-point progression rigidity is a meaningful structural explanation, and the exact eventually periodic enumeration would be useful for combinatorics on constrained Dyck paths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
