@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The normal form for alternating matrices respects square-zero linear variable substitutions, and the paired two-variable complex has an explicit acyclic complement. Tensor contraction proves the graded homology formula for every finite even field and dimension. Graded two-step decomposition gives the exact Jordan polynomial; counting radicals and nondegenerate alternating quotient forms yields the Gaussian-binomial multiplicities. The argument for zero multiplication in the homology algebra uses explicit monomial representatives and an ideal-boundary identity. Independently constructed finite-field matrices verify 5,454 coefficient cases, including complete strata in dimensions at most five over the binary field and dimension at most four over the four-element field.
+## correctness
 
-## Originality
-PASS with residual historical-priority risk. Fulman–Goldstein explicitly cover the alternating-matrix rank counts; these counts alone are not a new claim. Cook covers characteristic-two monomial complete-intersection Lefschetz behavior, chiefly for linear multipliers. The graded homology/Jordan frequency theorem and square-zero annihilator quotient combine classical ingredients into one all-dimension classification not located as a directly stated prior result in the inspected texts or indexed research comparisons. Finite-dimensional special cases of multiplication-rank distributions are not a novelty claim. Classical normal-form and tensor-homology results might imply the assembled statement with a short argument; that is a meaningful priority limitation.
+PASS
 
-## Value
-PASS. It specifies a natural complete graded invariant, every frequency stratum over all even finite fields, and a uniform annihilator-algebra structure, rather than a selected numerical example. The rank-to-graded-homology correspondence identifies exactly what the alternating-form invariant controls, and its nonzero-square-zero dichotomy supplies an intrinsic algebraic distinction. The exact frequency distribution is useful for random quadratic multiplication operators and graded module tests.
+In characteristic two Q²=0 and linear changes of variables preserve the squarefree ideal. Symplectic normal form reduces Q to sum of r paired products, each with a two-dimensional degree-one homology and contractible (1→uv) pair. Tensor Künneth/contraction yields the universal graded Hilbert series; graded two-strings decompose (1+t)^n and determine the Jordan polynomial. Every product of homology representatives either repeats a variable (zero) or contains p_1⋯p_r=Q p_2⋯p_r (boundary), proving zero multiplication for r>0. The rank-frequency count selects the radical and nondegenerate quotient via |GL|/|Sp|. Independent GF2 linear algebra exhaustively checked 1,098 quadratic forms for n=2..5; arbitrary q,n rely on the proof, not finite checks.
 
-## Limits
-The assertion does not cover arbitrary radical elements or odd characteristic. The finite checks are not infinite-dimensional proofs. Priority remains exposed to an equivalent exterior-complex classification under different terminology; independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Standard alternating normal forms and counts of alternating rank strata are prior results, and characteristic-two squarefree complete intersections have existing Lefschetz theory. The complete graded homology/Jordan start-degree and multiplicative quotient classification assembled for every quadratic were not found explicitly in inspected primary sources. A more general symplectic or tensor-differential complex may directly imply the formulas; this is the primary historical-priority risk.
+
+## value
+
+PASS
+
+This classifies a canonical complex (multiplication by square-zero degree-two elements) for all dimensions and every even finite field, including graded Jordan multiplicities, annihilator multiplication and exact frequency of each type. The exact graded structure goes materially beyond a numeric matrix-rank census and is useful in modular complete-intersection and homological computations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
