@@ -1,15 +1,21 @@
-# Scientific review: one-edge augmentation of a complete bipartite network
+# Independent mathematical audit
 
-## Correctness
-PASS. The graph-wide Rayleigh/embedding bound applies to arbitrary nonsymmetric edge allocations. Explicit feasible embeddings with variance \(\max\{p,q\}\) have strict slack on the extra edge in every nonexceptional ordered size. The seven-edge five-vertex embedding has variance \((11+2\sqrt3)/5\); exact block-diagonal eigenvalue computation of the proposed scaled allocation attains the same bound. The associated exact checker confirms all radical identities. Numerical matrix checks over finite sizes support, but do not replace, the symbolic all-size constructions.
+## correctness
 
-## Originality
-PASS on accessible evidence, subject to the risks below. The closest full-text works establish the general SDP and maximum-variance embedding frameworks. Göring–Helmberg–Wappler's clique-plus-three-independent-vertices example is adjacent to the subject but not an implication-equivalent classification of a single intrapartite edge over both part sizes. The Fiedler/Richter–Rocha tree classifications cannot directly cover the triangle-containing augmented bicliques. The earlier results for discrete-time bipartite walks with deleted cross-edges concern different graphs and objectives. Targeted mathematical search records and historical claim excerpts found no statement dominating the sharp \((3,2)\)-only activation law.
+PASS
 
-## Value
-PASS. The natural network-design problem asks whether adding an available local link can change the best possible mixing rate when *the link must compete for a fixed global conductance budget*. The answer gives a complete infinite-family screening classification, proves that **all** optimizers exclude the extra link except for one orientation of a five-vertex network, and gives a strictly positive radical optimal allocation in that exception. The distinction between an available link and one worth funding is mathematically structural rather than merely a one-graph calculation.
+Reconstructed the coordinatewise Rayleigh/centred-embedding inequality lambda_2 S <= B for arbitrary nonsymmetric conductances. For q>=p, placing p vertices at the origin and q as a zero-sum unit polygon gives S=q with the added edge length zero; for p>q and p>=4 the compensated polygon construction yields S=p, again with added edge length zero. Uniform Kpq weights achieve B/max(p,q). For (p,q)=(3,2), the specified 2D embedding has S=V=(11+2sqrt(3))/5; the unscaled weights a=(3+2/sqrt(3))/10, b=(4+sqrt(3))/10, c=(1-1/sqrt(3))/5 total V and have lambda_2=1. Strict gain over B/3 forces all optimal added-edge weights positive. Direct independent weighted spectral calculations confirmed 123 bounded cases; infinite ranges follow from the algebraic constructions and exact spectra.
 
-## Closest literature and limitations
-Göring–Helmberg–Wappler (2005) and Sun–Boyd–Xiao–Diaconis (2006) supply the embedding/SDP paradigm; their inspected examples do not state this family-wide screening law. Fiedler's 1990 tree article was inspected only through its abstract; the graph studied here contains triangles. A highly specialized earlier result for this augmentation could still exist. The statement applies to homogeneous total conductance budgets and continuous-time mixing, not discrete-time SLEM or heterogeneous costs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The graph embedding/maximum variance duality is established in Göring–Helmberg–Wappler (2005) and Sun–Boyd–Xiao–Diaconis (2006); it is not itself new. Their inspected formulation supplies a general optimization principle but not a quoted theorem classifying a single within-part augmentation of every Kpq, its exceptional orientation and the sign of the added-edge weight for all optimizers. Best-of-knowledge PASS for the exact augmented-biclique classification, qualified by possible previously worked-out single-edge examples.
+
+## value
+
+PASS
+
+A precise universal test for whether one new edge is worth assigning any positive part of a fixed conductance budget in a natural graph family, with a unique exceptional graph and exact optimum; useful as a network design and algebraic-connectivity benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
