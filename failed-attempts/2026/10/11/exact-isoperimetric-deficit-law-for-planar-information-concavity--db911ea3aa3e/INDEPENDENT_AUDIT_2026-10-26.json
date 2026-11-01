@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T14:54:51Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The domain is each planar convex body with nonempty interior, any r>0 and 0<=t0<t1<=1, 0<lambda<1. Classical Steiner gives A_t=(1−t)^2A+rt(1−t)P+pi r²t² and P_t=(1−t)P+2pi rt>0. D=P²−4pi A is nonnegative and vanishes only for disks. Directly P_t²−4pi A_t=(1−t)²D; hence I_t=P_t/(4pi)−D(1−t)²/(4pi P_t). Exact symbolic differentiation and a separate finite Jensen numerator identity reproduce respectively I_t''=−2pi r²D/P_t³ and the claimed finite gap. The formula extends to t=1 because P_t stays positive, and strict concavity for every nondisk follows from D>0. The actual repository verify.py was reconstructed byte-for-byte (Git blob SHA 296dc...) and executed with VERIFY_OK; an independent SymPy derivation verified all three polynomial identities. No finite experiment substitutes for the general proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Richter–Saorín Gómez 2022 Eq. (2.2) relative Steiner polynomial for all dimensions and gauge bodies; Eq. (2.3)-(2.4) for parallel quermassintegrals.",
+          "Fradelizi–Giannopoulos–Meyer 2003 abstract: planar two-consecutive-mixed-volume ratio superadditivity for arbitrary K,L.",
+          "Gordo Malagón et al 2026 arXiv abstract: first-order information-functional framework."
+        ],
+        "reasoning": "The 2022 general parallel-body polynomial is strictly broader than the target’s input geometry (n=2, Euclidean ball). The 2003 and 2026 qualitative ratio results do not themselves state the same numeric finite gap; the fully known Steiner polynomial covers the entire input and yields the finite expression without a substantive new step. Do not conflate the Richter–Saorín Gómez isoperimetric quotient S^n/vol^(n−1) with A/P.",
+        "searches": [
+          "ratio consecutive quermassintegrals parallel bodies quantitative concavity",
+          "concavity of area divided by perimeter Minkowski sum convex bodies disk strict quantitative equality isoperimetric deficit",
+          "Gordo Malagon Saorin Gomez Yepes 2609.07463 Brunn Minkowski first order information functionals full text"
+        ]
+      },
+      "checked_sources": [
+        "Zhang & Zhou, Bonnesen-style Wulff isoperimetric inequality, J. Inequal. Appl. (2017), https://link.springer.com/article/10.1186/s13660-017-1305-3, introduction Eq. (1)-(2), (5)-(7).",
+        "Richter & Saorín Gómez, On the Monotonicity of the Isoperimetric Quotient for Parallel Bodies, J. Geom. Anal. 32 (2022), https://link.springer.com/article/10.1007/s12220-021-00766-2, Section 2 Eq. (2.2)-(2.4) and Theorem 1.1.",
+        "Fradelizi, Giannopoulos & Meyer, Some inequalities about mixed volumes, Israel J. Math. 135 (2003), doi:10.1007/BF02776055, abstract/theorem statement only; OA PDFs failed and authorized Oxford reported VPN disconnected.",
+        "Gordo Malagón, Saorín Gómez & Yepes Nicolás, On a Brunn-Minkowski principle for first-order information functionals, arXiv:2609.07463v2 (2026-09-28); abstract/metadata only because accessible full text failed.",
+        "Resultary semantic search (two actual queries) on 2026-10-26: target appeared as leading self-identical record; no separate published exact all-parameter table located."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Zhang–Zhou 2017 introduction Eq. (1): A(K+sB)=A+sP+pi s²; Eq. (2): D=P²−4pi A≥0, equality disk.",
+          "Richter–Saorín Gómez 2022 Eq. (2.2)-(2.4) and homogeneity supply P(K+sB)=P+2pi s for all s≥0.",
+          "Independent exact symbolic verification of both target rational identities and original Git-blob-identical 2785-byte verify.py returning VERIFY_OK."
+        ],
+        "reasoning": "A_t=(1−t)²A+rt(1−t)P+pi r²t², P_t=(1−t)P+2pi rt follow from the prior exact formulas. Then I_t=P_t/(4pi)−D(1−t)²/(4pi P_t), so h(t)=(1−t)²/P_t has h''=2(2pi r)²/P_t³ and the elementary three-point difference gives precisely pi r²D lambda(1−lambda)(t1−t0)²/(P0 P1 P_lambda). No independent geometric result remains; this is a direct corollary of the known exact identities. A formula need not be typeset verbatim in the earlier work to be covered by its exact all-parameter input.",
+        "searches": [
+          "Steiner formula area divided by perimeter outer parallel bodies second derivative isoperimetric deficit concavity",
+          "Zhang Zhou Bonnesen-style Wulff isoperimetric inequality 2017 Steiner polynomial discriminant",
+          "Richter Saorin Gomez 2022 Section2 relative Steiner formula surface area parallel bodies",
+          "concavity of area divided by perimeter Minkowski sum convex bodies disk strict quantitative equality isoperimetric deficit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zhang–Zhou (2017) Eq. (1)-(2) supplies area Steiner polynomial and discriminant.",
+          "Richter–Saorín Gómez (2022) Eq. (2.2)-(2.4) supplies volume and surface-area parallel-body polynomials."
+        ],
+        "reasoning": "Put D=P²−4pi A and P_t=P+(2pi r−P)t. The exact target is equivalent to the second derivative and three-point rational difference of P_t/(4pi)−D(1−t)²/(4pi P_t), a direct algebraic rewriting of the published Steiner data for the same planar convex bodies.",
+        "searches": [
+          "Steiner formula area divided by perimeter outer parallel bodies second derivative isoperimetric deficit concavity",
+          "\"A(t)/P(t)\" \"P^2-4 pi A\" second derivative parallel convex body",
+          "Exact planar Steiner parallel body area perimeter ratio second derivative isoperimetric deficit Jensen gap circular interpolation mixed volume quotient",
+          "concavity of area divided by perimeter Minkowski sum convex bodies disk strict quantitative equality isoperimetric deficit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the audited target itself as top self-match, not independent priority evidence; other returned SCOPE findings concerned distinct geometric invariants.",
+          "Zhang–Zhou (2017) equations (1)-(2) already give a parameter-uniform exact table-free polynomial for A(s) and D."
+        ],
+        "reasoning": "No separately printed exact Jensen-deficit table was located; absence of an indexed table cannot establish originality. The current object is a universal symbolic rational identity with no finite census or unknown exact case to compute; published all-parameter Steiner data suffice.",
+        "searches": [
+          "\"isoperimetric deficit\" \"area/perimeter\" \"second derivative\"",
+          "\"Steiner polynomial\" \"concavity\" \"area perimeter ratio\"",
+          "Exact planar Steiner parallel body area perimeter ratio second derivative isoperimetric deficit Jensen gap circular interpolation mixed volume quotient",
+          "Resultary semantic search on 2026-10-26 for disk-directed area-perimeter Jensen deficits"
+        ]
+      },
+      "rationale": "The advertised exact law does not solve an additional geometric or analytic determination beyond the classical all-parameter planar Steiner polynomial and perimeter formula. Zhang–Zhou (2017), Eq. (1)-(2), prints both A(s)=A+Ps+pi s^2 and the discriminant D=P^2−4pi A; Richter–Saorín Gómez (2022), Eq. (2.2)-(2.4), gives the general parallel-body volume and perimeter polynomial. Setting s=rt/(1−t) and using homogeneity gives I_t=P_t/(4pi)−D(1−t)^2/(4pi P_t). Differentiating this elementary rational identity twice yields I_t''=−2pi r^2D/P_t^3. Its three-point Jensen identity follows by elementary common-denominator arithmetic from the same explicit input; the disk equality case is also classical. The exact output was not found verbatim in the searched literature, which is NOT represented as a claim that a paper printed it. The decisive coverage is mathematical implication by a textbook rational calculation, not matching wording. The inaccessible 2003/2026 full texts remain documented risks but are not the reason for rejection.",
+      "residual_risks": [
+        "A full-text read of Fradelizi–Giannopoulos–Meyer (2003) was blocked by unsuccessful lawful OA retrieval and disconnected institutional VPN; no whole-document exclusion claim is made.",
+        "arXiv:2609.07463v2 full-text access was unavailable in this execution; no whole-document absence conclusion is made.",
+        "Unindexed earlier written versions of this elementary formula may exist; they would strengthen coverage but are not necessary for the present direct-implication conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING_BY_DIRECT_ELEMENTARY_IMPLICATION: Eq. (1)-(2) already determine the complete data needed for the target; adding the linear perimeter polynomial, homogeneity and elementary rational differentiation yields the target with no new geometric estimate.",
+          "evidence": "Introduction: A_K(s)=A_K+L_K s+pi s^2, Delta(K)=L_K^2-4pi A_K, and equality iff K is a disk. On K_t=(1-t)(K+[rt/(1-t)]B), these generate P_t and I_t exactly.",
+          "identifier_or_url": "https://link.springer.com/article/10.1186/s13660-017-1305-3",
+          "material_read": "Full HTML introduction and main theorems, Section 2 preliminaries covering the planar Steiner area polynomial, discriminant and Wulff generalization (Eq. (1),(2),(5)-(7)).",
+          "method": "Read Springer open-access HTML full-text sections, including formulas and hypotheses.",
+          "title": "Bonnesen-style Wulff isoperimetric inequality",
+          "trigger": "Primary open-access article explicitly providing the Steiner polynomial and the isoperimetric discriminant for every planar convex body."
+        },
+        {
+          "assessment": "Its central isoperimetric quotient S^n/vol^(n-1) differs from target area/perimeter, but Eq. (2.2)-(2.4) independently supplies the precise volume/perimeter parallel-body data which, in n=2 with E a disk, directly yields the target rational identities.",
+          "evidence": "Eq. (2.2) is the full relative Steiner polynomial, Eq. (2.3) gives all quermassintegrals of parallel bodies, Eq. (2.4) defines perimeter/surface area as nW1. In the plane set W0=A, 2W1=P, W2=pi.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s12220-021-00766-2",
+          "material_read": "Open-access full HTML: introduction, Theorem 1.1, Section 2 background through Eq. (2.2)-(2.4), relevant equality and notation statements.",
+          "method": "Direct reading of Springer HTML mathematical formulas.",
+          "title": "On the Monotonicity of the Isoperimetric Quotient for Parallel Bodies",
+          "trigger": "Primary open-access source stating exact general parallel-body quermassintegral polynomials and related isoperimetric-quotient results."
+        },
+        {
+          "assessment": "INCOMPLETE_FULL_TEXT: cannot assert the complete paper lacks the finite Jensen formula. The routine-implication rejection rests independently on prior fully read exact Steiner formulas, not on this unavailable text.",
+          "evidence": "The known planar qualitative mixed-volume ratio inequality covers the broader qualitative concavity background; exact written statement of the requested finite gap not verified.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02776055",
+          "material_read": "Indexed abstract and theorem statement only (includes V_k(K+L)/V_{k-1}(K+L) superadditivity for k=2 in dimension two). The author-hosted PDF and alternate author PDF failed web retrieval; institutional tool reported VPN disconnected.",
+          "method": "Bibliographic/abstract statement-level reading; attempted two lawful OA PDF paths, then authorized Oxford institution tool.",
+          "title": "Some inequalities about mixed volumes",
+          "trigger": "Closest historic planar mixed-volume ratio superadditivity theorem; plausible priority source."
+        },
+        {
+          "assessment": "INCOMPLETE_FULL_TEXT: cannot make a whole-paper absence claim; abstract documents the general information-functional principle but does not itself establish or refute the specific displayed rational identity.",
+          "evidence": "Abstract describes linear Brunn–Minkowski principle for quotient of a homogeneous functional by relative surface area and cites classical ratio-of-quermassintegrals results.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.07463",
+          "material_read": "arXiv record, version history v1 September 7 and v2 September 28, 2026, and abstract; full arXiv HTML and PDF inaccessible via available web route.",
+          "method": "Bibliographic and abstract-level reading, attempted arXiv HTML/PDF and lawful mirrors.",
+          "title": "On a Brunn-Minkowski principle for first-order information functionals",
+          "trigger": "Recent 2026 primary source defining the area-to-perimeter information functional and general inequalities."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The area-to-perimeter profile and isoperimetric deficit are canonical, but the complete claimed result is only the second derivative and Jensen difference of a known quadratic-over-linear Steiner expression. Its proof requires no new convex-geometric estimate, motivated unknown invariant, hard structural lemma or nonroutine boundary analysis: write the classical exact A_t and P_t, divide, and simplify. The sign, strictness and equality family are exactly the standard isoperimetric inequality. Merely replacing a known qualitative statement by an immediately determined rational identity supplies no independent mathematical obstacle resolved, and no structural consequence beyond the already tabulated polynomial data. This is a useful illustrative identity, not a distinct contribution under the stated bar.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "No mathematical claim beyond planar disk-directed segments is assessed.",
+    "Symbolic checker verifies algebra, not the external classical Steiner theorem or isoperimetric equality; those were separately matched to literature.",
+    "Full 2003 Fradelizi et al and full September 2026 preprint not obtainable; only bibliographic statements read; this is not the scientific reason for failure.",
+    "No repository changes or publication, and no authority to sanitize original historical evidence publicly."
+  ],
+  "schema_version": 1
+}
