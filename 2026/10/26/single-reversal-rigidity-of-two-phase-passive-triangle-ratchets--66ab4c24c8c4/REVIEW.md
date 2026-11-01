@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem is a direct finite-dimensional argument: equal stationary environment occupancy, an invertible four-dimensional mean-zero reduction, the exact quadratic determinant, rank-two control of the adjugate minors, and detailed balance forcing a factor of the switching rate. Positivity and the boundary case at zero switching were checked separately. Exact rational six-state calculations corroborate the example including hidden entropy generation; they are not substituted for the rank argument.
+## correctness
 
-**Originality — PASS (qualified).** The special flat-phase construction falls within familiar minimal-ratchet phenomena, and Lee et al. already exhibit noise-driven current reversals. The claim is instead the global at-most-one reversal theorem for *arbitrary pairs* of strictly reversible three-site phase generators, varying only a single symmetric, position-independent environment-switching rate. Direct comparisons of the full finite-state ratchet works by Jarzynski–Mazonka and Lee et al., and the quasi-steady-state work by Levien–Bressloff, did not identify this uniform all-parameter theorem. This is a best-knowledge literature judgment, not a priority guarantee; generalized hidden coverage in other finite Markov motor papers remains a risk.
+PASS
 
-**Value — PASS.** The bound is a sharp, parameter-complete obstruction to multiple switching-rate reversals for a natural minimal flashing-ratchet class, and identifies which model assumptions must be abandoned to permit richer direction changes. The exact example shows that a stall need not be thermodynamic equilibrium, a substantive distinction for observing molecular motor currents.
+The reversible 3-site mode generators have equal stationary mode masses 1/2 because switching is site-independent and symmetric. Restrict each phase to the 2D zero-sum space; the resulting 4×4 stationary H(r) is H0+rK with rank(K)=2, hence det H=det(B0 B1+r(B0+B1)) is quadratic, with positive constant and leading terms. Generator irreducibility ensures det H>0 on all r≥0. Every 3×3 adjugate minor is at most quadratic since K has rank two. Because each frozen mode is detailed-balanced, the numerator N(r)=d(r)J(r) vanishes at r=0, yielding J(r)=r(A+Br)/d(r), so at most one positive current sign reversal. An independently built exact six-state rational stationary solver verified the published witness J(r)=r(r−2)/[2(103r²+339r+252)] and its stationary populations at r=2; the positive entropy lower bound (5/61)log(17/12) follows from unequal mode-flip fluxes and nonnegative edge contributions. The rank argument, rather than checked instances, proves the arbitrary strictly positive phase parameters.
 
-**Closest work and limitations.** Lee et al. (2002/2003) establish noise-induced current in a three-state model; Jarzynski and Mazonka (1999) solve a related discrete ratchet; Levien and Bressloff (2015) derive approximations for flashing-ratchet motion. This classification does not cover site-dependent mode switching, higher-dimensional spatial cycles, or nonequilibrium individual phases. Some less-accessible specialized finite-state motor literature might imply the classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Explicit ratchet reversals occur in earlier special models, especially Lee et al. 2003, and are not claimed new. The assessed theorem instead has universal quantifiers over every pair of strictly reversible positive 3-state generators under homogeneous symmetric Poisson switching and bounds all positive-axis switching-rate zeros. The full accessible 2003 primary PDF describes a discrete-time noisy 3-state model with a single transition matrix and different parameterization; it does not supply the six-state reversible-pair uniform rank bound. Jarzynski–Mazonka and Levien–Bressloff study special physical ratchets or asymptotic reductions. A broader finite-motor theorem remains possible.
+
+## value
+
+PASS
+
+An exact global bound on direction changes as a physical switching rate varies for all two-mode reversible three-site ratchets is a nontrivial dynamical rigidity principle. The attained single reversal and stall with nonzero entropy production make the bound sharp and distinguish visible current from thermodynamic equilibrium. It identifies a structural barrier to repeated reversals that motivates adding sites, irreversibility, or nonhomogeneous switching.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T22:13:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md H(r), rank-two minors, exact witness; blob 365e1871df6ad61b261eb12a390d27583a86b223",
+        "checker.py inspected (blob 877ed0482ba689ddc7b34ff9c7478b040303daa6)",
+        "fresh exact six-state Markov-chain stationary solve with rational rates"
+      ],
+      "rationale": "The reversible 3-site mode generators have equal stationary mode masses 1/2 because switching is site-independent and symmetric. Restrict each phase to the 2D zero-sum space; the resulting 4×4 stationary H(r) is H0+rK with rank(K)=2, hence det H=det(B0 B1+r(B0+B1)) is quadratic, with positive constant and leading terms. Generator irreducibility ensures det H>0 on all r≥0. Every 3×3 adjugate minor is at most quadratic since K has rank two. Because each frozen mode is detailed-balanced, the numerator N(r)=d(r)J(r) vanishes at r=0, yielding J(r)=r(A+Br)/d(r), so at most one positive current sign reversal. An independently built exact six-state rational stationary solver verified the published witness J(r)=r(r−2)/[2(103r²+339r+252)] and its stationary populations at r=2; the positive entropy lower bound (5/61)log(17/12) follows from unequal mode-flip fluxes and nonnegative edge contributions. The rank argument, rather than checked instances, proves the arbitrary strictly positive phase parameters.",
+      "residual_risks": [
+        "No theorem for site-dependent or asymmetric mode switching, irreversible frozen phases, or more than three spatial sites."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Jarzynski–Mazonka cond-mat/9902056, specified heat-bath model",
+          "Levien–Bressloff Phys Rev E 92 042129, quasi-steady-state approximation"
+        ],
+        "reasoning": "General finite Markov stationary matrix-tree formulas allow evaluating J but do not alone imply the positive-root count. The cited works have different transitions or switching regimes and do not establish this universal two-phase three-site restriction.",
+        "searches": [
+          "Jarzynski Mazonka 1999 exact finite ratchet",
+          "Levien Bressloff 2015 flashing ratchets",
+          "two phase reversible Markov three state flashing ratchet symmetric switching rate number of current reversals quadratic rational function"
+        ]
+      },
+      "checked_sources": [
+        "Lee et al. 2003 PRL full publicly extracted source",
+        "Jarzynski–Mazonka cond-mat/9902056",
+        "Levien–Bressloff 2015 PRE",
+        "Resultary semantic query 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lee formula (9) noisy current on a single discrete-time 3-state chain",
+          "Present H(r) rank-two four-dimensional inverse and r(A+Br)"
+        ],
+        "reasoning": "Current reversal in Lee’s reduced parameter space does not imply that every continuous-time symmetric-switching pair of reversible phases has at most one reversal. Conversely the current theorem does not recover every noise-driven discrete-time ratchet formula.",
+        "searches": [
+          "Lee et al. 2003 Minimal Brownian Ratchet full text",
+          "Jarzynski Mazonka 1999 ratchet and pawl"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lee et al. 2003 PRL minimal Brownian ratchet formula (6),(9)",
+          "Frozen six-state continuous-time two-generator statement"
+        ],
+        "reasoning": "An equivalent statement would constrain the stationary circulation numerator of the six-state product process. Lee treats noise-driven motion of a single discrete-time 3-state ratchet; even if some flat phase is equivalent, its all-parameter result does not cover arbitrary reversible pairs.",
+        "searches": [
+          "two phase reversible Markov three state flashing ratchet symmetric switching rate number of current reversals quadratic rational function",
+          "three-state flashing ratchet current reversal symmetric switching Markov modulated"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned distinct chiral-current and switching-dynamics records; no complete exact parameter table for this six-state model",
+          "The sharp example alone is a rational-current instance, not the all-parameter theorem"
+        ],
+        "reasoning": "No exact table was found for all positive six-state conductances/weights. An isolated example could be covered, but the universal rank-two degree bound is the scientific claim.",
+        "searches": [
+          "two phase reversible Markov three state flashing ratchet symmetric switching rate number of current reversals quadratic rational function",
+          "Resultary current reversals triangular reversible phases"
+        ]
+      },
+      "rationale": "Explicit ratchet reversals occur in earlier special models, especially Lee et al. 2003, and are not claimed new. The assessed theorem instead has universal quantifiers over every pair of strictly reversible positive 3-state generators under homogeneous symmetric Poisson switching and bounds all positive-axis switching-rate zeros. The full accessible 2003 primary PDF describes a discrete-time noisy 3-state model with a single transition matrix and different parameterization; it does not supply the six-state reversible-pair uniform rank bound. Jarzynski–Mazonka and Levien–Bressloff study special physical ratchets or asymptotic reductions. A broader finite-motor theorem remains possible.",
+      "residual_risks": [
+        "Other specialized six-state switching-motor literature may contain the universal one-reversal law under different language.",
+        "The single flat-phase numerical example may overlap earlier noise-ratchet formulas; only the arbitrary-pair theorem is assessed as the contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Special discrete-time single-chain noise mechanism; not an arbitrary two-reversible-phase Poisson switch bound",
+          "evidence": "Equation (9) I_gamma and noise substitution (8) identify different stochastic model.",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevLett.91.220601",
+          "material_read": "Public four-page primary text: abstract, master equation, current formulas (6),(9), parameter discussion and figures",
+          "method": "Original author-hosted public PDF text retrieved and scientifically compared; screenshot endpoint redirected to abstract, so no complete visual certification",
+          "title": "Minimal Brownian Ratchet: An Exactly Solvable Model",
+          "trigger": "Same three-site directed current and noise-driven reversals"
+        },
+        {
+          "assessment": "Continuum sawtooth potential exact velocities; unread full document could contain a generic finite-state corollary; no claim of whole-document noncoverage",
+          "evidence": "Abstract describes continuum switching potentials and Bloch functions",
+          "identifier_or_url": "https://doi.org/10.1103/PhysRevE.97.012153",
+          "material_read": "Abstract only, publication date and model statement",
+          "method": "Publisher public abstract",
+          "title": "Exact solution of a ratchet with switching sawtooth potential",
+          "trigger": "Potential more general switching-potential ratchet coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "frozen RESULT.md with exact stated theorem",
+        "independent source comparison and mathematical assessment"
+      ],
+      "rationale": "An exact global bound on direction changes as a physical switching rate varies for all two-mode reversible three-site ratchets is a nontrivial dynamical rigidity principle. The attained single reversal and stall with nonzero entropy production make the bound sharp and distinguish visible current from thermodynamic equilibrium. It identifies a structural barrier to repeated reversals that motivates adding sites, irreversibility, or nonhomogeneous switching.",
+      "residual_risks": [
+        "No guarantee of analogous rigidity for ≥4 spatial states or asymmetric switches."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only total spatial stationary current, not every hidden phase current.",
+    "Every phase separately reversible and has strictly positive weights and conductances."
+  ],
+  "schema_version": 1
+}
