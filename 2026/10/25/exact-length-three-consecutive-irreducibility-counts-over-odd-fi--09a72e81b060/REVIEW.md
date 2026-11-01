@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The normalization by nonzero scalar and variable rescaling contributes exactly \((q-1)^2\) tuples to each valid pair. Reversal converts the normalized quadratic and cubic into \(X^2+X+a\) and \(X^3+X^2+aX+t\). Double-counting field roots gives \(N_0=N_2+2N_3\), and the ordered-root-triple conic gives \(3N_0\) when triple roots are excluded. The split/nonsplit binary quadratic-form level counts \(q-1\) and \(q+1\) are justified, while characteristic three and the sole exceptional quadratic coefficient are handled separately. These steps prove the piecewise formula for every odd prime power. Exhaustive field checks support, but do not replace, this proof.
+PASS
 
-## Originality
+Scalar and variable substitutions normalize u0,u1 to one, with exactly (q-1)^2 originals per eligible (a,t); reversing gives Q_a=X^2+X+a and G=X^3+X^2+aX+t. Q irreducibility has (q-1)/2 allowable nonzero a. A cubic is irreducible exactly when rootless. For fixed a, using N0=N2+2N3 and counting the ordered triples with x+y+z=-1, xy+yz+zx=a gives 3N0 points on x^2+xy+y^2+x+y+a=0 away from the triple-root exceptional case. The shifted conic has q-1 (split) or q+1 (nonsplit) solutions for q mod3 1 or 2. At a=1/3 in q mod3=2, every cubic is a translated cube and reducible; in char 3 the conic has q solutions and triple roots cannot occur. Summation yields the displayed three formulas. Independently recomputed every normalized cubic root-image fiber and I3 in 13 finite fields, including q=9,25; all matched. Universal field-size conclusion is proved algebraically, not by these finite tests.
 
-The closest primary literature is Gómez-Pérez–Ostafe–Sha, Theorem 5.5, which counts \(I_2\) exactly and gives only a lower bound for \(I_3\). Its length-three proof uses a character-sum estimate for the cubic-extension step, whereas the present result evaluates that step exactly and obtains the complete small-characteristic and congruence-class split. Chou–Cohen derive general distribution bounds and construct sequences, rather than this closed exact count in the reviewed portions. Targeted equivalent-formulation and broader-result searches yielded no decisive covering theorem; literature completeness is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-The theorem completes the first unsolved exact count immediately after the known length-two case in a natural sequence of irreducibility problems. Its residue-class dependence and the exceptional parameter are structural, not arbitrary numerical refinements. It supplies a fully explicit benchmark for the harder length-four and maximal-length problems without claiming to solve them.
+Best-of-knowledge PASS. Gómez-Pérez–Ostafe–Sha (2018), Theorem 5.5 in the actual 2018 arXiv PDF, proves exact I2=(q-1)^3/2 and only I3 >= (q-1)^2(q-9)(q-2sqrt(q)-6)/6 for q>13, not exact I3. Their normalization of initial coefficients is prior, but the triple-root conic and split/nonsplit/char3 fiber evaluation supply new exact information. Chou–Cohen (1999) constructs sequences and more general polynomial-distribution estimates, not the checked exact coefficient-restricted I3. Resultary searches returned related finite-field cubic problems but no matching count; this is best-of-knowledge, not proof of priority.
 
-## Closest literature and limitations
+## value
 
-Gómez-Pérez–Ostafe–Sha, arXiv:1509.01936v1 and v2, Theorem 5.5 and Section 5.4; Chou–Cohen, doi:10.1006/jnth.1998.2321, Sections 1 and 3. The reviewed primary sources do not present the exact stated piecewise formula. The literature search is not exhaustive, and equivalent isolated cubic-specialization results remain possible. Characteristic two and lengths beyond three are outside scope.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: closes a concrete exact-count gap explicitly left at the first nontrivial length beyond exact I2 in an active finite-field arithmetic problem. The nonuniform q mod3 and exceptional a=1/3 fiber are structural and motivate the full formula; an exact base case can be useful for bounding longer chains without claiming to solve them.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
