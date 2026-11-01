@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T08:07:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 94be0045424d26cc5f09634a6a81194eb70d4ddd",
+        "Ghosh–Boyd–Saberi 2008 general convexity",
+        "Independent checks: 48 local threshold conditions, full-matrix resistance and bow-tie optimal value 54.83281572999748"
+      ],
+      "rationale": "Reconstructed unrestricted edge-weight optimization for all t≥2, s_i≥1, c_i>0, d_i>0 when s_i≥2, and B>0. Kirchhoff index is strictly convex in the Laplacian on connected designs; distinct edge weights give distinct Laplacians, so the unique minimizer is petal-permutation invariant. Grounding the hub gives M_i=(a_i+s_i b_i)I−b_i J with inverse diagonalized on constants and differences, yielding Kf=Σ[(N−s_i)/a_i+N(s_i−1)/(a_i+s_i b_i)]. The substitution x_i=a_i, y_i=a_i+s_i b_i≥x_i reduces the problem to separate convex C_i/x_i+A_i/y_i terms with budget α_i x_i+β_i y_i. The interior KKT feasibility condition A_iα_i>C_iβ_i is exactly (N−1)d_i<2Nc_i; at equality/upward the one-sided derivative is nonnegative, including cases α_i≤0. Normalizing λ gives all displayed a_i,b_i and minimum S²/B. Independent tests verified 48 threshold regimes, direct grounded resistance comparisons and 28+12√5 bow-tie example; finite checks supplement the analytic all-parameter proof.",
+      "residual_risks": [
+        "Only connectivity-preserving nonnegative allocations; additional lower bounds, nonlinear costs or arbitrary non-clique petals are excluded.",
+        "Numerical examples are not proofs of arbitrary real positive edge costs; proof requires strict convexity and complete KKT cases."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, DOI:10.1137/050645452 general convex program and worked path/wheel/barbell",
+          "The published barbell joins two cliques by a single edge instead of identifying a hub; its symmetry and grounded blocks differ."
+        ],
+        "reasoning": "A generic convex framework permits computing this optimum but does not state it. The precise vertex-sum geometry and heterogenous cost threshold require a separate theorem; no dominating exact all-bouquet formula was read.",
+        "searches": [
+          "Ghosh Boyd Saberi effective resistance conductance allocation clique bouquet windmill block graph petal internal edge threshold optimal costs",
+          "Ghosh Boyd Saberi Minimizing Effective Resistance of a Graph 2006 2008 general convex KKT barbell"
+        ]
+      },
+      "checked_sources": [
+        "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, DOI:10.1137/050645452",
+        "Ghosh–Boyd–Saberi (2006) proceedings, earlier source edition",
+        "Haritha–Chithra arXiv:2309.02704v1",
+        "Resultary query: Ghosh Boyd Saberi effective resistance conductance allocation clique bouquet windmill block graph petal internal edge threshold optimal costs (10 graph-related hits, including friendship metric papers, no same optimization statement)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh–Boyd–Saberi supplies convexity, KKT and examples, not the threshold d/c<2N/(N−1) for all petals.",
+          "The grounded clique inverse yields Kf_i=N(s_i−1)/(a_i+s_i b_i)+(N−s_i)/a_i; KKT positivity then gives the threshold."
+        ],
+        "reasoning": "Neither fixed-weight resistance nor general solvability mathematically implies a closed universal threshold without deriving the local coefficients and boundary directional derivative; this is the new scientific implication.",
+        "searches": [
+          "Ghosh Boyd Saberi effective resistance conductance allocation clique bouquet windmill block graph petal internal edge threshold optimal costs",
+          "Minimizing Effective Resistance of a Graph cost constrained ERMP clique bouquet sharp threshold 2N/(N-1)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent graph aliases: windmill graph, heterogeneous friendship graph, one-vertex clique sum, clique bouquet K1 join disjoint union of cliques.",
+          "Haritha–Chithra (2023) treats fixed-weight windmill resistance rather than class-specific edge-cost optimization."
+        ],
+        "reasoning": "Compared identical objects under coalescence/windmill names and distinguished fixed resistance statistics from optimizing free conductances. General KKT alone does not express the sharp ratio.",
+        "searches": [
+          "Ghosh Boyd Saberi effective resistance conductance allocation clique bouquet windmill block graph petal internal edge threshold optimal costs",
+          "optimal Kirchhoff index windmill generalized friendship graph bouquet spoke rim costs"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Haritha–Chithra Section 3 explicitly takes every edge as unit resistor; formula tables give Kirchhoff index for given weights, not the minimum over class weights."
+        ],
+        "reasoning": "The stated formula is for arbitrary positive real cost parameters, so a finite fixed-weight table is not an exact dominating parameterization.",
+        "searches": [
+          "Ghosh Boyd Saberi effective resistance conductance allocation clique bouquet windmill block graph petal internal edge threshold optimal costs",
+          "resistance distance k coalescence windmill Kirchhoff index fixed edge weights vs optimal table"
+        ]
+      },
+      "rationale": "The broad conductance-allocation convex framework is established by Ghosh–Boyd–Saberi, and fixed unit-weight clique-coalescence resistances by Haritha–Chithra. However the sharp all-positive-real-cost activation threshold independent of petal size, mixed active/inactive closed optimizer and minimum S²/B are not implied without the nontrivial block inverse and local KKT derivation. Best-of-knowledge originality with acknowledged unindexed specialized design risk.",
+      "residual_risks": [
+        "Specialized effective-resistance allocation results for block graphs or windmills could contain an equivalent sharp threshold under different names.",
+        "No claim that searching all literature establishes priority; general convex program was published in 2006/2008.",
+        "Costs must be uniform within each petal edge class and the graph a one-hub clique union, not arbitrary block graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General convex method and automorphism reduction are prior. The solved barbell consists of two cliques joined by an edge, not a shared-hub bouquet. No inspected formula supplies per-petal internal-edge heterogeneous cost threshold.",
+          "evidence": [
+            "2008 SIAM Rev. article pp. 37–66, global ERMP; §5.2 examples path, wheel and edge-linked barbell; §8 extensions."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res.pdf",
+          "material_read": "Read full journal PDF core model and objective, strict convexity / KKT framework, Sections 2–5, solved examples including wheel and edge-joined barbell; read Section 8 extensions and inspected rendered first/examples pages.",
+          "method": "Primary journal PDF textual and rendered-page analysis, including barbell source graph and actual optimization variables.",
+          "title": "Minimizing Effective Resistance of a Graph",
+          "trigger": "Nearest earlier general conductance-allocation framework, possible dominating optimizer"
+        },
+        {
+          "assessment": "Provides resistance distances and Kirchhoff indices at fixed unit weights, not a constrained minimizer with class-dependent costs.",
+          "evidence": [
+            "Haritha and Chithra arXiv:2309.02704v1, Section 3; graph family alias windmill."
+          ],
+          "identifier_or_url": "arXiv:2309.02704v1; https://arxiv.org/pdf/2309.02704",
+          "material_read": "Read primary PDF introduction, fixed unit-resistor model, §3 resistance formulas for windmills and coalescences, pertinent theorem statements, conclusion; inspected original page image.",
+          "method": "Primary PDF text and rendered-page inspection, with direct comparison of free conductance variables.",
+          "title": "Resistance distance in k-coalescence of certain graphs",
+          "trigger": "Fixed-graph windmill/clique-coalescence resistance formulas possibly implying bouquet optimizer"
+        },
+        {
+          "assessment": "Earlier 2006 method chronology acknowledged; no indication that later journal date means general framework first appeared then.",
+          "evidence": [
+            "MTNS 2006 proceedings (conference), general ERMP and barbell with one bridging edge; day-level public-release date not assumed."
+          ],
+          "identifier_or_url": "https://web.stanford.edu/~boyd/papers/pdf/eff_res_mtns06.pdf",
+          "material_read": "Material read in earlier same-run source comparison: objectives, KKT conditions and solved edge-connected barbell example; journal full version separately read.",
+          "method": "Primary preprint/conference version contrasted with 2008 journal article.",
+          "title": "Minimizing Effective Resistance of a Graph (proceedings)",
+          "trigger": "Older conference version and earlier priority of the general method"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Ghosh, Boyd and Saberi, Minimizing Effective Resistance of a Graph, SIAM Review 50 (2008), 37–66, DOI:10.1137/050645452",
+        "Haritha–Chithra (2023) windmill fixed-weight resistances",
+        "Frozen RESULT.md exact optimizer and mixed-phase examples"
+      ],
+      "rationale": "Hub-connected cliques model naturally modular resistance networks, and minimization of global Kirchhoff index is a recognized graph-design problem. The sharp N-only ratio controlling exactly when an entire internal edge class should be removed, with a full heterogeneous mixed-regime optimizer, supplies a usable structural sparsification theorem beyond a routine KKT restatement. The size-independent phase frontier is a non-obvious exact invariant; arbitrary costs and petal sizes are included.",
+      "residual_risks": [
+        "The practical interpretation is an ideal linear-cost unconstrained conductance design, not all feasible electrical network deployments."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "One-vertex union of clique petals, fixed positive class costs per edge, linear budget, Kirchhoff index objective only.",
+  "schema_version": 1
+}
