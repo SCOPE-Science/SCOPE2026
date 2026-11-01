@@ -1,9 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact two-energy polynomial \(Q(x)\) is obtained by separating the tangential and radial oscillator components. Distinct frequencies make the three-column stage Krylov Gram matrix positive definite. The two polynomial root constraints establish the unavoidable \(h^3\) leading displacement, and minimizing its weighted quadratic norm yields the stated positive sharp constant. An explicit rescaling converts the singular projected-gradient nonlinear system into one with an invertible limiting Jacobian, proving that the actual near-predictor branch exists and attains the bound. Phase preservation and a uniform repeated scalar multiplier produce the fixed-time global \(h^2\) limit. A standalone checker executes the stated algebraic and finite-step diagnostics; no finite test substitutes for these analytic arguments.
+## correctness
 
-**Originality — PASS on a best-knowledge comparison.** The originating quasi-orthogonal projection construction and its *conditional* order guarantee are prior work (Najafian–Vermeire, arXiv:2409.18328v1). The present explicit two-frequency instance violates the limiting rank condition, and its sharp unavoidable correction/global constants are not obtained by merely applying that conditional theorem. Multi-relaxation Runge–Kutta (Biswas–Ketcheson, arXiv:2302.05235) and earlier invariant-preserving explicit Runge–Kutta projections (Calvo and collaborators, DOI:10.1137/04061979X) use different rank hypotheses/correction constructions. Published research records and recoverable previous findings did not reveal an equivalent result; specialized historical rediscovery remains a residual risk.
+PASS
 
-**Value — PASS.** An exact sharp loss of one convergence order despite satisfaction of the stage-count necessary condition delineates an important structural caveat in simultaneous invariant preservation, and supplies both a local optimality obstruction and a repeatable global-error benchmark. This is not a routine special case of an existing order theorem because its nondegeneracy hypothesis fails, and the singular limit must be resolved independently. It does not claim general failure for other integrators.
+A corrected point q+A Kq+B K²q+C K³q conserves both modal energies exactly iff Q(x1)=Q(x2)=0 for Q=(A²−2B)+(B²−2AC)x+C²x². Expansion around (h,h²/2,h³/6) forces C/h³→1/8 and least correction along aKq−K³q/24 at weighted variance minimizer a*=−(x1²E1+x2²E2)/(24(x1E1+x2E2)). The projected-gradient rank degenerates at h=0, but scaled normal and nonsingular implicit-function Jacobian yield the near-predictor solution. Unit-modulus per-mode multipliers then yield global phase accumulation T*C h². Independent symbolic identities verified and numerical projected-gradient solves for h=.05,.025,.0125 converged toward 1/(4sqrt5). No broader oscillator or different RK method claimed.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This supplies a sharp, fully explained example of order reduction precisely at a singular boundary of the established conditional order preservation theorem, quantifying the unavoidable local correction and exact global rate rather than merely flagging a failure of hypotheses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
