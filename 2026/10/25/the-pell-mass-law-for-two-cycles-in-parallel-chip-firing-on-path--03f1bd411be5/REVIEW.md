@@ -1,15 +1,21 @@
-# Scientific review: Pell mass law for path chip-firing
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is ordinary parallel firing on labelled paths with nonnegative chip holdings. A two-step return forces a common total firing count in \(\{0,1,2\}\) at every vertex by the kernel of the connected Laplacian. The two constant cases produce fixed states; in the primitive case complementary firings and explicit local chip intervals give a bijection, up to time phase, with cut-edge indicators and offset vectors. The weighted path transfer matrix gives both the recurrence and explicit generating function. The Pell enumeration and mass palindrome follow algebraically; the Gaussian law follows from the analytic dominant root. Direct state simulation, a cut-and-offset enumerator, a recurrence solver and a binomial formula agree on all \(n\le10\), with extended non-simulation checks to \(n\le40\). The infinite assertions rest on proof, not simulation.
+## correctness
 
-## Originality — PASS, with explicit boundaries
-Jiang (2010) and Scully–Zhang–Jiang (2011, Section 4) already establish the periodic-firing principle, general two-cycle inequalities and period from chip mass on trees; this finding does not claim those as new. A full reading of the relevant preprint Section 4 showed no exact primitive-orbit count by chip total; the new result supplies that quantitative invariant with Pell and Gaussian laws. Firing-pattern work (2012 preprint) does not tabulate the path orbit count. The 2006 fixed-energy sandpile calculation uses a periodic **ring**, with a distinct periodic-orbit block enumerator; it does not give the open-path mass polynomial with degree-one endpoints. The 2020 parallel-diffusion path enumeration concerns a different local transfer rule. Searches included exact chip-firing, fixed-energy-sandpile, Pell and two-cycle orbit-count terminology, plus semantic comparisons to available research findings. The 1992 tree paper's full text could not be accessed, and equivalent unindexed enumerations cannot be excluded.
+PASS
 
-## Mathematical value — PASS
-The natural conserved mass grades the attractors of a deterministic fixed-energy sandpile. The result determines the exact number of primitive periodic orbits in every mass sector for every path length, quantifies their Pell growth, and proves a nontrivial asymptotic distribution of mass under the uniform orbit measure. The bivariate transfer law is a reusable enumerative bridge from known local firing inequalities to orbit populations, rather than a mere restatement of known mass-threshold theorems.
+For a genuine two-cycle on a connected graph, L(f+g)=0 forces each vertex to fire once in two updates, excluding 0/2 constant patterns as fixed states. For a first-round firing phase f, all vertices require at least one opposite-phase neighbor, with c_v cut degree. Conditional chip counts are exactly [deg(v),deg(v)+c_v-1] for firing vertices or [deg(v)-c_v,deg(v)-1] for waiting vertices. An independent offset a_v in 0..c_v-1 establishes the bijection cut+offsets modulo two phase choices; total mass 2(n-1)-|S|+sum a_v. For P_n the allowed cuts have endpoint bits 1 and no consecutive 00. Their two-state weighted transfer has characteristic equation producing C_2=z,C_3=z²(1+z), C_n=z(1+z)C_{n-1}+z³C_{n-2}; rational GF and binomial formula follow. The n−1..2n−3 support, unit extrema, reciprocity, mean (3n−4)/2 and Pell total follow exactly. Dominant analytic eigenvalue lambda_+(z)=z(1+z+sqrt(1+6z+z²))/2 gives cumulant first derivative 3/2 and second derivative sqrt(2)/8 at z=1, justifying the CLT by a uniform neighborhood spectral gap and mgf convergence. Fresh independent Python executed direct two-update enumeration for 349,524 states over n=2..10 and cut/offset enumeration n=2..10; all mass coefficients equaled the recurrence/binomial values. SymPy independently established the asymptotic variance coefficient. Finite checks corroborate, not replace, the all-n proof.
 
-## Review boundary
-No external independent verification was performed. The 1992 full-text access gap and possible unindexed equivalences remain scientific literature risks, not substitutes for checks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality is confined to the full open-path primitive-period-two mass polynomial, Pell orbit census, reciprocity and Gaussian mass fluctuations; periodic firing alternation, tree period bounds and total-chip interval are credited as old. The full Scully-Zhang-Jiang 2011 tree paper supplies local 2-periodic constraints and chip-count intervals but does not count period-two orbits by chip mass. Full Dall’Asta 2006 paper studies the periodic degree-two ring, even describing generating functions for ring periodic populations, but not the open path with degree-one endpoints. No stronger prior implication was found on statement comparison, with explicit residual priority risk for a 1992 primary paper unavailable in full.
+
+## value
+
+PASS
+
+Complete mass-by-mass counting of primitive cycles for all path lengths is a natural dynamical invariant beyond a yes/no period test. Its exact Pell census, symmetric coefficient law, sharp support and Gaussian limit quantify the diversity and typical mass of recurrent configurations. It is not a renamed general period theorem or arbitrary finite slice; the exact polynomial survives independent of uncomputed attraction basins.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

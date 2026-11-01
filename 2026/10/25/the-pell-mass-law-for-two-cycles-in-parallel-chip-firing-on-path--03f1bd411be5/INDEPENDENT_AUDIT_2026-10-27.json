@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:03:07.464231Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob ee8f2459120c2f1b750203568ef3b70865c829a1",
+        "Immutable artifacts/verify.py blob 68da6390a9a19d5cd054c87f05eacde9a4042f7c",
+        "/mnt/data/pell_direct_1643.py independent 349524-state direct replay",
+        "/mnt/data/independent_checks_1643.py independent cut+transfer+symbolic variance"
+      ],
+      "rationale": "For a genuine two-cycle on a connected graph, L(f+g)=0 forces each vertex to fire once in two updates, excluding 0/2 constant patterns as fixed states. For a first-round firing phase f, all vertices require at least one opposite-phase neighbor, with c_v cut degree. Conditional chip counts are exactly [deg(v),deg(v)+c_v-1] for firing vertices or [deg(v)-c_v,deg(v)-1] for waiting vertices. An independent offset a_v in 0..c_v-1 establishes the bijection cut+offsets modulo two phase choices; total mass 2(n-1)-|S|+sum a_v. For P_n the allowed cuts have endpoint bits 1 and no consecutive 00. Their two-state weighted transfer has characteristic equation producing C_2=z,C_3=z²(1+z), C_n=z(1+z)C_{n-1}+z³C_{n-2}; rational GF and binomial formula follow. The n−1..2n−3 support, unit extrema, reciprocity, mean (3n−4)/2 and Pell total follow exactly. Dominant analytic eigenvalue lambda_+(z)=z(1+z+sqrt(1+6z+z²))/2 gives cumulant first derivative 3/2 and second derivative sqrt(2)/8 at z=1, justifying the CLT by a uniform neighborhood spectral gap and mgf convergence. Fresh independent Python executed direct two-update enumeration for 349,524 states over n=2..10 and cut/offset enumeration n=2..10; all mass coefficients equaled the recurrence/binomial values. SymPy independently established the asymptotic variance coefficient. Finite checks corroborate, not replace, the all-n proof.",
+      "residual_risks": [
+        "Only nonnegative degree-threshold simultaneous dynamics on labelled open paths; transient basin sizes, higher periods and other graph families are not determined.",
+        "CLT is a weak distributional statement on uniformly sampled primitive cycles, not individual trajectories."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scully et al. derive interval restrictions and mass thresholds for periodic behavior on trees, not the number of distinct labelled path orbits for each mass.",
+          "2026 universal middle-mass period two guarantees period, not orbit cardinalities or Pell asymptotics."
+        ],
+        "reasoning": "These broader dynamical theorems concern existence/periodic behavior or total mass windows. They do not logically give the weighted cut-offset enumeration, generating function or CLT without a new census.",
+        "searches": [
+          "Scully-Zhang-Jiang 2011 PDF Lemma 4.1 Theorem 4.4",
+          "Jiang 2010 equal periodic firing counts",
+          "2026 middle-chip-mass universal period-two paper"
+        ]
+      },
+      "checked_sources": [
+        "https://math.mit.edu/research/highschool/primes/materials/2011/Scully-Zhang-Jiang.pdf",
+        "https://arxiv.org/pdf/cond-mat/0601267",
+        "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "https://arxiv.org/abs/1003.0943",
+        "Resultary semantic query: parallel chip firing paths primitive period two orbits exact enumeration Pell generating function mass distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2011 results imply admissibility constraints but do not supply the cut+offset product sum evaluated here.",
+          "Ring periodic boundary requires degree two at every site; the open path includes two degree-one endpoint vertices."
+        ],
+        "reasoning": "Prior existence/period theorems and ring counts are mathematically weaker or in a different graph family; new exact enumeration follows only after the distinct weighted path transfer.",
+        "searches": [
+          "Scully-Zhang-Jiang period-two inequalities and total chip limits",
+          "Dall’Asta 2006 ring exact solution",
+          "Bitar-Goles 1992 tree period bound"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dall’Asta 2006 treats the degree-threshold rule as fixed-energy sandpile with ring periodic boundary conditions.",
+          "Jiang and Scully et al. use parallel chip-firing terminology and primitive 2-cycles."
+        ],
+        "reasoning": "The matching dynamical rule is recognized across sandpile/chip-firing aliases; ring identification changes boundary degrees and mass polynomial, so same local update alone is not equivalent to the open-path claim.",
+        "searches": [
+          "Web: parallel chip firing on path Pell number number period two cycles polynomial mass generating function",
+          "Web: All parallel chip-firing games with 2|E|-|V|<|σ|<2|E| have period 2 (2026)",
+          "Resultary: parallel chip firing paths primitive period two orbits exact enumeration Pell generating function mass distribution",
+          "Web: exact solution one-dimensional deterministic fixed-energy sandpile full text ring",
+          "Web: Scully Zhang Jiang Total Chip Numbers Motors parallel chip firing 2011"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary results for the stated query returned no exact path-orbit polynomial.",
+          "Dall’Asta 2006 page 4 contains a generating function for *ring* block periodic populations and not open-path mass-refined orbits."
+        ],
+        "reasoning": "An existing table for finite n is not equivalent to the all-length bivariate mass law; none of the inspected exact enumeration results covers the open path.",
+        "searches": [
+          "Resultary: path chip firing period-two Pell mass polynomial",
+          "Web: parallel chip-firing period 2 path mass distribution Pell",
+          "Dall’Asta ring configurations generating function 2006"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is confined to the full open-path primitive-period-two mass polynomial, Pell orbit census, reciprocity and Gaussian mass fluctuations; periodic firing alternation, tree period bounds and total-chip interval are credited as old. The full Scully-Zhang-Jiang 2011 tree paper supplies local 2-periodic constraints and chip-count intervals but does not count period-two orbits by chip mass. Full Dall’Asta 2006 paper studies the periodic degree-two ring, even describing generating functions for ring periodic populations, but not the open path with degree-one endpoints. No stronger prior implication was found on statement comparison, with explicit residual priority risk for a 1992 primary paper unavailable in full.",
+      "residual_risks": [
+        "The Bitar-Goles 1992 tree-period paper was not obtained in full; a hidden enumeration could be contained therein.",
+        "General two-cycle inequalities are antecedent ingredients; the novelty is only the mass-refined orbit census and CLT.",
+        "An unindexed open-path enumerator or combinatorial-statistics thesis could predate this finding."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact mass census; covering elementary necessary constraints and tree total chip interval",
+          "evidence": [
+            "Section 4 Lemma 4.1 local period-two inequalities and Theorem 4.4 chip-mass periodicity, no path Pell polynomial"
+          ],
+          "identifier_or_url": "https://math.mit.edu/research/highschool/primes/materials/2011/Scully-Zhang-Jiang.pdf",
+          "material_read": "Full 16-page PDF; Section 4, Lemma 4.1, Theorem 4.4, page images and supporting text read",
+          "method": "web full PDF text plus rendered PDF page screenshots",
+          "title": "Total Chip Numbers and Motors in the Parallel Chip-Firing Game",
+          "trigger": "Same degree-threshold tree dynamics and closest period-two chip-count theorem"
+        },
+        {
+          "assessment": "DIFFERENT_BOUNDARIES: degree-two periodic ring; mass-resolved open-path orbit series absent",
+          "evidence": [
+            "Equation (1) assigns threshold 2 and two ring neighbors; page 4 generating function counts ring block-periodic configurations."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/cond-mat/0601267",
+          "material_read": "All five pages, including page 1 ring definition and page 4 orbit-number generating functions, read; pages 1 and 4 rendered",
+          "method": "arXiv preprint PDF and mandated screenshot inspection",
+          "title": "Exact Solution of the One-Dimensional Deterministic Fixed-Energy Sandpile",
+          "trigger": "Potential stronger exact population enumeration for identical one-dimensional dynamics"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT priority risk; later sources state tree 1/2-period bound only",
+          "evidence": [
+            "Dall’Asta 2006 p.2 describes Bitar-Goles result on trees as period 1 or 2"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+          "material_read": "Later primary citations and publisher bibliography, not original full text",
+          "method": "bibliographic and later-primary reference comparison",
+          "title": "Parallel Chip Firing Games on Graphs",
+          "trigger": "Classical prior tree period and possible orbit catalog"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Open-path dynamics and explicit weighted cut-offset bijection",
+        "Finite independent direct-state and transfer checks",
+        "Scully-Zhang-Jiang pre-existing total-mass interval"
+      ],
+      "rationale": "Complete mass-by-mass counting of primitive cycles for all path lengths is a natural dynamical invariant beyond a yes/no period test. Its exact Pell census, symmetric coefficient law, sharp support and Gaussian limit quantify the diversity and typical mass of recurrent configurations. It is not a renamed general period theorem or arbitrary finite slice; the exact polynomial survives independent of uncomputed attraction basins.",
+      "residual_risks": [
+        "It does not count basin sizes or general tree cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
