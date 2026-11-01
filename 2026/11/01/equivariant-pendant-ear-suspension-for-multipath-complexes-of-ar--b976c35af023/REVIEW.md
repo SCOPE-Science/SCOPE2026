@@ -1,0 +1,15 @@
+# Scientific review: bidirected pendant-ear suspension
+
+## Correctness — PASS
+The full mathematical proof is the explicit simplicial map sending each root-to-middle arc to the middle-to-leaf arc of the same orientation, and fixing all remaining arcs. For every multipath simplex, the union with its image remains a multipath, including when roots repeat and when the base has directed cycles. This verifies simpliciality and contiguity to the identity, and gives a strong deformation retract onto an explicit join of the base with discrete two-point complexes. The separate dominated-vertex argument supplies elementary collapses. Integral reduced homology follows by simplicial suspension. The permutation and reversal characters follow from the alternating join cycle, not from numerical interpolation. The standalone checker exhaustively validates all indicated finite cases and group actions, but is not used as an infinite proof.
+
+## Originality — PASS against the checked corpus
+The founding arXiv:2208.04656v1 has a suspension construction under a specified sink hypothesis and dynamical decomposition rules, not an unrestricted four-arc bidirected pendant-ear retraction. The later arXiv:2601.05670v1 has a T-operation with different local arcs and source/sink restrictions, and no statement of this equivariant retract. The 2022/2023 path-poset construction also needs a univalent vertex and a directional source/sink attachment. The closest located published bidirected double-star classification concerns a distinct graph family and neither states nor implies the all-base ear theorem. Searches by pendant/whisker/two-path and by suspension/retraction/equivariance did not identify a theorem with stronger scope. An inaccessible or differently named construction could still cover the claim; search failure alone is not an originality proof.
+
+## Value — PASS
+The result is a reusable operation on **every** finite directed graph, including graphs with directed cycles, retaining the entire integral homotopy type after a known dimension shift. It transfers torsion and automorphism representations without needing to recompute chain boundaries. The natural once-subdivided star gains a complete all-parameter homotopy classification and an exact integral symmetry character. Unlike a finite special-case enumeration, the statement is a structural local-to-global lemma with explicit functorial deformation and simple-homotopy model. Its scope is limited to the specified fully bidirected pendant ear.
+
+## Closest literature and remaining risks
+Primary material inspected: arXiv:2208.04656v1, definitions, dynamical modules, Proposition 5.4; arXiv:2601.05670v1, definitions, Proposition 2.3 and the adjoining explanation; the open-access path-poset article, its univalent-vertex suspension and Proposition 6.12; and the public complete result of the bidirected double-star classification. The stated suspensions concern different attachments. Unknown equivalent local collapses under other terminology remain a residual bibliographic risk. No independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
