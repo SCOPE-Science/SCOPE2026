@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the local containment law
+# Independent mathematical audit
 
-The analytical proof in RESULT.md establishes the theorem under the stated assumptions. The included `verify_boundary_absorption.py` requires Python 3, NumPy and SciPy. Execute `python verify_boundary_absorption.py` in the directory containing that file. The five diagnostics independently compare the exact semicircle-anchor integral with the known three-point circular dilogarithm, test the predicted fixed-sample logarithmic coefficients, incorporate exact ellipse arclength and curvature normalization, verify nonuniform circular density effects, and compare the integral to direct randomized polygon containment using oriented edge halfplanes. All checks passed on the packaged program prior to delivery.
+## correctness
 
-These finite tests cannot establish an asymptotic theorem or historical priority. The proof's critical analytic ingredients are the unique-halfcircle-anchor identity, a local normal-chord expansion, the logarithmic integral on the outgoing boundary arc and the integrability of the returning arc for \(n\ge3\). The exact circular three-point identity is used solely as a known benchmark.
+PASS
+
+The exact semicircle-anchoring identity P(p outside hull)=n∫ f(s)Q_p(s)^{n-1} ds counts the unique anchor for continuously sampled cyclic directions. For boundary local arclength s>0, the opposite-ray chord endpoint is tδ(s)=−2δ/(κ(z)s)+O(δ+δ²/s²); its arc mass changes by −2f(z)δ/(κ(z)s). Expanding (n−1)th power over Cδ≤s≤η yields coefficient 2n(n−1)f(z)^2/κ(z) times δlog(1/δ). Other parts, including the returning endpoint near the opposite side of z, are O(δ) for n>=3. The circle n=3 dilogarithm formula independently yields the same log coefficient, though convergence of numerical ratios is slow at moderate δ. The n-fixed scope and uniform Oδ error are correctly stated.
+
+## originality
+
+PASS
+
+Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.
+
+## value
+
+PASS
+
+The local rare-event inclusion law gives a curvature estimator from pointwise fixed-sample random inscribed hulls and makes the squared boundary sampling density explicit; it distinguishes the δ→0 boundary-layer regime from traditional n→∞ random-polytope asymptotics. The classical circle n=3 specialization is excluded from novelty and appropriately credited.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

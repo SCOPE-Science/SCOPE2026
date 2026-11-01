@@ -1,0 +1,143 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:15:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact semicircle-anchoring identity P(p outside hull)=n∫ f(s)Q_p(s)^{n-1} ds counts the unique anchor for continuously sampled cyclic directions. For boundary local arclength s>0, the opposite-ray chord endpoint is tδ(s)=−2δ/(κ(z)s)+O(δ+δ²/s²); its arc mass changes by −2f(z)δ/(κ(z)s). Expanding (n−1)th power over Cδ≤s≤η yields coefficient 2n(n−1)f(z)^2/κ(z) times δlog(1/δ). Other parts, including the returning endpoint near the opposite side of z, are O(δ) for n>=3. The circle n=3 dilogarithm formula independently yields the same log coefficient, though convergence of numerical ratios is slow at moderate δ. The n-fixed scope and uniform Oδ error are correctly stated.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Brunel 2015 and Prochno et al. study random-polytope Hausdorff approximation primarily as sample size grows.",
+          "The new observable is inclusion of a *specified inward point* at fixed n as δ→0."
+        ],
+        "reasoning": "Different limits/observables mean global Hausdorff bounds cannot be substituted for an exact fixed-n local logarithmic coefficient.",
+        "searches": [
+          "random inscribed polygon containment near boundary probability delta log delta curvature arclength density",
+          "arXiv:1503.01504",
+          "arXiv:2404.02870"
+        ]
+      },
+      "checked_sources": [
+        "Ismailov, arXiv:2601.02929 (primary full relevant text, circle n=3)",
+        "Brunel, arXiv:1503.01504 (random polytope Hausdorff accuracy)",
+        "Prochno et al., arXiv:2404.02870 (open access relevant sections)",
+        "Resultary Gumbel random inscribed polygons and minimax sampling records",
+        "Frozen RESULT.md blob b627610f9b26c414b91d118a3917fb0627f7fa81"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ismailov gives P_3(r)=1/4−(3/2π²)Li₂(r²) on the uniform unit circle.",
+          "For arbitrary smooth curve, local chord tangent-normal expansion brings in f(z)^2/κ(z) not available from the constant-curvature circle expression."
+        ],
+        "reasoning": "The new result follows from its own local signed-chord and semicircle-anchor argument, not merely a parameter substitution in the known circle formula.",
+        "searches": [
+          "random inscribed polygon containment near boundary probability delta log delta curvature arclength density",
+          "arXiv:2601.02929 Theorem 1",
+          "arXiv:1503.01504",
+          "arXiv:2404.02870"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ismailov exact uniform-circle three-sample containment formula produces the circular n=3 endpoint as a special case.",
+          "General smooth varying curvature and positive nonuniform f are not equivalent to a single uniform circle."
+        ],
+        "reasoning": "The classical circle n=3 restriction is covered, not claimed new; no reviewed general local density–curvature identity dominated the universal theorem.",
+        "searches": [
+          "random inscribed polygon containment near boundary probability delta log delta curvature arclength density",
+          "arXiv:2601.02929",
+          "convex hull n points sampled along smooth planar curve local miss depth delta logarithm"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The known circle n=3 exact dilogarithm formula is a table entry for one special shape/density/sample size.",
+          "Resultary records on regular polygons, minimax sampling and Gumbel Hausdorff asymptotics use other parameters."
+        ],
+        "reasoning": "The known exact special case does not dominate the stated all-n smooth-curve density-dependent law.",
+        "searches": [
+          "random inscribed polygon containment near boundary probability delta log delta curvature arclength density",
+          "Resultary: 2026/10/11/SCOPE-gumbel-transition-and-second-order-hausdorff-error-for-randomly--3fe000dbc9a1",
+          "arXiv:2601.02929"
+        ]
+      },
+      "rationale": "Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.",
+      "residual_risks": [
+        "The known circle three-point special case already implies a restricted coefficient, so no priority claimed there.",
+        "Older precise local absorption asymptotics under different terminology may exist outside bounded search.",
+        "n must remain fixed, curvature and boundary density positive, with at least C3/C1 regularity; corners and zero curvature outside scope.",
+        "Finite δ circle ratios have logarithmically slow convergence and alone do not prove asymptotics."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Precisely covers n=3 unit circle specialization, not all smooth curves/densities/fixed n",
+          "evidence": [
+            "Main result P_3(r)=1/4−3 Li₂(r²)/(2π²) implies the circle logarithmic coefficient."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+          "material_read": "Original full relevant PDF including main formula/theorem and uniform-circle model",
+          "method": "ArXiv PDF extracted text and theorem page screenshot",
+          "title": "With what probability does an inscribed triangle contain a given point?",
+          "trigger": "Same fixed-point containment of an inscribed polygon; exact circle n=3 comparison"
+        },
+        {
+          "assessment": "Global Hausdorff error asymptotics rather than fixed-n boundary point containment",
+          "evidence": [
+            "Result uses a sample-size approximation regime, not δ→0 at fixed n."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+          "material_read": "Open-access full-text introduction and main scope/propositions on Hausdorff approximation",
+          "method": "Original publisher open-access HTML text",
+          "title": "Random approximation of convex bodies in Hausdorff distance",
+          "trigger": "Plausible dominating random-inscribed-polytope limit theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The local rare-event inclusion law gives a curvature estimator from pointwise fixed-sample random inscribed hulls and makes the squared boundary sampling density explicit; it distinguishes the δ→0 boundary-layer regime from traditional n→∞ random-polytope asymptotics. The classical circle n=3 specialization is excluded from novelty and appropriately credited.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Ismailov, arXiv:2601.02929 (primary full relevant text, circle n=3)",
+    "Brunel, arXiv:1503.01504 (random polytope Hausdorff accuracy)",
+    "Prochno et al., arXiv:2404.02870 (open access relevant sections)",
+    "Resultary Gumbel random inscribed polygons and minimax sampling records",
+    "Frozen RESULT.md blob b627610f9b26c414b91d118a3917fb0627f7fa81"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The known circle three-point special case already implies a restricted coefficient, so no priority claimed there.",
+    "Older precise local absorption asymptotics under different terminology may exist outside bounded search.",
+    "n must remain fixed, curvature and boundary density positive, with at least C3/C1 regularity; corners and zero curvature outside scope.",
+    "Finite δ circle ratios have logarithmically slow convergence and alone do not prove asymptotics."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Precisely covers n=3 unit circle specialization, not all smooth curves/densities/fixed n",
+      "evidence": [
+        "Main result P_3(r)=1/4−3 Li₂(r²)/(2π²) implies the circle logarithmic coefficient."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2601.02929",
+      "material_read": "Original full relevant PDF including main formula/theorem and uniform-circle model",
+      "method": "ArXiv PDF extracted text and theorem page screenshot",
+      "title": "With what probability does an inscribed triangle contain a given point?",
+      "trigger": "Same fixed-point containment of an inscribed polygon; exact circle n=3 comparison"
+    },
+    {
+      "assessment": "Global Hausdorff error asymptotics rather than fixed-n boundary point containment",
+      "evidence": [
+        "Result uses a sample-size approximation regime, not δ→0 at fixed n."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2404.02870",
+      "material_read": "Open-access full-text introduction and main scope/propositions on Hausdorff approximation",
+      "method": "Original publisher open-access HTML text",
+      "title": "Random approximation of convex bodies in Hausdorff distance",
+      "trigger": "Plausible dominating random-inscribed-polytope limit theorem"
+    }
+  ]
+}
