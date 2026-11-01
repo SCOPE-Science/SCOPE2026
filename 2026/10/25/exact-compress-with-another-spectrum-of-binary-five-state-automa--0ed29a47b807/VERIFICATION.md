@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The following exact replay was performed on the standalone files associated with this result:
+# Independent mathematical audit
 
-`python3 verify.py`
+## correctness
 
-The verifier compiles `census.cpp` and `check_independent.cpp` using C++17, reruns their complete independent enumerations, compares the exact output text to `census_report.txt` and `check_report.txt`, and compares the complete independently regenerated list of extremal encodings to `extremal_ids.txt`. It then reconstructs all \(38\) symmetry orbits from first principles in Python, verifies each has \(240\) elements, that none overlap, and that their union is exactly the \(9,120\) independently enumerated automata. It separately tests every representative using literal binary words of lengths \(1\) through \(5\), verifies strong connectivity of every extremizer, and checks the \((3,4),(4,4),(4,5)\) rank-type split. Successful output begins `VERIFY_OK`.
+PASS
 
-For each transition pair, the primary reverse-BFS proof and the secondary fixed-point proof compute the same mathematically defined shortest pair-merging distances by different algorithms. The proof that all pairs merge if and only if the automaton synchronizes is essential to the interpretation of the census. The computation is exhaustive **only** for five-state binary automata; no algorithmic test of finitely many instances establishes a general theorem in the number of states.
+The finite domain and ordered/base-five encoding are explicit. Universal pair mergeability is equivalent to synchronizability by repeatedly merging two current image states. For each unordered pair of states, shortest merging length equals the first synchronous fixed-point stage of its two successors, with singleton successors terminal; all ten pairs being reached is exactly synchronizing. An independently written and compiled C++17 enumerator scanned all 5^10=9,765,625 encodings, not a sample, reproduced the synchronizing count and all five histogram bins, and independently enumerated all 9,120 maximizers. Its 240 state-permutation/letter-swap transformations per maximizer yield 38 nonoverlapping classes each of size 240, 9,120/9,120 strong connectivity, and exact rank-pair distribution 8/12/18. Source census.cpp and check_independent.cpp were read and their recurrences compared to the independently implemented synchronous method. These finite exhaustive counts make only a five-state result, not an n-state theorem.
 
-The review reported here concerns this finite claim alone. No independent third-party validation is asserted.
+## originality
+
+PASS
+
+Same invariant from Szykuła 2026 is explicit; inspected survey abstract discusses the open upper-bound problem but does not exhibit these finite exhaustive values. Wang 2026 concerns a corrected family with n=3p>=9; it cannot directly imply all binary five-state census values. Published five-state 1-avoiding threshold and triple rendezvous results concern different quantifiers (avoid a state from the entire image; merge some triple), even though they share the synchronizing population count. No inspected source gives the exact compression histogram, 9,120 extremal encodings or 38 orbit classes. This is best-of-knowledge only because the Szykuła and Wang full texts could not be acquired through arXiv/OA and Oxford access returned vpn_disconnected; record that explicit residual risk.
+
+## value
+
+PASS
+
+The prescribed-state compress-with-another threshold is a current natural synchronizing-automata invariant attached to open length bounds, not an arbitrary statistic. A complete minimal five-state binary census, sharp worst value and full extremal structural orbit classification supply concrete examples and a benchmark for general conjectures. Its scope is narrow but the exact finite answer and extremal rank patterns would reasonably be used by future work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

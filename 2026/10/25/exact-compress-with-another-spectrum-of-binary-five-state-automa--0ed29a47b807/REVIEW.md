@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The pair-merging recurrence and the equivalence between universal pair mergeability and synchronizability prove the logical reduction. A complete exhaustive scan of all \(9,765,625\) ordered labeled binary five-state automata is independently reproduced using reverse-graph breadth-first search and a separate synchronous fixed-point algorithm. The resulting threshold histogram agrees exactly. Symmetry orbits are reconstructed independently for all \(38\) representatives, and their disjoint union equals the complete independent list of \(9,120\) extremizers. The checker also tests all extremizers for strong connectivity and letter-rank types. The finding is finite; no asymptotic extrapolation is made.
+## correctness
 
-**Originality — PASS within examined evidence.** Szykuła (arXiv:2608.24245) defines this same invariant and discusses open upper-bound problems without a global binary five-state spectrum. Wang (arXiv:2610.07044) treats one family beginning at nine states. The closest published five-state enumerations concern 1-avoiding thresholds or triple-rendezvous times, not the prescribed-state pair-merging minimum. A non-matching theorem about avoidance or merging an arbitrary triple does not imply this exact histogram or its complete 38-orbit classification. No covering source was identified in the targeted comparisons; unindexed equivalent finite computations remain a priority risk. The larger-state-family paper's full text was not accessible, although its stated parameter regime is disjoint.
+PASS
 
-**Mathematical value — PASS.** This fully classifies the smallest substantial five-state binary universe for a prescribed-state compression invariant newly highlighted as part of a difficult general synchronization programme. The complete distribution, sharp maximum, 9,120 extremizers, 38 classes, and three rank types are natural structural quantities rather than an arbitrary isolated example. The answer is not a consequence of previously known avoiding-state or triple-rendezvous enumerations and provides test cases for general conjectures.
+The finite domain and ordered/base-five encoding are explicit. Universal pair mergeability is equivalent to synchronizability by repeatedly merging two current image states. For each unordered pair of states, shortest merging length equals the first synchronous fixed-point stage of its two successors, with singleton successors terminal; all ten pairs being reached is exactly synchronizing. An independently written and compiled C++17 enumerator scanned all 5^10=9,765,625 encodings, not a sample, reproduced the synchronizing count and all five histogram bins, and independently enumerated all 9,120 maximizers. Its 240 state-permutation/letter-swap transformations per maximizer yield 38 nonoverlapping classes each of size 240, 9,120/9,120 strong connectivity, and exact rank-pair distribution 8/12/18. Source census.cpp and check_independent.cpp were read and their recurrences compared to the independently implemented synchronous method. These finite exhaustive counts make only a five-state result, not an n-state theorem.
 
-The claim is restricted to five-state binary synchronizing automata, with symmetry under state permutations and optional letter swap. It proves no bound at other state counts. Independent external validation is not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Same invariant from Szykuła 2026 is explicit; inspected survey abstract discusses the open upper-bound problem but does not exhibit these finite exhaustive values. Wang 2026 concerns a corrected family with n=3p>=9; it cannot directly imply all binary five-state census values. Published five-state 1-avoiding threshold and triple rendezvous results concern different quantifiers (avoid a state from the entire image; merge some triple), even though they share the synchronizing population count. No inspected source gives the exact compression histogram, 9,120 extremal encodings or 38 orbit classes. This is best-of-knowledge only because the Szykuła and Wang full texts could not be acquired through arXiv/OA and Oxford access returned vpn_disconnected; record that explicit residual risk.
+
+## value
+
+PASS
+
+The prescribed-state compress-with-another threshold is a current natural synchronizing-automata invariant attached to open length bounds, not an arbitrary statistic. A complete minimal five-state binary census, sharp worst value and full extremal structural orbit classification supply concrete examples and a benchmark for general conjectures. Its scope is narrow but the exact finite answer and extremal rank patterns would reasonably be used by future work.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
