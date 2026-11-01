@@ -1,15 +1,21 @@
-# Scientific review: rare-displacement clocks in Gaussian renewal-competition walks
+# Independent mathematical audit
 
-## Correctness — PASS
-The renewal-cycle occupation argument yields the geometric count and independent equilibrium event age. Conditioning a Gaussian sum on its nonzero terminal position yields exact weights proportional to \(n^{-1/2}\exp(-an-r^2/(2n))\). Poisson summation proves the prefactor and exponentially suppressed complex modes, and its first two derivatives give the conditional mean and variance with exact constant corrections. A random-index conditional CLT and negligible equilibrium age establish the bivariate count/physical-age limit. Exponential-clock specializations satisfy the stated formulas. The accompanying executable passed 186 deterministic comparisons; finite checks supplement, not replace, these proofs.
+## correctness
 
-## Originality — PASS with residual risks
-The originating work (Li–Zhang–Liu, arXiv:2609.09738v1, §§2.5, 3.2) already provides the stationary position characteristic function and a Gaussian diffusion-tail approximation. Colantoni–Pagnini (arXiv:2507.07590v1) develop general reset CTRW counting machinery, while Asmussen–Hashorva–Laub–Taimre (arXiv:1712.04070v1) examine tails of related random sums. Classical Cramér–Lundberg asymptotics anticipate a geometric-sum exponential tail. Accordingly, neither the marginal geometric law nor the general exponential-tail mechanism is claimed new. The narrow assessed claim combines an exact physical reset-age transform, exponentially accurate conditional far-field jump-count moments, bivariate conditional Gaussian physical-age fluctuations, and the finite-rate calibration of this model. Text inspected for the three arXiv papers did not explicitly supply this combined claim. An unlocated broader renewal/conditional large-deviation theorem may imply some or all of it; priority needs external review.
+PASS
 
-## Value — PASS
-The far-field position marginal alone does not tell how many movement events generated an excursion or how old the excursion is. The theorem reconstructs both observables, quantifies their shared fluctuations, and shows an exponentially material mismatch between finite-rate Gaussian jumps and their diffusion approximation. This is a motivated physical observability and model-calibration gap, not a bare Gaussian-sum formula.
+A reset-to-reset regenerative cycle has finite mean m/p, with geometric number N of jump-labelled prior events: P(N=n)=p q^n, where T=min(J,S), q=P(J<S), p=1-q, m=ET. A length-biased current inter-event holding interval yields equilibrium elapsed B with Laplace b(s)=[1-E exp(-sT)]/(s m), independent of all prior event labels and durations; past jump-event durations U are i.i.d. T given J<S. Thus A=B+sum_(1..N)U and X=sum_(1..N) centred Gaussian jumps; summing geometric characteristic/Laplace factors proves E exp(ikX-sA)=p b(s)/[1-q h_J(s) exp(-sigma^2*k^2/2)]. At x nonzero, posterior count weights are proportional to n^-1/2 exp(-a n-r^2/(2n)), a=-log q, r=|x|/sigma. Gaussian inverse-Laplace integral plus Poisson summation gives Z_a(r)=sqrt(pi) sum_(j integer) (a+2pi*i*j)^-1/2 exp[-r sqrt(2(a+2pi*i*j))]; j=0 dominates with exponentially separated modes, yielding density p/(sigma*beta) exp(-beta*r), beta=sqrt(2a), and exact constant count corrections 1/(2a),1/(2a^2) from first two a derivatives. The conditional N CLT follows from local expansion of log Z, and conditional independent jump-duration sums give A CLT with variance mu^2/beta^3+nu/beta; equilibrium age B/sqrt(r) vanishes in probability. Exact exponential-clock transform and strict log(1+u)<u comparison follow. Independently checked nine posterior tail/mean/variance instances and 18 exact exponential joint-transform cases, not replacing infinite/asymptotic arguments.
 
-## Limitations and verification
-The law is conditional on an exact nonzero spatial displacement, not a first passage or exceedance. Temporal increments are independently resampled at every event, the jump lengths are independent Gaussian variables, and the bivariate age limit assumes finite second moments. The proof and `checks/verify.py` allow reproduction. No independent audit or priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Li–Zhang–Liu (arXiv September 2026) introduced precisely the competing-renewal-clock CTRW and derived the stationary marginal position characteristic function with Gaussian diffusion approximation; this formula and compound-geometric tails are expressly credited. The new assessed combination is exact joint position–physical-reset-age transform for arbitrary clocks, sharp conditional far-field jump-count constants/variance, and correlated bivariate rare-event clock CLT, plus strict rate-vs-diffusion calibration. Colantoni–Pagnini is a more general reset CTRW formulation in a different direction, not an exact conditioned competing-clock theorem. General compound geometric Cramér–Lundberg theory may imply part of the marginal tail, so no isolated marginal novelty is claimed. An OA original full-text version was accessible earlier in this research run; subsequent alternate arXiv HTML/PDF attempts became unavailable and Oxford authenticated retrieval reported VPN disconnected, leaving a specific full-text access risk but not automatic O failure.
+
+## value
+
+PASS
+
+The jump count that realizes a rare Gaussian displacement is linear in distance rather than quadratic, and the correlated physical reset age is a distinct measurable clock. The theorem supplies sharp density/conditional-moment corrections, exact general-clock joint Laplace–Fourier transform, and rigorous bivariate fluctuations. It also shows a strict exponential rare-tail error from a common diffusion approximation, making a substantive quantitative link between renewal theory and resetting-walk physics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

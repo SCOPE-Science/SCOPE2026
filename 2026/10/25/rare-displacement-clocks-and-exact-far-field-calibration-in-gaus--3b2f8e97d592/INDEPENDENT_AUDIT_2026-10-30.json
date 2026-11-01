@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:11:53.415669Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob 0e26bb064668842667064a70daf917b50b757685",
+        "actual checks/verify.py blob be748a13164a920a7666924aed5dac55f10b3a6e",
+        "independent_checks.py",
+        "independent_results.json",
+        "frozen source tree d704f56b026faa25cf021a6259c6beec904659c5"
+      ],
+      "rationale": "A reset-to-reset regenerative cycle has finite mean m/p, with geometric number N of jump-labelled prior events: P(N=n)=p q^n, where T=min(J,S), q=P(J<S), p=1-q, m=ET. A length-biased current inter-event holding interval yields equilibrium elapsed B with Laplace b(s)=[1-E exp(-sT)]/(s m), independent of all prior event labels and durations; past jump-event durations U are i.i.d. T given J<S. Thus A=B+sum_(1..N)U and X=sum_(1..N) centred Gaussian jumps; summing geometric characteristic/Laplace factors proves E exp(ikX-sA)=p b(s)/[1-q h_J(s) exp(-sigma^2*k^2/2)]. At x nonzero, posterior count weights are proportional to n^-1/2 exp(-a n-r^2/(2n)), a=-log q, r=|x|/sigma. Gaussian inverse-Laplace integral plus Poisson summation gives Z_a(r)=sqrt(pi) sum_(j integer) (a+2pi*i*j)^-1/2 exp[-r sqrt(2(a+2pi*i*j))]; j=0 dominates with exponentially separated modes, yielding density p/(sigma*beta) exp(-beta*r), beta=sqrt(2a), and exact constant count corrections 1/(2a),1/(2a^2) from first two a derivatives. The conditional N CLT follows from local expansion of log Z, and conditional independent jump-duration sums give A CLT with variance mu^2/beta^3+nu/beta; equilibrium age B/sqrt(r) vanishes in probability. Exact exponential-clock transform and strict log(1+u)<u comparison follow. Independently checked nine posterior tail/mean/variance instances and 18 exact exponential joint-transform cases, not replacing infinite/asymptotic arguments.",
+      "residual_risks": [
+        "Assumes independent fresh competing positive clocks, p,q in (0,1), finite mean T, independent Gaussian jump lengths, fixed q and sigma; finite E[T^2 | J<S] for joint age CLT."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Zhang–Liu arXiv:2609.09738v1 Sections 2.5, 3.2 stationary marginal and Gaussian approximation",
+          "Colantoni–Pagnini https://arxiv.org/html/2507.07590, reset counting-process representation",
+          "Asmussen–Hashorva–Laub–Taimre https://arxiv.org/abs/1712.04070, compound-Poisson Weibull-like tails"
+        ],
+        "reasoning": "Broader renewal/CTRW and compound-sum limit frameworks may yield pieces of this calculation, especially the exponential marginal; inspected named papers do not explicitly combine this particular competing-clock stationary joint transform with sharp conditional count correction and correlated physical age CLT.",
+        "searches": [
+          "web: Gaussian compound geometric rare displacement conditional number summands age asymptotic",
+          "web: master equations CTRW stochastic resetting Colantoni Pagnini 2025"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.09738",
+        "https://arxiv.org/html/2507.07590",
+        "https://arxiv.org/abs/1712.04070",
+        "https://doi.org/10.1002/9781118445112.stat04304",
+        "Resultary semantic query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Li–Zhang–Liu arXiv:2609.09738 Sections 2.5 and 3.2",
+          "Colantoni–Pagnini arXiv:2507.07590 Sections on counting process, master equation"
+        ],
+        "reasoning": "An unconditional position characteristic function does not specify the joint age law if event types have different waiting-time distributions. A diffusion-approximation tail rate cannot recover the discrete geometric Gaussian large-deviation constant, nor the conditional number-of-jumps and physical-age covariance.",
+        "searches": [
+          "web: Intermittent continuous-time random walks under renewal reset mechanism Equation (63) stationary position",
+          "web: Master equations for continuous-time random walks with stochastic resetting count process"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2609.09738, exact competing-clock model",
+          "https://arxiv.org/html/2507.07590, general CTRW resetting counting process"
+        ],
+        "reasoning": "The stationary position marginal is a geometric Gaussian sum and is prior. The distinct observables are reset age A and completed jump count N conditioned on x; neither the jump count nor last-reset time is the first-hitting time or a generic reset-interval marginal.",
+        "searches": [
+          "Resultary: Gaussian reset competing renewal clock stationary age conditional rare displacement compound geometric normal jumps central limit",
+          "web: Li Zhang Liu intermittent continuous time random walks under renewal reset mechanism 2609.09738 stationary characteristic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact age–position transform or constant correction matching in Resultary near hits about renewal age/residual statistics",
+          "Source RESULT.md exact Poisson-mode expression and independent nine-case checks"
+        ],
+        "reasoning": "The result is an analytic continuous-parameter theorem, not a finite database item. Search absence does not prove originality; special-function/geometric-sum asymptotic formulas under other terminology remain risk.",
+        "searches": [
+          "Resultary semantic query: Gaussian reset competing renewal clock stationary age rare displacement",
+          "web: Gaussian compound geometric posterior number terms rare tail conditional mean variance"
+        ]
+      },
+      "rationale": "Li–Zhang–Liu (arXiv September 2026) introduced precisely the competing-renewal-clock CTRW and derived the stationary marginal position characteristic function with Gaussian diffusion approximation; this formula and compound-geometric tails are expressly credited. The new assessed combination is exact joint position–physical-reset-age transform for arbitrary clocks, sharp conditional far-field jump-count constants/variance, and correlated bivariate rare-event clock CLT, plus strict rate-vs-diffusion calibration. Colantoni–Pagnini is a more general reset CTRW formulation in a different direction, not an exact conditioned competing-clock theorem. General compound geometric Cramér–Lundberg theory may imply part of the marginal tail, so no isolated marginal novelty is claimed. An OA original full-text version was accessible earlier in this research run; subsequent alternate arXiv HTML/PDF attempts became unavailable and Oxford authenticated retrieval reported VPN disconnected, leaving a specific full-text access risk but not automatic O failure.",
+      "residual_risks": [
+        "Very broad renewal reward and geometric random-sum conditional limit theory may imply the posterior CLT/constant terms indirectly; equivalence under alternate probability-theory terminology cannot be conclusively excluded.",
+        "Original full text successfully inspected earlier this run but repeat full fetch failed and Oxford VPN was disconnected; no authenticated bypass or user intervention attempted.",
+        "Count law assumes fixed p,q while r grows; do not generalize to weak-reset double scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-review, proves stationarity and position-only characteristic functions. The explicit joint reset age, count constants, and conditional age CLT are the assessed increment; later access limitation preserves priority risk",
+          "evidence": "Section 2.5 Eq (63), Section 3.2 Gaussian analysis",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09738",
+          "material_read": "During run, full searchable primary HTML with model, Section 2.5 Eq (63), and Section 3.2 Gaussian approximation; subsequent attempted arXiv HTML/PDF returned disabled, Oxford VPN disconnected",
+          "method": "Lawful primary arXiv text during initial inspection; follow-up institutional request unavailable",
+          "title": "Intermittent continuous-time random walks under renewal reset mechanism",
+          "trigger": "Exact 2026 competing clock CTRW and stationary Gaussian position precedent"
+        },
+        {
+          "assessment": "General reset CTRW framework, not the explicit competing-clock conditional Gaussian far-field age law",
+          "evidence": "Abstract, introduction, counting-process representation",
+          "identifier_or_url": "https://arxiv.org/html/2507.07590",
+          "material_read": "Full searchable arXiv HTML (315 lines), introduction and main counting process/master equation statements",
+          "method": "Lawful arXiv HTML full paper",
+          "title": "Master equations for continuous-time random walks with stochastic resetting",
+          "trigger": "Broader non-Markov CTRW with resetting"
+        },
+        {
+          "assessment": "General light-tail compound-Poisson precedents only; no whole-document NOT_COVERING assertion",
+          "evidence": "Abstract, compound-Poisson emphasis",
+          "identifier_or_url": "https://arxiv.org/abs/1712.04070",
+          "material_read": "Abstract and accessible summary only, full text not verified",
+          "method": "ArXiv metadata/abstract, not full",
+          "title": "Tail asymptotics of light-tailed Weibull-like sums",
+          "trigger": "Plausible dominating compound random-sum asymptotics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.09738",
+        "https://arxiv.org/html/2507.07590",
+        "independent_results.json"
+      ],
+      "rationale": "The jump count that realizes a rare Gaussian displacement is linear in distance rather than quadratic, and the correlated physical reset age is a distinct measurable clock. The theorem supplies sharp density/conditional-moment corrections, exact general-clock joint Laplace–Fourier transform, and rigorous bivariate fluctuations. It also shows a strict exponential rare-tail error from a common diffusion approximation, making a substantive quantitative link between renewal theory and resetting-walk physics.",
+      "residual_risks": [
+        "Only one-dimensional independent centered Gaussian jumps and fixed clock parameters; not heavy-tailed spatial displacements or joint weak-reset scaling."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Assumes independent fresh competing positive clocks, p,q in (0,1), finite mean T, independent Gaussian jump lengths, fixed q and sigma; finite E[T^2 | J<S] for joint age CLT.",
+    "Very broad renewal reward and geometric random-sum conditional limit theory may imply the posterior CLT/constant terms indirectly; equivalence under alternate probability-theory terminology cannot be conclusively excluded.",
+    "Original full text successfully inspected earlier this run but repeat full fetch failed and Oxford VPN was disconnected; no authenticated bypass or user intervention attempted.",
+    "Count law assumes fixed p,q while r grows; do not generalize to weak-reset double scaling.",
+    "Only one-dimensional independent centered Gaussian jumps and fixed clock parameters; not heavy-tailed spatial displacements or joint weak-reset scaling.",
+    "Frozen public AUDIT.json and METADATA.json both contain a confidential operational provenance key. The exact full original administrative-file bytes have been examined through authorized Git reads, but complete privacy-neutral replacement files have not been faithfully staged and rehashed in the writable audit container. Publication without exact-blob-guarded verified complete replacements could reveal confidential provenance. Scientific review itself is complete."
+  ],
+  "schema_version": 1
+}
