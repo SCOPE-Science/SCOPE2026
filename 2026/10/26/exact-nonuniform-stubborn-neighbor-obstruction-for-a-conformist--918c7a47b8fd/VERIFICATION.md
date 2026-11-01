@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The accompanying `verify.py` computes the payoffs for every action pair directly and verifies that the predicted local obstruction is equivalent to the absence of simultaneous pure best responses. It compares all \(7,371\) pairs of stubborn-count vectors over \(\{0,1,2\}^m\) for \(m=2,3,4\) and all \(1,024\) pairs over \(\{0,1\}^5\), using exact integer arithmetic. Every nonobstructed profile also has its constructive equilibrium witness checked. For \(m=2,3,4\), the observed obstructed-profile counts are respectively \(9,63,501\).
+# Independent mathematical audit
 
-The argument in RESULT.md is an independent symbolic proof for every \(m\ge2\) and all nonnegative integer counts. The finite test does not establish the theorem by itself. No claim is made about mixed equilibria or equilibrium dynamics. Run from the same directory using `python verify.py`. Independent external review has not been performed.
+## correctness
+
+PASS
+
+The simultaneous action scores are exactly C_i(b)=p_i+1_{i=b} and rebel costs R_i(a)=q_i+1_{i=a}, for all m and nonnegative integer pinned counts. If Q has two members contained in P, every best-responding rebel must choose b in Q and the conformist must copy b, after which the rebel strictly prefers another Q member. In the complement Q\P nonempty, choose a in P, b in Q\P; integrality makes the at-most-one matching bonus harmless. If Q singleton in P, a=b its member is a simultaneous response. The constructions include all ties and m=2 boundary. The independent enumeration directly searched all m=2,3 triples of counts and m=4 binary-valued counts (1,066 profiles), with 118 obstructed, comparing full pure response matrices; this finite test corroborates, rather than proves, the universal argument.
+
+## originality
+
+PASS
+
+The previously established uniformly pinned M* obstruction and binary balanced obstruction are credited. Primary theorem-level comparison found no theorem covering the arbitrary nonuniform count-set condition, with explicit m=3 p=(0,1,1), q=(1,0,0) distinguishing the statements. This is best-of-knowledge rather than an assertion that no older equivalent game-theoretic formulation exists.
+
+## value
+
+PASS
+
+A sharp, constructive local equilibrium/nonexistence criterion for an identifiable subgraph of a natural multi-strategy conformist–rebel game, extending the uniform pinned motif to arbitrary asymmetric integer counts. A concrete three-strategy nonuniform obstruction lies outside the earlier degree/strategy existence regime. This is more than a restatement of matching pennies, though not a global characterization for arbitrary interacting flexible vertices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
