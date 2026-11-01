@@ -1,0 +1,19 @@
+# Mathematical assessment: a golden-mean Markov calibration
+
+## Correctness — PASS
+
+The model is the exact self-parameterized quadratic tent function in the cited 2023 article. Expanding its first three critical iterates yields a factorized quartic, whose only root in the admissible control interval is the displayed radical. Direct exact substitution gives the three distinct points of the critical cycle. The two monotone core cells cover one another according to the primitive matrix \(\bigl(\begin{smallmatrix}0&1\\1&1\end{smallmatrix}\bigr)\); inverse-branch contraction constructs one period point per admissible cyclic code. The only ambiguous shared endpoint belongs to a three-cycle and has a unique **cyclic** Markov code, eliminating a possible overcount. Exterior trajectories either enter the invariant core or end at the extra fixed origin. Thus the Lucas all-period formula, rational Artin–Mazur zeta and golden-mean entropy follow without finite enumeration. The attached script checked the algebraic identities exactly and finite low-period orbits numerically. These tests are corroboration, not an infinite proof.
+
+## Originality — PASS within available primary-source evidence
+
+The actual model, including its nonlinear self-parameterized tent formula, is provided in Table 2 of Paul et al. (2023). Retrieved publisher-indexed sections 2–3 and relevant concluding material discuss slope tests, bifurcation diagrams, and sampled Lyapunov values, not the exact algebraic critical calibration or all-period Markov census. The original publisher page and PDF could not be fully retrieved because of access responses; thus absence from unread sections is not certified. An earlier 2021 conference predecessor is identifiable but its complete text could not be examined; publication-priority risk remains. The general unimodal dynamical-system theorems of Alsedà–Misiurewicz–Pérez and classical kneading theory provide standard implications **if** the Markov graph is known; they do not identify the source family’s unique radical control, show the full interval’s entry into the core, or account for the extra fixed point. Earlier available findings on skew tent density, return laws, and other Markov maps do not imply this source-specific calculation. No equivalent or dominating result was identified by targeted searches; this is not proof of priority.
+
+## Value — PASS
+
+Exact periodic-orbit counts for **every** period, a closed Artin–Mazur zeta function, and a full-interval entropy are structurally natural dynamical invariants of a map motivated by parameter-robust chaos. The unique algebraic critical-period-three parameter supplies a reproducible nontrivial calibration point with a complete symbolic model, rather than an arbitrary decimal slice. The result is not just a derivative sign test: it proves the global core itinerary, resolves boundary coding multiplicities, and counts all genuine periodic points, including the exterior origin. Exact entropy and cycle growth may be used to benchmark mathematical analyses of chaotic-state generation, without implying finite-precision randomness or security.
+
+## Closest literature and limitations
+
+The closest defining source is P. S. Paul et al., *J. Low Power Electron. Appl.* 13 (2023), 18, DOI 10.3390/jlpea13010018; its 2021 ICECS precursor remains an access risk. L. Alsedà, M. Misiurewicz, and R. A. Pérez, arXiv:2004.01813, establish general facts about expanding unimodal maps and kneading theory; these tools explain the method, but no inspected theorem computes the present source-specific calibration. All statements here concern exact real arithmetic only, and the entropy formula is restricted to the one specified control value. No independent mathematical audit has taken place.
+
+Self-review: passed. Independent audit: not yet performed.
