@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:52:56Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Original Git tree 66228ed1ac6e9dbaf2de0588c09cdebcad40fbc2 independently rebuilt from 8 actual blobs.",
+        "Correct theorem independently recovered from original METADATA.json claim, AUDIT.json claim and SLOGAN.txt, then proved from accepting-run loop deletion and explicit cycle positions.",
+        "Independent Python construction acceptance checks for 77 pairs p=1..7, m=0..11 across m+3l+4 word lengths; all pass.",
+        "Staged full corrected RESULT.md has no {claim} token, supplies exact min formula, its parity forms and the proof, and will be transported with verified current original RESULT.md blob guard plus SHA256 of complete UTF8 replacement bytes."
+      ],
+      "rationale": "For any epsilon-free, single-initial NFA recognizing precisely m+kp unary lengths, an accepting run with a repeat gives a repeatable directed simple cycle of even length d divisible by the eventual period p, yielding at least lcm(p,2) states. The shortest accepting run length m must be simple. If p is odd the accepting run of length m+p is also simple, because removing a nonempty repeated even closed walk divisible by p removes at least 2p letters and contradicts minimality of m. Thus odd p requires at least max(2p,m+p+1) and even p at least max(p,m+1). A directed path of t=max(0,m-p+1) edges into an even cycle of length l=lcm(p,2), accepting offsets e=m-t (and e+p for odd p), achieves exactly max(l,m+l-p+1) states and the required language. Underlying simple graph is cactus, including l=2 as a single undirected edge with reciprocal arcs. The source RESULT.md literally contains {claim} rather than the theorem in its Finding section: a full replacement RESULT.md with explicit quantifiers, complete proof and scientific scope has been staged and independently reassessed.",
+      "risks": [
+        "The replacement corrects an actual source-text placeholder; the original RESULT.md Finding section was not a complete theorem as written.",
+        "The all-parameter proof, not 77 examples, establishes state minimality."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The former gives unrestricted existence in a structurally restricted graph class with no tight all-(p,m) state minimum.",
+          "The latter addresses unary NFA general theory; removing the bipartition constraint can eliminate the odd-period 2p penalty."
+        ],
+        "reasoning": "A theorem covering a larger language class existentially does not bound the minimal state count sharply; the new lower bound exploits even closed walks and odd p precisely.",
+        "searches": [
+          "Grobler Koziel Siebertz 2026 full primary text Theorem 1.1",
+          "Czerwiński et al. 2023 unary automata Chrobak normal form"
+        ]
+      },
+      "checked_sources": [
+        "Grobler–Koziel–Siebertz arXiv:2610.11717 full primary text",
+        "Czerwiński et al., arXiv:2302.06435, targeted accessible material",
+        "Resultary automata-theory semantic searches",
+        "Direct web search bipartite cactus unary minimum state count"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard even-p state bound max(p,m+1) follows from cycle period and shortest path; claimed new odd-p bound max(2p,m+p+1) needs the positive even-multiple loop deletion in the length m+p run.",
+          "Grobler–Koziel–Siebertz construction is not size-optimal and does not select the exact threshold state count."
+        ],
+        "reasoning": "Existing generic existence of bipartite-cactus representations implies only a finite upper bound; it does not imply the sharp odd-period delay penalty or prove the present explicit optimal construction.",
+        "searches": [
+          "arXiv:2610.11717 Theorem 1.1 and concluding remarks",
+          "arXiv:2302.06435 Chrobak normal form and unary NFA bounds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Grobler–Koziel–Siebertz Theorem 1.1 asserts epsilon-free bipartite cactus existence for all regular languages, not state optimum.",
+          "Chrobak normal form studies ultimately periodic unary NFAs without this specific transition-bipartition cactus restriction."
+        ],
+        "reasoning": "Compared aliases thresholded unary congruence class, tail-plus-period state complexity, unary cycle with even graph constraint, single-residue progression, and bipartite transition automata. The closest published statements have different outputs or constraints.",
+        "searches": [
+          "Resultary semantic: unary language a^(m+kp) minimum states NFA bipartite cactus graph even cycles threshold period",
+          "\"bipartite cactus\" unary minimum number states progression",
+          "arXiv:2610.11717",
+          "arXiv:2302.06435"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact table, formula or database entry matching the two-parity max expressions appeared among the bounded same-object searches.",
+          "Simple p=1,2 construction checks are elementary boundary cases and are not claimed as separate novelty."
+        ],
+        "reasoning": "The formula is a uniform infinite parameter classification, so any known all-(p,m) table would be covering; negative searches are not proof of priority.",
+        "searches": [
+          "exact unary automata state complexity m mod p bipartite cactus minimum",
+          "Resultary unary threshold residue bipartite cactus state count"
+        ]
+      },
+      "rationale": "The general 2026 theorem proves existence of an equivalent bipartite-cactus NFA for any regular language, without computing minimal state count; the exact parity-sensitive formula over all p>=1,m>=0 is an independently useful restriction-specific state-complexity refinement. Originality is best-of-knowledge, with an explicit risk that an equivalent result may be known under unary automata with alternating state parity.",
+      "residual_risks": [
+        "Equivalent exact formula may be buried in parity-constrained unary NFA literature.",
+        "Primary Czerwiński et al. complete full text was not re-read this run."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact size optimum for thresholded unary arithmetic progressions",
+          "evidence": [
+            "Theorem 1.1 states existence of epsilon-free bipartite-cactus NFA for any regular language, without sharp p,m state-count formula."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.11717",
+          "material_read": "Full available arXiv HTML: Theorem 1.1, definitions of transition-compatible coloring/cactus, construction sections and end discussion",
+          "method": "Read complete primary text and compare state optimization vs existence",
+          "title": "Every Regular Language Has a Bipartite Cactus Automaton",
+          "trigger": "Direct source motivating exactly the restricted graph family"
+        },
+        {
+          "assessment": "LIMITED_READ; no conclusion about entire literature of unary NFA minimization",
+          "evidence": [
+            "General unary NFA complexity does not directly enforce every transition changing two-color class."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.06435",
+          "material_read": "Abstract, indexed definitions and Chrobak-normal-form discussion; not a verified full paper reread this run",
+          "method": "Primary-source search with bounded targeted comparison",
+          "title": "Languages given by Finite Automata over the Unary Alphabet",
+          "trigger": "Plausible stronger unary automata size-complexity framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "For odd p the sharp 2p cycle lower bound and m+p+1 simple-run lower bound do not follow from standard unrestricted NFA state counts.",
+        "Explicit path/cycle witness attains the bound for all p,m, not only a bounded list."
+      ],
+      "rationale": "State complexity under a bipartite cactus restriction is a natural quantitative question arising directly after a recently established universal existence theorem. The complete formula for a standard infinite family of unary arithmetic-progression languages locates a sharp parity-dependent obstruction, including how transient delay forces additional states. The exact cost is useful as a first benchmark for structural automata minimization. This is a motivated state invariant, not just a trivial renaming of the ordinary unary DFA bound: odd periods require a simple length-(m+p) accepting run.",
+      "risks": [
+        "The theorem treats only one-residue ultimately periodic unary languages, not a general state-minimization algorithm."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "repaired",
+  "schema_version": 1
+}
