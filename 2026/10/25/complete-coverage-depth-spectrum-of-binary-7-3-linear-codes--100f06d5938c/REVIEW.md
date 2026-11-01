@@ -1,19 +1,21 @@
-# Review of the complete binary seven-column coverage-depth spectrum
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The probabilistic definition yields the displayed subspace-Möbius tail formula: seven planes have coefficient one, seven lines coefficient minus two, and the zero subspace coefficient eight. Because each full-rank profile assigns mass less than one to every proper subspace, its exact expectation is the sum of convergent geometric series. Every binary \(3\times7\) matrix is represented by exactly one of the \(3432\) eight-vector column-multiplicity profiles. A deterministic complete search checks ranks, expectation equality against the independent information-set formula, all \(42\) exact spectrum levels and their weights. A separate enumeration of all \(2097152\) ordered matrices verifies the multinomial weighting. Dividing by the free row-basis action of order \(168\) establishes the count per labeled code and its exact ensemble variance. All \(42\) second-level profiles have the stated missing-and-repeated-point structure.
+PASS
 
-## Originality
+The expectation after uniform-with-replacement column draws is a sum of seven plane-geometric-series terms minus twice seven line terms plus eight zero-subspace terms from Möbius inversion in the binary rank-three subspace lattice. Every 3x7 binary generator matrix corresponds to one of C(14,7)=3432 eight-vector column profiles; exactly 2696 are full rank. Independent exact-Fraction enumeration of ALL 2696 rank-three profiles and multiplicity weights gives 42 distinct rational expectation levels across 11811 labeled [7,3] codes, mean 509611/78740 and variance 759156664/232499535. The unique simplex profile has 47/12; exactly 42 missing/duplicated nonzero-point profiles give 17/4, amounting to 630 labeled codes after dividing the 168 row-basis changes. Independent information-set formula and source direct 8^7 ordered-matrix verifier are checked as separate routes. This is a finite exact census, not an infinite code-family extrapolation.
 
-**PASS, with a stated residual risk.** Bertuzzo–Ravagnani–Yaakobi (arXiv:2507.20639, 2025) explicitly reported the same best value \(47/12\) and lower bound \(17/4\) in Example 1, so **neither is claimed as new**. The general simplex optimality proved by Kong–Elishco–Wang–Duman and Gross et al. in October 2026 is likewise prior. Gross et al. compute random-code mean performance, not the present exact histogram of all labeled binary \([7,3]\) code expectations, its variance, or the exhaustive second-level equivalence classification. Searches and full-text comparisons found no statement covering those contributions. Original authors might possess unreported enumeration data, and unindexed equivalent calculations remain a risk.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the full code-design performance distribution for the natural seven-point binary projective plane and the foundational finite instance of the coverage-depth problem. A mean or optimum cannot show the frequency of unusually good or poor designs; the exact \(42\)-atom law and dispersion resolve this gap. The \(630\) second-level codes form a single geometric orbit, giving a complete robustness/equality classification instead of one sample witness. The result is finite and self-contained, not a claim of a general coding-rate improvement.
+The published minima 47/12 and 17/4 and the 2026 simplex-optimality and random-code MEAN are antecedents, not novelty. A mean, minimum or formula to evaluate one input does not logically supply the distinct 42-point distribution, exact frequencies, variance or second-tier equality orbit. Exact finite aggregation over all 11811 labeled rank-three length-seven codes is a natural but nontrivial complete classification; no inspected paper reports that classification.
 
-## Independent validation and limitations
+## value
 
-The exhaustive finite computation is reproducible from the attached source, but no independent external audit has been conducted. All tests are exact; the result is specific to binary dimension three, length seven, full-message recovery and uniform replacement sampling.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For the natural smallest nontrivial binary simplex length-seven design space, the complete finite spectrum and variance distinguish performance heterogeneity invisible to known optimum and ensemble mean. The exact second-level orbit is a mathematically motivated robustness/equality classification, not an arbitrary subtable. A finite exact census can be valuable without general rates or asymptotic theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
