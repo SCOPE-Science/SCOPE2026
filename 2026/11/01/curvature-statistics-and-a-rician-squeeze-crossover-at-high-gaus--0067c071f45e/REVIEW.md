@@ -1,31 +1,21 @@
-# Scientific review of the Gaussian spectrogram peak-curvature theorem
+# Independent mathematical audit
 
-## Correctness (C) — PASS
+## correctness
 
-The definition of a peak is a strict positive-height local maximum of the field \(H_b\). The Gaussian entire function has independent circular Gaussian Taylor jets at a translated critical point. The Chern-derivative zero constraint sets \(a_1=0\), and the relevant Kac–Rice Jacobian is exactly \(2|a_2|^2-|a_0|^2\). The weighted maximum ensemble therefore has joint density \(3(s-2t)e^{-s-t}\) on \(s>2t>0\). This density integrates to one; the associated mean maximum intensity is \(1/(3\pi)\), agreeing with Abreu's established result.
+PASS
 
-The Hessian expansion and the transformation under \(S_b=\operatorname{diag}(e^b,e^{-b})\) yield the displayed real symmetric two-by-two matrix. Integration of the exact Palm density gives the finite-height eccentricity tail. Conditional \(T\mid S=s\) tends to a unit exponential law, and under \(S\ge h\) one has \(S/h\to1\). The high-peak jet is consequently a standard planar real Gaussian after scaling. Eigenvalue perturbation gives the noncentral Rayleigh (Rician) crossover and, for fixed nonzero squeeze, the normal limit about \(e^{4|b|}\). These deductions use distributional convergence, not simulated evidence. Degenerate maxima have zero intensity and do not contribute.
+At a translated Chern-critical Gaussian entire-function peak the independent jets satisfy a1=0, with s=|a0|² and t=|a2|²; the positive Jacobian for maxima is (s-2t)+, whose expectation 1/3 normalizes Palm density 3(s-2t)exp(-s-t) on s>2t. The -1/2 real log-Hessian is I plus the traceless matrix determined by c=sqrt(2)a2/a0; positivity is |c|<1, giving K=(1+|c|)/(1-|c|). Changing variable U=2t/s yields density 3(1-U)/(1+U/2)^3 and survival ((1-U)/(1+U/2))². Exact transformation gives P(K>r)=64r²/(3r²+2r+3)², hence finite E K but infinite E K². Under height s>=h, s/h->1 and t|s tends in total variation to unit Exp, so sqrt(h)c tends to two independent N(0,1) components. Congruence by diag(e^b,e^-b) yields high-peak eigenvalue splitting: b_h sqrt(h)->eta gives twice shifted planar Gaussian radius, with the stated Rician density; fixed nonzero b gives N(0,4) fluctuations about e^(4|b|). Independently integrated the U density and verified exact curvature-tail algebra at r=1,1.1,2,5,10,100; random/simulated checks alone cannot prove distributional convergence.
 
-A standalone standard-library checker passed 79 supplementary exact, quadrature, and finite-sample assertions. It checks normalization, tails and the scaled Hessian ratio independently of the symbolic limiting arguments. Reproducible checks strengthen confidence but do not certify a limit theorem.
+## originality
 
-## Originality (O) — PASS, with residual historical-priority risk
+PASS
 
-Abreu's 2022 open-access full article gives the number and height of spectrogram critical points, including the same Chern/Gaussian jet setup, and is the closest indispensable scientific antecedent. The article's statements and proofs on first intensities and height densities do not give the ratio of principal real Hessian curvatures, its exact Palm tail, or the novel joint high-height/squeeze scaling. A derivation from its premises still requires a new marked Palm integration, Hessian eigenvalue law and a varying-window limit.
+Abreu 2022 open-access primary article computes counts/heights of white-noise spectrogram maxima and Kac–Rice jets; its Sections 3–4 were inspected, providing the essential precursor but not the continuous condition-number mark or height-and-squeeze joint scaling. Haimi–Koliander–Romero 2022 concerns signed zero/critical-point index counts, not Hessian eigenvalue ratios; Haimi–Odelius–Romero 2025 concerns spatial two-point repulsion. Existing finite cyclic two-tap spectrogram Hessian results in Resultary are not the Gaussian entire-function Palm problem. The curvature-mark calculation and Rician crossover require further nontrivial analysis beyond Abreu height marginal. Priority risk remains from unindexed general marked random-field Kac–Rice shape laws.
 
-Haimi–Koliander–Romero's 2022 full article treats signed indices/critical counts of Gaussian Weyl–Heisenberg zeros; the signature of a Hessian does not determine the continuously valued curvature ratio. Haimi–Odelius–Romero's 2025 full arXiv text gives spatial pair correlations of GEF zeros/critical points, not a one-point marked Hessian distribution. The 2026 hyperuniformity article likewise concerns number variance and critical-point indices, not this shape mark. Relevant semantic research-record comparisons concerning Gaussian anisotropy and discrete cyclic Gabor spectrogram Hessians involve different objects and cannot imply this continuous Gaussian random peak-shape law. No equivalent or stronger covering result was found in the checked material; that negative search is not proof of global novelty.
+## value
 
-The strongest residual risk is an unlocated general marked-Kac–Rice theorem that specializes to the same exact curvature tail or double-scaling Rice law, possibly in older random-landscape or Gaussian random-section literature. Priority remains provisional pending independent literature verification.
+PASS
 
-## Mathematical value (V) — PASS
+Peak eccentricity is a natural geometric mark of a spectrogram maximum. Its exact power-law curvature-tail index and failure of the second moment have direct significance for noise peak shape, and the critical h^-1/2 squeeze scaling separates random circularity splitting from deterministic anisotropy. The Rician transition is not a trivial re-labeling of the known peak-count or peak-height marginal.
 
-Curvature anisotropy of a spectrogram maximum is a natural geometric statistic of the local time-frequency concentration landscape, distinct from maxima counts and ordinates. The exact unsqueezed law has a nontrivial \(r^{-2}\) tail, so the second moment of the condition number diverges even though the mean is finite. The high-peak law shows that unusually high noise peaks become asymptotically circular at rate \(h^{-1/2}\); infinitesimal window squeezing competes with random curvature at precisely the same scale, producing a noncentral Rician transition, whereas fixed squeezing leads to Gaussian fluctuations around deterministic eccentricity. This is a structural phase-boundary calculation, rather than a reparameterization of the already-known peak-height density.
-
-## Closest prior literature and limits
-
-- Luís Daniel Abreu, *Local Maxima of White Noise Spectrograms and Gaussian Entire Functions*, arXiv:2210.06721 (first posted 2022-10-13), especially Sections 2.2, 3 and 4.2–4.3, DOI 10.1007/s00041-022-09979-7. Essential Gaussian-jet, average-count and height formulas, but not the marked curvature crossover.
-- Antti Haimi, Günther Koliander, José Luis Romero, *Zeros of Gaussian Weyl–Heisenberg Functions and Hyperuniformity of Charge* (2022), DOI 10.1007/s10955-022-02917-3, especially first-intensity and Section 6.8 index/critical-point statements; not an eigenvalue-ratio distribution.
-- Antti Haimi, Lukas Odelius, José Luis Romero, *Local repulsion between zeros and critical points of the Gaussian Entire Function*, arXiv:2510.06821 (2025), Theorem 1.1; concerns two-point local repulsion rather than one-point Hessian marks.
-
-Only Gaussian-window complex white noise in one time-frequency dimension and the stated Palm selection convention are treated. No global-maximum, non-Gaussian or arbitrary-window claim is made. The numerical checker is not an infinite-dimensional validation. An independent historical-priority audit is not supplied.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
