@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Full optimum and unique Lagrange multiplier are exact by cube duality. Hyperplane feasibility reduces exactly to a one-dimensional interval. Both perturbation envelopes follow from attained coordinatewise and Euclidean norm extrema. Independent Gaussian errors reduce to a folded-normal sum; the strong law and the central limit theorem yield the almost-sure limit and normal critical window. The standalone checker passed 623 rational LP, 3050 extremal and 14400 seeded Gaussian checks; infinite conclusions rely on the proof, not testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "F. Glover (1968), Surrogate Constraints, DOI:10.1287/opre.16.4.741: general strength and normalization of surrogate constraints (abstract/excerpt only).",
+        "Rardin and Unger (1976), DOI:10.1287/opre.24.6.1169: strongest surrogate constraints for Benders partitioning (abstract only).",
+        "arxiv:2610.19181v1, Theorem 1: existence of full-bound weights for a fixed grouping."
+      ],
+      "reasoning": "The cited general duality and surrogate-bound statements recover equality at an ideal weight; none of the material inspected gives a dimension-calibrated necessary-and-sufficient robustness radius or a stochastic saturation limit. These broad works are relevant, and incomplete full-text inspection is retained as a specific priority risk.",
+      "searches": [
+        "single aggregated equality constraint approximates many equalities robust optimal dual weights perturbation sharp objective gap and Gaussian small ball",
+        "surrogate dual weight perturbation sensitivity column aggregation exact recovery robust linear program Gaussian noise"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.19181v1 (inspected relevant primary HTML sections)",
+      "doi:10.1287/opre.16.4.741 (abstract)",
+      "doi:10.1287/opre.24.6.1169 (abstract)",
+      "Hooker, Integer Programming Duality (short excerpt)",
+      "Published results on row-coherence and weighted-projection stability (semantic summaries only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2610.19181v1, equations (10), (15), (16), (17), (22): grouped weighted equality, surrogate relaxation, exact dual recovery and quasi-gradient weight update.",
+        "J. N. Hooker, Integer Programming Duality, surrogate-relaxation discussion (short accessible excerpt): standard surrogate-dual construction."
+      ],
+      "reasoning": "The new claim specializes the source to a box polytope, but source Theorem 1 proves only existence of exact-recovery weights, not how an approximate weight changes the LP value. Exact gap identification, sharp infinity/Euclidean minima, and the CLT critical window demand additional geometry and probability, and are not logical consequences of mere recovery existence.",
+      "searches": [
+        "arXiv 2610.19181 column generation weighted surrogate nonanticipativity exact recovery robustness loss",
+        "weighted constraint aggregation LP box ℓ_1 norm ratio full rank linking equations stochastic dual weights phase transition"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2610.19181v1, Section 2.2.2, Theorem 1 and Example 1: exact dual-weight recovery and surrogate non-quasiconcavity.",
+        "The published result titled A sharp row-coherence obstruction in PDNQP diagonal step initialization concerns matrix-row normalization, not equality aggregation with a perturbed optimal dual multiplier."
+      ],
+      "reasoning": "Reparameterizing surrogate weights by a scalar multiplier, row rescaling or their sign does not transform the source exact-recovery theorem into the exact perturbed-box objective gap. The neighboring row-coherence result concerns a different operator and conclusion.",
+      "searches": [
+        "surrogate relaxation nonanticipativity weighted aggregation perturbations sensitivity exact dual weights error ell infinity m scaling box polytope",
+        "sharp dual multiplier noise robustness radius for one aggregated surrogate linear constraint box polytope, complete bound loss at 1/sqrt(m), nonanticipativity"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published semantic searches returned results on Gaussian critical scales and weight sensitivities, but no table giving complete-collapse probabilities of aggregated LP bounds.",
+        "The motivating source has numerical results for its iterative weight-update performance, not the stated independent-Gaussian perturbation model."
+      ],
+      "reasoning": "The threshold and normal crossover are derived analytically from sums of half-normal variables; neither a sampled curve nor a generic Gaussian limit theorem is itself a prior tabulation of the LP-bound event.",
+      "searches": [
+        "stochastic weighted surrogate constraint Gaussian noise absolute sum threshold in column generation",
+        "Gaussian perturbations of exact Lagrange multipliers in surrogate dual: critical 1/m noise scale full relaxation collapse, folded normal CLT"
+      ]
+    },
+    "rationale": "The October 13, 2026 motivating source establishes exact optimal-multiplier recovery for convexified weighted aggregation, but the inspected explicit theorem and update analysis give neither the present sharp error radii nor the Gaussian complete-collapse transition. Classic surrogate-bound work concerns existence and strength of aggregations, and the available excerpts do not imply the present fixed normalized box-family sensitivity law. Closest accessible published mathematical results concern separate row-coherence and weighted projection questions; comparisons were by mathematical implication, not keywords. Historical priority remains incompletely verified.",
+    "residual_risks": [
+      "Uninspected latter sections or appendices of the motivating manuscript could contain a related perturbation calculation.",
+      "Older surrogate-duality literature, including specialized multiplier-stability analyses, was only partially accessible.",
+      "A general perturbation theorem might imply the present finite-dimensional formula without sharing its vocabulary.",
+      "The instance is an explicit LP example; its result must not be extrapolated to the published stochastic MIP implementation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Exact weight recovery covered; sharp error radii and independent-Gaussian phase not found in material read; remaining sections pose residual risk.",
+        "evidence": [
+          "arxiv:2610.19181v1, October 13, 2026, equations (10), (15)--(18), (20), (22)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.19181",
+        "material_read": "Abstract, Introduction, Section 2.1 and Section 2.2 through equation (22), including the statement and proof of Theorem 1 and Example 1; later sections and appendices not read.",
+        "method": "Accessible arXiv HTML full-text sections; compared exact optimization objects and implications.",
+        "title": "Aggregated Column Generation for Two-Stage Stochastic Mixed-Integer Programs",
+        "trigger": "Direct motivating paper; weighted surrogate bounds and exact optimal-multiplier recovery."
+      },
+      {
+        "assessment": "Relevant surrogate-constraint background, no claimed negative full-text coverage.",
+        "evidence": [
+          "Operations Research 16(4) (1968), pp. 741--749, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.16.4.741",
+        "material_read": "Search-accessible abstract and publisher metadata; full article not inspected.",
+        "method": "Bibliographic/abstract comparison only.",
+        "title": "Surrogate Constraints",
+        "trigger": "Classic strongest-surrogate and normalization foundations."
+      },
+      {
+        "assessment": "Strongest-surrogate context; no full-document noncoverage assertion.",
+        "evidence": [
+          "Operations Research 24(6) (1976), pp. 1169--1175, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1287/opre.24.6.1169",
+        "material_read": "Search-accessible abstract and publication metadata; full text not inspected.",
+        "method": "Bibliographic/abstract comparison only.",
+        "title": "Surrogate Constraints and the Strength of Bounds Derived from 0-1 Benders Partitioning Procedures",
+        "trigger": "Potential earlier strongest-surrogate theorem."
+      },
+      {
+        "assessment": "Background supports scope of classical surrogate programming, not direct coverage of the derived Gaussian radius.",
+        "evidence": [
+          "Hooker, Integer Programming Duality, publicly indexed surrogate-relaxation excerpt."
+        ],
+        "identifier_or_url": "https://johnhooker.tepper.cmu.edu/encyIPdualityRevised.pdf",
+        "material_read": "Search-exposed excerpts describing a single aggregate surrogate constraint and dual weights; full survey not read.",
+        "method": "Search excerpt only; no claim of appendix or complete-source inspection.",
+        "title": "Integer Programming Duality",
+        "trigger": "General duality and surrogate-relaxation comparison."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "005af3e5-d8c1-442b-aa33-f3d49280edc5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For the actual weighted aggregation mechanism of the new column-generation proposal, this family exhibits exactly how ideal multiplier recovery loses useful bound guarantees when weights are perturbed. It gives a sharp deterministic precision budget and a dimension-scaled stochastic complete-loss phase, isolating the importance of weight accuracy from any putative failure of the iterative update procedure. Normalization and applicability limits are explicit.",
+    "status": "PASS"
+  }
+}
