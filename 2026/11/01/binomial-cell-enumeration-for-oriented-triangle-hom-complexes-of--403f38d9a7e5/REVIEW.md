@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The theorem counts the original regular CW cells of the directed multihomomorphism complex, not barycentric simplices. Three directed arc lengths around any selected triple sum to exactly one target circumference because each is at most half the circumference. This forces a unique cyclic order of the nonempty coordinate supports, and a unique first-A anchor. The extremal block widths and three arc slacks give six **nonnegative** variables summing to \(m-1\); conversely their explicit positive-gap formulas reconstruct each allowed cell. The width series \(s(1-z)/(1-(1+s)z)\) cancels the three slack factors, proving the complete binomial polynomial. Target rotation must rotate the unique anchor, so every cell has trivial stabilizer; Euler-characteristic conclusions follow. The small boundary case \(m=1\) is included separately in the Euler conclusion. The actual standalone checker exhausts orders 3 through 19, and directly validates anchors and rotation stabilizers through order 15. Numerical tests are corroboration, not the proof of the infinite theorem.
+
+## Originality — PASS against inspected evidence
+The foundational paper by Dochtermann and Singh defines directed Hom complexes, proves contractibility for transitive targets, and gives small nontransitive examples. It does not provide the universal cyclic-target f-polynomial. The closest exact mathematical record computes \(\operatorname{Hom}(\overrightarrow C_3,R_9)\simeq S^1\) and the single cell vector \((90,270,270,90)\). Its full `RESULT.md` explicitly restricts to that named tournament and disclaims a family formula. The existing finite vector is recovered, **not** claimed to be new. Semantic searches for Hom-cell counts, round/locally transitive tournaments, quotient actions and equivalent formulas disclosed no result covering the all-order six-parameter bijection. Residual risk: an unindexed prior enumeration under alternate terminology may exist.
+
+## Value — PASS
+The formula gives all cellular ranks, exact dimension, and Euler characteristic simultaneously across an infinite canonical family. The dimension is directly relevant to the oriented-three-cycle equivariant obstruction framework articulated in the foundational paper. Unlike the known transitive-target contractibility theorem, every cyclic target of odd order at least five is shown noncontractible by the proved Euler characteristic. The free target-rotation cell action also gives a full quotient cell census. These are structural topological and enumeration facts, not a one-off small numerical lookup. No homotopy classification or circle conjecture is asserted.
+
+## Closest literature and limits
+Dochtermann–Singh, arXiv:2108.10948v1, §§2.4, 5, 7.2; the published exact finite \(R_9\) record, with its full main result and proof inspected; and Savchenko arXiv:2403.07629 as nomenclature context. The proof does not determine homotopy groups, integer homology, torsion, or regularity of the quotient cell structure. An independently unindexed result may remain.
+
+Self-review: passed. Independent audit: not yet performed.

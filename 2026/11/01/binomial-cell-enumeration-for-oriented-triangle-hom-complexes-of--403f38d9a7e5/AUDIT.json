@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "Each allowed vertex triple has three clockwise arc lengths in [1,m]; their sum is n, since it is a positive multiple of n below 2n. This forces A/B/C noninterlacing and a unique anchored cyclic block decomposition. Widths u,v,w and arc gaps p,q,r satisfy the three exact maximum-distance inequalities; slacks i,j,k form a bijection with six nonnegative variables summing to m-1, with positive converse gaps p=1+w+j+k etc. The width generating function W(z,s)=s(1-z)/(1-(1+s)z) cancels three slack factors, giving F_m(s)=n*binom(m+1,2)*(1+s)^(m-1) for every m>=1. Rotation changes the unique anchor and thus has no nontrivial cell stabilizer. The finite verifier independently enumerates all Hom cells for n=3..19 and confirms each coefficient; for n<=15 it checks all anchors and target-rotation stabilizers. The universal claim is justified by the symbolic bijection, not by testing.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dochtermann--Singh prove empty-or-contractible for transitive targets only (arXiv:2108.10948v2, Section 5).",
+        "The R9 exact theorem is a single numerical parameter instance; the publicly inspected main result explicitly disclaims a family formula."
+      ],
+      "reasoning": "A theorem that all directed Hom complexes into transitive tournaments collapse cannot cover the nontransitive cyclic targets. A result at n=9 cannot imply all n; its cell vector is acknowledged as a covered finite specialization. No stronger family or domination of the all-order face counts was found.",
+      "searches": [
+        "arXiv:2108.10948v2 Sections 5,7.1,7.2",
+        "published-finding corpus: Hom directed 3-cycle cyclic tournament R11 R13 homotopy directed homomorphism complexes",
+        "Web: f-vector multihomomorphism complexes tournaments directed cycle odd regular cyclic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2108.10948v2",
+      "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md",
+      "https://arxiv.org/abs/2403.07629",
+      "2026/10/11/SCOPE-cyclic-tournaments-retain-one-integral-first-path-homology-class--e580ee11cea9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The R9 source states the scope is only named R9 and explicitly does not assert a formula for all cyclic tournaments.",
+        "Directed path homology results concern a different invariant than cellular counts of the multihomomorphism complex.",
+        "The foundational paper indicates Hom-dimension is an obstruction input but does not derive the full formula."
+      ],
+      "reasoning": "Neither previously determined circle homotopy for R9 nor its finite f-vector entails the polynomial for every odd target. The known transitive-tournament theorem cannot imply noncontractibility of nontransitive cyclic targets. Counting directed cycles in locally transitive tournaments does not supply these multi-set-cell counts.",
+      "searches": [
+        "Primary full source arXiv:2108.10948v2 §§2.4,5,7.2",
+        "Published R9 main RESULT.md https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md",
+        "published-finding corpus: cyclic tournaments retain one integral first path homology class",
+        "Web: \"locally transitive tournaments\" \"Hom\" complexes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2108.10948v2, Sections 2.4 and 7.2, treats directed Hom complexes and obstruction dimensions but contains no all-m f-vector for this target.",
+        "Closest published-finding corpus record for R9, https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md, contains a finite cell vector, not a universal polynomial."
+      ],
+      "reasoning": "Cyclic tournament, standard round tournament and regular locally transitive tournament are aliases for the target considered. The claim is an all-m cellular enumerator with quotient orbit counts, not a homology result or a finite R9 calculation. No checked source gives its six-parameter generating-function identity.",
+      "searches": [
+        "published-finding corpus: complete face polynomial f-vector Hom(overrightarrow C_3, R_{2m+1}) regular cyclic tournament n binomial (1+t)^{m-1}",
+        "published-finding corpus: universal f-polynomial homomorphism complex cyclical tournament directed triangle",
+        "Web: \"regular locally transitive tournament\" homomorphism complex directed cycle",
+        "Web: \"Hom\" \"cyclic tournament\" \"f-vector\" \"C3\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "R9 published cell vector (90,270,270,90) equals the specialization m=4; https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md",
+        "Foundation arXiv:2108.10948v2 shows isolated small target examples but no all-m face table.",
+        "Accessible own ledger claims include Paley tournament directed flag complexes and quadratic-residue P19 directed Hom, but not the standard cyclic-target all-order cell polynomial."
+      ],
+      "reasoning": "The known finite R9 vector and smaller pictured examples may contain particular coefficients, but they are not an exact table/formula for arbitrary m. The current contribution is the universal full polynomial and orbit count. The own P19 target uses quadratic residues and is a different tournament.",
+      "searches": [
+        "published-finding corpus: Hom(C3,R9) circle homotopy f vector 90 270 270 90",
+        "published-finding corpus: number of d dimensional cells in directed Hom complex oriented triangle into cyclic tournament",
+        "own historical ledger claim scan: 55 findings in p0001_g000055 and 64 findings in p0002_g000064"
+      ]
+    },
+    "rationale": "The full directed-Hom foundational paper defines the objects and proves only a transitive-tournament contractibility theorem, displaying some nontransitive examples and emphasizing dimension in obstruction theory. The closest fully inspected exact published R9 record gives f=(90,270,270,90), and explicitly states it asserts no family formula. This is a specialization at m=4, not a covering theorem for every m. Queries of published-finding corpus and public literature for cyclic/round/locally-transitive targets, cell enumerators, equivariance, and equivalent formulations found no all-m result. An unindexed equivalent enumeration remains possible.",
+    "residual_risks": [
+      "An equivalent all-order cell enumeration may be published under round/locally transitive tournament or cellular box-complex terminology outside indexed/accessible sources.",
+      "The 2024 cycle-count paper was inspected only at abstract level because its subject does not plausibly imply Hom-cell counts; no whole-document noncoverage claim is made."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The directed Hom definition matches exactly; transitive target collapse and small examples do not cover universal cyclic-target enumeration.",
+        "evidence": "Section 2.4 defines cells as products of simplices indexed by multi-homomorphisms; Section 7.2 explicitly links dimension to obstruction theory. Submission history identifies 2021-08-24 first version.",
+        "identifier_or_url": "https://arxiv.org/html/2108.10948v2",
+        "material_read": "Accessible complete HTML, with detailed inspection of Sections 2.4 (definitions), 2.4.1 (examples), 5 (tournaments) and 7.1-7.2 (topology and obstruction)",
+        "method": "Full-text HTML navigation and in-document term checks",
+        "title": "Homomorphism complexes, reconfiguration, and homotopy for directed graphs",
+        "trigger": "Foundational definition, all potentially covering tournament theorems and obstruction applications"
+      },
+      {
+        "assessment": "Exact m=4 specialization is known and explicitly acknowledged; source expressly excludes any all-n formula.",
+        "evidence": "Published f-vector (90,270,270,90); full-text limitation: \"This is a single exact finite case, not a family theorem.\"",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-the-directed-hom-complex-operatorname-hom-overrightarrow-c-3-r-9--879b51cbdd1a/RESULT.md",
+        "material_read": "Full published RESULT.md, including finding, proof, verification, relationship and limitations",
+        "method": "GitHub repository file content read (read-only)",
+        "title": "The directed Hom complex Hom(C3,R9) has the homotopy type of a circle",
+        "trigger": "Same source and target type, finite parameter m=4 potentially covering candidate"
+      },
+      {
+        "assessment": "The paper counts 8-cycles of tournaments and identifies the regular locally transitive family, not cells of a directed Hom complex.",
+        "evidence": "Abstract defines RLT_n and its cycle-count objective.",
+        "identifier_or_url": "https://arxiv.org/abs/2403.07629",
+        "material_read": "Title, abstract and source metadata (not full article)",
+        "method": "Open arXiv abstract and search contextual terminology",
+        "title": "On the number of 8-cycles for two particular regular tournaments of order N with diametrically opposite local properties",
+        "trigger": "Alias regular locally transitive tournament may obscure coverage"
+      },
+      {
+        "assessment": "Path homology H_1(R_n;Z) is not the directed Hom complex cellular face polynomial; this record does not give a covering implication.",
+        "evidence": "Summary reports path-homology class and winding functional, not Hom multihomomorphism counts.",
+        "identifier_or_url": "2026/10/11/SCOPE-cyclic-tournaments-retain-one-integral-first-path-homology-class--e580ee11cea9",
+        "material_read": "published-finding corpus search summary only",
+        "method": "Semantic record search",
+        "title": "Cyclic tournaments retain one integral first path homology class",
+        "trigger": "Identical target family and a topological invariant"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "403f38d9-a7e5-4bed-88f8-6332f5af5024",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives an exact complete cellular f-polynomial, maximum dimension, and free quotient orbit counts for every standard cyclic tournament, a canonical nontransitive family. Section 7.2 of arXiv:2108.10948 explicitly motivates dimensions of Hom(C3,H) as equivariant obstruction inputs. The formula implies every odd cyclic target of order at least five gives a noncontractible complex by Euler characteristic zero, in direct structural contrast to the foundational transitive-target contractibility theorem. It is not a merely renamed formula, an isolated parameter increment or a known table recalculation; the six-variable bijection produces a uniform all-order identity. No stronger homotopy classification is claimed.",
+    "status": "PASS"
+  }
+}
