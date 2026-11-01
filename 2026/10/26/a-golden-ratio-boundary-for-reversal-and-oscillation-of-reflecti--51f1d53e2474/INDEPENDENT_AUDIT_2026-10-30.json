@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:55:57Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and checker.py",
+        "Independent symbolic generator determinant and critical factorization",
+        "Olsen Löwen arxiv:2406.10039 refractory model; Biroli et al arxiv:2406.08387 negative reset without rests"
+      ],
+      "rationale": "The two-state generator (Lf)_A=D f_A″+r[f_R(-ux)-f_A(x)], (Lf)_R=b[f_A(x)-f_R(x)] is exact. The contraction |u|<1 at successive reset times guarantees the unique stationary second-moment state. Balance yields active weight rho/(1+rho), active second moment 2Dp_A/[r(1-u²)], resting second moment (u²/rho)M_A and C(0)=2D/r*(rho+u²)/[(1+rho)(1-u²)]. The conditional mean semigroup has matrix [[-1,-u],[rho,-rho]], giving normalized ODE c″+(1+rho)c′+rho(1+u)c=0 and initial c′(0)=-h with h=rho(1+u)/(rho+u²). I independently verified its characteristic polynomial and factored identity (h-s_fast)(h-s_slow)=rho u(1+u)²[rho-u(1-u)]/(rho+u²)². For negative discriminant the damped nonzero sinusoid has infinitely many simple zeros spaced π/omega. In real-spectrum region, sign of slow-mode coefficient decides exactly one crossing; factor sign plus boundary u²+u=1 identifies the unique one-crossing strip rho0<rho≤rho_- when 0<u<u*. At the double root solution e^-kτ(1+(k-h)τ) handles transitions without numerical extrapolation. Near rho0 the vanishing slow amplitude is linear with positive eigenvalue gap 1-u-u², giving log[1/(rho-rho0)]/(1-u-u²)+O(1). All distinctions use dimensionless τ=rt.",
+      "residual_risks": [
+        "No inference that stochastic paths oscillate; only stationary centered covariance changes sign.",
+        "Exponential rest/active durations, scalar Brownian motion and negative contraction are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Olsen–Löwen provides propagators and stationary one-time moments in positive reset ratio.",
+          "Biroli et al develops negative rescaling without rests."
+        ],
+        "reasoning": "General two-mode Markov semigroup machinery yields a finite ODE when applied to the combined process, but no inspected published statement covers the full sign thresholds or golden-ratio one-crossing boundary.",
+        "searches": [
+          "Partial stochastic resetting with refractory periods propagator Olsen Lowen",
+          "Resetting by rescaling exact diffusing particle",
+          "Evans Majumdar refractory effects stochastic resetting"
+        ]
+      },
+      "checked_sources": [
+        "Resultary targeted semantic search",
+        "Olsen Löwen primary arxiv:2406.10039 PDF",
+        "Biroli et al arxiv:2406.08387",
+        "Garcia-Valladares et al arxiv:2310.19913"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Positive multiplier with rest and negative multiplier without rest are both known models.",
+          "The combined generator has characteristic discriminant (1-rho)²-4rho u, whose negative region creates oscillatory autocovariance."
+        ],
+        "reasoning": "Neither the positive-multiplier refractory formula nor the no-rest negative-multiplier formula logically states the three-regime sign classification. An extended general propagator may allow a separate derivation; overlap risk retained.",
+        "searches": [
+          "arxiv:2406.10039 conditional propagator positive partial reset",
+          "arxiv:2406.08387 negative reset without refractory",
+          "arxiv:2310.19913 refractory complete reset"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Olsen–Löwen assumes positive a∈(0,1) in the same-type rest model.",
+          "Biroli et al include negative scaling but have no frozen refractory state."
+        ],
+        "reasoning": "The sign of the conditional-mean matrix off-diagonal coupling is different in the negative-multiplier joint model, permitting complex eigenvalues. Neither separate premise supplies the three exact zero regimes.",
+        "searches": [
+          "Resultary reflection reset Brownian exponential rest autocovariance oscillation golden ratio",
+          "Olsen Löwen refractory partial stochastic resetting arxiv 2406.10039",
+          "Biroli Feld Hartmann rescaling reset negative multiplier arxiv 2406.08387"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent matrix calculation and proposed one-crossing example are not an external finite table."
+        ],
+        "reasoning": "This is an infinite-parameter analytic classification, not a finite census or fixed numerical value that a known data table could replace.",
+        "searches": [
+          "Resultary reflection reset refractory autocorrelation zero sign phase",
+          "Brownian reset correlation oscillation parameter phase table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original full two-time stationary covariance sign-phase diagram for the combined reflection and refractory-rest model. Negative rescaling and refractory periods each have prior treatments separately, but inspected primary sections do not state the joint model’s exact zero classification.",
+      "residual_risks": [
+        "A more general semigroup two-time correlator for signed reset multipliers with rests might subsume the ODE.",
+        "Only material relevant sections of Olsen–Löwen were read, not every appendix in other cited papers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME refractory structure but positive scaling, no exact negative-reflection two-time zero theorem found in inspected sections",
+          "evidence": "Reset factor restricted to positive interval; position propagators/moments, not stationary covariance sign phases.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.10039",
+          "material_read": "Primary arXiv PDF model definition, early derivation of one-time propagator and stationary moments; positive multiplier a in (0,1), including page screenshot",
+          "method": "Accessible full primary arXiv PDF, substantive model and results section reading",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "Closest model with refractory intervals and partial scaling resets"
+        },
+        {
+          "assessment": "Covers negative rescaling mechanism without refractory; not the present two-mode stopped process",
+          "evidence": "No rest state in target comparable negative multiplier model.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.08387",
+          "material_read": "Primary arXiv abstract and identified negative multiplier and stationary/MFPT scope; not entire article",
+          "method": "arXiv paper abstract and main-result description",
+          "title": "Resetting by rescaling: exact results for a diffusing particle in one-dimension",
+          "trigger": "Negative reset multiplier without refractory rests"
+        },
+        {
+          "assessment": "Related model, but no combined reflection-contraction two-time classification shown",
+          "evidence": "Complete reset with rests versus nonzero negative multiplier.",
+          "identifier_or_url": "https://arxiv.org/abs/2310.19913",
+          "material_read": "ArXiv abstract and stated complete-reset model scope",
+          "method": "Primary arXiv bibliographic/abstract review",
+          "title": "Stochastic resetting with refractory periods: pathway formulation and exact results",
+          "trigger": "General refractory resetting mechanism"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exponential resetting with refractory stochastic states",
+        "Exact two-state covariance generator and spectral boundary"
+      ],
+      "rationale": "Stationary sign reversals induced solely by intermittent reflection and rest are a natural dynamical correlation phenomenon. The exact no-reversal/one-reversal/infinite-reversal phase diagram identifies a sharp golden-ratio boundary and critical divergence without deterministic oscillations; this is a substantive structural classification.",
+      "residual_risks": [
+        "Only stationary two-time position covariance under the specified exponentially timed model, not first-passage distribution."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Brownian motion with Poisson reflection-contraction resets followed by exponential frozen rests, the exact stationary position autocovariance has zero, one, or infinitely many positive-lag zeros, sharply partitioned by the discriminant and golden-ratio threshold u*=(sqrt5-1)/2, with logarithmic first-zero divergence.",
+  "limitations": [
+    "No nonexponential rest, inertial or other reset-map claims.",
+    "The zero spacing is in dimensionless time and physical spacing divides by r."
+  ],
+  "schema_version": 1
+}
