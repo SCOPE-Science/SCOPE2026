@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** For every complex matrix, exact Fourier averaging of quartic norms proves pairwise fourth-moment column overlap at most the stated distortion; retaining the maximal element of each row deletes a controlled fourth-power mass. The normalized disjoint columns define an exact isometry and yield the explicit bound. For the explicit two-column perturbation, Hölder duality computes the defect, while one target-row obstruction and an explicit approximant prove the sharp asymptotic ratio. The proof applies to every permitted dimension and includes the boundary \(\varepsilon=0\).
+
+**Originality — PASS (best-knowledge, not a publication-priority certification).** The inspected 2026 primary source (arXiv:2610.32615v1) classifies exact restricted isometries; it does not assert an explicit quantitative fourth-root stability bound or a sharp exponent. The 2015 Oikhberg–Tradacete source (arXiv:1508.04074), notably its positive-operator approximation theorem and its discussion of almost-disjointness-preserving near-isometries, provides relevant general context but not a direct implication covering arbitrary complex matrices and the exhibited sharp coefficient. Semantic database searches for the quantitative claim and aliases found no dominating statement. Other stability results under alternate language could anticipate the proof; independent priority confirmation remains necessary.
+
+**Mathematical value — PASS.** The result addresses the natural robustness question left by an exact support-rigidity classification: finite measurement errors and approximate norm preservation need a quantitative guarantee of nearby exact structure. The bound is independent of target dimension, covers complex signs, and includes a sharp obstruction showing why fourth-root accuracy cannot generally be improved. Its explicit row-removal proof is constructive.
+
+**Closest literature and limitations.** The exact classification is arXiv:2610.32615v1, Theorem 3.18. Positive almost-disjointness-preserver approximations occur in arXiv:1508.04074. The numerical constant and the global smallness threshold are not asserted optimal, and a comprehensive historical literature review or independent audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
