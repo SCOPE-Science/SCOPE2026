@@ -1,0 +1,205 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:14:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md complete 5-step Laurent/Smith computation at frozen Git blob 3eb1a0db7ddefb718d36fff032ed60683c476486",
+        "Independent labelled 2n-bit permutation and orbit enumeration for all n=3..8; verified 66 fixed-point formulas and 17472 odd-n statewise affine period pairings",
+        "Exact computed source tree matches assigned Git tree 42b409f653273e14d1736f86a3efc5e5d2a44c7c"
+      ],
+      "rationale": "Reconstructed the Laurent-ring T=[[s+s^-1,1],[1,0]] with det one. Its recurrence P_t and determinant s^-t(s^t+1)^2 yield Smith factors (s^t+1,s^t+1) for even t and ((s^t+1)/(s+1),(s^t+1)(s+1)) for odd t. The s=1 root multiplicity contributes exactly the odd/odd single-unit deficiency in kernel dimension. Moebius inversion of fixed counts proves primitive cycles; for odd n the identity T^n=I+[[J,J],[J,J]] yields F^n(z)=z+pi(z)(1,1), and translation by E=(1,0) toggles parity and doubles/halves primitive period. No step extrapolates finite tests to infinite n.",
+      "risk": [
+        "Smith reduction relies on the Laurent PID and correct s=1 valuations, independently checked algebraically; finite tests only n<=8.",
+        "Specific to n>=3 and synchronous binary XOR on a sunlet; not generic graph dynamics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 1986 Guan–He abstract promises general finite additive-CA cycle lengths and multiplicities.",
+          "The Cordovil et al. 1986 accessible introduction explicitly studies infinite additive CA temporal/spatial periodicity and number of orbits.",
+          "Martin–Odlyzko–Wolfram 1984 supplies classical period-order algebra."
+        ],
+        "reasoning": "General cycle algorithms plausibly cover the numerical census under specialization; no accessible theorem yet establishes the labelled affine period-doubling involution. Neither an abstract nor an inaccessible paper can prove full noncoverage, so this substantial overlap is retained as a risk.",
+        "searches": [
+          "reversible second order additive cellular automata sunlet cycle pendant leaves F2 XOR period parity affine involution fixed point count primitive orbit Smith normal form",
+          "Guan–He 1986 DOI:10.1007/BF01020648",
+          "Cordovil–Dilão–Noronha da Costa 1986 DOI:10.1007/BF02187700"
+        ]
+      },
+      "checked_sources": [
+        "Current RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py, verification_output.txt; eight Git blobs checked",
+        "Resultary semantic search on periodic ring second-order additive CA",
+        "Kawahara–Lee RIFIS 119 indexed theorem; Martin–Odlyzko–Wolfram 1984",
+        "Guan–He 1986 abstract; Cordovil et al. 1986 introduction"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed order n/2n is a known type of reversible second-order CA consequence and earns no separate novelty credit.",
+          "A cycle-multiplicity formula by itself does not specify translation by E on labelled states or the pi-selected involution."
+        ],
+        "reasoning": "Accept only the explicit circle-sunlet formula and labelled parity bijection as best-of-knowledge addition; generic old multiplicity methods remain a significant unresolved prior-implication risk.",
+        "searches": [
+          "Martin–Odlyzko–Wolfram 1984 reversible higher-order order",
+          "Guan–He 1986 generic cycle multiplicities",
+          "Kawahara–Lee 1995 Theorem 4.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The state update F(x,y)=((S+S^-1)x+y,x) is a second-order reversible rule-90 CA on a periodic ring, equivalently a synchronous XOR on the cycle-with-leaves graph.",
+          "Kawahara–Lee report discusses the same memory block update with null boundary rather than a periodic ring."
+        ],
+        "reasoning": "The underlying recurrence is old. Its circular finite-ring Smith factors and affine statewise period-doubling involution are the candidate additions; do not claim the recurrence itself original.",
+        "searches": [
+          "reversible second order additive cellular automata sunlet cycle pendant leaves F2 XOR period parity affine involution fixed point count primitive orbit Smith normal form",
+          "Kawahara–Lee 1995 cam-90 with memory",
+          "Vlasov arXiv:1407.6553"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest indexed exact parity orbit counts study different graph families; no indexed explicit sunlet gcd table identified."
+        ],
+        "reasoning": "Failure to find a sunlet table is not a proof of novelty; a general additive-CA cycle-count theorem could mechanically generate such a table.",
+        "searches": [
+          "reversible second order additive cellular automata sunlet cycle pendant leaves F2 XOR period parity affine involution fixed point count primitive orbit Smith normal form",
+          "Resultary: complete multipartite and distance-two hypercube parity automata"
+        ]
+      },
+      "rationale": "Best-of-knowledge novel part: Period-parity involution and exact cycle census for sunlet-graph XOR dynamics. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.",
+      "residual_risks": [
+        "Guan–He 1986 inaccessible complete work may encompass the numerical census; Oxford access was unavailable because institutional VPN disconnected.",
+        "The 1986 Cordovil et al. work might contain more general orbit-count tools; full argument not read.",
+        "Unindexed identical circular rule-90 memory arithmetic or statewise affine bijection remains possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known memory rule, different boundary conditions; full text not independently cleared for coverage.",
+          "evidence": [
+            "RIFIS technical report 119, 1995, theorem 4.2 as cited in source proof"
+          ],
+          "identifier_or_url": "https://hdl.handle.net/2324/3220",
+          "material_read": "Candidate RESULT.md compares Definition 4.1/Theorem 4.2; available indexed theorem excerpts, not the full report independently read in this run.",
+          "method": "Read indexed descriptions and the candidate statement of exact boundary convention",
+          "title": "Period Lengths of Cellular Automata cam-90 with Memory",
+          "trigger": "Identical second-order rule but null boundary"
+        },
+        {
+          "assessment": "Possible encompassing numerical census; no full-document noncoverage conclusion or historical uniqueness.",
+          "evidence": [
+            "1986 J. Stat. Phys. 43, 463–478, abstract speaks of general cycle length/multiplicity formula"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01020648",
+          "material_read": "Publisher and secondary abstracts only; original full pages inaccessible.",
+          "method": "Searched open/OA routes, authorized institutional retrieval returned VPN-disconnected state; no bypass.",
+          "title": "Exact Results for Deterministic Cellular Automata with Additive Rules",
+          "trigger": "Generic 1986 higher-order finite additive CA cycle multiplicity"
+        },
+        {
+          "assessment": "Infinite first-order additive CA periodicity is broader background; no direct covered claim established.",
+          "evidence": [
+            "1986 Discrete Comput. Geom. 1:277–288, infinite-CA temporal periodicity and spatial periods"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF02187700",
+          "material_read": "Public article preview including abstract, first paragraph and model definition in Section 2; not full article.",
+          "method": "Read lawfully displayed introductory text",
+          "title": "Periodic Orbits for Additive Cellular Automata",
+          "trigger": "1986 exact additive-CA periodic orbit count"
+        },
+        {
+          "assessment": "Prior period/divisibility theory credited; full census comparison remains limited.",
+          "evidence": [
+            "Martin–Odlyzko–Wolfram 1984 period order framework"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+          "material_read": "Indexed relevant 1984 higher-order/period section and abstract; not full work.",
+          "method": "Inspect available section text and theorem scope",
+          "title": "Algebraic Properties of Cellular Automata",
+          "trigger": "Classical reversible higher-order CA algebra"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Order alone is credited to preexisting higher-order CA theory; the labelled-state pairing and gcd-dependent fixed census are a stronger invariant.",
+        "Independent exhaustive orbit and parity pairing checks corroborate the structural proof."
+      ],
+      "rationale": "A natural recurrent memory-CA system on cycle-corona graphs exhibits a precise parity-dependent central-frequency obstruction. The complete all-size primitive census and explicit map pairing odd and doubled periods determine otherwise hidden orbit geometry, beyond knowing reversibility or an order bound. The statewise pairing is useful for orbit construction and comparisons with rule-90 memory automata.",
+      "risk": [
+        "This does not classify other graph families or independent higher-order cellular automata."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Current RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py, verification_output.txt; eight Git blobs checked",
+    "Resultary semantic search on periodic ring second-order additive CA",
+    "Kawahara–Lee RIFIS 119 indexed theorem; Martin–Odlyzko–Wolfram 1984",
+    "Guan–He 1986 abstract; Cordovil et al. 1986 introduction"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Smith reduction relies on the Laurent PID and correct s=1 valuations, independently checked algebraically; finite tests only n<=8.",
+    "Specific to n>=3 and synchronous binary XOR on a sunlet; not generic graph dynamics.",
+    "Guan–He 1986 inaccessible complete work may encompass the numerical census; Oxford access was unavailable because institutional VPN disconnected.",
+    "The 1986 Cordovil et al. work might contain more general orbit-count tools; full argument not read.",
+    "Unindexed identical circular rule-90 memory arithmetic or statewise affine bijection remains possible.",
+    "This does not classify other graph families or independent higher-order cellular automata."
+  ],
+  "residual_risks": [
+    "Guan–He 1986 inaccessible complete work may encompass the numerical census; Oxford access was unavailable because institutional VPN disconnected.",
+    "The 1986 Cordovil et al. work might contain more general orbit-count tools; full argument not read.",
+    "Unindexed identical circular rule-90 memory arithmetic or statewise affine bijection remains possible."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Known memory rule, different boundary conditions; full text not independently cleared for coverage.",
+      "evidence": [
+        "RIFIS technical report 119, 1995, theorem 4.2 as cited in source proof"
+      ],
+      "identifier_or_url": "https://hdl.handle.net/2324/3220",
+      "material_read": "Candidate RESULT.md compares Definition 4.1/Theorem 4.2; available indexed theorem excerpts, not the full report independently read in this run.",
+      "method": "Read indexed descriptions and the candidate statement of exact boundary convention",
+      "title": "Period Lengths of Cellular Automata cam-90 with Memory",
+      "trigger": "Identical second-order rule but null boundary"
+    },
+    {
+      "assessment": "Possible encompassing numerical census; no full-document noncoverage conclusion or historical uniqueness.",
+      "evidence": [
+        "1986 J. Stat. Phys. 43, 463–478, abstract speaks of general cycle length/multiplicity formula"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/BF01020648",
+      "material_read": "Publisher and secondary abstracts only; original full pages inaccessible.",
+      "method": "Searched open/OA routes, authorized institutional retrieval returned VPN-disconnected state; no bypass.",
+      "title": "Exact Results for Deterministic Cellular Automata with Additive Rules",
+      "trigger": "Generic 1986 higher-order finite additive CA cycle multiplicity"
+    },
+    {
+      "assessment": "Infinite first-order additive CA periodicity is broader background; no direct covered claim established.",
+      "evidence": [
+        "1986 Discrete Comput. Geom. 1:277–288, infinite-CA temporal periodicity and spatial periods"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/BF02187700",
+      "material_read": "Public article preview including abstract, first paragraph and model definition in Section 2; not full article.",
+      "method": "Read lawfully displayed introductory text",
+      "title": "Periodic Orbits for Additive Cellular Automata",
+      "trigger": "1986 exact additive-CA periodic orbit count"
+    },
+    {
+      "assessment": "Prior period/divisibility theory credited; full census comparison remains limited.",
+      "evidence": [
+        "Martin–Odlyzko–Wolfram 1984 period order framework"
+      ],
+      "identifier_or_url": "https://doi.org/10.1007/BF01223745",
+      "material_read": "Indexed relevant 1984 higher-order/period section and abstract; not full work.",
+      "method": "Inspect available section text and theorem scope",
+      "title": "Algebraic Properties of Cellular Automata",
+      "trigger": "Classical reversible higher-order CA algebra"
+    }
+  ]
+}

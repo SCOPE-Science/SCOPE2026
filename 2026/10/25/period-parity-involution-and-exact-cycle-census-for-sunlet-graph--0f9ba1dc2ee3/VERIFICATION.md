@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The mathematical proof is in \(`RESULT.md`\). Run \(`python3 verify.py`\) with Python 3 and no external packages. For exact finite ranges and recorded output see \(`verification_output.txt`\).
+## correctness
 
-The script directly assembles the binary adjacency map and computes binary ranks, independently implements Laurent-polynomial gcds corresponding to the stated Smith factors, and enumerates complete state orbits through nine cycle positions. It checks 2,346 exact rank instances, 46 exact order instances, 3,040 symbolic-gcd dimension comparisons, and 349,504 labelled states across \(3\le n\le9\) (29 period-class checks). For every odd \(n\) in the exhaustive range, every labelled state is also checked against the proposed parity/affine period-doubling rule. It additionally tests the explicit \(n\)-step transvection identity at sampled states.
+PASS
 
-These tests are not external certification or a proof for unbounded \(n\), and the report does not assert such a proof from finite sampling. General correctness rests on the Laurent-polynomial Smith factor calculation and the exact invariant used to establish the affine involution. The historical novelty assessment remains qualified by inaccessible potentially broader literature.
+Reconstructed the Laurent-ring T=[[s+s^-1,1],[1,0]] with det one. Its recurrence P_t and determinant s^-t(s^t+1)^2 yield Smith factors (s^t+1,s^t+1) for even t and ((s^t+1)/(s+1),(s^t+1)(s+1)) for odd t. The s=1 root multiplicity contributes exactly the odd/odd single-unit deficiency in kernel dimension. Moebius inversion of fixed counts proves primitive cycles; for odd n the identity T^n=I+[[J,J],[J,J]] yields F^n(z)=z+pi(z)(1,1), and translation by E=(1,0) toggles parity and doubles/halves primitive period. No step extrapolates finite tests to infinite n.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel part: Period-parity involution and exact cycle census for sunlet-graph XOR dynamics. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+A natural recurrent memory-CA system on cycle-corona graphs exhibits a precise parity-dependent central-frequency obstruction. The complete all-size primitive census and explicit map pairing odd and doubled periods determine otherwise hidden orbit geometry, beyond knowing reversibility or an order bound. The statewise pairing is useful for orbit construction and comparisons with rule-90 memory automata.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
