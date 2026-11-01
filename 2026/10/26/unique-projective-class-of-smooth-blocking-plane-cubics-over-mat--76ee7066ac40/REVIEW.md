@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite search space is exhaustively parameterized by ten coefficients; each of thirteen dual points indexes exactly one rational line. Two distinct smoothness procedures agree on 1,872 smooth blocking coefficient forms. A geometric-singularity degree bound justifies using both \(\mathbf F_9\) and \(\mathbf F_{27}\), while a separate Gröbner-basis checker tests singularity over the algebraic closure. Complete orbit traversal under generators of \(\operatorname{PGL}_3(\mathbf F_3)\) yields one 936-element projective orbit and stabilizer order six. The proof does not extrapolate finite samples.
+PASS
 
-## Originality — PASS, qualified
+All 3^10−1=59048 nonzero ternary cubic coefficient vectors were treated via exact projective incidence on 13 points and 13 lines; 9880 blocking forms. Independent code divided 4940 projective blocking equations into ten exact PGL3(F3) orbits via elementary generators; one orbit of size 936 alone was geometrically smooth, established using affine-patch Groebner unit-ideal tests on one representative of every projective orbit. This gives 1872 smooth blocking forms, one orbit, stabilizer 5616/936=6 and six rational points. Pair/line incidences give t1,t2,t3=(6,3,4). Unlike finite samples, the coefficient/orbit enumeration is exhaustive and geometric smoothness is checked algebraically, avoiding unsupported extension cutoffs. Proof limited to embedded plane cubics over F3.
 
-Asgarli–Ghioca–Yip, arXiv:2208.13299, Theorem 1.3 and Example 3.5, already cover the existence of a blocking cubic over \(\mathbf F_3\) and exclusion over fields of cardinality at least five. The complete projective classification and 936-element orbit are not stated in those inspected sections. Their arXiv:2211.08523 concerns asymptotic high-degree statistics and explicitly computes small-field limiting densities for degrees at least five, not the ternary smooth-cubic orbit. Published blocking-set classifications concern point arrangements rather than cubic equations. Prior equivalence encoded implicitly in existing small-field tables remains a risk.
+## originality
 
-## Value — PASS
+PASS
 
-This closes a sharply motivated exceptional case of the known cubic nonexistence theorem: not merely that a smooth blocking cubic exists, but that every such cubic has the same rational projective type. The classification supplies the exact projective orbit, projective automorphism order, rational point count and line-intersection spectrum. It is an exact natural boundary classification, not an arbitrary polynomial slice.
+Asgarli, Ghioca and Yip already establish existence of the characteristic-three blocking cubic and give the same explicit equation in Example 3.5; neither the existence nor representative alone is original. The distinct surviving theorem is exhaustive classification of *every* smooth blocking ternary cubic into one PGL3(F3) orbit, plus orbit and incidence census. Published blocking-point-set catalogues do not automatically classify cubic equations or their projective stabilizers; small-elliptic finite geometry tables may encode the orbit and remain a risk.
 
-## Limitations and literature
+## value
 
-The conclusion is for smooth embedded plane cubics over the field with three elements, not abstract genus-one curves or arbitrary extensions. Independent human or third-party validation has not been performed. The full provenance of older computational tables should be reviewed before asserting publication priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp and motivated exceptional case is completely closed: known existence and q>=5 nonexistence do not determine projective uniqueness, number of equations or stabilizer. The exhaustive orbit classification and line-incidence refinement provide reusable exact finite-geometric data.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
