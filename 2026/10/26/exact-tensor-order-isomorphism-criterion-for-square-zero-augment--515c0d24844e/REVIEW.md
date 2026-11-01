@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness (PASS)
+## correctness
 
-The statement fixes nonzero finite radical dimensions, field characteristic unlike two, and normalized weight-\(\lambda\) operators satisfying \(Q(Q+\lambda I)=R(R+\lambda I)=0\). The proof computes both oriented operators on \(k\oplus V\oplus W\oplus(V\otimes W)\); radical squares detect the unordered decomposition \(V\cup W\), and unequal dimensions prevent swapping. The induced action on \(M^2\) then forces both operators to be the same scalar. For equal dimensions, the source's rank formula forces equal ranks and the minimal polynomial determines the similarity class. The construction provides explicit sufficiency in both cases. The accompanying checker validates the construction, identities, and ranks over three finite fields, but the general theorem is proved symbolically.
+PASS
 
-## Originality (PASS; possible implicit-prior-work risk)
+The source proof is reconstructible: product algebra C=k⊕V⊕W⊕V⊗W has radical M, M²=V⊗W and M³=0. Since (v+w)²=2v⊗w and char(k) !=2, the intrinsic square-zero locus in M/M² is V union W. For m≠n every augmented algebra automorphism fixes both pieces; its restriction to M² is S⊗T, and intertwining the two oriented operators forces id⊗R=Q⊗id and thus Q=R=cI with c(c+lambda)=0. For m=n, tensor-operator ranks force rank Q=rank R; the relation Q(Q+lambda I)=0 means equal-rank operators are similar, via square-zero Jordan blocks at lambda=0 and 0/-lambda eigenspace decompositions otherwise. The induced factor isomorphisms construct reverse-order isomorphisms. The smallest strictly intermediate balanced example m=2,n=4,ranks1,2 has total dimension15 and rank7 on either order. The finite checker verified tensor rank formulas on four independently constructed examples, but the universal statement rests on the algebraic proof.
 
-The closest primary paper [1] explicitly formulates the oriented tensor, the rank obstruction, ordinary-flip criteria, and the unsolved intermediate-ratio braiding comparison. Its full relevant Sections 2.4 and 3 were inspected. Its rank-unequal examples cannot imply the rank-balanced nonisomorphism here, and ordinary-flip failure alone cannot exclude a different algebra isomorphism. The present radical-square argument supplies that missing implication and gives the full sharp square-zero-factor criterion. Searches of indexed published findings and the primary literature disclosed no statement subsuming this result. Broad unindexed classifications of local-algebra automorphisms could contain an implicit derivation.
+## originality
 
-## Value (PASS)
+PASS
 
-The exact theorem answers a clearly motivated structural test for a newly introduced non-symmetric tensor product. It resolves, for a natural infinite family, whether the necessary rank-ratio condition is sufficient, and gives nonbraiding witnesses *within every positive intermediate fixed-ratio monoidal subcategory* in the stated ranges. The \(15\)-dimensional witness shows an obstruction invisible even to full linear similarity of the operators, not merely to rank comparisons.
+Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
 
-## Sources and residual boundaries
+PASS
 
-[1] L. Guo, Y. Xie, Y. Zhang, *Monoidal structure on Rota-Baxter algebras via augmentation, and free cocycle bialgebras*, arXiv:2610.17525v1, https://arxiv.org/html/2610.17525v1 (Sections 2.4, 3.1, 3.3, 3.4). The proof requires characteristic unequal to two and does not apply to arbitrary non-square-zero factors or nonnormalized operators. A direct external mathematical review has not been performed.
+Classifying all reversal isomorphisms, rather than the ordinary flip alone, isolates an intrinsic multiplication obstruction invisible to linear-operator rank and resolves the mathematically motivated fixed-intermediate-ratio braiding question for full monoidal subcategories. The 15-dimensional positive-rank boundary is a sharp natural witness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
