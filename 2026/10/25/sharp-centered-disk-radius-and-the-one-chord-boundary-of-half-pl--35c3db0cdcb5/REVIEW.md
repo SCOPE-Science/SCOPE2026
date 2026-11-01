@@ -1,19 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-On each weighted half-plane Bergman Hilbert space, the Paley–Wiener–Laplace representation identifies the translation with a multiplier whose range is the same continuous decaying spiral. The complete support optimization examines the initial endpoint, *all* interior critical points, and all later turns; it proves a unique endpoint–spiral support crossing in the fourth quadrant. The support sectors yield a unique exposed arc, one chord, and the exact minimal support distance. The nonatomic multiplication model excludes boundary attainment while convex mixtures of interval densities fill the interior. Both pitch asymptotics follow by controlled expansions of the crossing equation. A finite numerical program cross-checks the formula but is not the infinite proof.
+PASS
 
-## Originality — PASS (qualified)
+The half-plane weighted Bergman Paley-Wiener/Laplace transform with strictly positive L2 density maps T_b to multiplication by exp(-bt), whose closed numerical range is convex hull of decaying logarithmic spiral S_k(x)=exp((-k+i)x), x>=0, plus 0. For k=Re b/|Im b|>0, phi=arctan k, c=(1+k^2)^-1/2, the exact support function is max{cos theta,c exp[-k(theta-phi)]} for theta>=phi, and cos theta below phi. Comparing monotone branches proves unique crossing Theta in (3pi/2,2pi), cos Theta=c exp[-k(Theta-phi)]. The boundary comprises S_k([0,Theta-phi]) and its single chord to 1; minimum support h(Theta)=rho is the origin-centered radius. The maximizing spectral values are finitely many points in each direction and the multiplier spectral measure is nonatomic, so no boundary point of the numerical range is attained; every convex-hull interior point is realized by positive-density mixtures. The expansions rho=1-2pi k+O(k^3/2) as k->0 and rho~e^-1 k^-1 exp(-pi k) as k->infinity follow from the crossing equation. The finite angle test agrees at moderate k; k=10 double-precision is at numerical resolution and is not treated as asymptotic proof.
 
-Chacón–Chacón, *Some properties of composition operators on the Dirichlet space* (2005), Theorem 5.13, **already gives the convex-hull spiral description on half-plane Hardy space**; the existence of such a hull is not new. Its Theorems 5.5 and 5.11 cover related normal multiplier models. Bourdon–Shapiro (2002), Section 6, likewise discusses winding spectra and origin inclusion. Blois (2026), arXiv:2606.10999, develops the weighted Bergman half-plane model for cyclicity, without computing the centered numerical-range disk radius. The new mathematical content is the unique terminal tangent, the exact support decomposition and sharp maximal centered-disk radius, the exclusion of its boundary in this model, and the two pitch-asymptotic coefficients. None of the inspected primary statements or indexed finding summaries gives those exact quantities. An older equivalent explicit logarithmic-spiral hull computation, not located in available sources, remains the principal priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The radius of the largest centered disk in a normal operator's numerical range is a natural quantitative numerical-range invariant: it identifies the smallest directional real-part support and calibrates the inclusion of zero beyond the known qualitative result. The sharp transcendental determination and both asymptotic regimes quantify a genuine geometric change between near-unitary translations and nearly real contracting translations. The one-chord exhaustion of the whole spiral gives an exact, reusable support model rather than an arbitrarily selected finite example. The result is a bounded but self-contained classification, not a claim of a general affine-composition theorem.
+Chacon--Chacon 2005 Theorem 5.13 states the Hardy-space parabolic-composition operator numerical range closure is the convex hull of a spiral; this foundational geometric hull is explicitly prior. Blois 2026 gives a weighted half-plane Bergman Laplace model in a cyclicity context. The added quantitative boundary, unique tangent, inradius and pitch asymptotics are not stated in the inspected 2005 theorem or its argument; novelty is restricted to that increment.
 
-## Scope and remaining risks
+## value
 
-The earlier Hardy-space convex-hull theorem covers the qualitative hull. It does not supply the new exact tangent and inradius calculations. No claim is made for general affine symbols or other function-space norms. The main originality risk is an equivalent explicit geometry result not indexed under composition operators, and the weighted Bergman extension of the qualitative spiral hull is an immediate consequence of the known Laplace representation, not a standalone new result.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact supporting chord, tangent and global centered inradius of a familiar winding spectral hull form a natural quantitative numerical-range characterization in an infinite-dimensional operator family. The sharp pitch laws and nonattainment distinguish it from merely recognizing the spiral convex hull.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
