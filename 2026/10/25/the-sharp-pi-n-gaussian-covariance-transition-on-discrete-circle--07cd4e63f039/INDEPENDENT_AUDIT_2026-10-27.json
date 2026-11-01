@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:03:07.464260Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Immutable RESULT.md blob 2004b8b20e8ee25edb71dfc9880ab740fff80bf6",
+        "Immutable verify.py blob 76a4d1572b8fa842852e34141498d48c38ff92ee",
+        "/mnt/data/gaussian_1643.py independently evaluated DFT eigenvalues at 160-digit precision"
+      ],
+      "rationale": "For integer N, K_N,c(j,k)=exp[-(c/N)d_N(j,k)^2] is symmetric circulant; its full DFT eigenvalues are real. The positive range c>pi is proved using wrapped infinite Gaussian periodization, whose frequency coefficients are strictly positive by Poisson summation; the omitted nonnearest wrapped images have uniformly small norm O(N exp(-cN/4)), while the least periodized eigenvalue is bounded below at scale sqrt(N)exp[-pi^2 N/(4c)]. For fixed c>pi the latter dominates the defect exponentially. In 0<c<pi, the near-antipodal mode k=2 floor(N/4) has a nonzero negative asymptotic coefficient of exp[-cN/4] (two different constants for parity classes), while its positive periodized component has exponent -pi²N/(4c) and is smaller; all four mod-four classes are covered. In the 4|N boundary window c_N(s)=pi-(log N+s)/N the Nyquist eigenvalue, after multiplication by exp(c_N N/4), approaches 2 exp(-s/2)-tanh(pi/2), so continuity supplies at least one sign-changing root with s tending to 2 log(2/tanh(pi/2)); finite-size uniqueness is not asserted. Independent 160-digit DFT calculations confirmed negative target eigenvalues at c=2.5 and positive *all* eigenvalues at c=3.75 for N=40..43,80..83,120..123; Nyquist zero shifts at N=80,120,200,320 converge toward the predicted constant. Earlier 75-digit root failure at N=320 was diagnosed as catastrophic cancellation and fixed with 160-digit arithmetic; it is not a physical counterexample. No claim is made for the exactly critical c=pi at fixed N.",
+      "residual_risks": [
+        "Finite tests cannot establish eventual uniform positivity, which depends on the Poisson lower and folding-error estimates.",
+        "Boundary c=pi is not classified; the local 4|N root statement is not a universal positive-definiteness criterion for each fixed N."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2023 primary source has N-grid alternating mode in its proof but assumes fixed Gaussian scale mu and produces only eventual negative evidence in that regime.",
+          "Wood abstract concerns kernel positivity as a continuous function on the entire circle rather than this exact finite regular-grid matrix."
+        ],
+        "reasoning": "Broad fixed-scale or continuous-domain non-PSD results do not dominate the sharp moving-bandwidth transition c=pi or the logarithmic finite-size root.",
+        "searches": [
+          "Da Costa Mostajeran Ortega 2023 circle Gaussian no-go theorem",
+          "Feragen Lauze Hauberg 2014 geodesic exponential kernel flatness",
+          "Wood 1995 truncated covariance on circle"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/368660820_The_Gaussian_kernel_on_the_circle_and_spaces_that_admit_isometric_embeddings_of_the_circle",
+        "https://arxiv.org/abs/2302.10623",
+        "https://ideas.repec.org/a/eee/stapro/v24y1995i2p157-164.html",
+        "https://doi.org/10.1016/0167-7152(94)00162-2",
+        "Resultary semantic query: discrete cycle Gaussian geodesic squared distance covariance positive definite threshold pi N nyquist eigenvalue"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Continuous kernel not positive definite means there exists some finite witness subset for each bandwidth, not that every fixed regular N-subset is indefinite.",
+          "Poisson positivity of periodic Gaussian is a classical ingredient; the sharp competition with truncation at c=pi is additional."
+        ],
+        "reasoning": "Earlier theorems neither imply positive definiteness for c>pi in the specific N-point matrices nor the negative subcritical witness across all residue classes, nor the local c_N logarithmic threshold.",
+        "searches": [
+          "Da Costa et al. 2023 theorem of no positive Gaussian on full circle",
+          "Wood 1995 continuous circle covariance theorem",
+          "Poisson periodic Gaussian positive Fourier coefficients"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact object is a circulant Gram matrix sampled on an N-cycle; DFT diagonalizes it.",
+          "Da Costa et al. 2023 examine the same geodesic functional family on the continuous circle but at fixed scale."
+        ],
+        "reasoning": "Both geodesic and discrete-cycle aliases were searched. Distinguishing N-dependent bandwidth is essential: non-PD on continuum does not imply non-PD on any preselected sample of N points.",
+        "searches": [
+          "geodesic Gaussian kernel on N regularly spaced circle points",
+          "wrapped Gaussian covariance periodization positive definiteness",
+          "circulant distance squared Fourier Nyquist mode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic results were adjacent spectral/cycle problems, no entry with this matrix and pi transition.",
+          "The inspected 2023 paper does not tabulate the moving-scale Nyquist logarithmic root."
+        ],
+        "reasoning": "No exact table or stronger all-N criterion was located. This is bounded evidence, not universal proof of novelty.",
+        "searches": [
+          "Resultary: discrete cycle Gaussian geodesic squared distance covariance positive definite threshold pi N nyquist eigenvalue",
+          "web: geodesic Gaussian equally spaced circle finite N threshold",
+          "web: Nyquist pi logarithmic transition Gaussian finite cycles"
+        ]
+      },
+      "rationale": "Qualified novelty PASS for a sharp sampling-scale c=pi transition and logarithmically shifted Nyquist root in regular N-point cycle matrices. The 2023 Da Costa-Mostajeran-Ortega continuum theorem shows that the geodesic Gaussian kernel fails positive definiteness on the full circle at every *fixed* bandwidth, by considering arbitrarily large sets; their discretized witness operates in a different regime with continuum circle metric and fixed parameter, equivalent to exponent -mu j²/N² rather than present -c j²/N. Its negative-all-scales conclusion for the *whole circle* does not prevent positive definiteness on a chosen finite N-point set with bandwidth growing as N. Wood 1995 concerns continuous positive-definite truncation on a fixed circle, with full text unavailable, leaving genuine priority risk. No earlier sharp pi sampling threshold or local root correction was found.",
+      "residual_risks": [
+        "The strongest earlier continuous circle kernel article Wood (1995) was only accessible in publisher abstract; authorized Oxford institutional retrieval returned vpn_disconnected, without bypass.",
+        "2023 continuum theorem does not rule out another earlier finite-sample theorem that handles c/N scaling.",
+        "No all-N sharp cutoff at c=pi was proven; the finding is explicitly asymptotic."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING sampled changing-bandwidth pi threshold; DOES COVER general continuum non-PSD and use of equispaced witnesses",
+          "evidence": [
+            "The continuum fixed-mu expansion for the N/2 Fourier eigenvalue and corollary all-scale non-PSD are explicitly compared with cN scaling."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/368660820_The_Gaussian_kernel_on_the_circle_and_spaces_that_admit_isometric_embeddings_of_the_circle",
+          "material_read": "Accessible public full-text representation; relevant theorem, proof, alternating-sum analysis and discussion of equally spaced circle samples materially read",
+          "method": "Read full-text representation, compared scaling mu/N² against c/N and fixed-varying bandwidth quantifiers",
+          "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+          "trigger": "Most plausible earlier stronger theorem for same geodesic Gaussian"
+        },
+        {
+          "assessment": "INACCESSIBLE_FULL_TEXT_RESIDUAL_RISK; cannot infer whole-document noncoverage",
+          "evidence": [
+            "Abstract concerns identifying continuous line covariances that remain circle covariances under endpoint identification."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/0167-7152(94)00162-2",
+          "material_read": "1995 publisher/indexed abstract, not full article",
+          "method": "Searched arXiv and lawful open access; authorized Oxford source request returned vpn_disconnected",
+          "title": "When is a truncated covariance function on the line a covariance function on the circle?",
+          "trigger": "Likely older continuous circle truncation with possible Gaussian results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Full circulant-Fourier eigenvalue analysis and asymptotic estimates",
+        "160-digit independent finite sign and root tests",
+        "Da Costa et al. 2023 continuous-circle no-go background"
+      ],
+      "rationale": "The sign of all Fourier eigenvalues of the natural geodesic Gaussian covariance matrix on a regular cycle is a substantive spectral/covariance validity invariant. Locating the sharp asymptotic balance of wrapped Gaussian positivity and antipodal folding negativity at pi and the logarithmic Nyquist scaling window gives a motivated nontrivial boundary not obtainable from a textbook DFT alone. The result is for the specified discrete regular samples, not an unsupported general kernel claim.",
+      "residual_risks": [
+        "Only c>pi and c<pi fixed regimes and the 4|N scaling window are characterized; no finite-N universal cutoff for all sizes."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

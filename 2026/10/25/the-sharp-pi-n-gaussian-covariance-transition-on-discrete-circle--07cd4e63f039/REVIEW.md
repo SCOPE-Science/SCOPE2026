@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Fourier diagonalization and Poisson summation have the same unnormalized convention throughout. A uniformly positive Gaussian periodization dominates the deleted-image defect when \(c>\pi\). For \(c<\pi\), direct antipodal image expansions give a strictly positive folding defect at the even high-frequency character in both parities; the odd case loses only a factor of \(N^{-1}\), not the exponential separation. At multiples of four, two equal Poisson terms and the alternating endpoint sum give an explicit logarithmic boundary layer. The claim excludes the undecided value \(c=\pi\), finite-size global uniqueness, and nonuniform sampling. The high-precision independent verifier tests the exact finite decomposition and the predicted signs, without being used as a substitute for the proof.
+## correctness
 
-## Originality
-**PASS within the inspected record; residual risk stated.** The closest full-text treatment, Da Costa--Mostajeran--Ortega (2023), proves failure at each fixed geometric circle scale as the number of samples grows. That does not imply the sign transition at a Gaussian scale growing linearly with sample count or the explicit logarithmic correction to its Nyquist threshold. Feragen--Lauze--Hauberg (2014) treat all-parameter geodesic-space obstructions, not these finite cyclic spectra. Wood (1995) treats circle covariance validity but the full article was unavailable; its abstract does not settle the new scale comparison. Literature searches and research-record comparisons did not reveal the asserted asymptotic. This search is not a proof of absolute novelty.
+PASS
 
-## Value
-**PASS.** Geodesic Gaussian kernels can cease to be covariance kernels on curved spaces. For finite discretizations, sufficiently narrow kernels regain positivity, so a sharp scaling law is a natural mathematical and applied question. The constant \(\pi\) separates the sign of every cyclic Fourier mode from an explicit negative mode on *every* residue class. The second-order logarithmic drift quantitatively identifies the competing periodicized Gaussian and antipodal cusp; it is not merely an arbitrary finite example.
+For integer N, K_N,c(j,k)=exp[-(c/N)d_N(j,k)^2] is symmetric circulant; its full DFT eigenvalues are real. The positive range c>pi is proved using wrapped infinite Gaussian periodization, whose frequency coefficients are strictly positive by Poisson summation; the omitted nonnearest wrapped images have uniformly small norm O(N exp(-cN/4)), while the least periodized eigenvalue is bounded below at scale sqrt(N)exp[-pi^2 N/(4c)]. For fixed c>pi the latter dominates the defect exponentially. In 0<c<pi, the near-antipodal mode k=2 floor(N/4) has a nonzero negative asymptotic coefficient of exp[-cN/4] (two different constants for parity classes), while its positive periodized component has exponent -pi²N/(4c) and is smaller; all four mod-four classes are covered. In the 4|N boundary window c_N(s)=pi-(log N+s)/N the Nyquist eigenvalue, after multiplication by exp(c_N N/4), approaches 2 exp(-s/2)-tanh(pi/2), so continuity supplies at least one sign-changing root with s tending to 2 log(2/tanh(pi/2)); finite-size uniqueness is not asserted. Independent 160-digit DFT calculations confirmed negative target eigenvalues at c=2.5 and positive *all* eigenvalues at c=3.75 for N=40..43,80..83,120..123; Nyquist zero shifts at N=80,120,200,320 converge toward the predicted constant. Earlier 75-digit root failure at N=320 was diagnosed as catastrophic cancellation and fixed with 160-digit arithmetic; it is not a physical counterexample. No claim is made for the exactly critical c=pi at fixed N.
 
-## Closest literature and limitations
-See the references in RESULT.md. The 2023 whole-circle no-go theorem and the present finite-sampling positive regime have different quantifiers and are compatible. The older Wood (1995) article could not be examined in full, so coverage there remains a residual originality risk. No independent mathematical audit or experimental validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified novelty PASS for a sharp sampling-scale c=pi transition and logarithmically shifted Nyquist root in regular N-point cycle matrices. The 2023 Da Costa-Mostajeran-Ortega continuum theorem shows that the geodesic Gaussian kernel fails positive definiteness on the full circle at every *fixed* bandwidth, by considering arbitrarily large sets; their discretized witness operates in a different regime with continuum circle metric and fixed parameter, equivalent to exponent -mu j²/N² rather than present -c j²/N. Its negative-all-scales conclusion for the *whole circle* does not prevent positive definiteness on a chosen finite N-point set with bandwidth growing as N. Wood 1995 concerns continuous positive-definite truncation on a fixed circle, with full text unavailable, leaving genuine priority risk. No earlier sharp pi sampling threshold or local root correction was found.
+
+## value
+
+PASS
+
+The sign of all Fourier eigenvalues of the natural geodesic Gaussian covariance matrix on a regular cycle is a substantive spectral/covariance validity invariant. Locating the sharp asymptotic balance of wrapped Gaussian positivity and antipodal folding negativity at pi and the logarithmic Nyquist scaling window gives a motivated nontrivial boundary not obtainable from a textbook DFT alone. The result is for the specified discrete regular samples, not an unsupported general kernel claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
