@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every base edge, its line-graph neighbor-one count equals the sum of the two endpoint incidence counts minus twice the edge bit. The equal-parity assumption yields an integral critical value and exact three-way update. On a two-cycle, each changing edge contributes a nonpositive term delta_e(Delta_u+Delta_v), whereas their sum equals the nonnegative sum of vertex-incidence-change squares. Hence all Delta vanish. The factor characterization is proved in both directions, and the orbit-count coefficient counts each periodic state exactly once, pairing distinct states of each primitive two-cycle. Standalone Python and C++ replays checked all 154 eligible simple base graphs on at most five vertices (4,909 eligible states) and selected larger graphs including all 2,097,152 states on L(K7); these are finite corroboration rather than an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Goles–Olivos 1980 provides general symmetric-threshold eventual periods one and two, and Benjamini et al. 2014 Theorem 1.1 explicitly quotes this.",
+        "Moran 1995 studies period-two property of majority operators on infinite bounded-growth graphs; abstract reports period restriction, not recurrent-state degree structure."
+      ],
+      "reasoning": "The general eventual period restriction applies to line graphs, but it does not characterize which sites oscillate or impose the half-factor constraints. No stronger broad coverage that logically implies this result was identified in the accessible material. Inaccessibility of older primary text remains recorded.",
+      "searches": [
+        "\"line graph\" \"majority rule\" \"periodic\" automaton",
+        "\"line graph\" \"period two\" majority",
+        "majority dynamics line graphs conservation degree two cycles edge majority automata",
+        "2014 majority dynamics convergence unanimity disagreement full text arxiv"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1405.2486v1, full PDF relevant sections and complete term search",
+      "Goles and Olivos, Discrete Mathematics 30 (1980), bibliographic abstract only",
+      "Moran, Transactions AMS 347 (1995), bibliographic abstract only",
+      "Current accessible historical ledger claims through generation p0001_g000120, 120 finding claims for overlap",
+      "Targeted research-record semantic searches for line-graph majority half-factor and incidence oscillation",
+      "Targeted literature searches for line-graph majority two-cycles, Eulerian flip sets and factor classification",
+      "Final exact-statement semantic research-record search for parity-homogeneous line graph, incidence conservation, balanced half factors and Eulerian oscillators; closest result is a different XOR/parity rule."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Benjamini et al. 2014, Theorem 1.1 is the prior period-two claim; Sec. 4 studies non-unanimity on random regular graphs.",
+        "Moran 1995 is an infinite-graph period-two statement, not an exact line-graph orbit classifier.",
+        "The new inequality is local to the incidence representation: sum over original vertices of squared one-incidence changes, which is not part of the inspected qualitative antecedents."
+      ],
+      "reasoning": "The implication period at most two → incidence conservation is not valid on all graphs; the special parity and line-graph incidence identity are essential, as P3 shows. The converse half-factor construction and orbit coefficient go beyond prior period restrictions.",
+      "searches": [
+        "\"line graph\" \"majority dynamics\" \"oscillations\" \"factor\"",
+        "\"edge majority\" \"line graph\" \"period\" binary",
+        "synchronous binary majority dynamics on Johnson graphs triangular graph line graph of complete graph recurrent orbit exact count"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Benjamini et al., arXiv:1405.2486v1, pp. 2-5, 18-19 (period-two theorem, random-graph and regular-graph analyses); no line-graph incidences or factor parametrization in searched PDF text.",
+        "Goles–Olivos 1980: the accessible abstract states general period at most two; full body not retrieved.",
+        "Own archive finding 5c15f12b-1ac7-45d5-a0a4-6e6ef1df96ac concerns neighbor-XOR on line graphs of hypercubes, not majority dynamics."
+      ],
+      "reasoning": "Period-two alone is weaker: it does not force original vertex incidence preservation, identify oscillating edges as an even-degree subgraph, or classify the endpoint-by-endpoint balanced edge subsets. The accessible line-graph claim uses a different linear update. No checked source supplies an equivalent form.",
+      "searches": [
+        "line graph majority dynamics invariant incidence degrees period two half factor Eulerian subgraph exact classification",
+        "synchronous majority dynamics on line graphs regular graphs two-cycles vertex degree preservation balanced orientation",
+        "\"majority dynamics\" \"line graphs\" two cycles",
+        "\"majority dynamics\" \"Eulerian\" \"oscillating\"",
+        "For any finite graph G with adjacent vertices of equal degree parity, synchronous strict binary majority with tie retention on line graph L(G) has 2-cycles preserving original vertex incident-one counts; oscillating edges are Eulerian and exactly balanced half-factors of edges where endpoint incidence counts equal half the endpoint degree sum. Necessary sufficient recurrent-state classification and half-factor orbit-count coefficient."
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic research-record result, titled \"Sharp period-four census for complete multipartite parity automata\" (2026-10-11), concerns XOR/parity rather than strict majority and does not cover arbitrary line graphs.",
+        "Accessible own record 5c15f12b-1ac7-45d5-a0a4-6e6ef1df96ac has neighbor-XOR dynamics on L(Q_d).",
+        "Independent check outputs included for K3 through K7, cube, Petersen and joined triangles are newly generated checks, not a historical database."
+      ],
+      "reasoning": "No known table covering all parity-compatible line graphs or giving this factor formula was found. Selected finite test counts do not establish novelty, and no database query is asserted to be exhaustive.",
+      "searches": [
+        "line graph majority degree preservation two-cycle half factor count formula",
+        "parallel chip firing automata line graph complete graph period two orbit count",
+        "\"line graph\" \"majority\" \"oscillation\" synchronous"
+      ]
+    },
+    "rationale": "The finite-graph eventual-period-two theorem is explicitly credited to Goles and Olivos. The result proved here adds incidence-degree conservation for all parity-homogeneous base graphs and an if-and-only-if half-factor decomposition of recurrent states on line graphs. The inspected primary majority-dynamics paper gives period bounds and broad convergence/disagreement results, not this structure. Targeted literature, published research-record, and accessible own-record implication searches found no stronger statement that yields the classification. Full access to the 1980 original was unavailable, so this is a best-knowledge review, not a uniqueness certification.",
+    "residual_risks": [
+      "The original Goles–Olivos (1980) full text was inaccessible in authorized retrieval; a line-graph specialization in its body cannot be ruled out solely from the abstract.",
+      "A historically unindexed result may express the same theorem as edge-color majority, a balanced factor condition, or threshold-network conservation.",
+      "Semantic search and string search do not prove novelty; independent literature review remains valuable."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Restates eventual periods at most two and studies random/unimodular dynamics, but does not state original-graph incidence conservation or a half-factor decomposition on line graphs.",
+        "evidence": [
+          "arXiv PDF, p. 2 Theorem 1.1 and majority-with-ties definition; p. 18 section 4; absence of key terminology in searchable full text."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1405.2486 (arXiv:1405.2486v1)",
+        "material_read": "Article contents and introductory definitions/theorem on pages 1–5, section on regular graphs and references on pages 18–19; searched complete parsed 19-page text for line-graph, incidence and half-factor terminology.",
+        "method": "Primary full-text PDF read, relevant page screenshots and text search.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Closest public accessible full-text treatment of symmetric majority dynamics with explicit classical period-two theorem."
+      },
+      {
+        "assessment": "The verified accessible abstract states the general period-one/two theorem; no negative whole-paper claim is made. Potential hidden specialization remains a risk.",
+        "evidence": [
+          "Discrete Mathematics 30(2) (1980), 187–189; institutional bibliographic abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(80)90121-1",
+        "material_read": "Bibliographic record and abstract; primary full text could not be obtained from open-access searches or the available authorized retrieval channel.",
+        "method": "Publisher and institutional bibliographic record; open-access attempts and authorized retrieval attempt.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original general period-two theorem cited by the fully inspected preprint."
+      },
+      {
+        "assessment": "Abstract addresses period-two behavior on certain infinite graphs, not the finite original-edge incidence and half-factor description; full-body overlap cannot be categorically excluded.",
+        "evidence": [
+          "Transactions of the AMS 347(5) (1995), 1649–1667; publicly accessible abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1090/S0002-9947-1995-1297535-1",
+        "material_read": "Article title, metadata and abstract, not full body.",
+        "method": "Institutional bibliographic record and targeted searches for graph-factor specializations.",
+        "title": "On the period-two-property of the majority operator in infinite graphs",
+        "trigger": "Plausible broader coverage of majority two-cycle behavior."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61b3de3a-d47a-4a26-a5c9-39f70ebc018c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result supplies a nontrivial structural invariant of every two-cycle on a broad class of line graphs, a complete necessary-and-sufficient recurrent-state classification, an exact factor-enumerator orbit formula, and Eulerian/bridge restrictions. This determines oscillating supports rather than merely bounding temporal periods. The joined-odd-triangles example shows the factor condition has content beyond the standard even-cycle intuition. Such information is suited to recurrence and graph-factor analyses on arbitrary finite regular networks; no efficient counting or transient claim is assumed.",
+    "status": "PASS"
+  }
+}
