@@ -1,119 +1,124 @@
 {
   "correctness": {
-    "rationale": "The rank-one formula is derived from a two-dimensional quadratic form, the tuple norm from its common source, and two symmetric unit test vectors force 4W²≥A²+s1². The singular-value trace bound produces the quantified inequality. Equality when q>1 forces A=0 and q equal positive singular values; the t-variation excludes A>0 when q=1. Orthogonal-source singular vectors give a matching upper bound and explicit witnesses for every m,k over R and C. Finite exact and random checks from verify.py agree but do not replace these analytic quantifiers.",
+    "rationale": "Reconstructed the exact norm N²=A²+Σ_{j=1}^q s_j², obtained 4W²≥A²+s_1² by averaging squared joint evaluations at (v±y)/√2 with ||S*y||=s_1, and subtracted N²/q to get (q−1)A²/q+Σ_j(s_1²−s_j²)/q≥0. In the orthogonal-source case W=s_1/2 exactly. q>1 equality forces A=0 and rank-q equal nonzero singular values; q=1 requires the separate t-perturbation: averaged squared value t²A²+t(1−t)s_1² has strictly positive derivative A² at t=1/2 unless A=0. Coordinate partial-isometries attain the infimum over both real and complex fields. Under N=1, ε near-minimality yields the stated bounds. Independent deterministic tests use four explicit tight-frame/orthogonal witnesses, one exact q=1 strictness inequality, and 1,400 random real/complex spectral-deficit identities. These do not prove arbitrary dimensions; the analytic argument does.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "For complex Hilbert space Mal proves the global lower index bound 1/(2√k) for all k and equality for k<m; when k≥m the weaker 1/(2√k) does not imply the stronger common-source bound 1/(2√(m−1)).",
-        "Grover–Singla Theorem 1.1 is a variational characterization, not a singular-value extremal classification."
+        "Mal Theorem 3.11(i) obtains unrestricted complex Hilbert n_(2,k)=1/(2 sqrt(k)) in dimension m only for 1<=k<m; its explicit common-source witness uses k independent output coordinates.",
+        "Mal Theorem 3.11(ii) concerns infinite-dimensional ell_2, not fixed finite m saturation.",
+        "Moslehian et al., equation (1.1), gives an operator-sum lower radius inequality, and Theorem 3.2 a different general upper bound, neither a fixed-m common-source optimum or equality profile."
       ],
-      "reasoning": "Global estimates with lower constant depending on k do not dominate a restricted-class optimum that saturates at m−1. The already-covered k<m cases have explicitly been excluded from the novelty claim.",
+      "reasoning": "Neither the known k<m sharp value nor infinite-dimensional Hilbert index forces a sharp restricted k>=m threshold of 1/(2 sqrt(m-1)); the general radius bounds do not imply the equality classification and deficit. The saturated regime is the claimed new part.",
       "searches": [
-        "Joint numerical radius rank-one Hilbert finite dimension k≥m dimension obstruction and tight-frame minimizers",
-        "Mal 2022 2023 joint numerical index Hilbert ℓ2 m k≥m saturation and rank one frame equality",
-        "Mal, arXiv:2212.06500v1 Theorem 3.1 and 3.11",
-        "\"On joint numerical radius II\" \"Theorem 9\" rank one"
+        "Web: Arpita Mal On joint numerical radius of operators and joint numerical index Banach space PDF theorem 3.11 k n",
+        "Mal (2023), publisher full PDF, Theorem 3.11(i,ii), proof and 2014 source citation",
+        "Moslehian–Sattari–Shebrawi (2017), full journal PDF, eq. (1.1) and Theorems 3.1–3.2",
+        "Resultary semantic query: Numerical radius Euclidean operator tuples joint numerical index finite-dimensional Hilbert dimension dependence k greater than m frame bound equality rigidity"
       ]
     },
     "checked_sources": [
-      "Arpita Mal, arXiv:2212.06500v1, Theorem 3.11(i), explicit common-source construction for k<m.",
-      "Grover and Singla, arXiv:2201.03055v1, Theorems 1.1–1.3 and Section 2; subdifferential/orthogonality.",
-      "Drnovšek and Müller, DOI:10.1080/03081087.2013.816303, abstract and attribution in Mal, full text inaccessible.",
-      "Moslehian, Sattari and Shebrawi, DOI:10.7146/math.scand.a-25509, Euclidean operator-radius inequalities; only abstract available."
+      "https://files.ele-math.com/articles/oam-17-56.pdf; DOI:10.7153/oam-2023-17-56; arXiv:2212.06500",
+      "https://arxiv.org/pdf/2201.03055 (PDF accessed with v2 header 7 October 2026); initial arXiv:2201.03055",
+      "https://journals.msp.org/mscand/article/download/328/327/359; DOI:10.7146/math.scand.a-25509; arXiv:1502.00083",
+      "DOI:10.1080/03081087.2013.816303; Linear and Multilinear Algebra 62 (2014), 1197–1204",
+      "Resultary published mathematical records, three semantic queries (exact hit was assigned finding mirror)."
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Mal construction has k orthogonal outputs, requiring k≤m−1; no step treats k≥m or proves other common-source tuples cannot do better.",
-        "Grover–Singla gives subgradients for arbitrary tuples and no restricted ratio-to-Hilbert–Schmidt extremizer result."
+        "Mal explicitly assumes 1<=k<m for the finite-dimensional construction and cites Drnovšek–Müller Theorem 9 as the idea; there is no k>=m result in its displayed theorem.",
+        "The 2017 general operator-radius inequalities are not an implication of the singular-value Frobenius extremum together with the forced source-perpendicular equality profile.",
+        "Drnovšek–Müller full text could not be inspected because the complete document was not accessible; an unindexed domination remains a real historical-priority risk."
       ],
-      "reasoning": "The proven saturation, both-field equality rigidity, and spectral defect require the extra rank argument and a nonperpendicular-source strictness step, so they are not corollaries of the explicitly inspected statements. The pre-existing k<m numerical value alone is not asserted as original.",
+      "reasoning": "Direct logical comparison does not produce the fixed-dimension k>=m exact ratio, equality geometry, or spectral stability from inspected antecedents. Basic singular-value bounds and rank-one numerical-radius formula form parts of the proof, but the full combination (including q=1 nonperpendicular strictness) was not located as a prior theorem. An inaccessible plausible source alone does not overturn the best-of-knowledge result.",
       "searches": [
-        "Mal 2023 Theorem 3.11(i)-(ii) full proof pp. 853–855",
-        "Grover–Singla 2022 Theorems 1.1–1.3",
-        "Mal 2022 2023 joint numerical index Hilbert ℓ2 m k≥m saturation and rank one frame equality"
+        "Mal Theorem 3.11 and proof in Operators and Matrices 17 (2023), pp. 853–855",
+        "Grover–Singla Theorems 1.1–1.3, arXiv:2201.03055 (current v2)",
+        "Moslehian et al. §3 full PDF, specifically Theorems 3.1–3.2",
+        "Drnovšek–Müller DOI:10.1080/03081087.2013.816303, primary abstract and citation in Mal; full text unavailable"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Grover–Singla uses the same Euclidean joint radius and the coefficient-duality formula but solves subdifferential/orthogonality problems; no common-source spectral minimum is stated in inspected sections.",
-        "Mal Theorem 3.11 uses the common-source operator construction but only k<m in the finite case."
+        "Resultary top exact hit is a mirror of the currently assigned finding, not independent priority; other hits concern rank-one q/rho radii and two rank-one projections.",
+        "Grover–Singla Theorem 1.1 characterizes subdifferentials of the joint numerical radius and its Theorems 1.2–1.3 characterize Birkhoff–James orthogonality; these do not optimize over a fixed common-source rank-one family."
       ],
-      "reasoning": "Compared the same functional after coefficient-duality, including row/synthesis and tight-frame terminology. Neither inspected primary theorem gives the claimed sharp ratio for k≥m or its equality classification. The unexamined original construction remains a risk.",
+      "reasoning": "Compared coefficient-duality and row/column synthesis-matrix formulations, including tight-frame and singular-value language. No independently published equivalence of the full dimension-saturated restriction and its equality rigidity was found; this is evidence-bounded, not a claim of exhaustive priority.",
       "searches": [
-        "Common-source rank-one tuples of operators on finite dimensional Hilbert spaces; exact joint Euclidean numerical-radius to joint operator norm constant 1/(2 sqrt(min(k,m-1))), tight frame equality cases",
-        "Vector-valued numerical radius common initial vector rank one row operators Hilbert space tight frames rank deficiency sharp inequality",
-        "\"joint numerical radius\" \"rank one\" \"frame\" extremal",
-        "arxiv:2201.03055v1 §2, equation (2.1)"
+        "Resultary semantic query: Sharp Euclidean joint numerical radius to joint norm ratio for k rank-one operators sharing one source vector on m-dimensional Hilbert space, saturation min(k,m-1), tight frame equal singular value minimizers",
+        "Web: common source rank one tuples sharp joint Euclidean numerical radius Frobenius norm n m",
+        "Web: \"rank one\" \"joint numerical radius\" \"tight frames\" common source",
+        "Grover–Singla arXiv:2201.03055 Theorems 1.1–1.3"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The primary source tabulates no restricted common-source index for k≥m and states no family of equal-singular-value minimizers.",
-        "Searches for the dimension-bound formula and tight-frame aliases found no indexed exact table or source asserting that profile."
+        "Resultary shows one exact-match current-finding mirror, but no separate indexed primary item tabulating the dimension-saturated ratio or classification.",
+        "The 2017 full text centers on general inequalities and contains no retrieved rank-one or tight-frame classification; Mal 2023 formula for k<m is already acknowledged."
       ],
-      "reasoning": "The result concerns a continuum of finite-dimensional operator tuples rather than a finite table. The full matching statement and its singular-value rigidity were not present in inspected primary material; search failure is not a proof of priority.",
+      "reasoning": "A universal optimization over continuous families of operators is not intrinsically a finite lookup table; evaluated potential tabular equivalent special cases and exact formula searches. No prior table of the same ratio and full equality case was verified; search nonappearance is not a mathematical novelty certificate.",
       "searches": [
-        "Common-source rank-one tuples of operators on finite dimensional Hilbert spaces; exact joint Euclidean numerical-radius to joint operator norm constant 1/(2 sqrt(min(k,m-1))), tight frame equality cases",
-        "Joint numerical radius rank-one Hilbert finite dimension k≥m dimension obstruction and tight-frame minimizers",
-        "\"joint numerical radius\" \"common\" \"rank one\" operators frame bound"
+        "Resultary: rank-one common-source tuple singular value saturation, equality frame classification",
+        "Web: rank one common source sharp numerical radius spectral Frobenius ratio tight frame",
+        "Publisher Math. Scand. PDF keyword inspection: rank one, joint index, singular values"
       ]
     },
-    "rationale": "The key new statement is k≥m saturation for the common-source rank-one class, along with full extremizer classification and an exact spectral defect. Mal 2022/2023 treats unrestricted complex indices only for k<m in finite dimension. Grover–Singla 2022 treats subgradients, not this index. An inaccessible early construction paper and possible unindexed equivalents remain real risks.",
+    "rationale": "Best-of-knowledge: the finite-Hilbert global index for k<m is credited to Mal, while the new restricted k>=m saturation, both-field tight-frame/orthogonal equalizers, and quantitative spectral deficit are not implied by the materially inspected primary theorems. Results mirror for the assigned finding is not independent priority. The original Drnovšek–Müller article remains a real access-limited risk, not a fabricated noncoverage finding.",
     "residual_risks": [
-      "Earlier Drnovšek–Müller Theorem 9 was available only by citation and abstract; it might contain an unindexed equivalent classification.",
-      "The 2017 Euclidean-radius full text was not obtained; only its abstract was usable.",
-      "Semantic search and inspected primary theorems do not certify global publication priority."
+      "Drnovšek and Müller (2014) Theorem 9 was cited as a sharpness-construction antecedent but not fully read: lawful OA and preprint search found no complete accessible copy and the complete text remained unavailable.",
+      "Unknown independently published results in older operator/frame-equivalence literature may imply the same formula without matching keywords.",
+      "Resultary and web retrieval are not exhaustive and no global publication-priority attestation is claimed.",
+      "Original Mal finite k<m construction is explicitly pre-existing; that numerical range contributes no new novelty."
     ],
     "source_inspections": [
       {
-        "assessment": "Covers unrestricted complex index for k<m, not the dimension-saturated restricted-class ratio/equality profile for k≥m.",
-        "evidence": "Theorem 3.11(i), displayed k<m; proof chooses T_i(e_m)=e_i/√k, which requires k<m.",
-        "identifier_or_url": "arxiv:2212.06500v1; https://files.ele-math.com/articles/oam-17-56.pdf",
-        "material_read": "Full publisher PDF accessed; definitions and Theorems 3.1, 3.10, 3.11 and complete finite-Hilbert construction/proof on journal pp. 839–855, reference list.",
-        "method": "Read full-text scientific text and inspected rendered pages 853–854 to verify k<m restriction and chosen operators.",
+        "assessment": "Covers unrestricted complex Hilbert index for 1<=k<m and infinite Hilbert space separately; no finite k>=m common-source ratio or equality/deficit identified in the relevant theorem and proof",
+        "evidence": "Theorem 3.11(i,ii); journal pp. 853–855; finite witness T_i e_m=k^{-1/2}e_i; reference [5] to 2014 original",
+        "identifier_or_url": "https://files.ele-math.com/articles/oam-17-56.pdf; DOI:10.7153/oam-2023-17-56; arXiv:2212.06500",
+        "material_read": "Publisher 18-page scientific PDF; definitions of joint radius/norm, Theorems 3.1 and 3.11, full proof and displayed construction at journal pages 853–855, reference list",
+        "method": "Read searchable full PDF and inspect rendered PDF pages 853, 854 and 855",
         "title": "On joint numerical radius of operators and joint numerical index of a Banach space",
-        "trigger": "Exact motivating Hilbert index, construction with one common source, and possible coverage of k≥m."
+        "trigger": "Exact foundational finite-Hilbert index theorem and common-source witness; possible k>=m domination"
       },
       {
-        "assessment": "Contains joint-radius coefficient-duality and subdifferential/orthogonality, but does not state the common-source singular-rank saturation/equality theorem.",
-        "evidence": "Theorems 1.1–1.3 and formula (2.1), subject and conclusion materially differ.",
-        "identifier_or_url": "arxiv:2201.03055v1; https://arxiv.org/pdf/2201.03055",
-        "material_read": "Original 2022 full-text version; introduction, Theorems 1.1–1.3, coefficient variational formula (2.1), proofs and section 3 remarks, pages 1–8.",
-        "method": "Read primary PDF text and rendered relevant pages 2–3 and final remarks.",
-        "title": "Subdifferential of the joint numerical radius",
-        "trigger": "Potential variational equivalence or stronger full-tuple theorem."
+        "assessment": "Gives subdifferential/orthogonality for arbitrary complex operator tuples, not the restricted common-source minimum or saturation classification",
+        "evidence": "Theorems 1.1–1.3 and formula for joint numerical radius, pp. 2–5",
+        "identifier_or_url": "https://arxiv.org/pdf/2201.03055 (PDF accessed with v2 header 7 October 2026); initial arXiv:2201.03055",
+        "material_read": "Accessible primary PDF, abstract, introduction, Theorems 1.1–1.3 and proofs including coefficient duality and orthogonality sections",
+        "method": "Read PDF text and inspect a rendered page containing Theorems 1.2–1.3",
+        "title": "Subdifferential set of the joint numerical radius of a tuple of matrices",
+        "trigger": "Identical joint-radius functional, possible variational equivalence or larger extremal theorem"
       },
       {
-        "assessment": "Indeterminate, no claim of noncoverage; material insufficiency recorded as a significant priority risk.",
-        "evidence": "Mal Theorem 3.11 proof states it follows the idea of Drnovšek–Müller Theorem 9.",
-        "identifier_or_url": "DOI:10.1080/03081087.2013.816303",
-        "material_read": "Publisher abstract and citation by Mal only; full article unavailable.",
-        "method": "Searched for author preprint and lawful open text, then requested institutional retrieval; access unavailable.",
-        "title": "On joint numerical radius II",
-        "trigger": "Explicitly cited by Mal as the idea for sharp common-source rank-one examples (Theorem 9)."
-      },
-      {
-        "assessment": "Main described result is a general upper inequality, so no directly evidenced coverage; cannot exclude unknown full-text statements.",
-        "evidence": "Abstract states the principal result bounds a generalized product tuple radius above by operator moduli.",
-        "identifier_or_url": "DOI:10.7146/math.scand.a-25509; arxiv:1502.00083",
-        "material_read": "Published abstract, source metadata, and theorem summary; full PDF download unsuccessful.",
-        "method": "Checked legal journal and arXiv locations; inspected available abstract.",
+        "assessment": "Provides universal upper/lower inequalities for numerical radius, not exact restricted Frobenius/spectral optimum and no equality-family classification found in examined text",
+        "evidence": "Eq. (1.1), Theorems 3.1–3.2, journal pp. 129–140",
+        "identifier_or_url": "https://journals.msp.org/mscand/article/download/328/327/359; DOI:10.7146/math.scand.a-25509; arXiv:1502.00083",
+        "material_read": "Publisher full 16-page PDF; introduction, equation (1.1), Section 2 bounds and Section 3 Theorems 3.1–3.2 with proof portions",
+        "method": "Read primary full PDF text and inspected rendered page 130 for eq. (1.1)",
         "title": "Extensions of Euclidean operator radius inequalities",
-        "trigger": "Earlier multi-operator Euclidean-radius inequality might dominate the bound."
+        "trigger": "Earlier general Euclidean operator-radius inequalities might dominate the new lower bound"
+      },
+      {
+        "assessment": "No whole-text conclusion possible; unresolved but bounded risk of an earlier equivalent/general theorem; does not independently establish coverage from available evidence",
+        "evidence": "Publisher abstract and Mal 2023 proof p.854 cites reference [5], Th.9",
+        "identifier_or_url": "DOI:10.1080/03081087.2013.816303; Linear and Multilinear Algebra 62 (2014), 1197–1204",
+        "material_read": "Publisher abstract, bibliographic metadata, Mal’s citation to Theorem 9; NOT full article",
+        "method": "Searched public preprint and lawful open-access sources and reviewed publisher abstract; complete text was unavailable. No conclusion about unexamined sections was drawn.",
+        "title": "On joint numerical radius II",
+        "trigger": "Mal credits its Theorem 9 for the common-source sharpness construction; highest remaining historical priority risk"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
   "schema_version": 1,
-  "scope_run_id": "8d865e61-76dd-4c38-8201-c5dc80716c99",
+  "scientific_claim": "Dimension-saturated joint numerical radius for common-source rank-one tuples",
+  "scientific_limitations": "The result is restricted to rank-at-most-one tuples sharing a source. The unrestricted finite-dimensional Hilbert joint index for k≥m is not determined. Priority risk remains around the inaccessible Drnovšek–Müller 2014 article.",
   "value": {
-    "rationale": "This is the exact restricted extremum for the natural construction underlying Mal’s sharp Hilbert theorem, not a fabricated coordinate slice. It identifies a genuine dimensional phase boundary and the rigid transition from orthogonal outputs to tight frames. The spectral defect bounds source leakage and failure of equal singular values for nearly minimal tuples, a structural quantitative use beyond mere reproducibility.",
+    "rationale": "The restricted class is the natural common-source rank-one mechanism used in Mal’s Hilbert joint-index sharpness witness. Its exact finite ambient-dimensional saturation at k=m−1 resolves a meaningful parameter regime left by that construction. The complete equality characterization identifies orthogonal systems when k<=m−1 and redundant tight frames when k>=m−1, while a nontrivial spectral deficit controls near-minimizers and source leakage. It is independently useful even without a theorem about arbitrary operator tuples; simple standard matrix inequalities are ingredients but do not by themselves communicate the fixed-m classification.",
     "status": "PASS"
   }
 }

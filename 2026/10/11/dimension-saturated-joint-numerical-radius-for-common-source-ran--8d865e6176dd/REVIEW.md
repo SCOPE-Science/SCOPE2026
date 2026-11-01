@@ -1,15 +1,15 @@
-# Review of the common-source joint numerical-radius theorem
+# Mathematical assessment of the common-source joint numerical-radius theorem
 
-## Correctness — PASS
+## Correctness
 
-The tuple norm reduces exactly to the Frobenius norm of the output synthesis map. Averaging evaluations at symmetric test vectors yields the sharp lower bound in terms of the largest singular value; rank at most \(\min\{k,m-1\}\) gives the dimension barrier. A separate nonperpendicular perturbation argument settles the delicate single-singular-value equality case; exact orthogonal-source evaluation constructs witnesses in every dimension and proves necessity/sufficiency. The standalone checker tests 70 dimension/tuple-size witnesses and 1680 randomized Gram inequalities. Its finite tests do not substitute for the analytic proof.
+The exact joint operator norm is the Frobenius norm of the common-source output family. For the source-parallel coefficient vector `a` and perpendicular synthesis map `S`, symmetric unit test vectors give `4W^2 >= ||a||^2 + ||S||^2`. The rank restriction `rank(S) <= min(k,m-1)` yields the sharp dimension-dependent ratio, and explicit coordinate partial isometries attain it. Equality when the rank threshold exceeds one is equivalent to zero source-parallel part and all nonzero singular values equal; when the threshold is one, a separate one-variable perturbation rules out a nonzero source-parallel part. The exact perpendicular-source spectral deficit and stated near-minimal estimates follow.
 
-## Originality — PASS with stated residual risk
+Numerical examples and random matrix tests illustrate the result but do not replace this analytic proof.
 
-Mal, arXiv:2212.06500v1 / *Operators and Matrices* (2023), Theorem 3.11(i), proves the complex Hilbert **unrestricted** joint index only for \(k<m\), by a common-source construction. Its proof does not classify the minimizing common-source tuples, determine their sharp ratio when \(k\ge m\), or give a spectral defect. The range \(k<m\) agrees with known work and is not counted as the novelty. Grover–Singla, arXiv:2201.03055v1, gives subdifferential and Birkhoff–James characterizations instead, without this rank-limited spectral extremum. The original construction is credited by Mal to Drnovšek–Müller (2014), whose full text was unavailable; it remains a significant equivalence risk, not a source declared to be noncovering.
+## Relationship to prior literature
 
-## Mathematical value — PASS
+Mal's 2023 Hilbert joint-index theorem obtains the unrestricted complex sharp value for tuple length `k<m`, with a common-source construction. The new fixed-dimensional restricted-family assertion concerns the parameter range beyond that construction and describes all equality families. The 2017 Euclidean-radius inequalities by Moslehian, Sattari and Shebrawi give different general bounds, while Grover and Singla study subdifferentials and operator-tuple orthogonality. A 2014 antecedent by Drnovšek and Müller is cited by Mal for its construction idea; its complete text has not been examined, so prior equivalence remains a genuine risk. Failure to find a matching source does not prove global novelty.
 
-The class is not an arbitrary coordinate slice: it is exactly the rank-one construction used to attain the source paper's complex Hilbert bound. Determining its sharp behavior after the ambient perpendicular dimension saturates fills a natural parameter regime and completely identifies extremizing output geometry: orthogonal systems below the threshold, tight frames above it. The sharp spectral-defect identity makes near-extremizers quantitatively near equal-singular-value frames. This restricted result does not determine the unrestricted finite-dimensional Hilbert joint index above threshold.
+## Mathematical significance and scope
 
-Same-model review: passed. Independent audit: not yet performed.
+The restricted class is the natural rank-one construction from the motivating joint-index theorem. Saturation at the dimension of the source's orthogonal complement and the transition from orthogonal families to redundant tight frames are precise and useful structural invariants. No statement is made about unrestricted operator tuples above the threshold or formal proof-assistant verification.
