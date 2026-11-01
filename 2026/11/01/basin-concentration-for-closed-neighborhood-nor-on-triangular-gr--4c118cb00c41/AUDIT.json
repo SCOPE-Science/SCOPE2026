@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The literal closed-neighborhood NOR rule is exactly \\(F(S)=E([n]\\setminus U(S))\\), whose support cases give \\(F^3=F\\) and the complete orbit/first-entry classification for every \\(n\\ge4\\). Counting exact supports by inclusion-exclusion proves all basin formulas. An explicit injection gives \\(c_n>2c_{n-2}\\), hence unique basin dominance. Bonferroni pair intersections for two isolated base vertices give the exact sharp asymptotic after correcting for the empty initial graph. Two different code implementations exhaustively verify \\(n=4,5,6\\) and \\(n=4,5,6,7\\), respectively; the proof covers every \\(n\\ge4\\).",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2017 10.1155/2017/7209762 Theorems 3--7: period-type dichotomy for Boolean maxterm/minterm parallel systems, with no individual basin counts.",
+        "2020 10.1155/2020/9708347 Proposition 1 and Corollary 4: general two-periodic points via neighborhood-set images, and a (N-2)-regular periodic-point count; no attraction-basin distribution or random-initial-state concentration.",
+        "2014 10.1016/j.jcss.2014.04.025 studies the number of fixed points in AND--OR--NOT networks, with loop distinctions."
+      ],
+      "reasoning": "The general closed-NOR eventual period-two assertion is already covered, and the generic 2020 periodic point count may imply the orbit-count component. Neither yields an individually stated exact complete basin census on L(K_n) or the dominant-basin asymptotic; the narrower independent contribution is formulated accordingly. Aledos 2012 full text was not accessible, so full dominance by that source cannot be ruled out.",
+      "searches": [
+        "closed neighborhood NOR network dynamics graph line graph complete graph edge dominating sets synchrony",
+        "Boolean networks closed neighborhood NOR graphs parallel dynamics self-inhibition two cycles",
+        "Counting Periodic Points in Parallel Graph Dynamical Systems 2020 9708347 NOR maxterm exact fixed points triangular graphs",
+        "closed neighborhood NOR graph dynamical system attraction basin support spanning subgraph line graph",
+        "doi:10.1155/2017/7209762 Section 3 Theorems 3--7",
+        "doi:10.1155/2020/9708347 Section 3 Proposition 1 Corollary 4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1155/2015/594294",
+      "doi:10.1155/2017/7209762",
+      "doi:10.1155/2020/9708347",
+      "doi:10.1016/j.jcss.2014.04.025",
+      "doi:10.1016/j.mcm.2011.08.040",
+      "2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec",
+      "2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2017 DOI 10.1155/2017/7209762: no coexistence of different primitive periods for homogeneous Boolean minterm/maxterm networks.",
+        "2020 DOI 10.1155/2020/9708347: exact periodic point counts are expressed by neighborhoods, which can subsume the number of orbit pairs but not the size distribution of preperiodic fibers.",
+        "The accessible same-family record 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec computes homology of a neighborhood complex, not dynamical basins."
+      ],
+      "reasoning": "The accepted claim is not periodicity alone, the mere 2^(n-1)-n orbit count, or generic finite-state exhaustibility. It asserts every basin c_m+c_(n-m), the unique maximal basin 1+c_n+n c_(n-1), and its sharp probability deficit ~binom(n,2)2^(-(2n-3)). These quantities require support enumeration, injection and intersection asymptotics not stated in the related prior results. An uninspected original could still have an implication-equivalent theorem.",
+      "searches": [
+        "closed-neighborhood NOR minterm on triangular graph L(K_n) all attraction basins enumerated by graphs without isolated vertices exact probability asymptotic",
+        "self-inclusive Boolean NOR synchronous update on edge intersection graph of complete graph unique dominant two-cycle basin probability two isolated vertices",
+        "Boolean PDS minterm NOR triangular graphs Kneser complement attracting orbits spanning graphs no isolates",
+        "doi:10.1155/2020/9708347 Proposition 1 periodic points neighborhood-image"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The self-inclusive NOR configuration on L(K_n) is equivalent to an edge subset S of K_n updated to the complete graph on vertices not incident to S; the initial-bit ensemble is G(n,1/2).",
+        "2015 survey DOI 10.1155/2015/594294 defines minterm NOR and the self-including parallel graph rule.",
+        "Published exact-neighborhood-homology result 2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec studies the same graph family but an unrelated invariant."
+      ],
+      "reasoning": "Checked the aliases triangular graph T_n, line graph L(K_n), edge-intersection graph of a clique, self-including minterm NOR, closed-neighborhood NOR, spanning/no-isolates edge subsets, random-graph isolated vertices and attraction fibers. The 2012/2017 minterm literature covers the period restriction but the checked texts do not state the claimed basin formula or concentration.",
+      "searches": [
+        "closed-neighborhood NOR minterm on triangular graph L(K_n) all attraction basins enumerated by graphs without isolated vertices exact probability asymptotic",
+        "self-inclusive Boolean NOR synchronous update on edge intersection graph of complete graph unique dominant two-cycle basin probability two isolated vertices",
+        "Boolean PDS minterm NOR triangular graphs Kneser complement attracting orbits spanning graphs no isolates",
+        "Boolean graph NOR minterm closed neighborhood line graph graph without isolated vertices"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Direct original verification gave distinguished basins 58, 974, 32058, 2079428 for n=4,5,6,7, respectively; these checks are stored with scripts.",
+        "2020 10.1155/2020/9708347 Corollary 4 counts 2-periodic points on a particular high-degree regular class, but not initial-state attraction basin sizes."
+      ],
+      "reasoning": "No inspected exact table/source repeats the per-orbit basin sizes or universal no-isolate formula, and broad searches did not return an equivalent dataset. A failed index search alone is not novelty proof; inaccessible and unindexed enumerations remain possible.",
+      "searches": [
+        "closed-neighborhood NOR minterm on triangular graph L(K_n) all attraction basins enumerated by graphs without isolated vertices exact probability asymptotic",
+        "self-inclusive Boolean NOR synchronous update on edge intersection graph of complete graph unique dominant two-cycle basin probability two isolated vertices",
+        "triangular graph L(K_n) NOR attraction basin exact numbers 58 974 32058 2079428",
+        "Counting Periodic Points in Parallel Graph Dynamical Systems Corollary 4"
+      ]
+    },
+    "rationale": "The accepted claim is the full individual attraction-basin census and sharp dominant-basin asymptotic for self-inclusive NOR on the triangular graphs L(K_n), n>=4. The universal period-two restriction and broadly general periodic-point counts are acknowledged known; in particular the 2020 (N-2)-regular corollary covers only the T_4 periodic-point count and not any basin size. The available full primary texts do not imply the exact individual triangular-graph basin counts nor the rare-two-isolated-vertices asymptotic without a new explicit structural reduction and count. The inaccessible 2012 maxterm/minterm paper and unindexed work remain real overlap risks.",
+    "residual_risks": [
+      "The 2012 maxterm/minterm orbital paper was available only as abstract/metadata; a full-text comparison could reveal a stronger formula.",
+      "A specialized L(K_n) NOR attraction-basin calculation could exist under a different terminology or in an unindexed source.",
+      "The general 2020 neighborhood-image formula covers some periodic-point counts; this claim does not treat that component as the substantive novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers model definition and general background, does not give an L(K_n) exact basin census",
+        "evidence": [
+          "First published 24 March 2015; definition of minterm NOR and self-inclusive graph local updates."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2015/594294",
+        "material_read": "Full accessible HTML portions defining minterm NOR, closed-neighborhood dependency and cited foundational work",
+        "method": "Read author definitions and survey relevant discussion",
+        "title": "Parallel Dynamical Systems over Graphs and Related Topics: A Survey",
+        "trigger": "Documented classical self-inclusive NOR rule and archive source date"
+      },
+      {
+        "assessment": "General period-two and coexistence restrictions apply; no closed triangular-graph individual basin formulas",
+        "evidence": [
+          "Theorem 5 proves all recurrent orbits primitive period two in the all-negative case; full-text searches found no basin enumeration."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2017/7209762",
+        "material_read": "Accessible full-text Sections 1--4 with Theorems 3--7 and cited earlier studies",
+        "method": "Read full HTML period section and targeted search for attraction/basin",
+        "title": "On the Periods of Parallel Dynamical Systems",
+        "trigger": "Potential broader period classification"
+      },
+      {
+        "assessment": "Provides general counts/bounds for periodic points and special high-degree graphs; does not provide the individual initial-state basin sizes or asymptotic",
+        "evidence": [
+          "Proposition 1 uses neighborhood images; Corollary 4 includes the T_4 period-point number as the 4-regular 6-vertex special case."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2020/9708347",
+        "material_read": "Accessible full-text abstract, introduction, Sections 2--4, particularly Proposition 1, Theorem 7, Corollaries 3--4",
+        "method": "Read accessible full article and checked period-count formulas and examples",
+        "title": "Counting Periodic Points in Parallel Graph Dynamical Systems",
+        "trigger": "Strongest plausible broad count dominating exact orbit enumeration"
+      },
+      {
+        "assessment": "Treats mainly fixed-point extremal counts, not 2-cycle attraction basins on triangular graphs",
+        "evidence": [
+          "Explicit distinction of loopless and looped interaction graphs; loopless negative AND-NOT fixed points correspond to maximal independent sets."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jcss.2014.04.025",
+        "material_read": "Accessible full-text Introduction, Sections 2--3, definitions, loop discussion and conclusions",
+        "method": "Read public HTML article and compare open-neighborhood fixed-point results with self-inclusive rule",
+        "title": "Maximum number of fixed points in AND--OR--NOT networks",
+        "trigger": "Fixed points under related NOR/negative conjunction and self-loop distinctions"
+      },
+      {
+        "assessment": "UNRESOLVED overlap risk, not classified as noncovering; general orbit restrictions are known via later full text",
+        "evidence": [
+          "The abstract claims general orbit characterization of maxterm/minterm Boolean systems, but does not disclose explicit triangular-graph basin formulas."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.mcm.2011.08.040",
+        "material_read": "Bibliographic records and abstract only; full text was not accessible through arXiv, public OA or institutional route",
+        "method": "Checked arXiv/OA indexed search, publisher and bibliographic abstract and attempted authorized full-text route",
+        "title": "Parallel discrete dynamical systems on maxterm and minterm Boolean functions",
+        "trigger": "Plausible 2012 treatment of full orbit structures for the exact Boolean rule class"
+      },
+      {
+        "assessment": "Noncovering: computes mod-two homology of Lovasz neighborhood complex for n<=7, not Boolean NOR dynamics or basins",
+        "evidence": [
+          "Statement contains homology groups H_3 and H_4 and no dynamical rule, recurrence or initial-state basin counts."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-mixed-dimensional-mod-two-neighborhood-homology-first-appears-at--5026f3f1e8ec/RESULT.md",
+        "material_read": "Complete publicly available RESULT.md",
+        "method": "Compared the actual mathematical claim and object, not title alone",
+        "title": "Mixed-dimensional mod-two neighborhood homology first appears at T_7",
+        "trigger": "Exact same triangular graph family appeared as closest semantic research match"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4c118cb0-0c41-44a8-87e7-8322561ebaa4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The canonical triangular graph family L(K_n) provides a natural controlled test of self-inhibitory graph dynamics. Individual attraction-basin sizes and asymptotic measure concentration are intrinsic, motivated robustness invariants. The sharp asymptotic separates exponentially many recurrent orbits from one basin with asymptotically all initial states; the theorem fully classifies this family rather than choosing an ad hoc finite case or claiming a general known periodicity fact.",
+    "status": "PASS"
+  }
+}
