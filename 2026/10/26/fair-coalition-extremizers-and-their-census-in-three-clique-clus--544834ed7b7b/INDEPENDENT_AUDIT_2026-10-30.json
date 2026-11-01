@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:58:19.783247Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A subset 1-fair dominates a disconnected clique union iff each component contains exactly one selected vertex or is entirely selected. For potential coalitions with total size<=4, only size-three full transversals work. An excess d=sum(|B|-1)<=2 forces singleton components requiring at least three separate complementary doubletons, contradiction; three cross-pair doubletons realize d=3. For equality d=3, the four-block and triple+double shapes cannot serve singleton vertices in multiple components; three doubletons have component pair counts (1,1,1),(2,1,0),(3,0,0), with the latter types possible only when their depleted components have size 3. Counting individually labelled choices produces T=prod_i n_i(n_i-1)+3 sum_{i:n_i=3} n_j n_k(n_j+n_k-2)+6 sum_{i<j:n_i=n_j=3}1. Independent disjoint-edge matching enumeration reproduced T(3,3,3)=558 and T(3,3,4)=798; universality comes from combinatorial proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alikhani et al Thm 2.6",
+          "Resultary SCOPE-fair-domination-polynomial-of-complete-multipartite-graphs--b883ddb6f548"
+        ],
+        "reasoning": "Substitution gamma_f=3 in the general published bound gives Cf<=N-1, not N-3; nearby connected complete multipartite fair-domination polynomial is a different object.",
+        "searches": [
+          "Resultary semantic search: fair coalition partitions disjoint union of three cliques optimum number of maximal partitions 1 fair domination",
+          "primary source https://arxiv.org/abs/2507.15080"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2507.15080",
+        "https://arxiv.org/abs/2509.11358",
+        "https://arxiv.org/abs/2608.05403",
+        "Resultary actual semantic query: fair coalition partitions disjoint union of three cliques optimum number of maximal partitions 1 fair domination",
+        "Assigned pinned Git RESULT.md and verification source at https://github.com/SCOPE-Science/SCOPE2026/tree/6dbe824b068db5293d6f8afe190986773fdf51ae/2026/10/26/fair-coalition-extremizers-and-their-census-in-three-clique-clus--544834ed7b7b"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2507.15080 Thm 2.6",
+          "arXiv:2509.11358",
+          "arXiv:2608.05403"
+        ],
+        "reasoning": "General 1-fair bound is too weak; k-fair for k>=2 and ordinary k-coalition have different qualifying predicates, hence no logical implication of this exact T formula.",
+        "searches": [
+          "Resultary semantic search: fair coalition partitions disjoint union of three cliques optimum number of maximal partitions 1 fair domination",
+          "primary source https://arxiv.org/abs/2507.15080"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alikhani et al arXiv:2507.15080"
+        ],
+        "reasoning": "Examined 1-fair dominating transversals, cluster graphs and disjoint union of three cliques; the required partition and exact labelled count were not in founding paper.",
+        "searches": [
+          "Resultary semantic search: fair coalition partitions disjoint union of three cliques optimum number of maximal partitions 1 fair domination",
+          "primary source https://arxiv.org/abs/2507.15080"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query on three-clique fair coalition partitions",
+          "Primary fair coalition graph table families paths/cycles"
+        ],
+        "reasoning": "No relevant existing labelled-optimal-partition count found; OEIS or a finite graph-table lookup cannot by itself classify arbitrary n1,n2,n3; specific inapplicability to purely finite tables.",
+        "searches": [
+          "Resultary semantic search: fair coalition partitions disjoint union of three cliques optimum number of maximal partitions 1 fair domination",
+          "primary source https://arxiv.org/abs/2507.15080"
+        ]
+      },
+      "rationale": "Alikhani/Jafari/Safazadeh introduced 1-fair coalitions and give general bound N-gamma_f+2, here N-1, strictly weaker than N-3 and not enumerative. Related k-fair papers address k>=2 and ordinary k-coalition uses another domination predicate. No same-cluster three-clique exact extremizer census found in searches; unindexed equivalent transversal/coalition classification remains possible.",
+      "residual_risks": [
+        "Term cluster graph and transversal-coalition may hide equivalent uncatalogued enumerations.",
+        "Independent bounded census checks only two small clique profiles, not all sizes."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives N-gamma_f+2 upper (N-1 here) but not N-3 and optimizer census",
+          "evidence": "1-fair domination exact-one-neighbor condition; Thm 2.6",
+          "identifier_or_url": "https://arxiv.org/abs/2507.15080",
+          "material_read": "Primary full PDF definitions, general fair-coalition bound Theorem 2.6, graph families and concluding discussion",
+          "method": "lawful arXiv full PDF, relevant theorem and sections read; PDF screenshot examined",
+          "title": "Fair coalition in graphs",
+          "trigger": "Original 1-fair coalition definition, bounds, candidate general graph results"
+        },
+        {
+          "assessment": "Different k and no three-disjoint-clique 1-fair count",
+          "evidence": "k-fair domination definitions and theorem scope",
+          "identifier_or_url": "https://arxiv.org/abs/2509.11358",
+          "material_read": "Accessible primary abstract and theorem descriptions concerning k>=2",
+          "method": "arXiv abstract and relevant accessible statements",
+          "title": "k-Fair Coalitions in Graphs",
+          "trigger": "Possible broader k-fair theorem"
+        },
+        {
+          "assessment": "Different ordinary k-domination threshold rather than exactly-one-neighbor",
+          "evidence": "k-coalition predicate differs",
+          "identifier_or_url": "https://arxiv.org/abs/2608.05403",
+          "material_read": "Accessible original abstract and discussion of ordinary k-coalitions",
+          "method": "lawful OA metadata/abstract; no full-text noncoverage inference",
+          "title": "On k-coalition partitions of graphs",
+          "trigger": "Possible general disjoint-union coalition classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact optimum and complete equality-family census for three disconnected cliques is a natural structural invariant in a recently introduced domination theory. Size-three exceptional branches and explicit labelled partition counts are substantive beyond a routine bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For three disjoint labelled cliques of sizes n_i>=3, the 1-fair coalition number is N-3, every optimum partition uses three cross-clique doubletons, and the exact labelled-vertex unordered-partition count is product n_i(n_i-1) plus the stated size-three corrections.",
+  "limitations": [
+    "Exactly three components each of size at least three; counts unordered partitions of labelled vertices, not coalition-partner witness choices.",
+    "Term cluster graph and transversal-coalition may hide equivalent uncatalogued enumerations.",
+    "Independent bounded census checks only two small clique profiles, not all sizes."
+  ],
+  "schema_version": 1
+}

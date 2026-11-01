@@ -1,19 +1,21 @@
-# Scientific review: three-clique fair-coalition partitions
+# Independent mathematical audit
 
-**Correctness — PASS.** The elementary component-occupancy lemma shows that each 1-fair dominating set with at most four selected vertices is a size-three transversal. The excess argument excludes partitions with fewer than three merged vertices; the three-doubleton construction attains the bound; a full excess-three block-size analysis gives the optimizer types. Direct adjacency-based enumeration reproduces the counts, including the exceptional three-clique cases. The proof applies to every three-component profile of integers at least three; finite experiments are not presented as an infinite proof.
+## correctness
 
-**Originality — PASS (self-review, residual risk).** The founding paper [1] supplies the definition and a general upper bound, but treats paths, cycles and small cubic graphs, not the exact three-clique enumeration. The later \(k\)-fair paper [2] and ordinary \(k\)-coalition paper [3] examine different parameter ranges or domination conditions. No matching exact statement or stronger implying statement was identified through the consulted research-record searches. This does not prove global novelty; an unindexed equivalent under cluster-graph, 1-fair domatic or transversal-coalition terminology remains possible.
+PASS
 
-**Value — PASS.** The first nontrivial three-component cluster family exhibits a sharp, component-size-independent three-block deficit from the all-singleton partition. Classifying all equality partitions and giving the exact labelled-vertex enumerator makes the result structurally more informative than a scalar graph invariant. The size-three exceptions contribute two additional, explicitly counted combinatorial patterns, while every component size at least four forces a unique pair-type pattern.
+A subset 1-fair dominates a disconnected clique union iff each component contains exactly one selected vertex or is entirely selected. For potential coalitions with total size<=4, only size-three full transversals work. An excess d=sum(|B|-1)<=2 forces singleton components requiring at least three separate complementary doubletons, contradiction; three cross-pair doubletons realize d=3. For equality d=3, the four-block and triple+double shapes cannot serve singleton vertices in multiple components; three doubletons have component pair counts (1,1,1),(2,1,0),(3,0,0), with the latter types possible only when their depleted components have size 3. Counting individually labelled choices produces T=prod_i n_i(n_i-1)+3 sum_{i:n_i=3} n_j n_k(n_j+n_k-2)+6 sum_{i<j:n_i=n_j=3}1. Independent disjoint-edge matching enumeration reproduced T(3,3,3)=558 and T(3,3,4)=798; universality comes from combinatorial proof.
 
-**Limitations.** The result concerns three cliques of sizes at least three, does not count coalition-partner choices, and has not undergone independent mathematical validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-## Closest literature
+Alikhani/Jafari/Safazadeh introduced 1-fair coalitions and give general bound N-gamma_f+2, here N-1, strictly weaker than N-3 and not enumerative. Related k-fair papers address k>=2 and ordinary k-coalition uses another domination predicate. No same-cluster three-clique exact extremizer census found in searches; unindexed equivalent transversal/coalition classification remains possible.
 
-[1] S. Alikhani, A. Jafari and M. Safazadeh, *Fair coalition in graphs*, arXiv:2507.15080 (initial release 20 July 2025).
+## value
 
-[2] A. Jafari and S. Alikhani, *\(k\)-Fair Coalitions in Graphs*, arXiv:2509.11358.
+PASS
 
-[3] C. Kaneshiro, *On \(k\)-coalition partitions of graphs*, arXiv:2608.05403.
+Exact optimum and complete equality-family census for three disconnected cliques is a natural structural invariant in a recently introduced domination theory. Size-three exceptional branches and explicit labelled partition counts are substantive beyond a routine bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
