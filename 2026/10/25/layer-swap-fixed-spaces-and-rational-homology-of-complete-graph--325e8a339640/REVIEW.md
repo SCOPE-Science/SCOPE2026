@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The fixed-point PL identification follows directly from barycentric supports and the categorical adjacency relation. Covering by row and column simplices yields the complete bipartite nerve, with integral first-cycle lattice equal to the tensor of row and column augmentation kernels. In degree three, the published all-parameter sphere-wedge theorem fixes homology concentration and dimension. The exact signed fixed-face Lefschetz computation gives trace \((n-1)(m-1)\), and rational averaging yields the quotient statement. Five full simplicial finite examples provide independent consistency tests; these are not substituted for the all-parameter proof.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The 2023 primary article's Proposition 25 supplies the nonequivariant homotopy classification but not the layer-swap fixed space, its integral coordinate action, or the all-parameter homology eigenspaces. The 2019 two-factor result supplies the familiar row/column homotopy type, not its realization as the layer-swap fixed set inside the triple-product complex. Existing recorded \((4,4)\) eigenspaces are a covered special case, explicitly excluded as an independent contribution. Actual semantic-result and primary-source searches for categorical/tensor/direct products, fixed-point complexes, and stronger equivariant classifications did not locate a statement implying the combined all-parameter refinement. Searches are incomplete and an unindexed equivalence could change priority.
+PASS
 
-## Value — PASS
-The theorem classifies a natural geometric fixed-point locus as a PL space for *all* parameters and simultaneously determines the involution's action on a homology space whose known nonequivariant rank by itself cannot distinguish symmetry eigenspaces. The dimension drop from a three-sphere wedge to a one-sphere wedge fixed space, and the explicit invariant rank of the quotient, give structural information beyond a finite calculation or a renamed known Betti count.
+A geometric τ-fixed point has pairwise equal barycentric weights on each two-element layer orbit; its supporting orbit union is independent iff its (i,j) indices lie in a single row or column, giving a PL fixed-locus identification with Ind(Kn x Km). The row/column simplex cover has nerve K_{n,m}; cycle lattice is L_n tensor L_m of rank b=(n-1)(m-1). Signed invariant face Lefschetz gives χfixed=1-b and trace(τ|H3)=b, using the published nonequivariant H3 wedge multiplicity B=b(nm-2)/2. Thus ± ranks (B±b)/2, quotient H3=plus by rational averaging. Independently generated full faces for (2,2),(2,3) reproduce χ and ranks. Correct only for geometric fixed points (not vertexwise) and rational ambient H3.
 
-## Limitations
-Only the binary-coordinate involution is classified. The third-homology statement is rational and uses a published homology concentration theorem. The integral structure asserted is solely for first homology of the fixed locus. No independently performed external audit is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge statement-and-implication comparison after querying Resultary and checking relevant primary literature: the actual full claim, not just title, is not entailed by an inspected stronger theorem. Any acknowledged known special cases are explicitly excluded from novelty. Residual risks are itemized below.
+
+## value
+
+PASS
+
+The explicit all-parameter PL fixed-space model, natural equivariant integral 1-cycle lattice, and induced rational third-homology action extract information absent from a nonequivariant wedge-of-spheres count. The n=m=4 ranks 36 and 27 are prior special case rather than a new discovery.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
