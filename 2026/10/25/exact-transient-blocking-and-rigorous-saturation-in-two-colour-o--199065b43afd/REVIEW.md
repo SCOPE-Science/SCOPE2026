@@ -1,19 +1,21 @@
-# Scientific review: exact transient blocking in antagonistic adsorption
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim concerns the infinite one-dimensional, equal-rate, repeated-Poisson-attempt model. The cavity survival function is the unique solution of a scalar Volterra equation; the integral relation gives \(g(t)=\exp[-t/2-(1-e^{-t})/2]\). Opposite independent cavity colours and the exact conditional no-arrival probability \(e^{-(T_-+T_+)/2}\) yield \(B(t)=\tfrac12(1-e^{-t})^2e^{-(1-e^{-t})}\). The argument specifies the causal graphical construction, independence, infinite-time vacancy identification, and limiting asymptotic. Direct executable checks support the algebra and finite-time predictions without claiming that finite tests prove the infinite-volume statement.
+PASS
 
-## Originality — PASS, with priority qualification
+For the infinite Z nearest-neighbor antagonistic Poisson adsorption process with independent proposals of each color at rate 1/2 per site and repeated attempts, freezing site 0 separates independent left/right half-line processes. With T the boundary occupation time, before next-site occupation the rate at boundary is 1, after it 1/2, giving Volterra equation h(t)=1−(1/2)∫_0^t e^{−s}h(s)ds, h=e^{t/2}g, and solution g(t)=exp[−t/2−(1−e^{−t})/2]. The weighted occupation M(t)=E[e^{−T/2}1(T≤t)]=(1−e^{−t})exp[−(1−e^{−t})/2]. Opposite cavity colors occur with probability 1/2, and conditional no successful deposition at 0 until both boundaries occupy has probability e^{−(T_+ + T_−)/2}; independence gives B(t)=M(t)²/2. At t→∞, every vacant site must be blocked (if side colors match, an attempt of that color eventually succeeds), so θ∞=1−1/(2e). Expanding around u=1 yields [1/(2e)−B(t)]∼e^{−t}/(2e). Finite-time independent integral/quadrature of cavity Volterra equation agreed at t=.01,.25,.5,1,2,4,8. The infinite graphical construction and monotone limit are justified by summable chronological ancestor-path bounds, not by simulation.
 
-The closest paper, Martins–Dickman–Ziff (arXiv:2211.04622, Section V), studies precisely the repeated-attempt process but reports a three-site approximation, simulation, and a conjectural finite-ring saturation expression, not the exact full-time blocked-site formula or a cavity proof. Do Amaral–dos Santos (arXiv:2306.09786) treats a materially different one-attempt rule. General graph deposition references do not directly establish the two-colour exact formula. The numerical saturation value was anticipated and is *not* claimed as a new constant. A differently expressed older renewal solution remains an external scholarly priority risk; failure to find one does not prove uniqueness.
+## originality
 
-## Scientific value — PASS
+PASS
 
-The exact time-dependent frozen-vacancy density resolves an observable specifically motivated by prior unsuccessful low-order closure and determines rigorous saturation and approach-to-saturation from the microscopic repeated-attempt process. The one-sided cavity representation explains why a short-cluster approximation is not necessary, supplies an analytic benchmark throughout time, and distinguishes repeated proposals from single-attempt dynamics. This is not a renamed single-site calculation or a mere finite numerical enumeration.
+The exact repeated-attempt equal-rate model appears in Martins–Dickman–Ziff (2022), but its one-dimensional analysis uses a three-site approximation and simulations and conjectures an exact finite-cycle saturation law. They do not prove the exact all-time blocked-site probability, cavity survival function or sharp relaxation coefficient. The other 2023 one-dimensional paper uses a different single-proposal dynamics and does not imply repeated-attempt kinetics. The previously conjectured value 1−1/(2e) is acknowledged as antecedent, not advertised as newly discovered.
 
-## Limits and reproducibility
+## value
 
-Equal A/B rates, the infinite one-dimensional lattice, and nearest-neighbour incompatibility are essential to the evaluated formula. Neither unequal rates nor exact finite-cycle expressions are established. Independent priority or external scientific auditing has not occurred. `check.py` and `check_results.txt` document the actual algebraic checks, exact small-cycle tests, and independent stochastic simulations; sample checks do not replace proof.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural unresolved kinetic observable in a published antagonistic adsorption model is evaluated exactly at every t, replacing a low-order approximate closure with an analytic infinite-volume law. The cavity decomposition supplies a rigorous proof of a previously numerical saturation constant and the exact leading relaxation rate. This is substantive method and time-resolved probability, not simply reprinting the predicted final density, and creates a benchmark for simulation and closure approximation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

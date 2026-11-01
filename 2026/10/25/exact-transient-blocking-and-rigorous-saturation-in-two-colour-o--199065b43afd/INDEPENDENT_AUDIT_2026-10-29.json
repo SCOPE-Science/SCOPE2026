@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md and check.py",
+        "independent_scope05_checks.py Volterra quadrature",
+        "Martins–Dickman–Ziff primary model definition"
+      ],
+      "rationale": "For the infinite Z nearest-neighbor antagonistic Poisson adsorption process with independent proposals of each color at rate 1/2 per site and repeated attempts, freezing site 0 separates independent left/right half-line processes. With T the boundary occupation time, before next-site occupation the rate at boundary is 1, after it 1/2, giving Volterra equation h(t)=1−(1/2)∫_0^t e^{−s}h(s)ds, h=e^{t/2}g, and solution g(t)=exp[−t/2−(1−e^{−t})/2]. The weighted occupation M(t)=E[e^{−T/2}1(T≤t)]=(1−e^{−t})exp[−(1−e^{−t})/2]. Opposite cavity colors occur with probability 1/2, and conditional no successful deposition at 0 until both boundaries occupy has probability e^{−(T_+ + T_−)/2}; independence gives B(t)=M(t)²/2. At t→∞, every vacant site must be blocked (if side colors match, an attempt of that color eventually succeeds), so θ∞=1−1/(2e). Expanding around u=1 yields [1/(2e)−B(t)]∼e^{−t}/(2e). Finite-time independent integral/quadrature of cavity Volterra equation agreed at t=.01,.25,.5,1,2,4,8. The infinite graphical construction and monotone limit are justified by summable chronological ancestor-path bounds, not by simulation.",
+      "residual_risks": [
+        "Requires equal species rates, infinite lattice, repeated proposals and nearest-neighbour exclusion. Finite-ring conjecture not proven."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martins–Dickman–Ziff §V 17-ODE three-site approximation and conjectural finite-ring coverage",
+          "Penrose–Sudbury (2005) generic deposition graphs"
+        ],
+        "reasoning": "No inspected general adsorption theorem solves this two-colour opposing-neighbor infinite-line transient observable. Three-site closure is not the exact independence from frozen-centre two half-lines.",
+        "searches": [
+          "two-colour adsorption repeated attempts one-dimensional jammed density exact transient blocking"
+        ]
+      },
+      "checked_sources": [
+        "Martins–Dickman–Ziff 2022 §V",
+        "Do Amaral–dos Santos 2023",
+        "Penrose–Sudbury 2005 abstract",
+        "Resultary Q5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Martins–Dickman–Ziff §V equations 18–19",
+          "Do Amaral–dos Santos single-attempt model"
+        ],
+        "reasoning": "An approximate three-site ODE and a conjectural closed finite-ring expression do not prove the full-time infinite-line blocked probability. Deriving the independent frozen half-line waiting-time distribution and its Volterra law is additional substantial reasoning, not a direct substitution into prior equations.",
+        "searches": [
+          "two-colour adsorption repeated attempts one-dimensional jammed density exact transient blocking"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martins–Dickman–Ziff, Percolation in two-species antagonistic random sequential adsorption in two dimensions, arXiv:2211.04622 §V",
+          "Do Amaral–dos Santos 2023 one deposition per site"
+        ],
+        "reasoning": "Same stochastic rule as 2022 primary in its 1D repeated-attempt section, but their saturation number is numerical/conjectural; single-attempt variant is not equivalent because rejection consumes a site there but not here.",
+        "searches": [
+          "two-colour adsorption repeated attempts one-dimensional jammed density exact transient blocking"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Martins–Dickman–Ziff numeric θ∞≈0.816060279 and expression 1−1/(2e)",
+          "Resultary Q5",
+          "source check_results.txt + independent Volterra checks"
+        ],
+        "reasoning": "The limiting constant was already numerically guessed, and is explicitly excluded as an original constant. The all-t analytic formula B(t)=.5(1−e^{−t})²e^{−(1−e^{−t})} is the genuinely new evaluated observable.",
+        "searches": [
+          "two-colour adsorption repeated attempts one-dimensional jammed density exact transient blocking"
+        ]
+      },
+      "rationale": "The exact repeated-attempt equal-rate model appears in Martins–Dickman–Ziff (2022), but its one-dimensional analysis uses a three-site approximation and simulations and conjectures an exact finite-cycle saturation law. They do not prove the exact all-time blocked-site probability, cavity survival function or sharp relaxation coefficient. The other 2023 one-dimensional paper uses a different single-proposal dynamics and does not imply repeated-attempt kinetics. The previously conjectured value 1−1/(2e) is acknowledged as antecedent, not advertised as newly discovered.",
+      "residual_risks": [
+        "An older exact renewal/stochastic graphical treatment may encode the same time-dependent observable in a different representation.",
+        "Conjectured saturation constant and finite-cycle expression are not historically new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_EXACT_TRANSIENT",
+          "evidence": "They explicitly describe numerical/approximate closure and an apparent exact ring conjecture; no rigorous B(t) function or cavity proof.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.04622",
+          "material_read": "Full lawful author-hosted transcription of primary 2022 arXiv text, materially read §V around lines 1719–1903, including approximate 17-ODE three-site closure Eq.18, numerical θ and conjectural finite ring Eq.19.",
+          "method": "lawful open primary full text, relevant §V materially inspected",
+          "title": "Percolation in two-species antagonistic random sequential adsorption in two dimensions",
+          "trigger": "Identical repeated-attempt dynamics and the limiting saturation number"
+        },
+        {
+          "assessment": "INAPPLICABLE_DIFFERENT_RULE",
+          "evidence": "Rejected first proposal leaves a site unavailable in that process; repeated attempts can later fill an unblocked site.",
+          "identifier_or_url": "https://arxiv.org/abs/2306.09786",
+          "material_read": "Primary arXiv article abstract and model rules with PDF first-page screenshot; differs in allowing exactly one deposition attempt per site.",
+          "method": "lawful primary PDF/text and page screenshot",
+          "title": "One-dimensional AB random sequential adsorption with one deposition per site",
+          "trigger": "Potential more general exact 1D solution"
+        },
+        {
+          "assessment": "BACKGROUND_RISK",
+          "evidence": "Do not infer complete absence of a renewal-equivalent treatment from abstract alone.",
+          "identifier_or_url": "https://doi.org/10.1214/105051604000000521",
+          "material_read": "Abstract/bibliographic-level background inspected; no full-document noncoverage claim.",
+          "method": "published abstract metadata",
+          "title": "Exact and approximate results for deposition and annihilation processes on graphs",
+          "trigger": "Potential broad graph deposition laws"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Martins–Dickman–Ziff §V",
+        "assigned exact cavity argument"
+      ],
+      "rationale": "A natural unresolved kinetic observable in a published antagonistic adsorption model is evaluated exactly at every t, replacing a low-order approximate closure with an analytic infinite-volume law. The cavity decomposition supplies a rigorous proof of a previously numerical saturation constant and the exact leading relaxation rate. This is substantive method and time-resolved probability, not simply reprinting the predicted final density, and creates a benchmark for simulation and closure approximation.",
+      "residual_risks": [
+        "No result for unequal species rates, higher dimensions or all finite cycles."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Infinite lattice, equal rates, repeated attempts and nearest-neighbor blocking only",
+    "No proven all-ring exact finite formula, earlier prediction of saturation value explicitly acknowledged"
+  ],
+  "schema_version": 1
+}
