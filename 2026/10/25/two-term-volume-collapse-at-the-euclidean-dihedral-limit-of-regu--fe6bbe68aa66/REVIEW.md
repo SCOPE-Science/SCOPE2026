@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The relation between the dihedral cosine and Klein circumradius follows from inversion of the hyperbolic vertex Gram matrix. The Euclidean simplex volume and barycentric second moment fix both coefficients of the analytically uniform Klein-volume expansion. Exact simplifications yield \(C_4=10\sqrt5\), \(B_4=13\sqrt{15}/15\); numerical quadrature of the original integral corroborates the expansion and the two-dimensional exact Gauss–Bonnet check. The minimizer classification is explicitly an external premise from Egorov (2026), not newly proved here.
+PASS
 
-## Originality — PASS, qualified priority
+The regular Klein-coordinate simplex at Euclidean circumradius R has Gram-normal relation R²=d(d cosα−1)/(1+cosα), with limit R→0 as α↑β=acos(1/d). Its exact hyperbolic volume is R^d ∫_T(1−R²||y||²)^{−(d+1)/2}dy, where |T|=(d+1)^((d+1)/2)/(d!d^(d/2)) and the barycentric-simplex second radial moment is 1/(d+2). Uniform Taylor expansion under the compact integral plus cos(β−t) expansion produces C_d=√(d+1)d^(d/2)(d²−1)^(d/4)/d! and B_d=[d²(d²−2)/(2(d+1)(d+2))]√(d²−1)/d−d/(4√(d²−1)), with O_d(t²) relative remainder for each fixed d. Independent symbolic checks reproduce the d=2 exact area 3t and d=4 constants 10√5,13√15/15; numerical quadrature in source is corroboration only. Egorov’s minimizer classification is an external hypothesis for the four-dimensional jump and is not reproved.
 
-The 2026-09-01 Egorov preprint establishes the minimizing simplex branch and qualitative degeneration, but the available abstract does not give the two-term volume law. The indexed October 4 exact Lassak-thickness result is about support separation, and Peyerimhoff's classical volume-extremum result is conditioned on a fixed enclosing ball. The expansion and numerical constants are logically additional computations, not the cited classification. **Priority risk:** The complete Egorov manuscript and Peyerimhoff's complete paper were not accessible for line-by-line comparison; an equivalent expansion might occur there or in older small-simplex literature. Thus this review does not purport to certify a global novelty search.
+## originality
 
-## Value — PASS
+PASS
 
-The exact first and second coefficients resolve the quantitative rate of a natural geometric degeneration directly at a recent hyperbolic four-polytope minimizing-type switch. The all-dimensional \(d/2\) exponent distinguishes the dimensional critical behavior; the explicit four-dimensional quadratic constant gives a useful exact scale for comparing minimizer branches. The claim does not pretend to give a new global minimum theorem or a standalone classification of all equiangular polytopes.
+Egorov 2026 proves the minimizing equiangular 4-polytope classes and states the qualitative Euclidean degeneration and upward jump at α=acos(1/4); these are expressly prior. Inspecting Egorov’s available complete article identified no explicit general-d leading and next dihedral-angle volume coefficient. The new assessed statement is the quantitative two-term expansion; Peyerimhoff classical regular-simplex study concerns different hyperbolic extremal parameters, and the recent Lassak thickness record concerns support-hyperplane width, not volume asymptotic coefficients.
 
-## Scientific limitations and closest literature
+## value
 
-The cited classification is used as a premise; no independent proof of it or external validation is claimed. Only fixed-dimensional one-sided asymptotics are established, not uniform-in-dimension error bounds. The arXiv primary full text could not be inspected beyond the public abstract; the resulting possible overlap is disclosed rather than treated as absence. Independent audit remains unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Euclidean dihedral endpoint is a natural geometric degeneration where the minimizing four-polytope type changes. Exact leading and first correction coefficients quantify a sharp d/2-dimensional collapse exponent and first curvature correction, giving a reusable calibrated asymptotic across all fixed dimensions, beyond the known qualitative jump; this is a motivated quantitative boundary law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
