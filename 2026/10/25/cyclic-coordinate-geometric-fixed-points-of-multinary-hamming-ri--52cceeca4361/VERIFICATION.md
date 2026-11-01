@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party packages. It enumerates all three-letter words for alphabet sizes 2 through 6, computes cyclic orbits directly from coordinate rotation, discards orbits that fail the original Hamming-distance Rips-simplex test, and independently computes raw orbit compatibilities from every underlying word pair. It compares the complete raw adjacency to the claimed constant/two-equal orbit-block formulas, enumerates their simplices, and computes reduced mod-two homology from boundary matrices.
+## correctness
 
-At sizes 2, 3, 4, 5 and 6 it finds respectively 1, 4, 9, 16 and 25 reduced first-homology classes, with no others. For every letter permutation at sizes 2 through 5 (152 group elements total) it computes a signed simplicial reduced Lefschetz trace and checks that it equals the negative of the stated first-homology character. The signed trace computation is independent of the cellular multigraph representation formula.
+PASS
 
-The size-two run is a boundary control; the theorem's new domain begins at three. These are complete finite checks for the listed alphabet sizes, not exhaustive verification of every alphabet size. The infinite-family result follows from the explicit orbit and chain proof in RESULT.md. No independent scientific audit or formal proof certification is claimed.
+Vertex-orbit classification under the 3-cycle has constant words C_a, two-equal words D_ab and three-distinct inadmissible orbits (internal Hamming distance 3). C_a and D_ab join only for c=a or c=b, while distinct D_ab and D_cd join only for a=c. Therefore the exact orbit complex consists of q disjoint full simplices connected by q(q-1) cross-edges and no cross-triangles. Equivariantly contract each simplex to its distinguished vertex; the resulting directed multigraph has q vertices and q(q-1) distinct geometric edges, so first Betti number (q-1)^2 and no higher homology. Boundary image is integral augmentation U_q; trace on oriented edge permutation module is f(f-1), and trace on U_q is f-1, giving (f-1)^2. Independent word-orbit compatibility enumerations for q=3..7 corroborated graph ranks 4,9,16,25,36; all-q follows by exhaustive orbit-type proof.
+
+## originality
+
+PASS
+
+The relevant 2026 hypercube papers concern binary ambient Rips cohomology and group actions on ambient homology; they do not identify geometric coordinate-rotation fixed spaces on multinary length-three words. A q=3 ambient 46 three-sphere calculation and a binary fixed-space special case do not give the all-q integral S_q module. The exact natural orbit graph and module appear new under the inspected comparisons, subject to alias risk.
+
+## value
+
+PASS
+
+This is a complete natural all-alphabet fixed-space homotopy and integral symmetry classification; the counterintuitive collapse from a high-dimensional Rips complex to a directed-edge multigraph provides useful equivariant information that cannot be read off ambient homology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
