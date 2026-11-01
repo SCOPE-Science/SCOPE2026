@@ -1,0 +1,97 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T14:15:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: With rank 1/2 for neighbors and 3 for unmatched, a matched endpoint can improve by at most one; a two-blocking edge therefore has both endpoints unmatched and favoring each other first. Encoding cycle-edge occupancy e_i and local order o_i makes the only forbidden window (e_{i-1},e_i,e_{i+1};o_i,o_{i+1})=(0,0,0;1,0), in addition to adjacent occupied edges forbidden. The explicit six-state de Bruijn-style transfer matrix tracks (e_{i-1},e_i,o_i), assigning z to newly occupied e_{i+1}. Its trace T(z)^n counts every labeled profile/matching pair once, without quotienting rotations. The independent exact symbolic determinant equals lambda^4((lambda-1)^2-4z), hence trace T^n=(1+2sqrt z)^n+(1-2sqrt z)^n. Binomial expansion and division by 2^n yield each size coefficient and total expectation. Independent direct rank-difference brute force for all profiles and matchings for n=3..8 agreed, but the universal theorem comes from transfer bijection and characteristic polynomial, not these finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first source gives existence and dynamics/acyclic acceptability bounds; Pittel studies a cyclically ordered collection of agent classes matched in r-cycles, not undirected C_n matchings of arbitrary size."
+        ],
+        "reasoning": "Even general existence of 2-stable matchings does not imply how many matchings of each cardinality occur in random local-preference profiles.",
+        "searches": [
+          "Fanelli Moscardelli 2026 Approximately Stable Matching Theorems 1-5",
+          "Boris Pittel On random stable matchings: cyclic matchings with strict preferences arXiv:1911.07425"
+        ]
+      },
+      "checked_sources": [
+        "Fanelli and Moscardelli (2026-08-25), ECAI 2025 proceedings, DOI:10.3233/FAIA251234, open primary full text",
+        "Boris Pittel (2019), arXiv:1911.07425, cyclic multi-class matching paper",
+        "Resultary search for 2-stable cyclic preferences expected matching size (2026-10-29)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source rank definition is exactly adopted (unmatched ranked degree+1). Its sufficient existence assertions give no binomial 4^j weighting or trace polynomial."
+        ],
+        "reasoning": "One theorem is about existence/adjustment dynamics for fixed profiles, the other about expectation of full size counts under iid random neighbor rankings; neither implies the latter by direct special-case substitution.",
+        "searches": [
+          "Fanelli Moscardelli Definition of k-blocking in Section 2 and Theorems on graph structures",
+          "Pittel 2019 cyclic matching abstract",
+          "Resultary size-spectrum matching on cycle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fanelli and Moscardelli Section 2 defines k-blocking via rank gain; the target average is over independent binary neighbor orders on a single undirected cycle."
+        ],
+        "reasoning": "Compared precise rank improvement and graph model; do not conflate weak approximate stability with ordinary stable roommates or r-sided cyclic matching.",
+        "searches": [
+          "Resultary: 2-stable matchings cycle preference rank improvement at least two expected count size generating polynomial",
+          "Web: Approximately Stable Matching Fanelli Moscardelli 2-blocking rank cycle",
+          "Web: probability 2-stable matching cycle random preferences expected number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No E[S_nj] table or 2^-n eigenvalue expression appears in the inspected primary paper; related indexed SCOPE entries count different stable marriage/popularity or matching-size phenomena."
+        ],
+        "reasoning": "A family of case studies or a table about stable marriage optimum-set counts cannot be substituted for the exact all-n annealed cycle histogram.",
+        "searches": [
+          "Fanelli Moscardelli full publisher HTML Sections 2-5, figures and tables",
+          "Resultary cycle stable matching expected size polynomial query"
+        ]
+      },
+      "rationale": "PASS: Fanelli and Moscardelli introduce rank-k blocking and study existence and convergence, including cycle-related dynamics but no annealed full matching-size law. Random stable-roommates and cyclic multi-sided matching literature uses different graphs or preference distributions. The exact polynomial at fixed two-neighbor cyclic acceptability is not in the inspected primary results.",
+      "residual_risks": [
+        "Earlier conference or unpublished versions of Fanelli-Moscardelli might predate the publisher 2026 first-online date, though the result inspected here is different.",
+        "The claim is an annealed expectation, not a variance, probability of existence, distribution for a typical fixed profile, or concentration theorem.",
+        "Historical exact cycle transfer formulas may be indexed under different notions such as weak blocking or locally forbidden oriented matchings."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITION_PRIOR; NOT_COVERING annealed cycle matching size spectrum",
+          "evidence": "k-blocking iff both improve >=k ranks; Section 2 rankings; main Theorems address existence and convergence, not expectation over iid cycle preferences",
+          "identifier_or_url": "https://doi.org/10.3233/FAIA251234",
+          "material_read": "Complete open journal HTML: model/rank conventions Section 2, key theorems, existence and convergence arguments, examples and references",
+          "method": "Direct primary publisher full-article reading (first online publication 2026-08-25)",
+          "title": "Approximately Stable Matching",
+          "trigger": "Introduces the very same k=2 blocking criterion and graph-acceptability model"
+        },
+        {
+          "assessment": "INAPPLICABLE: r-class directed multipartite cycles, not a C_n acceptability graph",
+          "evidence": "Expected count of r-sided cyclic matchings under random preferences is an entirely different matching object",
+          "identifier_or_url": "https://arxiv.org/abs/1911.07425",
+          "material_read": "Primary abstract and model description",
+          "method": "Original preprint abstract and model comparison",
+          "title": "On random stable matchings: cyclic matchings with strict preferences and two-side matchings with partially ordered preferences",
+          "trigger": "Plausible random cyclic matching first-moment dominance"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The simplest non-bipartite acceptability graph has a canonical binary preference law, but 2-stability creates local forbidden configurations whose number varies by matching size. The complete all-n exact annealed polynomial separates cardinalities and gives a precise exponential total expectation, refining mere existence/dynamics results. The six-state transfer reduction is a motivated reproducible structural argument, not a relabeling of the classical ordinary matching polynomial or a disconnected tiny enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "On a labeled simple cycle C_n for every n>=3, with independent uniform strict preferences over the two adjacent neighbors and self ranked last, let S_{n,j} be the number of matchings of size j with no 2-blocking pair (both endpoints improve by at least two ranks). Then E[S_{n,j}]=2^(1-n)*4^j*binom(n,2j) for all 0<=j<=floor(n/2). The full expected generating polynomial is 2^-n((1+2sqrt(z))^n+(1-2sqrt(z))^n), and the expected total count is (3/2)^n+(-1/2)^n.",
+  "limitations": [
+    "The two-neighbor iid fair preference model and threshold k=2 are essential; variance, typical behavior and general graphs remain outside scope.",
+    "n>=3; the cycle has distinct neighbors at each vertex and no rotational quotient is taken."
+  ],
+  "schema_version": 1
+}
