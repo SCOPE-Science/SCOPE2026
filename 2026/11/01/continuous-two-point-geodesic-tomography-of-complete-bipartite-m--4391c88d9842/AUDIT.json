@@ -1,0 +1,115 @@
+{
+  "correctness": {
+    "rationale": "All possible ordered edge pairs fall into same-edge, adjacent-edge, or disjoint-edge cases with respective weights 1/(pq), (p+q-2)/(pq), and (p-1)(q-1)/(pq). Direct shortest-path enumeration produces three explicit uniform-coordinate distance laws, whose mixture yields the density. Rational algebra establishes both the mean and inverse quadratic; no approximation is used in the proof. The verifier checks 361 parameter pairs without standing in for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blondel et al model distances among vertices of Erdos-Renyi graphs, not arclength points of a fixed metric realization.",
+        "Nitzan et al model discrete graph-vertex distances in configuration-model networks, not continuously sampled edge interiors."
+      ],
+      "reasoning": "General shortest-path distributions on random discrete graphs cannot imply this intrinsic continuous-unit-edge biclique density or the inversion formulas without a separate result bridging the sampling spaces.",
+      "searches": [
+        "metric graphs K_{m,n} distance distribution on geometric realization piecewise linear density near zero and two",
+        "Equilateral metric complete graphs K_n all edges length 1, exact geodesic distance distribution for two independent uniformly arc-length distributed points, triangular density and total variation convergence as n grows",
+        "Blondel et al 2007 https://doi.org/10.1103/PhysRevE.76.066101",
+        "Nitzan et al 2016 https://doi.org/10.1103/PhysRevE.93.062309"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1103/PhysRevE.76.066101",
+      "doi:10.1103/PhysRevE.93.062309",
+      "doi:10.1007/s00010-024-01145-2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Previous own metric-graph inverse results concern theta path triples, rose-plus-pendants, and dumbbell loops and bridges, not complete bipartite graphs of arbitrary part sizes.",
+        "The 2025 metric symmetry paper relates cardinality profiles to vertex-wise invariants; no statement there computes this pairwise continuous density."
+      ],
+      "reasoning": "None of the compared statements implies the displayed piecewise density or recovery of the bipartition sizes from the near-zero density and continuous-distance mean. The stronger class assertion about all metric graphs is explicitly not made.",
+      "searches": [
+        "Geodesic distance distribution uniform random points in unit edge metric complete bipartite graph K_{p,q}, reconstruct part sizes p and q from distance density",
+        "metric complete bipartite cable graph independent arclength random point shortest path triangular law inverse reconstruction",
+        "metric graphs K_{m,n} distance distribution on geometric realization piecewise linear density near zero and two",
+        "own unit-edge theta, rose and dumbbell geodesic-distance claim search; current and preceding accessible own ledgers"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2025 paper defines f_v(t) from cardinalities of vertex distance shells, not normalized arclength of two independent interior points.",
+        "For graph geometric realizations, a pairwise edge-coordinate law involves three edge-pair incidence cases."
+      ],
+      "reasoning": "The alternative terminology metric graph distance distribution can denote graph-vertex shells; this is not mathematically equivalent to a density of intrinsic distances between two continuously sampled points. No equivalent K_{p,q} identity was found in the material inspected.",
+      "searches": [
+        "Geodesic distance distribution uniform random points in unit edge metric complete bipartite graph K_{p,q}, reconstruct part sizes p and q from distance density",
+        "metric complete bipartite cable graph independent arclength random point shortest path triangular law inverse reconstruction",
+        "Calabuig et al 2025 full HTML sections 2,5,6; https://doi.org/10.1007/s00010-024-01145-2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The three published-finding corpus semantic searches returned related biclique polytope and metric-invariant records, but no K_{p,q} arclength two-point distribution table.",
+        "The closest named published-finding corpus IDs and logical comparisons are retained in the private prior checks."
+      ],
+      "reasoning": "No exact formula or table covering the two-parameter family was identified; this is a bounded negative search result, not a proof of absolute priority.",
+      "searches": [
+        "Geodesic distance distribution uniform random points in unit edge metric complete bipartite graph K_{p,q}, reconstruct part sizes p and q from distance density",
+        "metric complete bipartite cable graph independent arclength random point shortest path triangular law inverse reconstruction",
+        "metric graphs K_{m,n} distance distribution on geometric realization piecewise linear density near zero and two"
+      ]
+    },
+    "rationale": "Bounded searches in published-finding corpus and primary literature, with equivalent formulations, broader framework comparisons, tables and prior implications explicitly documented, identified no covering exact two-point arclength law for all bicliques. The closest vertex-count distribution framework is not the same invariant. The 2007 and 2016 full papers were not inspected, leaving a priority risk, but their official abstracts specify different random network/node-pair objects.",
+    "residual_risks": [
+      "Official 2007 and 2016 full papers not fully inspected; older independently derived cable-graph law may exist.",
+      "No independent mathematical review or exhaustive bibliographic priority determination."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Related but not covering: the measure space is graph vertices and the functions are vertex-indexed shells.",
+        "evidence": [
+          "Section 5 defines f_v(t) by |B_{a_i}(v) minus B_{a_{i-1}}(v)|; these are discrete vertex cardinalities.",
+          "Section 3 notes edge-transitive non-vertex-transitive graphs may be bipartite."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00010-024-01145-2",
+        "material_read": "Accessible full HTML: definitions of vertex/edge transitivity, Sections 2, 3, 5 and 6, including the precise vertex-indexed distance-shell distribution definition.",
+        "method": "Full-text HTML sections and formula comparison",
+        "title": "Metric symmetry and distance distribution functions on graphs",
+        "trigger": "Strong title overlap and treatment of edge-transitive bipartite graphs"
+      },
+      {
+        "assessment": "Different random-graph vertex sampling framework; full text not inspected and historical-priority residual risk remains.",
+        "evidence": [
+          "Publisher states distances between nodes in Erdős–Rényi graphs; first published 2007-12-05."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.76.066101",
+        "material_read": "Official published abstract, publication date, and stated graph-model domain; full paper not accessible in this check.",
+        "method": "Publisher abstract and metadata",
+        "title": "Distance distribution in random graphs and application to network exploration",
+        "trigger": "Archived primary source on shortest-path distance distributions"
+      },
+      {
+        "assessment": "Node-pair distance statistics in random network models, not intrinsically uniform interior edge points in deterministic K_{p,q}; limitation of text access retained.",
+        "evidence": [
+          "The abstract explicitly studies shortest path lengths between random pairs of nodes in configuration-model networks."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevE.93.062309",
+        "material_read": "Official published abstract and scope; full paper not inspected in this run.",
+        "method": "Publisher abstract and metadata",
+        "title": "Distance distribution in configuration-model networks",
+        "trigger": "Most relevant pre-2016 random-network distance methodology"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4391c88d-9842-4b12-93f9-531c5842d77d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Full natural two-parameter family of metric cable networks, with a direct-to-inverse theorem: the total geometric edge length and one scalar mean distance recover the unordered bipartition sizes, and the complete law exhibits a uniform triangular continuum limit for large bicliques. Unlike isolated table values, this characterizes a coherent intrinsic-metric reconstruction class and exposes topology through continuous pairwise measurements.",
+    "status": "PASS"
+  }
+}
