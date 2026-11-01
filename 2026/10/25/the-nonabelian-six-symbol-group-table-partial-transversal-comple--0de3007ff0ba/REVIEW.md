@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines the precise row–column–product distinctness condition and enumerates every legal face of the 36-cell group table. The 1,402-pair matching is tested on every face and every one of the 10,368 cover relations; the complete incidence orientation is acyclic. The signed \(49\times200\) Morse boundary has 37 integer unit pivots and identically zero residual block. Since there are no critical one-cells, the resulting CW complex's attaching maps are completely classified by their integral degree vectors, giving the wedge of 12 two-spheres and 163 three-spheres. An independent mod-two calculation from the original simplices agrees. Risk: the computer-assisted certificate and its topological interpretation have not been independently checked by another investigator.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest historical results are Paige's complete-mapping obstruction (1951), Wanless's work on Latin transversals (2002, 2007), and Hämäläinen's topology of Latin-trade spaces (2009). Paige and Wanless concern transversals and extension/obstruction, not the homotopy type of the full complex of all partial transversals. Hämäläinen's vertices are entire trades, not cells, and hence his complex cannot imply the current cell-complex calculation without a missing comparison theorem. The analogous cyclic order-six group table is not isomorphic to the nonabelian table and has different recorded homology ranks. Searches under rainbow matchings and tripartite hypergraph matching complexes did not reveal an exact covering classification. Risk: a less-indexed equivalent statement may exist under an alternative title or graph construction; database silence is not proof of uniqueness.
+PASS
 
-**Value — PASS.** The smallest nonabelian group supplies a canonical and mathematically motivated Latin square; although classical group-theoretic results explain why its table has no full transversal, they do not determine the topology of its substantial nonpure partial-transversal complex. The exact two-/three-dimensional wedge splitting is a complete invariant, demonstrably distinct from the cyclic order-six case, and determines all integral homology and the associated attaching-map obstruction for this natural finite object. No general family theorem is asserted.
+Independently constructed the six group elements as 3-permutations, multiplication, 36 cell labels, and complete row/column/product-disjoint face set: 3,054 faces with (36,360,1200,1242,216). Rebuilt all 1,402 greedy Morse pairs; oriented every 10,368 cover incidence and topologically sorted all 3,054 faces. The 49x200 signed critical boundary has 37 unit pivots under unimodular row-column operations and identically zero 12x163 residual. A CW model with one 0-cell and no 1-cells has wedge-of-two-spheres 2-skeleton, and pi2=H2; integral Smith basis changes cancel 37 two-three pairs and leave 12 S2 plus 163 S3. Not merely F2 homology.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+PASS best of knowledge: unlike prior maximal-transversal existence and Latin trade spaces, this identifies complete integral homotopy of the entire S3 partial-transversal simplicial complex via exact Morse attaching degrees.
+
+## value
+
+PASS
+
+The S3 group table is a canonical smallest nonabelian Latin-square test case, and its entire partial-transversal complex carries nontrivial mixed 2/3-dimensional topology. Integral wedge classification identifies global obstructions and attachment behavior beyond just counting large partial transversals, useful as benchmark for Latin-square rainbow-matching topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
