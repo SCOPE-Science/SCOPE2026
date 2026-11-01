@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:00:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md at Git blob 87888b828b7f64f473566ad0e3415695e99db40b",
+        "Reconstructed exact Git tree 2677672e14b5ba38a05bc2f6b06acb6a3d23ea81",
+        "Independent direct calculation: Independent Krawtchouk coefficients and root bisection; full character sum normalizations for 256 cosets: FOLDED9_OK pstar=0.32326712814270486 endpoint_rank=246."
+      ],
+      "rationale": "The folded nine-cube is X=F₂^9/<all-ones> with 256 cosets, distance d=min(Hamming distance,9−Hamming distance). Even-weight Walsh characters descend to all 256 characters; their nontrivial weights 2,4,6,8 have multiplicities 36,126,84,9. Direct Krawtchouk summation yields λ2=5+8·2^p−14·4^p, λ4=1−4·2^p−4·3^p+6·4^p, λ6=−3+8·3^p−6·4^p, λ8=−7+20·2^p−28·3^p+14·4^p. There is no antipodal-shell doubling factor. In a=2^p, α=log₂3, λ8=14a²−28a^α+20a−7 strictly increases for a≥1 (positive derivative at 1, positive second derivative using α<8/5); it uniquely vanishes at p*=0.323267128142707..., below 1/3 by exact rational cubing bounds. Rational inequalities keep the three other nonconstant multipliers strictly negative on (0,1/3]. Thus d^p is conditionally negative exactly 0<p≤p*. The centered Euclidean Gram loses only the multiplicity-nine weight-eight sector at the endpoint, so dimensions are 255 below and 246 at p*. Squared Euclidean embedding/Schoenberg gives positive definiteness of e^(−td^p) for every t>0 exactly on that interval; a positive Walsh eigenvalue gives a small-t counterexample above. Independent 256-coset Walsh/Krawtchouk reconstruction checked the exact eigenvalue vectors, root and dimensions.",
+      "residual_risks": [
+        "Applies to the folded nine-cube only.",
+        "For p>p* it shows failure of all-t positivity, not a full characterization of individual t for which a matrix may be positive.",
+        "General prior metric and harmonic analysis are acknowledged."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Murugan supplies a general finite vertex-transitive negative-type framework and examples for ordinary cubes.",
+          "Koolen–Hayat–Iqbal study the ordinary cube unpowered distance spectrum, not the antipodal quotient distance raised to all p."
+        ],
+        "reasoning": "These general operators can be used to derive a Fourier test, but neither inspected statement supplies a domination of the exact folded-nine p* and Walsh rank; this requires the specialized four-sector sign analysis.",
+        "searches": [
+          "folded nine cube powered graph distance negative type Schoenberg Walsh character 0.323267",
+          "Murugan 2011 generalized roundness vertex transitive graphs arxiv1112.5657",
+          "Koolen Hayat Iqbal arxiv1512.04160 distance spectra hypercube"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md, checker.py, AUDIT.json, metadata and proof",
+        "Murugan arxiv:1112.5657 PDF introduction and §§3–4",
+        "Koolen–Hayat–Iqbal arxiv:1512.04160 abstract",
+        "Resultary folded cube/negative type semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical Fourier/Schoenberg gives eigenvalue sign criterion, not the signs of λ2,λ4,λ6,λ8 over all powers.",
+          "Root equation λ8(p)=0 and strict sign inequalities for remaining weights were reconstructed."
+        ],
+        "reasoning": "The general theorem does not imply a numerical threshold or rank without a nontrivial specialized computation. The current result is the complete exact invariant for one natural quotient rather than a rebranding of Schoenberg.",
+        "searches": [
+          "folded nine cube powered graph distance negative type Schoenberg Walsh character 0.323267",
+          "arxiv:1112.5657 negative type vertex transitive spectral theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For a finite metric, conditional negative semidefiniteness of d^p is equivalent to squared Euclidean embeddability and positive semidefiniteness of exp(−td^p) at every positive t.",
+          "Even-weight Walsh characters diagonalize the antipodal quotient and multiplicities add to 255."
+        ],
+        "reasoning": "The three stated formulations are mathematically linked through Schoenberg, but known equivalence theorems do not provide the exact crossing parameter for this specific folded nine-cube.",
+        "searches": [
+          "folded nine cube powered graph distance negative type Schoenberg Walsh character 0.323267",
+          "folded 9 cube generalized roundness p negative type association scheme Walsh Krawtchouk",
+          "Schoenberg Gaussian kernels quotient Hamming scheme"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "SCOPE source explicitly gives Krawtchouk vectors for four even sectors, independently checked by a new cosine/sign character calculation.",
+          "Resultary search yielded related but different cube Walsh, Rips and distance findings; no exact folded-nine p* table."
+        ],
+        "reasoning": "No checked table specifies 0.3232671281 and the 246-dimensional endpoint. Since association-scheme eigenmatrices are classical, an unindexed specialization remains a named risk.",
+        "searches": [
+          "folded nine cube powered graph distance negative type Schoenberg Walsh character 0.323267",
+          "folded 9 cube powered-distance eigenvalue table association scheme generalized roundness"
+        ]
+      },
+      "rationale": "The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. A folded-cube association-scheme or generalized-roundness article may already contain the same Krawtchouk specialization, threshold and endpoint dimension without the same terminology. Published general machinery is prior; claim of first discovery is qualified.",
+      "residual_risks": [
+        "A folded-cube association-scheme or generalized-roundness article may already contain the same Krawtchouk specialization, threshold and endpoint dimension without the same terminology. Published general machinery is prior; claim of first discovery is qualified."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General spectral criterion pertinent; no folded-nine exact powered-distance crossing in the inspected sections.",
+          "evidence": "Framework for generalized roundness and negative type of vertex-transitive graphs.",
+          "identifier_or_url": "arxiv:1112.5657",
+          "material_read": "Full PDF accessed; introduction and Sections 3–4 mathematical framework inspected, with page rendering",
+          "method": "arXiv open PDF text and screenshot",
+          "title": "Generalized roundness of vertex transitive graphs",
+          "trigger": "Directly addresses finite vertex-transitive negative type, potentially stronger"
+        },
+        {
+          "assessment": "Different ordinary cube/unpowered metric; retain residual risk for unexplored supplementary treatments.",
+          "evidence": "Title and main result concern distance spectra of ordinary hypercubes.",
+          "identifier_or_url": "arxiv:1512.04160",
+          "material_read": "Abstract and main-result metadata, not a verified complete read of the primary paper",
+          "method": "arXiv metadata/abstract",
+          "title": "Hypercubes are determined by their distance spectra",
+          "trigger": "Hypercube distance spectra and possible Krawtchouk special case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE RESULT.md, checker.py, AUDIT.json, metadata and proof",
+        "Murugan arxiv:1112.5657 PDF introduction and §§3–4",
+        "Koolen–Hayat–Iqbal arxiv:1512.04160 abstract",
+        "Resultary folded cube/negative type semantic search"
+      ],
+      "rationale": "The folded nine-cube is a canonical distance-transitive antipodal Hamming quotient, and the supremal negative-type exponent is a natural metric embedding invariant. A complete all-p classification, exact transcendental crossing equation, and nine-dimensional endpoint rank collapse are mathematically useful data for metric embeddings and radial kernels on this natural graph. The narrow n=9 scope is explicit, not a fabricated family-wide classification.",
+      "residual_risks": [
+        "Applies to the folded nine-cube only.",
+        "For p>p* it shows failure of all-t positivity, not a full characterization of individual t for which a matrix may be positive.",
+        "General prior metric and harmonic analysis are acknowledged."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Applies to the folded nine-cube only.",
+    "For p>p* it shows failure of all-t positivity, not a full characterization of individual t for which a matrix may be positive.",
+    "General prior metric and harmonic analysis are acknowledged."
+  ],
+  "schema_version": 1
+}
