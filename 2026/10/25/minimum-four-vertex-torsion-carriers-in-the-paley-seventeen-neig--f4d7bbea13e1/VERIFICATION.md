@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-Reproduce using `python3 verify.py` (Python 3.9+, standard library). The program checks the 17 open neighborhoods, the complete face vector, signed simplicial identities, ranks of boundaries in characteristic 3 and 101, the 136 affine permutations, all 2380 four-vertex sets, all 510 missing tetrahedra and every ambient mod-three class.
+# Independent mathematical audit
 
-A four-term signed tetrahedron boundary is a cycle. Its reduction against the full third-boundary column span is nonzero for 476 supports and zero for 34. The classification does not independently compute the complete integer Smith form of the global boundary or claim an independent homotopy audit.
+## correctness
+
+PASS
+
+Face construction from 17 open quadratic-residue neighborhoods gives f=(17,136,612,1122,952,476,136,17), ranks ∂2=120 mod3, ∂3=491 mod3,492 mod101 and H2(F3)=F3. Independent exact enumeration checked all 2380 4-subsets, 510 missing tetrahedra, ambient 476 nonzero/34 null image tests, and affine orbit representatives/sizes. No smaller vertex support can sustain a simplicial 2-cycle.
+
+## originality
+
+PASS
+
+A previously published complete ambient Paley P17 neighborhood homotopy type does not determine images of individual induced tetrahedral boundaries or their five affine orbits. Direct exact finite matrix computations resolve the local carrier classification.
+
+## value
+
+PASS
+
+A complete minimal-support classification and orbit census for how a canonical graph complex’s unique mod-three 2-class is represented by small induced spheres, including the unexpected 34 null carriers. Exact local carrier data are a natural topological invariant not supplied by the known global Moore-space type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

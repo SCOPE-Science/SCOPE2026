@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A deterministic standalone checker reconstructs all simplices and verifies signed chain identities. The second and third boundary ranks are respectively 120 and 491 in characteristic three, giving one nonzero degree-two homology direction. All 2380 possible four-vertex supports are exhausted; exactly 510 induce missing-tetrahedron spheres. Direct third-boundary membership checks for all 510 establish 476 essential and 34 null supports, with six explicitly counted affine orbits. The local support lower bound follows from the edge-incidence equations for four vertices. The published integral order-three result is prior work, not re-proved as a new claim.
+## correctness
 
-**Originality — PASS with residual bibliographic risk.** The closest exact-complex paper establishes a Moore-space wedge and complete face counts. Its full scientific RESULT was read; no four-support census, null orbit, or essential-orbit classification appears. A prior action computation for the same complex describes its homology representation but not representatives. Kahle's 2005 primary paper develops neighborhood-complex theory for random graphs, not this deterministic finite calculation. Relevant published-finding corpus searches under aliases and numerical parameters found no covering record. Additional unpublished or unindexed calculations cannot be excluded.
+PASS
 
-**Mathematical value — PASS.** A nontrivial three-primary class in this canonical strongly regular graph's neighborhood complex raises the natural geometric question of shortest explicit cycles carrying it. The sharp four-vertex threshold and complete classification distinguish 476 essential from 34 inessential induced spheres, information not determined by a Moore-space homotopy type or the one-dimensional homology representation. The contrast of five surviving orbits with one vanishing orbit gives concrete structural geometry for the torsion class, rather than an arbitrary numerical slice.
+Face construction from 17 open quadratic-residue neighborhoods gives f=(17,136,612,1122,952,476,136,17), ranks ∂2=120 mod3, ∂3=491 mod3,492 mod101 and H2(F3)=F3. Independent exact enumeration checked all 2380 4-subsets, 510 missing tetrahedra, ambient 476 nonzero/34 null image tests, and affine orbit representatives/sizes. No smaller vertex support can sustain a simplicial 2-cycle.
 
-**Limitations.** The theorem concerns mod-three homology and a single finite complex. Exact integral Smith form and fundamental-group conclusions are accepted as known background when mentioned, not certified anew. Exhaustive finite computations establish the stated support census; no infinite family is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A previously published complete ambient Paley P17 neighborhood homotopy type does not determine images of individual induced tetrahedral boundaries or their five affine orbits. Direct exact finite matrix computations resolve the local carrier classification.
+
+## value
+
+PASS
+
+A complete minimal-support classification and orbit census for how a canonical graph complex’s unique mod-three 2-class is represented by small induced spheres, including the unexpected 34 null carriers. Exact local carrier data are a natural topological invariant not supplied by the known global Moore-space type.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
