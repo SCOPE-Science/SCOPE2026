@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Running `python verify.py` with a standard Python interpreter completes checks of 200 literal exact integer binomial coefficients, then compares the independently computed Lucas digit products against the base-five carry transducer at every \(0\le n<78125\). At the seven cutoff powers \(5^1,\ldots,5^7\), it validates the Gaussian-integer formula for the signed count and the exact support cardinality; it also checks a numerical partial-sum square-root bound throughout the tested range.
+# Independent mathematical audit
 
-Result:
+## correctness
 
-`VERIFY_OK: 200 exact binomials, 78125 independent Lucas tests, seven exact base-five block counts and a partial-sum bound`
+PASS
 
-The infinite residue statements, the global discrepancy exponent, and its sharpness require the symbolic proof in `RESULT.md`; this finite script does not establish them by exhaustion. External independent validation has not been performed.
+Lucas digits for m=2n and the carry state c=0,1 yield local complex weights 1,i,1 for produced digits 0,1,2. Parity of the count of digit-one positions makes the total product real ±1. Summing over free input digits gives M=[[2,i],[i,2]], eigenvalues 2±i and exact block count. Fixed higher digits have product norm <=sqrt2; aligned j-block signed sums are <=2*sqrt(5^j), giving a global geometrical prefix bound. Irrationality of arg(2+i)/pi follows because (3+4i)/5+(3−4i)/5=6/5 cannot be an algebraic-integer sum of roots of unity. Independent exact Lucas calculation through n<15625 and all blocks L<=6 verified the counts, not the infinite claim.
+
+## originality
+
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This identifies an optimal cancellation exponent and exact oscillation amplitude in the previously known exceptional three-residue diagonal of Pascal’s triangle. The strong quantitative distribution statement is not simply the known support restriction.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
