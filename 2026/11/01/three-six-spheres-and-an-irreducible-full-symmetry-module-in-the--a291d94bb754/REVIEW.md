@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness (PASS)
+The claim is reconstructed from the explicit \(GP(8,3)\) edge formula and the induced-component criterion. Independent enumeration methods agree on the full face vector. The verifier checks a 3400-pair matching globally for acyclicity, reconstructs both integral Morse differential matrices by signed gradient paths, and checks Smith determinantal divisors. Primitive unit cancellations and the vanishing of the first relevant Whitehead products upgrade the result from integral homology to a wedge of three six-spheres. Exhaustive enumeration gives exactly 96 automorphisms; two independent Lefschetz methods agree on all of them. Squared character norm equals one and the kernel contains exactly two elements. Original simplicial boundaries yield consistent mod-two ranks. All arithmetic is exact; no extrapolation from samples is used.
+
+## Originality (PASS; residual bibliographic risk)
+The closest paper addressing higher independence complexes, Deshpande–Singh (arXiv:2001.05448), classifies complete multipartite, fully whiskered, path, cycle, and perfect-tree graphs, not this girth-six cubic incidence graph. Deshpande–Shukla–Singh (arXiv:2001.06775) gives a sphere-wedge classification for chordal graphs, which does not include \(GP(8,3)\). Paolini–Salvetti (DOI:10.2140/agt.2018.18.3943) deals with Artin/Coxeter graph families and their homological correspondences, not the graph and action studied here. Searches for Möbius–Kantor, \(GP(8,3)\), two-independence, higher independence, homotopy type, and equivariant homology identified no covering statement. Indexed calculations of ordinary independence and matching complexes do not imply the higher-independence homotopy or the full character.
+
+## Value (PASS)
+The Möbius–Kantor graph is the canonical cubic arc-transitive Levi graph of the \((8_3)\) configuration, and the first higher-independence parameter is naturally distinguished from ordinary independent sets. Its exact integral sphere-wedge type and irreducible full-automorphism representation describe natural invariants invisible to ordinary Betti numbers. The graph is outside the explicit published higher-independence families considered. The quotient rational-acyclicity consequence and nontrivial central kernel give further structural significance to this exact finite classification, rather than a routine scalar recomputation.
+
+## Sources and limits
+Full-text examinations covered the family-classification introduction and results of arXiv:2001.05448, the chordal classification in arXiv:2001.06775, and the relevant discrete-Morse and graph-independence sections of Paolini–Salvetti's 2018 paper. Salvetti's 2016 founding chapter was accessible only through its abstract and bibliographic information; institutional retrieval was unavailable. This leaves a publication-priority risk, but no identified theorem covers the specified object and action. The new computation is internally reproducible and not independently audited.
+
+Self-review: passed. Independent audit: not yet performed.
