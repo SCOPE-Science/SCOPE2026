@@ -1,15 +1,21 @@
-# Review: cross-polytope edge-midpoint Lipschitz extensions
+# Independent mathematical audit
 
-## Correctness
-PASS. Symmetry averaging reduces arbitrary real-linear right inverses to a three-orbit coefficient row, without requiring positive competitors. Two explicit affine test-potential inequalities prove the sharp lower bound in dimension three, and three affine inequalities (one incident vertex, two disjoint-edge transport consequences) prove the lower bound in all higher dimensions. The positive kernels are checked against every vertex–midpoint and midpoint–midpoint orbit type, with exact formulas. An independent finite linear-program verifier confirms all 4430 point pairs across dimensions three through six to stated numerical tolerance; this is corroboration, not an infinite proof.
+## correctness
 
-## Originality
-PASS on available evidence, with residual bibliographic uncertainty. Ambrosio–Puglisi (2016) establishes the transport/random-projection framework; Bruè–Di Marino–Stra (2018) develops general linear extension constructions. The accessible full texts do not give sharp simultaneous constants for cross-polytope vertices and their complete family of edge midpoints. Existing regular-simplex midpoint results involve equidistant initial vertices, whereas cross-polytope vertices have two distance classes and require a distinct antinode transport analysis. Related center-extension and nearest-point projection results concern different operators and destination spaces. Broad and exact-parameter searches did not identify a covering theorem; independent discovery elsewhere remains possible.
+PASS
 
-## Value
-PASS. This gives a global sharp norm for an explicit infinite family of natural simultaneous linear interpolation problems, identifies the precise three-to-four-dimensional change in active constraints, exhibits positive optimal kernels, and gives the limiting optimal interpolation loss. The all-midpoint interactions are essential: ordinary pairwise midpoint averaging is not optimal, and disjoint edges first control the extremal norm in dimension four.
+Averaging over signed-coordinate permutations reduces arbitrary linear operators (including signed coefficients) to three stabilizer orbits; KR duality and incident-vertex/disjoint-edge tests yield affine universal lower bounds. For the explicit positive rows, all incident, antipodal, outside and same/shared/disjoint midpoint pair types have costs <= the proposed optimum. Dimension three has no disjoint midpoint pair and is optimized by two alternate affine bounds. Independently solved 153,496,1225 exact-point-pair KR dual linear programs for d=3,4,5, with maxima 1.115603109315,1.155903758158,1.159197416691, matching the formula; the unrestricted d argument uses the symmetry proof, not finite LPs.
 
-## Boundaries
-Real scalar Lipschitz spaces, ambient Euclidean distances, vertices and all edge midpoints only. Neither arbitrary targets nor uniqueness of all optimizers is asserted. The analytic proof covers all integer dimensions at least three; computational checks cover only the indicated finite dimensions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This is an exact simultaneous extension constant for a canonical multi-point Euclidean configuration, with a real structural dimension-three/four transition caused by disjoint edge supports and an explicit optimal positive extension. General extension existence does not answer the sharp question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

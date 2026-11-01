@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and scope
 
-The main argument is an exact all-dimension symmetry and transportation proof in RESULT.md. The verifier `verify_crosspolytope.py` is an independent finite check of the extension kernels using a direct Lipschitz dual linear program, rather than the orbit ratios employed in the proof.
+# Independent mathematical audit
 
-Environment: Python 3 with NumPy and SciPy installed. From a directory containing the checker, run `python verify_crosspolytope.py`.
+## correctness
 
-Observed checks: dimension three, 153 pairs; dimension four, 496 pairs; dimension five, 1225 pairs; dimension six, 2556 pairs. Total: 4430 pair LPs, with tolerance \(2\times10^{-8}\). All measured operator norms equalled the corresponding theoretical constants within this tolerance.
+PASS
 
-Limits: a floating-point linear program is neither an exact proof nor an exhaustive check over unbounded dimensions or arbitrary extension operators. The global-minimality certificate and exact radical identities are analytic. No independent mathematical audit has been performed.
+Averaging over signed-coordinate permutations reduces arbitrary linear operators (including signed coefficients) to three stabilizer orbits; KR duality and incident-vertex/disjoint-edge tests yield affine universal lower bounds. For the explicit positive rows, all incident, antipodal, outside and same/shared/disjoint midpoint pair types have costs <= the proposed optimum. Dimension three has no disjoint midpoint pair and is optimized by two alternate affine bounds. Independently solved 153,496,1225 exact-point-pair KR dual linear programs for d=3,4,5, with maxima 1.115603109315,1.155903758158,1.159197416691, matching the formula; the unrestricted d argument uses the symmetry proof, not finite LPs.
+
+## originality
+
+PASS
+
+Examined primary theorem statements and compared equivalent predicates, general implications and exact tables. The previously known tools do not establish the submitted sharp result by immediate implication; qualified best-of-knowledge novelty, not proof by failed search.
+
+## value
+
+PASS
+
+This is an exact simultaneous extension constant for a canonical multi-point Euclidean configuration, with a real structural dimension-three/four transition caused by disjoint edge supports and an explicit optimal positive extension. General extension existence does not answer the sharp question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
