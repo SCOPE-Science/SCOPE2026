@@ -1,0 +1,15 @@
+# Scientific review of the dodecahedral perfect-matching complex finding
+
+## Correctness — PASS
+The asserted space has thirty six maximal perfect-matching faces, with exact graph and complex definitions supplied. Two exhaustive independent enumerations agree on the 30,504 face count. The coordinate-toggle matching is acyclic on all 30,503 nonempty faces; a full topological sort checks every one of 163,650 Hasse incidences. The resulting CW complex has one zero-cell, ten two-cells, and thirty three-cells. The exact integral attaching-degree matrix has rank nine modulo two, and an explicitly identified ten-by-ten minor has determinant two. Hence its Smith factors are nine units and one factor two. In a simply connected three-dimensional CW model with no one-cells, these degree data classify the attaching maps and prove the Moore-space wedge type. Independent full simplicial mod-two ranks corroborate the integral conclusion but are not used as an integral proof. The verifier and boundary certificate are embedded and fully reproducible.
+
+## Originality — PASS against inspected records
+The exact perfect-matching-complex definition and the selected honeycomb homotopy theorems of Bayer–Jelić Milutinović–Vega (arXiv:2209.02803, first public 2022-09-06) do not cover the dodecahedron. The polygonal-line tiling and two-row grid classification of Chandrakar–Singh (arXiv:2407.05809, first public 2024-07-08) concerns a different graph class. The separately published ordinary dodecahedral matching-complex theorem concerns **all** matchings, not the 36-facet extendible-matching subcomplex. The previously known count of 36 perfect matchings alone does not determine attaching maps or torsion. Checks also covered aliases and stronger-scope claims in public research records and external searches. Unindexed equivalent work is a residual bibliographic risk; a search is not a proof of uniqueness.
+
+## Value — PASS
+This is a complete integral homotopy classification of the perfect-matching complex of a canonical, highly symmetric cubic Platonic graph. The Moore summand demonstrates a genuine torsion obstruction to a sphere-wedge decomposition, unlike the sphere-wedge and contractible classes in the closest published families. The exact minor and acyclicity certificate make the nontrivial order-two class reproducible and suitable as a future test case. The result is not being inflated into a uniform statement for all cubic graphs.
+
+## Limits and closest literature
+The proof is finite/certificate-driven; no closed-form structural explanation of the torsion class or symmetry representation is claimed. Published literature inspected: Bayer–Jelić Milutinović–Vega arXiv:2209.02803 (definitions and primary honeycomb theorems), Chandrakar–Singh arXiv:2407.05809 (introduction and main graph-class theorems), and the indexed published ordinary-dodecahedral matching-complex statement. A more recent Möbius-ladder classification (arXiv:2608.30601, 2026) concerns that particular cubic graph family, not the dodecahedral graph. Independent external validation is not performed.
+
+Self-review: passed. Independent audit: not yet performed.
