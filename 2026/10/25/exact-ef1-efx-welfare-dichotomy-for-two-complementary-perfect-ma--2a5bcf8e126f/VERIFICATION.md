@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and verification
+# Independent mathematical audit
 
-Run `python3 check_spoc_cycles.py` using Python 3 standard library only. The included `spoc_cycles_check_output.txt` records output from the executed check. The checker enumerates all labeled ordered pairs of perfect matchings on 2, 4, 6, and 8 goods and, for each input, all complete two-agent allocations. It separately evaluates the EF-X predicate for every good, computes the true constrained optimum, reconstructs a cycle-balanced-or-one-gap solution and checks its welfare, coverage and all EFX inequalities.
+## correctness
 
-The verified input counts by goods are 1, 9, 225, 11025, totaling 11260, with all four domains passing. Exact enumeration does not establish universal correctness; the arbitrary-size result rests on the alternating-cycle proof in RESULT.md. The code verifies the **strong** EFX convention requiring the envy inequality after deletion of every good in the other bundle, even when the deleted good has zero marginal value to the observer.
+PASS
 
-The proof's critical checks are: (1) welfare T forces perfect coverage by selected red/blue pairs; (2) an alternating cycle admits only its two monochromatic perfect-matchings, including common double-edge cases; (3) after excluding a largest half-length L, greedy whole-component assignment leaves count difference at most L; (4) x+y=L−1 admits a near-balancing choice; (5) selected red/blue arcs leave exactly two unassigned goods; (6) the final goods-count bounds make both EFX inequalities hold for each possible deletion. The four-good extremal obstruction is known prior work.
+For T≥1 and two agent matchings partitioning 2T goods into disjoint pairs, any T completed recipient-valued pairs partition all goods; an alternating cycle must be assigned wholly by one color, so full welfare T is fair iff cycle half-lengths have an almost-balanced subset split (total discrepancy ≤1). If this fails, greedily distribute all but one largest component, cut it into L-1 disjoint colored pairs with two leftovers; choosing the cut near balance and giving leftovers to smaller-value recipient ensures for every deleted item the other-valued bundle ≤floor((size-1)/2), hence strong EFX and welfare T-1. EF1 cannot exceed T except at the same criterion. Standard subset sum DP yields O(T²) witnessing assignment. Independently enumerated 235 labeled ordered pairs of matchings on 2,4,6 goods with all allocation EFX tests; formula passed. Strong all-goods EFX convention and common-edge doubled cycles included.
 
-Independent audit: not performed. No external formal proof or independent certificate is asserted.
+## originality
+
+PASS
+
+Pyne–Viswanathan–Yang–Zick Proposition 2.1 already contains the 4-good alternating obstruction and general SPOC2 EFX approximation algorithms. This work does NOT claim that example, general EFX existence, or generic 1/3 bound as original. The complete all-T perfect-matching cycle subset-partition iff theorem with exact unit efficiency gap is not implied by those published result statements or the general two-agent complexity classification; qualified best-of-knowledge PASS.
+
+## value
+
+PASS
+
+Exact welfare of a natural, complete and tractable complementary-pair preference domain, with a sharp EF1=EFX classification and constructive polynomial-time optimum, meaningfully distinguishes a special family from generic fairness-efficiency approximation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

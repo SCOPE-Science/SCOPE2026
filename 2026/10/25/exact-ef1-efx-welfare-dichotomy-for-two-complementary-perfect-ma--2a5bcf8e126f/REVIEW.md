@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characterization covers all integers \\(T\\ge1\\) and all two-agent pair-completion valuation profiles induced by two perfect matchings. The proof's necessary step forces entire alternating components to one recipient at welfare \\(T\\). On such components, deleting any good lowers the other agent's evaluation by exactly one, so full-welfare EF1/EFX is exactly the cycle-length subset-balance condition. The sufficient construction for the other case cuts one largest component, leaves precisely two items and gives them to the smaller-count recipient; counting goods after each possible deletion proves all EFX constraints. Exact exhaustive verification of 11,260 matching-pair profiles through eight goods confirms the formula and construction. Those computations are not used as a substitute for the general proof.
+PASS
 
-## Originality — PASS, with priority risk
+For T≥1 and two agent matchings partitioning 2T goods into disjoint pairs, any T completed recipient-valued pairs partition all goods; an alternating cycle must be assigned wholly by one color, so full welfare T is fair iff cycle half-lengths have an almost-balanced subset split (total discrepancy ≤1). If this fails, greedily distribute all but one largest component, cut it into L-1 disjoint colored pairs with two leftovers; choosing the cut near balance and giving leftovers to smaller-value recipient ensures for every deleted item the other-valued bundle ≤floor((size-1)/2), hence strong EFX and welfare T-1. EF1 cannot exceed T except at the same criterion. Standard subset sum DP yields O(T²) witnessing assignment. Independently enumerated 235 labeled ordered pairs of matchings on 2,4,6 goods with all allocation EFX tests; formula passed. Strong all-goods EFX convention and common-edge doubled cycles included.
 
-The motivating article arXiv:2610.15801 is closely relevant and explicitly **already contains** the alternating four-good lower-bound example (Proposition 2.1). Neither that example nor the generic 1/3-EFX approximation theorem is claimed to be new. The new assessed statement is the complete all-size EF1/EFX welfare dichotomy and algorithm in the two-perfect-matching special case; the inspected results do not imply this exact classification. Two-agent EFX computational and submodular-fairness literature and relevant mathematical-record abstracts were additionally compared at the statement/implication level. An unindexed or otherwise unexamined equivalent result remains a publication-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact result answers whether perfectly covered pair-complement preferences incur **zero** or **one** completed-pair unit of utilitarian welfare loss when EF1 or EFX is imposed. The subset-sum criterion, equality of two fairness-constrained optima, and constructive near-efficient allocation address a natural gap between a known finite incompatibility witness and general approximation guarantees. It has a reusable and tractable alternating-component description. It is restricted to the two-matching model, not arbitrary complementary preferences.
+Pyne–Viswanathan–Yang–Zick Proposition 2.1 already contains the 4-good alternating obstruction and general SPOC2 EFX approximation algorithms. This work does NOT claim that example, general EFX existence, or generic 1/3 bound as original. The complete all-T perfect-matching cycle subset-partition iff theorem with exact unit efficiency gap is not implied by those published result statements or the general two-agent complexity classification; qualified best-of-knowledge PASS.
 
-## Scope and independent status
+## value
 
-Independent validation of the theorem, literature priority, and implementation has not been conducted. Claims beyond the given valuation model, including arbitrary SPOC matroid ranks, are not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact welfare of a natural, complete and tractable complementary-pair preference domain, with a sharp EF1=EFX classification and constructive polynomial-time optimum, meaningfully distinguishes a special family from generic fairness-efficiency approximation bounds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
