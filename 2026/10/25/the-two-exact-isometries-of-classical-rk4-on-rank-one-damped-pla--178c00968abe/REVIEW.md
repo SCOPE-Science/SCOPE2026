@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The Cayley–Hamilton reduction makes the matrix update a scalar plus scalar times the generator. Its Euclidean Gram matrix has off-diagonal entry \(xyV^2\), which eliminates every nonscalar orthogonal possibility when damping and coupling are positive. The two sign cases are determined by complete real polynomial-root arguments, and derivatives give the frequency-perturbation signs. The accompanying verifier checks algebra and high-precision roots, while the proof covers infinitely many parameter values.
+## correctness
 
-**Originality (PASS, best-knowledge).** Relevant main results and examples in Achleitner–Arnold–Jüngel (arXiv:2308.05689v1), Sun–Wei–Wu (arXiv:2201.06501v1), and Sun–Shu (arXiv:1811.10680v1) were compared by implication. Their general RK strong-stability and energy identities do not state this exact two-point ±identity classification together with the opposite perturbative signatures. Scalar stability-polynomial level curves are a close equivalent viewpoint; a classical table of all left conjugate pairs might already imply the result and remains a substantive literature risk.
+PASS
 
-**Value (PASS).** The object is the natural rank-one damped harmonic oscillator, and the invariant is full Euclidean energy preservation, not a contrived coordinate check. Completing the classification reveals both falsely frozen and falsely periodic numerical dynamics despite strict exact decay, and the first-order analysis separates robustness regimes.
+Reconstructed the entire Cayley-Hamilton reduction A^2+xA+YI=0: R4(A)=U I+V A, with U=1+Y(Y-x^2+4x-12)/24, V=-(x^3-4x^2-2xY+12x+4Y-24)/24. The off-diagonal Gram term is x sqrt(Y) V^2, so x,Y>0 force V=0 and U=+/-1. The +1 polynomial z(z^3+4z^2+12z+24) has one nonzero left conjugate pair characterized by rho in (2,3); the -1 polynomial factors, after t=z+1, into a left conjugate quadratic and a right conjugate quadratic characterized by v in (5,6). The roots have negative trace and positive determinant on exactly one admissible pair in each case. Differentiating Gram at V=0 yields Q_Y=2s diag(U_Y-xV_Y,U_Y); the two diagonal signs are both positive at +I and opposite at -I. Strict continuous-time contraction follows from norm derivative -2a*u1^2 and omega>0. Independently verified polynomial matrix and Gram identities symbolically, both cubic roots numerically, and derivative signs. No finite numerical check substitutes for global root count or continuous-time strictness.
 
-Limitations: exact arithmetic, fixed step, two dimensions, positive parameters, and full isometry only; no result about all stable steps, arbitrary RK methods, or floating-point behavior. Independent proof/literature audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. Prior strong-stability work leaves the isolated exact matrix isometries and signs unclassified in read sections.
+
+## value
+
+PASS
+
+The canonical rank-one damped planar oscillator has strictly dissipating continuous evolution yet can be exactly frozen or sign-flipped by classical RK4. Giving the exhaustive two-point resonance classification and distinct first-order frequency responses exposes a sharp structural numerical-analysis pathology, not an arbitrary small test or a mere stability-region plot.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

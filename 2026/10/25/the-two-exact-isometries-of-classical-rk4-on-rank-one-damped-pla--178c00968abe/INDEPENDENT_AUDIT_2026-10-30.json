@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:15:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the entire Cayley-Hamilton reduction A^2+xA+YI=0: R4(A)=U I+V A, with U=1+Y(Y-x^2+4x-12)/24, V=-(x^3-4x^2-2xY+12x+4Y-24)/24. The off-diagonal Gram term is x sqrt(Y) V^2, so x,Y>0 force V=0 and U=+/-1. The +1 polynomial z(z^3+4z^2+12z+24) has one nonzero left conjugate pair characterized by rho in (2,3); the -1 polynomial factors, after t=z+1, into a left conjugate quadratic and a right conjugate quadratic characterized by v in (5,6). The roots have negative trace and positive determinant on exactly one admissible pair in each case. Differentiating Gram at V=0 yields Q_Y=2s diag(U_Y-xV_Y,U_Y); the two diagonal signs are both positive at +I and opposite at -I. Strict continuous-time contraction follows from norm derivative -2a*u1^2 and omega>0. Independently verified polynomial matrix and Gram identities symbolically, both cubic roots numerically, and derivative signs. No finite numerical check substitutes for global root count or continuous-time strictness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The general strong-stability theorems quantify uniform small time steps and matrix classes; the claimed theorem instead enumerates isolated finite step sizes with norm identity.",
+          "Sun and Shu analyze semibounded operators and energy/multistep stability; their abstract-level scope does not provide these isolated exact resonances."
+        ],
+        "reasoning": "A general stability theorem may explain absence of global monotonicity, but that logical statement is weaker than a complete exact positive-parameter RK4 isometry classification.",
+        "searches": [
+          "arXiv:2308.05689 Theorems 0.2.1 and 0.2.2",
+          "arXiv:2201.06501 energy laws and seminegative RK",
+          "arXiv:1811.10680 RK4 strong stability"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2308.05689 (primary open full text inspected at relevant theorem sections)",
+        "arXiv:2201.06501 (identified; abstract/context)",
+        "arXiv:1811.10680 (identified; general RK4 strong stability)",
+        "doi:10.1137/18M122892X (abstract)",
+        "Resultary semantic search: exact RK4 orthogonality/damped planar resonance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2023 paper establishes that classical p=s=4 RK is not strongly stable on some semi-dissipative matrices; it does not imply that every exact isometry in this particular family lies at precisely two pairs.",
+          "A noncontractivity counterexample does not imply the existence or uniqueness of +I and -I exact steps or the local derivative dichotomy."
+        ],
+        "reasoning": "The new global root-factor reasoning is not a corollary of the cited small-step failure result. An unindexed older level-set table remains the primary prior-implication risk.",
+        "searches": [
+          "arXiv:2308.05689 sections Introduction, Main Results, Corollary 1",
+          "arXiv:1811.10680",
+          "Resultary RK4 resonance query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For this two-by-two family orthogonality reduces exactly to left-half-plane conjugate quadratic factors of R4(z)-1 or R4(z)+1.",
+          "Achleitner–Arnold–Jüngel (arXiv:2308.05689), main results study sufficiently small-step strong stability and hypocoercivity indices, not an enumeration of both R4(z)=+/-1 quadratic factors."
+        ],
+        "reasoning": "An equivalent older polynomial level-set/root-locus classification could subsume the result even if it lacks matrix phrasing; no such exact all-pairs and derivative-sign statement was established in the inspected sources.",
+        "searches": [
+          "Resultary: classical fourth order Runge Kutta exact orthogonal isometry step matrix rank one damped planar oscillator RK4 discrete flow positive timestep",
+          "Web: RK4 exact anti-identity resonance gyroscopic rank-one damped oscillator",
+          "arXiv:2308.05689"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary hit on Fehlberg RK4(5) concerns estimator coincidence at a scalar real point, not orthogonal R4 of a two-state damped matrix."
+        ],
+        "reasoning": "No matched table with both cubic root pairs and perturbation signatures was found. Negative search alone does not establish historical novelty.",
+        "searches": [
+          "Web: exact norm-preserving fourth-order RK timesteps damped planar oscillator",
+          "Resultary search above and exact Fehlberg RK4(5) error-estimator resonance hit"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. Prior strong-stability work leaves the isolated exact matrix isometries and signs unclassified in read sections.",
+      "residual_risks": [
+        "An older scalar RK4 polynomial level-set classification could imply the pair isolation by standard Vieta calculations.",
+        "Only targeted parts, not every appendix, of general RK energy-law literature were inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant strong-stability background; not an explicit enumeration of two isolated exact isometries",
+          "evidence": "Its sufficient/necessary statements concern sufficiently small steps and whole matrix classes, whereas this claim concerns isolated exactly orthogonal finite positive steps.",
+          "identifier_or_url": "https://arxiv.org/abs/2308.05689",
+          "material_read": "Full accessible HTML text: definitions, introduction, Theorems 0.2.1–0.2.2, Corollary 1 and relevant stability examples",
+          "method": "Read arXiv open text and compared quantifiers and local-versus-global step conclusions",
+          "title": "Necessary and sufficient conditions for strong stability of explicit Runge–Kutta methods",
+          "trigger": "Closest primary study of classical RK4 on semi-dissipative, hypocoercive matrices"
+        },
+        {
+          "assessment": "Undetermined full-text coverage; abstract does not state the two parameter pairs",
+          "evidence": "General strong-stability analysis includes classical RK but its abstract does not assert exhaustive finite-time isometry pairs.",
+          "identifier_or_url": "https://doi.org/10.1137/18M122892X",
+          "material_read": "Accessible abstract and theorem overview (not full paper)",
+          "method": "Compared scope/quantifiers only; not counted as whole-document noncoverage",
+          "title": "Strong Stability of Explicit Runge--Kutta Time Discretizations",
+          "trigger": "Potential dominating RK4 strong-stability analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The canonical rank-one damped planar oscillator has strictly dissipating continuous evolution yet can be exactly frozen or sign-flipped by classical RK4. Giving the exhaustive two-point resonance classification and distinct first-order frequency responses exposes a sharp structural numerical-analysis pathology, not an arbitrary small test or a mere stability-region plot.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2308.05689 (primary open full text inspected at relevant theorem sections)",
+    "arXiv:2201.06501 (identified; abstract/context)",
+    "arXiv:1811.10680 (identified; general RK4 strong stability)",
+    "doi:10.1137/18M122892X (abstract)",
+    "Resultary semantic search: exact RK4 orthogonality/damped planar resonance"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a,omega,h>0 and L=[[-a,-omega],[omega,0]], R4(hL) is orthogonal at exactly two dimensionless (ah,(omega h)^2) pairs, one giving +I and one giving -I, defined by their respective cubic roots. The two exhibit opposite one-parameter local singular-value perturbation signatures.",
+  "limitations": [
+    "Only the positive real rank-one damped planar family and Euclidean norm are covered.",
+    "RK4 exact-arithmetic theorem, not a claim about floating-point exact equality or all nonexpansive steps."
+  ],
+  "residual_risks": [
+    "An older scalar RK4 polynomial level-set classification could imply the pair isolation by standard Vieta calculations.",
+    "Only targeted parts, not every appendix, of general RK energy-law literature were inspected."
+  ],
+  "schema_version": 1
+}
