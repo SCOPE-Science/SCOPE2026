@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T20:10:47Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The explicit curvature-radius normal displacement is C_k=((alpha+kq/alpha)cos t,(beta+kq/beta)sin t), q=alpha^2 sin^2 t+beta^2 cos^2 t. Direct symbolic differentiation independently reproduced the signed curvature numerator beta^2/sqrt(x) times Q_x(k,u) in u=sin^2 t. The polar-angle determinant is strictly positive, providing a regular simple once-around radial graph; nonnegative signed curvature is therefore equivalent to convexity. Both Q endpoints, interior-vertex condition (0<k<(x-3)/(2x)), its discriminant 3k(2k-1)(x-1)^2R_x(k), and the discriminant 9(x-1)^2(x^2-34x+1) were checked against the stated proof. All edge cases x=1, x=3/2, x=x*, k=k±, k=k0, and k>k0 are handled with nonnegative zero-curvature endpoints. The independent numeric checker tested analytic quadratic minima over a deterministic grid of 10 axis ratios and 401 k values each, in addition to checking the symbolic determinant at 405 configurations; these samples corroborate but do not replace the exact quadratic proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Veerman proves rigidity for constant-distance surfaces and constructs nonconstant-distance examples, leaving general convex-surface extension open.",
+          "Hinterleitner concerns surfaces of revolution geodesic mapping, a different geometry."
+        ],
+        "reasoning": "General geodesic rigidity does not determine convexity of this particular variable-distance normal offset, and the example does not supply the threshold.",
+        "searches": [
+          "https://arxiv.org/abs/2309.05808",
+          "https://arxiv.org/abs/1103.6128",
+          "Resultary: ellipse curvature weighted offset normal radius curvature geodesic surfaces Veerman convexity phase"
+        ]
+      },
+      "checked_sources": [
+        "https://web.pdx.edu/~veerman/ConstDistanceSurfaces.pdf",
+        "https://arxiv.org/abs/1103.6128",
+        "https://pdxscholar.library.pdx.edu/mth_fac/380/"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Veerman Section 6 concluding statement is only qualitative: the curves lose convexity for large k; no axis-ratio threshold.",
+          "The original formula for C_k is prerequisite but does not itself state or derive the exact root ranges."
+        ],
+        "reasoning": "The submitted classification is not an immediate stated corollary of a large-k loss; it requires a full quadratic sign/discriminant analysis that reveals nonmonotonic recovery.",
+        "searches": [
+          "https://web.pdx.edu/~veerman/ConstDistanceSurfaces.pdf Section 6",
+          "https://arxiv.org/abs/1103.6128"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Veerman Section 6 writes the same C_k(t) explicitly and says curves lose convexity for large k.",
+          "The exact submitted determinant is a quadratic in sin^2 t, giving a distinct sharp classification."
+        ],
+        "reasoning": "The family is identical under radius of curvature = 1/kappa; equivalent formulations as geodesic-projecting cylinders or normal offsets were checked against the same original Section 6.",
+        "searches": [
+          "J. J. P. Veerman Geodesics on Regular Constant Distance Surfaces Section 6 ellipse C_k=c+k/kappa n",
+          "curvature radius ellipse normal offsets convexity phase 17+12sqrt2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Veerman Figure 6.1 displays only k=0.5 and k=1.5 for ellipse with axes 1,3.",
+          "No exact k± table or eccentricity phase diagram appears in inspected Figure/Section 6."
+        ],
+        "reasoning": "Sample plots cannot imply the complete discriminant and reentrant phase diagram; search nonmatch is not proof of global novelty.",
+        "searches": [
+          "Veerman ellipse C_k 0.5 1.5 plot convexity",
+          "normal offset ellipse threshold 17+12 sqrt 2 discriminant k_+ k_-"
+        ]
+      },
+      "rationale": "Veerman 2023 Section 6 introduces this exact ellipse with normal displacement proportional to reciprocal curvature and explicitly remarks that the offset loses convexity for large k, but gives no exact phase partition or high-eccentricity convexity recovery interval. Its full relevant Section 6 and figure were inspected. Hinterleitner 2011 studies geodesic mappings of surfaces of revolution rather than this normal-offset planar convexity question. Searches across equivalent normal-offset and curvature-radius formulation found no exact x*=17+12sqrt2 and k± phase transition. This is best-of-knowledge, not an assertion of exhaustive novelty.",
+      "residual_risks": [
+        "A specialist normal-offset/caustic paper not indexed by the searches might already contain equivalent discriminant classification.",
+        "At exactly x* the nonconvex window collapses to a double zero of curvature; the final mathematical statement explicitly includes this boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING",
+          "evidence": "Section 6 gives same displacement, plotted k values, and says nonconvex for sufficiently large k; no x* or k±, nor all-k convexity intervals.",
+          "identifier_or_url": "https://web.pdx.edu/~veerman/ConstDistanceSurfaces.pdf",
+          "material_read": "Full accessible PDF, especially complete Section 6 p.13 (printed 14), Figure 6.1, explicit C_k and final qualitative note; also abstract and introduction.",
+          "method": "web PDF text and screenshot of page 13",
+          "title": "Geodesics on Regular Constant Distance Surfaces",
+          "trigger": "Exact same ellipse/normal-offset example"
+        },
+        {
+          "assessment": "DIFFERENT_DOMAIN",
+          "evidence": "Studies deformation of surfaces of revolution, not C_k normal offsets of a fixed planar ellipse.",
+          "identifier_or_url": "https://arxiv.org/abs/1103.6128",
+          "material_read": "Title, abstract and domain description; not claimed to have read inaccessible full proof.",
+          "method": "web bibliographic search",
+          "title": "On Global Geodesic Mappings of n-Dimensional Surfaces of Revolution",
+          "trigger": "Related geodesic mapping construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact parameter range determines when the geodesic-preserving-projection construction stays geometrically convex, and the reentrant convexity interval at axis ratio above 3+2sqrt2 is a qualitative phase transition missed by a mere large-k loss statement. It is a natural sharp boundary for the original geometric family, not an arbitrary parameter slice.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://web.pdx.edu/~veerman/ConstDistanceSurfaces.pdf",
+    "https://arxiv.org/abs/1103.6128",
+    "https://pdxscholar.library.pdx.edu/mth_fac/380/"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "A specialist normal-offset/caustic paper not indexed by the searches might already contain equivalent discriminant classification.",
+    "At exactly x* the nonconvex window collapses to a double zero of curvature; the final mathematical statement explicitly includes this boundary."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING",
+      "evidence": "Section 6 gives same displacement, plotted k values, and says nonconvex for sufficiently large k; no x* or k±, nor all-k convexity intervals.",
+      "identifier_or_url": "https://web.pdx.edu/~veerman/ConstDistanceSurfaces.pdf",
+      "material_read": "Full accessible PDF, especially complete Section 6 p.13 (printed 14), Figure 6.1, explicit C_k and final qualitative note; also abstract and introduction.",
+      "method": "web PDF text and screenshot of page 13",
+      "title": "Geodesics on Regular Constant Distance Surfaces",
+      "trigger": "Exact same ellipse/normal-offset example"
+    },
+    {
+      "assessment": "DIFFERENT_DOMAIN",
+      "evidence": "Studies deformation of surfaces of revolution, not C_k normal offsets of a fixed planar ellipse.",
+      "identifier_or_url": "https://arxiv.org/abs/1103.6128",
+      "material_read": "Title, abstract and domain description; not claimed to have read inaccessible full proof.",
+      "method": "web bibliographic search",
+      "title": "On Global Geodesic Mappings of n-Dimensional Surfaces of Revolution",
+      "trigger": "Related geodesic mapping construction"
+    }
+  ]
+}
