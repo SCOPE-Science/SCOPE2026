@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "rationale": "The normalized-path eigenvalues and eigenvectors are reconstructed explicitly and verified by the eigenvalue equation, including endpoint weights. A direct Vandermonde determinant identity gives the exact Gram determinant. Its half-log has a strictly negative second derivative for every positive time spacing; m=2 is monotone and every m>=3 has a unique interior maximum because the first derivative changes sign from +infinity to a strictly negative limit. Normalized rates equal rho_{theta_N}(j/(m-1)) exactly; the continuous extension rho_0(x)=x^2 makes uniform convergence immediate. The stationarity summand extends continuously to coincident rates, so triangular Riemann-sum convergence and strict monotonicity of the limit give convergence of unique roots for every m/N limit in [0,1]. The low-band and full-band formulas follow from the exact cosine eigenvalues. Packaged standard-library regression checker passes 2,198 supplementary tests, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The full text of the published normalized-path endpoint result states a full-spectrum determinant, endpoint sensor placement optimizer, and explicitly excludes a temporal-step optimization.",
+        "The full text of the published arithmetic-spectrum optimal-horizon result assumes 2k modes of arithmetic decay rates and two observables per time, with a different limiting integral.",
+        "Bulai et al. give the finite frame criterion, explicit observation matrices, and numerical comparison for P_40 with a fixed spectral multiplier; no analytic heat-step optimum is given in inspected Sections 4.2-4.3.",
+        "Aguilera et al. study existence, Parseval frames, and generator index, not the present sampling-interval asymptotics."
+      ],
+      "reasoning": "The full-spectrum normalized-path determinant implies finite endpoint evaluation factors for m=N, but does not settle the asymptotic m/N crossover, which requires varying spectral truncation and optimization with the cosine rate profile. The arithmetic-spectrum confluent determinant has rates and measurement multiplicities that prevent direct specialization. General finite-dimensional frame criteria establish rank, not the new sharp design time. Both stronger-formulation possibilities were compared at the statement and implication level.",
+      "searches": [
+        "published-finding corpus: For normalized path graph P_N endpoint heat dynamical sampling with first m Laplacian modes, uniform condition number precisely when time step t is comparable to N squared; sharp small-step singular value exponent",
+        "published-finding corpus: optimal time horizon heat semigroup normalized path graph low pass frame N/m squared D determinant",
+        "published-finding corpus record 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "published-finding corpus record 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739",
+        "arXiv:2609.25472v1 sections 4.2-4.3",
+        "arXiv:2506.00567 introductory results"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2609.25472v1",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739/RESULT.md",
+      "arxiv:2506.00567",
+      "Dette–Melas–Wong (2006) official journal abstract"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior normalized-path result: maximize over sensor index for a fixed injective full-spectrum evolution, giving a determinant formula; it explicitly distinguishes determinant from frame bounds or condition number.",
+        "Prior arithmetic-spectrum result: optimize time for a confluent Vandermonde with uniform rate gaps, yielding c_star≈2.121467655793; this does not yield the cosine-spectrum function ρ_θ.",
+        "Bulai et al. compare number and spatial distribution of samples with a fixed temporal spectral multiplier; new theorem optimizes the uniform heat time step and proves the m/N asymptotic.",
+        "The presently proved root equation contains a continuum integral with ρ_θ(x)=(1-cos πθx)/(1-cos πθ), reducing to x² at θ=0, and gives s_0≈3.50135659780166."
+      ],
+      "reasoning": "The intersections are finite spectral observability, standard Vandermonde algebra, and path heat evolution. Their proven claims do not imply the new continuum root s_θ nor the sharp coefficient of the timing law for m→∞ with m/N→0. The finite uniqueness part alone is a relatively straightforward consequence of Vandermonde factorization; the accepted mathematical contribution centers on the nontrivial bandwidth-fraction asymptotic and exact design optimum together, rather than treating the elementary ingredient as independently novel.",
+      "searches": [
+        "published-finding corpus record 2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f",
+        "published-finding corpus record 2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739",
+        "arXiv:2609.25472v1 (Sections 4.2, 4.3, numerical experiments)",
+        "Web: equispaced exponential sampling optimal determinant time interval heat equation spectral Vandermonde unique maximum"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The exact information determinant is an ordinary endpoint-amplitude weighted Vandermonde in exp(-τ λ_j), with λ_j=1-cos(πj/(N-1)).",
+        "Dette, Melas and Wong (2006) describe locally D-optimal designs for sums of two or three unknown exponential regression terms, not the fixed-rate growing-dimensional heat-orbit sampling matrix; abstract inspected.",
+        "No returned published record gave the continuum constant s_0 or the bandwidth-fraction family s_θ."
+      ],
+      "reasoning": "Gram determinant, Fisher-information determinant, endpoint observability determinant, and exponential-node Vandermonde are equivalent descriptions; the comparison therefore concerns the actual variable-rate design law, not only titles. Standard exact determinant identities account for the finite spectral reduction, but a general identity does not by itself state the new unique continuum optimum and sharp low-band coefficient. Search failures are not treated as proof of novelty.",
+      "searches": [
+        "published-finding corpus: unique optimum temporal observation spacing for quadratic heat eigenvalue spectrum exp(-τ j²) D-optimal Vandermonde determinant",
+        "published-finding corpus: continuum large dimension quadratic spectrum exponential Vandermonde log energy optimizer heat sampling spacing constant 3.5013566",
+        "Web: \"exp(-t j^2)\" \"Vandermonde\" determinant maximum",
+        "Web: \"D-optimal\" \"heat\" \"path graph\" sampling interval"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected preprint numerical table concerns a fixed P_40 model with heat factor 0.95 exp(-20 λ), and reports frame bounds, not a table of optimal heat-step constants.",
+        "No exact-tabulated optimal s_θ or s_0 constant was returned in the specified published-record and literature searches."
+      ],
+      "reasoning": "A numerical match to a preexisting optimum would dominate a mere recomputation; none was found in the searches. Absence of a search hit is not a mathematical guarantee of uniqueness, and this is explicitly included among residual priority risks.",
+      "searches": [
+        "Web: \"3.501356597\" Vandermonde heat observation",
+        "Web: \"2.191808739\" optimal sampling graph",
+        "published-finding corpus: continuum large dimension quadratic spectrum exponential Vandermonde log energy optimizer heat sampling spacing constant 3.5013566",
+        "Web: \"heat semigroup\" \"dynamical sampling\" \"D-optimal\" \"path\""
+      ]
+    },
+    "rationale": "The relevant 2026 graph Paley–Wiener manuscript develops normalized-graph dynamical frames and numerical path comparisons at a fixed heat step, not the optimal spacing. The closest public normalized-path endpoint theorem fixes full-dimensional temporal horizon and optimizes sensor location, not the variable low-pass heat interval or its bandwidth-fraction limit. A different arithmetic-spectrum two-observable theorem optimizes a confluent Vandermonde with a different integral constant; neither claim implies the present continuum cosine-profile law. The classical Vandermonde determinant and generic scalar concavity are acknowledged ingredients, not the asserted new limit. The relevant original mathematical claims and direct primary material were compared; older observational-design literature remains a priority risk.",
+    "residual_risks": [
+      "The general optimal-design literature, including the full text of Dette–Melas–Wong (2006), was not exhaustively inspected; an equivalent implicit formula may exist.",
+      "A generic spectral-rate convergence theorem could imply the same integral crossover even if the precise path specialization is not indexed.",
+      "Numerical constants are quadrature approximations to exactly characterized roots; no interval-arithmetic certificate of the displayed final digits is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides rank/sampling criteria and numerical fixed-time comparisons, not the stated optimal heat-step crossover.",
+        "evidence": "The manuscript reports P_40, six active modes, h(λ)=0.95 exp(-20 λ), and variations across sensor placement and iteration number; the heat spacing is not optimized.",
+        "identifier_or_url": "https://arxiv.org/abs/2609.25472v1",
+        "material_read": "Accessible full-text HTML introduction, theorems in Section 4.2, Section 4.3 analytical and numerical setup, table and discussion.",
+        "method": "Direct full-text HTML inspection and targeted text retrieval.",
+        "title": "Dynamical Sampling in Graph Paley–Wiener Spaces",
+        "trigger": "Same normalized Laplacian, same finite path dynamical sampling experiment and graph Paley–Wiener model."
+      },
+      {
+        "assessment": "Exact full-spectrum determinant and sensor-placement theorem, with heat evolution allowed but no time spacing optimization or growing low-pass crossover.",
+        "evidence": "Its statement fixes m=N=M+1 and maximizes det over vertex index for every fixed injective spectral map; explicit limitation says the determinant result does not optimize smallest eigenvalue or condition number.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-universal-endpoint-optimality-for-dynamical-sampling-on-normaliz--d0ca7333cb0f/RESULT.md",
+        "material_read": "Complete RESULT.md, including exact theorem, assumptions, five proof steps, limitations and references.",
+        "method": "Direct authorized read of public GitHub file.",
+        "title": "Universal endpoint optimality for dynamical sampling on normalized paths",
+        "trigger": "Closest public mathematical record on the same endpoint path observability determinant."
+      },
+      {
+        "assessment": "Different arithmetic rates, two observables, and confluent determinant; cannot specialize to the nonlinear normalized-path eigenvalue profile.",
+        "evidence": "It has rates a+dj and measurements of amplitude plus decay slope, and an integral constant c_star≈2.121467655793, compared to the present one-sensor cosine-spectrum equation.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-universal-optimal-observation-horizon-for-arithmetic-spectrum--64dbf45b5739/RESULT.md",
+        "material_read": "Complete RESULT.md, including exact confluent determinant, uniqueness proof, Riemann-sum limit, limitations and references.",
+        "method": "Direct authorized read of public GitHub file.",
+        "title": "A universal optimal observation horizon for arithmetic-spectrum flows",
+        "trigger": "An apparent broader design-optimality theorem involving exponential Vandermonde matrices and asymptotic time horizons."
+      },
+      {
+        "assessment": "General existence/generator questions, not exact D-optimal uniform heat-step selection.",
+        "evidence": "Theorem 1.1 concerns contractions with strongly stable adjoints and Theorem 1.3 frame index, neither addressing fixed-path temporal design.",
+        "identifier_or_url": "https://arxiv.org/abs/2506.00567",
+        "material_read": "Accessible article introduction and principal theorems on frame existence, Parseval frames and index.",
+        "method": "Direct arXiv HTML text inspection.",
+        "title": "Existence and Properties of Frames of Iterations (Optimal Dynamical Frames)",
+        "trigger": "General framework for finite-orbit frames and minimal numbers of generators."
+      },
+      {
+        "assessment": "The stated setting optimizes approximate designs for regression with two or three exponential terms; no decisive equivalent coverage identified, but full-text uncertainty remains.",
+        "evidence": "Journal abstract describes two- or three-component exponential regressions and designs supported on minimal numbers of points, not a growing-dimensional spectral heat path.",
+        "identifier_or_url": "https://www3.stat.sinica.edu.tw/statistica/j16n3/j16n36/j16n36.html",
+        "material_read": "Accessible bibliographic page and abstract only; complete article not inspected.",
+        "method": "Official journal index/abstract.",
+        "title": "Locally D-optimal designs for exponential regression models",
+        "trigger": "Potential equivalent experimental-design formulation for sums of exponentials."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4d44b2ae-0221-4bae-a3fd-4c24a13e19b8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The recent graph-sampling experiment quantifies instability while keeping a fixed heat step. The exact D-optimal time interval is a natural and operationally motivated missing design variable. The theorem gives a sharp, nonconstant continuum bandwidth-fraction profile and a precise diffusion-scale coefficient, distinguishes the two-mode no-interior-optimum boundary, and translates finite spectral sampling into an analytically optimized observation schedule. It is not a rank-only or condition-number statement, and the complete m/N transition is not supplied by the closest observed prior theorem.",
+    "status": "PASS"
+  }
+}
