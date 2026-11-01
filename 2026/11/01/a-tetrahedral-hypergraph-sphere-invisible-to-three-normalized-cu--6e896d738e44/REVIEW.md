@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For the tetrahedral-boundary hypergraph, all \(228\) nondegenerate two-cubes are admissible. The first cubical boundary has rank three and the second has exact rank nine (a rank-nine mod-two certificate plus the chain upper bound). Thus its second cycle lattice has rank \(219\). The exact verifier constructs \(219\) admissible three-cubes with a unit-determinant \(219\)-row boundary minor, so their integral boundaries saturate that cycle lattice. The two-section argument gives a direct cubical chain contraction in the other two theories. The embedded infimum chains contain the signed boundary of a tetrahedron and no three-dimensional hyperedge chain. The exact finite calculation is reproducible from the two attached computational files; no inference from characteristic-two data alone is made.
+
+## Originality — PASS, with residual risk
+The 2026 primary article was materially examined for its construction, examples and claims, including the degree-two setting; the tetrahedral hypergraph sphere comparison was not stated there. The 2016 embedded-homology construction computes a different, standard invariant, so the known simplicial sphere class does not imply the new Gamma degree-two calculation. The two-section reduction of pair-generated cubical sources is comparatively elementary and is included as explanatory context rather than presented as the central novelty. Searches for tetrahedral hypergraph degree-two Gamma homology, related cubical comparison formulas, and indexed mathematical findings did not reveal a covering theorem. Relevant graph discrete-cubical square-homology results use different source complexes and do not apply. An implicit calculation in other unpublished or unindexed literature remains a risk; absence from searches is not a proof of uniqueness.
+
+## Value — PASS
+The tetrahedral boundary is the minimal natural three-uniform hypergraph model of a closed two-dimensional sphere. Determining that its fundamental integral class disappears in all three newly defined cubical theories is a sharp structural discrimination at the first degree above the previously characterized degree-one situation. The integer unit-minor proof rules out hidden degree-two torsion and isolates a meaningful failure of sphere detection. The general simplex-boundary family clarifies why the two pair-generated theories behave differently from higher-arity Gamma theory. These are useful precise limits on what each hypergraph homology theory can detect, rather than a cosmetic recomputation of ordinary simplicial homology.
+
+## Closest sources and limits
+Zaidi and Jamil, arXiv:2610.08196v1, is the nearest definitions-and-examples source; Bressan et al., arXiv:1610.00890, is the embedded-homology comparison. The theorem concerns degree two of one Gamma example and general positive-degree acyclicity for Box and times over complete two-sections. It neither compares all degrees nor certifies originality against inaccessible literature. Independent evaluation has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
