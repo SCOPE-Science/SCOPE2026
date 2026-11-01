@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T13:56:04Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c/RESULT.md",
+        "2026/10/26/exact-mean-and-universality-index-distribution-of-shortest-absen--729a1bce797c/verify.py"
+      ],
+      "rationale": "The greedy binary arch decomposition consists of words a^m opposite(a) and a residual unary/empty suffix. The exact earliest-match condition for a shortest absent subsequence gives a two-coordinate transfer: if m=1 the own-initial-letter count propagates, and if m>=2 that coordinate vanishes; the opposite-initial-letter count equals the sum of suffix coordinates. Summing all arches gives a symmetric 2x2 transfer with eigenvector (1,1), eigenvalue u*z^2*(3-z)/(1-z), and residual vector (1,1)/(1-z); formal geometric inversion proves H exactly. Coefficient extraction and singularity analysis yield the finite sum, recurrence, and positive exponential mean. Independently generated all 2047 words n<=10 and brute enumerated subsequences, matching the bivariate coefficients and scalar totals. Empty/unary ambient alphabet convention retained.",
+      "residual_risks": [
+        "Finite checks corroborate; the formal transfer proves arbitrary n. Exponential mean is not typical-value concentration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kosche Theorem 3.4 characterizes each word’s SAS via arches; it does not state an all-word sum by length/index.",
+          "Resultary Fibonacci-extremal formula concerns max_w s(w), not sum_w s(w)."
+        ],
+        "reasoning": "A per-word characterization and an extremal inequality are weaker data than an exact bivariate generating function, which requires the present transfer summation.",
+        "searches": [
+          "shortest absent subsequences binary words weighted bivariate generating function universality index",
+          "arXiv:2108.13968 Theorem 3.4",
+          "Resultary Fibonacci extremals shortest absent subsequences"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2108.13968 (full PDF)",
+        "OEIS:A087955",
+        "Resultary:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "Resultary:2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+        "shortest absent subsequences binary words weighted bivariate generating function universality index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Fixed-index unweighted count and maximum s(w) do not determine weighted totals T_{n,k}; words of equal (n,k) can have different s(w).",
+          "The scalar T_n matches a known arithmetic sequence but its prior interpretation does not entail the claimed joint refinement."
+        ],
+        "reasoning": "The exact bivariate theorem does not follow from a mere substitution in the unweighted generating function. A more comprehensive weighted-automaton formula could cover it, but none was located.",
+        "searches": [
+          "shortest absent subsequences binary words weighted bivariate generating function universality index",
+          "arXiv:2108.13968 section 3",
+          "Resultary:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "OEIS A087955"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kosche et al. arXiv:2108.13968 define SAS and arch factorization for individual words.",
+          "Resultary closed-form universality enumerator is unweighted (1+z)/(1-z-2u z^2)."
+        ],
+        "reasoning": "Same arch methods and index occur, but weighting by s(w) changes the bivariate statistic; e.g. equal index does not fix SAS count.",
+        "searches": [
+          "shortest absent subsequences binary words weighted bivariate generating function universality index",
+          "\"2/(1-z-u*z^2*(3-z))\" binary absent subsequence",
+          "binary arch factorization weighted SAS"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A087955 already lists a scalar integer sequence whose shift matches T_n, with the same recurrence.",
+          "OEIS arithmetic definition does not supply universality-conditioned T_{n,k} or the shortest-absent-subsequence interpretation."
+        ],
+        "reasoning": "No originality is claimed for the scalar number sequence/recurrence in isolation. The distinct assessed contribution is the binary SAS interpretation and full two-parameter weighted identity.",
+        "searches": [
+          "OEIS A087955",
+          "\"2,2,8,12,34,62\" absent subsequences",
+          "shortest absent subsequences binary words weighted bivariate generating function universality index"
+        ]
+      },
+      "rationale": "Best-of-knowledge mathematical comparison: The exact bivariate theorem does not follow from a mere substitution in the unweighted generating function. A more comprehensive weighted-automaton formula could cover it, but none was located.",
+      "residual_risks": [
+        "The scalar recurrence and integer sequence are already known (OEIS A087955) and are not novel in themselves.",
+        "Earlier subsequence automata/weighted-language papers may contain an equivalent joint formula without the same words.",
+        "Some very close published records were inspected via full summary rather than complete source proof in this execution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides recognized foundational per-word SAS statements, not the weighted all-source series in inspected sections.",
+          "evidence": [
+            "Theorem 3.4 locates SAS choices in the arches; Sections 3–4 develop constructions/algorithms."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.13968",
+          "material_read": "Full 42-page PDF accessible; inspected definition and Theorem 3.4 with proof, sections on SAS gluing and counting, and paper-wide relevant text.",
+          "method": "Full primary arXiv PDF text, page-zero screenshot and targeted theorem material.",
+          "title": "Absent Subsequences in Words",
+          "trigger": "Original SAS and greedy-arch characterizations"
+        },
+        {
+          "assessment": "Unweighted distribution cannot mechanically determine SAS-weighted distribution.",
+          "evidence": [
+            "Unweighted rational series (1+z)/(1-z-2u z^2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Published Resultary title, full searchable result summary and generating-function formula; full proof not independently fetched in this run.",
+          "method": "Searchable published-record inspection; compared weighting and quantifiers.",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Adjacent published result with bivariate length/index enumeration"
+        },
+        {
+          "assessment": "Extremal max_w s(w) differs from sum_w s(w).",
+          "evidence": [
+            "Max-SAS Fibonacci laws do not specify sum or conditional distribution."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+          "material_read": "Published result summary and exact maximum formulas by parity, without full original proof.",
+          "method": "Resultary summary and mathematical implication check.",
+          "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+          "trigger": "Same s(w), plausible domination"
+        },
+        {
+          "assessment": "Scalar numbers are previously recorded, but no assessed bivariate SAS interpretation was verified in the entry.",
+          "evidence": [
+            "OEIS arithmetic partial-sums definition and 1,2,2,8,... values."
+          ],
+          "identifier_or_url": "https://oeis.org/A087955",
+          "material_read": "Public entry title/definition and first values, with indexed arithmetic origin.",
+          "method": "Direct primary OEIS record opening and offset comparison.",
+          "title": "OEIS A087955",
+          "trigger": "Exact numeric sequence and recurrence coincidence"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2108.13968 (full PDF)",
+        "OEIS:A087955",
+        "Resultary:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "rationale": "The weighted joint statistic is natural because universality index alone misses the number of shortest missing scattered strings. The complete bivariate rational law and mean exponential growth quantify a distribution not captured by known maximum or unweighted index counts; it is not simply recomputation of the pre-existing scalar OEIS sequence.",
+      "residual_risks": [
+        "The scalar recurrence and integer sequence are already known (OEIS A087955) and are not novel in themselves.",
+        "Earlier subsequence automata/weighted-language papers may contain an equivalent joint formula without the same words."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2108.13968 (full PDF)",
+    "OEIS:A087955",
+    "Resultary:2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+    "Resultary:2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28",
+    "shortest absent subsequences binary words weighted bivariate generating function universality index"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all finite binary words w, weighting each w by its number s(w) of shortest absent scattered-subsequence strings and recording its universality index iota(w), the exact joint series is H(z,u)=2/(1-z-u*z^2*(3-z)). The scalar totals satisfy the recurrence T[n+3]=T[n+2]+3*T[n+1]-T[n] with initial 2,2,8, and the uniform-binary mean grows as c*(1/(2r))^n for the smallest positive root r of 1-z-3z^2+z^3.",
+  "limitations": [
+    "The scalar recurrence and integer sequence are already known (OEIS A087955) and are not novel in themselves.",
+    "Earlier subsequence automata/weighted-language papers may contain an equivalent joint formula without the same words.",
+    "Some very close published records were inspected via full summary rather than complete source proof in this execution.",
+    "Finite checks corroborate; the formal transfer proves arbitrary n. Exponential mean is not typical-value concentration."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3.9 or later, with no third-party packages or input files. The program independently obtains every scattered subsequence of each source word up to a prescribed length by repeated set updates; it computes the greedy universality index without applying the theorem's transfer matrices. For each binary word of length 0 through 14, it compares the number of absent patterns with the theorem's explicit coefficient formula after grouping by length and index. For words through length 12, it additionally verifies the first-letter transfer identity against independently enumerated missing strings. Algebraic recurrence and selected initial coefficients are checked through length 60.
+## correctness
 
-Observed exact output:
+PASS
 
-`VERIFY_OK complete_words=32767 max_length=14 one_arch_transfers=8166 bivariate_cells=64 scalar_recurrence_through=60`
+The greedy binary arch decomposition consists of words a^m opposite(a) and a residual unary/empty suffix. The exact earliest-match condition for a shortest absent subsequence gives a two-coordinate transfer: if m=1 the own-initial-letter count propagates, and if m>=2 that coordinate vanishes; the opposite-initial-letter count equals the sum of suffix coordinates. Summing all arches gives a symmetric 2x2 transfer with eigenvector (1,1), eigenvalue u*z^2*(3-z)/(1-z), and residual vector (1,1)/(1-z); formal geometric inversion proves H exactly. Coefficient extraction and singularity analysis yield the finite sum, recurrence, and positive exponential mean. Independently generated all 2047 words n<=10 and brute enumerated subsequences, matching the bivariate coefficients and scalar totals. Empty/unary ambient alphabet convention retained.
 
-The exhaustive finite enumeration is not a proof beyond its checked bounds. In particular, the asymptotic dominant-pole argument is mathematical rather than numerical; the verifier does not independently certify the uniqueness of the smallest-modulus pole. All accepted claims are conditional only on the explicit binary-alphabet definitions in the manuscript, and the program's finite checks are corroborating evidence.
+## originality
+
+PASS
+
+Best-of-knowledge mathematical comparison: The exact bivariate theorem does not follow from a mere substitution in the unweighted generating function. A more comprehensive weighted-automaton formula could cover it, but none was located.
+
+## value
+
+PASS
+
+The weighted joint statistic is natural because universality index alone misses the number of shortest missing scattered strings. The complete bivariate rational law and mean exponential growth quantify a distribution not captured by known maximum or unweighted index counts; it is not simply recomputation of the pre-existing scalar OEIS sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

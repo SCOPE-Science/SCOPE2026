@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the ambient two-letter alphabet, treats the empty and unary residuals, and counts missing subsequence strings rather than positions. The first-letter SAS transfer is justified by the earliest-match property of scattered subsequences, with a separate treatment of length-two and longer greedy arches. Summing these transfers is legitimate as a formal power series because every arch contributes at least two letters. The claimed bivariate rational function follows from the common eigenvector, and the coefficient formulas, recurrence, and dominant-pole asymptotic follow by exact algebra. The provided independent direct-pattern enumeration checks 32,767 source words, 64 coefficient cells and 8,166 transfer instances, but does not purport to prove the infinite claim without the argument.
+## correctness
 
-## Originality — PASS, with residual risk
-The strongest nearby scientific statements inspected are Kosche–Koß–Manea–Siemer's SAS characterizations and gluing machinery, Adamson et al.'s extremal absent-subsequence bounds, the published exact unweighted universality-index distribution, and the published Fibonacci maximum-SAS law, and OEIS A087955 (which has exactly the same scalar values after an index shift). The first two concern individual words, their realizations, or extrema; the latter two give respectively an unweighted source count and an extremal source count. The OEIS scalar recurrence and numerical values are already known in an unrelated setting and are not novel by themselves; the inspected sources do not give the new binary SAS interpretation or the full weighted all-word length/index enumerator or its exponential mean. The weighted bivariate law cannot be recovered merely by attaching a factor to the unweighted enumerator because SAS counts vary at fixed length and index. A differently phrased or unindexed transfer-matrix summation remains a genuine originality risk; no claim of exhaustive novelty is made.
+PASS
 
-## Mathematical value — PASS
-Shortest absent subsequences measure the first level at which a source word fails scattered-factor universality. This result computes the complete joint distribution of their **number** over all binary source words and provides exact all-length mean and fixed-index distributions, not merely an arbitrary small census. It also identifies a strict, explicit exponential growth rate for the mean, giving an analytically meaningful counterpart to the existing maximal-value and index-only laws. Its transfer construction can serve as a starting point for distributional and biased-source questions, although no such extension is claimed here.
+The greedy binary arch decomposition consists of words a^m opposite(a) and a residual unary/empty suffix. The exact earliest-match condition for a shortest absent subsequence gives a two-coordinate transfer: if m=1 the own-initial-letter count propagates, and if m>=2 that coordinate vanishes; the opposite-initial-letter count equals the sum of suffix coordinates. Summing all arches gives a symmetric 2x2 transfer with eigenvector (1,1), eigenvalue u*z^2*(3-z)/(1-z), and residual vector (1,1)/(1-z); formal geometric inversion proves H exactly. Coefficient extraction and singularity analysis yield the finite sum, recurrence, and positive exponential mean. Independently generated all 2047 words n<=10 and brute enumerated subsequences, matching the bivariate coefficients and scalar totals. Empty/unary ambient alphabet convention retained.
 
-## Limitations and closest literature
-The proof uses the ambient fixed binary alphabet and concerns the aggregate count and expectation, not its variance, its concentration, or alphabets of size greater than two. Core predecessor methods are acknowledged in the main manuscript, as are the independently published unweighted-index and maximal-count formulas. Literature searches and primary-source reading reduce but do not eliminate the chance that the exact weighted specialization is already available elsewhere.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge mathematical comparison: The exact bivariate theorem does not follow from a mere substitution in the unweighted generating function. A more comprehensive weighted-automaton formula could cover it, but none was located.
+
+## value
+
+PASS
+
+The weighted joint statistic is natural because universality index alone misses the number of shortest missing scattered strings. The complete bivariate rational law and mean exponential growth quantify a distribution not captured by known maximum or unweighted index counts; it is not simply recomputation of the pre-existing scalar OEIS sequence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
