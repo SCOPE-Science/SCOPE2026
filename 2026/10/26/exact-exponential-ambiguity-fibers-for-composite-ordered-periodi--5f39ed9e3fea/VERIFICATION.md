@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification of the composite ordered-cycle ambiguity theorem
+# Independent mathematical audit
 
-The full proof uses only finite permutation theory and is recorded in `RESULT.md`. Two independent routes are distinguished: a construction proving a lower bound for each factorization and a converse proving no other \(n\)-cycle has that exact signature.
+## correctness
 
-The principal converse checkpoints are: \(f^m\) has \(m\) cycles each of length \(r\); the complete signature at time \(m\) has precisely the ordered block endpoints as descending elements; one descent per cycle forces the \(m\) cycle supports to be the consecutive blocks; strict ascent away from the maximum determines the rotation on each block; commutation and time-one comparisons determine the successive block order and each shift; \(f^m\) fixes the sum of shifts modulo \(r\).
+PASS
 
-Reproduction uses only Python 3 standard-library modules. Run `python check_composite_cycle_signatures.py`; its exact stdout is in `CHECK_OUTPUT.txt`. The checker enumerates every \(n\)-cycle for lengths \(4,6,8,9,10\), compares full \(n(n-1)\)-bit signatures and verifies eight complete fibers. Separately it enumerates all admissible parameter vectors for every \(2\le m,r\le5\), confirms their distinct cycles, equal full signatures and full cycle lengths. The complete range over arbitrary \(m,r\) is not certified by finite experiments; it is established by the analytic combinatorial converse.
+For n=mr,m,r≥2, cyclic block maps f_a(jr+u)=r(j+1 mod m)+(u+a_j mod r), Σa_j≡1 modr, are single n-cycles because f_a^m translates each block by one. The sign of f_a^t(x)−x for t not divisible by m is determined by block order; for t multiple m it is determined by internal rotation, so all r^(m−1) choices give one signature. Conversely for any n-cycle with that signature, g=f^m has exactly m r-cycles and exactly m descending points, at the block maxima. Every finite permutation cycle must have a descent, forcing g-orbits to equal the consecutive blocks, then monotonicity of all other entries forces their standard rotation. Commuting f and g makes f permute blocks, whose time-one sign inequalities force the successor block permutation; rotational equivariance then forces an internal translation on each block with sum shifts one. Thus no other cycles lie in that fiber. Independent complete n-cycle enumeration for n=4,6,8,9 verified exact fibers 2,3,4,8,4,9 across six factorizations; full proof holds for all m,r.
 
-No independent audit, exhaustive historical priority certification, or global interval-map period-spectrum comparison has been carried out.
+## originality
+
+PASS
+
+Fuhrmann–Gröger–Passeggi (Oct 2026) introduce precisely the point/time left-right orbit signature and prove prime-cycle rigidity, explicitly showing composite nonuniqueness with a four-point example. The present all-composite exact fiber formula plus converse classifies an infinite family beyond mere existence of nonuniqueness. The Resultary prime-cycle quadratic reconstruction note addresses only prime p, not composite ambiguity counts. Classical one-step excedance-set enumerations are strictly weaker data and cannot directly give all-power fibers. Best-of-knowledge priority remains qualified for unindexed combinatorics.
+
+## value
+
+PASS
+
+The complete full-signature fiber is a natural inverse-identification invariant for periodic orbit ordering; the theorem exposes exactly r^(m−1) indistinguishable n-cycles and an exponential lower bound in even length despite observing all x,t comparisons. The complete converse and explicit family make this an independently useful nonidentifiability classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
