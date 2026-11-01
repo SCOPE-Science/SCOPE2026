@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Exact finite verification
+# Independent mathematical audit
 
-With Python \(3.8\) or later, execute:
+## correctness
 
-`python3 verify.py`
+PASS
 
-Expected terminal record: `ALL_VERIFY_OK`. The script first enumerates all \(\sum_{k=0}^{6}\binom{16}{k}\) subsets and tests \(120\) explicit nonendpoint-witness requirements for each. The exact optimum count histogram is `0,0,0,0,0,0,1600`. It independently retests each minimum set using all endpoint pairs and individual witnesses, checks the complementary distance-two and antipodal filters, enumerates all \(384\) cube automorphisms, and constructs all one-vertex exchanges. The printed final structural line is `EXCHANGE_OK connected=1600 vertices=1600 edges=17088 degrees=[(12, 384), (22, 576), (26, 576), (30, 64)]`.
+The exact third-party resolving condition equals hitting all 120 admissible witness masks for the 16 vertices. Fresh independent enumeration over all k-subsets, k=0,...,6, yielded [0,0,0,0,0,0,1600], and independently reconstructed every 384 cube automorphism, all 11 minimum-basis orbits (32,32,96,96, seven 192), and the complete one-replacement exchange graph (17,088 edges, connected, degrees 12:384,22:576,26:576,30:64). These finite exhaustive calculations prove the finite Q4 statement, not a higher-dimensional theorem.
 
-For a separate implementation of all subset and exchange-count computations (C++17 compiler required), run:
+## originality
 
-`g++ -O3 -std=c++17 -o checker independent.cpp && ./checker`
+PASS
 
-It must output the exact cardinality histogram and degree frequencies, including `edges:17088`. This implementation scans all \(2^{16}\) bitmasks directly and recomputes resolving masks using compiler integer popcount operations; it does not import the Python answer. The orbit and BFS connectivity checks are performed by the Python script and are not claimed to have been independently duplicated by the C++ code.
+A strict third-party witness is distinct from both endpoints and differs from ordinary metric, edge metric and dominant edge metric dimensions. The 2020 foundational paper determines Q3 and poses higher hypercubes, while the 2011 Q4 ordinary resolving result does not imply the 1600 total bases or the exchange geometry. No equivalent prior Q4 finite census was found in the actual searches; priority remains qualified.
 
-## Limits
+## value
 
-The searches are exhaustive only over the finite cube. Computation time varies by machine; there are no randomized branches and all checks use exact integer operations. Neither verifier proves a formula for larger-dimensional cubes, nor does this self-review amount to independent external validation.
+PASS
+
+The smallest higher hypercube explicitly left open by the total metric dimension literature is Q4. Its exact minimum, complete set/orbit enumeration, and connected exchange geometry form motivated finite invariants of that natural question, not an arbitrary small instance or a renamed ordinary resolving set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

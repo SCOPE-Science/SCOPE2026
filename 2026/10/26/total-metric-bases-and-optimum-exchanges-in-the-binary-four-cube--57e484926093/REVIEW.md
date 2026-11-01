@@ -1,19 +1,21 @@
-# Scientific review: total metric bases of the binary four-cube
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition requires a resolving witness distinct from both endpoints. This is equivalent to a finite hitting-set condition on all \(120\) unordered pairs. The complete \(2^{16}\)-mask domain was traversed by two separately written programs, with all candidate cardinalities up to six checked. Counts \(0,0,0,0,0,0,1600\) establish the minimum; direct pairwise witness checks corroborate every passing six-set. The Python proof certificate additionally enumerates all \(384\) cube automorphisms and constructs every exchange adjacency, its degree distribution and a covering breadth-first search. The finite scope, exact integer arithmetic and exhaustive bounds are explicit. The proof is computationally exhaustive, not a proof about all dimensions.
+PASS
 
-## Originality — PASS with residual risk
+The exact third-party resolving condition equals hitting all 120 admissible witness masks for the 16 vertices. Fresh independent enumeration over all k-subsets, k=0,...,6, yielded [0,0,0,0,0,0,1600], and independently reconstructed every 384 cube automorphism, all 11 minimum-basis orbits (32,32,96,96, seven 192), and the complete one-replacement exchange graph (17,088 edges, connected, degrees 12:384,22:576,26:576,30:64). These finite exhaustive calculations prove the finite Q4 statement, not a higher-dimensional theorem.
 
-The 2011 hypercube paper proves statements about ordinary metric bases, not the stricter third-party total resolution. Hedetniemi–Laskar–Mulder (2020) introduce the strict parameter, prove the three-cube value and explicitly pose higher cubes as an open question (Question 7). Kelenc et al. (2021) study ordinary/edge/mixed dimensions. The inspected statements do not imply the new four-cube total-metric optimum or the complete minimum-basis exchange graph. Semantic mathematical research-record searches and accessible prior ledger claims reveal no statement covering these results. Novelty cannot be certified exhaustively against unavailable or unindexed results; possible equivalent small-graph enumerations remain a specific risk.
+## originality
 
-## Value — PASS
+PASS
 
-The first hypercube case explicitly left open by the foundational total-resolution paper is a natural mathematical invariant, not an arbitrary slice. In addition to the exact minimum, the result completely resolves all equality cases and the one-landmark mobility of optimum solutions. The latter information is not implied by the scalar invariant and supplies a concrete reconfiguration benchmark.
+A strict third-party witness is distinct from both endpoints and differs from ordinary metric, edge metric and dominant edge metric dimensions. The 2020 foundational paper determines Q3 and poses higher hypercubes, while the 2011 Q4 ordinary resolving result does not imply the 1600 total bases or the exchange geometry. No equivalent prior Q4 finite census was found in the actual searches; priority remains qualified.
 
-## Scientific limitations
+## value
 
-This is a finite, computationally exhaustive result on sixteen vertices; it makes no claim for larger cubes. Independence has not been externally assessed. The 2011 first-public source is background on the same hypercube resolving object; the total-resolution definition was introduced in 2020.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest higher hypercube explicitly left open by the total metric dimension literature is Q4. Its exact minimum, complete set/orbit enumeration, and connected exchange geometry form motivated finite invariants of that natural question, not an arbitrary small instance or a renamed ordinary resolving set.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
