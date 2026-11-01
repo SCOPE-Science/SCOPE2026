@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,7 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact verification
-Run `python3 verification.py` from the extracted scientific package. The standalone program checks polynomial arithmetic in \(\mathbb F_3[u]\) without external dependencies, including the exact product of the six factors, their Rabin irreducibility criteria, \(g\mid(u^{91}-1)\), separability, and comparison of the resulting Frobenius-orbit counts for several extension degrees. Its successful output is `VERIFY_OK factor_degrees=1,3,6,6,6,6 cycle_type=1^1 3^1 6^4 reduced=28`.
 
-The universal tangent-intersection divisor and the correspondence of bitangents with hyperflexes are established symbolically in the proof in `RESULT.md`. Modular arithmetic checks do not replace those all-point geometric arguments. The polynomial verifier was executed successfully against the bytes of this package during preparation. Independent mathematical validation has not been performed.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+F_X=Z³,F_Y=X³,F_Z=Y³ are never simultaneously zero in projective space. On each tangent in characteristic 3 the quadratic Taylor term vanishes; the residual fourth point is Phi(P), on the tangent since the tangent substitution equals F(P)^3. Degree-four Bézout handles fixed/nonfixed cases, and precludes two distinct double contacts. Fixed-point coordinates reduce reversibly to u^28+u^21+1 using u^91=1; independently factored over F3 with degrees 1,3,6×4, verified g|(u^91-1), and gcd(g,g')=1. Frobenius-equivariant tangent map gives bitangent field counts and reduced zeta for every n; finite extension checks alone are not used as proof.
+
+## originality
+
+PASS
+
+The geometric total of 28 hyperflexes/bitangents and the characteristic-three Klein–Fermat relationship are published prior facts. Primary comparisons did not give the exact twisted-Frobenius tangent-residual map or the arithmetic cycle partition of bitangents for this specific F3 cyclic twist. A specialized historical bitangent-field table could overlap.
+
+## value
+
+PASS
+
+Arithmetic descent of all bitangents of a natural genus-three plane quartic is an exact canonical finite-field invariant; a full geometric count alone does not determine fields of definition. The explicit tangent residual and six rational Frobenius cycles provide a usable scheme zeta function.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
