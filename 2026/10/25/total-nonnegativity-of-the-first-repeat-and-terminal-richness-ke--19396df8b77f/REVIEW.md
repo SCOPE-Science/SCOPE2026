@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-Correctness: PASS. Equality partitions provide the exact conditional counting kernel. The weighted planar graph realizes each restricted Stirling count. Nonidentity path matchings must intersect, so sign-reversing swaps leave only nonnegative nonintersecting families in every determinant. The last-row extension and conditional likelihood-ratio consequences are checked. The exact standalone checker corroborates finite cases.
+## correctness
 
-Originality: PASS (provisional priority). Broder's restricted Stirling numbers and their recurrences are prior art. Arratia–DeSalvo's near-diagonal assembly theory studies component sizes, not the all-minor kernel indexed jointly by first-repeat time and richness. Published total-positivity results for fixed-parameter r-Stirling matrices change different indices. Actual semantic-database and published-literature searches did not locate the claimed all-order birthday kernel. Broder's complete 1982/1984 text remained inaccessible (Stanford PDF timeout; institutional VPN unavailable); any buried all-minor result would threaten priority. General planar-network and total-positivity machinery is a methodological predecessor, not a claim of a new universal determinant technique.
+PASS
 
-Value: PASS. The first collision conditioned on final sample richness is a natural inferential observable. The all-order property strictly strengthens pairwise stochastic ordering, supplies monotone likelihood-ratio comparisons for every richness level, and provides a structural positivity statement for the full finite joint law. It is not a mere renamed marginal formula or a table lookup; it identifies an ordering constraint across all minors.
+Independently reconstructed the equality-partition bijection: each set partition of [n] into k blocks is labelled by (m)_k injective block assignments. A first repeat at t<=n chooses one of t-1 existing blocks; deleting that repeated index bijects to a partition of [n-1] with its first t-1 elements in distinct blocks. The terminal no-repeat case contributes only H(n+1,n)=1. The restricted count S_r(N,k) has a weighted lattice-path realization from (r,r) to (N,k), using stay transitions of weight j and increase transitions of weight 1. The Lindström–Gessel–Viennot tail-swapping involution cancels intersecting families, and inverted source/sink assignments cannot be nonintersecting: at later source time the earlier path is no higher and at the terminal time must overtake the inverted sink, forcing a shared vertex. All minors are sums of nonnegative weights. Positive row scalings and a last row supported solely in the final column preserve minors by positive Laplace expansion. Column normalization gives conditional likelihood-ratio ordering and inverse-CDF monotone coupling. Independent exhaustive set-partition enumeration and exact determinants checked ALL 1,267 square minors for n<=6; that is corroboration of the all-n planar-network proof, not its substitute.
 
-Scientific limits: iid uniform alphabet only, structural zeros allowed, no independence, no full-partition refinement coupling and no independent audit. Historical priority could change upon inspecting older generalized-Stirling literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. Standard restricted-Stirling counting and LGV are credited; inspected fixed-r total positivity does not directly cover the joint varying-r/k kernel or conditional likelihood-ratio law.
+
+## value
+
+PASS
+
+The joint birthday-collision versus final richness question is a natural stochastic-dependence problem. Identifying the complete all-order totally nonnegative kernel yields likelihood-ratio ordering, stronger than just a correlation sign or mean monotonicity, for every n and uniform alphabet size. Although planar path determinant theory is standard, its exact application to this varying-initial-distinguished-label restricted-Stirling array and probabilistic interpretation is a substantive reusable structural fact.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

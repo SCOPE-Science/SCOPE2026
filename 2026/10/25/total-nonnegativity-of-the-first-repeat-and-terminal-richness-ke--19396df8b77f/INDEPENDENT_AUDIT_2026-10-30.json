@@ -1,0 +1,123 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:15:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the equality-partition bijection: each set partition of [n] into k blocks is labelled by (m)_k injective block assignments. A first repeat at t<=n chooses one of t-1 existing blocks; deleting that repeated index bijects to a partition of [n-1] with its first t-1 elements in distinct blocks. The terminal no-repeat case contributes only H(n+1,n)=1. The restricted count S_r(N,k) has a weighted lattice-path realization from (r,r) to (N,k), using stay transitions of weight j and increase transitions of weight 1. The Lindström–Gessel–Viennot tail-swapping involution cancels intersecting families, and inverted source/sink assignments cannot be nonintersecting: at later source time the earlier path is no higher and at the terminal time must overtake the inverted sink, forcing a shared vertex. All minors are sums of nonnegative weights. Positive row scalings and a last row supported solely in the final column preserve minors by positive Laplace expansion. Column normalization gives conditional likelihood-ratio ordering and inverse-CDF monotone coupling. Independent exhaustive set-partition enumeration and exact determinants checked ALL 1,267 square minors for n<=6; that is corroboration of the all-n planar-network proof, not its substitute.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Mainar–Peña–Rubio introduce totally positive first-kind r-Stirling matrices for a fixed parameter r; their visible Theorem 2 matrix depends on the fixed r and first-kind recurrence.",
+          "Broder defines r-restricted Stirling numbers; classical LGV gives minors of any planar path matrix as nonintersecting path families."
+        ],
+        "reasoning": "The general LGV theorem mechanically establishes positivity once a compatible planar network is identified, but the restricted-Stirling identity with a varying initial r and the conditional birthday statistic are not an immediate restatement of the fixed-r results. Broad abstract theory is credited, not counted as a new general determinant theorem.",
+        "searches": [
+          "Mainar–Peña–Rubio 2023 DOI:10.3390/axioms12090839, Theorem 2",
+          "Broder 1984 The r-Stirling Numbers DOI:10.1016/0012-365X(84)90161-4",
+          "LGV planar-network total-nonnegative matrix lemma"
+        ]
+      },
+      "checked_sources": [
+        "Broder, The r-Stirling Numbers, Discrete Mathematics 49 (1984)",
+        "Mainar, Peña and Rubio, Axioms 12 (2023), 839, DOI:10.3390/axioms12090839 (Theorem 2 excerpt; full page HTTP 429)",
+        "Lindström–Gessel–Viennot weighted planar network determinant lemma",
+        "Resultary semantic search restricted Stirling vs first repeat birthday kernel"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The identified 2023 theorem proves positivity of its first-kind r-Stirling matrix for r held fixed; it is not the array (S_r(N,k)) with N fixed and r varying along rows.",
+          "The general LGV lemma implies the result after the source/sink placement is checked, but does not itself assert the birthday conditional likelihood-ratio order."
+        ],
+        "reasoning": "No logically dominating *evaluated* theorem for this exact varying-initial-label array was identified in inspected literature. An older general total-positivity result could still imply it without naming birthday statistics.",
+        "searches": [
+          "DOI:10.3390/axioms12090839 Theorem 2 as available in source excerpt",
+          "Broder r-Stirling recurrence",
+          "classical Lindström–Gessel–Viennot lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "H_n(t,k) is a positively row-scaled restricted Stirling count S_{t-1}(n-1,k), not the ordinary Stirling triangle S(n,k).",
+          "This array can also be viewed as a weighted path matrix with both starting height r and terminal block count k varying."
+        ],
+        "reasoning": "A prior total-nonnegativity theorem for the fixed-terminal-time, varying-start-height restricted-Stirling array would cover the result; the retrieved fixed-r Stirling matrix theorems hold r constant and are not directly the same minor family.",
+        "searches": [
+          "Resultary: restricted Stirling numbers row r and k total positivity matrix first repeat birthday conditional number distinct",
+          "Web: restricted r-Stirling numbers r and k varying at fixed n totally nonnegative",
+          "Web: birthday first repeat distinct sample values likelihood ratio order"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searches returned restricted Stirling triangles and fixed-r matrices, not a table of all (t,k) first-repeat normalized counts with every minor certified for each n."
+        ],
+        "reasoning": "The exact entry identity is a routine combinatorial bijection; originality is assessed for the all-order matrix order and its strong conditional stochastic consequence, not raw small entry counts.",
+        "searches": [
+          "Web: first repeat birthday joint law number distinct conditional likelihood ratio Stirling table",
+          "Resultary: restricted Stirling total positivity first repeat",
+          "2023 Axioms r-Stirling matrix theorem"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. Standard restricted-Stirling counting and LGV are credited; inspected fixed-r total positivity does not directly cover the joint varying-r/k kernel or conditional likelihood-ratio law.",
+      "residual_risks": [
+        "An older result on mixed-index restricted Stirling kernels (constant N, varying distinguished count r and block count k) could directly imply total nonnegativity.",
+        "Full Broder and some generalized-Stirling literature not obtained; fixed-r source abstract/theorem excerpt is insufficient for whole-document priority exclusion.",
+        "Uniform iid assumption is essential; no transfer to arbitrary sampling weights is demonstrated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIFFERENT_MATRIX_IN_READ_THEOREM; other unseen full text remains a risk",
+          "evidence": "Theorem 2 concerns fixed-r first-kind r-Stirling matrices, unlike fixed-N varying-r second-kind counts.",
+          "identifier_or_url": "https://doi.org/10.3390/axioms12090839",
+          "material_read": "Accessible abstract, paper scope, theorem 2 statement and displayed fixed-r matrix factorization; full host returned HTTP 429 on direct open",
+          "method": "Inspected search-indexed primary theorem excerpt and attempted direct full article; no whole-document noncoverage claimed",
+          "title": "On the Total Positivity and Accurate Computations of r-Bell Polynomial Bases",
+          "trigger": "Most plausible published total-positivity theorem involving r-Stirling matrices"
+        },
+        {
+          "assessment": "FOUNDATIONAL_COUNTS; full paper uninspected",
+          "evidence": "The object S_r(N,k) is standard, but a cited recurrence is not in itself a total-nonnegativity statement for fixed N/varying r.",
+          "identifier_or_url": "https://doi.org/10.1016/0012-365X(84)90161-4",
+          "material_read": "Bibliographic record and source manuscript citation only; complete paper not obtained",
+          "method": "Verified exact foundational citation and compared the stated recurrence as restated in the assigned proof",
+          "title": "The r-Stirling Numbers",
+          "trigger": "Original definition/recurrence for distinguished-element set partitions"
+        },
+        {
+          "assessment": "GENERAL_METHOD_NOT_PREPACKAGED_RESULT",
+          "evidence": "Every minor of a compatible planar path matrix is a nonnegative sum of disjoint weighted path families.",
+          "identifier_or_url": "https://www.symmetricfunctions.com/totalPositivity.htm",
+          "material_read": "Accessible exposition of the LGV criterion and total nonnegativity for compatible weighted planar networks",
+          "method": "Read exposition and independently proved required source/sink compatibility",
+          "title": "Total positivity—planar networks and Lindström–Gessel–Viennot",
+          "trigger": "General theorem potentially dominates all minors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The joint birthday-collision versus final richness question is a natural stochastic-dependence problem. Identifying the complete all-order totally nonnegative kernel yields likelihood-ratio ordering, stronger than just a correlation sign or mean monotonicity, for every n and uniform alphabet size. Although planar path determinant theory is standard, its exact application to this varying-initial-distinguished-label restricted-Stirling array and probabilistic interpretation is a substantive reusable structural fact.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Broder, The r-Stirling Numbers, Discrete Mathematics 49 (1984)",
+    "Mainar, Peña and Rubio, Axioms 12 (2023), 839, DOI:10.3390/axioms12090839 (Theorem 2 excerpt; full page HTTP 429)",
+    "Lindström–Gessel–Viennot weighted planar network determinant lemma",
+    "Resultary semantic search restricted Stirling vs first repeat birthday kernel"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n>=2, m>=n uniform iid samples, K distinct sampled symbols and first repeat time T (n+1 if none), the normalized joint count H_n(t,k)=m^n P(T=t,K=k)/(m)_k is independent of m, equals (t-1) S_{t-1}(n-1,k) for 2<=t<=n with a final unit row at (n+1,n), and every increasing square minor of H_n is nonnegative. The conditional first-repeat distributions increase with K in likelihood-ratio order.",
+  "limitations": [
+    "Assumes exactly uniform iid sampling with m>=n; probability normalizations (m)_k are valid for 1<=k<=n.",
+    "Does not assert strictly positive minors or a coupling of full equality partitions."
+  ],
+  "residual_risks": [
+    "An older result on mixed-index restricted Stirling kernels (constant N, varying distinguished count r and block count k) could directly imply total nonnegativity.",
+    "Full Broder and some generalized-Stirling literature not obtained; fixed-r source abstract/theorem excerpt is insufficient for whole-document priority exclusion.",
+    "Uniform iid assumption is essential; no transfer to arbitrary sampling weights is demonstrated."
+  ],
+  "schema_version": 1
+}
