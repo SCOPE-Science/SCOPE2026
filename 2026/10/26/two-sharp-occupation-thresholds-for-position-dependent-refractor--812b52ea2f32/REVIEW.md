@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The completed proof uses the contractive reset-position recursion, exponential-clock occupation sampling and Markov-renewal rewards to identify both phase occupation measures. A positive two-sided exponential tail equivalent, obtained from an exponential-moment convolution, gives the exact stationary integrability boundary and the rare-position odds, including its nontrivial critical prefactor. The positive Laplace pole gives the sharp vanishing-active-fraction coefficient. The included standalone checker independently integrates the occupation weight and tests all three limiting regimes. The stationarity argument requires inclusion of the residual refractory timer; finite simulations alone are not used as proof.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest paper (Olsen–Löwen, arXiv:2406.10039) derives the fixed-law refractory mixture but weights reset positions uniformly by the same mean rest duration. Earlier proportional-reset works obtain the relevant perpetuity but not exponential position-conditioned holding times. Here the reset-dependent occupation factor destroys the fixed mixture and creates two distinct threshold values with an exact critical posterior and collapse coefficient. No inspected source, relevant published-record comparison, or claim-equivalence search established covering implications. Unindexed work on state-dependent semi-Markov resetting remains a residual risk.
+PASS
 
-**Mathematical value — PASS.** Distance-dependent recovery delays are a natural mechanism after incomplete collapse or reset: rarer large displacements may require much longer inactivity. The theorem completely classifies normalizable time-stationary operation, shows a distinct sharp inversion in the latent motion/rest phase inferred from extreme positions, and gives an exact critical limiting mixing ratio and scaling law for loss of activity. Neither transition follows from the constant-delay mixture of the motivating work without the new integrability and phase-bias analysis.
+Stopped Brownian increment at rate r has centered Laplace density (c/2)exp(−c|x|), so reset epochs satisfy an affine perpetuity and exploration-time stationary position S_a=sum_{j>=0}a^j Z_j. The reset-state stationary law is aS_a. Markov-renewal occupation rewards weight active density by 1/r and resting density by tau0 e^{lambda|x|}; the conditional duration law matters through the mean only, with residual holding time needed for a Markov realization. Convolution with the leading Laplace increment and a contracted remainder having a strictly stronger exponential moment gives sharp f_a and g_a tails with positive coefficient c/(2P_a), c/(2aP_a), respectively. Integrability iff lambda<c/a follows at equality too; posterior odds are eta e^{lambda|x|}g_a/f_a, proving all three threshold cases. Its two-sided positive Laplace pole yields M_a(lambda)~c/[aP_a(c/a−lambda)] and active-fraction coefficient. Independent 45-digit mpmath partial-fraction tests confirmed f-tail at 3 x values and posterior asymptotics at 3 lambda values; these are supplementary finite tests.
 
-**Limits.** Brownian one-dimensional diffusion, Poisson active clocks, exact proportional resets and exponential conditional mean holding times; no claim for general nonlinear dynamics. Statistical-physics significance is mathematical within this specified model. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary.
+
+## value
+
+PASS
+
+A physically motivated reset-location-dependent recovery time creates a genuine separation between tail-level inferred phase inversion and loss of normalizable stationarity. The result fully classifies both thresholds, the nontrivial critical posterior, and a sharp occupation-collapse coefficient for a natural regenerative process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

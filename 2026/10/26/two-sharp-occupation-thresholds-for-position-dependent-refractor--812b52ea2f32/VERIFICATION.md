@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Run `python verify_extreme_phase.py` with Python 3 and `mpmath`. The program checks an exact residue expansion against independent quadrature of the reset-position distribution, the critical conditional odds for parameters on either side of the inversion, and the pole and active-fraction coefficient near the loss-of-stationarity threshold. Actual observed terminal marker: `ALL_CHECKS_PASS`.
+## correctness
 
-These finite-precision checks corroborate formulas for selected parameters; the proofs of all-parameter thresholds and nonexistence of a stationary probability at infinite invariant holding mean use the analytic tail and Markov-renewal arguments in RESULT.md. The embedded code has no external source or project dependencies apart from the stated mathematics library.
+PASS
+
+Stopped Brownian increment at rate r has centered Laplace density (c/2)exp(−c|x|), so reset epochs satisfy an affine perpetuity and exploration-time stationary position S_a=sum_{j>=0}a^j Z_j. The reset-state stationary law is aS_a. Markov-renewal occupation rewards weight active density by 1/r and resting density by tau0 e^{lambda|x|}; the conditional duration law matters through the mean only, with residual holding time needed for a Markov realization. Convolution with the leading Laplace increment and a contracted remainder having a strictly stronger exponential moment gives sharp f_a and g_a tails with positive coefficient c/(2P_a), c/(2aP_a), respectively. Integrability iff lambda<c/a follows at equality too; posterior odds are eta e^{lambda|x|}g_a/f_a, proving all three threshold cases. Its two-sided positive Laplace pole yields M_a(lambda)~c/[aP_a(c/a−lambda)] and active-fraction coefficient. Independent 45-digit mpmath partial-fraction tests confirmed f-tail at 3 x values and posterior asymptotics at 3 lambda values; these are supplementary finite tests.
+
+## originality
+
+PASS
+
+Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary.
+
+## value
+
+PASS
+
+A physically motivated reset-location-dependent recovery time creates a genuine separation between tail-level inferred phase inversion and loss of normalizable stationarity. The result fully classifies both thresholds, the nontrivial critical posterior, and a sharp occupation-collapse coefficient for a natural regenerative process.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,136 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:54:30.540463Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md Git blob 42d0660b287e5df0ce400f9d0552ed608804f383",
+        "pinned verify_extreme_phase.py Git blob ef536d8194153a07f58c1be05da47c4a4d6e97f1 inspected, not executed",
+        "independent_check_results.json: 3 tail comparisons, 3 phase-odds limits, 45-digit checks",
+        "git_tree_results.json record3 exact tree 859077ec8750d9f69f830934990030d2b2efeb2a"
+      ],
+      "rationale": "Stopped Brownian increment at rate r has centered Laplace density (c/2)exp(−c|x|), so reset epochs satisfy an affine perpetuity and exploration-time stationary position S_a=sum_{j>=0}a^j Z_j. The reset-state stationary law is aS_a. Markov-renewal occupation rewards weight active density by 1/r and resting density by tau0 e^{lambda|x|}; the conditional duration law matters through the mean only, with residual holding time needed for a Markov realization. Convolution with the leading Laplace increment and a contracted remainder having a strictly stronger exponential moment gives sharp f_a and g_a tails with positive coefficient c/(2P_a), c/(2aP_a), respectively. Integrability iff lambda<c/a follows at equality too; posterior odds are eta e^{lambda|x|}g_a/f_a, proving all three threshold cases. Its two-sided positive Laplace pole yields M_a(lambda)~c/[aP_a(c/a−lambda)] and active-fraction coefficient. Independent 45-digit mpmath partial-fraction tests confirmed f-tail at 3 x values and posterior asymptotics at 3 lambda values; these are supplementary finite tests.",
+      "risks": [
+        "The conditional stationary assertion applies to augmented position/phase/residual duration, not an unconditioned transient ensemble.",
+        "At lambda≥c/a formal infinite measures may remain; only normalizable invariant probabilities are excluded."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2406.10039: Stationary constant-mean mixture and scaling are prior; lacks conditional e^{lambda|reset_position|} weighting and two thresholds.",
+          "https://arxiv.org/abs/1809.01551: Reset to fixed site, not multiplicative a x with exponential position-dependent mean holding time"
+        ],
+        "reasoning": "A general model, theorem or algorithm does not itself establish the exact target quantifiers and sharp output unless a substantive implication is proved. Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary. Residual risk: General semi-Markov/space-dependent holding-time positive recurrence and marked renewal results may imply stationarity threshold with adaptation.",
+        "searches": [
+          "partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails",
+          "Brownian partial stochastic resetting with position-dependent exponentially long refractory pauses stationary existence critical rate tail phase inversion",
+          "https://arxiv.org/abs/2406.10039",
+          "https://arxiv.org/abs/2205.03363"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2406.10039",
+        "https://arxiv.org/abs/2205.03363",
+        "https://arxiv.org/abs/2204.07215",
+        "https://arxiv.org/abs/1809.01551",
+        "Resultary query: partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Partial stochastic resetting with refractory periods: Constant position-independent mean refractory time yields a uniform phase mixture, not exponentially distance-biased occupation",
+          "Partial resetting / perpetuity studies: Stationary proportional-reset distribution is known, but a position-conditioned refractory occupation process is a changed model",
+          "Stochastic resetting with finite return times: Reset to fixed site, not multiplicative a x with exponential position-dependent mean holding time"
+        ],
+        "reasoning": "The primary statements were compared by logical implication, respecting the actual invariant, hypotheses and parameter ranges, and recognizing any prior definitions, recurrence or constructions as already known. Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary.",
+        "searches": [
+          "partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails",
+          "Brownian partial stochastic resetting with position-dependent exponentially long refractory pauses stationary existence critical rate tail phase inversion",
+          "https://arxiv.org/abs/2406.10039",
+          "https://arxiv.org/abs/2205.03363"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Partial stochastic resetting with refractory periods: Constant position-independent mean refractory time yields a uniform phase mixture, not exponentially distance-biased occupation",
+          "Resultary semantic query: partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails"
+        ],
+        "reasoning": "Translate the target into the canonical mathematical object/invariant and compare equivalent terminology or dual formulations. Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary.",
+        "searches": [
+          "partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails",
+          "Brownian partial stochastic resetting with position-dependent exponentially long refractory pauses stationary existence critical rate tail phase inversion",
+          "https://arxiv.org/abs/2406.10039",
+          "https://arxiv.org/abs/2205.03363"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query: partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails",
+          "https://arxiv.org/abs/2406.10039: Constant position-independent mean refractory time yields a uniform phase mixture, not exponentially distance-biased occupation"
+        ],
+        "reasoning": "No inspected exact database entry/table gave the full stated parameter classification. This check is not a novelty proof; recorded related tables and special cases are weaker than the theorem in scope. Published coverage of exponential position-weighted dwell times may use different physical terminology; searches are not proof of originality.",
+        "searches": [
+          "partial stochastic resetting position-dependent refractory holding exponential mean stationarity thresholds phase conditional tails",
+          "Brownian partial stochastic resetting with position-dependent exponentially long refractory pauses stationary existence critical rate tail phase inversion",
+          "https://arxiv.org/abs/2406.10039",
+          "https://arxiv.org/abs/2205.03363"
+        ]
+      },
+      "rationale": "Known Laplace perpetuity and constant-delay mixture are acknowledged; new consequence requires conditioning the holding mean on the random reset position, then comparing two distinct exponential tail exponents and determining a sharp null-recurrence boundary.",
+      "residual_risks": [
+        "General semi-Markov/space-dependent holding-time positive recurrence and marked renewal results may imply stationarity threshold with adaptation.",
+        "Published coverage of exponential position-weighted dwell times may use different physical terminology; searches are not proof of originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Constant position-independent mean refractory time yields a uniform phase mixture, not exponentially distance-biased occupation",
+          "evidence": "Stationary constant-mean mixture and scaling are prior; lacks conditional e^{lambda|reset_position|} weighting and two thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/2406.10039",
+          "material_read": "Primary accessible arXiv PDF, main stationary density construction, Section IV equations (30)–(33), and PDF screenshot inspected",
+          "method": "Primary mathematical comparison of occupancy weights",
+          "title": "Partial stochastic resetting with refractory periods",
+          "trigger": "Same resetting contraction and two-phase exploration/rest model"
+        },
+        {
+          "assessment": "Stationary proportional-reset distribution is known, but a position-conditioned refractory occupation process is a changed model",
+          "evidence": "The stationary perpetuity can be combined with new weighting to derive the thresholds, but old result does not itself state them.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Accessible source summary and mathematical sections on stationary perpetuity examined; no claim of full exhaustive reading",
+          "method": "Primary-source mathematical input comparison",
+          "title": "Partial resetting / perpetuity studies",
+          "trigger": "Same proportional reset embedded chain"
+        },
+        {
+          "assessment": "Reset to fixed site, not multiplicative a x with exponential position-dependent mean holding time",
+          "evidence": "Prior renewal framework is relevant, but no exact thresholds for this model.",
+          "identifier_or_url": "https://arxiv.org/abs/1809.01551",
+          "material_read": "Accessible arXiv source abstract, reset mechanism and stationary-contribution discussion inspected",
+          "method": "Model-class comparison",
+          "title": "Stochastic resetting with finite return times",
+          "trigger": "Broad resetting/refractory frameworks"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Olsen–Löwen constant-delay phase mixture lacks a nontrivial spatial posterior threshold",
+        "Markov-renewal reward and exact perpetuity tail yield two mathematically distinct sharp rates"
+      ],
+      "rationale": "A physically motivated reset-location-dependent recovery time creates a genuine separation between tail-level inferred phase inversion and loss of normalizable stationarity. The result fully classifies both thresholds, the nontrivial critical posterior, and a sharp occupation-collapse coefficient for a natural regenerative process.",
+      "risks": [
+        "One-dimensional Brownian exploration, Poisson active clocks, fixed proportional contraction and conditional exponential mean dwell time. No universality for general holding laws, drift or nonlinear reset."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For one-dimensional Brownian exploration with Poisson rate r, positional contraction a in (0,1) and refractory mean tau0 exp(lambda|reset_position|), a stationary physical-time probability exists exactly for lambda<c/a, c=sqrt(r/D). The distant-position resting posterior switches at lambda=c(1/a−1), with limiting values 0, eta/(a+eta), 1, and stationary active fraction vanishes linearly at c/a with prefactor a P_a/(eta c).",
+  "limitations": [
+    "One-dimensional Brownian exploration, Poisson active clocks, fixed proportional contraction and conditional exponential mean dwell time. No universality for general holding laws, drift or nonlinear reset.",
+    "General semi-Markov/space-dependent holding-time positive recurrence and marked renewal results may imply stationarity threshold with adaptation.",
+    "Published coverage of exponential position-weighted dwell times may use different physical terminology; searches are not proof of originality."
+  ],
+  "schema_version": 1
+}
