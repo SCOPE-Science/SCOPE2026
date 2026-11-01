@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:52:56Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Git tree reconstructed SHA 3bd9586216d464120409d141f853cb822b13f3e4, including both actual C++17 complete enumerators.",
+        "Separate-from-source C++17 arithmetic implementation exhausted all 729^2+729+1 lines, checked every nonzero field inverse, and reproduced all 17 exterior rows: 25:1512,48:36288,49:60480,50:36288,51:12096,52:36288,53:18144,54:67032,55:12096,56:72576,57:36288,58:48384,59:54432,61:12096,62:9072,65:18144,222:63.",
+        "Independent subfield Frobenius x^9=x verification gave 63 exterior points each with 222 four-secants; total four-secants 39879 and on-curve histogram 175:864,297:28.",
+        "Pair-incidence sanity check 158112+6*39879=C(892,2)=397386, and total line-point incidence 39879*730=29111670."
+      ],
+      "rationale": "The homogeneous quartic Y^3 Z+Y Z^3=X^4 has no singular projective points over characteristic three (partials -X^3,Z^3,Y^3), so genus three. The explicit quotient F3[t]/(t^6+t+2) is a field, as all 728 nonzero elements are invertible. Independent C++17 field and projective-line enumeration of the actual finite domain recovered 892 rational curve points, 532171 projective points/lines, exact line intersection histogram 0:158760,1:175420,2:158112,4:39879 and all 17 asserted exterior N(P) frequencies summing to 531279. It independently checked N=222 exactly on the 63 F9-rational exterior points; global table confirms exactly 63 such maximizers. No 3-secant occurs, and every exterior projection pencil is basepoint-free degree 4. This is a finite exhaustive computation, unlike extrapolating finite tests to infinitely many field sizes.",
+      "risks": [
+        "Proves exactly this specified field and equation, not a general extension or an asymptotic formula.",
+        "Two source algorithms and independent checker share the field model; the independent checker implemented arithmetic separately."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published result gives completeness N(P)>=1, while current minimum is the exact value 25 and full distribution; a lower-bound-only theorem cannot supply 17 frequencies.",
+          "Bartoli–Timpanella handles sufficiently large base field q, not an exact q=3 per-center census."
+        ],
+        "reasoning": "A hypothetical general character formula could subsume this table, but the inspected prior theorem statements on completeness do not logically yield the distribution. Exclude previously known q=3 completeness and on-curve count from originality.",
+        "searches": [
+          "arXiv:2302.10162 Hermitian q=3 r=3 completeness theorem and references",
+          "Bartoli Timpanella 2025 Hermitian arc q^6 general large q DOI 10.1007/s10801-025-01456-w"
+        ]
+      },
+      "checked_sources": [
+        "Korchmáros–Nagy–Szőnyi, arXiv:2302.10162 full primary text",
+        "Korchmáros 2022 Irsee slides: timed out, not read this execution",
+        "Bartoli–Timpanella DOI 10.1007/s10801-025-01456-w (theorem-level comparator)",
+        "Resultary corpus q=3 Hermitian exact exterior searches",
+        "Original exact field and line enumerators verify.cpp and check_direct.cpp"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known 892-arc completeness is logically implied by N(P)>=25, not conversely.",
+          "Known on-curve count 864*175+28*297=159516 describes P in C(K), not 531279 exterior centers.",
+          "Proposed spectrum includes subfield identification of exactly 63 N=222 points, not implied by line-character totals."
+        ],
+        "reasoning": "Neither theorem for large q nor existence of a four-secant through each exterior P determines the seventeen multiplicities. This is an exact refinement, not a rewording of prior completeness.",
+        "searches": [
+          "Korchmáros–Nagy–Szőnyi arXiv:2302.10162 Hermitian arcs",
+          "Korchmáros Irsee 2022 892 arc completeness",
+          "Bartoli–Timpanella 2025 large-q completeness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Korchmáros–Nagy–Szőnyi discuss the q=3,r=3 Hermitian 892-arc completeness and related on-curve incidence, not all exterior lines-through-point histograms.",
+          "A four-secant exterior multiplicity N(P) is the number of completely split K-rational fibers of the degree-four line pencil projection from P."
+        ],
+        "reasoning": "Aliases four-secant incidence distribution, external arc-point characters, complete splitting fiber counts of projections, Hermitian arcs over PG(2,3^6) were compared. The binary completeness statement N(P)>0 is far weaker than the full histogram and does not determine its values.",
+        "searches": [
+          "Resultary semantic: Hermitian quartic PG(2,3^6) exact four-secant distribution exterior points 892 arc splitting fibers 729",
+          "\"Hermitian\" \"892\" \"four-secant\" exterior distribution",
+          "arXiv:2302.10162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2022 Irsee presentation is reported to announce the q=3,r=3 completeness computation; direct full slide source could not be retrieved in this run (HTTP timeout), so unpublished census cannot be excluded.",
+          "No indexed 17-row exterior incidence table located in the bounded Resultary and web searches."
+        ],
+        "reasoning": "Exact tables are the relevant prior-art risk for finite computational classifications; inaccessible original Magma data may contain the counts. Treat this as an explicit residual rather than proof of novelty or automatic originality failure.",
+        "searches": [
+          "\"Hermitian\" \"892\" \"four-secant\" exterior distribution",
+          "Resultary Hermitian exact PG(2,3^6) spectrum",
+          "2022 Korchmaros Irsee Magma four-secant 892"
+        ]
+      },
+      "rationale": "The 892-point arc completeness over F729 was already known by an earlier finite computation and is NOT a novelty claim. The complete 17-level exterior four-secant/split-projection-fiber distribution, minimum 25 and precise 63-point subfield maximum are strictly stronger arithmetic data not given by the inspected Hermitian arc completeness paper. Best of knowledge with a serious residual risk of unpublished original Magma output containing the census.",
+      "residual_risks": [
+        "Original 2022 Magma data, unpublished notes or supplementary tables may already contain the complete exterior census.",
+        "The Irsee slide PDF was not accessible in this run; no whole-document noncoverage claim is made.",
+        "The publication-priority date in METADATA.json refers to antecedent 2023 work, not this finite distribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DOES_NOT_COVER exterior 17-value histogram; explicitly recognizes prior q=3,r=3 completeness",
+          "evidence": [
+            "Korchmáros–Nagy–Szőnyi arXiv:2302.10162 discusses r>=4 general framework and q=3,r=3 computer-known completeness; no tabulation of all exterior multiplicities."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2302.10162",
+          "material_read": "Accessible full primary arXiv HTML: Hermitian-curve definitions, theorem with parameter restrictions, remarks on small q and q=3,r=3, on-curve incidence discussion",
+          "method": "Read article full text and compare theorem hypotheses and numerical consequences",
+          "title": "Algebraic approach to the completeness problem for (k,n)-arcs in planes over finite fields",
+          "trigger": "Same Hermitian arc over PG(2,3^6), original completeness result"
+        },
+        {
+          "assessment": "INACCESSIBLE_SOURCE, genuine risk of previously enumerated exterior table; make no NOT_COVERING claim",
+          "evidence": [
+            "The paper text itself acknowledges prior small q computational completeness, which is less specific than the submitted counts."
+          ],
+          "identifier_or_url": "https://osebje.famnit.upr.si/~michel.lavrauw/Irsee6/Slides/Invited/Korchmaros.pdf",
+          "material_read": "No current-run full text accessible: direct PDF screenshot and open twice failed with network timeout; earlier cited slide pages 176–177 remain unverified in this run",
+          "method": "Attempted lawful open PDF fetch; transport timeout",
+          "title": "Plane algebraic curves with many symmetries, and complete (k,n)-arcs (Irsee conference presentation, 2022)",
+          "trigger": "Specifically advertised same small-field Magma completeness computation"
+        },
+        {
+          "assessment": "LIMITED_READ, reported sufficiently-large-q completeness cannot itself imply specific q=3 exterior exact data",
+          "evidence": [
+            "Bartoli–Timpanella J. Algebraic Combinatorics 2025 covers large q completeness; no assessed exact q=3 table."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10801-025-01456-w",
+          "material_read": "Publisher summary and accessible theorem-level description; not a verified complete read this run",
+          "method": "Open index/source summary and compare parameter quantifiers",
+          "title": "Complete (k,q+1)-arcs in PG(2,F_(q^6)) from the Hermitian curve",
+          "trigger": "Related published large-q Hermitian arc coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Every exterior center belongs to precisely one of 17 multiplicity classes; the previous binary arc-completeness property retained no such distribution.",
+        "The extreme 63 subfield points provide a meaningful arithmetic/geometric explanation for anomalous maximum 222."
+      ],
+      "rationale": "Completely split fibers of degree-four projection maps of the canonical genus-three Hermitian quartic are a natural finite arithmetic statistic. The complete 17-valued exterior spectrum, sharp minimum 25 and exactly identified F9-rational maximizers refine a known yes/no completeness statement, producing exact data for projective arc theory and splitting properties. The finite one-field problem is mathematically motivated in its own right; a uniform q theorem is not required for value.",
+      "risks": [
+        "No general formula in q or classification of arbitrary plane quartics is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

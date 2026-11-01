@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Exact reproducibility of the arithmetic census
+# Independent mathematical audit
 
-The curve is \(Y^3Z+YZ^3=X^4\) over \(\mathbb F_{729}=\mathbb F_3[t]/(t^6+t+2)\), using base-three coefficient encoding for field elements in the range 0 through 728. Both C++17 files are independent and require no third-party packages.
+## correctness
 
-To replay from a directory containing the two source files:
+PASS
 
-```sh
-g++ -O3 -std=c++17 verify.cpp -o verify
-g++ -O3 -std=c++17 check_direct.cpp -o check_direct
-./verify
-./check_direct
-```
+The homogeneous quartic Y^3 Z+Y Z^3=X^4 has no singular projective points over characteristic three (partials -X^3,Z^3,Y^3), so genus three. The explicit quotient F3[t]/(t^6+t+2) is a field, as all 728 nonzero elements are invertible. Independent C++17 field and projective-line enumeration of the actual finite domain recovered 892 rational curve points, 532171 projective points/lines, exact line intersection histogram 0:158760,1:175420,2:158112,4:39879 and all 17 asserted exterior N(P) frequencies summing to 531279. It independently checked N=222 exactly on the 63 F9-rational exterior points; global table confirms exactly 63 such maximizers. No 3-secant occurs, and every exterior projection pencil is basepoint-free degree 4. This is a finite exhaustive computation, unlike extrapolating finite tests to infinitely many field sizes.
 
-The first program verifies all 728 field inverses, enumerates 892 curve points and 532171 rational projective lines, reconstructs curve-point pair incidence on all lines, then enumerates all centers and proves the exact 63-point \(\mathbb F_9\) exceptional locus. It prints `VERIFY_OK` only after all assertions succeed. The second obtains line intersection characters by an independent quartic-root equation and enumerates all 532171 lines and centers, printing `DIRECT_VERIFY_OK` after confirming the complete histograms.
+## originality
 
-Both programs were compiled and executed from the actual source files and returned their success markers. The complete exterior histogram has 17 support values, sums to 531279, and has weighted sum 28952154. There are 39879 four-secant lines, hence 29111670 point–four-secant incidences. The remaining 159516 incidences occur at the 892 rational points on the quartic. The result is exact for this finite field; it is not a general symbolic proof for all finite fields. External mathematical audit and independent validation have not been performed.
+PASS
+
+The 892-point arc completeness over F729 was already known by an earlier finite computation and is NOT a novelty claim. The complete 17-level exterior four-secant/split-projection-fiber distribution, minimum 25 and precise 63-point subfield maximum are strictly stronger arithmetic data not given by the inspected Hermitian arc completeness paper. Best of knowledge with a serious residual risk of unpublished original Magma output containing the census.
+
+## value
+
+PASS
+
+Completely split fibers of degree-four projection maps of the canonical genus-three Hermitian quartic are a natural finite arithmetic statistic. The complete 17-valued exterior spectrum, sharp minimum 25 and exactly identified F9-rational maximizers refine a known yes/no completeness statement, producing exact data for projective arc theory and splitting properties. The finite one-field problem is mathematically motivated in its own right; a uniform q theorem is not required for value.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
