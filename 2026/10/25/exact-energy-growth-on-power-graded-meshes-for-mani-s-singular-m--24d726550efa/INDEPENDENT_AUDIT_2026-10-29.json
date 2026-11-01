@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:56:14.633927Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-energy-growth-on-power-graded-meshes-for-mani-s-singular-m--24d726550efa/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-energy-growth-on-power-graded-meshes-for-mani-s-singular-m--24d726550efa/VERIFICATION.md",
+        "independent_checks.py"
+      ],
+      "rationale": "Exact cell substitution x=x_i t gives residual scaling (v³−x)²∼x_i², derivative sixth∼x_i^-4 and dx∼x_i, so each cell x_i^-1 F(ρ_i). Taylor interpolation remainder near rho=1 gives phi³−t=−(t−rho)(1−t)/3+O((1−rho)^3), s→1/3 and F(rho)=(1−rho)^5/196830+O((1−rho)^6). Since 1−((i−1)/i)^r∼r/i, terms ∼r^5/(196830 i^(r+5)), summable for all fixed r>0. Independently integrated first cell ∫(t³−t)²dt=8/105. Partial-sum limit gives constant; claims only this interpolant, no optimized FEM theorem.",
+      "residual_risks": [
+        "The quantitative result concerns nodal interpolant only; no discrete minimizer or all possible graded meshes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qualitative energy failure and enhanced methods, but no exact C_r for any r>0 in inspected text"
+        ],
+        "reasoning": "General divergence does not imply a sharp exponent or leading coefficient for the stated interpolant.",
+        "searches": [
+          "Mania Lavrentiev singular minimizer power graded mesh nodal piecewise linear interpolation energy rate N^r",
+          "Ball–Knowles divergent-energy results; Feng–Schnake arXiv:1610.03111"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1007/BF01396748",
+        "arXiv:1610.03111",
+        "Resultary/2026/2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d/RESULT.md",
+        "Resultary semantic query: Mania Lavrentiev singular minimizer power graded mesh nodal piecewise linear interpolation energy rate N^r"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Finite uniform energies and qualitative divergence do not determine C_r or N^r scaling"
+        ],
+        "reasoning": "New cell scaling and convergence are necessary independent steps, though elementary.",
+        "searches": [
+          "Mania Lavrentiev singular minimizer power graded mesh nodal piecewise linear interpolation energy rate N^r",
+          "Pereira–Cruz–Torres numerical uniform PLFOpt; Ball–Knowles qualitative theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ball–Knowles 1987 same functional; r=1 exact uniform-cell series Resultary 2026/10/4"
+        ],
+        "reasoning": "r=1 is already covered and is explicitly excluded as novelty; power grading changes each cell and asymptotic N^r.",
+        "searches": [
+          "Mania Lavrentiev singular minimizer power graded mesh nodal piecewise linear interpolation energy rate N^r",
+          "graded mesh finite-element Lavrentiev interpolation; original Manià singular minimizer"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source gives C1≈0.07619104142716668 and correction −N^-4/984150 for uniform mesh only"
+        ],
+        "reasoning": "Known table is the r=1 slice; generic r not a lookup in that table.",
+        "searches": [
+          "Mania Lavrentiev singular minimizer power graded mesh nodal piecewise linear interpolation energy rate N^r",
+          "Resultary exact-linear-energy-blow-up...2533caa7570d full RESULT.md"
+        ]
+      },
+      "rationale": "Earlier exact uniform-mesh r=1 result fully inspected; extension to every fixed r>0 has a distinct mesh, new r-dependent coefficient and exponent not a numerical corollary of r=1. Ball–Knowles qualitative divergence and derivative cutoff FEM do not state this quantitative law. Originality qualified by uninspected detailed graded-mesh literature.",
+      "residual_risks": [
+        "The quantitative result concerns nodal interpolant only; no discrete minimizer or all possible graded meshes.",
+        "Could be a known straightforward scaling in older specialized FEM literature not fully accessible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General divergence and classical singular minimizer covered, not all-r exact coefficient",
+          "evidence": [
+            "Qualitative Lavrentiev blowup does not specify universal fixed power-grade energy coefficient C_r."
+          ],
+          "identifier_or_url": "DOI:10.1007/BF01396748",
+          "material_read": "Original numerical article, Manià example, divergence and approximating meshes",
+          "method": "Available full author PDF materially inspected including rendered first page",
+          "title": "J. M. Ball and G. Knowles, A numerical method for detecting singular minimizers",
+          "trigger": "Same Manià functional and piecewise linear interpolation"
+        },
+        {
+          "assessment": "No whole-text noncoverage judgment; plausible priority risk remains",
+          "evidence": [
+            "Cannot infer from an abstract that every graded mesh rate is absent; this source motivates cutoffs."
+          ],
+          "identifier_or_url": "arXiv:1610.03111",
+          "material_read": "Accessible publisher abstract and the relevant citation/technical account in reviewed package",
+          "method": "Abstract/summary only; full OA manuscript not accessible in this run",
+          "title": "Feng and Schnake, An enhanced finite element method for a class of variational problems exhibiting the Lavrentiev gap phenomenon",
+          "trigger": "Same singular minimizer, finite-element response"
+        },
+        {
+          "assessment": "COVERS r=1, but NOT universal fixed r>0 power grading",
+          "evidence": [
+            "Its assumptions explicitly require uniform nodes j/N; its C1 cannot determine C_r for variable r."
+          ],
+          "identifier_or_url": "Resultary/2026/2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d/RESULT.md",
+          "material_read": "Complete proof, formula, sharp tail and references",
+          "method": "Full Git source RESULTS read",
+          "title": "Exact linear energy blow-up for nodal interpolant in Manià example",
+          "trigger": "Exact prior same invariant r=1"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-energy-growth-on-power-graded-meshes-for-mani-s-singular-m--24d726550efa/RESULT.md",
+        "DOI:10.1007/BF01396748",
+        "arXiv:1610.03111",
+        "Resultary/2026/2026/10/4/SCOPE-exact-linear-energy-blow-up-for-the-nodal-interpolant-in-mani-s--2533caa7570d/RESULT.md"
+      ],
+      "rationale": "Power-grading is a standard response to endpoint singularity; exact energy exponent and positive constant for every r distinguish that nodal grading alone does not remove Lavrentiev blow-up. Motivated exact calculation of numerical-variational phenomenon, not arbitrary r sampling.",
+      "residual_risks": [
+        "The quantitative result concerns nodal interpolant only; no discrete minimizer or all possible graded meshes.",
+        "Could be a known straightforward scaling in older specialized FEM literature not fully accessible."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The quantitative result concerns nodal interpolant only; no discrete minimizer or all possible graded meshes.",
+    "Could be a known straightforward scaling in older specialized FEM literature not fully accessible."
+  ],
+  "schema_version": 1
+}

@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The cell substitution \(x=x_it\) gives the exact identity in the result. The Taylor expansion \(F(\rho)=(1-\rho)^5/196830+O((1-\rho)^6)\) implies a summable tail of order \(i^{-(r+5)}\) for every fixed \(r>0\). The first-cell contribution is exactly \(8N^r/105\). The proof does not infer an infinite result from finite tests.
+PASS
 
-## Originality
+Exact cell substitution x=x_i t gives residual scaling (v³−x)²∼x_i², derivative sixth∼x_i^-4 and dx∼x_i, so each cell x_i^-1 F(ρ_i). Taylor interpolation remainder near rho=1 gives phi³−t=−(t−rho)(1−t)/3+O((1−rho)^3), s→1/3 and F(rho)=(1−rho)^5/196830+O((1−rho)^6). Since 1−((i−1)/i)^r∼r/i, terms ∼r^5/(196830 i^(r+5)), summable for all fixed r>0. Independently integrated first cell ∫(t³−t)²dt=8/105. Partial-sum limit gives constant; claims only this interpolant, no optimized FEM theorem.
 
-The closest exact result found is the uniform-mesh asymptotic for the same nodal interpolant. The classical literature gives qualitative energy divergence for approximants converging to the singular minimizer, but the inspected material does not give the power-grading-dependent coefficient \(C_r\) or the all-\(r\) asymptotic. The uniform case is treated as prior work, not as a new claim. The remaining priority risk is an uninspected equivalent graded-mesh analysis.
+## originality
 
-## Value
+PASS
 
-Power grading is a standard response to endpoint singularities. The result quantifies the exact energy growth for every fixed algebraic grading exponent and shows that such grading alone does not prevent blow-up of this nodal interpolant. The theorem is deliberately limited to the interpolant and does not claim to characterize the discrete minimizer or propose a convergent numerical method.
+Earlier exact uniform-mesh r=1 result fully inspected; extension to every fixed r>0 has a distinct mesh, new r-dependent coefficient and exponent not a numerical corollary of r=1. Ball–Knowles qualitative divergence and derivative cutoff FEM do not state this quantitative law. Originality qualified by uninspected detailed graded-mesh literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+Power-grading is a standard response to endpoint singularity; exact energy exponent and positive constant for every r distinguish that nodal grading alone does not remove Lavrentiev blow-up. Motivated exact calculation of numerical-variational phenomenon, not arbitrary r sampling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
