@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "The deterministic standalone script enumerates every facet and simplex for each n=8..35; verifies full oriented Hasse-DAG acyclicity at 1,393,910 incidences, exactly computes signed Morse differentials with n-8 independent primitive columns e_i-e_last, and asserts exact critical counts and Euler. This yields a 0/3/4-dimensional Morse CW complex whose degree-one attachments cancel, proving the specified integral wedge. Independent BFS checks all n<=18 facet cases and mod-two boundary ranks in nine cases. Results limited to finite n<=35.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2407.08158 treats squared paths and grid graphs.",
+        "arXiv:2602.21427 concerns total d-cut complexes.",
+        "Published indexed work on n=k+6 concerns an adjacent diagonal and Euler characteristic, and rational cyclic homology work uses fixed k=3."
+      ],
+      "reasoning": "Different graph, total-vs-ordinary definition, or fixed cut size does not dominate the requested varying-k integral homotopy claim.",
+      "searches": [
+        "Delta_k(W_{k+5}) integral homotopy k=17 to 30 discrete Morse certification",
+        "cycle power C_n^2 5-vertex separating sets cut complexes dihedral character",
+        "arXiv:2407.08158",
+        "arXiv:2602.21427",
+        "2026/10/11/SCOPE-exact-face-vector-on-the-n-k-6-squared-cycle-cut-complex-diagona--10625858f7fe",
+        "2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2304.13675 Section 7.4 Conjectures 7.23-7.25",
+      "arXiv:2407.08158 abstract and graph-family sections",
+      "arXiv:2602.21427 abstract and definition",
+      "2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754",
+      "2026/10/11/SCOPE-exact-face-vector-on-the-n-k-6-squared-cycle-cut-complex-diagona--10625858f7fe",
+      "2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d",
+      "previous standalone integral result at k=16"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier standalone k=16: integral homotopy S^3 wedge 637 copies of S^4.",
+        "All-k Euler and face-vector formulas do not establish CW attaching degrees or simple homotopy.",
+        "The original source predicts the result but explicitly labels it Conjecture 7.23."
+      ],
+      "reasoning": "Prior k=16 is a covered special case and not new. The new collective finite proof includes k=17..30; no inspected more general theorem implies all these integral equivalences. A conditional Betti formula from Euler does not imply a homotopy wedge.",
+      "searches": [
+        "2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754",
+        "2026/10/11/SCOPE-exact-face-vector-on-the-n-k-6-squared-cycle-cut-complex-diagona--10625858f7fe",
+        "2026/10/11/SCOPE-rational-cyclic-homology-representations-of-three-cut-complexes--dc0f17aad16d",
+        "c8dfdb9c-bce9-4240-b865-bd3fd3b8cdc9",
+        "borderline squared-cycle cut complex n=k+5 Conjecture 7.23 7.24 2023 finite rigorous proof 30"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "W_n is C_n^2; deletion of two long cyclic runs characterizes facets.",
+        "Conjecture 7.23 identifies exactly the integral homotopy type as an unproved conjecture; Conjecture 7.24 gives only numeric range k<=15."
+      ],
+      "reasoning": "Cycle-square/antiprism and ordinary k-cut/Alexander-dual descriptions were compared at identical n=k+5. The exact original statement is conjectural, not a theorem; searched stronger equivalent formulations did not supply a proof for the range k=17..30.",
+      "searches": [
+        "ordinary k-cut complex squared cycle W_{k+5} n=k+5 homotopy wedge S^3 spheres k up to 30 exact discrete Morse",
+        "borderline squared-cycle cut complex n=k+5 Conjecture 7.23 7.24 2023 finite rigorous proof 30",
+        "Delta_17(C_22^2) ordinary 17-cut complex integral homotopy S^3 wedge 770 S^4",
+        "arXiv:2304.13675 Section 7.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Original paper Table 1 leaves the n=k+5 squared-cycle homotopy unspecified.",
+        "The public all-k indexed face-vector result gives Euler data and the wedge multiplicity conditionally, not homotopy."
+      ],
+      "reasoning": "Exact k=17 and k=30 numerical/matching searches did not identify a database or table containing integral homotopy certificates for the new range. Search non-hits are not a proof of uniqueness.",
+      "searches": [
+        "Delta_17(C_22^2) ordinary 17-cut complex integral homotopy S^3 wedge 770 S^4",
+        "Delta_30(W_35) 30 cut squared cycle homotopy S^3 wedge 4410 S^4",
+        "2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754",
+        "2026/10/11/SCOPE-exact-face-vector-on-the-n-k-6-squared-cycle-cut-complex-diagona--10625858f7fe",
+        "arXiv:2304.13675 Table 1"
+      ]
+    },
+    "rationale": "The exact proposed borderline wedge appears as a conjecture in Bayer et al. (arXiv:2304.13675), whose original numerical range was k<=15. The separate k=16 integral homotopy result and all-k face-vector/Euler results are acknowledged as prior. Exhaustive new acyclic Morse and signed integral boundary certificates extend rigorously through k=30, with 14 new parameters k=17..30, not implied by Euler characteristic or adjacent diagonals. Actual semantic-index and primary-literature queries inspected. A possible unindexed equivalent calculation remains a residual bibliographic risk.",
+    "residual_risks": [
+      "A mathematically equivalent result could be in an unindexed work or inaccessible source.",
+      "For two of the indexed related findings, only public statements/summaries rather than complete full text were inspected.",
+      "The finite executable certificate relies on a correct implementation of graph facets, Hasse orientation and integer gradient signs; these have been explicitly rechecked and representative independent tests performed.",
+      "Nothing is proved for k>30."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: the family result at the borderline is expressly conjectural; the adjacent n=k+4 theorem has a different parameter",
+        "evidence": "Section 7.4 Conjectures 7.23 and 7.24 give the predicted wedge formula but no proof; Proposition 7.27 concerns n=k+4.",
+        "identifier_or_url": "arXiv:2304.13675",
+        "material_read": "Definitions 2.1; Table 1; Section 7.4 including Definition 7.20 and Conjectures 7.23, 7.24, 7.25 and Proposition 7.27",
+        "method": "lawfully accessible complete arXiv HTML, relevant section read directly",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "exact conjecture and identical graph family and cutoff"
+      },
+      {
+        "assessment": "No coverage of squared-cycle borderline; the sequel treats squared paths and grids, which cannot simply imply squared-cycle cut homotopy",
+        "evidence": "Authors describe cut complexes of squared paths, grids and disjoint unions; no all-k homotopy theorem for W_{k+5} identified.",
+        "identifier_or_url": "arXiv:2407.08158",
+        "material_read": "Abstract, contents, introduction and stated graph-family scope; relevant squared-path and grid sections identified",
+        "method": "arXiv HTML/PDF, scoped text inspection",
+        "title": "Topology of Cut Complexes II",
+        "trigger": "sequel by overlapping authors with potentially stronger classification"
+      },
+      {
+        "assessment": "Not covering: total cut complexes are defined differently from ordinary cut complexes; additionally reported cycle-square range n>=3d does not hold for n=d+5 at large d",
+        "evidence": "Abstract explicitly states total d-cut, second power cycles n>=3d.",
+        "identifier_or_url": "arXiv:2602.21427",
+        "material_read": "Abstract and definition of total cut complex and its range hypotheses",
+        "method": "arXiv HTML/PDF targeted reading",
+        "title": "Total cut complexes and their duals",
+        "trigger": "cycle-square homotopy theorem in plausible stronger 2026 literature"
+      },
+      {
+        "assessment": "Known formula for f-vector and alternating Euler characteristic cannot determine integral homotopy or signed Morse differential",
+        "evidence": "Indexed summary states homotopy wedge would follow conditionally from conjecture, not proved by the face-vector formula.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-face-vector-and-euler-characteristic-of-the-borderline-squared-c--d8b3ff0aa754",
+        "material_read": "Publicly indexed statement and summary describing all-k face polynomial and reduced Euler; no full repository source read",
+        "method": "semantic index summary-level, not a full text negative check",
+        "title": "Face-vector and Euler characteristic of the borderline squared-cycle cut complexes",
+        "trigger": "same cut-complex family n=k+5, possible dominating result"
+      },
+      {
+        "assessment": "Inapplicable: one larger graph n=k+6 and different dimension, and only Euler/f-vector conditional on shellability",
+        "evidence": "The statement concerns n=k+6 and conditional shellability, not n=k+5 integral homotopy.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-face-vector-on-the-n-k-6-squared-cycle-cut-complex-diagona--10625858f7fe",
+        "material_read": "Publicly indexed statement and summary only",
+        "method": "semantic index result, no full paper read",
+        "title": "Exact face vector on the n=k+6 squared-cycle cut-complex diagonal",
+        "trigger": "neighboring diagonal and potentially general all-k theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "57c1b392-382c-4d8e-8fa8-c75760a017ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Addresses a precisely stated, nontrivial published homotopy conjecture for the first borderline squared-cycle k-cut complexes, in the still-unresolved finite range k=17..30 beyond published numerical checks k<=15 and independently established k=16. The exact integral degree certificate is stronger than an all-k Euler formula; it confirms no torsion and explicit sphere counts for 28 natural consecutive cases. It is not a general theorem or routine recomputation of a known table; its finite nature is disclosed.",
+    "status": "PASS"
+  }
+}
