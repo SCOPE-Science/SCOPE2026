@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For every n>=3 and each weak unimodal mode k, shortening a maximizing ball by two boundary values during a one-step move toward the peak cannot lower its mean: each removed value is no larger than the original central value, which is no larger than the original maximal average. The reverse argument after k proves unimodality of Mf. The peak value is exactly H, giving Var(Mf)=2H-Mf(1)-Mf(n). Prefix/suffix ball averages prove distinct endpoint gains (H-a)/k and (H-b)/(n-k+1). Thus the location bound and sharp global factor follow algebraically. Single spikes attain the two endpoint gains at each k; endpoint spikes attain 1-1/n. Exact rational verification passed 4332 exhaustive, 4800 deterministic longer, 5047 spike tests. Finite verification is not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2603.12462, Conjecture 5 is posed as open and the paper reports numerical path evidence through order ten, not an all-n proof.",
+        "arXiv:2107.12404 proves centered contraction for indicator functions on the integer line and a restricted class of functions equal to their own maximal values where positive.",
+        "arXiv:1005.3030, Theorems 1-2: sharp noncentered BV contraction, and a centered inequality using the input ell-one norm rather than the finite-path 1-variation deficit."
+      ],
+      "reasoning": "A proof of the full path conjecture would imply the unimodal bound, but the inspected primary paper presents it as unproved. Indicator theorems are not a domination of arbitrary-height unimodal data, and their infinite-line balls do not give the n-dependent finite-path endpoint-loss inequality. The classical noncentered theorem changes the operator.",
+      "searches": [
+        "Mathematical research record search: Sharp 1-variation inequality for centered Hardy Littlewood maximal operator on finite path graphs P_n, constants, extremizers, conjecture",
+        "Mathematical research record search: Finite path graph centered Hardy Littlewood maximal operator unimodal single-peaked inputs sharp location-dependent endpoint deficit in 1-variation",
+        "web: centered Hardy Littlewood maximal variation indicator characteristic function inequality 1 on Z"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1005.3030",
+      "arxiv:2603.12462",
+      "arxiv:2107.12404",
+      "published-finding:2ae83e2401fb"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The published monotone theorem assumes the input is globally increasing or decreasing and thus cannot yield a strict interior-peak estimate by specialization.",
+        "The 2021 positive fixed-point condition fails for some unimodal signals with multiple positive heights, so its theorem cannot imply the present result directly.",
+        "The 2026 finite-path conjecture is explicitly unproved; the new proof uses a moving-center shrinking-ball comparison and endpoint ball averages."
+      ],
+      "reasoning": "The new peak-preservation lemma handles the radius-switching nonlinear maximum, which is not supplied by the monotone prefix-mean identity. The sharp peak-location bound is attained by a spike at every mode and yields a strict deficit for genuinely interior strict peaks. The implication to monotone cases goes from the new theorem to the old subclass, not conversely.",
+      "searches": [
+        "Mathematical research record search: Conjecture C_{P_n}=1-1/n centered Hardy Littlewood maximal finite paths for all unimodal sequences single peak one rise then fall variation",
+        "Mathematical research record search: Finite path graph centered Hardy Littlewood maximal operator unimodal single-peaked inputs sharp location-dependent endpoint deficit in 1-variation",
+        "web: \"Conjecture 5\" \"unimodal\" \"González-Riquelme\" Kovač Madrid"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2603.12462, introduction/Conjecture 5, explicitly conjectures the sharp finite-path 1-variation factor for arbitrary inputs.",
+        "The full public statement of published-finding:2ae83e2401fb treats only nonnegative monotone input; it expressly does not cover a change of monotonic direction.",
+        "arXiv:2107.12404, Theorems 1.3/1.5, concerns indicator data and positive data that are pointwise fixed by the centered maximal map at positive locations."
+      ],
+      "reasoning": "The new quantified inequality uses a peak index and separately measured rise/fall, covers nonmonotone nonnegative data, and derives mode-specific endpoint losses. The previously published monotone identity is strictly narrower; the 2021 sufficient positive-pointwise-fixed hypothesis does not include a general unimodal array (for instance [0,1,3,2] has a positive nonfixed point). No equivalent exact statement was found, while unindexed folklore cannot be excluded.",
+      "searches": [
+        "Mathematical research record search: Conjecture C_{P_n}=1-1/n centered Hardy Littlewood maximal finite paths for all unimodal sequences single peak one rise then fall variation",
+        "Mathematical research record search: Maximal function preserves unimodality of finite one-dimensional sequences and sharp total variation bound peak location",
+        "web: \"path\" \"maximal operator\" \"unimodal\" \"variation\" 1-1/n",
+        "web: \"centered maximal\" \"unimodal\" \"path graph\" variation inequality"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic hit was the publicly read monotone-data statement published-finding:2ae83e2401fb.",
+        "The 2026 primary paper provides four-vertex exact constants, computational five-vertex graph constants, and noncertifying numerical evidence through path order ten.",
+        "Accessible prior private claim identifiers were compared by mathematical statement; none concerns unimodal centered maximal averages on paths."
+      ],
+      "reasoning": "The new result is an all-n statement and sharp mode-indexed inequality, not a small-order number. A finite table through n=10 does not imply the infinite theorem. A database search cannot prove uniqueness.",
+      "searches": [
+        "Mathematical research record search: Sharp 1-variation inequality for centered Hardy Littlewood maximal operator on finite path graphs P_n, constants, extremizers, conjecture",
+        "Mathematical research record search: Finite path graph centered Hardy Littlewood maximal operator unimodal single-peaked inputs sharp location-dependent endpoint deficit in 1-variation",
+        "Mathematical research record search: Maximal function preserves unimodality of finite one-dimensional sequences and sharp total variation bound peak location",
+        "Mathematical research record search: Exact bounded variation amplification centered maximal operator path P6 graph six vertices ball averages"
+      ]
+    },
+    "rationale": "A complete public monotone-data theorem and primary maximal-function papers were compared at the level of hypotheses, operator, and conclusions. The new all-n unimodal result treats genuine interior peaks and a sharp quantified mode-dependent loss, neither implied by the monotone-data theorem nor by integer-line indicator/positive-fixed-point contraction. The 2026 full-path counterpart remains an explicit conjecture. Search absence is not treated as novelty proof; possible unpublished/folklore equivalent remains a residual risk.",
+    "residual_risks": [
+      "The elementary trimming lemma or the unimodal finite-path inequality may have appeared as unpublished folklore or in an unindexed treatment.",
+      "The larger original source manuscripts were inspected materially for their relevant theorem statements, not formally audited line by line in full.",
+      "The proof does not settle arbitrary oscillatory data; the 2026 conjecture must not be treated as established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the claimed unimodal all-n theorem: explicitly conjectures stronger all-input factor and has no result on unimodal input",
+        "evidence": "Conjecture 5 on pdf page 4, arXiv:2603.12462v1, 2026-03-12",
+        "identifier_or_url": "https://arxiv.org/pdf/2603.12462",
+        "material_read": "Introduction pp. 1-5 including operator definitions, Theorem 2, Observation 3, Conjecture 5; path-specific discussion and text searches for unimodal/monotone throughout PDF",
+        "method": "Opened 15-page PDF, inspected extracted pages and page 4 screenshot, searched full text",
+        "title": "Sharp variational inequalities for the Hardy--Littlewood maximal operator on finite undirected graphs",
+        "trigger": "Same finite-path centered maximal variation conjecture and potential general stronger theorem"
+      },
+      {
+        "assessment": "NOT_COVERING by direct implication: indicator and positive-fixed-point conditions are different and the domain is the integer line, not arbitrary-height unimodal data with finite boundary terms",
+        "evidence": "arXiv:2107.12404, Theorems 1.3 and 1.5, pp. 2-3",
+        "identifier_or_url": "https://arxiv.org/pdf/2107.12404",
+        "material_read": "Abstract, introduction and discrete section pp. 1-4; Theorems 1.3, 1.5 and their exact positivity hypothesis; page 2 screenshot",
+        "method": "Opened 18-page PDF, examined the relevant statements and hypotheses, searched full text for unimodal",
+        "title": "The one-dimensional centred maximal function diminishes the variation of indicator functions",
+        "trigger": "Potentially stronger variation theorem covering nonmonotone data"
+      },
+      {
+        "assessment": "NOT_COVERING: centered result is an ell-one to BV bound; sharper BV contraction is for noncentered operator, not the centered finite-path mode-specific bound",
+        "evidence": "arXiv:1005.3030; v1 timestamp 2010-05-17 20:11:30 UTC",
+        "identifier_or_url": "https://arxiv.org/pdf/1005.3030",
+        "material_read": "Introduction and original Theorems 1-2 and Question B on pp. 1-4; screenshot of page 4, original arXiv first-public version date checked",
+        "method": "Opened 11-page PDF and original arXiv abstract/version history",
+        "title": "On a discrete version of Tanaka's theorem for maximal functions",
+        "trigger": "Qualifying archive primary literature on variation of centered versus noncentered discrete maximal averages"
+      },
+      {
+        "assessment": "COVERED_SPECIAL_CASE_ONLY: the record proves monotone restriction and its endpoint mean identity; explicitly excludes any change of direction",
+        "evidence": "Public record 2ae83e2401fb, RESULT.md Finding/Limitations",
+        "identifier_or_url": "2ae83e2401fb",
+        "material_read": "Complete RESULT.md and SLOGAN.txt, including finding, assumptions, proof, relationship to prior work and limitations",
+        "method": "Read the two original public files from the research repository",
+        "title": "Monotone data attain the conjectured path-graph variational constant",
+        "trigger": "Highest-overlap previous published mathematical finding"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "12b332db-5c97-4f41-b9f1-a4d64ed45f32",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Genuinely one-peaked input is the first natural nonmonotone class of the open finite-path centered maximal variation conjecture. The result proves the conjectured sharp global constant uniformly in n on that class, establishes an analytic mode-preservation principle despite radius switching, and gives a location-sensitive strict deficit with simultaneous sharp spike witnesses. This is a motivated infinite-family boundary and not a numerical small-n extension, renaming, or known-table recomputation.",
+    "status": "PASS"
+  }
+}
