@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-All quantifiers are finite and explicit. Factor coverage is computed by enumerating every length and start, retaining exact byte-string equality. The intersection condition in RESULT.md is equivalent to meeting every distinct factor's occurrence coverage. The antichain reduction preserves all feasible sets by set inclusion. Every three-position attractor on a three-symbol word must select one of each symbol, so the two-position/third-position enumeration cannot omit an optimum. Exact-source execution reproduced the full list of attractors and counts at all twelve orders through length 927; an independently formulated factor-by-position solver reproduced every full list through length 274. No finite evidence is extrapolated to infinite orders.
+## correctness
 
-## Originality — PASS within inspected evidence
-Schaeffer–Shallit (arXiv:2012.06840, Theorem 6) gives the minimum size of Tribonacci prefix attractors and one explicit triple; Dvořáková (arXiv:2211.01660, Theorem 7 and Example 8) gives one attractor for episturmian factors and illustrative Tribonacci words. Banbara et al. (arXiv:2602.16152) enumerate all optimizers for Fibonacci, period-doubling, and Thue–Morse words, not Tribonacci. These results do not entail the exact finite multiplicities or complete lists without additional enumeration. Targeted published-record searches for Tribonacci optimizer multiplicity, including exact count sequences, did not identify a prior covering table. Unindexed or otherwise inaccessible earlier counts remain a priority risk; search failure alone is not a novelty certificate.
+PASS
 
-## Mathematical value — PASS
-The number of minimum attractors is an explicitly motivated fine-grained repetitiveness invariant that distinguishes sequences sharing the same minimum-attractor size. The Tribonacci word is the canonical three-symbol episturmian test case; exact multiplicities and complete optimizer position lists through a substantial natural hierarchy (length 927) provide reproducible numerical structure not supplied by the known size-three classification. The nontrivial departures from a naive doubling pattern, notably the 416 count at length 504, constrain future conjectures and any proposed recursive classification. Finite exact facts can have independent value; no unproved global growth law or unrelated downstream application is claimed.
+The factor f coverage set C_w(f) is the union of all positions in all occurrences. A position subset S is an attractor iff it intersects each C_w(f). Removing a superset mask from the antichain preserves the logical hitting constraints. Since every T_k for k≥2 has all three letters, every cardinality-3 attractor has one position per letter. Independently regenerated every T_k (k=0..11), enumerated coverage masks for each distinct substring, and searched all possible letter-class triples by bit-mask intersections, including 20,576,304 raw candidate triples at k=11 length 927; counts match 1,1,2,8,12,16,32,56,112,224,416,832. Source certificate actual entire stage arrays were read and structurally checked: all 12 lengths, unique sorted triple arrays and matching counts; source verify.py and an independently structured verify_independent.py through k=9 were inspected. Exact lower bound each letter occurs implies minimality given nonempty all-triple lists. No extrapolation beyond k=11.
 
-## Closest literature and limits
-The full relevant sections of the three primary sources were inspected. The exact all-order number of Tribonacci optimum attractors is left unresolved. The first-public source date for the 2026 enumerative program is 2026-02-18, based on arXiv:2602.16152v1. Priority beyond examined sources is not guaranteed. See AUDIT.json for individual semantic comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claimed all-solution finite census survives published size-three/existence and k-bonacci construction results: these give one or several optimal triples, not the full multiplicity and explicit lists of all optimal sets through k=11. The close 2026 all-attractor paper concerns other morphic families. Best-of-knowledge priority, with significant finite computation.
+
+## value
+
+PASS
+
+The count of all minimum attractors, rather than just their minimum size, is a natural fine-scale repetitiveness invariant; Tribonacci is the canonical ternary episturmian morphic family. Twelve consecutive exact solution sets through length 927 give meaningful structural data, and the 416 at k=10 refutes a naive simple doubling continuation, constraining future all-order characterization. The exact set enumeration is independently useful as a benchmark even without a new infinite recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

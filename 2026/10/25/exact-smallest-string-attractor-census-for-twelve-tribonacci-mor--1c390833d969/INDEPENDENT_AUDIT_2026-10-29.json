@@ -1,0 +1,135 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:01:07Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "frozen RESULT.md",
+        "verify.py",
+        "verify_independent.py",
+        "certificates/attractors.json sha 6191c650223ac415299432810401fc313d97cb7a",
+        "independent_scope05_checks.py"
+      ],
+      "rationale": "The factor f coverage set C_w(f) is the union of all positions in all occurrences. A position subset S is an attractor iff it intersects each C_w(f). Removing a superset mask from the antichain preserves the logical hitting constraints. Since every T_k for k≥2 has all three letters, every cardinality-3 attractor has one position per letter. Independently regenerated every T_k (k=0..11), enumerated coverage masks for each distinct substring, and searched all possible letter-class triples by bit-mask intersections, including 20,576,304 raw candidate triples at k=11 length 927; counts match 1,1,2,8,12,16,32,56,112,224,416,832. Source certificate actual entire stage arrays were read and structurally checked: all 12 lengths, unique sorted triple arrays and matching counts; source verify.py and an independently structured verify_independent.py through k=9 were inspected. Exact lower bound each letter occurs implies minimality given nonempty all-triple lists. No extrapolation beyond k=11.",
+      "residual_risks": [
+        "Finite 12-order computation only. Original source verifier for 1-letter/2-letter special cases handled directly; independently checked k0,k1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gheeraert–Romana–Stipulanti 2024 k-bonacci-like general construction and its Theorem 23",
+          "Banbara et al 2026 covers entire minima for Fibonacci/period-doubling/Thue–Morse"
+        ],
+        "reasoning": "General constructions covering Tribonacci existence do not force its all-optimum multiplicities; broader enumeration of other words does not imply the specific Tribonacci lists.",
+        "searches": [
+          "number of minimum string attractors for Tribonacci morphic finite words exact census every optimal triple"
+        ]
+      },
+      "checked_sources": [
+        "Resultary Q2",
+        "Tribonacci certificate and both source verifiers",
+        "Schaeffer–Shallit",
+        "Dvořáková",
+        "Banbara et al",
+        "Gheeraert–Romana–Stipulanti"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Schaeffer–Shallit theorem gives γ(T_k)=3; Dvořáková and Gheeraert provide one or selected minimum triples",
+          "Banbara complete optimizer results concern different morphic words"
+        ],
+        "reasoning": "There exist many distinct attracting triples consistent with one constructive witness, so previous size/existence statements do not logically imply the displayed exact multiplicities without further exhaustive computation.",
+        "searches": [
+          "number of minimum string attractors for Tribonacci morphic finite words exact census every optimal triple"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Schaeffer–Shallit arXiv:2012.06840 §5 Thm 6",
+          "Dvořáková arXiv:2211.01660 Thm 7 and Example 8",
+          "Banbara et al arXiv:2602.16152",
+          "Gheeraert–Romana–Stipulanti, String attractors of some simple-Parry automatic sequences (k-bonacci)"
+        ],
+        "reasoning": "Those papers describe minimum size and construct a witness triple; knowing minimum cardinality three or one construction does not determine count or entire position set for each finite word. The Tribonacci morphism is a canonical 3-bonacci/simple-Parry case.",
+        "searches": [
+          "number of minimum string attractors for Tribonacci morphic finite words exact census every optimal triple"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "assigned certificates/attractors.json 12 stage arrays and actual Git SHA 6191c650223ac415299432810401fc313d97cb7a",
+          "Resultary Q2 semantic search; papers above",
+          "numbers 1,1,2,8,12,16,32,56,112,224,416,832"
+        ],
+        "reasoning": "The 12-stage exact optimizer census, notably 416 optima for k=10 length 504, was not found as a pre-existing table in compared relevant primary sources; absence of a database hit is not priority proof.",
+        "searches": [
+          "number of minimum string attractors for Tribonacci morphic finite words exact census every optimal triple"
+        ]
+      },
+      "rationale": "The claimed all-solution finite census survives published size-three/existence and k-bonacci construction results: these give one or several optimal triples, not the full multiplicity and explicit lists of all optimal sets through k=11. The close 2026 all-attractor paper concerns other morphic families. Best-of-knowledge priority, with significant finite computation.",
+      "residual_risks": [
+        "Unindexed Tribonacci optimal-attractor tables or unpublished results remain possible.",
+        "Exact claim only for 0≤k≤11; not an all-order formula."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_MULTIPLICITY",
+          "evidence": "One optimal triple and cardinality do not count all triples.",
+          "identifier_or_url": "https://arxiv.org/abs/2012.06840",
+          "material_read": "Full relevant §5, Theorem 6; establishes minimum size 3 and constructive solution.",
+          "method": "lawful arXiv text/PDF",
+          "title": "String Attractors for Automatic Sequences",
+          "trigger": "Tribonacci prefix minimum size and possible all-solution theorem"
+        },
+        {
+          "assessment": "NOT_COVERING_MULTIPLICITY",
+          "evidence": "Existence and bound for episturmian factors; no enumeration of all morphic-iterate optima.",
+          "identifier_or_url": "https://arxiv.org/abs/2211.01660",
+          "material_read": "Theorem 7 and Example 8 construction, relevant source statement inspected.",
+          "method": "arXiv lawful primary",
+          "title": "String attractors of episturmian sequences",
+          "trigger": "Tribonacci episturmian factor attractors"
+        },
+        {
+          "assessment": "NOT_COVERING_TRIBONACCI",
+          "evidence": "Explicit families are Fibonacci, period doubling, Thue–Morse, not Tribonacci.",
+          "identifier_or_url": "https://arxiv.org/abs/2602.16152",
+          "material_read": "Primary HTML full relevant theorems and listed families.",
+          "method": "arXiv HTML full relevant sections",
+          "title": "The Smallest String Attractors of Fibonacci, Period-Doubling, and Thue–Morse Words",
+          "trigger": "Closest exact all-optima enumeration methodology"
+        },
+        {
+          "assessment": "NOT_COVERING_MULTIPLICITY_IN_READ_THEOREMS",
+          "evidence": "Theorem constructs minimal k-bonacci attractors; no all-optimizer census in inspected statements.",
+          "identifier_or_url": "https://arxiv.org/search/?query=string+attractors+simple+parry+automatic+sequences",
+          "material_read": "Primary 25-page lawful PDF pp.1–3 and 17–19 with screenshot of Theorem 23/construction.",
+          "method": "primary scholarly OA PDF and screenshot",
+          "title": "String attractors of some simple-Parry automatic sequences (k-bonacci-like)",
+          "trigger": "Crucial broader k-bonacci class could imply all solution sets"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Banbara et al 2026",
+        "Schaeffer–Shallit",
+        "complete certificate and independent enum"
+      ],
+      "rationale": "The count of all minimum attractors, rather than just their minimum size, is a natural fine-scale repetitiveness invariant; Tribonacci is the canonical ternary episturmian morphic family. Twelve consecutive exact solution sets through length 927 give meaningful structural data, and the 416 at k=10 refutes a naive simple doubling continuation, constraining future all-order characterization. The exact set enumeration is independently useful as a benchmark even without a new infinite recurrence.",
+      "residual_risks": [
+        "A finite table cannot establish any eventual pattern; no more general theorem is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only finite stages k=0,…,11",
+    "The independent scratch checker recomputes cardinality counts, not a formal proof for any unexamined k"
+  ],
+  "schema_version": 1
+}

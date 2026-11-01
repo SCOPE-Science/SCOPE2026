@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the finite census
 
-The complete list of minimum attractors in each of twelve cases is embedded at `certificates/attractors.json` as zero-based increasing position arrays. Run `python3 verify.py` to reconstruct every word and recompute the list of all feasible optimal-size subsets, not merely to replay a claimed count. A second implementation `python3 verify_independent.py` constructs factor sets reached by each position and independently tests every size-three candidate through substitution order nine.
+# Independent mathematical audit
 
-Exact results checked: the word lengths are 1, 2, 4, 7, 13, 24, 44, 81, 149, 274, 504, and 927; the respective minimum-attractor cardinalities are 1, 2, and 3 for every remaining order; the exact numbers of optimum sets are 1, 1, 2, 8, 12, 16, 32, 56, 112, 224, 416, and 832. Exact-coverage-mask antichain sizes, at orders two to eleven, are 3, 3, 5, 6, 6, 7, 10, 11, 12, 15. Every certificate word SHA-256 is checked against the newly generated word.
+## correctness
 
-Limits: full factor-incidence enumeration is a finite correctness certificate; it does not establish any pattern for unexamined orders. The second implementation checks the first ten orders (through index nine), not the last two; their first implementation is still fully exhaustive. No independent external audit has been performed.
+PASS
+
+The factor f coverage set C_w(f) is the union of all positions in all occurrences. A position subset S is an attractor iff it intersects each C_w(f). Removing a superset mask from the antichain preserves the logical hitting constraints. Since every T_k for k≥2 has all three letters, every cardinality-3 attractor has one position per letter. Independently regenerated every T_k (k=0..11), enumerated coverage masks for each distinct substring, and searched all possible letter-class triples by bit-mask intersections, including 20,576,304 raw candidate triples at k=11 length 927; counts match 1,1,2,8,12,16,32,56,112,224,416,832. Source certificate actual entire stage arrays were read and structurally checked: all 12 lengths, unique sorted triple arrays and matching counts; source verify.py and an independently structured verify_independent.py through k=9 were inspected. Exact lower bound each letter occurs implies minimality given nonempty all-triple lists. No extrapolation beyond k=11.
+
+## originality
+
+PASS
+
+The claimed all-solution finite census survives published size-three/existence and k-bonacci construction results: these give one or several optimal triples, not the full multiplicity and explicit lists of all optimal sets through k=11. The close 2026 all-attractor paper concerns other morphic families. Best-of-knowledge priority, with significant finite computation.
+
+## value
+
+PASS
+
+The count of all minimum attractors, rather than just their minimum size, is a natural fine-scale repetitiveness invariant; Tribonacci is the canonical ternary episturmian morphic family. Twelve consecutive exact solution sets through length 927 give meaningful structural data, and the 416 at k=10 refutes a naive simple doubling continuation, constraining future all-order characterization. The exact set enumeration is independently useful as a benchmark even without a new infinite recurrence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
