@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the defective-biclique leader theorem
+# Independent mathematical audit
 
-Execute `python verify.py` using Python 3 and a compatible SymPy installation (`requirements.txt`). The program recomputes all eight formal symmetry-orbit costs by invariant-subspace decomposition, reduces them to the five quoted rational values, checks the rational difference factors and their sign certificates, and independently forms and inverts the grounded Laplacian for every one of the 245 unordered leader pairs on sizes \(3\le n\le7\). It also checks the integer sign transition from five to six. A successful replay prints:
+## correctness
 
-`VERIFY_OK 8 symbolic orbit identities, 4 exact comparison identities, 245 direct rational grounded inverses, all minimum classes n=3..7`
+PASS
 
-The claim for **every** integer \(n\ge3\) relies on the quotient-decomposition identity and the exact polynomial signs proved in `RESULT.md`. The finite checks are corroborative only; they are not an infinite proof. The analytical argument does not address arbitrary weights, other deleted-edge patterns, or noise-corrupted leaders. The public evidence here has undergone self-review only; no independent audit is claimed.
+For n>=3, grounded principal Laplacian L_FF of K_{n,n} minus link (a,b) is SPD. Decomposition into degree-eigenvalue within-group contrasts and a <=4-dimensional equitable quotient H gives J(S)=sum_g (r_g-1)/d_g +tr H^{-1}. Every unordered two-leader set belongs to one of five objective classes, whose rational formulas are in the actual RESULT.md. Subtractions J1,J2,J3>J0 have positive polynomials for n>=3. Remaining J0−J4=(n³−6n²+5n−1)/(n(n−1)²(2n−1)), with f(3)=f(4)=−13, f(5)=−1, f(6)=29 and f(n+1)−f(n)=3n(n−3)>0 for n>=4, so only missing-link endpoints win n=3..5, while exactly (n−1)(n−2) ordinary same-side pairs win all n>=6. Independently constructed exact rational grounded Laplacians and checked all two-leader pairs for n=3..10 (708 pairs), including n=3 empty-group boundary. This finite check is not an infinite proof; exact quotient and sign identities are.
+
+## originality
+
+PASS
+
+Fitch–Leonard gives a general centrality/trace-inverse optimality framework; the special path/cycle solutions do not imply the explicit five-class one-edge-defective complete-bipartite family and sharp n=6 transition. The general optimization objective and leader-coherence interpretation are prior.
+
+## value
+
+PASS
+
+A single-link fault switches the best two pinned leaders between two qualitatively different symmetry types exactly at n=6, unlike intact complete bipartite graphs. The exact all-n optimum and multiplicity give a natural fault-sensitivity benchmark for graph-constrained noisy consensus; the near-tie 1/720 at n=5 makes exact sign analysis useful, not an arbitrary tiny improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
