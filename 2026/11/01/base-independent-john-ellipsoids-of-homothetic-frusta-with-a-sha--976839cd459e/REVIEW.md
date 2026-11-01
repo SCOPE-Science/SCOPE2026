@@ -1,0 +1,20 @@
+# Self-review
+
+## Correctness — PASS
+The theorem is proved for every integer \(n\ge2\), every \(0\le\lambda\le1\), and every compact full-dimensional base \(B\), including noncentrally symmetric ones. The proof has two independent stages: exact support-function containment in the round-base frustum, and a lifted finite John-contact certificate from an *arbitrary* base whose John ellipsoid is the unit ball. The contact Gram identities, both axial mass equations, positivity of all used weights, and the sharp regime boundary \(\lambda_c=(n-1)/(n+1)\) were symbolically reconstructed. At the critical parameter, both explicit ellipsoids and their certificates agree. The affine shear treating displaced and nonspherical base John ellipsoids is invertible. The strict upper-cap separation below threshold and the positive upper-cap multiplier above threshold are proved, as is the first-but-not-second differentiability of the exact volume formula. `check_frusta.py` checks 197 independent exact-rational substitutions across dimensions \(2\)–\(14\), including endpoints. No finite test is treated as the universal proof.
+
+## Originality — PASS, with stated residual risks
+Primary full-text sections were read rather than treating titles or snippets as conclusive. Zhou, Zou and Liu (arXiv:2609.28447v1, Sections 1, 4 and the cone certificate in Section 6.5) use a *single* central cut of a round cone to establish sharpness; they expressly do not need optimality of their feasible half-cone ellipsoid. The public record *Exact John ellipsoid of the Khachiyan half-cone* supplies that optimality for the round half-cone, so that special case is credited. Its accessible summary is not a full-text inspection, and priority uncertainty is recorded. Güler and Gürtuna (arXiv:0709.0707, Introduction, Sections 7–8) treat the *outer* Löwner ellipsoid of truncated second-order cones and explicitly leave the corresponding *inner* problem unsolved; their inner results concern different slab bodies. The published-finding corpus record *Universal Santaló and volume-product laws for homothetic frusta* concerns a different invariant. The present theorem covers all cut ratios, all convex bases through their own John ellipsoids, and the complete cap-contact transition; none of the inspected claims logically entails this statement. Unindexed classical frustum formulas or uninspected full records remain priority risks.
+
+## Value — PASS
+The result is an exact base-independence theorem, not an isolated numerical calculation or a renamed central half-cone result. It eliminates the need to optimize over ellipsoids in each nonsymmetric homothetic frustum: the base's John ellipsoid and the single ratio \(\lambda\) suffice. It also provides a dimension-explicit sharp contact transition, an exact all-parameter volume law, and a \(C^1\)-but-not-\(C^2\) singularity that distinguishes a genuine geometric active-set change. These are natural objects in extremal ellipsoid and convex-hull geometry. The retained assumptions (homothetic cross-sections and ordinary Euclidean John volume) are substantive and explicit.
+
+## Closest sources and limitations
+- Zhou–Zou–Liu, *A Spectral Proof of Khachiyan's Ellipsoid Conjecture*, arXiv:2609.28447v1; special feasible half-cone construction, https://arxiv.org/html/2609.28447.
+- Güler–Gürtuna, *The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases*, arXiv:0709.0707; outer truncated-cone result, not the asserted inner theorem, https://arxiv.org/abs/0709.0707.
+- *Exact John ellipsoid of the Khachiyan half-cone*, 2026 public published-finding corpus record; known single cut, record summary seen but source files not accessible for complete reading.
+- *Universal Santaló and volume-product laws for homothetic frusta*, 2026 public published-finding corpus record; a different invariant, record summary seen but source files not accessible for complete reading.
+
+Historical-priority uncertainty remains; no independent mathematical validation or authorship attribution is implied.
+
+Self-review: passed. Independent audit: not yet performed.
