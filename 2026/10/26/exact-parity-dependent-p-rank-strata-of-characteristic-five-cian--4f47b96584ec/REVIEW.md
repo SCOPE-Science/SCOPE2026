@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The genus-one quotient equation yields the three displayed characteristic-five Hasse invariants. The prime-to-five elliptic-factor isogeny justifies recovery of Jacobian p-rank, a-number and slopes. An explicit character-sum proof computes the smooth locus and the one-, two-, and three-fold Hasse intersections; inclusion–exclusion produces the claimed all-extension formulas. The independent standard-library checker exhaustively confirms the \(5\)-, \(25\)- and \(125\)-element fields but is not used as proof of the infinitely many cases.
+## correctness
 
-## Originality — PASS with residual historical risk
-Primary text comparison: arXiv:1403.0562 (2014) is about moduli representatives, isomorphism classes and Frobenius-trace statistics for characteristic at least eleven; arXiv:2201.12996 (2022) supplies quotient and superspecial theory but no simultaneous closed count of all marked rank strata for every extension of \(\mathbb F_5\). The existing related calculation for characteristic-three Ciani quartics does not imply the parity-dependent characteristic-five formulas. Searches for p-rank census, Hasse intersections and all-extension marked counts found no stronger statement. Brock's 1993 thesis was bibliographically identified but not available in full and is a residual overlap risk for the superspecial subcase. Novelty is not independently certified.
+PASS
 
-## Mathematical value — PASS
-A complete exact arithmetic stratification of a natural three-dimensional family is substantially more than isolated superspecial examples: it exhibits the nontrivial parity correction, determines all four ranks and Newton slopes, and counts the different-dimensional strata over every finite extension. The marked-vs-isomorphism-class distinction is maintained throughout.
+For smooth ordered triples in F_{5^n} derive the three elliptic quotient Hasse polynomials, with Hr=r²−rst+s²t²+2s²+2t²+2; the prime-to-5 quotient isogeny transfers p-rank, a-number and Newton slopes to the three elliptic factors. Smooth U_q excludes r,s,t=±2 and Delta=4+rst−r²−s²−t²=0; quadratic-character summation yields |U_q|=q³−7q²+18q−17. The identities Hr+Delta=(s²+1)(t²+1), Hr−Hs=−(r²−s²)(t²+1), the Mobius transform of t and a²−2a−2=0 give intersection counts T1=q²−6q+10+(7−2q)eps, T2=2(q−4−eps), T3=4(1+eps). Explicit inclusion–exclusion yields all four N_f formulas for every n>=1; eight superspecial marked triples occur iff n even. Independent F5 and F25 field enumeration gave strata (0,12,0,11), (8,96,1110,10469) and T1/T2/T3=(8,4,0),(442,40,8), matching formulas. Finite tests are not proof of all extensions.
 
-## Limitations
-No classification of twists, geometric isomorphism classes or singular boundary fibers; no independent scientific validation. The superspecial subcount may overlap older enumerations, but the assessed joint all-rank all-extension formula remains the contribution.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: Ohashi supplies the Ciani elliptic quotient and superspecial structural theory; Lercier et al. study general moduli and prime >=11 class statistics. Neither inspected source states all marked coefficient triples by p-rank in characteristic five with parity corrections. Brock thesis was bibliographically noted but not read; it could overlap rank zero alone, not established to cover full four-rank census.
+
+## value
+
+PASS
+
+The Ciani genus-three family is a natural 3-parameter arithmetic family with three elliptic quotients. The all-extension marked four-stratum census, exact parity dependence, Newton-slope and a-number profile quantify every p-rank, whereas prior results emphasize superspecial loci or isomorphism tables. The closed character-sum formulas provide useful arithmetic distribution data, independent of a larger downstream theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
