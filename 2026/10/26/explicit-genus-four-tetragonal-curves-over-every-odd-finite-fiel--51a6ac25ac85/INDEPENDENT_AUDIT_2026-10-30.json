@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T11:54:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Over the algebraic closure, split the quadric using u=z+sqrt(c)w, v=z−sqrt(c)w, giving xy=uv. The Segre parametrization converts the cubic to (s_1³+s_1 s_0²)(t_1³+t_1 t_0²)=kappa s_0³t_0³, a fiber product of f(z)=z³+z with kappa/f(z). In characteristic3, their branch values are {infinity} and {0}; otherwise the branch values of f are {infinity,±v_0}, v_0²=−4/27, and those of kappa/f are {0,±kappa/v_0}. These are disjoint iff (27kappa)²≠16. For generic t=1, (27·4)²−16=2^7·7·13; the t substitutions at p=7,13 prevent degeneracy and kappa is nonzero. Disjoint ramification implies the fiber-product divisor is smooth over the algebraic closure; positive intersection of effective (3,3) divisors gives geometric irreducibility. Adjunction yields g=4 and canonical embedding. The nonsplit smooth quadric excludes an F_q-trigonal ruling and hence degrees <=3; the displayed rational point together with Riemann–Roch on K−2P gives a basepoint-free map after removing base divisors of degree at most4. Thus the gonality is exactly4. Independent symbolic Segre and parameter checks, and rational affine/projective smoothness examples at p=3,5,7, corroborate but do not prove geometric smoothness for all q.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022/2025 paper gives bounds and raises a construction question for odd q rather than a constructive all-field theorem.",
+          "The 2020/2022 paper explicitly handles F_3 and F_4 with examples and the nonsplit-quadric criterion, not a single formula for arbitrary odd q."
+        ],
+        "reasoning": "The inspected broader curve-gonality methods supply necessary geometry but not the claimed universal explicit construction.",
+        "searches": [
+          "arxiv:2207.14307v2 Question1.3 and introduction",
+          "arxiv:2010.07992v2 Section5 Theorems5.1-5.8",
+          "genus 4 gonality 4 all odd finite fields smooth non-split quadric cubic"
+        ]
+      },
+      "checked_sources": [
+        "Faber–Grantham–Howe arxiv:2207.14307v2 full primary relevant sections",
+        "Faber–Grantham arxiv:2010.07992v2 PDF, introduction and genus-four section read",
+        "Resultary semantic search on universal odd-field genus-four tetragonal constructions",
+        "Git source RESULT.md and verify.py exact SHA"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The known geometric rule is: any smooth (2,3) complete intersection on a nonsplit quadric gives genus four and gonality at least four; with a rational point, gonality at most four.",
+          "Neither general rule constructs a cubic whose intersection is smooth simultaneously for every odd characteristic."
+        ],
+        "reasoning": "The explicit branch-locus-disjoint parameter and exceptional prime substitutions are a genuinely additional existence certificate, not an automatic consequence of old bounds.",
+        "searches": [
+          "arxiv:2207.14307v2 Introduction Question1.3",
+          "arxiv:2010.07992v2 Section5 p9 quadrics and curves over F3",
+          "Faber Grantham 2010.07992 Lemma5.1 as cited"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent descriptions are a smooth (3,3) curve on nonsplit quadric with a rational point, or an odd-characteristic genus-four F_q-gonality-four existence theorem.",
+          "Faber–Grantham–Howe pose this odd-field construction as a strategy, not a uniform exhibited cubic."
+        ],
+        "reasoning": "The proposed uniform F and branch-locus proof supply the missing existence input; the known quadric criterion is openly used as background.",
+        "searches": [
+          "Resultary: finite field genus four gonality four explicit smooth cubic nonsplit quadric every odd prime power",
+          "Faber Grantham Howe 2022 maximum gonality Question1.3",
+          "arxiv:2010.07992 genus four nonsplit canonical quadric cubic"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Faber–Grantham Table2 enumerates small fields q=3 and 4, while the new formula works over all odd prime powers.",
+          "Returned Resultary records concerned other finite-field quartics and different gonality objects."
+        ],
+        "reasoning": "A finite table for particular q cannot imply a uniform all-characteristic smooth curve equation. Absence of a matching table is not proof of priority.",
+        "searches": [
+          "Resultary: finite field genus four gonality four explicit smooth cubic nonsplit quadric every odd prime power",
+          "arxiv:2010.07992v2 Table2 N_q(4,4) for q<=4",
+          "manypoints.org small finite field tables and genus4 gonality"
+        ]
+      },
+      "rationale": "Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.",
+      "residual_risks": [
+        "Unindexed later construction may already give odd-field genus-four gonality-four curves, potentially by different equations.",
+        "The proof gives existence, not all isomorphism types, point-count optimization, characteristic two or genus other than four.",
+        "Finite sample smoothness tests only exclude F_p rational singularities; the universal smoothness conclusion is justified separately via branch loci."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "QUESTION_AND_HEURISTIC_NOT_UNIFORM_CUBIC",
+          "evidence": [
+            "Question1.3",
+            "suggested nonsplit quadric plus smooth cubic without all-q explicit F"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2207.14307v2",
+          "material_read": "Introduction and Question1.3, odd-field nonsplit-quadric paragraph, relevant genus4 discussion",
+          "method": "read mathematical HTML statements and related argument",
+          "title": "On the Maximum Gonality of a Curve over a Finite Field",
+          "trigger": "directly asks the universal odd-field genus-four existence question"
+        },
+        {
+          "assessment": "PRIOR_SPECIAL_CASE_GEOMETRIC_CRITERION; no all-odd-q explicit F in read relevant theorem material",
+          "evidence": [
+            "Table2 fixed q=3,4",
+            "page9 smooth nonsplit quadric cubic criterion",
+            "Theorem5.2 explicit F3 example"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2010.07992",
+          "material_read": "complete Introduction and genus-four Section5 especially Theorem5.2 and quadric criterion; table2; relevant genus4 proof lines",
+          "method": "read 19-page primary PDF via text and inspected full-page screenshot of p9 and introductory page",
+          "title": "Ternary and Quaternary Curves of Small Fixed Genus and Gonality with Many Rational Points",
+          "trigger": "same genus-four nonsplit-quadric canonical geometry and small-field existence results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a uniform constructive answer to a precise genus-four odd-field existence problem, supplying explicit equations and a characteristic-complete smoothness proof rather than relying on finite field enumerations or a heuristic nonsplit-quadric strategy.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each odd q, choose nonsquare c∈F_q and t=2 in characteristic7, t=3 in characteristic13, t=1 otherwise; set kappa=(t^3+t)^2. The two forms Q=xy−z²+cw² and F=y³+x²y+2y(z²+cw²)−kappa x³ intersect in a geometrically smooth, geometrically integral canonical genus-four curve over F_q with F_q-gonality exactly four. The point [1:t²:t:0] is F_q-rational.",
+  "limitations": [
+    "Unindexed later construction may already give odd-field genus-four gonality-four curves, potentially by different equations.",
+    "The proof gives existence, not all isomorphism types, point-count optimization, characteristic two or genus other than four.",
+    "Finite sample smoothness tests only exclude F_p rational singularities; the universal smoothness conclusion is justified separately via branch loci."
+  ],
+  "schema_version": 1
+}

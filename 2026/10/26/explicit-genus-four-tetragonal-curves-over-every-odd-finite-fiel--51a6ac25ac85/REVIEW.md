@@ -1,15 +1,21 @@
-# Scientific review: explicit tetragonal genus-four curves
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed existence is proved for **every** odd prime power, with arbitrary nonsquare \(c\) and a characteristic-dependent \(\kappa\) lying in the prime subfield. On the split quadric, the cubic becomes the bidegree-\((3,3)\) curve \(f(s)f(t)=\kappa\) for \(f(r)=r^3+r\). Its two degree-three maps to the common target have disjoint branch loci: in characteristic three these are \(\{\infty\}\) and \(\{0\}\), and otherwise their intersection would require \((27\kappa)^2=16\). The three explicit choices of \(t\) exclude that equation in every odd characteristic. Smoothness, geometric integrality, genus four, the rational point, and the exact base-field gonality then follow from adjunction, canonical-quadric geometry, and Riemann–Roch. Replayed `verify.py` returned `VERIFY_OK`, checking exact modular Jacobian-minor ideals at five representative primes. These computations cross-check, rather than substitute for, the universal proof.
+## correctness
 
-## Originality — PASS, subject to stated literature risk
-Faber–Grantham–Howe, arXiv:2207.14307, Introduction, Question 1.3, explicitly propose that a smooth cubic intersection with a nonsplit quadric should work at genus four for odd \(q\), but give no cubic uniform in all such fields. Faber–Grantham, arXiv:2010.07992, supply the established canonical-quadric/gonality background. The new result constructs one cubic for **each** odd field and verifies geometric smoothness universally by disjoint branching. Semantic research-record queries, historical claim comparisons, and targeted public literature searches did not identify a theorem already implying this uniform construction. In particular, a prior characteristic-two canonical-quadric enumeration is not a genus-four existence theorem over all odd fields. The original supporting paper's full text could not be inspected independently; an unindexed later construction or a stronger general existence theorem remains possible. Nonappearance in search is not a proof of absolute novelty.
+PASS
 
-## Mathematical value — PASS
-Question 1.3 is a natural finite-field existence problem in gonality. The new result supplies a uniform, transparent algebraic construction and closes the entire odd-characteristic genus-four case proposed explicitly in the motivating paper, rather than computing another isolated field or making a routine parameter substitution. Smoothness in the wild characteristic-three case and in the two exceptional residue characteristics is proved as part of the same theorem. The result is not presented as a classification and makes no claim about characteristic two or other genera.
+Over the algebraic closure, split the quadric using u=z+sqrt(c)w, v=z−sqrt(c)w, giving xy=uv. The Segre parametrization converts the cubic to (s_1³+s_1 s_0²)(t_1³+t_1 t_0²)=kappa s_0³t_0³, a fiber product of f(z)=z³+z with kappa/f(z). In characteristic3, their branch values are {infinity} and {0}; otherwise the branch values of f are {infinity,±v_0}, v_0²=−4/27, and those of kappa/f are {0,±kappa/v_0}. These are disjoint iff (27kappa)²≠16. For generic t=1, (27·4)²−16=2^7·7·13; the t substitutions at p=7,13 prevent degeneracy and kappa is nonzero. Disjoint ramification implies the fiber-product divisor is smooth over the algebraic closure; positive intersection of effective (3,3) divisors gives geometric irreducibility. Adjunction yields g=4 and canonical embedding. The nonsplit smooth quadric excludes an F_q-trigonal ruling and hence degrees <=3; the displayed rational point together with Riemann–Roch on K−2P gives a basepoint-free map after removing base divisors of degree at most4. Thus the gonality is exactly4. Independent symbolic Segre and parameter checks, and rational affine/projective smoothness examples at p=3,5,7, corroborate but do not prove geometric smoothness for all q.
 
-## Sources and boundaries
-Sources: Faber–Grantham–Howe, *On the Maximum Gonality of a Curve over a Finite Field*, arXiv:2207.14307 (first posted 2022-07-28), Introduction, Question 1.3 and Theorem 1.1; Faber–Grantham, *Ternary and Quaternary Curves of Small Fixed Genus and Gonality with Many Rational Points*, arXiv:2010.07992 (first posted 2020-10-15), as cited for Lemma 5.1 in the former source. Computations require SymPy, but the mathematical proof is self-contained apart from standard genus-four canonical-quadric theory, the fiber-product smoothness criterion, and Riemann–Roch.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared precise theorems against their implication directions and alternate formulations using inspected primary literature and Resultary; no covering statement identified; residual priority risks remain and absence of a match is not a novelty proof.
+
+## value
+
+PASS
+
+This is a uniform constructive answer to a precise genus-four odd-field existence problem, supplying explicit equations and a characteristic-complete smoothness proof rather than relying on finite field enumerations or a heuristic nonsplit-quadric strategy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
