@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Two independent induced-cycle predicates agree on all 4,096 subsets; the face vector is \((12,66,200,345,300,60)\). The verifier checks a 472-pair augmented discrete-Morse matching on all 984 faces and all 3,984 directed incidences; only forty dimension-four faces remain unmatched. Unpairing the empty face and one vertex yields exactly one critical point and forty critical four-cells, establishing the integral homotopy type, not just ranks. Full group generation, a separate automorphism-group upper bound and signed simplicial Lefschetz calculations verify all 120 character values; exact rational character inner products give the decomposition. Modular boundary ranks are independent corroboration, not a replacement for the integral certificate.
+PASS
 
-## Originality — PASS with specific residual risk
+PASS: For the 12-vertex 30-edge five-regular icosahedral graph, independent enumeration of 4096 vertex subsets yields 984 forest faces including empty, by cardinality (1,12,66,200,345,300,60). Independent vertex-toggle matching has exactly 472 pairs and 40 critical four-simplices (with empty matched to a vertex); the entire 3984-arrow Hasse orientation topologically sorts, hence Forman gives a point plus 40 four-cells, integrally ∨40S4. Independently enumerated all 120 graph automorphisms by graph isomorphism (A5×C2), and computed signed fixed-face Lefschetz values by rotation classes (order1:40, 2:-4, 3:1, 5:0) and antipode coset (-10,2,-1,0), as stated. Rational A5 character table gives the even V4+V5+V6 (15 dimensions) and odd 2V4+V5+2V6 (25 dimensions), rotation invariants zero.
 
-The complete accessible text of Taylan's 2015 devoid-complex article introduces the general concept and matching methods, but its named graph-family results concern path-pattern avoidance. Carnero Bravo's later full text concerns the same last-stage forest complex but calculates paths, cycles, double stars, cactus graphs and certain graph products; its statements do not yield the icosahedral result. Indexed searches of the exact graph/complex, its aliases, stronger families, and neighboring icosahedral complexes identified no equivalent or dominating claim. This does not establish global uniqueness; unindexed or uninspected prior work remains a risk. Nearby neighborhood, matching, cut and Rips results have different face predicates and no known implication to this result.
+## originality
 
-## Value — PASS
+PASS
 
-The last stage of the graph forest filtration is a canonical topological invariant of feedback-vertex-set structure. The icosahedron is a natural high-symmetry polyhedral graph outside path/cactus classifications; its nonpure five-dimensional complex nonetheless has the complete integral homotopy type of forty four-spheres. The further explicit full-group rational homology module, including the fifteen/twenty-five antipodal split and absence of rotation-invariant classes, supplies structural information absent from Betti counts. The result is an exact, reproducible classification of a canonical case; no wider theorem or downstream application is asserted.
+PASS, best of knowledge: Carnero Bravo and Taylan supply general induced-forest/devoid definitions and selected graph families, but not the icosahedral graph. Resultary Icos graph neighborhood, Čech, independence, Rips or cut character results use other complex predicates; a rational module for those cannot determine the forest homology action. Historical priority of exact icosahedral calculation remains subject to unindexed preexisting computations.
 
-## Closest sources and limitations
+## value
 
-D. Taylan, arXiv:1501.06754 (2015, full text inspected); A. Carnero Bravo, arXiv:2307.13271 (2023, full text inspected). The integral homotopy result is nonequivariant; the action is computed over \(\mathbb Q\). Residual originality uncertainty concerns potentially unindexed or inaccessible equivalent calculations. The finite certificate has been replayed, but no independent mathematical audit has occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: icosahedral symmetry makes this a canonical finite test case for induced forest complexes. A pure 4-dimensional sphere-wedge homotopy and complete A5×C2 module (including the rational six-dimensional Galois-paired irrep and antipodal eigenspace split) are motivated nontrivial structural facts, not a mere small arbitrary graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
