@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The proof specifies the crosspolytope and volume-averaged first centroid body; a Gamma–Dirichlet representation correctly yields a Laplace characteristic-product formula with normalization \(d+1\). Strict Karamata comparison under a pointwise logarithmic concavity gives strict Schur order. Fourier absolute-moment integration and the beta integral give both exact radius expressions. Supporting-plane and Euclidean contact arguments classify the exact contacts and both unique centers. The gamma recurrence verifies dimensional monotonicity. Strong concavity supplies a valid global stability lower bound; Taylor expansion and beta integration yield the exact local quadratic term. The reproducible checker corroborates finite cases, including direct uniform sampling, but is not relied on for the infinite conclusion.
+
+## Originality — PASS (historical priority provisional)
+The most relevant primary sources were compared by the objects and implications, not titles alone. Haddad's general centroid-body/random-simplex framework does not state the specialized directional majorization of a volume-uniform crosspolytope. König's section-area extremal problem involves a different functional; its central-section product integral is related but does not yield a first absolute moment with strict squared-direction ordering or full radius/contact classification by its stated theorems. Ambrus concerns Gaussian maxima for orthogonal crosspolytopes, Pei–Wang general affine centroid inequalities, and Szarek–Wolff Euclidean radii of sections of the original \(\ell_1\) ball. No statement covering the full new theorem was identified in the inspected primary literature or mathematical-record comparisons. A broader unindexed Fourier or majorization theorem could implicitly cover the result; this residual priority risk remains.
+
+## Mathematical value — PASS
+The support function of a standard stochastic-geometric transform is a natural object. The result identifies its exact Euclidean distortion and the complete (not merely one extremizing example) inner/outer ball contact sets in every dimension; it establishes a strict majorization law between all directions and quantifies global and locally exact stability. The dimension-dependent distortion converges monotonically to a sharp, explicit constant \(2/\sqrt\pi\). These provide usable, scale-explicit geometry of a canonical high-dimensional zonoid, beyond a single test value or a table recomputation.
+
+## Limitations and closest literature
+The proof is restricted to the regular \(\ell_1\) unit ball and first absolute moment. The global stability coefficient is not asserted to be best possible. Classical central-section and general centroid-body inequalities may be related but have distinct conclusion types. Source comparison included Haddad (arXiv:1904.10427), König (arXiv:2002.10743), Ambrus (arXiv:1208.5923), Pei–Wang (DOI:10.1186/s13660-015-0812-3), and Szarek–Wolff (arXiv:2410.15118). Independent mathematical or historical review remains outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
