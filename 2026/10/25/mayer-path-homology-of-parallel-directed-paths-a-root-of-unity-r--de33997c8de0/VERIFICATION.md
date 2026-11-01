@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-The proof is self-contained in RESULT.md. The executable `verify.py` is Python 3 standard-library code. It constructs every directed allowed path for each finite configuration, computes the forbidden-face matrix exactly over a suitable prime field with an element of exact multiplicative order \(N\), then calculates its invariant two-chain kernel and the ranks of the first boundary, second boundary, and composite second differential. It also exhaustively checks that no invariant allowed paths of length three or more survive in each sample and compares all homology dimensions with the closed formulas.
+## correctness
 
-The execution covered 2,688 graph/order configurations: \(r=2,3,4\), arm lengths in \(\{2,3,4,5\}\), and \(N\in\{3,4,5,6,7,8,10,12\}\). Cases with two arms are controls only. The output ends with `EXACT_MODULAR_CHECK_OK`. The checker uses finite characteristic and finite parameter bounds; the algebraic proof covers arbitrary complex primitive roots, infinitely many arm lengths, and every \(N\ge3\). No independent scientific audit or external certification has been performed.
+PASS
+
+For a directed theta with r≥3 disjoint arms, Ω2 consists of differences among length-two arm paths (dimension h), Ω≥3=0 since each long path has a unique forbidden first-internal deletion. The weighted edge incidence has rank V−δ, while d and d² inject Ω2 because ξ(1+ξ)≠0 for primitive N≥3. Rank-nullity yields all stated H_d^{N,q}, including N=3 boundary cases. Independently checked 36 small finite-field rank configurations; no extrapolation from finite cases.
+
+## originality
+
+PASS
+
+Explicit all-N,q,degree dimension formula for nontransitively layered, internally-disjoint directed two-terminal path unions; inspected canonical Mayer source only defines machinery and local generators, while published complete-layer theorem has different hypotheses.
+
+## value
+
+PASS
+
+A complete all-order, all-q homology table for a canonical series–parallel directed network identifies arithmetic resonance in arm lengths and a second independent mechanism from length-two parallel arms; this supplies useful concrete test objects for the new Mayer homology theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

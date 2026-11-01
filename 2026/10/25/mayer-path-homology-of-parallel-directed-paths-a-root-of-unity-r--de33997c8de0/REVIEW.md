@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is a directed multi-theta with \(r\ge3\) internally disjoint directed arms of lengths at least two, over \(\mathbb C\) with a primitive \(N\)-th root, \(N\ge3\). All allowed high paths have private forbidden faces under the weighted boundary, establishing the vanishing of invariant chains above degree two. All surviving two-chains are differences of complete two-edge arms, and both relevant boundary maps are injective, with rank \(h\). The weighted edge-incidence left kernel is rank one if and only if every arm length is congruent modulo the order of \(-\xi\). Rank-nullity and the exact Mayer quotient give the displayed dimensions for every \(q\). Finite modular tests verified the complete formulas in 2,688 configurations; they do not substitute for the general argument.
+PASS
 
-## Originality — PASS, with residual priority risk
+For a directed theta with r≥3 disjoint arms, Ω2 consists of differences among length-two arm paths (dimension h), Ω≥3=0 since each long path has a unique forbidden first-internal deletion. The weighted edge incidence has rank V−δ, while d and d² inject Ω2 because ξ(1+ξ)≠0 for primitive N≥3. Rank-nullity yields all stated H_d^{N,q}, including N=3 boundary cases. Independently checked 36 small finite-field rank configurations; no extrapolation from finite cases.
 
-Karaguler--Wei (arXiv:2605.16525v1, Sections 3.1–3.2, especially Examples and theorems on low-degree generator types) establish the homology framework and general generator classifications, but do not give the infinite multiarm theta table of homology dimensions, its all-\(q\) formula, or the sharp congruence correction combined with parallel short arms. The closest located mathematical-record result studies complete transitively layered digraphs; its hypotheses exclude theta graphs with private interior vertices and missing cross-layer arcs. Other nearby records concern ordinary, not Mayer, path homology. Recorded comparisons include equivalent wording, parameter-dominating coverage, tables, and logical implication. Residual risk remains that an unindexed source or a more specialized consequence of the published general generator descriptions determines some cases.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a complete infinite-family computation for a new directed homology theory on the canonical two-terminal branching network. The calculation separates a spectral arithmetic transition from a genuinely higher-chain phenomenon, and fixes the full \((N,q,d)\) homology profile, not an arbitrary isolated case. The result is a tractable exact benchmark for studying sensitivity of the theory to arm length and its nilpotency parameter. No claim of a new general homology theory, classification for all digraphs, or independent review is made.
+Explicit all-N,q,degree dimension formula for nontransitively layered, internally-disjoint directed two-terminal path unions; inspected canonical Mayer source only defines machinery and local generators, while published complete-layer theorem has different hypotheses.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete all-order, all-q homology table for a canonical series–parallel directed network identifies arithmetic resonance in arm lengths and a second independent mechanism from length-two parallel arms; this supplies useful concrete test objects for the new Mayer homology theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
