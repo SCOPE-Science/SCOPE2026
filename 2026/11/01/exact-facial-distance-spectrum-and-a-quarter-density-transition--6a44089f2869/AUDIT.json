@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "For each coordinate face, the stabilizer preserves both the face and the excluded-vertex convex hull; simultaneous averaging reduces distance to a positive-definite two-variable quadratic. Every outsider has a unit total fixed-coordinate violation, and explicit single swaps attain both boundary rays, proving equality in the relaxed minimization. The exact rational optimum is \\(n/[n(a+b)-(a-b)^2]\\). Vertex faces are treated separately and cannot dominate for \\(n\\ge3\\). One discrete increment and one integer concave parabola prove the global formula and boundary cases. The standalone verifier passed 49,100 finite checks, and numerical independent QPs matched 41 instances; infinity is proved analytically, not inferred from tests.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Deza–Martínez-Rubio–Peña–Wirth arXiv:2609.32440 gives a universal sharp ratio attained by regular simplices plus an exact Birkhoff value.",
+        "Peña–Wirth arXiv:2608.28971 gives lower bounds from facet-exposing directions, which do not specify the exact \\(k\\)-dependent hypersimplex value."
+      ],
+      "reasoning": "A universal upper bound on the ratio, even if sharp for some other polytope, cannot force the exact squared facial distance \\(n/D_{n,k}\\), nor can a uniform lower bound imply equality or its minimizing face taxonomy. No dominating all-matroid facial-distance formula was located.",
+      "searches": [
+        "arXiv:2609.32440 Theorem 1.1 and Section 3",
+        "arXiv:2608.28971 Theorem 4.1 and Examples 6.1–6.7",
+        "\"facial distance\" \"uniform matroid\" convex geometry"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.28971",
+      "https://arxiv.org/html/2609.32440",
+      "https://arxiv.org/abs/2607.29555",
+      "https://mathscinet.ams.org/msc/msc2020.html?t=52B45"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Peña–Wirth: simplex-like inequality, not matching equality in all ranks.",
+        "Deza et al.: regular-simplex optimality among polytopes for the ratio and exact Birkhoff value.",
+        "Zhao arXiv:2607.29555: a six-vertex pyramidal-width nonmonotonicity example, not a uniform-matroid computation."
+      ],
+      "reasoning": "The standard simplex case \\(k=1\\) is contained in previously known results. For \\(2\\le k\\le n-2\\), none of the compared statements implies the exact local metric or the change in optimizing face dimension at \\(n\u0007pprox4\\min(k,n-k)\\).",
+      "searches": [
+        "arXiv:2608.28971 Example 6.7",
+        "arXiv:2609.32440 Theorem 1.1, Proposition 3.1",
+        "arXiv:2607.29555 abstract and geometric counterexample"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Peña–Wirth arXiv:2608.28971 discusses generic simplex-like bounds and exact simplex/cross-polytope/cube examples, not this uniform-matroid facewise separation.",
+        "Targeted literature searches surfaced facial-distance papers but no full all-rank hypersimplex value."
+      ],
+      "reasoning": "The equivalent quantity is pyramidal width; hypotheses require the ambient Euclidean metric and a uniform-matroid base polytope. A general simplex-like lower bound or a statement about simplex endpoints is weaker and does not determine the rank-dependent optimizing face types.",
+      "searches": [
+        "\"facial distance\" \"hypersimplex\" exact",
+        "\"pyramidal width\" \"hypersimplex\" formula",
+        "\"uniform matroid\" \"pyramidal width\"",
+        "\"Johnson polytope\" \"facial distance\"",
+        "arXiv:2608.28971 sections 2,4,6"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest semantic math records involved hypersimplex graph metrics, matroid-base-polytope inradii and circumspheres, and simplex face-angle calculations, not face-to-complement distances.",
+        "No exact indexed table or matching claimed formula surfaced in the targeted searches."
+      ],
+      "reasoning": "A negative search by itself does not prove historical novelty. What matters is that the closest retrieved exact geometric invariants are not equivalent to the present minimization over each face and the convex hull of excluded vertices.",
+      "searches": [
+        "\"hypersimplex\" \"facial distance\"",
+        "\"hypersimplex\" \"pyramidal width\"",
+        "\"uniform matroid base polytope\" \"face distance\"",
+        "exact facial distance hypersimplex uniform matroid base polytope sharp formula"
+      ]
+    },
+    "rationale": "No equivalent or stronger hypersimplex facial-distance evaluation was found in source/alias searches, inspected primary texts, local claims, or other mathematical records. The 2026 facial-distance calculus gives only general bounds on simplex-like polytopes, while the subsequent universal bound and Birkhoff exact calculation do not imply the exact hypersimplex facewise or quarter-density formulas. The regular-simplex endpoint is expressly known and credited. Priority risk remains for unindexed uniform-matroid optimization literature.",
+    "residual_risks": [
+      "Equivalent formulas may exist in not-indexed literature on base-polytope condition numbers, Hoffman constants or Johnson polytopes.",
+      "Only abstract/secondary details of the Zhao comparison were available; its narrow example gives no plausible all-hypersimplex coverage.",
+      "Mathematical priority has not been independently confirmed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "GENERAL_BOUNDS_NOT_EXACT_HYPERSIMPLEX",
+        "evidence": "Example 6.7 provides generic simplex-like lower bounds; it does not compute \\(\\delta(F)\\) for a uniform-matroid base polytope.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.28971",
+        "material_read": "Accessible full parsed manuscript: definitions, product and face-exposure bounds, Section 6 examples including simplex, cross-polytope, cube, Birkhoff, and simplex-like 0-1 polytopes; Section 7 scope.",
+        "method": "Primary arXiv text inspection and term searches for hypersimplex, uniform matroid and pyramidal width",
+        "title": "Calculus of the Facial Distance",
+        "trigger": "Earliest motivating calculus and possible broad simplex-like coverage"
+      },
+      {
+        "assessment": "UNIVERSAL_BOUND_AND_BIRKHOFF_NOT_COVERING",
+        "evidence": "Theorem 1.1 bounds \\(\\Phi(P)/\\operatorname{diam}(P)\\) with equality only for regular simplices; Proposition 3.1 gives Birkhoff-polytope distance, not the claimed exact hypersimplex rank formula.",
+        "identifier_or_url": "https://arxiv.org/html/2609.32440",
+        "material_read": "Accessible primary arXiv full-HTML main theorem and argument, the section outline and the Birkhoff proof setup through the projected-matrix bound.",
+        "method": "HTML theorem/proof and exact-application examination",
+        "title": "Facial distance and diameter",
+        "trigger": "Closest exact facial-distance theorem and potential dominating all-polytope result"
+      },
+      {
+        "assessment": "DISTINCT_FINITE_CONFIGURATION",
+        "evidence": "The scope is six specifically constructed three-dimensional points, not all hypersimplices.",
+        "identifier_or_url": "https://arxiv.org/abs/2607.29555",
+        "material_read": "Abstract and available mathematical description of the six-point counterexample and finite rational proof approach; full primary text not accessible in this run.",
+        "method": "Primary abstract plus secondary account, with source limitation recorded",
+        "title": "Pyramidal Width Can Increase Under Vertex Insertion",
+        "trigger": "Independent contemporary face-distance counterexample"
+      },
+      {
+        "assessment": "52B12_APPLICABLE",
+        "evidence": "52B12 is special polytopes, including linear-programming polytopes.",
+        "identifier_or_url": "https://mathscinet.ams.org/msc/msc2020.html?t=52B45",
+        "material_read": "52B branch of the official classification",
+        "method": "Classification text inspection",
+        "title": "MSC2020 Polytopes and polyhedra classification",
+        "trigger": "Verify geometry ownership"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a44089f-2869-47c3-ba74-1add5c68bb55",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Hypersimplices are all-rank uniform-matroid base polytopes; facial distance/pyramidal width controls canonical convex-polytope conditioning. An exact local spectrum and all-rank global value replace only general bounds, with a sharp \\(n\u0007pprox4q\\) transition in dimension of extremizing faces. It supplies a natural exact benchmark for Frank-Wolfe geometry without claiming a new algorithm theorem.",
+    "status": "PASS"
+  }
+}
