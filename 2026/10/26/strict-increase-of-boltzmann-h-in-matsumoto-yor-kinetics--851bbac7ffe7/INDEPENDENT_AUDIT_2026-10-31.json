@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:54:37.159837Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/strict-increase-of-boltzmann-h-in-matsumoto-yor-kinetics--851bbac7ffe7/RESULT.md",
+        "2026/10/26/strict-increase-of-boltzmann-h-in-matsumoto-yor-kinetics--851bbac7ffe7/verify_kinetic_entropy.py"
+      ],
+      "rationale": "PASS: Direct differentiation verifies ψ(x,y)=(1/(x+y),y/[x(x+y)]) is involutive with signed determinant -1/[x²(x+y)²], so the gain-map Jacobian is its absolute j=1/[x²(x+y)²]. The energy x+y+1/x and ratio y/x invariants and monomial Jacobian show GIG(p,c)⊗Gamma(p,c) product q is exactly invariant under density pushforward K. The loss/gain marginal equations yield F'=∫(Kg-g)log(g/q)=-KL(g||Kg) and H'=F'-E_g log j. At perturbed product gε=q(1+εh(x)), h(x)=x/(1+x)-E_qX[x/(1+x)] is bounded smooth increasing; m(x)=E_qY log j(x,Y) is strictly decreasing since m'=-2/x-2E(1/(x+Y))<0. Thus B=-Cov_qX(h,m)>0. The KL defect ≤4ε²/(1-ε); for sufficiently small ε>0, H'(0)=εB-KL>0 for every p,c>0. Independent symbolic involution, Jacobian, invariance checks verify the algebra; sign proof is analytic, not numerical. Relative-entropy identity is not a convergence-rate theorem.",
+      "residual_risks": [
+        "No global convergence rate or classification of all stationary kinetic states is proved."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General KL contractivity for invariant collision measures proves the relative entropy half; it does not automatically assert a positive derivative of unweighted H or the explicit smooth family for every p,c."
+        ],
+        "reasoning": "The primary paper's actual Section 3.3 Equation (10) has now been inspected in complete arXiv HTML: it explicitly assigns the nonpositive symmetric KL production to unweighted Lebesgue H. This is false for the specified non-volume-preserving collision pushforward; the omitted -E_g log j is exactly identified. Relative-entropy dissipation is standard and separated from the new strict counterexample.",
+        "searches": [
+          "Matsumoto Yor collision kinetic H entropy fails Jacobian term GIG Gamma relative entropy",
+          "https://arxiv.org/abs/2610.18892",
+          "https://doi.org/10.1214/aop/1019160339"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.18892",
+        "https://doi.org/10.1214/aop/1019160339"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Itoh 2026 §3.2 Eqs (7)-(8) are the same marginal dynamics, while §3.3 Eq (10) asserts unweighted H'=-1/2∫(Kg-g)log(Kg/g)≤0. The true derivative has an extra -E_g log j, and the smooth perturbation makes it positive. Letac-Wesolowski's GIG/Gamma invariance is prior."
+        ],
+        "reasoning": "The covariance sign of h(X) with the decreasing logarithmic Jacobian expectation gives a strict perturbative obstruction beyond the classical distributional identity.",
+        "searches": [
+          "Matsumoto Yor collision kinetic H entropy fails Jacobian term GIG Gamma relative entropy",
+          "https://arxiv.org/abs/2610.18892",
+          "https://doi.org/10.1214/aop/1019160339"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The gain operator K has Jacobian j nonconstant; absolute entropy differs from relative entropy by ∫g log q. H' and F' differ by -E_g log j, which does not vanish for arbitrary g."
+        ],
+        "reasoning": "Compared Boltzmann H with KL relative to equilibrium and invariant-measure density conventions; a generic H-theorem for Markov collision operators need not apply to unweighted Lebesgue entropy under a non-volume-preserving map.",
+        "searches": [
+          "Matsumoto Yor collision kinetic H entropy fails Jacobian term GIG Gamma relative entropy",
+          "https://arxiv.org/abs/2610.18892",
+          "https://doi.org/10.1214/aop/1019160339"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "There is no discrete computational catalogue relevant to a universal p,c entropy-sign claim; the appropriate prior object is an analytic collision-generator entropy identity."
+        ],
+        "reasoning": "Checked explicit equations/identities and source-model literature, not an arbitrary numeric table; quadrature values are corroboration, not originality evidence.",
+        "searches": [
+          "Matsumoto Yor collision kinetic H entropy fails Jacobian term GIG Gamma relative entropy",
+          "https://arxiv.org/abs/2610.18892",
+          "https://doi.org/10.1214/aop/1019160339"
+        ]
+      },
+      "rationale": "PASS, qualified: The October 9 2026 same mathematical model Itoh arXiv primary manuscript was read in complete HTML, including its equation (7)-(8) identical coupled kinetic gain-minus-loss model, and Section 3.3 equation (10) explicitly defines unweighted Lebesgue H=∫fX log fX+∫fY log fY and asserts H' is nonpositive symmetrized production. The present proof identifies the omitted nonzero logarithmic-Jacobian expectation and constructs positive H'(0) arbitrarily near every balanced equilibrium. This precisely contradicts Eq (10) for its stated H (not a guessed alternative measure), while explaining why the corresponding relative entropy has its claimed dissipation. Itoh's conic invariant measure and the GIG/Gamma law are prior mathematics. Standard data-processing alone does not exhibit the positive-H counterexample. A future corrigendum/earlier refutation remains a priority risk.",
+      "residual_risks": [
+        "The identical-model Itoh October 2026 manuscript is fully accessible as arXiv HTML and the unweighted Eq (10) was checked directly. A later corrected version or earlier unlocated refutation remains a historical-priority risk; its invariant conic measure is explicitly distinct from the asserted Lebesgue H.",
+        "General invariant Markov transport entropy theory covers relative-entropy monotonicity; only the explicit unweighted near-equilibrium positive-sign counterexample and Jacobian attribution are assessed as additional.",
+        "No global convergence rate or classification of all stationary kinetic states is proved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong self-review resolved from full text: paper contains exactly the contradicted unweighted Eq (10) but not its correction or smooth strict positive-H example in the sections read; existing kinetic model and equilibrium distribution remain acknowledged prior",
+          "evidence": [
+            "Full primary §3.3 defines H=∫fX ln fX+∫fY ln fY with respect to dx,dy and asserts H'=-1/2∫(Kg-g)ln(Kg/g)≤0 (Equation 10); §2 Eq 5 uses a distinct invariant conic measure; §3.2 equations 7-8 agree with model"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.18892",
+          "material_read": "Complete accessible arXiv HTML manuscript, notably §§2-5: Eq (5) conic invariant measure, Eqs (7)-(8) full marginal kinetic equations, §3.3 Eq (10) exact unweighted H definition and false symmetrized entropy identity, §4 GIG/Gamma equilibrium derivation",
+          "method": "Full original arXiv HTML primary text through arxiv.org/abs/2610.18892 in web view, with §3.3 independently examined; an earlier separate Oxford attempt had returned vpn_disconnected, but the lawful open HTML subsequently resolved the full-text access gap",
+          "title": "Two-Species Boltzmann-Kac Kinetics with Matsumoto-Yor Nonlinear Collisions: Conserved Energy and Conic Equilibria",
+          "trigger": "Exactly same collision model and claimed kinetic H theorem"
+        },
+        {
+          "assessment": "Prior for Matsumoto-Yor independence/invariant product; no model-specific kinetic H sign counterexample established from material read",
+          "evidence": [
+            "GIG/Gamma distributional independence under involutive transform"
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/aop/1019160339",
+          "material_read": "Publication abstract and bibliographic result characterization, not the complete 2000 article text",
+          "method": "DOI/publication metadata",
+          "title": "An Independence Property for the Product of GIG and Gamma Laws",
+          "trigger": "Underlying equilibrium distribution transformation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.18892",
+        "https://doi.org/10.1214/aop/1019160339"
+      ],
+      "rationale": "PASS: A concrete, sign-definite counterexample to using unweighted entropy as a Lyapunov function for a named non-volume-preserving kinetic involution is mathematically and physically consequential. The exact corrective KL dissipation law identifies the appropriate stationary reference and Jacobian term, providing a reusable distinction between Lebesgue entropy and invariant-measure entropy.",
+      "residual_risks": [
+        "The identical-model Itoh October 2026 manuscript is fully accessible as arXiv HTML and the unweighted Eq (10) was checked directly. A later corrected version or earlier unlocated refutation remains a historical-priority risk; its invariant conic measure is explicitly distinct from the asserted Lebesgue H."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two-species Matsumoto-Yor involutive collision model with balanced GIG/Gamma equilibrium, ordinary unweighted Lebesgue Boltzmann H has positive initial derivative under smooth near-equilibrium product perturbations, while relative entropy to equilibrium has exact nonpositive -KL(g||Kg) dissipation.",
+  "limitations": [
+    "The identical-model Itoh October 2026 manuscript is fully accessible as arXiv HTML and the unweighted Eq (10) was checked directly. A later corrected version or earlier unlocated refutation remains a historical-priority risk; its invariant conic measure is explicitly distinct from the asserted Lebesgue H.",
+    "General invariant Markov transport entropy theory covers relative-entropy monotonicity; only the explicit unweighted near-equilibrium positive-sign counterexample and Jacobian attribution are assessed as additional.",
+    "No global convergence rate or classification of all stationary kinetic states is proved."
+  ],
+  "schema_version": 1
+}

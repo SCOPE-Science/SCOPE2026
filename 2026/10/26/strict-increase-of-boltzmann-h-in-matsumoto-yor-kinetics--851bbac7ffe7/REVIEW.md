@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The collision map is an explicit involution with Jacobian \(j=1/[x^2(x+y)^2]\). Its energy and monomial invariants establish the balanced stationary product directly. A change-of-variables proof yields the exact relative-entropy dissipation and the extra, sign-indefinite logarithmic-Jacobian expectation in the unweighted Boltzmann H derivative. A smooth bounded perturbation of the GIG marginal has strictly positive first-order unweighted production, while its KL dissipation is at most quadratic; the covariance monotonicity argument gives a strict positive coefficient for every \(p,c>0\). Symbolic and deterministic numerical checks corroborate the algebra and sample signs, but are not used as infinite proofs.
+PASS
 
-## Originality — PASS, with limitations
+PASS: Direct differentiation verifies ψ(x,y)=(1/(x+y),y/[x(x+y)]) is involutive with signed determinant -1/[x²(x+y)²], so the gain-map Jacobian is its absolute j=1/[x²(x+y)²]. The energy x+y+1/x and ratio y/x invariants and monomial Jacobian show GIG(p,c)⊗Gamma(p,c) product q is exactly invariant under density pushforward K. The loss/gain marginal equations yield F'=∫(Kg-g)log(g/q)=-KL(g||Kg) and H'=F'-E_g log j. At perturbed product gε=q(1+εh(x)), h(x)=x/(1+x)-E_qX[x/(1+x)] is bounded smooth increasing; m(x)=E_qY log j(x,Y) is strictly decreasing since m'=-2/x-2E(1/(x+Y))<0. Thus B=-Cov_qX(h,m)>0. The KL defect ≤4ε²/(1-ε); for sufficiently small ε>0, H'(0)=εB-KL>0 for every p,c>0. Independent symbolic involution, Jacobian, invariance checks verify the algebra; sign proof is analytic, not numerical. Relative-entropy identity is not a convergence-rate theorem.
 
-The closest source is Itoh (2026), arXiv:2610.18892v1, whose full text, especially §2 and §3.2–3.3, was read. It constructs the same operator and asserts nonincrease of the *unweighted* \(H\) using an expression that omits the nonconstant Jacobian contribution. The present claim supplies both the exact correction and a strict counterexample, not a rewording of its invariant measure. The Letac–Wesołowski independence theorem from 2000 precedes the source and is acknowledged. General KL contraction theory covers the abstract method; the model-specific sign violation is not stated in the inspected literature. A full-text read of the older Letac–Wesołowski article was not available, and independent priority assessment remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-A nonnegative entropy-production claim is a structural thermodynamic property, not a cosmetic algebraic detail. The smooth perturbations prove that the displayed \(H\)-theorem fails on an open perturbative side arbitrarily close to stationary states, even though the underlying collision equation conserves probability. Identifying the correct Lyapunov functional preserves the meaningful dissipation law for analysis and for any entropy-stable numerical discretization. This is motivated specifically by the new nonlinear kinetic model rather than by an arbitrary parameter choice.
+PASS, qualified: The October 9 2026 same mathematical model Itoh arXiv primary manuscript was read in complete HTML, including its equation (7)-(8) identical coupled kinetic gain-minus-loss model, and Section 3.3 equation (10) explicitly defines unweighted Lebesgue H=∫fX log fX+∫fY log fY and asserts H' is nonpositive symmetrized production. The present proof identifies the omitted nonzero logarithmic-Jacobian expectation and constructs positive H'(0) arbitrarily near every balanced equilibrium. This precisely contradicts Eq (10) for its stated H (not a guessed alternative measure), while explaining why the corresponding relative entropy has its claimed dissipation. Itoh's conic invariant measure and the GIG/Gamma law are prior mathematics. Standard data-processing alone does not exhibit the positive-H counterexample. A future corrigendum/earlier refutation remains a priority risk.
 
-## Remaining limits
+## value
 
-Only this two-species molecular-chaos model and its initial entropy production are addressed. No global equilibration rate or classification of every steady state is claimed. The corrected KL identity is an application of standard entropy methods; priority is claimed only for the explicit strict counterexample and model-specific correction. Independent validation has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: A concrete, sign-definite counterexample to using unweighted entropy as a Lyapunov function for a named non-volume-preserving kinetic involution is mathematically and physically consequential. The exact corrective KL dissipation law identifies the appropriate stationary reference and Jacobian term, providing a reusable distinction between Lebesgue entropy and invariant-measure entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
