@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The standalone `verify.py` runs using Python 3 with no third-party packages. It constructs the finite forbidden-pattern graph rather than reading a cached adjacency matrix, checks its exact component/edge list, and proves its integer characteristic-polynomial identities by arithmetic. The weighted identity is determined by 11 exact integer evaluations because each relevant polynomial coefficient has degree at most ten in the weight.
+# Independent mathematical audit
 
-For periods 1–14 the checker independently enumerates the cyclic binary sequences. To test whether a periodic sequence contains an antisquare of any forbidden order, the tester considers orders 2 through \(2n-1\) for period \(n\). Indeed, an antisquare of order \(m\ge n\) forces symbolwise complementation by shift \(m\) at all residue classes modulo \(n\); the order can then be replaced by a congruent value in \([n,2n-1]\). Direct periodic tests agree with the forbidden-pattern graph and its trace counts.
+## correctness
 
-Run: `python3 verify.py`. Expected final line begins `ANTISQUARE_GOOD_ZETA_PASS`.
+PASS
 
-This computational certificate proves the finite graph and determinant reductions used in the theorem. The reduction from unrestricted antisquare avoidance to the graph additionally uses the published minimal-antisquare and bi-infinite exceptional-word theorems, which are explicitly cited and inspected but are not independently reproved by code. The result has not received independent mathematical audit.
+The full primary antisquare classification implies the only configurations beyond the eight-pattern SFT are complement/shift translates of two nonperiodic heteroclinic sequences; they contribute neither periodic points nor invariant probability mass. Independent de Bruijn reconstruction gives 20 admissible five-block states, 28 edges, two closed complementary primitive strongly connected 10-state components. Each component has determinant (1+z³)(1−z−z³), yielding zeta squared and P_n=2S_n+6·1_{3|n}(−1)^(n/3). Symbol-weighted determinant t^4(t³+y)(t³−t²−y) and Perron pressure give two ergodic MME and densities δ=1/[ψ²(3ψ−2)] and 1−δ. Independently enumerated labeled cyclic words through period 11 matching trace counts; published exceptional classification, not the finite check, supports infinite reduction.
+
+## originality
+
+PASS
+
+The primary 2023 paper already determines the finite pattern reduction and supergolden growth rate. Its actual Section 7 does not state the two-ergodic-MME phase split, complete zeta, labeled periodic-point recurrence, or exact MME digit densities. These natural dynamical invariants survive; qualified risk of an unindexed automaton tabulation.
+
+## value
+
+PASS
+
+Exact zeta function and two complementary symbol-density-distinct maximal-entropy phases are canonical dynamical invariants of the previously studied natural antisquare-good shift. The exceptional nonperiodic component must be accounted for, and a growth rate alone does not give these properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
