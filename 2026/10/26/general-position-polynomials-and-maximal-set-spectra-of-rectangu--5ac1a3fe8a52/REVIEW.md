@@ -1,19 +1,21 @@
-# Review of the rook-graph general-position classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every pair of integers \(p,q\ge2\), the proof converts a general-position obstruction into a three-edge path in the incidence graph \(K_{p,q}\). A connected bipartite graph without such a path is a star. This establishes all quantifiers in the underlying structural equivalence. The labeled exponential formula distinguishes one-edge components from the two oriented families of larger stars and so avoids double counting. The maximal-set proof checks every possible isolated-vertex pattern and proves both necessity and sufficiency. The cardinality spectrum follows constructively from the possible number of spanning components, with the nonspanning cases contributing only sizes \(p\) and \(q\). An independent computational implementation of the geodesic condition examined 120,656 finite subsets, all agreeing with the structural and counting formulas. Exhaustion of small boards is evidence but is not substituted for the infinite proof.
+PASS
 
-## Originality — PASS, with specified residual risk
+Two distinct cells of a rook graph with different row and column have exactly two length-two geodesics, through the opposite corners of their 2×2 rectangle. Three selected cells are collinear on a geodesic iff the corresponding three bipartite incidence edges form a P4. A bipartite P4-free graph has every nonisolated component a star, proving a biconditional for every p,q≥2. Exponential-label component counting gives Ψ=p!q![x^py^q]exp(x e^{zy}+y e^{zx}−xyz); the subtraction removes double counting the single-edge component. Maximality forces either all row and column vertices covered, or isolates on only one shore with all nontrivial stars centered on the opposite shore with degree at least two and every opposite vertex covered; summing these mutually exclusive component families gives the claimed maximal enumerator. A spanning forest with k≥2 components has p+q−k edges; one-shore-isolated types yield exactly sizes p or q. Thus the support is precisely {p,q}∪{p+q−k:2≤k≤min(p,q)}. For p=2, Ψ=(1+2z)^q+qz² and maximal counts q at size2, 2^q at size q (combine if q=2). Independently checking every subset on 2x2, 2x5, 3x4, 3x5 and 4x4 boards matched all formulas, while the unbounded quantifier proof uses the structural star-forest decomposition.
 
-The source that established the general-position polynomial as an object, Iršič–Klavžar–Rus–Tuite (arXiv:2401.05696, first posted 2024-01-11), gives Cartesian-product calculations for path grids rather than the all-set bivariate EGF for products of complete graphs. Di Stefano–Klavžar–Krishnakumar–Tuite–Yero (arXiv:2306.09965, Theorem 5.3) establishes the already-known lower general-position number \(\min(p,q)\) of rook graphs, while the upper value \(p+q-2\) was also already known. Neither extremal statement implies the all-cardinality polynomial, the complete inclusion-maximal-set classification, its enumerator, or the explicit gap spectrum. The 2021 article on general position in Cartesian products was checked for a stronger all-size claim and does not supply it. Searches with the equivalent bipartite star-forest and three-edge-path formulations identified no covering indexed theorem. This is a best-knowledge bibliographic comparison, not a claim to exhaust all unindexed papers.
+## originality
 
-## Value — PASS
+PASS
 
-The complete cardinality distribution answers an enumerative question posed naturally by the 2024 graph-polynomial framework on a canonical family of two-factor Hamming graphs. Unlike previously known extremal numbers, the maximal-set EGF identifies every maximal configuration and yields the exact possible cardinalities. In particular, the family \(K_2\square K_q\) has maximal sets only of cardinalities \(2\) and \(q\), with exactly \(q\) and \(2^q\) such sets respectively. Thus it supplies a natural connected graph family with unbounded internal gaps in the maximal general-position spectrum. The two-variable star-forest method is reusable for refined incidence enumerators, although no further general theorem is asserted here.
+Best-knowledge scientific comparison: For p,q≥2, every general-position set of K_p □ K_q is exactly the edge set of a bipartite star forest in K_{p,q}; this yields a complete bivariate exponential generating formula for its all-size polynomial, a three-case classification of all inclusion-maximal sets, their enumerator and exact maximal-cardinality spectrum {p,q}∪{p+q−k:2≤k≤min(p,q)}. The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the establis
 
-## Relationship to literature and limitations
+## value
 
-Relevant open texts: arXiv:2401.05696 (2024, polynomial definition and Cartesian-product section), arXiv:2306.09965 (2023, Theorem 5.3), the 2021 *On General Position Sets in Cartesian Products*, and *Variety of General Position Problems in Graphs* (2024, other position variants). Prior minima and maxima are acknowledged, not presented as novelties. The proof does not address higher Cartesian powers or unimodality. Alternative published descriptions of bipartite star-forest enumeration could require a future priority update. Independent mathematical validation was not performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the established graph-polynomial research programme. Beyond previously known minimum and maximum cardinalities, the result specifies the actual extremizers and finds unbounded internal gaps in maximal spectra on K_2 □ K_q; the enumerator is useful and nontrivial, not a mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The standalone `verify_gp_rook.py` requires only the Python standard library. Run `python3 verify_gp_rook.py` in the directory containing the script. The expected deterministic standard output is supplied in `verification_output.txt`.
+## correctness
 
-For the nine boards \((2,2),(2,3),(2,4),(2,5),(2,7),(3,3),(3,4),(3,5),(4,4)\), the code enumerates each of the \(2^{pq}\) vertex subsets. It tests the original geodesic rule, a separately implemented bipartite-component criterion, inclusion-maximality under every possible single-vertex addition, and the exact two polynomial recurrences. These runs exhaustively cover 120,656 masks. Direct counts include the \(3\)-by-\(5\) polynomial coefficients \((1,15,105,335,495,303,15)\) and maximal-set coefficients \((0,0,0,5,0,213,15)\).
+PASS
 
-For \(2\le p\le8\) and \(p\le q\le12\), additional exact-integer computations test polynomial low coefficients, the thin-graph identities, all claimed maximal-cardinality supports, and the maximum-set multiplicity for rectangular boards with both sides at least three. The recurrence treats the component containing the smallest left vertex as isolated, a single edge, a larger left-centered star, or a larger right-centered star, and counts these disjoint cases directly.
+Two distinct cells of a rook graph with different row and column have exactly two length-two geodesics, through the opposite corners of their 2×2 rectangle. Three selected cells are collinear on a geodesic iff the corresponding three bipartite incidence edges form a P4. A bipartite P4-free graph has every nonisolated component a star, proving a biconditional for every p,q≥2. Exponential-label component counting gives Ψ=p!q![x^py^q]exp(x e^{zy}+y e^{zx}−xyz); the subtraction removes double counting the single-edge component. Maximality forces either all row and column vertices covered, or isolates on only one shore with all nontrivial stars centered on the opposite shore with degree at least two and every opposite vertex covered; summing these mutually exclusive component families gives the claimed maximal enumerator. A spanning forest with k≥2 components has p+q−k edges; one-shore-isolated types yield exactly sizes p or q. Thus the support is precisely {p,q}∪{p+q−k:2≤k≤min(p,q)}. For p=2, Ψ=(1+2z)^q+qz² and maximal counts q at size2, 2^q at size q (combine if q=2). Independently checking every subset on 2x2, 2x5, 3x4, 3x5 and 4x4 boards matched all formulas, while the unbounded quantifier proof uses the structural star-forest decomposition.
 
-These tests are finite. The proofs of the infinite results are the structural and component-counting arguments in `RESULT.md`, not extrapolations from computations. No outside proof assistant or independent expert audit was used.
+## originality
+
+PASS
+
+Best-knowledge scientific comparison: For p,q≥2, every general-position set of K_p □ K_q is exactly the edge set of a bipartite star forest in K_{p,q}; this yields a complete bivariate exponential generating formula for its all-size polynomial, a three-case classification of all inclusion-maximal sets, their enumerator and exact maximal-cardinality spectrum {p,q}∪{p+q−k:2≤k≤min(p,q)}. The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the establis
+
+## value
+
+PASS
+
+The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the established graph-polynomial research programme. Beyond previously known minimum and maximum cardinalities, the result specifies the actual extremizers and finds unbounded internal gaps in maximal spectra on K_2 □ K_q; the enumerator is useful and nontrivial, not a mere known-table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

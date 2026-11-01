@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T15:59:24.985975Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Two distinct cells of a rook graph with different row and column have exactly two length-two geodesics, through the opposite corners of their 2×2 rectangle. Three selected cells are collinear on a geodesic iff the corresponding three bipartite incidence edges form a P4. A bipartite P4-free graph has every nonisolated component a star, proving a biconditional for every p,q≥2. Exponential-label component counting gives Ψ=p!q![x^py^q]exp(x e^{zy}+y e^{zx}−xyz); the subtraction removes double counting the single-edge component. Maximality forces either all row and column vertices covered, or isolates on only one shore with all nontrivial stars centered on the opposite shore with degree at least two and every opposite vertex covered; summing these mutually exclusive component families gives the claimed maximal enumerator. A spanning forest with k≥2 components has p+q−k edges; one-shore-isolated types yield exactly sizes p or q. Thus the support is precisely {p,q}∪{p+q−k:2≤k≤min(p,q)}. For p=2, Ψ=(1+2z)^q+qz² and maximal counts q at size2, 2^q at size q (combine if q=2). Independently checking every subset on 2x2, 2x5, 3x4, 3x5 and 4x4 boards matched all formulas, while the unbounded quantifier proof uses the structural star-forest decomposition.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Iršič et al explicitly derive Ψ(P_r □ P_s) for path grids and general graph-operation formulas, not Ψ(K_p □ K_q).",
+          "The 2021 Cartesian-product work proves maximum general-position counts for path products and other families, not the complete rook maximal family.",
+          "Lower general-position numbers min(p,q) are prior and are accepted as covered."
+        ],
+        "reasoning": "The general graph-polynomial framework and extremal bounds alone cannot imply each coefficient, maximal configuration class, or the gap spectrum.",
+        "searches": [
+          "Iršič et al General Position Polynomials 2024 full PDF §3 and Theorem 3.5",
+          "Klavžar et al On General Position Sets in Cartesian Products 2021",
+          "Di Stefano et al Lower General Position Sets 2023 Theorem 5.3"
+        ]
+      },
+      "checked_sources": [
+        "Iršič et al, Results Math 79 (2024) 110, DOI 10.1007/s00025-024-02133-3, original 16-page PDF",
+        "Klavžar et al Results Math 76 (2021) 123, DOI 10.1007/s00025-021-01438-x",
+        "Di Stefano et al arXiv:2306.09965 Theorem 5.3",
+        "Resultary 2026-10-30 general-position EGF and star-forest queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing path-grid polynomial is a different Cartesian product: P_r □ P_s not K_p □ K_q; these graphs have different geodesic structure.",
+          "Known lower maximum-size invariants are recovered as special cardinalities of the new maximal-set spectrum, not counted as new."
+        ],
+        "reasoning": "The candidate theorem refines previously known extremal numbers in the target rook family and supplies all-cardinality data. It is not a renaming of existing path-grid formulas.",
+        "searches": [
+          "Iršič et al 2024 §3 Theorem 3.5",
+          "Di Stefano et al 2023 Theorem 5.3",
+          "Klavžar et al 2021 Cartesian product graph theory"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known general-position criterion on diameter-two products can be reformulated as bipartite P4-avoidance; published earlier work does not enumerate every star forest in the specified labeled rectangles.",
+          "Resultary adjacent published items concern spiders, windmills, Kneser and complete multipartite graphs, not the full rook EGF/maximal support."
+        ],
+        "reasoning": "Equivalent formulations could use two-colored bipartite star forests or labeled rectangular rook placements; a matching general position polynomial and maximal support must be shown, not inferred from keywords.",
+        "searches": [
+          "Resultary 2026-10-30: General position rook graphs complete bipartite star forest enumerating maximal general position sets generating polynomials",
+          "Web 2026-10-30: general position polynomials Kp Cartesian Kq rook graph P4-free bipartite"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent 2×5 and 3×5 whole-set enumerations gave totals 248 and 1269 general position sets, with maximal spectra {2,5} and {3,5,6}.",
+          "The exact two-variable EGF was not present in inspected primary Cartesian-product sections."
+        ],
+        "reasoning": "Known generalized star-forest enumeration formulas could be algebraically equivalent; no specific previously published table was found, so prior combinatorial counting remains a residual risk.",
+        "searches": [
+          "Web 2026-10-30: rook graph general position polynomial coefficients maximal sets",
+          "Resultary 2026-10-30 star-forest / general-position polynomial published records"
+        ]
+      },
+      "rationale": "Best-knowledge scientific comparison: For p,q≥2, every general-position set of K_p □ K_q is exactly the edge set of a bipartite star forest in K_{p,q}; this yields a complete bivariate exponential generating formula for its all-size polynomial, a three-case classification of all inclusion-maximal sets, their enumerator and exact maximal-cardinality spectrum {p,q}∪{p+q−k:2≤k≤min(p,q)}. The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the establis",
+      "residual_risks": [
+        "Earlier labeled bipartite star-forest enumerator might yield the polynomial by an obvious identification; this does not establish an indexed prior rook general-position theorem but warrants future priority comparison.",
+        "Full 2021 Cartesian-product and lower-general-position articles were not reread page-by-page; scoped primary results are used with this material limitation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING rook graph family; path Cartesian products quantified in the relevant theorem",
+          "evidence": [
+            "Theorem 3.5 explicitly states Ψ(P_r □ P_s), not Ψ(K_p □ K_q)."
+          ],
+          "identifier_or_url": "https://link.springer.com/content/pdf/10.1007/s00025-024-02133-3.pdf",
+          "material_read": "Open-access full-text sections §1 and §3 pp.6–8, Corollary 3.4 and Theorem 3.5 read; screenshots of pp.7–8 examined; whole PDF text searched for rook graphs",
+          "method": "Full text PDF and primary figure/formula review",
+          "title": "General Position Polynomials",
+          "trigger": "Strongest natural prior source for all-size polynomial and graph Cartesian products"
+        },
+        {
+          "assessment": "PARTIAL_PRIOR, possible uninspected full-text formula risk",
+          "evidence": [
+            "Explicitly advertised product results involve paths and cycles; no rook all-size polynomial in inspected abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00025-021-01438-x",
+          "material_read": "Primary Springer abstract, scope and theorem summary; full PDF not read in this audit",
+          "method": "Publisher open-access page and repository abstract",
+          "title": "On General Position Sets in Cartesian Products",
+          "trigger": "Could cover all Cartesian products of complete graphs"
+        },
+        {
+          "assessment": "COVERS only gp-minus = min(p,q), not exact maximal enumerator",
+          "evidence": [
+            "Theorem 5.3 gives min(p,q), which is a special consequence of the new size spectrum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.09965",
+          "material_read": "Theorem 5.3 quoted and compared through original source references; full source not freshly read",
+          "method": "Theorem-specific primary source identification",
+          "title": "Lower General Position Sets in Graphs",
+          "trigger": "Already known minimum maximal-set size for rook graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The entire general-position polynomial and all inclusion-maximal cardinalities on the natural two-factor Hamming/rook graph family are motivated by the established graph-polynomial research programme. Beyond previously known minimum and maximum cardinalities, the result specifies the actual extremizers and finds unbounded internal gaps in maximal spectra on K_2 □ K_q; the enumerator is useful and nontrivial, not a mere known-table recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For p,q≥2, every general-position set of K_p □ K_q is exactly the edge set of a bipartite star forest in K_{p,q}; this yields a complete bivariate exponential generating formula for its all-size polynomial, a three-case classification of all inclusion-maximal sets, their enumerator and exact maximal-cardinality spectrum {p,q}∪{p+q−k:2≤k≤min(p,q)}.",
+  "limitations": [
+    "p,q≥2 only; two complete-graph factors and ordinary geodesic general position, no assertion on higher Hamming powers or unimodality.",
+    "Known minimum and maximum general-position cardinalities are credited to previous sources."
+  ],
+  "schema_version": 1
+}
