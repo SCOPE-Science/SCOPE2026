@@ -1,0 +1,152 @@
+{
+  "correctness": {
+    "rationale": "The Boolean reachability representation is exact for the given OR update. Every n-step walk can cover the original site and the next site; iterates yield T <= nL. Shortcuts must be separated by n-1 edges, so at time n(L-2) an original length-L zero gap retains an unreachable final site. Semigroup <n,n-1> and Frobenius nonrepresentability at n^2-3n+1 give the exact maximal time (n-1)^2+1 for e_0; the first n-1 singleton iterates and monotonicity establish uniqueness. Bernoulli longest-run union/block bounds plus the deterministic O(n) gap prove probability and expectation asymptotics. Exhaustive state-by-state checks for 3<=n<=14 and Boolean path checks for 3<=n<90 passed in verify.py; those computations are not the infinite proof. All-zero and all-one boundary cases are explicitly handled.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neufeld and Shen 1998 abstract defines exp(X) for arbitrary starting vertex subsets and fixed-cardinality extrema F(n,k); it does not state a random-state law in the abstract.",
+        "Jarrah et al. 2008 Theorem 2.10 quotes the general Wielandt-type quadratic height bound.",
+        "Gadouleau 2021 Section 3.1.2 cites existing upper bounds on time to reach periodicity."
+      ],
+      "reasoning": "The broad theory could imply the extremal part; that part is not relied upon for novelty. The known size-k worst-case upper bound (n-k)(n-1)+1 remains quadratic for k proportional to n, while the new configuration-geometry bound is O(n log n) for typical random supports. Full-text access to the 1998 result failed, so residual risk is recorded.",
+      "searches": [
+        "web: Some results on generalized exponents Neufeld 1998 pdf arxiv",
+        "web: Generalized exponents of primitive directed graphs Brualdi Liu 1990 pdf",
+        "web: Wielandt digraph exponent (n-1)^2+1 directed n cycle chord primitive graph mathematical paper pdf",
+        "web: disjunctive Boolean network random initial state transient length longest gap"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:0805.0275v1",
+      "arxiv:2104.04403",
+      "doi:10.1002/jgt.3190140413 (abstract)",
+      "doi:10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M (abstract)",
+      "doi:10.13001/1081-3810.1044 (partial extracted introduction)",
+      "published-finding corpus searches for Wielandt OR saturation and related terminology",
+      "Recoverable prior research claims in current ledger"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The fixed-point dichotomy and known worst-case exponent are expressly prior coverage.",
+        "Neufeld-Shen's cited extremal parameter is support size, whereas the present bound resolves cyclic arrangement through longest gaps.",
+        "The claim's typical scale follows from the new geometric bound together with the elementary longest-run estimate."
+      ],
+      "reasoning": "The present finite and asymptotic conclusions cannot be deduced merely by substituting a random support size into a quadratic fixed-cardinality worst-case exponent. A stronger unpublished or inaccessible configuration-wise result is possible; no decisive coverage was established in accessible materials.",
+      "searches": [
+        "arXiv:0805.0275v1 Theorems 1.3 and 2.10",
+        "arXiv:2104.04403 Theorem 5 and Corollary 2",
+        "Neufeld-Shen 1998 accessible abstract DOI 10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M",
+        "own ledger: inspect recoverable claims and titles from current part"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jarrah et al. 2008, Theorem 2.10, describes height via primitive exponents, not longest-gap typical relaxation.",
+        "Gadouleau 2021, Theorem 5 and Corollary 2, gives periodic point classes for strongly connected disjunctive networks.",
+        "No exact n log_2 n first-entry law was located in the retrieved material."
+      ],
+      "reasoning": "Under complement, OR becomes AND with isomorphic phase space; that duality does not remove the initial-gap dependence. Matrix primitivity describes an all-pairs, worst-case walk threshold, not the concentration of first-entry times over random initial subsets.",
+      "searches": [
+        "published-finding corpus: Wielandt primitive digraph disjunctive Boolean OR network random initial states convergence time longest zero runs n log n",
+        "web: Wielandt digraph Boolean network convergence longest zero run random initial n log n",
+        "web: OR networks Wielandt graph longest gap convergence time n log n",
+        "arXiv:0805.0275v1 Section 2",
+        "arXiv:2104.04403 Section 3.1.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus result 2026/10/4/SCOPE-sharp-early-rank-thresholds-in-the-wielandt-automata--267316e1d983 studies labeled synchronizing automata and short words, not the synchronous OR Boolean dynamics.",
+        "Accessible prior findings containing other random-start dynamics concern different graphs/rules (including Rule 178).",
+        "No indexed exact table for the directed-cycle-plus-shortcut first-entry distribution or its n log n asymptotic was found."
+      ],
+      "reasoning": "A rank-threshold table for a deterministic input-word automaton has different objects and quantifiers from saturating every vertex simultaneously under a single autonomous OR network. No matched table or exact random law was seen, but searches cannot rule out unindexed sources.",
+      "searches": [
+        "published-finding corpus: sharp quadratic exponent primitive directed cycle one chord Boolean OR activation unique extremal state",
+        "published-finding corpus: conjunctive disjunctive Boolean networks saturation time random initial configurations directed cycle with shortcut",
+        "own ledger: text matches for wielandt, disjunctive, boolean or, longest zero, primitive digraph in recoverable previous claims",
+        "web: Wielandt typical exponent boolean matrix"
+      ]
+    },
+    "rationale": "The quadratic primitive exponent and possible fixed points are already known; originality is confined to the structure-sensitive n(L-2)<T<=nL bound and the sharp n log_2 n typical-time law. Existing generalized initial-set exponents depend on size and may give quadratic bounds even for support of density 1/2; they do not by themselves imply the stated typical scale. A historical equivalent could exist, especially in uninspected complete texts. No retrieved comparable statement implied the new probabilistic law.",
+    "residual_risks": [
+      "Full generalized-exponent articles may contain more detailed initial-set saturation formulas, not accessible for a decisive complete-text comparison.",
+      "The classical extremal exponent and subset-exponent literature may already imply portions of the worst-case/singleton statement; no novelty is attributed to the quadratic bound itself.",
+      "Unindexed literature or different terminology for maximal empty arcs may contain an equivalent typical-time theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers primitive-network periodic structure and worst-case height upper bounds; no stated longest-gap or uniformly random saturation-time law in inspected relevant sections.",
+        "evidence": [
+          "Theorem 2.10: h(f) <= (n-1)^2+1 for primitive dependency graph",
+          "Theorem 1.3: complement duality between OR and AND networks"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0805.0275",
+        "material_read": "Full-text PDF sections 1, 2.2-2.3, and 3, including exact theorem statements, height discussion, known linear/parity contrast, and references; page screenshots inspected.",
+        "method": "Accessible arXiv primary full text",
+        "title": "The Dynamics of Conjunctive and Disjunctive Boolean Networks",
+        "trigger": "Original archive-era general height and cycle theory for this Boolean update class"
+      },
+      {
+        "assessment": "Covers primitive disjunctive periodic points and bounded convergence, without an identified Wielandt-specific random longest-gap asymptotic in relevant inspected material.",
+        "evidence": [
+          "Theorem 5: periodic points are graph-partite",
+          "Corollary 2: all periods divide loop number",
+          "Section 3.1.2 notes existing convergence-time upper bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.04403",
+        "material_read": "PDF introduction, Boolean matrix/network characterizations, Section 3.1.2 periodic-point classification, cited height bounds and surrounding text; first-page screenshot inspected.",
+        "method": "Accessible arXiv primary full text",
+        "title": "Dynamical properties of disjunctive Boolean networks",
+        "trigger": "Comprehensive later primary survey covering periodic points and transient upper bounds"
+      },
+      {
+        "assessment": "Abstract's generalized exponents are closer than ordinary graph exponent, but complete-text NOT_COVERING cannot be claimed; treat as equivalence risk.",
+        "evidence": [
+          "Defines exp(X) and F(G,k)",
+          "States maximum F(n,k)=(n-k)(n-1)+1 and extremal digraph characterization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/(SICI)1097-0118(199808)28:4<215::AID-JGT3>3.0.CO;2-M",
+        "material_read": "Accessible publisher abstract and bibliographic references only; arXiv and lawful OA full texts not found; institutional retrieval returned storage-capacity failure.",
+        "method": "Publisher abstract, open-access and arXiv attempts, institutional request attempted",
+        "title": "Some results on generalized exponents",
+        "trigger": "Potentially close generalized set-exponent coverage"
+      },
+      {
+        "assessment": "Background for fixed-subset maximal exponents; full coverage comparison unresolved, so no whole-paper negative assertion.",
+        "evidence": [
+          "Abstract defines primitive digraph exponent and introduces related generalized parameters"
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.3190140413",
+        "material_read": "Publisher abstract, bibliographic and reference material; complete paper unavailable in checked routes.",
+        "method": "Publisher abstract and scholarly index",
+        "title": "Generalized exponents of primitive directed graphs",
+        "trigger": "Foundational definition of generalized exponents and set-dependent extremality"
+      },
+      {
+        "assessment": "Confirms the classical sharp Wielandt exponent; does not establish or refute the new random-time law based on the partial material.",
+        "evidence": [
+          "Introduction identifies directed n-cycle plus an arc producing (n-1)-cycle as the exponent maximizer"
+        ],
+        "identifier_or_url": "https://doi.org/10.13001/1081-3810.1044",
+        "material_read": "Accessible index/extracted introduction only; original full-text repository link could not be opened.",
+        "method": "Open bibliographic extract and repository attempt",
+        "title": "Digraphs with large exponent",
+        "trigger": "Wielandt digraph exponent and nearby sharp extremal constructions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cb49f21-3f10-49d1-82cc-7fb35195d68b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This natural primitive extremal digraph is maximally slow under the conventional worst-case exponent, but almost all random starts converge on n log_2 n rather than n^2. The two-tour configuration comparison reveals the controlling combinatorial statistic (longest inactive gap), and the exact leading constant holds both in probability and mean. The result is a structural infinite-family theorem with direct dynamical significance, not a narrow table recomputation or a rephrasing of the classical exponent.",
+    "status": "PASS"
+  }
+}
