@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** Edge-pair probabilities, the exact normalized covariance projection, Schur/Sylvester determinant identity, unsigned incidence Cauchy–Binet expansion, and odd-unicyclic determinant \(\pm2\) are proved algebraically in RESULT.md. Maximizers follow by component-size constraints; the counts on 3–5 vertices are fully classified. The independent checker reconstructs the sample Gram matrices rather than reusing the projection calculation. Its finite cases are corroboration, not the all-order proof. The \(N\ge6\) condition ensures the pair-disjoint probability and denominators are defined.
+
+**Originality — PASS under bounded literature review.** The exact uniform-matching edge-indicator Gram rank and spectrum and the incidence-minor/TU facts have precursors; these are explicitly not claimed novel. The inspected Godsil–Meagher and Lindzey papers give full first-band matching representation ranks but not all coordinate Gram determinants and the D-optimal labeled basis classification. The inspected Behrend and Zhang–Zhang papers establish general unsigned-incidence and odd-cycle determinant ingredients but do not address the matching harmonic-sampling design problem or its optimizer counts. The combination could be subsumed by an unlocated prior matroid-design treatment; this residual risk is disclosed.
+
+**Mathematical value — PASS.** Uniform perfect matchings are a natural finite homogeneous sampling space, and loss of information under coordinate selection is a concrete harmonic-reconstruction question. The theorem determines all principal Gram determinants, exact independence boundaries, maximum-size independent coordinate sets, every positive maximal-basis determinant level, and all optimizing designs with labeled counts for infinitely many orders. This is stronger than the previously available first-band rank or isolated signless-graph determinant identity and informs exact volume-optimal coordinate acquisition.
+
+The analytic result does not imply any condition-number optimality, nonlinear recovery result, or new signless-incidence determinant lemma. The strongest possible prior coverage remains incompletely knowable under bounded searches; independent review has not occurred.
+
+Self-review: passed. Independent audit: not yet performed.
