@@ -1,19 +1,21 @@
-# Review: exponential first-order convergence for uniformly random finite total preorders
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The proof's essential domain is all uniformly labelled reflexive, transitive, total finite binary relations, with standard first-order sentences. Truncating each nonempty ordered block to the sentence's quantifier rank yields a finite coloured word type without changing sentence truth. The monoid of first-order word types is finite and aperiodic. Its weighted transition resolvent is an exact labelled exponential generating function, not an approximation. At the singular radius \(\rho=\log 2\), the finite stochastic transition matrix has an aperiodic recurrent projection and a first-order derivative equal to twice that projection. Absolute convergence on the other points of the complex circle isolates a simple pole and proves an exponential asymptotic for each sentence. Finite direct enumeration and independently weighted ordered-composition enumeration agree for up to seven worlds. Only the symbolic argument establishes the all-size limit.
+PASS
 
-## Originality: PASS, qualified
+Reconstructed ordered equivalence classes and exact weight n!/product(s_i!). The quantifier-rank q truncation of block size to min(q,s) respects the q-round EF game; coloured word q-types form finite aperiodic concatenation monoid. The exact EGF is e(I-K(z))^-1 v with K=sum B_a(z)T_a. At rho=log 2, P=K(rho) is stochastic, recurrent classes have self-loops from aperiodicity so P^n tends to harmonic projection H, and HK'(rho)H=2H; semisimple peripheral eigenvalue produces H/[2(rho-z)]. All nonreal |z|=rho have strict row-norm deficit from consecutive positive degrees in B_q(z); the simple pole is isolated and coefficient ratio to (2-e^z)^-1 converges exponentially. Matrix entries lie in Q(rho); finite absorption systems yield L. Independent weighted composition enumeration and endpoint first/last-block count checked n<=7, not infinite argument.
 
-The principal recent source arXiv:2608.10877 (first publicly released 2026-08-11) explicitly enumerates ordered Bell numbers in its Section 7/Appendix E and contributes general restricted-fragment counting results. Their ordered Bell enumeration is not new here, nor is the classical first-order word-language/aperiodic-monoid connection, recalled in Bojańczyk's *Nominal Monoids*. The all-sentence exponential law under uniform labelled total-preorder sampling, its effective field \(\mathbb Q(\log2)\), and exact limiting formulas were not identified in the directly inspected material and targeted published-record searches. The closest finite-weak-order mapping census and Fubini echeloned-space orbit profiles have different objects or invariants. The close Koponen–Karlsson WoLLIC 2025 paper concerns expansions of fixed base preorders whose class sizes diverge faster than logarithms; its official abstract does not cover random uniformly sampled preorders with singleton blocks and a non-zero-one law. Its full text was inaccessible. A general older weighted-word limit theorem may subsume this statement; historical priority is not guaranteed.
+## originality
 
-## Value: PASS
+PASS
 
-A natural first-order finite-model probability space receives a complete sentence-by-sentence convergence theorem, effective limiting-value computation and geometric rate, beyond classical total enumeration. The non-zero-one outcome is structurally significant for model theory and logical limit laws: the least singleton has limiting probability \(\log2\), and a two-ended boundary condition has limiting probability \((\log2)^3/2\).
+Strong directly relevant precursor Braunfeld and Kukla (2022) establishes an UNLABELLED composition limit law and explicitly asks in Section 5, Question 5.1 whether COMPOSITIONS admit a LABELED logical limit law. Labeled compositions are precisely total preorders with the n!/product(s_i!) probabilities used here. The older theorem does not entail this sampled-model answer; the current result gives exponential convergence and an exact field, directly addressing the published question. Other finite-word monoid and ordered Bell tools are classical; generic weighted-word limit theorems remain a subsumption priority risk.
 
-## Scientific scope and verification
+## value
 
-The exponential speed is sentence-dependent and does not extend here to arbitrary preorders or sampling measures. The standalone `check.py` checks finite enumerative facts through seven worlds; it cannot prove the limiting theorem or historical uniqueness. Relevant direct full-text source sections, independent background and published-finding corpus/accessible prior findings were compared, with residual historical-priority risk recorded in `AUDIT.json`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A complete effective FO limit law for a canonical random labelled combinatorial structure, with geometric rates and nontrivial log2 boundary probability, directly answers a documented open problem about labelled compositions. This is substantial model-theoretic value without claiming zero-one behaviour or uniform sentence complexity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
