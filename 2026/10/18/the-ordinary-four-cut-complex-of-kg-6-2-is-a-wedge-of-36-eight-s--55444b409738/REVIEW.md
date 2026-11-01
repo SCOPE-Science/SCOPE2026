@@ -1,11 +1,21 @@
-# Scientific review: ordinary four-cut complex of the fifteen-vertex Kneser graph
+# Independent mathematical audit
 
-**Correctness: PASS.** The object is the *ordinary* four-cut complex, not the total-cut variant. The dual face criterion quantifies over every disconnected four-subset, including in sets with five or six vertices. The complete dual face vector is `(1,15,105,455,750,492,70)`. A reproducible vertex-toggle matching pairs 1850 of the 1887 nonempty dual faces; exhaustive verification of all 7455 oriented Hasse covers proves the matching acyclic. The 37 critical faces comprise one vertex and 36 four-cells, yielding a wedge of 36 four-spheres for the dual. Integral Alexander duality then yields homology only in degree eight. An independently enumerated full seven-skeleton and Hurewicz/Whitehead give a wedge of 36 eight-spheres for the original complex. The ordinary complex is pure ten-dimensional and nonshellable. Checks concern the entire finite instance, not partial samples.
+## correctness
 
-**Originality: PASS**, subject to residual indexing risk. The owning paper arXiv:2304.13675, Corollary 6.6, handles Kneser *two-cut* complexes in the triangle-free range; \(KG(6,2)\) and the four-cut construction lie outside that statement. Its Table 1 and Section 7 cover complete multipartite graphs, cycles, squared cycles, trees, and prisms over cliques, none of which is this graph. arXiv:2209.13503 and arXiv:2512.09674 concern total-cut or neighborhood constructions that do not determine the ordinary four-cut homotopy type. Searches for graph aliases, Kneser four-cut, Alexander dual, homotopy, 36 spheres and equivalent classifications found no covering statement. A publication not indexed under these descriptions might still exist.
+PASS
 
-**Value: PASS.** This is a complete integral homotopy type for the first triangle-containing member of the two-subset Kneser family, a natural next example after the Petersen graph, and one for which the published two-cut triangle-free method no longer applies. The unexpected sphere degree eight lies two below the facet dimension ten, giving a concrete nonshellability obstruction. The result is finite and specific, but determines a natural full homotopy invariant rather than an arbitrary numerical slice. It does not assert a general Kneser-family classification or equivariant homotopy type.
+Reconstructed the ordinary four-cut definition from complements of disconnected induced 4-subgraphs on the 15 two-subsets of [6]. Exact Alexander dual L forbids all disconnected 4-subsets, including larger faces; its face counts by size 0..7 are (1,15,105,455,750,492,70,0). A verified staged vertex-toggle matching on all 1,887 nonempty dual faces pairs 925 covers and leaves one critical 0-cell plus 36 critical 4-cells; the full 7,455-cover oriented Hasse digraph is acyclic by a topological sort of all 1,887 faces. Forman gives L≃ wedge^36 S4. Integral combinatorial Alexander duality for 15 vertices gives reduced H8(K,Z)=Z^36 and all other reduced integral homology zero. Independently enumerated K has 615 10-facets and the complete seven-skeleton, hence is six-connected; H7=0 and Hurewicz give seven-connectivity, and representatives of the H8 basis yield wedge^36 S8 via homological Whitehead. Pure ten-dimensional K has nonzero lower-degree homology and is not shellable.
 
-Closest source: Bayer et al., *Topology of Cut Complexes of Graphs*, arXiv:2304.13675 (the Kneser two-cut case), complemented by *Total Cut Complexes of Graphs*, arXiv:2209.13503. Residual risk: an unindexed equivalent ordinary-four-cut computation; no independent verification is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original exact nonequivariant homotopy classification for the ordinary 4-cut complex of KG(6,2). The strongest same-definition Kneser result in the primary 2024 paper is an ordinary 2-cut theorem in a triangle-free range; the 2025 sequel treats disjoint unions, squared paths and grids; published same-graph Čech and equal-numerical Heawood results concern different simplicial complexes. Resultary high-girth general theorem is inapplicable because this graph has triangles. No searched equivalent or logically stronger statement was found, with an explicit risk of an unindexed equivalent computation.
+
+## value
+
+PASS
+
+KG(6,2) is the canonical first triangle-containing two-subset Kneser graph immediately after the Petersen graph KG(5,2); it is a natural boundary beyond the triangle-free two-cut result in the main literature. The ordinary four-cut construction is a standard graph complex invariant, and a complete integral homotopy type at this natural graph/cut parameter can be useful independently of an all-Kneser classification. The 36 eight-spheres arise two dimensions below its pure ten-dimensional facets, proving an informative nonshellability obstruction that cannot be read from the facet count or Euler characteristic alone. The certified homotopy classification uses a nontrivial acyclic matching and Alexander duality, not a textbook substitution or an arbitrary numerical slice. Its scope is explicitly one finite, nonequivariant graph and it does not assert broader families.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
