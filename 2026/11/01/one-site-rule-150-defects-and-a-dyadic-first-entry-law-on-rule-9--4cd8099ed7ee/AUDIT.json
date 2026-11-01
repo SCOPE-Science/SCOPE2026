@@ -1,0 +1,157 @@
+{
+  "correctness": {
+    "rationale": "Matrix B=W+E00 has characteristic polynomial (z+1)p_{n-1}; the polynomial identity p_{n-1}=z^(2^s-1) p_{m-1}^(2^s) for n=2^s m, m odd, proves exact zero algebraic multiplicity q=2^s-1. Solving Bx=0 gives nullity exactly one at even lengths and zero at odd, hence precisely one nilpotent Jordan block of size q. Fitting decomposition proves shell counts for every n and t. Uniform comparison follows by the Laurent-polynomial model. Actual verifier at verify.py confirms matrix-power rank profiles for n=3..80, full first-repeat enumeration for n=3..11, and direct characteristic polynomials for n=3..17. Finite checks corroborate but do not replace proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lettieri–Stevens–Thomas (2006), full author-uploaded article, Theorem 3.1 gives the uniform cycle/path identity; Theorems 3.3 and 4.1 analyze uniform Rule 90 and 150.",
+        "Dennunzio–Formenti–Provillard, arXiv:1107.5228v1, Sections 3, 5.1, 6 discuss non-uniform full-shift dynamics and finite perturbations, not finite cyclic one-defect shell numbers.",
+        "Katona (1977), Sections 3–4, uses local-radius inverse as reversibility, explicitly distinguishing it from global bijectivity."
+      ],
+      "reasoning": "The 2006 determinant identity is a genuine input, but its homogeneous dynamics result neither specifies a one-site rank-one perturbation nor computes that perturbation’s zero Jordan chain. General theorems about non-uniform automata do not specialize to the claimed explicit counts without additional algebra. Katona’s strong reversibility is not the global bijectivity notion used here.",
+      "searches": [
+        "linear cellular automata non uniform site dependent rule 90 150 characteristic polynomial defect",
+        "\"Linear cellular automata with boundary conditions\" Chin Cortzen Goldman arxiv",
+        "\"Characteristic and minimal polynomials of linear cellular automata\" Thomas Stevens Lettieri 2006"
+      ]
+    },
+    "checked_sources": [
+      "Lettieri–Stevens–Thomas (2006) full text, Sections 3–4 and Theorems 3.1, 3.3, 4.1.",
+      "Dennunzio–Formenti–Provillard arXiv:1107.5228v1 full HTML, Sections 3, 5, 6.",
+      "Katona (1977) full six-page PDF, including scanned page 4.",
+      "Martin–Odlyzko–Wolfram (1984) author-uploaded introduction plus targeted search.",
+      "Chin–Cortzen–Goldman (2001) bibliographic abstract only, full text inaccessible.",
+      "2019 90/150 rule-block article abstract only.",
+      "Indexed mathematical findings for single-site defect and equivalent formulations, compared by scientific statements.",
+      "OEIS A048705 and A151930 context checks."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known uniform characteristic polynomial: det(zI-W_n)=z p_{n-1}(z) [Lettieri–Stevens–Thomas 2006, Thm 3.1].",
+        "New step: for B_n=W_n+E_{00}, det(zI-B_n)=(z+1)p_{n-1}(z), then nullity 1 and Frobenius path factorization imply one zero Jordan block of exact length 2^{ν_2(n)}-1.",
+        "The uniform basis-vector cycle results in the 2006 article concern circulant maps; B_n is not circulant."
+      ],
+      "reasoning": "The prior path identity combined with a rank-one determinant update permits a new calculation, but the uniform results do not themselves assert global invertibility at odd sizes or the exact first-entry shell populations for the spatially inhomogeneous map. The present claim gives a different system and quantitative invariant; no inspected stronger theorem directly covers the result.",
+      "searches": [
+        "\"Rule 90\" \"defect\" \"periodic\" \"reversible\" cellular automaton ring",
+        "90 150 hybrid ring finite field periodic boundary characteristic polynomial transition matrix one rule 150",
+        "one site rule 150 defect in periodic rule 90 binary linear cellular automata even ring dyadic nilpotent transient distribution characteristic polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Indexed finding 'Exact odd-ring and twice-odd bijectivity for quadratic five-site cellular automata' treats uniform quadratic five-neighbor rules; 'Two absent finite-support periods for reversible rule-115 cellular automata' treats second-order Rule 115; neither concerns one distinguished site in a Rule 90 ring.",
+        "Lettieri–Stevens–Thomas (2006), Theorems 3.1–4.1, studies homogeneous Rule 90 and 150, not a spatially mixed ring."
+      ],
+      "reasoning": "Equivalent aliases searched include non-uniform/hybrid 90/150, one-site memory defect, and a cycle adjacency self-loop over the binary field. The nearest records have different global maps or outcomes. Their assertions do not imply the one-defect all-size rank and stopping-time formula.",
+      "searches": [
+        "one site rule 150 defect in periodic rule 90 binary linear cellular automata even ring dyadic nilpotent transient distribution characteristic polynomial",
+        "hybrid 90 150 cellular automata on a periodic ring with one rule 150 cell invertibility odd lengths and transient depth power of two",
+        "\"rule 90\" \"rule 150\" single site periodic ring invertibility",
+        "\"one defective cell\" additive cellular automaton reversible"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Indexed finding 'A mod-four orbit census for parity automata on distance-two Boolean cubes' treats cube graphs and a different parity update; 'Boundary-controlled parity reduction in modular Laplacian dynamics' treats a different modular process.",
+        "OEIS A048705 concerns compositions of uniform Rule 90 and Rule 150, while OEIS A151930 treats uniform Rule 90 populations, not a single changed site."
+      ],
+      "reasoning": "The searched indexed records and sequence pages do not present a table of finite one-site mixed-rule first-entry shells. This search outcome by itself does not prove novelty.",
+      "searches": [
+        "a single self loop added to cycle adjacency over F2 reversibility nilpotent Jordan rank powers",
+        "OEIS one defect rule 90 150 cellular automata transient shell size 2^t",
+        "OEIS 90 150 mixed rule cycle periodic sites counting nilpotent"
+      ]
+    },
+    "rationale": "The assessed statement treats a finite cyclic binary Rule 90 system with exactly one site changed to Rule 150, and derives its complete first-periodic-entry law. Uniform Rule 90 literature supplies a determinant identity but does not state the defect-specific Jordan or shell populations. General non-uniform literature uses different scopes. No inspected source implies this entire claim; one plausible inaccessible paper remains a qualified risk.",
+    "residual_risks": [
+      "General transition-tree classification by Chin–Cortzen–Goldman (2001) could contain an equivalent instance; full text not accessible.",
+      "Unindexed older hybrid-rule papers and post-2016 publications could contain the exact mixed-ring shell law.",
+      "2006 uniform determinant relation reduces the algebraic novelty; the assessed novelty lies in the defect-specific Jordan and exact first-entry theorem, not an unrelated new technique."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem 3.1 supplies homogeneous cycle/path determinant; no single exceptional Rule 150 site or exact distribution of its preperiod shells in inspected document.",
+        "evidence": [
+          "Theorem 3.1: p_W,n(z)=z p_N,n-1(z).",
+          "Section 4: T_n=W_n+I, uniformly Rule 150."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/38371117_Characteristic_and_Minimal_Polynomials_of_Linear_Cellular_Automata",
+        "material_read": "Full author-uploaded text visible in HTML, including Sections 1, 3, 4; inspected Theorems 3.1, 3.3, 3.4, 4.1, Table 1, and conclusions.",
+        "method": "Read document text and checked targeted passages for uniform, hybrid, and boundary definitions.",
+        "title": "Characteristic and Minimal Polynomials of Linear Cellular Automata",
+        "trigger": "Closest Rule 90/150 characteristic-polynomial and periodic-point treatment"
+      },
+      {
+        "assessment": "Addresses non-uniform infinite-lattice qualitative dynamics; no finite cycle mixed-rule first-entry census found in full searched text.",
+        "evidence": [
+          "arXiv posting date 2011-07-26.",
+          "Proposition 5.5 and Theorem 6.1 analyze non-uniform full shifts, not finite labelled ring populations."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1107.5228v1",
+        "material_read": "Full HTML including abstract, introduction, definitions, Sections 5.1 and 6, and illustrative examples.",
+        "method": "Read relevant theorem statements, finite-defect discussion and checked Rule 90/150 nomenclature.",
+        "title": "Non-Uniform Cellular Automata: Classes, Dynamics, and Decidability",
+        "trigger": "Primary literature on dynamical effects of finitely many local perturbations"
+      },
+      {
+        "assessment": "Studies existence of an inverse expressible with the same local neighborhood; its stronger definition is not the present finite-state global bijectivity criterion, and no dyadic transient-shell count appears.",
+        "evidence": [
+          "Introduction distinguishes global map bijectivity from local-inverse strong reversibility.",
+          "Section 4 theorem restricts strong local-inverse systems, not global finite-ring invertibility."
+        ],
+        "identifier_or_url": "https://acta.bibl.u-szeged.hu/12254/1/cybernetica_003_fasc_004_287-292.pdf",
+        "material_read": "Six-page PDF, particularly introduction and Sections 3–4, page 4 and concluding theorem.",
+        "method": "Read extracted text and visually inspected the PDF page containing the one-dimensional reversal theorem.",
+        "title": "Local and Global Reversibility of Finite Inhomogeneous Cellular Automaton",
+        "trigger": "Early primary full text on single-site heterogeneous circular cellular automata"
+      },
+      {
+        "assessment": "Foundational homogeneous finite-automaton algebra; comparison limited by partial material reading; no proof of non-coverage from keyword silence.",
+        "evidence": [
+          "Abstract reports algebraic description of finite cellular automata transition diagrams."
+        ],
+        "identifier_or_url": "https://www.researchgate.net/publication/38329520_Algebraic_Properties_of_Cellular_Automata",
+        "material_read": "Author-uploaded full-text page, abstract/introduction and targeted terminology searches; complete article was not read line by line.",
+        "method": "Read introduction and used in-document search for defect/non-uniform Rule 150 terminology.",
+        "title": "Algebraic Properties of Cellular Automata",
+        "trigger": "Foundational finite linear Rule 90 dynamics"
+      },
+      {
+        "assessment": "Unresolved historical-equivalence risk; abstract indicates general transition-tree/cycle decompositions and no specific mixed-rule formula, but full text was not inspected.",
+        "evidence": [
+          "Chin–Cortzen–Goldman (2001), abstract: complete characterization of transition trees, cycle enumeration for linear cellular automata with boundary conditions."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/S0024-3795(00)00227-5",
+        "material_read": "Bibliographic metadata and abstract only; arXiv and OA full-text searches unsuccessful; institutional retrieval inaccessible.",
+        "method": "Read abstract; attempted arXiv/open-access retrieval and authorized institutional download, which returned VPN disconnected.",
+        "title": "Linear Cellular Automata with Boundary Conditions",
+        "trigger": "Plausible more general graph-of-state-transition classification"
+      },
+      {
+        "assessment": "Focuses on symmetric 90/150 linear rule blocks rather than a single Rule 150 site on a periodic ring; full-text comparison incomplete.",
+        "evidence": [
+          "Abstract specifies even-length symmetric rule blocks and corresponding characteristic polynomials."
+        ],
+        "identifier_or_url": "https://doi.org/10.14317/jami.2019.023",
+        "material_read": "Publisher abstract and reference list, not full body.",
+        "method": "Read article metadata and abstract.",
+        "title": "Analysis of the 90/150 CA Generated by Linear Rule Blocks",
+        "trigger": "Hybrid Rule 90/150 literature and spatial heterogeneity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4cd8099e-d7ee-42ed-9393-289a37921b64",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Single-rule cellular defects are a natural test of the robustness of finite symbolic dynamics. This perturbation has a sharply quantified structural consequence: it removes the odd-ring singularity and merges two even-ring nilpotent blocks into one longer chain, simultaneously doubling periodic density and changing the entire first-periodic-entry law. Exact dyadic horizon and shell populations are meaningful natural dynamical invariants for every ring size, not an arbitrary finite sample.",
+    "status": "PASS"
+  }
+}
