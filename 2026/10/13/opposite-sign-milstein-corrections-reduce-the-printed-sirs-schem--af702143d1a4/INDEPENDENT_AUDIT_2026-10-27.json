@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T11:57:42.430633Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual assigned RESULT.md, SLOGAN.txt, verify.py, VERIFICATION.md and source Git blobs",
+        "Huang–Du–Liang 2026, source PDF Section 4, Model 4.1 and Eq. 4.3",
+        "Higham 2001, Section 6 Eq 6.1"
+      ],
+      "rationale": "The open-access source PDF page 6731 prints three diffusion terms -epsilon*sigma_i*X_i dB_i and negative 1/2*(epsilon*sigma_i)^2*X_i centered-square correction terms, whereas Higham Eq. (6.1) is +1/2*g*g_prime times that increment and g*g_prime=q_i^2*X_i>0. For dX=-qX dW, exact normal moments give E[M_minus^2]=1+r+r^2/2, E[M_minus*E]=1+r-r^2/2, E[E^2]=e^r, yielding X0^2[(1+r+r^2/2)^N+e^(Nr)-2(1+r-r^2/2)^N]. For r=q^2T/N its leading MSE is 2X0^2 e^(q^2T)q^4 T h, hence RMS Theta(sqrt(h)). The correct positive Milstein correction yields MSE X0^2[e^(Nr)-(1+r+r^2/2)^N] with leading X0^2 e^(q^2T) q^6 T h^2/6. The Gaussian identities and expansions prove the theorem for any q,T,X0>0 and integer N as specified; an independent 75-digit decimal check for N=64,...,8192 (q=.7,T=1,X0=1.2) confirmed the asymptotic constants, not replacing proof.",
+      "residual_risks": [
+        "No assertion for actual authors’ code or the full nonlinear SIRS global strong order.",
+        "Finite numerical checks do not prove asymptotics, which instead follow from Gaussian expectation identities and logarithmic expansions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higham (2001), full-text HTML Section 6, Eq. (6.1), the general Milstein recurrence.",
+          "General Milstein convergence results address the correct coefficient; cited later papers study different variants, not the reported opposite-sign printed SIRS recurrence."
+        ],
+        "reasoning": "A stronger general correct-sign convergence theorem does not imply an exact error identity for a different, incorrectly signed method without performing the separate discrepancy comparison. The source-specific quantification is the bounded residual claim. There is no assertion of a new general numerical-SDE method.",
+        "searches": [
+          "web: Milstein 2001 strong order generic +ggprime centered-square correction",
+          "web: negative correction sign strong convergence geometric Brownian motion",
+          "web: Mean-square convergence rates of implicit Milstein type schemes arxiv 2007.15733"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.3934/math.2026278",
+        "DOI:10.1137/S0036144500378302",
+        "Published Resultary record 645774f4d661",
+        "Published Resultary record f842fd6897d6",
+        "Published Resultary record 055a1e49ae06",
+        "Additional targeted web searches of Milstein wrong-sign and SIRS errata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published result \"The correlated-noise sensitivity formula double-counts Brownian variance\": Remark 3.8 covariance, not Eq. (4.3).",
+          "Published result \"Extinction has a nondegenerate susceptible boundary law, not point convergence\": disease-free state, not the numerical Milstein correction.",
+          "Published result \"A spurious incidence sink makes the printed Milstein measles scheme drift-inconsistent\": different model and drift inconsistency.",
+          "Higham (2001), Eq. (6.1), entails the correct-sign requirement but not exact source-specific wrong-sign mean-square error."
+        ],
+        "reasoning": "Read primary published record bodies, not just title matches. The three closest source/topic relatives are logically different; none implies the exact scalar error law and printed SIRS correction. The fact that elementary moments can derive the law does limit mathematical scope but is not itself established prior mathematical coverage.",
+        "searches": [
+          "Resultary semantic: Milstein correction SIRS exact strong convergence",
+          "Resultary semantic: stochastic SIRS Huang Du Liang 2026 Milstein discretization formula error",
+          "Published Resultary 2026/10/4 covariance and disease-free SIRS results",
+          "Published Resultary 2026/10/4 measles Milstein drift result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Huang–Du–Liang, DOI:10.3934/math.2026278, Model (4.1), Eq. (4.3): coefficient -epsilon^2*sigma_i^2*X_i/2.",
+          "Higham, DOI:10.1137/S0036144500378302, Eq. (6.1): +g*g_prime/2 times centered squared Brownian increment.",
+          "Scalar multiplicative-noise recurrence is geometric Brownian motion with opposite local Ito–Taylor correction."
+        ],
+        "reasoning": "Compared the source-specific sign claim with Milstein, geometric-Brownian, and stochastic Taylor equivalent formulations. Correct-sign Milstein theory is an antecedent, but none of the inspected earlier results explicitly provides the full source-specific mismatch and exact wrong-sign finite-horizon error law. Generic Gaussian-moment tools are not treated as a novel discovery.",
+        "searches": [
+          "Resultary semantic: stochastic SIRS Huang Du Liang 2026 Milstein discretization formula error opposite sign stochastic integral",
+          "Resultary semantic: wrong sign Milstein scheme geometric Brownian motion exact strong mean square error",
+          "web: \"wrong sign\" \"Milstein\" \"order\" multiplicative noise",
+          "web: Huang Du Liang 2026 Milstein sign error stochastic SIRS equation 4.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "AIMS primary published article, open-access PDF pp. 6731–6732, Eq. (4.3) and subsequent Gaussian increment definition.",
+          "Resultary relevant records concern different defects, with no exact table or correction for Eq. (4.3)."
+        ],
+        "reasoning": "There is no natural external enumerative table here: the exact object is the printed update itself. Checked the article and indexed corrections for an equivalent diagnosis. No covering exact-source erratum or published table was found, but indexing gaps remain a residual risk.",
+        "searches": [
+          "web: \"10.3934/math.2026278\" \"erratum\" \"Milstein\"",
+          "web: Huang Du Liang SIRS 2026 Milstein sign correction",
+          "Resultary semantic: Milstein negative sign Huang Du Liang strong mean square"
+        ]
+      },
+      "rationale": "The comparison is source-specific: Huang, Du, and Liang explicitly print -epsilon*sigma_i*X_i in Model (4.1) and a negative half-square correction in Eq. (4.3), whereas Higham (2001) Eq. (6.1) requires positive one-half*g*g_prime. The exact finite-N scalar wrong-sign mean-square law and its sharp O(h) leading term do not appear in the inspected earlier work. Searches cannot prove absolute priority, and the generic formula makes the sign diagnosis elementary once sources are compared.",
+      "residual_risks": [
+        "An unindexed published comment, erratum or code repository may have noticed this precise printed sign.",
+        "No authors’ executed simulation code was available or inspected, so actual plotted curves cannot be attributed to the printed formula.",
+        "The numerical order assertion is rigorously only for scalar multiplicative-noise test and must never be transferred to full nonlinear SIRS without proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Every diagonal diffusion is -epsilon*sigma_i*X_i and the printed second-order coefficients are negative; no disclosed code verifies which coefficients the authors executed.",
+          "evidence": "DOI:10.3934/math.2026278, Eq. (4.1), Eq. (4.3), Section 4.",
+          "identifier_or_url": "https://www.aimspress.com/aimspress-data/math/2026/3/PDF/math-11-03-278.pdf",
+          "material_read": "PDF Section 4: page 6731, Model (4.1), parameter choice (4.2), Eq. (4.3); page 6732 Gaussian increments and stepsize; pp. 6734–6735 simulation statements, plus publication and reference information",
+          "method": "Full-text PDF search and rendered page 6731 inspection",
+          "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
+          "trigger": "Identical model and printed numerical scheme"
+        },
+        {
+          "assessment": "The unique applicable Milstein correction is +1/2*g*g_prime times centered squared Brownian increment; no claim about the specific 2026 source scheme.",
+          "evidence": "DOI:10.1137/S0036144500378302, Eq. (6.1).",
+          "identifier_or_url": "https://epubs.siam.org/doi/full/10.1137/S0036144500378302",
+          "material_read": "Publisher full-text HTML, Sections 5–6 including Eq. (6.1) and strong error rates, and Section 7 linear SDE discussion",
+          "method": "Publisher full-text HTML",
+          "title": "An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations",
+          "trigger": "Directly cited numerical-method reference [33] of the motivating paper"
+        },
+        {
+          "assessment": "Covers covariance inconsistency in Remark 3.8; does not derive the Milstein error law for Eq. (4.3).",
+          "evidence": "Result finding identifies F W+W F^T+GG^T+Q double counting.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-correlated-noise-sensitivity-formula-double-counts-brownian--645774f4d661",
+          "material_read": "Published RESULT.md mathematical finding, proof, verification, limitations and relation to source",
+          "method": "Published source file read",
+          "title": "The correlated-noise sensitivity formula double-counts Brownian variance",
+          "trigger": "Published analysis of same 2026 SIRS article"
+        },
+        {
+          "assessment": "Boundary inverse-gamma stationary behavior and point-convergence contradiction are distinct from Eq. (4.3) discretization.",
+          "evidence": "Original published result studies the disease-free face dS=(Lambda-mu S)dt-aS dB.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-extinction-has-a-nondegenerate-susceptible-boundary-law-not-poin--f842fd6897d6",
+          "material_read": "Published RESULT.md finding, assumptions, proof, verification, prior comparison and limitations",
+          "method": "Published source file read",
+          "title": "Extinction has a nondegenerate susceptible boundary law, not point convergence",
+          "trigger": "Published analysis of same SIRS article"
+        },
+        {
+          "assessment": "Different paper and wrong deterministic drift, not the source-specific negative Ito–Taylor correction.",
+          "evidence": "Claim concerns -beta SI/N drift defect in a six-component measles model.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-spurious-incidence-sink-makes-the-printed-milstein-measles-sch--055a1e49ae06",
+          "material_read": "Published RESULT.md claim, model, drift derivation, verification and limitations",
+          "method": "Published source file read",
+          "title": "A spurious incidence sink makes the printed Milstein measles scheme drift-inconsistent",
+          "trigger": "Closest published numerical epidemic-paper diagnostic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Huang–Du–Liang, Section 4 assertion of use of Milstein scheme with step size .01",
+        "Higham, Eq. 6.1 and strong-order distinction",
+        "Exact scalar finite-step error computation"
+      ],
+      "rationale": "The motivating 2026 SIRS paper uses the printed scheme to support stochastic numerical illustrations, making the correct stochastic Taylor coefficient a mathematically motivated fidelity question rather than an unmotivated sign exercise. The exact scalar witness quantifies a full-order drop from RMS h to RMS h^(1/2), a practically significant convergence-property failure. Source-specific quantitative reproducibility diagnostics are worthwhile despite reliance on elementary Gaussian moments and without new broad SDE theory; the benchmark does not certify the full nonlinear model or authors’ code.",
+      "residual_risks": [
+        "Quantitative impact on specific SIRS simulations is unknown without source code and a nonlinear stability analysis.",
+        "The source-specific result is modest; no claim of a new numerical method or universal instability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

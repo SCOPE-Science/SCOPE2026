@@ -1,96 +1,98 @@
 {
   "correctness": {
-    "rationale": "The source diffusion field is diagonal with g_i(x)=-q_i x, so g_i g_i-prime=q_i^2 x and Higham's cited Milstein formula fixes the correction sign as positive. The exact scalar calculation uses only Gaussian moments and independence; it yields the stated finite-N mean-square identity and asymptotic RMS order one-half. The bundled checker numerically verifies both asymptotic constants.",
+    "rationale": "For each diagonal field g_i(x)=-q_i x, one has g_i(x)g_i'(x)=q_i^2 x. Equation (4.3) prints the opposite correction sign to the +1/2 gg' centered-squared-increment term in the article's cited Milstein formula. Direct Gaussian moments and independence give the exact finite-N scalar mean-square identity and asymptotic root-mean-square order 1/2; numerical checking is corroborative, not its proof.",
     "status": "PASS"
   },
   "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Higham (2001), Eq. (6.1), gives the general correct-sign method and strong order one.",
-        "A general numerical-SDE review reproduces the same + one-half g g-prime correction."
+        "Higham, SIAM Review 43 (2001), Section 6, Eq. (6.1) and strong-order comparison",
+        "Huang, Du and Liang (2026), Section 4."
       ],
-      "reasoning": "General Milstein theory determines the correct sign and therefore supports correctness, but it does not supply the comparison to Huang–Du–Liang Eq. (4.3) or the exact opposite-sign finite-N mean-square error law.",
+      "reasoning": "The general +1/2 gg' correction immediately diagnoses the algebraic sign error after comparison with the paper, but neither source gives the opposite-sign scalar finite-N mean-square law. The latter is a bounded new comparison, not a new numerical method.",
       "searches": [
-        "Milstein method g g prime correction strong order 1",
-        "wrong sign Milstein correction strong order",
-        "opposite-sign Milstein geometric Brownian"
+        "Higham 2001 Milstein Ito Taylor strong order one equation 6.1",
+        "Milstein wrong correction sign order one half geometric Brownian"
       ]
     },
     "checked_sources": [
       "DOI:10.3934/math.2026278",
-      "DOI:10.1137/S0036144500378302"
+      "DOI:10.1137/S0036144500378302",
+      "Published analyses of the same SIRS source on covariance and disease-free behavior",
+      "Published separate work on a measles Milstein drift mismatch"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Own-ledger item 645774f4-d661-4cad-8af9-542d8ab01d27 concerns correlated-noise covariance.",
-        "Own-ledger item f842fd68-97d6-43d3-8e8c-12d76a05b865 concerns nonconvergence to the deterministic disease-free point.",
-        "Own-ledger item 055a1e49-ae06-4ba4-b93c-5a82a5e38916 concerns a different stochastic measles model and a drift defect in its Milstein update."
+        "Previously published analyses of the same SIRS paper address the covariance in Remark 3.8 and the disease-free boundary state; neither studies numerical Eq. (4.3).",
+        "An analysis of a different measles Milstein equation treats a drift mismatch, not this sign-dependent Milstein correction.",
+        "Higham 2001 supplies the original general Milstein correction."
       ],
-      "reasoning": "None of the closest own findings implies the sign comparison or exact error formula here. The general Higham formula implies what the correct correction must be, but not the source-specific printed discrepancy or its quantified opposite-sign convergence law.",
+      "reasoning": "Different corrections to the same paper and other numerical epidemic schemes do not entail this exact opposite-sign scalar error law. The standard Milstein theorem entails the proper sign but not the publication-specific printed comparison.",
       "searches": [
-        "10.3934/math.2026278 Milstein stochastic SIRS printed recurrence correction sign",
-        "Huang Du Liang SIRS Milstein opposite sign exact mean square error"
+        "published mathematical research on SIRS covariance error Huang Du Liang",
+        "SIRS disease-free boundary inverse gamma Huang Du Liang",
+        "published Milstein measles scheme spurious drift"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "DOI:10.3934/math.2026278, Section 4, Eq. (4.3)",
-        "DOI:10.1137/S0036144500378302, Eq. (6.1)"
+        "Huang, Du and Liang (2026), Eq. (4.3), DOI:10.3934/math.2026278",
+        "Higham (2001), Eq. (6.1), DOI:10.1137/S0036144500378302"
       ],
-      "reasoning": "Queries covered source title/DOI, Milstein-sign terminology, and the equivalent scalar geometric-noise formulation. No located result states the source-specific sign defect or its exact mean-square consequence.",
+      "reasoning": "Examined the printed SIRS recurrence and the scalar geometric-noise alias. No inspected earlier mathematical result explicitly states the source-specific opposite sign and this exact error identity; a failed search does not establish novelty.",
       "searches": [
-        "Huang Du Liang 2026 Milstein sign error stochastic SIRS equation 4.3",
-        "Dynamics and stochastic sensitivity technique stochastic SIRS Milstein correction sign",
-        "multiplicative noise Milstein wrong sign g g prime strong order one half",
-        "geometric Brownian wrong Milstein correction opposite sign strong convergence",
-        "10.3934/math.2026278 Milstein stochastic SIRS printed recurrence correction sign"
+        "Huang Du Liang SIRS Eq 4.3 Milstein sign error",
+        "wrong sign Milstein geometric Brownian exact strong error",
+        "multiplicative noise negative Ito Taylor term strong convergence"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "Full text of the motivating article was inspected at Model (4.1) and Eq. (4.3); its reference [33] is Higham (2001)."
+        "The motivating paper publishes the numerical update directly at Section 4, Eq. (4.3)."
       ],
-      "reasoning": "No external numerical table is needed. The relevant exact object is the printed recurrence itself, and no located database record supplies the derived error identity.",
+      "reasoning": "This is a published-formula audit, not a numerical-sequence or classification-table result. The source formula itself is the exact object, and no relevant covering erratum or table was identified in the checked search results.",
       "searches": [
-        "10.3934/math.2026278 Eq. 4.3 Milstein",
-        "Dynamics and stochastic sensitivity technique stochastic SIRS numerical scheme"
+        "10.3934/math.2026278 correction erratum numerical scheme",
+        "Huang Du Liang SIRS Eq 4.3 sign correction"
       ]
     },
-    "rationale": "The standard Milstein formula is known, but the inspected source prints the opposite second-order sign. Searches of the exact DOI/title, numerical-method aliases, and geometric-noise equivalent formulation found no source-specific diagnosis or the exact finite-horizon error identity proved here. Own-ledger comparison found two earlier findings on the same SIRS paper, but they concern disease-free pathwise convergence and correlated-noise covariance, not Eq. (4.3).",
+    "rationale": "The cited general formula establishes the correct sign but does not itself print the source-specific comparison to Huang, Du and Liang's Eq. (4.3) or the finite-N opposite-sign error identity. The originality claim is restricted to that concrete diagnosis and quantified scalar consequence; priority remains best-of-knowledge rather than absolute.",
     "residual_risks": [
-      "No author implementation was located, so the numerical figures cannot be attributed to the printed sign without additional evidence.",
-      "A publication not surfaced by the performed searches could independently note the same source-specific sign error or derive an equivalent opposite-sign error law."
+      "An unindexed erratum or informal observation may already document the same sign mismatch.",
+      "Author implementation was not examined, so no claim concerning generated figures or code is justified.",
+      "The exact order analysis is proved only for the scalar multiplicative-noise test, not the full nonlinear SIRS scheme."
     ],
     "source_inspections": [
       {
-        "assessment": "Model (4.1) has diagonal diffusion -epsilon sigma_i X_i, while Eq. (4.3) prints - one-half epsilon-squared sigma_i-squared X_i times the centered squared increment in every coordinate.",
-        "evidence": "AIMS Mathematics 11 (2026), pp. 6720–6743, Section 4.",
+        "assessment": "The field is -epsilon sigma_i X_i while all three centered-square corrections in Eq. (4.3) have a negative coefficient.",
+        "evidence": "Section 4, Model (4.1), Eq. (4.3), and corresponding Gaussian increment definition.",
         "identifier_or_url": "DOI:10.3934/math.2026278",
-        "material_read": "Section 4, especially Model (4.1), parameter paragraph, Eq. (4.3), figure descriptions, and reference [33].",
-        "method": "Full-text and rendered-page inspection of the open-access article.",
+        "material_read": "Primary open-access PDF page 6731, Model (4.1), Eq. (4.3), and numerical discussion on subsequent pages",
+        "method": "Primary PDF text plus rendered page inspection",
         "title": "Dynamics and stochastic sensitivity technique of a stochastic SIRS epidemic model",
-        "trigger": "The article says Section 4 verifies theory using the Milstein method."
+        "trigger": "Exact printed recurrence in Section 4"
       },
       {
-        "assessment": "Higham gives + one-half g g-prime times the centered squared Brownian increment and identifies Milstein as strong order one.",
-        "evidence": "SIAM Review 43 (2001), Eq. (6.1).",
+        "assessment": "Milstein adds +1/2 gg-prime times centered squared Brownian increment; the source diffusion therefore requires a positive coefficient.",
+        "evidence": "Higham, SIAM Review 43 (2001), Eq. (6.1).",
         "identifier_or_url": "DOI:10.1137/S0036144500378302",
-        "material_read": "Section 6 and Eq. (6.1).",
-        "method": "Full-text inspection.",
+        "material_read": "Full-text HTML Section 6 and Eq. (6.1), with Section 5 strong convergence definitions",
+        "method": "Publisher full-text HTML inspection",
         "title": "An Algorithmic Introduction to Numerical Simulation of Stochastic Differential Equations",
-        "trigger": "This is the numerical-method reference explicitly cited by the SIRS article."
+        "trigger": "The numerical method expressly cited by the SIRS paper"
       }
     ],
     "status": "PASS"
   },
+  "previously_published_pending_reaudit": false,
   "review_type": "self_review",
   "schema_version": 1,
-  "scope_run_id": "af702143-d1a4-422d-a6b0-dd419a04da53",
   "self_review_status": "passed",
   "value": {
-    "rationale": "The paper uses the printed scheme to support its numerical verification, and the sign error changes the stochastic Taylor term that distinguishes Milstein from Euler–Maruyama. The exact test shows a full loss of strong convergence order, from one to one-half, so the issue is mathematically substantive for reproducibility and step-size accuracy rather than a typographical normalization check.",
+    "rationale": "An incorrect second-order stochastic Taylor term changes the verified strong rate on an exactly solvable multiplicative-noise benchmark from h to h^(1/2), directly relevant to the accuracy and reproducibility of numerical evidence presented for a named epidemiological model. The result is confined to the printed recurrence and scalar test, with no unproved conclusion about its implementation.",
     "status": "PASS"
   }
 }
