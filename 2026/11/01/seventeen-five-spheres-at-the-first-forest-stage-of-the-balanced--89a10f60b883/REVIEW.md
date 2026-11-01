@@ -1,0 +1,13 @@
+# Review of the triple-product first-forest-stage result
+
+**Correctness — PASS.** The graph is defined unambiguously by coordinatewise inequality, and all subsets of its 18 vertices are covered by two independently implemented face predicates. The exact verifier constructs all 8,564 nonempty faces, 4,273 distinct matched cover pairs and 42,786 oriented Hasse incidences. A complete topological sort proves the gradient orientation acyclic and leaves one vertex and 17 five-simplices. The standard integral discrete-Morse theorem then gives a CW model with only these cells; since there are no cells of dimensions one through four, every five-cell attaches to the point and the model is precisely 17 five-spheres. Independent exact mod-two boundary ranks corroborate but are not substituted for this homotopy proof. The reproducible certificate is `verify.py` with output `verification_output.txt`.
+
+**Originality — PASS, subject to bibliographic risk.** The same-parameter published primary paper [1, pp. 24–31] computes \(\mathcal F_d(K_2\times K_2\times K_n)\) in Corollary 43, while Question 44 explicitly asks for the triple products at levels \(d\geq1\). The balanced remaining factor sizes three and three are not the two-factor or two-by-two cases. The triple-product classification [2, §4] is for the *ordinary independence complex* \(\mathcal F_0\), not \(\mathcal F_1\). The more general higher-independence results [3, §1, theorem list] restrict their exact classifications to listed graph classes; the present graph is four-regular connected bipartite but not complete bipartite, hence not complete multipartite, and is not a path/cycle/fully whiskered graph/tree. An equivalent computation elsewhere remains possible but no inspected source implies this one.
+
+**Value — PASS.** This computes the first nontrivial balanced case \(m=n=3\) of a specifically posed triple-categorical-product forest-filtration question. It identifies a transition from the previously known 14 three-spheres at level zero to 17 five-spheres at level one, and gives a complete integral homotopy invariant, not an isolated Betti number over a chosen field. It does not claim general parameter formulas or persistence maps.
+
+**Scientific limits.** A finite calculation proves this exact finite instance only. Novelty is established against the checked literature, not all potentially unindexed sources. No independent external audit has occurred.
+
+Self-review: passed. Independent audit: not yet performed.
+
+**References.** [1] A. Carnero Bravo, arXiv:2307.13271. [2] O. Antolín Camarena and A. Carnero Bravo, arXiv:2307.12401. [3] P. Deshpande and A. Singh, arXiv:2001.05448.
