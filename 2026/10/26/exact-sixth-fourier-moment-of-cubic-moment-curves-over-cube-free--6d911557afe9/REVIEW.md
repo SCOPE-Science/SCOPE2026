@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Newton identities are valid when the modulus is coprime to six. Over a prime field the first three power sums recover a root multiset; in each prime-square lift, the linearized Jacobian has rank exactly the number of distinct residual roots. This gives all three contributions, including singular repeated-root cases, and the exact polynomial \(16p^6-27p^5+12p^4\). Chinese remaindering, character orthogonality, averaging by translations of the curve, and strict convexity establish the sharp constant and equality cases. The full self-contained proof supplies the infinite argument. Finite exact checks of moduli 5, 25, 7, 49, and 35 are auxiliary consistency tests, not a substitute for it.
+## correctness
 
-## Originality — PASS, with limitations
-Iosevich, Li, and Yu (arXiv:2609.25404v1) give the general reduction to the congruence counts, not their ramified evaluation. The closest published published-finding corpus squarefree theorem establishes only the \(p\) local factor and explicitly excludes \(p^2\). Hickman and Wright (arXiv:1801.03176v2) discuss prime-power restriction estimates, not this exact sixth-power local density. Direct searches for the polynomial, sixth moments, power-sum congruences, and cube-free profiles found no covering indexed theorem; unindexed p-adic counts remain a real priority risk.
+PASS
 
-## Mathematical value — PASS
-The exact ramified local factor quantitatively distinguishes critical Fourier synthesis over primes and their squares, and extends a natural squarefree cutoff to all cube-free moduli. This explicitly answers a motivated arithmetic part of a live endpoint Fourier synthesis question. Its endpoint prime-divisor criterion is sharp and not an arbitrary parameter slice.
+Newton identities over Z/NZ with 6 invertible reconstruct e1,e2,e3 of each triple, so higher power sums follow for d≥3. Over F_p same power sums force same residual multiset. For a fixed residue pair of triples with r distinct values the mod-p linearized first-three power sums have Vandermonde rank r, yielding exactly p^(6−r) lifts mod p². Counting 6p(p−1)(p−2), 9p(p−1), p residue ordered pairs gives 16p⁶−27p⁵+12p⁴, including repeated-root singular strata. CRT gives cube-free factorization; affine parameter translation averages f and strict convexity fixes equality to character-modulated indicators. Orthogonality gives ||hat{1_M}||_6^6=N^(−2d)J. For d=3, local factors bounded >1 yield decay exactly when ω(N)→∞. Independently enumerated N=5,25,7,49,35: 545,173125,1645,1457407,896525. Infinite p² proof is Vandermonde rank/CRT, not these tests.
 
-## Limitations
-The local analysis is restricted to \(p>3\), exponent at most two, and the critical sixth moment. No claim of a new general theory of higher prime powers or independent expert certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact new p² singular-lift count and consequent cube-free Euler product. Earlier published squarefree result covers the entire unramified p part and ω(N) endpoint criterion ONLY for squarefree N; Iosevich–Li–Yu supply affine-transitivity constant reduction; ring Fourier restriction bounds of Hickman–Wright do not explicitly evaluate this sharp p² six-variable arithmetic count. The p² count is not A_1(p)². Unindexed p-adic Vinogradov mean-value congruence calculations and inaccessible full 2026 source remain risks.
+
+## value
+
+PASS
+
+Exact first ramified arithmetic factor distinguishes the sharp sixth Fourier moment over primes from prime squares; it extends a motivated squarefree spectral-synthesis endpoint to all cube-free moduli and isolates the role of distinct prime factors. The p² count is a nontrivial density rather than an arbitrary table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
