@@ -1,0 +1,154 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:11:45Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Immutable RESULT.md at blob a90f5a063c3cc19df96e35c04851cc9fe6bf0f3b, §§Proof/Verification",
+        "Independent symbolic and 30,000 randomized checks: independent_gaussian_check.py; independent_gaussian_results.json",
+        "Independent seven-file Git tree reconstruction equals assigned SHA 8d5f83b4c2fed6eafc8e98fca1f3921927f782d9"
+      ],
+      "rationale": "Reconstructed the 105-pairing Isserlis polynomial E=3+6a²+12b²+12c²+48abc+24b²c². For abc≥0, D≥Q. For abc<0, PSD gives x²+s+2xt≤1, s≥2t; minimizing D/Q allows s=2t (y=z=√t), preserving PSD and equality only at y=z when relevant. With u=t and 0≤x≤1−2u, optimize R=1−4u(2x−u)/(x²+4u); the x-stationary/boundary switch u_c=(9−√57)/12 is checked, interior branch decreases and boundary branch has derivative 8(4u²+5u−1)/(4u²+1)². Unique global minimum occurs at u*=(√41−5)/8 and x*=1−2u*, yielding C*=(7−√41)/2. All degeneracies (Q=0 independence, a/b/c zero, t≥2x, singular/PD) handled; nonzero equalities are rank-two PSD with abc<0 and |b|=|c|=√u*, |a|=x*. Independent checker symbolically verified exact identities, all 105 Wick pairings and the branch/critical-point identities, plus 30,000 finite random PSD tests. Finite tests are corroboration, not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Russell–Sun and Herry–Malicet–Poly prove nonnegative GPI deficits for all relevant even exponent triples; their theorem statements have zero remainder coefficient.",
+          "The later Kim–Kim–Kim abstract extends qualitative positivity to all integer orders without stating any sharp correlation-weighted remainder.",
+          "Russell–Sun SOS paper describes qualitative GPI examples, not this sharp weighted lower bound."
+        ],
+        "reasoning": "Broader exponent coverage of a qualitative nonnegativity result is not stronger in the target quantitative direction: positivity of D does not imply D≥C Q for the exact sharp C>0, especially in correlated limiting regimes. No checked broader theorem dominates this stability statement.",
+        "searches": [
+          "arXiv:2208.13957v2 full-text Theorems 1.1/1.2",
+          "arXiv:2211.07314 full primary PDF",
+          "DOI:10.1016/j.jmaa.2024.128804 abstract/fulltext OA search",
+          "arXiv:2205.02127v4"
+        ]
+      },
+      "checked_sources": [
+        "Hu, Zhao and Zhou, Quantitative versions of the two-dimensional Gaussian product inequalities, J. Inequal. Appl. 2023:2, DOI:10.1186/s13660-022-02906-w, full OA HTML and Section 5 Question 1.",
+        "Russell and Sun, Moment ratio inequality of bivariate Gaussian distribution and three-dimensional Gaussian product inequality, arXiv:2208.13957v2 / JMAA 523 (2023) 127410, full primary PDF relevant theorem/proof sections.",
+        "Herry, Malicet and Poly, A short proof of a strong form of the three dimensional Gaussian product inequality, arXiv:2211.07314 / Proc. AMS 152 (2024), complete five-page primary PDF.",
+        "Russell and Sun, Using Sums-of-Squares to Prove Gaussian Product Inequalities, arXiv:2205.02127v4, primary PDF abstract, introduction, stated theorems and relevant polynomial scope.",
+        "Kim, Kim and Kim, Three-dimensional Gaussian product inequality with positive integer order moments, JMAA 542 (2025) 128804, DOI:10.1016/j.jmaa.2024.128804, abstract/bibliography; full text not obtained.",
+        "Published Resultary semantic search for the exact 2,2,4 Gaussian moment, weighted elliptope remainder, radical constant and quantitative three-dimensional GPI."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The target implies the known qualitative GPI, since Q≥0 and C>0, but the converse implication does not follow from the qualitative inequality.",
+          "The prior strong even-exponent GPI has the same 2,2,4 exponent as a special case, yet it only asserts D≥0 and no uniform optimal D/Q coefficient.",
+          "The direct 2023 source asks for quantitative three-dimensional GPIs; the case here is one motivated answer."
+        ],
+        "reasoning": "The strongest inspected existing statement is a qualitative umbrella theorem. Setting exponents equal to (1,1,2) recovers only D≥0, and independence equality describes the zero set but does not establish the best curvature/stability constant. The new sharp bound and singular optimizer need independent elliptope optimization. The 2025 paper is an access risk, not an asserted noncovering source.",
+        "searches": [
+          "Hu–Zhao–Zhou (2023) Section 5 Question 1",
+          "Russell–Sun arXiv:2208.13957 Theorem 1.1 and restricted Theorem 1.2",
+          "Herry–Malicet–Poly arXiv:2211.07314 Theorem 1.1",
+          "Kim–Kim–Kim (2025) published abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The moment identity E=3+Q+48abc+24b²c² converts the theorem to sharp positivity of (1−C)Q+48abc+24b²c² over the 3×3 correlation elliptope.",
+          "The direct 2023 quantitative GPI source treats two-dimensional Gaussian covariance rather than this three-parameter elliptope."
+        ],
+        "reasoning": "Equivalent forms include an eighth-order Gaussian moment-deficit inequality, a sharp sextic/quartic polynomial inequality over the correlation elliptope, and an elliptope stability remainder normalized by Q. These were searched by exact moment, C radical, exponents, and covariance weights; no covering equivalent was identified.",
+        "searches": [
+          "Resultary: Sharp quantitative Gaussian product inequality E[X1^2 X2^2 X3^4] correlation remainder optimal constant three-dimensional",
+          "Resultary: Gaussian product inequality three dimensional weighted quadratic correlation lower bound even powers 2 2 4",
+          "Resultary: X1^2 X2^2 X3^4 Gaussian product inequality",
+          "web: \"7 - sqrt(41)\" \"Gaussian\"",
+          "web: \"6 rho12^2 12 rho13^2 12 rho23^2\" Gaussian product"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact coefficient comes from minimizing a rational function of the determinant-zero correlation slice u, not simply reading a Wick coefficient.",
+          "Resultary relevant published-record searches and exact-value web queries returned no corresponding quantitative table or previously tabulated optimum."
+        ],
+        "reasoning": "The object is a continuous correlation-elliptope extremum rather than an enumerated integer sequence; the exact algebraic optimum was checked under aliases and numeral variants. An unindexed algebraic optimization remains a risk.",
+        "searches": [
+          "Resultary: Sharp quantitative Gaussian product inequality E[X1^2 X2^2 X3^4] correlation remainder optimal constant three-dimensional",
+          "Resultary: Gaussian moment correlation elliptope sharp polynomial inequality Isserlis quantitative covariance",
+          "web: \"(7-sqrt(41))/2\" Gaussian product inequality",
+          "web: \"Gaussian product inequality\" \"sqrt(41)\""
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the full sharp quantitative bound with anisotropic quadratic correlation remainder for the first unequal Gaussian exponent case survives direct implication tests against the primary qualitative all-exponent Gaussian-product results and the direct bivariate quantitative source. Qualitative nonnegativity plus equality only at independence cannot determine a uniform strictly positive sharp weighted-correlation coefficient. Searches did not establish equivalent prior coverage, but unsuccessful searches are not novelty proof; the full 2025 paper and older elliptope-polynomial literature are residual risks.",
+      "residual_risks": [
+        "Kim–Kim–Kim 2025 article full text not inspected; OA/preprint not found, Oxford storage limit stopped lawful retrieval, so unadvertised quantitative remarks cannot be excluded.",
+        "An equivalent sharp correlation-elliptope optimization may exist in older Gaussian-moment, Wick-polynomial or polynomial-positivity literature under different nomenclature.",
+        "Primary Russell–Sun 55-page manuscript main theorem/proof sections were read; not every appendix line checked, so full-document noncovering is not claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Bivariate quantitative results and explicit 3D quantitative question do not imply a weighted 3D sharp remainder in the 2,2,4 case.",
+          "evidence": "The concluding question asks for quantitative versions of the three-dimensional GPIs; bivariate theorem hypotheses concern two coordinates, not the target three-coordinate covariance elliptope.",
+          "identifier_or_url": "arXiv:2207.09921v1; DOI:10.1186/s13660-022-02906-w; https://doi.org/10.1186/s13660-022-02906-w",
+          "material_read": "Open-access full-text HTML: introduction and bivariate quantitative theorem statements, concluding Section 5 and its Question 1 concerning quantitative three-dimensional Gaussian product inequalities.",
+          "method": "Open-access HTML read and mathematical comparison of dimensions, exponents and lower-bound form.",
+          "title": "Quantitative versions of the two-dimensional Gaussian product inequalities",
+          "trigger": "Direct paper posing the three-dimensional quantitative open direction."
+        },
+        {
+          "assessment": "General nonnegative product deficit is proved, but examined results do not supply a positive optimal multiplier of Q=6a²+12b²+12c²; their sharper moment-ratio theorem has restricted pairs excluding (1,2).",
+          "evidence": "Theorem 1.1 gives E[X1²X2^{2m2}X3^{2m3}] ≥ product marginal moments for all m2,m3≥1, with equality only independence; the target lower bound is stronger and has an explicit sharp factor.",
+          "identifier_or_url": "arXiv:2208.13957v2; DOI:10.1016/j.jmaa.2023.127410",
+          "material_read": "Full accessible 55-page primary PDF: abstract/introduction, Theorems 1.1/1.2, low-exponent discussion, central Section 2 moment-ratio and hypergeometric reduction, relevant pages inspected as PDF text and images. Not every appendix paragraph independently read.",
+          "method": "Primary arXiv PDF text and page-image inspection, comparison of inequality direction, equality and quantitative normalization.",
+          "title": "Moment ratio inequality of bivariate Gaussian distribution and three-dimensional Gaussian product inequality",
+          "trigger": "Closest full-exponent qualitative theorem, with low-exponent discussion including (m2,m3)=(1,2)."
+        },
+        {
+          "assessment": "Strong refers to the full even-exponent family of qualitative GPIs; no sharp correlation-weighted quantitative remainder for 2,2,4 follows from the stated conclusion.",
+          "evidence": "Its inequality is E[|X1|^{2p1}|X2|^{2p2}|X3|^{2p3}] ≥ ∏E|Xi|^{2pi}; no numerical lower bound on the deficit relative to the covariance quadratic Q is stated.",
+          "identifier_or_url": "arXiv:2211.07314; DOI:10.1090/proc/16448",
+          "material_read": "Complete five-page primary preprint: Theorem 1.1, argument and closing references, with source PDF page-image inspection.",
+          "method": "Full lawful arXiv primary PDF reading and direct implication check.",
+          "title": "A short proof of a strong form of the three dimensional Gaussian product inequality",
+          "trigger": "Plausible stronger theorem with strong in the title and all three exponent parameters."
+        },
+        {
+          "assessment": "Demonstrates qualitative SOS GPI inequalities with fourth/sixth powers on different exponent profiles; no demonstrated implication of the exact 2,2,4 weighted remainder.",
+          "evidence": "The abstract explicitly cites qualitative 3D case E[X1^{2m1} X2^6 X3^4] ≥ marginal products, and a 4D even-power case; these do not fix the present sharp remainder constant.",
+          "identifier_or_url": "arXiv:2205.02127v4",
+          "material_read": "Primary 18-page PDF abstract, introduction, theorem statements and principal example exponents; first PDF page inspected as a page image; not all appendices/material read.",
+          "method": "ArXiv primary PDF inspection and direct check of exponents and strength of asserted inequalities.",
+          "title": "Using Sums-of-Squares to Prove Gaussian Product Inequalities",
+          "trigger": "Nonstandard SOS proof technique could hide a polynomial lower-bound certificate."
+        },
+        {
+          "assessment": "Abstract states qualitative extension to all positive integer orders; no quantitative remainder advertised. Full-text content is unverified and remains a real originality residual risk, not classified as wholly noncovering.",
+          "evidence": "Published abstract describes E[|X1|^{p1}|X2|^{p2}|X3|^{p3}] ≥ product marginal moments and independence equality, not coefficient (7−√41)/2.",
+          "identifier_or_url": "DOI:10.1016/j.jmaa.2024.128804; JMAA 542 (2025) article 128804",
+          "material_read": "Full bibliographic abstract and publication metadata from university research profiles; no full primary article was obtained.",
+          "method": "University repositories and indexed metadata checked; arXiv/OA searches unsuccessful; authorized institutional retrieval returned download-storage-limit error and was not bypassed.",
+          "title": "Three-dimensional Gaussian product inequality with positive integer order moments",
+          "trigger": "Later published all-positive-integer exponent result including 2,2,4, so plausible unadvertised coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact target is naturally the first unequal positive-integer exponent profile (1,2) after the all-square 3D Gaussian product case, directly motivated by a published question on quantitative 3D GPIs. It establishes a globally sharp positive stability factor relative to the exact second-order anisotropic covariance scale, identifies rank-two extremal geometry, and distinguishes sharpness over singular PSD from unattained nonzero equality under strict PD. The exact coefficient and equality locus are not obtained from the qualitative 3D positivity and may guide comparison for higher exponents; no general exponent theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Hu, Zhao and Zhou, Quantitative versions of the two-dimensional Gaussian product inequalities, J. Inequal. Appl. 2023:2, DOI:10.1186/s13660-022-02906-w, full OA HTML and Section 5 Question 1.",
+    "Russell and Sun, Moment ratio inequality of bivariate Gaussian distribution and three-dimensional Gaussian product inequality, arXiv:2208.13957v2 / JMAA 523 (2023) 127410, full primary PDF relevant theorem/proof sections.",
+    "Herry, Malicet and Poly, A short proof of a strong form of the three dimensional Gaussian product inequality, arXiv:2211.07314 / Proc. AMS 152 (2024), complete five-page primary PDF.",
+    "Russell and Sun, Using Sums-of-Squares to Prove Gaussian Product Inequalities, arXiv:2205.02127v4, primary PDF abstract, introduction, stated theorems and relevant polynomial scope.",
+    "Kim, Kim and Kim, Three-dimensional Gaussian product inequality with positive integer order moments, JMAA 542 (2025) 128804, DOI:10.1016/j.jmaa.2024.128804, abstract/bibliography; full text not obtained.",
+    "Published Resultary semantic search for the exact 2,2,4 Gaussian moment, weighted elliptope remainder, radical constant and quantitative three-dimensional GPI."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The 2025 JMAA full paper is inaccessible in this run; its abstract states qualitative positivity and does not settle whether a quantitative aside appears.",
+    "An older equivalent exact correlation-elliptope polynomial inequality may escape title/parameter searches.",
+    "The 30,000 randomized tests and 105-pairing enumeration do not constitute a universal proof; universal statement rests on the reconstructed analytic minimization.",
+    "Public METADATA.json and AUDIT.json expose an internal per-run provenance identifier; validated neutral full-file replacement bytes were not staged, so publication is withheld."
+  ],
+  "schema_version": 1
+}

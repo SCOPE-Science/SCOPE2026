@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,57 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The analytic proof has two independently replayable components.
+# Independent mathematical audit
 
-First, Isserlis' formula for
-\[
-X_1^2X_2^2X_3^4
-\]
-contains \(105\) pairings. Grouping them by correlation monomial gives
-\[
-3,\quad
-6a^2,\quad
-12b^2,\quad
-12c^2,\quad
-48abc,\quad
-24b^2c^2.
-\]
-The bundled script enumerates all pairings directly and verifies exactly these coefficients.
+## correctness
 
-Second, define
-\[
-u_*=\frac{\sqrt{41}-5}{8},
-\qquad
-x_*=\frac{9-\sqrt{41}}4,
-\qquad
-C_*=\frac{7-\sqrt{41}}2.
-\]
-For the sign pattern
-\[
-a=-x_*,
-\qquad
-b=c=\sqrt{u_*},
-\]
-the script checks
-\[
-1+2abc-a^2-b^2-c^2=0
-\]
-and
-\[
-\frac{
-6a^2+12b^2+12c^2+48abc+24b^2c^2
-}{
-6a^2+12b^2+12c^2
-}
-=
-C_*.
-\]
+PASS
 
-A deterministic grid over the negative-product positive-semidefinite region is included only as a replay check and is not used in the proof.
+Reconstructed the 105-pairing Isserlis polynomial E=3+6a²+12b²+12c²+48abc+24b²c². For abc≥0, D≥Q. For abc<0, PSD gives x²+s+2xt≤1, s≥2t; minimizing D/Q allows s=2t (y=z=√t), preserving PSD and equality only at y=z when relevant. With u=t and 0≤x≤1−2u, optimize R=1−4u(2x−u)/(x²+4u); the x-stationary/boundary switch u_c=(9−√57)/12 is checked, interior branch decreases and boundary branch has derivative 8(4u²+5u−1)/(4u²+1)². Unique global minimum occurs at u*=(√41−5)/8 and x*=1−2u*, yielding C*=(7−√41)/2. All degeneracies (Q=0 independence, a/b/c zero, t≥2x, singular/PD) handled; nonzero equalities are rank-two PSD with abc<0 and |b|=|c|=√u*, |a|=x*. Independent checker symbolically verified exact identities, all 105 Wick pairings and the branch/critical-point identities, plus 30,000 finite random PSD tests. Finite tests are corroboration, not universal proof.
 
-Expected successful terminal output begins with:
-`VERIFY_OK constant=0.298437881284`.
+## originality
 
-The global lower bound and equality classification are established analytically in `RESULT.md`; finite computation is not used to certify an infinite statement.
+PASS
+
+Best-of-knowledge originality: the full sharp quantitative bound with anisotropic quadratic correlation remainder for the first unequal Gaussian exponent case survives direct implication tests against the primary qualitative all-exponent Gaussian-product results and the direct bivariate quantitative source. Qualitative nonnegativity plus equality only at independence cannot determine a uniform strictly positive sharp weighted-correlation coefficient. Searches did not establish equivalent prior coverage, but unsuccessful searches are not novelty proof; the full 2025 paper and older elliptope-polynomial literature are residual risks.
+
+## value
+
+PASS
+
+The exact target is naturally the first unequal positive-integer exponent profile (1,2) after the all-square 3D Gaussian product case, directly motivated by a published question on quantitative 3D GPIs. It establishes a globally sharp positive stability factor relative to the exact second-order anisotropic covariance scale, identifies rank-two extremal geometry, and distinguishes sharpness over singular PSD from unattained nonzero equality under strict PD. The exact coefficient and equality locus are not obtained from the qualitative 3D positivity and may guide comparison for higher exponents; no general exponent theorem is claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
