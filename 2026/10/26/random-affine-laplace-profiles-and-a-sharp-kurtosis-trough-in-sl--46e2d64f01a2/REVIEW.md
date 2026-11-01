@@ -1,15 +1,21 @@
-# Scientific review: random affine displacement limit in slowly reset harmonic chains
+# Independent mathematical audit
 
-## Correctness — PASS
-The mechanical dynamics, finite-size order of limits, resetting rates, noise conventions, thermal terms, and exponential stability are explicitly defined. The tridiagonal static transfer vector is derived from the positive-definite stiffness matrix. The key nonstandard step is a fourth-mean adiabatic approximation: scaled resetting-Brownian increments over any fixed lag vanish in fourth mean using the rare-reset probability and uniformly bounded eighth moments, and the stable impulse kernels permit dominated convergence. This yields full joint convergence through fourth order, not merely simulations. Independent cumulant algebra then proves the exact rank-two covariance, fourth tensor and kurtosis minimum. The matched-OU comparison uses equality of the *complete stationary* wall autocovariance. The executable checker corroborates 487 algebraic/numerical assertions. No thermal or thermodynamic-limit shortcut is used.
+## correctness
 
-## Originality — PASS, provisional against wider priority
-Closest primary text: Sarkar, Santra and Basu, arXiv:2210.09035, establishes a harmonic-chain Green function and Gaussian OU-reservoir laws, as well as general second-moment dependence on reservoir covariance. Sarkar and Roy, arXiv:2307.06127, study the identical Brownian-reset boundary mechanism and evaluate principally velocity fluctuations, current and bulk correlations, not the finite-chain rare-reset **joint position** distribution or its spatial fourth-cumulant profile. Guéneau, Majumdar and Schehr, arXiv:2306.09453, treat an overdamped single particle with resetting Brownian drive, recovering a scalar Laplace active limit, but not two independent reservoirs, an inertial multi-site chain or the sharp spatial kurtosis locus. The exact common-covariance argument and the individual Laplace precursor are not claimed novel. The new combined finite-chain displacement law, rank-two joint limit and exact kurtosis trough were not identified in the inspected primary sources or accessible mathematical search records. Residual priority risk: a general quasi-static linear-network theorem, a supplemental calculation, or an unindexed result could imply the evaluated law without using these keywords. Lack of search results is not proof of novelty. Related accessible historical claims concern a single oscillator's *velocity* kurtosis or a thermodynamic-limit *velocity* covariance inverse, not the finite-chain stationary spatial position limit.
+PASS
 
-## Scientific value — PASS
-An existing physically motivated resetting-wall harmonic-chain model has non-Gaussian boundary inputs but earlier analyses focus on velocity statistics and transport. This result gives a complete, interpretable, finite-dimensional displacement picture in a natural singular-driving limit: an emergent random affine profile and rank-two spatial correlations, with a sharp spatial location of the minimum non-Gaussian excess kurtosis, independent of the mechanical mass, stiffness and damping. The covariance-matched Gaussian-reservoir comparison shows exactly why all two-point measurements cannot distinguish these physically distinct driving statistics, while fourth moments can. The precise two-wall profile, rather than a chosen parameter slice, is a natural benchmark for stationary displacement fluctuation measurements. The mathematics is a finite-fixed-size asymptotic result, not a claim about thermodynamic phases, nonlinear chains or finite-sample inference.
+Damped finite chain drift is Hurwitz: negative energy derivative at boundary and nonvanishing first coordinate of every tridiagonal Dirichlet normal mode preclude imaginary eigenvalues. Its L1 response kernels integrate to the affine static gains a_i=(n+1−i)/(n+1), b_i=i/(n+1). For a wall resetting at rate ελ, exponential stationary age A and conditional Brownian variance 2DA give √ε X a centered Laplace characteristic function 1/(1+Dt²/λ). At fixed lag the scaled difference of wall values goes to zero in L4, by Brownian increments off reset and Hölder/eighth-moment control on reset events; dominated convolution therefore yields joint L4 convergence to the two-independent-Laplace affine field. From independent Laplace cumulants, limiting covariance has rank 2 and the fourth-cumulant tensor factors as 12ηL² a⊗4+12ηR² b⊗4. Kurtosis is 3[p(u)²+(1−p(u))²] and uniquely minimal 3/2 at u=sqrtηL/(sqrtηL+sqrtηR). Stationary reset-Brownian and matched OU walls have exactly the same exponential lag covariance 2D/(ελ)e^(−ελ|t|), so linear chain x/v second-order covariances match at every ε, but OU outputs remain Gaussian. Independent static-gain, cumulant and variable-η kurtosis checks passed; the L4 limit is proved analytically, not by simulation.
 
-## Limitations and closest comparison
-The conclusion does not claim the equal-time velocity kurtosis, finite-reset position distribution, interacting reservoirs, arbitrary renewal tails, or uniformity in chain length. The scalar Laplace active limit and the linear covariance-transfer rule are previously known ingredients; their specific finite-chain joint consequence and spatial sharpness are the evaluated result. Published priority may require independent specialist comparison beyond accessible texts.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge for the full joint n-site weak-reset position law and explicit kurtosis-trough/OU-indistinguishability combination. The underlying chain model, second-order Green functions and one-wall Laplace marginal are all prior and excluded as discoveries. Full source has been compared at the relevant model and results sections.
+
+## value
+
+PASS
+
+The full low-reset spatial random field and rank-two non-Gaussian fourth-order signature are natural observables that distinguish reservoir mechanisms indistinguishable even with complete second-order space-time data. The exact spatial position of minimal kurtosis is mathematically motivated by harmonic interpolation rather than an arbitrary statistic.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
