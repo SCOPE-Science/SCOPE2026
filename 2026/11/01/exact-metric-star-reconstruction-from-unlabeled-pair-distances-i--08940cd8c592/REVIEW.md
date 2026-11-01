@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The law-to-density step is justified because the derived density is continuous. Exact convolution across same-arm and distinct-arm cases gives the hinge identity; its value and right derivative determine total length and degree. The distributional second derivative is a finite signed atomic measure. The smallest-differing-length proof is a rigorous contradiction for all finite positive multisets, including ties and cancellations. A separate signed-residual argument establishes a terminating exact reconstruction algorithm. The proof is analytic; the rational checker is corroboration, not a substitute.
+## correctness
 
-## Originality — PASS (historical-priority risk stated)
-The earliest relevant source is Mémoli–Needham arXiv:1810.09646, publicly dated October 23, 2018. Its accessible abstract states a metric-graph local injectivity result, which does not logically entail global star rigidity at nongeneric coincident lengths. Aldous–Blanc–Curien arXiv:2403.10926 gives general measured-tree constructions (HTML §3, including leaf-supported measures), not fixed normalized length-measure reconstruction. Related separated-particle persistence and spider-tree results concern different invariants. Exact theorem/alias searches did not identify a covering mathematical statement. The Mémoli–Needham full text could not be inspected and may contain stronger special-case information; novelty is therefore provisional, not independently established.
+PASS
 
-## Mathematical value — PASS
-This is a complete inverse theorem for all real arm lengths of a natural infinite family of compact length spaces, using only a scalar, direction-free pair-distance histogram. The proof detects a sharp nongeneric obstruction to naive singularity reading: for arms of lengths \(1,2,3\), the curvature kink at \(3\) disappears but the graph remains exactly identifiable. Recovering invisible parameters through signed-measure subtraction is a genuine structural feature useful in studying distance-histogram rigidity. The result gives no noisy statistical stability claim.
+Independent same-arm arclength distance density is 2(a-t)_+ per arm; for two distinct arms it is the triangular-convolution hinge t_+-(t-a)_+-(t-b)_++(t-a-b)_+ per orientation. Summing proves (L²/2)f(t)=L + n(n-3)t/2 -(n-2)Σ(t-a_i)_++Σ_{i<j}(t-a_i-a_j)_+. Thus f(0)=2/L, L²f′(0+)=n(n-3), and the latter strictly determines n≥3. Distributional curvature ν=−(n−2)Σδ_ai+Σ_{i<j}δ_{ai+aj}. If two sorted multisets first differ at smallest positive s, pair sums at s involve only smaller positive lengths already equal, so coefficient difference is −(n−2) times multiplicity difference, impossible. The signed-atom peeling algorithm repeatedly subtracts contributions from already recovered arms and recovers all multiplicities. Independently reconstructed exact-rational curvature/peeling for 1,2,3 (the invisible third arm), equal arms, ties and longer examples; examined actual verify.py (exact rational hinge vs conditioning and simulations). These finite examples supplement, not replace, the strict-smallest-difference proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Prior metric-measure-space distance histogram work states a local-injectivity result for metric graphs; that alone is not global all-positive-length rigidity with invisible knot collisions. The relevant complete Mémoli–Needham paper was not lawfully accessible in this run; an attempted institutional retrieval reported a disconnected VPN. This is a material priority risk, not evidence of prior coverage and not a correctness defect. Aldous–Blanc–Curien construct realizable distance laws with freely specified measures, whereas the asserted inverse theorem fixes normalized arclength measure and star topology.
+
+## value
+
+PASS
+
+A two-point unlabeled distance distribution is a canonical metric-measure observable; exact recovery of topology degree, scale and all positive arm lengths is an inverse rigidity theorem for a natural nontrivial graph class. Resolving exact cancellations makes reconstruction genuinely global rather than a generic-position local statement; the small example (1,2,3) shows why direct kink reading fails.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
