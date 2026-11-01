@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The Gram representation reduces the trace to three disjoint index-pattern classes. Their counts are \(p(p-1)(p-2)(p-3)\), \(2p(p-1)(p-2)\), and \(p(p-1)\); the corresponding expectations are \((p+1)^{-3}\), \((p+1)^{-2}\), and \(3/((p+1)(p+3))\). The exact-rational checker agrees with the closed form on the stated finite ranges, while the proof covers every integer \(p\ge2\).
+## correctness
 
-**Originality (O): PASS, with residual priority risk.** The inspected LKJ/restricted-Wishart paper supplies the distributional representation and uniform case but does not state this fourth spectral moment. The claim is the explicit moment evaluation and its asymptotic expansion, not a new distributional characterization. The literature search was targeted, not exhaustive.
+PASS
 
-**Value (V): PASS.** The fourth spectral moment is a natural finite-dimensional invariant of a widely used correlation-matrix prior. The decomposition separates genuine four-cycle contributions from repeated-edge/backtracking contributions and gives an exact benchmark with leading growth \(3p\) for spectral calibration.
+The p independent spherical vectors in dimension d=p+1 give the exact uniform correlation law. Rotational symmetry gives off-diagonal second and fourth moments 1/d and 3/[d(d+2)]; conditioning along a distinct four-cycle yields d^-3. Every nonzero trace-four closed walk has precisely four distinct vertices, one opposite repeated vertex, or two opposite repeated vertices, of counts p(p-1)(p-2)(p-3), 2p(p-1)(p-2), and p(p-1). The exact count and symbolic rational identity hold for all p≥2; independent fresh enumeration checked p=2..7 and the first asymptotic correction 42/p. This is an expectation only, not a concentration theorem.
 
-Closest inspected source: Wang, Wu, and Chu (2018), arXiv:1809.04746v1. Limitation: only the uniform case \(\eta=1\) is covered.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The old uniform correlation-matrix spherical Gram and Wishart descriptions are acknowledged. Inspected prior work gives LKJ law and general asymptotic spectral behavior, but not the exact finite-p trace-four rational evaluation. Published Resultary work gives a cubic triangular cumulant, not fourth moment. A characteristic function of the spherical Wishart matrix is available in Paquette–Vander Werf, which in principle contains all moments; differentiating/integrating it to the stated closed rational finite-size formula is additional work, so novelty of this evaluated expression remains qualified.
+
+## value
+
+PASS
+
+A finite-dimensional fourth spectral moment of a canonical uniform random correlation matrix is a natural statistic for covariance-prior calibration; its p-exact finite-size corrections and separation of distinct-cycle/backtracking contributions are useful beyond a generic asymptotic Marchenko–Pastur law. No general eta, fluctuations or new distribution are claimed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:59:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/RESULT.md",
+        "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/verify.py",
+        "/mnt/data/scope_worker02_run_20261031T1543/independent_checks.py",
+        "/mnt/data/scope_worker02_run_20261031T1543/independent_check_results.json"
+      ],
+      "rationale": "The p independent spherical vectors in dimension d=p+1 give the exact uniform correlation law. Rotational symmetry gives off-diagonal second and fourth moments 1/d and 3/[d(d+2)]; conditioning along a distinct four-cycle yields d^-3. Every nonzero trace-four closed walk has precisely four distinct vertices, one opposite repeated vertex, or two opposite repeated vertices, of counts p(p-1)(p-2)(p-3), 2p(p-1)(p-2), and p(p-1). The exact count and symbolic rational identity hold for all p≥2; independent fresh enumeration checked p=2..7 and the first asymptotic correction 42/p. This is an expectation only, not a concentration theorem.",
+      "residual_risks": [
+        "Finite independent checks corroborate only their stated bounded domain; the universal claim depends on reconstructed analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Paquette–Vander Werf arXiv:2110.10785 Lemmas 13–14 give an integral characteristic-function representation for the spherical Wishart matrix.",
+          "Hillier–Kan concerns unnormalized Wishart moments, rather than the normalized spherical Gram law."
+        ],
+        "reasoning": "The full characteristic function determines moments in principle; no closed trace-four moment was exhibited in inspected sections. The normalized columns and setting d=p+1 require nontrivial extraction, retained as substantive coverage risk.",
+        "searches": [
+          "Resultary exact semantic query: uniform LKJ eta 1 correlation matrix trace (R-I)^4 fourth spectral moment expected closed form spherical Gram Wishart",
+          "arXiv:2110.10785",
+          "web:",
+          "web:"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1809.04746",
+        "https://arxiv.org/pdf/2608.04162",
+        "https://arxiv.org/pdf/2110.10785",
+        "Resultary semantic query: uniform LKJ eta 1 correlation matrix trace (R-I)^4 fourth spectral moment expected closed form spherical Gram Wishart"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The spherical-Gram representation is prior; the present result evaluates three indexed closed-walk types at finite p.",
+          "Hansen Theorem 2: weak empirical Marchenko–Pastur limit, not exact tr((R-I)^4)."
+        ],
+        "reasoning": "Knowing the distribution via a general integral characteristic function technically determines all moments but does not state or simplify this specific finite rational expression; this is an originality risk, not unqualified independence.",
+        "searches": [
+          "Resultary exact semantic query: uniform LKJ eta 1 correlation matrix trace (R-I)^4 fourth spectral moment expected closed form spherical Gram Wishart",
+          "arXiv:2608.04162",
+          "arXiv:2110.10785"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wang–Wu–Chu arXiv:1809.04746 proves restricted Wishart = LKJ, with uniform eta=1 at d=p+1.",
+          "Hansen arXiv:2608.04162 Proposition 4 and Theorem 2 supply the same Gram ensemble and asymptotic empirical spectrum."
+        ],
+        "reasoning": "Prior equivalent ensembles are exactly identified; neither inspected result evaluates the finite p fourth trace moment. Asymptotic MP convergence gives leading order only, not displayed corrections.",
+        "searches": [
+          "Resultary exact semantic query: uniform LKJ eta 1 correlation matrix trace (R-I)^4 fourth spectral moment expected closed form spherical Gram Wishart",
+          "arXiv:1809.04746",
+          "arXiv:2608.04162"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published SCOPE finding “Exact triangle cumulants reveal first hidden dependence in LKJ correlation matrices” states an exact cubic trace expectation.",
+          "No exact fourth trace rational expression was found in indexed matches."
+        ],
+        "reasoning": "The cubic result is adjacent but does not tabulate this fourth moment. Negative indexed search is not proof of novelty.",
+        "searches": [
+          "Resultary exact semantic query: uniform LKJ eta 1 correlation matrix trace (R-I)^4 fourth spectral moment expected closed form spherical Gram Wishart",
+          "Resultary:2026/10/4/SCOPE-exact-triangle-cumulants-reveal-the-first-hidden-dependence-in-l--955e3ffe3131"
+        ]
+      },
+      "rationale": "The old uniform correlation-matrix spherical Gram and Wishart descriptions are acknowledged. Inspected prior work gives LKJ law and general asymptotic spectral behavior, but not the exact finite-p trace-four rational evaluation. Published Resultary work gives a cubic triangular cumulant, not fourth moment. A characteristic function of the spherical Wishart matrix is available in Paquette–Vander Werf, which in principle contains all moments; differentiating/integrating it to the stated closed rational finite-size formula is additional work, so novelty of this evaluated expression remains qualified.",
+      "residual_risks": [
+        "General spherical-Wishart characteristic-function differentiation may implicitly contain this exact finite moment in earlier work.",
+        "Other combinatorial matrix-moment articles may contain the same finite rational expression under sample-correlation terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_LAW_NOT_EXACT_FOURTH_MOMENT",
+          "evidence": [
+            "Uniform law and Gram construction are known; evaluated tr fourth formula not given."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1809.04746",
+          "material_read": "Entire 9-page primary text; uniform restricted Wishart equivalence and shape/degree parameterization",
+          "method": "Read lawful full-text PDF, including relevant theorem/section and surrounding proof; checked extracted text and rendered page",
+          "title": "On equivalence of the LKJ distribution and the restricted Wishart distribution",
+          "trigger": "same uniform LKJ law"
+        },
+        {
+          "assessment": "ASYMPTOTIC_AND_LOW_ORDER_ONLY",
+          "evidence": [
+            "Theorem 2 is Marchenko–Pastur spectral weak limit; appendix computes single-edge E Cij^4 but not E tr((C-I)^4)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2608.04162",
+          "material_read": "45-page full-text searchable primary source, Proposition 4, Theorem 2 and appendix marginal-moment formulas",
+          "method": "Read lawful full-text PDF, including relevant theorem/section and surrounding proof; checked extracted text and rendered page",
+          "title": "Correlation Matrices in High Dimensions: Volume, Spectrum, and Extremes",
+          "trigger": "same uniform correlation ensemble and spectral limit"
+        },
+        {
+          "assessment": "POTENTIAL_GENERAL_IMPLICIT_COVERAGE",
+          "evidence": [
+            "Lemmas 13–14 give multidimensional integral characteristic function, without the evaluated trace-four identity."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2110.10785",
+          "material_read": "Relevant sections on spherical Wishart law and characteristic function, Lemmas 13–14",
+          "method": "Read lawful full-text PDF, including relevant theorem/section and surrounding proof; checked extracted text and rendered page",
+          "title": "Random geometric graphs and the spherical Wishart matrix",
+          "trigger": "general characteristic function of same spherical Gram object"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/RESULT.md",
+        "https://arxiv.org/pdf/1809.04746",
+        "https://arxiv.org/pdf/2608.04162",
+        "https://arxiv.org/pdf/2110.10785"
+      ],
+      "rationale": "A finite-dimensional fourth spectral moment of a canonical uniform random correlation matrix is a natural statistic for covariance-prior calibration; its p-exact finite-size corrections and separation of distinct-cycle/backtracking contributions are useful beyond a generic asymptotic Marchenko–Pastur law. No general eta, fluctuations or new distribution are claimed.",
+      "residual_risks": [
+        "No claims outside the expressly bounded theorem domain are accepted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1809.04746",
+    "https://arxiv.org/pdf/2608.04162",
+    "https://arxiv.org/pdf/2110.10785",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/RESULT.md",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/SLOGAN.txt",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/REVIEW.md",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/VERIFICATION.md",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/AUDIT.json",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/METADATA.json",
+    "2026/10/26/fourth-spectral-moment-of-the-uniform-correlation-matrix-prior--8cc3c0cee9d4/verify.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For uniform LKJ(eta=1) p×p matrices, p≥2, E tr((R-I)^4)=p(p-1)(3p^3+5p²-13p+9)/((p+1)^3(p+3))=3p-16+42/p+O(p^-2).",
+  "limitations": [
+    "General spherical-Wishart characteristic-function differentiation may implicitly contain this exact finite moment in earlier work.",
+    "Other combinatorial matrix-moment articles may contain the same finite rational expression under sample-correlation terminology."
+  ],
+  "schema_version": 1
+}
