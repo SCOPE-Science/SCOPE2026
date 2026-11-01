@@ -1,0 +1,197 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T18:12:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen record tree 9f53d238ed1f1d605ba09f9d5cc5c83f4e5c607e, all seven named blob SHA identities, inspected RESULT.md/verify_minimal_lattices.c",
+        "Freshly implemented independent_enumeration.c; exhaustive 2^20 off-diagonal relations for each five-element lattice; independent_enumeration_results.txt",
+        "Burnside fixed-point counts for all six permutations of M3 middle points, independent of source checker",
+        "Logical direct proof of endpoint universality from the two quantified Fischer–Servi inclusions and transitivity"
+      ],
+      "rationale": "Direct reconstruction verifies the exact five-element poset orders, 20 free off-diagonal bits, reflexivity, all 125 transitivity triples and both 4-quantifier Fischer–Servi witness laws. A newly implemented C checker represents R with five 5-bit row masks, checks R^2⊆R and both witness clauses independently of the submitted file, and enumerates all 1,048,576 off-diagonal assignments per poset. It reproduces M3=1395 and N5=1079, endpoint partitions [870,262,262,1] and [618,230,230,1]. For the six S3 permutations of M3 middle points it obtains identity=1395, each transposition=199, each 3-cycle=27; Burnside gives (1395+3·199+2·27)/6=341. The N5 order automorphism is trivial because its two atoms have inequivalent upper-chain structures. For any bounded P, 4R0 plus FS1 gives xR0 for all x; 0R4 plus FS2 gives 0Rz for all z; transitivity then forces universal R. Converse is immediate. This is an exact finite certificate plus a separate all-poset proof, not an infinite extrapolation.",
+      "residual_risks": [
+        "No formal proof assistant is claimed; independently exhaustively enumerated finite cases and proved the general endpoint lemma logically."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Forest partial orders require each principal downset to be linearly ordered; neither M3 nor N5 satisfies this, so a theorem restricted to FS forests does not include these cases.",
+          "Published finite-chain normal forms use total orders, not these nondistributive posets, and explicitly give different row/column-maxima conditions.",
+          "The 2026 finite-model results address modal decidability and finite models, not a uniform exact count of all admissible R on a fixed labelled order."
+        ],
+        "reasoning": "Being a general modal theorem does not alone imply the present exact counts. Even a general definition of FS-admissibility leaves 2^20 candidates to classify; the checked source theorems do not provide a counting result dominating these two exact cases. The inaccessible 2026 source remains a stated material-access uncertainty.",
+        "searches": [
+          "Resultary: finite-chain KI frames, maxima normal form and exact census for chain birelational relations, finite IFS frames",
+          "Fernández-Duque, Fine Selection for Intuitionistic Modal Logic, arXiv:2609.27078",
+          "Girlando–Kuznets–Marin–Straßburger, A Decision Procedure for Intuitionistic Modal Logic IS4 (and IK4), arXiv:2609.24922",
+          "Flaminio–Godo–Menchón–Rodríguez PDF Definition 6.6 and Proposition 6.9",
+          "Christensen dissertation Chapter 5 relational-frames discussion"
+        ]
+      },
+      "checked_sources": [
+        "https://www.iiia.csic.es/media/filer_public/3e/0c/3e0c5be1-23cf-4c28-a8a8-69786382fc29/godal-modal-fgmr-sent.pdf (Definition 6.6 and §6)",
+        "https://escholarship.org/content/qt08f0m826/qt08f0m826.pdf (Ch. 4–5)",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97 (published statement/summary)",
+        "https://arxiv.org/abs/2609.27078 (abstract)",
+        "https://arxiv.org/abs/2609.24922 (abstract)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact complete chain-relation count N_5=697066 in a related frame definition is not the N5 pentagon poset count 1079; a five-point chain is distributive and has no nontrivial automorphism.",
+          "The forest FS frame duality classification excludes the given nondistributive M3,N5 orders; moreover distinct R can induce identical modal algebras, so algebra counting cannot be assumed to imply relation counting.",
+          "General finite-model-property/decision-procedure existence theorems do not imply these enumerative values or the 341 M3 automorphism orbits."
+        ],
+        "reasoning": "The claimed integer values and symmetry orbit structure are not numerical corollaries of the inspected prior theorems. The antecedent hypotheses or output invariant differ; the general FS definition is input, not a covering evaluated count.",
+        "searches": [
+          "Resultary full RESULT.md: Maxima normal form and exact census for chain birelational relations (2026-10-04)",
+          "Flaminio et al. PDF Definition 6.6 (forest FS frame semantics)",
+          "Christensen dissertation Chapters 4–5 (finite model semantics)",
+          "Fernández-Duque 2026 and Girlando et al. 2026 arXiv abstracts"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The defining implications are exactly (≤∘R)⊆(R∘≤) and (R∘≥)⊆(≥∘R) under left-to-right composition, and an equivalent relational statement is obtained by inversion of R and reversing one clause.",
+          "The inspected Gödel-modal article defines forest FS frames; the inspected dissertation explains FS confluence, but neither relevant inspected section provides the five-point M3/N5 census.",
+          "Resultary chain-birelational normal form enumerates different row/column-maxima interaction conditions on chains and is not equivalent to the given reflexive/transitive FS-class on M3 and N5."
+        ],
+        "reasoning": "The aliases were reduced mathematically to the same quantified relations. Other literature formalizes the relation but does not compute the stated two finite poset expansion profiles, and the chain theorem is a different carrier and different hypotheses. No assertion of priority is made from mere unsuccessful indexing.",
+        "searches": [
+          "Resultary: Fischer Servi modal confluence relations reflexive transitive five element lattices M3 N5 enumeration order automorphism",
+          "Resultary: minimal nondistributive lattice M3 N5 modal Kripke Fischer Servi frame counts and preorder expansions",
+          "Web: \"Fischer Servi\" \"1395\" \"1079\" lattice frame",
+          "Flaminio–Godo–Menchón–Rodríguez Definition 6.6 FS1/FS2, original PDF",
+          "Ahmee Christensen dissertation Chapter 5, Definitions 5.3.1–5.3.4, page 97 PDF (zero-index page 96)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No retrieved Resultary record supplied an exact table for both M3 and N5 under the two explicit FS inclusions plus R reflexive/transitive.",
+          "Related published records tabulate chain expansions or distinct small logical carriers, not the stated fixed five-point obstruction pair.",
+          "The no-match outcome is only negative indexing evidence, not proof of first discovery; older unindexed finite-frame tables remain a residual risk."
+        ],
+        "reasoning": "The exact numbers, automorphism orbit count, and endpoint distribution were searched together with equivalent relational semantics. No exact database/table coverage was identified, but a future source could preempt the result.",
+        "searches": [
+          "Web: \"1395\" \"1079\" \"Fischer Servi\"",
+          "Web: \"M3\" \"N5\" \"341\" modal relation counts",
+          "Resultary: Fischer Servi confluence IS4 five point pentagon diamond frame relation enumeration 1395 1079",
+          "Resultary: four-world Boolean diamond Fischer Servi reflexive transitive exact relation count all modal frames"
+        ]
+      },
+      "rationale": "Best-of-knowledge scientific comparison finds no identified source establishing this exact labelled and isomorphism census on the two five-element minimal nondistributivity obstructions, with both quantified Fischer–Servi clauses and R reflexive/transitive. The forest-frame literature uses the same confluence clauses on a strictly narrower poset class; the published finite-chain normal form uses different interaction conditions and linearly ordered carriers. General finite-model / completeness / decidability results give no exact enumeration. The primary 2026 IS4 decision-procedure full text was inaccessible, leaving an explicit priority risk, not a scientific failure.",
+      "residual_risks": [
+        "An older unindexed classification/table of Fischer–Servi preorder expansions on M3 or N5 may already contain exact counts.",
+        "Full text of Girlando–Kuznets–Marin–Straßburger arXiv:2609.24922 was inaccessible (institutional access reported vpn_disconnected), so no whole-document noncoverage assessment is claimed.",
+        "The framed-relation census is not a count of pairwise inequivalent modal theories or dual algebras; broader logical significance is limited accordingly."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The confluence clauses coincide as defined, but the paper studies FS-forest frames with restricted poset order, not an enumeration of relations on M3,N5.",
+          "evidence": [
+            "Definition 6.6 identifies the two confluence inclusions.",
+            "FS forest hypothesis is incompatible with the non-chain lower cones of M3/N5."
+          ],
+          "identifier_or_url": "https://www.iiia.csic.es/media/filer_public/3e/0c/3e0c5be1-23cf-4c28-a8a8-69786382fc29/godal-modal-fgmr-sent.pdf",
+          "material_read": "PDF abstract, Sections 5–6 including Definition 6.6 and surrounding FS-forest duality and Proposition 6.9; page image of Definition 6.6 inspected",
+          "method": "Primary PDF text inspection with targeted searches and displayed page screenshot",
+          "title": "Algebras and relational frames for Gödel modal logic and some of its extensions",
+          "trigger": "Same exact Fischer–Servi relational inclusions and potential stronger FS-frame duality"
+        },
+        {
+          "assessment": "Defines equivalent interaction laws and proves semantic/model-theoretic results; the inspected pertinent sections contain no complete enumeration of M3 or N5 relations.",
+          "evidence": [
+            "The PDF page corresponding to printed Section 5.3 states FS confluence via forward and inverse R.",
+            "The inspected proof sections address frames and models, not labelled relation counts."
+          ],
+          "identifier_or_url": "https://escholarship.org/content/qt08f0m826/qt08f0m826.pdf",
+          "material_read": "Dissertation introduction and Chapters 4 and 5, particularly Section 5.3, Definitions 5.3.1–5.3.4, and relevant primary PDF page image; targeted search for M3, N5, five-point enumeration.",
+          "method": "Primary dissertation PDF text and page screenshot inspection",
+          "title": "Semantic Studies of Modal and Intuitionistic Modal Logics",
+          "trigger": "Potentially equivalent FS-frame definitions and stronger completeness/census theorem"
+        },
+        {
+          "assessment": "NOT_COVERING: the complete result is for finite chains under different interaction conditions, without the two given nondistributive posets or reflexive/transitive restriction.",
+          "evidence": [
+            "Theorem counts N_1=2,N_2=9,N_3=118,N_4=4849,N_5=697066,N_6=378458905.",
+            "Definitions require outward witnesses on a total chain, not the two displayed FS1/FS2 implications on M3 and N5."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170/RESULT.md",
+          "material_read": "Full RESULT.md, including definitions, theorem, proof, exhaustive table, and limitations",
+          "method": "Actual GitHub primary record full-file reading",
+          "title": "Maxima normal form and exact census for chain birelational relations",
+          "trigger": "Closest published Resultary exact relation enumeration; potential broader formula"
+        },
+        {
+          "assessment": "Abstract addresses finite-model property, not an exact five-point relation census; unseen full text prevents whole-document noncoverage conclusion.",
+          "evidence": [
+            "Abstract describes the intuitionistic modal finite-model property, rather than fixed labelled M3/N5 counts."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.27078",
+          "material_read": "Accessible abstract and indexed metadata; full text access attempt not successful in this run",
+          "method": "Primary arXiv abstract/metadata examination and lawful open-access attempt",
+          "title": "Fine Selection for Intuitionistic Modal Logic",
+          "trigger": "Recent 2026 finite-model-property work closest to FS-style intuitionistic modal semantics"
+        },
+        {
+          "assessment": "Full text inaccessible; abstract concerns decision procedures/finite countermodels, but exact priority relative to unseen appendices cannot be excluded.",
+          "evidence": [
+            "Abstract states decision procedures and finite countermodels.",
+            "No five-point count is specified in material available for reading."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24922",
+          "material_read": "Primary abstract and indexed metadata only; attempts at arXiv and lawful OA full text unsuccessful; institutional PDF retrieval returned vpn_disconnected",
+          "method": "ArXiv abstract and alternate lawful OA access attempts; authorized institutional download attempt without bypass",
+          "title": "A Decision Procedure for Intuitionistic Modal Logic IS4 (and IK4)",
+          "trigger": "Very close model-class literature; possible small-frame classification"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Minimal nondistributivity obstruction classification of lattices M3 and N5 (standard lattice-theoretic fact)",
+        "Full primary definition and scope: Flaminio–Godo–Menchón–Rodríguez, Definition 6.6",
+        "Independent full finite enumeration, endpoint strata and S3 orbit calculation"
+      ],
+      "rationale": "M3 and N5 are precisely the minimal modular/nonmodular nondistributive obstruction pair, giving strong intrinsic motivation to compare Fischer–Servi-compatible reflexive/transitive relations on their smallest labelled carriers. The exact complete census, all automorphism classes, and the two endpoint-edge stratifications are independent natural finite semantic invariants, not a randomly chosen numerical slice; they make concrete test instances for studying dual/modal frame constructions. The companion endpoint universality lemma identifies a structural boundary valid on arbitrary bounded posets. These facts are neither a renaming nor a textbook consequence of the frame-definition axioms, and no claim to model-theoretic completeness or a paper-size contribution is needed.",
+      "residual_risks": [
+        "The exact finite census has narrower downstream implications than a general completeness theorem.",
+        "The universality lemma is elementary; mathematical value depends primarily on the motivated complete classification and symmetry/endpoint strata."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git frozen record tree 9f53d238ed1f1d605ba09f9d5cc5c83f4e5c607e, all seven named blob SHA identities, inspected RESULT.md/verify_minimal_lattices.c",
+    "Freshly implemented independent_enumeration.c; exhaustive 2^20 off-diagonal relations for each five-element lattice; independent_enumeration_results.txt",
+    "Burnside fixed-point counts for all six permutations of M3 middle points, independent of source checker",
+    "Logical direct proof of endpoint universality from the two quantified Fischer–Servi inclusions and transitivity",
+    "https://www.iiia.csic.es/media/filer_public/3e/0c/3e0c5be1-23cf-4c28-a8a8-69786382fc29/godal-modal-fgmr-sent.pdf (Definition 6.6 and §6)",
+    "https://escholarship.org/content/qt08f0m826/qt08f0m826.pdf (Ch. 4–5)",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170/RESULT.md",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97 (published statement/summary)",
+    "https://arxiv.org/abs/2609.27078 (abstract)",
+    "https://arxiv.org/abs/2609.24922 (abstract)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the specified labelled five-point lattices M3 and N5, the numbers of reflexive transitive relations R satisfying both explicit Fischer–Servi witness inclusions are 1395 and 1079. Their order-isomorphism orbit counts are 341 and 1079. The respective partitions by 0R4 and 4R0 are [870,262,262,1] and [618,230,230,1]. On every bounded poset satisfying these FS laws, both extreme edges imply the universal relation.",
+  "limitations": [
+    "All integer counts and orbit classifications are for exactly the two stated labelled five-point posets, not all finite frames or larger lattices.",
+    "The separate endpoint-universality lemma alone generalizes to arbitrary bounded posets; the numerical results do not.",
+    "Frames may be equivalent in their interpreted modal theories; isomorphism-class counts are under underlying order automorphisms only.",
+    "A plausible primary 2026 IS4 source remained inaccessible in full; best-of-knowledge O explicitly retains priority risk.",
+    "Independent finite enumeration is exhaustive for the two 2^20 search spaces, not a proof of any beyond-five-point enumeration."
+  ],
+  "residual_risks": [
+    "An older unindexed classification/table of Fischer–Servi preorder expansions on M3 or N5 may already contain exact counts.",
+    "Full text of Girlando–Kuznets–Marin–Straßburger arXiv:2609.24922 was inaccessible (institutional access reported vpn_disconnected), so no whole-document noncoverage assessment is claimed.",
+    "The framed-relation census is not a count of pairwise inequivalent modal theories or dual algebras; broader logical significance is limited accordingly.",
+    "The exact finite census has narrower downstream implications than a general completeness theorem.",
+    "The universality lemma is elementary; mathematical value depends primarily on the motivated complete classification and symmetry/endpoint strata."
+  ],
+  "schema_version": 1
+}
