@@ -1,0 +1,224 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T02:39:35Z",
+  "axes": {
+    "correctness": {
+      "checked_equations": [
+        "E[Z]=2^n (C(n,n/2)/2^n)^K",
+        "q_j exact prefix-fork-suffix binomial sum",
+        "ordered leaf pair multiplicity 2^(2n-j-1)",
+        "M_t/M_n<=sqrt(n/t)",
+        "three-zone second-moment domination and pointwise R_j->1"
+      ],
+      "rationale": "Reconstructed the model with n=2m complete binary divisions, independent node/chromosome fair coins, complementary daughter end-shortening, zero allowed. Viability at n requires exactly m first-end losses per chromosome; monotonic budgets make it equivalent to survival at all preceding nodes. For a fixed leaf p=2^{-n} C(n,m), so E Z=2^n p^K. For ordered distinct leaves with j shared edges, t=n-j-1 independent suffix edges, the joint single-coordinate balanced probability is q_j=2^{-j-2t} sum_{r=0}^j C(j,r) C(t,m-r-1) C(t,m-r); exact pair multiplicity 2^{2n-j-1} gives E Z^2/(E Z)^2=(E Z)^{-1}+sum_{j=0}^{n-1}2^{-j-1}(q_j/p^2)^K. q_{n-1}=0. Conditioning on one balanced leaf yields q_j<=p M_t, and the exact binomial central-mass ratio M_t/p<=sqrt(n/t) (checked via adjacent even terms) establishes R_j<=sqrt(n/(n-j-1)). Fixed j gives R_j=1+O_j(1/n). For K<=(2 log2-delta)n/log n, j<n/2 is uniformly geometrically dominated, n/2<=j<=(1-eta)n is O(n exp(-c n+O(n/log n))), and late prefixes are exp(-c n) by eta log2<delta/2. Hence second-moment ratio→1 and L2 concentration; Chebyshev gives P(Z>0)→1. For upper K>(2 log2+delta)n/log n Stirling makes E Z→0 and Markov gives P→0. n=2m yields coefficient 4 log2. Verified the source tree SHA exactly from seven pinned Git blobs. Independent exact rational tester examined 4,290 (m,j) central-mass/joint bounds for m<=65 and exhaustively enumerated four tiny complete genealogy cases (8+64+512+32,768 fair coin assignments), matching E Z and E Z². No code log is treated as proof of the asymptotic argument.",
+      "risks": [
+        "The finite checker covers m<=65, not the asymptotic limit; the infinite result depends on the reproduced analytic majorant and Stirling estimate.",
+        "All values are conditional on synchronous fair segregation and exactly balanced two end-budget losses, with no stochastic death or biological interventions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benetos et al. 2024 Theorem 4.5 analyzes the mean population semigroup/eigenfunction and growth under an active telomerase regime; its telomerase-free Section 5.1 reports numerical Hayflick limits versus fixed chromosome number.",
+          "Baland et al. 2026 Theorems 1–2 analyze the initial-cell-population LLN and CLT, with no m-dependent chromosome dimension; their model includes compartments, cell-types and independent division clocks.",
+          "Wattis et al. 2019/2020 Section 4 explicitly fixes N=46 for the cell-scale continuum approximation and analyzes the distribution of telomere lengths, not the depth-2m surviving-leaf probability."
+        ],
+        "reasoning": "A generic many-to-one expectation result gives the upper threshold but not second-moment concentration below it. Existing finite-dimensional fixed-K or continuum results cannot be applied uniformly at growing K without controlling complementary-sibling genealogical correlations. The four inspected substantive prior papers do not mathematically dominate the stated theorem.",
+        "searches": [
+          "Resultary query: branching random walk binary tree high dimensional balanced binomial path exact zero return n steps dimension n/log n survival",
+          "Resultary query: high dimensional branching Brownian random walk target origin return probability second moment logarithmic dimension phase transition",
+          "arXiv:2407.11453 Theorem 4.5, Section 5.1",
+          "arXiv:2610.12660 Sections 3–5",
+          "web: classical high-dimensional branching random walk returns to origin probability"
+        ]
+      },
+      "checked_sources": [
+        "Baland, Toupance & Villemonais, Stochastic Modelling of Telomere Length Dynamics During Hematopoiesis, arXiv:2610.12660v1 (2026-10-08), https://arxiv.org/abs/2610.12660, Sections 3–5",
+        "Benetos, Fritsch, Horton, Lenotre, Toupance & Villemonais, Stochastic branching models for the telomeres dynamics in a model including telomerase activity, arXiv:2407.11453 (2024-07-16), https://arxiv.org/abs/2407.11453, Introduction, Section 4 Theorem 4.5 and Section 5.1",
+        "Wattis, Qi & Byrne, Mathematical modelling of telomere length dynamics, Journal of Mathematical Biology 80 (2020), 1039–1076, doi:10.1007/s00285-019-01448-y, freely available full text https://pmc.ncbi.nlm.nih.gov/articles/PMC7028829/, Sections 1–6",
+        "Benetos, Coudray, Gégout-Petit, Lenôtre, Toupance & Villemonais, A branching model for intergenerational telomere length dynamics, arXiv:2311.09678 (2023-11-16); published J. Math. Biol. 90 (2025), Art. 21, https://arxiv.org/abs/2311.09678, model/intro and main theorems",
+        "Resultary published mathematical findings semantic queries: growing-dimension balanced binary-branching return; complementary siblings chromosome thresholds; terminal telomere viability; high-dimensional branching zero return. Closest ranked hits concern other random walks, binary trees and unrelated thresholds.",
+        "Targeted web literature searches (2026-11-01 UTC): branching random walk growing dimension n/log n balanced leaves; high-dimensional return to origin; complementary telomere shortening binary-tree descendants; exact chromosomal terminal viability threshold."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2026 chromosome-level daughter rule is common model data; its LLN/CLT describes K-indexed initial cell population at fixed type space, not K chromosome constraint on one genealogy.",
+          "Benetos et al. 2023/2025 follows continuous-time age-structured reproduction and gamete mean telomere length; it does not maintain two independently depleted end budgets per chromosome on a complete binary tree.",
+          "At n=2m, E[Z]=2^n (2^{-n}C(n,m))^K, whose decay establishes only the upper regime. The lower regime needs the fork-indexed q_j correlation calculation and global weighted second-moment domination; none of the inspected prior results provides it."
+        ],
+        "reasoning": "Having the same microscopic shortening rule is insufficient for coverage. The prior theorems do not imply both quantified survival sides or normalized L2 concentration, while the current proof explicitly controls correlations across exponentially many ordered leaf pairs.",
+        "searches": [
+          "arXiv:2610.12660 full text Sections 3,4,5",
+          "arXiv:2407.11453 Sections 2,4,5",
+          "arXiv:2311.09678 Introduction, Sections 2–4",
+          "PMC7028829 Sections 1–6",
+          "Resultary query: branching random walk binary tree high dimensional balanced binomial path exact zero return n steps dimension n/log n survival"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact problem is equivalent to the existence of a depth-n leaf of a complementary-sibling binary branching walk on Z^K at the origin, where n=2m, each coordinate has plus/minus one balanced displacements and K varies with n.",
+          "Resultary top-ranked findings included high-dimensional random-walk weak-limit hypotheses and unrelated tree statistics, rather than a zero-displacement leaf threshold at dimension n/log n.",
+          "Baland et al. (arXiv:2610.12660), Section 3, has the same chromosome-level opposite shortening rule but its Section 4 large-population model and Section 5 fluctuations use initial population scaling, not K~n/log n."
+        ],
+        "reasoning": "The free-terminal genealogy, high-dimensional complementary-sibling random walk and all-chromosome zero-displacement formulations are genuinely equivalent. Comparing those mathematical events and parameters, no searched named theorem covered them; negative search remains limited, not a priority proof.",
+        "searches": [
+          "Resultary query: branching random walk binary tree high dimensional balanced binomial path exact zero return n steps dimension n/log n survival",
+          "Resultary query: complementary sibling random walk hypercube genealogical balanced chromosomes critical K approximately 2 log 2 n/log n",
+          "Resultary query: telomere division chromosomal end-shortening maximal generation viable descendants m/log m threshold",
+          "web: \"branching random walk\" \"dimension\" \"n/log n\" local survival",
+          "web: \"balanced\" \"telomere\" \"generation\" probability branching many chromosomes threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim is an asymptotic dichotomy for every fixed epsilon and unbounded m, rather than a natural finite classification or database entry.",
+          "Targeted Resultary findings for growing-dimensional branching and telomere attrition did not return an exact table or pre-computed all-m threshold; nearest ranked entries had mathematically different events."
+        ],
+        "reasoning": "Finite chromosome tables and simulations alone cannot imply the quantified n→infinity L2 concentration statement. No relevant exact database entry or formula with stronger coverage emerged; this is limited search evidence rather than a novelty proof.",
+        "searches": [
+          "Resultary query: telomere division chromosomal end-shortening maximal generation viable descendants m/log m threshold",
+          "Resultary query: terminal telomere viability and maximal division generation",
+          "web: telomere shortening binary branching multiple chromosomes critical survival threshold balanced descendants"
+        ]
+      },
+      "rationale": "Best-of-knowledge new sharp terminal-viability probability transition for the K-coordinate complementary-daughter binary genealogy. The same-rule 2026 Baland–Toupance–Villemonais source proves a large-initial-population deterministic limit/CLT, not a single-root first-order K_m~4 log2 m/log m success threshold. Wattis–Qi–Byrne concerns continuum telomere-length distributions, Benetos et al. 2024 studies continuous-time mean semigroups, Malthusian behavior, telomerase and simulations, while Benetos et al. 2023 treats intergenerational age-structured inheritance. None of the materially inspected results implies the all-m fixed terminal generation survival claim and L2 concentration, and targeted Resultary and web searches found no such theorem. This is a bounded priority assessment, not proof of absolute novelty.",
+      "residual_risks": [
+        "An older or unindexed equivalent result under high-dimensional branching random walks, path-balancing on tree-indexed walks or chromosome telomere models could establish historical priority; negative searches are not an absolute novelty certificate.",
+        "Classical older telomere branching papers by Arino et al. and Olofsson–Kimmel were identified through primary reference lists but not inspected in full; their scopes are a residual comparison risk.",
+        "The model is a stylized synchronous telomerase-free binary division, not the complete continuous-time, multi-compartment biological process or empirically calibrated human chromosome counts.",
+        "The exact critical window K=4(log 2)m/log m+o(m/log m), fluctuations there, and any biological extrapolation are not settled.",
+        "The independent checker tests finite n only and cannot establish asymptotic L2 convergence or historical originality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MICROSCOPIC_RULE_NOT_COVERING_THRESHOLD",
+          "evidence": [
+            "Section 3 represents chromosomes by ordered end-pairs and independently samples complementary daughter losses.",
+            "Section 4 studies population scaling as initial cell population grows; Section 5 studies CLT fluctuations around that deterministic limit, not maximal depth K~n/log n survival."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.12660",
+          "material_read": "Full text in arXiv rendered page, including Introduction, Section 3 chromosome configurations and daughter transitions, Section 4 Theorem 1 and Section 5 Theorem 2 statements/proofs and notes.",
+          "method": "Read arXiv full-text rendering and compare state variables, growth parameters, theorem quantifiers and final observables.",
+          "title": "Stochastic Modelling of Telomere Length Dynamics During Hematopoiesis",
+          "trigger": "Same chromosome-level opposite daughter end-loss Bernoulli rule and current 2026 mathematical telomere model."
+        },
+        {
+          "assessment": "MODEL_RELATED_NOT_THRESHOLD_COVERAGE",
+          "evidence": [
+            "Theorem 4.5 concerns mean population asymptotics/eigenfunctions and stationary distributions under telomerase-growth assumptions.",
+            "Section 5.1 numerically studies Hayflick limit as chromosome number changes, not the sharp survival probability 0–1 first-order threshold for terminal generation."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2407.11453",
+          "material_read": "ArXiv rendered full text: introduction and model, many-to-one mean semigroup, Theorem 4.5 scope and Section 5.1 telomerase-free numerical chromosome sensitivity.",
+          "method": "Direct primary-paper theorem/parameter/observable comparison against n=2m fixed-depth balanced-leaf existence.",
+          "title": "Stochastic branching models for the telomeres dynamics in a model including telomerase activity",
+          "trigger": "Earlier authors on multiple-chromosome branching, telomerase absence and Hayflick limit."
+        },
+        {
+          "assessment": "DIFFERENT_SCALE_AND_QUANTITY",
+          "evidence": [
+            "Section 4 fixes cell chromosome number at N=46, aggregates total telomere length and derives a continuum distribution model.",
+            "Section 6 recaps length distributions/mean and onset of senescence, not a sharp K(m) terminal surviving lineage existence threshold."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7028829/",
+          "material_read": "Full PMC article Sections 1–6, in particular Sections 4–5 on cell-level N=46 and Section 6 summary.",
+          "method": "Read PMC full-text HTML, equations (4.1)–(4.5) and Sections 5–6 results; compare fixed-N continuum density observables with K growing.",
+          "title": "Mathematical modelling of telomere length dynamics",
+          "trigger": "Freely accessible full text of primary 2019 multi-chromosome mathematical model."
+        },
+        {
+          "assessment": "NON_EQUIVALENT_INTERGENERATIONAL_PROCESS",
+          "evidence": [
+            "The Introduction specifies age-structured Crump–Mode–Jagers branching and a gamete-mean telomere type, not paired per-chromosome end budgets.",
+            "The main stated contributions are Feynman–Kac many-to-one formulae, spectral convergence, Malthusian parameter and numerical parameter effects."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.09678",
+          "material_read": "Full arXiv rendered article with model definition, Introduction, many-to-one statements, Malthusian spectral results and numerical study scope.",
+          "method": "Primary-paper comparison of generation/time, state (gamete mean length and age), branching offspring law and theorem observables.",
+          "title": "A branching model for intergenerational telomere length dynamics",
+          "trigger": "Plausible older title on branching, generational telomere length evolution."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The event of a viable cell at the maximal generation of a telomerase-free complementary-daughter genealogy is a natural first-passage/terminal-survival observable, and the chromosome count K is the biologically motivated constraint dimension. The upper transition is a simple first-moment calculation, but lower survival with high probability is not: genealogical sharing could create severe clustering. The proven L2 concentration and sharp first-order constant identify when correlations do not move the threshold, yielding a nontrivial high-dimensional branching survival result. It is a mathematical asymptotic under a stylized model; no claim of clinical parameter prediction or exact critical window.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Baland, Toupance & Villemonais, Stochastic Modelling of Telomere Length Dynamics During Hematopoiesis, arXiv:2610.12660v1 (2026-10-08), https://arxiv.org/abs/2610.12660, Sections 3–5",
+    "Benetos, Fritsch, Horton, Lenotre, Toupance & Villemonais, Stochastic branching models for the telomeres dynamics in a model including telomerase activity, arXiv:2407.11453 (2024-07-16), https://arxiv.org/abs/2407.11453, Introduction, Section 4 Theorem 4.5 and Section 5.1",
+    "Wattis, Qi & Byrne, Mathematical modelling of telomere length dynamics, Journal of Mathematical Biology 80 (2020), 1039–1076, doi:10.1007/s00285-019-01448-y, freely available full text https://pmc.ncbi.nlm.nih.gov/articles/PMC7028829/, Sections 1–6",
+    "Benetos, Coudray, Gégout-Petit, Lenôtre, Toupance & Villemonais, A branching model for intergenerational telomere length dynamics, arXiv:2311.09678 (2023-11-16); published J. Math. Biol. 90 (2025), Art. 21, https://arxiv.org/abs/2311.09678, model/intro and main theorems",
+    "Resultary published mathematical findings semantic queries: growing-dimension balanced binary-branching return; complementary siblings chromosome thresholds; terminal telomere viability; high-dimensional branching zero return. Closest ranked hits concern other random walks, binary trees and unrelated thresholds.",
+    "Targeted web literature searches (2026-11-01 UTC): branching random walk growing dimension n/log n balanced leaves; high-dimensional return to origin; complementary telomere shortening binary-tree descendants; exact chromosomal terminal viability threshold."
+  ],
+  "disposition": "passed",
+  "final_claim": "For every fixed epsilon>0, a synchronous complete binary genealogy from one cell with K=K_m independently segregating chromosomes, each with two initially m-unit end budgets and complementary fair daughter losses, has at generation 2m a viable leaf with probability tending to 1 if K<=(4 log 2-epsilon)m/log m, and with probability tending to 0 if K>=(4 log 2+epsilon)m/log m, as m→∞. In the former regime Z_m/E[Z_m]→1 in L². Z_m counts leaves with all chromosome end budgets nonnegative. No threshold-window limit or general multi-compartment model is claimed.",
+  "limitations": [
+    "First-order logarithmic K_m threshold only; epsilon fixed, m→∞.",
+    "No K_m critical window at O(m/logm) smaller scale and no distributional limit at equality.",
+    "No clinical empirical chromosome number inference, random division clock, telomerase, asymmetric inheritance, or heterogeneous budgets."
+  ],
+  "residual_risks": [
+    "An older or unindexed equivalent result under high-dimensional branching random walks, path-balancing on tree-indexed walks or chromosome telomere models could establish historical priority; negative searches are not an absolute novelty certificate.",
+    "Classical older telomere branching papers by Arino et al. and Olofsson–Kimmel were identified through primary reference lists but not inspected in full; their scopes are a residual comparison risk.",
+    "The model is a stylized synchronous telomerase-free binary division, not the complete continuous-time, multi-compartment biological process or empirically calibrated human chromosome counts.",
+    "The exact critical window K=4(log 2)m/log m+o(m/log m), fluctuations there, and any biological extrapolation are not settled.",
+    "The independent checker tests finite n only and cannot establish asymptotic L2 convergence or historical originality."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "SAME_MICROSCOPIC_RULE_NOT_COVERING_THRESHOLD",
+      "evidence": [
+        "Section 3 represents chromosomes by ordered end-pairs and independently samples complementary daughter losses.",
+        "Section 4 studies population scaling as initial cell population grows; Section 5 studies CLT fluctuations around that deterministic limit, not maximal depth K~n/log n survival."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2610.12660",
+      "material_read": "Full text in arXiv rendered page, including Introduction, Section 3 chromosome configurations and daughter transitions, Section 4 Theorem 1 and Section 5 Theorem 2 statements/proofs and notes.",
+      "method": "Read arXiv full-text rendering and compare state variables, growth parameters, theorem quantifiers and final observables.",
+      "title": "Stochastic Modelling of Telomere Length Dynamics During Hematopoiesis",
+      "trigger": "Same chromosome-level opposite daughter end-loss Bernoulli rule and current 2026 mathematical telomere model."
+    },
+    {
+      "assessment": "MODEL_RELATED_NOT_THRESHOLD_COVERAGE",
+      "evidence": [
+        "Theorem 4.5 concerns mean population asymptotics/eigenfunctions and stationary distributions under telomerase-growth assumptions.",
+        "Section 5.1 numerically studies Hayflick limit as chromosome number changes, not the sharp survival probability 0–1 first-order threshold for terminal generation."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2407.11453",
+      "material_read": "ArXiv rendered full text: introduction and model, many-to-one mean semigroup, Theorem 4.5 scope and Section 5.1 telomerase-free numerical chromosome sensitivity.",
+      "method": "Direct primary-paper theorem/parameter/observable comparison against n=2m fixed-depth balanced-leaf existence.",
+      "title": "Stochastic branching models for the telomeres dynamics in a model including telomerase activity",
+      "trigger": "Earlier authors on multiple-chromosome branching, telomerase absence and Hayflick limit."
+    },
+    {
+      "assessment": "DIFFERENT_SCALE_AND_QUANTITY",
+      "evidence": [
+        "Section 4 fixes cell chromosome number at N=46, aggregates total telomere length and derives a continuum distribution model.",
+        "Section 6 recaps length distributions/mean and onset of senescence, not a sharp K(m) terminal surviving lineage existence threshold."
+      ],
+      "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7028829/",
+      "material_read": "Full PMC article Sections 1–6, in particular Sections 4–5 on cell-level N=46 and Section 6 summary.",
+      "method": "Read PMC full-text HTML, equations (4.1)–(4.5) and Sections 5–6 results; compare fixed-N continuum density observables with K growing.",
+      "title": "Mathematical modelling of telomere length dynamics",
+      "trigger": "Freely accessible full text of primary 2019 multi-chromosome mathematical model."
+    },
+    {
+      "assessment": "NON_EQUIVALENT_INTERGENERATIONAL_PROCESS",
+      "evidence": [
+        "The Introduction specifies age-structured Crump–Mode–Jagers branching and a gamete-mean telomere type, not paired per-chromosome end budgets.",
+        "The main stated contributions are Feynman–Kac many-to-one formulae, spectral convergence, Malthusian parameter and numerical parameter effects."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2311.09678",
+      "material_read": "Full arXiv rendered article with model definition, Introduction, many-to-one statements, Malthusian spectral results and numerical study scope.",
+      "method": "Primary-paper comparison of generation/time, state (gamete mean length and age), branching offspring law and theorem observables.",
+      "title": "A branching model for intergenerational telomere length dynamics",
+      "trigger": "Plausible older title on branching, generational telomere length evolution."
+    }
+  ]
+}
