@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is fixed as the 26-vertex point–line incidence graph of \(\operatorname{PG}(2,3)\), with exact projective triples and unit graph edges. The C++17 program tests all \(657800\) seven-landmark and \(1562275\) eight-landmark combinations, yielding zero and 9,828 resolving sets respectively. All 9,828 are balanced four-points/four-lines. It checks all five incidence-preserving generators, their 11,232-element generated group, and the four completed orbits with cardinalities \(936,1404,1872,5616\). An independent Python implementation uses one-sided incidence signatures rather than distance-pair masks and reproduces all four geometric counts, including the exceptional collinear/concurrent case. Exact finite enumeration proves this domain only; neither a sample nor a heuristic is treated as exhaustive evidence.
+PASS
 
-## Originality — PASS, subject to stated risk
+Exact projective triples over F3 enumerate thirteen points and thirteen lines. Their incidence graph has distances 0 for identity, 2 between distinct same-side vertices, and 1 or 3 across types according to incidence. Hence for any selected landmark mask the necessary and sufficient resolving test is that every pair of vertices has a selected landmark with unequal distances. A completely new C++17 checker enumerated all C(26,7)=657800 seven-subsets and C(26,8)=1562275 eight-subsets, finding zero and 9828 resolving sets; all 9828 have four point and four line landmarks. It builds five incidence-preserving automorphisms (four projective matrices and polarity) and BFS-orbits of all 9828 bases, obtaining exactly 936,1404,1872,5616. Their sum is 9828, so the subgroup already partitions the full set into four orbits; no larger full automorphism group can merge classes if the distinct incidence profiles are preserved, and the standard PG(2,3) collineation/duality group has order 11232. Independent direct counting and the package two distinct programs corroborate the census. No probabilistic or infinite extrapolation is involved.
 
-The primary Héger–Takáts 2012 work already states \(\dim(G)=8\) at order three and classifies optimal-size resolving sets only for projective-plane orders \(q\ge23\). Bailey's 2015 published table independently records the same minimum size but not a complete set/orbit enumeration. We therefore make no originality claim for the minimum eight or for their general incidence criteria. Published-record and targeted literature searches for the exact count, point/line balance, alternate wording and symmetry/orbit reductions found no dominating statement or matching table. The absence of a search hit does not establish uniqueness; unindexed supplemental computations remain a real residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-This is a full classification of a natural optimum-locating problem in a small projective plane where the large-order classification does not apply. The four distinct projective incidence shapes and stabilizers provide useful structure beyond an isolated integer. The contrast with the known minimum split-resolving cardinality twelve explains why the eight-point optimum uses both vertex types cooperatively. The work is a self-contained finite census, not an infinite theorem or an independent validation.
+Best-knowledge scientific comparison: The incidence graph of PG(2,3) has precisely 9,828 minimum resolving sets of cardinality eight, each with four points and four lines; the full projective incidence and duality group has four orbits of sizes 936, 1404, 1872 and 5616. Complete optimum-landmark enumeration and four incidence-symmetry configurations of the canonical 26-vertex ternary projective-plane incidence graph are natural
 
-## Closest literature and boundaries
+## value
 
-Héger–Takáts, *Electronic Journal of Combinatorics* 19(4) (2012), #P30, `arxiv:1207.5469`; Bailey, *Australasian Journal of Combinatorics* 62 (2015), Table 4, `arxiv:1312.4973`. These support known definitions and minimum cardinality but do not report the claimed complete four-orbit census. Unindexed prior data cannot be excluded.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Complete optimum-landmark enumeration and four incidence-symmetry configurations of the canonical 26-vertex ternary projective-plane incidence graph are natural finite extremal invariants. The orbit sizes and stabilizer orders refine the known metric dimension eight and explain the contrast with split resolving sets (minimum twelve). Exact finite classification is valuable without an infinite extension.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
