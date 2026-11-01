@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "For every finite connected simple graph, F²(x)=x forces two-step firing sums into the Laplacian kernel; primitive two-cycles consequently use complementary firing vectors. Solving inequalities at each vertex gives c_v independent chip counts in explicit intervals, with exact total-energy generating product z^(2m-|cut|)prod_v[c_v]_z. Each unoriented cut corresponds to the two states of each orbit. Positivity and the local optimality of maximum cuts prove both extreme energies and their maximum-cut multiplicities. The tree recurrence and Pell formula follow from independent edge selections. NP-completeness is reduced from connected MAX-CUT. Independent standard-library verification checked 72 graphs and 1,821,396 confined states, plus 21 tree-recursion and 14 Pell evaluations; finite tests corroborate rather than replace the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2012/2015 periodic firing-pattern theorem is over arbitrary connected graphs, but its conclusion concerns possible time words, not the exact chip-state orbit generating function.",
+        "The 2026 middle-stair result establishes period two for an interval of total chips, not counts for arbitrary totals, cut-dependent support, or maximum-cut multiplicities.",
+        "Previously published tree period restrictions bound possible periods but not multiplicities."
+      ],
+      "reasoning": "Broader graph families in prior theorems do not dominate a stronger counting statement just because the objects coincide. Neither known all-graph theorem implies the exact per-energy coefficient formula without further derivation.",
+      "searches": [
+        "Web search: \"parallel chip firing\" \"count periodic configurations\" general graphs",
+        "Web search: \"periodic positions\" \"paths\" \"chip firing\" count",
+        "arXiv:1211.6786, full preprint with Section 7 implications",
+        "arXiv:2608.04153v1, abstract and public theorem description"
+      ]
+    },
+    "checked_sources": [
+      "Jiang, arXiv:1003.0943v1, Section 2 and Proposition 2.5 (2010).",
+      "Jiang–Scully–Zhang, arXiv:1211.6786v3, Sections 2, 6, 7 (first public 2012).",
+      "Bitar–Goles, Theoretical Computer Science 92 (1992), 291–300, DOI:10.1016/0304-3975(92)90316-8 (abstract only).",
+      "Wang–Lannan, arXiv:2608.04153v1 (2026), period-two middle-stair result (abstract-level comparison).",
+      "SIAM Journal on Discrete Mathematics 29 (2015), DOI:10.1137/130933770 lists 37B15 first among its MSC codes.",
+      "Public arXiv first posting of arXiv:1211.6786v1 is dated 2012-11-29."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Proposition 2.5 in Jiang establishes a necessary-and-sufficient condition for a repeated position: equal firing counts. It does not supply chip-count intervals, their product enumerator, or MAX-CUT endpoint values.",
+        "Jiang–Scully–Zhang analyzes periodic firing strings, including nonclumpiness, without evaluating the number of configurations realizing complementary firing words.",
+        "Bitar–Goles establishes eventual periods one or two on trees according to accessible bibliographic abstract, not the arbitrary connected graph census; unavailable full text remains the main unresolved historical comparison."
+      ],
+      "reasoning": "Equal firing counts force complementary first and second firing vectors for primitive period two; solving local chip inequalities and quotienting complementary firing partitions yields a genuinely stronger numerical result. The cited special-family restrictions and the 2026 activity theorem do not directly imply it.",
+      "searches": [
+        "Jiang (2010), arXiv:1003.0943, Sections 1–3",
+        "Jiang–Scully–Zhang (2012/2015), arXiv:1211.6786, Sections 2 and 6–7",
+        "Bitar–Goles (1992), DOI:10.1016/0304-3975(92)90316-8, abstract",
+        "Mathematical research-record search: On any connected finite graph, number of primitive two-cycles in synchronous parallel chip-firing with conserved total S equals weighted cut polynomial sum over graph cuts S of z^(2|E|-|cut|) product over vertices [cross degree]_z; minimum energy 2|E|-MAXCUT; coefficient counts max cuts."
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Jiang (2010, Proposition 2.5) proves common firing counts for repeated positions, but gives no weighted cut-degree generating polynomial.",
+        "Jiang–Scully–Zhang (2014 revision, Sections 6–7) classify nonclumpy firing words and describe the effect of tree-like attachments, not counts of chip configurations at every total.",
+        "The original sources inspected do not state the equivalent formulation as a degree-product polynomial over the graph cut space."
+      ],
+      "reasoning": "A periodic firing-word characterization does not determine how many chip vectors realize each firing word, let alone the energy-resolved cut sum or MAX-CUT coefficients. The new local intervals are essential to pass from patterns to orbit numbers.",
+      "searches": [
+        "Mathematical research-record search: parallel chip firing primitive period two orbit count arbitrary graphs opposite colored neighbors vertex product cut degree firing indicators",
+        "Web search: \"parallel chip firing\" \"cut\" \"period 2\" \"count\"",
+        "Web search: \"parallel chip-firing\" \"edge cover\" \"two cycle\" count",
+        "arXiv:1003.0943, Proposition 2.5",
+        "arXiv:1211.6786, Sections 6–7"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The nearest results were mathematically different cut/graph invariants and parity automata; no directly matching period-two chip-firing cut-degree polynomial or path Pell table was returned.",
+        "Available earlier explicit orbit counts were for special fixed graph families and did not tabulate the all-graph cut polynomial.",
+        "Independent complete enumeration confirms four-vertex path energy coefficient sequence 1,3,1 and triangle sequence 3,3."
+      ],
+      "reasoning": "An unsuccessful record/table search cannot establish uniqueness, but the checked accessible lists and published primary statements contain no matching exact formula. The general finite graph formula is not a recomputation of an identified published table.",
+      "searches": [
+        "Mathematical research-record search: Parallel chip-firing on paths Pell number of period two orbits; exact arbitrary-tree dynamic programming edge cut edge cover product degree.",
+        "Mathematical research-record search: Parallel chip-firing orbit generating function by chip conservation maximum-cut threshold and number of maximum cuts",
+        "Web search: \"parallel chip-firing\" \"Pell numbers\"",
+        "Web search: \"parallel chip-firing\" \"enumeration\" \"period-two\" paths"
+      ]
+    },
+    "rationale": "No identified primary or prior record implies the energy-resolved period-two orbit enumerator for every connected simple graph. Jiang (2010) gives equal firing counts, Jiang–Scully–Zhang (2012/2015) gives allowed firing patterns, and Bitar–Goles (1992) establishes periods on trees; the present cut-degree polynomial, MAX-CUT edge support and path Pell evaluation are additional quantified conclusions. Historical equivalence remains a stated risk because the 1992 full text was unavailable.",
+    "residual_risks": [
+      "The full text of Bitar–Goles (1992), the most plausible earlier tree source, could not be inspected; its abstract alone does not justify a whole-document noncoverage claim.",
+      "The newest middle-stair paper was compared through public theorem statements, not an exhaustive full-text audit; an unobserved independent argument for the cut enumerator remains possible.",
+      "Search ranking and source access cannot prove bibliographic uniqueness; unindexed historical enumerations may exist."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains equal per-vertex firing criterion, but no cut-degree generating function or exact primitive two-cycle census by energy.",
+        "evidence": "Proposition 2.5 asserts equality of firing counts; Section 3 concerns possible period lengths on complete bipartite graphs.",
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/1003.0943",
+        "material_read": "Full-text accessible HTML: definitions, Sections 1–3, notably Lemma 2.2, Proposition 2.5 and the scope statement for complete bipartite period classifications.",
+        "method": "Read the available original article text, comparing theorem hypotheses and conclusions.",
+        "title": "On the Period Lengths of the Parallel Chip-Firing Game",
+        "trigger": "General-graph necessary-and-sufficient firing-count criterion might dominate the new orbit formula."
+      },
+      {
+        "assessment": "Proves strong restrictions on firing words but does not state the energy-resolved orbit count or maximum-cut endpoints.",
+        "evidence": "Sections 6–7 characterize nonclumpy patterns, not counting the chip configurations realizing complementary patterns.",
+        "identifier_or_url": "https://arxiv.org/pdf/1211.6786",
+        "material_read": "Full-text preprint inspected: abstract, introduction, definitions, periodicity formulas, Sections 6–7 and discussion, including the periodic firing-pattern theorem and its tree implications.",
+        "method": "Read full-source PDF text with page rendering of the introductory result overview and targeted examination of the main theorem and Section 7.",
+        "title": "Motors and Impossible Firing Patterns in the Parallel Chip-Firing Game",
+        "trigger": "Same update model, all finite connected graphs, plus tree-like attachments and periodic firing patterns."
+      },
+      {
+        "assessment": "Abstract supports the known tree period restriction but cannot exclude an unobserved equivalent count in the complete paper.",
+        "evidence": "Abstract reports periods one or two on trees; no statement about exact orbit multiplicities.",
+        "identifier_or_url": "https://doi.org/10.1016/0304-3975(92)90316-8",
+        "material_read": "Bibliographic abstract and descriptive metadata only; full article inaccessible.",
+        "method": "Searched public/arXiv and open-access sources; institutional retrieval was unavailable.",
+        "title": "Parallel chip firing games on graphs",
+        "trigger": "Foundational period-one/two theorem on trees could contain an earlier census or equivalent construction."
+      },
+      {
+        "assessment": "Establishes eventual period in a constrained energy window; does not assert the all-energy orbit counts or maximum-cut coefficient identity in checked material.",
+        "evidence": "Result concerns activity one half and minimal period two within a fixed open energy band.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.04153",
+        "material_read": "Public abstract and theorem description; full arXiv text could not be fetched in this pass.",
+        "method": "Compared explicit mathematical scope of public result with the new state-counting claim.",
+        "title": "All parallel chip-firing games with a middle-band chip total have period two",
+        "trigger": "A newer all-graph period-two theorem might give stronger coverage."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5004d505-b623-49da-827b-adcb43713caa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Exact energy-resolved recurrent orbit counts are natural conserved-energy invariants of the fixed-energy sandpile. The theorem identifies their support endpoints with graph MAX-CUT, counts extremal orbits via the number of maximum cuts, and proves NP-completeness of low-energy period-two existence. It also gives a uniform tree recursion and closed Pell path census, going beyond prior possible-period and firing-pattern classifications. The combination is a substantive structural all-graph classification, not a selected small-table recomputation.",
+    "status": "PASS"
+  }
+}
