@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+The graph and ordered-chain conventions determine all faces without ambiguity. The finite proof includes an explicit five-orbit integral cycle, a nine-row triangular-boundary certificate, and an independent exact mod-two rank bound \(\operatorname{rank}\partial_3=79\) together with a nonzero cycle. Primitivity follows from the presence of unit coefficients. All 80 facets occur, and all 32 dihedral operators fix the chain with orientation signs included. Independent rank computations for the first two differentials and exactness of rational finite-group coinvariants establish the quotient statement. The standalone verifier reconstructs every finite count from the graph rather than trusting an external table. No finite extrapolation is used.
+
+## Originality — PASS (best knowledge, with residual risk)
+The closest same-object source is Earl–Vander Meulen–Van Tuyl, arXiv:1505.02837v1, Theorem 6.1, §6 and Table 1. The source establishes shellability, non-vertex-decomposability, and an explicit facet ordering; it does not state the integral generator's full support, necessary double coefficients, or trivial full dihedral action. In particular, the known top Betti number does not determine which facets support a generator or its integral coefficients. Searches for the exact graph, integral top cycles, facet-criticality, dihedral homology, and other carrier theorems identified no dominating claim. The strongest nearby indexed results concern other sixteen-vertex complexes or broader computational methods. An equivalent unpublished/unindexed computation remains possible.
+
+## Value — PASS
+This is a canonical minimal exception to a standard implication between combinatorial decomposability notions, so the geometry of its homology generator is a motivated invariant. The universal all-facet support and forced double coefficients quantify how a homotopy-three-sphere-type complex can have a top cycle that is neither the unit-weight fundamental cycle of a pseudomanifold nor supported on any proper subcomplex. The dihedral invariance additionally identifies nonzero top rational homology in an ordinary nonfree symmetry quotient. These are structural assertions beyond its previously known shelling and Betti number; neither an arbitrary graph slice nor a purely numerical re-tabulation.
+
+## Sources and limits
+Primary same-object material inspected: https://arxiv.org/html/1505.02837v1 (introductory scope, §2 definitions, §6 theorem and full facet list, §7 classification table). The verified source date is 2015-05-11. General shellability references and semantically nearby published records were compared for implication, not used to infer priority merely from distinct titles. The theorem is exact for the one displayed complex; originality cannot be guaranteed against unindexed results. Reproduction is via `verify.py` with its recorded output. Independent verification by a different investigator is still outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
