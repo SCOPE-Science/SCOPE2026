@@ -1,0 +1,103 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:13:59.096914Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The rooted-plane-tree contour is a Dyck path; leaves correspond to peaks and the leftmost-leaf depth to the first-peak height. Direct Narayana normalization of the exact joint count gives Pr(H=h | L=k)=h*C(n-h-1,k-2)/C(n,k); k=1 is a sentinel. Nested uniform k-subsets supply the monotone second-order-statistic coupling; finite-population gaps give the mean/variance and conventional sampling limits give Beta, Gamma and negative-binomial scaling. Independent enumeration verified 285 complete joint cells through n=9. The infinite statements follow from elementary generating functions and sampling, not from this finite check.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deutsch (1999) gives the complete generating function and exact joint coefficient for every n,k,h in the original variables."
+        ],
+        "reasoning": "All finite conditional probabilities, exact moments and standard order-statistic consequences follow from the older bivariate enumeration; no general theorem is needed for the coupling.",
+        "searches": [
+          "Dyck path first ascent first peak height conditional number of peaks Narayana two order statistics leaf depth random plane tree",
+          "https://core.ac.uk/download/pdf/82732633.pdf"
+        ]
+      },
+      "checked_sources": [
+        "Deutsch 1999 full public mathematical text §6.7, https://core.ac.uk/download/pdf/82732633.pdf",
+        "Narayana finite tree peak count; actual frozen Git RESULT.md, verifier, original audit metadata",
+        "Resultary query Dyck path first ascent first peak height conditional number of peaks Narayana two order statistics leaf depth random plane tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "N(n,k)=C(n,k)C(n,k-1)/n.",
+          "N(n,k,h)/N(n,k)=h*C(n-h-1,k-2)/C(n,k)."
+        ],
+        "reasoning": "A one-line division derives the claimed conditional law; the uniform k-subset interpretation then gives nesting, moments and scaling via standard finite population sampling.",
+        "searches": [
+          "Dyck path first ascent first peak height conditional number of peaks Narayana two order statistics leaf depth random plane tree",
+          "Deutsch 1999 equation (6.27) and standard Narayana number"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dyck first-peak height is identical to rooted plane tree leftmost leaf depth under the contour bijection.",
+          "Deutsch joint variables i=number of peaks and j=height of first peak equal k and h of the submitted claim."
+        ],
+        "reasoning": "The tree formulation is a direct relabeling of the precise previously solved Dyck-path joint statistic, not a separate problem.",
+        "searches": [
+          "Dyck path first ascent first peak height conditional number of peaks Narayana two order statistics leaf depth random plane tree",
+          "Deutsch 1999 §6.7 equations 6.24-6.27"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published count N(n,k,h)=h/n*C(n,k-1)*C(n-h-1,k-2); submitted joint count N(n,k,h)=h/(k-1)*C(n-1,k-2)*C(n-h-1,k-2).",
+          "These are algebraically identical because C(n,k-1)/n=C(n-1,k-2)/(k-1)."
+        ],
+        "reasoning": "An explicit earlier general formula, stronger than a finite table, exactly covers the submitted joint population.",
+        "searches": [
+          "Dyck path first ascent first peak height conditional number of peaks Narayana two order statistics leaf depth random plane tree",
+          "Deutsch 1999 equation (6.27)"
+        ]
+      },
+      "rationale": "The central purported new conditional first-ascent/leaf-depth law is fully implied by Emeric Deutsch, Dyck path enumeration, Discrete Mathematics 204 (1999), §6.7, equations (6.24)-(6.27). In fact (6.27) is precisely the unnormalized joint (peaks, first-peak-height) count h/n*C(n,k-1)*C(n-h-1,k-2), and division by the standard Narayana count yields the submitted conditional formula verbatim. The remaining sample-order-statistic realization, simultaneous monotone nesting and scaling regimes are elementary corollaries of this already published count, not a surviving distinct research result. The source result was not identified in the original self-review, which acknowledged it as a possible risk. Neither different object naming nor newer finite verification recovers priority.",
+      "residual_risks": [
+        "The central result is definitively covered by the 1999 joint count; no priority uncertainty remains about that part.",
+        "The all-k coupled presentation is not located verbatim in 1999 but is a routine consequence; it is not claimed to have been published there verbatim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS central count exactly; §6.7 is a decisive novelty obstruction",
+          "evidence": [
+            "§6.7 title Number of peaks and height of first peak",
+            "(6.27) joint coefficient h/n*C(n,k-1)*C(n-h-1,k-2) and single-peak boundary",
+            "Eq. (6.26) the bivariate generating function"
+          ],
+          "identifier_or_url": "https://core.ac.uk/download/pdf/82732633.pdf",
+          "material_read": "Complete §6.7 pp.179-180, numbered equations (6.24)-(6.27), opening definitions for peaks and initial ascent, and neighboring §6.8 on marginals",
+          "method": "Lawful openly readable full PDF text supplied by CORE; page screenshot request was attempted but web screenshot access returned DisabledError",
+          "title": "Dyck path enumeration — Emeric Deutsch (1999)",
+          "trigger": "Plausible 36-page original that self-review could not access; explicitly same parameters"
+        },
+        {
+          "assessment": "Marginal-only precursor, not needed to determine coverage",
+          "evidence": [
+            "The 1999 paper itself supplies the decisive joint formula."
+          ],
+          "identifier_or_url": "doi:10.1016/S0012-365X(97)00097-6",
+          "material_read": "1998 marginal identity as stated in provided source and checked against the 1999 original bibliography; no independent whole-PDF reading in this execution",
+          "method": "Bibliography and cross-reference within 1999 original, not full independent reinspection",
+          "title": "A bijection on Dyck paths and its consequences — Emeric Deutsch (1998)",
+          "trigger": "Earlier first-peak result, not the decisive coverage"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The conditioned first-leaf statistic itself is natural, but its exact joint distribution was published in 1999 and the proposed additional coupling is the immediate order-statistic coupling obtained by revealing a uniform random permutation, with standard gap moments and Poisson/order-statistic limits. As a standalone remaining contribution this is a textbook-level reformulation of the known enumeration rather than a mathematically motivated new theorem. Correctness of the package does not change that value assessment.",
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "limitations": [
+    "Strong exact prior coverage was established from material original text rather than snippet matching.",
+    "No changed scientific files are supplied; failure preserves the entire source package for archive relocation.",
+    "The frozen public METADATA.json and AUDIT.json each retain a confidential operational provenance identifier (scope_run_id). Full sanitized replacement bytes with verified exact Git blob guards were not staged in the writable local audit container. Publishing without them might leak protected provenance, so publication is withheld despite a complete scientific assessment."
+  ],
+  "schema_version": 1
+}
