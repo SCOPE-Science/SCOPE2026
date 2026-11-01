@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T20:51:49Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen Git RESULT.md complete theorem/proof, reconstructed tree e9546f7d9022885b8551969b036e1970b1511ef1",
+        "Frozen Git verify_fork_ik4.py inspected for relevant finite checks; not executed as untrusted imported code",
+        "Independent script check_math.py: exhaustive direct predicates at k=1..3 and all constructed k=4 normal forms",
+        "Balbiani et al arXiv:2403.00201v3 Definition 7 provides exact quantifier alignment"
+      ],
+      "rationale": "For root o and k>=1 labelled maximal leaves, literal upward-confluence applied to oRs forces every leaf to point to s, while back-up applied to bRo forces b to point to all leaves. Define U and V as universal leaf-target/source sets. If S nonempty, transitivity of o->s->u for u in U gives S=U; dually if B nonempty, V=B. A common element in U and V makes the leaf relation complete; intersecting S,B then forces every root edge and oRo, yielding exactly the complete exceptional relation. For disjoint S,B, transitivity excludes reverse block edges and leaves arbitrary transitive T on M, proving the exact B⊕T⊕S normal form. If c=1, confluence at oRo requires nonempty leaf rows and columns, respectively reducing to row/column fullness of T depending on absent B or S; if c=0 there is no extra condition. Counting partitions with |M|=j gives the two asserted binomial sums and the e.g.f. e^(2z)T(z). Independently implemented original quantified confluences and transitivity, and independently constructed all normal forms. Exact exhaustive comparison across all 16, 512 and 65536 binary relations for k=1,2,3 gave zero misses/extras; constructed k=4 gave 7182 valid frames split (5754,1428). Therefore all-k claim rests on algebraic necessity/sufficiency, not on k<=4 computation.",
+      "residual_risks": [
+        "The k=4 check exhausts generated normal forms, NOT all 2^25 possible binary relations. The unrestricted theorem is proved symbolically by classification.",
+        "The modal R is transitive but not assumed reflexive; a stronger IS4 bi-preorder reflexivity assumption would change the census.",
+        "The theorem counts labelled root-and-leaf expansions only, not isomorphism classes nor the entire modal logic."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2403.00201v3, Definition 8 studies reflexive-transitive bi-preorders in CS4/IS4; conclusion addresses finite-frame and decidability properties, not finite ordered-star enumerators.",
+          "arXiv:2609.24922 abstract gives a finite countermodel/decision procedure using loop rules; does not itself state any exact labelled fork enumeration; full paper unread.",
+          "Resultary chain maxima and chain KI primary RESULT.md are specialized to total orders, not branching forks."
+        ],
+        "reasoning": "General semantic axiomatization/decidability does not by specialization yield the two-colour canonical decomposition or the exact N_k^(c) formula. An arbitrary-frame classification containing these as a corollary would cover the claim, but no such result was confirmed; the unread 2026 paper remains a priority risk.",
+        "searches": [
+          "Balbiani et al, Constructive S4 modal logics with the finite birelational frame property, arXiv:2403.00201v3, Definitions 7-8 and §§2,7",
+          "Girlando et al, A decision procedure for intuitionistic modal logic IS4 (and IK4), arXiv:2609.24922 (metadata and abstract only)",
+          "Resultary query: Finite rooted fork models intuitionistic modal logic IS4 IK4 frame normal forms fork antichain leaves."
+        ]
+      },
+      "checked_sources": [
+        "Balbiani et al arXiv:2403.00201v3 primary PDF Definitions 7-8 and conclusion",
+        "Girlando et al arXiv:2609.24922 abstract, metadata and unsuccessful full-text attempts",
+        "Resultary/2026 public finite-chain maxima RESULT.md (full)",
+        "Resultary/2026 public finite-chain KI endpoints RESULT.md (full)",
+        "OEIS A006905 and A306445",
+        "Three fresh Resultary semantic searches and multiple public-web aliases/tables searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The claimed normal form partitions leaf labels into B, M, S and enforces universal source/target blocks under transitivity; no such decomposition appears in the inspected primary papers.",
+          "The two published chain theorems classify arbitrary modal relations on linear orders, not transitive relations over rooted antichains; the ordinary and exceptional cases are not specializations.",
+          "General IS4/IK4 decidability establishes existence of algorithms for formulas, not a labelled-frame enumerator."
+        ],
+        "reasoning": "Combining the known confluence axioms with A006905 alone does not supply the root-loop census: the essential new step proves S=U, B=V when nonempty, complete collapse when they intersect, and additional row/column conditions when oRo. Earlier statements do not logically imply these by the audited comparison.",
+        "searches": [
+          "Published Resultary finite-chain maxima normal form, GitHub RESULT.md",
+          "Published Resultary finite-chain KI endpoint normal form, GitHub RESULT.md",
+          "arXiv:2403.00201 full primary text, definitions and main results",
+          "arXiv:2609.24922 abstract/metadata, full-text attempt failed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary chain maxima census: Resultary/2026/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170/RESULT.md, full theorem: monotone row and column maxima for finite CHAINS; no transitivity requirement.",
+          "Resultary chain KI census: Resultary/2026/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97/RESULT.md, full theorem: row min/max monotonicity with down/up confluence, not back-up and not rooted forks.",
+          "Balbiani et al arXiv:2403.00201v3 Definition 7: forth-up and back-up confluence quantifiers exactly match the audited hypotheses."
+        ],
+        "reasoning": "The same axioms are found under Fischer-Servi forth-up/back-up terminology, but neither the chain row/column extrema nor the KI forward/downward chain formulas control incomparable leaf sources/targets. The fork theorem requires two universal source/target classes and root-loop cases. No equivalent normal form or formula was found in inspected results; this is not proof none exists.",
+        "searches": [
+          "Resultary query: Classification and enumeration of transitive IK4 Fischer Servi birelational modal frames on rooted forks star posets one bottom k incomparable maximal worlds, confluence.",
+          "Resultary query: Exact count transitive nonreflexive modal relations on rooted star posets with forth and back confluence, ordinal sum leaf blocks, root loop.",
+          "Web search: finite fork star poset intuitionistic modal transitive confluence frame count enumeration ordinal sum",
+          "Web search: rooted star modal frame count transitive relation confluence IK4 IS4"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A006905: t_0..t_4 = 1,2,13,171,3994, matching independently enumerated transitive leaf matrices; it has no root-loop split.",
+          "OEIS A306445 is a set-family closedness sequence, not the pair of confluence formulas.",
+          "Direct independent formulas and construction count root-loop splits (4,4),(25,13),(281,98),(5754,1428)."
+        ],
+        "reasoning": "Existing unrestricted labelled transitive-relation tables supply t_j only; no exact table covering the fork-specific split was identified. A table of the same totals under a different name could still be missed.",
+        "searches": [
+          "OEIS A006905 transitive relations on n labelled nodes",
+          "OEIS A306445 union and intersection-closed families",
+          "Web search: \"8, 38, 379, 7182\" relation",
+          "Web search: \"4,25,281,5754\" transitive relation fork"
+        ]
+      },
+      "rationale": "Best-of-knowledge original infinite labelled-fork structural classification and root-loop census. Full 2024 primary text gives the two confluence axioms and bi-preorder decidability/finite-model problems; it does not derive a rooted-fork ordinal-sum classification or exact counts. Published finite-chain normal forms use a different underlying total order, sometimes distinct confluence laws, and do not imply the branching star theorem. The 2026 IK4 decision-procedure paper could be checked only through bibliographic abstract, because arXiv/OA full-text attempts failed and authorized institutional access was disconnected; its unread body remains an explicit historical-overlap risk. The classic unrestricted transitive-relation counts t_j are properly credited as inputs, not new outputs.",
+      "residual_risks": [
+        "Girlando et al 2026 full paper not read; institutional access returned vpn_disconnected. An equivalent rooted-fork lemma in that paper cannot be excluded.",
+        "Unindexed combinatorial labelled-poset relation counts or different names for the same fork normal form could predate this result.",
+        "A006905 and modal decision algorithms alone do not prove novelty; originality is qualified to sources actually read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines forth-up/back-up confluence and reflexive-transitive bi-preorder frame classes, but the inspected relevant results concern modal completeness/finite frame property, not rooted-fork labelled classification",
+          "evidence": [
+            "Definition 7(i)-(ii), PDF p.9; Definition 8 and bi-preorder assumptions, PDF p.10; Conclusions, PDF pp.43-44"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2403.00201",
+          "material_read": "49-page full-text PDF opened; Definitions 7-8 on PDF pages 9-10, full Section 2 semantics and conclusions pages 43-44, searches across text for fork/enumeration",
+          "method": "primary arXiv PDF text and PDF-page screenshot inspection",
+          "title": "Constructive S4 modal logics with the finite birelational frame property",
+          "trigger": "Exact same two interaction axioms and possible stronger characterization"
+        },
+        {
+          "assessment": "No whole-paper noncoverage conclusion; plausible historical priority overlap remains uninspected",
+          "evidence": [
+            "arXiv abstract: decision procedure and finite-model property via loop rules, posted 2026-09-21"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.24922",
+          "material_read": "Abstract and public metadata only; primary arXiv PDF/HTML and lawful OA alternatives did not yield full text",
+          "method": "arXiv and OA retrieval attempts; authorized Oxford institutional attempt returned vpn_disconnected without paper text",
+          "title": "A decision procedure for intuitionistic modal logic IS4 (and IK4)",
+          "trigger": "Recent primary paper treating exactly the IK4 semantic setting"
+        },
+        {
+          "assessment": "Total-order frames without required transitivity; no branching fork or root-loop census",
+          "evidence": [
+            "Row and column maxima monotonicity on C_n, exact counts 2,9,118,4849,..."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-maxima-normal-form-and-exact-census-for-chain-birelational-relat--f1e0f9b64170/RESULT.md",
+          "material_read": "Complete RESULT.md including theorem, quantified hypotheses, reconstruction, census and proof",
+          "method": "published Resultary record via authenticated GitHub read",
+          "title": "Maxima normal form and exact census for chain birelational relations",
+          "trigger": "Potential prior normal-form classification using same two confluence laws"
+        },
+        {
+          "assessment": "Different confluence pair on a finite chain, with no branching fork analogue established",
+          "evidence": [
+            "Row minima/maxima monotone; counts 2,7,80,2855,...; no transitivity assumption"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-endpoint-normal-form-and-exact-census-for-finite-chain-ki-frames--df6301f11b97/RESULT.md",
+          "material_read": "Complete RESULT.md with frame conditions, theorem, and enumeration proof",
+          "method": "published Resultary record via authenticated GitHub read",
+          "title": "Endpoint normal form and exact census for finite-chain KI frames",
+          "trigger": "Possible stronger paired-confluence classification"
+        },
+        {
+          "assessment": "Prior enumeration of arbitrary labelled transitive relations, used as input only; does not determine fork census",
+          "evidence": [
+            "Sequence 1,2,13,171,3994,154303,..."
+          ],
+          "identifier_or_url": "https://oeis.org/A006905",
+          "material_read": "OEIS entry, initial terms, references and formulas",
+          "method": "public sequence database full entry",
+          "title": "Number of transitive relations on n labeled nodes",
+          "trigger": "Exact database or known-table covering the t_j components"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Balbiani et al 2024 semantic frame axioms and models",
+        "2026 IK4 decidability abstract motivating finite frame studies",
+        "Actual frozen RESULT.md proof and independent labelled counts"
+      ],
+      "rationale": "The rooted fork is the first natural branching departure from linear intuitionistic Kripke orders. Understanding all transitive accessibility relations satisfying both Fischer–Servi confluences is a motivating finite-frame structural question. The B⊕T⊕S decomposition classifies every k-fork for arbitrary k rather than tabulating tiny examples, and the distinct loop/no-loop formulas show precisely how root reflexivity changes the search space. These are directly reusable exact semantic model enumerators, not merely an arbitrary low-parameter slice or a routine substitution from the known unrestricted transitive-relation sequence.",
+      "residual_risks": [
+        "No new completeness/decidability theorem for full IK4 is claimed.",
+        "The result does not simplify t_j beyond the already known transitive-relation census; value is in the fork structural bijection."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The 2026 highly relevant IK4 paper was abstract-only: arXiv full text retrieval failed, OA alternatives did not expose text, authorized institutional VPN disconnected; O remains expressly qualified.",
+    "No external certification, independent formal proof checker or expert attestation was performed.",
+    "k=4 finite generated-candidate validation is not exhaustive over all 2^25 relation masks.",
+    "Existing public metadata needs sanitization before a publication-ready operation can be supplied."
+  ],
+  "schema_version": 1
+}
