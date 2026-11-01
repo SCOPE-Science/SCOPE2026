@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "For \\(n\\le d+1\\), the sign hypercube embeds in \\(S^d\\), its restricted convolution Gram matrix is PSD, every Walsh coefficient is nonnegative, and independent biased signs identify the exact affine Bernstein polynomial with a nonnegative power series. Tensor powers prove output positivity on every sphere. For \\(n\\ge d+2\\), the normalized Gegenbauer input of order n+2 has the displayed strictly negative top Gegenbauer coefficient by explicit centered finite differences and exact coefficient normalization; Schoenberg excludes positivity. Every hypothesis, sign and boundary is explicit. The packaged checker passed 2298 exact-rational supplementary assertions, including 70 symbolic negative-coefficient comparisons, not used as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Otten–Nguyen–Watts Proposition 4.2 assumes positivity on \\(S^\\infty\\) before applying its power-Bernstein operator; it is not an implication for all inputs positive on \\(S^d\\).",
+        "Beatson–zu Castell study montée/descente dimension-hopping operators rather than the fixed affine Bernstein sampling map.",
+        "The previous mathematical finding yields the \\(n\\ge d+2\\) obstruction, and the \\(d=2\\) positive case, but explicitly does not assert sufficiency for any \\(d>2\\)."
+      ],
+      "reasoning": "No inspected stronger theorem implies positivity for all \\(d\\ge3\\) and \\(n\\le d+1\\). Inclusion of finite sphere cones is in the wrong direction to infer this from an \\(S^\\infty\\) theorem: being positive on \\(S^d\\) is weaker than being positive on every sphere.",
+      "searches": [
+        "sharp sphere dimension versus degree threshold n<=d+1 for Bernstein dot-product kernel",
+        "Bernstein operator preserving positive definite functions on spheres power basis hypercube degree at most dimension",
+        "arXiv:2608.04836 Section 4 Proposition 4.2",
+        "Beatson and zu Castell 2017 dimension hopping spherical positive definiteness"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2608.04836 Section 4 full primary text",
+      "Beatson–zu Castell 2017 open primary introduction and Sections 1–2",
+      "Gneiting arXiv:1111.7077 abstract",
+      "previous mathematical finding a8520e40-5e97-4c32-97f3-95435dc70a1d, claim only",
+      "Semantic mathematical literature searches for affine Bernstein sphere degrees, power coefficients, Walsh embedding and Gegenbauer coverage"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Prior note: \\(d=2\\) all-degree classification and all-dimensional failure when \\(n\\ge d+2\\); explicitly leaves \\(d>2\\) low-degree sufficiency untreated.",
+        "Current positive assertion: for every \\(d\\ge3\\) and \\(n\\le d+1\\), all positive-definite inputs have an affine Bernstein output with nonnegative power coefficients, hence positive on \\(S^\\infty\\).",
+        "Otten et al. circle operator samples geodesic distances, and their \\(S^\\infty\\) operator assumes an \\(S^\\infty\\)-positive input."
+      ],
+      "reasoning": "The new positive assertion strictly strengthens the previous content. The previous necessary obstruction plus the new sufficiency imply the exact frontier; the reverse implication from the previous results is not available because inputs positive on \\(S^d\\) need not be positive on \\(S^\\infty\\). The old negative formula is reproduced with credit and not counted independently as novel.",
+      "searches": [
+        "affine Bernstein preserving zonal positive definite sphere dimension degree frontier hypercube Boolean Walsh embedding n<=d+1",
+        "sharp sphere dimension versus degree threshold n<=d+1 for Bernstein dot-product kernel",
+        "arXiv:2608.04836 Section 4",
+        "own earlier result a8520e40-5e97-4c32-97f3-95435dc70a1d"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new assertion is equivalent to nonnegativity of all ordinary monomial coefficients of the affine Bernstein output for every input positive definite on a fixed finite sphere and \\(n\\le d+1\\).",
+        "Otten–Nguyen–Watts Section 4 treats a distinct operator with input already positive definite on the infinite-dimensional sphere; it states the finite-dimensional sphere analogue remains open.",
+        "No relevant research-record hit from the stated semantic searches asserts the finite-sphere-to-infinite-sphere affine Bernstein coefficient identity."
+      ],
+      "reasoning": "The Boolean-cube Walsh criterion is an equivalent formulation proved here. The nearby classical Krawtchouk transform describes positive-definite restrictions on cubes but does not itself state the affine Bernstein dimension-degree frontier; no directly equivalent previously stated theorem was identified. Search absence is not a mathematical uniqueness proof.",
+      "searches": [
+        "affine Bernstein preserving zonal positive definite sphere dimension degree frontier hypercube Boolean Walsh embedding n<=d+1",
+        "ordinary Bernstein operator on dot product sphere positive definite in low degrees d+1 Walsh Fourier coefficients",
+        "Bernstein polynomial of Gegenbauer positive definite degree dimension threshold on sphere",
+        "Walsh Bochner hypercube antipodal vertices sphere Bernstein polynomial positive power coefficients",
+        "arXiv:2608.04836 Section 4 full text"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim quantifies over every continuous input and every pair (d,n), so it is not the interpolation of a finite coefficient table.",
+        "The only closely matching local mathematical record is the previous \\(S^2\\) and high-degree obstruction note; exact-arithmetic checks in the present package do not substitute for the all-d theorem."
+      ],
+      "reasoning": "No exact database or coefficient table was found that already gives the infinite two-parameter classification. The universal analytical proof is necessary to bridge all degrees and dimensions; numerical tables alone would not imply it.",
+      "searches": [
+        "affine Bernstein preserving zonal positive definite sphere dimension degree frontier hypercube Boolean Walsh embedding n<=d+1",
+        "Bernstein polynomial of Gegenbauer positive definite degree dimension threshold on sphere",
+        "sharp sphere dimension versus degree threshold n<=d+1 for Bernstein dot-product kernel",
+        "Literature research-record searches: Gegenbauer, positive definiteness, spherical Bernstein, Walsh hypercube"
+      ]
+    },
+    "rationale": "Full primary Section 4 comparison and targeted database searches isolate an unreported sharp sufficiency direction for every \\(d\\ge3\\), \\(n\\le d+1\\): a finite-sphere PD input gives an output with nonnegative power coefficients and hence PD on every sphere. Earlier mathematical work already established the \\(S^2\\) case and the \\(n\\ge d+2\\) negative coefficient; they are explicitly credited. No stronger inspected primary result or relevant database hit implies the new positive theorem. Residual historical coverage risk remains.",
+    "residual_risks": [
+      "Unindexed historical work could implicitly contain the finite hypercube proof and resulting sharp frontier.",
+      "Full text of all historical articles on spherical kernel approximation was not comprehensively inspected.",
+      "Only the new positive direction, infinite-sphere lift and synthesis into the complete \\(d\\ge2\\) frontier are claimed as new; prior necessity and \\(d=2\\) case are not assigned novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover the finite-dimensional affine low-degree preservation theorem. Its \\(S^\\infty\\) result starts with a stronger class of inputs and a different operator; its \\(S^2\\) counterexample is already prior.",
+        "evidence": [
+          "Section 4 explicitly: finite-dimensional sphere analogue remains open; degree-four naive affine failure on \\(S^2\\).",
+          "Proposition 4.2: power-Bernstein preservation on \\(S^\\infty\\) for inputs positive on \\(S^\\infty\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.04836",
+        "material_read": "Complete HTML-rendered article, including statement, Section 3 proof, full Section 4 and Proposition 4.2, concluding remarks and references.",
+        "method": "Direct primary full-text reading, keyword and section comparisons of operator variables, hypotheses, Schoenberg cones and conclusions.",
+        "title": "Preservation of Positive-Definiteness by Bernstein Operators on the Circle",
+        "trigger": "Same positive-definite Bernstein operator terminology, higher-dimensional section and degree-four counterexample."
+      },
+      {
+        "assessment": "Not a finite-sampling affine Bernstein operator; no implication of the claimed degree threshold.",
+        "evidence": [
+          "Differentiation/integration-based dimension-hopping operators are specified rather than Bernstein point-sample operators."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jat.2017.04.001",
+        "material_read": "Abstract, introduction, Sections 1–2 on the definition and positive-definite preserving direction of montée and descente operators.",
+        "method": "Primary open article textual reading and operation comparison.",
+        "title": "Dimension hopping and families of strictly positive definite zonal basis functions on spheres",
+        "trigger": "Potential stronger positive-definite preserving operators for all sphere dimensions."
+      },
+      {
+        "assessment": "Provides the standard coefficient criterion used in proof; not evidence of an equivalent Bernstein preservation classification.",
+        "evidence": [
+          "The overview describes Gegenbauer coefficient characterization and dimension walks, not affine finite-node Bernstein sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1111.7077",
+        "material_read": "Accessible abstract and characterization summary only; no full-text noncoverage claimed.",
+        "method": "Abstract-level reference verification.",
+        "title": "Strictly and non-strictly positive definite functions on spheres",
+        "trigger": "Classical spherical Schoenberg characterization and potentially dominating positivity criteria."
+      },
+      {
+        "assessment": "Already covers the \\(S^2\\) case and all-d failure when \\(n\\ge d+2\\), not all-d sufficiency \\(n\\le d+1\\).",
+        "evidence": [
+          "Its claim expressly states no sufficiency for \\(d>2\\) below the negative coefficient obstruction."
+        ],
+        "identifier_or_url": "prior-mathematical-finding:a8520e40-5e97-4c32-97f3-95435dc70a1d",
+        "material_read": "Recoverable theorem claim for deduplication; prior proof and audit were not re-evaluated.",
+        "method": "Statement and implication comparison only.",
+        "title": "A sharp degree frontier for affine Bernstein approximation of spherical positive-definite kernels",
+        "trigger": "Same operator and overlapping spherical positive-definite objects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3785c406-2726-4a8b-93da-27d0d836a2e5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source highlights a natural finite-dimensional spherical Bernstein preservation gap after a degree-four failure. The new all-dimensional sufficiency direction establishes the precise dimension-vs-degree cutoff, and a structural Walsh argument proves the stronger, unexpected lift to positivity on \\(S^\\infty\\). This is a complete natural classification and covariance-kernel positivity guarantee, not a small numerical gain, renaming, arbitrary slice, or mere restatement of the known high-degree obstruction.",
+    "status": "PASS"
+  }
+}
