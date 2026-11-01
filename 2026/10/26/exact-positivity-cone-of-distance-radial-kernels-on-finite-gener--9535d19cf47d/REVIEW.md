@@ -1,11 +1,21 @@
-# Review of exact radial positivity on generalized quadrangles
+# Independent mathematical audit
 
-**Correctness — PASS.** The incidence matrix gives singular values \(\sqrt{(s+1)(t+1)}\) and \(\sqrt{s+t}\), plus nullspaces. Splitting constant, paired, and unpaired sectors proves exactly two scalar and two two-dimensional PSD tests. The multiplicities add to the entire graph and the distance-exponential determinant factors establish the sharp threshold and ranks. The reproducibility checker verifies the symbolic identities and one independently constructed incidence graph. The general proof, not a scan of parameters, carries the arbitrary-order quantifier.
+## correctness
 
-**Originality — PASS under bounded literature review.** Relevant generalized-geometry thesis material (Huang, 2014), the full-text distance-regular generalized-distance theorem (DeVille, 2017), and a distance-regular survey were inspected. The latter general theorem covers the equal-order distance-regular specialization, not the biregular unequal-order case. The compared nearby mathematical records concern generalized-quadrangle Rips topology and finite Grassmannian sampling, not this five-value positivity cone. Previously published projective-plane and generalized-hexagon incidence results do not imply the full claim. Potential overlooked formulas in coherent-configuration theory are the principal residual risk; a failed search is not proof of uniqueness.
+PASS
 
-**Value — PASS.** Classifying all real radial covariance profiles for each finite thick generalized quadrangle is a natural harmonic-positivity problem. The block theorem simultaneously determines the complete cone, spectrum and rank without geometry-specific transitivity, and the sharp exponential cutoff answers a continuous family of kernel admissibility questions. The biregular unequal-order scope makes the result more than a restatement of standard distance-regular graph formulas.
+For every finite order-(s,t) GQ, M M^T=(t+1)I+A_P and M^T M=(s+1)I+A_L. Point strongly regular parameters yield singular √((s+1)(t+1)) once, √(s+t) with h=st(s+1)(t+1)/(s+t) pairs and left/right null sectors. The five distance relations give a complete orthogonal decomposition into B0 once, B1 h times, u and v scalar sectors of multiplicities s²(st+1)/(s+t) and t²(st+1)/(s+t). Exact symbolic determinant factorization for f_j=r^j gives det B0=(1+str²)²(1-r²)(1-str²) and det B1=(1-r²)²(1+str⁴), so the sharp threshold, a=0 and nullity boundary are correct. Independently generated the 30-vertex symplectic quadrangle W(2), its full graph distances and four radial 30x30 spectra, all matching predicted 2x2 plus scalar block multiplicities. The finite check does not establish the general GQ theorem, which follows from the incidence decomposition.
 
-**Limitations.** Existence of a generalized quadrangle is a hypothesis, not a consequence. The result does not characterize nonradial positive definite kernels and does not exhaust the literature on bipartite coherent configurations. Independent mathematical validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier generalized distance spectrum techniques cover distance-regular incidence graphs (s=t), but their hypothesis fails for unequal-order biregular incidence graphs. The new explicit cone simultaneously covers all five radial parameters in s!=t geometries, while acknowledging equal-order spectral overlap and possible coherent-configuration generalizations.
+
+## value
+
+PASS
+
+Exact PSD cone and all spectral multiplicities for a natural five-dimensional kernel family on generalized-quadrangle incidence geometry, including biregular unequal-order cases and a sharp exponential threshold. Useful for kernel construction and negative-type diagnostics, not a rebranding of the underlying standard incidence eigenvalues.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
