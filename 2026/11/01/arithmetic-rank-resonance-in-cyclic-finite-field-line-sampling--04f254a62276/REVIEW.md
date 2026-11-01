@@ -1,11 +1,21 @@
-# Review of the cyclic line-sampling rank theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact block-rank identity splits the origin pivot from the multiplicative-character sectors. Nonzero Gauss sums, the odd-cycle two-orientation determinant, the even-cycle two-matching determinant, and the multiplicative-character evaluation count establish every case and field characteristic. The direct finite checks are corroborative only.
+## correctness
 
-**Originality — PASS under bounded comparison.** The closest inspected primary papers concern finite-field restriction and extension estimates, not these exact principal sampling ranks. Prior two-line rank results do not imply multiaxis cyclic parity, and published work on unicyclic Fourier partners or graphical groups treats different objects. The full texts of two relevant indexed historical results were not accessible; equivalence elsewhere remains a risk.
+PASS
 
-**Value — PASS.** The theorem supplies a uniform exact arithmetic rank law for sparsely coupled line sampling. Its sharp modulo-four/even-multiplicative-order distinction and gauge-invariant alternating product give an interpretable criterion for recovery or precise information loss. It is not a computational census or an arbitrary parameter slice.
+The origin row and its subtraction produce rank(M)=1+rank(T). Multiplicative-character decomposition of functions on nonzero field coordinates block-diagonalizes T up to permutation of character channels. Each nontrivial channel is a nonzero Gauss-sum scalar times a weighted cycle adjacency C_chi; the trivial channel is -q C_1. For odd d the two Hamiltonian cycle terms give determinant 2 product_i chi(w_i)^(-1), nonzero over complex numbers even when char(F_q)=2. For d=2m the parity-ordered cyclic bidiagonal block has exactly two perfect matching terms; singularity is chi(r)=(-1)^m, with rank exactly m-1 by its nonzero triangular (m-1)-minor. Evaluation at r of multiplicative order h assumes each h-th root exactly (q-1)/h times, giving the claimed complex nullity. Independent direct construction of 25 matrices for p in {2,3,5}, d=3..7 and nonzero edge assignments confirmed the formula; this finite check is not the all-q proof. Ambient B need not be invertible; theorem is about the restricted M, not full Fourier inversion.
 
-**Limitations.** Only cycle-sparse bilinear pairings on full line unions are classified; general graphs, sampling masks and condition numbers are outside scope. Independent review has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of exact statements and implications: Checked graph-circulant and finite Fourier aliases through the actual decomposition: a generic determinant or Gauss sum alone does not specify the multiplicative-order resonance or nullity; no identical statement located in searched SCOPE or Resultary results. A general norm/extension estimate cannot by itself imply exact complex nullity for a finite union of lines and weighted cycle; no dominating theorem with equivalent premises was found. Standard Gauss estimates and weighted-cycle matching determinants are prerequisites; together with character evaluation they support the proof but the cited finite-field restriction theorems do not state or logically imply this rank classification.
+
+## value
+
+PASS
+
+This is a natural reconstruction/invertibility threshold for sampling on a full union of coordinate axes, with a nontrivial obstruction depending on multiplicative order of an edge-product ratio rather than solely rank of the ambient form. It provides all q and all weighted cycles, distinguishes odd/even/4-divisible lengths, and can guide exact interpolation tests; it is not merely an arbitrary finite determinant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
