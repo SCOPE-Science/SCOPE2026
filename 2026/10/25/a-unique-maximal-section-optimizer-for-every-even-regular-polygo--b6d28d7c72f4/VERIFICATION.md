@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction checks and limits
+# Independent mathematical audit
 
-Run `python3 VERIFY.py` with any standard Python 3 interpreter; no third-party packages are required. The script verifies the angular-threshold characterization of maximum-side-count central sections against 210,000 independently generated prism/plane edge sign counts; compares the analytic arcsine formula with direct azimuth quadrature; checks that its unique stationary height improves nearby heights and the edge-uniform height; verifies the exact six-sided-base case and the previously known cube specialization; and tests the high-order limits numerically for increasing even base counts. Its completed output ends with `ALL_EVEN_PRISM_CENTRAL_SECTION_CHECKS_OK`.
+## correctness
 
-The actual universal proof is the face-count argument, exact event reduction, Haar integral, derivative sign analysis, and Taylor expansion in `RESULT.md`. Finite random checks cannot certify an all-parameter theorem. Exceptional normals meeting a prism vertex are omitted as a Haar-null set; no statements about their degeneracies are made. Independent mathematical audit has not been performed.
+PASS
+
+PASS. For the centered prism with n even>=6, generic plane-section vertices correspond bijectively to crossed prism edges, so the maximum of n+2 is the number of facets. On a fundamental azimuth sector 0<theta<beta=pi/n, opposite base-vertex projection pairs have two largest distinct magnitudes t1=cos theta and t2=cos(2beta-theta). With lambda=h|z|/sqrt(1-z²), all n lateral edges except the two pairs of projected largest vertices and four horizontal cap edges are crossed exactly when t2<lambda<t1; that event produces n+2 vertices. Uniform Haar azimuth and uniform |z| in [0,1], with P(lambda<t)=t/sqrt(h²+t²), integrate to p_n(h)=(n/pi)[2asin(sin beta/sqrt(1+h²))-asin(sin 2beta/sqrt(1+h²))]. For H=sqrt(1+h²), the derivative has the sign of 3cos²beta-H², hence one and only one interior maximizing height h_n=sqrt(3cos²beta-1). The two Taylor expansions as beta=pi/n tends to zero give n² p_n(h_n)->2pi²/(3sqrt3) and n⁴ p_n(sin beta)->pi⁴; the n=6 value and positivity checked separately. The n even restriction is essential for antipodal base vertex pairs. Random sections are central, not randomly offset or an affine-deformed Haar distribution.
+
+## originality
+
+PASS
+
+PASS, qualified. Prior cubic and rectangular-box laws treat a base with four sides; Kovič (2013) classifies the regular-face polyhedron families without Haar section frequencies; Resultary mean-square width of regular prisms concerns a different observable. The exact n>=6 all-even maximal-section probability, unique height and two-scale asymptotics were not found in those actually inspected statements. Crucially, Voss (1982) publishes exact frequencies of n-polygons in planar polyhedron sections, and Ohser–Mücklich (1995) explicitly studies random regular-prism stereology. Their full texts could not be obtained from legitimate OA/arxiv searches and authorized institutional download reported VPN disconnected. Their abstracts suggest a different ensemble, random spatial affine-plane intersection rather than a Haar central plane; they remain significant priority risks. Inaccessibility alone does not mandate rejection, but no whole-document noncoverage judgment is made for either.
+
+## value
+
+PASS
+
+PASS. The maximal possible n+2 sides of a central section is a natural extreme combinatorial event. Its probability depends nontrivially on the aspect ratio; the all-even-n solution identifies a unique exact optimal height, first n=6 case, and dramatic n^-2 optimal versus n^-4 edge-uniform probability. This infinite-family optimization and asymptotic separation is not a routine cubic lookup or arbitrary slice. It benchmarks geometry of random sections and the polar-bipyramid silhouette dual without claiming general classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

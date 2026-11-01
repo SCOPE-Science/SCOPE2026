@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. For almost every normal, the section vertex count equals the number of prism edges whose endpoints lie on opposite sides of the central plane. Cap/vertical edge decomposition shows that precisely the azimuth-and-tilt window between the two largest absolute projected base-vertex values yields the maximal \((n+2)\)-sided section. The Haar measure disintegrates into a uniform azimuth and uniform absolute vertical coordinate, giving the stated arcsine integral. Differentiating the exact expression yields a strict one-sign-change criterion \(3\cos^2(\pi/n)-(1+h^2)\). Taylor expansions prove both different asymptotic scales. The included checker independently recounts edge intersections and verifies representative cases. No sampled test is used as proof of an infinite statement.
+## correctness
 
-## Originality
-PASS relative to inspected evidence. Kovič (2013) treats symmetry types of even regular prisms, not Haar probabilities of their central sections or unique height selection. Existing indexed rectangular-box results and the cubic formula (OEIS A349605; Zhang, arXiv:2010.12349) include the \(n=4\) specialization, which is expressly excluded from the claimed range. An existing mean-square-width law for regular prisms concerns a different statistic. A pentagonal bipyramid silhouette law has an odd base and does not cover even bases \(n\ge6\) via polarity. Specific residual risk: unindexed or inaccessible specialized polytope-projection literature could overlap, and full texts for every adjacent published item were not available.
+PASS
 
-## Mathematical value
-PASS. The maximal possible side count \(n+2\) is a natural discrete invariant of the central section, and its frequency changes sharply with prism aspect ratio. The theorem settles the entire even-base family with a unique closed-form optimizer, a concrete hexagonal benchmark, and a two-power asymptotic separation from the ordinary edge-uniform family. This distinguishes ordinary geometric regularity from optimal random-section combinatorics; it is not a restatement of the already-known cubic case.
+PASS. For the centered prism with n even>=6, generic plane-section vertices correspond bijectively to crossed prism edges, so the maximum of n+2 is the number of facets. On a fundamental azimuth sector 0<theta<beta=pi/n, opposite base-vertex projection pairs have two largest distinct magnitudes t1=cos theta and t2=cos(2beta-theta). With lambda=h|z|/sqrt(1-z²), all n lateral edges except the two pairs of projected largest vertices and four horizontal cap edges are crossed exactly when t2<lambda<t1; that event produces n+2 vertices. Uniform Haar azimuth and uniform |z| in [0,1], with P(lambda<t)=t/sqrt(h²+t²), integrate to p_n(h)=(n/pi)[2asin(sin beta/sqrt(1+h²))-asin(sin 2beta/sqrt(1+h²))]. For H=sqrt(1+h²), the derivative has the sign of 3cos²beta-H², hence one and only one interior maximizing height h_n=sqrt(3cos²beta-1). The two Taylor expansions as beta=pi/n tends to zero give n² p_n(h_n)->2pi²/(3sqrt3) and n⁴ p_n(sin beta)->pi⁴; the n=6 value and positivity checked separately. The n even restriction is essential for antipodal base vertex pairs. Random sections are central, not randomly offset or an affine-deformed Haar distribution.
 
-## Limits
-The result does not concern affine-offset sections, odd or irregular polygonal bases, or all section side counts. Independent validation remains unperformed and historical priority is provisional beyond the explicitly inspected sources.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Prior cubic and rectangular-box laws treat a base with four sides; Kovič (2013) classifies the regular-face polyhedron families without Haar section frequencies; Resultary mean-square width of regular prisms concerns a different observable. The exact n>=6 all-even maximal-section probability, unique height and two-scale asymptotics were not found in those actually inspected statements. Crucially, Voss (1982) publishes exact frequencies of n-polygons in planar polyhedron sections, and Ohser–Mücklich (1995) explicitly studies random regular-prism stereology. Their full texts could not be obtained from legitimate OA/arxiv searches and authorized institutional download reported VPN disconnected. Their abstracts suggest a different ensemble, random spatial affine-plane intersection rather than a Haar central plane; they remain significant priority risks. Inaccessibility alone does not mandate rejection, but no whole-document noncoverage judgment is made for either.
+
+## value
+
+PASS
+
+PASS. The maximal possible n+2 sides of a central section is a natural extreme combinatorial event. Its probability depends nontrivially on the aspect ratio; the all-even-n solution identifies a unique exact optimal height, first n=6 case, and dramatic n^-2 optimal versus n^-4 edge-uniform probability. This infinite-family optimization and asymptotic separation is not a routine cubic lookup or arbitrary slice. It benchmarks geometry of random sections and the polar-bipyramid silhouette dual without claiming general classifications.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
