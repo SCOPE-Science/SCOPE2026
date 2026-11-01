@@ -1,0 +1,15 @@
+# Review: integral homology of stable cycle-power clique-complex boundaries
+
+## Correctness — PASS
+The claim is conditional on two explicitly cited previously proved facts: (i) in the stable range the cyclic-window clique complex is a PL manifold with nonempty boundary; (ii) the ambient complex has the homotopy type of a circle. The novel orientation computation follows from the complete facet adjacency cycle: the common codimension-one face has signs \(+1\) and \((-1)^m\), so the accumulated monodromy is \((-1)^{n(m+1)}\). Poincaré–Lefschetz duality with the correct orientation local system gives precisely the integral relative groups, and the long exact pair sequence gives the displayed boundary groups, including the \(m=3\) extension and connectedness. The torus classification uses the classical closed-surface theorem. The five signed-chain calculations pass, including a nonunit Smith factor two for the nonorientable example.
+
+## Originality — PASS, with residual risk
+The closely related primary work of Wani, *Edge ideals of complements of a class of circular interval graphs*, arXiv:2609.31105, proves the PL-manifold boundary property, the ambient circle-type statement and the \(m=2\) annulus/Möbius dichotomy. It does not state the all-power orientation character or the integral higher-dimensional boundary homology. Adamaszek, *Clique complexes and graph powers*, arXiv:1104.0433, proves the ambient circle equivalence without classifying its manifold boundary. A published result on third-power cycle **open-neighborhood complexes** has parity-dependent homology but involves a different complex; its theorem does not identify the relevant boundary spaces. Search comparisons include aliases as independence complexes of complements and graph-metric Rips complexes. The general tools of duality are classical; the specific cyclic orientation calculation and resulting complete family formula are the added statements. A previously catalogued identification of these boundaries with known manifolds remains a possible source of implicit coverage.
+
+## Value — PASS
+The classification answers a naturally arising, uncomputed question about the boundary of the stable cycle-power manifolds. It covers all powers and all stable lengths rather than arbitrary isolated examples. It exhibits a genuine parity-controlled two-torsion class in the integral homology of closed boundaries of arbitrarily high dimensions while the interiors retract onto circles. It also identifies every third-power boundary as a torus. These properties are not recoverable from ambient Betti numbers alone, and provide natural obstructions and test cases for proposed PL-homeomorphism classifications.
+
+## Scientific limits
+No all-dimensional PL classification of the boundaries is asserted beyond the torus case, and no new theorem is claimed for the ambient homotopy type or manifold property. Relevant sources may still contain implicit equivalent reductions; the finite program is supplementary and not an infinite proof. Independent validation is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
