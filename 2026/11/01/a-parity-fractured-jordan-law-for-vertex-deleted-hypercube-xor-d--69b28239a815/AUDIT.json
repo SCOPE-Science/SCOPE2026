@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "A^2=(d mod2)I, the N/2 rank of K=A+epsilon I, and the compression-rank lemma force the complete even/odd Jordan decompositions. Explicit kernel and periodic-space vector counts imply all q-dependent populations; d=2 and odd boundaries are included. Exact finite verification replayed independently over q=2 and q=4, including all 51,352 states reported, without replacing the general proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Wang–Zhang, arxiv:2410.09833, main theorem stated for Eulerian (even-degree) graphs.",
+        "Prior self-feedback and edge-deleted hypercube results on intact vertex sets, own-ledger:444c4754-c134-411a-9f6c-3c2bd41f04fa and own-ledger:0ddebf65-b6fe-4368-bfb6-bcdf48d0ceab."
+      ],
+      "reasoning": "Puncturing a cube leaves neighbors with degree d-1 and nonneighbors with degree d, so it is not Eulerian; the cited theorem cannot supply this Jordan form. The other perturbations use different matrices, dimensions and exact dynamical formulas; neither statement dominates the vertex deletion theorem.",
+      "searches": [
+        "hypercube graph missing vertex parity neighbor XOR period two three-step extinction",
+        "single vertex deletion in characteristic two adjacency hypercube finite field Jordan decomposition rank",
+        "Eulerian graph characteristic two Jordan canonical form arxiv:2410.09833"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2608.27887",
+      "arxiv:2410.09833",
+      "https://www.complex-systems.com/abstracts/v13_i03_a04/",
+      "doi:10.1109/12.508317",
+      "distance-two-hypercube-parity-census:2026-10-11:f288ef2fe8b4",
+      "own-ledger:444c4754-c134-411a-9f6c-3c2bd41f04fa",
+      "own-ledger:0ddebf65-b6fe-4368-bfb6-bcdf48d0ceab",
+      "own-ledger:a9a2b0b8-4ed9-4c96-a705-36839c0082a4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "own-ledger:0ddebf65-b6fe-4368-bfb6-bcdf48d0ceab: one missing edge retains N vertices.",
+        "own-ledger:444c4754-c134-411a-9f6c-3c2bd41f04fa: two self-feedback vertices retain N vertices.",
+        "own-ledger:a9a2b0b8-4ed9-4c96-a705-36839c0082a4: one-site self-feedback retains N vertices.",
+        "Kim–Reiner–Schoenzeit arxiv:2608.27887: real adjacency spectral treatment of a vertex deletion."
+      ],
+      "reasoning": "Although some outcomes have the same possible primitive periods, they do not imply the exact punctured-cube Jordan chains or q-dependent time-stratum numbers; adding/removing loops or one edge does not algebraically equal deleting a full vertex. The real-spectral theorem is over the wrong characteristic to imply mod-two Jordan multiplicities.",
+      "searches": [
+        "A missing-edge parity transition in hypercube XOR dynamics",
+        "An adjacency threshold for two-site feedback on Boolean hypercube automata",
+        "A one-site feedback defect creates periods three and six on Boolean hypercubes",
+        "punctured hypercube binary linear cellular automata vertex removed exact Jordan form"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kim–Reiner–Schoenzeit, arxiv:2608.27887, full HTML discussion of real eigenvalues/eigenspaces on singly and twice punctured Q_d.",
+        "Sutner, Decomposition of Additive Cellular Automata (2001), full text, fixed/periodic one-dimensional update boundaries."
+      ],
+      "reasoning": "The graph under real-spectral study is the same, but its real eigenspace decompositions do not provide finite-field Jordan block multiplicities after reduction modulo two. Sutner gives general machinery but not this graph-specific compression rank or state distribution.",
+      "searches": [
+        "deleting one vertex from Boolean hypercube graph adjacency over F2 nilpotent Jordan blocks parity all states fixed two-cycles",
+        "punctured hypercube binary linear cellular automata vertex removed exact Jordan form",
+        "single vertex deletion in characteristic two adjacency hypercube finite field Jordan decomposition rank",
+        "real adjacency eigenvalues of singly punctured hypercube arxiv:2608.27887"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus semantic result distance-two-hypercube-parity-census:2026-10-11:f288ef2fe8b4 concerns the distance-two full hypercube operator, not Q_d with one vertex removed.",
+        "No exact punctured-cube GF2 Jordan and first-entry count table found by those query strings."
+      ],
+      "reasoning": "A lack of search hits does not establish novelty. The nearest table/database-style hit counts states under a different adjacency relation and cannot be specialized to this operator by matching dimension alone.",
+      "searches": [
+        "site:oeis.org punctured hypercube adjacency rank GF(2)",
+        "site:oeis.org vertex deleted hypercube binary adjacency nullity",
+        "\"punctured cube\" \"adjacency\" \"mod 2\" \"rank\"",
+        "deleting one vertex from Boolean hypercube graph adjacency over F2 nilpotent Jordan blocks parity all states fixed two-cycles"
+      ]
+    },
+    "rationale": "The complete all-dimension characteristic-two Jordan and first-entry-time theorem was compared by implication against the closest identical-graph real-spectrum work, uniform-degree-parity GF2 spectral work, general additive automata, published-finding corpus hits, and accessible prior claims. Their established conclusions do not imply the modular Jordan sizes or finite-field dynamical counts. Historical equivalent results outside inspected material remain possible.",
+    "residual_risks": [
+      "An unindexed historical theorem may state an equivalent GF2 punctured-hypercube Jordan decomposition, and the checked corpus cannot guarantee exhaustive priority.",
+      "The historical one-dimensional hybrid automata source was available as an abstract but not fully inspected; no whole-paper exclusion is claimed.",
+      "The closest identical-graph paper is over the real numbers; it does not settle characteristic two, but it may motivate a future broader comparison with spectral graph methods."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_GRAPH_REAL_SPECTRAL_ONLY",
+        "evidence": "Real symmetric spectral decomposition and interlacing do not imply Jordan blocks for its adjacency mod 2.",
+        "identifier_or_url": "https://arxiv.org/abs/2608.27887",
+        "material_read": "Accessible full HTML, introductory hypotheses and real adjacency eigenvalue/eigenspace formulas for one- and two-vertex punctures.",
+        "method": "Compared underlying graph, coefficient field, eigenbasis conclusions and relation to modular Jordan blocks.",
+        "title": "Note on adjacency spectra for twice punctured hypercubes",
+        "trigger": "Identical singly vertex-deleted hypercube appears in this closely related primary source."
+      },
+      {
+        "assessment": "METHOD_RELATED_NO_GRAPH_CLASSIFICATION",
+        "evidence": "General linear nilpotent/regular methods for one-dimensional cyclic/fixed cellular automata, not a punctured Boolean-cube adjacency computation.",
+        "identifier_or_url": "https://www.complex-systems.com/abstracts/v13_i03_a04/",
+        "material_read": "Author-uploaded full text, introductory statements, cyclic/fixed boundaries, nilpotent/regular decomposition and application sections.",
+        "method": "Searched theorem objects and applicable graph boundary families; compared explicit cube-vertex deletion vs one-dimensional automata.",
+        "title": "Decomposition of Additive Cellular Automata",
+        "trigger": "Potential general finite-field additive automaton Jordan/orbit theorem."
+      },
+      {
+        "assessment": "KEY_HYPOTHESIS_NOT_MET",
+        "evidence": "The theorem assumes Eulerian graph, but punctured Q_d has both d- and (d-1)-degree surviving vertices.",
+        "identifier_or_url": "https://arxiv.org/abs/2410.09833",
+        "material_read": "Accessible primary arXiv HTML, introduction, stated uniform parity/Eulerian hypotheses and main annihilating-polynomial theorem.",
+        "method": "Verified degree-parity condition for a singly deleted cube graph.",
+        "title": "Annihilating polynomial, Jordan canonical from, and generalized spectral characterizations of Eulerian graphs",
+        "trigger": "Characteristic-two adjacency Jordan results with potentially broad graph coverage."
+      },
+      {
+        "assessment": "ABSTRACT_ONLY_LOW_SPECIFICITY",
+        "evidence": "Cattell–Muzio (1996), IEEE Transactions on Computers 45(7), 782–792, describes characteristic-polynomial analysis for 1D linear hybrid CA.",
+        "identifier_or_url": "https://doi.org/10.1109/12.508317",
+        "material_read": "Publisher/bibliographic abstract and publication record; full text not inspected.",
+        "method": "Compared explicit one-dimensional linear hybrid matrix family and abstract to punctured high-dimensional cubes; retained uncertainty for uninspected details.",
+        "title": "Analysis of one-dimensional linear hybrid cellular automata over GF(q)",
+        "trigger": "Historical finite-field additive automata source for the archive-cohort direction and earliest publicly dated source."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "69b28239-a815-4737-a525-6239994ffcde",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A single vertex removal from Q_d produces a sharp parity-fractured change from ambient square-zero or involutory dynamics to a size-three nilpotent chain or an exceptional transient eigenline. The exact classification of all attractors and stopping times for every d and finite characteristic-two field is a natural, previously unaccounted network fault invariant distinct from edge/feedback defects.",
+    "status": "PASS"
+  }
+}
