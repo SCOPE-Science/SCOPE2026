@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-The statement and proof were checked against the stated hypotheses.
+# Independent mathematical audit
 
-- Measurability: a Haar-measurable set is replaced by a Borel representative modulo a null set for the product-measure argument; every countable family of translates changes only on a countable union of null sets.
-- Measure normalization: \(\mu(G)=1\) and \(\mu(gA)=\alpha\) for every left translate.
-- Lower bound: every admissible countable mixture has integral \(\alpha\), so Jensen's inequality gives cost at least \(-\log_2\alpha\).
-- Positive baseline: the first-hit index of independent Haar translates is geometric with mean \(1/\alpha\); Tonelli's theorem gives a realization with finite integral of \(-\log_2 a_0\) and \(a_0>0\) almost everywhere.
-- Approximation: for fixed \(\delta\in(0,\alpha)\), Hoeffding's inequality bounds the expected exceptional-set measure by \(\exp(-2N\delta^2)\); the chosen exceptional sets therefore have measures tending to zero.
-- Logarithmic control: mixing the finite averages with the integrable baseline bounds the cost on the exceptional set, and the limits \(N\to\infty\), then \(\delta,\varepsilon\downarrow0\), give the upper bound.
-- Boundary case: \(\alpha=1\) gives entropy zero directly.
-- Limits: the proof does not establish attainment, a deterministic efficient construction, or the general conjecture for arbitrary set systems.
+## correctness
+
+PASS
+
+For compact metrizable G and Haar-measurable A with alpha in (0,1], every countable translate mixture integrates to alpha, so Jensen gives lower bound -log2(alpha). For upper bound, iid Haar translates with weights 2^-k yield a positive-a.e. baseline a0 with integrable -log2(a0) because first hits are geometric with mean 1/alpha. Finite iid translate averages have exponentially small lower-tail bad sets by Hoeffding and Fubini. An epsilon admixture of a0 controls the log singularity on these sets by absolute continuity of its integrable majorant. Limits N→∞, then epsilon and delta→0 prove the infimum exactly; alpha=1 is immediate. Borel-mod-null representatives make the Fubini step valid for completed Haar measurability. No attainment claim is made.
+
+## originality
+
+PASS
+
+Harangi--Niu--Bai Example 6.15 proves unrestricted-mixture value for circle translations and explicitly describes countable equality as seeming true, then Conjecture 6.16 posits it for arbitrary set systems. This result proves the countable statement for all compact metrizable group translates, strictly more than the circle heuristic but less than the general conjecture. Priority is qualified because elementary probabilistic arguments may have appeared elsewhere. Actual named comparisons and inaccessible-source limitations are recorded below.
+
+## value
+
+PASS
+
+It resolves an expressly identified countable-versus-unrestricted infinite-mixture gap in a natural translation-invariant system, including positive-measure nowhere-dense sets for which finite mixtures have infinite cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

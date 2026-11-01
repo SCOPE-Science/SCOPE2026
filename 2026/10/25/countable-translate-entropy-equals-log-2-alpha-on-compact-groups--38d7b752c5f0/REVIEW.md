@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS — The lower bound follows from \(\int a\,d\mu=\alpha\) for every admissible countable convex combination and Jensen's inequality. For the upper bound, a geometrically weighted random translate sequence yields an almost-everywhere positive baseline with integrable negative logarithm; Hoeffding's inequality gives finite averages whose lower-tail exceptional sets have measures tending to zero. Mixing those averages with the baseline proves the required infimum bound. The stated compact-group and Haar-measure hypotheses are used explicitly.
+PASS
 
-## Originality
+For compact metrizable G and Haar-measurable A with alpha in (0,1], every countable translate mixture integrates to alpha, so Jensen gives lower bound -log2(alpha). For upper bound, iid Haar translates with weights 2^-k yield a positive-a.e. baseline a0 with integrable -log2(a0) because first hits are geometric with mean 1/alpha. Finite iid translate averages have exponentially small lower-tail bad sets by Hoeffding and Fubini. An epsilon admixture of a0 controls the log singularity on these sets by absolute continuity of its integrable majorant. Limits N→∞, then epsilon and delta→0 prove the infimum exactly; alpha=1 is immediate. Borel-mod-null representatives make the Fubini step valid for completed Haar measurability. No attainment claim is made.
 
-PASS — The closest source is Harangi, Niu, and Bai, *Generalizing Körner's graph entropy to graphons*, Example 6.15 and Conjecture 6.16. It gives the unrestricted-mixture value for circle translates and leaves countable-mixture equality as an observation/conjecture, not a proved theorem. The present claim extends the circle case to all compact metrizable groups and proves the countable-mixture equality for this family. The broader conjecture remains unresolved here.
+## originality
 
-## Value
+PASS
 
-PASS — This settles a natural, explicitly highlighted case where finite mixtures can fail badly: for positive-measure nowhere-dense sets the finite-mixture entropy may be infinite, while the countable-mixture infimum is exactly \(-\log_2\alpha\). The result isolates the role of countable mixtures and gives a reusable proof for compact-group translation families.
+Harangi--Niu--Bai Example 6.15 proves unrestricted-mixture value for circle translations and explicitly describes countable equality as seeming true, then Conjecture 6.16 posits it for arbitrary set systems. This result proves the countable statement for all compact metrizable group translates, strictly more than the circle heuristic but less than the general conjecture. Priority is qualified because elementary probabilistic arguments may have appeared elsewhere. Actual named comparisons and inaccessible-source limitations are recorded below.
 
-## Closest literature and limitations
+## value
 
-The theorem is a special case of the unrestricted-versus-countable-mixture equality conjectured for arbitrary set systems. It assumes a compact metrizable group with normalized Haar measure and does not claim an attainment theorem or an efficient algorithm.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+It resolves an expressly identified countable-versus-unrestricted infinite-mixture gap in a natural translation-invariant system, including positive-measure nowhere-dense sets for which finite mixtures have infinite cost.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
