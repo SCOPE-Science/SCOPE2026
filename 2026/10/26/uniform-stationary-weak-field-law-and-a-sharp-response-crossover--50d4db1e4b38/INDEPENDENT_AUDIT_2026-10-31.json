@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T12:15:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/uniform-stationary-weak-field-law-and-a-sharp-response-crossover--50d4db1e4b38/RESULT.md@c653c6da9bc9325010e762772d36d4ef663e0f68",
+        "independent_checks.py",
+        "independent_checks_results.json"
+      ],
+      "rationale": "For diffusion generator D∂xx+h∂x with rate-one reset at |x|>1 and D=αΓ^β, β>1, inspected the exact four-piece stationary Green-function density with Dk²+hk=1, Dℓ²−hℓ=1. Normalization and source jump are consistent with exterior resetting flux hC(1+r). Since D~αh^β on a low branch, δ=D/h→0, exponential e^{−1/δ}→0, and η=(h+√(h²+4D))/2→0. Interior density →1 on (0,1), total outside/negative mass O(h+δ), giving L1 uniform law and controlled polynomial moments. Continuity of Γ(D,h) yields small branch by sign-crossing near αh^β. Generator first moment and integrated interior density give for 1<β<2 mean correction −αh^{β−1}; β>2 +h/2; β=2 coefficient (1+√(1+4α)−4α)/4. At α=3/4, expansion of self-consistency c(h)=D/h²=3/4−9h/4+O(h²) gives exact +45h²/16. Independently numerically solved self-consistent branches in four regimes as h→0, including marginal ratio approaching 45/16, and independently checked rational expansion. Finite numbers corroborate but do not replace analytic small-parameter proof.",
+      "residual_risks": [
+        "Proof concerns one low-D stationary branch; no global selection, dynamical stability, or behavior at exactly h=0; tail-moment justification requires exponential bounds and is not implied by L1 alone."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bertin establishes base stationary ODE and self-consistency scaling, but not the asserted limiting uniform density and α=3/4 quadratic coefficient.",
+          "Partial resetting changes the generator from threshold-only reset to zero."
+        ],
+        "reasoning": "Closest general model covers foundational equations but does not imply checked full crossover without substantive singular limit and expansion.",
+        "searches": [
+          "Bertin 2022 arXiv:2205.00817",
+          "Tal-Friedman et al arXiv:2205.03363"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2205.00817",
+        "https://arxiv.org/abs/2205.03363",
+        "Resultary: stochastic resetting outside threshold mean field diffusion weak driving stationary uniform law nonlinear diffusivity",
+        "GitHub immutable source tree 17d3e1bb0be7bb93186c228ea953c4189d6f71bc"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing D~αh^β is a prerequisite and does not force a δ-mass at x=±1: deterministic drift regeneration occupies the full interval.",
+          "Correct uniform weak-field profile and corrections come from exact piecewise density plus moment identity, not a mere restatement of published scale."
+        ],
+        "reasoning": "The primary same mathematical model claim of localization is in tension with computed limit; this result supplies a mathematical correction and sharper asymptotic, with no claim that original model is new.",
+        "searches": [
+          "Bertin 2022 DOI:10.1088/1751-8121/ac8845 section on β>1 small h"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bertin same model yields D~αh^β and describes mass as sharply peaked at reset threshold; current exact law is uniform on traversal interval.",
+          "Related partial and diffusion-coefficient-reset models have different reset mechanisms."
+        ],
+        "reasoning": "Equivalent regenerative process of deterministic rightward drift from reset at0 until crossing x=1 has occupation density uniform on (0,1), but exact stationary mean-field crossover is not a generic constant-rate resetting result.",
+        "searches": [
+          "Resultary: stochastic resetting outside threshold mean field diffusion weak driving stationary uniform law nonlinear diffusivity",
+          "arXiv:2205.00817",
+          "web: stochastic resetting low diffusion weak bias uniform stationary distribution Bertin threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same model exact first-order α/β response table or 45/16 marginal coefficient located in checked material."
+        ],
+        "reasoning": "Published phase diagrams for different reset protocols or other diffusions are not exact tables for this stationarity normalization.",
+        "searches": [
+          "Resultary: stochastic resetting outside threshold mean field diffusion weak driving stationary uniform law nonlinear diffusivity",
+          "arXiv:2205.00817 PDF weak-field section"
+        ]
+      },
+      "rationale": "Bertin 2022 presents this exact resetting-rate-dependent diffusion model and D~α|h|^β branch but describes its weak-field mass as concentrated near the threshold. Examining the original explicit stationary resolvent and regeneration law gives a uniform interval profile instead, with additional α/β response crossover and marginal quadratic coefficient. General partial-reset or random-diffusivity models have different generators. The corrected uniform limit and exact coefficients are assessed additions beyond model premises, not claiming discovery of Bertin dynamics.",
+      "residual_risks": [
+        "A general regenerative-process occupation theorem already implies the leading uniform limit for deterministic drift; the sharp self-consistent mean corrections are more specific.",
+        "Bertin primary paper is a direct source and starting equation; novelty is explicit correction and singular asymptotic rather than invention of model."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same mathematical model prior premise; published qualitative localization at threshold conflicts with uniform weak-field result; exact corrections not established in inspected text",
+          "evidence": [
+            "Original small-field paragraph asserts density peaked around x=sgn(h) and mean tending to sgn(h), whereas deterministic resetting traversal yields uniform (0,1) and mean 1/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2205.00817",
+          "material_read": "Full accessible PDF, stationary Fokker–Planck equations, self-consistency and weak-field statements around PDF page 9 read; model introduction examined",
+          "method": "read primary arXiv PDF, inspected pages including 9",
+          "title": "Stochastic resetting of a population of random walks with resetting-rate-dependent diffusivity",
+          "trigger": "Exact same stationary mean-field reset model, β>1 small-field branch"
+        },
+        {
+          "assessment": "Not same threshold reset generator",
+          "evidence": [
+            "Partial resetting is not Poisson killing and return only for |x|>1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2205.03363",
+          "material_read": "Abstract and protocol description consulted",
+          "method": "abstract only",
+          "title": "Diffusion with Partial Resetting",
+          "trigger": "Alternative resetting mechanism potentially broader"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/pdf/2205.00817",
+        "https://arxiv.org/abs/2205.03363"
+      ],
+      "rationale": "Corrects a materially different weak-field physical conclusion (point localization vs uniform traversal occupation), and determines sharp response sign changes at β=2 and α=3/4 with a nontrivial marginal quadratic term. These directly matter for interpreting the self-consistent transition in the original physical model.",
+      "residual_risks": [
+        "A general regenerative-process occupation theorem already implies the leading uniform limit for deterministic drift; the sharp self-consistent mean corrections are more specific."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only β>1, α>0, one low-D stationary branch, not nonlinear stability or zero-bias selection; h<0 by reflection.",
+    "Proof concerns one low-D stationary branch; no global selection, dynamical stability, or behavior at exactly h=0; tail-moment justification requires exponential bounds and is not implied by L1 alone.",
+    "A general regenerative-process occupation theorem already implies the leading uniform limit for deterministic drift; the sharp self-consistent mean corrections are more specific.",
+    "Bertin primary paper is a direct source and starting equation; novelty is explicit correction and singular asymptotic rather than invention of model."
+  ],
+  "schema_version": 1
+}

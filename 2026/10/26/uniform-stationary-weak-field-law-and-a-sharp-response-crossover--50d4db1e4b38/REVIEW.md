@@ -1,15 +1,21 @@
-# Scientific review: threshold-reset stationary weak-field law
+# Independent mathematical audit
 
-## Correctness — PASS
-The stationary Fokker–Planck equation has been solved in all four spatial regions with matching and normalizing conditions. The resulting explicit density gives resetting flux \(\Gamma=hC(1+r)\), allowing a uniform asymptotic in the proposed small-diffusivity scaling and a continuous fixed-point existence argument. Direct integration yields the exact mean; Taylor expansions yield the three response regimes and the rational coefficient \(45/16\). The independent-integration numerical test and exact fraction check reproduce these conclusions. This is not a claim of dynamical branch stability.
+## correctness
 
-## Originality — PASS
-The 2022 source derives the defining model, stationary density relations and diffusion scaling; its physical small-field discussion suggests concentration at the reset threshold. Our limiting uniform distribution and full response-correction thresholds differ materially from that heuristic and are not presented as published theorems in the source. Related partial-reset and stochastically varying-diffusion studies use different generators; no equivalent law was identified among the literature and research-index records checked. The derivation is an extraction from the source stationary equations and could be independently obtainable from them. Unindexed equivalent claims remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The theorem resolves the physical limiting occupation measure, hence all stationary moments and the leading mean, in a singular self-consistent diffusion regime. It identifies a nontrivial competition at \(eta=2\) between stochastic spread and deterministic drift, and the critical coupling \(lpha=3/4\) where their first-order contributions cancel but a positive quadratic response remains. These facts change the interpretation of a reported low-noise stationary branch rather than adding a routine finite-order parameter fit.
+For diffusion generator D∂xx+h∂x with rate-one reset at |x|>1 and D=αΓ^β, β>1, inspected the exact four-piece stationary Green-function density with Dk²+hk=1, Dℓ²−hℓ=1. Normalization and source jump are consistent with exterior resetting flux hC(1+r). Since D~αh^β on a low branch, δ=D/h→0, exponential e^{−1/δ}→0, and η=(h+√(h²+4D))/2→0. Interior density →1 on (0,1), total outside/negative mass O(h+δ), giving L1 uniform law and controlled polynomial moments. Continuity of Γ(D,h) yields small branch by sign-crossing near αh^β. Generator first moment and integrated interior density give for 1<β<2 mean correction −αh^{β−1}; β>2 +h/2; β=2 coefficient (1+√(1+4α)−4α)/4. At α=3/4, expansion of self-consistency c(h)=D/h²=3/4−9h/4+O(h²) gives exact +45h²/16. Independently numerically solved self-consistent branches in four regimes as h→0, including marginal ratio approaching 45/16, and independently checked rational expansion. Finite numbers corroborate but do not replace analytic small-parameter proof.
 
-## Closest literature and scope limits
-E. Bertin, arXiv:2205.00817 (2022), Sections 2–4; Tal-Friedman–Roichman–Reuveni, arXiv:2205.03363 (2022), partial resetting; Santra–Basu–Sabhapandit, arXiv:2205.00549 (2022), resetting with stochastic diffusivity. Only stationary low-diffusivity branches are treated. No global attractivity or unique branch selection is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bertin 2022 presents this exact resetting-rate-dependent diffusion model and D~α|h|^β branch but describes its weak-field mass as concentrated near the threshold. Examining the original explicit stationary resolvent and regeneration law gives a uniform interval profile instead, with additional α/β response crossover and marginal quadratic coefficient. General partial-reset or random-diffusivity models have different generators. The corrected uniform limit and exact coefficients are assessed additions beyond model premises, not claiming discovery of Bertin dynamics.
+
+## value
+
+PASS
+
+Corrects a materially different weak-field physical conclusion (point localization vs uniform traversal occupation), and determines sharp response sign changes at β=2 and α=3/4 with a nontrivial marginal quadratic term. These directly matter for interpreting the self-consistent transition in the original physical model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
