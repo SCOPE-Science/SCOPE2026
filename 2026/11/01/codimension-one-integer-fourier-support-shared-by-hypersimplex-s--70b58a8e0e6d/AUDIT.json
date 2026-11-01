@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For integer k and s, the normalized slice Fourier transform has Laplace transform (1-e^{-z})^n times a rational function. Its inverse transforms vanish at positive integers for distinct simple poles, while exactly one double pole contributes A*m and no simple residue, where A is a nonzero explicit product. An alternating binomial identity gives the exact coefficient. Counting union of pair-collision hyperplanes (single intersections of codimension one, multiple intersections codimension at least two) proves the sharp leading term. The proof handles all n>=5, 2<=s<=n-2 and frequency boxes; 552 exact and 11 independent-method numerical tests corroborate it. Unspecified higher-multiplicity Fourier coefficients are not asserted.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu (2008) develops exponential truncated powers and finite-difference representations of box splines; Lemma 3.1 is explicitly stated away from coincident denominators.",
+        "Diaz–Le–Robins (2016) supplies a general face-poset Stokes formula for Fourier transforms on polytopes and discusses nongeneric frequencies."
+      ],
+      "reasoning": "General integration machinery provides ways to calculate arbitrary coefficients, but the claimed exact double-pole cancellation and slice-uniform binomial amplitude require a confluent-pole specialization, and the sharp number of nonzero modes requires a further hyperplane arrangement count. No explicit dominating specialized theorem was identified; such a derivation from older general formulas remains a residual risk.",
+      "searches": [
+        "box spline exponential truncated power integer Fourier transform collision hyperplanes hypersimplex beta spline",
+        "arXiv:0806.1127v1 §3 Lemma 3.1 and §5 Eq. (5.6)",
+        "arXiv:1602.08593v1 §2 Theorem 1 and Eq. (13)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0806.1127",
+      "https://arxiv.org/html/1104.5292v2",
+      "https://arxiv.org/abs/1602.08593"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li (2011) establishes hypersimplex definitions, triangulations and Ehrhart formulas, which concern lattice-point and volume invariants rather than oscillatory integer coefficients.",
+        "Xu (2008) and Diaz–Le–Robins (2016) give general transform/integration frameworks, not an identified exact one-collision coefficient or the universal sharp support leading constant.",
+        "The first novel interior polytope parameter n=5 is distinct from prior simplex and cross-polytope cases."
+      ],
+      "reasoning": "The new statement is a simultaneous exact vanishing/nonvanishing criterion on generic collision strata, a coefficient identity across all s, and an all-dimensional asymptotic count. It is not implied by a mere volume count or by earlier low-dimensional examples; general Fourier formulas have to be specialized and their degeneracies resolved, and may still hide equivalent coverage.",
+      "searches": [
+        "Hypersimplex Fourier transform continuous integer frequency spectrum slice cube same codimension one nonzero support binomial scaling between slice levels and sharp lattice hyperplane arrangement count",
+        "hypersimplex [0,1]^n hyperplane sum x=s continuous Fourier transform at integer lattice frequencies, coefficient zero unless two frequency coordinates coincide, asymptotic nonzero support",
+        "box spline exponential truncated power integer Fourier transform collision hyperplanes hypersimplex beta spline",
+        "arXiv:1602.08593v1 Eq. (13)",
+        "arXiv:0806.1127v1 Eq. (5.6)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li, arXiv:1104.5292v2, §1 defines hypersimplex as the integral cube slab and §2 concerns Ehrhart generating functions; whole HTML text has no Fourier or frequency match.",
+        "The indexed closest 2026 continuous-looking hits instead concern finite-field affine simplexes and discrete Hamming shells, not oscillatory surface integrals on real hypersimplices.",
+        "Prior low-dimensional simplex and cross-polytope special cases do not give n>=5 interior hypersimplex Fourier coefficients."
+      ],
+      "reasoning": "Cube slabs, hypersimplices and one-dimensional box-spline slices were treated as equivalent objects; no inspected source states the one-double-frequency Fourier coefficient or its uniform sharp support count.",
+      "searches": [
+        "Hypersimplex Fourier transform continuous integer frequency spectrum slice cube same codimension one nonzero support binomial scaling between slice levels and sharp lattice hyperplane arrangement count",
+        "hypersimplex [0,1]^n hyperplane sum x=s continuous Fourier transform at integer lattice frequencies, coefficient zero unless two frequency coordinates coincide, asymptotic nonzero support",
+        "\"hypersimplex\" \"Fourier coefficients\" continuous",
+        "arXiv:1104.5292v2 full-text HTML search for Fourier, frequency and transform"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Searches returned classical hypersimplex volume/Ehrhart records and unrelated finite-field Fourier support classifications, not exact lattice-Fourier support counts for real hypersimplex slabs.",
+        "The already known three-dimensional simplex and four-dimensional ambient octahedron were excluded from the claimed n>=5 range."
+      ],
+      "reasoning": "No indexed table of the stated all-n nonzero Fourier mode count was found. Failure to locate a table is not evidence of mathematical uniqueness; the conclusion is bounded to checked records.",
+      "searches": [
+        "Fourier support of indicator hypersimplex dimension n square frequency box leading n choose 2",
+        "hypersimplex Fourier transform polytope Fourier sparsity lattice",
+        "hypersimplex Fourier series polytope vanishing integer lattice",
+        "integer Fourier coefficients of hypersimplex Delta(2,n) lattice-periodic Fourier transform support vanishing classification"
+      ]
+    },
+    "rationale": "Searches of the mathematical index and inspected primary Xu 2008, Li 2011, Diaz–Le–Robins 2016 found nearby spline, hypersimplex and general polytopal Fourier technology, but not the precise one-collision coefficient, uniform ratio across interior slices or sharp nonzero-mode count. Generic theory alone does not state these cancellations or their arithmetic counting; equivalent earlier specialization remains a material risk.",
+    "residual_risks": [
+      "Earlier work on exponential box splines or divided differences, including references predating 2008, may have an equivalent integer-slice confluent-pole statement.",
+      "The general Stokes/Brion formula can in principle yield these specializations; no claim of unconditional literature uniqueness is made.",
+      "The search is bounded and not a comprehensive scan of every older polytope Fourier article or textbook."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides spline transforms and cube slice volume machinery; no stated integer Fourier-support coefficient/count, and the displayed exponential partial fractions assume nonvanishing denominators",
+        "evidence": [
+          "§3 Lemma 3.1 excludes parameter choices making denominators vanish",
+          "§5 Eq. (5.6) is a finite-difference box-spline representation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0806.1127",
+        "material_read": "Selected HTML material: introduction, §3 Lemma 3.1 and Theorem 3.1, §5 Theorem 5.2 and Eq. (5.6), and beginning of §6.",
+        "method": "Read accessible arXiv HTML selected full-text sections and inspected formula/terminology matches",
+        "title": "Multivariate Splines and Polytopes",
+        "trigger": "Direct source for cube-slicing and exponential spline formulas"
+      },
+      {
+        "assessment": "Defines the same hypersimplex and slab and studies volume, triangulations and Ehrhart h-star vectors, not the Fourier coefficients in this claim",
+        "evidence": [
+          "§1 definitions of hypersimplex and Eulerian volume",
+          "No Fourier, frequency or transform occurrences in searchable HTML text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1104.5292v2",
+        "material_read": "HTML abstract and introduction, §2 proof setup, table of contents, and full-text searches for Fourier/frequency/transform.",
+        "method": "Read arXiv author HTML and inspected relevant definitions and searchable selected full-text sections",
+        "title": "Ehrhart h-star vectors of hypersimplices",
+        "trigger": "Exact same geometric polytopes and natural integral-slab realization"
+      },
+      {
+        "assessment": "Describes general face-chain Fourier transforms and nongeneric directions, but does not explicitly specialize to hypersimplex one-pair collisions or count their nonzero frequency modes",
+        "evidence": [
+          "§2 Theorem 1 and Eq. (13) are general face-poset formulas",
+          "No hypersimplex occurrence in searchable full text"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.08593",
+        "material_read": "HTML introduction and §2 Stokes formula, Theorem 1, Eq. (13); searched text for hypersimplex.",
+        "method": "Read accessible arXiv full HTML text with term and implication comparison",
+        "title": "Fourier transforms of polytopes, solid angle sums, and discrete volume",
+        "trigger": "Plausibly dominating general Fourier transform and nongeneric frequency result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "70b58a8e-0e6d-4c8b-adea-c9273d8f458f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The object is a canonical family of cube hyperplane sections and uniform-matroid polytopes. For all nontrivial n>=5 hypersimplices, a natural Fourier-support invariant has sharp codimension-one growth independent of slice level, and the amplitudes obey a nontrivial common binomial law at every generic resonance. These relations hold across unbounded dimension and slice parameters and identify exact structure beyond an arbitrary numerical instance. The deeper multiple-collision classification is expressly unproved and not needed for this sharp leading invariant.",
+    "status": "PASS"
+  }
+}
