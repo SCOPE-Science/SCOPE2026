@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:09:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reading k digits with integer u gives residual n -> nu_b(c+1+u+b^k n) mod m. If b^k does not divide t=c+1+u, the output is constant nu_b(t) mod m; otherwise the unique residue u modulo b^k gives nonconstant V_{ceil((c+1)/b^k),k mod m}. The shift decreases strictly through depths 0..L-1 then equals one and phases cycle modulo m. The other digits land in m constant states. Distinct nonconstant shifts can be separated with suffix inputs b^r-s and b^(r+1)-s using nu_b(t-s) fixed, valid for any composite b too; phase variants and constants are pairwise different. This proves exactly L+2m states, all-word conventions included. My independent Moore minimizer constructed and minimized reachable automata for 700 parameter triples and matched the formula, corroborating—not substituting for—the residual proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zantema–Bosma Theorems 16-20 bound tail and subsequence state complexity in terms of old size; Theorem 20 gives n*size upper bound for a[k n + m]"
+        ],
+        "reasoning": "A general upper bound for a tail or subsequence cannot imply the exact L+2m minimal state count, which requires distinguishing residual functions, nor the state graph decomposition.",
+        "searches": [
+          "Zantema Bosma tail automaton state complexity theorems 16 17 20",
+          "Moradi Rampersad Shallit complexity of linear subsequences k-automatic"
+        ]
+      },
+      "checked_sources": [
+        "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+        "https://arxiv.org/abs/2512.10017",
+        "https://arxiv.org/abs/2603.18858",
+        "Resultary semantic search: shifted valuation-residue DFAO"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2022 article, Theorem 20 is a subsequence upper bound, not a lower-bound equality; Fibonacci shifted automata are Zeckendorf, not positional base-b valuation"
+        ],
+        "reasoning": "The candidate can be framed as a special case of general automatic sequences, but none of the inspected theorems determines its precise minimal DFAO size. A new residual-distinguishability argument is essential.",
+        "searches": [
+          "Zantema Bosma 2022 sections 5-7",
+          "arxiv:2512.10017",
+          "arxiv:2603.18858"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Zantema–Bosma 2022 defines reverse (least-significant-first) state complexity via kernels; Moradi et al. 2026 concerns Fibonacci shifts"
+        ],
+        "reasoning": "The LSF kernel equivalence is a classical tool and period-doubling at c=0 is familiar; the exact shifted residual-state orbit, for arbitrary c,b,m and all finite words, is not identified in inspected statements.",
+        "searches": [
+          "Resultary: least significant digit first automatic sequence valuation n+c+1 mod m exact DFAO state complexity shifts period doubling",
+          "web: state complexity shifts of period doubling automatic sequence valuation least significant digit automaton"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary record on the period-doubling word computes greedy string attractor, a different invariant; literature cites c=0 period doubling kernel"
+        ],
+        "reasoning": "The c=0 4-state case is acknowledged prior elementary. No actual published infinite shifted-state table or full three-parameter formula was found; finite checker outputs are independent validation, not new prior tables.",
+        "searches": [
+          "period doubling word shift automaton minimal states table",
+          "Resultary period-doubling state complexity"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, bounded. Zantema–Bosma (Information and Computation 2022) gives general digit-order state-complexity theory, tail bounds and arithmetic subsequence bounds, but not the exact minimal state count and chain/cycle structure for this shifted valuation family. Moradi–Rampersad–Shallit (arXiv:2512.10017) addresses linear subsequences with general bounds; Moradi–Popoli–Shallit–Vukusic (arXiv:2603.18858) treats shifts of Fibonacci words in Zeckendorf numeration, a different representation and sequence. Other Resultary period-doubling records concern string attractors, not DFAO minimality. A previously unnoticed direct period-doubling kernel computation remains possible.",
+      "residual_risks": [
+        "An unindexed exercise or theorem giving the exact kernel size for all shifted period-doubling/valuation sequences could entail the formula; results indexed under p-kernels may be missed.",
+        "All finite digit words and the least-significant-first convention are material; restricting to canonical words or msd-first can alter the count, and m=1 is excluded."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives general complexity operations and bounds, but not exact shifted valuation-residue state law",
+          "evidence": "Zantema & Bosma, Information and Computation 288 (2022), 104710, Theorems 16-20",
+          "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+          "material_read": "17-page accepted journal PDF, Sections 2-3 definitions, tail Section 7 including Theorems 16-20, and subsection examples",
+          "method": "Read author-hosted full PDF and inspected page 10 (Theorems 17-19) image",
+          "title": "Complexity of automatic sequences",
+          "trigger": "Strong same-output and digit-order state-complexity source"
+        },
+        {
+          "assessment": "General bounds and construction, principally different msd-first convention; not evidence for exact LSF shifted valuation count",
+          "evidence": "arXiv:2512.10017, abstract and cited Theorem 10",
+          "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+          "material_read": "ArXiv abstract and available theorem summary of linear subsequence complexity",
+          "method": "Read abstract and published summary; not a full-document exclusion",
+          "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+          "trigger": "Potential general theorem covering all translated sequences"
+        },
+        {
+          "assessment": "Different automatic sequence and non-positional numeration; does not imply exact base-b valuation residual state count",
+          "evidence": "arXiv:2603.18858, abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2603.18858",
+          "material_read": "ArXiv abstract specifying Fibonacci word, Zeckendorf digit system, and O(log c) result",
+          "method": "Read author abstract/overview; not a full-document exclusion",
+          "title": "State Complexity of Shifts of the Fibonacci Word",
+          "trigger": "Related exact shifted-state research"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: fully solves a natural three-parameter DFAO minimal-state problem with exact preperiod length, phase cycle and constant-state structure, rather than a generic polynomial upper bound. Sharp power-of-b jumps after each shift threshold and applicability to composite b make the explicit law useful for automata complexity and exact algorithm design.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+    "https://arxiv.org/abs/2512.10017",
+    "https://arxiv.org/abs/2603.18858",
+    "Resultary semantic search: shifted valuation-residue DFAO"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "An unindexed exercise or theorem giving the exact kernel size for all shifted period-doubling/valuation sequences could entail the formula; results indexed under p-kernels may be missed.",
+    "All finite digit words and the least-significant-first convention are material; restricting to canonical words or msd-first can alter the count, and m=1 is excluded."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Gives general complexity operations and bounds, but not exact shifted valuation-residue state law",
+      "evidence": "Zantema & Bosma, Information and Computation 288 (2022), 104710, Theorems 16-20",
+      "identifier_or_url": "https://www.math.ru.nl/~bosma/pubs/Zantema_Bosma_Complexity_of_Automatic_Sequences.pdf",
+      "material_read": "17-page accepted journal PDF, Sections 2-3 definitions, tail Section 7 including Theorems 16-20, and subsection examples",
+      "method": "Read author-hosted full PDF and inspected page 10 (Theorems 17-19) image",
+      "title": "Complexity of automatic sequences",
+      "trigger": "Strong same-output and digit-order state-complexity source"
+    },
+    {
+      "assessment": "General bounds and construction, principally different msd-first convention; not evidence for exact LSF shifted valuation count",
+      "evidence": "arXiv:2512.10017, abstract and cited Theorem 10",
+      "identifier_or_url": "https://arxiv.org/abs/2512.10017",
+      "material_read": "ArXiv abstract and available theorem summary of linear subsequence complexity",
+      "method": "Read abstract and published summary; not a full-document exclusion",
+      "title": "Complexity of Linear Subsequences of k-Automatic Sequences",
+      "trigger": "Potential general theorem covering all translated sequences"
+    },
+    {
+      "assessment": "Different automatic sequence and non-positional numeration; does not imply exact base-b valuation residual state count",
+      "evidence": "arXiv:2603.18858, abstract",
+      "identifier_or_url": "https://arxiv.org/abs/2603.18858",
+      "material_read": "ArXiv abstract specifying Fibonacci word, Zeckendorf digit system, and O(log c) result",
+      "method": "Read author abstract/overview; not a full-document exclusion",
+      "title": "State Complexity of Shifts of the Fibonacci Word",
+      "trigger": "Related exact shifted-state research"
+    }
+  ]
+}
