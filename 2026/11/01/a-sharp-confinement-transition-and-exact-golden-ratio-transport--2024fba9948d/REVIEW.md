@@ -1,0 +1,19 @@
+# Scientific review of the remainder-added linear map transport theorem
+
+## Correctness — PASS
+
+The sharp parameter boundary is derived from two explicit one-step inequalities, with all quantifiers and the critical endpoint handled separately. At the critical endpoint the fractional-phase semiconjugacy is exact, and positivity converts boundedness into summability of the phase; expansion then proves eventual fixation. The golden-ratio phase has a primitive two-interval Markov partition. Direct transfer-operator substitution establishes its invariant density, while an exact four-dimensional affine-density calculation establishes the all-lag covariance recurrence and both finite-time and asymptotic variances. A standalone symbolic and rational checker reproduces algebraic identities, not the infinite proofs. Only a stationary initial-phase law is used for the precise variance statement.
+
+## Originality — PASS within inspected evidence
+
+The same map was introduced in Moysis–Kafetzis–Baptista–Volos, *Mathematics* 10 (2022), 2801, equations (4) and (23). Its accessible article discusses Lyapunov enhancement, numerical bifurcations, and pseudo-randomness, not the neutral global-escape/confinement threshold or a phase-unwrapped exact transport covariance. The 2023 multiple-remainder continuation is directed toward encryption and Lyapunov properties and does not establish the single-remainder transport formula. General \(\beta\)-transformation results already provide the invariant density and ergodicity, and these are acknowledged as preexisting ingredients. The exact diffusion-coefficient literature gives frameworks for calculating statistical variances of expanding maps but the inspected Jenkinson–Pollicott–Vytnova article does not state this model's \((5+3\sqrt5)/50\) coefficient. Search results and accessible prior research claims contain no known exact covering statement. Risk: an unindexed paper or an unrecognized instance of an exact Parry-process autocovariance formula could cover the same numerical invariant; a qualified independent priority review remains necessary.
+
+## Value — PASS
+
+The source map was proposed as a deterministic method for increasing chaotic complexity, so deciding whether its unwrapped trajectories are confined, escape geometrically, or exhibit transport is an intrinsic dynamical question rather than a normalization check. The critical line is sharply separating two opposite global behaviors. At its smallest noninteger golden-mean Markov multiplier, the stationary drift differs from the integer-multiplier value, and the exact all-lag correlations quantify sustained variance inflation. The full finite-time variance is specified, not a numerical approximation or a generic central-limit claim. The result supplies a motivated exact transport benchmark for remainder-based chaotic maps and identifies a failure of the intuition that stronger local expansion ensures bounded chaotic trajectories.
+
+## Closest literature and scientific limits
+
+The 2022 defining article establishes the recurrence and a Lyapunov sufficient condition, which neither implies the critical orbit criterion nor computes transport moments. The 2023 multi-remainder article has a different map class and question. Parry's classical invariant-density theory and the 2018 diffusion-coefficient framework provide general tools, not the exact unwrapped-map statistics as stated. The full result is restricted to a singled-out noninteger parameter for exact moments, and to positive \(a,k\) for the global trichotomy. A compact absorbing interval is not identified with a topological global attractor of the discontinuous map. This review does not assess cryptographic security or conduct an independent mathematical audit.
+
+Self-review: passed. Independent audit: not yet performed.
