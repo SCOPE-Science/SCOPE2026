@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:09:48Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "actual RESULT.md and symbolic verifier",
+        "2022 Hata–Matsunaga same-equation frequency polynomial and explicit excluded condition",
+        "new exact second derivative independent symbolic check and 3 parameter witnesses",
+        "actual source Git tree entries"
+      ],
+      "rationale": "For x^prime=-a x - b x(t-tau)-c x(t-2tau), with b≠0,c>0,c<a<3c,b²=8c(a-c), frequency elimination has the unique double positive z=(a-c)(3c-a)=omega². Phase equations determine only tau_n=(theta+2πn)/omega. The identities b*exp(-i theta)+2c exp(-2i theta)=-2c and f_lambda=1+2c*tau_n>0 show a simple imaginary pair. Implicit differentiation gives Re lambda^prime(tau_n)=0 and Re lambda^doubleprime=2omega²(a-3c)/(1+2c tau_n)^3<0, proving left-side quadratic contact. At tau->0 all RHP roots would be uniformly bounded by |lambda+a|<=|b|+c and tend to -a-b-c<0, contradiction; roots cannot enter RHP from infinity at finite tau. With no other imaginary frequencies and no crossovers, zero RHP count persists for all tau>0. Independent exact SymPy checked the derivative and three sample parameter sets; analytic proof establishes the continuum result.",
+      "residual_risks": [
+        "The conclusion concerns linear asymptotic stability, not nonlinear Hopf; does not classify other discriminant regions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hata 2022 Remark 1.4 says explicit criterion for b²+8c(c-a)=0 and 2(a²-c²)-b²<0 had not yet been obtained, despite known critical-delay lists. Mahaffy–Busken study tangencies of D-partition boundary curves for rational delay ratios, but their inspected geometric statements do not give this all-parameter ray criterion."
+        ],
+        "reasoning": "Broader D-partition and characteristic root computation methods are context, not an explicit dominance theorem proving leftward curvature at every tau_n; residual stronger-coverage risk is recorded for the 2015 geometry.",
+        "searches": [
+          "Hata–Matsunaga DOI:10.7494/OpMath.2022.42.5.673 Remark 1.4/2.10",
+          "Mahaffy–Busken DOI:10.3934/dcds.2015.35.4955 R=1/2",
+          "Bortz arXiv:1206.6364 two-lag characteristic root methods"
+        ]
+      },
+      "checked_sources": [
+        "Hata–Matsunaga 2022 primary PDF and Remark 1.4",
+        "Mahaffy–Busken 2015 primary PDF R=1/2 stability surface",
+        "Resultary same-two-delay query and related records"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hata Remark 1.4 directly acknowledges the exceptional case as unresolved. Mahaffy tangencies concern stable-region boundary intersections as a normalized parameter varies, not this second derivative of a simple root versus physical delay."
+        ],
+        "reasoning": "The critical frequency and delay list alone do not imply no instability interval: first crossing derivative is zero, so curvature must be analyzed; exact negative second derivative rules out RHP penetration.",
+        "searches": [
+          "Hata–Matsunaga 2022 Remark 1.4 original primary PDF p.676",
+          "Mahaffy–Busken 2015 Definitions 3.7-3.8, figures of parameter-plane tangencies",
+          "Resultary scientific near-match delay searches"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Setting B,C in normalized two-delay x^prime(t)=A x(t)+B x(t-tau)+C x(t-2tau) yields the same scalar characteristic equation. The discriminant boundary is b²+8c(c-a)=0 with positive repeated frequency."
+        ],
+        "reasoning": "The same equation and delay ratio are explicitly recognized prior work; novelty is restricted to the complete stability classification and strict second-order contact on that locus.",
+        "searches": [
+          "Resultary semantic: two delay scalar equation repeated imaginary frequency discriminant zero tangency",
+          "Hata and Matsunaga 2022 Remark 1.4 discriminant-zero excluded case",
+          "Mahaffy and Busken 2015 R=1/2 D-partition stability geometry"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The submitted arithmetic sequence tau_n is a known imaginary-root calculation in the same equation, and is not claimed independently new; the sign of second derivative and all-delay stable-outside-isolated theorem are additional."
+        ],
+        "reasoning": "No exact interval-boundary theorem or table dominating the submitted criterion was identified; negative search is not the novelty proof.",
+        "searches": [
+          "Resultary query exact degenerate two-delay boundary stabilizing tangency",
+          "Hata 2022 critical-frequency/crossing-delay tables",
+          "Mahaffy–Busken 2015 D-partition figures and sample parameters"
+        ]
+      },
+      "rationale": "Qualified PASS: Hata–Matsunaga 2022 explicitly leave this exact discriminant-zero positive-frequency stability case without a criterion in Remark 1.4. The new contact curvature plus global root count closes that gap, though Mahaffy–Busken 2015 covers related R=1/2 D-partition tangency geometry and remains a possible implication risk.",
+      "residual_risks": [
+        "An equivalent implication could follow from an unrecognized specialization of Mahaffy–Busken D-partition formulas or another unindexed two-lag root theory; this qualified priority comparison is not proof of global novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICITLY_LEAVES_CASE_OPEN",
+          "evidence": "Remark 1.4: criterion not obtained if b²+8c(c-a)=0 and 2(a²-c²)-b²<0.",
+          "identifier_or_url": "doi:10.7494/OpMath.2022.42.5.673",
+          "material_read": "2022 primary PDF, relevant pp.673-676, especially Remark 1.4 p.676, characteristic-frequency definitions and excluded conditions",
+          "method": "primary PDF text, page 676 screenshot, focused theorem/remark reading",
+          "title": "Stability switches in a linear differential equation with two delays",
+          "trigger": "Exactly same characteristic equation and omitted zero-discriminant case"
+        },
+        {
+          "assessment": "RELATED_BROADER_GEOMETRY_PRIORITY_RISK",
+          "evidence": "Their curve tangencies and examples do not directly assert every tau outside an explicit sequence is stable on this discriminant-zero parameter ray.",
+          "identifier_or_url": "doi:10.3934/dcds.2015.35.4955",
+          "material_read": "Full primary PDF relevant definitions, D-partition curves, R=1/2 and tangency examples, Sections 2-4",
+          "method": "primary PDF text and figures/screenshots",
+          "title": "Regions of Stability for a Linear Differential Equation with Two Rationally Dependent Delays",
+          "trigger": "Same 1:2 delay ratio, possible geometry theorem implying contact"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hata 2022 explicit unsolved exceptional case",
+        "exact second-order root-contact derivation and global no-RHP count"
+      ],
+      "rationale": "The explicitly excluded repeated-frequency locus is a meaningful missing boundary of published necessary-and-sufficient linear stability criteria. Quadratic leftward root tangency rigorously distinguishes isolated neutral delays from instability intervals, a structural answer missed by ordinary transversality tests.",
+      "residual_risks": [
+        "Only linear stability in the discriminant-zero regime, not nonlinear Hopf bifurcations or arbitrary lag ratios."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "The conclusion concerns linear asymptotic stability, not nonlinear Hopf; does not classify other discriminant regions.; An equivalent implication could follow from an unrecognized specialization of Mahaffy–Busken D-partition formulas or another unindexed two-lag root theory; this qualified priority comparison is not proof of global novelty.; Only linear stability in the discriminant-zero regime, not nonlinear Hopf bifurcations or arbitrary lag ratios.",
+  "schema_version": 1
+}

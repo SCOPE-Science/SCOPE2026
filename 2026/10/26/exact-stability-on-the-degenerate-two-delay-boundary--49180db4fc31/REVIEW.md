@@ -1,23 +1,21 @@
-# Scientific review: exact stability on the degenerate two-delay boundary
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The characteristic frequency polynomial has a unique positive double root on the stated locus. The phase equations give exactly the delays in (3). At every such delay the characteristic root is simple because \(f_\lambda=1+2c\tau_n>0\). Implicit differentiation gives the exact second derivative (4), whose sign is strictly negative. Thus the root pair remains in the left half-plane on both sides of each contact. The bound \(|\lambda+a|\le |b|+|c|\) for roots with nonnegative real part rules out entry from infinity; small-delay stability and the complete imaginary-root list then establish the global root-count claim. The symbolic checker is supplementary to this proof.
+PASS
 
-## Originality — PASS, best-knowledge assessment
+For x^prime=-a x - b x(t-tau)-c x(t-2tau), with b≠0,c>0,c<a<3c,b²=8c(a-c), frequency elimination has the unique double positive z=(a-c)(3c-a)=omega². Phase equations determine only tau_n=(theta+2πn)/omega. The identities b*exp(-i theta)+2c exp(-2i theta)=-2c and f_lambda=1+2c*tau_n>0 show a simple imaginary pair. Implicit differentiation gives Re lambda^prime(tau_n)=0 and Re lambda^doubleprime=2omega²(a-3c)/(1+2c tau_n)^3<0, proving left-side quadratic contact. At tau->0 all RHP roots would be uniformly bounded by |lambda+a|<=|b|+c and tend to -a-b-c<0, contradiction; roots cannot enter RHP from infinity at finite tau. With no other imaginary frequencies and no crossovers, zero RHP count persists for all tau>0. Independent exact SymPy checked the derivative and three sample parameter sets; analytic proof establishes the continuum result.
 
-Hata–Matsunaga (2022) explicitly identify this exact discriminant-zero/positive-double-frequency case as excluded from their explicit stability criteria. Their Lemma 2.3 identifies the repeated frequency and their imaginary-root lemmas identify the critical-delay sequence, but the stated theorems do not classify stability on the excluded locus. The new comparison is the second-order root-contact calculation and the resulting necessary-and-sufficient asymptotic-stability criterion. Bortz's inspected full text develops root-series approximations for general two-lag equations; it does not state this exact stability classification. Li–Ruan–Wei's inspected paper treats a different linearization without the same instantaneous coefficient and does not imply this result. published-finding corpus searches returned related delay-crossing work for different characteristic equations, not this boundary theorem. Search failure is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This resolves an explicit boundary case left outside a published necessary-and-sufficient criterion. The practical distinction is structural: coalescing frequency roots need not create a stability-switch interval; here the critical conjugate pair is tangent to the imaginary axis from the stable side, and only the isolated critical delays fail asymptotic stability. This prevents a false instability interval being inferred from nearby parameter scans.
+Qualified PASS: Hata–Matsunaga 2022 explicitly leave this exact discriminant-zero positive-frequency stability case without a criterion in Remark 1.4. The new contact curvature plus global root count closes that gap, though Mahaffy–Busken 2015 covers related R=1/2 D-partition tangency geometry and remains a possible implication risk.
 
-## Closest literature and residual limitations
+## value
 
-- Hata and Matsunaga (2022), DOI 10.7494/OpMath.2022.42.5.673: same equation; explicitly excludes the exceptional case from its main stability theorems.
-- Mahaffy and Busken (2015), DOI 10.3934/dcds.2015.35.4955: the same normalized delay ratio \(R=1/2\) is included in a broad D-partitioning analysis, and the paper discusses geometric tangencies. The inspected conclusions do not state the exact necessary-and-sufficient criterion along this coefficient ray; this is the strongest residual implication risk.
-- Bortz (2012 preprint; 2016 journal version), arXiv:1206.6364: general two-lag root-series method; inspected full HTML text, not a closed-form exceptional-locus stability theorem.
-- Li, Ruan, and Wei (1999), DOI 10.1006/jmaa.1999.6418: broad two-delay stability and bifurcation analysis, but the inspected main linearized family differs from (5).
-- published-finding corpus near-matches concern other delay systems or double-Hopf points. No exact same-equation match was returned; an unindexed equivalent analysis remains a priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The explicitly excluded repeated-frequency locus is a meaningful missing boundary of published necessary-and-sufficient linear stability criteria. Quadratic leftward root tangency rigorously distinguishes isolated neutral delays from instability intervals, a structural answer missed by ordinary transversality tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,9 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-- Replayed `verify.py` from the packaged path with SymPy; it checks the implicit second-derivative identity, the real-part formula, the critical-frequency normalization at the witness, and both signs of the exact witness \((a,c,b)=(2,1,\pm2\sqrt2)\).
-- The witness gives \(\omega=1\), \(\theta=3\pi/4\) for positive \(b\), and \(\theta=7\pi/4\) for negative \(b\). The second derivative is exactly \(-2/(1+2\tau_n)^3\).
-- The proof, not finite computation, establishes the universal parameter and delay quantifiers and the root-count argument.
-- No independent audit or independent validation has been performed.
+## correctness
+
+PASS
+
+For x^prime=-a x - b x(t-tau)-c x(t-2tau), with b≠0,c>0,c<a<3c,b²=8c(a-c), frequency elimination has the unique double positive z=(a-c)(3c-a)=omega². Phase equations determine only tau_n=(theta+2πn)/omega. The identities b*exp(-i theta)+2c exp(-2i theta)=-2c and f_lambda=1+2c*tau_n>0 show a simple imaginary pair. Implicit differentiation gives Re lambda^prime(tau_n)=0 and Re lambda^doubleprime=2omega²(a-3c)/(1+2c tau_n)^3<0, proving left-side quadratic contact. At tau->0 all RHP roots would be uniformly bounded by |lambda+a|<=|b|+c and tend to -a-b-c<0, contradiction; roots cannot enter RHP from infinity at finite tau. With no other imaginary frequencies and no crossovers, zero RHP count persists for all tau>0. Independent exact SymPy checked the derivative and three sample parameter sets; analytic proof establishes the continuum result.
+
+## originality
+
+PASS
+
+Qualified PASS: Hata–Matsunaga 2022 explicitly leave this exact discriminant-zero positive-frequency stability case without a criterion in Remark 1.4. The new contact curvature plus global root count closes that gap, though Mahaffy–Busken 2015 covers related R=1/2 D-partition tangency geometry and remains a possible implication risk.
+
+## value
+
+PASS
+
+The explicitly excluded repeated-frequency locus is a meaningful missing boundary of published necessary-and-sufficient linear stability criteria. Quadratic leftward root tangency rigorously distinguishes isolated neutral delays from instability intervals, a structural answer missed by ordinary transversality tests.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
