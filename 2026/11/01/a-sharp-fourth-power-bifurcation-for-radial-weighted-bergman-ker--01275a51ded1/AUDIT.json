@@ -1,0 +1,135 @@
+{
+  "correctness": {
+    "rationale": "Exact beta integrals fix monomial norm normalization for all real m>=0. Multiplication by (1-t)^(q+2) gives an explicit finite polynomial. The Cayley transform converts disk roots to right-half-plane roots. All required Routh first-column entries are checked as exact polynomial identities in m, with positive expressions except the factor -(m-1) in q=4. At m=1, the explicit factorization resolves pure-imaginary roots without misusing the strict Routh criterion. Conjugacy and positivity on the positive real axis imply two distinct nonreal simple roots. The standalone checker independently verifies symbolic identities by exact arithmetic; finite samples do not stand in for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jacobson dissertation, Section 3.6.1 and Theorem 3.7, gives general weighted-kernel decomposition for integral holomorphic zeros; its application there covers q=0 specializations.",
+        "Perälä arXiv:1703.05976, Theorems 3.3 and 3.5, concerns existence of weights with finitely many kernel zeros and abstract radial finiteness.",
+        "Park, doi:10.1155/2016/3856096, Theorem 2, applies Routh-Hurwitz to another family of Reinhardt domains."
+      ],
+      "reasoning": "The general expansion and integral-power decomposition can recover the rational kernel in some subcases but do not fix the location and count of its degree-five zeros as m varies continuously. The q=4 Routh coefficient sign and its unique transition are the asserted extra work. The later general finiteness theorem does not furnish this exact count.",
+      "searches": [
+        "Jacobson weighted Bergman meromorphic factor theorem 2012",
+        "Perala vanishing Bergman kernels disk 2017",
+        "weighted Bergman kernel zeros weight radial r^(2a) (1-r^2)^b Routh Hurwitz",
+        "published-finding corpus: weighted unit disk Bergman kernel radial vanishing weight beta sharp zeros number phase transition"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/pdf/1009.2806",
+      "https://oaktrust.library.tamu.edu/bitstreams/b6456417-1768-47a6-bdc0-48f4819ebd0a/download",
+      "https://onlinelibrary.wiley.com/doi/10.1155/2016/3856096",
+      "https://arxiv.org/pdf/1703.05976",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-lu-qi-keng-transitions-for-euclidean-boundary-distance-wei--b68d363f03d0",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-zero-free-power-deficit-radial-bergman-kernels--19710ce10193"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Classical monomial beta moments yield the numerator; the new polynomial comparison is a degree-five Routh sign test with a sign reversal at m=1.",
+        "Jacobson proves a broad symbolic kernel decomposition for integer-m monomial factors, but neither a parametric root-count criterion nor a q=4 m-threshold is included in the inspected chapter.",
+        "The closest published-finding corpus radial Lu Qi-Keng result uses the Euclidean boundary-distance weight (1-r)^t and obtains negative real roots, unlike the conjugate nonreal zeros in the present q=4 family."
+      ],
+      "reasoning": "The central claim is not simply a restatement of the standard Bergman kernel formula or the existence of examples. Its new assertion is the exact root count for all nonnegative real m and q<=4, with the first nonzero phase only at q=4 and m>1. The Routh-sign calculation establishes the missing implication; abstract known kernel formulas alone do not assert the count.",
+      "searches": [
+        "weighted Bergman kernel zeros weight radial r^(2a) (1-r^2)^b Routh Hurwitz",
+        "weighted disk Bergman kernel radial vanishing weight beta sharp zeros number phase transition",
+        "published-finding corpus: weighted disk Bergman kernel |z| power |1-z| powers zeros",
+        "Zeytuncu arXiv:1009.2806 Section 2",
+        "Jacobson ETD-TAMU-2012-05-11068 Section 3.6.1"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Zeytuncu, arXiv:1009.2806, Section 1.2 and Section 2: radial moment-series framework and a different piecewise-constant weight.",
+        "Jacobson, 2012 dissertation Section 3.6.1: integer monomial defects of the unweighted kernel; the q=4, continuously variable m phase classification is not stated in that section.",
+        "Public entries “Sharp Lu Qi-Keng transitions for Euclidean boundary-distance weighted disk kernels” and “Zero-free power-deficit radial Bergman kernels” concern different radial weights and different kernel-zero conclusions."
+      ],
+      "reasoning": "A zero of the weighted reproducing kernel is equivalently a right-half-plane root of a Cayley-transformed finite polynomial. The weighted-disk literature contains related zero questions, but the closest retrieved records impose weight 1-r, weight 1-q*r^gamma, or a separate multiplicative monomial factor without the simultaneous q=4 sign classification. None of these compared claims states the sign pattern for all real interior powers.",
+      "searches": [
+        "weighted Bergman kernel zeros weight radial r^(2a) (1-r^2)^b Routh Hurwitz",
+        "Bergman kernel monomial beta radial fifth degree Routh Hurwitz polynomial zero count",
+        "Bergman kernel weight squared modulus z zeros transition beta 4",
+        "published-finding corpus: radial Bergman weight r to power 2m (1-r squared) to fourth nonvanishing threshold m=1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The publicly accessible Jacobson dissertation appendix has formulas for the unweighted monomial cases, not a (m,q) root-count table.",
+        "Results returned for Routh-Hurwitz identify Reinhardt-domain papers but no table matching the two-parameter family.",
+        "143 accessible prior finding claims were scanned for potential weighted Bergman kernel overlap, with no direct matching claim."
+      ],
+      "reasoning": "No exact database entry or tabulation of the joint real-m / q<=4 count was located. The absence of search hits is not a proof of historical uniqueness.",
+      "searches": [
+        "Bergman kernel monomial beta radial fifth degree Routh Hurwitz polynomial zero count",
+        "Bergman kernel zeros radial weight r squared one minus r squared beta threshold 4",
+        "own-ledger claims: Bergman; Lu Qi; weighted disk; Routh; reproducing kernel; holomorphic"
+      ]
+    },
+    "rationale": "The kernel-moment identity is classical; the new statement is the complete first-five-integral-boundary-exponent root count uniform in all real m>=0, especially a sharp two-root transition at m=1 for q=4. The checked foundational sources provide formulas, existence results, and unrelated Routh-Hurwitz examples but do not state a result implying this real-parameter sign-change classification without a new degree-five comparison. The exact Routh calculation has been reconstructed. Residual risk is an independently known special-functions classification not returned by the bounded searches.",
+    "residual_risks": [
+      "A specialized weighted-Jacobi or Hartogs-domain source may contain an equivalent Routh sign classification not found in bounded primary-literature and research-record searches.",
+      "The accessible journal HTML for Park was not inspected as an exhaustive full-text no-coverage proof.",
+      "Jacobson provides broad kernel identities for integer monomial weights, so novelty is restricted to the exact root-count transition uniform in real m; it is not claimed for the underlying formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Found general radial moment mechanism and a different piecewise-constant weight. No q=4 monomial-beta phase classification in inspected results.",
+        "evidence": [
+          "PDF introduction Section 1.2; Section 2 Theorem 1.5 and proof"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1009.2806",
+        "material_read": "PDF pages 1-4, including monomial formula, theorem statements, proof of first weighted zero example; original arXiv date 2010-09-14",
+        "method": "Primary PDF text inspection and page screenshot",
+        "title": "Weighted Bergman Projections and Kernels: Lp Regularity and Zeros",
+        "trigger": "Earliest archive-period motivating source; same radial disk weighted kernel and zero question"
+      },
+      {
+        "assessment": "Closest general formula and integer-power specializations, but no matching continuous-m, q=4 Routh transition in the inspected relevant sections. General formulas can recover kernel values in subslices; originality claim excludes those formulas.",
+        "evidence": [
+          "Theorem 3.7/Section 3.6.1; unweighted m=1 kernel formula; Appendix A index"
+        ],
+        "identifier_or_url": "https://oaktrust.library.tamu.edu/bitstreams/b6456417-1768-47a6-bdc0-48f4819ebd0a/download",
+        "material_read": "PDF contents and relevant chapter 3 discussions, Section 3.3, Section 3.6.1 and the appendix index; repository record date 2012-07-16",
+        "method": "Primary dissertation PDF text inspection and screenshots of relevant pages",
+        "title": "Weighted Bergman Kernel Functions and the Lu Qi-keng Problem",
+        "trigger": "Plausible stronger meromorphic-factor kernel formulas and monomial examples"
+      },
+      {
+        "assessment": "Classifies different high-dimensional Reinhardt domains by polynomial stability, with no direct coverage of radial beta-monomial weighted disk.",
+        "evidence": [
+          "Journal article Theorem 2 and Routh-Hurwitz discussion"
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/10.1155/2016/3856096",
+        "material_read": "Accessible journal HTML theorem description, introduction and abstract; did not inspect all formulas in full text",
+        "method": "HTML article reading and targeted comparison",
+        "title": "The Zeros of the Bergman Kernel for Some Reinhardt Domains",
+        "trigger": "A nearby use of Routh-Hurwitz for kernel zeros"
+      },
+      {
+        "assessment": "Abstract finite-zero existence and radial finiteness; no exact q=4 two-parameter classification in inspected statements. This paper postdates the archive window and is supporting literature only.",
+        "evidence": [
+          "Theorems 3.3 and 3.5; section on associated weights"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1703.05976",
+        "material_read": "PDF pages 1-3,5-9 via text and selected screenshots, including Theorems 3.1,3.3,3.5",
+        "method": "Primary PDF relevant-section text inspection and page screenshot",
+        "title": "Vanishing Bergman kernels on the disk",
+        "trigger": "Later broad radial zero-count theorem might subsume the proposed count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "01275a51-ded1-4758-88fb-2513f3ccd4cc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The two-parameter beta radial weights are canonical Bergman examples and the kernel-zero property is a recognized Lu Qi-Keng invariant. The first four boundary powers are completely zero-free for all nonnegative real interior exponents, but at the next power a previously nonapparent sharp transition occurs at interior exponent one, creating precisely one simple conjugate pair. This provides the first nontrivial natural boundary-power cutoff and a uniform continuous-parameter classification, not merely an isolated constant or numerical root.",
+    "status": "PASS"
+  }
+}
