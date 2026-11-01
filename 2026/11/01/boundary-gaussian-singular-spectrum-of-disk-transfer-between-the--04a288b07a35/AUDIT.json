@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "For all x>0, basis vectors u_n=z^n/sqrt(n!) and v_n=z^n(n+1-|z|²)/sqrt((n+1)!) are normalized and angularly orthogonal in Gaussian L². The exact integral of d[t^(n+1)e^(-t)] produces each coefficient e^(-x)x^(n+1)/sqrt(n!(n+1)!), proving the complete positive singular-value list. Its ratio determines modes, Bessel series gives exact Hilbert–Schmidt power, monotonic b_n envelopes prove sharp strict global norm, and Poisson Stirling bounds with global exponential tails justify the uniform-in-edge-window p-power Riemann sum and fixed-threshold counts. Fixed coordinates vanish at large x while norm does not. Packaged standalone checker passed 689 finite numerical assertions; finite tests are explicitly not used as infinite proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abreu–Gröchenig–Romero, doi:10.1007/s10955-019-02226-2, Section 4.1 Proposition 4.1 and Section 4.2 Lemma 4.2 (same-Hermite-window disk localization eigenfunctions and eigenvalues).",
+        "Leschke–Sobolev–Spitzer, doi:10.1007/s00220-020-03907-w, Theorems 1–2 and Section 4 (same-level/multilevel entropy area-law traces rather than cross-level disk singular values)."
+      ],
+      "reasoning": "The 2019 disk theorem gives eigenvalues of \\(P_j\\mathbf1_D P_j\\), which neither computes \\(P_1\\mathbf1_D P_0\\) nor implies its singular values from the diagonal data alone. The 2020 entropy theorem concerns trace f of same/full Landau-level local projectors and macroscopic area-law coefficients; these do not determine each fixed-disk off-diagonal singular value, its sharp mode transitions, or the displayed exact universal norm. General smooth-symbol calculus cannot immediately specialize to a hard characteristic disk.",
+      "searches": [
+        "polyanalytic Fock disk cross Landau level Toeplitz P_1 indicator disk P_0 singular values Bessel, boundary edge Gaussian concentration",
+        "doi:10.1007/s00220-020-03907-w",
+        "doi:10.1007/s10955-019-02226-2"
+      ]
+    },
+    "checked_sources": [
+      "Gröchenig–Jaming–Malinnikova, arXiv:1811.03937, Section 6 (Hermite-window/STFT polyanalytic identities), arXiv original 2018-11-09, full open-access article doi:10.1007/s13163-019-00335-w.",
+      "Abreu–Gröchenig–Romero, doi:10.1007/s10955-019-02226-2, Section 4.1 Proposition 4.1 and Section 4.2 Lemma 4.2 (same-Hermite-window disk localization eigenfunctions and eigenvalues).",
+      "Keller–Luef, doi:10.1007/s00041-021-09843-0, Sections 3.1–3.2 and 5 (true polyanalytic Fock bases, Toeplitz constructions and smooth-symbol calculus).",
+      "Leschke–Sobolev–Spitzer, doi:10.1007/s00220-020-03907-w, Theorems 1–2 and Section 4 (same-level/multilevel entropy area-law traces rather than cross-level disk singular values).",
+      "Published abstract: exact symmetric-Fock binomially weighted lattice shift (2ec674b1e526)",
+      "Published abstract: logarithmic spectral filter for smooth radial Fock Toeplitz (0bc5b54dc8b5)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gröchenig–Jaming–Malinnikova, arXiv:1811.03937, Section 6 (Hermite-window/STFT polyanalytic identities), arXiv original 2018-11-09, full open-access article doi:10.1007/s13163-019-00335-w.",
+        "Abreu–Gröchenig–Romero, doi:10.1007/s10955-019-02226-2, Section 4.1 Proposition 4.1 and Section 4.2 Lemma 4.2 (same-Hermite-window disk localization eigenfunctions and eigenvalues).",
+        "Keller–Luef, doi:10.1007/s00041-021-09843-0, Sections 3.1–3.2 and 5 (true polyanalytic Fock bases, Toeplitz constructions and smooth-symbol calculus).",
+        "Leschke–Sobolev–Spitzer, doi:10.1007/s00220-020-03907-w, Theorems 1–2 and Section 4 (same-level/multilevel entropy area-law traces rather than cross-level disk singular values)."
+      ],
+      "reasoning": "A same-level operator A=\\(P_0\\mathbf1_D P_0\\) or B=\\(P_1\\mathbf1_D P_1\\) does not fix off-diagonal C=\\(P_1\\mathbf1_D P_0\\). The known orthogonal Hermite bases can be combined with a new radial integral to compute C. Its exact coefficient then gives by nontrivial uniform asymptotic analysis the all-p edge law. Full-level aggregate trace asymptotics constrain combinations of blocks but do not imply the exact ordered interlevel norm and counting law. No inspected source theorem logically entails the whole final claim; older physics calculations of C remain the main residual bibliographic risk.",
+      "searches": [
+        "Cross-Landau-level disk localization operator P_1 characteristic disk P_0 singular values Poisson boundary Gaussian",
+        "Interlevel Fock disk transfer P1 chi_D P0 Bessel Hilbert Schmidt area norm",
+        "doi:10.1007/s13163-019-00335-w",
+        "doi:10.1007/s10955-019-02226-2",
+        "doi:10.1007/s00041-021-09843-0",
+        "doi:10.1007/s00220-020-03907-w"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gröchenig–Jaming–Malinnikova, arXiv:1811.03937, Section 6 (Hermite-window/STFT polyanalytic identities), arXiv original 2018-11-09, full open-access article doi:10.1007/s13163-019-00335-w.",
+        "Keller–Luef, doi:10.1007/s00041-021-09843-0, Sections 3.1–3.2 and 5 (true polyanalytic Fock bases, Toeplitz constructions and smooth-symbol calculus)."
+      ],
+      "reasoning": "Compare the cross-window localization / off-diagonal Landau block \\(P_1\\mathbf1_{D_x}P_0\\) with true-polyanalytic Toeplitz quantization. The basis is classical, but the discontinuous-disk off-diagonal positive singular values and their optimal globally nonattained envelope are not stated in the inspected full-text source passages. A change of gauge/scaling alone is not claimed as new; the full edge results must be independently compared.",
+      "searches": [
+        "Cross-Landau-level disk localization operator P_1 characteristic disk P_0 singular values Poisson boundary Gaussian",
+        "Mixed Landau level Fock cross Toeplitz disk Hermite Hermite incomplete gamma singular spectrum",
+        "arxiv:1811.03937",
+        "doi:10.1007/s00041-021-09843-0"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Abreu–Gröchenig–Romero, doi:10.1007/s10955-019-02226-2, Section 4.1 Proposition 4.1 and Section 4.2 Lemma 4.2 (same-Hermite-window disk localization eigenfunctions and eigenvalues).",
+        "Searches for explicit cross-level Hermite, Laguerre, Bessel and disk singular spectra yielded no exact previously tabulated matching formula among the returned and inspected sources."
+      ],
+      "reasoning": "No matching exact spectral table was identified. The known Section 4.2 table concerns squared individual Hermite modes (same-window localization), while the present entry is an interlevel matrix coefficient linear in a first-excited Hermite mode. Absence from the searched catalog is only bounded evidence, not a uniqueness proof.",
+      "searches": [
+        "Mixed Landau level Fock cross Toeplitz disk Hermite Hermite incomplete gamma singular spectrum",
+        "Interlevel Fock disk transfer P1 chi_D P0 Bessel Hilbert Schmidt area norm",
+        "doi:10.1007/s10955-019-02226-2"
+      ]
+    },
+    "rationale": "The claimed new object is the full singular spectrum of the off-diagonal level-zero-to-one hard-disk compression and its universally sharp, nonattained norm plus all-fixed-exponent Gaussian spectral edge and threshold counting constants. Full-text inspection of the closest primary sources found same-level concentration eigenvalues, general polyanalytic bases/symbol calculus, Wigner zeros, and multilevel entropy traces, not a statement that implies all of the proposed cross-level formulas. Similarity searches returned related but non-dominating diagonal Fock Toeplitz and abstract weighted-shift results. This is provisional best-knowledge priority, not uniqueness or complete bibliographic certification.",
+    "residual_risks": [
+      "Inter-Landau-level disk matrix coefficients might have been obtained in earlier quantum Hall or magnetic Toeplitz papers using a different gauge and terminology; exhaustive historical priority is not certified.",
+      "Summary-only research-database results were not substituted for full-text inspection of the most relevant four original papers.",
+      "A general off-diagonal Toeplitz theorem not found in the bounded searches could cover some displayed formulas; further bibliographic verification is needed before asserting publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the cross-Landau disk transfer spectrum; paper concerns zero sets of STFT/cross-Wigner distributions, its Section 6 provides analytic identities rather than singular values of this disk operator",
+        "evidence": [
+          "Gröchenig–Jaming–Malinnikova, arXiv:1811.03937, Section 6 (Hermite-window/STFT polyanalytic identities), arXiv original 2018-11-09, full open-access article doi:10.1007/s13163-019-00335-w."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1811.03937",
+        "material_read": "arXiv timestamp and published open-access HTML full text, especially Section 6 on Hermite windows and formulae (25)–(28)",
+        "method": "Read relevant original polyanalytic full-text sections and compare objects and asserted results",
+        "title": "Zeros of the Wigner distribution and the short-time Fourier transform",
+        "trigger": "Earliest eligible primary harmonic-analysis source for Hermite, Wigner and polyanalytic representations"
+      },
+      {
+        "assessment": "NOT_COVERING the complete present off-diagonal spectrum and its universal sharp norm/counting limit; same-level disk spectra are published and acknowledged",
+        "evidence": [
+          "Abreu–Gröchenig–Romero, doi:10.1007/s10955-019-02226-2, Section 4.1 Proposition 4.1 and Section 4.2 Lemma 4.2 (same-Hermite-window disk localization eigenfunctions and eigenvalues).",
+          "Original arXiv 1704.03042 published 2017-04-10; same mathematical source as 2019 journal DOI."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1704.03042",
+        "material_read": "Full HTML article including Section 4.1 Proposition 4.1, Section 4.2 Lemma 4.2, introductory formulations and asymptotic sections; verified initial arXiv date 2017-04-10",
+        "method": "Compare operators P_j 1_D P_j against off-diagonal P_1 1_D P_0, and compare spectral outputs",
+        "title": "Harmonic Analysis in Phase Space and Finite Weyl–Heisenberg Ensembles",
+        "trigger": "Directly related original theorem on radial Hermite-window disk localization"
+      },
+      {
+        "assessment": "NOT_COVERING the hard-disk cross-level singular spectrum/edge law in the inspected source; basis and machinery are standard, not claimed new",
+        "evidence": [
+          "Keller–Luef, doi:10.1007/s00041-021-09843-0, Sections 3.1–3.2 and 5 (true polyanalytic Fock bases, Toeplitz constructions and smooth-symbol calculus)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00041-021-09843-0",
+        "material_read": "Full HTML, especially Sections 3.1–3.2 for true polyanalytic bases and Section 5 for symbolic calculus",
+        "method": "Inspect definitions and stated general results for an exact discontinuous disk cross-level singular-value theorem",
+        "title": "Polyanalytic Toeplitz Operators: Isomorphisms, Symbolic Calculus and Approximation of Weyl Operators",
+        "trigger": "Closest general polyanalytic Toeplitz framework and basis"
+      },
+      {
+        "assessment": "NOT_COVERING the exact current block and constants in inspected theorems; general macroscopic trace laws do not settle individual interlevel mode coefficients",
+        "evidence": [
+          "Leschke–Sobolev–Spitzer, doi:10.1007/s00220-020-03907-w, Theorems 1–2 and Section 4 (same-level/multilevel entropy area-law traces rather than cross-level disk singular values)."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00220-020-03907-w",
+        "material_read": "Full HTML, especially Theorems 1–2, Section 2 trace f formulation, and Section 4 Schatten and concentration estimates",
+        "method": "Compare full-level aggregate spectral trace implications against individual off-diagonal disk transfer singular values",
+        "title": "Asymptotic Growth of the Local Ground-State Entropy of the Ideal Fermi Gas in a Constant Magnetic Field",
+        "trigger": "Potentially stronger Landau multilevel trace/spectral asymptotic results"
+      },
+      {
+        "assessment": "NOT_DECISIVE full-text originality evidence; weighted quadrant backward-shift transfer differs from cross-Landau disk multiplication. Close result but semantically noncovering by described object.",
+        "evidence": [
+          "Summary concerns a degreewise Hadamard decomposition of binomially weighted quadrant shifts, without a physical Gaussian disk mask or first-excited Landau projection."
+        ],
+        "identifier_or_url": "published record 2ec674b1e526",
+        "material_read": "Published title/short summary only, not the full document",
+        "method": "Object-level comparison from published summary",
+        "title": "Exact symmetric-Fock decomposition of a binomially weighted lattice backward shift",
+        "trigger": "Semantic similarity result for Fock spectral transfer"
+      },
+      {
+        "assessment": "NOT_DECISIVE full-text evidence; target smooth single-level Toeplitz logarithmic trace is structurally different",
+        "evidence": [
+          "Published summary treats critical Shubin smooth radial Toeplitz symbols and Dixmier traces, not cross-band hard-disk transmission."
+        ],
+        "identifier_or_url": "published record 0bc5b54dc8b5",
+        "material_read": "Published title/short summary only",
+        "method": "Compare stated smooth symbol/critical logarithmic trace with off-diagonal hard disk block",
+        "title": "The logarithmic spectral filter for smooth radial Fock Toeplitz operators",
+        "trigger": "Semantic match for Fock radial spectral asymptotics"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "04a288b0-7a35-451e-9080-6c835dd9c1e4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Interlevel coupling under spatial observation is a natural multiband phase-space localization invariant, distinct from same-level occupation probabilities. It has a structurally sharp, globally nonattained universal coupling constant and a concrete spectral escape paradox (strong convergence to zero despite positive asymptotic norm). The complete singular sequence and Gaussian boundary layer supply meaningful Schatten, counting, and mode-transition laws for every fixed positive exponent, useful as a quantitative benchmark for multiband localization rather than a routine single small-case computation.",
+    "status": "PASS"
+  }
+}
