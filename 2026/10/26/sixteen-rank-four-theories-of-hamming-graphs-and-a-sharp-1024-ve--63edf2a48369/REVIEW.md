@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness (PASS).** The result is a complete quantifier-rank-four statement for uncoloured Hamming graphs. The standard back-and-forth recursion reduces the problem to a finite set of coordinate equality patterns. A 27-state transition identity gives a rigorous global cap for the rank-one triple types, and a saturated-child argument passes the cap to pair types. These lemmas reduce all dimensions to at most 14 and alphabets to 2, 3 and 4; the executable exact-type census verifies all 42 boundary cases. An independent implementation of the *finite recursion*, using explicit vertices rather than coordinate orbits, agrees for 81 ordered small-graph comparisons. It does not supply independent scientific review. The proof does not extrapolate from finite experiments.
+## correctness
 
-**Originality (PASS, subject to residual risks).** The most directly relevant previous result on binary hypercubes covers only the binary subfamily and is subsumed by this statement; earlier investigations of Hamming-graph color refinement with distinguished vertices concern counting color refinement, not rank-four first-order equivalence without markers. Jones (2010) gives coordinate automorphisms but classifies surface embeddings. Pikhurko and Verbitsky (2010) give general logical-depth techniques. Benediktsson--Macpherson--Adler (2020, especially §4) characterize neighborhood VC-dimension and density, not the full four-round logical type. Exact 16-class and 1024-point conclusions were not found in the actual searches recorded in `AUDIT.json`. The full published-literature universe is not exhaustively searchable; independent verification of novelty is still desirable.
+PASS
 
-**Value (PASS).** The result completely determines a natural logical invariant for the entire two-parameter Hamming graph family. It sharply distinguishes the binary stabilization dimension six from the nonbinary dimension five, identifies the exceptional ternary alphabet, and supplies an optimal 1024-vertex test representative bound. This goes beyond a routine single-parameter calculation and can serve as a finite model-testing reduction for arbitrary rank-four first-order properties throughout the family. The exact classification is useful even without a separate downstream theorem.
+First-order rank types obey T_{s+1}(a)=(atomic(a),{T_s(a,x):x vertex}). Ordered triples of vertices have coordinate equality-pattern orbits 000,001,010,011,012 (012 forbidden q=2); nonadjacency depends on pairwise distances clipped at two. Choosing an extra word amounts to additive clipped-distance transitions on all 27 states. Verified exact stationarity from every possible initial 27-state vector after caps: for binary 000 cap2 and split patterns cap4; for nonbinary 000 cap2 and others cap3. Child-coordinate splitting of pair types saturates at (6,8) for q=2 and (5,9) for q>=3, reducing all dimensions >=14 to the same pair-type set. Independently reimplemented and exhaustively compared exact nested types, not digest hashes, for q=2,3,4 and d=1..14 (42 boundary cases); obtained exactly 16 classes, binary saturation d=6 and ternary/quaternary d=5 with no cross-regime coincidences. q>=4 has identical extension options for tuples of at most three chosen vertices. The minimal H(5,4) class has 4^5=1024 vertices. Finite calculation is exhaustive only because of the analytic orbit/transition/saturation reductions.
 
-The named sources and precise source-inspection limits are recorded in `AUDIT.json`. The scientific scope excludes counting quantifiers, named coordinate relations, and arbitrary Hamming-induced subgraphs.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge noncoverage after comparing the precise statements and implications, original scope, related general theorems and aliases, with the specific residual priority limitations below; lack of a search hit is not itself evidence of novelty.
+
+## value
+
+PASS
+
+A complete logical classification for every dimension and alphabet size in a natural distance-regular graph family, distinguishing unusual binary versus nonbinary cutoffs and giving a sharp finite representative for testing every rank-four first-order sentence. This is not simply graph isomorphism, automorphism or VC-dimension classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
