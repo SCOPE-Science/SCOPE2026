@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T21:55:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The exact error after ordered row picks i,j is ||e||^2-ai^2-(aj-cij ai)^2. For two rows F12-F21=c^2(d^2-a^2) establishes choosing the initially larger residual first is the better of the only two nonrepeating sequences, and the p-weight of that first row grows monotonically; p=0 allows repeated rows and can only worsen conditional error. Degenerate residual-zero and equal-residual cases are handled. For the 3x3 rational full-rank example, independent exact reconstruction verifies unit rows, determinant 13/27, all nine Fij entries, uniform mean 65572/6561, first-row-2 probability at p=40 greater than 100/101 and conditional second-step error 7748/729. This gives the strict lower bound >21/2 while first-step expected decrease increases with p. No longer-horizon or positive-sparsity-regularization claim is made.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Steinerberger main theorem is a global geometric expected-error bound derived from one-step progress.",
+          "Nutini et al. address orthogonality-graph convergence-rate bounds, not exact comparisons across residual-power exponents at step two."
+        ],
+        "reasoning": "A superior asymptotic bound does not imply actual finite-time error ordering; the rational counterexample is logically compatible with all cited convergence guarantees.",
+        "searches": [
+          "Steinerberger Weighted Randomized Kaczmarz Theorem 2020 rate bound p",
+          "Nutini convergence rates greedy Kaczmarz orthogonality graph multi-step 2016"
+        ]
+      },
+      "checked_sources": [
+        "Steinerberger, arXiv:2007.02910",
+        "Zhang et al., arXiv:2306.06813",
+        "Nutini et al., arXiv:1612.07838",
+        "Resultary/2026 SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "Pinned RESULT.md 8f0f7b39fa45ddd704d64fb2d3bf66710255f5be"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source guarantees a favorable one-step-derived rate but contains no claimed monotonic unconditional fixed-horizon comparison.",
+          "The audited exact F12-F21 identity and three-row table explicitly separate one-step from two-step performance."
+        ],
+        "reasoning": "The new statement is a finite-horizon risk-ordering theorem/counterexample, not a contradiction of or corollary from the prior rate estimates.",
+        "searches": [
+          "Steinerberger weighted randomized Kaczmarz 2020 original theorem",
+          "Zhang Yuan Wang Zhang weighted randomized sparse Kaczmarz 2306.06813"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Steinerberger arXiv:2007.02910 defines the same residual-power weights.",
+          "Resultary two-row cyclic overrelaxation finite-horizon result treats deterministic cyclic relaxation, not adaptive randomized residual-power selection."
+        ],
+        "reasoning": "Exact two-step risk order differs from rate constants and pathwise improvement; no equivalent theorem found under greedy/randomized row sampling aliases.",
+        "searches": [
+          "weighted randomized Kaczmarz two iteration mean squared error exponent residual power monotonic order",
+          "Resultary: residual weighted randomized Kaczmarz exact two-step expected squared error 2-row ordering three-row counterexample power exponent"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary prior coherence-residual-spike frontier is a one-step residual-norm effect; not the same exact weighted two-step squared-solution-error table."
+        ],
+        "reasoning": "No existing exact table matching the three-row nine-path rational matrix or probability at exponent 40 was located; numerical benchmarks are not logically enough to imply the universal two-row theorem.",
+        "searches": [
+          "Kaczmarz three row rational expected two step weighted p 40 exact counterexample",
+          "Resultary Kaczmarz finite-horizon residual spike frontier"
+        ]
+      },
+      "rationale": "Steinerberger (2020) already introduced residual-power randomized Kaczmarz and proved geometric convergence-rate estimates based on one-step weighted residuals; Zhang et al. extend sparse/Bregman variants; Nutini et al. give multistep convergence bounds for greedy rules. A geometric rate guarantee is not a monotone ordering of exact unconditional two-step risks. The sharp two-row restriction and fully rational finite-exponent three-row reversal were not found in inspected primary statements. A dedicated finite-horizon stochastic-ordering result remains possible outside indexed literature.",
+      "residual_risks": [
+        "An unlocated stochastic ordering of the two-step conditional projection distribution might cover the two-row statement.",
+        "The finite counterexample is exact but one three-row system; it does not settle optimal exponents for broader matrix classes or longer horizons."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior method and rate bound established, but finite two-update exact stochastic monotonicity/counterexample is a different implication.",
+          "evidence": [
+            "Steinerberger, arXiv:2007.02910, principal rate theorem and sampling rule"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.02910",
+          "material_read": "Primary PDF main definitions and rate theorem, including page 3 theorem/inequality and context",
+          "method": "arXiv PDF full-source examination with page screenshot",
+          "title": "A Weighted Randomized Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Same algorithm, same residual-powered sampling parameter"
+        },
+        {
+          "assessment": "Bregman/sparse extension does not itself establish this exact two-step comparison; limited reading remains a risk.",
+          "evidence": [
+            "Zhang et al., arXiv:2306.06813"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2306.06813",
+          "material_read": "Abstract and theorem summaries accessible",
+          "method": "arXiv metadata and related statements",
+          "title": "A Weighted Randomized Sparse Kaczmarz Method for Solving Linear Systems",
+          "trigger": "Same residual-power extension and lambda=0 specialization"
+        },
+        {
+          "assessment": "Addresses convergence rates and row orthogonality, not a documented same two-row exponent monotonic theorem.",
+          "evidence": [
+            "Nutini et al., arXiv:1612.07838"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1612.07838",
+          "material_read": "Abstract and main-result descriptions",
+          "method": "arXiv literature comparison",
+          "title": "Convergence Rates for Greedy Kaczmarz Algorithms, and Faster Randomized Kaczmarz Rules Using the Orthogonality Graph",
+          "trigger": "Possible stronger multistep rule comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "It determines a sharp and surprising smallest-row-count boundary where a seemingly beneficial adaptive row-sampling rule can worsen actual two-step error, despite improving the first-step conditional expected error. This gives a concrete methodological caution for finite-horizon iterative solvers, not a trivial restatement of convergence rate.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Steinerberger, arXiv:2007.02910",
+    "Zhang et al., arXiv:2306.06813",
+    "Nutini et al., arXiv:1612.07838",
+    "Resultary/2026 SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+    "Pinned RESULT.md 8f0f7b39fa45ddd704d64fb2d3bf66710255f5be"
+  ],
+  "disposition": "passed",
+  "final_claim": "For exactly two linearly independent unit rows, residual-power sampling gives nonincreasing two-update unconditional mean squared error as exponent p increases on (0,infinity), never exceeding p=0 uniform sampling; a specific rational three-row system has E40>21/2>10>E0=65572/6561 despite one-step improvement.",
+  "limitations": [
+    "An unlocated stochastic ordering of the two-step conditional projection distribution might cover the two-row statement.",
+    "The finite counterexample is exact but one three-row system; it does not settle optimal exponents for broader matrix classes or longer horizons."
+  ],
+  "schema_version": 1
+}

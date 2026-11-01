@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two-row identity \(F_{12}-F_{21}=c^2(d^2-a^2)\) and the monotonicity of the residual-power mixing weight establish universal two-step ordering. Uniform sampling can repeat a row, never improving upon taking the other row as its second projection. The three-row matrix has unit rows and determinant \(13/27\); exact rational projection gives the table, uniform expectation \(65572/6561\), and the rigorous finite-\(p\) lower bound \(\mathbb E_{40}\|e_2\|^2>21/2\). A standalone exact-arithmetic checker recomputes the certificates. The stochastic statement concerns only two steps, with the zero-residual termination convention explicitly fixed.
+PASS
 
-## Originality — PASS (best-knowledge, residual priority risk)
+The exact error after ordered row picks i,j is ||e||^2-ai^2-(aj-cij ai)^2. For two rows F12-F21=c^2(d^2-a^2) establishes choosing the initially larger residual first is the better of the only two nonrepeating sequences, and the p-weight of that first row grows monotonically; p=0 allows repeated rows and can only worsen conditional error. Degenerate residual-zero and equal-residual cases are handled. For the 3x3 rational full-rank example, independent exact reconstruction verifies unit rows, determinant 13/27, all nine Fij entries, uniform mean 65572/6561, first-row-2 probability at p=40 greater than 100/101 and conditional second-step error 7748/729. This gives the strict lower bound >21/2 while first-step expected decrease increases with p. No longer-horizon or positive-sparsity-regularization claim is made.
 
-The strongest direct predecessor is Steinerberger (2020), which gives improvement of global geometric rate *bounds*, and one-step conditional progress, but does not establish exact finite-horizon stochastic dominance. Zhang et al. (2023) incorporate the same row probabilities into a Bregman/sparse method whose \(\lambda=0\) specialization is our setting; its results are also convergence-rate estimates. Nutini et al. (2016) treat greedy rules and multi-step graph-dependent rate bounds, not this exact ordering boundary or specific counterexample. Targeted research-record and literature searches found no implication covering both pieces. Independently unindexed or equivalent special-case results remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Choosing a power exponent to interpolate uniform and greedy sampling is central to these algorithms. The result shows the first row count at which better one-step selection can reverse the actual two-step expected error, directly distinguishing a rate bound from finite-horizon risk. It provides a small exact benchmark for theory and implementation, with no unsupported long-run, high-dimensional, or sparse-regularization claims.
+Steinerberger (2020) already introduced residual-power randomized Kaczmarz and proved geometric convergence-rate estimates based on one-step weighted residuals; Zhang et al. extend sparse/Bregman variants; Nutini et al. give multistep convergence bounds for greedy rules. A geometric rate guarantee is not a monotone ordering of exact unconditional two-step risks. The sharp two-row restriction and fully rational finite-exponent three-row reversal were not found in inspected primary statements. A dedicated finite-horizon stochastic-ordering result remains possible outside indexed literature.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+It determines a sharp and surprising smallest-row-count boundary where a seemingly beneficial adaptive row-sampling rule can worsen actual two-step error, despite improving the first-step conditional expected error. This gives a concrete methodological caution for finite-horizon iterative solvers, not a trivial restatement of convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

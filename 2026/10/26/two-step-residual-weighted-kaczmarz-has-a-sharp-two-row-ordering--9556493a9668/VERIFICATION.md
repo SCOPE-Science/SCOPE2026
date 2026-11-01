@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python verify.py` with Python 3; only the standard library is needed. The script checks exact rational matrix row norms, determinant, first-step residuals, all row-pair errors, the uniform expectation, and the full exponent-\(40\) two-step expectation; it independently certifies the strict chain of rational inequalities and a finite diagnostic grid for the two-row identity. The general two-row theorem follows algebraically from equations (1)–(3) of RESULT.md, not the finite grid. No external certification or floating-point experiment is used as proof. Source-priority and all-horizon performance are not established by this verifier.
+## correctness
+
+PASS
+
+The exact error after ordered row picks i,j is ||e||^2-ai^2-(aj-cij ai)^2. For two rows F12-F21=c^2(d^2-a^2) establishes choosing the initially larger residual first is the better of the only two nonrepeating sequences, and the p-weight of that first row grows monotonically; p=0 allows repeated rows and can only worsen conditional error. Degenerate residual-zero and equal-residual cases are handled. For the 3x3 rational full-rank example, independent exact reconstruction verifies unit rows, determinant 13/27, all nine Fij entries, uniform mean 65572/6561, first-row-2 probability at p=40 greater than 100/101 and conditional second-step error 7748/729. This gives the strict lower bound >21/2 while first-step expected decrease increases with p. No longer-horizon or positive-sparsity-regularization claim is made.
+
+## originality
+
+PASS
+
+Steinerberger (2020) already introduced residual-power randomized Kaczmarz and proved geometric convergence-rate estimates based on one-step weighted residuals; Zhang et al. extend sparse/Bregman variants; Nutini et al. give multistep convergence bounds for greedy rules. A geometric rate guarantee is not a monotone ordering of exact unconditional two-step risks. The sharp two-row restriction and fully rational finite-exponent three-row reversal were not found in inspected primary statements. A dedicated finite-horizon stochastic-ordering result remains possible outside indexed literature.
+
+## value
+
+PASS
+
+It determines a sharp and surprising smallest-row-count boundary where a seemingly beneficial adaptive row-sampling rule can worsen actual two-step error, despite improving the first-step conditional expected error. This gives a concrete methodological caution for finite-horizon iterative solvers, not a trivial restatement of convergence rate.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
