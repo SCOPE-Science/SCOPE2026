@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof reconstructs all three generator values from \(P(n)=n(3n-1)/2\) and uses an if-and-only-if three-generator gluing criterion (Fel, Theorem 1 and Corollary 1). The exact gcd restrictions are derived from congruences \(6a\equiv2\pmod{b-a}\), \(6c\equiv2\pmod{c-b}\), and \(24a\equiv35\pmod{c-a}\). The exhaustive adjacent-pair inequalities and endpoint-pair integrality bounds leave only the explicitly checked low-index cases. The proof is valid for every integer \(n\ge2\). Independent Apéry checks support, but are not substitutes for, the universal deductions.
+PASS
 
-## Originality — PASS (with residual risk)
+Reconstructed P(n) differences 3n+1 and 3n+4, gcd restrictions gcd(a,b)|2, gcd(b,c)|2, gcd(a,c)|35 via explicit modular reductions and parity. For n>=6, c<2a makes all three generators minimal. Applied the iff three-generator gluing criterion to every possible nontrivial gcd pair: adjacent pairs excluded by normalized-sum intervals and n=7 check; endpoints d in {5,7,35} excluded by forced x+y=d and nonintegral y=d(3n+1)/(6n+5) after explicit thresholds; remaining n=10,12 fail membership and n=40 succeeds, with n=2..5 direct. Independent Apéry shortest-path vs gluing calculations checked n=2..90 and the four exact F,g values. Finite calculation corroborates only, not universal exclusion.
 
-OEIS A069757 tabulates the Frobenius numbers for exactly these generators but does not establish which semigroups have genus \((F+1)/2\). Fel gives a general three-generator symmetry criterion applied to Fibonacci and Lucas triples; it does not supply the pairwise pentagonal gcd reductions or the exact set \(\{2,3,5,40\}\). Nari–Numata–Watanabe cover general genus theory, and Robles-Pérez–Rosales focus on triangular/tetrahedral numbers. An earlier general polygonal-family result excluding symmetry beyond a large explicit index would not yield the four survivors or the sharper elementary cutoff. Equivalent unpublished or inaccessible literature remains possible, including a polygonal-semigroup article whose full text was not accessible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The claim is a complete exact classification of a naturally indexed family already appearing in the Frobenius-number literature. It isolates a non-obvious three-generator example at \(n=40\) and proves no others exist, improving on tables or asymptotic upper bounds without requiring an unrelated downstream application.
+The classical symmetric three-generator gluing criterion is fully prior, as is an extensive Frobenius table for consecutive pentagonal numbers. The new asserted implication is the exact complete four-index characterization, which does not follow from tabulated F values without genus nor from general gluing without specialized congruences. No covered exact all-n classification located, but old polygonal-family work may already imply a large-index exclusion and further historical priority could be hidden.
 
-## Limitations
+## value
 
-The work does not classify other polygonal types, nonconsecutive indices or higher embedding dimensions. Independent mathematical audit and bibliographic priority verification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Symmetry and Gorenstein character of naturally indexed three-generator numerical semigroups is motivated by the published pentagonal Frobenius table. Exactly four survivors, including the large isolated n=40 three-generator gluing, and a uniform finite exclusion argument form a meaningful complete classification, not merely table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
