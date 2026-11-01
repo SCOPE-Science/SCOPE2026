@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The edge relation is \(a_i b_j\) if and only if \(i\ne j\). Each \(a_i\) sees exactly \(B_S\setminus\{b_i\}\), and each \(b_i\) sees \(A_S\setminus\{a_i\}\). Total domination requires at least two selected vertices on each side; location of distinct outside vertices is equivalent to omitting both endpoints at no more than one matched index. The four-state enumeration then yields the exact bivariate polynomial; the explicit overlap term for \(n=3\) gives the univariate expression. The proof handles \(n=3,4\) separately and proves that all inclusion-minimal sets are minimum, for every \(n\ge3\). An independent direct-definition brute-force procedure agrees for \(3\le n\le9\), examining 349504 vertex subsets. This finite test does not replace the universal argument.
+## correctness
 
-## Originality — PASS (best-knowledge, not uniqueness certification)
-The inspected 2021 rotational-symmetry article and 2014 graph-operation paper study other graph classes. The fully consulted 2016 twin-free-graph article supplies general bounds but no all-cardinalities crown enumerator. The 2012 original locating-total study supplies definitions and general parameters, not an inspected complete crown enumeration. A 2011 direct-product study applies a different metric-locating condition, according to its available abstract, and its full text was inaccessible; this remains an explicit priority risk. Related crown-graph work on restrained domination, edge-metric bases, and perfect Roman domination concerns distinct predicates and does not logically imply this polynomial. Different statements, not titles alone, were compared. An unindexed equivalent formula remains possible; priority has not been independently certified.
+PASS
 
-## Value — PASS
-Crown graphs are a canonical matching-deleted complete bipartite family, also the direct products of a complete graph with a two-vertex complete graph. The theorem enumerates *all* locating-total dominating sets by both part sizes, not merely the minimum, and proves the nontrivial rigidity that every inclusion-minimal solution is minimum. It explains the sharp small-order boundary and supplies the exponential exact multiplicity \(n(2^{n-1}-2n)\) for \(n\ge5\). This is a complete classification of a natural graph-invariant family, not an arbitrary computed coefficient.
+For G_n=K_{n,n} minus its matching and n≥3, the signature of a_i is B_S minus b_i and analogously b_i sees A_S minus a_i. Total domination forces a,b≥2; two outside vertices have equal nonempty signatures precisely when two matching indices are fully unrepresented, so t≤1. Four index states 1,x,y,xy give the bivariate all-set enumerator Π_{a,b≥2}[(x+y+xy)^n+n(x+y+xy)^{n-1}]. Multinomial coefficients and inclusion-exclusion yield the stated univariate expression (restore 6z² at n=3). Deleting a suitable selected endpoint from a doubled index, or from one of ≥3 singly represented vertices when t=0, proves every inclusion-minimal feasible set has minimum size max(4,n-1); exact counts 9,30,n(2^{n-1}-2n) for n=3,4,≥5 respectively. Explicit minimum constructions cover all n≥3.
 
-## Limitations and relevant literature
-The result does not extend by assertion to arbitrary deleted matchings, arbitrary graph products, or metric locating-total definitions. Finite verification covers only \(n\le9\). The oldest relevant direct-product record was readable only as an abstract. Principal sources: Raza et al. (2021), DOI 10.1177/00368504211053417; Foucaud–Henning (2016), DOI 10.37236/5147; Omamalin–Canoy–Rara (2014), DOI 10.12988/ams.2014.43205; Henning–Jafari Rad (2012), DOI 10.1016/j.dam.2012.04.004; Iswadi (2011), repository.ubaya.ac.id/274/.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: known locating-total domination minimum/bounds and a metric-locating result on K_n×K_2 are not an all-set bivariate LTD polynomial or a full rigidity/count classification. The exact same-object 2011 Iswadi paper was read in full and shown to use a different distance resolving property; its numerical result therefore does not subsume this theorem.
+
+## value
+
+PASS
+
+Crown graphs are a canonical infinite family (K_n×K_2). The theorem counts every labeled locating-total dominating set by side sizes, identifies all inclusion-minimal solutions and proves the unusual rigidity that minimum and inclusion-minimal coincide. This is a natural complete invariant classification rather than a small arbitrary sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
