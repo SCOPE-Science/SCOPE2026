@@ -1,11 +1,21 @@
-# Scientific assessment: five-free Fibonacci six-cycles
+# Independent mathematical audit
 
-**Correctness — PASS.** The cyclic recurrence yields a six-factor integer transfer matrix with a rigorously derived trace-and-determinant identity. Reduction modulo five leaves exactly two nontrivial three-division support patterns (plus a six-division pattern excluded by a strict bound). Both remaining three-variable equations are strictly decreasing for exponent powers at least five, forcing every division exponent to be one. Two rational rank-five recurrence systems yield exactly the displayed primitive words. All 64 binary support patterns are included, and the unbounded exponent cases are handled analytically. The standalone verifier independently checks symbolic coefficients, support enumeration, ranks, and recurrence data; it is not substituted for the infinite proof.
+## correctness
 
-**Originality — PASS, with literature risk.** Avila–Khovanova (arXiv:1403.4614v1, Sections 2 and 9) give both primitive examples but no proof that these exhaust all positive six-cycles. OEIS A214684 records one cyclic word. Published cycle-length and gcd observations do not imply exhaustive uniqueness. Statement-based searches of related literature and mathematical finding records did not locate an equivalently strong classification; an unlocated independent proof remains possible.
+PASS
 
-**Value — PASS.** Length six is the first attainable cycle length in the unusual five-free Fibonacci dynamics. A complete unrestricted classification of this natural first periodic orbit stratum, including the exclusion of any third primitive cycle and of all higher five-adic division exponents on such cycles, settles the specific enumeration suggested by the original paper's two experimental examples. No wider periodicity claim is made.
+For a six-periodic positive word a_i, every output is a 5-adic unit. The exact B_i=[[-1,5^e_i],[1,0]] product has eigenvalue 1, hence tr(P)=1+det(P); independent symbolic multiplication reproduces the claimed 6 singleton + 9 pair + 2 triple trace polynomial. Reduction modulo 5 over all 63 nonzero exponent-support patterns leaves only 13 patterns, precisely the rotations of 001011, 001101 and 111111. The all-positive case contradicts 6/5^5+9/5^4+2/5^3<1 after division by the product. For the remaining cases, the two exact multilinear equations f/g(A,B,C)=0 have f(5,5,5)=g(5,5,5)=0 and all partial derivatives negative for A,B,C>=5, forcing all three actual divisions to be by five (not higher powers); this is the essential unbounded step. Linear recurrences for each support have rank five and unique positive rational rays with primitive representatives as claimed. Exact independent substitution verifies both six-cycles. Mod-two Fibonacci dynamics excludes a positive primitive period-three orbit and periods not divisible by three. This is an all-positive classification; the finite support enumeration alone is not an arbitrary-entry proof.
 
-**Closest literature and limits.** Avila and Khovanova, *Free Fibonacci Sequences*, Journal of Integer Sequences 17 (2014), Article 14.8.5; OEIS A214684. Longer cycles and eventual behavior from arbitrary initial pairs remain open here. An equivalent result in unidentified literature cannot be ruled out by searches alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison of the complete asserted mathematical implication against actual primary material read and documented searches. Original 2014 primary literature lists two examples but explicitly does not prove completeness.
+
+## value
+
+PASS
+
+Exhaustively classifies the first possible positive cyclic stratum of the five-free Fibonacci map, an object originally known from two examples but not an all-starting-pair theorem. Excluding arbitrarily large six-cycle entries and higher five-adic division exponents is a nontrivial exact structural result; no longer-cycle classification is suggested.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
