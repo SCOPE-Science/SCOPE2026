@@ -1,0 +1,20 @@
+# Self-review
+
+## Correctness — PASS
+The proposed conclusion concerns every integer \(n\ge4\) and the inclusive unrescaled Euclidean root metric. Every pairwise squared distance is one of \(2,4,6,8\); the four clique descriptions in `RESULT.md` follow directly. At the first nontrivial threshold, the maximal simplices cover the complex with crown-graph nerve, giving the circle rank and its equivariant homology module. At the middle threshold, two explicit mutually inverse-up-to-closure order maps identify the barycentric subdivision with the face-poset model of \(\operatorname{Hom}(K_2,K_n)\), then an explicit \(S_n\)-equivariant polyhedral map identifies that complex with an \((n-2)\)-sphere. At the penultimate threshold, exactly the \(\binom n2\) antipodal edges are missing, giving a join of \(\binom n2\) copies of \(S^0\) and the exterior-square determinant character. The positive-degree homology dimensions are distinct for \(n\ge4\), which determines every persistence interval and the integral zero transition maps. Exact finite enumeration, mod-two chain reduction, and oriented fixed-simplex checks verify \(n=4,5,6\), with all \(S_4\) and \(S_5\) character values checked. Finite tests do not replace the uniform argument.
+
+## Originality — PASS, with acknowledged priority risk
+Babson–Kozlov's already-known sphere model for \(\operatorname{Hom}(K_2,K_n)\) supplies one ingredient, not the Euclidean four-threshold classification. Ayzenberg–Beketov–Magai's full type-\(A\) root **DAG** complex includes directed two-step paths and is strictly larger than the scale-\(2\) Rips complex; its known spherical homotopy type is not itself a statement about Rips persistence. Saleh–Titz Mite–Witzel classify Platonic vertex-set Rips complexes but not this higher-rank root family. The publicly available cuboctahedron computation is exactly the \(n=4\) instance and is excluded from the novelty claim. The general \(n\ge5\) homotopy stages, the explicit natural \(S_n\)-modules, and the parity dichotomy for the full quotient were compared with publicly indexed records and the accessible earlier claims; no implication from the closest material gave the complete statement. The possibility of an unindexed equivalent theorem remains, and final priority requires independent literature verification.
+
+## Value — PASS
+The full type-\(A\) root set is the vertex set of a canonical complete-graph symmetric-edge polytope, making its Euclidean Rips filtration a natural infinite family rather than a selected arbitrary numerical invariant. The classification exhibits successive homology in degrees \(1\), \(n-2\), and \(\binom n2-1\), an unbounded leap from the ambient polytope dimension at the penultimate scale. The equivariant stage-two equivalence supplies a reusable structural bridge to graph-homomorphism complexes, while the complete symmetry modules detect a parity-sensitive quotient class that nonequivariant Betti numbers cannot predict. These are meaningful parameter-uniform statements even though one special case and one constituent sphere model were previously known.
+
+## Closest literature and scientific limits
+1. E. Babson and D. Kozlov, *Complexes of graph homomorphisms*, arXiv:math/0310056, especially Section 4.
+2. A. Ayzenberg, M. Beketov, and G. Magai, *Coverings by open and closed hemispheres*, arXiv:2310.02827, especially Proposition 1.1 and Section 3.
+3. N. Saleh, T. Titz Mite, and S. Witzel, *Vietoris–Rips complexes of Platonic solids*, arXiv:2302.14388.
+4. *Complete Vietoris–Rips filtration of the Euclidean cuboctahedron*, public record `c10ad684de7e` (the already-covered rank-three instance).
+
+The theorem does not classify the entire geometric root polytope, graph shortest-path metrics, integral quotient homology, or the borderline \(n=3\) same-degree persistence maps. Its originality statement is subject to the possibility of an equivalent unindexed source; no external mathematical audit was performed.
+
+Self-review: passed. Independent audit: not yet performed.
