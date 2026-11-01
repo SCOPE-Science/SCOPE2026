@@ -1,11 +1,21 @@
-# Review of the sharp three-cycle onset
+# Independent mathematical audit
 
-**Correctness — PASS.** Two independent algebraic routes (direct matrix composition and Cramer's affine fixed point) give the stated Jacobian, point coordinates, and Jury inequalities. An explicit sign polynomial makes the nonexistence proof uniform in the three freely varying parameters. For existence, the two separate perturbative constructions cover the full open range above the unique quartic-defined threshold. Source hypotheses and switching transversality are strict. The standalone symbolic checker tests the intermediate identities and exact rational witness; it is not used in place of the quantified proof.
+## correctness
 
-**Originality — PASS, with priority risk.** Stable three-cycles in broader non-invertible sectors are already known from Fatoyinbo–Simpson, arXiv:2210.14445. This result instead gives an if-and-only-if, optimally sharp *right determinant threshold* for existence while *both* affine fixed points are saddles, a stricter parameter regime singled out in Ghosh–McLachlan–Simpson, arXiv:2402.05393. Comparisons of statements, not just titles, with those accessible full texts and targeted published-finding corpus records did not yield an implied threshold. The nearest published-finding corpus record concerns an \(LLLR\) four-cycle and cannot imply this optimal three-cycle frontier. No search proves historical uniqueness; non-indexed equivalent parameter optimizations remain possible.
+PASS
 
-**Value — PASS.** The two-saddle non-invertible regime is a natural domain in robust-chaos and border-collision studies. Establishing exactly how negative right determinant strength permits an attracting *odd* cycle is a structural feasibility boundary, not an arbitrary fixed-parameter computation. The proof identifies both an algebraic obstruction and a saturating construction; the nontrivial threshold is set by a quartic optimization rather than a routine substitution.
+Exact independent SymPy construction of M=A_R A_L^2 verifies det M=-d^2u, both Schur/Jury inequalities and the x0,x1,x2 rational return equations. The strict LLR condition enforces B>Bmin while J+>0 enforces B<Bmax. Expanding H(Bmax-Bmin) at L=1+d+t proves for u≤u*<3 all nonconstant t coefficients negative and the constant ≤0. The rational U(d) diverges at both endpoints, and its derivative sign polynomial has one positive root by Descartes; this gives unique global min. The proof’s two parameter perturbations cover every u>u* and keep all saddle, Jury and itinerary signs strict; the exact example L=7/5,d=1/3,B=8/3,u=3 checks. Numeric root check only corroborates an exact algebraic boundary; finite tests alone would not prove the all-real iff.
 
-**Limitations.** Only strict \(LLR\) orbits and existential feasibility are classified; global dynamics and other symbolic cycles remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified: earlier work establishes attraction of LLR cycles in broader regimes and the two-saddle border-collision setting, but not the sharp iff determinant minimum u*=2.2679028114... for existence at prescribed u under all strict saddle constraints. Full primary mathematical comparisons and a published mathematical-record comparison excluded obvious equivalent implications; unindexed prior optimizations remain possible.
+
+## value
+
+PASS
+
+The smallest magnitude of a negative right determinant permitting an attracting odd cycle amid two simultaneously saddle-type fixed points is a natural bifurcation feasibility frontier. The iff threshold is a sharp nontrivial algebraic optimization with both a global obstruction and fully constructive witnesses, not merely an isolated parameter sample or textbook reparametrization. The domain is scientifically motivated by robust-chaos and border-collision analyses.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
