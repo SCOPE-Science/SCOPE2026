@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope
+# Independent mathematical audit
 
-Run `python check.py` with Python 3 and the `numpy` and `sympy` packages. The program obtains exact expectations of multivariate Gaussian polynomial monomials by parity and double-factorial moments and verifies all four one-step recurrences for \((d,k)=(2,1),(3,2),(3,1)\) with rational \(\alpha,\tau\) and nonzero starting vectors. It checks the exact algebraic stationary floor identity and strict full/restricted separation for all tested integer \(2\le d\le17\), \(1\le k<d\), at \(\alpha=1/(q+3)\), \(\tau=0.1\).
+## correctness
 
-For the independent Monte Carlo diagnostic with \(d=5\), \(k=3\), \(\alpha=0.19\), \(\tau=0.13\), 20,000 trajectories and 180 steps, the exact formula gives full/restricted mean-square floors \(0.1910805382284798\) / \(0.031074193548387107\); the seeded run yielded \(0.18746766455619285\) / \(0.03082333402493489\). The Monte Carlo tolerance is 12 percent for each component. This diagnostic does not establish infinite-horizon stability or algebraic identities.
+PASS
 
-The proof in `RESULT.md` establishes the claims for all admissible integers, projectors, initial vectors and step sizes; the code is a finite test only. The claimed reference gradient is exact; code never simulates a noisy or adaptive projection oracle. No independent audit or external mathematical certification has been conducted.
+Expand finite difference to residual scalar b·w+(τ/2)||u||² and use Gaussian parity, E[(b·w)²||u||²]=(d+2)||b||² and sixth chi-square moment j(j+2)(j+4). Components A=E||Px||² and B=E||(I−P)x||² satisfy F: B_next=rB+α²qC_d, A_next=sA+α²k(B+C_d); R: B_next=rB+α²qC_q, A_next=sA, r=1−2α+(q+2)α²,s=(1−α)²,C_j=τ²(j+2)(j+4)/4. At r≥1 positive forcing diverges; at r<1 both affine recurrences contract and fixed points give the two displayed F,R formulas. Independently integrated exact Wick moment polynomials for d=2,k=1 with rational parameters, matching one-step recurrences. Since C_d>C_q, full floor greater; fixed q,α<2/(q+2) gives cubic ambient growth. This is for exact oracles and quadratic only, not general nonconvex convergence.
+
+## originality
+
+PASS
+
+Original full-space estimator and upper cubic noise bound are in Ryabchenko–Qian–Mou; standard residual q+2 contraction and partial-gradient concept in Chayti–Mirrokni–Jaggi. The joint exact stationary finite-radius floors and equal-evaluation complement-probe comparison were not identified in accessible primary statements; limited full-text access remains significant risk. Best-of-knowledge qualified PASS.
+
+## value
+
+PASS
+
+A natural quantitative comparison between oracle-hint Gaussian finite differences, isolating avoidable Θ(d³) noise from probing known directions with explicit sharp stability window and stationary second moments. Narrow but directly motivated algorithm design fact; probe expected energies differ at fixed coordinate τ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

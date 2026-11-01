@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T09:56:14.634169Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-finite-difference-noise-floors-for-projected-control-varia--25504f3aca16/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-finite-difference-noise-floors-for-projected-control-varia--25504f3aca16/VERIFICATION.md",
+        "independent_checks.py"
+      ],
+      "rationale": "Expand finite difference to residual scalar b·w+(τ/2)||u||² and use Gaussian parity, E[(b·w)²||u||²]=(d+2)||b||² and sixth chi-square moment j(j+2)(j+4). Components A=E||Px||² and B=E||(I−P)x||² satisfy F: B_next=rB+α²qC_d, A_next=sA+α²k(B+C_d); R: B_next=rB+α²qC_q, A_next=sA, r=1−2α+(q+2)α²,s=(1−α)²,C_j=τ²(j+2)(j+4)/4. At r≥1 positive forcing diverges; at r<1 both affine recurrences contract and fixed points give the two displayed F,R formulas. Independently integrated exact Wick moment polynomials for d=2,k=1 with rational parameters, matching one-step recurrences. Since C_d>C_q, full floor greater; fixed q,α<2/(q+2) gives cubic ambient growth. This is for exact oracles and quadratic only, not general nonconvex convergence.",
+      "residual_risks": [
+        "Exact oracle Px and quadratic f only; no globally bounded gradient."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Qualitative cubic ambient noise and residual Gaussian contraction already established. New finite-τ exact floor and comparison on isotropic quadratic not shown in accessible statements"
+        ],
+        "reasoning": "A bound is not exact, a different residual-tracking/central-difference algorithm is not the same recursion.",
+        "searches": [
+          "Gaussian control variate directional hints zeroth-order quadratic isotropic projected gradient residual subspace noise floor stationary mean square forward difference",
+          "Ryabchenko–Qian–Mou Lemma3.3; Chayti–Mirrokni–Jaggi Lemma5"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2609.08277v1",
+        "arXiv:2610.13871v1",
+        "Resultary semantic query: Gaussian control variate directional hints zeroth-order quadratic isotropic projected gradient residual subspace noise floor stationary mean square forward difference"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known variance bound O(d³τ²) and stability q+2 do not fix coupled stationary covariance or strict ratio under full versus restricted probes"
+        ],
+        "reasoning": "New calculation is an explicit model refinement; if detailed source appendix derived both exact floors, originality would fail; residual source-access risk flagged.",
+        "searches": [
+          "Gaussian control variate directional hints zeroth-order quadratic isotropic projected gradient residual subspace noise floor stationary mean square forward difference",
+          "arXiv:2609.08277v1 Gaussian smoothing inequality; arXiv:2610.13871v1 partial gradient lemma"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2609.08277v1 introduces G_F and cubic smoothing upper bound; arXiv:2610.13871v1 includes q+2 contraction for distinct central-difference tracking"
+        ],
+        "reasoning": "The estimator is not itself original; exact stationary formulas involve τ² source terms and two coupled recurrences not obtained from upper bounds alone.",
+        "searches": [
+          "Gaussian control variate directional hints zeroth-order quadratic isotropic projected gradient residual subspace noise floor stationary mean square forward difference",
+          "zeroth-order Gaussian CV one-sided finite differences; residual-subspace gradient probing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No ranked Resultary item supplies both exact F_{d,k},R_q; independent Wick moment test supports one-step identities"
+        ],
+        "reasoning": "A negative search is not novelty proof, and prior papers need full-text confirmation of absence.",
+        "searches": [
+          "Gaussian control variate directional hints zeroth-order quadratic isotropic projected gradient residual subspace noise floor stationary mean square forward difference",
+          "Resultary semantic Gaussian CV stationary projected quadratic query; source exact rational moment formulas"
+        ]
+      },
+      "rationale": "Original full-space estimator and upper cubic noise bound are in Ryabchenko–Qian–Mou; standard residual q+2 contraction and partial-gradient concept in Chayti–Mirrokni–Jaggi. The joint exact stationary finite-radius floors and equal-evaluation complement-probe comparison were not identified in accessible primary statements; limited full-text access remains significant risk. Best-of-knowledge qualified PASS.",
+      "residual_risks": [
+        "Complete full primary arXiv texts of both most relevant 2026 optimization papers not independently read in this execution; an exact appendix could dominate this result.",
+        "Not matched expected perturbation energy: τ constant while E||u||² differs d versus q.",
+        "Exact oracle Px and quadratic f only; no globally bounded gradient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already has estimator and cubic-dimension noise upper bound; stronger exact floor coverage not resolved from abstract alone",
+          "evidence": [
+            "Known method and order bound are NOT newly claimed; exact quadratic stationary coupled recurrences are additional calculation. Full-paper priority risk."
+          ],
+          "identifier_or_url": "arXiv:2609.08277v1",
+          "material_read": "Accessible primary abstract and reviewed precise §3.1/Lemma 3.3/Appendix C statements",
+          "method": "Source summary and abstract read; complete latest full text not retrievable in this run",
+          "title": "Ryabchenko, Qian and Mou, Adaptively Incorporating Directional Hints into Zeroth-Order Optimization",
+          "trigger": "Source of exact full Gaussian one-sided estimator"
+        },
+        {
+          "assessment": "Known q+2 factor and residual tracking; distinct central differences and no full-one-sided versus restricted stationary exact floor identified",
+          "evidence": [
+            "Central-difference residual tracking not same stochastic recursion as one-sided finite-τ benchmark."
+          ],
+          "identifier_or_url": "arXiv:2610.13871v1",
+          "material_read": "Accessible primary abstract and reviewed Lemma 5/appendix descriptions",
+          "method": "Primary abstract and detailed package scientific citation inspected; full text inaccessible this run",
+          "title": "Chayti, Mirrokni and Jaggi, Partially Informed Stochastic Optimization via Zeroth-Order Residual Tracking",
+          "trigger": "Related partial gradient probing and standard Gaussian q+2 contraction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/4a3a3b26f6b337c3dc5991377e63d191d9dbe285/2026/10/25/exact-finite-difference-noise-floors-for-projected-control-varia--25504f3aca16/RESULT.md",
+        "arXiv:2609.08277v1",
+        "arXiv:2610.13871v1"
+      ],
+      "rationale": "A natural quantitative comparison between oracle-hint Gaussian finite differences, isolating avoidable Θ(d³) noise from probing known directions with explicit sharp stability window and stationary second moments. Narrow but directly motivated algorithm design fact; probe expected energies differ at fixed coordinate τ.",
+      "residual_risks": [
+        "Complete full primary arXiv texts of both most relevant 2026 optimization papers not independently read in this execution; an exact appendix could dominate this result.",
+        "Not matched expected perturbation energy: τ constant while E||u||² differs d versus q.",
+        "Exact oracle Px and quadratic f only; no globally bounded gradient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Complete full primary arXiv texts of both most relevant 2026 optimization papers not independently read in this execution; an exact appendix could dominate this result.",
+    "Not matched expected perturbation energy: τ constant while E||u||² differs d versus q.",
+    "Exact oracle Px and quadratic f only; no globally bounded gradient."
+  ],
+  "schema_version": 1
+}

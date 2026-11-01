@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated exact quadratic and projector-oracle algorithms, expand the one-sided finite differences into the residual-linear term and the Gaussian cubic noise term. Wick moments give the exact coupled moment recurrences displayed in `RESULT.md`; their spectral coefficients are \(s=(1-\alpha)^2\) and \(r=1-2\alpha+(q+2)\alpha^2\). The nonzero finite-radius noise makes the boundary \(r=1\) genuinely unbounded, while \(r<1\) yields the explicit positive fixed points. Strict floor separation follows from \(C_d>C_q\); the \(d^3\) ratio follows by algebra for fixed \(q\). Standalone exact Gaussian-polynomial tests for three configurations and deterministic 20,000-path seeded diagnostics independently support the calculations. Correctness is established by algebra rather than by finite numerical experiments.
+PASS
 
-## Originality — PASS, with residual risk
+Expand finite difference to residual scalar b·w+(τ/2)||u||² and use Gaussian parity, E[(b·w)²||u||²]=(d+2)||b||² and sixth chi-square moment j(j+2)(j+4). Components A=E||Px||² and B=E||(I−P)x||² satisfy F: B_next=rB+α²qC_d, A_next=sA+α²k(B+C_d); R: B_next=rB+α²qC_q, A_next=sA, r=1−2α+(q+2)α²,s=(1−α)²,C_j=τ²(j+2)(j+4)/4. At r≥1 positive forcing diverges; at r<1 both affine recurrences contract and fixed points give the two displayed F,R formulas. Independently integrated exact Wick moment polynomials for d=2,k=1 with rational parameters, matching one-step recurrences. Since C_d>C_q, full floor greater; fixed q,α<2/(q+2) gives cubic ambient growth. This is for exact oracles and quadratic only, not general nonconvex convergence.
 
-The benchmark one-sided control-variate estimator and its qualitative cubic smoothing bound already appear in Ryabchenko–Qian–Mou (arXiv:2609.08277v1, §3.1 and Appendix C). The sharp Gaussian residual contraction threshold also appears in partial-gradient stochastic optimization literature, including Chayti–Mirrokni–Jaggi (arXiv:2610.13871v1, Appendix B, Lemma 5). Accordingly, originality here is restricted to the **exact finite-\(\tau\) stationary second-moment formulas and equal-query full-versus-complement support ratio** for the specified oracle-projection quadratic dynamics. The first paper treats ambient Gaussian control variates and general nonconvex guarantees; the second uses a distinct residual-tracking method and central finite differences. Comparing their mathematical assertions and inspected derivations did not identify the exact combined statement. Indexed mathematical research-record searches with exact estimator aliases and formulas found related stochastic subspace and momentum results but no covering item. A specialized older estimator calculation outside the inspected sources could still imply the formulas, so this assessment is not a certificate of unprecedented publication.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The source estimator deliberately uses an exact projection-based reference to remove stochastic residual-gradient variance, but its finite-difference perturbation still ranges over all ambient coordinates. The result identifies the exact stationary consequence and shows that a fixed \(q\)-dimensional unknown gradient can coexist with a cubically growing ambient-dimension error penalty at the same one-perturbed-evaluation budget, while an elementary change of probe support avoids that penalty. The floor ratio and sharp stability window permit quantitative smoothing-radius/stepsize design; this is a complete small-model phase calculation, not a renaming of an estimator or a routine qualitative variance bound.
+Original full-space estimator and upper cubic noise bound are in Ryabchenko–Qian–Mou; standard residual q+2 contraction and partial-gradient concept in Chayti–Mirrokni–Jaggi. The joint exact stationary finite-radius floors and equal-evaluation complement-probe comparison were not identified in accessible primary statements; limited full-text access remains significant risk. Best-of-knowledge qualified PASS.
 
-## Boundaries and sources
+## value
 
-The result assumes a globally unbounded-gradient quadratic and thus is not a counterexample to [1]'s bounded-gradient theorem. It makes no assertion for arbitrary nonquadratics, adaptive references, changing projectors, or central differences. Source [2] explicitly covers the standard Gaussian contraction mechanism; that mechanism is not presented as new. The comparison depends on holding the coordinate scale \(\tau\) fixed; matched expected probe norms would define another optimization problem. Residual bibliographic risk concerns potential earlier moment identities and variance-reduced finite-difference algorithms not indexed by the searches.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural quantitative comparison between oracle-hint Gaussian finite differences, isolating avoidable Θ(d³) noise from probing known directions with explicit sharp stability window and stationary second moments. Narrow but directly motivated algorithm design fact; probe expected energies differ at fixed coordinate τ.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
