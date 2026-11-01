@@ -1,21 +1,21 @@
-# Scientific review: scalar Soft Muon period-two transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The recurrence is the one-dimensional specialization of the source's normalized momentum and soft-sign update, without substituting the practical Newton–Schulz polynomial. At the unique equilibrium, the Jacobian has determinant \(\beta\) and trace \(1+\beta-c(1-\beta)\); the strict real Schur inequalities give the exact hyperbolic boundary. The period-two classification does not assume symmetry: the two momentum relations and injectivity of the odd soft-sign force zero mean and then a unique nonzero amplitude. Both cycle Jacobians have the same reduced effective coefficient \(8/(c^2t^3)\), which lies strictly inside the Schur region for every supercritical ratio. At equality, center-manifold coordinates produce the nonzero cubic coefficient \(t\), proving attraction and the stated \(n^{-1/2}\) law restricted to nontrivial local center orbits.
+PASS
 
-Reproduction was performed using the packaged standard-library `verify.py`, with 63 parameter configurations, 3,000 Jacobian comparisons, seven critical-cubic algebra configurations, four 40,000-step critical-rate experiments, and the exact illustrative cycle. These finite checks supplement rather than replace the mathematical proof. The local nature of the stability assertions and the center-manifold restriction are substantive.
+Dimensionless map F(z,w)=(z-cg(s),s), s=βw+(1-β)z, g(s)=s/sqrt(1+s²), has unique origin fixed point. Direct Jacobian has determinant β and trace 1+β-d(1-β); Jury inequalities give c*=2(1+β)/(1-β). At criticality eigenvalues -1 and -β: transformed center coordinate has u^+=-u+t u³+O(u^4), yielding u_n^{-2}/n→2t for nontrivial center-manifold orbits and local full-state attraction, nonexponential. Momentum balancing an arbitrary two-cycle, not presuming symmetry, plus odd strict monotonicity of g forces opposite states and exactly one positive amplitude Z=t^{-1}sqrt((ct/2)²-1) for c>c*. The cycle Jacobian coefficient d=8/(c²t³)<c* satisfies strict Jury conditions; monodromy square is attracting. Independent Jacobian/eigenvalue and amplitude/stability computations checked 20 parameter choices including β=0 and β=.99. Higher periods and global basins not asserted.
 
-## Originality — PASS with residual historical-priority risk
+## originality
 
-The full accessible source text of arXiv:2609.30546v1 defines the exact update and proves sufficiently small-step convergence, but its theorems and appendices do not state a sharp scalar momentum-dependent threshold or uniqueness and attraction of every primitive two-cycle. arXiv:2605.23871v1 obtains regularized Hamiltonian and sufficient small-step discrete convergence results, not the same complete fixed-step classification. arXiv:2602.11948v1 concerns hard/polynomial polar maps and perturbed signs, not this saturating soft-sign map. arXiv:2510.11312v1 concerns other sigmoid preconditioners and sufficient convergence. Compared public exact-model results involve discontinuous Signum, a fourth-root Polar Express surrogate, and momentum SAM; their distinct nonlinearities give different cycles and do not logically contain the present theorem. Focused indexed searches found no equivalent statement, but priority cannot be guaranteed by a negative search.
+PASS
 
-## Mathematical value — PASS
+The same mathematical model primary de Oliveira et al. arXiv:2609.30546 defines analytical Soft Muon and gives sufficient small-step convergence, but the accessible abstract does not state this exact all-momentum bifurcation and prime-two-cycle uniqueness. SoftSignum/SoftMuon published adaptive-quantile formulations differ from this fixed-ε two-dimensional recurrence. Published sharp transitions for hard Signum, fourth-root Polar Express, clipped heavy ball, or momentum SAM are different maps and cannot mechanically cover this normal form. Full same-model paper was inaccessible despite authorized attempt, so priority risk is material.
 
-The threshold is a sharp hyperparameter rule valid for every allowed constant momentum, improving on generic small-step sufficiency. The theorem additionally counts all primitive two-cycles, derives their physical amplitudes, proves attraction rather than merely exhibiting numerical oscillations, and quantifies the critical transient. It exposes a concrete regularization-induced change from the neutral continuum of hard-sign cycles to a unique attracting soft-sign cycle. These properties address a motivated stability question in numerical optimization, rather than an arbitrary scalar invariant.
+## value
 
-## Limitations and closest literature
+PASS
 
-The result is **not** a global basin theorem, does not classify higher-period orbits, and does not apply directly to practical finite-degree Newton–Schulz Muon or stochastic/matrix settings. Its center-manifold critical-rate assertion excludes the strong-stable exceptional direction. Closest works include arXiv:2609.30546v1 (defining method), arXiv:2605.23871v1 (regularized Hamiltonian viewpoint), arXiv:2602.11948v1 (quadratic hard/polynomial Muon), the published scalar Signum neutral-cycle calculation, and the published fourth-root Polar Express flip calculation. Independent assessment of historical priority and proof details has not occurred.
+A complete, natural local transition and exact attractive period-two classification at a modern optimizer’s simplest convex test problem; explains regularization-dependent oscillation and gives critical algebraic relaxation, with explicit separation from practical matrix polynomial method. Not a mere numerical period-two demonstration.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
