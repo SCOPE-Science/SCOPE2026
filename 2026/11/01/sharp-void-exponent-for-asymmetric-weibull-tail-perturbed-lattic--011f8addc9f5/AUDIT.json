@@ -1,0 +1,107 @@
+{
+  "correctness": {
+    "rationale": "The proof uses conditional independent product; outside-site log-loss ≤(L+1)/(1-eta) with eta<1; inside-site log-loss agrees with the min of the two Weibull tail costs up to log2 and vanishing normalized error; uniform Riemann sum integrates the crossover exactly. Gaussian specialization uses well-known Mills tail. Every assumption and quantifier is stated, and a reproducible standalone checker returned 107 finite assertions. No finite experiment is claimed to establish the infinite limit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Flimmel Theorem 1 and Proposition 2: general dependence and factorization but no sharp tail-specific coefficient, https://arxiv.org/html/2610.24650v1",
+        "Elboim–Spinka–Yakir Lemma 2.5: p(r)^(Cr^d) ≤ h(r) ≤ p(r)^(cr^d), https://arxiv.org/html/2506.16873v1"
+      ],
+      "reasoning": "Flimmel treats general dependent fields, but her stated estimates are not a rate-exact result in this iid class. Elboim et al. cover the same iid object in all dimensions but supply only unspecified exponent constants; such two-sided order bounds do not imply the exact one-dimensional coefficient or asymmetric formula. A hidden general large-deviation principle remains a residual priority risk.",
+      "searches": [
+        "hole probability perturbed lattice stationary interval void probability Gaussian cubic",
+        "iid perturbations integer lattice Weibull-tailed displacement empty interval hole large deviations sharp asymptotic",
+        "asymmetric Weibull displacement stationary perturbed lattice interval hole probability sharp rate functional",
+        "Optimal matchings of randomly perturbed lattices hole probabilities logarithmic rate constants"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.24650v1 (Flimmel, 2026), primary HTML relevant sections",
+      "arXiv:2506.16873v1 (Elboim–Spinka–Yakir, 2025), primary HTML relevant sections",
+      "MSC2020 60G55 (point processes), checked against MSC classification index",
+      "Published mathematical result records queried for exact Gaussian coefficient, asymmetric Weibull tails, void and hole aliases, and motivating paper identifiers"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Flimmel, §3.1 Proposition 2 supplies the identity P(void)=∫∏(1-q_j)du, https://arxiv.org/html/2610.24650v1",
+        "Elboim–Spinka–Yakir, Lemma 2.5 bounds log h between constant multiples of L log p(L), https://arxiv.org/html/2506.16873v1"
+      ],
+      "reasoning": "Conditional product factorization is used as a premise rather than claimed. Passing from that identity and one-sided logarithmic tail limits to the coefficient needs the interior log-sum minimum, boundary/outside estimates, and an asymmetric crossover integral. The published unspecified Theta order allows infinitely many possible coefficients, so does not imply the displayed exact value. The Gaussian case is a consequence of the new general rate, not a separate independent finding.",
+      "searches": [
+        "Void probabilities for perturbed lattices under mixing Daniela Flimmel arxiv 2610.24650",
+        "Optimal matchings of randomly perturbed lattices Dor Elboim Yinon Spinka Oren Yakir hole probability precise constants",
+        "Gaussian perturbed lattice void probability exact leading coefficient asymmetry"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Flimmel (2026), §3.1 Proposition 2 https://arxiv.org/html/2610.24650v1",
+        "Elboim–Spinka–Yakir (2025), §2.3 Lemma 2.5 https://arxiv.org/html/2506.16873v1"
+      ],
+      "reasoning": "A symmetric Gaussian formulation -log h(L)/L^3→1/(24 sigma^2) and an asymmetric two-sided Weibull formulation are equivalent special-case/parent statements. Neither inspected primary source gives a specified constant; searches returned no published exact match. Absence of results alone is not proof of novelty.",
+      "searches": [
+        "Exact sharp logarithmic hole void probability rate for one dimensional independently perturbed stationary lattice with Gaussian noise exp -L cubed over 24 sigma squared",
+        "Perturbed integer lattice iid displacements asymmetric stretched exponential two-sided Weibull tails void interval asymptotic rate min left right cost harmonic coefficient",
+        "Gaussian perturbed lattice one-dimensional independent Gaussian displacements exact void probability cubic speed L^3 constant 1/(24 sigma^2)",
+        "Gaussian perturbed lattice void probability large interval exp -constant L cubed one dimensional"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published record: Sharp shifted sampling bounds and two tight phases for asymmetric two-sided exponentials. This treats shift-dependent frame sampling, not point-process voids.",
+        "Published record: Sharp lattice Gauss envelope for symmetric unimodal laws. This treats discrete tail inequalities, not perturbed-lattice large void rates.",
+        "Direct checks of the two named arXiv source identifiers and synonyms did not disclose an exact precomputed table of the stated coefficient."
+      ],
+      "reasoning": "No exact-database or published-table coverage was located among actual searches; closest retrieved records concern different objects and do not imply this rate. This negative search is treated as limited evidence, not proof of uniqueness.",
+      "searches": [
+        "Exact sharp logarithmic hole void probability rate for one dimensional independently perturbed stationary lattice with Gaussian noise exp -L cubed over 24 sigma squared",
+        "Perturbed integer lattice iid displacements asymmetric stretched exponential two-sided Weibull tails void interval asymptotic rate min left right cost harmonic coefficient",
+        "Void probabilities for perturbed lattices under mixing Daniela Flimmel arxiv 2610.24650"
+      ]
+    },
+    "rationale": "The new statement specifies the exact, direction-sensitive coefficient c_- c_+/((alpha+1)(c_-^(1/alpha)+c_+^(1/alpha))^alpha), uniform in lattice phase, and the Gaussian 1/(24 sigma^2) coefficient. Flimmel 2026 supplies an independent-product identity and dependent-field void bounds; Elboim–Spinka–Yakir 2025 bounds void probabilities only between unspecified tail powers. Checked primary results therefore do not imply this sharp coefficient. Exact and alias searches of published mathematical records did not identify a dominating statement; this is qualified best-knowledge originality, not a priority certificate.",
+    "residual_risks": [
+      "Not a comprehensive review of all historical point-process and large-deviation literature; a general theorem could subsume the result",
+      "No independent external mathematical audit or historical-priority certification",
+      "Published mathematical-record search is semantic and can miss statement-level equivalence"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Independent-product identity and coarser distribution-free/dependent-field bounds are prior; no rate-exact one-dimensional asymmetric coefficient is stated in examined relevant results",
+        "evidence": [
+          "arXiv:2610.24650v1, 17 October 2026, §3.1 lines 164–200",
+          "Introduction explicitly contrasts its bounds with order-sensitive earlier work"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24650v1",
+        "material_read": "Full arXiv HTML introduction, Section 3 main theorem, Section 3.1 Independent perturbations, Proposition 2 and its proof; publication header and references",
+        "method": "Read primary HTML (not merely search snippets); compared explicit formulas and hypotheses",
+        "title": "Void probabilities for perturbed lattices under mixing",
+        "trigger": "Same stationary perturbed-lattice void probability; 2026 source with exact product representation"
+      },
+      {
+        "assessment": "Proves log-scale order with unspecified positive constants; no exact leading Weibull-tail harmonic mean coefficient found in relevant results",
+        "evidence": [
+          "arXiv:2506.16873v1, 20 June 2025, Introduction and §2.3 lines 228–258"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2506.16873v1",
+        "material_read": "Full arXiv HTML introduction including equations (1.2) and (1.3); Section 2.3 Lemma 2.5 and its complete proof; Section 3 topic headings",
+        "method": "Read primary HTML and compared exact upper/lower implications",
+        "title": "Optimal matchings of randomly perturbed lattices",
+        "trigger": "Cited by Flimmel as distribution-sensitive iid perturbed-lattice hole-probability predecessor"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "011f8add-c9f5-4740-b0c9-f22806262987",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact asymptotic void coefficient is a motivated invariant of perturbed-lattice point processes, directly linked to contact tails and large empty regions; the cited source work has only unknown constants. The asymmetric crossover exposes new shape information and the Gaussian 1/(24 sigma^2) benchmark is a natural precise quantitative target. The result is a complete natural class formula, not a numeric special-case recomputation.",
+    "status": "PASS"
+  }
+}
