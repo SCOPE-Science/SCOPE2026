@@ -1,0 +1,137 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:59:20Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md proof and verify.py congruence/negative-index tests",
+        "fresh independent_five_checks.py 49999 modular indices",
+        "Bilu et al arXiv:2210.16959 original exceptional 103 statement"
+      ],
+      "rationale": "Exact matrix powering yields C^17≡46I mod103 and 46 is nontrivial cube root of 1 mod103; its Teichmüller lift omega makes U=omega^{-1}C^17=I+103D. Each residue-r branch f_r(t)=e1^T C^r U^t v is a convergent restricted analytic Z103 function. Branches r not 0,13,16 remain units. For r13,16, T13=9*103,T16=56*103, and negative zeros at -4,-1 force 103(t+1) times a global unit. For r0, T0=T−17=0,T17=103², divide by 103² and inspect binomial terms mod103; the first surviving quadratic is (omega^{-1}/2)t(t+1). Factoring both distinct roots leaves a global 103-adic unit. This proves all positive indices, including large valuations. Independent arithmetic verified C^17 mod103 and every 1≤n<50000 modulo103^7; bounded truncation does not prove the all-index formula.",
+      "residual_risks": [
+        "Unrestricted p-adic factor theorem is applied to restricted analytic functions, not merely interpolation on sampled indices.",
+        "Claim depends on T0=0, T1=T2=1; not a general all-prime theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bilu et al Theorem 1.7 explicitly leaves 103 undecided.",
+          "STACS 2026 Example 18 lists zeros but not the valuation multiplicity-two branch.",
+          "The 2026 periods article accessible abstract concerns period characterization; complete text was not inspected."
+        ],
+        "reasoning": "Existing general p-adic zero algorithms are potentially stronger for locating zeros but do not, in the inspected statements, give exact integer-index valuations including the 103² factor.",
+        "searches": [
+          "arxiv:2210.16959 Theorem 1.7 p 103 excluded",
+          "STACS 2026 Example 18 p-adic Skolem 103",
+          "On periods of Tribonacci sequence modulo primes arxiv:2609.22364"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2210.16959",
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol364-stacs2026/html/LIPIcs.STACS.2026.8/LIPIcs.STACS.2026.8.html",
+        "https://arxiv.org/abs/2609.22364",
+        "https://doi.org/10.1112/jlms.70126"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.7 excludes 103 from resolved primes; STACS Example18 supplies 103-adic zero branches.",
+          "Current proof exploits both the coefficient and order of vanishing on r=0 via f0/103² mod103."
+        ],
+        "reasoning": "One cannot infer f0 valuation 2+ν(t)+ν(t+1) from a zero list alone without the explicit global unit-factor conclusion. The new exact formula is not a simple substitution into the earlier stated theorems.",
+        "searches": [
+          "Bilu Luca Nieuwveld Ouaknine Worrell 2022 Theorem1.7 Section9",
+          "STACS2026 On the p-adic Skolem Problem Example18",
+          "arxiv2609.22364 Tribonacci periods"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bilu et al 2022 discuss integer-center valuation formula excluding prime 103.",
+          "STACS 2026 Example 18 provides p-adic zero branches, which do not specify exact orders of zeros and unit factors."
+        ],
+        "reasoning": "Analytic zeros and valuation multiplicity are related yet not identical: a list of zero centers without multiplicities or normalized branch unit bounds cannot imply the piecewise ν103 law.",
+        "searches": [
+          "\"Tribonacci\" \"103\" \"valuation\" \"17\"",
+          "\"integer centers\" 103-adic Tribonacci n+17 n+4 n+1",
+          "Skolem 103-adic zeros Tribonacci exact multiplicity"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Independent modular calculation 1≤n<50000 agrees with the exact formula, including high valuation truncation at 103^7.",
+          "Resultary yielded no directly corresponding previously published 103-adic all-index formula."
+        ],
+        "reasoning": "Finite numerical tables and zero-center lists do not imply the all-index valuation theorem; exact matching prior table not found, with search nonexhaustiveness explicitly acknowledged.",
+        "searches": [
+          "Resultary search: 103 adic valuations Tribonacci sequence exact formula n 17 Skolem zero",
+          "Tribonacci prime 103 valuation table ν103 n≡0,13,16 (mod17)",
+          "Tribonacci 103 OEIS valuation"
+        ]
+      },
+      "rationale": "The 2022 integer-center conjecture explicitly excluded prime 103; 2026 p-adic Skolem paper enumerates 103-adic zero branches but not the exact valuation and the exceptional double zero/baseline. The precise complete ν103 law survives accessible comparisons.",
+      "residual_risks": [
+        "Specialized later p-adic Skolem or recurrence papers could calculate local multiplicities without displaying the same valuation law.",
+        "Full text of September 2026 Tribonacci periods paper not inspected; no noncoverage inference."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Explicitly lists 103 among unresolved integer-center cases",
+          "evidence": [
+            "arXiv:2210.16959 Theorem 1.7, exception p=103"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.16959",
+          "material_read": "Full accessible primary 25-page PDF read, Theorem 1.7 and surrounding exceptional prime discussion; PDF page 3 visually inspected",
+          "method": "ArXiv primary full text",
+          "title": "On the p-adic zeros of the Tribonacci sequence",
+          "trigger": "Exact sequence and unresolved prime"
+        },
+        {
+          "assessment": "Lists zeros, not an exact multiplicity-sensitive valuation formula",
+          "evidence": [
+            "STACS 2026 Example 18, 103-adic branches"
+          ],
+          "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol364-stacs2026/html/LIPIcs.STACS.2026.8/LIPIcs.STACS.2026.8.html",
+          "material_read": "Full accessible STACS 2026 primary HTML including Example 18 103-adic zero branches",
+          "method": "Publisher OA complete HTML reading",
+          "title": "On the p-adic Skolem Problem",
+          "trigger": "Same prime and zero branches"
+        },
+        {
+          "assessment": "No whole-document noncoverage asserted, priority risk retained",
+          "evidence": [
+            "arXiv:2609.22364 abstract"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.22364",
+          "material_read": "ArXiv metadata/abstract only; complete text could not be inspected",
+          "method": "Primary abstract only",
+          "title": "On periods of Tribonacci sequence modulo primes",
+          "trigger": "Recent exact sequence, possible alternative valuation route"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Bilu et al Theorem 1.7 exception",
+        "STACS Example 18 zero-only classification"
+      ],
+      "rationale": "Closes an explicitly excluded exceptional prime 103 for a natural Tribonacci integer-center conjecture with a complete all-index valuation law and a genuinely quadratic double-zero branch. That exact arithmetic classification is independently useful and not a generic numerical table.",
+      "residual_risks": [
+        "Does not settle prime 163 or arbitrary prime valuations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "All n≥1 and fixed prime p=103, Tribonacci normalization 0,1,1. n=0 excluded because valuation of zero is infinite.",
+    "Unrestricted p-adic factor theorem is applied to restricted analytic functions, not merely interpolation on sampled indices.",
+    "Claim depends on T0=0, T1=T2=1; not a general all-prime theorem.",
+    "Specialized later p-adic Skolem or recurrence papers could calculate local multiplicities without displaying the same valuation law.",
+    "Full text of September 2026 Tribonacci periods paper not inspected; no noncoverage inference."
+  ],
+  "schema_version": 1
+}
