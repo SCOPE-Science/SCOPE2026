@@ -1,0 +1,11 @@
+# Review of the regular-simplex spherical-depth expansion
+
+**Correctness — PASS (self-review).** The Euclidean diameter-ball criterion is exactly the sign of an independent exponential-sample covariance through a Dirichlet representation. Conditional Fourier inversion and uniform empirical-moment control yield the expansion through order \(m^{-3/2}\); the fourth/fifth centered exponential moments and a second-order delta-method contraction yield the rational coefficient \(-4883/270\). Exact rational arithmetic in `verify.py` independently reconstructs the contraction, and Monte Carlo tests check the geometric sign identity and low-dimensional normalization. The controlled Fourier tails, rather than finite simulation, support the asymptotic claim.
+
+**Originality — PASS under currently accessible evidence, with an explicit priority risk.** Rabinowitz's 2026 paper gives the planar triangle spherical-depth formula, not high-dimensional regular-simplex asymptotics. Bardsley studies a related negative-sample-correlation phenomenon qualitatively. Ogasawara's 2006 abstract explicitly describes expansion through order \(m^{-1}\), which does not state or evaluate the \(m^{-3/2}\) correction here. Withers' general cumulant formalism might entail this coefficient after nontrivial specialization; this is recorded as a priority risk. Targeted equivalent-form, all-dimension, and coefficient searches found no exact published match. The relevant 2006 full text was inaccessible, preventing conclusive historical-priority certification.
+
+**Mathematical value — PASS.** The two-point diameter-ball depth is a natural geometric probability invariant, and the all-dimensional regular-simplex law extends a 2026 planar motivation. The explicit next-order coefficient is large relative to the leading term at moderate dimension, affects quantitative predictions, and requires nontrivial conditional Fourier and central-moment algebra rather than a planar substitution. It is a motivated sharp asymptotic, not a generic simulated estimate.
+
+**Limitations.** Asymptotic only; no finite-dimensional strict inequality or monotonicity is claimed. Historical priority remains provisional; independent audit is outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
