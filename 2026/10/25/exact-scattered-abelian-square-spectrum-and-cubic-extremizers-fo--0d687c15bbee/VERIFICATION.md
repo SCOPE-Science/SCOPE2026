@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducible verification
 
-From the extracted files execute `python3 verify.py` (standard Python 3). The program exhaustively constructs all distinct scattered subsequence strings by independent set extension, then identifies abelian squares by direct half-count comparison for each of the \(343\) triples with \(0\le a,b,c\le6\). Each length-specific count matches the closed formula. An independent summation over fixed outer-run differences checks totals for \(4913\) triples with all parameters through \(16\). It also prints scaled witness values. The expected final line is `VERIFY_OK`.
+# Independent mathematical audit
 
-The infinite proof requires the classification lemma, a uniform \(O(n^2)\) lattice approximation, the strict balancing argument for a symmetric diagonal-distance kernel, and one-variable optimization. These analytic arguments appear in RESULT.md. The tests are finite and provide no exhaustive evidence at unbounded lengths. Independent audit status is not performed.
+## correctness
+
+PASS
+
+All zero-only squares are 0^(2h). Every other admissible square uses both ones on opposite halves, so the middle-zero run j obeys j>=|i-k| and j congruent to |i-k| mod 2; this proves the exact three-run count, including empty runs. The length-2h spectrum is a rectangle/diagonal lattice count using a clipped quadratic Q(t). Uniform O(n^2) sum/integral comparison reduces cubic growth to V(a,b,c)=integral integral (b-|x-y|)_+; strict balancing a=c and one-variable differentiation identify unique proportions 2:3:2 and maximum coefficient 2/147. Compactness proves only-if asymptotic rigidity. An independent brute-string enumerator agreed on every length and total for all 216 triples a,b,c<=5.
+
+## originality
+
+PASS
+
+Fici–Mignosi–Shallit (2017) explicitly count contiguous abelian-square factors, including sparse-one constructions with quadratic factor counts, not distinct scattered subsequence strings. Fici–Puzynina (2022) surveys abelian repetitions and binomial/subsequence equivalence without supplying this fixed-source length spectrum or 2/147 cubic optimization; arbitrary alphabet-wide abelian-square enumeration by Richmond–Shallit also does not specialize to occurrence as subsequences of a fixed two-one word.
+
+## value
+
+PASS
+
+Natural first nontrivial sparse-minority model where requiring both minority symbols forces an unexpectedly cubic family of distinct abelian-square subsequences. Exact length-by-length enumeration and a unique sharp maximizing run proportion answer a motivated extremal question, not merely a table of examples.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
