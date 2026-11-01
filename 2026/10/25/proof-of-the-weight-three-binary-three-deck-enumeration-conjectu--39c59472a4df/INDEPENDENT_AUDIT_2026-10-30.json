@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T23:11:53.415629Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual Git RESULT.md blob 9d1dae45bfd378c9d660d7538639db11cc98104d",
+        "actual verify_three_deck.py blob 3867aebfd8ca8174f02dbfb83c57ad7d4d359fdf",
+        "independent_checks.py",
+        "independent_results.json",
+        "frozen source tree 6bdb72d62ebbd77466f03fd93ba9a381207c2f1f"
+      ],
+      "rationale": "Represent n-length binary words of weight three by four nonnegative zero gaps x0..x3 with sum N=n-3. All eight length-three scattered subsequence multiplicities are determined by N, A=T011=3x0+x1, B=T110=x2+3x3, and F=T001=sum_i binom(p_i,2) with prefix-zero counts p1=x0,p2=x0+x1,p3=x0+x1+x2. Equal N,A,B implies xprime=x+t(1,-3,3,-1). The exact F difference is t(x2-x1+3t), so distinct equal-deck partners have unique t=(x1-x2)/3 nonzero and the unique gap involution. Orient t>=1 and write the pair as (r,s+3t,s,t+u) and (r+t,s,s+3t,u), r,s,u>=0. Every nonsingleton class is therefore a pair, with generating function z^7/[(1-z)^2(1-z^2)(1-z^4)]. Subtraction from binom(n,3) yields the published-conjectured generating function for D_3,3(n); exact pole order gives 3/4 limiting uniquely-decked proportion and 7n^3/48 distinct decks. Independently grouped every binary three-one word of lengths 3..16 from direct scattered-triple counts and verified all pair involutions/counts; finite checks supplement the all-length algebra.",
+      "residual_risks": [
+        "Only binary words with exactly three ones, multiplicity three-decks, length n>=3; no unrestricted k-deck growth exponent or higher weights."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chrisnata et al., 2021 author manuscript Section 5.3 gives only Theta(n^3) and Conjecture 1",
+          "https://arxiv.org/abs/2609.23106, 2026 abstract on unrestricted asymptotics"
+        ],
+        "reasoning": "Unrestricted binary k-deck asymptotic bounds do not imply this exact composition-specific generating function or classification of fibres. The full 2026 paper was not accessible through attempted arXiv HTML, so a hidden specialization remains risk.",
+        "searches": [
+          "web: distinct 3 decks weight 3 binary words generating function theorem proof Chrisnata 2023",
+          "web: 2026 improved upper bound distinct k decks independent parameters Nilforoushan Parvaresh"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k-decks_Enumeration_and_bounds",
+        "https://doi.org/10.3934/amc.2021032",
+        "https://arxiv.org/abs/2609.23106",
+        "Resultary query listed above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Chrisnata et al. 2021 Section 5.3 Theorem 23, Lemma 24, Corollary 28 and Conjecture 1",
+          "https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k-decks_Enumeration_and_bounds"
+        ],
+        "reasoning": "Prior work knows the nullspace and one collision and proves only Theta(n^3). These do not imply the exact count because they do not characterize when the quadratic third-deck statistic also vanishes. The new F-difference factorization establishes the missing iff condition.",
+        "searches": [
+          "web: On the number of distinct k decks Enumeration and bounds Conjecture 1 weight 3 Section 5.3",
+          "web: weight-three three-deck collision involution zero gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k-decks_Enumeration_and_bounds, Section 5.3 Conjecture 1 and gap-vector nullspace",
+          "https://doi.org/10.3934/amc.2021032"
+        ],
+        "reasoning": "The invariant is the multiplicity vector of all scattered subsequences of length three at exactly weight three; not deletion sets, contiguous substrings or all-composition D_3(n). The older identical generating function is explicitly a conjecture, not a proved theorem.",
+        "searches": [
+          "Resultary: Binary three-deck weight three scattered subsequences generating function conjecture Chrisnata Kiah Vardy Yaakobi Yao proof involution",
+          "web: Conjecture 1 D_{3,3} Chrisnata solved proof"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chrisnata et al. original Section 5.3 states only first 20 coefficients verified, formula conjectured",
+          "Independent direct weight-three complete counts n=3..16, including (n=7, pairs=1) and (n=16,pairs=44)"
+        ],
+        "reasoning": "The conjectured coefficient table and computer trellis were prior. They are not an all-n proof, and the new involution determines all collision classes; no exact earlier all-n solution was located.",
+        "searches": [
+          "web: \"Conjecture 1\" \"D_{3,3}\" proof solved",
+          "Resultary semantic exact query weight-three three-deck conjecture proof"
+        ]
+      },
+      "rationale": "The exact rational generating function was explicitly CONJECTURED by Chrisnata, Kiah, Karingula, Vardy, Yaakobi and Yao in 2021 (journal 2023), after checking 20 coefficients, and is therefore not new as a proposal. Their Section 5.3 derived the same zero-gap nullspace and a comparison lemma, but explicitly left D_3,3(n) unknown. The audited original increment is the complete proof for every n and exact two-element fibre involution. Targeted searches did not find an intervening proof, with unindexed/alternate-language priority risk preserved. A 2026 paper on unrestricted k-deck degrees of freedom is broader in a different direction and its accessible abstract alone cannot establish noncoverage, so it is listed as residual risk.",
+      "residual_risks": [
+        "A 2021–2026 unindexed proof of Chrisnata Conjecture 1 might exist; 2026 related manuscript full text not obtained, but its abstract alone is not a decisive equivalence.",
+        "The formula itself and its zero-gap nullspace were prior and cannot be claimed as discoveries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "States exactly the same generating function as Conjecture 1 and checks 20 coefficients; no proof of it; the proof and complete fibre involution are assessed new",
+          "evidence": "Section 5.3 lines 2676–2944; Conjecture 1",
+          "identifier_or_url": "https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k-decks_Enumeration_and_bounds",
+          "material_read": "Author full text Section 5.3 paragraphs on nullspace, Lemma 24, Corollary 28, Conjecture 1, closing Section 6",
+          "method": "Full lawful public HTML transcription of author paper",
+          "title": "On the number of distinct k-decks: Enumeration and bounds",
+          "trigger": "Exact published Conjecture 1 for D_{3,3}"
+        },
+        {
+          "assessment": "General k-deck parameter bound, not demonstrated to give fixed-weight exact formula from available material; whole-document noncoverage not claimed",
+          "evidence": "arXiv abstract; explicit full-text access limitation",
+          "identifier_or_url": "https://arxiv.org/abs/2609.23106",
+          "material_read": "Publication abstract and available search metadata; full arXiv HTML attempt unavailable",
+          "method": "Publisher/arXiv abstract search only",
+          "title": "Improved upper bound on number of distinct k-decks by independent parameters",
+          "trigger": "2026 broader apparently related k-deck result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Chrisnata et al. Section 5.3 Conjecture 1, https://www.researchgate.net/publication/354441361_On_the_number_of_distinct_k-decks_Enumeration_and_bounds",
+        "independent_results.json"
+      ],
+      "rationale": "An all-length proof of a published exact enumeration conjecture and full classification of its ambiguity fibres is a substantive, naturally motivated reconstruction problem, not a recomputation of known finite coefficients. The strict at-most-two ambiguity and limiting 3/4 unique reconstruction fraction are new structural consequences, while the previously conjectured generating function is credited.",
+      "residual_risks": [
+        "Only weight three and length-three scattered decks, not a solution to the unrestricted deck problem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only binary words with exactly three ones, multiplicity three-decks, length n>=3; no unrestricted k-deck growth exponent or higher weights.",
+    "A 2021–2026 unindexed proof of Chrisnata Conjecture 1 might exist; 2026 related manuscript full text not obtained, but its abstract alone is not a decisive equivalence.",
+    "The formula itself and its zero-gap nullspace were prior and cannot be claimed as discoveries.",
+    "Only weight three and length-three scattered decks, not a solution to the unrestricted deck problem.",
+    "Frozen public AUDIT.json and METADATA.json both contain a confidential operational provenance key. The exact full original administrative-file bytes have been examined through authorized Git reads, but complete privacy-neutral replacement files have not been faithfully staged and rehashed in the writable audit container. Publication without exact-blob-guarded verified complete replacements could reveal confidential provenance. Scientific review itself is complete."
+  ],
+  "schema_version": 1
+}
