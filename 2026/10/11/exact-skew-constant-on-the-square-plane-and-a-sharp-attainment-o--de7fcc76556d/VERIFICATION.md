@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Put \(r=\beta/\alpha\). The proof uses only norm inequalities and two explicit Birkhoff-orthogonal constructions.
+# Independent mathematical audit
 
-For \(0<r\le1\), \(\|x+r y\|_\infty\le1+r\) and \(\|r x-y\|_\infty\ge1-r\), so the objective is at most \(2r\); Proposition 1 of the defining paper gives the independent bound \(1\). For \(0<r\le1/2\), \(x=(1,-1)\), \(y=(2r-1,-1)\) attains \(2r\). For \(r\ge1/2\), \(x=(1,-1)\), \(y=(1,0)\) attains \(1\). Both Birkhoff conditions are checked directly for all real \(\lambda\), not by sampling.
+## correctness
 
-For the boundary-segment obstruction, a line segment in the boundary of the square lies in a face. If \([x,y]\subset S_X\), some coordinate has \(x_j=y_j=s\in\{-1,1\}\). The endpoint \(x-(2/r)y\) then has coordinate \(s(1-2/r)\), whose magnitude exceeds \(1\) for \(r<1\). Therefore the second required segment cannot lie in the unit sphere for any \(r<1\).
+PASS
 
-The bundled `verify.py` checks the algebraic constructions on rational parameter grids and the endpoint obstruction. Its output is a regression check only; it is not a finite certificate for the quantified theorem.
+Put t=beta/alpha>0. For any unit Birkhoff pair, ||t x-y||=t||x-y/t||>=t, and ||x+t y||<=1+t; hence objective <=1. If 0<t<=1, triangle/reverse-triangle give ||x+t y||<=1+t and ||t x-y||>=1-t, so objective <=2t. For 0<t<=1/2 the unit vectors x=(1,-1), y=(2t-1,-1) are Birkhoff orthogonal: when lambda>=0 the second coordinate has modulus 1+lambda; when lambda<0 the first coordinate 1+(2t-1)lambda>=1. Their objective is 2t because ||x+t y||=1+t and ||t x-y||=1-t. For t>=1/2, x=(1,-1), y=(1,0) are Birkhoff orthogonal for all lambda via the fixed second coordinate; ||x+t y||=1+t and ||t x-y||=max(|t-1|,t)=t, achieving 1. The endpoints t=1/2 and t=1 are included, and t is always strictly positive. Any square sphere segment lies in a common face, so shared saturated coordinate of x,y becomes (1-2/t) times its sign at z=x-(2/t)y, of modulus >1 for t<1; hence no two-segment witness then. The full publisher original Theorem 2 prints that condition as necessary, so the claimed counterexample interval is valid. Independent exact rational regression over 13,395 t values reconstructs witnesses and source Git tree but does not prove the universal quantifiers.
 
-The literature verification used the full open-access defining article, including the exact definition and Theorem 2, and targeted searches for equivalent forms and corrections. The principal remaining risk is an unindexed later correction or duplicate computation.
+## originality
+
+PASS
+
+Best-of-knowledge: the original full-text 2024 source introduces the exact same constant and bounds it by 1, but does not state the square all-parameter profile and in fact prints a necessary upper-bound-attainment condition refuted on a nonempty interval. The published Radon/hexagonal result applies a symmetry hypothesis violated by the square. A 2026 skew-gauge preprint studies different unrestricted weights; its full primary text was inaccessible, so only the abstract-level distinction is asserted and that material remains a specific risk. Resultary included a listing of the assigned finding itself, excluded as independent prior publication, and noncovering related Birkhoff constants. No distinct published stronger statement implying both the exact square profile and the sharp-attainment counterexample was found in actual searches.
+
+## value
+
+PASS
+
+The real square plane is a canonical nonsmooth extreme Banach plane and B_{alpha-beta} is a named geometric invariant. Determining its complete two-parameter (ratio) profile, rather than a selected example, identifies the sharp natural switch at t=1/2. More substantively, the exact extremizers expose an interval of explicit counterexamples to a printed iff characterization of maximal skew separation; the supporting-face contradiction identifies the structural reason. This is a motivated correction/benchmark for any subsequent equality-condition or Banach geometric-constant study, not an arbitrary tiny parameter slice. It does not claim a complete general corrected iff theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
