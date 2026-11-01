@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:59:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/RESULT.md",
+        "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/VERIFY.py",
+        "/mnt/data/scope_worker02_run_20261031T1543/independent_checks.py",
+        "/mnt/data/scope_worker02_run_20261031T1543/independent_check_results.json"
+      ],
+      "rationale": "Brownian first-hit Laplace transform e^{-y sqrt(s/D)} and gate generator semigroup yield exact K_y(s) and marked transition M(z)=diag((1+z)/2,1), giving normalized matrix renewal resolvent for s>0. Excursion hitting times have 1/2-stable sum: contact n tail exactly erfc((x+(n-1)epsilon)/(2sqrt(Dt))), so renewal contact number scaled by sqrt(t) is half-normal with uniform moment bounds. Gate chain at hits is irreducible with stationary open fraction p; independent open-side coins give asymptotic mark fraction p/2 pathwise. No-switch transform expansion gives invertible 2×2 matrix determinant p(1-k)/2 and distinct exact C_O,C_C; monotone Tauberian theorem yields t^{-1/2} and infinite mean. Independent symbolic proof checks determinant and exact C difference; finite tests only corroborate analytic steps. No epsilon→0 or bulk resetting claim.",
+      "residual_risks": [
+        "Finite independent checks corroborate only their stated bounded domain; the universal claim depends on reconstructed analytic proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical renewal theory gives half-normal contact clock, but not model-calibrated marked-gate stationary factor p/2 and two explicit initial-state first-switch constants.",
+          "Scher et al. analyze gated target first passage ending in absorption, rather than continued translocations."
+        ],
+        "reasoning": "Generic Markov renewal theorem may imply the asymptotic half-normal scaling, but the exact 2×2 PGF and finite-gate-dependent tail amplitudes require specialization and were not located in inspected works.",
+        "searches": [
+          "Resultary exact semantic query: Brownian motion stochastically gated interface crossing count half normal excursions first translocation tail",
+          "arXiv:2601.13414",
+          "arXiv:2406.07142",
+          "arXiv:2211.09164"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2601.13414",
+        "https://arxiv.org/pdf/2406.07142",
+        "Resultary semantic query: Brownian motion stochastically gated interface crossing count half normal excursions first translocation tail"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bressloff exact renewal kernel for position is prior; proposed addition is probability-generating matrix marking side-change events and its asymptotic law.",
+          "Kay–Giuggioli count formula assumes a local-time Poisson mechanism, so is not a direct specialization with exogenous Markov gate and fixed epsilon."
+        ],
+        "reasoning": "Same mathematical model prior is acknowledged, but its unmarked propagator does not explicitly imply full crossing-count distribution; marking/rebuilding renewal matrix and deriving first-switch amplitudes are additional independent calculations.",
+        "searches": [
+          "Resultary exact semantic query: Brownian motion stochastically gated interface crossing count half normal excursions first translocation tail",
+          "arXiv:2601.13414",
+          "arXiv:2406.07142"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bressloff arXiv:2601.13414 develops the exact positive-offset gated interface and renewal operator for position.",
+          "Kay–Giuggioli arXiv:2406.07142 Section II.B obtains crossing count density for constant permeability via local-time subordination."
+        ],
+        "reasoning": "Position propagator distinguishes final side parity, not entire count N_t; constant-permeability Poisson local-time crossing differs from correlated two-state gate observations at positive-offset hits.",
+        "searches": [
+          "Resultary exact semantic query: Brownian motion stochastically gated interface crossing count half normal excursions first translocation tail",
+          "arXiv:2601.13414",
+          "arXiv:2406.07142"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary matching exact gate-specific C_O,C_C or complete marked resolvent."
+        ],
+        "reasoning": "There is no known fixed database for these continuous parameter families; negative search supports only a qualified priority judgment.",
+        "searches": [
+          "Resultary exact semantic query: Brownian motion stochastically gated interface crossing count half normal excursions first translocation tail",
+          "arXiv:2601.13414",
+          "arXiv:2406.07142"
+        ]
+      },
+      "rationale": "Bressloff establishes this exact finite positive offset, temporally gated Brownian renewal model and unmarked propagators, which must be credited. Kay–Giuggioli compute a crossing count for a different constant-permeability local-time Poisson interface. Neither inspected primary treatment gives the full marked Markov-renewal count law and gate-specific first true translocation amplitudes for the Bressloff model.",
+      "residual_risks": [
+        "Generic Markov renewal and half-normal thinning results might implicitly cover the asymptotic count law.",
+        "A specialized supplementary equation in original gated-interface literature could already encode the count PGF; no identical count law located."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_MODEL_NOT_FULL_MARKED_CROSSING_COUNTS",
+          "evidence": [
+            "Original model and unmarked position propagator acknowledged; not the stated N_t Laplace PGF and initial-gate first-switch constants."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2601.13414",
+          "material_read": "Entire 24-page primary PDF; Sections 2–4 renewal equations, gated interface and resetting extension",
+          "method": "Read lawful full-text PDF, including relevant theorem/section and surrounding proof; checked extracted text and rendered page",
+          "title": "Renewal theory for Brownian motion across a stochastically gated interface",
+          "trigger": "exact same positive-offset interface and Markov gate"
+        },
+        {
+          "assessment": "DIFFERENT_CONSTANT_PERMEABILITY_LOCAL_TIME_PROCESS",
+          "evidence": [
+            "Section II.B derives number of crossings via local-time Poisson subordination rather than Markov-correlated finite-offset excursion marks."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.07142",
+          "material_read": "Full primary PDF with Section II.B Crossing Statistics and Appendix discussion; rendered page 3 inspected",
+          "method": "Read lawful full-text PDF, including relevant theorem/section and surrounding proof; checked extracted text and rendered page",
+          "title": "Local Time Statistics and Permeable Barrier Crossing: from Poisson to Birth-Death Diffusion Equations",
+          "trigger": "another exact barrier crossing-count model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/RESULT.md",
+        "https://arxiv.org/pdf/2601.13414",
+        "https://arxiv.org/pdf/2406.07142"
+      ],
+      "rationale": "Actual number of side changes is distinct from final-side parity and measures transport events. The exact PGF, universal half-normal fluctuations, all-positive-moment limit, and closed first-translocation tail coefficients with gate-state ordering are natural observables of the established stochastic interface model.",
+      "residual_risks": [
+        "No claims outside the expressly bounded theorem domain are accepted."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2601.13414",
+    "https://arxiv.org/pdf/2406.07142",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/RESULT.md",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/SLOGAN.txt",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/REVIEW.md",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/VERIFICATION.md",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/AUDIT.json",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/METADATA.json",
+    "2026/10/26/half-normal-crossing-counts-and-exact-first-translocation-tails--8e32985ba1a4/VERIFY.py"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the positive-offset Brownian renewal interface gated by independent two-state Markov chain, actual translocation count N_t has an exact 2×2 Laplace-PGF resolvent; N_t/sqrt(t) tends in all positive moments to p*sqrt(2D)/(2epsilon)*|Z|. The first true switch survival is C_O(x)/sqrt(pi t) or C_C(x)/sqrt(pi t) with explicit distinct coefficients and infinite mean.",
+  "limitations": [
+    "Generic Markov renewal and half-normal thinning results might implicitly cover the asymptotic count law.",
+    "A specialized supplementary equation in original gated-interface literature could already encode the count PGF; no identical count law located."
+  ],
+  "schema_version": 1
+}

@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For the positive-offset, no-bulk-reset renewal model, the two-by-two kernel is derived directly from the Brownian first-hit transform and the independent gate semigroup. The counting transform is the convergent marked renewal series. The exact contact-count tail follows from the additive stability of Brownian first-hit durations; it proves uniform integrability and all positive moment limits. An ergodic theorem for the gate observed at hits yields the half-normal marked count law. The first-crossing Tauberian constant comes from the explicitly invertible two-state resolvent. The standalone symbolic/high-precision checker passes its stated tests and does not substitute for the proof.
+## correctness
 
-**Originality — PASS subject to the stated residual priority risks.** Bressloff (arXiv:2601.13414v1) introduces precisely the gated-interface renewal dynamics, and its full position-propagator/renewal discussion was compared with the proposed count and first-switch statements. It treats unmarked positions rather than the full number of actual side-changing translocations. Kay–Giuggioli (arXiv:2406.07142) *does* compute barrier crossing counts, but for a constant-permeability local-time Poisson process, not for this two-state temporally correlated gate with positive excursion offsets. Gated-target first-passage and generic boundary-encounter works do not supply the joint gate-dependent count transform and two state-specific first-translocation tail amplitudes. Classical half-normal renewal scaling and generic matrix-renewal algebra are acknowledged and not claimed as general discoveries. Residual implicit-coverage risk from a more general Markov-renewal counting theorem remains.
+PASS
 
-**Value — PASS.** Terminal position records only the parity of actual translocations, whereas experimental transport throughput is sensitive to the full count. The explicit gate-modulated transform and two different first-translocation persistence constants quantify what marginal position densities cannot; the nonvanishing universal asymptotic count variability is a physical operational consequence rather than merely an isolated moment calculation.
+Brownian first-hit Laplace transform e^{-y sqrt(s/D)} and gate generator semigroup yield exact K_y(s) and marked transition M(z)=diag((1+z)/2,1), giving normalized matrix renewal resolvent for s>0. Excursion hitting times have 1/2-stable sum: contact n tail exactly erfc((x+(n-1)epsilon)/(2sqrt(Dt))), so renewal contact number scaled by sqrt(t) is half-normal with uniform moment bounds. Gate chain at hits is irreducible with stationary open fraction p; independent open-side coins give asymptotic mark fraction p/2 pathwise. No-switch transform expansion gives invertible 2×2 matrix determinant p(1-k)/2 and distinct exact C_O,C_C; monotone Tauberian theorem yields t^{-1/2} and infinite mean. Independent symbolic proof checks determinant and exact C difference; finite tests only corroborate analytic steps. No epsilon→0 or bulk resetting claim.
 
-**Limits.** No zero-offset uniformity, bulk resetting, or extension to correlated particle/gate noise. Self-review analytical verification is not independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bressloff establishes this exact finite positive offset, temporally gated Brownian renewal model and unmarked propagators, which must be credited. Kay–Giuggioli compute a crossing count for a different constant-permeability local-time Poisson interface. Neither inspected primary treatment gives the full marked Markov-renewal count law and gate-specific first true translocation amplitudes for the Bressloff model.
+
+## value
+
+PASS
+
+Actual number of side changes is distinct from final-side parity and measures transport events. The exact PGF, universal half-normal fluctuations, all-positive-moment limit, and closed first-translocation tail coefficients with gate-state ordering are natural observables of the established stochastic interface model.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
