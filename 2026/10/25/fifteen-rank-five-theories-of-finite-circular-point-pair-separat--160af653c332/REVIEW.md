@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** An exact back-and-forth type recurrence from ordered quartet atomic diagrams gives a complete five-round decision procedure. Gap splitting proves three- and seven-cap sufficiency for every finite circle, and a directly replayed finite table establishes the nontrivial (6,7)/(7,7) pair-type collision. The 15 distinct boundary classes and the full tail therefore follow without extrapolating an infinite assertion from computations.
+## correctness
 
-**Originality: PASS, with residual access risk.** The closest examined primary research gives finite *graph-cycle* EF thresholds in a binary adjacency language (Brown–Hoshino, 2007) or infinite *oriented circular-order* minimality (Kulpeshov–Macpherson, 2005). Neither examined statement implies this exact fifteen-class classification in the four-place pair-separation signature. The relevant 2007 paper was materially read; the full 2005 paper remained inaccessible. Earlier claims and indexed results were compared semantically rather than by title alone. No search establishes exhaustive novelty.
+PASS
 
-**Value: PASS.** Pair separation is a natural orientation-free reduct of circular order and a geometric alternating-pairs relation. Five is the first depth at which its nontrivial gap organization becomes relevant. The complete sharp fifteen-element finite testing bound exhibits a genuine loss of low-depth information relative to oriented cyclic order; it is a complete logical invariant for a natural infinite family, not a selected numerical instance.
+Exact rank-five back-and-forth types can be computed recursively from all ordered-quartet alternation patterns and the SET of distinct one-point extension types; repeat-vertex responses are forced. For four marked points, only positivity of cyclic gaps is observable in one remaining move; for three, gap lengths truncated at 3 suffice, and for two, truncation at 7 suffices. Independent exhaustive full atomic checks (all three unordered pairings of each marked quartet, not just one) distinguished n=1,…,15 and found n=15 and 16 identical. They also established T2(6,7)=T2(7,7); the 7-gap reduction then proves the all-n>=15 tail from the seven possible pair types. IMPORTANT: the supplied separation_rank5_verify.py includes only one matching per four-subset, not the full four-ary atomic signature. Its printed certificate alone is therefore insufficient; I independently used the full matching signatures and obtained the same decisive values. The mathematical proof itself uses the complete relation.
 
-**Scientific limitations.** Rank five and the unexpanded four-place signature only. A potential unindexed equivalence remains possible. The result has no independent validation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rank-five separation reduct is not the same relational signature as unoriented cycle adjacency or oriented circular order. Brown–Hoshino prove rank-five eventual threshold 19 for binary cycle graphs, not 15 for quaternary alternating pairs; Kulpeshov–Macpherson concerns minimality of infinite circular orders. Same-object historical overlap remains possible, especially inaccessible 2005 full text; this alone does not refute originality.
+
+## value
+
+PASS
+
+Pair separation is a natural orientation-free reduct of cyclic order; a sharp fifteen-point representative bound for all quantifier-rank-five theories is a complete, nontrivial model-theoretic classification. It gives a finite testing bound and exposes a signature-specific cutoff distinct from ordinary cycle graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
