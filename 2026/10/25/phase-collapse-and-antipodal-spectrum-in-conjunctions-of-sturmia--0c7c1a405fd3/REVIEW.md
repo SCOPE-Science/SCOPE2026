@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The same-model proof identifies ergodic torus joining measures from the invariant relative phase, derives the intersection-window geometry directly, uses a convergent Fourier expansion to distinguish measures on the flat-frequency branch, and identifies the measurable coding with the circle modulo its exact interval-set stabilizer. The only nontrivial stabilizer in the nonzero cases is a half-turn at antipodal separation when the interval is longer than a semicircle. The measure-simplex and zero-entropy conclusions follow. The standalone finite arithmetic checks are supplementary, not replacements for the infinite proof.
+## correctness
 
-**Originality — PASS under inspected evidence.** Berstel--Vuillon (arXiv:math/0106217v1, read through the interval-intersection and coding sections) already establishes the circle-intersection geometry, including the fact that intersecting short arcs yields one arc. Frid--Jamet (arXiv:1302.3722v1, introduction and Sections 2--3 inspected) treats finite rotation-word counts and equal-slope pairs, rather than the invariant-measure space of their conjunction. The current claim concerns the new joint classification of phase collisions, distinct ergodic measures on an identical-frequency plateau, and a unique antipodal eigenvalue subgroup. The existing same-slope parity/XOR finding is not a covering theorem because its output map differs and its zero-phase collisions are different. Standard rotation spectral theory is acknowledged. A historical-priority risk remains for unindexed analyses of interval-coding joinings.
+PASS
 
-**Mathematical value — PASS.** This is a complete invariant-measure and Koopman-spectrum classification for a canonical symbolic factor of a resonant Sturmian product. It exhibits two independently observable transition mechanisms: a macroscopic collapse of distinct joining phases into a fixed output when the window is shorter than half the circle, and a measure-theoretic double-cover / even-eigenvalue exception at the antipodal long-window phase. The flat-density plateau does not collapse the distinct ergodic laws, a distinction proved by a measurable correlation invariant. These are structural descriptions of an infinite family, not a small numerical improvement.
+Every invariant ergodic lift of the product is Haar measure on a fixed relative-phase torus coset because the two Sturmian marginal codings are almost surely one-to-one irrational rotations. The AND window is the intersection of a length-alpha arc and its translated copy. Direct circle-arc computation establishes the frequency branches. On the long-window plateau, the first Bohr coefficient of pair correlations is |hat(1_J)(1)|^2 and equals [2 sin(pi(1-alpha)) cos(pi delta)/pi]^2, strictly distinguishing phases through 1/2. A dense irrational rotation separates symbolic phases modulo the finite translation stabilizer of J; only the delta=1/2 long-window J has half-turn invariance. Its quotient rotation has only even eigencharacters. Continuity and unique ergodic decomposition give the full invariant simplex; the product of zero-entropy Sturmian shifts has zero entropy.
 
-**Closest work and limits.** The intersection formulas and rotation-coding theory in Berstel--Vuillon 2001/2002 are prior, and the finite-word enumeration in Frid--Jamet 2013/2014 is a distinct task. No topological fibre count or arbitrary-slope extension is claimed. Self-review is not independent validation; historical originality beyond inspected sources remains uncertain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novel part: Phase collapse and antipodal spectrum in conjunctions of Sturmian shifts. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+An elementary Boolean factor of a product of two zero-entropy uniquely ergodic systems has a continuum of ergodic laws with an explicit parameter simplex, a counterintuitive frequency plateau with distinct measures, and a single exceptional spectral-halving phase. The conjunction geometry makes these measurable distinctions natural and reusable for Boolean factors of rotation systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

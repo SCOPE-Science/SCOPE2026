@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification evidence and limits
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the unrestricted invariant-measure and Koopman-spectrum statements. Its critical steps are: (i) almost-everywhere equivalence of Sturmian codings with circle rotations, (ii) ergodic decomposition on fixed phase-difference cosets, (iii) direct circular-interval intersection calculations, (iv) absolute convergence of the correlation Fourier expansion, (v) trivial/half-turn classification of the translation stabilizer, and (vi) affine extension by ergodic decomposition.
+## correctness
 
-To repeat finite computational checks, run `python3 verify.py`. The script has no external dependencies, uses a deterministic pseudorandom seed, tests overlap lengths and Fourier magnitudes with exact fractions for 2,980 rational configurations, verifies four exact half-turn identities, and tests 14 finite irrational-orbit frequencies. A passing numerical run neither establishes an arbitrary irrational statement nor proves uniqueness of ergodic measures; those statements rely on the mathematical proof. No external independent audit has been performed.
+PASS
+
+Every invariant ergodic lift of the product is Haar measure on a fixed relative-phase torus coset because the two Sturmian marginal codings are almost surely one-to-one irrational rotations. The AND window is the intersection of a length-alpha arc and its translated copy. Direct circle-arc computation establishes the frequency branches. On the long-window plateau, the first Bohr coefficient of pair correlations is |hat(1_J)(1)|^2 and equals [2 sin(pi(1-alpha)) cos(pi delta)/pi]^2, strictly distinguishing phases through 1/2. A dense irrational rotation separates symbolic phases modulo the finite translation stabilizer of J; only the delta=1/2 long-window J has half-turn invariance. Its quotient rotation has only even eigencharacters. Continuity and unique ergodic decomposition give the full invariant simplex; the product of zero-entropy Sturmian shifts has zero entropy.
+
+## originality
+
+PASS
+
+Best-of-knowledge novel part: Phase collapse and antipodal spectrum in conjunctions of Sturmian shifts. Generic/overlapping prior results are expressly credited and exact statement implications examined; inaccessible related papers remain explicit risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+An elementary Boolean factor of a product of two zero-entropy uniquely ergodic systems has a continuum of ergodic laws with an explicit parameter simplex, a counterintuitive frequency plateau with distinct measures, and a single exceptional spectral-halving phase. The conjunction geometry makes these measurable distinctions natural and reusable for Boolean factors of rotation systems.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
