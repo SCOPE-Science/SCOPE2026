@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "Cyclotomic conjugacy reduces binary-collision differences to a single rational DFT order shell; CRT decomposition into prime-power shells and the general tensor-product minimum support inequality prove (N/d)2^omega(d). A tensor of +/-1 local witnesses realizes the bound within differences of binary words, with every quantifier and special case d=1 covered. A separate exact checker exhaustively verifies N<=10 and checks larger constructive examples; it is not relied on as proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pei--Chang 2022 abstract states minimal sample count and ambiguity-pair existence, DOI:10.1109/TSP.2022.3190615.",
+        "Levinson--Viviano arXiv:2510.11949 pp. 4--5 and 9--10, Lemma 2.2 and Lemma 3.5, explicitly construct signed shell vectors with 2^omega entries (and repetitions).",
+        "Iosevich--Mayeli arXiv:2311.04331 pp. 10--13, Theorem 4.4, treats recovery bounds involving number of missing frequencies and support sizes."
+      ],
+      "reasoning": "The 2025 construction supplies an upper bound matching this theorem, while the present lower bound rules out every closer ambiguous pair. Its all-order minimum-distance proof does not follow merely from the stated existence theorem, and Iosevich--Mayeli bounds do not imply this sharp order-dependent value. However, the original 2022 article was not available in full and could contain a stronger result; that risk is expressly unresolved.",
+      "searches": [
+        "web: \"Binary Signal Perfect Recovery From Partial DFT Coefficients\" \"Hamming\" \"ambiguity\"",
+        "web: \"Pei\" \"Chang\" \"ambiguity pair\" \"support\" 2022 Fourier \"distance\"",
+        "robustness after deleting one minimal Fourier sample integer signals cyclic cyclotomic orbit"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2311.04331, PDF pp. 1--3 and 10--13",
+      "arXiv:2510.11949, PDF intro and Sections 2--3 and 6",
+      "Pei and Chang, DOI:10.1109/TSP.2022.3190615, publicly accessible abstract and detailed subsequent citation",
+      "Published mathematical-record comparisons on cyclotomic support and binary DFT erasure distance"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2025 Lemma 2.2 gives shell-supported +/-1 vectors but does not assert their minimum support; Section 3 generalizes them to images.",
+        "2023 Theorem 4.4 gives sufficient binary reconstruction assumptions rather than the sharp Hamming distance after a single minimal-order sample erasure.",
+        "The new proof identifies all rational shell subspaces as tensor products with local distances and proves no vector, not only the constructed witness, has smaller support."
+      ],
+      "reasoning": "The exact local p-adic zero-sum condition and tensor-product minimum-distance argument establish a converse absent from the inspected constructions. It sharpens known binary nonuniqueness after erasure to a quantitative all-order separation theorem, but may be entailed by a stronger uninspected coding or ambiguity-pair theorem; priority is qualified.",
+      "searches": [
+        "arXiv:2510.11949 Sections 2--3 (Galois orbit criterion and ambiguity-pair construction)",
+        "arXiv:2311.04331 Sections 2 and 4 (uncertainty and recovery)",
+        "robustness after deleting one minimal Fourier sample integer signals cyclic cyclotomic orbit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2510.11949 Section 2.1, Lemmas 2.1--2.2: order-class conjugacy and existence of a signed shell-localized word.",
+        "arXiv:2311.04331 Section 4: recovery from missing Fourier frequencies via uncertainty estimates."
+      ],
+      "reasoning": "The proposed statement is an exact minimum Hamming distance for every omitted character-order class. Prior cyclotomic equivalence and existence of a collision vector are acknowledged; searched treatments do not derive the lower bound for all possible signed ambiguity differences. The tensor-product support lower bound is additional.",
+      "searches": [
+        "minimum Hamming distance of binary ambiguity pairs when a single DFT cyclotomic-order sample missing",
+        "minimum support rational cyclic vector with Fourier transform supported on one primitive-order shell 2^omega(d) N/d",
+        "web: \"cyclotomic\" \"minimum Hamming weight\" rational Fourier support",
+        "web: \"one\" \"DFT\" \"missing\" \"Hamming distance\" binary image"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published result: Exact adversarial-erasure spectra for two-character cyclic harmonic frames (linear frame erasure, not binary DFT collision distance).",
+        "Published result: Exact positional Fourier-support incidence on the cyclic nine-point group (complex support incidence at one finite order, not binary rational-shell distance at arbitrary order)."
+      ],
+      "reasoning": "No exact all-order table or indexed formula was obtained in the searched records. A failure to retrieve a match is not a proof of historical uniqueness.",
+      "searches": [
+        "minimum support rational cyclic vector with Fourier transform supported on one primitive-order shell 2^omega(d) N/d",
+        "minimum Hamming distance of binary ambiguity pairs when a single DFT cyclotomic-order sample missing",
+        "web: \"primitive Fourier\" \"minimum support\" \"2^\" \"primes\""
+      ]
+    },
+    "rationale": "The accepted claim is a sharp minimum separation theorem after each deletion, not the prior one-per-divisor uniqueness theorem or existing ambiguity-pair constructions. Pei--Chang 2022 and Levinson--Viviano 2025 already supply qualitative loss of uniqueness and explicit upper-bound patterns; the converse support lower bound for every possible signed difference is established by prime-power zero-sum spaces and tensor-product minimum distance. Iosevich--Mayeli 2023 addresses different Fourier recovery bounds. Primary 2022 full text is inaccessible; priority remains provisional and the residual risk is recorded.",
+    "residual_risks": [
+      "The 2022 Pei--Chang full text remained inaccessible; it may prove a stronger minimization theorem beyond its publicly available abstract and later summaries.",
+      "A coding-theoretic theorem for rational irreducible cyclotomic subspaces may give the identical minimum distance under different terminology.",
+      "Search results and database partitioning cannot certify historical uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Recovery conditions and generic uncertainty estimates; does not calculate sharp binary collision distance for a deleted representative order class.",
+        "evidence": [
+          "https://arxiv.org/pdf/2311.04331, pp. 10--13, Definition 4.3, Theorem 4.4 and proof",
+          "https://arxiv.org/abs/2311.04331, initial submission 2023-11-07"
+        ],
+        "identifier_or_url": "arXiv:2311.04331",
+        "material_read": "Preprint PDF pp. 1--3 and 10--13, including Theorem 4.4 and related bounds",
+        "method": "Lawful open-access arXiv PDF, text and page screenshot",
+        "title": "Uncertainty Principles on Finite Abelian Groups, Restriction Theory, and Applications to Sparse Signal Recovery",
+        "trigger": "Supporting mathematical paper on binary recovery from missing Fourier frequencies; public timestamp 2023-11-07"
+      },
+      {
+        "assessment": "Already proves one-per-divisor uniqueness and existence of signed witnesses; does not state or prove the universal lower bound for Hamming distance, which is the result claimed here.",
+        "evidence": [
+          "https://arxiv.org/pdf/2510.11949, pp. 4--5, Lemmas 2.1--2.2",
+          "https://arxiv.org/pdf/2510.11949, pp. 9--12, Lemma 3.5 and constructions"
+        ],
+        "identifier_or_url": "arXiv:2510.11949",
+        "material_read": "Full accessible PDF examined in introduction, Sections 2--3 (especially Lemmas 2.1, 2.2, 3.5 and examples), and Section 6",
+        "method": "Lawful open-access arXiv PDF, text and page screenshot",
+        "title": "Recovery of Integer Images from Minimal DFT Samples: Uniqueness and Inversion Algorithms",
+        "trigger": "Strongest apparent coverage, same minimal DFT mask and explicit ambiguity-pair construction"
+      },
+      {
+        "assessment": "The foundational uniqueness and existence claims are acknowledged; full-text comparison of whether original ambiguity-pair lemmas also prove sharp minimum distance remains unresolved.",
+        "evidence": [
+          "https://scholars.lib.ntu.edu.tw/entities/publication/dc06d34d-d878-4379-96bb-b33ceb2584a9",
+          "https://patents.google.com/patent/JP7581410B2/en (dated non-patent citation: July 13, 2022)",
+          "https://arxiv.org/pdf/2510.11949, pp. 4--5, citing Pei--Chang Lemmas 2 and 4"
+        ],
+        "identifier_or_url": "doi:10.1109/TSP.2022.3190615",
+        "material_read": "Published abstract and an extensive secondary exposition in Levinson--Viviano 2025 Section 2.1; primary full text inaccessible",
+        "method": "Public university bibliographic abstract and later full-text paper comparison; authorized institutional PDF request unavailable",
+        "title": "Binary Signal Perfect Recovery From Partial DFT Coefficients",
+        "trigger": "Direct 2022 predecessor introducing ambiguity pairs and optimal binary sampling; dated citation identifies 2022-07-13 publication"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "63030002-1841-4e62-8a46-96e2a1cc564a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural invariant is the sharp minimum number of altered binary coordinates that can escape observation when precisely one of the indispensable Fourier samples is lost. The all-divisor formula and worst-erasure value reveal factorization-dependent robustness absent from qualitative unique-recovery results. Its precise value can determine sparse-change detection thresholds and is proved by a nontrivial universal lower-bound argument; this is a motivated quantitative classification rather than a routine numeric increment.",
+    "status": "PASS"
+  }
+}
