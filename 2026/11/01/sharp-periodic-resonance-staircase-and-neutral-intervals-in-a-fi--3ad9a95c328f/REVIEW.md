@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness — PASS.** The proof establishes the exact affine half-return \(G_k(x)=M\alpha^kx-MS_k\), the full-return equation, and equivalence between strict itinerary admissibility and \(q_k<M-1\). The neutral identity-cylinder argument covers the multiplier-one boundary rather than misclassifying it as an isolated cycle. Monotonicity of \(q_k\) proves the finite cutoff, and explicit radical inequalities separate the higher-period birth thresholds from stability cutoffs at \(M=5\). The standalone algebraic checker reproduces the relevant formulas and examples; finite tests supplement, but do not replace, the proof.
+
+**Originality — PASS within inspected evidence.** The complete text of García-Grimaldo *et al.* (2023, Sections 2–3) gives the same four branches and depicts finite periodic windows numerically, not the general \(k\)-criterion, neutral identity intervals, or exact cutoff \(1/\sqrt5\). The 2021 originating paper supplies the fixed-point-free family and a Devaney-chaos example, per its accessible abstract and the 2023 attribution. Its full text and the 2022 comparative chapter remain inaccessible, which is a concrete publication-priority risk. A similarity search found other periodic-point studies for different maps; neither identical state equations nor stronger implications for this four-branch family were identified. Ordinary affine-return methods and general border-collision theory are prior art.
+
+**Mathematical value — PASS.** The 2023 paper explicitly reports parameter windows for period-four and period-six behavior and uses them to interpret numerical bifurcations. The theorem identifies the exact stability endpoints, proves a global cutoff within a natural family of symbolic itineraries, and resolves the neutral boundaries as intervals of periodic points. Those distinctions matter for interpreting finite-precision simulations of a fixed-point-free map; they are not claims about all orbits or cryptographic performance.
+
+**Limits.** Strict branch interiors are essential, and the classification is limited to one-inner-block cycles. Independent validation and definitive priority confirmation are not available.
+
+Self-review: passed. Independent audit: not yet performed.
