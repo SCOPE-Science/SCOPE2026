@@ -1,13 +1,21 @@
-# Review of the three–five generalized-Petersen parity classification
+# Independent mathematical audit
 
-## Correctness: PASS
-The all-size proof uses the explicit Laurent matrix of the open-neighbour XOR operator. Factoring its determinant identifies primitive third- and fifth-root singularities; root multiplicities in \(x^n-1\) are controlled by \(2^{\nu_2(n)}\). At the third roots, the exact identity \(M^2=zU\) with a commuting unit \(U\) forces one Jordan block of length \(2k\) per root. At the fifth roots, the distinct local eigenvalues and determinant valuation give one length-\(k\) nilpotent block per root. These statements prove every asserted rank, recurrent count, depth stratum, fibre count and sharp last-depth fraction. The separate checker verified \(642\) power-rank cases and exhausted \(5120\) configurations. No finite check was substituted for the universal proof.
+## correctness
 
-## Originality: PASS (bounded evidence)
-The closest relevant sources are Gera–Stănică (2011), Dudek (arXiv:1412.3531), Oliveira–Vinagre (arXiv:1511.03513), and Torrence–Torrence (2016). The first three derive real spectral information; characteristic-two zero-primary ranks and depth strata do not follow merely from their real spectra. The fourth studies the binary \(\sigma^+\) response \(A+I\), not the iterates of the open-neighbour operator \(A\). Available comparable database findings treat different graph families. Searches under generalized-Petersen, binary adjacency, Lights Out, XOR, Jordan-power, and three/five-resonance formulations did not reveal an equivalent classification. Residual risk: an obscure earlier direct classification or a stronger theorem elsewhere could imply this claim.
+PASS
 
-## Mathematical value: PASS
-This is a natural complete classification for the binary dynamics on the standard generalized-Petersen family, rather than an isolated parameter instance. The exact arithmetic thresholds and two distinct Jordan lengths explain qualitatively different regimes and provide closed attractor and relaxation-depth enumerations. The unbounded transient depth at fixed odd core and the uniform last-depth fractions distinguish dynamical information not captured by the number of singular states alone.
+For P(n,2), n>=5, open-neighbour F2 parity dynamics has Laurent transition M(x)=[[u,1],[1,u^2]], u=x+x^-1; det=u^3+1 and x^3 det=(x^2+x+1)(x^4+x^3+x^2+x+1). With n=k r and k=2^v2(n), odd r, each selected root of order 3 or5 supports a local length-k truncated ring. At a primitive 3rd root, z=u+1 is a uniformizer and exactly M^2=zU for a commuting invertible U, with Smith exponents (0,1), giving rank max(2k-t,0) and one zero Jordan block of size 2k per root. At a primitive 5th root, trace(M)=1 at the root and its determinant vanishes simply, giving one zero block size k and an invertible k-block per root. Therefore with alpha=1_{3|r}, beta=1_{5|r}, zero Jordan sizes are 2alpha blocks of 2k and 4beta blocks of k, stable dimension d=2n-4k(alpha+beta). Recurrent configurations number 2^d, maximum depth T=max(2k alpha,k beta), and cumulative depth<=t count H_n(t)=2^{d+2alpha min(t,2k)+4beta min(t,k)}. These imply invertibility iff gcd(n,15)=1 and last-depth fractions 3/4 or15/16, respectively. Independently rebuilt adjacency over F2 for all n=5..80 and matched 331 ranks, including n5 recurrent64 T1, n6 recurrent16 T4. Infinite conclusions follow local-algebra decomposition, not numerical extrapolation.
 
-## Independent status
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Qualified PASS: existing real spectra of generalized Petersen graphs do not determine mod-two higher-power ranks or Jordan chains. Torrence-Torrence binary Lights Out on Petersen graphs studies the CLOSED-neighbour A+I response map rather than repeated open-neighbour A dynamics and does not supply the present transient depth census. The assessed 3/5 root resonance and all-n Jordan-depth formula are the specific increment.
+
+## value
+
+PASS
+
+The generalized Petersen graph family is a standard natural cubic-graph family, and open-neighbour parity is a canonical finite linear dynamical rule. Its exact 3/5 resonance, periodic dimension and complete transient-depth distribution for every n provide structural and enumerative information beyond a one-step rank. These formulas are not arbitrary small-parameter slices and distinguish characteristic-two Jordan phenomena from real spectra.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

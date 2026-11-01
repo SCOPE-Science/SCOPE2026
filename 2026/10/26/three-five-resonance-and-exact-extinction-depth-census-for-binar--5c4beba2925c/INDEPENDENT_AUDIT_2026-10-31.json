@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T18:08:00Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "assigned RESULT.md blob 7f386c881293dd798e78782674e2b91ab91cb43b",
+        "assigned verification/verify_gp.py blob 69d1cb40d912278a83f94d20857eebdf27b213d3",
+        "independent_checks.py generalized Petersen binary ranks"
+      ],
+      "rationale": "For P(n,2), n>=5, open-neighbour F2 parity dynamics has Laurent transition M(x)=[[u,1],[1,u^2]], u=x+x^-1; det=u^3+1 and x^3 det=(x^2+x+1)(x^4+x^3+x^2+x+1). With n=k r and k=2^v2(n), odd r, each selected root of order 3 or5 supports a local length-k truncated ring. At a primitive 3rd root, z=u+1 is a uniformizer and exactly M^2=zU for a commuting invertible U, with Smith exponents (0,1), giving rank max(2k-t,0) and one zero Jordan block of size 2k per root. At a primitive 5th root, trace(M)=1 at the root and its determinant vanishes simply, giving one zero block size k and an invertible k-block per root. Therefore with alpha=1_{3|r}, beta=1_{5|r}, zero Jordan sizes are 2alpha blocks of 2k and 4beta blocks of k, stable dimension d=2n-4k(alpha+beta). Recurrent configurations number 2^d, maximum depth T=max(2k alpha,k beta), and cumulative depth<=t count H_n(t)=2^{d+2alpha min(t,2k)+4beta min(t,k)}. These imply invertibility iff gcd(n,15)=1 and last-depth fractions 3/4 or15/16, respectively. Independently rebuilt adjacency over F2 for all n=5..80 and matched 331 ranks, including n5 recurrent64 T1, n6 recurrent16 T4. Infinite conclusions follow local-algebra decomposition, not numerical extrapolation.",
+      "residual_risks": [
+        "Recurrent primitive periods within invertible component are NOT classified.",
+        "n>=5 ensures the claimed graph is simple cubic; smaller n outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Real adjacency eigenvalues of generalized Petersen graphs do not determine mod-two nilpotent chains. Closed-neighbour solvability and finite nullity tables in Lights Out do not determine dynamics of A powers."
+        ],
+        "reasoning": "Existing spectral frameworks provide tools but do not directly entail the exact 2alpha/4beta Jordan multiplicities and H_n(t) formula; broader polynomial matrix structure may still subsume it.",
+        "searches": [
+          "Torrence-Torrence Involve 2016 full text",
+          "Dudek arXiv:1412.3531",
+          "Oliveira-Vinagre arXiv:1511.03513",
+          "Resultary: generalized Petersen P(n,2) binary parity cellular automaton adjacency map powers characteristic two Jordan nilpotent dynamics"
+        ]
+      },
+      "checked_sources": [
+        "Torrence & Torrence, An iterative strategy for Lights Out on Petersen graphs, Involve 9 (2016) 719-734, full PDF",
+        "Dudek, On the Spectrum of the Generalised Petersen Graphs, arXiv:1412.3531",
+        "Oliveira & Vinagre, The spectrum of an I-graph, arXiv:1511.03513",
+        "Resultary semantic query: generalized Petersen P(n,2) binary parity cellular automaton adjacency map powers characteristic two Jordan nilpotent dynamics"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The characteristic-two factorization det M=(u^3+1) and local zero Jordan structure are not determined by real eigenvalues or by one-shot A+I Lights Out solvability."
+        ],
+        "reasoning": "The novelty comparison is statement-by-statement: knowing rank(A+I) or spectrum(A over R) does not imply rank(A^t over F2), nor the exact count of first periodic entry times.",
+        "searches": [
+          "Torrence-Torrence 2016 sigma-plus operator definition",
+          "Dudek generalized Petersen real spectra",
+          "Resultary: generalized Petersen P(n,2) binary parity cellular automaton adjacency map powers characteristic two Jordan nilpotent dynamics"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The map is block-circulant convolution on F2[x,x^-1]/(x^n-1); Torrence-Torrence use sigma-plus=A+I for Lights Out, whereas the audited repeated dynamical operator is exactly A."
+        ],
+        "reasoning": "Compared the same F2 matrix problem in Laurent and block-circulant notation and differentiated A from A+I; no matching all-power rank/Jordan basin theorem found in those inspected results.",
+        "searches": [
+          "Resultary: generalized Petersen P(n,2) binary parity cellular automaton adjacency map powers characteristic two Jordan nilpotent dynamics",
+          "Lights Out Petersen GF2 adjacency vs closed neighbourhood",
+          "generalized Petersen P(n,2) binary adjacency cellular automata"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A distinct finite GF2 closed-neighbour nullity table is published, but the assessed formula applies to ALL n>=5 and EVERY transient time t for open-neighbour update; finite tests n<=80 corroborate."
+        ],
+        "reasoning": "No equivalent exact database of all mod-two ranks of A^t on P(n,2) located in inspected primary results; a table for A+I cannot be repurposed without a new algebraic identity.",
+        "searches": [
+          "Torrence-Torrence 2016 Petersen Lights Out tables",
+          "Resultary: generalized Petersen P(n,2) binary parity cellular automaton adjacency map powers characteristic two Jordan nilpotent dynamics",
+          "independent 331 GF2 rank cases"
+        ]
+      },
+      "rationale": "Qualified PASS: existing real spectra of generalized Petersen graphs do not determine mod-two higher-power ranks or Jordan chains. Torrence-Torrence binary Lights Out on Petersen graphs studies the CLOSED-neighbour A+I response map rather than repeated open-neighbour A dynamics and does not supply the present transient depth census. The assessed 3/5 root resonance and all-n Jordan-depth formula are the specific increment.",
+      "residual_risks": [
+        "A general characteristic-two graph cellular-automaton or block-circulant theorem could imply this Jordan structure without mentioning generalized Petersen graphs.",
+        "Distinct closed-neighbour Lights Out operators must not be conflated with the repeated open-neighbour map."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DISTINCT_OPERATOR",
+          "evidence": "Uses closed-neighbour sigma-plus=A+I for Lights Out push-response, not repeated synchronous A parity powers or their nilpotent depth census.",
+          "identifier_or_url": "https://msp.org/involve/2016/9-5/involve-v9-n5-p01-p.pdf",
+          "material_read": "Accessible primary full PDF with mathematical definitions and relevant results, including visual screenshot inspection",
+          "method": "Web PDF text and page screenshot",
+          "title": "An iterative strategy for Lights Out on Petersen graphs",
+          "trigger": "Same graph family, binary-field operator; strongest potential coverage"
+        },
+        {
+          "assessment": "DIFFERENT_FIELD",
+          "evidence": "Real graph spectra do not settle the structure of powers modulo two.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.3531",
+          "material_read": "Accessible abstract and relevant real spectral statements; not a comprehensive full-document exclusion",
+          "method": "Web arXiv abstract",
+          "title": "On the Spectrum of the Generalised Petersen Graphs",
+          "trigger": "Same graph family spectral results"
+        },
+        {
+          "assessment": "DIFFERENT_FIELD",
+          "evidence": "Real spectra of an I-graph, not the modulo-two Jordan chain census.",
+          "identifier_or_url": "https://arxiv.org/abs/1511.03513",
+          "material_read": "Abstract and spectral framework only; full text not conclusively excluded",
+          "method": "Web arXiv abstract",
+          "title": "The spectrum of an I-graph",
+          "trigger": "Potentially broader spectrum for P(n,2)"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Laurent polynomial root factorization",
+        "local Jordan and Hensel splitting calculation",
+        "existing Petersen spectral and Lights Out work"
+      ],
+      "rationale": "The generalized Petersen graph family is a standard natural cubic-graph family, and open-neighbour parity is a canonical finite linear dynamical rule. Its exact 3/5 resonance, periodic dimension and complete transient-depth distribution for every n provide structural and enumerative information beyond a one-step rank. These formulas are not arbitrary small-parameter slices and distinguish characteristic-two Jordan phenomena from real spectra.",
+      "residual_risks": [
+        "Primitive cycle lengths inside the recurrent space remain unknown here; the claimed depth census remains self-contained and meaningful without them."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "n>=5, open-neighbour XOR over F2, P(n,2) only; no primitive cycle period census.",
+    "Finite n<=80 checks corroborate but do not prove all-n local-ring argument.",
+    "Publication withheld pending semantic sanitization of potentially public administrative provenance; review is scientifically completed."
+  ],
+  "schema_version": 1
+}
