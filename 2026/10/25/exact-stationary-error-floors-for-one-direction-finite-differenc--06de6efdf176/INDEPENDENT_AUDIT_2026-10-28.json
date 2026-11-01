@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T03:52:56Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Independent reconstruction of all seven source Git blobs yielded source tree SHA 11adea233a705df5a78d455363cc98843ef508fb.",
+        "Independently integrated angular m and beta for (a,b)=(1,1),(1,4),(9,16),(100,1), with agreement to <1e-12; independently substituted claimed covariance into the stationary matrix equations and checked gap.",
+        "For (a,b)=(1,4), normalized h=1 expected loss is Haar 7/12=0.5833333333 vs coordinates 5/8=0.625, gap 1/24.",
+        "Contraction calculation is uniform over all positive a,b and gives analytic uniqueness and convergence, not a finite simulation inference."
+      ],
+      "rationale": "For planar f(x)=(a x1^2+b x2^2)/2 with a,b,h>0, the forward-difference gradient has exact curvature bias (h/2)u^THu, while the second difference returns u^THu. Under z=H^(1/2)x and v=H^(1/2)u/||H^(1/2)u|| the update is z+=(I-vv^T)z-(h/2)H^(1/2)u. Synchronous coupling contracts expected squared norm by 1-lambda_min(E[vv^T])<1; the stationary law and second moments therefore exist uniquely. Sign symmetry kills cross terms and off-diagonal stationary covariance. Independent angular quadrature verifies m=E[v1^2]=sqrt(a)/(sqrt(a)+sqrt(b)), beta=E[v1^2 v2^2]=sqrt(ab)/(2(sqrt(a)+sqrt(b))^2), giving invertible covariance system determinant 3beta. Solution yields stated Haar covariance h² diag((3a+b+2sqrt(ab))/a,(a+3b+2sqrt(ab))/b)/24 and coordinate covariance h² I/4. Thus errors h²(a+b+sqrt(ab))/12 and h²(a+b)/8 differ by h²(sqrt(a)-sqrt(b))²/24. The one-step optimizer boundary gives equal expected error h²(a+b)/16, so the limit claim is not a transient domination statement.",
+      "risks": [
+        "Strict gap only when a!=b and only asymptotic expected objective; coordinate law may contract faster transiently.",
+        "Fixed positive forward radius, exact directional Hessian and noise-free quadratic oracle are essential."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General bounds of order h² do not imply the exact different constants (a+b+sqrt(ab))/12 and (a+b)/8.",
+          "Exact-gradient RSN h=0 has zero forcing, while the fixed positive-radius iteration retains a nonzero stationary error."
+        ],
+        "reasoning": "A general contraction result proves qualitative existence, not the exact sharp stationary covariance or comparison; different algorithms or h=0 regimes do not dominate the present theorem.",
+        "searches": [
+          "arXiv:2202.04612 full-text convergence estimates",
+          "arXiv:2107.03941 fixed-radius gradient neighborhood",
+          "arXiv:1905.10874 exact-gradient randomized subspace Newton"
+        ]
+      },
+      "checked_sources": [
+        "Berglund–Khirirat–Wang arXiv:2202.04612 full primary text",
+        "Kozak et al. arXiv:2107.03941 primary abstract and methods",
+        "Gower et al. arXiv:1905.10874 algorithm-level prior",
+        "Resultary related stochastic subspace descent/coordinate sampling findings",
+        "Direct web search for stationary finite-difference Newton sketch covariance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Same original Newton method estimates projected derivatives, but does not solve the invariant Lyapunov equation for a 2D quadratic.",
+          "Projected gradient method and exact-gradient Newton method do not have the same additive curvature bias, so their contraction theorems cannot imply the present stationary constants."
+        ],
+        "reasoning": "The new formulas depend on angular m and beta moments and the nonzero bias forcing covariance; these are independent computations not entailed by existing big-O rates.",
+        "searches": [
+          "Berglund Khirirat Wang arXiv:2202.04612 Algorithm, finite difference Eq.(6)-(7)",
+          "Kozak Molinari Rosasco Tenorio Villa arXiv:2107.03941",
+          "Gower Kovalev Lieder Richtarik arXiv:1905.10874"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Berglund–Khirirat–Wang present the same finite-difference sketch Newton method and convergence estimates, but not the 2D stationary random affine covariance law.",
+          "Kozak et al. use a projected gradient-type zeroth-order direction step, not the Hessian-normalized Newton update."
+        ],
+        "reasoning": "Aliases stochastic projection/Kaczmarz with random affine forcing and constant-radius directional Newton were considered. Existing result statements compare convergence or error neighborhoods but do not evaluate the invariant law under these two distributions.",
+        "searches": [
+          "Resultary semantic: zeroth order randomized subspace Newton finite difference stationary covariance coordinate directions Haar quadratic anisotropic",
+          "\"zeroth-order randomized subspace Newton\" stationary error Haar coordinate quadratic",
+          "arXiv:2202.04612"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same-method exact anisotropy gap table or stationary two-policy covariance result found in bounded primary and mathematical-record search.",
+          "A related newer 2025 subspace-approximate Hessian method imposes fitting and safeguarding, different update."
+        ],
+        "reasoning": "No located table evaluates these two exact sketch choices; an unindexed linear stochastic projection literature formula remains a priority risk.",
+        "searches": [
+          "\"zeroth-order randomized subspace Newton\" stationary error Haar coordinate quadratic",
+          "Resultary stationary random Newton Haar anisotropy covariance",
+          "web finite-difference Newton steady-state quadratic coordinate Haar exact"
+        ]
+      },
+      "rationale": "The update mechanism is from Berglund–Khirirat–Wang and random-direction zeroth-order optimization is classical. The complete exact stationary covariance under the two specific sketch laws and perfect-square anisotropy gap are not determined by the checked general error bounds, first-order alternatives or exact-gradient RSN. Best-of-knowledge original restricted quantitative comparison.",
+      "residual_risks": [
+        "An equivalent stationary random-projection covariance calculation could exist in specialized numerical linear-algebra or stochastic-approximation papers.",
+        "No global nonlinear or finite-precision robustness claim is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact two-law planar stationary covariance; antecedent method explicitly acknowledged",
+          "evidence": [
+            "Berglund–Khirirat–Wang Eq.(6)-(7) gives ZO projected gradient/Hessian; source bounds are not exact stationary covariance formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.04612",
+          "material_read": "Accessible full primary arXiv HTML, algorithm/equations and finite-difference convergence estimates",
+          "method": "Read full text with focus on projected derivative estimators and assumptions",
+          "title": "Zeroth-Order Randomized Subspace Newton Methods",
+          "trigger": "Exact source of one-direction projected finite-difference Newton update"
+        },
+        {
+          "assessment": "DIFFERENT_METHOD projected-gradient update; cannot imply Hessian-normalized stationary law without additional reasoning",
+          "evidence": [
+            "Kozak–Molinari–Rosasco–Tenorio–Villa study gradient-descent type zeroth-order optimization, not the same one-direction Newton denominator."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2107.03941",
+          "material_read": "Primary abstract and identified approach, plus theorem-level comparison; full paper not independently reread this run",
+          "method": "Bounded full-source lookup and algorithm comparison",
+          "title": "Zeroth order optimization with orthogonal random directions",
+          "trigger": "Near-alias Haar vs coordinate sketch policy on quadratics"
+        },
+        {
+          "assessment": "DIFFERENT_INPUT exact derivatives h=0: no fixed forward-difference error floor",
+          "evidence": [
+            "The current theorem requires h>0, so exact-derivative convergence to zero is not a covering theorem."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1905.10874",
+          "material_read": "Known original algorithm and exact-derivative scope from accessible source descriptions; not a full reread this run",
+          "method": "Algorithm-level comparison",
+          "title": "RSN: Randomized Subspace Newton",
+          "trigger": "Historical ancestor of randomized subspace Newton"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Explicit error constants and unique equality at a=b permit direct comparison under any positive curvature ratio.",
+        "Stationary distribution existence and all-parameter covariance are proved, not inferred from simulation."
+      ],
+      "rationale": "The exact fixed-radius stationary error of a practical derivative-free Newton sketch is a natural optimization invariant. The two canonical sketch laws have the same per-step query count and the same one-step optimizer error but different sharp long-run risks. The perfect-square anisotropy gap gives a precise, experimentally testable policy contrast, while the opposing transient contraction factors expose a genuine tradeoff. This adds quantitative content beyond generic O(h²) neighborhoods.",
+      "risks": [
+        "Planar positive quadratic model and fixed full steps only; not a practical superiority claim under arbitrary settings."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

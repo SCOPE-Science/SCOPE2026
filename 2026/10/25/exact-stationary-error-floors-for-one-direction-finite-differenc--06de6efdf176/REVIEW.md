@@ -1,11 +1,21 @@
-# Review of the exact planar finite-difference Newton sketch comparison
+# Independent mathematical audit
 
-**Correctness — PASS.** For every positive curvature pair and difference radius, the forward-difference Hessian is exactly the projected quadratic Hessian, so the iteration has the affine projector form used in the proof. Strict synchronous coupling proves the stationary limit and allows second-moment calculations. The angular identities give an explicitly invertible covariance system with determinant \(3\beta>0\); the stationary expressions and their difference follow by direct algebra. The accompanying standalone checker independently reconstructs the three-function-value update and angular quadrature; all 1,450 checks passed.
+## correctness
 
-**Originality — PASS (self-review, residual priority risk).** The closest publication [1] specifies the method and estimates a general finite-difference error, but does not derive this sharp stationary covariance comparison. The near-alias [2] addresses a different projected-gradient update and leaves precise quadratic analysis as future work; general neighborhood bounds do not imply the stated exact coefficients for Newton scaling. Study [3] treats finite-difference gradient estimation and step quality, not the repeated Hessian-normalized random direction process. The original RSN formulation [4] assumes exact derivative information, so its convergence claims cannot imply the persistent fixed-radius error floor. Mathematical-record and within-collection searches for stationary quadratic finite-difference Newton floors, Haar/coordinate duality and their exact anisotropy difference did not identify a statement implying the claim. Absence from search results is not proof of priority; specialized results may exist.
+PASS
 
-**Value — PASS.** Fixed evaluation-radius curvature error is a natural limitation in derivative-free subspace Newton iteration, and both sampling designs are standard. The result gives an exact long-run cost of finite differencing and a strict, interpretable selection criterion, rather than another generic bound. The perfect-square anisotropy gap and slower Haar coupling rate jointly expose a genuine tradeoff between asymptotic risk and transient contraction. This complements the published general convergence estimates without claiming practical superiority across all regimes.
+For planar f(x)=(a x1^2+b x2^2)/2 with a,b,h>0, the forward-difference gradient has exact curvature bias (h/2)u^THu, while the second difference returns u^THu. Under z=H^(1/2)x and v=H^(1/2)u/||H^(1/2)u|| the update is z+=(I-vv^T)z-(h/2)H^(1/2)u. Synchronous coupling contracts expected squared norm by 1-lambda_min(E[vv^T])<1; the stationary law and second moments therefore exist uniquely. Sign symmetry kills cross terms and off-diagonal stationary covariance. Independent angular quadrature verifies m=E[v1^2]=sqrt(a)/(sqrt(a)+sqrt(b)), beta=E[v1^2 v2^2]=sqrt(ab)/(2(sqrt(a)+sqrt(b))^2), giving invertible covariance system determinant 3beta. Solution yields stated Haar covariance h² diag((3a+b+2sqrt(ab))/a,(a+3b+2sqrt(ab))/b)/24 and coordinate covariance h² I/4. Thus errors h²(a+b+sqrt(ab))/12 and h²(a+b)/8 differ by h²(sqrt(a)-sqrt(b))²/24. The one-step optimizer boundary gives equal expected error h²(a+b)/16, so the limit claim is not a transient domination statement.
 
-The scope is two-dimensional, centered positive quadratics, exact unguarded full-length projected Newton updates, independent unit directions, and fixed forward differences. Centered differences, safeguard rules, varying radii, general Hessians in higher dimensions, noisy evaluations, nonquadratic problems and machine floating-point behavior are not covered. The mathematical proof is complete within that scope, but independent scientific and publication-priority assessment remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The update mechanism is from Berglund–Khirirat–Wang and random-direction zeroth-order optimization is classical. The complete exact stationary covariance under the two specific sketch laws and perfect-square anisotropy gap are not determined by the checked general error bounds, first-order alternatives or exact-gradient RSN. Best-of-knowledge original restricted quantitative comparison.
+
+## value
+
+PASS
+
+The exact fixed-radius stationary error of a practical derivative-free Newton sketch is a natural optimization invariant. The two canonical sketch laws have the same per-step query count and the same one-step optimizer error but different sharp long-run risks. The perfect-square anisotropy gap gives a precise, experimentally testable policy contrast, while the opposing transient contraction factors expose a genuine tradeoff. This adds quantitative content beyond generic O(h²) neighborhoods.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
