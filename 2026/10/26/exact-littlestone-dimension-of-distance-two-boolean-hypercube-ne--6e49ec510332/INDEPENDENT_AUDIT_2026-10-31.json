@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:08:25Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md and shell2_witnesses.json blob 38fa85ae2917449d02afb96f39e858bb65e896c8",
+        "Independent exact recursion and all leaf-path checks"
+      ],
+      "rationale": "For H_d={x↦1[dist_H(x,c)=2]}, after a positive first query the center options are edges of K_d. Any subsequent exact-distance-two query with support Z is positive only for weights 0,2,4, corresponding to all edges, K_{2,d-2} cut, or six inside edges; other weights give none. The two-star K_{2,m} has online rank at most 3: in potentially large positive branches, a further query leaves one child with <=3 hypotheses. Hence the positive root branch rank≤4 and global rank≤5 for all d. Complement duplicate centers at d4 and cardinality give low-d upper limits. Exact full shattered trees at d2,3,5,7 yield all lower bounds by zero-padding. Independently verified all 54 leaf paths of four actual Git JSON witnesses and computed ranks 0,1,2,2,4 in d1..5 by separate memo recursion.",
+      "residual_risks": [
+        "General bound is a structural argument, not extrapolated from dimension 7.",
+        "Witnesses are for deterministic realizable Littlestone, not randomized/proper-only mistakes."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Malliaris--Moran arXiv:2108.05569 general Littlestone/stable graph framework",
+          "Chase--Mehalel arXiv:2609.21445 Theorem 5.1 proves general randomized proper-learning lower bounds and Observation 5.2 gives L(H_d)=d+1 for another concept class"
+        ],
+        "reasoning": "These are broader abstract learning theorems or different concrete classes; neither yields the piecewise 0,1,2,2,4,4,5 formula for exact-distance-two cube spheres.",
+        "searches": [
+          "Littlestone dimension exact distance-two Hamming sphere Boolean hypercube thicket dimension adaptive mistake trees",
+          "Littlestone dimension graph neighborhoods model theoretic stability Hamming scheme"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2007.16042, full PDF relevant sections",
+        "arXiv:2609.21445, full PDF Section 5",
+        "arXiv:2108.05569, abstract only",
+        "Resultary semantic query 3, weight-two Turán record"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Adler et al Theorems 4.6-4.8 bound VC for Hamming graph neighbor relation, distance one",
+          "Chase--Mehalel PDF p.12-13 defines block-size-n functions h_{n,S} and proves L(H_d)=d+1",
+          "Independent exact tree at d5 depth4 while same-class VC dimension is 3"
+        ],
+        "reasoning": "VC upper bounds and generic learning bounds cannot establish adaptive rank exactness; separate cut-reduction and constructed mistake trees are needed. Chase--Mehalel block functions are neither equivalent by relabeling nor a stronger distance-two class.",
+        "searches": [
+          "Littlestone dimension exact distance-two Hamming sphere Boolean hypercube thicket dimension adaptive mistake trees",
+          "https://arxiv.org/pdf/2007.16042",
+          "https://arxiv.org/pdf/2609.21445"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Adler--Benediktsson--Macpherson arXiv:2007.16042 Section 4 studies Hamming graph distance-one adjacency",
+          "Chase--Mehalel arXiv:2609.21445 Section 5 defines H_{d,n} via fixed-size subsets S⊂[n] on tagged instances (I_n,x_{n,i})"
+        ],
+        "reasoning": "The tagged block class depends on single-coordinate membership and differs from all-vertex queries with distance exactly 2 from a center. The distance-one graph class also differs; the matching label sphere does not imply equal Littlestone ranks.",
+        "searches": [
+          "Littlestone dimension exact distance-two Hamming sphere Boolean hypercube thicket dimension adaptive mistake trees",
+          "halved-cube adjacency thicket dimension exact weight two centers",
+          "Chase Mehalel d-Hamming spheres Section 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Same weight-two Boolean sphere Resultary hit e912a3cb52c4 computes Turán constant of positive definite kernels, not online rank",
+          "Previously known VC table at d5=3 concerns fixed, nonadaptive samples"
+        ],
+        "reasoning": "No direct Littlestone table appeared in searched corpus; the related weight-two harmonic table does not imply the online decision-tree dimension.",
+        "searches": [
+          "Littlestone dimension exact distance-two Hamming sphere Boolean hypercube thicket dimension adaptive mistake trees",
+          "Resultary 2026/10/4/SCOPE-sharp-tur-n-constant-and-all-extremizers-for-the-weight-two-bool--e912a3cb52c4",
+          "distance two Hamming sphere VC dimension d5 3 vs Littlestone 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: distance-one VC graph-neighborhood theorems, general Littlestone/stability theory, and Chase--Mehalel fixed-weight tagged-block d-Hamming sphere family do not entail the exact radius-two cube relation ranks. Same-object previously known VC dimension 3 at d5 differs from the new Ldim 4. Natural aliases (halved cube, thicket) remain a priority risk.",
+      "residual_risks": [
+        "An unindexed halved-cube or thicket-dimension result could already compute the same exact class ranks.",
+        "Separate nonadaptive VC table is not a proof of online complexity."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distance-one VC/density not an exact distance-two Littlestone law.",
+          "evidence": [
+            "arXiv:2007.16042 Sections 1 and 4, Hamming adjacency Theorems 4.6-4.8"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2007.16042",
+          "material_read": "Full primary PDF accessible, introduction and Section 4 relevant Hamming graph neighborhood theorems and graph intersections; page images inspected",
+          "method": "PDF extracted text and screenshot of theorem pages",
+          "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+          "trigger": "Same Hamming graph neighborhoods; possible graph VC implication"
+        },
+        {
+          "assessment": "Proves proper learner bounds for tagged fixed-weight block functions, distinct from radius-two all-cube relation.",
+          "evidence": [
+            "arXiv:2609.21445 Section 5 lines 597-625; h_{n,S}(I_m), h_{n,S}(x_{m,i})"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2609.21445",
+          "material_read": "Accessible complete 16-page primary PDF: Introduction, Section 3 rank definition, Section 5 Theorem 5.1, class H_{d,n} definitions pp.12-13, plus screenshot p.11",
+          "method": "Direct primary PDF reading, targeted Hamming-spheres search, PDF screenshot",
+          "title": "Optimal Randomized Proper Online Learning",
+          "trigger": "The very name d-Hamming spheres suggests exact same concept"
+        },
+        {
+          "assessment": "General stability/learning results, not enough material to exclude a hidden exact sphere example.",
+          "evidence": [
+            "arXiv:2108.05569 abstract and title"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2108.05569",
+          "material_read": "Bibliographic abstract and mathematical scope; full primary source not read in this run",
+          "method": "Primary abstract comparison",
+          "title": "Agnostic Online Learning and Excellent Sets",
+          "trigger": "General model theoretic Littlestone formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "All-size two-star obstruction and exact Git witness trees",
+        "Adler Hamming VC setting",
+        "Chase--Mehalel 2026 online-learning perspective"
+      ],
+      "rationale": "A natural fixed-radius relation on Boolean cubes has a dimension-free exact online mistake-tree bound with genuinely exceptional d5 jump and strict separation Ldim 4 versus VC 3. The complete all-d classification is a motivated combinatorial invariant with learning-theoretic use.",
+      "residual_risks": [
+        "No result for larger radii, nonbinary spaces, or randomized/proper learners."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exact Hamming distance two, binary alphabet, unrestricted queries, realizable deterministic Littlestone tree only.",
+    "A possible earlier thicket/halved-cube result remains to be located."
+  ],
+  "schema_version": 1
+}

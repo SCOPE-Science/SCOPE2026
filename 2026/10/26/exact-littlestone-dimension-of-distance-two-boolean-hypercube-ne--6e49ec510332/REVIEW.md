@@ -1,17 +1,21 @@
-# Review of the distance-two Boolean Hamming-sphere Littlestone formula
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The single mathematical claim is the exact dimension formula \(0,1,2,2,4,4,5\) at dimensions \(1,2,3,4,5,6,\ge7\). The upper bound is all-dimensional: translation reduces a positive branch to the edge set of a complete graph, further nontrivial tests reduce it to two-vertex cuts or four-cliques, and the two-star subproblem admits no shattered depth-four tree. The exceptional dimension-four bound follows from bitwise-complement twin hypotheses; cardinality gives the other small upper bounds. Explicit trees at dimensions 2, 3, 5, and 7 establish lower bounds, and zero-padding is an exact isometric embedding. `verify_shell2.py` independently checked all 54 terminal paths, exact dimensions through seven, and small test profiles. It also checked the dimension-five strict VC-versus-Littlestone gap. Finite checks alone are not offered as a proof for arbitrary dimension.
+## correctness
 
-## Originality
-**PASS subject to residual priority uncertainty.** Adler–Benediktsson–Macpherson, arXiv:2007.16042v1 (2020), determine VC complexity of the distance-one Hamming-graph adjacency, not online Littlestone complexity of the exact distance-two relation. Malliaris–Moran, arXiv:2108.05569v1 (2021), establish general online-learning/model-theoretic connections but no numerical formula for this family. An earlier exact VC computation for the same distance-two concept class has a different invariant and does not imply the online formula; the strict gap in dimension five distinguishes the questions. Searches with exact-distance, halved-cube, thicket/special-tree and Hamming-sphere aliases did not identify a stronger covering result. Absolute historical priority is not established by searching, and an equivalent treatment under alternative terminology remains a risk.
+PASS
 
-## Value
-**PASS.** The object is the natural distance-two relation in a standard association scheme, with a direct learning-theoretic interpretation. The result provides a sharp global online mistake bound and the complete finite stabilization transition. Its nontrivial two-star reduction explains stability independent of ambient dimension. The jump from two to four in dimension five and the proven strict VC–Littlestone separation in that dimension show why the online invariant cannot be inferred from the existing VC classification. No larger theorem or algorithmic application is asserted.
+For H_d={x↦1[dist_H(x,c)=2]}, after a positive first query the center options are edges of K_d. Any subsequent exact-distance-two query with support Z is positive only for weights 0,2,4, corresponding to all edges, K_{2,d-2} cut, or six inside edges; other weights give none. The two-star K_{2,m} has online rank at most 3: in potentially large positive branches, a further query leaves one child with <=3 hypotheses. Hence the positive root branch rank≤4 and global rank≤5 for all d. Complement duplicate centers at d4 and cardinality give low-d upper limits. Exact full shattered trees at d2,3,5,7 yield all lower bounds by zero-padding. Independently verified all 54 leaf paths of four actual Git JSON witnesses and computed ranks 0,1,2,2,4 in d1..5 by separate memo recursion.
 
-## Literature and limitations
-The closest inspected primary publications are arXiv:2007.16042 (Hamming distance-one VC dimension and neighborhood intersection lemmas) and arXiv:2108.05569 (general Littlestone/stable-graph theory). Higher radii, nonbinary alphabets, randomized learners and proper-only learning are outside the claim. A pre-existing same-object VC computation is a comparison, not a proof input. A result published under halved-cube, binary-shell, thicket or online-mistake terminology could affect priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-**Additional comparison.** Chase and Mehalel (2026, arXiv:2609.21445, Section 5) use the name *d-Hamming spheres* for fixed-weight sparse Boolean functions on tagged coordinate blocks. Their exact Littlestone calculation concerns that different domain and does not imply the fixed-radius-two Boolean-cube incidence result. The publisher/arXiv original could not be fetched; a materially inspected public full-text reproduction was available.
+Best-of-knowledge PASS: distance-one VC graph-neighborhood theorems, general Littlestone/stability theory, and Chase--Mehalel fixed-weight tagged-block d-Hamming sphere family do not entail the exact radius-two cube relation ranks. Same-object previously known VC dimension 3 at d5 differs from the new Ldim 4. Natural aliases (halved cube, thicket) remain a priority risk.
+
+## value
+
+PASS
+
+A natural fixed-radius relation on Boolean cubes has a dimension-free exact online mistake-tree bound with genuinely exceptional d5 jump and strict separation Ldim 4 versus VC 3. The complete all-d classification is a motivated combinatorial invariant with learning-theoretic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

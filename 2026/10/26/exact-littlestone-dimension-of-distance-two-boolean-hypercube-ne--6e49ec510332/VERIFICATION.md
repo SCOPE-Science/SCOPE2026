@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-`python3 verify_shell2.py` requires Python 3.10 or later, the standard library, and the adjacent exact file `shell2_witnesses.json`. Run with the two files in the same directory. The code checks all 54 root-to-leaf paths in complete binary mistake trees at dimensions \(2,3,5,7\), confirms their depths and distinct leaf centers, computes the Littlestone recurrence independently for all dimensions \(1\) through \(7\), and tests weight-two intersection profiles for dimensions \(5\) through \(12\). It separately enumerates all four-point VC candidates in dimension five, verifying that \(\operatorname{VCdim}=3\) there, while the tree has dimension four.
+## correctness
 
-The expected terminal line is `VERIFICATION_OK`; the exact recorded console output is `verify_shell2_output.txt`. All vectors in the JSON tree are nonnegative integers using binary coordinate encodings; a query/center pair has label one precisely when the bit count of their XOR is two. The file contains no probabilistic certificates or hidden dependencies.
+PASS
 
-The finite execution confirms its concrete witnesses and small cases, not the universal upper bound. The latter is the separate proof that any post-positive-branch query on the weight-two center layer sees only a full set, a two-vertex edge cut, an internal four-clique, or an empty set, and that the cut's two-star subfamily has rank at most three. No independent scientific audit or formal proof assistant certification has been performed.
+For H_d={x↦1[dist_H(x,c)=2]}, after a positive first query the center options are edges of K_d. Any subsequent exact-distance-two query with support Z is positive only for weights 0,2,4, corresponding to all edges, K_{2,d-2} cut, or six inside edges; other weights give none. The two-star K_{2,m} has online rank at most 3: in potentially large positive branches, a further query leaves one child with <=3 hypotheses. Hence the positive root branch rank≤4 and global rank≤5 for all d. Complement duplicate centers at d4 and cardinality give low-d upper limits. Exact full shattered trees at d2,3,5,7 yield all lower bounds by zero-padding. Independently verified all 54 leaf paths of four actual Git JSON witnesses and computed ranks 0,1,2,2,4 in d1..5 by separate memo recursion.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: distance-one VC graph-neighborhood theorems, general Littlestone/stability theory, and Chase--Mehalel fixed-weight tagged-block d-Hamming sphere family do not entail the exact radius-two cube relation ranks. Same-object previously known VC dimension 3 at d5 differs from the new Ldim 4. Natural aliases (halved cube, thicket) remain a priority risk.
+
+## value
+
+PASS
+
+A natural fixed-radius relation on Boolean cubes has a dimension-free exact online mistake-tree bound with genuinely exceptional d5 jump and strict separation Ldim 4 versus VC 3. The complete all-d classification is a motivated combinatorial invariant with learning-theoretic use.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
