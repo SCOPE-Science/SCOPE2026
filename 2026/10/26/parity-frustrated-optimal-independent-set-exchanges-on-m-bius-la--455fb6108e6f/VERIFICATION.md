@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the maximum-set exchange classification
 
-The standalone `verify.py` uses only the Python 3 standard library. It constructs the simple graph on \(2n\) labeled vertices directly from outer-cycle and antipodal edges, rather than generating the graph from a claimed solution classification. Two independently organized exhaustive enumerators produce the same maximum independent sets: one recurses over independent subsets of the outer cycle and subsequently tests antipodal conflicts, while the second recurses over the choices in each antipodal matching pair and checks graph adjacency. Both are compared with the claimed explicit optimum-state family.
+# Independent mathematical audit
 
-For each integer \(3\le n\le15\), a symmetric-difference test of all optimum pairs constructs the jump graph, and a separate direct enumeration of legal slides along original graph edges constructs the slide graph. The two edge sets agree. Connected components, degrees, edge counts, full rotational move descriptions, and maximum cardinalities match the theorem. The saved `verify.py` was executed directly and its concluding output was `VERIFY_OK`.
+## correctness
 
-The finite run does not certify novelty or logically imply any assertion for arbitrary \(n\). That universal conclusion is supplied by the signed-antipodal-pair proof in `RESULT.md`. No independent external audit has been performed.
+PASS
+
+Partition opposite vertices into n pairs; adjacent occupied pair signs alternate except seam signs must agree. For odd n all pairs occupy, forcing exactly two antipodal parity classes of cardinality n and no single swap. For even n the signed-cycle frustration demands at least one vacancy; one vacant pair yields exactly two sign-propagated n-1-vertex choices and all 2n translates I_r. Any single swap must move the vacancy to an adjacent pair, with unique insertion sign, yielding I_r~I_{r±(n−1)}. Since gcd(n−1,2n)=1 for even n, the exchange graph is C_{2n}; for odd n it is 2K1. Our independent exhaustive labeled-graph checker recovered optimum sizes/counts and exchange edges for n=3,...,8. The sign-cycle proof, not finite testing, covers every n≥3.
+
+## originality
+
+PASS
+
+PASS best of knowledge for the exact maximum-independent-set exchange graph and its component/diameter classification, not for the previously known independence number or number of optima. General token-reconfiguration equivalence and topological homotopy do not entail complete one-exchange adjacency on every optimum face.
+
+## value
+
+PASS
+
+The optimum-state exchange graph, accessibility, and diameter are natural reconfiguration invariants. A parity-forced change from two isolated optima to a single 2n-cycle is an exact all-parameter classification beyond established counts and is mathematically motivated by reconfiguration theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
