@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "The exact JR obstruction is |N_z\\U(W)|>=ceil(n/k). For k=2, if n is odd any quota-sized candidate covers a strict majority; if even any pair of quota-sized candidates with different supporter sets covers more than half. The identical-support exception requires exclusion of every available candidate containing the full uncovered complement. For every non-DR JR two-seat committee in a DR-feasible election, the proof exhausts high-, exact-, and below-quota support cases and constructs an allowed strict JR-preserving swap. The two-low case uses JR of the original pair to prove the complementary swap works whenever the first fails. In the explicit six-voter example both committees and both potential strict improving swaps are checked directly. verify.py independently corroborates 211380 distinct-support profiles, 18000 seeded duplicate-allowing profiles and the trap. No finite check is substituted for the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chingoma et al., Theorem 26 proves hardness for variable k and Proposition 28 guarantees only local exchange termination; Proposition 29 explicitly demonstrates failure at four seats.",
+        "Aziz et al. establish general JR existence; its conclusion does not imply optimizing elected candidates’ supporter counts."
+      ],
+      "reasoning": "General existence of JR, FJR algorithms, or polynomial local-search termination do not guarantee exact DR or rule out local traps. The existing four-seat counterexample is consistent with, but neither proves nor subsumes, the new k=2 and k=3 boundary.",
+      "searches": [
+        "Chingoma Grossi Lindeboom Maly Diverse Representation in Approval-Based Committee Voting 2609.29332 Distinctive Representation DR local DR",
+        "approval committee JR balanced support candidates local swaps two member committee three member trap",
+        "approval based multiwinner justified representation two winners exact coverage easy"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2609.29332v1, complete accessible relevant definitions/results/proof appendix",
+      "AAAI 2015 JR article title and abstract",
+      "arXiv:2112.05994 JR efficiency article metadata/abstract",
+      "published-finding corpus semantic searches for source identifier, DR aliases, k=2 exchange exactness and k=3 trap",
+      "Accessible own week-4 ledger, all 51 recoverable finding claims and source IDs searched for overlaps"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Primary Definition 27 and Proposition 28 specify one-swap local optimality and convergence, while Proposition 29 gives a k=4 trap; their statements neither assert k=2 optimality nor an obstruction at k=3.",
+        "The retrieved own claim 5ea6dcb6-a811-4f16-bf26-3ab2bdaac243 addresses reciprocal justified representation with candidate qualities and a retention ratio, not candidate-support-size DR."
+      ],
+      "reasoning": "The current statement requires a new implication: every k=2 non-DR JR pair in a DR-feasible election has an admissible improving swap. Global optimum DR existence and local descent termination do not establish that implication. The three-seat witness is an explicit improvement in the sharp committee-size threshold relative to the published four-seat example.",
+      "searches": [
+        "Chingoma Grossi Lindeboom Maly Diverse Representation in Approval-Based Committee Voting 2609.29332 Distinctive Representation DR local DR",
+        "approval committee JR balanced support candidates local swaps two member committee three member trap",
+        "\"distinctive representation\" committee size two polynomial"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The primary full text defines local improvement with an exclusion for moves below n/k; the new theorem compares all local maxima with zero-deviation feasible committees.",
+        "Targeted internet searches returned the primary DR paper and standard JR background, not an equality or two-seat exchange characterization."
+      ],
+      "reasoning": "Equivalent forms include a no-positive-local-minima property for sum of deviations and a support-set exchange axiom for two-winner JR pairs; none is stated in the inspected primary paper. Absence in search results does not prove priority.",
+      "searches": [
+        "Chingoma Grossi Lindeboom Maly Diverse Representation in Approval-Based Committee Voting 2609.29332 Distinctive Representation DR local DR",
+        "local distinctive representation two seat local optimum equal-support DR exactness three seat counterexample",
+        "\"local distinctive representation\" \"two\" committees",
+        "\"distinctive representation\" \"k=2\" \"JR\" committee"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible own ledger contained no rows matching DR, Local DR, or the exact source identifier; its closest two-seat claim concerned reciprocal JR and candidate qualities, not DR support sizes.",
+        "The published-finding corpus searches returned unrelated voting-rule classification records, including 2026/10/4/SCOPE-complete-first-dodgson-young-divergence-layer-at-four-candidates--8dc901d6eeb9; no entry with the source or the claimed local-DR exchange theorem was identified."
+      ],
+      "reasoning": "The tested new small support-set profiles are generated independently in verify.py, not read from an established table. published-finding corpus and own-ledger negative searches are only bounded evidence, not proof of uniqueness.",
+      "searches": [
+        "two-seat distinctive representation approval voting k=2 tractability JR support sizes n/2 exact characterization",
+        "local distinctive representation two seat local optimum equal-support DR exactness three seat counterexample",
+        "local dr",
+        "distinctive representation",
+        "2609.29332",
+        "one-seat swap"
+      ]
+    },
+    "rationale": "The September 2026 primary source defines DR and Local DR and proves termination of local search and general hardness; its explicit locally trapped instance has four seats. The new results establish exact two-seat global correctness of every local optimum, a parity-sensitive support criterion including duplicate labels, and a three-seat local trap using five genuinely distinct candidate supporter sets. These are distinct implications from generic JR existence or mere local-search termination. Source and published-finding corpus searches found no equivalent, with residual risks stated.",
+    "residual_risks": [
+      "An independently developed equivalent two-seat exchange lemma might be embedded in an unindexed social-choice paper under different terminology.",
+      "The older JR source and price-of-JR work were reviewed through accessible summaries, not exhaustively through full text; they are background rather than the source of the new DR objective.",
+      "Self-review is not independent peer review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The source defines the axioms and provides a four-seat spurious local optimum and general complexity; it does not state the two-seat no-spurious-local-optimum theorem, parity feasibility classification, or the three-seat distinct-support obstruction.",
+        "evidence": [
+          "arXiv:2609.29332v1, lines 310–388, 910–953 in the accessible HTML; Proposition 29 shows a four-seat trap",
+          "Published September 24, 2026 (arXiv HTML heading)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2609.29332",
+        "material_read": "Accessible HTML source, sections 6 and 7 (Definitions 22 and 27, Proposition 28 and 29, Theorems 26 and 30–33) and relevant Appendix E discussion of Proposition 29 and local-search traps; abstract and introduction.",
+        "method": "Read and compare exact axioms, exchange exception and the displayed four-seat counterexample against the two-seat theorem and three-seat witness.",
+        "title": "Diverse Representation in Approval-Based Committee Voting",
+        "trigger": "Same definitions, support-size objective, complexity, and a plausible dominating local-search result."
+      },
+      {
+        "assessment": "Background for JR; original existence of JR alone does not impose elected candidate supporter sizes nor exchange optimality.",
+        "evidence": [
+          "AAAI publisher abstract on JR existence, accessible search result "
+        ],
+        "identifier_or_url": "https://doi.org/10.1609/aaai.v29i1.9324",
+        "material_read": "Publisher page title, authors and abstract; not a full-text exclusion search.",
+        "method": "Compared the original JR existence claim and its scope with a support-cardinality local optimality criterion newly defined in 2026.",
+        "title": "Justified Representation in Approval-Based Committee Voting",
+        "trigger": "Original weak JR axiom, potential equivalent statement."
+      },
+      {
+        "assessment": "Related but does not give an identified implication proving the present two-seat exchange assertion.",
+        "evidence": [
+          "arXiv:2112.05994 metadata/abstract, turn296101academia57"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2112.05994",
+        "material_read": "Bibliographic metadata and abstract only; full-text novelty exclusion not claimed.",
+        "method": "Compared objectives: JR efficiency tradeoffs versus strict supporter-size local search for Distinctive Representation.",
+        "title": "The Price of Justified Representation",
+        "trigger": "Potential stronger JR optimization or cover equivalence."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0315b605-f1f2-4ec1-809f-9fb640ddb9e1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The motivating work explicitly exhibits a local optimum missing a feasible exact DR committee, so the size at which that failure first becomes possible is a natural question about a proposed fair-representation rule. The new two-seat theorem shows every local optimum is exact whenever exactness is feasible, not merely that brute-force search is polynomial for fixed k. A six-voter five-candidate instance with distinct supporter sets shows that the guarantee fails immediately at three seats. The parity-sensitive feasibility criterion handles candidate-label multiplicity and admits linear scanning. No general theorem for larger committee sizes is claimed.",
+    "status": "PASS"
+  }
+}
