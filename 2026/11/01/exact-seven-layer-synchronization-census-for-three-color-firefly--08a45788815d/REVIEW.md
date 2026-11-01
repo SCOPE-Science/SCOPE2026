@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The original synchronous update depends only on the center color and the set of occupied leaf colors, giving exactly \(21\) support states for all star sizes. Every support transition is explicitly written in the result, all seven first-hit classes and the sole recurrent nonsynchronous class are exhaustive, and each fibre has the exact surjection weight \(U_j(r)\). Summing all eight categories returns the full \(3^{r+1}\) configuration space. Independent exhaustive labelled-state simulation for star sizes \(1\) through \(9\) agrees. Risk: no independent audit; the proof's critical finite transition table is human-checkable and verifier-replayable.
+## correctness
 
-**Originality — PASS, qualified.** Lyu's 2014 work supplies the rule and qualitative tree synchrony criteria; a 2016 follow-up supplies broad recurrence and complexity results and uses star obstructions. Neither inspected discussion supplies the full seven-layer, all-degree exact synchronization-time histogram, the sharp uniform six-step conditional bound, or its limiting three-way split. General recurrence criteria alone are not numerically equivalent to the enumerated first-hit classes. Semantic mathematical-record searches found related but different models; lack of a match is not conclusive. Residual risk: an unindexed equivalent finite-state star enumeration could exist.
+PASS
 
-**Value — PASS.** Degree-threshold synchronization theory does not quantify which labelled starts fail, nor how long successful starts require. The exact \(r\)-dependent first-hit histogram shows that even as nearly one-third of all starts never align, the successful population divides into two macroscopically large arrival-time layers at exactly five and six updates; this is a natural complete basin census for the simplest branching tree and an explicit quantitative refinement of the published local-global threshold.
+The rule depends only on center color c and exact set S of occupied leaf colors, yielding exactly 3(2³−1)=21 support states and exact deterministic support-map Φ. I independently rebuilt all 21 transitions and their first hitting times (0..6 or never), finding only (2,{0,1,2}) nonsynchronizing. For any r, a support set of size j represents precisely U1=1, U2=2^r−2 or U3=3^r−3·2^r+3 surjective assignments of labelled leaves. Weighting the 21 support states by their first-hit times proves every histogram entry and total 3^{r+1}, with r=1 boundary sharp maximum three and r≥2 sharp maximum six. Independent direct full labelled-state simulations for r=1..7 agreed with the claimed counts, including ∞. As r→∞, times 5,6,∞ each have proportion 1/3. The all-r proof is the complete finite state quotient, not an extrapolated enumeration.
 
-## Closest literature and limits
-H. Lyu, *Synchronization of finite-state pulse-coupled oscillators*, arXiv:1407.1103, Definition 1, Theorems 3–4, and Section 4. H. Lyu, *Time complexity of Synchronization of discrete pulse-coupled oscillators on trees*, arXiv:1610.00837, Theorem 1 and Sections 2–3. These give the model and qualitative tree conclusions and are not displaced by the new enumerative theorem. Independent external checking remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Lyu introduced this inhibitory finite-state pulse-coupled rule and proved qualitative degree/branching synchronization obstructions; a later paper treats tree recurrence and worst-case complexity. Those results already imply failure of universal synchronization for stars with at least three leaves but not the full labelled first-hit-time histogram and macroscopically split 5/6/∞ basins. The support-state classification is a concrete quantitative refinement not found in actual Resultary or inspected Lyu star sections.
+
+## value
+
+PASS
+
+The complete labelled basin/hitting-time distribution on the simplest branching tree is a natural finite-state dynamics classification. It resolves what fraction of starts synchronize, exactly when, and how non-synchronizing orbits coexist, refining known graph-theoretic thresholds; the 1/3–1/3–1/3 asymptotic basin partition and uniform six-step cutoff are meaningful dynamical invariants, not an arbitrary tiny graph computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
