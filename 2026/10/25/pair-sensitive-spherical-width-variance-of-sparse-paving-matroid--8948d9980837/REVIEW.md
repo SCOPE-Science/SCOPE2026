@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The full claim follows from a deterministic one-swap optimization lemma, independence of Gaussian label permutations from sorted values, and an exact ordered-pair count. The second-moment identity is algebraic and has no asymptotic step. Positivity follows because the two adjacent Gaussian spacings are strictly positive almost surely. The six-element example has compatible-pair counts two and zero; the published sparse-paving Ehrhart identity and direct point-count cross-check establish the common Ehrhart polynomial. The standalone program independently enumerates the support maximizers and finite example.
+## correctness
 
-## Originality — PASS (qualified)
-The hypersimplex splitting and sparse-paving Ehrhart formulas in Hanely et al. and Ferroni–Schröter cover the equality of Ehrhart polynomials and imply uniformity of valuative invariants. They do not specify the non-valuative squared spherical width, the exact compatible-pair variance coefficient, or the angular separation of the two explicit matroid polytopes. Faustini–Vargas study pair-sensitive errors for the cd-index, which is not a Euclidean width moment. Related geometric-width results on other polytope families likewise do not imply this variance separation. Full independent bibliographic exhaustiveness cannot be claimed; equivalent treatments of random greedy matroid optimization remain a residual risk.
+PASS
 
-## Mathematical value — PASS
-The invariant distinguishes nonisomorphic sparse-paving polytopes that agree on Ehrhart theory and spherical mean width. The all-ranks pair-count formula explains precisely which intersection statistic first becomes visible to quadratic directional geometry. The concrete rank-three six-element separation gives a small, transparent witness and a reproducible numerical certificate, rather than an arbitrary computed invariant.
+Johnson-nonadjacency makes every neighbor of a forbidden top-k set allowed, so the exact support deficit is the k-th order-statistic spacing. Uniform labels independent of sorted centered Gaussian values give upper/lower omission probabilities m/N and joint probability C/(NL). Squaring the width deficit leaves the 2 gamma C/(NL) difference; the other mixed terms depend only on m. Positive spacings imply gamma>0. On n=6,k=3, complementary forbidden triples yield C=2 and defect frequencies {0:648,2:72}, whereas intersecting triples yield C=0 and {0:576,1:144}; checked independently over all 720 orders. Published sparse-paving Ehrhart result, not a five-dilate experiment, supplies all-dilate equality.
 
-## Limits and closest literature
-The geometric width coefficient is an exact positive finite integral/expectation, not an evaluated elementary constant. The result concerns the standard coordinate metric. Closest studies: Hanely et al. (2022) on paving-polytope slices; Ferroni and Schröter (2024) on valuative invariants; Faustini and Vargas (2025) on non-valuative cd-index pair corrections. No independent external review is asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni–Schröter Corollary 5.4 implies equality of valuative invariants for fixed n,k,m; it does not control a second moment of random widths. Hanely et al. establish slicing/Ehrhart formulas, not second spherical width moments. Faustini–Vargas and split-matroid face enumeration use pair interactions for combinatorial invariants but not the Gaussian spacing covariance. The pair-sensitive squared-width expression survives these specific prior implications.
+
+## value
+
+PASS
+
+The precise angular variance distinguishes two non-isomorphic rank-three sparse-paving matroid polytopes with identical Ehrhart polynomial, volume and mean width. It is a natural metric invariant of canonical matroid base polytopes and gives an all-ranks exact pair-intersection formula, not an arbitrary numerical slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
