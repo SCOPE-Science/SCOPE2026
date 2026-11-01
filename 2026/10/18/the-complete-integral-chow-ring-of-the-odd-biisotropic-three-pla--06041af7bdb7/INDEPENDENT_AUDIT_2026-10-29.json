@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:51:22Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual frozen RESULT.md Git blob c31d04074b780ba12276e17020862ae8b24cea94",
+        "Actual frozen verify.py Git blob 6699a11aaa11e77e1773fa0a4cede53fb55255ed",
+        "Anton Fonarev and Alexander Kuznetsov, Betti Numbers of Odd Biisotropic Symplectic Grassmannians, arXiv:2610.03309v1, https://arxiv.org/html/2610.03309v1",
+        "Independent sympy script /mnt/data/independent_grassmannian_check.py, executed once and printed four exact matrices plus 61",
+        "Source seven-file Git tree rebuilt as 835bb2d8479979e91fa0d29bea33a7049cc66c38"
+      ],
+      "rationale": "For general two alternating forms on C^7, the smooth sixfold X in Gr(3,7) is the regular zero set of E=(Λ²U∨)⊕2. Its top Chern class is e=(x+y)^2(x+z)^2(y+z)^2=(c1 c2-c3)^2. Fonarev–Kuznetsov 2026 Theorem 1.1 and the Białynicki–Birula paving yield free integral Chow/cohomology ranks (1,1,2,2,2,1,1) in codimensions 0..6, zero odd cohomology, integral perfect pairings. Independently recomputed all 26 Schur intersection numbers via sympy Jacobi–Trudi complete symmetric functions and Grassmannian Vandermonde top coefficient, obtaining M0,6=[1,1,1,2,1], M1,5=[2,4,3,3], M2,4=[[1,5,4,3],[1,4,3,3]], M3,3=[[2,4,1],[4,8,2],[1,2,1]], and ∫_X c1^6=61. The low/high matrices have unit entries or gcd(2,3)=1, M2,4 has determinant -1 from its first two columns, and M3,3 has determinant 1 on rows/cols 1 and 3. These unimodular pairings between ambient restrictions force integral bases in each graded degree, hence surjectivity CH*(Gr)→CH*(X), including the middle. Projection formula then identifies the restriction kernel exactly with Ann(e) in the integral Grassmannian Chow ring, giving Z[c1,c2,c3]/((h5,h6,h7):e), not merely rational equality. The source verify.py was materially inspected but the independent check uses a separately written sympy implementation; finite exact certificates support specific entries while the stated all-degree conclusion uses geometric duality and algebraic argument.",
+      "residual_risks": [
+        "The formula assumes smooth general pencil over C; singular/special pencils and other dimensions not covered.",
+        "The explicit finite matrix computation establishes only the stated pairings, not geometric paving/duality; primary results and standard theorems supply those inputs.",
+        "No quantum/equivariant K-theory or universal family cohomology ring claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Anton Fonarev and Alexander Kuznetsov, Betti Numbers of Odd Biisotropic Symplectic Grassmannians, arXiv:2610.03309v1, https://arxiv.org/html/2610.03309v1 Theorem 1.1 holds all odd biisotropic k,n but is only additive; Remark 1.2 explicitly excludes multiplication",
+          "V. Benedetti, Bisymplectic Grassmannians of planes, arXiv:1809.10902, https://arxiv.org/pdf/1809.10902 Theorem 3.25 gives H*(I2Gr(2,6),Z) for EVEN 6-space, k=2",
+          "M. Bernardara, E. Fatighenti, L. Manivel, Nested varieties of K3 type, arXiv:1912.03144, https://arxiv.org/pdf/1912.03144 Sections 1,2 and 5 describe Hodge structures of sections, including HI2(3,7), a different fivefold hyperplane section"
+        ],
+        "reasoning": "Potentially dominating general theorems were checked by their actual object and conclusion. A general odd-family additive isomorphism does not subsume integral multiplication. Benedetti concerns rank-two planes in even ambient spaces, and nested-variety Hodge/derived correspondences do not imply a tautological integral Chow ring for BIGr(3,7). In-preparation same-object source remains an explicit residual priority uncertainty.",
+        "searches": [
+          "\"The odd biisotropic symplectic Grassmannian\" Kuznetsov 2026 3 7 pdf",
+          "\"biisotropic\" \"integral cohomology\" \"ring\" Kuznetsov",
+          "biisotropic Grassmannian 3 7 multiplication 2026 Kuznetsov in preparation ring structure",
+          "arXiv:1809.10902 full text Theorem 3.25",
+          "arXiv:1912.03144 full text discussion of I_r(3,n)"
+        ]
+      },
+      "checked_sources": [
+        "Anton Fonarev and Alexander Kuznetsov, Betti Numbers of Odd Biisotropic Symplectic Grassmannians, arXiv:2610.03309v1, https://arxiv.org/html/2610.03309v1",
+        "V. Benedetti, Bisymplectic Grassmannians of planes, arXiv:1809.10902, https://arxiv.org/pdf/1809.10902",
+        "M. Bernardara, E. Fatighenti, L. Manivel, Nested varieties of K3 type, arXiv:1912.03144, https://arxiv.org/pdf/1912.03144",
+        "Two actual Resultary semantic searches (14 and 13 ranked relevant records, no direct full integral ring hit)",
+        "A. Kuznetsov 2026 in-preparation manuscript, bibliography-only not fully read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 yields (1,1,2,2,2,1,1), which is an additive group invariant, not ring generators/relations",
+          "The exact Schubert pairings have determinant ±1 minors, proving primitive integral ambient restriction in every degree",
+          "After surjectivity, projection formula and unimodular Grassmannian duality give the annihilator of e as the full integral kernel"
+        ],
+        "reasoning": "The previous Betti ranks, algebraic paving, ordinary integral Grassmannian Schubert calculus and zero-locus top Chern class alone do NOT establish integral surjectivity in the middle degree. The submitted specific unimodular restrictions are the extra fact needed to derive the entire colon ideal, a strictly stronger conclusion than the primary additive result. The different-dimensional ring in Benedetti and Hodge comparisons in Bernardara et al. do not imply it.",
+        "searches": [
+          "arXiv:2610.03309v1 Theorem 1.1 Remark 1.2",
+          "arXiv:1809.10902 Theorem 3.25",
+          "arXiv:1912.03144 Sections 2, 5",
+          "\"The odd biisotropic symplectic Grassmannian\" \"S2Gr(3,7)\" \"pdf\""
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Anton Fonarev and Alexander Kuznetsov, Betti Numbers of Odd Biisotropic Symplectic Grassmannians, arXiv:2610.03309v1, https://arxiv.org/html/2610.03309v1 Theorem 1.1 and Remark 1.2: graded additive groups, multiplication separate",
+          "Actual source RESULT.md: integral surjectivity and kernel Ann(c6) yield (h5,h6,h7):(c1 c2-c3)^2",
+          "Benedetti Theorem 3.25: a different even-dimensional 2-plane ring"
+        ],
+        "reasoning": "Compared integral Chow ring, even singular cohomology ring, Schubert restriction surjectivity, annihilator quotient, and ordinary bisymplectic/odd biisotropic aliases. No accessible statement establishes the same integral product structure, while the additive isomorphism of groups cannot imply ring structure.",
+        "searches": [
+          "BIGr(3,7) Chow ring integral cohomology ring Schubert relations biisotropic pencil",
+          "\"S_2Gr(3,7)\" \"cohomology ring\"",
+          "integral Chow ring of odd biisotropic symplectic Grassmannian BIGr(3,7) or S_2 Gr(3,7), Schubert intersection matrices, ideal quotient ring and cup products (Resultary query 1)",
+          "Fonarev Kuznetsov odd biisotropic symplectic Grassmannians seven-dimensional two alternating forms integral cohomology ring ring presentation (Resultary query 2)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top hits concern other Grassmannians, e.g., four-cycle Schubert complement and squared Gr(2,4), not this sixfold",
+          "Fonarev–Kuznetsov Theorem 1.1 specifies Betti ranks, not integral multiplication constants",
+          "Source submitted 26 Schubert pairing entries; independently recomputed exact values and degree 61"
+        ],
+        "reasoning": "Targeted published-finding searches and the directly relevant full papers did not exhibit a table or complete integral ring for this sixfold. This is only bounded negative retrieval evidence; no claim of exhaustive indexing or absolute priority follows.",
+        "searches": [
+          "integral Chow ring of odd biisotropic symplectic Grassmannian BIGr(3,7) or S_2 Gr(3,7), Schubert intersection matrices, ideal quotient ring and cup products (Resultary query 1; 14 hits)",
+          "Fonarev Kuznetsov odd biisotropic symplectic Grassmannians seven-dimensional two alternating forms integral cohomology ring ring presentation (Resultary query 2; 13 hits)",
+          "\"BIGr(3,7)\" \"Chow\" \"ring\" 2026",
+          "\"odd biisotropic\" \"Chow ring\" \"2026\""
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality for the full INTEGRAL multiplication ring of the smooth odd-ambient sixfold BIGr(3,7). Fonarev–Kuznetsov (2026) explicitly establish only the additive cellular ranks and in Remark 1.2 call the multiplicative ring a separate problem; the submitted additional theorem is integral Schubert restriction surjectivity plus its kernel as the annihilator of the top Chern class. Benedetti 2018 gives a ring theorem for I_2Gr(2,6) in EVEN ambient dimension and k=2, not this odd 3-plane case. Bernardara–Fatighenti–Manivel 2019 develop Hodge and derived relations of other Grassmannian sections, not these integral structure constants. Actual Resultary semantic searches returned different Grassmannian/cohomology findings, not an exact or dominating ring computation. There is a directly plausible A. Kuznetsov in-preparation same-sixfold manuscript referenced in the October 2026 source; the full manuscript was not available and historical priority is qualified, not certified.",
+      "residual_risks": [
+        "The exact same-variety A. Kuznetsov manuscript in preparation could contain relevant multiplication; its full content was inaccessible and no contrary assertion is made.",
+        "An unindexed earlier equivalent cohomology presentation or implicit stronger theorem could change historical priority.",
+        "Search noncoverage is not a proof of novelty; present PASS is qualified and best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides integral additive cohomology and cellular paving; clearly separates determining the ring as another question. No integral product table or quotient in this paper.",
+          "evidence": [
+            "Theorem 1.1: graded abelian groups equal those of Gr(3,5)",
+            "Remark 1.2: ring structure is a separate question",
+            "Reference Kuz26: exact same sixfold manuscript listed in preparation"
+          ],
+          "identifier_or_url": "arXiv:2610.03309v1; https://arxiv.org/html/2610.03309v1",
+          "material_read": "Complete accessible HTML: abstract, introduction Theorem 1.1 and Remark 1.2, Section 2 fixed loci and affine cells, Section 3 bijection and proof, references including Kuz26",
+          "method": "Read primary HTML and checked precise scope of theorems and explicit open multiplicative question",
+          "title": "Betti Numbers of Odd Biisotropic Symplectic Grassmannians",
+          "trigger": "Identical odd-pencil variety and apparent direct source of the additive invariants and ring problem"
+        },
+        {
+          "assessment": "Even-ambient I2Gr(2,6) cohomology ring and k=2 equivariant Chevalley law; not BIGr(3,7) odd ambient three-planes.",
+          "evidence": [
+            "Theorem 3.25: presentation of H*(I2Gr(2,6),Z)",
+            "Section 2 Definition 2.1 uses Gr(k,2n), not Gr(3,7)"
+          ],
+          "identifier_or_url": "arXiv:1809.10902v1; https://arxiv.org/pdf/1809.10902",
+          "material_read": "PDF abstract, introduction, definitions in Section 2, Section 3 cohomology discussion, Theorem 3.25 and its proof; screenshots of pages 1 and 23",
+          "method": "Read primary PDF text and visually inspected relevant theorem pages",
+          "title": "Bisymplectic Grassmannians of planes",
+          "trigger": "Explicit published full integral cohomology ring under similar pencil-isotropic terminology"
+        },
+        {
+          "assessment": "Considers related Hodge/derived structures and hyperplane section HI2(3,7), not complete integral multiplication for six-dimensional I2Gr(3,7).",
+          "evidence": [
+            "Section 2 defines I_r(3,n) by forms and calculates expected dimensions",
+            "Section 5 discusses 5-dimensional HI2(3,7), not the 6-dimensional BIGr(3,7) ring"
+          ],
+          "identifier_or_url": "arXiv:1912.03144; https://arxiv.org/pdf/1912.03144",
+          "material_read": "PDF abstract, Sections 1 and 2 definitions, Theorem statements; Section 5 discussion of HI2(3,7) and its role; screenshots of pages 1 and 25",
+          "method": "Primary PDF text read with material theorem/definition page screenshots",
+          "title": "Nested varieties of K3 type",
+          "trigger": "Potential broader two-skew-form 3-plane geometry and cohomology implications"
+        },
+        {
+          "assessment": "No whole-document noncoverage conclusion; possible earlier implicit/full ring computation remains a material residual risk",
+          "evidence": [
+            "Reference [Kuz26] in arXiv:2610.03309v1 says In preparation, 2026",
+            "No text of Kuznetsov manuscript was accessed; scope unknown"
+          ],
+          "identifier_or_url": "A. Kuznetsov, in-preparation 2026 manuscript, cited as [Kuz26] in arXiv:2610.03309v1",
+          "material_read": "Bibliographic entry in the full Fonarev–Kuznetsov paper only; no independently available full text identified",
+          "method": "Exact-title web searches for preprint, PDF and ring content; no publicly accessible complete manuscript located",
+          "title": "The odd biisotropic symplectic Grassmannian S2Gr(3,7)",
+          "trigger": "Exact same object and potential historical priority for ring calculation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Anton Fonarev and Alexander Kuznetsov, Betti Numbers of Odd Biisotropic Symplectic Grassmannians, arXiv:2610.03309v1, https://arxiv.org/html/2610.03309v1",
+        "V. Benedetti, Bisymplectic Grassmannians of planes, arXiv:1809.10902, https://arxiv.org/pdf/1809.10902",
+        "Exact source RESULT.md and 26 independently recomputed Schubert matrix entries"
+      ],
+      "rationale": "The odd sixfold is the first positive-dimensional three-plane member of the natural biisotropic family. Fonarev–Kuznetsov Remark 1.2 specifically identifies integral multiplication as an unsolved separate question from graded Betti groups; this result supplies all Chow/cup products, including integral saturation rather than rational approximations. The unimodular Schubert restrictions give a useful structural method for computing primitive generators of nonhomogeneous complete-intersection Chow rings. The full ideal-quotient presentation is a natural precise invariant and was not mechanically determined by previously known degree 61/additive ranks. The theorem is deliberately for the general (3,7) case and does not claim all ranks.",
+      "residual_risks": [
+        "The classification is one sixfold, not a uniform odd-family multiplication formula.",
+        "Should a prior exact ring computation exist in the same-variety unpublished manuscript, the value/priority interpretation needs review."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Pass on the precise smooth general pencil of C^7 only; no broader odd family ring theorem.",
+    "In-preparation Kuznetsov same-variety source not accessible in full; originality is explicitly best-of-knowledge.",
+    "Exact 26-entry finite certificate does not replace the geometric affine paving and integral perfect duality proof.",
+    "No direct repo modification or external formal/expert attestation."
+  ],
+  "schema_version": 1
+}
