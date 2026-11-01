@@ -1,15 +1,21 @@
-# Scientific assessment: partial Latin-square complex of order three
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof fixes the vertex indexing, face condition and simplex orientations. The standalone executable exhaustively generates all 11,776 faces, confirms the 54/324/12 facet-size profile, constructs 5,867 matched nonempty pairs, verifies the full oriented Hasse graph is acyclic, and computes a signed integral Morse differential with exactly seven negative units, 23 zeros, and nine positive units. The primitive integer boundary then gives the 38-fold wedge of 4-spheres, not merely rational or mod-two homology. Additional mod-two boundary ranks agree. The statement has no infinite-family extrapolation.
+## correctness
 
-## Originality — PASS, with residual uncertainty
-The closest primary sources are Falcón (arXiv:1107.3248v1, partial-square symmetries and counting) and Hämäläinen (arXiv:0907.1481v1, a different trade-intersection simplicial complex). The earlier full texts do not state the homotopy of the complex containing every compatible labelled triple as a face. Indexed mathematical-record queries for alternate Hamming-graph, three-dimensional rook, 3D chessboard, and partial-Latin-square descriptions produced no result that implies this 38-sphere type. A ternary Hamming Rips result and a categorical-product independence result concern different complexes. Search noncoverage does not prove global novelty; unindexed equivalent work is the residual risk.
+PASS
 
-## Value — PASS
-These faces are precisely the finite feasible partial Latin-square placements in the first order having 12 complete Latin squares. The complex has maximal faces in three cardinalities, 5, 7 and 9, so its concentrated integral homotopy in degree four is not a consequence of purity or generic high connectivity. A complete, reproducible integral homotopy type for this canonical small partial-assignment complex gives a baseline for the topology of Latin-square extension spaces and their possible higher-order analogues. The value rests on the natural combinatorial object and exact homotopy type, not on code execution or novelty alone.
+Independently enumerated all 11776 faces (including empty), f-cardinality vector (1,27,270,1278,3078,3834,2412,756,108,12), and maximal-facet profile 54 of size five, 324 of size seven and 12 of size nine. Independent 5867-pair vertex-pivot matching leaves one 0-cell, one 3-cell and 39 4-cells; topological sort checked acyclicity across all 56619 covering incidences. Exact integer Morse projection recurrence yielded boundary coefficients −1 seven times, 0 twenty-three times, +1 nine times. Gcd one makes the 4-to-3 boundary primitive, so CW elementary changes cancel one 3/4-cell pair leaving ∨38 S⁴. A mod-two homology rank would not alone prove this integral wedge; the integer primitive differential does.
 
-## Limitations and external comparison
-Only order three and nonequivariant integral homotopy are established. A complete order-four classification is not claimed. No identified primary source dominates the final claim, but an unindexed source could. No independent audit has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A material priority clarification is essential: Falcón 2011 Table 2 already reports every positive face count (27,270,1278,3078,3834,2412,756,108,12), total 11775. Thus that exact enumeration is NOT new. Hämäläinen 2009 computes a trade-intersection space for a fixed Latin square, not the complex of all partial Latin squares. The surviving novelty and value are the integral Morse attaching degrees and 38-sphere homotopy classification; no covering theorem was found in primary text or indexed Hamming-graph records.
+
+## value
+
+PASS
+
+Partial Latin squares form a foundational natural space in combinatorics, and the all-partial-square containment complex is a canonical independence complex of H(3,3). Determining its complete integral homotopy type—not merely known face counts—is a concrete useful finite invariant and a benchmark for higher-order Latin-square topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
