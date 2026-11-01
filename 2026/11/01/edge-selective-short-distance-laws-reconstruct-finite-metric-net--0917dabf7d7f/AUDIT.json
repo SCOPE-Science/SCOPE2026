@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For 0<=r<min edge length, every sub-r shortest path in a simple metric graph is either internal to one edge or travels through a shared vertex of two incident edges. Exact rectangle-minus-corners and two-triangle area computations give (1); extracting coefficients gives length identity (2) and integer incidence formula (3). The Whitney theorem is applied with its correct small-graph exceptions. Independent quadrature and rational checks corroborate finite examples but do not replace the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rakshit–Nair–Baddeley 2017 abstract addresses network correlation statistics for several supplied distance metrics, DOI 10.1016/j.spasta.2017.10.002.",
+        "Anderson–Bernshteyn 2024, Theorem 3.8 and Table 1, DOI 10.1017/jsl.2024.50."
+      ],
+      "reasoning": "A general metric choice for K-functions assumes a given network and does not subsume recovering network incidence from distributions. Whitney reconstructs a graph from its known line graph; it does not reconstruct the line graph from stochastic distance coefficients. Combining the new analytic inversion with Whitney is not an already stated covering inverse theorem.",
+      "searches": [
+        "quadratic short distance coefficient of metric networks recovers line graph from edge density perturbations",
+        "doi:10.1016/j.spasta.2017.10.002",
+        "doi:10.1017/jsl.2024.50"
+      ]
+    },
+    "checked_sources": [
+      "Rakshit, Baddeley, Nair (2019) JSS 90:1 DOI 10.18637/jss.v090.i01, public full-text read.",
+      "Rakshit, Nair, Baddeley (2017) Spatial Statistics 22 DOI 10.1016/j.spasta.2017.10.002, abstract/repository read.",
+      "Baddeley et al. (2017) Stat DOI 10.1002/sta4.135, publisher abstract/date read.",
+      "Anderson, Bernshteyn (2024) DOI 10.1017/jsl.2024.50, full HTML theorem read.",
+      "Whitney (1932) DOI 10.2307/2371086, classical original theorem used via later complete restatement."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Whitney 1932 DOI 10.2307/2371086 and Anderson–Bernshteyn 2024 establish the line-graph uniqueness theorem independently of edge-sampling distances.",
+        "Rakshit–Baddeley–Nair 2019 full accessible text, introduction and algorithms, assumes the graph and shortest paths are supplied."
+      ],
+      "reasoning": "Whitney proves L(G) -> G (with exceptions). The new nontrivial implication is measured short-radius mixed distance laws -> edge-specific lengths and labeled L(G), followed by Whitney. Existing forward K-statistics and Whitney separately do not assert that first implication or the exact triangle/claw indistinguishability of all local mixture laws.",
+      "searches": [
+        "edge-labeled sampling local geodesic distance histograms reconstruct line graph and incidence adjacency Whitney triangle star ambiguity",
+        "doi:10.2307/2371086",
+        "doi:10.18637/jss.v090.i01"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Rakshit–Baddeley–Nair 2019, Section 1 equations (1)–(2) and algorithms: statistics of observed points on a pre-specified network, DOI 10.18637/jss.v090.i01."
+      ],
+      "reasoning": "The forward pair-distance cumulative distribution is a standard statistic. Equation (1) gives its exact dependence on arbitrary controllable edge-mixture probabilities near radius zero, while equations (2)–(3) recover previously unknown edge lengths and edge adjacency. The cited forward computation does not imply that designed mixture probes invert the line graph.",
+      "searches": [
+        "quadratic short distance coefficient of metric networks recovers line graph from edge density perturbations",
+        "doi:10.18637/jss.v090.i01"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2019 network-statistics paper contains equation (2), an empirical distance CDF, but no table or formula that returns edge adjacency from quadratic coefficients of mixtures."
+      ],
+      "reasoning": "No matching exact finite-probe inverse table was found. The present 0/1 recovery equation is a symbolic identity valid for all positive edge lengths; absence from a search index alone is not treated as proof of novelty.",
+      "searches": [
+        "metric graph pair-distance near zero law polynomial piecewise constant edge densities inverse topology",
+        "short distance CDF on a metric graph vertex degrees first and second Taylor coefficients random pair distances"
+      ]
+    },
+    "rationale": "A short-radius, edge-selective inverse theorem was not stated or implied by the inspected network point-process source, which treats forward statistics on a supplied graph; the only line-graph inversion invoked is the classical Whitney theorem. Older equivalent sampling-correlation formulations remain a real residual priority risk.",
+    "residual_risks": [
+      "Full original 2017 network point-pattern papers were not obtained; more general formulas may subsume the local CDF decomposition even if the inverse problem is not stated.",
+      "Non-English or older road-network stereology may treat edge-selective inverse probes under different terminology; historical priority is provisional.",
+      "A full continuum of exact population observations is required for germ coefficients, not finite noisy data."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Forward evaluation of geodesic-distance point-process summaries assumes a known graph; no theorem recovering edge incidence from specially mixed sampled pairs was identified.",
+        "evidence": [
+          "Equation (2) is an empirical pair-distance CDF on a known linear network; article objective is computational scalability of K-function estimation and pair-correlation statistics."
+        ],
+        "identifier_or_url": "https://www.jstatsoft.org/article/view/v090i01 ; DOI 10.18637/jss.v090.i01",
+        "material_read": "Full publicly displayed manuscript text, especially introduction and equations (1)–(2), known-network representation, algorithmic sections and conclusions.",
+        "method": "Read CC BY full manuscript as public article text and compare objects, inputs, output claims, and inverse incidence question.",
+        "title": "Efficient Code for Second Order Analysis of Events on a Linear Network",
+        "trigger": "Most direct peer-reviewed study of pair-distance distribution and K-functions on shortest-path networks."
+      },
+      {
+        "assessment": "Discusses distance-metric choices and estimators conditional on the given network; whole-document exclusion of all equivalent formulas cannot be asserted.",
+        "evidence": [
+          "Abstract explicitly describes K and pair-correlation analysis of point patterns on a linear network, not recovery of a missing graph."
+        ],
+        "identifier_or_url": "https://research-repository.uwa.edu.au/en/publications/second-order-analysis-of-point-patterns-on-a-network-using-any-di/ ; DOI 10.1016/j.spasta.2017.10.002",
+        "material_read": "Title, publisher-style repository abstract, bibliographic details and source scope; full paper not lawfully accessible at inspected locations.",
+        "method": "Reviewed university repository abstract and bibliographic metadata.",
+        "title": "Second-order analysis of point patterns on a network using any distance metric",
+        "trigger": "Broader arbitrary-network-metric statistical treatment might imply the local inversion."
+      },
+      {
+        "assessment": "Relevant to modeling random network point processes but does not establish the claimed incidence tomography from accessible material; full-text historical risk remains.",
+        "evidence": [
+          "Online first publication date February 8, 2017; framework concerns stationarity for point processes on networks."
+        ],
+        "identifier_or_url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/sta4.135",
+        "material_read": "Abstract and online publication metadata dated February 8, 2017; full publisher article not accessible.",
+        "method": "Inspected publisher landing/abstract page.",
+        "title": "“Stationary” point processes are uncommon on linear networks",
+        "trigger": "2017 discussion of network stationarity and statistical identifiability."
+      },
+      {
+        "assessment": "Validates edge-labelled reconstruction for graphs with at least five vertices; warns of small-graph edge permutation exceptions, handled explicitly. No distance-distribution tomography in this work.",
+        "evidence": [
+          "Theorem 3.8 and Table 1 identify K3/K1,3 and small extra exception structures."
+        ],
+        "identifier_or_url": "https://www.cambridge.org/core/journals/journal-of-symbolic-logic/article/borel-line-graphs/4D1A37B022357B27ABFFD6C2C8ABA769 ; DOI 10.1017/jsl.2024.50",
+        "material_read": "Accessible full HTML, definitions, Theorem 3.8 and Table 1 on strong Whitney isomorphism and exceptional graphs.",
+        "method": "Read article theorem and small-case classification directly.",
+        "title": "Borel Line Graphs",
+        "trigger": "Check exceptional small graphs under the strong edge-labeled inverse line-graph theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0917dabf-7d7f-4140-a5cd-fa85e755de34",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact inverse determination of a whole unknown metric network from only m+binom(m,2) controlled unlabeled pair-distance germs is structurally motivated by metric-network tomography and reveals a sharp irreducible triangle/claw topology ambiguity. It works without generic lengths and characterizes exactly the encoded edge-local information. Noise and inaccessible full papers are limitations, not invented positive evidence.",
+    "status": "PASS"
+  }
+}
