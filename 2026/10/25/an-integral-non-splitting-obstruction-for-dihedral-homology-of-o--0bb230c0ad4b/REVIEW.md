@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The statement is a canonical \(D_n\)-equivariant exact sequence of free integral lattices, built from a relative simplex-skeleton chain sequence and the established shellability of \(\Delta_k(C_n)\). The reflection-fixed \((q-1)\)-subset parity argument contradicts any mod-two section. Direct GF(2) orbit calculations for twenty-eight finite cases include all six odd-cycle/even-parameter instances through eleven vertices. The finite checks are supplementary.
+## correctness
 
-**Originality — PASS against inspected sources.** The closest paper, *Topology of Cut Complexes II* (2024), Theorem 6.6, already determines the **full rational dihedral representation** and is fully acknowledged. Its virtual-character equality and the earlier shellability theorem do not imply the asserted integral non-splitting. The new theorem concerns the extension class, not a rational character. Searches of published mathematical records found no equivalent integral statement. Unindexed prior results remain possible.
+PASS
 
-**Value — PASS.** This gives a parity-uniform, infinite-family obstruction to integral equivariant decomposition, invisible to the existing complete rational representation. It differentiates integral and rational equivariant topology in a natural, shellable graph-complex family.
+For n>k>2 every q-subset except the n complements of consecutive k-arcs is a possible facet of the cut complex, and the lower (q-2)-skeleton agrees with the full simplex skeleton. Bayer et al. Theorem 27 establishes shellability, hence vanishing H~_(q-2). The pair long exact sequence yields the canonical surjection from the skeleton top homology, naturally wedge^q of augmentation lattice U_n, onto the oriented missing-face permutation lattice. The reflection s(i)=k-1-i fixes the representative omitted face, acts there by epsilon_q=(-1)^((q-1)/2). For odd n and even k, its unique fixed vertex v lies in missing facet F; R=F\{v} is reflection-invariant and every other extension of R is by an s-paired vertex of B. Any invariant mod2 cycle lifting the F-coordinate 1 would have boundary coefficient 1 at R, contradiction. Therefore no mod2 D_n-section; an integral section would reduce to one. Independent finite parity cases n=7,9,11 are consistent but the full statement follows from the invariant-face argument.
 
-**Limitations.** No exact order for the class, converse for other parameter parities, or stronger decomposition theorem is asserted. Independent verification has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge integral and mod-two extension nonsplitting is not implied by the prior complete rational D_n character. Prior dihedral virtual-character theorem gives rational decomposition (where finite-group modules are semisimple), not the failure of an integral equivariant section exhibited here.
+
+## value
+
+PASS
+
+The nonzero extension class is motivated by the already determined rational dihedral homology representation: it detects exactly the integral/modular phenomenon invisible to that character, for an infinite natural odd-cycle/even-cut parameter family. A short parity obstruction supplies structural insight beyond table recomputation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

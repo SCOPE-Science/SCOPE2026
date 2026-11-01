@@ -1,0 +1,168 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md pair LES, exterior-power identification, reflection sign and fixed-face boundary proof",
+        "Bayer et al. 2023 Theorem 27 page10 states all n>k>2 cycle cut complexes are shellable, wedge spheres in degree n-k-1",
+        "Private independent fixed-face checker tests (n,k)=(7,4),(9,4),(9,6),(11,4),(11,6),(11,8)"
+      ],
+      "rationale": "For n>k>2 every q-subset except the n complements of consecutive k-arcs is a possible facet of the cut complex, and the lower (q-2)-skeleton agrees with the full simplex skeleton. Bayer et al. Theorem 27 establishes shellability, hence vanishing H~_(q-2). The pair long exact sequence yields the canonical surjection from the skeleton top homology, naturally wedge^q of augmentation lattice U_n, onto the oriented missing-face permutation lattice. The reflection s(i)=k-1-i fixes the representative omitted face, acts there by epsilon_q=(-1)^((q-1)/2). For odd n and even k, its unique fixed vertex v lies in missing facet F; R=F\\{v} is reflection-invariant and every other extension of R is by an s-paired vertex of B. Any invariant mod2 cycle lifting the F-coordinate 1 would have boundary coefficient 1 at R, contradiction. Therefore no mod2 D_n-section; an integral section would reduce to one. Independent finite parity cases n=7,9,11 are consistent but the full statement follows from the invariant-face argument.",
+      "risk": "Non-splitting is for this canonical integral equivariant exact sequence, not an assertion that any conceivable abstract module decomposition is impossible.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 27 covers all relevant homotopy types and vanishing needed for exactness; Theorem 6.6 covers the full rational dihedral character including odd n."
+        ],
+        "reasoning": "The more general rational character already dominates numerical representation-count claims, but it has no integral splitting assertion; the explicit mod2 obstruction remains a separate statement.",
+        "searches": [
+          "Bayer Denker Jelic Milutinovic et al Topology of Cut Complexes II Theorem 6.6",
+          "Bayer et al 2023 theorem 27 cycles shellable"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/8.pdf",
+        "https://arxiv.org/pdf/2407.08158",
+        "https://arxiv.org/abs/2304.13675",
+        "Resultary mathematical records (query: odd cycle cut complex dihedral homology integer non-split exact sequence wedge augmentation lattice induced reflection mod two obstruction)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Established homotopy sphere count and rational D_n-character can be derived from a rationally split form of the same sequence."
+        ],
+        "reasoning": "Rational splitting is automatic over Q[D_n] by Maschke and cannot distinguish integral nonsplitting. The reflection-fixed mod2 face is a genuinely new obstruction not implied by rational trace values.",
+        "searches": [
+          "arxiv:2304.13675 Theorems 7.11,7.13,7.15",
+          "arxiv:2407.08158 Theorem 6.6"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The quotient is a signed permutation lattice of n oriented missing facets; the middle lattice is the exterior power of the integral augmentation module."
+        ],
+        "reasoning": "These are the natural equivariant formulations of the same extension class. Mod-two fixed-facet obstruction is not equivalent merely to a character difference.",
+        "searches": [
+          "odd cycle cut complex dihedral homology integer non-split exact sequence wedge augmentation lattice induced reflection mod two obstruction",
+          "cut complex cycle missing facet oriented dihedral permutation module integral extension",
+          "reflection invariant cycle mod 2 nonsplit augmentation exterior power"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search hits included dihedral homology of matching, wheel-Morse, ladder and other complexes, not the stated canonical extension for odd cycle cut complexes."
+        ],
+        "reasoning": "Existing rational-character tables do not record this integral extension; no dedicated table equivalent located.",
+        "searches": [
+          "\"cycle cut complex\" \"integral\" \"non split\" dihedral",
+          "Resultary query: odd cycle cut complex dihedral homology integer non-split exact sequence wedge augmentation lattice induced reflection mod two obstruction"
+        ]
+      },
+      "rationale": "Best-of-knowledge integral and mod-two extension nonsplitting is not implied by the prior complete rational D_n character. Prior dihedral virtual-character theorem gives rational decomposition (where finite-group modules are semisimple), not the failure of an integral equivariant section exhibited here.",
+      "residual_risks": [
+        "Less-indexed integral-equivariant work could contain an equivalent extension obstruction.",
+        "The 2024 full PDF comparison focused on section 6.2 and its stated representation theorem, not an exhaustive survey of every paragraph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cycle-cut shellability and sphere counts are established; the result supplies essential known premise, not new nonsplitting.",
+          "evidence": [
+            "Theorem 27: n>k>2 shellability and wedge count"
+          ],
+          "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/8.pdf",
+          "material_read": "Full primary conference text; section 5 cycles, Theorems 23 and 27, page10 screenshot",
+          "method": "Primary paper PDF page screenshots and theorem text",
+          "title": "On the Topology of Cut Complexes of Graphs",
+          "trigger": "Shellability and precise cycle-complex object"
+        },
+        {
+          "assessment": "Full rational D_n representation established; no integral or mod2 splitting obstruction stated in inspected results.",
+          "evidence": [
+            "Theorem 6.6 (n odd) virtual module formula; Lemma 6.5 reflection-fixed facet"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+          "material_read": "Primary arXiv PDF sections 6.2, Lemma 6.5, Theorem 6.6 and surrounding proof; page27 screenshot",
+          "method": "PDF full relevant sections and page screenshot",
+          "title": "Topology of Cut Complexes II",
+          "trigger": "Exact same D_n action on cycle cut complexes"
+        },
+        {
+          "assessment": "Records cover rational dihedral or different graph complexes, no same integral non-splitting assertion.",
+          "evidence": [
+            "Numerical/rational-character records are not integral extension statements"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026",
+          "material_read": "Titles and summaries of related records",
+          "method": "Resultary semantic search",
+          "title": "Published mathematical dihedral homology records",
+          "trigger": "Possible unindexed equivalent integral statements"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Uniform reflection-fixed codimension-one face forces contradictory boundary coefficient in every admissible case",
+        "Rational modules split while integral and modular canonical sequences provably do not"
+      ],
+      "rationale": "The nonzero extension class is motivated by the already determined rational dihedral homology representation: it detects exactly the integral/modular phenomenon invisible to that character, for an infinite natural odd-cycle/even-cut parameter family. A short parity obstruction supplies structural insight beyond table recomputation.",
+      "risk": "Exact order of extension class and the other parity families remain open.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/8.pdf",
+    "https://arxiv.org/pdf/2407.08158",
+    "https://arxiv.org/abs/2304.13675",
+    "Resultary mathematical records (query: odd cycle cut complex dihedral homology integer non-split exact sequence wedge augmentation lattice induced reflection mod two obstruction)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Non-splitting is for this canonical integral equivariant exact sequence, not an assertion that any conceivable abstract module decomposition is impossible.",
+    "Exact order of extension class and the other parity families remain open.",
+    "Less-indexed integral-equivariant work could contain an equivalent extension obstruction.",
+    "The 2024 full PDF comparison focused on section 6.2 and its stated representation theorem, not an exhaustive survey of every paragraph."
+  ],
+  "residual_risks": [
+    "Less-indexed integral-equivariant work could contain an equivalent extension obstruction.",
+    "The 2024 full PDF comparison focused on section 6.2 and its stated representation theorem, not an exhaustive survey of every paragraph."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Cycle-cut shellability and sphere counts are established; the result supplies essential known premise, not new nonsplitting.",
+      "evidence": [
+        "Theorem 27: n>k>2 shellability and wedge count"
+      ],
+      "identifier_or_url": "https://www.mat.univie.ac.at/~slc/wpapers/FPSAC2023/8.pdf",
+      "material_read": "Full primary conference text; section 5 cycles, Theorems 23 and 27, page10 screenshot",
+      "method": "Primary paper PDF page screenshots and theorem text",
+      "title": "On the Topology of Cut Complexes of Graphs",
+      "trigger": "Shellability and precise cycle-complex object"
+    },
+    {
+      "assessment": "Full rational D_n representation established; no integral or mod2 splitting obstruction stated in inspected results.",
+      "evidence": [
+        "Theorem 6.6 (n odd) virtual module formula; Lemma 6.5 reflection-fixed facet"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2407.08158",
+      "material_read": "Primary arXiv PDF sections 6.2, Lemma 6.5, Theorem 6.6 and surrounding proof; page27 screenshot",
+      "method": "PDF full relevant sections and page screenshot",
+      "title": "Topology of Cut Complexes II",
+      "trigger": "Exact same D_n action on cycle cut complexes"
+    },
+    {
+      "assessment": "Records cover rational dihedral or different graph complexes, no same integral non-splitting assertion.",
+      "evidence": [
+        "Numerical/rational-character records are not integral extension statements"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026",
+      "material_read": "Titles and summaries of related records",
+      "method": "Resultary semantic search",
+      "title": "Published mathematical dihedral homology records",
+      "trigger": "Possible unindexed equivalent integral statements"
+    }
+  ]
+}
