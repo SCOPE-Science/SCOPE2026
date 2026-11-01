@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The complete zero-sum powered-distance spectrum is derived from the generalized-quadrangle strongly regular point and line collinearity spectra, with multiplicities adding to the full zero-sum dimension. An elementary strict branch inequality excludes the nonconstant singular sectors up to \(\log_2(1+1/q)\); a strict derivative argument gives a unique earlier crossing in the global point-minus-line sector. The positivity beyond that crossing, all endpoint nullities, Schoenberg rank statements and cubic exponent asymptotic follow analytically. All boundary quantifiers are explicit. The supplied verifier independently reconstructs actual classical incidence graphs and checks their distances/spectra for three finite orders; this does not replace the general proof.
+## correctness
 
-## Originality — PASS, qualified
-Actual mathematical-record queries for generalized quadrangles, negative type, generalized roundness, and the concrete 30-vertex Tutte–Coxeter case did not identify an equivalent claimed formula. The inspected full texts of Weston (2008), Sánchez (2011), Vanhove (2011), and DeVille (2017) provide finite-metric criteria, geometry spectra or general distance-matrix methods, without an evaluated all-order threshold/equality-kernel/embedding-rank theorem for this family. Incidence spectra and standard Schoenberg rank machinery are acknowledged inputs. Other prior graph-metric results for affine and projective incidence geometries have different distance systems and do not imply the diameter-four generalized-quadrangle classification. The use of a known spectral scheme makes an unindexed specialization a residual originality risk; publication priority requires specialist review.
+PASS
 
-## Mathematical value — PASS
-Generalized quadrangles are a canonical distance-regular incidence family beyond projective and affine planes. The exact negative-type endpoint for every equal-order geometry, complete one-dimensional critical equality classification, Hilbert embedding rank transition, and sharp cubic collapse as the order increases are natural metric invariants and structural information. This is not a mere numerical tabulation of one graph or an arbitrary parameter slice.
+The generalized-quadrangle incidence matrix B has BB^T=(q+1)I+A with collinearity eigenvalues q(q+1),q-1,-(q+1) and respective dimensions 1,f=q(q+1)^2/2,g=q(q²+1)/2; singular values of B are q+1,sqrt(2q),0. On the zero-sum subspace of the full 2v powered-distance matrix the exhaustive sectors are balanced-constant F_q(p), paired R±(p) of multiplicity f, and S(p) of multiplicity 2g, totaling 2v-1. R±<0 for 0<=p<=p0=log2(1+1/q), S<0 for p<p0, while F_q(0)=-1 and F_q(p0)>0, with derivative positive for p>=0; hence exactly one F root strictly before p0. Above it F>0 until p0 and S>0 past p0. Endpoint nullspace exactly one-dimensional, so centered Schoenberg Gram rank drops from 2v-1 to 2v-2. Expanding F_q’(0)=q³log(4/3)-q²log(3/2)+qlog2 and Taylor gives the stated q^-3 and q^-4 terms along existing orders. Independent W(2) incidence graph construction and full 30x30 powered-distance eigenvalue comparisons at p=0.1, 0.345784723476,0.6 verified all predicted spectral sectors; finite q never substitutes for general incidence proof.
 
-## Scientific limitations
-Only equal-order existing finite generalized quadrangles and their unit-edge vertex metrics are covered. Nonclassical geometries are covered by the incidence axioms rather than computational examples. An independent audit has not occurred, and no claim of full literature exhaustiveness is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Weston arXiv:0807.2705 gives lower bounds from cardinality and scaled diameter, not this equality threshold; Sánchez arXiv:1108.0451 gives a general finite-metric criterion and explicit complete-bipartite graph exponents (distances only 1 and 2), not the GQ graph distances 1,2,3,4. DeVille arXiv:1708.02294 gives generalized distance spectra for distance-regular graphs via an algorithm; a suitable specialization can compute sector eigenvalues but the paper does not state the first positive crossing, one-dimensional kernel, snowflake rank, or q^-3 asymptotic for generalized-quadrangle incidence graphs (searched the full text for quadrangle and negative type). Established incidence spectra are used openly, not claimed. Resultary exact-claim query returned no direct stronger claim. As a qualified best-knowledge conclusion, an unindexed earlier specialization is possible.
+
+## value
+
+PASS
+
+Generalized quadrangles form a canonical distance-regular incidence family. Their supremal negative-type exponent, exact critical equality sign vector and minimal Hilbert snowflake rank are natural metric invariants for every existing equal-order case, and a q^-3 rather than q^-1 collapse is a substantial structural asymptotic, not a finite numerical table or parameter renaming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
