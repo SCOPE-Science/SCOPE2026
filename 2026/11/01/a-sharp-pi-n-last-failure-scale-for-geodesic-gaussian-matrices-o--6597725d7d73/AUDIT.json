@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "Circulant Fourier diagonalization gives the exact eigenvalues. The Poisson-summation positive theta term is bounded below by sqrt(pi/t)exp(-pi^2/(4t)), while all omitted tails are bounded by 2exp(-tn^2/4)/(1-exp(-tn)). For t>=(pi+epsilon)/n the ratio is uniformly exponentially small through t=1, and diagonal dominance covers all t>=1. For t=c/n with c<pi, an even-N near-Nyquist tail has positive limiting factor (1-exp(-c))/(1+exp(-c)), and an odd-N sine-weighted near-Nyquist tail has positive limiting factor (1-exp(-c))/(2(1+exp(-c))^2). These exponentially dominate the positive theta term and yield negative eigenvalues in all residue classes. The squeezed limit follows. The packaged checker passed high-precision representative computations; it is not substituted for the analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Feragen–Lauze–Hauberg (2014), Theorems 1–2 concern kernels valid for every bandwidth, rather than a sample-size-dependent high-parameter region.",
+        "Feragen–Hauberg (2016), §§2–3 document finite-sample positive-definite ranges and formulate probabilistic open problems, without a deterministic all-cycle leading constant.",
+        "Da Costa et al. (2023), Theorem 3 concerns the full continuous geodesic circle for any fixed parameter."
+      ],
+      "reasoning": "Global all-scale impossibility, a random-sample probability, and the continuum fixed-scale obstruction cannot dominate or directly imply the uniform finite-cycle cutoff at coefficient pi.",
+      "searches": [
+        "\"Geodesic Exponential Kernels: When Curvature and Linearity Conflict\" arxiv:1411.0296",
+        "\"Open Problem: Kernel methods on manifolds and metric spaces\" pmlr v49 feragen16",
+        "\"The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle\" 2302.10623"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1411.0296v1",
+      "pmlr:v49:feragen16",
+      "arxiv:2302.10623v1",
+      "doi:10.1016/0167-7152(94)00162-2 (abstract only)",
+      "published-record published-finding corpus semantic searches on finite cycle geodesic Gaussian covariance and theta asymptotics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 proof considers a fixed circle bandwidth with growing N and an even N divisible by 4; its asymptotics do not include the simultaneous t~c/N scaling or the odd-index sign analysis.",
+        "The 2016 paper explicitly regards finite-sample bandwidth windows as open territory.",
+        "Wood (1995) addresses continuous-circle covariance truncation; its accessible abstract says nothing about an N-dependent finite-grid threshold."
+      ],
+      "reasoning": "For any c<pi the present proof constructs an eventually negative eigenvalue for every N, while for any a>pi it proves strict positivity simultaneously for all parameters t>=a/N; this two-sided uniform quantification is stronger in a distinct finite-grid direction than the cited continuum results. The incomplete Wood comparison is a disclosed residual risk.",
+      "searches": [
+        "arxiv:1411.0296v1 section 2 and proofs",
+        "pmlr:v49:feragen16 pages 1–4",
+        "arxiv:2302.10623v1 pages 4–9",
+        "\"When is a truncated covariance function on the line a covariance function on the circle\" Wood 1995"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Da Costa–Mostajeran–Ortega (arxiv:2302.10623v1), §4: circulant Fourier Gram matrix on N equally spaced circle points, proving no single fixed intrinsic scale works for every N; §5 points out finite-N bandwidth survival.",
+        "The current assertion asks for the asymptotic last-indefiniteness threshold, allowing the kernel scale to grow linearly with N in physical coordinates."
+      ],
+      "reasoning": "The same kernel may be written as exp(-lambda delta^2) with lambda=n^2 t/(4pi^2), making the new scaling lambda~n/(4pi). The fixed-lambda obstruction applies in a different limit and neither proves nor contradicts that scaling.",
+      "searches": [
+        "\"Gaussian kernel\" \"circle\" finite equally spaced points bandwidth asymptotic threshold pi n",
+        "\"circulant\" \"Gaussian\" \"cycle\" \"positive definite\" eigenvalues",
+        "Gaussian geodesic circle equally spaced finite sample Gram eigenvalue positive definite bandwidth threshold",
+        "arxiv:2302.10623v1, section 4 and discussion"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-record descriptions include a round-circle magnitude sampling law (2026/10/4/SCOPE-curvature-universal-sampling-law-for-round-circle-magnitude--bb4313f199bf) and a finite-cycle Fourier sensor frame bound (2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818); neither addresses squared-geodesic Gaussian covariance positivity.",
+        "The published-record search returned no exact table of n*tau_n, nor an equivalent band-limited Gaussian cutoff."
+      ],
+      "reasoning": "No exact finite-cycle Gaussian threshold database was found in the bounded searches. Lack of a hit is a limitation of coverage, not a proof of novelty.",
+      "searches": [
+        "finite cyclic circle distance squared Gaussian matrix positive semidefinite high-frequency eigenvalue theta truncation asymptotic",
+        "squared circle geodesic distance Gaussian finite cyclic group high frequency theta",
+        "sampled geodesic Gaussian circle spectral positive definite phase transition number of points pi over N"
+      ]
+    },
+    "rationale": "The sharpened all-cycle leading constant n*tau_n -> pi for the last negative-eigenvalue scale was not implied by the inspected global all-bandwidth geometric theorems, the 2016 finite random-sample open questions, or the 2023 no-fixed-scale circle theorem. Its key new implication is uniform positivity at all t>(pi+eps)/n combined with a negative near-Nyquist witness at t=(pi-eps)/n for every parity class. Bounded literature and published-record searches did not locate an equivalent or stronger statement; the 1995 historical circle covariance article remains a named access risk.",
+    "residual_risks": [
+      "Wood (1995) primary full text unavailable; an unrecognized historical specialization could contain a comparable finite-grid asymptotic.",
+      "Published-record search and web indexing are incomplete; there is no claim of globally certified novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes all-bandwidth flatness restrictions, not a finite regular-cycle sharp growing-bandwidth threshold",
+        "evidence": [
+          "arxiv:1411.0296v1 first posted 2014-11-02; full-text Theorems 1–2 and §3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1411.0296v2",
+        "material_read": "Full-text HTML abstract, main theorems, kernel preliminaries, proofs and related work/discussion",
+        "method": "Rendered accessible full-text reading",
+        "title": "Geodesic Exponential Kernels: When Curvature and Linearity Conflict",
+        "trigger": "Earliest historical Gaussian geodesic all-bandwidth source; could subsume finite positive-definiteness bounds"
+      },
+      {
+        "assessment": "Poses probabilistic finite-sample questions and notes sufficiently large bandwidth eventual positivity; does not give uniform sharp asymptotic coefficient for equispaced circles",
+        "evidence": [
+          "PMLR 49 (2016), pp. 1–4, especially §3 Conjectures 1–3."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v49/feragen16.pdf",
+        "material_read": "All four pages, including Introduction, State-of-the-art, Open Problems, figure, references",
+        "method": "Accessible primary PDF text and page screenshot",
+        "title": "Open Problem: Kernel methods on manifolds and metric spaces. What is the probability of a positive definite geodesic exponential kernel?",
+        "trigger": "Plausible source explicitly about finite-sample positivity and bandwidth intervals"
+      },
+      {
+        "assessment": "Proves continuous-circle impossibility for each fixed scale via growing even-grid witnesses; does not provide the claimed finite-grid last-failure constant, all-grid upper bound, or odd-grid obstruction",
+        "evidence": [
+          "arxiv:2302.10623v1, Theorem 3, equations (2)–(5), §5 discussion."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2302.10623",
+        "material_read": "Full primary PDF text of introduction, proofs on the circle (pp. 4–7), discussion (pp. 8–9), and references; inspected page-five screenshot",
+        "method": "Primary arXiv PDF, text plus page screenshot",
+        "title": "The Gaussian kernel on the circle and spaces that admit isometric embeddings of the circle",
+        "trigger": "Direct exact-object and Fourier-matrix match; most plausible stronger coverage"
+      },
+      {
+        "assessment": "Possible conceptual coverage of continuous-circle covariance Fourier signs, but no justified whole-document negative-coverage assertion. Listed as residual risk.",
+        "evidence": [
+          "A. T. A. Wood (1995), Statistics & Probability Letters 24, 157–164, abstract."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0167-7152(94)00162-2",
+        "material_read": "Bibliographic abstract and bibliographic metadata only; primary full text not obtained",
+        "method": "Accessible abstract via EconPapers/RePEc, not a complete-document inspection",
+        "title": "When is a truncated covariance function on the line a covariance function on the circle?",
+        "trigger": "Older work on truncating Gaussian-type covariance functions onto a continuous circle"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6597725d-7d73-4b51-8c5a-47aaf8f9df21",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Sharp limiting value pi for the deterministic last-indefiniteness scale of geodesic Gaussian kernel matrices on every uniform n-point circle answers the finite-dataset bandwidth admissibility question motivated in the 2016 literature. The value comes from a nontrivial asymptotic competition of theta decay and antipodal truncation, with a different polynomial prefactor in odd cycles. In unit circle normalization it gives the practically interpretable leading scale lambda~n/(4pi), quantifying the continuum no-go result rather than merely restating it.",
+    "status": "PASS"
+  }
+}
