@@ -1,0 +1,125 @@
+{
+  "correctness": {
+    "rationale": "The exact lens identity fixes the one-half temporal Jacobian and oscillator phases. Direct Gaussian moments give a complete two-mode polynomial, strictly negative derivative for s>0 and sharp coefficient at s=1. A separately recomputed complex-lambda phase-Fourier expansion gives a negative perfect-square quartic coefficient and sextic coefficient -525/4096 at its unique zero; CHECK.py executes these exact identities from the actual package. Finite asymptotic curves are not substituted for all odd data.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2017 Theorem 1 gives an exact norm representation for arbitrary Hermite expansions, not a finite-mode optimized formula.",
+        "The general sharp Strichartz bound 1/4 is strictly greater than 9/64; its extremizers are Gaussians, not odd.",
+        "Gaussian-centered stability results do not state a sharp first-odd-Hermite or corrected three-mode coefficient."
+      ],
+      "reasoning": "The general 2017 representation is strong formal coverage of the method, and is a material novelty risk. Its generic identity does not supply the stated sharp optimization or cancellation coefficient without a separate nontrivial Gaussian moment and nonlinear coefficient computation. Neither the unrestricted inequality nor the existing parity/symmetry estimates imply the attained 9/64 sharp restricted value with sextic correction.",
+      "searches": [
+        "arXiv:1702.08510v2 Theorem 1 Hermite norm representation",
+        "arXiv:2609.11644v1 Theorems 1.2 and 1.4",
+        "arXiv:2610.31543v1 Theorem 1.2 and Corollary 1.3"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.31543v1",
+      "arXiv:2609.11644v1",
+      "doi:10.4171/RMI/1322",
+      "arXiv:1702.08510v2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gonçalves–Zagier explicitly leave the k=2 mixed-norm parity block analysis to later research, after proving k=1 odd L6.",
+        "Suzuki determines even-data spectral sharpening only.",
+        "Gonçalves (2017) introduces the exact general Hermite representation and is credited for that mechanism."
+      ],
+      "reasoning": "The first-two-mode sharp restricted inequality and the third-mode sextic leakage are not logical consequences of the previously established odd L6 extremal theorem or even L8L4 sharpening. The 2017 identity implies a finite algorithm for computing the quantity; novelty is restricted to executing and optimizing that calculation with an explicit cancellation/stability result, not to the representation itself.",
+      "searches": [
+        "doi:10.4171/RMI/1322 p. 1712 parity-projected mixed L8L4 open",
+        "arXiv:1702.08510v2 Theorem 1 and §2.1",
+        "arXiv:2610.31543v1 introduction/§5",
+        "arXiv:2609.11644v1 §1.1 and §1.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The closest 2021 sharp parity theorem is for spacetime L6 rather than mixed L8_t L4_x.",
+        "The 2026 even-data sharpening excludes all odd nonzero data."
+      ],
+      "reasoning": "An equivalent formulation would optimize the Strichartz eighth-power quotient on span(h1,h3) and identify the order-four/order-six normal form on span(h1,h3,h5). The identified primary results have different parity, norm exponents, or base point and cannot be specialized directly to these sharp coefficients.",
+      "searches": [
+        "first two odd Hermite modes h1 h3 exact L8 time L4 space Strichartz norm 9/64 2525 8960 quartic flat",
+        "odd Hermite h1 h3 sharp Strichartz two dimensional coefficient polynomial quintic quartic local deficit",
+        "odd Schrödinger Strichartz L8 L4 first odd Hermite derivative Gaussian finite-dimensional sharp constant",
+        "arXiv:2610.31543v1, main results and parity",
+        "doi:10.4171/RMI/1322, Corollary 1.3 and page 1712"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No inspected table in the four primary documents gives the polynomial with 12288,11520,8960,2525 or the sixth-order coefficient 525/4096.",
+        "Closest indexed finite-moment material is not an (8,4,1) odd Hermite truncation."
+      ],
+      "reasoning": "Exact known table coverage was checked at the level of the polynomial, its first-mode optimum, the unique h5 normal-form parameter, and the sextic coefficient rather than matching titles alone. Failed searches are not a uniqueness proof.",
+      "searches": [
+        "first two odd Hermite modes h1 h3 exact L8 time L4 space Strichartz norm 9/64 2525 8960 quartic flat",
+        "odd Hermite h1 h3 sharp Strichartz two dimensional coefficient polynomial quintic quartic local deficit",
+        "odd Schrödinger Strichartz L8 L4 first odd Hermite derivative Gaussian finite-dimensional sharp constant",
+        "odd Strichartz L8 L4 Hermite span h1 h3 h5 quartic normal form sixth-order leakage coefficient 525/4096 optimal correction sqrt30/6",
+        "arXiv:1702.08510v2 odd / h3 full-text search",
+        "arXiv:2609.11644v1 odd / Hermite full-text search"
+      ]
+    },
+    "rationale": "Direct comparison with accessible primary full texts shows no stated sharp phase-independent first-two-odd-Hermite polynomial or optimized quartic-to-sextic three-mode normal form for (8,4,1). The general 2017 Hermite identity supplies a route to deducing the formulas and is explicitly credited, so the risk of seeing them as an implicit special case remains. Indexed mathematical results found an unrelated (5,10,1) quartic Gaussian reduction and (6,6,1) odd sharp constant, neither implying these coefficients.",
+    "residual_risks": [
+      "The general 2017 Hermite norm identity may be considered implicit broader coverage after explicit substitution; originality of a finite computed special case is sensitive to this interpretation.",
+      "An unindexed calculation of the same first-three-odd-Hermite truncation may exist.",
+      "No whole-literature exhaustivity or independent human expert novelty certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not cover odd finite-Hermite truncation",
+        "evidence": "Theorem 1.2 and Corollary 1.3 explicitly restrict to coordinatewise even inputs; pp. 14–16 compute even-sector matrices.",
+        "identifier_or_url": "arXiv:2610.31543v1 | https://borowiecki.dev/pdf/2610.31543",
+        "material_read": "PDF pp. 1–3 main theorems, pp. 14–16 even spherical-harmonic spectral method; checked parity-sensitive text",
+        "method": "Open full primary PDF and inspect exact theorems and relevant detailed sections",
+        "title": "A sharpened L^8_t L^4_x-Strichartz estimate for even initial data",
+        "trigger": "Eligible 2026 motivating source, identical mixed exponents but even-data restriction"
+      },
+      {
+        "assessment": "Sharp Gaussian-centered stability does not give an odd h1/h3/h5 normal form",
+        "evidence": "Theorem 1.4 treats global stability around Gaussians under nonnegative inputs and a weaker |f| statement; the discussed odd-data sharp theorem is for (6,6,1).",
+        "identifier_or_url": "arXiv:2609.11644v1 | https://borowiecki.dev/pdf/2609.11644",
+        "material_read": "PDF pp. 1–6 main theorems and context; p. 12 Hermite formulation; pp. 19–21 endpoint perturbation sections",
+        "method": "Open full primary PDF and inspect matching exponent statements, Hermite cases and explicit scope",
+        "title": "Gaussians Do Not Always Maximize Mixed-Norm Strichartz Inequalities for the Schrödinger Equation",
+        "trigger": "Same mixed exponents, potentially stronger global stability"
+      },
+      {
+        "assessment": "Odd L6 sharp constant differs; mixed L8L4 parity operator not solved there",
+        "evidence": "Corollary 1.3 gives odd L6; subsequent paragraph explicitly leaves k=2 parity-projected block spectrum to future work.",
+        "identifier_or_url": "doi:10.4171/RMI/1322 | https://ems.press/content/serial-article-files/39082?nt=1",
+        "material_read": "PDF pp. 1–4, Theorem 1.1 and Corollaries 1.2–1.3; p. 4 mixed-norm parity-open discussion",
+        "method": "Read OA published PDF main assertions and extension paragraph",
+        "title": "Strichartz estimates with broken symmetries",
+        "trigger": "Strongest identified earlier parity-restricted sharp theorem"
+      },
+      {
+        "assessment": "General norm formula is prior method; no explicit sharp odd two-mode and sextic normal-form coefficients located",
+        "evidence": "Theorem 1 represents the norm for arbitrary Hermite expansion, and therefore motivates but does not itself state the optimized present numbers.",
+        "identifier_or_url": "arXiv:1702.08510v2 | https://arxiv.org/pdf/1702.08510",
+        "material_read": "PDF pp. 1–4 (Theorem 1 and §2.1), pp. 14–16 Hermite polynomial spectral arguments; odd/Hermite searches",
+        "method": "Read full primary preprint at relevant theorem and proof sections",
+        "title": "Orthogonal Polynomials and Sharp Estimates for the Schrödinger Equation",
+        "trigger": "Potentially dominating general exact Hermite formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5bae9709-eea3-4825-86b5-430e40e523b6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The unresolved parity-constrained (8,4,1) sharp problem naturally suggests its first odd spectral modes. An exact global two-mode deficit with a sharp fourth-order stability constant, together with a unique cancellation by the third mode and a positive sextic remainder, describes a symmetry-enforced degeneracy and the cost of finite-dimensional spectral truncation. This is a precise reusable finite-band benchmark rather than a claimed unrestricted sharp inequality.",
+    "status": "PASS"
+  }
+}
