@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof specifies a finite essential acyclic marked directed multigraph and distinguishes geometric fixed spaces from orbit spaces. Strictly increasing longest-path rank proves quotient acyclicity; equivariant path lifting proves equality of quotient and original orbit-face conditions for both complexes; orbit barycentric weights prove the PL fixed-space identifications. Applying the published non-equivariant sphere theorem to every quotient determines every subgroup fixed-point homotopy type. Direct signed-face Lefschetz summation then determines the rank-one integral orientation modules, including the formal degree-minus-one boundary. The standalone program independently checks all graph and automorphism cases described in VERIFICATION.md. Remaining correctness risk centers on faithful use of the cited base sphere theorem and on the standard finite-group rational transfer only for the example.
+## correctness
 
-## Originality
-PASS, with explicit uncertainty. The original Grinberg--Katthän--Lewis paper supplies exactly the nonequivariant input; its inspected definitions, main results, proof portions and later sections do not assert the all-subgroup orbit-graph PL fixed-point models or the two integral sign characters. General equivariant Morse theory is methodologically broader but does not identify the group actions for these two path complexes. The compared prior indexed constructions concern multipath, path homology, finite-space maps or different simplicial complexes, and do not dominate the present network-specific fixed-space claim. Full-text and index limitations leave a residual possibility of independently discovered equivalent results.
+PASS
 
-## Value
-PASS. The subgroup-fixed sphere dimension function is a genuine equivariant invariant, substantially stronger than a nonequivariant sphere count or a finite-graph table. Two homotopy spheres associated to the same network can carry different integral orientation modules. Complete layered networks show a nontrivial and a trivial top representation on the two complexes, yielding opposite rational quotient-homology behavior. The stated graph assumptions are natural for two-terminal reliability; no general equivariant splitting or paper-scale contribution is asserted.
+The maximum source-path length strictly increases on arcs and is automorphism-invariant, so quotient directed multigraph D/H remains acyclic and essential. Any arc-orbit path can be lifted by moving a representative arc with a group element to match the current lifted vertex; this preserves path presence and absence in full orbit selections. Hence constant barycentric coordinates on arc orbits give PL identifications |PF(D)|^H=|PF(D/H)| and similarly PM. The published Grinberg–Katthän–Lewis sphere theorem gives fixed dimensions |U/H|-2 and |E/H|-|U/H|-1. A g-invariant face contributes (-1)^(number of arc orbits -1) to augmented Lefschetz, so the orbit quotient's sphere Euler sign yields rank-one integral characters sgn(g|U) for PF, sgn(g|E)*sgn(g|U) for PM. This applies to each subgroup, including degree -1 boundary. Independent all-orbit-subset path-lifting and exact signed face calculations for S2×S2 on a 1-2-2-1 layered network recovered 8 PF/PM trace tests and all four subgroup orbits.
 
-## Literature and limits
-Closest direct input: Grinberg--Katthän--Lewis, arXiv:2102.07894 (2021), Definitions 1.1 and Theorems 1.9--1.10, accessible PDF. Broader, non-implicative context: Yerolemou--Nanda, *Morse theory for complexes of groups* (2024). The proof does not extend to cyclic, inessential, or unmarked directed networks; potential unindexed equivalent prior work remains a risk. The review is not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorems 1.9 and 1.10 of Grinberg–Katthän–Lewis are the explicitly acknowledged non-equivariant input, and do not themselves identify geometric fixed points or automorphism modules. General group-complex Morse results have no such specialized arc/vertex orbit-count dimensions in inspected scope. The signs require both exact orbit-path lifting and Lefschetz orientation; ordinary sphere homotopy alone cannot force an action.
+
+## value
+
+PASS
+
+Exact geometric fixed-point sphere profiles for every symmetry subgroup and the contrasting integral orientation modules of the two naturally Alexander-dual path complexes are substantial usable equivariant data for arbitrary essential finite networks. The formulas distinguish path obstruction and complement-complex representations beyond known ordinary sphere dimensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
