@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-The all-width mathematical proof is the group-orbit barycenter PL triangulation, the independent pairwise-conflict analysis, and the path independence suspension recurrence in `RESULT.md`. It explicitly includes the exceptional empty width-three fixed set. This is not a machine-checked proof or independent mathematical certification.
+# Independent mathematical audit
 
-Run `python3 verify_fixed.py` in the package directory. The program uses only Python 3's standard library and constructs the three-row grid graph edges directly, then constructs the complete action of row and column reflections on those edges. It tests each generated edge orbit for the matching condition; checks all distinct admissible-orbit pairs against two path conflict graphs through width 90; enumerates all candidate orbit subsets through width 13 and compares their face predicate with the predicted independent-set condition; constructs mod-two boundary matrices of the finite fixed complexes through width 12 and checks their reduced Betti ranks. The observed final output is:
+## correctness
 
-```
-VERIFY_OK: widths 2..90; orbit classes 6119 ; checked candidate faces 6825 ; homology widths 2..12
-```
+PASS
 
-The finite mod-two checks do not establish the integral homology theorem, whose infinite proof follows from the explicit sphere homotopy classification. The search comparison consulted the full available primary arXiv PDF and the complete published RESULT.md texts of the two closest symmetry studies; residual risks of other equivalent sources remain.
+For each n>=2 the geometric K-fixed points of the matching complex are exactly convex combinations with equal barycentric coefficients on K-edge orbits; the explicit barycenters of the individually admissible orbit-matchings triangulate that locus PL. A vertical-edge orbit contains both vertically adjacent edges in a column, so is forbidden. Horizontal orbits split into nonconflicting outer-row and central-row families. Column reversal yields q=n/2 or q=(n-3)/2 permitted orbits per family for even or odd n, and within each family precisely consecutive orbit indices conflict. Hence the full fixed orbit complex is Ind(P_q disjoint union P_q); q=0 at n=3 gives the empty realization, whereas n=2 gives a simplex. The elementary two-contractible-piece cover gives Ind(P_q) ~= suspension Ind(P_(q-3)), with initial q=1,2,3 cases. Joining two path complexes supplies the claimed integral sphere dimensions or contractibility, with the first sphere occurring q>=2 and arbitrarily high dimensions. An independent reconstruction of all reflection-edge orbits and conflicts agrees for n=2..24. These bounded tests do not prove all widths or integral topology.
+
+## originality
+
+PASS
+
+Existing same-graph work gives ambient nonequivariant connectivity, row/column individual Lefschetz numbers, and the half-turn plus whole-quotient Euler characteristic; these scalar invariants do not determine the common K-fixed-space PL model or homotopy. The two reflected horizontal families in prior orbit counts are known; the extra simultaneous column action and conflict-path reconstruction are the claimed structural refinement. Best of knowledge with close-prior-work and access caveats.
+
+## value
+
+PASS
+
+The actual common fixed-point space of two commuting involutions is a natural equivariant-topology invariant, stronger than a Lefschetz scalar. A canonical PL identification for every grid width yields full integral homotopy, an empty exceptional case, and an unbounded sequence of genuine fixed spheres despite highly connected ambient matching complexes. This is an interpretable structural family result, not a re-tabulation of alternating traces.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
