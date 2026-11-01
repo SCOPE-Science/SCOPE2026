@@ -1,0 +1,15 @@
+# Scientific review: seventeen-torsion translation quotient
+
+## Correctness: PASS
+The four free edge orbits, four free triangle orbits, and the complete four-relator list follow from the explicit quadratic-residue graph and are fully enumerated by `verify_quotient.py`. Each of the first three attaching maps traverses a designated generator precisely once, so three elementary two-/one-cell eliminations leave the attaching degree \(17\). This establishes the claimed homotopy type, not just a calculation of \(H_1\). The universal-cover chain complex has boundary norm \(1+t+\cdots+t^{16}\) and its kernel is the integral augmentation ideal. The covering identification matches the one-step translation with the loop generator. The computational checks are finite/exhaustive for this complex; the CW and universal-cover arguments provide the topological proof.
+
+## Originality: PASS (search-qualified)
+The closest same-object primary article, Rinaldo–Romeo (arXiv:1807.05755v1, Sections 1–2), already identifies the Paley-17 vertex-decomposable example. It covers nonequivariant clique-complex homotopy (using Paley self-complementarity), which is expressly **not claimed new**. Elsawy's Paley-graph account and Kahle's random flag-complex study do not compute translation quotients or integral deck modules. A published calculation of the Paley-17 *open-neighborhood* complex treats a different simplicial complex. A previously published cyclic quotient Moore-space family concerns different cycle-power graph complexes, with no logical implication for the four Paley attaching words. Exact published-finding corpus and literature queries did not locate an equivalent or stronger Paley-17 translation quotient computation; unseen literature remains possible.
+
+## Value: PASS
+The Paley-17 graph is a canonical highly symmetric, nontrivial vertex-transitive circulant. Its ordinary topology is already understood, but its integral equivariant structure is not determined by vertex decomposability. The finding identifies a natural order-17 torsion quotient and the full \(\mathbb Z[C_{17}]\)-module on top homology via an explicit orbit CW model, thereby giving a structural symmetry invariant stronger than Euler characteristic, Betti number or rational homotopy rank. These are mathematically motivated, not an arbitrary choice of a subcomplex or an incremental parameter.
+
+## Sources and limitations
+Closest primary: G. Rinaldo and F. Romeo, *2-dimensional vertex decomposable circulant graphs* (arXiv:1807.05755v1), actual full HTML Sections 1 and 2 inspected. Other primary sources: A. N. Elsawy, *Paley Graphs and Their Generalizations* (arXiv:1203.1818) and M. Kahle, *Topology of random clique complexes* (arXiv:math/0605536). A related indexed result on Paley-17 open-neighborhood complexes was read and compared to the different flag complex. Possible unseen equivalent work is a residual originality risk; independent mathematical validation remains outstanding. No claim is made for all Paley graphs.
+
+Self-review: passed. Independent audit: not yet performed.
