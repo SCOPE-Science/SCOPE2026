@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "The finite selection identity reduces the centered strong Hilbert norm exactly to 4096 singular values. The embedded stdlib program calculates all 4096 integer Gram matrices, proving by exact Sylvester/Bareiss arithmetic that 4084 are strictly below the rational squared threshold \\(1517/1000\\); all 12 exceptional matrices are one dihedral orbit. Exact LeVerrier coefficients give the quintic characteristic factor; Descartes signs isolate its unique root above the threshold; rational interval arithmetic certifies an exact positive polynomial eigenvector and 18 strict active-ball inequalities. Perron simplicity yields all 12 nonnegative equality rays. The package contains full source and exact replay commands.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Soria and Tradacete: bounds and exact graph extremal results in the range \\(0<p\\le1\\), with specialized star estimates, not an all-graph sharp \\(p=2\\) norm.",
+        "González-Riquelme and Madrid: Theorem 4 for complete graphs and corresponding sharp star theorem; \\(C_6\\) is neither.",
+        "Public 2026 variational work: \\(\\operatorname{Var}_p M f\\) concerns edge differences, not \\(\\|M f\\|_2\\)."
+      ],
+      "reasoning": "The known all-graph estimates do not pin down the six-cycle \\(\\ell^2\\) norm; the graph-specific formulas have distinct hypotheses, while variation bounds cannot be substituted for a full function-norm bound. There is no logical implication of the candidate quintic constant or equality rays from these results.",
+      "searches": [
+        "sharp l2 norm Hardy Littlewood maximal operator finite graphs cycle C6 centered Soria Tradacete Gonzalez-Riquelme Madrid",
+        "finite graphs maximal operators exact l2 norms cycle graphs",
+        "arXiv:1410.6204 Sections 2 and 3; arXiv:2005.03146 Section 1.3 and Sections 3.1–3.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1410.6204 (relevant full HTML)",
+      "arXiv:2005.03146 (relevant full HTML)",
+      "arXiv:2603.12462 (relevant full HTML)",
+      "Targeted public mathematical-record index searches for the C6 centered maximal Hilbert norm and equivalent spectral forms"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The original 2014 paper proves extremality of complete graphs and stars in the low-\\(p\\) regime and other general bounds, not this \\(C_6\\) \\(p=2\\) value.",
+        "The 2020 paper explicitly gives \\(\\ell^2\\) formulas for \\(K_n\\) and \\(S_n\\). Neither is graph-isomorphic to \\(C_6\\).",
+        "The 2026 paper derives variation constants for at most five vertices in its small-graph census; the proposed norm is different even at overlapping graph sizes."
+      ],
+      "reasoning": "The accepted claim is the exact \\(\\ell^2\\) norm of a centered maximal operator on one six-vertex cycle plus a full equality classification. The named antecedents cannot imply this by graph isomorphism, parameter specialization, duality, or monotonicity: the former use different graph families or a different seminorm, and no stronger covering result appears in inspected text.",
+      "searches": [
+        "arXiv:1410.6204 Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+        "arXiv:2005.03146 Sharp inequalities for maximal operators on finite graphs",
+        "arXiv:2603.12462 Sharp variational inequalities for the Hardy-Littlewood maximal operator on finite undirected graphs"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Direct comparison of operator norm \\(\\sup_{f\\ne0}\\|M f\\|_2/\\|f\\|_2\\) with the equivalent maximum singular value of 4096 ball-choice matrices.",
+        "In the full HTML of arXiv:2005.03146, the \\(\\ell^2\\)-norm theorem is for complete graphs and stars; the HTML search for a six-cycle theorem returned no match.",
+        "The 2026 full text describes edge-variation inequalities for connected graphs on at most five vertices, not the six-cycle strong \\(\\ell^2\\) norm."
+      ],
+      "reasoning": "The linearization into finite averaging matrices is equivalent to the claimed sharp nonlinear norm; published results were checked against this stronger spectral formulation and the dihedral equality classification. No inspected result supplies an equal or stronger spectral value for these six-cycle radius-selection matrices.",
+      "searches": [
+        "centered maximal function six-cycle exact strong Hilbert norm extremizing vectors graph ball C6",
+        "Hardy Littlewood maximal operator finite cycle graph C6 spectral radius exact ell2 sharp constant",
+        "\"Hardy-Littlewood\" \"C6\" \"norm\" cycle graph",
+        "arXiv:1410.6204; arXiv:2005.03146; arXiv:2603.12462"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching published exact polynomial or numerical constant was identified by the recorded targeted searches.",
+        "The closest mathematical-record cycle result concerns numerical indices of Lipschitz-free spaces rather than the maximal \\(\\ell^2\\) norm.",
+        "Full-text search of the three highly relevant primary HTML sources found no \\(C_6\\) sharp strong \\(\\ell^2\\) table entry."
+      ],
+      "reasoning": "Neither identical-coefficient searching nor available indexed mathematical records exposed a table covering this exact operator and graph. Search-result absence alone does not establish originality; it is weighed alongside direct theorem-implication comparisons.",
+      "searches": [
+        "\"24300\" \"73710\" \"68847\" \"20992\" maximal cycle",
+        "\"1.2330453849\" maximal operator graph",
+        "\"six-cycle\" \"Hardy-Littlewood\" maximal norm graph",
+        "sharp strong l2 norm centered Hardy Littlewood maximal operator six cycle C6 graph extremizers"
+      ]
+    },
+    "rationale": "The exact centered strong \\(\\ell^2\\) norm and full 12-ray equality classification for the unweighted six-cycle are not implied by the inspected 2014 general graph-maximal bounds, the 2020 complete/star Hilbert results, or the 2026 finite-graph variation results. Targeted public-record and algebraic-coefficient searches uncovered no equivalent claim. Local exact computations for \\(C_4\\) and \\(C_5\\), and variation bounds for \\(C_6\\), concern different graphs or invariants; the six-cycle has four ball radii, and neither a monotonicity theorem nor a formula applying to all cycles was located. This is qualified best-knowledge originality, not absolute priority.",
+    "residual_risks": [
+      "An unindexed or unpublished equivalent exact six-cycle Hilbert-norm calculation may exist.",
+      "Search indices are not exhaustive bibliographic certificates; independent priority confirmation was not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: strongest relevant graph-family results concern low p or stars; C4 p=1 example does not fix C6 p=2.",
+        "evidence": [
+          "First arXiv public version 2014-10-22; Section 1 describes p<=1 and special stars; Section 2 Example 2.6 calculates C4 p=1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.6204",
+        "material_read": "Full available HTML article: introduction, Sections 2–3 theorem statements and examples, including its explicit C4 low-exponent example and low-p graph extremal claims.",
+        "method": "Relevant statement and hypothesis comparison against the exact C6 strong Hilbert operator norm; searched page text for C6.",
+        "title": "Best constants for the Hardy-Littlewood maximal operator on finite graphs",
+        "trigger": "Original source establishing graph-ball maximal operators and the dated archive anchor."
+      },
+      {
+        "assessment": "NOT_COVERING: explicit sharp p=2 results are for complete graphs and stars, not C6.",
+        "evidence": [
+          "Section 1.3 Theorem 4 covers complete K_n; Section 3 contents list complete graph and star proofs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2005.03146v3",
+        "material_read": "HTML introduction Sections 1.1–1.3 and its stated Hilbert Theorem 4 plus the Section 3.1/3.2 proof scopes for complete and star graphs.",
+        "method": "Read theorem hypotheses and classes; compared strong norm and equality claims with the six-cycle.",
+        "title": "Sharp inequalities for maximal operators on finite graphs",
+        "trigger": "Closest full-strong-Hilbert-norm primary article."
+      },
+      {
+        "assessment": "NOT_COVERING: variation is the studied quantity; the small-graph census stops at five vertices.",
+        "evidence": [
+          "Theorem 2 and Observation 3 concern variation on four- and five-vertex graphs; not the candidate C6 full Hilbert norm."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.12462v1",
+        "material_read": "HTML abstract, introduction Theorems 1–4, and the named Section 3–4 study scopes: graphs with four and five vertices.",
+        "method": "Distinguished edge-total-variation constants from strong counting-measure Hilbert norms, checked six-cycle coverage.",
+        "title": "Sharp variational inequalities for the Hardy–Littlewood maximal operator on finite undirected graphs",
+        "trigger": "Recent potentially overlapping small-graph exhaustive paper."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61bc1361-6739-4e21-b741-f3f84572f992",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The six-cycle is the smallest cycle with four distinct centered ball radii and diameter three, a natural new analytic regime beyond the three-ball four- and five-cycle cases. The exact quintic spectral invariant not implied by inspected prior theorems and complete twelve-ray symmetry classification describe an intrinsic sharp operator norm, with a reproducible boundary benchmark for larger even-cycle maximal inequalities. The claim is not merely a numerical sample or arbitrary weighted slice.",
+    "status": "PASS"
+  }
+}
