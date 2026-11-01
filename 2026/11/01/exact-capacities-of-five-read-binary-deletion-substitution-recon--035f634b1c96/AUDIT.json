@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "The channel matches exact one deletion and at most one substitution. All graphs are finite and exhaustively constructed for 3<=n<=9. Explicit valid codebooks meet each lower bound, and self-contained exact clique enumeration with a proven proper-coloring pruning upper bound gives every matching upper bound; independent ball generation and a second exact graph search confirm critical cases.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Sun–Ge (2026), Section IV.D, states a five-read code with redundancy bound, not a sharp finite-length optimum.",
+        "Li–Sun–Ge (2025), Table I, states N=7 and other redundancy constructions.",
+        "Song–Cai–Quek (2025) controls intersections under additional distance assumptions rather than maximum codebook cardinality."
+      ],
+      "reasoning": "The existence of a code family with a bound on redundancy does not determine the exact maximum at any of the seven lengths. A general pairwise intersection bound does not supply equality for the graph clique numbers.",
+      "searches": [
+        "https://arxiv.org/pdf/2604.25294",
+        "https://arxiv.org/pdf/2505.04232",
+        "single deletion single substitution balls five reads 8-bit maximum code 12 finite enumeration table"
+      ]
+    },
+    "checked_sources": [
+      {
+        "title": "Correcting One Deletion and One Substitution with a Constant Number of Reads",
+        "url": "https://arxiv.org/abs/2604.25294"
+      },
+      {
+        "title": "Binary Reconstruction Codes for Correcting One Deletion and One Substitution",
+        "url": "https://arxiv.org/abs/2505.04232"
+      },
+      {
+        "title": "Sequence Reconstruction for the Single-Deletion Single-Substitution Channel",
+        "url": "https://arxiv.org/abs/2501.03833"
+      },
+      {
+        "identifier": "Published mathematical result indexed October 2026; disjoint-ball correction channel, not five-read capacity",
+        "title": "Published exact binary one-deletion one-substitution correcting-code capacities at lengths seven and eight"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2026 source supplies an N=5 code construction and existential cardinality lower bounds, not a finite upper bound matching 16.",
+        "The 2025 pairwise theorem is not a maximum-clique/independence-number theorem and cannot by itself imply A_5(9)=16.",
+        "Explicit codebooks and a complete upper-bound search supply both sides of each newly asserted equality."
+      ],
+      "reasoning": "Neither an existential construction nor a pair-intersection estimate logically gives the exact maximum of all pairwise-compatible codebooks. Comparison is by implication and quantifiers rather than by title.",
+      "searches": [
+        "https://arxiv.org/abs/2604.25294",
+        "https://arxiv.org/abs/2501.03833",
+        "exact maximum cardinality binary reconstruction code one deletion one substitution N=5 n=4 5 6 7 8 sizes 5 5 6 8 12 independent set"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The same channel can be described as a confusion graph with edges when the output-ball intersection is at least five; its maximum independent set is the claimed capacity.",
+        "Published nearest indexed claim gives exact correction-code sizes at lengths 7 and 8 for the disjoint-ball (one-read) requirement, not intersection less than five."
+      ],
+      "reasoning": "The clique formulation in the present proof is equivalent to the channel code-size question, not a separately claimed novelty. Stronger one-read codes are automatically admissible for five reads but their maxima are typically smaller; those results do not force five-read maxima.",
+      "searches": [
+        "\"single deletion\" \"single substitution\" \"five reads\" \"n=9\" \"16\" reconstruction codes",
+        "exact maximum cardinality binary reconstruction code one deletion one substitution N=5 n=4 5 6 7 8 sizes 5 5 6 8 12 independent set"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The investigated construction tables list redundancy bounds keyed by read count, not exact cardinalities keyed by n.",
+        "Published nearest exact-result record treats disjoint deletion-plus-substitution balls at lengths 7 and 8, an N=1 condition."
+      ],
+      "reasoning": "A known optimal size of an error-correcting code with disjoint balls is not the optimal size under the relaxed five-read intersection requirement; the underlying compatibility matrices differ.",
+      "searches": [
+        "\"reconstruction codes\" \"N=5\" \"n=9\" optimal code",
+        "noisy reconstruction code size n=8 5 reads 12 binary graph independent",
+        "https://arxiv.org/pdf/2604.25294 Section VI and Theorem 4.6",
+        "https://arxiv.org/pdf/2505.04232 Table I"
+      ]
+    },
+    "rationale": "The three primary same-channel papers provide pair-intersection results or redundancy constructions, not exact N=5 maxima through n=9; indexed results about disjoint-ball correction do not imply relaxed five-read capacities. The actual comparison covers structural equivalences, broad coverage, exact tables and logical implication; residual unindexed-table risk is disclosed.",
+    "residual_risks": [
+      "Unindexed prior exact finite capacity computations could exist.",
+      "Full text of every potentially relevant peripheral paper was not exhaustively searched; reported source inspections state their actual coverage."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Five-read existence/redundancy theorem; no small-blocklength exact capacity or seven-term maximum-clique profile in inspected relevant statements",
+        "evidence": [
+          "arXiv v1 2026-04-28, p.1-2 definition of B and codes",
+          "p.13 Theorem 4.6: redundancy at most 3 log_2 n + 4 for N=5",
+          "p.23 Section VI summarizes asymptotic constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.25294",
+        "material_read": "PDF abstract; Sections I and II definitions; Section IV.D Theorem 4.6; Section VI conclusion, with related theorem statements and references",
+        "method": "Direct PDF text and page inspection",
+        "title": "Correcting One Deletion and One Substitution with a Constant Number of Reads",
+        "trigger": "Same channel and five-read code construction"
+      },
+      {
+        "assessment": "Focuses on fixed N=7 and growing N; Table I reports redundancy constructions, not exact capacities for N=5",
+        "evidence": [
+          "arXiv v1 2025-05-07 p.2 Table I",
+          "p.24 Section VI poses further constant-read code design"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.04232",
+        "material_read": "PDF abstract; Sections I and II, parameter Table I; Section VI and cited results",
+        "method": "Direct PDF text and page inspection",
+        "title": "Binary Reconstruction Codes for Correcting One Deletion and One Substitution",
+        "trigger": "Earlier same channel, possible dominating construction and finite tables"
+      },
+      {
+        "assessment": "Bounds pairwise read coverage for codewords at Hamming distance at least two; no exact five-read maximum codebook sizes for lengths 3..9",
+        "evidence": [
+          "arXiv first submitted 2025-01-07",
+          "Theorem 1 Hamming-distance hypothesis and linear-in-n intersection bound"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2501.03833",
+        "material_read": "PDF abstract, Sections I-II including Theorem 1, main hypotheses and conclusions",
+        "method": "Direct PDF text and page inspection",
+        "title": "Sequence Reconstruction for the Single-Deletion Single-Substitution Channel",
+        "trigger": "Potentially stronger sphere-intersection theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "035f634b-1c96-47a8-8a39-961e834ae463",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Five-read mixed-error reconstruction code capacity is the intrinsic natural extremal invariant in the 2026 study. Seven sharp starting values, including a nontrivial 512-vertex optimum and the first nonmonotonic blocklength transition, provide reproducible exact benchmarks for short-read system design; no general theorem is claimed.",
+    "status": "PASS"
+  }
+}
