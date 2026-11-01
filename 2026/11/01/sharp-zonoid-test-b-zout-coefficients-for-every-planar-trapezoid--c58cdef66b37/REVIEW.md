@@ -1,0 +1,11 @@
+# Self-review
+
+**Correctness — PASS.** The affine normalization sends every nondegenerate trapezoid to a single real parameter. The six difference-body vertices imply exactly the six polar vertices displayed. All fifteen polar determinant minors have absolute value among \(0,1-\tau,1\), proving the bound for every real parameter. Mixed-area bilinearity and zonoid approximation make the segment inequality universal. Two coordinate segments give an exact equality witness; the endpoint is handled. The standalone rational verifier passed 21,282 checks. No finite sample is used as an infinite proof.
+
+**Originality — PASS, conditional on the documented literature access.** The 2015 author-uploaded full-text study proves a qualitative simplex characterization but contains no trapezoid calculation or sharp affine-base-ratio law. The 2026 Langharst–Wang abstract describes a general qualitative characterization; its primary full text was unavailable despite arXiv/OA and institutional-access attempts. The 2025 Averkov–Soprunov article concerns three-dimensional zonoid inequalities and a universal coefficient. The present coefficient \(1+\tau\) is an exact, quantitatively parameterized result for planar trapezoids with zonoid auxiliary tests; it is not a logical consequence of a mere simplex characterization or the universal coefficient two. Historical-priority risk remains, including plausible other parameterizations of the same calculation.
+
+**Value — PASS.** The simplex-characterization problem motivates an exact *distance from sharpness* for natural degenerations. All planar trapezoids comprise one affine modulus, so the formula provides a complete, sharp continuum between the simplex and parallelogram endpoints. The coefficient recovers the actual parallel-base ratio exactly, rather than furnishing a nonsharp bound, and it remains valid for all centrally symmetric convex test bodies, not just two selected segments.
+
+**Limitations.** The result does not determine the best coefficient over arbitrary non-zonoid auxiliary bodies; no independent mathematical audit or historical-priority certification has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
