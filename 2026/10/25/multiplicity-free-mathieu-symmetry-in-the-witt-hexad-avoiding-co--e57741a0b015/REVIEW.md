@@ -1,19 +1,21 @@
-# Scientific assessment: Witt hexad-avoiding complex
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The complex is explicitly defined on the twelve points of the Witt \(5\)-\((12,6,1)\) design. The unique-block property of every five-set proves both the rank-six basis-exchange axiom and the exact characterization of maximal faces. The matroid-shellability theorem yields the integral wedge type, and the independently enumerated face vector has reduced Euler characteristic \(-330\). The integral exact sequence follows from the relative chains of the full five-skeleton and vanishing fourth homology. Its signed trace equation is valid for every design automorphism, with signs from oriented hexads. All \(95\,040\) Mathieu elements and all fourteen twelve-point cycle structures were exhaustively evaluated by the supplied script; independent simplicial Lefschetz calculations agree, and the resulting character equals three indicated published irreducibles. The proof uses an established shellability theorem rather than attempting to infer infinite or topological conclusions solely from finite tests.
+PASS
 
-## Originality — PASS, subject to residual literature risk
+The actual RESULT.md defines the independence complex of the Witt 5-(12,6,1) hexad design. Every five-subset has one containing hexad, proving rank-six sparse-paving basis exchange; 792 nonhexad six-facets and face vector (12,66,220,495,792,792) give reduced Euler characteristic -330. Matroid shellability supplies wedge of 330 five-spheres, not a finite-test extrapolation. Inclusion K into full simplex five-skeleton gives the integral equivariant exact sequence via relative oriented hexad chains. Independently rebuilt 132 blocks from T,S and computed all 95,040 elements of <T,S,E>, 14 cycle types, exact signed hexad and exterior traces, invariant inner product zero and self inner product 3; all 14 values agree with source and the three irreducible rows 55+99+176 on the scanned 2020 character table. No integral irreducible splitting asserted.
 
-The same complex is the Alexander dual of the Witt hexad facet complex, fitting Fløystad’s published 2004 general study of enriched homology and Steiner-system duals; that work gives non-equivariant background but not the three-piece Mathieu character computed here. Huber's design classification and Bierbrauer–Marcugini–Pambianco's Mathieu-code construction also concern the same Steiner system but neither supplies this top-homology character. Björner's general shellability theorem already implies sphere-wedge homotopy and the rank follows from an elementary face count; neither of those alone is presented as a novel theorem. The 2020 Mathieu-group character table lists the irreducible rows but not this explicit homology module or the oriented-hexad integral kernel. A separately checked eleven-point Witt pentad-avoiding classification concerns a different design and group. Focused searches for the twelve-point object, matroid aliases, kernel sequence, exact dimension \(330\), and the \(55+99+176\) decomposition revealed no stronger covering calculation. An unindexed or inaccessible equivariant matroid treatment remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The three-constituent, multiplicity-free Mathieu representation is a strong symmetry constraint on a natural, historically important, exceptional rank-six matroid. The exact integral lattice sequence provides an actionable geometric presentation of that representation rather than only a numerical Betti invariant. This naturally refines classical shellability of the matroid and differentiates the invariant from ordinary design block enumeration. Determining the action of the full sporadic automorphism group is the central value; the classical sphere-wedge deduction is essential supporting context, not the sole motivation.
+Best-of-knowledge: Neither known sphere multiplicity nor existence of character rows logically fixes their occurrence in this top homology. The explicit integral oriented-hexad kernel and character computation produce the new implication. Prior general structural homology covers homotopy concentration and rank. It does not determine how all 95,040 Mathieu automorphisms act on oriented cycles or the 55+99+176 constituent decomposition.
 
-## Limits
+## value
 
-The complex wedge decomposition is not asserted equivariantly; the representation splits only after complexification. No individual integral character-lattice decomposition, unpublished independence claim, or proof of global bibliographic uniqueness is asserted. Scientific review is not an external certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Witt hexad matroid is a canonical exceptional Steiner design with the 95,040-element sporadic M12 action. Computing its complete multiplicity-free top homology representation, no-invariant result, and an integral oriented-block kernel is a natural and potentially reusable equivariant invariant; the known ordinary 330-sphere count alone does not supply it.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
