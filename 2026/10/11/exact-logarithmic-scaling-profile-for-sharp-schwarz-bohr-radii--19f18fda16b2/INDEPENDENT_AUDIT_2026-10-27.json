@@ -1,0 +1,157 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T01:15:41Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-logarithmic-scaling-profile-for-sharp-schwarz-bohr-radii--19f18fda16b2/RESULT.md",
+        "https://arxiv.org/abs/2610.02935",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-logarithmic-scaling-profile-for-sharp-schwarz-bohr-radii--19f18fda16b2/VERIFICATION.md",
+        "/mnt/data/scope_worker01_20261027T0103Z/independent_schwarz_bohr_check.py",
+        "/mnt/data/scope_worker01_20261027T0103Z/independent_schwarz_bohr_results.json"
+      ],
+      "rationale": "The target assumes 0<p<=2 and positive integers k,m, with R exactly the sharp root from Sarkar–Das Theorem 3.1. Set s=-k log R>0, lambda=m/k. Then R^m=e^{-lambda s} and R^{2k}=e^{-2s}, so p(1-R^m)/(1+R^m)=2R^{2k}/(1-R^{2k}) is exactly p tanh(lambda s/2)=2/(e^{2s}-1). For fixed p,lambda the first side increases strictly 0 to p as s increases 0 to infinity; the right decreases infinity to 0. Thus s is unique and differentiable/continuous. F_lambda=(p s/2)sech^2(lambda s/2)>0 and F_s=(p lambda/2)sech^2(lambda s/2)+4 e^{2s}/(e^{2s}-1)^2>0 for F=p tanh-2/(exp(2s)-1), yielding ds/dlambda<0. Since RHS<=p at equality, s>=0.5 log(1+2/p)>0; as lambda->infinity, a monotone bounded s yields tanh->1 and the lower-limit equality s->0.5 log(1+2/p). As lambda->0, bounded s contradicts the equation; s->infinity, and any subsequence with lambda*s>=epsilon would keep LHS bounded away from zero against RHS->0. Thus lambda*s->0, and Taylor expansions imply (2s)exp(2s)~8/(p lambda). Positivity and monotone inversion give 2s~W(8/(p lambda)). For k_j->infinity and m_j/k_j->lambda in (0,infinity), exact R_j=exp(-s(m_j/k_j)/k_j) yields k_j(1-R_j)->s(lambda). When m=2k, set y=R^{2k}: p(1-y)^2=2y(1+y), whose sole root 0<y<1 is p/(p+1+sqrt(4p+1)); for p=2 it is y=1/3. No unproved extrapolation to p>2 or uniform boundary k,m limit. Independent SymPy checks verified the balanced-ray quadratic identity; independent 70-digit bisection checked 75 (p,k,m) roots plus 27 profile points, with residuals below 1e-48. Finite tests are corroborative, not an all-parameter proof.",
+      "residual_risks": [
+        "The sharpness of the radius is inherited from the primary source, not independently re-proved as a Banach-space coefficient inequality here. The root-to-profile calculus is checked independently.",
+        "The original article Table 3 prints p=3 and 4 sample rows despite its Theorem 3.1 range 0<p<=2; the assessed theorem correctly stays within 0<p<=2.",
+        "Numerical root tests do not certify universal quantifiers, and no formal or external expert proof was obtained."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sarkar–Das 2026 Theorems 3.1, 4.1 share the exact root of the candidate and therefore cover its sharp inequality context.",
+          "Published Resultary Lambert-W high-tail finding uses p(1-r^m)/(1+r^m)=2r^N/(1-r), not the target 2r^{2k}/(1-r^{2k}): https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-lambert-w-boundary-layer-for-high-tail-bohr-rogosinski-radii--e65d5eaacd6a/RESULT.md",
+          "Published Resultary high-order stabilization finding treats the same different root equation: https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-high-order-stabilization-of-powered-bohr-rogosinski--261b3f2a2ada/RESULT.md",
+          "Ahamed–Majumder–Sarkar arXiv:2601.06630 Theorem 2.2 uses psi=2(nr)^N(1+r^m)-(1-nr)(1-r^m), not the target equation."
+        ],
+        "reasoning": "The 2026 original sharp root formula encompasses the underlying operator inequality and numerical radii, but neither it nor the two separately published high-tail and stabilization statements explicitly gives the two-parameter profile limits. Different denominators change the near-one scale, so the already-published high-tail Lambert-W coefficient cannot be substituted for the candidate. The new theorem does not claim stronger sharpness than its source.",
+        "searches": [
+          "Sarkar Das arxiv 2610.02935 Theorem 3.1 sharp root equation and Theorem 4.1",
+          "Resultary semantic: Bohr Rogosinski radii Lambert W joint scaling N and m positive root",
+          "Resultary semantic: exponential high order stabilization powered Bohr Rogosinski radii exact root p/(p+2)",
+          "Web: Lambert W Bohr Rogosinski radius Schwarz map sharp"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2610.02935",
+        "https://arxiv.org/pdf/2601.06630",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-lambert-w-boundary-layer-for-high-tail-bohr-rogosinski-radii--e65d5eaacd6a/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-high-order-stabilization-of-powered-bohr-rogosinski--261b3f2a2ada/RESULT.md",
+        "https://doi.org/10.1016/j.jmaa.2020.124824"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3.1 of arXiv:2610.02935 determines R as the unique sharp root for all k,m and p<=2. Thus its equation plus s=-k log R directly yields the exact ratio representation; this particular display is not novel independent sharpness.",
+          "The candidate additionally proves s(lambda) strictly decreasing on all real lambda>0, identifies s(lambda)->0.5 log(1+2/p) as lambda->infinity and s(lambda)~0.5W(8/(p lambda)) as lambda->0, and obtains the simultaneous k(1-R) limit.",
+          "Ahamed et al 2026 Thm2.2 only gives separate one-index limits for a non-equivalent root equation."
+        ],
+        "reasoning": "The original implicit characterization mathematically determines the entire family and the algebraic ratio collapse; it does not *state* the requested simultaneous asymptotic or prove its two endpoint expansions. The present proof supplies the needed limiting arguments; they are elementary, a genuine novelty-significance risk, but no inspected prior theorem explicitly dominates the combined quantitative profile. Earlier root sharpness is explicitly credited.",
+        "searches": [
+          "Sarkar Das 2610.02935 Theorem 3.1 equation 3.9 uniqueness sharpness",
+          "Ahamed Majumder Sarkar arxiv 2601.06630 Theorem 2.2 root limits",
+          "Kayumov Khammatova Ponnusamy 2021 Theorems 1-2 full root equations",
+          "Resultary: Lambert-W boundary layer for high-tail Bohr-Rogosinski radii"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Sarkar–Das, arXiv:2610.02935v1, Thm 3.1 equation (3.9): p(1-R^m)/(1+R^m)=2R^{2k}/(1-R^{2k})",
+          "Equivalent coordinates t=R^{2k} and alpha=m/(2k) give p(1-t^alpha)/(1+t^alpha)=2t/(1-t); s=-log(t)/2 and lambda=2alpha.",
+          "Resultary closest direct hit was this same finding (excluded as independent prior art); other Bohr hits use different right-hand denominator."
+        ],
+        "reasoning": "The name Schwarz–Bohr/even-index Schwarz radius and logarithmic two-order scaling describe the same source-root function. Its exact change of variables is implied by the published root equation. The candidate contribution assessed for novelty consists of the global profile order, the asymptotic endpoint transitions and the joint scaling limit; those were not located as published statements in inspected independent sources.",
+        "searches": [
+          "Resultary semantic query: Sharp Schwarz Bohr radius R_(1,k,m,p) scaling m/k logarithmic radius Lambert W asymptotic Sarkar Das",
+          "Resultary semantic query: sharp Bohr radius implicit equation Schwarz map orders logarithmic scaling crossover profile ratio m over k",
+          "Web: \"2610.02935\" \"m/k\" radius",
+          "Web: \"Schwarz mappings\" \"Lambert W\" Bohr"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sarkar–Das source Table 3 gives a few isolated numerical values of R_(1,k,m,p), not an exact scaling function or the m=2k closed form.",
+          "Source Theorem 3.1 restricts 0<p<=2 even though two table entries list p=3 and p=4; those out-of-scope rows are not used."
+        ],
+        "reasoning": "Numerical tables are not a table of the exact continuum profile, its endpoint asymptotics or the full balanced-ray identity. No external exact table directly covering the final profile was identified; a failed search alone is not evidence of novelty.",
+        "searches": [
+          "arXiv 2610.02935 Table 3 R_(1,k,m,p)",
+          "arXiv 2610.02935 Lambert asymptotic",
+          "Resultary: sharp Schwarz Bohr ratio profile exact elementary ray"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the *combined joint-order logarithmic scaling and endpoint regimes*, not for the already published sharp-radius equation itself. Sarkar–Das Theorem 3.1 determines the exact sharp root for every fixed integer pair and therefore algebraically determines the ratio profile once s=-k log R is introduced. This makes the normalization a direct re-expression, not a newly proven sharp inequality. Nevertheless the inspected source states neither the continuous profile and simultaneous k,m->infinity ratio theorem nor its two endpoint laws and balanced-ray family. Source full-text searches show no Lambert or asymptotic section. A separately published Lambert-W high-tail theorem and its companion stabilization theorem analyze p(1-r^m)/(1+r^m)=2r^N/(1-r), a genuinely different root equation; they do not specialize to the target denominator 1-r^{2k}. The independently inspected January 2026 theorem uses 2(nr)^N(1+r^m)=(1-nr)(1-r^m), also different. An older equivalent root treatment or the assessment that elementary corollaries are already covered remains a genuine novelty risk; the result is not presented as an independent discovery of sharpness.",
+      "residual_risks": [
+        "The underlying exact sharp-root equation and therefore the ratio collapse are a direct algebraic consequence of prior Theorem 3.1; only the quantitative profile analysis, not sharpness, carries any originality. A stricter treatment of routine corollaries could regard the remaining observations as covered.",
+        "Some older equivalent Schwarz–Bohr formulations may be unindexed; bibliographic search is not proof of absolute novelty.",
+        "The 2021 comparison was restricted to identified relevant publisher passages, not the full source text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXACT_ROOT_PREMISE; algebraically implies the ratio reparameterization, but neither a separate profile asymptotic nor the joint two-order limit is stated.",
+          "evidence": "Theorem 3.1 equation p(1-r^m)/(1+r^m)=2r^(2k)/(1-r^(2k)); Table 3 isolated sample roots; Theorem 4.1 reuses R_(1,k,m,p).",
+          "identifier_or_url": "arXiv:2610.02935v1; https://arxiv.org/abs/2610.02935",
+          "material_read": "Primary full-text HTML Sections 1, 3 Theorem 3.1 with equation (3.9), proof and sharpness argument, Table 3, and Section 4 Theorem 4.1 reusing the radius; searched full text for Lambert/asymptotic terminology.",
+          "method": "Read arXiv hosted accessible full-text HTML from the abs page, including theorem/proof passages and exact-term search.",
+          "title": "Refined Bohr Inequalities and Bohr Radii Involving Schwarz Mappings for Holomorphic Functions in Banach Spaces and JB*-Triples",
+          "trigger": "Direct defining theorem and closest source with same object/parameters"
+        },
+        {
+          "assessment": "RELATED_DIFFERENT_EQUATION; does not supply candidate ratio profile.",
+          "evidence": "Theorem 2.2 uses 2(nr)^N(1+r^m)-(1-nr)(1-r^m)=0 and states separate N->infinity/m->infinity limits.",
+          "identifier_or_url": "arXiv:2601.06630v1; https://arxiv.org/pdf/2601.06630",
+          "material_read": "Original PDF Theorem 2.2 and its two separate limits, page 8; preceding motivation and related source background; page screenshot visually checked.",
+          "method": "Publisher/arXiv lawful OA PDF, page-specific text and rendered screenshot.",
+          "title": "Sharp Bohr-Rogosinski radii for Schwarz functions and Euler operators in C^n",
+          "trigger": "Closest 2026 root theorem with Schwarz mappings and multiple order indices"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: different root with denominator (1-r) rather than (1-r^(2k)).",
+          "evidence": "Its exact radius equation is p(1-r^m)/(1+r^m)=2r^N/(1-r), and it treats fixed m,p with N->infinity.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-lambert-w-boundary-layer-for-high-tail-bohr-rogosinski-radii--e65d5eaacd6a/RESULT.md",
+          "material_read": "Complete GitHub RESULT.md finding, assumptions, detailed boundary-layer proof, relation to prior work, limitations and references.",
+          "method": "Published Resultary primary scientific text via GitHub fetch_file.",
+          "title": "Lambert-W boundary layer for high-tail Bohr–Rogosinski radii",
+          "trigger": "Published closely analogous Lambert-W sharp-radius theorem"
+        },
+        {
+          "assessment": "RELATED_NOT_COVERING: different underlying Bohr–Rogosinski sharp root equation.",
+          "evidence": "Its root satisfies p(1-r^m)/(1+r^m)=2r^N/(1-r), yielding exponential m stabilization to A_(p,N).",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exponential-high-order-stabilization-of-powered-bohr-rogosinski--261b3f2a2ada/RESULT.md",
+          "material_read": "Complete GitHub RESULT.md finding, proof, scope, rate, prior comparisons and limitations.",
+          "method": "Published Resultary primary scientific text via GitHub fetch_file.",
+          "title": "Exponential high-order stabilization of powered Bohr–Rogosinski radii",
+          "trigger": "Published theorem quantifying order-m dependence of related sharp radii"
+        },
+        {
+          "assessment": "RELATED_DISTINCT_ROOT; no whole-document absence claim from partial reading.",
+          "evidence": "Theorem 2 proof uses r^N(1+r^m)-(1-r^m)(1-r)=0, not the even-index source equation.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2020.124824",
+          "material_read": "Publisher HTML title/abstract and introduction, and Section 2.3 proof of Theorem 2 with root expression (not an exhaustive complete-document inspection).",
+          "method": "Published ScienceDirect text, relevant primary passages.",
+          "title": "Bohr–Rogosinski phenomenon for analytic functions and Cesáro operators",
+          "trigger": "Classical predecessor of multi-index sharp-radius equations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/exact-logarithmic-scaling-profile-for-sharp-schwarz-bohr-radii--19f18fda16b2/RESULT.md",
+        "https://arxiv.org/abs/2610.02935",
+        "https://arxiv.org/pdf/2601.06630",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-lambert-w-boundary-layer-for-high-tail-bohr-rogosinski-radii--e65d5eaacd6a/RESULT.md"
+      ],
+      "rationale": "The object is the natural *sharp* radius of Sarkar–Das Theorem 3.1, reused in their JB-star-triple Theorem 4.1, and both k and m are geometric Schwarz-mapping orders. The original exact implicit equation and a short numerical table do not express how the two orders interact when both grow. The profile gives a complete continuous law for their fixed ratio, strict direction of variation, an exact ray m=2k and two different endpoint scales (finite saturation versus unbounded Lambert-W logarithmic growth). For later asymptotic analyses of this sharp radius, k(1-R) and its lambda dependence are useful precise normalizations, not an arbitrary finite parameter slice. This is a modest, elementary, self-contained quantitative result about a natural invariant, not a new Bohr inequality or a general theory; no downstream theorem is claimed or required.",
+      "residual_risks": [
+        "The logarithmic coordinate change and subsequent calculus are elementary; the contribution is narrow and could be deemed routine by readers who treat all properties of an implicitly known sharp root as mere exercises.",
+        "The Lambert-W statement is only multiplicative first-order asymptotic, not a uniform or additive-error expansion; its p dependence inside W is not resolved at the leading log scale.",
+        "No generalization to other root families or uniform two-endpoint error bounds is proved."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
