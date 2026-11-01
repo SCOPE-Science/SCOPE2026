@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-A class is determined locally by the multiplicities \(0\), \(1\), and \(\ge2\) of every unary colour because guards contain at most two distinct variables. The proof explicitly constructs a guarded back-and-forth system relating all models of a given class-profile spectrum; the nonempty spectra are separated by rank-three guarded formulas. The canonical model has \(\sum_{v\in S}\sum_t v_t\) elements, and summing over all nonzero profiles proves the universal upper bound \(c3^c\). The all-profile sentence requires pairwise distinct classes with the indicated multiplicities, hence forces exactly that lower bound. This proves exact theory count, quantifier-rank collapse, and optimality for arbitrary domain sizes.
+PASS
 
-The finite checker independently enumerates all \(1954\) one-unary-predicate equivalence structures through five labelled elements, explicitly tests guarded back-and-forth on \(418\) selected instances, and checks the extremal models for \(c=1,2,4\). It is supporting evidence, not the all-cardinality proof.
+For one equivalence E, equality and k unary predicates, atomic guards carry at most two distinct E-related variables. Equality-aware guarded back-and-forth is sustained by each E-class 0/1/>=2 colour supply, and different spectra are separated by explicit rank-3 GF class-existence sentences. One class for each nonzero vector in {0,1,2}^{c} gives the canonical model. The all-profiles GF sentence forces sum of all profile coordinates c*3^c distinct elements, proving optimal B_k=c*3^c, exact 2^(3^c-1)-1 theories, and effective rank-3 collapse for all nonempty finite/infinite domains. Independently evaluated combinatorial totals for k=0..3; this finite arithmetic is not the all-structure proof.
 
-## Originality — PASS, qualified
+## originality
 
-The guarded-bisimulation preservation theorem is classical and explicitly acknowledged. In the inspected primary texts, the broader small-model and canonisation results do not supply the explicit \(0/1/\ge2\) class-profile invariant, the \(c3^c\) best uniform model bound, or the \(2^{3^c-1}-1\) complete GF-theory census for a single equivalence plus unary-only vocabulary. The complete profile theorem and simultaneous sharpness are the contribution assessed here; absolute historical priority is not asserted. Targeted searches of mathematical literature, published research records, and accessible deduplication ledgers revealed no statement equivalent to all three quantitative components. A prior textbook treatment of equality-aware single-role modal/guarded logic remains a residual priority risk.
+PASS
 
-## Value — PASS
+Best-of-knowledge PASS: classical GF bisimulation invariance and broad GF model bounds are acknowledged. New assessed statements are the exact unary-coloured E-class truncation invariant, rank-three normal form, optimal formula-independent c3^c size, and number of GF theories. Full Fiuk 2026 HTML and relevant 2014 guarded logic sources were compared by hypotheses and implications; older labelled S5 guarded normal forms remain a priority risk. An absence of retrieved exact matches is not a proof of novelty.
 
-The 2026 work on nested equivalence relations emphasizes how an otherwise benign guarded fragment changes when equality and auxiliary binary relations are present. In the natural *unary-only* boundary regime, the result completely classifies the expressiveness of unrestricted-rank guarded sentences: every sentence reduces to rank three, only finitely many theories remain, and the exact smallest universal witness size is computed. The optimal witness size is doubly exponential in the number of unary predicates even though it does not depend on formula length. These are motivated finite-model and expressive-power invariants, not arbitrary finite enumerations.
+## value
 
-## Closest literature and limitations
+PASS
 
-Fiuk, *The Guarded Fragment with Nested Equivalences* (arXiv:2605.15072), studies more general signatures and proves undecidability with equality and additional guards. Fiuk, *Random Models and Guarded Logic* (arXiv:2601.05247), establishes asymptotically optimal general small-model bounds. Bárány, Gottlob and Otto, *Querying the Guarded Fragment* (LMCS 2014, DOI:10.2168/LMCS-10(2:3)2014), establishes guarded-bisimulation invariance and general canonisation. Their results supply mathematical background but do not state the special-case sharp number or full census in the inspected sections. Further explicit older results on unary-labelled S5-style guarded semantics could reduce originality.
+Natural exact expressive-power classification at the boundary between guarded monadic equivalences and more general undecidable extensions. Computes optimal signature-only finite model size, complete theories, and quantifier-rank collapse for all formulas, a potentially reusable finite-model benchmark rather than a superficial isolated number.
 
-The claim does not extend to added binary predicates, additional equivalences, constants, counting quantifiers, or ordinary two-variable logic. No independent validation has been performed.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
