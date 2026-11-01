@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The Fock trace product equals the exact Gaussian four-dimensional integral with coefficient pi^-2. Strict convexity and unique supporting contact permit a global lower bound on the inward boundary deficit, while the common local power p gives the exact change-of-variables scale R^(1-1/p). The integrable majorant exp(-h^2-(c|u|^p+s+t)^2) justifies the limit uniformly for bounded nonnegative gaps. Integrating the h variable, two inward distances and the contact coordinate gives 2p/((p+1)pi^(3/2)(a+b)^(1/p)) times the stated integral. The zero-gap gamma factor and the DPP negative covariance follow directly. The packaged standard-library checker passed 55 finite quadrature assertions across p=2,4,6; these are supporting checks, not an infinite proof.",
+    "risks": [
+      "No independent audit of the boundary-layer proof.",
+      "Quadrature is truncated in tangential variables and tests finite examples only."
+    ],
+    "sources": [
+      "doi:10.3390/axioms12121080 (Fock conventions)",
+      "arxiv:1612.00359 (Ginibre DPP covariance framework)"
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "doi:10.3390/axioms12121080 establishes Fock-space decomposition and invariant-symbol Toeplitz algebra representations, not the mixed contact trace of two noninvariant indicator symbols.",
+        "arxiv:1612.00359 Remark 5.7 extends the perimeter upper bound to general observation windows, without an isolated-contact coefficient.",
+        "Proximity/Derjaguin formulations concern local interactions of nearby surfaces in other contexts and were not identified as a rigorous stronger theorem for the present Gaussian Fock product."
+      ],
+      "reasoning": "A general rigorous contact heat-content theorem with the same order p and Gaussian potential could dominate this statement; none was located in the inspected materials. Algebraic invariant-symbol theorems and general perimeter bounds are not such a domination.",
+      "searches": [
+        "heat kernel cross heat content two tangent domains quadratic contact small time asymptotic curvature",
+        "Gaussian heat content of two convex bodies with high-order tangency and fixed distance gap p profile",
+        "asymptotics Gaussian interaction energy two smooth domains tangent at point curvature",
+        "doi:10.3390/axioms12121080 Sections 1 and 6"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1612.00359 (theorems and full-text sections on Ginibre/Weyl-Heisenberg ensembles)",
+      "arxiv:2012.10585 (Bessel and hyperuniform single-ball variance formulas)",
+      "doi:10.3390/axioms12121080 (accessible indexed article sections and primary MSC)",
+      "Published Gaussian cross-interaction, near-contact heat-content and proximity literature targeted by actual searches"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 5.6 of arxiv:1612.00359 provides perimeter growth bounds; Theorem 5.8 is for a single large ball, not two tangent windows.",
+        "Proposition 1.2/Theorem 1.3 of arxiv:2012.10585 provide exact Bessel formulas and large-radius expansions for one ball.",
+        "The 2023 invariant-symbol corollary diagonalizes radial symbols, whereas the present separate bodies are nonradial, noncommuting localizations."
+      ],
+      "reasoning": "Even if a one-window variance can algebraically express a cross covariance by inclusion-exclusion, the known leading perimeter law cancels in that difference, and its remainder has not been shown to determine the new fractional exponent or constant. The present proof establishes the needed contact boundary layer directly.",
+      "searches": [
+        "arxiv:1612.00359 Theorem 5.6 Theorem 5.8 Remark 5.7",
+        "arxiv:2012.10585 Proposition 1.2 Theorem 1.3",
+        "doi:10.3390/axioms12121080 Section 6 Corollary 1",
+        "Fock space Toeplitz trace product indicators disjoint tangent domains contact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:1612.00359 gives the Ginibre/Weyl-Heisenberg determinantal kernel and one-window variance inequalities; Theorem 5.6, Remark 5.7, Theorem 5.8.",
+        "arxiv:2012.10585, Proposition 1.2 and Theorem 1.3, give an exact ball variance and its perimeter asymptotics.",
+        "Direct kernel calculation identifies the proposed mixed trace with minus covariance of counts in two disjoint regions."
+      ],
+      "reasoning": "The two process formulations are mathematically equivalent by the DPP covariance identity. The inspected variance theorems have a single-ball or single-window input, and their O(R) statements cannot supply the lower-order R^(1-1/p) interaction term that cancels from the separate-window contributions.",
+      "searches": [
+        "Ginibre determinantal process covariance two macroscopically growing tangent disks fixed gap square root radius asymptotic",
+        "Ginibre count covariance disjoint tangent superellipses contact exponent fractional power universality",
+        "Bargmann Fock Toeplitz double localization tangent domains higher order flat contact degeneracy",
+        "arxiv:1612.00359 Sections 2 and 5.3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact parameterized table or stored mathematical finding matching the normalized mixed contact trace was returned in the relevant searches.",
+        "The explicit coefficients for superelliptic examples are obtained from the new integral and numerical comparisons, not copied from a table."
+      ],
+      "reasoning": "A table of unrelated ball variances or generic Gaussian correlations does not supply the asserted all-contact-order formula. Absence of a retrieved table is not a proof of novelty.",
+      "searches": [
+        "exact asymptotic sqrt R for trace T_A T_B on Bargmann-Fock space of smooth convex domains tangent externally curvature sum Gaussian crossover function",
+        "contact order p of tangent strictly convex domains Gaussian kernel interaction cross trace grows R^(1-1/p) and universal gamma integral",
+        "Gaussian DPP covariance two tangent disks near touching disks asymptotic square root radius"
+      ]
+    },
+    "rationale": "No inspected source or accessible prior claim gives the universal R^(1-1/p) mixed Fock Toeplitz trace across a single external contact or its exact Gaussian gap profile. The same statement is Ginibre cross-window covariance; known ball-variance and hyperuniformity bounds do not imply its coefficient. The conclusion is provisional against broader proximity/heat-content literature.",
+    "residual_risks": [
+      "A rigorous broad heat-content or Derjaguin/proximity theorem for arbitrary short-range radial pair potentials could imply the contact-order scaling and constant indirectly.",
+      "The focal 2023 Toeplitz algebra paper was not available for full continuous-text reading; the directly relevant indexed sections were inspected.",
+      "Searches and accessible records cannot establish exhaustive priority; independent mathematical review is pending."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides Gaussian DPP setup and perimeter-scale one-window variance estimates; no point-contact mixed trace or contact-order asymptotic stated in inspected sections.",
+        "evidence": "Sections 2, 5.3; Theorem 5.6, Remark 5.7, Theorem 5.8.",
+        "identifier_or_url": "https://arxiv.org/abs/1612.00359",
+        "material_read": "Full accessible text; introduction, Sections 2, 5.2 and 5.3, including Theorems 5.6 and 5.8 and Remarks 5.7 and 5.10.",
+        "method": "Open-access article text and theorem-level comparison",
+        "title": "The Weyl-Heisenberg ensemble: hyperuniformity and higher Landau levels",
+        "trigger": "Same Ginibre kernel and possible general-window variance theorem"
+      },
+      {
+        "assessment": "Its exact formulas are for a single ball and do not include the two-window external tangency or variable contact order.",
+        "evidence": "Definition 1.1, Proposition 1.2, Theorem 1.3.",
+        "identifier_or_url": "https://arxiv.org/abs/2012.10585",
+        "material_read": "Full open-access article available; introduction and main results, Proposition 1.2, Theorem 1.3 and stated normalization of Ginibre DPP.",
+        "method": "Article text with exact formulas compared to two-window product",
+        "title": "Local number variances and hyperuniformity of the Heisenberg family of determinantal point processes",
+        "trigger": "Same Fock projection and an exact Ginibre disk variance might dominate the contact claim"
+      },
+      {
+        "assessment": "Algebraic decomposition and commutation for unit-circle-invariant symbols do not cover mixed traces for two touching noninvariant indicator masks.",
+        "evidence": "Introduction; Section 6 and Corollary 1; listed MSC 30H20 and online publication 2023-11-25.",
+        "identifier_or_url": "https://doi.org/10.3390/axioms12121080",
+        "material_read": "Accessible indexed article text including abstract, introduction, Sections 5–6 and the radial-symbol diagonalization corollary; not the entire published article.",
+        "method": "Indexed full-text section extracts with statement and hypothesis comparison",
+        "title": "Toeplitz Operators on Fock Space over Cn with Invariant Symbols under the Action of the Unit Circle",
+        "trigger": "Focal Fock Toeplitz framework with primary MSC 30H20"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65ac4e8d-5a79-4e39-b80b-1ad1c3541901",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact mixed Toeplitz trace of two disjoint but near-contact phase-space regions is a natural quantitative localization invariant and exactly the negative Ginibre counting covariance. The theorem reveals a continuum of fractional scaling exponents 1-1/p depending only on contact order and an explicit universal gap profile depending only on a+b. Leading perimeter variance laws do not see this isolated contact: the new asymptotic quantifies a geometric contribution with potential application to flat tangency and mesoscopic anticorrelation.",
+    "risks": [
+      "No growing-gap asymptotic or several-point contact classification is claimed."
+    ],
+    "sources": [
+      "arxiv:1612.00359 (window variance and correlation motivation)",
+      "arxiv:2012.10585 (baseline single-ball fluctuation laws)"
+    ],
+    "status": "PASS"
+  }
+}
