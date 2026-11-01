@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The domain and normalization (unit round sphere, antipodal probability, isotropic second moment) are explicit. The antipodal squared-distance identity and the scalar differential equation for \(\phi(s)=\arcsin^2\sqrt s\) were rederived; its positive power-series recurrence gives \(\phi''\ge2/3\) and strict Jensen equality. The cube's fourth Rademacher moment is \((3-2\sum x_i^4)/d^2\), and the cross-polytope's fourth-moment variance is the coordinate-square variance. These identities establish every quantifier for all integer dimensions \(d\ge2\), including repeated and boundary cases. A standalone exact-structure/numerical verifier passed 2,114 sampled checks; no finite sample was used as a universal proof. No unproved auxiliary lemma is needed.
+## correctness
 
-## Originality — PASS, with residual risks
-Comparison covered alternative formulations as one-center intrinsic quantization, antipodal tight-frame angular energy, equiangular incidence and cube/cross-polytope duality. A full 2018 sphere Fréchet means paper and a 2026 finite spherical quantization paper were inspected; the older 2011 circle intrinsic-mean source was examined at abstract level. The closest searchable indexed geometry results concern different Euclidean radius, metric reachability, or isotropization invariants. None of the inspected statements supplies the universal coefficient/equality and dual all-dimension minimizer sets. A historical-priority risk remains for unindexed spherical-potential work; search failure is not uniqueness proof. Database partition is not invoked as a novelty guarantee.
+PASS
 
-## Mathematical value — PASS
-This is a complete and sharp global classification of the minimizing points for two natural antipodal spherical point sets in every dimension, despite nonconvexity and nonuniqueness of the objective. The surprising reciprocity swaps the data sets (cube to cross-polytope, and vice versa), and the universal tight-frame inequality plus its fourth-moment gap explains precisely when other isotropic measures can attain the same threshold. Quantitative global bounds control departures from the complete minimizer strata. The interest is the natural geometric classification and exact equality mechanism, not merely an implementation of Jensen's inequality.
+Antipodal pairing converts squared geodesic distance exactly into pi^2/4+E phi((x·V)^2), phi(s)=arcsin^2 sqrt(s). Its Taylor recurrence a_(n+1)=2n² a_n/((n+1)(2n+1)) has positive coefficients, a2=1/3, hence phi is 2/3-strongly convex on [0,1], and isotropy gives E Z=1/d. Equality in strict Jensen is Z constant. For Rademacher cube vertices E Z²=(3-2 sum x_i^4)/d²; for cross-polytope Z=x_i² uniformly. Their variances vanish only at coordinate axes and the all-equal-absolute-coordinate cube vertices, respectively, and these attain baseline. Independently verified 490 numerical stability inequalities over d=2..8. The proof is analytic for all integers d>=2, samples are corroboration only.
 
-## Limits and sources
-Finite verification does not certify the infinite theorem. Stability coefficients are valid but not asserted best possible. No complete historical priority proof or independent audit is claimed. Closest sources: Hotz–Huckemann (arXiv:1108.2141; abstract), Eichfelder–Hotz–Wieditz (arXiv:1802.09243; full paper inspected), Roychowdhury (arXiv:2601.03333; main text/examples inspected).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The fully read 2018 primary paper on Fréchet means is an algorithm on S² for arbitrary finite data, not an exact dimension-free bound for antipodal isotropic measures or the cross-dual complete argmin formula. Hotz–Huckemann addresses circle intrinsic means, and Roychowdhury quantization centers; no mathematical implication from inspected results yields the fourth-moment stability and equality rigidity. Generic Jensen alone leaves a nontrivial tight equality-class characterization.
+
+## value
+
+PASS
+
+Nonconvex geodesic Fréchet minimization on spheres has useful exact special configurations. A dimension-uniform sharp lower bound under isotropy, equality characterization and complete cube/cross-polytope minimizers (with quantitative stability) provide natural explicit benchmarks for spherical statistics and symmetric designs, beyond a single numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

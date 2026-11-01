@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T11:14:46Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Antipodal pairing converts squared geodesic distance exactly into pi^2/4+E phi((x·V)^2), phi(s)=arcsin^2 sqrt(s). Its Taylor recurrence a_(n+1)=2n² a_n/((n+1)(2n+1)) has positive coefficients, a2=1/3, hence phi is 2/3-strongly convex on [0,1], and isotropy gives E Z=1/d. Equality in strict Jensen is Z constant. For Rademacher cube vertices E Z²=(3-2 sum x_i^4)/d²; for cross-polytope Z=x_i² uniformly. Their variances vanish only at coordinate axes and the all-equal-absolute-coordinate cube vertices, respectively, and these attain baseline. Independently verified 490 numerical stability inequalities over d=2..8. The proof is analytic for all integers d>=2, samples are corroboration only.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2018 branch-and-bound is a computational algorithm in S² and applies to arbitrary data, but it does not imply the closed algebraic all-dimensional argmin formula."
+        ],
+        "reasoning": "A general solver is broader in inputs yet does not dominate the exact sharp theorem: the latter is a mathematical identity not obtained from a numerical approximation bound.",
+        "searches": [
+          "Resultary_Search actual query: intrinsic Fréchet mean antipodal isotropic measures sphere cube cross polytope minimum squared angular distance",
+          "web.run fast actual query: Eichfelder Hotz Wieditz algorithm computing Fréchet means sphere full paper",
+          "Inspected source identifier: https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+          "Inspected source identifier: https://arxiv.org/abs/1108.2141"
+        ]
+      },
+      "checked_sources": [
+        "https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+        "https://arxiv.org/abs/1108.2141"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018 paper §2–4 constructs branch-and-bound on S²",
+          "2011 circle paper concerns sample means and asymptotics"
+        ],
+        "reasoning": "General global algorithms can verify instances but cannot substitute for formula and strict equality classification for arbitrary d and isotropic measures.",
+        "searches": [
+          "Resultary_Search actual query: intrinsic Fréchet mean antipodal isotropic measures sphere cube cross polytope minimum squared angular distance",
+          "web.run fast actual query: Eichfelder Hotz Wieditz algorithm computing Fréchet means sphere full paper",
+          "Inspected source identifier: https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+          "Inspected source identifier: https://arxiv.org/abs/1108.2141"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Eichfelder–Hotz–Wieditz 2018 full primary PDF",
+          "Hotz–Huckemann 2011 abstract"
+        ],
+        "reasoning": "Metric squared Fréchet mean, spherical potential, antipodal-design energy are equivalent descriptions; inspected sources do not state the exact phi strong-convexity equality classification.",
+        "searches": [
+          "Resultary_Search actual query: intrinsic Fréchet mean antipodal isotropic measures sphere cube cross polytope minimum squared angular distance",
+          "web.run fast actual query: Eichfelder Hotz Wieditz algorithm computing Fréchet means sphere full paper",
+          "Inspected source identifier: https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+          "Inspected source identifier: https://arxiv.org/abs/1108.2141"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published cube/cross-polytope Minkowski ellipse minimizer concerns different norm potential, not intrinsic spherical geodesic energy"
+        ],
+        "reasoning": "No exact table of F_mu minimal value and all minimizers was located; matching vertex configurations alone does not establish equivalent invariant.",
+        "searches": [
+          "Resultary_Search actual query: intrinsic Fréchet mean antipodal isotropic measures sphere cube cross polytope minimum squared angular distance",
+          "web.run fast actual query: Eichfelder Hotz Wieditz algorithm computing Fréchet means sphere full paper",
+          "Inspected source identifier: https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+          "Inspected source identifier: https://arxiv.org/abs/1108.2141"
+        ]
+      },
+      "rationale": "The fully read 2018 primary paper on Fréchet means is an algorithm on S² for arbitrary finite data, not an exact dimension-free bound for antipodal isotropic measures or the cross-dual complete argmin formula. Hotz–Huckemann addresses circle intrinsic means, and Roychowdhury quantization centers; no mathematical implication from inspected results yields the fourth-moment stability and equality rigidity. Generic Jensen alone leaves a nontrivial tight equality-class characterization.",
+      "residual_risks": [
+        "Earlier spherical potential-theory or tight-frame energy inequalities may yield the same result through a dual formulation.",
+        "Hotz–Huckemann and recent spherical quantization works were not all read in full; abstract-level inspection cannot exclude hidden equivalent special configurations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Finite S² numerical global optimization algorithm for arbitrary input, not exact antipodal isotropic dimension-free inequality and cube/cross polytope rigidity.",
+          "evidence": [
+            "p.2 defines S² mean of spherical angular distances; p.7 provides general numerical branch-and-bound pseudocode, not all-dimensional symmetric-measure theorem."
+          ],
+          "identifier_or_url": "https://optimization-online.org/wp-content/uploads/2018/02/6487.pdf",
+          "material_read": "All twelve pages of accessible full primary PDF examined, including abstract, §1 setup, §2–4 branch-and-bound lower bounds and algorithm, later experiments; PDF screenshots pages 1 and 7 checked",
+          "method": "PDF full text parsed and visually inspected via web screenshots",
+          "title": "An algorithm for computing Fréchet means on the sphere",
+          "trigger": "Same squared angular Fréchet objective; plausible all-minimizer theorem"
+        },
+        {
+          "assessment": "Circle-specific uniqueness and asymptotic results, no inspected theorem implying the all-dimensional isotropic cube/cross-polytope bound; whole-document noncoverage not asserted",
+          "evidence": [
+            "Abstract studies local uniqueness and antipodal density on S1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1108.2141",
+          "material_read": "Public arXiv metadata/abstract, not entire manuscript",
+          "method": "Abstract and metadata comparison",
+          "title": "Intrinsic Means on the Circle: Uniqueness, Locus and Asymptotics",
+          "trigger": "Potentially stronger intrinsic-mean uniqueness/rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Nonconvex geodesic Fréchet minimization on spheres has useful exact special configurations. A dimension-uniform sharp lower bound under isotropy, equality characterization and complete cube/cross-polytope minimizers (with quantitative stability) provide natural explicit benchmarks for spherical statistics and symmetric designs, beyond a single numerical example.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Every antipodal isotropic probability on S^{d-1} has F_mu(x)>=pi^2/4+arcsin^2(1/sqrt d)+(1/3)(E(x·V)^4-1/d^2), with sharp equality iff |x·V|=1/sqrt d almost surely; the cube and cross-polytope vertex measures have precisely the dual vertex minimizer sets and explicit fourth-moment stability gaps.",
+  "limitations": [
+    "Requires exact antipodal isotropy and intrinsic angular squared distance; stability coefficients valid but not asserted optimal.",
+    "Universal convexity proof, not finite experiments, establishes the all-dimensional theorem."
+  ],
+  "schema_version": 1
+}
