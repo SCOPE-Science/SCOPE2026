@@ -1,12 +1,21 @@
-# Scientific review: integral layer-involution homology lattice
+# Independent mathematical audit
 
-## Correctness
-PASS. The primitive-incidence description and acyclicity condition are equivalent to the ordinary graph Morse complex. Exhaustive face enumeration gives 1,727 nonempty faces with f-vector (18,126,428,705,450). Binary boundary ranks (17,109,319,386) force identical rational ranks via the chain-complex rank inequalities, hence rank-64 free integral top homology. Signed fixed-face Lefschetz calculation gives trace -4. Two exact, independently formulated binary calculations give modular involution rank 30: direct kernel action and stacked-matrix rank 416 minus boundary rank 386. The integral involution-lattice argument yields 30 regular and four sign blocks. The attached standard-library checker was executed successfully from its current file path.
+## correctness
 
-## Originality
-PASS on inspected evidence. Foundational treatments (Donovan–Lin–Scoville 2019, Scoville–Zaremsky 2020, Donovan–Scoville 2022) do not treat this integral module. A same-graph published 64-sphere homotopy result and an all-graph published rational matrix–forest character formula were read and compared directly. Their statements do not imply the modular rank 30 or the integral splitting: a purely trivial-plus-sign lattice has the same rational character but different modular action. Searches under ordinary Morse, acyclic incidence matching, and rooted directed-forest terminology found no covering table. Unindexed equivalent work remains possible; the publication search is not a proof of global uniqueness.
+PASS
 
-## Value
-PASS. A complete integral symmetry module for the natural layer exchange of a canonical six-vertex cubic graph is a motivated exact invariant. The 30 regular blocks detect integral extensions, not merely rational eigenvalue multiplicities. The result is one exact finite topological classification; it does not claim an integral module for the full automorphism group or an equivariant wedge theorem.
+The ordinary graph discrete-Morse complex uses oriented incidence pairs v->w as vertices, not graph-edge matchings. Its exact six-vertex triangular-prism incidence enumeration produces face-vector (18,126,428,705,450) with 1727 nonempty simplices. In a fully separate implementation each vertex selected at most one incident outgoing arrow, each undirected graph edge at most once, and all directed cycles were excluded. Independent F2 boundary ranks (17,109,319,386) plus top-dimensional rational rank bounds establish H4(X;Q)=Q^64 with other positive rational homology zero; integral H4 is a free kernel of rank64. On the layer-interchange τ, signed fixed-face traces are (0,-6,0,+9,0), giving Lefschetz -3 and top trace -4, hence rational eigen-dimensions p=30 and q=34. Independent top 450-column mod-two kernel enumeration gives 64 binary generators and rank(τ-I) on this kernel equal to 30. The integral involution-lattice theorem decomposes every free Z[C2]-lattice as regular^r plus positive^(p-r) plus negative^(q-r), because L/(L^+⊕L^-) injects into both mod2 eigenspace lattices and consists of diagonal half-integral gluing. Therefore H4(X;Z)=Z[C2]^30 ⊕ Z_-^4 exactly. This finite lattice classification does not follow from the known rational trace alone.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge original contribution: Even combined with known same-object homotopy and rational representation, prior results do not imply the integral C2 lattice without the extra modular computation.
+
+## value
+
+PASS
+
+The 64-dimensional top homology has a nontrivial INTEGRAL symmetry lattice whose extension class is invisible to published nonequivariant sphere wedges or rational characters. Determining that all thirty positive rational lines are glued into regular Z[C2] blocks is a meaningful representation-theoretic refinement for a canonical small Morse complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

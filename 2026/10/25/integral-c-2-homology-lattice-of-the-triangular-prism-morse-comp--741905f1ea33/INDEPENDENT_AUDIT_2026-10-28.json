@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:56:10Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Separate independent enumeration of 1728 simplices including empty face, all integer graph incidences and cycle checks.",
+        "Separate F2 bitset elimination of four boundary matrices returned ranks 17,109,319,386; full top kernel has 64 basis vectors.",
+        "Separate sign-controlled τ fixed-face trace computation gave degree1=-6, degree3=+9, H4 τ trace=-4, and τ-I top kernel rank30.",
+        "Integral involution classification derives regular, trivial and sign counts by rational (+,-) eigenlattices and binary gluing rank."
+      ],
+      "rationale": "The ordinary graph discrete-Morse complex uses oriented incidence pairs v->w as vertices, not graph-edge matchings. Its exact six-vertex triangular-prism incidence enumeration produces face-vector (18,126,428,705,450) with 1727 nonempty simplices. In a fully separate implementation each vertex selected at most one incident outgoing arrow, each undirected graph edge at most once, and all directed cycles were excluded. Independent F2 boundary ranks (17,109,319,386) plus top-dimensional rational rank bounds establish H4(X;Q)=Q^64 with other positive rational homology zero; integral H4 is a free kernel of rank64. On the layer-interchange τ, signed fixed-face traces are (0,-6,0,+9,0), giving Lefschetz -3 and top trace -4, hence rational eigen-dimensions p=30 and q=34. Independent top 450-column mod-two kernel enumeration gives 64 binary generators and rank(τ-I) on this kernel equal to 30. The integral involution-lattice theorem decomposes every free Z[C2]-lattice as regular^r plus positive^(p-r) plus negative^(q-r), because L/(L^+⊕L^-) injects into both mod2 eigenspace lattices and consists of diagonal half-integral gluing. Therefore H4(X;Z)=Z[C2]^30 ⊕ Z_-^4 exactly. This finite lattice classification does not follow from the known rational trace alone.",
+      "risks": [
+        "Classifies one fixed six-vertex Morse complex and one C2 subgroup only; no full S3×C2 integral module asserted.",
+        "Only top integral homology is classified; lower integer torsion is not independently excluded, nor required for the top-lattice theorem."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published all-graph matrix–forest determinant determines chain character and alternating rational homology traces, but explicitly not integral module structure.",
+          "Known 64-sphere nonequivariant homotopy and trace -4 cannot distinguish a split 30 trivial plus34 sign lattice from 30 regular plus4 sign lattice."
+        ],
+        "reasoning": "The complete published general rational theorem dominates only the rational part; integral extension data require binary action rank 30 and integral classification.",
+        "searches": [
+          "Resultary: Equivariant matrix-forest character formula for graph Morse complexes full RESULT",
+          "Resultary: triangular prism Morse complex sixty-four spheres",
+          "arXiv:1909.11440; arXiv:2207.13780"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-equivariant-matrix-forest-character-formula-for-graph-morse-comp--0f531889a464",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-triangular-prism-morse-complex--4af8059de6d1",
+        "https://arxiv.org/abs/1909.11440",
+        "Actual `verify.py` and independent from-scratch incidence/τ script"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full published matrix–forest RESULT.md says it determines graded chain characters and alternating rational Lefschetz numbers, not each integral homology module.",
+          "Two nonisomorphic integral C2 lattices can have identical 64-dimensional rational characters: Z_+^30⊕Z_-^34 and Z[C2]^30⊕Z_-^4.",
+          "The independent mod2 τ-I rank 30 distinguishes these exact lattices."
+        ],
+        "reasoning": "Even combined with known same-object homotopy and rational representation, prior results do not imply the integral C2 lattice without the extra modular computation.",
+        "searches": [
+          "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-equivariant-matrix-forest-character-formula-for-graph-morse-comp--0f531889a464",
+          "Resultary: Mod-2 homology of triangular-prism Morse complex",
+          "arXiv:1909.11440 graph Morse complexes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The same object is the graph Morse/acyclic rooted-forest complex, distinct from the ordinary graph-edge matching complex.",
+          "Prior wedge-of-64 spheres and mod2 rank 64 refer to this graph but do not identify integral involution extensions."
+        ],
+        "reasoning": "Rephrasing the object as directed-forest or rooted-incidence matching does not cause an existing homotopy statement to imply its nonsemisimple integral action.",
+        "searches": [
+          "Resultary: triangular-prism Morse complex incidence matching top homology integral involution",
+          "Resultary: rooted directed forest complex prism graph layer flip",
+          "arXiv:1909.11440 discrete Morse matching complex"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary indexes mod2 homology rank 64 and all-graph rational matrix–forest traces as antecedents.",
+          "No exact entry specifying the integral C2 module of the triangular-prism Morse complex was located."
+        ],
+        "reasoning": "Not merely recording a homology rank or rational character: a unit gluing index encoded by the F2 involution rank is the new exact natural invariant.",
+        "searches": [
+          "Resultary: prism Morse top Z[C2] 30 regular 4 sign",
+          "Resultary: triangular prism Morse mod 2 64 sphere",
+          "Resultary: 64 and involution τ alternating signed face count"
+        ]
+      },
+      "rationale": "Best-of-knowledge original contribution: Even combined with known same-object homotopy and rational representation, prior results do not imply the integral C2 lattice without the extra modular computation.",
+      "residual_risks": [
+        "Older equivariant integral Morse homology literature or an unindexed exact six-vertex calculation could overlap.",
+        "Some foundational arXiv paper full texts were not read during this run, but this does not erase the checked all-graph published theorem comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers rational graded chain characters/Lefschetz; explicitly does not classify integral top lattice",
+          "evidence": [
+            "All-graph theorem gives determinant of orbit-Laplacian for chain traces.",
+            "Its Limitations says it does not by itself determine each homology representation."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-equivariant-matrix-forest-character-formula-for-graph-morse-comp--0f531889a464",
+          "material_read": "Directly fetched full `RESULT.md` (10,842 characters), Finding, assumptions, all six proof steps, scope, limitations",
+          "method": "Compare quantified homological output against integral module extension",
+          "title": "Equivariant matrix–forest character formula for graph Morse complexes",
+          "trigger": "Most relevant all-graph equivariant statement for the exact Morse functor"
+        },
+        {
+          "assessment": "Known top mod2 rank 64 does not specify τ action",
+          "evidence": [
+            "Summary states only degree4 mod2 rank64."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-mod-2-homology-of-the-triangular-prism-morse-complex--4af8059de6d1",
+          "material_read": "Resultary title and precise abstract summary, not full article",
+          "method": "Compare known homology field versus new integral action",
+          "title": "Mod-2 homology of the triangular-prism Morse complex",
+          "trigger": "Same exact graph and Morse functor, preexisting rank 64"
+        },
+        {
+          "assessment": "Foundational object matches, potential detailed old computation remains residual risk",
+          "evidence": [
+            "The graph complex is built from acyclic incidence matchings."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1909.11440",
+          "material_read": "Accessible article bibliographic/abstract material; no full-text inspection in this run",
+          "method": "Check definition-family and title; no whole-paper noncoverage claim",
+          "title": "On the homotopy and strong homotopy type of complexes of discrete Morse functions",
+          "trigger": "Foundational Morse complex definition and other graphs"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Exact free rank64 top lattice and mod2 action rank30 give a complete integral block decomposition.",
+        "An explicit pair of rationally isomorphic but integrally inequivalent candidate lattices shows why the new invariant matters."
+      ],
+      "rationale": "The 64-dimensional top homology has a nontrivial INTEGRAL symmetry lattice whose extension class is invisible to published nonequivariant sphere wedges or rational characters. Determining that all thirty positive rational lines are glued into regular Z[C2] blocks is a meaningful representation-theoretic refinement for a canonical small Morse complex.",
+      "risks": [
+        "One finite graph and subgroup, not a general integral equivariant Morse theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
