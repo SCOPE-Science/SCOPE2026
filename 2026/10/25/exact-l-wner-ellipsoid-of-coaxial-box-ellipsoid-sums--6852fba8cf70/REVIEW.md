@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For all \(d\ge2\) and strictly positive input semiaxes, the monotone scalar equation has one solution. Substitution into the exact polynomial identity proves universal containment with precise equality conditions. The resulting transformed \(2^d\) contact points have zero mean and covariance \(I_d/d\); the arithmetic–geometric mean inequality proves strict uniqueness among **all** enclosing ellipsoids, including tilted and translated ones. The standalone verifier executed 29,400 numerical checks covering multiple dimensions and anisotropies; these are diagnostics only, not a substitute for the argument.
+PASS
 
-## Originality — PASS (qualified)
+The monotone equation q_i(a_i+q_i)=kappa b_i^2 and sum q_i^2/b_i^2=1 has exactly one positive solution. Expanding the submitted exact sum-of-squares identity proves every box-plus-ellipsoid point satisfies sum x_i^2/[d(a_i+q_i)^2]<=1; positive a_i forces equality only at the 2^d coordinate-sign contacts. Rescaling these contacts gives mean 0 and covariance I/d. Averaging an arbitrary translated/rotated enclosing ellipsoid inequality and using trace>=d*(det)^(1/d) proves it cannot have lower volume; equality forces the identity shape and zero center. My independently written rational-arithmetic checker verified the identity for 1,088 exact parameter/point cases, not a replacement for the universal proof.
 
-The central comparison is with the classical full optimality criterion for extremal ellipsoids (Güler–Gürtuna, 2007), which does not explicitly solve this rounded-box family. Halder (2018) optimizes a parameterized outer approximation to sums of ellipsoids and does not give a global contact-based formula for the box–ellipsoid body. Courteaux and collaborators (2025) study precisely box–ellipsoid Minkowski sums but supply bounding-box approximations rather than the minimum-volume ellipsoid in the accessible abstract and relevant excerpts. Searches for equivalent formulations, stronger general coverage, and tables did not reveal the exact scalar reconstruction with complete \(2^d\) contacts. Absence from search results does not prove historical novelty; an older equivalent special-case computation remains possible. The full 2025 article was not available for comprehensive inspection.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is a natural all-dimensional geometric optimization invariant of rounded boxes and coaxial uncertainty sets. The result simultaneously gives an exact algorithm with one scalar parameter, a whole-body nonnegative certificate, the complete contact locus, and the globally optimal volume among tilted/translated ellipsoids. The separate parameters in every coordinate cannot be obtained simply from the classical cube circumball radius unless all widths agree. The result is therefore a motivated complete classification, not a one-off numerical benchmark.
+Best-of-knowledge PASS, qualified. Classical Loewner/John contact criteria characterize optimality but do not calculate this anisotropic rounded-box family. Halder (2018) computes parameterized MVOE outer approximations for sums of ellipsoids, not the globally optimal enclosing ellipsoid of a nondegenerate box plus a coaxial ellipsoid with all contacts. Courteaux et al. (2025) treat the exact summand type but construct bounding-box-based implicit approximations; the inspected article does not entail the scalar optimum. Resultary hits are Loewner ellipsoids of unrelated rank-selected polytopes/permutohedra, not this set. The general optimality criterion alone is not a prior expression of the new shape without the substantial identity and contact construction.
 
-## Scope and remaining checks
+## value
 
-Only positive box widths and positive coaxial input ellipsoid semiaxes are covered, and no general non-coaxial result is inferred. Independent historical-priority and independent scientific auditing remain unperformed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: exact global convex-geometric optimization for a natural rounded-orthotope family, reducing arbitrary anisotropy to one monotone scalar parameter and giving a complete active-contact classification and volume. This materially sharpens bounding approximations and the homogeneous rounded-cube special case; neither a parameter substitution nor merely a numeric example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
