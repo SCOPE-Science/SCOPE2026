@@ -1,0 +1,19 @@
+# Scientific review: twisted augmentation homology of the Coxeter independence complex
+
+## Correctness — PASS
+The theorem defines a specific finite simplicial complex from the 28 non-line Fano triples and evaluates the action of the entire automorphism group, rather than only a selected subgroup. A full independent-set enumeration gives 196,008 nonempty faces. The supplied fixed-order discrete-Morse matching has 98,000 ordinary pairs, one critical vertex and seven six-cells. Every one of 1,319,724 codimension-one incidences is accounted for; a complete topological sort confirms acyclicity. This independently proves the rational homology concentration required by the Lefschetz argument.
+
+The reduced Lefschetz sign is derived from orbit sizes and orientations. Exact recursion calculates all 336 traces and matches, element by element, the sign-twisted augmentation character on eight Sylow-seven subgroups. Direct signed fixed-simplex enumeration for eight representative types supplies a separate sign cross-check. The exact character inner product is one, and the quotient-invariant dimensions follow by averaging. The executable and its actual output are included; its finite exhaustive calculations are the finite proof for this particular graph, not a substitute for a nonexistent infinite-family theorem.
+
+## Originality — PASS, with residual risk
+The closest same-object prior finding, *The Coxeter graph independence complex is \(\bigvee^{7}S^6\)* (published 2026-10-11, identifier `2026/10/11/SCOPE-the-coxeter-graph-independence-complex-is-bigvee-7-s-6--8a1bdfa47e09`), establishes ordinary homotopy type and does not state or imply the action of all automorphisms on its seven homology classes. Barmak's 2010 suspension theorem is weaker. Dejter's graph-geometry work describes the Coxeter graph and automorphisms but does not calculate independent-set homology. Feng–Wang's Table 1 and Theorem 8 concern the larger full 35-vertex Kneser graph and cannot determine the deleted-seven-vertex complex's symmetry representation.
+
+The graph was checked under its Fano non-line triples, induced Kneser subgraph, Coxeter graph, projective-linear action, and Sylow-seven terminology. Direct mathematical research-record queries and specific published records were compared by implication. No covering character theorem was identified. Semantic indexing and web search are not a uniqueness proof, so an unindexed equivalent or an uninspected specialized source remains possible. The publication-priority assessment is best knowledge, not independent confirmation.
+
+## Mathematical value — PASS
+The Coxeter graph is a canonical 28-vertex cubic symmetric graph with a 336-element automorphism group. Its seven-dimensional rational sixth homology is much more structured than its dimension: it is an absolutely irreducible, naturally described twisted augmentation representation built from the graph's own eight Sylow-seven subgroups. This yields an exact distinction between rationally acyclic full and even-symmetry quotients and the one-class quotient by a Sylow-seven subgroup. None of these representation-theoretic or quotient conclusions follows from the known nonequivariant wedge classification. The result is self-contained and useful for subsequent comparisons of equivariant graph-complex invariants, without claiming a general graph family or integral quotient homotopy type.
+
+## Scope and evidence limits
+The theorem is finite and rational. It does not determine integral \(\Gamma\)-lattices, equivariant homotopy type, or quotient fundamental groups. The group and Morse computations are exhaustive for the defined graph and inspectable from the supplied source; independent expert audit has not occurred. Earlier published ordinary homotopy results are acknowledged rather than repackaged as new.
+
+Self-review: passed. Independent audit: not yet performed.
