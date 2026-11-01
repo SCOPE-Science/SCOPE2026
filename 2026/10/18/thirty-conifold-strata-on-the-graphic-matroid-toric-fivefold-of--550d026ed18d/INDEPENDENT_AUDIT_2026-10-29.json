@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:11:37Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Verified source Git tree 9275c77d9f4f31e987f6844f6194be5887a06025 and all 7 blob identities at commit cbd61aab71e4f01d305014a9520f769db8108742.",
+        "Actual package paths inspected: RESULT.md (83a377427b0921f932fbb677052cbb73d7bb814e), k4_exact_certificate.py (d9cb09bd2793a26d1d0905946e86d0c4ec7f2fb2), VERIFICATION.md, REVIEW.md, SLOGAN.txt, AUDIT.json and METADATA.json.",
+        "Independent executable: independent_k4_audit.py and independent_k4_results.json, checks Qhull facets against exact rank inequalities and all 219 faces, 30 node cones and automorphism orbits; run succeeded in 2.31 seconds.",
+        "Toric cone smoothness and Q-factoriality criteria applied with exact ambient lattice Z^5 and saturation tests."
+      ],
+      "rationale": "For the 16 spanning-tree incidence vectors in the intrinsic 5-dimensional lattice, Edmonds rank inequalities over all 62 nonempty proper edge subsets give the complete facets. An independently written checker used graph-connectivity rank, exact affine ranks and a separate SciPy Qhull support enumeration: both yielded the same 16 facet masks. Intersecting them exhaustively produced 219 nonempty faces with dimensions (16,54,78,54,16,1). For every face, exact gcds of maximal minors of its primitive normal-ray matrix distinguish smooth from nonsimplicial cones; exactly 94 are singular (16 vertices, 48 edges, 30 2-faces) and no simplicial nonunimodular cone occurs. The 30 maximal singular 2-faces are 24 primitive triangles and six primitive parallelograms, with full S4 orbit sizes 12,12,6; each normal cone has four rays, all triples saturated, and primitive relation (+1,+1,-1,-1), which identifies the rank-3 generic transverse singularity with ad-bc=0. Every singular face is contained in a maximal singular 2-face; hence the reduced singular locus has precisely 30 components. The nonsimplicial-orbit set coincides with the singular set, proving reduced equality with the non-Q-factorial locus. The finite analysis is exhaustive only because the rank inequalities cover this fixed matroid and all their facet intersections were enumerated; it is not an extrapolation to larger graphs.",
+      "risks": [
+        "The source supplies a finite classification for this one realizable K4 matroid only; no statement for K_n with n>4, positive characteristic beyond specified char zero, or nonnormal projections.",
+        "The original certificate code was inspected and independently replicated rather than executed from the unmounted remote Git blob; the independent checker covers the decisive claimed invariants."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Edmonds/Feichtner–Sturmfels all-rank inequalities and toric orbit/fan dictionary are prior methods; these do not state the evaluated K4 singular cones.",
+          "Howard proves global projective normality; Gorenstein classifications including K4 do not determine all local singular cones.",
+          "General standard toric smoothness/Q-factoriality criterion is not new; its exhaustive case application yields extra exact data."
+        ],
+        "reasoning": "Checked whether stronger results imply the precise count without new computations. Normality and Gorenstein/smoothness classifications can separate entire varieties, but do not specify this fixed variety's irreducible singular components, component surface type, orbit dimensions and local nodal cones. The exact data require the finite classification that was checked independently.",
+        "searches": [
+          "Resultary Search: matroid base polytope normal fan singular toric orbit closures face lattice nonsimplicial cones",
+          "web search: smooth toric matroid varieties classification uniform matroid graphic graph series parallel singular normal fan",
+          "arxiv:math/0411260 Example 1.1 Proposition 2.3 Section 6",
+          "arxiv:math/0511608 Theorem 5.4",
+          "arxiv:1905.05418 Theorem 1.7",
+          "arxiv:2005.08359 Theorem 1.2"
+        ]
+      },
+      "checked_sources": [
+        "Feichtner and Sturmfels, Matroid polytopes, nested sets and Bergman fans (2004/2005), arXiv:math/0411260, Example 1.1, Proposition 2.3, Section 6, https://user.math.uni-bremen.de/feichtne/research/publ/bergman_arXiv.pdf",
+        "Howard, Matroids and Geometric Invariant Theory of torus actions on flag spaces (2005/2006), arXiv:math/0511608v2, Section 5, Theorem 5.4, https://arxiv.org/pdf/math/0511608",
+        "Hibi, Lasoń, Matsuda, Michałek, Vodička, Gorenstein graphic matroids (2019/2021), arXiv:1905.05418, Theorem 1.7, https://ar5iv.labs.arxiv.org/html/1905.05418",
+        "Ferroni and Schröter, Face enumeration for split matroid polytopes (2025), Theorem and Example 2.2, DOI:10.1017/S0963548325000021, https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/face-enumeration-for-split-matroid-polytopes/8AB800A4A0AAB1AEF4720C07899107AF",
+        "Lasoń and Michałek, On algebraic properties of matroid polytopes / Gorenstein matroids (2020/2026 versions), arXiv:2005.08359, Theorem 1.2 and Example 6.18, https://arxiv.org/pdf/2005.08359",
+        "Resultary published finding dd8588f15b8f: Minkowski centers of complete-graph spanning-tree polytopes; unrelated asymmetry/center invariant",
+        "Resultary published finding ab7b7d2d5a5f: four-wheel second degeneracy fourfold; different variety and dimension",
+        "Cox, Little and Schenck, Toric Varieties, AMS 2011, standard smoothness and Q-factorial cone criteria (textbook background, not a claimed newly inspected source)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The complete rank-inequality description does not encode by itself which primitive lattice normals form nonsimplicial or unimodular cones without an evaluation.",
+          "Global K4 Gorenstein status is consistent with nodal singularities but does not imply 30 surfaces or 24/6 types.",
+          "An f-vector by itself cannot determine lattice singularity types. The independent computation explicitly checks every face normal cone and each maximal cone's rank-three relation."
+        ],
+        "reasoning": "Prior foundations plus a nontrivial complete finite calculation yield the claim, but accessible papers do not provide a corollary or special case that states the calculated local singular stratification. The original package itself does not claim novelty of the underlying toric criteria.",
+        "searches": [
+          "Resultary Search: matroid base polytope normal fan singular toric orbit closures face lattice nonsimplicial cones",
+          "web search: smooth toric matroid varieties classification uniform matroid graphic graph series parallel singular normal fan",
+          "arxiv:math/0411260 Proposition 2.3",
+          "arxiv:1905.05418 Theorem 1.7",
+          "arxiv:2005.08359 Theorem 1.2",
+          "arxiv:2310.05487 journal HTML"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Feichtner–Sturmfels Section 6 identifies X_P with torus orbit closure for realizable matroid in Gr(3,6) and normal fan of P.",
+          "Searched aliases: graphic-matroid base polytope of K4, spanning-tree polytope, projective torus orbit closure, normal fan toric fivefold, conifold non-Q-factorial locus.",
+          "Closest same-polytope Resultary item dd8588f15b8f studies Minkowski centers; four-wheel item ab7b7d2d5a5f is a different fourfold."
+        ],
+        "reasoning": "The mathematically equivalent descriptions were compared at the level of the singular orbit fan, not merely terminology. None of the accessible exact statements provides the 30 maximal singular faces and transverse nodes. The K4 Bergman complex is only a subfan of the normal fan, not the entire singular-stratification result.",
+        "searches": [
+          "Resultary Search: K4 graphic matroid spanning tree base polytope toric variety singular locus thirty conifold non-Q-factorial 24 projective planes six quadric surfaces",
+          "Resultary Search: K4 spanning tree polytope toric variety exact singular orbit strata conifold",
+          "web search: K4 graphic matroid base polytope toric variety singular locus conifold normal fan 16 facets",
+          "web search: singular locus of toric variety associated to matroid polytope K4 conifold surface",
+          "Resultary:published-result:dd8588f15b8f",
+          "Resultary:published-result:ab7b7d2d5a5f"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The independent exhaustive face and primitive-normal-cone computation gives f=(16,54,78,54,16,1) and singular orbit counts (16,48,30).",
+          "Ferroni–Schröter supplies other six-element matroid f-vectors but no located K4 local singularity table.",
+          "Resultary returned nearby K_n polytope asymmetry and different singular fourfolds, not an exact fan-singularity table."
+        ],
+        "reasoning": "No exact preexisting 30-conifold/94-singular-orbit table surfaced in queried indices or the read primary sources. This absence is not a proof of novelty: obscure toric normal-fan enumerations or software databases could duplicate the counts.",
+        "searches": [
+          "Resultary Search: K4 graphic matroid spanning tree base polytope toric variety singular locus thirty conifold non-Q-factorial 24 projective planes six quadric surfaces",
+          "Resultary Search: K4 spanning tree polytope toric variety exact singular orbit strata conifold",
+          "web search: singular locus of toric variety associated to matroid polytope K4 conifold surface",
+          "Resultary full indexed search for K4 singular conifold 30",
+          "Ferroni–Schröter 2025 Example 2.2"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: the complete 30-component local singularity stratification, 24/6 component surface split, 94 singular orbits and generic conifold cones were not covered by the inspected primary statements. The K4 Bergman example/normal-fan dictionary (Feichtner–Sturmfels), torus-orbit projective normality (Howard), Gorenstein criteria (Hibi et al., Lasoń–Michałek) and face enumeration (Ferroni–Schröter) are prior methods or different invariants. Resultary was actually queried for equivalent geometric and exact numeric aliases. An unindexed exact polytope/fan computation remains a bounded priority risk. This is not proof of global novelty or an invented independent certification.",
+      "residual_risks": [
+        "An unindexed small-matroid/Grassmannian toric fan calculation or computational table could predate and reproduce the 30 surface/94 orbit classification.",
+        "The indexed same-polytope Minkowski-center result was only available as a mathematical abstract/summary; its full paper was not read, so no whole-document noncoverage claim is made.",
+        "General toric singularity and matroid smoothness literature may contain differently phrased equivalent K4 data; the searches bound but do not eliminate this possibility.",
+        "Neither independent expert originality attestation nor Lean formal verification is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 2.3 gives matroid rank inequalities, Example 1.1 gives K4 Bergman/Petersen complex, and Section 6 identifies the matroid toric orbit closure and normal fan. Its K4 Bergman subdivision does not enumerate the 94 singular orbits, 30 maximal singular toric surface closures or their local conifold cones.",
+          "evidence": [
+            "Example 1.1: K4 Bergman complex is the Petersen graph (PDF page 2).",
+            "Proposition 2.3: base polytope rank inequalities (PDF page 4).",
+            "Section 6 around equations (6.3)-(6.4): normal fan of matroid polytope describes toric orbit closures.",
+            "No singular-locus component census or local ordinary-node theorem found in full searchable paper."
+          ],
+          "identifier_or_url": "arxiv:math/0411260v1; https://user.math.uni-bremen.de/feichtne/research/publ/bergman_arXiv.pdf",
+          "material_read": "Read accessible complete 22-page primary paper in searchable PDF/HTML, including Example 1.1, Proposition 2.3, Example 3.3 and Section 6; PDF pages 2 and 4 visually checked.",
+          "method": "Opened primary open-access PDF, checked relevant pages and full searchable text for K4, singular, normal fan and torus orbit; compared exact assertions.",
+          "title": "Matroid polytopes, nested sets and Bergman fans",
+          "trigger": "Exactly the K4 graphic matroid and normal fan of its base polytope; strongest same-object primary source"
+        },
+        {
+          "assessment": "Theorem 5.4 says each flag-variety torus orbit closure is projectively normal; no local normal-cone singular strata for K4 or exact count.",
+          "evidence": [
+            "Theorem 5.4 and proof: projective normality via semigroup saturation; no face-by-face singularity computation."
+          ],
+          "identifier_or_url": "arxiv:math/0511608v2; https://arxiv.org/pdf/math/0511608",
+          "material_read": "Accessible 15-page primary PDF with contents, introduction, Section 3 and Section 5; inspected Theorem 5.4 and proof (PDF pages 14-15), and screenshot first page.",
+          "method": "Read searchable arXiv PDF, selected mathematical sections and proof with normality conclusion.",
+          "title": "Matroids and Geometric Invariant Theory of torus actions on flag spaces",
+          "trigger": "Exact class of Grassmannian torus orbit closures, possible broad covering theorem"
+        },
+        {
+          "assessment": "Characterizes when the graphic-matroid semigroup ring is Gorenstein; that global algebraic property neither specifies singular-face counts nor implies every generic transverse singularity is a conifold.",
+          "evidence": [
+            "Theorem 1.7 classifies Gorenstein graphic matroid base rings, with K4 as δ=2 base; claim concerns a different invariant."
+          ],
+          "identifier_or_url": "arxiv:1905.05418; https://ar5iv.labs.arxiv.org/html/1905.05418",
+          "material_read": "Read accessible open-access primary HTML including Sections 1.1-1.4, Theorem 1.7, base/independence distinction, K4-based graph construction in Section 5.",
+          "method": "Compared stated Gorenstein criterion and explicit K4 construction with local toric orbit cone data.",
+          "title": "Gorenstein graphic matroids",
+          "trigger": "Same graphic-matroid toric varieties; K4 is a distinguished base example"
+        },
+        {
+          "assessment": "Provides face-count methods and specific example f-vectors for other rank-three matroids; does not give the K4 singular orbit census or transverse local types. Even a previously known f-vector alone does not determine primitive toric cone singularities.",
+          "evidence": [
+            "Example 2.2 compares f-vectors of U3,6 and three rank-3 sparse paving matroids, not K4; no K4 conifold computation."
+          ],
+          "identifier_or_url": "DOI:10.1017/S0963548325000021; https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/face-enumeration-for-split-matroid-polytopes/8AB800A4A0AAB1AEF4720C07899107AF",
+          "material_read": "Read full accessible journal HTML, Introduction, Section 2 framework, Example 2.2, main statement and searched K4/singularity terms.",
+          "method": "Compared explicit face-vector output and allowed split classes to the source f-vector and toric smoothness.",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Potential exact face tables for rank-three six-element matroids"
+        },
+        {
+          "assessment": "K4 appears as an example in Gorenstein 2-class, with its six edges and four triangle flats, but the theorem does not provide 94 singular orbits, 30 maximal singular toric surfaces or the generic transverse nodal type.",
+          "evidence": [
+            "Example 6.18 lists K4 six singleton/4 triangle sets; Theorem 1.2 is a Gorenstein classification, not local singular-locus enumeration."
+          ],
+          "identifier_or_url": "arxiv:2005.08359; https://arxiv.org/pdf/2005.08359",
+          "material_read": "Read accessible 31-page arXiv primary paper in searchable PDF; introduction, Theorem 1.2, classification sections 5-6, Example 6.18 for K4; visually inspected PDF page 1.",
+          "method": "Compared global Gorenstein classifications and K4 facet descriptions against exact local orbit stratification.",
+          "title": "Gorenstein matroids / On algebraic properties of matroid polytopes",
+          "trigger": "Plausible broad classification of algebraic properties of matroid toric varieties (matching object family)"
+        },
+        {
+          "assessment": "Available indexed statement computes Minkowski asymmetry and centers, which do not imply toric smoothness of normal cones. Full text remains a residual priority risk, not declared non-covering in entirety.",
+          "evidence": [
+            "Published-result summary concerns center affine dimensions, not toric normal-cone isomorphism types."
+          ],
+          "identifier_or_url": "Resultary:published-result:dd8588f15b8f",
+          "material_read": "Resultary title and mathematical summary only, not full primary text.",
+          "method": "Compared its stated asymmetry n-1 and minimizing-center classification with the local toric singular-face invariant.",
+          "title": "Minkowski centers of complete-graph spanning-tree polytopes and the exceptional six-vertex cut",
+          "trigger": "Exact same K4 spanning-tree polytope in a published-result index"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "K4 is a primary worked example in Feichtner–Sturmfels; its matroid base polytope is the toric orbit closure in Gr(3,6).",
+        "Exact independent computation establishes all inclusion-maximal nonsimplicial cones, their toric surface classes and their node transverse germs.",
+        "All singular orbits are non-Q-factorial; all simplicial cones are unimodular, a sharp geometric boundary for this specific variety."
+      ],
+      "rationale": "The fivefold X_P is a canonical toric compactification of the Grassmannian torus orbit for the first richly structured complete-graph graphic matroid K4. Identifying its exact singular locus as 24 planes and six Segre surfaces, with uniform ordinary-node transverse geometry and a precise non-Q-factoriality obstruction, is a natural complete local-geometric classification. The motivated object/invariant pairing and the local analytic type are not given by a generic toric criterion or the already known f-vector alone. This fixed finite example can be independently useful for birational geometry, toric resolutions and comparison with larger graphic-matroid orbit closures without claiming a generalization or major theorem.",
+      "risks": [
+        "A fixed finite classification may have limited impact outside examples of matroid toric compactifications; no new general K_n theorem or resolution constructed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Feichtner and Sturmfels, Matroid polytopes, nested sets and Bergman fans (2004/2005), arXiv:math/0411260, Example 1.1, Proposition 2.3, Section 6, https://user.math.uni-bremen.de/feichtne/research/publ/bergman_arXiv.pdf",
+    "Howard, Matroids and Geometric Invariant Theory of torus actions on flag spaces (2005/2006), arXiv:math/0511608v2, Section 5, Theorem 5.4, https://arxiv.org/pdf/math/0511608",
+    "Hibi, Lasoń, Matsuda, Michałek, Vodička, Gorenstein graphic matroids (2019/2021), arXiv:1905.05418, Theorem 1.7, https://ar5iv.labs.arxiv.org/html/1905.05418",
+    "Ferroni and Schröter, Face enumeration for split matroid polytopes (2025), Theorem and Example 2.2, DOI:10.1017/S0963548325000021, https://www.cambridge.org/core/journals/combinatorics-probability-and-computing/article/face-enumeration-for-split-matroid-polytopes/8AB800A4A0AAB1AEF4720C07899107AF",
+    "Lasoń and Michałek, On algebraic properties of matroid polytopes / Gorenstein matroids (2020/2026 versions), arXiv:2005.08359, Theorem 1.2 and Example 6.18, https://arxiv.org/pdf/2005.08359",
+    "Resultary published finding dd8588f15b8f: Minkowski centers of complete-graph spanning-tree polytopes; unrelated asymmetry/center invariant",
+    "Resultary published finding ab7b7d2d5a5f: four-wheel second degeneracy fourfold; different variety and dimension",
+    "Cox, Little and Schenck, Toric Varieties, AMS 2011, standard smoothness and Q-factorial cone criteria (textbook background, not a claimed newly inspected source)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For the normal projective toric variety X_P of the K4 spanning-tree matroid base polytope in its intrinsic rank-five lattice, over an algebraically closed field of characteristic zero, the reduced singular locus consists of exactly 30 irreducible toric surfaces (24 P^2 and six P^1 x P^1), each with generic threefold ordinary-node transverse germ ad-bc=0; its 94 singular orbits are distributed by orbit dimension as 16,48,30; and the reduced singular and non-Q-factorial loci coincide.",
+  "limitations": [
+    "No independent human expert or Lean formal proof is asserted; independent exact algorithm complements the source proof but may share mathematical assumptions about the toric criterion.",
+    "Full primary text for Resultary same-polytope Minkowski-center work not accessible; only its indexed abstract was compared.",
+    "Publication plan is not_ready for privacy/byte-transport reasons, not because C/O/V were unresolved or failed.",
+    "No general result for K_n beyond K4 or characteristic other than the stated setting."
+  ],
+  "residual_risks": [
+    "An unindexed small-matroid/Grassmannian toric fan calculation or computational table could predate and reproduce the 30 surface/94 orbit classification.",
+    "The indexed same-polytope Minkowski-center result was only available as a mathematical abstract/summary; its full paper was not read, so no whole-document noncoverage claim is made.",
+    "General toric singularity and matroid smoothness literature may contain differently phrased equivalent K4 data; the searches bound but do not eliminate this possibility.",
+    "Neither independent expert originality attestation nor Lean formal verification is asserted."
+  ],
+  "schema_version": 1
+}
