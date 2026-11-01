@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
-Orthogonal projection commutes with Euclidean ball addition; the projected core is exactly an ellipse. The shadow identity follows by removing the inner erosion from the outer offset. Ellipse curvature radii, inradius and the perimeter inequality prove the disjoint thresholds, including strict inequalities for nonregular tubes. The inner erosion shrinks to the unique center; local inward normal offsets yield a quadratic minor-axis cap and its \(3/2\) area exponent. Monotone inversion of the offset area yields the \(2/3\) random onset. The independent polygon-buffer checker tests boundary cases and asymptotic coefficients without being used as an infinite proof.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Slepian (arXiv:1109.0595) treats convex projected-area averages rather than nonconvex torus visibility. Egan's torus passage notes ray multiplicities but does not give a threshold diagram or closing-hole asymptotic. Schwartz gives an outer ellipse-parallel area, not inner erosion and its probabilistic law. The indexed published research results returned for ellipse normal multiplicity, convex shadow brightness, and cylinder mixed moments do not state results implying this torus theorem; no indexed hit was considered proof of uniqueness. The closest source with a torus example was materially read. A residual priority risk persists for less-indexed differential-geometric literature on ellipse erosions.
+PASS
 
-## Value — PASS
-The two distinct viewing thresholds separate the first failure of an embedded planar normal tube from actual closing of the image hole. The exact probability of their intermediate region is maximized uniquely at a natural thickness ratio, and the explicit noninteger critical exponent determines a singular random-hole-area law. This is a quantitative nonconvex-visibility result that is not just the convex Cauchy average-area identity or the standard offset formula.
+Exact projection of a solid tube around a circle is radius-r planar tube around ellipse of axes R,Rc (c=|u_z|), outer offset minus inner erosion. Its inradius b=Rc determines hole threshold c=s=r/R; curvature rolling radius min b²/a determines no-normal-overlap threshold c=√s. Steiner/coarea and monotone perimeter give strict area loss below 2rP for c<√s; Haar c uniform on [0,1] gives three regime probabilities and unique overlap maximum 1/4. Inward ellipse offset near minor-axis incenter gives H(c)~R²(8/3)sqrt(2(1−s²)/s)(c−s)^(3/2), hence hole distribution onset 2/3. Independently buffered 12k-vertex ellipse polygons for three ratios and checked finite-δ asymptotic; analysis is general, polygon buffering is not.
 
-## Scientific limitations
-The proof assumes a nondegenerate circular ring torus, Euclidean orthographic projection, and fixed positive ratio strictly below one. It does not give an elementary area expression in every intermediate viewing direction, nor an independent priority or proof audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge priority comparison against primary full/partial texts, published Resultary and target-domain queries found no mathematical implication of the final asserted new portion. Specifically: Outer area and ray crossing information alone do not imply the inner erosion area behavior, the two distinct c=s and c=√s thresholds, or the local 3/2 hole collapse. Earlier ingredients and special cases are credited; search absence alone is not proof.
+
+## value
+
+PASS
+
+Three exact orientation regimes of nonconvex torus shadows and a sharp critical hole-size law are motivated geometric-visibility invariants. The two distinct topological/focal thresholds and continuous 2/3 onset give more information than classic offset formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
