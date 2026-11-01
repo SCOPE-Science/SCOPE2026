@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns nonempty finite threshold graphs in the ordinary pure adjacency/equality language. The exact rank-three invariant is reconstructed from rank-zero tuple diagrams and sets of one-point extensions, including repeated pebbles. Appending an isolated or universal vertex preserves rank-three equivalence, so closure under both append operations turns the finite 357-state certificate into an all-orders theorem. The independently implemented nested-type checker confirms every state and all 714 transitions; breadth-first generation proves the shortest-representative assertions.
+## correctness
 
-## Originality — PASS, subject to stated search limitations
-The closest primary results are Fürer's 2015 construction-based spectral algorithm and Pikhurko–Verbitsky's 2010 general finite-rank type theory. Neither establishes the exact threshold-graph quotient or sharp least-representative bound. Verbitsky's 2004 work on separator-based logical depth is not an exact threshold-graph census. Focused literature and indexed-research searches for alternate descriptions, cograph reductions, and the numbers 357 and 17 found no direct implication. An equivalent unindexed result or treatment in an inaccessible historical monograph remains possible; this is not a proof of universal priority.
+PASS
 
-## Value — PASS
-The exact number of indistinguishability classes, complete minimal-order distribution, and sharp smallest-universal-representative cutoff are natural finite-model-theoretic invariants of a classical graph family. The nontrivial contribution is a closed, reproducible state space whose finite closure proves a theorem about all graph orders; it is not merely an enumeration through a chosen vertex bound. This supplies a finite canonical testing set for every rank-three first-order graph sentence restricted to threshold graphs.
+Independently checked the rank-three invariant: tuple rank-zero types are exact equality/adjacency diagrams, their one-extension sets give rank-one pair types including z=x,y equality cases, rank-two vertex types collect all pair extensions, and the set of vertex types is equivalent to rank-three sentence type. An independent Python implementation used direct integer adjacency masks to form all four distinct-third-vertex adjacency patterns, unary neighbor/nonneighbor flags, and the full set of pair types. Breadth-first search from K1 with isolated and universal append operations stabilized after exactly 357 distinct signatures, with all 714 outgoing successors matching prior states. The maximal first-reached word length was 16 (17 graph vertices), with exactly two classes and precisely the published order distribution. Crucially, the three-pebble EF composition under an added isolated vertex, and its complement dual for a universal vertex, prove each append is a congruence for rank-three equivalence, so closure of all successors proves the result for creation words of arbitrary length. BFS shortest-path property proves the threshold-graph-only 17 sharpness. Compared against actual verify.py rank-Hintikka recursion and manifest schema/first states; did not treat pre-recorded VERIFY_OK or cutoff enumeration alone as proof.
 
-## Limitations
-The sharpness is within the threshold-graph class; no statement is made about representatives outside that class. Counting quantifiers, named construction orders, and higher quantifier ranks are not considered. The finite certificate uses standard-library Python, and its mathematical soundness also relies on the proved game-composition lemma. Historical full-text access is incomplete.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General EF finite-index and Hintikka recursion appear in Pikhurko–Verbitsky’s graph logical-complexity survey, while threshold graph binary construction appears in Fürer and classical Chvátal–Hammer work. Those are prior structural tools. The inspected published results do not give this exact rank-three quotient, complete minimal-order distribution or 17-vertex kernel, and the survey’s general bounds do not determine these values. Other exact logical-depth classifications of paths and complete multipartite graphs are different families. A finite-model-theoretic classification of threshold graphs under another name or earlier computational model enumeration remains a priority risk.
+
+## value
+
+PASS
+
+A complete sharp finite quotient for a classical infinite graph family is a meaningful exact logical invariant. The 357-state closed automaton supplies a finite representative set for testing every rank-three sentence, while its two 17-vertex extremal classes certify minimal kernel size; this is much more than a finite test through order 17, because the closure lemma proves universality. No claim made for rank four, counting logic or arbitrary graph representatives.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
