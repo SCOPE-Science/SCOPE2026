@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:51:18.953037Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Endpoint conditions are exactly ∫u=-1 and ∫t u=0. For the mean -1 and |u|<=U, rearrangement against the switch point τ=(U+1)/(2U) shows the maximum first moment is U(1−2τ²)/2, giving U>=1+√2 for feasibility (U<1 is trivially impossible). A convex interpolation yields admissible moment zero. For nondecreasing u, derivative μ=Du≥0 has mass T=TV(u), and eliminating the initial level gives ∫s(1−s)dμ=1. With m=∫(1−s)dμ∈(1,U−1], Cauchy gives T>=m²/(m−1), minimal at m=U−1 in capped regime U<=3, equality forcing μ to one atom. For U>=3, s(1−s)<=1/4 forces T>=4, attained uniquely at s=1/2. Independently verified symbolic switch moments, cap threshold and saturation-branch continuity at U=3 and sampled caps; analytic inequalities cover all functions and cap values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kaya 2020 uncapped TV4 midpoint step -3,+1",
+          "Manns–Schiemann arXiv:2212.12226 TV integer controls"
+        ],
+        "reasoning": "Kaya’s uncapped theorem yields U>=3 branch but cannot imply the sharp reduced-cap optimum or U>=1+√2 feasibility. Integer-valued controls in Manns–Schiemann are a different admissible space.",
+        "searches": [
+          "double integrator minimum total variation monotone bounded controls amplitude cap saturation exact bang bang",
+          "bounded variation optimal control saturation double integrator 2020",
+          "arxiv:2212.12226"
+        ]
+      },
+      "checked_sources": [
+        "Kaya arXiv:1901.00491 full accessible preprint",
+        "Manns–Schiemann arXiv:2212.12226",
+        "Resultary exact capped TV control semantic query",
+        "Source RESULT.md/REVIEW.md/SLOGAN.txt/AUDIT.json/METADATA.json/VERIFICATION.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kaya pure-TV midpoint switch -3,+1 with TV4",
+          "New cap U=1+√2 branch gives different bang-bang levels and TV>4"
+        ],
+        "reasoning": "The earlier exact solution is included as U>=3 saturation but leaves the interval [1+√2,3) undetermined; strict cap U<3 excludes -3 and requires the newly proved inequality and jump location.",
+        "searches": [
+          "double integrator minimum total variation monotone bounded controls amplitude cap saturation exact bang bang",
+          "Kaya 2019 arXiv:1901.00491"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "∫u=-1, ∫tu=0, ∫s(1−s)dμ=1",
+          "Kaya arXiv:1901.00491 uncapped two-moment endpoint problem"
+        ],
+        "reasoning": "The four ODE boundary conditions reduce exactly to two moment constraints on u, with monotone BV derivative represented by a nonnegative measure μ. This representation is an equivalent optimization problem, rather than a change in the claimed admissible class.",
+        "searches": [
+          "double integrator minimum total variation monotone bounded controls amplitude cap saturation exact bang bang",
+          "arXiv:1901.00491"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search for capped double-integrator monotone total variation: top hits unrelated control and TV questions"
+        ],
+        "reasoning": "No finite invariant/database table is natural for this infinite-dimensional BV minimum. Resultary index search located related but mathematically distinct control questions, not the cap-dependent moment law; this search alone cannot prove novelty.",
+        "searches": [
+          "double integrator minimum total variation monotone bounded controls amplitude cap saturation exact bang bang",
+          "Resultary capped double integrator control query"
+        ]
+      },
+      "rationale": "The nearest same-boundary primary source by Kaya proves uncapped minimum TV=4 and midpoint switch. It does not give the amplitude-capped law U<3 or its feasibility threshold. Manns and Schiemann treat integer-valued multidimensional BV controls, not this admissible family. A broader constrained-TV control theorem remains possible under different optimization terminology.",
+      "residual_risks": [
+        "An older optimal-transport or moment-constrained BV inequality could already imply the cap-sensitive branch",
+        "No claim of optimum among nonmonotone capped controls"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Uncapped midpoint step known; capped monotone branch not stated in inspected theorem",
+          "evidence": "Uncapped pure-TV optimum TV4, switch -3 to +1",
+          "identifier_or_url": "https://arxiv.org/abs/1901.00491",
+          "material_read": "Accessible complete preprint, optimization formulation, optimal step and comparison with energy objective examined",
+          "method": "arXiv lawful PDF, theorem and relevant pages",
+          "title": "Optimal Control of the Double Integrator with Minimum Total Variation",
+          "trigger": "Exact same double-integrator endpoint and TV objective"
+        },
+        {
+          "assessment": "Integer-valued multidimensional control not an implication for arbitrary continuous nondecreasing one-dimensional control",
+          "evidence": "Discrete control admissible set versus continuous BV cap",
+          "identifier_or_url": "https://arxiv.org/abs/2212.12226",
+          "material_read": "Abstract, introduction, relevant formulations and theorem summary examined",
+          "method": "arXiv accessible source",
+          "title": "On Integer Optimal Control with Total Variation Regularization on Multi-dimensional Domains",
+          "trigger": "Broader TV-control literature"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp actuator saturation threshold and unique minimum-switching-variation controls for a standard double-integrator boundary task. The exact cap-dependent branch is a natural refinement of the previously published uncapped minimum, not an arbitrary numerical subcase.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Kaya arXiv:1901.00491 full accessible preprint",
+    "Manns–Schiemann arXiv:2212.12226",
+    "Resultary exact capped TV control semantic query",
+    "Source RESULT.md/REVIEW.md/SLOGAN.txt/AUDIT.json/METADATA.json/VERIFICATION.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For y¨=u on [0,1] with y(0)=0,y′(0)=1,y(1)=y′(1)=0 and |u|<=U, feasibility among all bounded controls iff U>=1+√2. Among nondecreasing BV controls minimum TV is (U−1)^2/(U−2) for 1+√2<=U<=3 and 4 for U>=3; a unique one-jump minimizer is explicitly given in each regime.",
+  "limitations": [
+    "Only TV minimization in nondecreasing BV class",
+    "No energy-plus-TV objective",
+    "Full feasibility threshold does not imply global TV optimality among all capped controls",
+    "An older optimal-transport or moment-constrained BV inequality could already imply the cap-sensitive branch",
+    "No claim of optimum among nonmonotone capped controls"
+  ],
+  "schema_version": 1
+}

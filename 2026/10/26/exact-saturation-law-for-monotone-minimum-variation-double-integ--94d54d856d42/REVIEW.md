@@ -1,13 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness — PASS.** The endpoint conditions reduce to two exact moments. The feasibility threshold follows from maximizing the first moment under a box cap; the monotone minimum-TV bound follows from a nonnegative derivative measure, the identity \(\int s(1-s)\,d\mu=1\), and Cauchy–Schwarz. Both step controls attain the stated bounds and satisfy the moments exactly.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary source is Kaya's unbounded double-integrator TV problem. The capped formula below \(U=3\) is not stated there. Searches for bounded-control variants did not find the same formula. Related switching-cost and bounded-variation literature may contain adjacent results; the theorem is limited to monotone controls and is not a claim of priority over all such literature.
+PASS
 
-**Value — PASS.** The exact feasibility cutoff \(U=1+\sqrt2\) and the cap-dependent TV law quantify how actuator saturation changes a standard minimum-variation benchmark. This is useful for testing capped-control solvers and for distinguishing the unconstrained midpoint step from the saturated regime.
+Endpoint conditions are exactly ∫u=-1 and ∫t u=0. For the mean -1 and |u|<=U, rearrangement against the switch point τ=(U+1)/(2U) shows the maximum first moment is U(1−2τ²)/2, giving U>=1+√2 for feasibility (U<1 is trivially impossible). A convex interpolation yields admissible moment zero. For nondecreasing u, derivative μ=Du≥0 has mass T=TV(u), and eliminating the initial level gives ∫s(1−s)dμ=1. With m=∫(1−s)dμ∈(1,U−1], Cauchy gives T>=m²/(m−1), minimal at m=U−1 in capped regime U<=3, equality forcing μ to one atom. For U>=3, s(1−s)<=1/4 forces T>=4, attained uniquely at s=1/2. Independently verified symbolic switch moments, cap threshold and saturation-branch continuity at U=3 and sampled caps; analytic inequalities cover all functions and cap values.
 
-Closest literature: C. Y. Kaya, “Optimal Control of the Double Integrator with Minimum Total Variation,” https://arxiv.org/abs/1901.00491; P. Manns and A. Schiemann, “On Integer Optimal Control with Total Variation Regularization on Multi-dimensional Domains,” https://arxiv.org/abs/2212.12226. The latter studies a different, integer-valued multidimensional control class.
+## originality
 
-Limitations: minimum-TV optimality is proved only among nondecreasing controls. The work does not establish that nonmonotone controls cannot do better, and it does not analyze energy-plus-TV scalarization.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The nearest same-boundary primary source by Kaya proves uncapped minimum TV=4 and midpoint switch. It does not give the amplitude-capped law U<3 or its feasibility threshold. Manns and Schiemann treat integer-valued multidimensional BV controls, not this admissible family. A broader constrained-TV control theorem remains possible under different optimization terminology.
+
+## value
+
+PASS
+
+Sharp actuator saturation threshold and unique minimum-switching-variation controls for a standard double-integrator boundary task. The exact cap-dependent branch is a natural refinement of the previously published uncapped minimum, not an arbitrary numerical subcase.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
