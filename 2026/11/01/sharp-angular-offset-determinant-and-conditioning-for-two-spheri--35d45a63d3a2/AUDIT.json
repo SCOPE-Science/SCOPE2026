@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Cyclic DFT gives m disjoint 2-by-2 Fourier blocks. Non-Nyquist residues have strictly positive opposite-parity associated-Legendre contributions; Nyquist eigenvalues are explicitly 2mw(1±cos(Lδ)). Positivity, exact rank, determinant and optimum follow algebraically. Standalone checker tests independently constructed Gram matrices.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xu and coauthors: half-shift symmetric-latitude interpolation constructions, qualitative polynomial factorization.",
+        "Khalid et al.: multi-ring fast sampling transforms, not an all-shift two-ring D-optimality comparison.",
+        "Marzo: density criteria for spherical harmonic interpolation."
+      ],
+      "reasoning": "None of the specifically inspected theorems is strong enough to imply the full phase-specific eigenvalue/determinant ratio without additional harmonic-block analysis.",
+      "searches": [
+        "arxiv:math/0407448",
+        "arxiv:1403.4661",
+        "arxiv:math/0611503"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0407448",
+      "https://arxiv.org/abs/1403.4661",
+      "https://arxiv.org/abs/math/0611503",
+      "published-finding corpus indexed searches for two-ring determinant, angular offset, antiprism sampling",
+      "Accessible own previous ledger g000045 claim titles/objects for overlap"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu: qualitative unisolvence at a fixed half-shift is a strictly weaker conclusion than global determinant optimality over shifts.",
+        "Prior paired latitude-ring quadrupole result is for exact-degree 2 with m≥5 and rotation-independent *column* Gram, unlike whole low-pass degree L with m=2L, where Nyquist aliasing creates a nonconstant row Gram."
+      ],
+      "reasoning": "Known unisolvence does not imply determinant comparisons; the old exact-quadrupole spectrum operates in a different bandwidth/sampling regime and does not subsume the new theorem.",
+      "searches": [
+        "arxiv:math/0407448 theorem 2.6",
+        "arxiv:1403.4661 spherical iso-latitude transform",
+        "own prior: 38d9014e-e346-416d-81dd-e35bd8a87c3e"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "2004 arXiv:math/0407448: half-step interpolation but no general angular-offset determinant formula found in examined full text.",
+        "published-finding corpus indexed angular and spherical sampling findings, including 2026/10/11/SCOPE-sharp-spectral-demixed-two-sensor-frame-bounds-on-finite-cycles--b03d8e4c7818, concern other geometries."
+      ],
+      "reasoning": "A phase-optimal Vandermonde or two-circle frame formula could be an alias; no inspected source gave this exact normalized row-Gram identity.",
+      "searches": [
+        "D-optimal relative angular phase offset two symmetric latitude circles equally-spaced 2L points per ring for spherical polynomials degree L, determinant sin^2(L delta), singular values condition number best half-stagger",
+        "sharp spherical polynomial bandlimited evaluation rank regular m-gonal antiprism two parallel latitude rings staggered half-step min(2m,4L), minimum interpolation degree ceil(m/2)",
+        "regular antiprism two latitude rings S2 spherical harmonics exact-degree sampling all-degree rank spectrum condition numbers",
+        "spherical harmonics two parallel latitudes regular polygons phase offset determinant optimal staggered nodes interpolation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed topics were Fourier frame conditioning on finite cycles and hemispherical Slepian spectra; no exact determinant table or equivalent two-ring row-Gram spectrum was identified."
+      ],
+      "reasoning": "No known exact data table supplies the claimed infinite parameter identity; a failed indexed search is not itself novelty proof.",
+      "searches": [
+        "published-finding corpus: D-optimal relative angular phase offset two symmetric latitude circles ... determinant sin^2(L delta)",
+        "published-finding corpus: regular antiprism two latitude rings S2 spherical harmonics exact-degree sampling ..."
+      ]
+    },
+    "rationale": "Prior 2004 paper supplies half-shifted spherical interpolation but not the global relative-phase spectral decomposition, sin-squared determinant ratio, or exact optimality for all heights and bandwidths. Searches compared stronger implications and known related published/indexed results; a possible unindexed equivalent remains a risk.",
+    "residual_risks": [
+      "The fixed half-step arrangement is explicitly present in 2004 interpolation literature and is not itself original; only the sharp comparative spectral/determinant theorem is asserted as new.",
+      "An equivalent angle-dependent determinant identity may occur in specialized spherical interpolation or frame literature not indexed by available sources."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Qualitative fixed-grid unisolvence is covered; global angular determinant law and conditioning comparison not identified.",
+        "evidence": [
+          "arxiv:math/0407448, 2004-07-27; published half-step construction and interpolation conditions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0407448",
+        "material_read": "Full accessible HTML paper, introduction, principal theorems and symmetric-latitude half-step constructions, particularly Theorem 2.6.",
+        "method": "Inspect primary open-access full text and compare hypotheses and conclusions.",
+        "title": "Polynomial Interpolation on the Unit Sphere II",
+        "trigger": "Directly relevant symmetric latitude and half-step placement."
+      },
+      {
+        "assessment": "Multi-ring exact transforms, not a published two-circle phase-only determinant theorem in sections inspected.",
+        "evidence": [
+          "arxiv:1403.4661; spherical sampling layout and methods."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4661",
+        "material_read": "Full accessible open text, construction and sampling-design discussion.",
+        "method": "Compare sample layout and objective with the two-ring relative-phase theorem.",
+        "title": "An Optimal-Dimensionality Sampling Scheme on the Sphere with Fast Spherical Harmonic Transforms",
+        "trigger": "General spherical harmonic sample design and latitudinal optimization."
+      },
+      {
+        "assessment": "Qualitative interpolation density theory lacks the claimed angle-resolved finite-matrix spectrum.",
+        "evidence": [
+          "arxiv:math/0611503, 2006-11-16."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0611503",
+        "material_read": "Accessible full text, theorem statements and interpolation-density framework.",
+        "method": "Test whether broad interpolation implications determine a fixed 4L-row Gram spectrum.",
+        "title": "Marcinkiewicz-Zygmund inequalities and interpolation by spherical harmonics",
+        "trigger": "Potential broad interpolation theorem on spheres."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "35d45a63-d3a2-48d6-8bad-031da89c965f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Global angular design optimization and exact determinant degradation for a natural spherical harmonic acquisition family; clean quantitative comparison and precise singular phases for every harmonic cutoff and latitude height, beyond generic interpolation existence.",
+    "status": "PASS"
+  }
+}
