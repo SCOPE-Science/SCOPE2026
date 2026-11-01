@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The rational plane has 13 points and any four-line cover is a pencil; three lines cannot cover. The 189 center-fixed contact patterns exhaust every possible four-point equality case. Exact rank computation gives eight conditions per pattern, the rational incidence filter yields 378 normalized candidates, and unit-ideal Gröbner tests on all three charts leave exactly 234 geometrically smooth forms. Enumerating all 432 matrices fixing the center proves orbit sizes 18, 72, 144; thirteen possible centers yield 3042 globally. Each representative passes a separate rational incidence test. No bounded extension-field check substitutes for geometric smoothness.
+## correctness
 
-## Originality — PASS, with risk
-The first primary source introduces tangent-filling curves and studies degree bounds and examples but does not give a complete four-point ternary-quartic census. The second primary source classifies geometric automorphism groups of plane quartics in characteristic three, not the rational tangent-pencil equality locus or its finite-field orbit distribution. The closest related prior results in the same research record concern tangent-filling cubics over F3, tangent-filling quartics over F2, nontrivial point-blocking quartics over F3, and a sharp nine-point bound for tangent-filling quartics over F5; none implies this enumeration. Search cannot certify absolute novelty, and an unindexed earlier computation could affect publication priority.
+PASS
 
-## Value — PASS
-The theorem resolves the natural smallest-rational-contact stratum for smooth genus-three quartics in the smallest odd field. Its complete three-orbit classification and universal collinear-contacts/concurrent-tangents rigidity are structural facts, not a generic count of arbitrary coefficient slices. The orbit representatives and complete coefficient certificate make the classification reusable for finite-field incidence and automorphism comparisons.
+In PG(2,3), four lines cover 13 points exactly only if they form a concurrent pencil. At the four-point lower bound, all four rational tangent lines are distinct, with one contact on each. Independently enumerated 189 fixed-center patterns, all associated linear systems rank 8 in 15 quartic coefficients, 378 uniquely normalized candidate quartics passing full rational incidence. Applied exact Gröbner unit-ideal tests for gradients on X=1,Y=1,Z=1 to check smoothness over algebraic closure, not just F3; exactly 234 smooth candidates. Independently constructed all 432 projective matrices stabilizing the center and found three orbits of sizes 18,72,144. Transitivity over 13 centers gives exactly 3042 total forms and full orbit sizes 234,936,1872 with stabilizers 24,6,3. Entire finite field and group classification was independently re-enumerated, not inferred from repository log.
 
-## Scope and limitations
-The statement does not classify quartics with more than four rational points or assert abstract-geometric nonisomorphism of the three base-field projective classes. Gröbner calculations are exact computational evidence, not independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The primary Asgarli–Ghioca tangent-filling literature studies obstruction/construction over finite fields but does not establish the smallest F3 quartic equality census in inspected statements. Dolgachev–Martin geometric automorphism results classify distinct objects (del Pezzo/plane-quartic automorphism groups over algebraically closed fields) and do not fix arithmetic tangent incidence. No exact 3042/three rational projective-orbit table was located.
+
+## value
+
+PASS
+
+The smallest rational-contact tangent-filling case has a natural projective geometry obstruction and a complete arithmetic orbit classification; exact 234/936/1872 projective types, contact-line geometry and smoothness together are useful finite-geometric invariants, not arbitrary numerical slices.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
