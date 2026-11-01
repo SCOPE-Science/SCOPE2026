@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The final statement is an all-dimension classification of both loop choices on the binary Hamming third relation, not a finite extrapolation. Recalculation of the group-algebra expansion gives exactly four residue cases. Multiplication by the quadratic symmetric element in odd dimension has rank \(2^{n-1}-2^{(n-1)/2}\) by alternating-form reduction and the tensor-complex homology calculation; the residue-two rank follows by a one-variable reduction, and the other two ranks follow from unit and coordinate changes. The square-zero and involution identities then determine all orbit counts. Independent direct binary matrix tests passed at dimensions 3 through 12, and full state enumerations passed for dimensions 3 and 4. Risks: the proof relies on the standard alternating-form and field-Künneth facts, whose hypotheses are explicitly satisfied.
+## correctness
 
-## Originality — PASS under inspected evidence
-A closely related published distance-two Boolean-cube parity-automaton classification was read in full as a mathematical result, not treated as a new contribution. It supplies the quadratic rank technique but explicitly does not cover higher shells. The present third-shell expansion, including its residue-two \(e_1e_2\) rank reduction and the loop-choice switch at dimension \(3\bmod4\), is not a stated consequence of that theorem's second-shell formula. Key's slides introduce arbitrary Hamming-distance relations but give their inspected adjacency-matrix rank formulas for the distance-one graph; Blázquez-Sanz–Muñoz analyze primarily complex group convolution; Bors supplies the general finite dynamical group framework. None of the inspected results states or dominates the complete third-shell binary result. The remaining risk is an undiscovered equivalent coding-theoretic binary rank formula, particularly among older Hamming-scheme sources.
+PASS
 
-## Mathematical value — PASS
-The third-distance relation is a canonical, dimension-parametrized Hamming-scheme graph rather than an arbitrary engineered finite example. The exact formulas give the full functional graph on the doubly exponential configuration space for every dimension and both loop conventions. They identify an unexpected phase reversal in exactly one congruence class and a large nullity defect in dimensions \(2\bmod4\), where the rank is strictly below a quarter of the state-vector dimension. This is a precise natural dynamical invariant and not a numerical cutoff or a claim of novelty for the reused rank method.
+In GF(2)[(Z/2)^n], write translations t_i=1+y_i with y_i²=0. The exact third-shell expansion is A_n=binom(n,3)+binom(n−1,2)e1+(n−2)e2+e3, giving residue classes e1(1+e2), e2(1+e1), e1e2 and 1+e1+e2+e3. Frobenius proves (A_n+c_n)^2=0 with c_n=1 iff n≡3 mod4. For n≡0,3 mod4 the shifted element is a coordinate under a unit/triangular change, rank 2^(n−1); for n≡1 use alternating normal form of e2 in odd n and field Künneth to get 2^(n−1)-2^((n−1)/2); for n≡2 reduce e1e2 to z e2 in n−1 odd variables, rank 2^(n−2)-2^((n−2)/2). Jordan forms force all trajectory and cycle counts. Independently constructed distance-three matrices and exact GF2 row reduction agree at every n=3..10. Infinite assertion follows from the group-algebra proof.
 
-## Closest literature and scientific limitations
-The prior distance-two result and classical coding and group-convolution references are recorded in `RESULT.md` and `AUDIT.json`. Results are restricted to binary states, Hamming distance three, and synchronous updates. No independent review or publication-priority certification has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest published distance-two Boolean-cube parity automaton supplies the alternating quadratic rank method but explicitly excludes shell three. Key defines general Hamming relations; its adjacency-code statements on inspected slide 39 apply to ordinary distance-one H(n,m). Blázquez-Sanz–Muñoz analyze complex group convolution and do not give the mod-two distance-three rank. A prior coding-theoretic formula for third-shell 2-rank is a substantive uneliminated priority risk.
+
+## value
+
+PASS
+
+The third Hamming relation is a canonical association-scheme family with exponentially many vertices and doubly exponentially many configurations. The exact modular rank and Jordan structure completely determine the functional graph for both self-loop conventions at all n and reveal the n≡3 loop-phase inversion and rank defect at n≡2. These specific natural invariants are not a trivial reparameterization of the prior distance-two result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

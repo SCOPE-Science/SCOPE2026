@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:02:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Complete frozen RESULT.md and inspected verify.py Git blobs",
+        "Independently implemented direct Hamming-shell GF2 row elimination n=3..10",
+        "Full published distance-two parity automaton theorem (Resultary/2026 RESULT.md) read for rank-lemma comparison"
+      ],
+      "rationale": "In GF(2)[(Z/2)^n], write translations t_i=1+y_i with y_i²=0. The exact third-shell expansion is A_n=binom(n,3)+binom(n−1,2)e1+(n−2)e2+e3, giving residue classes e1(1+e2), e2(1+e1), e1e2 and 1+e1+e2+e3. Frobenius proves (A_n+c_n)^2=0 with c_n=1 iff n≡3 mod4. For n≡0,3 mod4 the shifted element is a coordinate under a unit/triangular change, rank 2^(n−1); for n≡1 use alternating normal form of e2 in odd n and field Künneth to get 2^(n−1)-2^((n−1)/2); for n≡2 reduce e1e2 to z e2 in n−1 odd variables, rank 2^(n−2)-2^((n−2)/2). Jordan forms force all trajectory and cycle counts. Independently constructed distance-three matrices and exact GF2 row reduction agree at every n=3..10. Infinite assertion follows from the group-algebra proof.",
+      "residual_risks": [
+        "Frobenius square-zero and field-Künneth computations apply only over GF2",
+        "Finite tested n cannot independently establish unbounded n formula"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Blázquez-Sanz–Muñoz arXiv:1308.1186 studies finite group convolution over C, not GF2 when |G| even",
+          "Bors arXiv:1409.3756 explains general endomorphism dynamics, not the needed third-shell rank"
+        ],
+        "reasoning": "Abstract general dynamics and complex Fourier inversion do not imply these modular ranks without extra arithmetic; no stronger exact third-shell formula was located.",
+        "searches": [
+          "Hamming distance three binary hypercube adjacency matrix GF(2) rank parity mod four cellular automata"
+        ]
+      },
+      "checked_sources": [
+        "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+        "Linear codes from designs from Hamming graphs",
+        "Generalized Linear Cellular Automata in Groups and Difference Galois Theory",
+        "Resultary search: Hamming distance three binary hypercube adjacency matrix GF(2) rank parity mod four cellular automata"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary/2026 distance-two RESULT.md contains e2 rank 2^(n−1)-2^((n−1)/2) for odd n but does not address e1e2 third-shell n≡2",
+          "Current mixed e1e2 reduction and exceptional loop-choice n≡3 are additional identities"
+        ],
+        "reasoning": "Although a quadratic normal-form lemma transfers, the full prior distance-two result cannot by substitution imply the third-distance shifted-rank table and both-loop orbital counts.",
+        "searches": [
+          "Hamming distance three binary hypercube adjacency matrix GF(2) rank parity mod four cellular automata"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The third Hamming association-scheme adjacency code dimension is rank_GF2(A_3); orbit census follows from shifted rank and square-zero/involution",
+          "J. D. Key slides define H^k(n,m), yet their rank discussion at slide 39 treats H(n,m)=H^1(n,m)"
+        ],
+        "reasoning": "Adjacency-code rank, binary cellular automata and group-algebra multiplication are equivalent formulations. The present third-shell modular rank was not supplied by the examined code source.",
+        "searches": [
+          "Hamming distance three binary hypercube adjacency matrix GF(2) rank parity mod four cellular automata",
+          "binary rank adjacency graph Hamming distance 3 2 rank cubic boolean cube"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matched distance-two exact rank/cycle census dated 2026-10-11; exact shell-three rank table absent in that full statement",
+          "Key slide 39 says dim of adjacency code H(n,m) known (distance one)"
+        ],
+        "reasoning": "A table for all third Hamming relations would cover even without dynamical wording. Inspected table is of a different shell; unindexed coding-theory ranks remain risk.",
+        "searches": [
+          "Hamming distance three binary hypercube adjacency matrix GF(2) rank parity mod four cellular automata"
+        ]
+      },
+      "rationale": "The closest published distance-two Boolean-cube parity automaton supplies the alternating quadratic rank method but explicitly excludes shell three. Key defines general Hamming relations; its adjacency-code statements on inspected slide 39 apply to ordinary distance-one H(n,m). Blázquez-Sanz–Muñoz analyze complex group convolution and do not give the mod-two distance-three rank. A prior coding-theoretic formula for third-shell 2-rank is a substantive uneliminated priority risk.",
+      "residual_risks": [
+        "Older Hamming association-scheme p-rank or adjacency-code literature might contain equivalent third-distance rank",
+        "General finite endomorphism theory itself does not determine the precise rank"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_DISTANCE_THREE",
+          "evidence": "Defines exact distance two; full proof reusable quadratic lemma but explicit limitation excludes higher shells.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4",
+          "material_read": "Complete published RESULT.md including exact theorem, group-algebra proof, rank lemma and excluded shells",
+          "method": "Read GitHub original file through authorized read-only connector",
+          "title": "A mod-four orbit census for parity automata on distance-two Boolean cubes",
+          "trigger": "Closest published self-review finite-field Hamming-shell computation"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING_THIRD_SHELL",
+          "evidence": "Adjacency-code known dimension is stated for ordinary H(n,m), not H^3(n,2); incidence codes for H^k are different matrices.",
+          "identifier_or_url": "https://www.algorithm.uni-bayreuth.de/en/research/alcoma2010/participants/talk_key.pdf",
+          "material_read": "Definitions pp.1–2 and adjacency-code slide 39, with screenshot; exact code discussion inspected",
+          "method": "Primary PDF text plus screenshot of adjacency slide",
+          "title": "Linear codes from designs from Hamming graphs",
+          "trigger": "Hamming-scheme 2-rank and adjacency-code equivalent formulations"
+        },
+        {
+          "assessment": "DIFFERENT_COEFFICIENT_FIELD",
+          "evidence": "Primary text treats complex Fourier/Galois systems; 2-group Fourier inversion does not apply to GF2 adjacency rank.",
+          "identifier_or_url": "https://arxiv.org/pdf/1308.1186",
+          "material_read": "Abstract, introduction, general group-convolution framework and complex-valued state discussion",
+          "method": "Original arXiv PDF inspected with screenshot",
+          "title": "Generalized Linear Cellular Automata in Groups and Difference Galois Theory",
+          "trigger": "Stronger group-convolution dynamics theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Complete frozen RESULT.md and inspected verify.py Git blobs",
+        "Independently implemented direct Hamming-shell GF2 row elimination n=3..10",
+        "Full published distance-two parity automaton theorem (Resultary/2026 RESULT.md) read for rank-lemma comparison"
+      ],
+      "rationale": "The third Hamming relation is a canonical association-scheme family with exponentially many vertices and doubly exponentially many configurations. The exact modular rank and Jordan structure completely determine the functional graph for both self-loop conventions at all n and reveal the n≡3 loop-phase inversion and rank defect at n≡2. These specific natural invariants are not a trivial reparameterization of the prior distance-two result.",
+      "residual_risks": [
+        "Only synchronous binary third-distance updates with b=0 or 1; no arbitrary shells, alphabets or asynchronous rules"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
