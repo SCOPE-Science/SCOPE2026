@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,22 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying standalone Python checker is `verification/check.py` and requires only the standard library. Its `direct_dynamic_programming` builds each word explicitly, fills a palindrome table from the substring symmetry recurrence, and counts all minimum-cost predecessor cuts. That oracle does not reuse the transition-structure argument of the proof.
+## correctness
 
-The checker returned:
+PASS
 
-```
-VERIFY_OK dp_five_run=7776 large_instances=400 gf_coefficients=455 lengths=5..30
-```
+For w=0^a1^b0^c1^d0^e with all positive, every palindrome has even number of run transitions, so the four transitions can be allocated to optimal factors by the exhaustive 0/2/4 internal-transition possibilities. Reconstructing cut placements gives the b=d special case, the unique two-part case c=a+e when b!=d, and the exactly three-part cases with q indicators. In the remaining c<min(a,e), b!=d regime, the only four-part cuts comprise c-1 internal zero splits and three fixed boundary types, giving K=c+2. For <=4 runs, direct transition classification bounds K<=2. Positive-run decomposition yields the exact rational GF 2z^8v^3/((1-z)^3(1-z^2)(1-z^3v)), sharp finite-length maximum 2+floor((n-5)/3) for n>=8, and, using convergence of uniform compositions to Dirichlet(1,1,1,1,1), density 4(1-3t)^3 on (0,1/3) with atom 2/3 at zero and E K_n=n/45+O(1). Independent palindrome DP verified 3125 positive quintuple instances, direct enumerative GF coefficients for n<=19; this is corroboration of a complete symbolic proof.
 
-Here 7776 counts all \(6^5\) choices of positive run lengths at most six. Another 400 seeded choices have each run length at most 23. Counts in the generating-function regime and the claimed sharp maximum were compared with full five-part-composition enumerations for every length 5 through 30. These computations are finite checks only; they cannot establish an infinite theorem or novelty. The proof in `RESULT.md` supplies the required infinite arguments.
+## originality
 
-The core enumerative identity can be reproduced by expanding
-\[
-\frac{2z^8v^3}{(1-z)^3(1-z^2)(1-z^3v)}
-\]
-in formal power series. Its \(v\)-derivative at one, compared with \(\binom{n-1}{4}\), gives the leading expectation \(n/45\). The density integrates to \(1/3\), and its first moment is \(1/45\).
+PASS
 
-No independent external review or certification has been performed.
+The exact first-run threshold, complete five-run optimum-cut multiplicity formulas, generating function and Dirichlet scaling density are not present in the inspected primary palindrome length/algorithm/pair-factor works. Such algorithms could compute examples but do not logically determine this closed classification. Best-of-knowledge PASS with indexing and old-equivalent-formulation risk.
+
+## value
+
+PASS
+
+The number of all optimal positional palindrome cuts, rather than just the minimal part count, is an intrinsic combinatorics-on-words ambiguity invariant. Five runs are the first threshold for unbounded multiplicity; exact formulas, rational generating function and nontrivial scaling law complete a motivated natural family instead of an arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

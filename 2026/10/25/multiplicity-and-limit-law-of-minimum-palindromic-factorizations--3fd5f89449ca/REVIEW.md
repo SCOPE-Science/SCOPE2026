@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every positive quintuple, transition parity and symmetry give the exhaustive one-, two-, three- and four-palindrome classifications. The proof distinguishes when one can use a four-transition palindrome, how two-transition palindromes can cover neighboring transitions, and which zero-run cuts remain free. In the only regime requiring four parts, the exhaustive cut analysis yields \(c-1\) internal-split choices and exactly three boundary-cut constructions, giving \(K=c+2\). The rational generating function follows from four independent positive variables and the unequal-one-run composition series. The asymptotic density follows from a four-dimensional uniform-simplex volume computation and is normalized to mass \(1/3\). The expectation \(n/45+O(1)\) also follows from differentiating the rational series. An independent substring-level dynamic program checked all 7776 small quintuples and 400 larger quintuples; direct coefficient checks covered lengths 5–30. Finite data corroborate but do not prove the infinite claims.
+PASS
 
-## Originality — PASS, with bounded residual risk
+For w=0^a1^b0^c1^d0^e with all positive, every palindrome has even number of run transitions, so the four transitions can be allocated to optimal factors by the exhaustive 0/2/4 internal-transition possibilities. Reconstructing cut placements gives the b=d special case, the unique two-part case c=a+e when b!=d, and the exactly three-part cases with q indicators. In the remaining c<min(a,e), b!=d regime, the only four-part cuts comprise c-1 internal zero splits and three fixed boundary types, giving K=c+2. For <=4 runs, direct transition classification bounds K<=2. Positive-run decomposition yields the exact rational GF 2z^8v^3/((1-z)^3(1-z^2)(1-z^3v)), sharp finite-length maximum 2+floor((n-5)/3) for n>=8, and, using convergence of uniform compositions to Dirichlet(1,1,1,1,1), density 4(1-3t)^3 on (0,1/3) with atom 2/3 at zero and E K_n=n/45+O(1). Independent palindrome DP verified 3125 positive quintuple instances, direct enumerative GF coefficients for n<=19; this is corroboration of a complete symbolic proof.
 
-The closest full-text studies concern periodic palindromic length (Rukavicka 2020), algorithms for palindromic \(k\)-factorization (Rubinchik–Shur 2020), palindrome-pair factors and minimal non-palindrome pairs (Borchert–Rampersad 2015), and rich-word factorizations (Rukavicka 2021). Their statements do not supply the number of positional *optimal* factorizations for arbitrary five positive run lengths, nor the complete bivariate series and Dirichlet limit. A related finite-run palindromic-defect result counts *distinct palindromic factors*, which neither determines nor bounds the optimal cut-count as claimed here. Searches under minimum-palindromic-partition counts, run-length encoding, and palindrome-pair equivalences revealed no stronger directly covering theorem. Bibliographic searches cannot exclude an unindexed or implicitly specialized result; the pair-factor literature is the principal remaining risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Optimal-solution multiplicity matters beyond simply computing the minimum length of a palindromic decomposition: it measures ambiguity of optimal partitions. A complete, sharp threshold at five runs—where arbitrarily large multiplicities first occur—combined with an exact bivariate enumeration and a nondegenerate conditional scaling law gives structural and probabilistic information not supplied by a generic factorization algorithm. The result applies to every positive run-length quintuple, rather than an arbitrary finite slice or a routine numerical table.
+The exact first-run threshold, complete five-run optimum-cut multiplicity formulas, generating function and Dirichlet scaling density are not present in the inspected primary palindrome length/algorithm/pair-factor works. Such algorithms could compute examples but do not logically determine this closed classification. Best-of-knowledge PASS with indexing and old-equivalent-formulation risk.
 
-## Scope and closest sources
+## value
 
-The theorem does not address words with six or more runs and does not replace general palindrome-partition algorithms. The complete accessible primary texts were checked for equivalent conclusions, but a hidden specialization remains possible; external independent scientific audit has not occurred. References and full proof are in `RESULT.md`.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of all optimal positional palindrome cuts, rather than just the minimal part count, is an intrinsic combinatorics-on-words ambiguity invariant. Five runs are the first threshold for unbounded multiplicity; exact formulas, rational generating function and nontrivial scaling law complete a motivated natural family instead of an arbitrary small-instance table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
