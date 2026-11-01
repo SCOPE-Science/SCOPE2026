@@ -1,23 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hypotheses are explicit: dimension \(d\ge3\), positive side lengths, independent volume-uniform interior points, and Euclidean distance. The difference vector has the product triangular density \(V^{-1}\prod_i(1-|z_i|/a_i)_+\). On balls of radius not exceeding the shortest side, expanding this density and applying the stated ball-monomial beta integral gives every coefficient of the exact short-distance polynomial. The leading coefficient determines volume, the next \(d-1\) give elementary symmetric functions of reciprocal lengths, and their product is the reciprocal volume; Vieta recovers the positive lengths. Perturbing the penultimate symmetric coefficient at a polynomial with simple positive roots supplies the generic \(d-1\)-coefficient obstruction. Immediately beyond the shortest side, the excluded axial caps are disjoint and the leading beta integral gives the positive \(\varepsilon^{(d+3)/2}\) term, including repeated shortest sides.
+PASS
 
-The supplied checker reproduces the inverse in dimensions two through five, computes independent planar numerical quadratures, checks cap asymptotics in dimensions two through four, and compares three-dimensional and four-dimensional Monte Carlo distance laws with the formula. These experiments are corroboration, not infinite-dimensional certification. The published theorem covers dimensions at least three.
+For every fixed d≥3 and arbitrary positive (including repeated) side lengths, reconstruct the iid difference density V^{-1}prod_i(1-|z_i|/a_i)_+, integrate monomials over the radius-r Euclidean ball for r≤a_* to recover coefficients c_{d,k}e_k/V, and use e_d=1/V with Vieta to identify the whole length multiset from exactly d leading nonzero coefficients. At pairwise-distinct reciprocal edges, changing only e_{d-1} preserves the first d-1 coefficients and all roots remain positive. Just above a_*, shortest-axis truncation caps are disjoint for r<sqrt(2)a_*; beta integration gives the strictly positive 8m*kappa_(d-1)*(2a_*)^((d-1)/2)/(a_*V(d+1)(d+3))*epsilon^((d+3)/2) plus O_K(epsilon^((d+4)/2)). Dimension identification and feasibility bounds follow from beta_d>0 and positive root polynomial. Independent separately written Python verifier crosschecked d=3,4,5 inverse roots, exact cube polynomial, 5 families of numerical cap corrections including repeated shortest edges and perturbations preserving first d-1 coefficients. These finite computations are corroboration, not the all-d proof.
 
-## Originality — PASS relative to inspected sources
+## originality
 
-Bäsel (arXiv:1208.6228, §§1–4) provides a planar forward distance distribution, explicitly including rectangle-related prior work; Pure et al. (arXiv:1903.07757, §1 and framework sections) treat arbitrary planar polygon forward distance laws. The 1990 rectangle and 1999 cube papers were identified but their full primary texts were not accessible; no whole-document negative conclusion is drawn from their abstracts. Holmin–Kurlberg–Månsson (arXiv:1702.08096) recover box side lengths from discontinuities of a *random-line free-path* distribution, a different sampling measure and observable. Wang (arXiv:2610.01916, §1–2) develops general pair-distance/covariogram methodology and a first-order small-range law, which does not state this exact degree-\(2d\) orthotope polynomial, optimal \(d\)-coefficient inverse, or multiplicity-sensitive first-break expansion. The relevant published database records about planar polygon pair distances, hyperplane-shadow tomography of boxes, and gauge-distance bounds were compared at the level of their statements; none establishes the combined theorem.
+PASS
 
-**Priority risk:** The covariance/overlap identity and planar special cases are classical. An equivalent inverse or breakpoint result might appear under older box chord/covariogram terminology, particularly in the unavailable full 1990 or 1999 source. Novelty here is assessed only for the explicitly defined, all-dimensional pair-distance local-jet inverse and sharp first-break law, not for the convolution identity itself. No historical uniqueness or independent certification is claimed.
+Best-of-knowledge PASS for the complete d≥3 Euclidean pair-distance local jet, sharp d-coefficient inverse, and multiplicity-sensitive first breakpoint, not for the classical box covariogram formula or previously known rectangular/cubic forward distributions. A fresh semantic search and inspected published comparison sources found no implication-dominating theorem. Particularly plausible 1990 and 1999 primary full texts were unavailable; unindexed old box/covariogram results remain a material priority risk. Absence of a match is not novelty proof.
 
-## Mathematical value — PASS
+## value
 
-The observable is a canonical Euclidean distance between two random interior points. Its exact local \(d\)-coefficient jet recovers all orthotope edge lengths and the ambient scale, sharply improves on the need for an entire global distribution, and has a complete positive-root feasibility test. The shortest side reappears independently as the first nonpolynomial radius threshold with a multiplicity-sensitive explicit exponent and coefficient. These are natural inverse-geometric and distributional invariants; generic minimality is proved, rather than inferred from parameter counting.
+PASS
 
-## Limitations
+The Euclidean separation of two independently uniform points of a box is a canonical geometric-probability observable; exact recovery of all unknown edge lengths from the smallest possible local CDF jet, with full positive-root feasibility, is a natural inverse/tomographic invariant. The first-break radius yields the shortest edge and the cusp constant counts its multiplicity, independently linking geometry to a sharp distributional phase boundary. These exact all-dimensional statements and minimality can serve future shape-inference and geometric-probability work, without asserting noise stability or a downstream universal theorem. The novelty does not lie in basic triangular convolution, known 2D forward formulas, or the equal-edge cube case.
 
-The reconstruction assumes an orthotope model and population measurements. Finite-sample stability, noise robustness, and classification among arbitrary convex bodies are not proved. A full historical-priority review remains necessary, and the reviewer here is not independent.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

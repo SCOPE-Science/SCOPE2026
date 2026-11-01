@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The proof in `RESULT.md` gives a closed derivation for every dimension \(d\ge3\); no external theorem prover or independent validation is claimed. The root and coefficient formulas are exact mathematical identities. The cap remainder is obtained by a uniform \(O_K(\sqrt\varepsilon)\) control over the transverse-coordinate factors, and disjointness of shortest-coordinate caps below radius \(\sqrt2 a_*\).
+## correctness
 
-## Reproducible computation
+PASS
 
-Run `python check.py` using Python 3 with standard `math`, `itertools`, `random`, and the installed NumPy and SciPy libraries. A successful extraction and execution of the packaged checker produced:
+For every fixed d≥3 and arbitrary positive (including repeated) side lengths, reconstruct the iid difference density V^{-1}prod_i(1-|z_i|/a_i)_+, integrate monomials over the radius-r Euclidean ball for r≤a_* to recover coefficients c_{d,k}e_k/V, and use e_d=1/V with Vieta to identify the whole length multiset from exactly d leading nonzero coefficients. At pairwise-distinct reciprocal edges, changing only e_{d-1} preserves the first d-1 coefficients and all roots remain positive. Just above a_*, shortest-axis truncation caps are disjoint for r<sqrt(2)a_*; beta integration gives the strictly positive 8m*kappa_(d-1)*(2a_*)^((d-1)/2)/(a_*V(d+1)(d+3))*epsilon^((d+3)/2) plus O_K(epsilon^((d+4)/2)). Dimension identification and feasibility bounds follow from beta_d>0 and positive root polynomial. Independent separately written Python verifier crosschecked d=3,4,5 inverse roots, exact cube polynomial, 5 families of numerical cap corrections including repeated shortest edges and perturbations preserving first d-1 coefficients. These finite computations are corroboration, not the all-d proof.
 
-```
-ORTHOTOPE_LOCAL_DISTANCE_OK root_cases=6 quadrature_cases=16 cusp_2d_cases=12 cusp_3d_cases=8 cusp_nd_cases=12 simulations=3
-```
+## originality
 
-The suite verifies exact-to-roundoff recovery on explicit orthotopes of dimensions two to five, independently integrates the two-dimensional difference density numerically on 16 examples, examines the first-break coefficient for 32 dimension/parameter combinations (including repeated shortest sides), and compares simulated independent-point distances in three examples. Checks are finite experiments, not proofs of the general statement. Neither independent mathematical review nor certified interval computation was performed.
+PASS
 
-## Limits of verification
+Best-of-knowledge PASS for the complete d≥3 Euclidean pair-distance local jet, sharp d-coefficient inverse, and multiplicity-sensitive first breakpoint, not for the classical box covariogram formula or previously known rectangular/cubic forward distributions. A fresh semantic search and inspected published comparison sources found no implication-dominating theorem. Particularly plausible 1990 and 1999 primary full texts were unavailable; unindexed old box/covariogram results remain a material priority risk. Absence of a match is not novelty proof.
 
-The closed-form theorem applies to exact population probabilities, dimensions at least three, and axis-orthogonal boxes. It makes no claim about arbitrary convex bodies, finite-sample stability, or the full historical uniqueness of these formulas.
+## value
+
+PASS
+
+The Euclidean separation of two independently uniform points of a box is a canonical geometric-probability observable; exact recovery of all unknown edge lengths from the smallest possible local CDF jet, with full positive-root feasibility, is a natural inverse/tomographic invariant. The first-break radius yields the shortest edge and the cusp constant counts its multiplicity, independently linking geometry to a sharp distributional phase boundary. These exact all-dimensional statements and minimality can serve future shape-inference and geometric-probability work, without asserting noise stability or a downstream universal theorem. The novelty does not lie in basic triangular convolution, known 2D forward formulas, or the equal-edge cube case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
