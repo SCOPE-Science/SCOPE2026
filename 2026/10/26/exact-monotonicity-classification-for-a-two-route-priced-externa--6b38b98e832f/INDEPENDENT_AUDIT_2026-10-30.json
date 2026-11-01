@@ -1,0 +1,104 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:53:57.120535Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md proof and independently derived equilibrium x2=(1+a lambda)/(2+b lambda), x1=(1+(b-a)lambda)/(2+b lambda) on the positive-flow interval. When b<a, x1 reaches 0 at lambda*=1/(a-b), and unused-route inequality lambda a>=1+lambda b makes x2=1 valid thereafter. Unique equilibrium follows strict increases of both perceived costs. Symbolic differentiation gives G prime=(2a-b)(2b x2-a)/(2+b lambda)^2, with x2 prime=(2a-b)/(2+b lambda)^2. For b<a, x2 goes from 1/2 to 1 and the sign factor crosses 0 exactly if a/2<b<a; for b>=a, x2 prime changes sign at b=2a, while 2b x2-a>0 for b>=a. All equality endpoints checked; for a=b=1, G=(lambda^2+3lambda+3)/(lambda+2)^2 and G prime=lambda/(lambda+2)^3>0 for lambda>0. Independent sympy derivative equality and seven boundary/representative parameter checks corroborate; analytic sign proof covers all positive ratios.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The paper already proves that flow-dependent externalities can increase with price, and establishes a monotonicity theorem for constant ones.",
+          "The supplied example requires a Braess-inspired network but does not assert two-route impossibility."
+        ],
+        "reasoning": "General increase examples are prior and not claimed new; neither their existence nor monotonicity under constant g implies the exact minimal parallel two-link classification or thresholds.",
+        "searches": [
+          "arXiv:2508.09280v2 Lemma 4.1 and Example 4.3",
+          "Wardrop flow-dependent toll counterexample two parallel links web search"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2508.09280v2 model, Lemma 4.1 and Example 4.3",
+        "Author publication page and abstract",
+        "Resultary semantic query 5"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lemma 4.1 assumes every g constant. Example 4.3 yields a positive price-increase on a four-node Braess-inspired network.",
+          "In the current model, one route has fixed flow, so price-induced increase requires at least two routes, achieved for a<=b<2a."
+        ],
+        "reasoning": "The prior counterexample does not entail lower bound on network size or exact a/b thresholds. The mathematical mechanism is simpler and its sharp characterization is a substantive model-specific refinement.",
+        "searches": [
+          "arXiv:2508.09280v2 Lemma 4.1 and Example 4.3, pp.24-26",
+          "web: parallel-edge pricing flow-dependent externality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source model uses perceived costs tau+lambda*g and aggregate sum x*g.",
+          "Its constant-externality monotonicity lemma is under different hypotheses, and its flow-dependent example is Braess-inspired, not two parallel routes."
+        ],
+        "reasoning": "The two-route equilibrium can be viewed as a scalar monotone comparative-statics calculation; the inspected source does not state this exact coefficient-ratio phase diagram.",
+        "searches": [
+          "Resultary: Wardrop two parallel routes flow-dependent externality carbon price nonmonotonic increase parameter ratio",
+          "arXiv:2508.09280v2 §2, Lemma 4.1, Example 4.3",
+          "web: pricing two parallel roads flow-dependent externalities increase"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact two-parallel-link parameter table in inspected matches."
+        ],
+        "reasoning": "A single numerical counterexample could be known; this theorem is a full positive-parameter partition and minimality statement. Negative database search is not proof of novelty.",
+        "searches": [
+          "Resultary semantic query five Wardrop price parameter ratio",
+          "web: two route Wardrop externality monotonicity exact ratio a/b",
+          "arXiv:2508.09280"
+        ]
+      },
+      "rationale": "Complete two-route coefficient-ratio phase diagram was not located in the highly relevant source that establishes only general flow-dependent nonmonotonicity and constant-g monotonicity. Independent priority not certified; possible earlier elementary example remains.",
+      "residual_risks": [
+        "Elementary two-route analytic comparative statics may have been published as an example elsewhere without this title.",
+        "Stylized flow-dependent externality is not calibrated actual emissions; claim concerns exact defined functional."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior general nonmonotonicity is established; present two-parallel-route complete ratio classification not covered by Lemma 4.1 or Example 4.3.",
+          "evidence": [
+            "Lemma 4.1 p24 under constant g; Example 4.3 p25 Braess-inspired network"
+          ],
+          "identifier_or_url": "arXiv:2508.09280v2; https://arxiv.org/pdf/2508.09280",
+          "material_read": "Full relevant parts: abstract, §2 model, §4.3 Lemma 4.1, Example 4.3 and Figures, and §5 restrictions to constant externalities",
+          "method": "Read primary PDF text and screenshot pp.20,25; compared hypotheses and graph",
+          "title": "Carbon Pricing in Traffic Networks",
+          "trigger": "Direct self-review, monotonicity and nonmonotonicity results"
+        },
+        {
+          "assessment": "Consistent with broad price-feasible flows but no exact two-route coefficient classification in accessible abstract.",
+          "evidence": [
+            "Author publication abstract"
+          ],
+          "identifier_or_url": "https://michael-markl.de/publications/carbon-pricing-in-traffic-networks/",
+          "material_read": "Abstract and paper link",
+          "method": "Public author site preview",
+          "title": "Carbon Pricing in Traffic Networks (author publication page)",
+          "trigger": "Confirm source title and research focus"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A motivated minimal-network sharp boundary for the failure of a published constant-externality monotonicity principle, with a full five-regime classification rather than a single illustrative counterexample. The two-route construction removes Braess topology and can inform exact test cases in traffic-pricing theory. Its algebra is elementary, but the natural minimality and sharp coefficient thresholds carry the specific scientific value; no claim to general traffic models.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For Wardrop equilibrium with unit demand on two parallel routes having travel times x1,x2, priced per-unit externalities a and b*x2 (a,b>0), aggregate G=a*x1+b*x2^2 decreases then stabilizes if b<=a/2, decreases then increases before stabilizing if a/2<b<a, strictly increases if a<=b<2a, is constant if b=2a, and strictly decreases if b>2a, with saturation lambda*=1/(a-b) when b<a.",
+  "limitations": [
+    "Only fixed unit demand, two parallel links with equal unit-slope travel time and g1=a,g2=b*x2.",
+    "Flow-dependent emission proxy is not an empirical emissions claim.",
+    "Priority could be an unindexed Wardrop classroom example; not an unconditional new-model theorem."
+  ],
+  "schema_version": 1
+}

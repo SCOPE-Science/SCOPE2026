@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For fixed unit demand, the Wardrop equality yields \(x_2=(1+a\lambda)/(2+b\lambda)\) and \(x_1=1-x_2\) while both routes are used. If \(b<a\), the first route empties at \(\lambda_*=(a-b)^{-1}\). The exact derivative \(G'= (2b x_2-a)(2a-b)/(2+b\lambda)^2\) gives the stated exhaustive partition of \(b>0\). The unused-route inequality verifies the boundary regime.
+PASS
 
-## Originality — PASS
+Read RESULT.md proof and independently derived equilibrium x2=(1+a lambda)/(2+b lambda), x1=(1+(b-a)lambda)/(2+b lambda) on the positive-flow interval. When b<a, x1 reaches 0 at lambda*=1/(a-b), and unused-route inequality lambda a>=1+lambda b makes x2=1 valid thereafter. Unique equilibrium follows strict increases of both perceived costs. Symbolic differentiation gives G prime=(2a-b)(2b x2-a)/(2+b lambda)^2, with x2 prime=(2a-b)/(2+b lambda)^2. For b<a, x2 goes from 1/2 to 1 and the sign factor crosses 0 exactly if a/2<b<a; for b>=a, x2 prime changes sign at b=2a, while 2b x2-a>0 for b>=a. All equality endpoints checked; for a=b=1, G=(lambda^2+3lambda+3)/(lambda+2)^2 and G prime=lambda/(lambda+2)^3>0 for lambda>0. Independent sympy derivative equality and seven boundary/representative parameter checks corroborate; analytic sign proof covers all positive ratios.
 
-The closest inspected source is Griesbach, Harks, Klimm, Markl, and Warode, “Carbon Pricing in Traffic Networks,” arXiv:2508.09280. Its Lemma 4.1 assumes constant externalities, and Example 4.3 gives a flow-dependent increase on a Braess-inspired network. It does not give the exact two-parallel-route classification or the thresholds \(a/2\), \(a\), and \(2a\). Targeted literature-index searches found no direct match. This does not prove absolute novelty; a prior unpublished or differently phrased two-route calculation remains a residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The exact parameter partition gives a minimal, transparent boundary for the counterintuitive effect: pricing can increase aggregate flow-dependent externality even with only two parallel routes and strictly increasing travel times. It also identifies the coefficient ranges for monotone increase, monotone decrease, and nonmonotonicity, which clarifies when monotone price-search intuition can fail.
+Complete two-route coefficient-ratio phase diagram was not located in the highly relevant source that establishes only general flow-dependent nonmonotonicity and constant-g monotonicity. Independent priority not certified; possible earlier elementary example remains.
 
-## Limitations and closest literature
+## value
 
-This is a static, unit-demand, single-commodity model with equal linear travel times and per-unit externalities \(g_1=a\), \(g_2=b x_2\). It does not establish a general law for arbitrary networks or empirical pollutants. The cited primary paper is relevant background and already establishes that flow-dependent externality can increase under pricing; the new claim is the exact two-route classification, not that broader qualitative possibility.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A motivated minimal-network sharp boundary for the failure of a published constant-externality monotonicity principle, with a full five-regime classification rather than a single illustrative counterexample. The two-route construction removes Braess topology and can inform exact test cases in traffic-pricing theory. Its algebra is elementary, but the natural minimality and sharp coefficient thresholds carry the specific scientific value; no claim to general traffic models.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
