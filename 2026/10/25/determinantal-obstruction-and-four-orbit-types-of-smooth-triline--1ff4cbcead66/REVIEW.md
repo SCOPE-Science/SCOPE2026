@@ -1,13 +1,21 @@
-## Correctness
-**PASS.** The degree-two line-bundle correspondence proves \(6(N-2)\) lifts per prescribed biquadratic, and exact characteristic-two Jacobian ideals count the 144 smooth bases. Direct enumeration of all 10795 pencils verifies all 1512 lifts, full group closure produces the four orbits, and direct three-variable Jacobian tests verify their representatives. Verification relies on executable complete finite searches and a characteristic-free geometric argument, not numerical sampling.
+# Independent mathematical audit
 
-## Originality
-**PASS (qualified).** Bhargava–Ho (2013) already give the underlying general genus-one tensor correspondence; Bremner–Stavrou (2011) already classify small binary hypercubes. Neither examined relevant section supplies the 144-by-rational-points biquadratic census, the exact 18-curve determinant obstruction, or the associated polarized orbit classification with direct geometric smoothness conditions. An unpublished enumeration or an unexamined interpretation of existing tensor tables could still overlap the claim. Searches alone do not prove universal novelty.
+## correctness
 
-## Value
-**PASS.** Existence of determinantal presentations is a natural arithmetic question for genus-one complete-intersection models. The sharp two-rational-point obstruction, classification of every smooth equation, and four polarised symmetry classes are self-contained structural information rather than an arbitrary parameter slice.
+PASS
 
-## Scientific limits
-The enumeration classifies embedded equation models over \(\mathbf F_2\), not abstract elliptic curves. It does not settle publication priority outside the inspected literature. The independent audit is pending.
+Reconstructed the resultant from a 2x2 bilinear matrix and rank-zero singularity obstruction, genus-one adjunction, F2 rational degree-two Picard bundle count 6(N-2), and the exact finite F2 arithmetic. Independently recomputed geometric smoothness on all four P1xP1 affine charts via characteristic-two Groebner ideals for 511 nonzero (2,2) forms; enumerated 10795 binary 2-planes and identified 1512 smooth, with the 144-point distribution; separately computed all four polarized automorphism orbits via group generator breadth-first closures, sizes 216,648,324,324 and F2 point counts 3,5,4,4, agreeing with the actual submitted enumerate.py, direct_jacobian.py and counts.txt. This is exhaustive enumeration of finite F2 forms, not a statistical inference. The direct complete intersection Jacobian check on the four orbit representatives is inspected in source, not independently executed in the new checker.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The standard tridegree-(1,1,1) genus-one and line-bundle correspondence is prior work; the exact fixed-field smoothness counts, fixed-projection lift obstruction by F2-point count and the four polarized orbits were not located as established prior statements. Four-tensor orbit tables under a larger group are the strongest potential alternative and leave a genuine comparison risk.
+
+## value
+
+PASS
+
+The natural smallest-field genus-one trilinear embedding problem yields a complete geometric smoothness obstruction: precisely those 18 smooth two-point (2,2) curves lack the chosen determinant presentation, and four symmetry types replace 1512 raw equations. This is more than a texture or a general genus-one correspondence: it supplies exact fixed-field embedded-model incidence and symmetry data that a researcher modeling genus-one pencils may need.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

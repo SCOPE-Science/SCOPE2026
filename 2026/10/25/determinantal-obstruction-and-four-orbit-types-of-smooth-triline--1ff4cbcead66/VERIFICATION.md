@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-## Actual checks
-All 511 nonzero binary biquadratics were tested on four affine charts by exact polynomial ideals over the two-element field. All 10795 trilinear pencils were exhaustively enumerated using their three unordered nonzero elements; exactly 1512 passed. The full 1296-element automorphism action was evaluated and its four orbits checked for closure and coverage. The independent direct Jacobian test on all eight charts succeeded for each of the four representatives. The 72-element group action on smooth biquadratics gives six orbits. For all 144 smooth biquadratics, the observed number of lifts equals six times the rational-point count minus twelve; the eighteen two-point examples have none.
+# Independent mathematical audit
 
-## Scope
-The finite computations certify these fixed-field totals, not a general all-field classification or literature priority. Source programs are contained in the package. Independent audit: not performed.
+## correctness
+
+PASS
+
+Reconstructed the resultant from a 2x2 bilinear matrix and rank-zero singularity obstruction, genus-one adjunction, F2 rational degree-two Picard bundle count 6(N-2), and the exact finite F2 arithmetic. Independently recomputed geometric smoothness on all four P1xP1 affine charts via characteristic-two Groebner ideals for 511 nonzero (2,2) forms; enumerated 10795 binary 2-planes and identified 1512 smooth, with the 144-point distribution; separately computed all four polarized automorphism orbits via group generator breadth-first closures, sizes 216,648,324,324 and F2 point counts 3,5,4,4, agreeing with the actual submitted enumerate.py, direct_jacobian.py and counts.txt. This is exhaustive enumeration of finite F2 forms, not a statistical inference. The direct complete intersection Jacobian check on the four orbit representatives is inspected in source, not independently executed in the new checker.
+
+## originality
+
+PASS
+
+The standard tridegree-(1,1,1) genus-one and line-bundle correspondence is prior work; the exact fixed-field smoothness counts, fixed-projection lift obstruction by F2-point count and the four polarized orbits were not located as established prior statements. Four-tensor orbit tables under a larger group are the strongest potential alternative and leave a genuine comparison risk.
+
+## value
+
+PASS
+
+The natural smallest-field genus-one trilinear embedding problem yields a complete geometric smoothness obstruction: precisely those 18 smooth two-point (2,2) curves lack the chosen determinant presentation, and four symmetry types replace 1512 raw equations. This is more than a texture or a general genus-one correspondence: it supplies exact fixed-field embedded-model incidence and symmetry data that a researcher modeling genus-one pencils may need.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
