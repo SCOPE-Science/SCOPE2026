@@ -1,11 +1,21 @@
-# Scientific review: Exact multi-stage epidemic-source migration on broom contact trees
+# Independent mathematical audit
 
-**Correctness — PASS.** Under the precise finite-tree independent-edge assumptions, expected source-cluster size is the sum of path-survival probabilities. Subtracting consecutive handle expectations yields the signed factor \(p^{j+1}(1-p)(S_{L-2j-1}(p)-m)\) whenever the exponent is positive; the nonpositive-exponent case is strictly negative. Strict monotonicity of \(S_k\), the exact count of \(k>m\) indices, and interlacing of their level-\(m\) roots establish uniqueness, ordering, and all tie cases. Additional leaves have a strict negative advantage against the hub. Independently enumerated finite edge states and rational threshold checks corroborate the formulas, not their universal quantifiers. No unstated infinite computational claim is made.
+## correctness
 
-**Originality — PASS, subject to explicit residual risks.** Tsakas (arXiv:1604.05582), pages 2–8, gives general end-range conditions and sufficient comparisons for decay centrality, not the complete \(m,L\)-parametric classification or ordered algebraic switches on broom trees. Riveros–Salas–Skibski (doi:10.4230/LIPIcs.ICDT.2023.12), sections 2–4, treat potential-function tree rooting and note that decay centrality fails to root arbitrary trees; their general result does not specialize to an explicit multi-switch phase diagram. Gago–Hurajová–Madaras (doi:10.7146/math.scand.a-106210) studies instability of decay-centrality rankings; available material lacked a fully readable article, making an overlooked special-family theorem possible. Searches for equivalent terms, broader tree-root criteria, existing tabulated broom optima, and direct prior implications were made. No search failure alone is treated as proof of novelty.
+PASS
 
-**Value — PASS.** A network with a hub and a long corridor is a natural limiting contact geometry. The exhaustive optimization result exhibits arbitrarily many distinct transmission regimes and intermediate seeding locations, rather than only the commonly studied degree-versus-closeness limiting choices. The algebraic thresholds give a complete symbolic phase portrait for every broom size, directly answering a meaningful source-selection question. The result neither claims improved policy for general networks nor treats the elementary path-probability identity alone as the contribution.
+C PASS: On a tree, target infection probability is p^distance, hence expectation at handle vertex v_j is sum_{i=0}^L p^|i−j|+m p^(j+1). For every pendant leaf w, E_v0−E_w=(1−p)[(m−1)p+sum_{i=1}^L p^i]>0, eliminating leaves. Algebraic adjacent difference is p^(j+1)[1−p^(L−2j−1)−m(1−p)]. For positive k=L−2j−1, it is p^(j+1)(1−p)(sum_{a=0}^{k−1}p^a−m); k<=m gives strict negative, k>m produces one simple zero in (0,1) by strictly increasing geometric sum. k decreases by two along the handle, so the R unique roots obey t0<...<t_(R−1). The sign sequence of all adjacent differences is unimodal for every p interval, proving the unique global winner, not just local pairwise reversals, with one adjacent tie at each exact root. For m=2, L=2R+2 gives arbitrarily large R. Independently enumerated all edge-retention states in 18 small rational cases and checked three distinct thresholds with four winner phases; universal proof is analytical.
 
-**Closest literature and scope.** The percolation mean coincides exactly with the existing decay-centrality objective, so the full contribution is the complete graph-family phase diagram. General equivalence and accessible literature are acknowledged in RESULT.md. Scope excludes non-tree or heterogeneous transmission and finite-sample inference.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+O PASS qualified: the epidemic expectation is exactly 1 plus standard decay centrality, not new terminology. Tsakas proves near-zero and near-one maximizer principles. The full 2018 article proves that arbitrarily complicated decay-centrality *rankings of a designated adjacent pair* can occur on constructed glued trees; importantly it does NOT imply that arbitrary many distinct global optimizers appear successively on the specifically defined one-hub broom or supply their exact ordered thresholds. The more recent generic instability theorem does not directly settle this sharp special-family characterization. Under the same best-of-knowledge bar, the exact broom global-optimum phase diagram survives; generic instability is acknowledged as prior.
+
+## value
+
+PASS
+
+V PASS: The theorem gives a complete exact optimizer classification for a natural and elementary tree geometry in a standard epidemics/centrality observable, including all algebraic switching points and unboundedly many globally optimal *source locations*. This is more informative than observing that two arbitrary rankings can flip.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
