@@ -1,17 +1,21 @@
-# Review of the Picard-family Hasse-divisor claim
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The geometric domain is the smooth genus-three locus \(a^2\ne4\), \(p=6m+1\). The three diagonal Hasse--Witt entries are reconstructed from the cohomological monomial basis and the exact coefficients of \(F^{p-1}\). The two coefficient factorizations are proved for all primes using Lucas's theorem and an explicit second-order coefficient differential equation. Its separability argument covers every root because the degree is less than \(p\); the boundary values are nonzero. Stable Frobenius rank and determinant scheme give the two \(p\)-rank strata and precise doubled Hasse divisor. The standalone checker was executed against twelve primes, including three low-prime examples; it is supplementary, not the all-prime proof.
+PASS
 
-## Originality — PASS, with residual historical risk
+For every prime p=6m+1 over an algebraically closed field and a²!=4, geometric derivatives show smooth plane quartic genus three. Frobenius on the three Cech monomial basis classes is diagonal because Y powers are multiples of 3 and X powers even. The three coefficient entries are K P_(6m,4m), K P_(3m,2m), K P_(3m,4m). Lucas vanishing at a=+/-2 and a leading coefficient give P_(6m,4m)=A(a²-4)^m. The second-order differential identity for P_(r,s) and a coefficient recurrence with nonzero multipliers for n<3m establish P_(3m,4m)=B(a²-4)^m Q_m. The Q differential equation and degree m<p exclude multiple roots away from discriminant; Q(+/-2) are nonzero. Hence det H=K³AB D^(2m)Q², the nonordinary Cartier divisor on the smooth affine parameter line is 2V(Q) with m distinct points, and diagonal semilinear Frobenius has rank/p-rank1 and a-number2 there, otherwise ordinary rank3. Independently recomputed multinomial polynomial identities and squarefreeness for p=7,13,19,31,37,43,61. The symbolic polynomial argument, not bounded prime samples, covers all p.
 
-Primary sources checked include Takizawa's complete six-page preprint, Laga--Shnidman's complete accessible article, the accessible full-text excerpts for Kazemifard--Tafazolian, and the bibliographic abstract of Petkova--Shiga. The first treats traces, the second moduli and quaternionic Pryms, the third specific Fermat-type curves, and the fourth Shimura complex uniformization; none of the inspected material states this exact all-prime matrix, separable coefficient polynomial, and doubled divisor. Closely related Shimura Hasse polynomials under different coordinates remain possible; the full Petkova--Shiga paper was not accessible for a decisive complete-document comparison. Mathematical-record searches on full formulas found no explicit equivalent entry, which does not establish uniqueness.
+## originality
 
-## Value — PASS
+PASS
 
-This is a complete, parameter-uniform geometric classification across every split prime: it gives the intrinsic Hasse-divisor scheme (including nontransverse multiplicity), proves there are no intermediate ranks, and identifies the precise root-count formula \(m=(p-1)/6\) on a naturally occurring Shimura/Prym family. These data are not a routine finite search or a presentation-only restatement of the family.
+Best-of-knowledge PASS, qualified: a complete all-prime Hasse–Witt matrix and scheme-theoretic double divisor for the exact bielliptic Picard family was not contained in material read from Takizawa and Laga–Shnidman. Historic Shimura-curve Hasse invariants may be the same result in modular coordinates; Petkova–Shiga full primary text is inaccessible, so priority remains materially uncertain.
 
-The result is not a full Newton-polygon classification, and equivalent work may exist under modular coordinates. Independent mathematical audit is outstanding.
+## value
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS: For a naturally occurring bielliptic Picard/Prym one-parameter family, the exact scheme-theoretic nonordinary divisor including its doubled multiplicities, complete simple-root count for every split prime, and precise p-rank/a-number strata are substantive geometric arithmetic invariants. This is not a few-prime table, nor a computation of an arbitrary unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
