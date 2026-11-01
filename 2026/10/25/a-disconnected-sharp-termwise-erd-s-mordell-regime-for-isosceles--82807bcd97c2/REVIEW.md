@@ -1,17 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness
-Exact supporting-line distances reduce the claim to one convex two-focus deficit and one axial deficit. Their global minimizers and signed polynomial factorizations establish the complete if-and-only-if condition; explicit points disprove the termwise bound elsewhere. Finite checks are diagnostic, not the universal proof.
+## correctness
 
-## Originality
-The 2015 source asks for a cyclic sum of three squared expressions divided by pairwise vertex-distance sums, not the simultaneous individual comparisons. Its 2016 follow-up proves other cyclic refinements. The nearest indexed result proves a symmetric weighted sum bound for isosceles triangles addressing a different conjecture; a global sum bound neither states nor implies the three separate comparisons or their exact height classification. No exact match appeared in the specified searches or recoverable own-claim ledger.
+PASS
 
-Closest literature: Jian Liu (2015), Section 4 Conjecture 1; Jian Liu (2016), Theorem 2.1; the separate weighted-sum isosceles result indexed under identifier `be176ad6d843`. These compare different cyclic or weighted-sum statements. Full-text access to the last record was unavailable, and independently unseen equivalent work remains a risk.
+Verified exact supporting-line distances r_A=y,r_B=(h+hx-y)/sqrt(1+h²),r_C=(h-hx-y)/sqrt(1+h²). Convexity minimizes apex defect at x=0 and F(y) globally at y*=(L-1)/sqrt(2L-1), giving h<=sqrt(3). For a base vertex the convex two-focus G_h has tangent point (x*,0); its inward y derivative is strictly positive when t=h/L<=1/2, while exact polynomial identity -(2t-1)(4t³-4t+1) establishes nonnegative boundary deficit. For 1/sqrt(3)<h<=1 the same x* makes G_h<0; for 1<=h<sqrt(3) centroid deficit is negative; for h>sqrt(3) apex fails. Rotational symmetry at h=sqrt(3) proves the isolated equilateral case. The cyclic implication follows termwise by reciprocals only where its denominators are positive. This is an all-h proof, not numerical extrapolation.
 
-## Mathematical value
-The sharp disconnected shape classification identifies exactly where a natural term-by-term proof mechanism establishes a published open cyclic inequality for every interior point, including the full apex-angle-at-least-120-degree regime. The explicit boundary and centroid obstructions identify an exact failure mechanism for the same method outside that regime, rather than choosing arbitrary small numerical examples.
+## originality
 
-## Scope and limitations
-Outside the stated shape regimes the individual comparisons fail, not necessarily Liu's cyclic conjecture. Finite checks do not prove the universal statement.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The original Liu 2015 Conjecture 1 is cyclic and does not state three simultaneous termwise conditions or their sharp disconnected isosceles shape classification. The close published symmetric weight theorem proves PA+PB+PC >= lambda(r_a+r_b)+2r_c with optimized lambda(h) and Liu Conjecture 2, a different sum. Its exact proof and assumptions were read. No stronger claim was found that implies these three individual comparisons. Best-of-knowledge PASS with residual unindexed weighted-inequality risk.
+
+## value
+
+PASS
+
+The three termwise inequalities are a genuinely motivated mechanism for a published unproved cyclic inequality. The exact if-and-only-if shape classification isolates a full extreme-angle branch and a disconnected equilateral point, and explicitly bounds the region on which that stronger proof method can work. The restriction to method failure (not cyclic-conjecture failure) is essential.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
