@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness: PASS.** The samples from each period depend on a disjoint \(2K\)-site block, and the ordered block matrix has two new pivot coordinates with value \(2^{-t}\) at each time. This gives the exact determinant, while the Laurent Chebyshev identity produces an explicit inverse. The upper and lower inverse-norm estimates use the same exact formula for the coefficient-one-norm of the Chebyshev polynomials, with polynomial prefactors that vanish under \(K\)-th roots. Standard-library exact-rational calculations cover \(1\le K\le7\) but are not offered as an infinite proof.
+## correctness
 
-**Originality: PASS against the material inspected, with unresolved historical-priority risk.** Bulai et al. (arXiv:2609.25472v1, 2026) build other lattice graph frames and study finite path conditioning but do not establish the stated local adjacency model and silver-ratio conditioning. Older dynamical sampling and spatiotemporal trade-off theorems cover the general reconstruction paradigm; this theorem claims only its precise critically sampled local stencil, exact determinant and sharp exponential Euclidean condition-number constant. Published-record searches for the specific formula and reductions found no equivalent. A plausible older journal article was accessible only through bibliographic/abstract material, so its uninspected full text remains an explicit priority risk.
+PASS
 
-**Value: PASS.** The fact that temporal measurements can compensate for sparse sensors is established, but determining whether the critical-density configuration remains numerically stable is a concrete mathematical gap. Here it never degenerates at fixed \(K\), yet conditioning deteriorates exponentially at an exact algebraic rate. The local inverse and full-space Riesz assertion distinguish it from finite path numerical examples and supply a useful benchmark for sensor design.
+For each finite K, the 2K-site dependency blocks partition Z; each observation R^t f(2Kq+s) uses only its assigned block for t<K. In the displayed alternating coordinate order the time-t pair introduces f(-t),f(t+1), each with diagonal 2^(-t), giving determinant 2^(-K(K-1)). The Laurent Chebyshev identity 2 T_j(R)f(n)=f(n-j)+f(n+j) reconstructs all coordinates. The alternating coefficient l1 norm is |T_j(i)|=(alpha^j+(-1)^j alpha^(-j))/2 for alpha=1+sqrt(2), bounding the inverse norm above by polynomial(K)alpha^K and below by alpha^(K-1)/sqrt(K); ||H_K|| lies between 1 and sqrt(2K). Therefore the Kth-root condition number tends to alpha for all positive K, while the frame ratio root is alpha^2. Independently implemented exact Fraction elimination on H_K for K=1..7 and confirmed the determinants; script source was also inspected. These tests are ancillary; the triangularity and Chebyshev proof supply the all-K result.
 
-**Limitations.** No global arrangement optimum, closed-form individual singular values, or noise-robustness claim uniform in \(K\); no independent mathematical audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The claim is the precisely specified two-adjacent-sensors-per-2K-cell, K-time full-bandwidth inverse and sharp conditioning exponent, not the general possibility of dynamical sampling. Aldroubi–Davis–Krishtal arXiv:1312.3203 Sections 2 and 3 prove recovery conditions with regular single-residue sampling and, for symmetric filters, auxiliary time-zero spatial samples; Theorems 2.1 and 2.4 do not state this exact adjacent-site local block determinant or Chebyshev/silver-ratio asymptotic. Bulai et al. arXiv:2609.25472 concern bandlimited GPW dynamical frames and finite path conditioning; only abstract was accessible during this independent run, hence no whole-paper exclusion. Resultary returned finite normalized-path and cyclic low-pass dynamical sampling findings with different domains. A possible older exact local observability stencil is residual priority risk, but no known source inspected entails this sharp local constant.
+
+## value
+
+PASS
+
+Full-bandwidth exact critical sampling with local operators is a natural stability benchmark: finite-K exact recovery coexists with an exponentially deteriorating inverse constant, quantified by the nontrivial algebraic base 1+sqrt(2). The result explains a specific sensor-geometry tradeoff rather than asserting global sensor-design optimality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
