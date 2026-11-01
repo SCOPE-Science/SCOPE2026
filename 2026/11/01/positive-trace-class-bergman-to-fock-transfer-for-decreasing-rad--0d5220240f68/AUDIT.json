@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Both radial Toeplitz spectra have exact Beta/Gamma probability representations with checked normalization. The density ratio is strictly decreasing and normalized, proving a single crossing and CDF stochastic order for all indices; monotone-mask layer cake gives the operator difference positivity. Consecutive-index likelihood ratios are increasing, so both eigenvalue sequences are in decreasing spectral order. Summing diagonal reproducing kernels gives the exact two finite traces; their difference equals the trace norm by positivity. Uniform asymptotic expansion and direct disk integration prove the claimed coefficients. The annulus example checks necessity of the shape hypothesis. 157 supplemental exact/high-precision checker assertions passed; no finite test is used to infer an infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ma--Yan--Zheng--Zhu arXiv:2603.04051v1, Theorems 1.3 and 4.3 establish weak convergence; Corollary 1.4 concerns a sharp norm bound for the individual Fock Toeplitz operator.",
+        "Ma--Yan--Zheng--Zhu Section 5 presents trace formulas and Szego-type limits for individual localization operators. Those are not traces of an ordered difference under monomial identification.",
+        "Rozenblum--Vasilevski arXiv:1912.05855v1 deals with trace-class Bergman Toeplitz operators and distributions on the disk, not Bergman-to-Fock trace-class error."
+      ],
+      "reasoning": "The 2026 weak-convergence assertion does not imply trace-norm convergence, much less positivity or an exact Schatten-1 distance. Individual trace identities permit subtraction only after proving order of the *difference*, supplied here by a beta/gamma one-crossing argument. The broader older individual-space operator theorems similarly do not imply the transfer statement.",
+      "searches": [
+        "Pan Ma Fugang Yan Zheng Zhu localization weak convergence positive operator norm trace norm compact radial symbols disk",
+        "Bergman Fock strong convergence Schatten norm symbols characteristic disks",
+        "Localization operators on Bergman and Fock spaces Pan Ma Yan Zheng Zhu beta Gaussian comparison trace norm radial Toeplitz"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2603.04051v1 (relevant theorem, limit and trace sections inspected)",
+      "arXiv:1505.07906v1 (abstract/introduction/radial Section 2 inspected)",
+      "arXiv:1912.05855v1 (introduction/Section 2 inspected)",
+      "Suárez, DOI 10.1112/blms/bdn042 (abstract only)",
+      "Published mathematical-record search results on radial Fock spectral filters and hyperbolic Bergman spectral filling (summaries compared; not used as full-document exclusion)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The theorem proves pointwise positivity for every indexed eigenvalue via q_n,N / p_n monotonicity, then uses that positivity to equate Schatten-1 distance to the trace difference.",
+        "The reference papers separately cover weak limits, single-space radial diagonalization and single-space trace-class formulas.",
+        "For a nonmonotone annulus, the beta/gamma density comparison reverses locally, so the order is a substantive class-sensitive assertion rather than a generic consequence of radial diagonalization."
+      ],
+      "reasoning": "The antecedents do not include the stochastic-order comparison between the scaled Beta and Gamma laws. Trace of a difference does not equal trace *norm* unless the difference is nonnegative, which is established by the novel comparison. Thus the full theorem is not implied by the inspected prior statements.",
+      "searches": [
+        "arXiv:2603.04051v1 Theorems 1.3 4.3 Section 5 trace",
+        "arXiv:1505.07906v1 radial Toeplitz eigenvalue sequences",
+        "arXiv:1912.05855v1 trace class Toeplitz distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "In the claimed comparison the monomial eigenvalues are expectations under a scaled Beta(n+1,N+1) law and a Gamma(n+1,1) law, and their likelihood ratio is strictly decreasing in the radial variable.",
+        "Esmeral and Maximenko, arXiv:1505.07906v1, Section 2 discusses Fock radial Toeplitz spectral sequences in one space, not the two-space transferred difference."
+      ],
+      "reasoning": "Equivalent terminology includes monotone likelihood-ratio order, first-order stochastic dominance, finite-scale Berezin/Toeplitz semiclassical transfer, and Schatten-1 convergence. The central claim requires not only individual radial spectra but a positive difference between two monomial-matched operators and an exact global sum. No checked source gives this combination.",
+      "searches": [
+        "beta to gamma Bergman Fock scaling radial Toeplitz disk characteristic mask stochastic dominance operator ordering exact trace norm convergence",
+        "weighted Bergman Fock Toeplitz disk radial eigenvalues stochastic dominance trace class",
+        "decreasing radial symbols stochastic order of Fock Bergman Toeplitz eigenvalue sequences under semiclassical scaling"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The specific formula is trace-distance = t(t+1)/(N-t) for the centered disk under canonical monomial matching.",
+        "The nearest indexed scientific records concern individual radial Fock Toeplitz spectral filters and unrelated Bergman spectral filling; neither describes a beta/gamma transfer or lists this formula.",
+        "The 2015 and 2019 primary articles give classical diagonal and trace frameworks, without the displayed finite-scale cross-space error in inspected sections."
+      ],
+      "reasoning": "No exact table or earlier formula with the same two operators, normalization and parameter range was found. This is a limited negative search result, not exhaustive database coverage.",
+      "searches": [
+        "radial Toeplitz N beta-to-gamma distribution monotone spectra disk cutoff exact trace norm t(t+1)/(N-t)",
+        "sharp trace norm difference between scaled weighted Bergman Toeplitz disk and Gaussian Fock Toeplitz disk beta gamma",
+        "beta gamma trace norm Toeplitz Bergman Fock limit"
+      ]
+    },
+    "rationale": "Direct comparisons of the 2026 weak-localization theorem, accessible radial Fock Toeplitz spectral theory, and Bergman trace-class theory do not establish the simultaneous beta/gamma stochastic order or finite-scale trace norm of the transferred operator difference. Searches for equivalent formulations and stronger coverage showed no direct match. Absence from an index alone is not a uniqueness proof; relevant older full texts and unindexed stochastic-order applications remain residual risks.",
+    "residual_risks": [
+      "An inaccessible complete 2008 Suárez article could contain an equivalent stochastic-order or transfer comparison, despite its narrower abstract.",
+      "Unindexed older probability literature may state the scaled beta/gamma stochastic order; an application to this exact Toeplitz comparison might have been made outside the inspected sources.",
+      "Only identified most relevant sections, not every line of every 2026/2015/2019 preprint, were read; no whole-document noncoverage certification is claimed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Inspected theorems give weak limit, separate sharp Toeplitz norm and Szego/trace results; no inspected assertion yields the ordered monomial-by-monomial cross-space difference or its exact trace norm.",
+        "evidence": [
+          "arXiv:2603.04051v1, March 4, 2026, Theorem 4.3 uses convergence of pairings.",
+          "Corollary 1.4 bounds a single Fock Toeplitz norm; Theorem 5.6 normalizes a single-space trace."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2603.04051",
+        "material_read": "Definitions 1.1-1.2, Theorem 1.3 and Corollary 1.4, Section 4 including Theorem 4.3, Section 5 trace material including Theorem 5.6 and equations (5.11)-(5.13).",
+        "method": "Primary preprint PDF; relevant text passages and visually checked pages 3, 31 and 32, with full-text keyword searches for trace, weak convergence and radial.",
+        "title": "Localization operators on Bergman and Fock spaces",
+        "trigger": "Direct motivating scaling theorem and its exact Toeplitz specialization"
+      },
+      {
+        "assessment": "Provides single-Fock-space spectral framework; does not compare it with scaled weighted Bergman monomial distributions in inspected material.",
+        "evidence": [
+          "arXiv:1505.07906v1, Section 2 and Theorem 2.5 characterize radial Toeplitz operators."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1505.07906",
+        "material_read": "Abstract, introduction, detailed Section 2 definitions and radial operator characterization.",
+        "method": "Primary open preprint PDF text and visual inspection of page 4.",
+        "title": "Radial Toeplitz operators on the Fock space and square-root-slowly oscillating sequences",
+        "trigger": "Potential stronger coverage of radial Fock Toeplitz eigenvalue sequences and their exact formulas"
+      },
+      {
+        "assessment": "Studies trace-class criteria within unweighted Bergman space, not a cross-space Schatten-1 difference.",
+        "evidence": [
+          "arXiv:1912.05855v1, Theorem 2.1 states compactly supported Bergman Toeplitz operators have exponentially decaying singular numbers."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1912.05855",
+        "material_read": "Introduction, Section 2 trace-ideal preliminaries and Theorem 2.1; references to trace formulas.",
+        "method": "Primary open preprint PDF text, visual inspection of page 2, and relevant text search.",
+        "title": "Trace class Toeplitz operators with singular symbols",
+        "trigger": "Possible stronger trace-class formula for Bergman operators"
+      },
+      {
+        "assessment": "Abstract covers a characterization of eigenvalues of radial Bergman Toeplitz operators; full-text equivalence to the transfer theorem remains unverified.",
+        "evidence": [
+          "D. Suárez, Bull. Lond. Math. Soc. 40 (2008), 631-641: abstract describes radial Toeplitz algebra spectral sequences."
+        ],
+        "identifier_or_url": "https://doi.org/10.1112/blms/bdn042",
+        "material_read": "Publisher abstract only; full mathematical text not accessed.",
+        "method": "Published abstract and bibliographic entry.",
+        "title": "The eigenvalues of limits of radial Toeplitz operators",
+        "trigger": "Historical potential overlap in Bergman radial spectral sequences"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0d522024-0f68-452a-a87a-55e0cde67ec8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp finite-parameter Schatten-1 error and mode-by-mode positive comparison answer a quantitative question naturally suggested by the 2026 weak Bergman-to-Fock localization limit. They are robust across the entire nonincreasing compact radial symbol cone, with an explicit sharp rate and a critical failure outside that cone. This is a structural spectral approximation statement, not a mere restatement of scalar weak convergence or an isolated table entry.",
+    "status": "PASS"
+  }
+}
