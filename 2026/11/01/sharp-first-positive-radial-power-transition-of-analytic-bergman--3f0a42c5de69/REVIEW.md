@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact normalized monomial moments imply the displayed rational kernel. All five reciprocal resultants and the degree-five discriminant are symbolic polynomial identities, replayed by the standalone checker. The only possible boundary event for origin exponent \(eta\ge0\) and integer boundary order \(m\le4\) is \(m=4,eta=1\). Critical factorization gives two distinct unit roots and three exterior roots; the strictly negative root-modulus derivative and exclusion of all further boundary events prove the global root-count claims. The proof is analytic and exact; sample finite roots are only auxiliary checks.
+
+**Originality — PASS, provisional.** Perälä's general radial-weight zero constructions and Ghiloufi–Snoun's closely related weighted kernels were compared at theorem and formula level. The latter principally uses punctured-disk spaces with negative-index Laurent basis elements, whereas the claim is about holomorphic functions on the whole disk with strictly nonnegative monomial indices. A 2020 negative-origin-power numerical threshold is expressly excluded from novelty claims. Semantic published-result checks find nearby different radial weight families and jet kernels, not this positive-power phase diagram. Remaining risk: priority hidden in other analytic-weighted Bergman literature and summary-only inspection of several less-direct results.
+
+**Value — PASS.** The result determines a natural precise Lu Qi-Keng phase transition and root-count classification for the first five integral boundary orders of a ubiquitous beta-product radial weight. The critical derivative quantifies the two-root onset and supplies information not implied by the normalized moment formula alone. The statement does not extend to real noninteger boundary exponents or punctured-disk meromorphic spaces.
+
+**Closest literature:** A. Perälä, *Vanishing Bergman kernels on the disk* (arXiv:1703.05976); N. Ghiloufi and S. Snoun, *Zeros of new Bergman kernels* (arXiv:2009.04307); Y. E. Zeytuncu, *Weighted Bergman projections and kernels: \(L^p\) regularity and zeros* (arXiv:1009.2806). See AUDIT.json for exact scope comparisons and residual risks.
+
+Self-review: passed. Independent audit: not yet performed.
