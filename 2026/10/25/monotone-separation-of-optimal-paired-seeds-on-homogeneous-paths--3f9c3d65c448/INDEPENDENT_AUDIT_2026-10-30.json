@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T05:55:14Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448/VERIFICATION.md",
+        "/mnt/data/scope_worker02_run_20261030T0543/independent_math_checks.py"
+      ],
+      "rationale": "The independent-cascade live-edge formulation on a path gives each exterior vertex probability p^j and each interior vertex p^j+p^(b-j)-p^b (two disjoint routes); summation proves the stated influence polynomial for every n>=2 and 0<p<1. Exchanging one tail vertex strictly improves an unbalanced split, yielding the only optimum at each gap. The exact adjacent-gap increment is p^b[1+b(1-p)]-p^ceil((n-1-b)/2). The ratio R_(b+1)/R_b is at most p(2-p)<1, proving strict unimodality over all integer gaps; g_b=(b-h_b)log p+log[1+b(1-p)] is strictly concave, negative near zero and positive immediately left of one, so its unique interior zero yields precisely one threshold for b>=ceil((n+1)/3). Their strict ordering and n=4 p=1/2 follow. Checked direct independent exact adjacent differences and tail balancing in 140 cases; finite checks do not justify universal quantifiers.",
+      "residual_risks": [
+        "Relevant prior path-influence thesis accessible only as bibliographic abstract; its full original thesis could contain equivalent optimal-seed characterization."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General independent-cascade influence is submodular and approximately optimizable; undirected paper develops approximation and structural estimates.",
+          "Neither inspected primary theorem gives p-dependent exact distance choices for all path orders."
+        ],
+        "reasoning": "The general approximation guarantees are strictly weaker than an exact uniqueness/tie and ordered transition theorem.",
+        "searches": [
+          "Khanna–Lucier primary, Influence Maximization in Undirected Networks, SODA 2014",
+          "Kempe–Kleinberg–Tardos primary, KDD 2003"
+        ]
+      },
+      "checked_sources": [
+        "Kempe–Kleinberg–Tardos primary, KDD 2003",
+        "Khanna–Lucier primary, Influence Maximization in Undirected Networks, SODA 2014",
+        "Resultary semantic query: monotone two seeds path influence maximization threshold",
+        "Resultary: two seeds independent cascade homogeneous path exact optimal seed gap as transmission probability increases monotone thresholds",
+        "https://repository.rit.edu/theses/351/",
+        "https://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf",
+        "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf",
+        "search: independent cascade optimal seed locations two seeds path homogeneous propagation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kempe–Kleinberg–Tardos studies independent-cascade objective on general graphs.",
+          "Khanna–Lucier gives undirected influence approximation, not closed optimal-distance switch locations.",
+          "Mouravski explicitly considers path influence maximization; its abstract alone cannot decide whether this theorem is already proved."
+        ],
+        "reasoning": "Neither accessible full article logically implies the p-parametric staircase. Exact prior-thesis coverage remains a named risk and does not license a whole-document noncoverage conclusion.",
+        "searches": [
+          "https://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf",
+          "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf",
+          "https://repository.rit.edu/theses/351/"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "In the live-edge formulation, two-seed spread is expected size of the union of their open-edge components; any path-specific diffusion method could be equivalent.",
+          "The inspected Kempe–Kleinberg–Tardos paper gives live-edge equivalence, but not the all-p closed threshold sequence."
+        ],
+        "reasoning": "A path-influence exact optimizer could imply the claim even without matching terminology; explicitly compared that possibility with Mouravski thesis abstract and retained full-text priority risk.",
+        "searches": [
+          "Resultary: two seeds independent cascade homogeneous path exact optimal seed gap as transmission probability increases monotone thresholds",
+          "search: independent cascade optimal seed locations two seeds path homogeneous propagation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim has a continuous real probability variable p and unbounded path order n, not a finite parameter table.",
+          "The thesis abstract discusses path algorithms; full numerical tables were unavailable."
+        ],
+        "reasoning": "The relevant potential exact resource would be a closed symbolic path formula rather than a fixed-size table; no such dominating table was established from materials read.",
+        "searches": [
+          "Resultary semantic query: monotone two seeds path influence maximization threshold",
+          "https://repository.rit.edu/theses/351/"
+        ]
+      },
+      "rationale": "The novel candidate is the exact all-sizes p-monotone gap phase diagram with strictly increasing roots, not the live-edge model or a path optimization algorithm. Primary general works do not imply it. A plausible exact-object thesis remained inaccessible in full; this is a genuine historical priority risk but no decisive evidence of coverage was found. Best-of-knowledge PASS with this explicit qualification.",
+      "residual_risks": [
+        "The complete technical body of A. Mouravski, Influence Maximization on Families of Graphs (2011), was not retrieved; its abstract explicitly mentions optimization on paths, so equivalent monotone-distance threshold analysis cannot be excluded.",
+        "No conclusion about unpublished/unindexed results or alternate stochastic-network terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PREMISE_ONLY",
+          "evidence": "Supplies live-edge equivalence and submodularity/approximation; not an explicit two-seed path phase theorem.",
+          "identifier_or_url": "https://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf",
+          "material_read": "Intro, live-edge model, influence objective, approximation theorem and proof framework in the 10-page primary article",
+          "method": "full PDF read by relevant sections plus page-image check",
+          "title": "Maximizing the Spread of Influence through a Social Network",
+          "trigger": "foundational original model"
+        },
+        {
+          "assessment": "NO_DIRECT_COVERAGE_IN_INSPECTED_THEOREMS",
+          "evidence": "Undirected approximation bounds do not imply exact all-p monotone gap switches.",
+          "identifier_or_url": "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf",
+          "material_read": "Abstract, main results, approximation lemmas and path-relevant arguments of 27-page primary PDF",
+          "method": "full primary PDF opened and relevant original theorem sections inspected; page-image checked",
+          "title": "Influence Maximization in Undirected Networks",
+          "trigger": "possible stronger undirected theorem"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_SOURCE",
+          "evidence": "Do not claim thesis as not covering; potential identical parameter-specific result remains unresolved as a priority risk.",
+          "identifier_or_url": "https://repository.rit.edu/theses/351/",
+          "material_read": "Institutional abstract explicitly identifying influence maximization on paths; full thesis technical text not obtained",
+          "method": "bibliographic record and abstract only; lawful open-access attempt blocked, authorized institutional access reported disconnected",
+          "title": "Influence Maximization on Families of Graphs",
+          "trigger": "same graph family and path optimization in title/abstract"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/090ff0833df2138b40a9e80fe13d572878fbdc2f/2026/10/25/monotone-separation-of-optimal-paired-seeds-on-homogeneous-paths--3f9c3d65c448/RESULT.md",
+        "https://www.cs.cornell.edu/home/kleinber/kdd03-inf.pdf",
+        "https://www.microsoft.com/en-us/research/wp-content/uploads/2016/11/Influence-Maximization-in-Undirected-Networks.pdf",
+        "https://repository.rit.edu/theses/351/"
+      ],
+      "rationale": "Optimal two-seed placement versus transmission is a canonical influence-optimization question. Exact all-n phase thresholds and successive increasing optimal distance are nontrivial structural information beyond an algorithm or influence submodularity: the four-vertex first transition, ties and every intermediate gap are fully classified.",
+      "residual_risks": [
+        "The theorem is restricted to precisely the object, parameters and invariant in the stated scope; no stronger family-level claim is implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only two deterministic seeds, undirected homogeneous independent edge transmission, paths, and real p strictly between 0 and 1; at p=0 or 1 all pairs tie.",
+    "Not valid without further proof for directed/heterogeneous/correlated networks, cycles, or more than two seeds.",
+    "Relevant prior path-influence thesis accessible only as bibliographic abstract; its full original thesis could contain equivalent optimal-seed characterization."
+  ],
+  "schema_version": 1
+}
