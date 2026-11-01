@@ -1,12 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The 32-vertex graph and all 2304 indicated coordinate symmetries are explicit, and the published sphere-wedge theorem supplies homology concentration in degree three of rank 63. Reduced simplicial Lefschetz traces equal the independence polynomial at \(-1\) of each cycle-conflict graph. The exact recurrence covers all 40 classes, and an independent enumeration of 136063 independent subsets verifies the 40 representative values. Standard exact wreath-product character inner products yield eight multiplicity-one constituents. This is a finite proof with executable checks, not an extrapolation from sampled graphs.
+## correctness
 
-## Originality — PASS, qualified
-Antolín Camarena–Carnero Bravo, Proposition 25, gives the same graph's nonequivariant homotopy type but no coordinate action. Goyal–Shukla–Singh treats two-factor topology and a related three-factor conjecture; Carnero Bravo's later Mycielskian framework uses double covers without these characters. The closest previously indexed cyclic-rotation product concerns a different graph family. Equivalent-formulation, broader-coverage, database/table, and implication comparisons are recorded in `AUDIT.json`. Unindexed equivalents remain possible.
+PASS
 
-## Mathematical value — PASS
-This is the complete rational representation of a natural 2304-element symmetry group on the 63-dimensional homology of a canonical categorical product. Multiplicity-freeness, the layer eigenspace split \(36+27\), and reversal of the unique coordinate-subgroup invariant line are mathematically informative refinements not determined by the known sphere count. The claim makes no general-parameter or integral equivariant assertion.
+The source defines adjacency as all three coordinates unequal and a 2304-element coordinate group, not necessarily the full abstract graph automorphism group. Antolín Camarena–Carnero Bravo Proposition 25 proves that its independence complex is a wedge of 63 three-spheres. The signed Lefschetz sum over invariant independent faces equals independent-set polynomial at -1 of the vertex-orbit conflict graph. A separate newly implemented quotient-orbit recursion recomputed all 40 two-parity coordinate conjugacy-type traces, including identity 63 and layer flip 9, matching each source table row. Standard S4 wreath-C2 character inner products give exactly 8 distinct rational irreducibles of dimensions 1,6,4,9,12,18,4,9, layer ± dimensions 36/27 and no full invariants. The finite proof uses the cited nonequivariant homotopy theorem for degree concentration; 40 representative computations alone are not a proof of it.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge: A vector-space rank 63 has many nonisomorphic representations. The displayed eight-constituent character is a genuine extra invariant and not a logical consequence of the nonequivariant rank. The stronger all-(m,n) nonequivariant theorem covers Betti ranks but does not characterize the automorphism action or irreducible multiplicities. General Lefschetz theory is method, not this computation.
+
+## value
+
+PASS
+
+The exact module under a natural 2304-element automorphism subgroup distinguishes eight multiplicity-one constituents, the layer eigenspace split 36+27, and a coordinate-subgroup invariant line negated by exchanging factors. Such equivariant information cannot be recovered from known 63 spheres and is a mathematically natural finite graph-product invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
