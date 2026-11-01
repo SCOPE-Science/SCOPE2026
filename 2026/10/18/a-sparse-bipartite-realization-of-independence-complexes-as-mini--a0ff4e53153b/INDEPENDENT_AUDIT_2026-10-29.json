@@ -1,0 +1,196 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T13:00:04.769615Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any finite simple F with n≥1, each pendant leaf ℓ_v forces every dominating set to meet the disjoint pair {v,ℓ_v}; selecting all originals dominates B(F), hence γ(B(F))=n. Equality chooses exactly one per pair and excludes every subdivision vertex. A subdivider w_uv is dominated precisely when at least one endpoint u,v rather than its leaf is chosen: therefore selected-leaf indices form an independent set I, and every I yields exactly D(I). Consequently the marked polynomial is I_F(t). Any size-preserving swap between min sets must flip the same pair v↔ℓ_v, an actual edge, giving identical token-slide and unrestricted exchange reconfiguration graphs, the simplex graph S(complement F). Removing I\\J then adding J\\I gives exact Hamming metric; the majority of three independent sets is independent, giving medianity. Every k-dimensional induced cube in the ambient coordinate hypercube is a coordinate face with a unique maximum independent set I and k freely toggled positions: c_k=Σ_I binom(|I|,k), so C(q)=I_F(1+q). Direct degrees, subdivision cycles, leaf attachments establish size 2n+|E|, bipartiteness, girth at least six, maximum degree max{Δ+1,2}, planarity and connectivity claims. Cubic independent-set #P-hardness transfers parsimoniously to the specified degree-four bipartite high-girth family; no unproved general #P-membership claim. Inspected source verifier tests 1,369,076 subsets across 81 graphs, and independently developed checker additionally exhausts 78 graphs including all n≤4, compares real minimum-set adjacencies, BFS distances and cube counts. These finite tests substantiate but do not replace unrestricted combinatorial proof. Edge cases n=1, isolated vertices, empty E and disconnected F are included.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "DeVos et al. 2020 realize any prescribed equal-cardinality family as minimum dominating sets of some graph, but their blocker construction does not impose bipartiteness, girth, degree four on cubic sources, or exactly 2n+|E| vertices. Generic γ-graph realizability is covered.",
+          "Xie–Feng–Xu 2024 proves C(G,q)=Cl(G#,1+q) for every median graph and realizes any graph as the crossing graph of a simplex graph, thereby ALREADY implying C(S(complement F),q)=I_F(1+q). The standalone simplex-graph cube identity is prior, not new.",
+          "Lu–Miao 2013 already defines exactly the subdivision-vertex corona F ⊙ K1, though for spectral questions."
+        ],
+        "reasoning": "Strong prior art covers existence of an unrestricted gamma realization, the named graph construction, and the cube polynomial formula on a simplex graph. It does NOT imply the new nontrivial identification that the minimum dominating sets of the particular sparse bipartite subdivision-vertex corona F ⊙ K1 are indexed by independent sets of arbitrary F, with token-slide and unrestricted swaps identical. Thus this surviving conjunction is not simply the published cube identity or an unconstrained existence corollary.",
+        "searches": [
+          "DeVos–Dyck–Jedwab–Simon arXiv:1810.01583v2, Theorem 1.5 and Corollary 1.6",
+          "Xie–Feng–Xu arXiv:2303.14671v2, Theorem 1.1 and 1.2",
+          "Resultary: minimum domination reconfiguration gamma graph is a simplex graph of complement with cube polynomial independence polynomial induced cubes",
+          "Web: cube polynomial simplex graph clique polynomial shifted 2024 Xie Feng Xu median graph"
+        ]
+      },
+      "checked_sources": [
+        "Lu–Miao 2013 arXiv:1302.0457 complete 15 pp",
+        "DeVos–Dyck–Jedwab–Simon 2020 arXiv:1810.01583 complete 28 pp",
+        "Xie–Feng–Xu 2024 arXiv:2303.14671 complete 13 pp",
+        "Xie–Xu 2025 arXiv:2503.17160 complete 12 pp",
+        "Dettlaff–Raczek–Yero 2016 Opuscula Mathematica complete 14 pp",
+        "Mynhardt–Nasserasr 2020 arXiv:2003.05956 complete 20 pp",
+        "Greenhill 2000 Computational Complexity complete 18 pp",
+        "Allagan et al. 2026 arXiv:2601.03485 complete 12 pp",
+        "Resultary three actual semantic searches on min-domination and simplex/cube aliases",
+        "Public specialized web searches on subdivision-vertex corona, gamma reconfiguration, and domination polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The private leaves in B(F) force exactly one selected vertex from each original/leaf pair at min-size n, while every subdivider w_uv is dominated iff at least one original endpoint is selected; these two facts yield independent sets directly.",
+          "Known median/simplex graph results plus Xie–Feng–Xu give its cube-count polynomial AFTER this identification; they do not establish which domination graph has that simplex structure.",
+          "Lu–Miao studies adjacency/Laplacian/signless Laplacian spectra of exactly B(F), not minimum domination or reconfiguration.",
+          "Dettlaff et al. studies subdivision thresholds in generalized corona graphs, not the all-minimum-set bijection.",
+          "Greenhill proves #REGULAR-IND-SETS(3) #P-complete, a prior input to the parsimonious restricted hardness consequence."
+        ],
+        "reasoning": "Do not attribute originality to the named corona, simplex medianity, cube identity, or #P-hardness of independent-set counting. Their combination with the exact forced-pair minimum-domination lemma yields a previously unlocated restricted realization with a new explicit solution-graph correspondence and parsimonious transfer. No inspected dominating stronger theorem implies this precise min-set classification, although an unindexed subdivision-corona domination theorem might.",
+        "searches": [
+          "DeVos et al. arXiv:1810.01583 Theorem 1.5 PDF",
+          "Xie–Feng–Xu arXiv:2303.14671 full paper and theorem",
+          "Lu–Miao arXiv:1302.0457 Definition 1.1 and all main results",
+          "Dettlaff–Raczek–Yero Opuscula Math 36(5) 2016 Sections 2–4",
+          "Greenhill 2000 Theorem 3.1 cubic independent-set counting hardness"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B(F) is exactly the standard subdivision-vertex corona F ⊙ K_1 of Lu–Miao (2013): one leaf attached to each original vertex after subdividing every source edge. Hence the graph operation itself predates this finding.",
+          "The independent-set one-coordinate-flip graph is exactly the simplex graph S(complement F), a known median-graph class (Xie–Xu 2025).",
+          "Independent verification of all minimum dominating sets, slide/jump adjacencies and Hamming distances for 78 labelled source graphs including all n≤4."
+        ],
+        "reasoning": "Neither the named subdivision-vertex-corona operation nor the simplex-graph definition is independently novel. The surviving mathematical assertion is the exact ordinary minimum-domination correspondence on this known corona construction, including prescribed reconfiguration, coefficients, sparse host restrictions and all-source transfer. Lu–Miao proves spectra, not this set-family classification.",
+        "searches": [
+          "Resultary: bipartite graph formed by subdividing every edge and attaching pendant leaf to each original vertex minimum dominating sets correspond to independent sets simplex graph token slide",
+          "Web: \"subdivision-vertex corona\" \"minimum dominating sets\"",
+          "Lu–Miao arXiv:1302.0457, Definition 1.1",
+          "Xie–Xu arXiv:2503.17160, simplex graph definition"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary near hit 2026/10/4/SCOPE-minimum-super-dominating-sets-of-one-leaf-coronas--304999ba8c77 concerns *super domination* of ordinary one-leaf coronas, not ordinary minimum domination of subdivided coronas.",
+          "No retrieved exact table or record listed min-set count I_F(1) or the full marked polynomial on the specific construction; an unrestricted mathematical identity cannot be established as novel by a search absence.",
+          "The finite brute-force certificate computes exactly 78 source graphs and tests the first small cases; these are corroborative, not a novel database."
+        ],
+        "reasoning": "This is a universal all-source theorem rather than a single finite table. Published database and record searches found adjacent parameters but not an equivalent all-graph polynomial transfer. No-match evidence is treated as limited priority evidence, not proof of novelty.",
+        "searches": [
+          "Resultary: bipartite graph formed by subdividing every edge and attaching pendant leaf to each original vertex minimum dominating sets correspond to independent sets simplex graph token slide",
+          "Resultary: gamma graph realization prescribed minimum dominating sets DeVos Dyck Jedwab Simon 2020 private leaf subdivision",
+          "Web: \"domination polynomial\" \"subdivision-vertex corona\" K1",
+          "Web: \"subdivision-vertex corona\" \"gamma graph\"",
+          "Web: \"minimum dominating\" \"subdivision-vertex corona\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the new minimum-domination bijection and restricted bipartite realization of the already-known subdivision-vertex corona, and for the resulting token-slide/jump solution-graph identification. PRIOR: Lu–Miao (2013) defined exactly B(F) as F ⊙ K1; DeVos et al. (2020) proved unconstrained family gamma-realizability; Xie–Xu (2025) covers simplex graphs/medianity; Xie–Feng–Xu (2024) ALREADY proves the shifted clique/cube polynomial identity for simplex graphs. None of those inspected full texts gives the specific B(F) min-domination correspondence with 2n+|E| vertices, girth≥6 and degree four for cubic F. New value/novelty is NOT claimed for the graph operation itself, the cube identity alone, generic gamma realizability, medianity, or independent-set #P-hardness. Search absence does not certify priority; a missing specialized subdivision-vertex corona domination classification remains a material risk.",
+      "residual_risks": [
+        "A pre-existing unindexed result specifically on minimum dominating sets of F ⊙ K1 could imply the entire main bijection despite different terminology; targeted searches found no such primary theorem.",
+        "The graph operation B(F)=F ⊙ K1 is explicitly known since Lu–Miao 2013, and the standalone cube-polynomial identity is covered by Xie–Feng–Xu 2024; novelty rests narrowly on min-domination realization and restricted structural transfer.",
+        "The broad γ-graph realization theorem of DeVos et al. strongly covers unconstrained existence but does not impose the present sparse bipartite restrictions.",
+        "Search and full-text comparisons cannot certify historical priority; no formal Lean proof or independent expert attestation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers unrestricted gamma-family realizability, but its blocker construction does not imply the explicit sparse bipartite one-subdivision private-leaf correspondence. Bare existence is nonoriginal.",
+          "evidence": [
+            "Theorem 1.5 and Corollary 1.6 on arbitrary family realization; Section 2 construction, arXiv:1810.01583v2."
+          ],
+          "identifier_or_url": "arXiv:1810.01583v2, https://arxiv.org/pdf/1810.01583",
+          "material_read": "Entire 28-page primary arXiv PDF; introduction, Theorem 1.5, Corollary 1.6, Section 2 blocker construction and related implications; theorem page image inspected.",
+          "method": "Read full lawful preprint text, inspected theorem statements and actual construction against claimed graph-size and bipartite restrictions.",
+          "title": "Which graphs occur as γ-graphs?",
+          "trigger": "General universality for all prescribed minimum-dominating-set families might dominate the current claim."
+        },
+        {
+          "assessment": "DIRECT PRIOR COVERAGE of C(S(complement F),q)=I_F(1+q), hence this separate numerical identity is not new. It does not imply which minimum-domination reconfiguration graph equals S(complement F).",
+          "evidence": [
+            "Theorem 1.1: median graph equality C(G,q)=Cl(G#,q+1).",
+            "Theorem 1.2: every graph is a crossing graph of an appropriate simplex graph."
+          ],
+          "identifier_or_url": "arXiv:2303.14671v2, https://arxiv.org/pdf/2303.14671",
+          "material_read": "Full 13-page arXiv paper including Theorems 1.1 and 1.2, definitions of crossing graphs, median and simplex graphs, and theorem proof; first-page image inspected.",
+          "method": "Read complete PDF, specialized median cube polynomial theorem to S(complement F).",
+          "title": "A relation between the cube polynomials of partial cubes and the clique polynomials of their crossing graphs",
+          "trigger": "Possibly exact dominating antecedent for claimed cube polynomial identity."
+        },
+        {
+          "assessment": "The constructed graph B(F) is previously named subdivision-vertex corona F ⊙ K1, so graph operation is NOT new. Paper establishes spectral formulas only, not ordinary minimum-domination all-solution bijection.",
+          "evidence": [
+            "Definition 1.1, PDF p.2, constructs subdivision-vertex corona; the displayed n(1+n2)+m vertex count agrees at n2=1.",
+            "Theorems 2.1–2.11 concern adjacency/Laplacian/signless-Laplacian spectra."
+          ],
+          "identifier_or_url": "arXiv:1302.0457v2, https://arxiv.org/pdf/1302.0457",
+          "material_read": "All 15 pages of primary arXiv full-text; Definition 1.1, Section 2 spectral theorems, entire subdivision-vertex-corona spectral analysis, and references; definition page screenshot.",
+          "method": "Read full PDF and searched for domination and independent-set terms; compared graph operation F ⊙ K1 exactly.",
+          "title": "Spectra of the subdivision-vertex and subdivision-edge coronae",
+          "trigger": "Exact alias and same graph operation as B(F), potentially direct coverage."
+        },
+        {
+          "assessment": "Simplex graphs, medianity, and their standard cube examples are established; no theorem supplies ordinary minimum domination of B(F).",
+          "evidence": [
+            "Definition of simplex graph via cliques and single insertion/deletion; abstract identifies median subclass."
+          ],
+          "identifier_or_url": "arXiv:2503.17160v1, https://arxiv.org/pdf/2503.17160",
+          "material_read": "Full 12-page arXiv preprint, abstract, definition, four characterizations, and related examples; first-page image inspected.",
+          "method": "Read full PDF and checked scope for domination realizations.",
+          "title": "Characterizing simplex graphs",
+          "trigger": "Simplex graph structure and median properties pre-existing."
+        },
+        {
+          "assessment": "Related operations, but does not classify all ordinary minimum dominating sets or their reconfiguration/cube polynomials for B(F).",
+          "evidence": [
+            "Section 2 Theorem 2.3 and Section 4 discuss subdivision/multisubdivision numbers."
+          ],
+          "identifier_or_url": "DOI:10.7494/OpMath.2016.36.5.575, https://www.opuscula.agh.edu.pl/vol36/5/art/opuscula_math_3634.pdf",
+          "material_read": "Entire 14-page publisher-hosted open PDF; Sections 2–4 on domination, paired, independent domination subdivision thresholds.",
+          "method": "Read primary full text and contrasted quantifiers (number of subdivisions to change γ) with classification after all core edges subdivided.",
+          "title": "Edge subdivision and edge multisubdivision versus some domination related parameters in generalized corona graphs",
+          "trigger": "Closest primary result involving domination, edge subdivision and private-leaf corona operations."
+        },
+        {
+          "assessment": "Definitions and general distinction are prior; equality on this forced-pair gadget is not a general property and is not stated in the survey.",
+          "evidence": [
+            "Section 1 defines J(G,γ), S(G,γ) and states slide graph is generally a spanning subgraph."
+          ],
+          "identifier_or_url": "arXiv:2003.05956, https://arxiv.org/pdf/2003.05956",
+          "material_read": "Entire 20-page lawful arXiv preprint, especially Section 1 and domination reconfiguration sections; PDF page image checked.",
+          "method": "Full-text reading and comparison of slide and jump definitions.",
+          "title": "Reconfiguration of Colourings and Dominating Sets in Graphs: a Survey",
+          "trigger": "Token-slide versus arbitrary one-vertex exchange might already coincide generally."
+        },
+        {
+          "assessment": "Known cubic independent-set counting hardness establishes reduction premise; no result of minimum domination reconfiguration on subdivided corona is asserted there.",
+          "evidence": [
+            "Theorem 3.1: #REGULAR-IND-SETS(3) is #P-complete."
+          ],
+          "identifier_or_url": "C. Greenhill, Computational Complexity 9 (2000), https://web.maths.unsw.edu.au/~csg/papers/complexity.pdf",
+          "material_read": "Primary author-hosted 18-page PDF, focusing on Theorem 3.1 and proof, including #REGULAR-IND-SETS(3).",
+          "method": "Reviewed theorem statement as a prior hardness input and matched degree/certificate scope.",
+          "title": "The complexity of counting colourings and independent sets in sparse graphs and hypergraphs",
+          "trigger": "Required third-party complexity premise for 3-regular independent-set counting hardness."
+        },
+        {
+          "assessment": "Specific tree families, not arbitrary-source B(F) polynomial transfer or gamma reconfiguration.",
+          "evidence": [
+            "Tree-specific complete-comb and Fibonacci alternating-comb families."
+          ],
+          "identifier_or_url": "arXiv:2601.03485, https://arxiv.org/pdf/2601.03485",
+          "material_read": "Full 12-page preprint with comb and alternating pendant theorems and proofs; page image inspected.",
+          "method": "Primary full-text comparison with universality and graph operation.",
+          "title": "Four Dominion Growth Regimes in Trees: Forcing, Fibonacci Enumeration, Periodicity, and Stability",
+          "trigger": "Motivational 2026 work on counts of minimum dominating sets."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The all-source, explicit restricted realization transfers complete minimum dominating-set families, marked solution-size polynomial, exact token-slide/jump metric, and a parsimonious cubic-input counting reduction into a sparse bipartite host of girth≥6. These constraints matter for domination reconfiguration and counting and are not implied by unconstrained family realization. Although private-pair arguments and the cube identity once the simplex graph is identified are elementary/previously known, the uniform solution-family representation across arbitrary source graphs is a motivated structural result rather than arbitrary unmotivated sampling. Value is limited to this specified known graph operation; it does not extend to all bipartite graphs and does not make old median/cube facts new.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Best-of-knowledge originality, not certified historical priority; 2013 exact graph object and 2024 simplex cube polynomial explicitly prior.",
+    "Finite checks do not prove the unrestricted n theorem; proof steps reconstructed separately.",
+    "No assertion for arbitrary bipartite hosts, and no general #P-membership claim on arbitrary inputs.",
+    "No Lean or expert proof attestation; pre-existing external channels retained."
+  ],
+  "schema_version": 1
+}
