@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The normalized spatial principal mode is a positive eigenfunction of the reflecting–absorbing generator. Conditional time change and the two-state Feynman–Kac formula give the exact survival matrix. Direct integration yields closed first and second moments. Solving these relations recovers the two unknown hidden parameters. The strict positive-parameter assumptions are exactly equivalent to the two strict feasibility inequalities, including their endpoint exclusions. Independent spectral-diagonalization checks and two inverse parameter grids passed; infinite-domain correctness rests on the algebraic proof.
+PASS
 
-## Originality
+The normalized positive principal mixed Neumann–Dirichlet eigenmode makes conditional survival exp(-lambda int D_J dt), so Feynman–Kac gives the symmetric positive 2x2 killing matrix. Explicit inversion yields m=(1+2s)/(1+2s-delta²), c=1+2delta²/(1+2s)². With a=1-1/m and e=c-1, the inverse delta=sqrt(2)a/sqrt(e), s=a/e-1/2 has the exact image m>1, 2a²<e<2a; both endpoints are excluded. A new SymPy independent inverse/moment calculation matched the exact formulas. Labels exchange and singular limits are specified.
 
-**PASS on accessible evidence, with explicit priority uncertainty.** The nearest qualifying historical paper is Chen et al. (2015), which solves a confinement-aware inverse problem using displacement distributions, not first-passage mean and squared coefficient of variation. The later general forward first-passage theory of Grebenkov (2019) subsumes the representation underlying the moment calculation; its accessible abstracts do not claim the sharp global inverse data region, but its full text was not inspected and may cover or immediately imply the specialized statement. Searches for the two-moment inverse, its phase-type aliases and quasi-stationary formulation found no exact prior theorem. This is a best-evidence comparison, not a claim of exhaustive novelty.
+## originality
 
-## Value
+PASS
 
-**PASS.** The theorem turns exactly two natural stopping-time observables into a complete identification and falsifiability test for a two-mobility transport mechanism. Both compatibility boundaries have interpretable physical singularities. The principal spatial eigenmode preparation is essential and motivated by long-survival conditioning in confined diffusions, rather than chosen as an arbitrary arithmetic case.
+General forward first-passage integrated-diffusivity/Feynman–Kac theory, notably Grebenkov 2019, is prior work. Its inspected exact two-state model supplies a forward distribution, not a global bijective inverse with the strict physically realizable (m,c) region under precisely the principal-mode ensemble. Chen et al 2015 infer states from confined displacement distributions, not these two absorption-time moments. Specific inverse remains best-of-knowledge new.
 
-## Limitations and literature
+## value
 
-The theorem does not address arbitrary initial positions, unknown mean diffusivity, asymmetric environmental switching, statistical noise or stability. The most material priority risk concerns the inaccessible full text of the 2019 general forward first-passage analysis. References: Chen et al., DOI:10.1021/acs.jpcb.5b08654; Grebenkov, arXiv:1812.07249 / DOI:10.1088/1751-8121/ab0dae.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem identifies exactly which observed dimensionless first-passage mean and variance can arise, and reconstructs two hidden physical parameters from two scalar measurements. The sharp compatibility region is a natural identifiability boundary, with clear restrictions on initial preparation, labels and calibration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

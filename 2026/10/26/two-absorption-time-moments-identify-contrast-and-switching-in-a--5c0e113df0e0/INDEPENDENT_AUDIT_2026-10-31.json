@@ -1,0 +1,117 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:17:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/dba77ed3d1f80e30411533240fd58f87c547013b/2026/10/26/two-absorption-time-moments-identify-contrast-and-switching-in-a--5c0e113df0e0/RESULT.md",
+        "Frozen checker blob 240cee104d0c846a6b331f860bdd57c655807af7",
+        "Independent local checker independent_checks_results.json"
+      ],
+      "rationale": "The normalized positive principal mixed Neumann–Dirichlet eigenmode makes conditional survival exp(-lambda int D_J dt), so Feynman–Kac gives the symmetric positive 2x2 killing matrix. Explicit inversion yields m=(1+2s)/(1+2s-delta²), c=1+2delta²/(1+2s)². With a=1-1/m and e=c-1, the inverse delta=sqrt(2)a/sqrt(e), s=a/e-1/2 has the exact image m>1, 2a²<e<2a; both endpoints are excluded. A new SymPy independent inverse/moment calculation matched the exact formulas. Labels exchange and singular limits are specified.",
+      "residual_risks": [
+        "Requires exact principal quasi-stationary spatial preparation, symmetric switching, calibrated length and mean diffusivity; ill-conditioned near boundaries."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Grebenkov covers arbitrary propagating integrated diffusivity and two-state forward Laplace transform; Chen recovers mobility from displacement distributions"
+        ],
+        "reasoning": "Neither inspected formulation was found to explicitly entail the two-observable strict inverse region for quasi-stationary initial positions, although elementary algebra can derive it once the forward formula is specialized.",
+        "searches": [
+          "Grebenkov 2019 arXiv:1812.07249 PDF Sec 3.1 equations 48–50",
+          "Chen et al 2015 confined displacement inverse two-state diffusion"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md / verify.py",
+        "Grebenkov arXiv:1812.07249 §3.1",
+        "Chen et al DOI 10.1021/acs.jpcb.5b08654",
+        "Resultary two-mobility inverse query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The specific general forward transform specializes to K but the source does not assert injective inverse or sharp strict inequality region"
+        ],
+        "reasoning": "The new algebraic inversion is a short nontrivial corollary of known forward theory; originality is qualified to the exact inverse classification, not to forward survival machinery.",
+        "searches": [
+          "Grebenkov 2019 1812.07249 equations for switching diffusion absorption-time",
+          "Chen 2015 confined displacement inversion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Absorption law is a two-phase positive mixture; its moment inversion is equivalent to identifying positive rate/contrast from first two scaled moments"
+        ],
+        "reasoning": "Compared both phase-type-mixture and Feynman–Kac formulations; forward mixture equivalence alone does not state the constrained global inverse region.",
+        "searches": [
+          "Resultary: two-state switching diffusivity confined absorbing reflecting quasi stationary absorption first two moments inverse switching rate",
+          "Grebenkov 2019 two-state switching diffusion Feynman-Kac survival eigenmode"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated two-state processes and positivity problems; no table of exact inverse feasible (m,c) region"
+        ],
+        "reasoning": "This concerns a continuous real parameter image, not a finite catalogue; exact database comparison is inapplicable beyond searching existing inverse classification formulae.",
+        "searches": [
+          "Resultary: two-state switching diffusivity confined absorbing reflecting quasi stationary absorption first two moments inverse switching rate",
+          "two-phase absorption coefficient variation inverse physical feasibility switching diffusivities"
+        ]
+      },
+      "rationale": "General forward first-passage integrated-diffusivity/Feynman–Kac theory, notably Grebenkov 2019, is prior work. Its inspected exact two-state model supplies a forward distribution, not a global bijective inverse with the strict physically realizable (m,c) region under precisely the principal-mode ensemble. Chen et al 2015 infer states from confined displacement distributions, not these two absorption-time moments. Specific inverse remains best-of-knowledge new.",
+      "residual_risks": [
+        "The inverse may appear as an implicit/elementary specialization in general two-phase distribution identification literature.",
+        "Requires exact principal quasi-stationary spatial preparation, symmetric switching, calibrated length and mean diffusivity; ill-conditioned near boundaries."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_FORWARD_ONLY: provides general survival machinery; no corresponding exact two-moment inverse feasible region identified",
+          "evidence": [
+            "Laplace/time-change forward formula, two-state switching rates and moments"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1812.07249",
+          "material_read": "Full-text section 3.1 around two-state formulas (48)–(50) and adjacent general method",
+          "method": "Read accessible primary text and mathematically compared statements and implications",
+          "title": "A unifying approach to first-passage time distributions in diffusing diffusivity and switching diffusion models",
+          "trigger": "Same switching-diffusivity first-passage object"
+        },
+        {
+          "assessment": "DIFFERENT_OBSERVABLE; incomplete full-text coverage acknowledged",
+          "evidence": [
+            "Displacement distribution inverse, rather than prepared absorption-time first two moments"
+          ],
+          "identifier_or_url": "https://doi.org/10.1021/acs.jpcb.5b08654",
+          "material_read": "Available abstract and bibliographic record; not full article",
+          "method": "Abstract/metadata only; not treated as whole-document negative",
+          "title": "Quantifying Multistate Cytoplasmic Molecular Diffusion in Bacterial Cells via Inverse Transform of Confined Displacement Distribution",
+          "trigger": "Same two-state confinement inverse motivation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md / verify.py",
+        "Grebenkov arXiv:1812.07249 §3.1",
+        "Chen et al DOI 10.1021/acs.jpcb.5b08654",
+        "Resultary two-mobility inverse query"
+      ],
+      "rationale": "The theorem identifies exactly which observed dimensionless first-passage mean and variance can arise, and reconstructs two hidden physical parameters from two scalar measurements. The sharp compatibility region is a natural identifiability boundary, with clear restrictions on initial preparation, labels and calibration.",
+      "residual_risks": [
+        "The inverse may appear as an implicit/elementary specialization in general two-phase distribution identification literature.",
+        "Requires exact principal quasi-stationary spatial preparation, symmetric switching, calibrated length and mean diffusivity; ill-conditioned near boundaries."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "The inverse may appear as an implicit/elementary specialization in general two-phase distribution identification literature.",
+    "Requires exact principal quasi-stationary spatial preparation, symmetric switching, calibrated length and mean diffusivity; ill-conditioned near boundaries.",
+    "No completed privacy-safe publication plan; import is not ready."
+  ],
+  "schema_version": 1
+}
