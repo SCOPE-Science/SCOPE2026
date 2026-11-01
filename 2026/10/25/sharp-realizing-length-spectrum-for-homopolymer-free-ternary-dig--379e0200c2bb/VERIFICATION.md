@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-From the directory containing `verify_ternary_ranks.py` and `shortest_rank_witnesses.json`, execute:
+## correctness
 
-`python3 verify_ternary_ranks.py --witnesses shortest_rank_witnesses.json`
+PASS
 
-Observed result: `TERNARY_SIX_RANKS_PASS ranks=60 min_lengths=21:24,22:12,26:12,27:12 maximally_required=27 direct_vectors_checked=21600`.
+The circular word model has 6 positive pairwise distinct counts c_uv for u≠v and zero loop counts. Conservation of directed degree at each symbol forces c01−c10=c12−c21=c20−c02=δ≠0. Orient the three paired differences positively, write lower counts y=(a,a+p,a+p+q), upper counts y+d, with a,p,q,d positive integers and d not equal p,q,p+q. All 6-value increasing interleavings are the five Dyck words OCOCOC, OCOOCC, OOCCOC, OOCOCC, OOOCCC. Their strict inequality regimes yield minimal (a,p,q,d) respectively (1,2,2,1), (1,3,1,2), (1,1,3,2), (1,2,2,3), (1,1,1,3), under the exact length function 6a+4p+2q+3d, with minimal lengths 21,26,22,27,21. Each type gives 2 orientations×3! arc pair orders=12 distinct rank orders, so 60 total and min-length histogram {21:24,22:12,26:12,27:12}; worst shortest length 27. Each positive balanced multigraph is strongly connected/Eulerian and gives an actual circular homopolymer-free word. Independent six-integer count enumeration over all distinct positive vectors of sum ≤27 visited 21,600 vectors, 216 balanced, recovered 60 ranks and exact histogram; the parametric all-length proof independently excludes arbitrarily long unsearched witnesses. The coarse count 60 is prior-derived, not independently novel.
 
-The first algorithm enumerates distinct positive integer profile coordinates whose total is at most \(27\), tests balanced indegrees and outdegrees, and optimizes within each ranking. Its range is complete below the threshold because any six distinct positive values of total at most \(27\) have maximum at most \(12\). The second algorithm independently parameterizes all balanced strict profiles by \((a,p,q,d)\) and two orientations of the triangle, and compares rank dictionaries and minimum lengths. The witness output contains all sixty explicit minimizing cyclic words; the checker recomputes every cyclic pair count from each word, including the wraparound pair.
+## originality
 
-The unrestricted existence and necessity are justified mathematically by the positive balanced Eulerian-circuit criterion and the five Dyck interleavings, not inferred from finite tests. Only the six off-diagonal transitions are required positive and distinct, and diagonal pair counts are zero by the homopolymer-free condition. The result does not apply to linear words, larger alphabets, longer reads, tied allowed frequencies, or the strict nine-coordinate rank channel. Independent review remains unperformed.
+PASS
+
+The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Earlier rank-modulation work might contain an equivalent loop-free shortest-length table or other unstated constrained representative optimization. The inspected primary Raviv paper does not settle this per-six-ranking length spectrum; Beeri–Schwartz related material was only partially accessed, so it remains a residual priority risk.
+
+## value
+
+PASS
+
+Frequency ranking of adjacent dinucleotides is a natural DNA storage model, while forbidding identical adjacent symbols is an important synthesis constraint. Beyond the already-known combinatorial feasibility count, the complete minimal loop-free realizing-length spectrum shows precisely how many cyclic positions each feasible message needs; it identifies the worst-case budget 27 and the 12 hardest rankings. A motivated exact constrained representation-cost invariant, distinct from full-nine length 86.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

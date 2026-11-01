@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:00:34Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned source RESULT.md at Git blob d5738617f0975cc8876c6a5bbe513d20aa107aa0",
+        "Reconstructed exact Git tree 1335d95a8e1086129e1a3cf04d59a71b5dfe134b",
+        "Independent direct calculation: Independent exhaustive positive distinct 6-profile enumeration through total length 27 (21,600 vectors, 216 balanced); 60 rankings, min lengths 21:24/22:12/26:12/27:12: TERNARY_OK."
+      ],
+      "rationale": "The circular word model has 6 positive pairwise distinct counts c_uv for u≠v and zero loop counts. Conservation of directed degree at each symbol forces c01−c10=c12−c21=c20−c02=δ≠0. Orient the three paired differences positively, write lower counts y=(a,a+p,a+p+q), upper counts y+d, with a,p,q,d positive integers and d not equal p,q,p+q. All 6-value increasing interleavings are the five Dyck words OCOCOC, OCOOCC, OOCCOC, OOCOCC, OOOCCC. Their strict inequality regimes yield minimal (a,p,q,d) respectively (1,2,2,1), (1,3,1,2), (1,1,3,2), (1,2,2,3), (1,1,1,3), under the exact length function 6a+4p+2q+3d, with minimal lengths 21,26,22,27,21. Each type gives 2 orientations×3! arc pair orders=12 distinct rank orders, so 60 total and min-length histogram {21:24,22:12,26:12,27:12}; worst shortest length 27. Each positive balanced multigraph is strongly connected/Eulerian and gives an actual circular homopolymer-free word. Independent six-integer count enumeration over all distinct positive vectors of sum ≤27 visited 21,600 vectors, 216 balanced, recovered 60 ranks and exact histogram; the parametric all-length proof independently excludes arbitrarily long unsearched witnesses. The coarse count 60 is prior-derived, not independently novel.",
+      "residual_risks": [
+        "Only positive six nonloop digram counts ranked, no linear or nine-coordinate ranking theorem.",
+        "The known count 60 follows from prior full-nine 30,240 and is not novel.",
+        "Shortest costs at arbitrary longer lengths are proved by flow inequalities, not inferred from truncated enumeration."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Raviv et al give Eulerian flow feasibility and general rank coding; full-nine feasibility 30,240 mathematically implies the coarse six-rank count 60 through 504 possible loop insertions.",
+          "Resultary full published RESULT.md proves the worst shortest length 86 for the strict nine-coordinate model, which has additional independent loop entries and a different objective."
+        ],
+        "reasoning": "The stronger nine-coordinate feasibility result covers the count 60, which is explicitly excluded from novelty. Its shortest-length 86 does not imply the zero-loop six-frequency per-rank optimum values 21/22/26/27; fixing loops zero changes both order constraints and objective.",
+        "searches": [
+          "ternary circular homopolymer-free digram rank order minimum realization length 27 six transitions",
+          "Raviv Schwartz Yaakobi arxiv:1708.02146 full nine 30240 rankings",
+          "Resultary exact worst-case realizing length for ternary window-two DNA profile rankings 86",
+          "Beeri Schwartz arxiv:2101.06033"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE RESULT.md, verify_ternary_ranks.py source, actual Git witness blob inventory, AUDIT.json and metadata",
+        "Raviv et al arxiv:1708.02146 PDF mathematical flow and length sections",
+        "Resultary published full-nine minimum-length 86 theorem complete RESULT.md",
+        "Beeri–Schwartz arxiv:2101.06033 bibliographic description",
+        "Resultary query on circular homopolymer-free ternary digram ranks"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "30,240/504=60 is a valid prior implication: for each strict six-order insert 3 freely scaled loop values in binomial(9,3)×3! ways, and deleting loops preserves balance.",
+          "The length 86 of a worst full-nine ranking includes three distinct loop counts; zero-loop constraints require a different minimum-cost integer solve."
+        ],
+        "reasoning": "The old implication covers only rank feasibility; it does NOT yield the exact no-loop minimal-cost distribution. The new part is the five-inequality optimization plus Eulerian realizing certificates, not the Catalan count or general flow equivalence.",
+        "searches": [
+          "ternary circular homopolymer-free digram rank order minimum realization length 27 six transitions",
+          "arxiv:1708.02146 realization length section",
+          "Resultary 2026 ternary nine-coordinate worst length 86"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A circular word’s 3×3 digram profile is an integral Eulerian flow; forbidding homopolymers sets diagonal entries zero.",
+          "The remaining six nonloop counts have equal signed gap δ on paired reverse arcs; relative rank shape is a semilength-three Dyck interleaving."
+        ],
+        "reasoning": "This is equivalent to shortest integral positive balanced six-flow profiles under an ordering, not to the unconstrained nine-digram rank problem where three self-loop entries may be independently inserted.",
+        "searches": [
+          "ternary circular homopolymer-free digram rank order minimum realization length 27 six transitions",
+          "ternary DNA 2-gram frequency balance Eulerian circulation minimum loop-free ranking length"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Complete Resultary full-nine RESULT.md lists worst length 86, exactly 72 extremal nine-rank orderings, not 60 six-rank zero-loop minimal lengths.",
+          "SCOPE supplied shortest_rank_witnesses.json is present by actual Git blob and its generating verifier was inspected, while independent direct flow enumeration reconstructed the whole six-rank histogram."
+        ],
+        "reasoning": "A table of all-nine profiles is not a table of six transition-only loop-free shortest lengths. No exact prior six-rank four-length spectrum was found; that does not prove absolute priority.",
+        "searches": [
+          "ternary circular homopolymer-free digram rank order minimum realization length 27 six transitions",
+          "Resultary 2026/10/4 exact worst case ternary window two rankings",
+          "six positive nonloop ternary rank shortest length table homopolymer free"
+        ]
+      },
+      "rationale": "The final statement, not the title or isolated numbers, was compared against the actual prior implications and synonyms, with bounded source reading and explicit priority risks. The surviving precise assertion is not implied by the inspected sources. Best-of-knowledge PASS, not unconditional certification. Earlier rank-modulation work might contain an equivalent loop-free shortest-length table or other unstated constrained representative optimization. The inspected primary Raviv paper does not settle this per-six-ranking length spectrum; Beeri–Schwartz related material was only partially accessed, so it remains a residual priority risk.",
+      "residual_risks": [
+        "Earlier rank-modulation work might contain an equivalent loop-free shortest-length table or other unstated constrained representative optimization. The inspected primary Raviv paper does not settle this per-six-ranking length spectrum; Beeri–Schwartz related material was only partially accessed, so it remains a residual priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected source covers nine-coordinate feasibility and length bounds, not the loop-free six-rank minimum length histogram.",
+          "evidence": "Full nine-coordinate feasible rankings 30240 and Eulerian balance characterization; general len(pi) formulation.",
+          "identifier_or_url": "arxiv:1708.02146",
+          "material_read": "Primary PDF accessed; mathematical flow criterion and ranking/count sections, plus Section VI length bounds inspected",
+          "method": "Open arXiv PDF text and page screenshot",
+          "title": "Rank-Modulation Codes for DNA Storage With Shotgun Sequencing",
+          "trigger": "Original rank-flow framework and possible exact realizing-length classification"
+        },
+        {
+          "assessment": "COVERS the general nine-rank length86 fact and known count but NOT_COVERING the zero-loop six-rank minimum-length distribution.",
+          "evidence": "Strict nine-entry profile includes diagonal loop counts; worst shortest length is 86, exactly 72 maximizers.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-worst-case-realizing-length-for-ternary-window-two-dna-pro--9a35e7b20e23",
+          "material_read": "Complete Resultary/2026 published RESULT.md, hypotheses, all nine-coordinate proof, verification and limitations",
+          "method": "Read complete GitHub RESULT.md at blob 3a375f3aca07119dc2301e73d7cb0dabd9d159af",
+          "title": "Exact worst-case realizing length for ternary window-two DNA profile rankings",
+          "trigger": "Closest published exact length result same alphabet/window"
+        },
+        {
+          "assessment": "UNRESOLVED_PRIORITY_RISK for exact loop-free six-rank lengths; no whole-document noncoverage asserted.",
+          "evidence": "Improved rank-modulation code constructions and related realization lengths.",
+          "identifier_or_url": "arxiv:2101.06033",
+          "material_read": "Available abstract/summary and reference discussion, not reliably inspected all paper pages",
+          "method": "arXiv bibliographic material",
+          "title": "Improved Rank-Modulation Codes for DNA Storage With Shotgun Sequencing",
+          "trigger": "Later closely related constrained rank codes and realizing lengths"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "SCOPE RESULT.md, verify_ternary_ranks.py source, actual Git witness blob inventory, AUDIT.json and metadata",
+        "Raviv et al arxiv:1708.02146 PDF mathematical flow and length sections",
+        "Resultary published full-nine minimum-length 86 theorem complete RESULT.md",
+        "Beeri–Schwartz arxiv:2101.06033 bibliographic description",
+        "Resultary query on circular homopolymer-free ternary digram ranks"
+      ],
+      "rationale": "Frequency ranking of adjacent dinucleotides is a natural DNA storage model, while forbidding identical adjacent symbols is an important synthesis constraint. Beyond the already-known combinatorial feasibility count, the complete minimal loop-free realizing-length spectrum shows precisely how many cyclic positions each feasible message needs; it identifies the worst-case budget 27 and the 12 hardest rankings. A motivated exact constrained representation-cost invariant, distinct from full-nine length 86.",
+      "residual_risks": [
+        "Only positive six nonloop digram counts ranked, no linear or nine-coordinate ranking theorem.",
+        "The known count 60 follows from prior full-nine 30,240 and is not novel.",
+        "Shortest costs at arbitrary longer lengths are proved by flow inequalities, not inferred from truncated enumeration."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only positive six nonloop digram counts ranked, no linear or nine-coordinate ranking theorem.",
+    "The known count 60 follows from prior full-nine 30,240 and is not novel.",
+    "Shortest costs at arbitrary longer lengths are proved by flow inequalities, not inferred from truncated enumeration."
+  ],
+  "schema_version": 1
+}
