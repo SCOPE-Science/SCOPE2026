@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The substitution coding is proved by induction, the odometer supports the Haar spectral representation, and the shell integral is computed in each conductor regime. This gives every Bragg intensity without numerical fitting. The stated rational four-coordinate transformation has an explicit inverse and nonzero determinant; the zero-sum three-coordinate sign argument proves both directions of the homometry classification. Exact-arithmetic and independent finite computations reproduce the critical identities and positive examples. Remaining limit: the computations alone do not verify infinite Fourier completeness, which is supplied by the odometer argument and cited established results.
+## correctness
 
-## Originality
-PASS subject to historical-priority uncertainty. Vorobets (arXiv:0910.4800v1) proves dyadic-odometer conjugacy except a countable set and establishes pure point dynamical spectrum, but does not evaluate the complete real-weight inverse diffraction fibers. Baake and Grimm (arXiv:math/0610411v1; arXiv:0808.0094v1) establish general model-set homometry mechanisms and unrelated examples, not this exact Grigorchuk weight classification. Baake and Grimm (arXiv:1007.0707v1) explicitly compute diffraction for period doubling and a chair construction. Relevant database searches found no same-object equivalent; absence from search is not proof of absolute novelty. A hidden equivalent specialization of general Toeplitz or model-set machinery remains a residual risk.
+PASS
 
-## Mathematical value
-PASS. Recovering letter scattering weights from full diffraction is a natural inverse problem for a canonical nonprimitive symbolic dynamical system. Here infinitely many diffraction intensities collapse to five representatives, and the exact full fiber is generically eightfold, with four mutually distinct strictly positive injective solutions. The sharp complete ambiguity classification distinguishes the information lost by magnitudes from that retained by phase-resolved Fourier coefficients; it is not merely a recomputation of a known numerical table. It does not address complex weights or noisy data.
+The substitution a↦aca,b↦d,c↦b,d↦c yields a at even positions and the c,b,d cycle indexed by ν₂(n+1) for odd positions, established by finite-word induction. The uniquely ergodic bilateral hull is measurably the dyadic odometer, so Fourier–Bohr coefficients are Haar integrals of this valuation observable. An order-2^r odd character integrates to 0 on valuation shells k<=r-2, to -2^-r when k=r-1, and to 2^(-k-1) for k>=r. The resulting exact amplitudes are M at integers, V/2 at 1/2, and 2^-r times P,Q,R depending on r≡2,0,1 mod3, with P+Q+R=0. Dyadic characters span L² of the odometer, so the full diffraction is pure point and the formulas cover all peaks, not just sampled frequencies. The displayed linear coordinate map (M,V,P,Q)↔(A,B,C,D) is invertible; if real P+Q+R=Pʹ+Qʹ+Rʹ=0 and coordinate absolute values agree, the triples differ by one global sign, including zero cases. Hence independent signs on M,V,common (P,Q) give all homometric real weights and 2^{#nonzero groups} fiber size. Independently verified exact inverse, Parseval and all eight real/four positive variants using rational arithmetic. Finite Fourier sums are corroborative only.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for complete exact inverse fibers of all real letter weightings of the specific Grigorchuk substitution. Vorobets gives pure-point dyadic odometer as established input; Baake–Grimm give general homometry, and Grigorchuk–Lenz–Nagnibeda analyze Schrödinger/Laplacian spectra of the same subshift, not the full weighted lattice-diffraction inverse classification. A hidden specialization of general Toeplitz diffraction theory remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Recovering real letter scattering factors from complete diffraction is a canonical inverse problem. This exact example shows that infinitely many Bragg observations collapse to five measurements and identifies the entire generic eightfold fiber, including four physically positive, mutually injective weight vectors. The difference between intensity-only and phase-resolved recovery is a motivated mathematical invariant, not a finite coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

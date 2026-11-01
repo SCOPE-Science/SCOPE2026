@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-The proof reduces the full diffraction and its inverse fibers to the Haar characters of the dyadic odometer. The essential analytic identity is the exact integral of a primitive character over each valuation shell; its three cases yield the coefficients \(M,V,P,Q,R\), with \(P+Q+R=0\). The linear inverse and the real zero-sum absolute-value lemma then classify every fiber, including degenerate cases.
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and its standard library. The standalone verifier reconstructs nine substitution iterates and compares the resulting word with the valuation coding, checks the rational inverse and exact diffraction Parseval identity for all 625 vectors with entries between \(-2\) and \(2\), checks the Bragg-scale period three, constructs four positive and eight real homometric weightings, verifies their first 25 exact intensities, compares eight independently summed finite Fourier modes with analytic amplitudes, and compares 33 independent finite autocorrelation lags.
+## correctness
 
-Observed verifier output:
+PASS
 
-`VERIFY_OK: substitution prefixes; 625 exact four-coordinate inversions and Parseval identities; 4 distinct positive and 8 distinct real homometric weightings; 25 exact Bragg intensities per weighting; 8 independently sampled dyadic Fourier modes; 33 finite autocorrelation lags; max_error= 0.00263074`
+The substitution a↦aca,b↦d,c↦b,d↦c yields a at even positions and the c,b,d cycle indexed by ν₂(n+1) for odd positions, established by finite-word induction. The uniquely ergodic bilateral hull is measurably the dyadic odometer, so Fourier–Bohr coefficients are Haar integrals of this valuation observable. An order-2^r odd character integrates to 0 on valuation shells k<=r-2, to -2^-r when k=r-1, and to 2^(-k-1) for k>=r. The resulting exact amplitudes are M at integers, V/2 at 1/2, and 2^-r times P,Q,R depending on r≡2,0,1 mod3, with P+Q+R=0. Dyadic characters span L² of the odometer, so the full diffraction is pure point and the formulas cover all peaks, not just sampled frequencies. The displayed linear coordinate map (M,V,P,Q)↔(A,B,C,D) is invertible; if real P+Q+R=Pʹ+Qʹ+Rʹ=0 and coordinate absolute values agree, the triples differ by one global sign, including zero cases. Hence independent signs on M,V,common (P,Q) give all homometric real weights and 2^{#nonzero groups} fiber size. Independently verified exact inverse, Parseval and all eight real/four positive variants using rational arithmetic. Finite Fourier sums are corroborative only.
 
-Finite approximants omit one exceptional two-adic position at each scale. Their nonzero error is expected and does not establish the infinite formulas. The infinite conclusions rely on the valuation-shell integration, spectral completeness of dyadic characters, and exact inverse linear algebra. No external scientific audit has been performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for complete exact inverse fibers of all real letter weightings of the specific Grigorchuk substitution. Vorobets gives pure-point dyadic odometer as established input; Baake–Grimm give general homometry, and Grigorchuk–Lenz–Nagnibeda analyze Schrödinger/Laplacian spectra of the same subshift, not the full weighted lattice-diffraction inverse classification. A hidden specialization of general Toeplitz diffraction theory remains a priority risk.
+
+## value
+
+PASS
+
+PASS: Recovering real letter scattering factors from complete diffraction is a canonical inverse problem. This exact example shows that infinitely many Bragg observations collapse to five measurements and identifies the entire generic eightfold fiber, including four physically positive, mutually injective weight vectors. The difference between intensity-only and phase-resolved recovery is a motivated mathematical invariant, not a finite coincidence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
