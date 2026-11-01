@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The vertex models and two-independence face condition are fully specified. The standalone verifier compares independent face-recognition algorithms on every subset of the sixteen-vertex ground set, exhaustively tests each matching pair and every directed Hasse relation, and proves acyclicity with a terminating topological sort. The unmatched cells are exactly one vertex and 105 three-cells for the rook graph, respectively one vertex and 57 three-cells for the Shrikhande graph. Discrete-Morse theory gives the asserted integral homotopy sphere wedges. Mod-two homology is a secondary cross-check rather than the basis for integral conclusions.
+PASS
 
-## Originality — PASS, with documented uncertainty
+The definition is induced connected components of cardinality at most two, not ordinary independence. Independent reconstruction from the two coordinate adjacency rules checked all 65,536 subsets each, obtaining f-vectors (16,120,384,528,144) for the rook graph and (16,120,384,544,240,32) for Shrikhande. Applying the actual two vertex orders produces respectively 543 and 639 disjoint element-matching pairs, leaving one critical vertex and 105 or 57 critical three-faces; constructing all 4,224 or 4,960 Hasse covers and topologically sorting the reversed-matching orientation establishes acyclicity. Forman discrete Morse then gives integral wedge homotopy, not merely mod-two Betti ranks. No all-strongly-regular-graph generalization follows.
 
-The most closely related published comparison considers the ordinary independence complexes of the same two graphs (component bound one). That theorem does not determine the larger complexes at bound two. The three inspected full primary texts treat tree, multipartite, whiskered and other distinct graph classes. Explicit searches for 2-independence, three-path-free formulations, graph aliases, parameters and sphere multiplicities did not identify a covering result. This cannot rule out undiscovered prior work. A close record was available as a published summary, not full text; this access limitation remains a priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The Shrikhande and rook graphs form a natural canonical same-parameter pair; the first higher-independence invariant distinguishes them by complete integral homotopy type, not only by a low-dimensional statistic. The two exact computations provide substantive reproducible benchmarks for higher-independence discrete-Morse methods. The result is intentionally finite and does not claim a general strongly regular classification.
+The published same-pair ordinary independence-complex theorem is Ind_1, giving wedges of 15 or 23 two-spheres, not Ind_2. Existing higher-independence homotopy families are paths, cycles, trees, multipartite and whiskered graphs, not either highly cyclic strongly regular graph. Whole-complex Morse matchings establish the claimed new finite higher-independence distinction, subject to unindexed computations.
 
-## Limitations
+## value
 
-No independent audit has yet been performed. The validity of the exact computations depends on the reproducibly supplied finite certificate; no inference to larger graph families is asserted. Bibliographic priority remains subject to unindexed or inaccessible equivalent results.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+These canonical nonisomorphic strongly regular graphs are indistinguishable by adjacency parameters and spectra. Their natural next higher-independence complexes differ in an explicitly integral sphere-wedge homotopy invariant; this is a sharp, fully classified finite comparison with meaningful topological content, not a routine new parameter or a sampled guess.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

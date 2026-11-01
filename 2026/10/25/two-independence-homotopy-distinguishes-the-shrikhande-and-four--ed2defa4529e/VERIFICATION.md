@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify_ind2.py` with Python 3 and its standard library. The accompanying `verification_output.txt` is the actual output from executing that exact source on the two graph models.
+## correctness
 
-The verifier enumerates all \(65,536\) possible vertex subsets twice per graph, once by an incremental face recurrence and again by induced-graph connectivity. It independently verifies graph parameters; derives each face dimension; constructs each element-matching pair by the fully stated vertex order; orients every Hasse cover upward exactly for matched pairs; and proves no directed cycle exists by Kahn's exhaustive topological sort. The code asserts the precise one-plus-three-dimensional critical-cell lists. Separate mod-two boundary-matrix elimination reproduces the indicated Betti numbers.
+PASS
 
-Results: rook graph — 1192 nonempty faces, 543 matched pairs, 4224 Hasse relations, one critical vertex and 105 critical three-cells; Shrikhande graph — 1336 faces, 639 matched pairs, 4960 relations, one critical vertex and 57 critical three-cells. The last line is `VERIFY_OK`. These are exhaustive finite checks for the exact models specified, and the cited discrete-Morse theorem supplies the integral homotopy conclusion. Independent external scientific audit has not been performed.
+The definition is induced connected components of cardinality at most two, not ordinary independence. Independent reconstruction from the two coordinate adjacency rules checked all 65,536 subsets each, obtaining f-vectors (16,120,384,528,144) for the rook graph and (16,120,384,544,240,32) for Shrikhande. Applying the actual two vertex orders produces respectively 543 and 639 disjoint element-matching pairs, leaving one critical vertex and 105 or 57 critical three-faces; constructing all 4,224 or 4,960 Hasse covers and topologically sorting the reversed-matching orientation establishes acyclicity. Forman discrete Morse then gives integral wedge homotopy, not merely mod-two Betti ranks. No all-strongly-regular-graph generalization follows.
+
+## originality
+
+PASS
+
+The published same-pair ordinary independence-complex theorem is Ind_1, giving wedges of 15 or 23 two-spheres, not Ind_2. Existing higher-independence homotopy families are paths, cycles, trees, multipartite and whiskered graphs, not either highly cyclic strongly regular graph. Whole-complex Morse matchings establish the claimed new finite higher-independence distinction, subject to unindexed computations.
+
+## value
+
+PASS
+
+These canonical nonisomorphic strongly regular graphs are indistinguishable by adjacency parameters and spectra. Their natural next higher-independence complexes differ in an explicitly integral sphere-wedge homotopy invariant; this is a sharp, fully classified finite comparison with meaningful topological content, not a routine new parameter or a sampled guess.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
