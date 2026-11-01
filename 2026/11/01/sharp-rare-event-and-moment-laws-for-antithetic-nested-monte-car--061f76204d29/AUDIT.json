@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "Exact conditional triangular-hat identity, power integral and support width are derived without approximation; CLT and uniform integrability yield sharp moment limits, density continuity gives the local constant, independence gives pilot no-event law, and raw fourth/second moments yield centered-kurtosis coefficient. Gaussian sum/difference independence and polar integration give exact finite-n law. Standard-library verify.py completed 593 diagnostic checks; infinite claims rely on the displayed analytic proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Proposition 2.3 of arxiv:2308.07835v1 yields general upper bounds on moments with unspecified positive constants, and its numerical analysis discusses kurtosis order 2^(ell/2).",
+        "arxiv:1708.05531v1 establishes antithetic MLMC efficiency for a decision maximum.",
+        "arxiv:1802.05016v1 addresses the discontinuous Heaviside outer payoff and adaptive inner samples, not this continuous positive-part exact law."
+      ],
+      "reasoning": "An upper bound O(n^(-(r+1)/2)) and a kurtosis growth order do not imply a positive asymptotic limit with the specific density/variance coefficient, an exact distribution for every even n, or the sharp finite-pilot no-event probability. The established methods may subsume qualitative behavior but not the precise statements in the inspected material. The 2020 initial-margin paper is a plausible more-specialized source and remains unresolved at full-text level.",
+      "searches": [
+        "arxiv:2308.07835v1 Proposition 2.3 and Lemma A.1 high moments",
+        "arxiv:1708.05531v1 antithetic MLMC convergence",
+        "arxiv:1802.05016v1 Heaviside adaptive nested Monte Carlo"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2308.07835",
+      "https://arxiv.org/abs/1708.05531",
+      "https://arxiv.org/abs/1802.05016",
+      "https://www.ros.hw.ac.uk/server/api/core/bitstreams/3d4f5b42-9607-4c5b-8fc2-77fb74717adb/content",
+      "https://doi.org/10.1515/mcma-2020-2062"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 Proposition 2.3 gives an upper bound for moments; the paper itself notes a kurtosis order and warns small pilot samples can fail to estimate variance.",
+        "The conditional triangular-hat identity yields exactly d^(r+1)/(4^r(r+1)) and therefore positive lower as well as upper asymptotic constants after CLT.",
+        "The 2020 initial-margin work is cited as a variance-bound predecessor, but its full text could not be checked for exact coefficient implications."
+      ],
+      "reasoning": "The sharp limit, exact finite Gaussian distribution and threshold for seeing even one nonzero correction do not follow merely by substituting parameters into a qualitative bound or a numerical kurtosis rate. The source may contain proof machinery from which a specialist could derive the result; the claim is framed as the additional exact statement rather than novelty of those techniques. A decisive implication comparison with the uninspected 2020 full text is outstanding, and is disclosed as a risk.",
+      "searches": [
+        "arxiv:2308.07835v1 Proposition 2.3, Section 5 kurtosis",
+        "arxiv:1708.05531v1 antithetic correction proof",
+        "doi:10.1515/mcma-2020-2062 Proposition 2.5 citation",
+        "arxiv:1802.05016v1 abstract and original scope"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The conditional correction is the triangular hat (d/4-|y+c|/2)_+; Gaussian sum-and-difference independence yields a positive part of two scaled independent half-normals.",
+        "Haji-Ali and Spence 2023 define the same antithetic nested max estimator with the opposite sign and establish upper moment bounds.",
+        "Giles and Goda 2017 introduce antithetic nested decision-making correction and convergence bounds."
+      ],
+      "reasoning": "The Jensen-gap identity is equivalent to a local positive-part hat and, in the Gaussian case, to a two-independent-half-normal comparison. Those basic reductions are not claimed as separately new probability facts. The scoped novelty is the combined all-order sharp non-Gaussian asymptotic constants, outer-pilot zero-observation threshold and exact finite-n law, not the construction of the estimator. The inspected sections do not furnish these equality claims; specialized Gaussian positive-part literature may contain equivalent formulae, a retained residual risk.",
+      "searches": [
+        "antithetic MLMC nested positive part sharp Gaussian constants",
+        "Gaussian half normal difference positive part antithetic nested simulation exact law",
+        "arxiv:2308.07835v1 Sections 2 and Appendix A",
+        "arxiv:1708.05531v1 Sections 2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The examined 2023 paper reports asymptotic rates and numerical variance/kurtosis plots rather than exact all-moment constants or an arctangent finite-sample correction table.",
+        "Targeted searches did not surface a table of this particular antithetic correction’s exact finite Gaussian law or the independent-pilot threshold."
+      ],
+      "reasoning": "No matching exact numerical table or source was identified in the inspected material, but an unlocated table or standard Gaussian integral could exist. Failed searches are evidence of an unresolved priority check, not uniqueness proof.",
+      "searches": [
+        "\"nested MLMC\" \"max\" \"antithetic\" exact variance constant Gaussian",
+        "\"antithetic\" \"nested\" \"ReLU\" \"arctan\" variance Monte Carlo maximum",
+        "\"antithetic multilevel\" \"kurtosis\" \"constant\" \"Gaussian\"",
+        "\"Jensen gap\" \"antithetic\" \"asymptotic\" \"local time\" moment",
+        "arxiv:2308.07835v1 Section 5 and Appendix A"
+      ]
+    },
+    "rationale": "The directly relevant 2023 antithetic nested maximum result provides known general moment bounds and qualitative kurtosis growth; the inspected works do not give the specific positive all-order limit coefficients, exact Gaussian correction distribution, or sharp independent-pilot sample threshold. Equivalent Gaussian identities and the unavailable full 2020 initial-margin paper remain explicit possible priority overlaps, so independent priority verification is still needed.",
+    "residual_risks": [
+      "Full-text access to the relevant Bourgey–De Marco–Gobet–Zhou 2020 paper was unavailable; it might contain stronger nested-maximum specialization than the cited variance bound.",
+      "Equivalent half-normal positive-part moments might appear in earlier Gaussian probability or specialized MLMC sources.",
+      "Literature coverage is a best-knowledge search, not independent exhaustive publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same estimator and general rates are prior; inspected statements do not supply the exact constants, normal finite distribution or zero-pilot threshold",
+        "evidence": [
+          "First public 2023-08-15; Eq. (5) is the opposite-sign correction.",
+          "Prop. 2.3 offers moment upper bounds and Section 5 reports order 2^(ell/2) kurtosis without its leading constant."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2308.07835",
+        "material_read": "Introduction, Section 2 definition and Proposition 2.3, Appendix A general antithetic discussion, Section 5 numerical/kurtosis analysis, and early PDF pages",
+        "method": "ArXiv full-text examination with PDF page inspection",
+        "title": "Nested Multilevel Monte Carlo with Biased and Antithetic Sampling",
+        "trigger": "Same antithetic maximum and high-level kurtosis"
+      },
+      {
+        "assessment": "Antithetic construction and complexity prior; exact kink coefficients and finite Gaussian law not identified in examined sections",
+        "evidence": [
+          "First public 2017-08-18; problem is a maximum of conditional expected payoffs.",
+          "Analysis proves estimator complexity rather than the stated correction distribution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1708.05531",
+        "material_read": "Abstract, introduction, antithetic construction and core rate argument, with relevant PDF pages inspected",
+        "method": "ArXiv text and PDF page review",
+        "title": "Decision-making under uncertainty: using MLMC for efficient estimation of EVPPI",
+        "trigger": "Foundational antithetic nested maximum"
+      },
+      {
+        "assessment": "Heaviside payoff and adaptive inner sample count differ from continuous positive-part Jensen gap; full text was not used for a definitive no-coverage claim",
+        "evidence": [
+          "First arXiv 2018-02-14; focus is P(E[X|Y]>=0) and adaptive sampling."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1802.05016",
+        "material_read": "Abstract and indexed publication scope; full proof not assessed",
+        "method": "Public abstract and publication metadata",
+        "title": "Multilevel nested simulation for efficient risk estimation",
+        "trigger": "Close risk-estimation and nested simulation title"
+      },
+      {
+        "assessment": "Supports the known phenomenon and computational motivation; no exact constants or finite Gaussian law found in inspected pages",
+        "evidence": [
+          "Relevant discussion addresses growing kurtosis and practical pilot variance uncertainty."
+        ],
+        "identifier_or_url": "https://www.ros.hw.ac.uk/server/api/core/bitstreams/3d4f5b42-9607-4c5b-8fc2-77fb74717adb/content",
+        "material_read": "Relevant thesis pages discussing antithetic nested correction and high-level kurtosis, including PDF page 96",
+        "method": "Institutional open thesis PDF page inspection",
+        "title": "Hierarchical and Adaptive Methods for Accurate and Efficient Risk Estimation",
+        "trigger": "Discussion of nested fine-level kurtosis and pilot estimation"
+      },
+      {
+        "assessment": "UNRESOLVED: insufficient material to determine whether exact constants or finite Gaussian correction law already appear",
+        "evidence": [
+          "2023 source explicitly cites its Proposition 2.5 for a variance bound.",
+          "Complete text access was not available for a direct priority comparison."
+        ],
+        "identifier_or_url": "https://doi.org/10.1515/mcma-2020-2062",
+        "material_read": "Abstract/citation evidence only; full manuscript unavailable",
+        "method": "Available bibliographic description and citation in arXiv:2308.07835v1",
+        "title": "Multilevel Monte-Carlo methods and lower-upper bounds in Initial Margin computations",
+        "trigger": "Potential predecessor for same positive-part antithetic correction"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "061f7620-4d29-48d7-b94e-a136acb096fa",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Correction zero-inflation makes low-replication empirical variance calibration unreliable at fine nested MLMC levels; the root-n pilot threshold and its explicit constant quantify minimum nonzero-event visibility, and the finite Gaussian law provides an exact test case for allocation and variance procedures. All-moment coefficients quantify rather than merely observe the established high-kurtosis phenomenon.",
+    "status": "PASS"
+  }
+}
