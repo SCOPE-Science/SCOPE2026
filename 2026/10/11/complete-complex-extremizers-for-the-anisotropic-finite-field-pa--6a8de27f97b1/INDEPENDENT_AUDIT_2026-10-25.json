@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T19:17:53Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Pinned RESULT.md blob 4a4d4103b8785570f3184baf0a2385dcc6e14e70",
+        "Pinned verify.py blob bff71c8cc9d4110390e2cad565475b9cc64d5ef4 (inspected, not blindly executed)",
+        "González-Riquelme–Oliveira e Silva arXiv:2405.16647 Theorem 1.1 and proof §4.1; primary PDF p.18 visually checked",
+        "Fresh independent_checks.py and independent_checks.json with Smith form and field counts"
+      ],
+      "rationale": "For q odd and q≡3 mod4, −1 is nonsquare, making Q(x)=x₁²+x₂² anisotropic. The exact published q^{-2} input/q³ counting-target normalization gives best fourth-power constant 1+q^{-1}−q^{-2}, and published §4.1 yields nonzero constant modulus. In pair-sum fibers (s,t), write u=s/2+d, v=s/2−d: Q(d) is fixed, with exactly one ordered pair for radius zero and q+1 ordered pairs otherwise. The sharp proof has a sum of nonnegative fiberwise Cauchy–Schwarz deficits; equality forces f(x)f(x+a+b)=f(x+a)f(x+b) whenever a·b=0. Nonzero modulus makes D_a f well-defined; D_a f(x) is constant along a⊥ and depends only on x·a. For linearly independent a,b, B_x(a,b)=D_af(x+b)/D_af(x) depends separately on x·a and x·b, so is constant in x. For collinear a,b choose c outside F_q a and use D_bf(x)=D_cf(x)D_{b−c}f(x+c) to reduce mixed differences to independent pairs; zero increments are trivial. The resulting B(a,b) is a symmetric additive bicharacter trivial on orthogonal pairs. For fixed a≠0 it is χ_a(a·b); linear independence of a,a′ and surjectivity of b↦(a·b,a′·b) show χ_a=χ_a′=χ_{a+a′}, and a third vector connects collinear a’s. Thus B(a,b)=ψ(δ a·b) for one δ∈F_q. Divide f by ψ((δ/2)Q) to get a linear character times λ, giving precisely ψ(αu₁+βu₂+γQ(u)). Conversely target translations by (α,β,γ) preserve the full L⁴ sum, so all chirps saturate. Equality of projective chirps implies their second-difference δ vanishes, then their first differences vanish; trace pairing nondegeneracy proves q³ distinct classes. This covers q=3, nonprime extension fields, λ≠0, and all odd q≡3 mod4. Independent checks: exact unordered pair-fiber cardinalities and phase linear constraints at p=3,7 give mod-p ranks 5,45; p=3 integer Smith normal form has rank 8 and invariant factors 3,3,3, yielding exactly 27 projective solutions; normalized fourth moments from exact pair counts equal 1+1/p−1/p². Finite tests corroborate but are not the general proof.",
+      "residual_risks": [
+        "The published sharp norm/amplitude result is a premise, not reproved here from first principles; its hypotheses and normalization were checked.",
+        "The finite tests do not establish the theorem for all q; the algebraic mixed-difference and character arguments provide that step.",
+        "No formal Lean proof, external expert attestation or claim of absolute publication priority."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "González-Riquelme–Oliveira e Silva prove a broader-in-q sharp inequality but weaker anisotropic equality conclusion: constant modulus only (PDF p.18, (4.3)–(4.6)).",
+          "Their Theorem 1.2 complex maximizers assumes q≡1 modulo 4, opposite to the present hypothesis.",
+          "González-Riquelme–Ismoilov classify extremizers for cones Γ_(2,2) and Γ_(3,1), not the graph paraboloid.",
+          "Ronda 2026 Theorems 1.2/1.4 concern nondegenerate homogeneous quadratic level sets; a paraboloid has a degenerate homogeneous quadratic part and a linear t term, so the full phase result is not a corollary."
+        ],
+        "reasoning": "Neither a sharp norm nor the necessity of flat amplitude determines every complex phase. The older isotropic proof cannot be specialized to q≡3, where −1 is nonsquare. General quadratic-surface geometry does not imply the phase census under a different rank and affine type.",
+        "searches": [
+          "arXiv:2405.16647 Theorems 1.1–1.4 and §4.1",
+          "arXiv:2509.05600 §1.2, main cone theorems",
+          "arXiv:2609.13023 introduction §1 and Theorems 1.2/1.4",
+          "Web: Sharp L2 to L4 extension inequality for quadratic surfaces in finite fields Ronda maximizers paraboloid",
+          "Resultary: Sharp L2 to L4 Fourier extension paraboloid anisotropic all complex maximizers equality case prime powers"
+        ]
+      },
+      "checked_sources": [
+        "González-Riquelme and Oliveira e Silva, arXiv:2405.16647 Theorems 1.1–1.2, §4.1",
+        "González-Riquelme and Ismoilov, arXiv:2509.05600 §1.2, main theorems",
+        "Pedro Ronda, arXiv:2609.13023 §1, main theorems, §7",
+        "Resultary semantic exact finding and nearest sphere/conic/curve results",
+        "Orthogonally additive real inner-product functional equation papers DOI 10.1186/1687-1812-2011-66 and 10.1155/2012/675810 (search-level only)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.1 of arXiv:2405.16647 supplies the strict amplitude necessity but no phase-character theorem for q≡3.",
+          "Theorem 1.2 there assumes q≡1; the 2025 cone paper explicitly distinguishes the missing paraboloid complex-phase question.",
+          "The orthogonal-rectangle-to-bicharacter argument is an additional needed mathematical implication reconstructed from actual RESULT.md."
+        ],
+        "reasoning": "Given constant modulus, fiberwise equality forces orthogonal parallelogram products. Deriving a global symmetric bicharacter and one field scalar δ is the additional substantive step; none of the inspected stronger claims simultaneously states or implies it for q≡3 paraboloids. A future identification of a dominating finite-field orthogonality theorem could alter priority.",
+        "searches": [
+          "arXiv:2405.16647 §4.1 equations (4.3)–(4.6) and Theorem 1.2",
+          "arXiv:2509.05600 introduction §1.2 and theorem statements",
+          "arXiv:2609.13023 Theorem 1.2/1.4 and §7",
+          "Web: orthogonally additive maps finite field complex quadratic character orthogonal rectangle"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Resultary exact match 2026/10/11/SCOPE-complete-complex-extremizers-for-the-anisotropic-finite-field-pa--6a8de27f97b1 is this finding, not independent antecedent.",
+          "arXiv:2405.16647 Theorem 1.1 and §4.1 contain sharp constant and amplitude constraint, not all phases.",
+          "arXiv:2509.05600 §1.2 notes that paraboloid complex phase classification was available only for q≡1 modulo 4.",
+          "Search results on orthogonally additive mappings (DOI 10.1186/1687-1812-2011-66; 10.1155/2012/675810) concern additive/quadratic functional equations over real inner-product spaces or orthogonality abstractions, not the same finite-field Fourier equality locus."
+        ],
+        "reasoning": "Aliases include equality in paraboloid L²→L⁴ finite-field extension, orthogonal parallelogram-product rigidity and quadratic trace-character phase classification. The precise q≡3 branch and full F_q, including proper extension fields, were compared. No independent equivalent theorem found; abstract finite-difference tools could supply an intermediate lemma but are not shown to dominate the whole finding.",
+        "searches": [
+          "Resultary: Complex extremizers sharp finite field two-dimensional paraboloid q congruent 3 mod 4 additive quadratic characters all phases classification",
+          "Resultary: Orthogonal rectangle multiplicative phase functional equation anisotropic quadratic finite field f(x) f(x+a+b)=f(x+a) f(x+b) quadratic character extremizers",
+          "Web: finite field paraboloid q 3 mod 4 extremizers complex quadratic chirps all phases classification",
+          "Web: orthogonal parallelogram phase equation finite field quadratic character functional equation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed exact mirror belongs to this assigned result.",
+          "Nearby Resultary records on anisotropic spheres and planar quadratic conics have different frequency surfaces and equality fibers; neither gives this graph-paraboloid table.",
+          "An independent exact Smith-normal-form computation gives 27 projective unit phases for p=3, corroborating, but this is a check of the present finding and not an independent prior database."
+        ],
+        "reasoning": "No independent exact q³ count or table for the same paraboloid equality locus was located. An unsuccessful search does not establish novelty.",
+        "searches": [
+          "Resultary: Complex extremizers sharp finite field two-dimensional paraboloid q congruent 3 mod 4 additive quadratic characters all phases classification",
+          "Resultary: Sharp L2 to L4 Fourier extension paraboloid anisotropic all complex maximizers equality case prime powers",
+          "Web: finite field paraboloid q congruent 3 mod4 maximizers quadratic exponential characters all phases",
+          "Web: quadratic paraboloid finite field phase extremizer counting table q3 q7"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the COMPLETE complex-phase classification in the anisotropic q≡3 (mod 4) branch. González-Riquelme–Oliveira e Silva, arXiv:2405.16647 Theorem 1.1 proves the sharp constant and constant-modulus necessity; their Theorem 1.2 is restricted to q≡1 (mod 4), and §4.1 ends before classifying anisotropic phases. González-Riquelme–Ismoilov arXiv:2509.05600 §1.2 explicitly says the paraboloid complex phase issue had only been settled in the opposite congruence class; its theorems concern four-dimensional punctured cones. Ronda arXiv:2609.13023 treats nondegenerate homogeneous quadratic level sets (spheres/cones), not the rank-two quadratic graph with linear t term, and establishes constant modulus rather than this phase census. Older orthogonally additive functional equations may overlap a lemma but no actual checked theorem implies the exact q³ projective finite-field extremizer classification. The exact indexed mirror is not prior independent coverage. Nonappearance in searches is not priority proof.",
+      "residual_risks": [
+        "An unindexed exact finite-field orthogonal-rectangle rigidity theorem might imply the new phase classification after known equality equations; no such dominating statement was found in checked sources.",
+        "General source searches cannot certify absolute publication priority.",
+        "The older orthogonality functional-equation papers were discovered at search/abstract level, not ruled out by full-text inspection; they concern different domains in the available abstracts."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies original sharp inequality and constant-modulus necessity for both congruence classes; only proves full phase class for q≡1; does not state the q≡3 classification",
+          "evidence": [
+            "Theorem 1.1 PDF p.2; Theorem 1.2 p.3; §4.1 PDF p.18 final paragraph"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2405.16647",
+          "material_read": "Theorems 1.1–1.2, introduction, proof §4.1 (4.3–4.6), beginning of §4.2, and relevant geometry and equality discussion",
+          "method": "Primary 34-page PDF text search/read; visually inspected PDF pages 2 and 18",
+          "title": "Sharp extension inequalities on finite fields",
+          "trigger": "Exact frequency surface, normalization, sharp endpoint and necessary equality condition"
+        },
+        {
+          "assessment": "§1.2 says earlier paraboloid phase classification was settled only q≡1; current main objects are punctured four-dimensional cones",
+          "evidence": [
+            "§1.2 PDF p.2 paragraph before main results; §1.3"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2509.05600",
+          "material_read": "Abstract, introduction §1.2–§1.3, main theorem statements and surface definitions",
+          "method": "Primary 17-page PDF text read; visually inspected p.2",
+          "title": "Maximizers of the L²→L⁴ Fourier extension inequality for cones in finite fields",
+          "trigger": "Later primary paper by original author expressly discussing remaining complex-phase questions"
+        },
+        {
+          "assessment": "Surfaces are homogeneous nondegenerate level sets/spheres and cones, not rank-two graph paraboloid; results establish constant modulus and do not classify its q≡3 phases",
+          "evidence": [
+            "Introduction §1 first paragraphs; Theorems 1.2/1.4; §7"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.13023",
+          "material_read": "Available full-text HTML introduction, definitions, theorems 1.2–1.4, proof sections 5–7 and discussion of maximizers",
+          "method": "Full-text arXiv rendered HTML inspection; PDF request inaccessible, did not infer noncoverage from abstract",
+          "title": "Sharp L²→L⁴ extension inequality for quadratic surfaces in finite fields",
+          "trigger": "September 2026 primary paper with apparently broader quadratic-surface title"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and its relationship-to-prior-work scope",
+        "González-Riquelme–Oliveira e Silva arXiv:2405.16647 §4.1 stops at constant modulus for anisotropic fields",
+        "González-Riquelme–Ismoilov arXiv:2509.05600 §1.2 identifies the missing complex phase classification"
+      ],
+      "rationale": "The exact complex equality locus for the anisotropic half of the sharp endpoint paraboloid inequality is a natural structural problem left by the known constant and constant-modulus result. A modulus constraint leaves a huge torus of possible phases; the theorem instead proves complete rigidity to three field parameters and counts exactly q³ projective extremizers for every relevant prime power. This is a motivated natural classification of all optimizers, not merely another sharp norm, finite-table recomputation, arbitrary parameter slice or textbook substitution. The phase-rigidity argument uses orthogonal finite differences and bilinear character geometry and is independently useful to researchers analyzing equality/stability.",
+      "residual_risks": [
+        "Does not extend to isotropic q≡1 fields, other surfaces or near-extremizer quantitative stability.",
+        "A completely dominating older algebraic classification, if found, could affect originality and hence research value."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Absolute priority cannot be certified from finite literature search; explicit residual risks recorded.",
+    "No formal proof assistant or human expert attestation.",
+    "The original package contains private provenance markers requiring sanitization before public publication."
+  ],
+  "schema_version": 1
+}
