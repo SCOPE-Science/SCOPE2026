@@ -1,0 +1,9 @@
+# Review
+
+**Correctness — PASS.** Restricting the quadratic form to a random orthogonal plane yields an exact cone inequality; independent Haar coordinates give the CDF. Dominated convergence proves the upper-end square-root coefficient; strict monotonicity of the complete elliptic integral reconstructs the remaining semiaxis. The proof checks endpoints, positivity, normalizations, and the difference between diameter and half-diameter. Standalone direct-eigenvalue tests and quadrature agree. Risk: numerical checks are supplementary, not the proof.
+
+**Originality — PASS for the inverse-identification statement, with historical priority provisional.** The Dixon–Anderson kernel already determines the entire joint compressed-eigenvalue law; **the raw CDF is not independently novel** and is merely the calculation used in the inverse proof. What is asserted here is the stronger observation-efficiency statement: one *marginal* radius law, and indeed two support endpoints and one tail coefficient, reconstruct all three axes. The inspected orbital-kernel, random-radius, and stereology sources do not state this inverse reduction. The closest related inversion uses different section statistics. Risk: older matrix-spectral or stereological literature could contain an equivalent scalar inverse calculation.
+
+**Value — PASS.** Recovering the complete triaxial shape from just one one-dimensional random-section measurement distribution is a natural inverse-stereology question. The theorem supplies three explicit reconstructive statistics and an evaluable formula rather than only general concentration bounds. Its sharp endpoint coefficient is structurally necessary in the reconstruction; arbitrary numerical parameters or a routine special case are not the contribution. Risk: practical finite-sample tail estimation is not analyzed.
+
+Self-review: passed. Independent audit: not yet performed.
