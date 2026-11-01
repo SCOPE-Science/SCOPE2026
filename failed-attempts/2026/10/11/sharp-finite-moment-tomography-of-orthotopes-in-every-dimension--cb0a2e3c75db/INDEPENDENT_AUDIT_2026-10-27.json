@@ -1,0 +1,203 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:12:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob d88ed4e5f8fbef61b55169e663ab9e7785c623d2 (all sections and proof)",
+        "Assigned verify.py Git blob 552dcf91e5cbc98708a3bd0784c0ed907a5c28e3 (algorithm read; no opaque repository script executed)",
+        "Independent private independent_orthotope_check.py and independent_orthotope_results.json (bounded symbolic regression)",
+        "Omri Abas, Width Laws and Spectral Geometry: Universality, Geometric Memory, and Reconstruction (arXiv:2608.06348v1, submitted 2026-08-06)",
+        "Beauzamy 1999 polynomial root stability theorem summary"
+      ],
+      "rationale": "Verified the exact statement for all fixed d≥2, positive side lengths and Haar sphere U. For q_i=∏_{j≠i}a_j>0, the orthotope facet formula gives B_Q(U)=Σq_i|U_i| and the positive bijection a_i=(∏q_j)^{1/(d−1)}/q_i. Gaussian polar independence G=RU yields h_k=E||G||^k m_k, with E||G||^k=2^{k/2}Γ((d+k)/2)/Γ(d/2). For half-normal X=|N(0,1)|, log M_X(z)=z²/2+log(1+tF(z)), t=√(2/π) transcendental and F(z)=z+O(z³)∈Q[[z]]; the k-th cumulant has nonzero degree-k coefficient (−1)^{k−1}(k−1)!t^k, proving κ_k≠0 for EVERY k without extrapolation. Cumulant additivity gives K_k=κ_k Σq_i^k; Newton identities recover all positive q roots from the first d moments. Constant-term perturbations of distinct-root polynomials yield continuous positive noncongruent q families with identical first d−1 moments. Smooth bounded moment-to-coefficient conversion plus the polynomial-root matching theorem/Rouché argument yield a uniform 1/d Hölder bound on side intervals [ℓ,L]; Vandermonde invertibility yields local Lipschitz at distinct facets; scaled pairs near q=(1,…,1) with equal lower symmetric functions and differing e_d by Θ(ε^d) force optimal exponent exactly 1/d. All normalization, repeated-root cases, and side-bound dependences are consistent. Independent symbolic checker confirmed 11 leading half-normal cumulant coefficients, the positive facet/side inverse for dimensions 2..8, a real cubic constant-term perturbation, and reconstructed the exact seven-entry Git source tree; these bounded checks are not proofs of universal statements.",
+      "residual_risks": [
+        "The analytic proof uses established transcendence of π and classic complex-root matching; the finite symbolic checker does not establish all dimensions.",
+        "No finite-sample, nonorthogonal or orientation-recovery guarantee; constants may grow with d and with ℓ/L."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas 2026 Theorem 3.5 provides full d-dimensional first-d moment recovery and Proposition 3.6 provides the first-(d−1) counterfamily at all distinct positive vectors.",
+          "Abas §3.4 independently proves every cumulant of |N(0,1)| is nonzero from a nonzero polynomial in t=√(2/π), top coefficient (−1)^{k−1}(k−1)!, and transcendence of π.",
+          "Beauzamy (1999) describes Ostrowski degree-d root-matching Hölder exponent 1/d, sharp in general, and Lipschitz stability of simple roots. This applies after the prior analytic moment-to-polynomial coefficient inversion."
+        ],
+        "reasoning": "The stronger width-moment theorem covers the central reconstruction/minimality and the exact nonstandard cumulant lemma; general polynomial coefficient-root stability covers the quantitative exponent upper bound. The submitted near-cube sharpness is elementary from Abas Proposition 3.6 under q=1+εu and a second constant-term perturbation family, yielding moment distance Θ(ε^d) and side distance Θ(ε). The exact compact constant is not provided in prior but follows by bounded smooth coefficient maps; it is not a newly independent structural result.",
+        "searches": [
+          "Resultary search: random projections hyperrectangle brightness tomography moment reconstruction uniqueness stability",
+          "Web search: shape from random projections projection area distributions box inverse geometric tomography",
+          "Web search: Ostrowski theorem root continuity coefficient perturbation 1/n Holder sharp polynomial roots",
+          "arXiv:2608.06348v1 Theorem 3.5 and Proposition 3.6",
+          "Beauzamy 1999 DOI:10.4153/CMB-1999-001-6"
+        ]
+      },
+      "checked_sources": [
+        "Frozen assigned Git source tree c703eb66d4b19df069b6110dc905beb891776949, all seven source blobs inspected; RESULT.md sha d88ed4e5f8fbef61b55169e663ab9e7785c623d2",
+        "Omri Abas, Width Laws and Spectral Geometry: Universality, Geometric Memory, and Reconstruction (arXiv:2608.06348v1, submitted 2026-08-06)",
+        "https://www.researchgate.net/publication/411823813_Width_Laws_and_Spectral_Geometry §§2,3.4",
+        "Omri Abas, Width distributions for rectangular boxes, arXiv:2608.03305v1 (abstract only)",
+        "Bernard Beauzamy, How the Roots of a Polynomial Vary with its Coefficients: A Local Quantitative Result, Canadian Mathematical Bulletin 42 (1999), 3–12",
+        "A. G. Walters, The distribution of projected areas of fragments, Proceedings of Cambridge Philosophical Society 43 (1947), 342–347 (cited by Abas; original full text not independently inspected)",
+        "Paouris–Pivovarov–Zinn, A central limit theorem for projections of the cube, arXiv:1210.7012v2",
+        "Kim–Yaskin–Zvavitch, Distribution functions of sections and projections of convex bodies, arXiv:1512.07289v1",
+        "Kabluchko–Litvak–Zaporozhets, Mean width of regular polytopes and expected maxima of correlated Gaussian variables, arXiv:1511.08479v3",
+        "Resultary: 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928 (distinct 2D affine-angle data)",
+        "Resultary: 2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d (random planar shadows, not hyperplane volume in general)",
+        "Resultary: 2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed (different body and section statistic)",
+        "Independent symbolic verification: independent_orthotope_check.py, independent_orthotope_results.json"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "B_Q(U)=W_q(U) and q→a positive bijection; Gaussian moments E(Σq_i|G_i|)^k=E||G||^k m_k; Abas §3.4 equation (3.11) recovers the power sums from nonzero half-normal cumulants.",
+          "Abas Theorem 3.5 + Newton identities implies exact reconstruction of the q multiset, hence the a multiset; Proposition 3.6 constant-term perturbation implies exactly first d−1 moments nonidentifying at distinct q.",
+          "The submitted critical top-degree coefficient argument (−1)^{k−1}(k−1)! t^k with transcendental t is explicitly present already in Abas §3.4.",
+          "Classical Ostrowski matched-root modulus ||roots(P)−roots(P′)||≤C||coeff(P)−coeff(P′)||^{1/d}, and simple-root Lipschitz; coefficient maps of first d moments are smooth on compact side bounds.",
+          "For any fixed distinct real u_i and v_i roots of ∏(z−u_i)+τ with small τ≠0, q_i=1+εu_i and q′_i=1+εv_i have matching first d−1 moments and last-moment difference Θ(ε^d), while positive side tuples differ Θ(ε), proving no Hölder exponent >1/d near a cube."
+        ],
+        "reasoning": "Each hypothesis and quantifier transfers, not merely title/constant: the dimension d, sphere law, positivity, unordered reconstruction and first-d−1 generic impossibility all agree after the explicit q parameter substitution. The only extra quantitative conditioning is the standard multiple-polynomial-root loss with the known low-moment perturbation scaled toward a repeated root. Thus the original complete final claim is mathematically covered by earlier results and standard immediate consequences.",
+        "searches": [
+          "arXiv:2608.06348v1 §3.4 Gaussian half-normal reconstruction and generic necessity",
+          "Web search: half normal cumulants nonzero every order",
+          "Web search: weighted sum independent folded normal distribution identifiability coefficients moments",
+          "Web search: roots of polynomial map coefficients Hölder exponent 1/n optimal multiple roots",
+          "Beauzamy 1999 DOI:10.4153/CMB-1999-001-6",
+          "A. G. Walters (1947) via inspected Abas 2026 introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Assigned Cauchy brightness identity B_Q(U)=Σq_i|U_i| (RESULT.md §1), with q_i=∏_{j≠i}a_j and inverse a_i=(∏q_j)^{1/(d−1)}/q_i.",
+          "Abas 2026 §2 equation (2.1) defines random width W_b(U)=Σb_i|U_i| for every d-dimensional orthotope; taking b=q gives equality of random variables pointwise in U.",
+          "Abas 2026 introduction explicitly identifies three-dimensional rectangular-box projected area with a width law after bijective facet-area parameterization, and §3.4 extends width inverse to all d."
+        ],
+        "reasoning": "Despite different observable names (codimension-one projected volume versus one-dimensional directional width) the exact spherical random variables are identical after the invertible positive facet-area substitution. The first d moments, all quantifiers and generic ambiguity correspond exactly; it is not a merely analogous formula.",
+        "searches": [
+          "Resultary search: orthotope rectangular box projection volume random direction first d moments determine side lengths cumulants half normal sharp stability",
+          "Web search: random projections orthotope moments recover side lengths first d moments",
+          "Web search: cuboid brightness distribution moments determine dimensions rectangular parallelepiped",
+          "arXiv:2608.06348v1 §2 Eq. (2.1), §3.4 Theorem 3.5",
+          "arXiv:2608.03305v1 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary already indexes the exact named assigned record but no separate unpublished experimental table is relied upon.",
+          "Resultary orthotope planar-shadow second-moment study concerns different projection codimension; the ellipsoid central-section moment inverse concerns another family and another statistic.",
+          "Abas arXiv:2608.06348v1 is an explicit complete general theorem, not merely a finite table, and dominates any finite box numerical matches."
+        ],
+        "reasoning": "A database/table exact match is not necessary for rejection because a stronger fully inspected primary theorem gives a literal mathematical implication. No table search miss is used to infer novelty; method is statement and parameter comparison.",
+        "searches": [
+          "Resultary search: half normal distribution cumulants all orders nonzero folded normal independent weighted sums inverse moments",
+          "Resultary search: orthotope rectangular box projection volume random direction first d moments determine side lengths cumulants half normal sharp stability",
+          "Resultary: 2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d",
+          "Resultary: 2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed",
+          "Web search: orthotope width moment inverse Hölder stability root perturbation exponent 1/d Abas"
+        ]
+      },
+      "rationale": "A genuinely prior primary paper by Omri Abas (arXiv:2608.06348v1, submitted 2026-08-06) proves essentially the same all-dimensional finite moment reconstruction and generic sharp moment count, plus the SAME all-order nonvanishing of standard half-normal cumulants by the transcendence-of-pi highest-degree polynomial argument. By exact zonotope/Cauchy facet formula B_Q(U)=sum_i q_i|U_i|=W_q(U), with q_i=prod_{j!=i}a_j and a_i=(prod_j q_j)^(1/(d−1))/q_i, the submitted brightness distribution is the previously solved orthotope width distribution under a smooth bijective parameter change. Abas Theorem 3.5 proves first d moments recover q; Proposition 3.6 proves d−1 fail generically. The remaining compact-uniform 1/d Hölder continuity and simple-root Lipschitz property follow from classical polynomial-root perturbation estimates (Ostrowski, documented by Beauzamy 1999), and its near-cube optimality from the same scaled constant-term perturbation. Thus no independently novel final all-dimensional tomography theorem survives. This is demonstrated implication, not inference from shared titles or search absence.",
+      "residual_risks": [
+        "Abas 2026 is a publicly available preprint, not claimed peer reviewed; its 2026-08-06 arXiv posting predates the 2026-10-11 assigned research package and directly covers the reconstruction, moment-count minimality, and half-normal nonvanishing argument.",
+        "The assigned compact-interval 1/d stability and near-cube sharpness are not stated verbatim in inspected Abas §3.4, but coefficient-to-root 1/d continuity and local simple-root Lipschitz bounds are classical (Ostrowski/Beauzamy). The near-cube sharpness follows by the same constant-term polynomial perturbation as Abas Proposition 3.6, scaled toward a multiple root; no independent new inverse invariant remains.",
+        "The original 1947 Walters full text and the 2026 three-dimensional companion full text were not independently read; stronger arXiv:2608.06348 full relevant proofs make this access limitation nondecisive.",
+        "Finite symbolic checks of 11 cumulant orders, dimensions 2..8 and one cubic root-perturbation family cannot prove an all-dimensional theorem; the PASS rests on reconstructing the analytical all-order transcendence argument, Gaussian factorization, Newton identities and Rouché/polynomial-root continuity.",
+        "Exact population moments only; no finite-sample statistics, arbitrary oblique parallelepipeds, or labeled-orientation recovery is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT_PRIOR_COVERAGE_OF_RECONSTRUCTION_MINIMALITY_AND_NONVANISHING",
+          "evidence": "Equation (2.1): W_b(U)=sum_i b_i|U_i|. §3.4 shows cumulant K_k=κ_k(|G|)sum_i b_i^k and proves κ_k(|G|) nonzero via the coefficient (-1)^(k-1)(k-1)!t^k, t=sqrt(2/pi), π transcendental. Theorem 3.5 recovers all b_i from the first d width moments; Proposition 3.6 proves d−1 generically insufficient with constant-term polynomial perturbation. The assigned brightness B_Q(U)=W_q(U) exactly, q_i=prod_{j neq i} a_j, with invertible positive transformation q→a.",
+          "identifier_or_url": "arXiv:2608.06348v1; https://www.researchgate.net/publication/411823813_Width_Laws_and_Spectral_Geometry",
+          "material_read": "Complete relevant mathematical argument in §§2 and 3.4 including definition (2.1), Gaussian radial factorization Lemma 2.2, half-normal nonvanishing polynomial proof, Theorem 3.5 and full proof, Proposition 3.6 and full proof, relevant introduction and stated limitations. Not a claim that all 68 pages were read line by line.",
+          "method": "Lawful open-access author full text served as HTML; sections and proofs read directly, with arXiv submission date crosschecked.",
+          "title": "Width Laws and Spectral Geometry: Universality, Geometric Memory, and Reconstruction",
+          "trigger": "Same dimension-independent orthotope, exact first-d width moments, cumulant nonvanishing and generic first-(d−1)-moment failure; exact distributional equivalence to submitted brightness observable."
+        },
+        {
+          "assessment": "ABSTRACT_LEVEL_3D_PRECURSOR_CONSISTENT_WITH_STRONGER_INSPECTED_COVERAGE",
+          "evidence": "Abstract explicitly identifies random rectangular-parallelepiped projected area under a bijective parameter change with random box width, and first-three-cumulant recovery in dimension 3.",
+          "identifier_or_url": "arXiv:2608.03305v1; https://arxiv.org/abs/2608.03305",
+          "material_read": "Abstract and public bibliographic record only; primary full article was not accessible during bounded retrieval. Not used as evidence about uninspected sections.",
+          "method": "arXiv abstract, published 2026-08-04; attempted lawful arXiv HTML endpoint returned DisabledError. Full relevant all-dimensional successor inspected separately.",
+          "title": "Width distributions for rectangular boxes",
+          "trigger": "Earlier same-object three-dimensional projected-area/width equivalence and cumulant inversion."
+        },
+        {
+          "assessment": "BACKGROUND_NOT_REQUIRED_FOR_DECISIVE_COVERAGE",
+          "evidence": "Theorem 1.1 is a high-dimensional projection-volume central limit theorem for cubes with projected dimension held fixed; it does not itself assert finite inverse reconstruction of variable side-length vectors.",
+          "identifier_or_url": "arXiv:1210.7012v2; https://arxiv.org/html/1210.7012v2",
+          "material_read": "Main theorem and introductory comparison; §2 mixed-volume and projection identities.",
+          "method": "Open-access arXiv HTML article, direct theorem/definition inspection.",
+          "title": "A central limit theorem for projections of the cube",
+          "trigger": "Random high-dimensional cube projection moments and Gaussian-projection relations."
+        },
+        {
+          "assessment": "BACKGROUND_GENERAL_BODY_INFORMATION",
+          "evidence": "General-body distribution comparisons do not identify the exact first d moments of the orthotope subfamily; not used as decisive coverage.",
+          "identifier_or_url": "arXiv:1512.07289v1; https://arxiv.org/html/1512.07289v1",
+          "material_read": "Article introduction and the statements concerning section/projection distribution functions, relevant convex-body examples.",
+          "method": "Open-access arXiv HTML inspected in targeted sections.",
+          "title": "Distribution functions of sections and projections of convex bodies",
+          "trigger": "Unlabeled projection distribution identification and general-body nonuniqueness."
+        },
+        {
+          "assessment": "KNOWN_GAUSSIAN_MOMENT_INGREDIENTS",
+          "evidence": "Gaussian widths and higher moments were known, but the definitive all-dimensional first-d inverse theorem was identified more directly in Abas 2026.",
+          "identifier_or_url": "arXiv:1511.08479v3; https://arxiv.org/html/1511.08479v3",
+          "material_read": "Introduction, main claims and §3 higher moment representation for regular polytope widths.",
+          "method": "Open-access arXiv HTML, direct formula/section inspection.",
+          "title": "Mean width of regular polytopes and expected maxima of correlated Gaussian variables",
+          "trigger": "Prior spherical-to-Gaussian moment identities and cube width formulas."
+        },
+        {
+          "assessment": "CLASSICAL_ROOT_CONTINUITY_COVERS_STABILITY_MECHANISM",
+          "evidence": "Beauzamy states Ostrowski already bounds matched degree-d roots by C times coefficient error to power 1/d, with sharp examples, and gives Lipschitz improvement for simple roots. In this submission moments map analytically with bounded derivatives to monic polynomial coefficients, which is exactly the hypothesis of that standard estimate.",
+          "identifier_or_url": "DOI:10.4153/CMB-1999-001-6; https://geodesic.mathdoc.fr/articles/10.4153/CMB-1999-001-6/",
+          "material_read": "Published article abstract and theorem summary, not full body.",
+          "method": "Publisher and journal-archive bibliographic abstracts cross-checked with a published statement of Ostrowski coefficient-to-root perturbation theorem.",
+          "title": "How the Roots of a Polynomial Vary with its Coefficients: A Local Quantitative Result",
+          "trigger": "Could the alleged new 1/d sharp Hölder inverse exponent and local simple-root Lipschitz behavior be standard polynomial-root conditioning?"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "Omri Abas 2026 arXiv:2608.06348 §§2,3.4 Theorem 3.5 and Proposition 3.6",
+        "Bernard Beauzamy 1999 root coefficient perturbation stability (Ostrowski theorem)",
+        "Assigned RESULT.md sections Quantitative stability, Optimal exponent at cubes"
+      ],
+      "rationale": "Reconstructing a positive d-parameter orthotope from d isotropic scalar moments and quantifying near-cube instability are natural inverse-geometry questions. However this precise first-d reconstruction, generic d−1 sharpness and the critical half-normal cumulant nonvanishing proof are all established in the earlier Abas 2026 all-dimensional width paper, whose random observable is EXACTLY the same after an invertible facet-area substitution. The residual 1/d continuity is a standard Ostrowski degree-d polynomial-root bound following mechanically from that published reconstruction, and local simple-root Lipschitz continuity is equally standard. The near-cube exponent witness is a routine scaled version of the published constant-term perturbation. There is no independently undetermined exact invariant, motivated structural lemma or new boundary theorem remaining to carry mathematical value as a research claim; correctness and reproducibility alone do not change this. The result remains a valid restatement/conditioning exercise useful for exposition.",
+      "residual_risks": [
+        "A specialized statistical estimator with explicit optimal constants or noisy data bounds could be valuable, but no such theorem is claimed or proved in the submitted package.",
+        "The quantitative root estimate is a useful corollary yet does not independently overcome full earlier coverage of the stated inverse theorem."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Frozen assigned Git source tree c703eb66d4b19df069b6110dc905beb891776949, all seven source blobs inspected; RESULT.md sha d88ed4e5f8fbef61b55169e663ab9e7785c623d2",
+    "Omri Abas, Width Laws and Spectral Geometry: Universality, Geometric Memory, and Reconstruction (arXiv:2608.06348v1, submitted 2026-08-06)",
+    "https://www.researchgate.net/publication/411823813_Width_Laws_and_Spectral_Geometry §§2,3.4",
+    "Omri Abas, Width distributions for rectangular boxes, arXiv:2608.03305v1 (abstract only)",
+    "Bernard Beauzamy, How the Roots of a Polynomial Vary with its Coefficients: A Local Quantitative Result, Canadian Mathematical Bulletin 42 (1999), 3–12",
+    "A. G. Walters, The distribution of projected areas of fragments, Proceedings of Cambridge Philosophical Society 43 (1947), 342–347 (cited by Abas; original full text not independently inspected)",
+    "Paouris–Pivovarov–Zinn, A central limit theorem for projections of the cube, arXiv:1210.7012v2",
+    "Kim–Yaskin–Zvavitch, Distribution functions of sections and projections of convex bodies, arXiv:1512.07289v1",
+    "Kabluchko–Litvak–Zaporozhets, Mean width of regular polytopes and expected maxima of correlated Gaussian variables, arXiv:1511.08479v3",
+    "Resultary: 2026/10/11/SCOPE-three-unlabeled-width-statistics-reconstruct-a-parallelogram-wit--dcfda0360928 (distinct 2D affine-angle data)",
+    "Resultary: 2026/10/11/SCOPE-exact-planar-shadow-area-moments-for-all-orthotopes--0d2368f94d4d (random planar shadows, not hyperplane volume in general)",
+    "Resultary: 2026/10/11/SCOPE-sharp-finite-moment-reconstruction-of-ellipsoid-axes-from-unorie--dce61c5feeed (different body and section statistic)",
+    "Independent symbolic verification: independent_orthotope_check.py, independent_orthotope_results.json"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Abas 2026 is a publicly available preprint, not claimed peer reviewed; its 2026-08-06 arXiv posting predates the 2026-10-11 assigned research package and directly covers the reconstruction, moment-count minimality, and half-normal nonvanishing argument.",
+    "The assigned compact-interval 1/d stability and near-cube sharpness are not stated verbatim in inspected Abas §3.4, but coefficient-to-root 1/d continuity and local simple-root Lipschitz bounds are classical (Ostrowski/Beauzamy). The near-cube sharpness follows by the same constant-term polynomial perturbation as Abas Proposition 3.6, scaled toward a multiple root; no independent new inverse invariant remains.",
+    "The original 1947 Walters full text and the 2026 three-dimensional companion full text were not independently read; stronger arXiv:2608.06348 full relevant proofs make this access limitation nondecisive.",
+    "Finite symbolic checks of 11 cumulant orders, dimensions 2..8 and one cubic root-perturbation family cannot prove an all-dimensional theorem; the PASS rests on reconstructing the analytical all-order transcendence argument, Gaussian factorization, Newton identities and Rouché/polynomial-root continuity.",
+    "Exact population moments only; no finite-sample statistics, arbitrary oblique parallelepipeds, or labeled-orientation recovery is assessed."
+  ],
+  "schema_version": 1
+}
