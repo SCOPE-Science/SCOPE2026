@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Exact reproducibility
 
-Execute `python3 verify.py` using Python 3 and its standard library. The program checks the 30-state complete carry transducer; every zero-tail fixed-point equation; the exact correlation at unit spacing; all 16 possible low-five-bit odd prefixes; both exceptional affine branches (including both parity phases); all stable-sign identities on the unrestricted parameter half-line \(t\geq7\); and supplementary exact binary-prefix comparisons at 14 lags.
+# Independent mathematical audit
 
-Expected result begins with `VERIFY_OK` and prints the sample odd correlations \(C(3)=-1/8\), \(C(5)=-1/8\), \(C(7)=3/16\), \(C(9)=-1/16\), \(C(11)=-1/32\), \(C(13)=-7/32\), \(C(15)=7/32\), and \(C(17)=3/32\).
+## correctness
 
-The claimed infinitely many spacings are covered by exactly checked finite-state closure and the symbolic induction; 14 finite comparisons are only supplementary. The original Rudin–Shapiro sequence, normalization, Cesàro convention and dependence shape are specified in `RESULT.md`. No independent audit has been performed.
+PASS
+
+The one-sided Rudin–Shapiro sign recursion r(2n)=r(n), r(2n+1)=(-1)^n r(n), and the four equally spaced factors give exact dyadic invariance C(2h)=C(h). The actual package verify.py defines a 30-state carry/sign transducer with three addition carries and four previous bits. I independently reimplemented its state graph: exactly 30 reachable states, exact zero-digit three-step dual stationary functional T0* f3=2f3, bounded terminal dual |f3|<=8, and exact C(1)=-1/2. All 16 odd five-bit prefixes have norm partition >16 iff prefixes 1,31, =16 iff 15,17; those boundary prefixes contract on either next spacing bit. The only two exceptional eventual constant-bit branches obey independently recomputed explicit affine vector recurrences and norm identities, including stable signs for every integer parameter t>=7; their departure contracts to strictly below 1/2 even under mandatory zero padding. Therefore no finite cutoff is substituted for the all-h bound, and the equality set is exactly powers of two. Direct independent exact terminal correlations for 150 additional odd gaps (3..299) corroborate this unrestricted proof. C is defined only for four arithmetic-progression sites and Cesàro average on the balanced Rudin–Shapiro subshift.
+
+## originality
+
+PASS
+
+Mazáč (2022) gives the complete all-order correlation recurrence and examples including C(1)=-1/2 and dyadic propagations; his Theorem 6.6 and Propositions 6.4–6.10 concern higher correlations at other unequal-gap geometries, some tending to 1. The visible four-point general recursion has potential to compute any particular gap, but the inspected theorem does not establish a sharp maximum on the diagonal triple (h,2h,3h) nor exclude all other h. Ravy (2013) studies four-point coherent diffraction/homometry; Konieczny treats averaged Gowers uniformity rather than a pointwise extremal h. Resultary semantic search returned finite Fourier fourth moments, Shapiro doubling constants and generic four-frequency supports, not the Rudin–Shapiro diagonal-parameter extremum. The extra two-branch global transducer extremal induction is a substantive implication missing from the prior statements. This is a best-of-knowledge PASS, not a declaration of universal historical originality.
+
+## value
+
+PASS
+
+Equal-spacing four-point correlations are a natural nontrivial higher-order statistic of an automatic system with vanishing pair correlations; the exact supremum and complete dyadic equality classification across all gaps is a genuine arithmetic rigidity theorem, not a table or substitution. No claim for arbitrary four-site shapes; those can have larger correlation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
