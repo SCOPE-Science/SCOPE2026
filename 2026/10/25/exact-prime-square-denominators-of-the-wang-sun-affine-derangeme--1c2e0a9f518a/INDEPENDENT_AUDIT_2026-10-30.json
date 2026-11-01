@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T01:18:29Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Frozen RESULT.md blob 67ac4e60e53269614387d764e392b17e9beb2949, verify.py blob d2e428ebcaf4a778d47a845b7dce8f08d7e67dac, tree 776e137166f7edb2bb9110cf618fe10d4b52818e.",
+        "Independent exact Fraction/Newton polynomial computation p=5,7: reduced denominators 5^10 and 7^14, normalized residues 1 and 4 respectively.",
+        "Agustín-Aquino arXiv:2610.02806v1 Theorem 5.1 and Theorem 8.2, fully inspected, provide the precursor divisor reduction and prime case."
+      ],
+      "limitations": [
+        "Exact result only for p≥5 and modulus 2p²; p=3 and higher prime powers not asserted.",
+        "Numerical cases p=5,7 are confirmations, not proof of the infinite-prime valuation."
+      ],
+      "rationale": "The sign and fixed-point-free decomposition gives S_(2p²)=C_(2p²)+p(p−1)C_(2p). The even/odd cotangent roots are governed by monic F_m in Z[1/p][Y] and monic G_m in Z[Y], so no primes other than p divide the denominator. The primitive p² roots have normalized valuations strictly greater than −2p. For primitive p roots, E(t)=B(t)+t^(p−1)/p and Newton’s log formula isolate the top j=2p+2 term: −(2p²)b2/p^(2p+2), p-adic valuation −2p and normalized coefficient −2*3^(−1), while all lower j are at least one valuation unit larger. The divisor C_(2p) contributes only an integer after multiplication by p(p−1). This is a symbolic argument for all p≥5, not extrapolation from finite p.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 8.2 proves denom(S_2p)=p for p>3, not denom(S_2p²)=p^(2p).",
+          "Proposition 7.1 and Corollary 7.2 provide rational cotangent block formulas for all n."
+        ],
+        "reasoning": "Stronger in domain does not automatically give a closed p-adic valuation; deriving it for arbitrarily many p remains the new mathematical step. The full prior exact formula creates a real originality risk if a standard valuation corollary is found elsewhere.",
+        "searches": [
+          "Agustín-Aquino Theorem 8.2",
+          "Agustín-Aquino Theorem 5.1"
+        ]
+      },
+      "checked_sources": [
+        "Agustín-Aquino arXiv:2610.02806v1 full HTML; same exact affine sum",
+        "Agustín-Aquino arXiv:2207.14495 original affine Wang–Sun context; reference level only",
+        "Liu–Xin arXiv:2607.29130: referenced broader cotangent sums, not independently read in full",
+        "Resultary semantic query as above"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior Theorem 8.2 already uses p-th roots and Newton identities to prove the denominator p for 2p.",
+          "The exact p² growth relies on exponent k=2p², a top j=2p+2 binomial-log pole, and showing primitive p² roots are lower-order."
+        ],
+        "reasoning": "The same general method is adapted but the resulting new uniform denominator law is not a literal parameter substitution: replacing p by p² in prime-case theorem is invalid. Liu–Xin broader trigonometric identity yields exact sums but was not independently inspected at theorem level; risk remains.",
+        "searches": [
+          "Agustín-Aquino Corollary 7.2",
+          "Agustín-Aquino Theorem 8.2",
+          "Liu and Xin arXiv:2607.29130 (citation in Agustín-Aquino §7)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact object S_n and decomposition into C_σ is prior (Theorem 5.1, eqs. 6–7)."
+        ],
+        "reasoning": "The submitted claim is an arithmetic valuation consequence of a prior general sum expression, but that expression does not itself state the reduced denominator for the prime-square family and its nonzero residue. The leading-pole theorem supplies additional evaluated structure.",
+        "searches": [
+          "Wang Sun affine derangement sum S_2p^2 denominator p^2p cotangent sums Newton p-adic valuation",
+          "Agustín-Aquino arXiv:2610.02806 Theorem 5.1 and Corollary 7.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No Resultary exact denominator table matching n=2p²; Agustín-Aquino §9 computes small even n and states patterns, but no prime-square family result was located."
+        ],
+        "reasoning": "Exact rational table for finitely many n cannot imply all primes; no matching all-prime valuation table was found in the inspected sources.",
+        "searches": [
+          "Resultary semantic query: Wang Sun affine derangement sum S_2p^2 denominator p^2p cotangent sums Newton p-adic valuation",
+          "arXiv:2610.02806 §§7–9"
+        ]
+      },
+      "rationale": "The previous exact all-moduli divisor/cotangent formula makes each S_n in principle computable, but its Theorem 8.2 evaluates only prime denominator for n=2p. The nontrivial new all-primes p² denominator valuation and nonzero residue require a primitive p vs p² cyclotomic decomposition and a leading Newton-log pole calculation absent from the inspected primary paper. The novel aspect is this uniform evaluated arithmetic invariant, not the basic affine reduction.",
+      "residual_risks": [
+        "The explicit general rational expression from prior work mathematically determines every individual S_n; novelty of a nontrivial whole-prime-square valuation may be debated if a general p-adic evaluation is found.",
+        "Liu–Xin 2026 full primary text was not inspected in this run; a hidden denominator identity is a residual priority risk."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers general n as a computable cotangent expression and the prime case n=2p, not the explicit all-prime reduced denominator at 2p².",
+          "evidence": "Theorem 5.1 eqs. (6)–(7), Corollary 7.2 eq. (9), Theorem 8.2 and its F_p/G_p Newton argument.",
+          "identifier_or_url": "https://arxiv.org/html/2610.02806v1",
+          "material_read": "Full HTML mathematical paper: §2–§9, Theorem 5.1 divisor formula, §6 Newton–Girard block, Proposition 7.1, Corollary 7.2 and Theorem 8.2 proof, plus small-n examples.",
+          "method": "Full lawful arXiv HTML, direct mathematical statement and proof comparison.",
+          "title": "The Wang–Sun Sum over Affine Derangements",
+          "trigger": "Same signed sum, exact n, most plausible dominating prior formula"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Prime-square exponent 2p and mod-p residue for all primes p>=5."
+      ],
+      "limitations": [
+        "No claims for higher powers p^a or small p=3."
+      ],
+      "rationale": "The exact denominator exponent and its nonzero normalized residue across the first nontrivial prime-square family answer a natural extension of the published p-denominator theorem. The p-adic primitive-root cancellation analysis is mathematically substantive and supplies an exact arithmetic invariant across infinitely many primes, not a one-off table entry.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Agustín-Aquino arXiv:2610.02806v1 full HTML; same exact affine sum",
+    "Agustín-Aquino arXiv:2207.14495 original affine Wang–Sun context; reference level only",
+    "Liu–Xin arXiv:2607.29130: referenced broader cotangent sums, not independently read in full",
+    "Resultary semantic query as above",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-prime-square-denominators-of-the-wang-sun-affine-derangeme--1c2e0a9f518a/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-prime-square-denominators-of-the-wang-sun-affine-derangeme--1c2e0a9f518a/METADATA.json",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/25/exact-prime-square-denominators-of-the-wang-sun-affine-derangeme--1c2e0a9f518a/AUDIT.json"
+  ],
+  "disposition": "passed",
+  "final_claim": "For each prime p>=5, the Wang–Sun signed sum over fixed-point-free affine bijections modulo 2p² is rational with reduced denominator exactly p^(2p), and p^(2p) S_(2p²) ≡ −2/3 (mod p).",
+  "limitations": [
+    "Exact result only for p≥5 and modulus 2p²; p=3 and higher prime powers not asserted.",
+    "Numerical cases p=5,7 are confirmations, not proof of the infinite-prime valuation.",
+    "No claims for higher powers p^a or small p=3."
+  ],
+  "residual_risks": [
+    "The explicit general rational expression from prior work mathematically determines every individual S_n; novelty of a nontrivial whole-prime-square valuation may be debated if a general p-adic evaluation is found.",
+    "Liu–Xin 2026 full primary text was not inspected in this run; a hidden denominator identity is a residual priority risk."
+  ],
+  "schema_version": 1
+}
