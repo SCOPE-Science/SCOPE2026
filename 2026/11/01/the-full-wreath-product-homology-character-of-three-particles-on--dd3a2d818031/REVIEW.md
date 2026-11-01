@@ -1,0 +1,11 @@
+# Review of the \(K_{3,3}\) three-particle symmetry theorem
+
+**Correctness — PASS.** The reduced weight-three graph chain groups have exact dimensions \((165,540,540,160)\), all checked integer boundary compositions vanish, and boundary ranks in two prime characteristics agree at \((164,372,160)\). Rational equality is proved by the augmentation bound, top-chain dimension and a geometric four-cycle surjection onto graph first homology; hence modular ranks are not improperly elevated to rational proofs. All 72 automorphism Lefschetz traces match the proposed closed rational characters, and a second subdivided cubical construction independently computes dimensions \((455,1404,1386,432)\), ranks \((454,946,432)\) and identical Lefschetz numbers. Possible implementation correlation is mitigated by the distinct cellular models; the mathematical argument supplies the key upper bound.
+
+**Originality — PASS, with residual risk.** Ko and Park compute first homology, but not the complete second-homology automorphism action. An–Drummond-Cole–Knudsen give the graph chain model, rather than this computed character. Ramos–Yun compute three-particle representations for complete graphs but only two-particle representations for complete bipartite graphs. The closest indexed mathematical records address the Morse complex of \(K_{3,3}\) (a different simplicial construction), the three-particle Heawood/Pappus spaces (different graphs), or two-particle complete bipartite spaces (different particle number). Searches and direct theorem comparisons found no dominating statement. Previously unindexed equivariant computations remain a residual risk.
+
+**Value — PASS.** The three-particle configuration space of the smallest complete bipartite nonplanar graph is a natural testing case at the first level beyond its classical first-homology torsion. The theorem determines an eight-dimensional second-homology representation and the rational acyclicity of its full-symmetry quotient. These are genuine structural invariants not implied by the Betti vector or generic chain-model existence alone.
+
+**Limits.** The statement is rational; no integral second-homology torsion result, cup-product calculation, or external mathematical certification is claimed.
+
+Self-review: passed. Independent audit: not yet performed.
