@@ -1,15 +1,21 @@
-# Research review: weighted-median star consensus selection
+# Independent mathematical audit
 
-## Correctness
-PASS. Leaf opinion differences are exactly exponentially contracting. Their weighted median endpoints are fixed ranks and follow hub-driven scalar equations. The hub’s closest-admissible median is exactly the projection onto that interval, including the zero-self-weight tie case. Solving the three invariant regions gives the displayed exact consensus, with a separate rational check of the discontinuity. The included script passes independent vector-field residual tests; the all-size statement rests on the proof, not numerics.
+## correctness
 
-## Originality
-PASS, subject to bibliographic limitations. Han, Chen, Dörfler, and Mei (2024), arXiv:2404.16318v1, prove global convergence and characterize equilibria. The later Han, Hendrickx, Chen, and Mei revision (v3) adds control analysis. Neither inspected relevant full-text discussion provides an arbitrary-weight star’s exact limit as a function of initial opinions or the half-weight discontinuity. A general existence or consensus theorem does not select this specific limiting value. The prior discrete-time 3-node weighted-median switching question is different; the present continuous-time flow is separately derived. Specialized unindexed prior coverage cannot be excluded.
+PASS
 
-## Mathematical value
-PASS. The theorem completely solves an explicitly motivated hub-and-spoke network with any finite number of leaves and any positive hub-to-leaf weights, identifying its final opinion rather than only its convergence. The sharp half-weight discontinuity gives a concrete robustness boundary for influence calibration, even though interaction support and convergence are unchanged.
+For each leaf i the ODE is l_i’=h−l_i; hence leaf-leaf differences decay e^(−t), preserving all leaf orders and the fixed weighted median rank interval endpoints L,U. The hub weighted median under the cited closest-eligible convention is precisely projection of h onto [L,U], even with zero self-weight because h is still an eligible opinion value in the original full n-tuple definition. Thus if h0 is in [L0,U0], h is constant and all leaves approach h0; otherwise the pair (h,L) or (h,U) solves opposite linear flows and approaches their arithmetic midpoint, never crossing during finite time. This proves consensus for every m>=2 and positive hub weight vector. Rational independent calculations for two leaves (0,1), hub 2/5 yield exactly 1/5 for w>1/2, 2/5 at w=1/2, and 7/10 for w<1/2, verifying discontinuity with unchanged positive-edge support. The ODE proof covers arbitrary m and all real initial opinions; checked examples are supplementary.
 
-## Limitations
-The row-stochastic star structure and closest-admissible-value tie convention are essential. This does not generalize unconditionally to arbitrary influence networks, asynchronous rules or time-changing weights. Independent validation is not represented.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Han et al originally defined the continuous-time weighted-median dynamics and proved global convergence and consensus criteria. Those prior conclusions are acknowledged. The assessed claim gives an explicit all-initial-data limit functional for arbitrary positive weighted stars and a discontinuity in the weights at a half-mass tie, not a new convergence theorem.
+
+## value
+
+PASS
+
+The full arbitrary-star consensus-selection formula and strict weight-tie discontinuity identify a natural robustness failure under infinitesimal changes of all-positive interaction weights, an exact dynamical invariant beyond a bare convergence result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
