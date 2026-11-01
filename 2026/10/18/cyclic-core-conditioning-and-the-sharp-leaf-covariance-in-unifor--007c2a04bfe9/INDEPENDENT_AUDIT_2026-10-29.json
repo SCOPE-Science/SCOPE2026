@@ -1,0 +1,156 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T13:55:55.157818Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For K=k in a uniform n-map, fixing the k cyclic roots and their permutation leaves k n^(m−1) rooted forests, m=n−k; deleting r prescribed nonroot terminal vertices and independently choosing their parents gives k(n−r)^(m−1), including m=1 and r=m. The ratio yields all falling-factorial moments, unique bounded conditional law and exact inclusion-exclusion PMF. With q=1−1/n the mean g(m)=m q^(m−1) increases strictly in m=0..n−1 because g(m+1)−g(m)=q^(m−1)[1−(m+1)/n]>0; therefore Cov(K,L)<0 for all n≥2. P(K≥k)=(n)_k/n^k and Rayleigh moment convergence, together with h_n(k)=n/e+(1−k²/n)/(2e)+an L²-controlled O(n^(−1/2)) remainder at k=K_n, give Cov(K,L)=−sqrt(pi/2) sqrt(n)/(2e)+o(sqrt n). The separate exact occupancy variance gives Var(L)/n→e^(−1)−2e^(−2), and Rayleigh variance gives Var(K)/n→(4−pi)/2. Independent exhaustive re-enumeration n=2..6 and an exact deletion identity corroborate finite statements, not the infinite proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Flajolet–Odlyzko 1990 supplies analytic random-mapping machinery and marginal generating functions for terminal or cyclic vertices; the inspected formulas use separate markings.",
+          "Arney–Bender 1982 tracks number of origins (terminals) together with number of COMPONENT CYCLES; the latter is not the total number of cyclic vertices.",
+          "Pitman 2001 general out-degree count is stronger than the conditional finite law, but does not present the mixed asymptotic constant in the inspected text."
+        ],
+        "reasoning": "The classic theory broadly covers the conditional forest and marginal laws and might support a derivation of the covariance. The specific asymptotic Cov(K,L)~−sqrt(pi/2) sqrt(n)/(2e) requires the Rayleigh moment / second-order regression cancellation, not an unqualified statement of the prior marginals. Mylläri primary full text is inaccessible and remains a real priority risk.",
+        "searches": [
+          "random mapping cyclic vertices leaves joint distribution conditional cyclic points variance covariance",
+          "random mappings joint generating function number of cyclic points number of terminal vertices indegree zero",
+          "Flajolet–Odlyzko 1990 Section 3 equations 23–24",
+          "Arney–Bender 1982 Section 7 triple origin/cycle generating function",
+          "Mylläri 2002 DOI 10.1239/aap/1037990959"
+        ]
+      },
+      "checked_sources": [
+        "Pitman 2001 TR593, Sec. 2 and 3.2",
+        "Flajolet and Odlyzko 1990, Section 3",
+        "Arney and Bender 1982, Sections 1,2,7",
+        "Hansen and Jaworski 2006 arXiv:math/0603529",
+        "Hansen and Jaworski 2010 Ars Combinatoria 94",
+        "Mylläri 2002 published abstract and DOI only",
+        "Resultary published finding semantic searches, three exact queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Direct implication: Pitman weighted forest enumerator + cyclic-root conditioning ⇒ (m)_r(1−r/n)^(m−1), so finite conditional terminal distribution is already covered as a corollary.",
+          "Newly reconstructed argument: q_n=(1−1/n)^n; conditioning a given vertex to be terminal makes the other n−1 vertices a uniform random mapping, so Cov(K_n,L_n)=n q_n(E K_{n−1}−E K_n), an independent exact check of sign.",
+          "From Rayleigh convergence plus second-order expansion of h_n(k) the leading mixed constant is −sqrt(pi/2)/(2e), which is not an explicit coefficient in the compared primary passages."
+        ],
+        "reasoning": "Reject originality of the underlying decomposition, exact forest count, and finite factorial moments as independent contributions; assess originality of the full negative-regression/covariance asymptotic result. The limiting coefficient is a motivated mixed invariant, not obtained merely by citing already printed marginal means. However a full joint bivariate EGF in older literature could imply it, hence qualified PASS, not guaranteed priority.",
+        "searches": [
+          "random mappings number of cyclic points conditional number of leaves occupancy distribution empty boxes covariance",
+          "random mapping cyclic vertices leaves joint distribution conditional cyclic points variance covariance",
+          "Pitman 2001 Eq. 5 and Eq. 23",
+          "Flajolet–Odlyzko 1990 terminal/cyclic EGF",
+          "Arney–Bender 1982 origins/cycles EGF"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pitman 2001 fixed-root forest weighted enumerator determines conditional child counts and hence all terminal factorial moments after setting the weights of r prescribed nonroots to zero.",
+          "Conditioning on cyclic vertices converts uniform mapping to a permutation on cyclic points plus a uniformly weighted rooted forest, as in Hansen–Jaworski 2010."
+        ],
+        "reasoning": "The conditional empty-box law IS an immediate corollary of published multivariate forest enumeration and is not separately novel merely because its displayed parameters differ. A search for the additional exact strict negative regression and sharp K–L mixed covariance found no explicit equivalent theorem in inspected primary statements.",
+        "searches": [
+          "uniform random mapping cyclic points terminal vertices zero indegree joint distribution covariance conditional roots leaves",
+          "rooted labeled forest conditioned number of roots leaf number occupancy conditional empty boxes random mapping",
+          "Pitman 2001 TR593, Section 2 equations 5–6 and Section 3.2 equation 23",
+          "Hansen–Jaworski 2010, p.346"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits describe different random objects (random recursive trees, Cayley trees, permutations) and different statistics; none of the retrieved titles/summaries matches the present cyclic-vertex/terminal covariance coefficient.",
+          "Existing forest counts and marginal sequences are known, but those alone are not an exact tabulation of the sharp mixed coefficient."
+        ],
+        "reasoning": "No matching published table/record was identified; this is only a bounded search result, NOT proof of originality. The sharp mixed coefficient survives as an independently motivated exact fact subject to historical priority risk.",
+        "searches": [
+          "uniform random mapping cyclic points terminal vertices zero indegree joint distribution covariance conditional roots leaves",
+          "rooted labeled forest conditioned number of roots leaf number occupancy conditional empty boxes random mapping",
+          "random mapping cyclic core indegree zero covariance scaling square root",
+          "Resultary: Equal-share covariance of root degree and leaves in a random recursive tree",
+          "Resultary: Exact negative regression between endpoint degree and distance in a uniform Cayley tree"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality concerns the strictly negative cyclic-core/terminal dependence together with the sharp sqrt(n)-covariance coefficient. Pitman 2001 already implies the conditional finite terminal law through its multivariate forest enumerator; that portion is NOT claimed original. Full primary comparisons of Flajolet–Odlyzko 1990 and Arney–Bender 1982 did not identify the specific mixed asymptotic, noting the latter marks number of cycles rather than number of cyclic vertices. A plausible inaccessible 2002 leaf-forest paper leaves priority risk.",
+      "residual_risks": [
+        "Conditional terminal distribution is immediately implied by Pitman 2001 general forest/outdegree enumeration; it is not new on its own.",
+        "A classical joint marked generating function, e.g. in older functional-graph literature, might also imply the negative covariance and precise sqrt(n) constant without printing them.",
+        "Mylläri 2002 full article not available; institutional access reported VPN disconnected; assessment based only on its abstract and bibliography.",
+        "Some older Sachkov/Pavlov/Proskurin mapping-strata literature was not examined in full.",
+        "Semantic search nonmatch never certifies priority; no human verification of novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "STRONG ANTECEDENT: fixed cyclic-set root forest and general multivariate forest/out-degree enumerator imply the conditional factorial moments by zeroing prescribed vertex indegree variables; this conditional law is not an independent novelty claim. Report did not state the present mixed covariance coefficient in the sections examined.",
+          "evidence": "For a fixed root set R, V_S[roots(F)=R]=x_R(x_S)^{n-|R|-1} (Section 2, Eq.5); Section 3.2 transfers this to the uniform random mapping conditioned on its cyclic set. Setting r marked nonroot weight variables to zero yields (n-r)^{m-1}/n^{m-1}.",
+          "identifier_or_url": "https://statistics.berkeley.edu/sites/default/files/tech-reports/593.pdf",
+          "material_read": "Full report, especially Section 2, Equation (5) forest-volume generating function, Equation (6) out-degree weights, and Section 3.2, Equation (23) mapping/forest conditioning; relevant PDF page images inspected",
+          "method": "Primary full PDF read with text and page-image checks",
+          "title": "Random mappings, forests, and subsets associated with Abel–Cayley–Hurwitz multinomial expansions",
+          "trigger": "Uniform-rooted-forest conditional law and general out-degree enumerator may already imply the conditional terminal law"
+        },
+        {
+          "assessment": "Classical separate terminal and cyclic-point enumerators and general symbolic tools are covered. The inspected printed equations mark one statistic at a time and do not explicitly present the claimed K–L covariance or its sharp constant. General EGF methods might imply it upon further derivation.",
+          "evidence": "Section 3 equations for generating functions marking terminal points and cyclic points separately; terminal/cyclic marginal means and distributions are established antecedents.",
+          "identifier_or_url": "https://scispace.com/pdf/random-mapping-statistics-yjuqfvoh87.pdf",
+          "material_read": "Full primary paper, in particular Section 3, terminal-point and cyclic-point bivariate generating-function formulas, equations 23–24, pages around 337; PDF page images checked",
+          "method": "Primary full PDF text and relevant screenshots",
+          "title": "Random Mapping Statistics",
+          "trigger": "Classic exact combinatorial generating functions for cyclic vertices and terminal vertices may dominate the joint theorem"
+        },
+        {
+          "assessment": "The triple EGF tracks origins and the NUMBER OF CYCLES, not the number of VERTICES ON CYCLES. These observables differ. It does not furnish the exact K_n–L_n mixed coefficient in the material inspected.",
+          "evidence": "Section 7 variables x for vertices, y for origins, z for cycles; generating function M=(1-R)^{-z} marks component cycles, not cyclic vertex count.",
+          "identifier_or_url": "https://msp.org/pjm/1982/103-2/pjm-v103-n2-p03-s.pdf",
+          "material_read": "Full primary PDF, especially introductory origin definition, Section 2 statistics, and Section 7 pages 281–283 including three-variable EGF",
+          "method": "Lawful publisher OA PDF text and screenshots",
+          "title": "Random mappings with constraints on coalescence and number of origins",
+          "trigger": "An older primary source includes origin (zero-indegree) counts together with random-mapping components, which may encode stronger joint laws"
+        },
+        {
+          "assessment": "Cyclic-point distribution and exchangeable-indegree representations are established background; no matching joint zero-indegree terminal covariance theorem identified in relevant text.",
+          "evidence": "The model generalizes uniform random mapping distribution for cyclic point counts; distinct from the present conditional terminal/covariance assertion.",
+          "identifier_or_url": "https://arxiv.org/pdf/math/0603529",
+          "material_read": "Primary arXiv preprint introduction, cyclic-point formulas and relevant concluding material; PDF page inspected",
+          "method": "ArXiv full primary PDF with image inspection",
+          "title": "A new random mapping model",
+          "trigger": "Potentially dominating exchangeable indegree model and cyclic-vertex distribution"
+        },
+        {
+          "assessment": "Classical cyclic-set-conditioned forest and component formulas; no explicit terminal covariance coefficient in inspected pages. Does not negate that conditional terminals are a straightforward corollary.",
+          "evidence": "Page 346 forest factor k n^(n-k-1), with conditional cyclic-point structure.",
+          "identifier_or_url": "https://combinatorialpress.com/article/ars/Volume%20094/volume-94-paper-34.pdf",
+          "material_read": "Primary PDF introduction, page 346 conditional forest count and page 356 asymptotic application, plus selected screenshots; text extraction limited",
+          "method": "Publisher primary PDF page-image inspection",
+          "title": "Random mappings with a given number of cyclical points",
+          "trigger": "Exact same conditioning variable K_n and forest count k n^(n-k-1)"
+        },
+        {
+          "assessment": "INACCESSIBLE PLAUSIBLE SOURCE. Abstract studies leaves of Galton–Watson forests with specified roots; stronger equivalence to the present random-core covariance cannot be excluded without full text. No whole-document NOT_COVERING claim.",
+          "evidence": "Advances in Applied Probability 34 (2002), pp. 904–922; DOI 10.1239/aap/1037990959; abstract addresses leaf-count limit distributions, not explicitly the present mixed random-mapping coefficient.",
+          "identifier_or_url": "https://doi.org/10.1239/aap/1037990959",
+          "material_read": "Accessible publisher abstract and bibliographic information only; full paper unavailable after arXiv/open-access attempts and authorized institutional VPN connection unavailable",
+          "method": "OA/preprint search, publisher abstract; institutional retrieval reported VPN disconnected (no bypass)",
+          "title": "Limit distributions for the number of leaves in a random forest",
+          "trigger": "Most plausible older full-text source on leaf counts in rooted forests with many roots"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cyclic core and zero-indegree terminals are canonically defined random-mapping statistics on disparate sqrt(n) and n scales. Their strict negative finite-n association and exact sharp sqrt(n) covariance are natural, not arbitrary slices, and quantify why the correlation vanishes at rate n^(−1/2) despite persistent negative dependence. The finite conditional occupancy distribution is classical as a corollary of Pitman and cannot alone establish new value; the distinct signed mixed-asymptotic constant supplies the motivatED additional result. No generalization or publication-sized advance is needed for this exact natural invariant; work does not assert full stochastic dominance or a nonuniform mapping theorem.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Uniform mapping only, self-loops allowed; no conditional full stochastic order or nonuniform model covered.",
+    "The source forest conditional law and even complete terminal factorial moments are direct corollaries of Pitman 2001 and are not independently original.",
+    "Full Mylläri 2002 article unavailable through authorized institutional access because VPN disconnected; an older mixed-moment theorem might exist.",
+    "Numerical covariance convergence is corroborative, not a rigorous asymptotic proof.",
+    "Public metadata cleanup not delivered; scientific assessment complete, publication not_ready."
+  ],
+  "schema_version": 1
+}
