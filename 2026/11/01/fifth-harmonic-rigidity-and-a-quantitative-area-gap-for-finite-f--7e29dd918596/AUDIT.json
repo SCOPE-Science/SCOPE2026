@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "A degree-five constant-width support has only frequencies 1,3,5, and the first disappears from curvature and area. With R=8 times the third-mode amplitude and S=24 times the fifth, nonnegative curvature implies the supremum of their oscillatory sum is at most w/2. At six extrema of the third harmonic, three sign-normalized sampled values are R+S cos(phi+2 pi k/3); one of those cosines is at least 1/2, giving sup >= R+S/2. The reverse-triangle estimate sup >= S-R and an exact two-regime algebraic comparison give sup squared >= R squared + S squared/2. Orthogonal Fourier integration gives area = pi w squared/4 - pi (R squared+S squared/3)/16, hence the stated 6 pi times fifth-amplitude-squared gap. Attainment of baseline forces zero fifth mode and saturated third amplitude. Those supports are convex because their curvature radius equals (w/2)(1+cos(3 theta-phi)). The standalone verifier passes 1,682 deterministic tests; the continuous assertion is proved analytically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Falcó--Myroshnychenko, arXiv:2608.05125 (2026): exact minimizers under cyclic/dihedral group invariance, without degree-five bandlimitation.",
+        "Classical Blaschke--Lebesgue inequality gives the smaller Reuleaux-triangle universal lower bound rather than the Fourier degree-five threshold.",
+        "A note on Hurwitz's inequality (2017), Sec. 5: Fourier energy inequality identifies third-mode equality in a different evolute-area comparison."
+      ],
+      "reasoning": "Neither an unrestricted constant-width area bound with the Reuleaux triangle as sharp optimizer nor a symmetry-restricted minimizer classification gives the stronger degree-five constant 15 pi/64 or the positive fifth-mode stability term. The 2017 Hurwitz inequality controls a different evolute-area functional, so its third-mode equality does not imply this bandlimited sharp area bound.",
+      "searches": [
+        "arxiv:2608.05125 Area Minimization Among Group-Invariant Planar Convex Bodies of Constant Width",
+        "Blaschke Lebesgue theorem general constant width minimum area",
+        "A note on Hurwitz inequality constant width Fourier third harmonic"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2608.05125",
+      "https://doi.org/10.1080/10556788.2010.547580",
+      "https://doi.org/10.1016/j.jmaa.2017.09.017",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-two-harmonic-area-minimum-for-dihedrally-invariant-constan--0094d4f2c8a9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bayen--Henrion's Sec. 3.1.4 explicitly identifies its restriction to real coefficients and labels the minimization numerical.",
+        "The 2026 dihedral result permits n and 3n and reports that the additional harmonic improves the minimum, unlike the nonresonant third/fifth pair.",
+        "The 2026 group-invariant article establishes only its particular group-action extrema."
+      ],
+      "reasoning": "The present claim implies a sharp analytic all-phase lower bound and a uniform coefficient-wise inequality. These are not logical corollaries of a cosine-only numerical observation, a Reuleaux-polygon group minimizer theorem, or an n:3n Fourier problem. The exact same cosine-only optimal *candidate* is acknowledged as prior.",
+      "searches": [
+        "Bayen Henrion 2010 numerically observe a5=0 at m=5",
+        "2026 dihedrally invariant constant width frequencies n and 3n area minimum",
+        "arxiv 2608.05125 group invariant minimizers support Fourier bandlimit"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bayen--Henrion, Semidefinite programming for optimizing convex bodies under width constraints, Sec. 3.1.4: cosine-only coefficients and numeric optimal point \\(a_5=0,\\ a_3=\\pm1/32\\) in the authors' parametrization.",
+        "Published 2026 two-harmonic record: frequencies n and 3n, not 3 and 5."
+      ],
+      "reasoning": "The real-cosine numerical optimizer has the same shape and value, so the optimizer itself is prior anticipated. Numerical observation does not imply a rigorously established global arbitrary-phase inequality or the explicit fifth-amplitude stability term. The frequencies n and 3n cannot become the pair 3 and 5 under rotation/scaling of the angular coordinate, since their frequency ratio is 3 rather than 5/3.",
+      "searches": [
+        "2010 Bayen Henrion fifth degree real coefficients constant width minimum area numerical",
+        "Fourier support function constant width degree five phase independent third fifth area minimizer",
+        "published research: two-harmonic area minimum dihedrally invariant constant-width bodies"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bayen--Henrion Figure 3 of 2010 manuscript: numerical feasible coefficient region and an observed zero fifth coefficient; it is not an exact exhaustive table or certificate.",
+        "No matching exact proved fifth-degree phase-unrestricted entry in the queried published mathematics records; nearby records concern different modes and constraints."
+      ],
+      "reasoning": "The observed optimization plot does not certify the inequality for all real phases or a uniform gap. A negative database result is not relied upon as proof of originality.",
+      "searches": [
+        "fifth degree a3 a5 semidefinite programming constant width 2010 numerical figure",
+        "constant width support fifth Fourier mode exact minimum area table",
+        "published fifth harmonic rigidity constant width area"
+      ]
+    },
+    "rationale": "The exact unrestricted-phase theorem and uniform fifth-mode stability gap are not statements of the materially compared sources. Bayen and Henrion (2010, Sec. 3.1.4) explicitly already observed numerically that a real-cosine-only fifth-degree example minimizes area with zero fifth coefficient; that observation is credited, not presented as new. Their indexed section phrases it as a numerical observation and restricts to real Fourier coefficients, whereas the present proof treats arbitrary sine/cosine phases and supplies a quantitative positive gap and a rigorous equality classification. The recent symmetry-minimizer theorem classifies constraints based on finite group actions, not a Fourier-degree cutoff. The nearby published two-harmonic theorem uses frequencies n and 3n, which are not the third and fifth modes. An inaccessible complete manuscript and unindexed old convex-geometry literature are residual priority risks, not claimed to have been exhaustively searched.",
+    "residual_risks": [
+      "The Bayen--Henrion 2010 manuscript is the closest prior example and the full work could not be inspected here. A stronger analytical result elsewhere in it remains possible; the accessible Sec. 3.1.4 explicitly describes the m=5 optimum as numerical.",
+      "Unindexed earlier sharp sup-norm estimates for the (3,5) harmonic pair might imply the stated quantitative bound; historical priority has not been established exhaustively.",
+      "The gap constant 6 pi is valid but is not asserted optimal."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING Fourier degree-five phase-independent optimization",
+        "evidence": [
+          "The main theorem classifies fixed-group C_n and D_n invariant width bodies, with regular Reuleaux n-gon minimizers, not arbitrary Fourier degree-five ovals."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.05125",
+        "material_read": "ArXiv dated abstract and accessible excerpts concerning symmetry classes, Fourier/curvature reduction and equality statements; direct HTML access not available in this pass.",
+        "method": "Public arXiv abstract and indexed primary-text inspection",
+        "title": "Area Minimization Among Group-Invariant Planar Convex Bodies of Constant Width",
+        "trigger": "Recent motivating area-minimization question and closest symmetry-theoretic competitor"
+      },
+      {
+        "assessment": "PRIOR_NUMERICAL_OBSERVATION; no rigorous all-phase proof or quadratic gap visible in inspected material",
+        "evidence": [
+          "Sec. 3.1.4 explicitly says numerical observation, gives real cosine coefficient variables a3,a5, and displays the fifth-degree admissible coefficient plot.",
+          "The earlier optimizing support coincides with the equality curve here; it is acknowledged as prior."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/10556788.2010.547580",
+        "material_read": "Author manuscript Sec. 3.1.4 retrieved as indexed text, including the m=3 and m=5 optimization display, the word numerically, \\(a_3=\\pm1/32\\) and \\(a_5=0\\), and the fifth-degree feasible-region figure caption. Complete manuscript inaccessible.",
+        "method": "Public indexed author-manuscript passage and dated journal record",
+        "title": "Semidefinite programming for optimizing convex bodies under width constraints",
+        "trigger": "Exact same Fourier cutoff, strongest historical-priority comparison"
+      },
+      {
+        "assessment": "NOT_COVERING; controls evolute-area Hurwitz functional, not the Fourier degree-five area minimum",
+        "evidence": [
+          "Sec. 5 compares isoperimetric deficit and evolute area and characterizes equality by harmonic frequency 3, but does not bound the fifth harmonic in the area optimization problem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2017.09.017",
+        "material_read": "Accessible primary article Sec. 5 theorem statement and proof discussing constant-width odd Fourier modes and third-mode equality.",
+        "method": "Published online full-text section",
+        "title": "A note on Hurwitz's inequality",
+        "trigger": "Possible classical stronger Fourier inequality with third-mode equality"
+      },
+      {
+        "assessment": "NOT_COVERING; harmonic frequencies n and 3n, different relative spectrum",
+        "evidence": [
+          "The record reports a sharp optimum for the first two dihedrally admissible modes and a strict improvement via the higher harmonic; the present nonresonant pair is 3 and 5."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-two-harmonic-area-minimum-for-dihedrally-invariant-constan--0094d4f2c8a9",
+        "material_read": "Published record title and mathematical summary only; primary proof not accessible in this check.",
+        "method": "Published mathematical index summary",
+        "title": "Sharp two-harmonic area minimum for dihedrally invariant constant-width bodies",
+        "trigger": "Potential already published two-mode constant-width minimization"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7e29dd91-8596-463e-b0f9-fc7277aa8de0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the natural first two-mode cutoff beyond translations for ordinary planar constant width. The exact global optimum and exhaustive arbitrary-phase equality classification rigorously resolve a fifth-degree real-cosine numerical observation from the convex optimization literature, while also furnishing a uniform quantitative penalty for fifth-harmonic amplitude. The proof distinguishes nonresonant frequency 5, which cannot lower the optimum, from the previously published resonant n:3n behavior that can lower it. The six-sample spectral lemma is structural and the coefficient-wise quadratic gap is useful for assessing finite-dimensional support-function approximations; no paper-sized consequence or globally sharp gap coefficient is claimed.",
+    "status": "PASS"
+  }
+}
