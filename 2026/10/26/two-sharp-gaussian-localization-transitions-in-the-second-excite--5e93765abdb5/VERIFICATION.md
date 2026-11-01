@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Reproduction
-Run `python3 verify_gaussian.py` with a standard Python 3 interpreter; no external libraries are required. The checker evaluates the normalized gamma-polynomial integrals using exact rational fractions at eight damping parameters and all indices from zero to twenty, then checks the two adjacent crossing identities, strict tail difference identities, undamped normalization and the winning sectors at six damping strengths.
+# Independent mathematical audit
 
-The machine-verifiable tests are finite and do not establish positivity for all real damping parameters; the proof in `RESULT.md` supplies the algebraic sum-of-squares and discriminant arguments for all indices and parameters. The reviewed claim concerns no symbols beyond a centered Gaussian in this single excited Fock level. Independent audit has not been performed.
+## correctness
+
+PASS
+
+PASS: Under the specified normalized Gaussian measure, angular complex Hermite basis Φ0,Φ1,Φk diagonalizes any radial multiplier. Independent factorial gamma-integral evaluation gives exact eigenvalue polynomials L0=u^3, L1=u²(3u²−4u+2), Lk=u^(k−1)[C(k,2)(1−u)^4+2ku²(1−u)²+u^4], u=(1+τ)^−1. The exact identity L_{k+1}−Lk=−u^(k+3)(1−u)Qk((1−u)/u) with Q2=(r²−r+1)²+r²>0 and Qk−Q2=(k−2)r²[(k+1)r²/2−r+2]>0 eliminates all k>=3 for every real τ>0. Factorizations L1−L0=u²(u−1)(3u−2) and L2−L1=u(u−1)(2u−1)(3u²−3u+1) establish only two simple crossings and the full norm eigenspaces. τ=0 is expressly excluded because identity makes all modes tie. Fresh independent symbolic gamma-integral calculation checked 15 indices, differences through k14 and both crossing identities; the universal ordering is algebraic proof, not extrapolation.
+
+## originality
+
+PASS
+
+PASS qualified: Abreu, Gröchenig and Romero study higher Landau levels, radial disk localization and polyanalytic Ginibre/Weyl-Heisenberg ensembles, with complex Hermite bases already known. Fulsche and Hagger develop general polyanalytic Toeplitz harmonic analysis; these structural backgrounds are credited. Neither inspected theorem states the centered Gaussian-damping exact maximum or a complete positive-τ two-transition classification. A special-case radial Gaussian eigenvalue table elsewhere may imply the formulas; its absence is not proved.
+
+## value
+
+PASS
+
+PASS: A complete sharp operator-norm and norm-attainer classification for a canonical radial Gaussian localization in a fixed higher Landau level reveals two exact mode switches and a nontrivial higher-mode exclusion. It is meaningful spectral information, rather than a routine basis diagonalization or arbitrary finite k check.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
