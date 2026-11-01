@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:16:46.999068Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md Git blob 967ef155767d9705bae0233bd3dd888773227e6b",
+        "Frozen CHECK.py Git blob 088fb93c7f5cd532cc77320ff1fce8dca8a797f2",
+        "Frozen VERIFICATION.md Git blob 5b1bc8baa19c6e3bca303b2eee7ae3dc5338d3e8",
+        "Frozen METADATA.json Git blob 1222cdeefedbbee75d977e69c41d13243e3b5ed4",
+        "Frozen AUDIT.json Git blob 28244fd8596acf454c21c1147c7bc2010ab73f5e",
+        "Frozen REVIEW.md Git blob e3efbea4bba98aa4421e29900b9b36c1fa4b5708",
+        "Frozen SLOGAN.txt Git blob 9713dae206ab9245a13cdca3a96e3b77b07dbb55",
+        "independent_batch5_checks.py and independent_batch5_results.json (independently executed)"
+      ],
+      "rationale": "The Fock monomial basis e_j=(pi^j/j!)^1/2*z^j diagonalizes the disk localization operator with lambda_j=integral_0^s t^j e^-t/j!dt and gap lambda_j-lambda_{j+1}=p_{j+1}>0. Moving radial boundary s+epsilon*h(theta) is twice trace-norm differentiable for s>0. Direct differentiations give M_jk_prime=sqrt(p_j p_k) hhat_{k-j} and M_jj_double=p_j(j/s-1)*mean(h^2). Isolated-cluster eigenvalue perturbation cancels internal-block terms; cross-gap terms sum with denominators sum_{r=j+1}^{j+m}p_r. Telescoping sum_{j<N}p_j(j/s-1)=-p_{N-1}, and Parseval for real mean-zero h, yield exactly sum_{m>=1}kappa_{N,m}|hhat_m|^2 deficit. m=1 cancels, m=2 gives positive p_{N-1}(N+2s+1)/[(N+s)(N+s+1)] including N=1; high m limit p_{N-1}. Abreu global inequality forces nonnegativity, not the actual formula. Independent Fraction checks of 21 (N,s) pairs validate these exact identities; smooth fixed-parameter perturbation proof is essential.",
+      "residual_risks": [
+        "C^2 trace-norm differentiability requires s>0; no uniformity in frequency, area or rank",
+        "Global inequality supplies kappa>=0, not strict positivity for all m>=2"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abreu global Ky Fan maximum encompasses all angular deformations only as inequality, not exact curvature",
+          "Nicola–Riccardi–Tilli radial competitor theorem excludes nonradial angular variations",
+          "Gomez et al. global stability concerns first eigenvalue and Fraenkel asymmetry"
+        ],
+        "reasoning": "Global maximizing and stability bounds do not imply an exact rank-dependent local Fourier Hessian, although they force nonnegative quadratic forms.",
+        "searches": [
+          "Abreu 2607.28376 full-text RG",
+          "Nicola Riccardi Tilli 2503.07069 radial competitors",
+          "Gomez Guerra Ramos Tilli 2307.09304 first eigenvalue stability"
+        ]
+      },
+      "checked_sources": [
+        "Abreu author-posted full text RG July 2026",
+        "Nicola Riccardi Tilli arXiv:2503.07069 abstract and Abreu reference",
+        "Gomez et al. arXiv:2307.09304 abstract and Abreu reference",
+        "Resultary Fourier Hessian semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published disk upper bound implies kappa>=0 for each single-mode deformation",
+          "Current formula gives kappa_{N,1}=0 and kappa_{N,2}=p_{N-1}(N+2s+1)/((N+s)(N+s+1))"
+        ],
+        "reasoning": "The sign of second variation follows from earlier extremality, but the explicit numerical coefficient is not a corollary without a new spectral perturbation calculation.",
+        "searches": [
+          "Abreu RG full text Theorem 1.1 and proof",
+          "arXiv:2503.07069 radial set abstract"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Abreu 2026 gives disk maximization for all measurable equal-area sets",
+          "Generic spectral shape derivatives might be formulated using Toeplitz matrix perturbations or Hessians"
+        ],
+        "reasoning": "A nonnegative Hessian is a necessary implication of the global inequality; it does not determine the exact Fourier multipliers or elliptic coefficient.",
+        "searches": [
+          "Resultary Bargmann Fock Toeplitz localization Ky Fan disk angular second variation Fourier Hessian multipliers",
+          "web: Abreu Ky Fan norm isoperimetric Fourier angular second variation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed table of all kappa_{N,m}(s) or formula kappa_{N,2} found"
+        ],
+        "reasoning": "The result is an exact all-ranks all-area analytic invariant, not a finite table; negative search is not proof of novelty.",
+        "searches": [
+          "Resultary Fourier Hessian Fock localization Ky Fan",
+          "web: kappa N m Poisson boundary-crossing second variation"
+        ]
+      },
+      "rationale": "Exact area-preserving angular Hessian and closed elliptic coefficient for arbitrary Ky Fan rank differ from global disk optimality, radial rearrangement and first-eigenvalue stability. The observed Fourier multiplier family depends jointly on rank, Poisson weight and boundary-crossing spectral gap.",
+      "residual_risks": [
+        "Older unpublished or unindexed shape-calculus treatment could contain same Hessian",
+        "Only fixed rank, area and smooth profile expansion proved; no uniformity in parameters",
+        "Primary Nicola and stability paper whole text not read in this execution"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_INEQUALITY_ONLY_IN_INSPECTED_MATERIAL",
+          "evidence": "Basis and Toeplitz definitions match; no second variation or Hessian term found in indexed text",
+          "identifier_or_url": "https://www.researchgate.net/publication/411011331_The_isoperimetric_inequality_for_the_Ky_Fan_norm",
+          "material_read": "Full-text author-uploaded 2026 preprint HTML transcription; introduction, theorem/normalization, main proof regions; searched for second variation and Hessian",
+          "method": "Read relevant primary sections via RG and searched entire indexed text for key methods",
+          "title": "The isoperimetric inequality for the Ky Fan norm",
+          "trigger": "Same Fock Toeplitz operator and Ky Fan extremal disk"
+        },
+        {
+          "assessment": "RADIAL_NOT_ANGULAR",
+          "evidence": "Radial-set disk extremality rather than exact nonradial Fourier perturbation formula",
+          "identifier_or_url": "https://arxiv.org/abs/2503.07069",
+          "material_read": "Available indexed abstract and author citation in Abreu; not full text in this run",
+          "method": "Read abstract/scope comparison",
+          "title": "The isoperimetric inequality for partial sums of Toeplitz eigenvalues in the Fock space",
+          "trigger": "Earlier similar rank N inequality"
+        },
+        {
+          "assessment": "DIFFERENT_QUANTIFICATION",
+          "evidence": "First-eigenvalue global stability gives no stated rank-N angular multiplier family",
+          "identifier_or_url": "https://arxiv.org/abs/2307.09304",
+          "material_read": "Abstract/citation in Abreu; no full text inspected this run",
+          "method": "Compared stated first eigenvalue and global deficit objects",
+          "title": "Stability of the Faber-Krahn inequality for the short-time Fourier transform",
+          "trigger": "Related stability theorem that might dominate local Hessian"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual frozen RESULT.md blob 967ef155767d9705bae0233bd3dd888773227e6b",
+        "Abreu author-posted full text RG July 2026",
+        "Nicola Riccardi Tilli arXiv:2503.07069 abstract and Abreu reference"
+      ],
+      "rationale": "Disk Ky Fan maximization is a natural sharp time-frequency inequality; the exact angular Hessian supplies all local curvature multipliers and a strictly positive elliptic cost for every fixed rank and area. This is an independently useful rank-dependent local invariant beyond a sign assertion or textbook eigenvalue formula.",
+      "residual_risks": [
+        "Value limited to stated natural object, range and quantifiers; no downstream/general theorem asserted"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full-text literature access varies by source; see individual source_inspections; institutional VPN disconnected for two closely relevant papers",
+    "No server derived publication, GitHub modification or external attestation occurred"
+  ],
+  "schema_version": 1
+}

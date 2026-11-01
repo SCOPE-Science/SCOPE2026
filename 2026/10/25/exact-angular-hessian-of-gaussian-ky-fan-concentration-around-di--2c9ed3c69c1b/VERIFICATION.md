@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The result is derived analytically in `RESULT.md`, from the exact matrix entry integral, trace-norm differentiability of the moving-boundary operator, spectral perturbation across a strict disk eigenvalue gap, and Poisson/Parseval identities. These steps prove the full formula for every fixed positive area, rank and smooth mean-zero real deformation; the finite checks below do not establish the general case.
+## correctness
 
-The executable `CHECK.py` depends only on Python's standard library. Run `python CHECK.py` in the extracted file directory. It uses exact rational arithmetic to test the diagonal telescoping identity, the translation-mode cancellation and the two-crossing-pair elliptic multiplier formula over many ranks and rational areas. Expected output: `CHECK_OK`.
+PASS
 
-A separate numerical experiment computed finite Fock-matrix Ky Fan sums for cosine-two radial deformations and compared the centered second-order difference with the analytic coefficient at areas \(s=0.5,2,6\), ranks \(N=1,2,3,5\), and decreasing perturbation magnitudes. Agreement was observed as the step decreased, but finite truncation is not proof of an infinite-dimensional statement; that experiment is not required to reproduce the exact proof.
+The Fock monomial basis e_j=(pi^j/j!)^1/2*z^j diagonalizes the disk localization operator with lambda_j=integral_0^s t^j e^-t/j!dt and gap lambda_j-lambda_{j+1}=p_{j+1}>0. Moving radial boundary s+epsilon*h(theta) is twice trace-norm differentiable for s>0. Direct differentiations give M_jk_prime=sqrt(p_j p_k) hhat_{k-j} and M_jj_double=p_j(j/s-1)*mean(h^2). Isolated-cluster eigenvalue perturbation cancels internal-block terms; cross-gap terms sum with denominators sum_{r=j+1}^{j+m}p_r. Telescoping sum_{j<N}p_j(j/s-1)=-p_{N-1}, and Parseval for real mean-zero h, yield exactly sum_{m>=1}kappa_{N,m}|hhat_m|^2 deficit. m=1 cancels, m=2 gives positive p_{N-1}(N+2s+1)/[(N+s)(N+s+1)] including N=1; high m limit p_{N-1}. Abreu global inequality forces nonnegativity, not the actual formula. Independent Fraction checks of 21 (N,s) pairs validate these exact identities; smooth fixed-parameter perturbation proof is essential.
 
-The operator is normalized with the weight \(e^{-\pi|z|^2}\,dA(z)\); the radial variable is \(t=\pi r^2\). The error term is pointwise in \(N,s,h\). Independent audit has not been performed.
+## originality
+
+PASS
+
+Exact area-preserving angular Hessian and closed elliptic coefficient for arbitrary Ky Fan rank differ from global disk optimality, radial rearrangement and first-eigenvalue stability. The observed Fourier multiplier family depends jointly on rank, Poisson weight and boundary-crossing spectral gap.
+
+## value
+
+PASS
+
+Disk Ky Fan maximization is a natural sharp time-frequency inequality; the exact angular Hessian supplies all local curvature multipliers and a strictly positive elliptic cost for every fixed rank and area. This is an independently useful rank-dependent local invariant beyond a sign assertion or textbook eigenvalue formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

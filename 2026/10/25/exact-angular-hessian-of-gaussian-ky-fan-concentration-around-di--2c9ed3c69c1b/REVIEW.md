@@ -1,24 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The operator and monomial normalization agree with the full-text motivating paper arXiv:2607.28376v1. For each fixed positive area, the moving annular boundary is separated from the origin, so coherent-state projection integration is twice differentiable in trace norm. The diagonal disk eigenvalues have the explicit positive gap \(\lambda_{N-1}-\lambda_N=p_N\). The isolated-cluster second derivative contains only cross-gap transitions; internal modes cancel, and the off-diagonal series converges absolutely. A telescoping Poisson identity and real Fourier Parseval yield the complete Hessian with the correct factor of two. The mode-one cancellation, mode-two closed rational expression (including \(N=1\)), and high-frequency limiting curvature are algebraic consequences. Exact checker tests pass, but no infinite claim relies on finite testing.
+PASS
 
-## Originality — PASS (subject to residual priority risk)
+The Fock monomial basis e_j=(pi^j/j!)^1/2*z^j diagonalizes the disk localization operator with lambda_j=integral_0^s t^j e^-t/j!dt and gap lambda_j-lambda_{j+1}=p_{j+1}>0. Moving radial boundary s+epsilon*h(theta) is twice trace-norm differentiable for s>0. Direct differentiations give M_jk_prime=sqrt(p_j p_k) hhat_{k-j} and M_jj_double=p_j(j/s-1)*mean(h^2). Isolated-cluster eigenvalue perturbation cancels internal-block terms; cross-gap terms sum with denominators sum_{r=j+1}^{j+m}p_r. Telescoping sum_{j<N}p_j(j/s-1)=-p_{N-1}, and Parseval for real mean-zero h, yield exactly sum_{m>=1}kappa_{N,m}|hhat_m|^2 deficit. m=1 cancels, m=2 gives positive p_{N-1}(N+2s+1)/[(N+s)(N+s+1)] including N=1; high m limit p_{N-1}. Abreu global inequality forces nonnegativity, not the actual formula. Independent Fraction checks of 21 (N,s) pairs validate these exact identities; smooth fixed-parameter perturbation proof is essential.
 
-Abreu's July 2026 Ky Fan paper proves the **global** disk upper bound by majorization, not a local Fourier Hessian. Nicola–Riccardi–Tilli's 2025 paper covers **radial** competitors, not nonradial angular perturbations. The 2023 Gómez–Guerra–Ramos–Tilli stability theorem treats the **first** localization eigenvalue by a global Fraenkel deficit; it does not provide the rank-dependent exact angular Hessian. Ramos's 2026 paper identifies higher eigenvalues and Ky Fan sums as distinct further questions (Section 8.3), without the stated formula. Full-text examinations of their relevant theorems and proofs, searches for shape-Hessian aliases, and published-finding corpus semantic overlap searches found no equivalent or logically stronger statement; no search result proves uniqueness. Historical priority remains uncertain for unindexed perturbation notes or generic trace-class Toeplitz shape-derivative theory.
+## originality
 
-## Value — PASS
+PASS
 
-The newly proved numerical invariant is the complete local curvature spectrum for a natural nonlinear perturbation of the unique known sharp geometry of a time-frequency concentration inequality. It quantifies exactly how an elliptic deformation costs Gaussian Ky Fan concentration for all ranks and areas and distinguishes the neutral translation direction from a strictly penalized natural anisotropy. The coefficient depends nontrivially on the rank and area, so it is not a normalization change or a restatement of the global disk bound. Sharpness means it is the actual second Taylor coefficient for the specified mode; no global quantitative optimality claim is made.
+Exact area-preserving angular Hessian and closed elliptic coefficient for arbitrary Ky Fan rank differ from global disk optimality, radial rearrangement and first-eigenvalue stability. The observed Fourier multiplier family depends jointly on rank, Poisson weight and boundary-crossing spectral gap.
 
-## Closest sources and residual limits
+## value
 
-- L. D. Abreu (2026), arXiv:2607.28376v1, main theorem and proof, pages 4 and 10–12.
-- F. Nicola, F. Riccardi and P. Tilli (2025), arXiv:2503.07069v2, introduction, radial-set theorem and proof, pages 1–7.
-- J. Gómez, A. Guerra, J. P. G. Ramos and P. Tilli (2023), arXiv:2307.09304v1, stability theorem and second-variation discussion for the first eigenvalue, pages 1 and 25–26.
-- J. P. G. Ramos (2026), arXiv:2607.21590v2, abstract and Section 8.3, page 72.
+PASS
 
-No independence or external peer review is claimed.
+Disk Ky Fan maximization is a natural sharp time-frequency inequality; the exact angular Hessian supplies all local curvature multipliers and a strictly positive elliptic cost for every fixed rank and area. This is an independently useful rank-dependent local invariant beyond a sign assertion or textbook eigenvalue formula.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
