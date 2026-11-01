@@ -1,0 +1,15 @@
+# Scientific review: first mixed-dimensional cubical two-independence homotopy
+
+## Correctness
+**PASS.** The vertex set, face rule, matching order, orientation and finite domain are fully explicit. Exhaustive independent induced-degree and forbidden-triple tests agree on all subsets through dimension four. Every pair is a codimension-one incidence and an exhaustive directed-Hasse topological sort proves acyclicity. The Morse critical-cell profiles are one vertex plus respectively no cells, three one-cells, three two-cells, and sixteen three-cells plus one four-cell. A signed integer gradient-path computation gives the complete sixteen-by-one fourth differential as zero. Since the three-skeleton is a wedge of three-spheres, integral Hurewicz identifies the resulting null attaching map, proving the mixed sphere wedge. Independent mod-two ranks reproduce the homology, but are not used in place of the integral attaching calculation.
+
+## Originality
+**PASS on inspected evidence, with publication-priority risk.** The 2015 path-devoid paper studies paths, cycles and forests; the 2020 higher-independence classification covers complete multipartite, whiskered, path, cycle and perfect-tree graphs, but not hypercubes. A 2021 chordal-graph result is inapplicable to this graph. The published hypercube metric Čech and Rips calculations instead use metric-ball and pairwise-distance faces. The closest indexed ordinary four-cube independence calculation uses the stronger induced-degree-zero condition; the four-cube Čech calculation concerns a distinct nerve. Targeted searches under dissociation, two-independence, forbidden-three-path and periodic grid terminology found no direct or implying classification. Unindexed or unavailable equivalent results cannot be ruled out.
+
+## Value
+**PASS.** The graph is the canonical four-dimensional cube, not a parameter-picked finite graph. The sequence through dimensions one to four provides a natural exact cutoff: the first three stages are contractible or equidimensional wedges, but the fourth acquires both a large degree-three component and a degree-four generator. This supplies a concrete counterexample to extrapolating equidimensional higher-independence behavior from low cubical dimensions, while eight-vertex maximal faces coexist with homotopy concentrated in dimensions three and four. An exact topological classification is a meaningful structural benchmark even without an all-dimensional formula.
+
+## Closest work and limits
+The nearest general higher-independence papers are Taylan (arXiv:1501.06754) and Deshpande–Singh (arXiv:2001.05448). The closest published same-graph research records concern ordinary independence, hypercube Čech nerves and cubical cut complexes; their face conditions are different. The proof is finite, and no conclusion is drawn for dimensions five or higher. Independent mathematical review and definitive priority checking remain outstanding.
+
+Self-review: passed. Independent audit: not yet performed.
