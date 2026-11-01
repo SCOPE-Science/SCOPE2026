@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with the Python 3 standard library; this file is embedded alongside the mathematical exposition. All comparisons of expressions \(a+b\varphi\), where \(\varphi^2=\varphi+1\), are exact integer operations. There is no numerical tolerance.
+## correctness
 
-The code reconstructs the original twelve vertices, thirty length-two edges, thirty edge-sum vertices and complete thirty-two-facet hull, including its twelve pentagonal and twenty triangular facets. It checks all 360 original-vertex reflection incidences, identifies one generic direction with \((3,7)\) illumination counts, and verifies the four generic integer directions cover every polar vertex (five-valent count one each; three-valent counts twelve once and eight twice). It also checks 150 generic test directions for additional diagnostics; those samples are not used for global coverage.
+PASS
 
-Expected successful output:
-```
-EXACT_OK original_vertices=12 roots=30 hull_facets=32 pentagons=12 triangles=20
-EXACT_OK reflections=30x12 generic_incidence=(3,7) witnesses=4 min_vertex_coverage=1
-EXACT_OK ordinary_illumination=4 fractional_illumination=4
-```
+Actual icosahedral coordinates yield 30 mid-edge roots and the full icosidodecahedral dual facet set (12 pentagons and 20 triangles). For each root n, orthogonal reflection R_n permutes all 12 icosahedron vertices and hence preserves the hyperplane arrangement. Adjacent chambers are related by their facet-wall reflections; connected chamber graph forces every generic direction to illuminate exactly (3 five-valent,7 three-valent) dual vertices, as certified by one exact sign sample. Strict inequalities show nongeneric directions have at most that count. Five-valent vertex count gives i(P),i*(P)>=12/3=4, and four explicit directions cover every vertex giving i=i*=4. Independent geometry recreated all roots, face signs, 360 reflections numerically and four-direction cover; source code verifies in exact Z[phi], so numerical tolerances are not the proof.
 
-The global statement for all generic directions is a theorem about connected reflection chambers; it does not follow from 150 tests. The count for all directions is extended using strict-inequality continuity. Neither external mathematical priority nor independent proof audit is asserted.
+## originality
+
+PASS
+
+Naszódi introduced fractional illumination, Gorodzha gives general illumination bounds, and published Resultary exact values concern the regular dodecahedron, icosahedron, rhombic dodecahedron and several other solids. None of those stated cases is the 32-vertex rhombic triacontahedron or implies the exact two-valence directional count under H3 reflections. Exact values are qualified against possible earlier equivalent directional-illumination terminology.
+
+## value
+
+PASS
+
+The exact two-orbit directional incidence and simultaneous sharp ordinary/fractional illumination numbers for an iconic Catalan polyhedron form a natural nontrivial convex-geometric classification. The reflection-arrangement explanation is broadly instructive and the explicit four-direction cover is a reproducible extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

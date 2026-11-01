@@ -1,11 +1,21 @@
-# Scientific review: rhombic triacontahedron illumination
+# Independent mathematical audit
 
-**Correctness: PASS.** The exact algebraic certificate reconstructs the complete polar facet graph and confirms every reflection generator preserves the original icosahedral vertex set. The connected chamber-adjacency argument gives the all-generic-directions assertion; the strict-inequality perturbation argument controls nongeneric directions. One reference direction has illumination incidence \((3,7)\). Each direction illuminates at most three of twelve five-valent vertices, giving ordinary and fractional lower bounds of four. Four listed generic directions jointly illuminate all thirty-two vertices, giving the matching upper bounds. Exact arithmetic confirms the crucial equalities, not a floating-point approximation.
+## correctness
 
-**Originality: PASS under inspected evidence.** Naszódi's foundational paper and Gorodzha's recent theorem supply general fractional illumination bounds but no Catalan-solid value. The complete 2012 Kiss–de Wet paper addresses norm-weighted source costs for Platonic/Archimedean solids, not this Catalan dual. Inspected exact papers on the icosahedron, dodecahedron, type-\(D\) polar bodies, and cube–octahedron intersections concern different objects or invariants and do not imply the all-direction two-orbit spectrum here. Searches included the polar icosidodecahedron, rhombic-triacontahedron and \(H_3\) terminology. An unindexed historical result on the ordinary numerical value remains a priority risk.
+PASS
 
-**Mathematical value: PASS.** The complete natural polyhedral invariant and its nontrivial two-orbit directional rigidity make this more than a single witness: a uniform combinatorial-geometric mechanism yields both exact illumination numbers and a sharp covering certificate. A general lower bound is attained by explicit geometry rather than only numerical optimization.
+Actual icosahedral coordinates yield 30 mid-edge roots and the full icosidodecahedral dual facet set (12 pentagons and 20 triangles). For each root n, orthogonal reflection R_n permutes all 12 icosahedron vertices and hence preserves the hyperplane arrangement. Adjacent chambers are related by their facet-wall reflections; connected chamber graph forces every generic direction to illuminate exactly (3 five-valent,7 three-valent) dual vertices, as certified by one exact sign sample. Strict inequalities show nongeneric directions have at most that count. Five-valent vertex count gives i(P),i*(P)>=12/3=4, and four explicit directions cover every vertex giving i=i*=4. Independent geometry recreated all roots, face signs, 360 reflections numerically and four-direction cover; source code verifies in exact Z[phi], so numerical tolerances are not the proof.
 
-**Scope and limitations.** Statements hold for the specified regular realization and invertible linear images, not arbitrary combinatorially equivalent solids. The checker proves all its finite subclaims exactly; the chamber argument establishes the infinite-direction assertion. No historical exhaustiveness or independent validation is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Naszódi introduced fractional illumination, Gorodzha gives general illumination bounds, and published Resultary exact values concern the regular dodecahedron, icosahedron, rhombic dodecahedron and several other solids. None of those stated cases is the 32-vertex rhombic triacontahedron or implies the exact two-valence directional count under H3 reflections. Exact values are qualified against possible earlier equivalent directional-illumination terminology.
+
+## value
+
+PASS
+
+The exact two-orbit directional incidence and simultaneous sharp ordinary/fractional illumination numbers for an iconic Catalan polyhedron form a natural nontrivial convex-geometric classification. The reflection-arrangement explanation is broadly instructive and the explicit four-direction cover is a reproducible extremizer.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
