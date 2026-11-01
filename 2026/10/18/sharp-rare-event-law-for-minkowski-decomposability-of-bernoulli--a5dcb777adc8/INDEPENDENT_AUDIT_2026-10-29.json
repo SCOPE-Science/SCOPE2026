@@ -1,0 +1,232 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T18:50:03.700502Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual seven-file assigned package at frozen Git tree, especially RESULT.md and verify.py",
+        "https://arxiv.org/abs/2605.22594 Theorem 1.1 (full text not accessible; primary theorem statement checked)",
+        "Independent /mnt/data/scope_worker02_run_20261029T1840/independent_checks.py finite-case checker and analytical inequalities"
+      ],
+      "rationale": "For fixed p in (0,1), N=2^n, b=p²+q², coordinate-prism E_i has independent N/2 matching pairs and exact probability b^(N/2). Pairwise E_i∩E_j has probability c^(N/4), c=p⁴+q⁴<b². Inclusion–exclusion for j directions gives (p^(2^j)+q^(2^j))^(2^(n-j)). By the published deterministic Boolean-polytope Theorem 1.1, every full-dimensional Minkowski decomposition corresponds to a coordinate Cartesian split. For smaller side k≥2, M=2^k, each J-column must be empty or a common size-a≥2 set A and has probability f=q^M+p^a q^(M-a). If p≥q, f≤p^M+q^M≤(p⁴+q⁴)^(M/4); if p<q, f≤q^(M-2)b≤(q² b)^(M/4). In both cases rho_p^4<b². At most 2^n 2^(2^(n/2)) choices multiply rho_p^N, exponentially below b^(N/2). Any deficient cube sample lies in a hyperplane containing at most 2^(n-1) cube vertices, and ≤2^(n²) hyperplanes spanned by n cube vertices suffice, giving exp(-Ω_p(N)) full-dimensional failures. Conditioned on E_i, N/2 independent collapsed Bernoulli indicators have parameter p²/b, giving the same bound. Therefore P(D_n|F_n)=n b^(N/2)(1+O_p(exp(-c_p N))), also P(D_n∩F_n). Two singleton factors and any nonsingleton product are negligible, leaving a unique unit coordinate segment times an indecomposable (n-1)-dimensional factor. Independent exact finite checker found 60879 full n=4 samples, 625 products, 577 prisms, 48 non-prism; rate inequalities checked for five rational p values and M=4..128. Finite enumeration is not the proof.",
+      "residual_risks": [
+        "The deterministic coordinate-product theorem is a cited published nonstandard premise; complete primary Section 3 could not be re-read due full-text access failure, although its stated theorem matches usage.",
+        "The theorem holds for fixed p strictly between 0 and 1 and n→∞; it does not cover p=p(n), endpoints, or exact all-n decomposability probability.",
+        "The finite checker tests n=3,4 and rational sample probabilities only; analytical rate estimates establish the asymptotics."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Higashitani–Padrol–Sanyal (2026), Theorem 1.1: every 0/1-polytope uniquely decomposes into Cartesian indecomposable 0/1 factors. Its structural existence theorem is the main prior premise, not the present conditional Bernoulli probability calculation.",
+          "Ferber et al. (2025), Theorem 1.2, bounds random 0/1-polytope graph edge expansion; Guo–Tomon (2026), Theorems 1.1–1.2, improve graph-expansion lower bounds. These properties neither directly give a probability for Minkowski-product factorability nor identify the conditional exceptional geometry.",
+          "Savický–Woods (1998), abstract, counts Boolean functions represented by formulas of bounded size L; unrestricted disjoint AND factorization of arbitrary truth tables is not their specified parameter."
+        ],
+        "reasoning": "A full deterministic product decomposition is strictly weaker in stochastic content than a sharp exponentially small event probability with an n prefactor and conditional uniqueness. High-probability graph expansion and restricted formula-complexity enumeration concern different events, so no implication-dominating result is established by the inspected claims.",
+        "searches": [
+          "https://arxiv.org/abs/2605.22594",
+          "https://arxiv.org/html/2509.09831",
+          "https://arxiv.org/html/2604.09520",
+          "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<349::AID-RSA9>3.0.CO;2-V",
+          "Resultary: Indecomposable random Boolean polytopes Cartesian products rare event; deterministic factorization theorem"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2605.22594",
+        "https://arxiv.org/html/2509.09831",
+        "https://arxiv.org/html/2604.09520",
+        "https://doi.org/10.1049/ip-e.1991.0007",
+        "https://www.system-informatics.ru/en/article/302",
+        "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<349::AID-RSA9>3.0.CO;2-V",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-identifiability-boundary-for-singleton-slices-of-bernoulli--452fbc6c21c4",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+        "Resultary semantic queries (three actually executed; none yielded this exact mathematical claim)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Higashitani–Padrol–Sanyal, Theorem 1.1 explicitly implies decomposability of full-dimensional sampled Boolean polytopes iff there is a nontrivial Cartesian split; deterministic implication is acknowledged.",
+          "For one-coordinate segment factors, each of N/2 disjoint pairs must agree, giving b^(N/2); two factors overlap at c^(N/4) with c<b^2; other factor sizes have column probability bounded by rho_p^N with rho_p<sqrt(b). The stochastic rate separation and sharp n prefactor are not stated by that deterministic implication.",
+          "A generic positive edge-expansion result, even if valid on the same random input model, does not determine the rare-event rate of a distinct Minkowski decomposability predicate."
+        ],
+        "reasoning": "The deterministic primary theorem is used, not rebranded as new. Its implication to a factorization *criterion* is decisive, but the full asymptotic conditional law requires new probabilistic comparison, and no inspected stronger source establishes that law. A decisive uninspected earlier conjunctive-separation census would reverse this best-of-knowledge originality judgment; risk remains explicit.",
+        "searches": [
+          "https://arxiv.org/abs/2605.22594",
+          "https://arxiv.org/html/2509.09831",
+          "https://arxiv.org/html/2604.09520",
+          "https://doi.org/10.1049/ip-e.1991.0007",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-identifiability-boundary-for-singleton-slices-of-bernoulli--452fbc6c21c4",
+          "web: 2^(2^(n-1)) Boolean function decomposition probability",
+          "web: conjunctive decomposition of Boolean functions random truth table count"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The retained-indicator truth table f(x) of the sampled vertex set V is conjunctively separable f(x_I,x_J)=g(x_I)h(x_J) iff V=A×B, with both factors nonempty; this is exactly Cartesian factorability, not general switching-theory composition h(g(X_I),X_J).",
+          "Poswig (1991) describes generic disjoint Boolean-function decomposition f(X)=h(g(X_I),X_J); AND separation is at most a special case, while the accessible abstract contains no p-dependent counting or rare-event coefficient. Full text was unavailable for inspection.",
+          "Emelyanov (2021) abstract describes algorithms/experiments for conjunctive decomposition, not a published population probability law in material read."
+        ],
+        "reasoning": "The logical AND of disjoint-variable factor indicators is an exact alias for Cartesian product subsets; probabilistic factorization can therefore be obscured in Boolean function/counting literature. Targeted searches and abstract comparisons did not reveal a matching sharp asymptotic, but absence of hits is not proof; older switching theory is an acknowledged priority risk.",
+        "searches": [
+          "Resultary: Random Bernoulli 0/1 Boolean polytope Minkowski decomposability probability sharp exponent prefactor n independent coordinate prisms unique segment factor",
+          "Resultary: Random Boolean functions AND factorization in disjoint variable blocks under independent Bernoulli truth table entries, exact probability asymptotic Cartesian product relation",
+          "web: number of Boolean functions decomposable as AND of functions on disjoint variables asymptotic number",
+          "web: AND-decomposable random Boolean function asymptotic probability",
+          "https://doi.org/10.1049/ip-e.1991.0007",
+          "https://www.system-informatics.ru/en/article/302"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read complete RESULT.md in published Resultary Bernoulli-singleton-fingerprint record; this concerns parameter identifiability from Hamming-weight-one probabilities, not random support product factorization.",
+          "Read complete RESULT.md in ordered Boolean full-product record; this counts automorphism orbits of tuples on Q^d and tie collisions, not random subsets of a hypercube.",
+          "Read complete RESULT.md for lattice-segment factors in Ehrhart h* log-concavity; its product factor is deterministic and invariant is unrelated.",
+          "Independently enumerated 60879 full-dimensional n=4 samples, 625 decomposable, 577 prism, and 48 non-prism; these are checks, not a claim that prior tables are absent."
+        ],
+        "reasoning": "The actual semantic and exact-formula search results did not reveal an existing database/table for the Bernoulli p-dependent rare-event law. The finite census and the analytic leading term are distinct; no global novelty is inferred from limited search coverage.",
+        "searches": [
+          "Resultary three semantic queries on rare Bernoulli Boolean-polytopes and AND product factorization, 14–15 returned hits each",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-identifiability-boundary-for-singleton-slices-of-bernoulli--452fbc6c21c4",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "web: random Boolean function conjunction disjoint variable factorization probability almost all prime Boolean polynomial",
+          "web: count of Cartesian product binary relations random 0 1 matrix decomposable probabilities"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality PASS for the sharp fixed-p rare-event law n(p²+(1-p)²)^(2^(n-1)) with exponentially small relative error, and dominance by a unique coordinate segment. Published deterministic 0/1-polytope decomposition is an acknowledged prerequisite, as are Bernoulli random-polytope graph-expansion models. The exact stochastic prefactor and conditional prime-factor mechanism are not determined by inspected prior results. Older conjunctive AND decomposition enumeration might dominate, especially under switching-theory terminology; full text unavailable and no global priority certification claimed.",
+      "residual_risks": [
+        "Poswig (1991), Emelyanov (2021), and other older disjoint AND-factorization enumeration may contain equivalent counting laws; abstracts alone do not establish noncoverage.",
+        "Complete Higashitani–Padrol–Sanyal (2026) primary paper could not be read: arXiv and OA full-text download unavailable; Oxford returned vpn_disconnected. Its Theorem 1.1 statement was materially checked, but complete paper appendix/remarks were not.",
+        "Semantic and web searches are not exhaustive or a proof of novelty; best-of-knowledge assessment only."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ESTABLISHES_PRIOR_DETERMINISTIC_PREMISE; complete-paper coverage of stochastic remarks not certified.",
+          "evidence": [
+            "Theorem 1.1: every 0/1-polytope uniquely decomposes as a Cartesian product of proper indecomposable 0/1-polytopes (Paperity preview, primary p.2).",
+            "The accessible introduction lists deterministic applications; no random retention law was established in inspected material."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.22594",
+          "material_read": "arXiv abstract and primary-paper introduction/Theorem 1.1 as reproduced in the accessible Paperity preview, including statement of unique Cartesian indecomposable factorization. Complete 13-page text/Section 3 was not retrievable.",
+          "method": "Read primary theorem statement and mathematical scope; attempted direct arXiv HTML/PDF and lawful OA; authorized institutional full-text access returned vpn_disconnected; no further retry or bypass.",
+          "title": "Indecomposability of 0/1-polytopes",
+          "trigger": "Exact same deterministic geometry; critical nonstandard coordinate-product theorem used as a premise"
+        },
+        {
+          "assessment": "FULL_TEXT_DIFFERENT_INVARIANT; it establishes edge-expansion, not a Minkowski decomposability probability.",
+          "evidence": [
+            "Theorem 1.2: high-probability graph edge-expansion at least an absolute constant for p>=2^(-0.99 n).",
+            "Full accessible HTML searches for Minkowski and decompos returned no match."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2509.09831",
+          "material_read": "Accessible full primary arXiv HTML, Introduction/Theorem 1.2, Section 2 proof overview and section organization; searched whole HTML for Minkowski/decompos terminology.",
+          "method": "Compared the random model and exact theorem predicates, inspected stated result and flow/projection method.",
+          "title": "On the edge expansion of random polytopes",
+          "trigger": "Exactly same independent Bernoulli hypercube-vertex model and earliest motivating probabilistic paper"
+        },
+        {
+          "assessment": "FULL_TEXT_DIFFERENT_INVARIANT; expansion bounds do not imply sharp Minkowski decomposability law.",
+          "evidence": [
+            "Theorem 1.1 gives typical edge-expansion Theta(n) or n^{Theta(log log n)} in fixed-p ranges.",
+            "Full accessible HTML searches for Minkowski/decompos yielded no match."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.09520",
+          "material_read": "Accessible full arXiv HTML; Abstract, Introduction, Theorems 1.1 and 1.2, proof outline, and whole-text term searches.",
+          "method": "Compared exact high-probability graph-expansion conclusions to product-factor event and its rare-event rate.",
+          "title": "Random 0/1-polytopes expand rapidly",
+          "trigger": "Same Bernoulli model; stronger expansion result potentially dominating previous probabilistic analysis"
+        },
+        {
+          "assessment": "UNRESOLVED_HISTORICAL_PRIORITY_RISK; no whole-text negative inference.",
+          "evidence": [
+            "The abstract studies general disjoint-variable functional decomposition algorithms, a framework able to include AND as a special form.",
+            "No exact random Bernoulli decomposition probability appears in material read."
+          ],
+          "identifier_or_url": "https://doi.org/10.1049/ip-e.1991.0007",
+          "material_read": "Publisher abstract/bibliographic description only; complete paper not obtained.",
+          "method": "Compared displayed f(X)=h(g(X_I),X_J) general decomposition form with the AND-separated Boolean-support predicate.",
+          "title": "Disjoint decomposition of Boolean functions",
+          "trigger": "Plausible older mathematical alias: separability of random Boolean truth tables"
+        },
+        {
+          "assessment": "PLAUSIBLE_ALIAS_NOT_ESTABLISHED_COVERAGE_IN_MATERIAL_READ.",
+          "evidence": [
+            "2021 abstract describes conjunctive decomposition algorithms, ZDD/BDD/AIG representations, tests including random Boolean functions."
+          ],
+          "identifier_or_url": "https://www.system-informatics.ru/en/article/302",
+          "material_read": "Publisher abstract and bibliographic record only; article complete text not read.",
+          "method": "Compared algorithmic test-set experiments and representations with theorem quantifying random support product probability.",
+          "title": "Conjunctive Decomposition of Boolean Functions: Experiments with Different Representations",
+          "trigger": "Exact conjunctive-factorization vocabulary used for same Boolean support representation"
+        },
+        {
+          "assessment": "DISTINCT_SIZE_BOUNDED_ENUMERATION_IN_INSPECTED_ABSTRACT; no whole-document noncoverage assertion.",
+          "evidence": [
+            "1998 abstract counts B(n,L) representable by propositional formulas with L literal occurrences; audited theorem does not impose formula size."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/(SICI)1098-2418(199810/12)13:3/4<349::AID-RSA9>3.0.CO;2-V",
+          "material_read": "Publisher abstract and theorem-aim summary only.",
+          "method": "Compared bounded formula size L and number B(n,L) with arbitrary support product factorization and p-weighted truth tables.",
+          "title": "The number of Boolean functions computed by formulas of a given size",
+          "trigger": "Prior asymptotic enumeration of Boolean functions with AND/OR formulas"
+        },
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_OBJECT_AND_INVARIANT.",
+          "evidence": [
+            "It determines injectivity/stability threshold 1/n for labeled one-success probabilities, rather than a Minkowski/polytope event."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-sharp-identifiability-boundary-for-singleton-slices-of-bernoulli--452fbc6c21c4",
+          "material_read": "Entire primary scientific RESULT.md, including theorem, proof and limitations, via GitHub read-only connector.",
+          "method": "Compared its parameter-inverse map F_i=p_i prod_{j!=i}(1-p_j) to random Boolean-support factorization.",
+          "title": "Sharp identifiability boundary for singleton slices of Bernoulli products",
+          "trigger": "Highest related published Resultary finding involving Bernoulli products and singleton slices"
+        },
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_BOOLEAN_PRODUCT_AND_RANDOM_MODEL.",
+          "evidence": [
+            "It counts ordered-tuple orbits of Q^d with tie partitions; no sampled Boolean-polytope decomposition."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-tie-collision-phase-transition-for-ordered-boolean-full-products--902c9356c25e",
+          "material_read": "Entire primary scientific RESULT.md, including exact orbit formulas and proof, via GitHub read-only connector.",
+          "method": "Compared automorphism-orbit weak-order products with independent Bernoulli sampled cube subsets.",
+          "title": "Tie-collision phase transition for ordered Boolean full products",
+          "trigger": "Related published full-product rare-collision asymptotic"
+        },
+        {
+          "assessment": "NOT_COVERING_DIFFERENT_GEOMETRIC_INVARIANT.",
+          "evidence": [
+            "It concerns the Ehrhart numerator of P×[0,m] for fixed lattice P, without random Bernoulli support."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-lattice-segment-factors-preserve-ehrhart-h-log-concavity--5724d44ac8d4",
+          "material_read": "Entire primary scientific RESULT.md and proof read using GitHub read-only connector.",
+          "method": "Compared deterministic Ehrhart h* log-concavity preservation with probability of random cube product factors.",
+          "title": "Lattice-segment factors preserve Ehrhart h*-log-concavity",
+          "trigger": "Published geometric statement about Cartesian segment factors"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md final theorem and non-prism suppression",
+        "Higashitani–Padrol–Sanyal deterministic product structure",
+        "Two existing Bernoulli random-polytope expansion papers and independent n=4 census"
+      ],
+      "rationale": "The Bernoulli cube-vertex model is a canonical random 0/1-polytope. Quantifying decomposability as a rare event with its double-exponential probability, sharp dimension prefactor n and conditional unique segment factor answers a natural distributional/structural question not implied by a high-probability indecomposability slogan or deterministic decomposition alone. A precise exponentially smaller competing mechanism and an exact inclusion-exclusion formula for coordinate prisms make the result reusable for conditional structure or rare-sample analysis. This is a motivated global asymptotic invariant rather than an arbitrary small slice or textbook parameter substitution.",
+      "residual_risks": [
+        "The value is restricted to fixed retention p, not a general threshold diagram in sparse regimes.",
+        "Mathematical significance relies on originality of the sharp probabilistic law; an unindexed previously stronger counting theorem would undermine originality and hence acceptance."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Full text of deterministic source arXiv:2605.22594 not obtained despite original arXiv and lawful OA attempts; Oxford institutional VPN disconnected. Only its primary theorem statement and introduction were read, not its proof/appendices.",
+    "Poswig 1991 and Emelyanov 2021 were read at abstract level only and remain historical-priority risks; no unsupported full-text noncoverage conclusion.",
+    "Scientific proof is conditional on established structural theorem; finite tests do not establish infinite asymptotic or originality.",
+    "Any publication of raw administrative source bytes must remove private identifiers and unsupported provenance; this run supplies no executable replacement operations."
+  ],
+  "schema_version": 1
+}
