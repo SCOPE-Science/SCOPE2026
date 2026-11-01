@@ -1,15 +1,21 @@
-# Review of the dicyclic commutative-closure result
+# Independent mathematical audit
 
-## Correctness
-PASS. The normal form \(a^k b^e\) and relation \(ba=a^{-1}b\) identify exactly the reachable group products for fixed Parikh counts. The proof classifies all right quotients, including the zero-\(b\) axis and the transition at \(r=m-1\), and supplies a separation argument for all classes. The arithmetic count is \((m-1)+2m+4(m-1)+4=7m-1\). The standalone verifier exercises independent group-product enumeration for \(2\le m\le10\) and tests canonical classes and distinguishability. The finite tests do not certify the infinite formula.
+## correctness
 
-## Originality
-PASS, subject to residual research risks. Hoffmann (2020, arXiv:2004.11772) gives a general automaton construction and a nonsharp upper bound for commutative closures of group languages, not the dicyclic family exact state complexity. Hoffmann (2020, arXiv:2008.05420) addresses shuffle expressions; Hoffmann (2021, arXiv:2111.13523) addresses product-form minimal automata. The prior dihedral identity closure cannot supply the dicyclic computation because \(b^2=a^m\) changes both the Parikh language and its right quotients. Exact prior coverage cannot be excluded absolutely; the 2013 foundational article was compared at the abstract level only and was not used to infer noncoverage of its full text.
+PASS
 
-## Mathematical value
-PASS. The new exact family and its quotient classification show how a nontrivial central group extension generates a length threshold in commutative-closure state complexity. The result is not a finite parameter table: the proof handles every \(m\ge2\), quantifies the blow-up relative to the group language, and produces an explicit minimal-state representation that is much smaller than the general operation bound.
+For every m>=2 with positive generators a,b, normal form b a = a^{-1} b and b^2=a^m yields exact Parikh predicate: s=0 iff 2m|r; odd s rejected; positive s=0 mod4 iff r even; s=2 mod4 iff r>=m and r=m mod2. Each possible exponent r-2t is achievable when s>0; the four quotient classes are A-low (m-1), A-residue (2m), B-low (4m-4), B-high (4). The h(v) first-accepted-a-suffix witnesses distinguish them. Thus 7m-1 minimal DFA states versus 4m original group states. Independent product-count dynamic programming and independently formed bounded Myhill-Nerode signatures checked m=2..6; not a proof beyond bounds.
 
-## Closest literature and limitations
-The closest reviewed work is Hoffmann's *State Complexity Bounds for the Commutative Closure of Group Languages*, arXiv:2004.11772. The result is for the standard positive-generator alphabet only; no claim is made for arbitrary presentations or generating sets. The search cannot establish publication uniqueness, and the finite verification cannot replace the uniform proof. Independent external review has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The sharp 7m-1 quotient partition is not a straightforward consequence of regularity or the general group-language upper bound. The central-square b^2=a^m creates a finite threshold absent in the dihedral quotient; passing to the quotient changes the language and minimal automaton. No statement from inspected primary results gives an exact dicyclic family count.
+
+## value
+
+PASS
+
+The dicyclic groups constitute a canonical infinite family of nonabelian finite groups. Determining exact state complexity, including the first quaternion group, isolates the threshold mechanism from a nontrivial central extension; the optimal 7m-1 is far below generic closure bounds and usable as a sharp automata benchmark.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
