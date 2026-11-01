@@ -1,11 +1,21 @@
-# Scientific review: wild characteristic-two Steiner quartic
+# Independent mathematical audit
 
-**Correctness — PASS.** The homogeneous Jacobian ideal was derived with the defining quartic included, as required in characteristic two. On the three affine charts covering the reduced singular support it becomes, respectively, a reduced triple-axes ideal, a generically reduced singular line, and a local ideal with torsion basis \(y,z,y^2\) of length three. Finite birational normalization is proven by explicit quadrics, a rational inverse, and finite fibers. On each source line dominating a singular target line, the separable double-line map has the single wild branch \(v=1\) and different exponent two. Independent exact polynomial arithmetic and finite-field enumerations corroborate the critical identities. The enumerations alone are not proofs over the algebraic closure.
+## correctness
 
-**Originality — PASS, qualified.** Classical treatments give precisely the Roman quartic parametrization, three double lines, and six characteristic-zero pinch points. Those assertions do not imply the characteristic-two Fitting scheme or the concentrated wild ramification: the two classical branch values coalesce and the special-fibre derivatives change. Published research-record comparisons did not identify an equal or stronger characteristic-two theorem. The complete 1996 and 2012 papers remain inaccessible, so a historical-overlap risk remains; the author-hosted detailed exposition and a related full 2009 article were inspected. The normalization and elementary point count are context, not claims of standalone novelty.
+PASS
 
-**Mathematical value — PASS.** The exact length-three embedded defects and one-point wild branch structure are a motivated geometric description of the degeneration of the best-known projected Veronese surface. They differentiate the singular *scheme*, not just its reduced support, from the classical six-pinch picture and provide exact local information for studying normalization and exceptional-characteristic behavior. The result is not based on an arbitrary small parameter slice or numerical improvement.
+Reconstructed the characteristic-2 geometry for F=x²y²+y²z²+z²x²+xyzw. Viewed as linear in w, coefficient xyz is coprime to the other summand, so F is absolutely irreducible. Quadrics [tu:su:st:s²+t²+u²] have no common projective zero and satisfy F=0; the inverse [yz:xz:xy] on xyz!=0 makes the map birational. Fibres over the three singular lines are finite, hence projective quasi-finite map is finite and P² normalization. Partial derivatives are (yzw,xzw,xyw,xyz), and exactly >=2 of x,y,z vanish on the singular support. Chart w=1 yields reduced (xy,xz,yz), while chart x=1 yields (yz,yw,zw,y²+z²), generically (y,z) off w=0; y,z,y²=z² are independent w-annihilated torsion classes of length 3 and all others follow by symmetry. On the dominant source line, lambda=v+v^-1 is separable degree 2, unique characteristic-2 branch v=1 with lambda=h²/(1+h), wild e=2 and different exponent 2 by Riemann-Hurwitz. Projective torus and boundary count (q-1)^2+3q+1=q²+q+2 implies the stated zeta function. Independently derived partials, charts and local Groebner ideals and enumerated GF(2), GF(4), with (surface,singular)=(8,7),(22,13). These finite tests cannot certify algebraic closure or all extensions, which rest on the proof.
 
-The finding concerns one specified integral quartic model in characteristic two. It does not classify all Steiner projections and does not claim historical uniqueness beyond the inspected literature. The full 1996 and 2012 papers were not available for direct reading.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The base equation, normalization form and classical six characteristic-zero pinch points were known. The qualified original contribution is the intrinsic Fitting/Jacobian embedded length-three defect at each of three characteristic-two points, paired with unique wild branch of each normalization double cover. The full author-hosted classical exposition, a full 2009 moving-plane preprint, and two related published quartic singular-scheme examples were read and compared. Nothing inspected supplies this exact characteristic-two local-algebra theorem. The most directly relevant 1996 and 2012 full journal articles were unavailable: authorized institutional retrieval returned vpn_disconnected; this is an explicit residual priority risk, not affirmative proof of noncoverage.
+
+## value
+
+PASS
+
+The Roman quartic is a standard natural projected Veronese surface. Its characteristic-two exceptional fibre retains the classical three reduced double lines but acquires distinct intrinsic Jacobian torsion at exactly three wild endpoint points. Specifying local torsion length three, its module generators and the different exponent on the normalized double-line covers gives motivated scheme-level information invisible in set-theoretic singularity counts, and is useful as exact data for studying conductor, normalization and degeneration. The zeta function and P² normalization are explicitly treated as context rather than independent novelty. This is not an arbitrary numerical slice or routine invariant lookup; it identifies a concrete structural exceptional-characteristic phenomenon.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
