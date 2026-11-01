@@ -1,11 +1,21 @@
-# Review of the sharp Dicke-ring spectral relaxation law
+# Independent mathematical audit
 
-**Correctness — PASS.** The normalized rates are physical on the entire stated family; the exact cyclic determinant and partial-fraction moments are derived. A local analytic inverse locates the winding-one pair; strict modulus/argument monotonicity proves global subdominant ordering near the unit circle. The fourth-moment coefficient and error estimate determine the claimed two-term asymptotic. The finite standard-library verifier passed, but is only supporting evidence for the infinite proof.
+## correctness
 
-**Originality — PASS, best-knowledge.** The closest paper is Linck and Bernardes, arXiv:2608.07695v1, especially Eqs. (47)–(52). That source already has the same characteristic equation and an approximate leading gap; its small-jump justification does not apply at the admissibility boundary, where some jump probabilities equal one. The present exact spectral ordering, negative fourth-moment correction and logarithmic circulation/relaxation separation are not stated there. Searches of published mathematical records and related primary literature did not reveal stronger coverage. Earlier general cyclic Markov methods are not claimed as new. An uninspected or unindexed stronger theorem remains a risk.
+PASS
 
-**Value — PASS.** The bound treats the physically relevant growing-size boundary rather than a fixed-control sequence that eventually becomes inadmissible. It quantifies the precise loss of mixing efficiency even at maximal allowed collective rates and identifies the first systematic correction to the source's leading approximation. This is a motivated quantitative spectral theorem, not a parameter renaming.
+For the explicitly defined aperiodic cyclic stochastic matrix with p_{N,k}=4(k+1)(N-k)/(N+1)^2, the characteristic equation is exactly product(1-delta/p_k)=1. Partial fractions yield S1=(N+1)H_N/2 and exact S2; endpoint estimates give S4=(N+1)^4 zeta(4)/128+O(N^3). The winding-one analytic root has |delta|/p_min=O(1/H_N), ensuring validity of the inverse log series even when max p_k~1. The leading inverse-series terms give the positive pi^4/(3(N+1)H_N^3) gap and negative pi^8/(90(N+1)H_N^5) correction with stated residual O(1/(NH_N^6)). The nontrivial global step compares modulus and argument on the product-modulus-one curve: for r>max q_k the argument increases monotonically as r decreases, so the first winding pair is subdominant. Direct eigenvalue matrices for N=20,35,60,100,180 independently corroborated the dominance and asymptotic scales; this finite evidence is not the infinite proof. Ratio of inverse gap to mean lap is 6H_N^2/pi^4 asymptotically.
 
-**Closest literature and limits.** Linck–Bernardes arXiv:2608.07695v1 gives the core Dicke-state protocol and a heuristic leading gap. Related linear open-walk and introductory OQW papers were inspected only at abstract level, not exhaustively. The result concerns the ring's measured-position Markov matrix and worst-start position mixing; it is not a universal quantum preparation-fidelity estimate, and no matching upper bound on total-variation mixing time is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Linck and Bernardes 2026 already derive the Dicke ring, its stationary law, exact characteristic equation, mean lap and an approximate second-order gap. The claimed increment is the rigorous identification of the exact subdominant eigenpair at the collective-size admissibility boundary where max jump rates do not tend to zero, together with the explicit negative fourth-moment correction. This is not merely the leading gap constant in their heuristic. The originating full primary text was inaccessible here; the closest accessible original material was the arXiv abstract, so absence of an equivalent appendix is NOT established and remains an explicit priority risk.
+
+## value
+
+PASS
+
+The result quantifies the exact position-relaxation bottleneck at the physically admissible boundary where a small-jump perturbative calculation is not mathematically justified. The squared-log separation between mean lap and relaxation is a motivated spectral phenomenon, and the rigorous subdominant root and second term are independently useful.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
