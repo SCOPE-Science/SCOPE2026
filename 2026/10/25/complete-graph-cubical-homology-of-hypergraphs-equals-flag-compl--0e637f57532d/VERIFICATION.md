@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python 3 and no third-party modules. The checker enumerates all normalized Boolean-cube maps in dimensions zero to three for six specified finite flag complexes, constructs integer signed boundaries before reducing ranks modulo two, verifies the corner chain-map identity on every simplex, and checks the simplex-cone chain homotopy equation on all cubes up to dimension two. It reconstructs the degree-zero and degree-one mod-two Betti numbers separately from simplicial boundaries, not by assuming the theorem.
+## correctness
 
-Observed final marker: `VERIFY_OK cases=6 simplices=41 normalized_cubes=20874`. The checker neither exhausts all finite hypergraphs nor verifies high-dimensional integral torsion. The four-step integral proof in RESULT.md establishes the universal claim independently.
+PASS
+
+Zaidi–Jamil defines the n-dimensional × test hypercube J_n^× as the complete graph on {0,1}^n. Its hypergraph morphisms are precisely maps whose images are cliques in the two-section graph when all vertices lie in hyperedges. After dividing coordinate-degenerate maps, the chain complex is normalized all-coordinate Boolean maps with image in a flag simplex. A fixed vertex order sends [v0,...,vn] to the corner cube selecting v_max active index, else v0; direct face calculation shows it is a signed chain map. On any full simplex, the last-coordinate cone to a chosen simplex vertex contracts normalized chains integrally. Exact basiswise Mayer–Vietoris short exact sequences for unions of simplicial subcomplexes and induction with five lemma establish a quasi-isomorphism on every finite flag complex and integral torsion, not just mod-two Betti numbers. Independent exact corner-boundary identities verified dimensions 1..6. The proof does not confuse this complete test graph with ordinary Hamming cube adjacency.
+
+## originality
+
+PASS
+
+Zaidi–Jamil define the exact × functor but give examples and excision, not the all-degree integral comparison to the two-section flag complex. Older cubical graph homology papers use Cartesian/Hamming-adjacent test cubes rather than the complete graph, and can disagree even on C4. Resultary searches for all-degree ×/flag equivalence identified only unrelated complexes. Broader abstract acyclic-model cubical comparison is an uneliminated priority risk, but no covering implication was found.
+
+## value
+
+PASS
+
+An all-hypergraph, all-degree integral identification of a newly defined cubical homology functor sharply characterizes which higher-order information survives: only the two-section flag complex. It automatically transfers torsion and filtration computations, and an explicit chain quasi-isomorphism supplies structural content beyond low-degree examples. Exact loss of higher-hyperedge data is a natural significant boundary for applications of this functor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

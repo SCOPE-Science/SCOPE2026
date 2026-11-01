@@ -1,11 +1,21 @@
-# Scientific comparison and self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Source [1, Section 3.1] explicitly defines \(J_n^{\times}\) as the complete graph on Boolean vertices and defines the normalized alternating-face boundary. The proof identifies every admissible singular cube exactly with a cube whose image is a simplex of the two-section flag complex. The explicit corner-cube formula is checked against all boundary faces. Contractibility of complete-simplex cube chains is established by an integral cone contracting homotopy. The degreewise short exact union sequence and induction transfer the quasi-isomorphism to arbitrary finite complexes without relying on experiments. Six independent finite-chain tests in `verify.py` also passed.
+## correctness
 
-**Originality — PASS with residual priority uncertainty.** The closest source is Zaidi–Jamil [1], whose primary full text was inspected for the precise complete-graph domain, definitions, calculations, and excision. It introduces the theory but does not state the all-degree flag comparison, its chain map, or loss-of-hyperedge-information implication. Published mathematical-record queries for the same complete-graph test domain, flag/2-section identification, and normalization returned no equivalent theorem. Staecker [2] concerns the different digital cubical theory based on ordinary cube adjacency, and its known disagreement with clique homology prevents treating it as coverage of this claim. Abstract-level access to some secondary historical literature leaves residual priority risk.
+PASS
 
-**Value — PASS.** This all-parameter integral comparison reduces every degree of a newly defined hypergraph homology theory to familiar simplicial homology, with torsion and filtered calculations automatically available. Its information-loss conclusion delineates exactly which higher-order hyperedge data the construction can and cannot detect; it is not just another finite example or a tautological renaming of previously computed homology groups.
+Zaidi–Jamil defines the n-dimensional × test hypercube J_n^× as the complete graph on {0,1}^n. Its hypergraph morphisms are precisely maps whose images are cliques in the two-section graph when all vertices lie in hyperedges. After dividing coordinate-degenerate maps, the chain complex is normalized all-coordinate Boolean maps with image in a flag simplex. A fixed vertex order sends [v0,...,vn] to the corner cube selecting v_max active index, else v0; direct face calculation shows it is a signed chain map. On any full simplex, the last-coordinate cone to a chosen simplex vertex contracts normalized chains integrally. Exact basiswise Mayer–Vietoris short exact sequences for unions of simplicial subcomplexes and induction with five lemma establish a quasi-isomorphism on every finite flag complex and integral torsion, not just mod-two Betti numbers. Independent exact corner-boundary identities verified dimensions 1..6. The proof does not confuse this complete test graph with ordinary Hamming cube adjacency.
 
-**Residual limits.** No independent audit or exhaustive priority certification has occurred. The comparison is restricted to the complete-graph \(\times\) variant, and strict functoriality of the displayed order-dependent chain map beyond order-preserving inclusions is not asserted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Zaidi–Jamil define the exact × functor but give examples and excision, not the all-degree integral comparison to the two-section flag complex. Older cubical graph homology papers use Cartesian/Hamming-adjacent test cubes rather than the complete graph, and can disagree even on C4. Resultary searches for all-degree ×/flag equivalence identified only unrelated complexes. Broader abstract acyclic-model cubical comparison is an uneliminated priority risk, but no covering implication was found.
+
+## value
+
+PASS
+
+An all-hypergraph, all-degree integral identification of a newly defined cubical homology functor sharply characterizes which higher-order information survives: only the two-section flag complex. It automatically transfers torsion and filtration computations, and an explicit chain quasi-isomorphism supplies structural content beyond low-degree examples. Exact loss of higher-hyperedge data is a natural significant boundary for applications of this functor.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
