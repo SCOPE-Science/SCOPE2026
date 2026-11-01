@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reconstructs the dual transition from the two conditional choices, uses the exact factorization \(Q=AB\), proves the doubly transitive primal walk has exactly two eigenvalues, and obtains an identity for every \(t\ge1\), not an approximation. The worst-start coefficient follows from a point-stabilizer support calculation plus Burnside's two-orbit identity. The nondegenerate parameter range, singleton-fixer assumption and two example families are checked. The standalone exact-rational verifier reports 8,370 successful checks over six small groups; no infinite-dimensional claim rests on finite enumeration.
+## correctness
 
-## Originality — PASS, qualified
-The general dual-chain factorization, spectral correspondence, stationarity and conjugacy quotient are already established in Feng's paper (arXiv:2510.25202, doi:10.1007/s10959-026-01539-9). The one-step conjugacy-class stationarity for transitive actions is itself a direct consequence of its orbit/conjugacy quotient factorization and is **not** claimed as new. What is not present in the inspected paper is the explicit all-times sharp worst-start total-variation law for general doubly transitive group actions, together with the exact natural symmetric/affine mixing factors and their asymptotic separation. The key extra work is recognizing the universal two-orbit stabilizer reduction and proving that a singleton-fixing element is an exact worst-case start. Published research-index checks identified no equivalent result. Residual risk: this compact specialization might exist in prior group-walk literature or be regarded as already covered by general spectral transfer results.
+PASS
 
-## Value — PASS
-The result is a motivated exact classification of mixing behavior for a natural and broadly defined group-action Markov chain. The separation between uniformly fast symmetric groups and linearly slowing affine groups occurs while the conjugacy-class projection has already equilibrated. This makes the exact law useful for interpreting observables, selecting representative group actions, and identifying diagnostics that can miss slow mixing. Unlike a generic spectral bound, the theorem gives the actual worst-start total variation at every positive integer time.
+The two-stage walk factors exactly as Q=AB with A(g,x)=1_(gx=x)/f(g), B(x,h)=1_(hx=x)/|H|. The companion point process K=BA is invariant under point stabilizer H; double transitivity forces common off-diagonal (1−a)/(n−1), hence K=Π+λ(I−Π). Burnside’s lemma for the H-action on X gives E_H f=2, and Jensen yields a≥1/2>1/n; identity fixes all n points, so a<1 and 0<λ<1. The formula Q^t=A K^(t−1)B gives π=f/|G| and exact affine interpolation for every t≥1. A one-step row Q(g,.) is a convex mixture of μ_x=Uniform(G_x), with TV(μ_x,π)=1−2/n from exact support comparison; a singleton fixer makes it exact. For S_n the inverse fixed-point count expectation yields truncated exponential; for affine group the stabilizer is identity plus q−2 single-fix nontrivial dilations. Independent Fraction arithmetic checked 497 exact Q²(g,h) comparisons in S_3, S_4 and AGL(1,5), and sharp maxima, corroborating the all-group proof.
 
-## Independent verification and scientific limits
-The finite verifier is supporting evidence only; full generality rests on the transparent group-theoretic derivation. The result does not characterize worst-case prefactors in every 2-transitive group without singleton fixers. It does not demonstrate broader sampling performance for arbitrary actions.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feng (2025/26) already establishes general dual-Burnside Q=AB, π, spectral transport, mixing inequalities and conjugacy lumping. These ingredients are explicitly credited, and one-step conjugacy-class stationarity is already a corollary. The inspected complete lawful primary paper did not state the all-doubly-transitive two-eigenvalue reduction with exact TV prefactor for every positive time, its singleton-fixer sharpness, nor the quantified S_n versus AGL(1,q) asymptotic contrast. The result is an elementary special-case derivation, with genuine risk that general spectral machinery or a group-specific prior table implicitly dominates it.
+
+## value
+
+PASS
+
+Exact finite-time worst-start total-variation, not just a mixing bound, is a motivated invariant for sampling in a widely natural class of permutation actions. Symmetric and affine families share immediate class-level stationarity but have qualitatively different full-group relaxation scales, making the sharp asymptotic comparison informative. No unjustified performance or universal cutoff claim is made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
