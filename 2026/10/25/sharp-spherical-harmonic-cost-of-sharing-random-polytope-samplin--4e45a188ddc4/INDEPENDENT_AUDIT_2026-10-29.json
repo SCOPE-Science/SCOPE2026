@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Hölder normalization gives R_j(r)=∫p_j^β r^{1−β}dμ, β=(d+1)/(d−1). The shape-operator perturbation S=I−ε(∇²_S f+fI)+O(ε²) yields p_j=1−ε(d−j+1)/(d+1)(g−E g)+O(ε²), g=(Δ_S+d−1)f. Exact weighted Hölder dual for the two extreme j gives a lower quadratic coefficient β(β−1)||u_+−u_-||²/8; the geometric-mean common density gives the matching upper coefficient because all other u_j lie on the endpoint segment. This is the infimum over all admissible r, not a finite-grid optimization. Harmonic eigenvalues yield V_f=Σ_{ℓ≥2}[ℓ(ℓ+d−2)−(d−1)]²||f_ℓ||², with sharp degree-two constant; independently verified d=3,P₂,J={1,2,3} coefficient exactly 1/5 and three shrinking-ε numerical risk coefficients 0.21551, 0.20820, 0.20420. The O(ε³) claim uses fixed C⁴ f and local smoothness. Finite quadrature is not the d-uniform proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hoehner covers arbitrary smooth convex bodies but only qualitative nonball inequality for max and exact average optimum; boundary sampling asymptotics cover functionals but not the joint minimax Hessian."
+        ],
+        "reasoning": "Broad domain of source does not imply this quantified local sharp minimax equality; source explicitly disclaims the exact max solution.",
+        "searches": [
+          "Hoehner 2026 Theorem 3.6 and arXiv:1103.4978 boundary random polytope asymptotics"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md, SLOGAN.txt, VERIFICATION.md and verify_spherical_minimax.py blobs",
+        "Hoehner arXiv:2602.18547v2 Proposition 3.5, Theorem 3.6, Remark 3.7 (PDF pages 9–11)",
+        "Resultary query: simultaneous random-polytope sampling laws intrinsic-volume normalized minimax spherical-harmonic Hessian near Euclidean ball",
+        "Resultary published minimax ellipse record 179adc1046b6",
+        "independent_math_checks.py: exact d=3 coefficient, 3 numerical small-ε quadrature comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hoehner already implies an exact endpoint averaged lower bound; the reported ε² coefficient of that bound follows by expansion, but the minimax upper bound and endpoint-only J theorem require additional work."
+        ],
+        "reasoning": "Any claim of novelty for the exact average bound would be false; the surviving entire final theorem includes matching upper asymptotics and spectral identification.",
+        "searches": [
+          "arXiv:2602.18547v2 Proposition 3.5, Theorem 3.6, Remark 3.7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact minimum of the average of two normalized errors and its positive gap are already proved by Hoehner, but not the minimax maximum nor the full harmonic coefficient."
+        ],
+        "reasoning": "Averaging is not minimax: inequality max≥average gives only a one-sided bound. The matched ε² upper bound from the new midpoint density is necessary.",
+        "searches": [
+          "Hoehner arXiv:2602.18547v2 Proposition 3.5, Remark 3.7; Resultary search simultaneous random-polytope sampling laws intrinsic-volume normalized minimax spherical-harmonic Hessian near Euclidean ball"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest catalogued exact minimax ellipse law is d=2 and 2 objectives, with no d≥3 arbitrary-J harmonic formula in its available summary."
+        ],
+        "reasoning": "A search result or absence of tabulation cannot prove priority; this infinite-dimensional functional is not a fixed table lookup.",
+        "searches": [
+          "Resultary search simultaneous random-polytope sampling laws intrinsic-volume normalized minimax spherical-harmonic Hessian near Euclidean ball; published Resultary 179adc1046b6"
+        ]
+      },
+      "rationale": "Hoehner's updated arXiv:2602.18547v2 (2026-10-13), Proposition 3.5 and Theorem 3.6, ALREADY prove the exact average-of-two normalized Hölder infimum Z^β and its lower bound on maximum; these portions are prior, not new. Its Remark 3.7 explicitly disclaims the minimum of the maximum. The final submitted result adds the SHARP local minimax equality with a constructed upper bound, the entire d≥3 spherical-harmonic Hessian and the reduction from an arbitrary set of indices to its extrema. The published 2D ellipse minimax is a restricted object and does not dominate the all-dimensional theorem. The source's citation to Hoehner v1 omits this important v2 update; the full scientific novelty is narrowed to the stated exact local quadratic minimax/spectrum, without crediting the lower bound as original. Possible implicit derivations from general perturbation principles remain a residual risk.",
+      "residual_risks": [
+        "Hoehner v2 has a stronger self-reviewed result than the package v1 reference: its full average-risk formula and min-max lower bound are prior; prior priority for these components MUST be credited.",
+        "Potential general variational perturbation theorem could implicitly derive the local max Hessian; no universal priority guarantee.",
+        "Only leading large-sample intrinsic-volume coefficient ratios, not finite-sample expectations or global stability over bodies."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_COVERAGE: exact averaged lower bound proved; local sharp max and harmonic spectrum not stated",
+          "evidence": "Proposition 3.5 proves min average and the lower inequality on max; Remark 3.7 says not asserting exact minimax maximum.",
+          "identifier_or_url": "https://arxiv.org/pdf/2602.18547",
+          "material_read": "Accessible full PDF v2, contents and Sections 3.1/3.4, pages 5–6 and 9–11, Proposition 3.5, Theorem 3.6, Remark 3.7",
+          "method": "Direct arXiv PDF text and page screenshots",
+          "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+          "trigger": "Exactly same normalized expected intrinsic-volume coefficients and nonball simultaneous discrepancy"
+        },
+        {
+          "assessment": "RESTRICTED_SPECIAL_CASE; do not infer a full-document noncoverage from summary",
+          "evidence": "Record summary states planar ellipses and area/perimeter objectives only.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+          "material_read": "Resultary title and published summary only, not full primary proof",
+          "method": "Resultary published record search",
+          "title": "Unique minimax area–perimeter sampling law for random polygons in ellipses",
+          "trigger": "Nearby exact minimax objective in planar case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A physically motivated mismatch cost for using one boundary-sampling law across several intrinsic volumes; it gives a dimension-sharp geometric quadratic stability invariant, fully classifies its only zero modes (dilation and translation), and shows intermediate intrinsic-volume objectives are inactive to second order. The solution requires genuine simultaneous minimax analysis plus differential geometry, beyond known separate optimum densities or qualitative ball rigidity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual assigned RESULT.md, SLOGAN.txt, VERIFICATION.md and verify_spherical_minimax.py blobs",
+    "Hoehner arXiv:2602.18547v2 Proposition 3.5, Theorem 3.6, Remark 3.7 (PDF pages 9–11)",
+    "Resultary query: simultaneous random-polytope sampling laws intrinsic-volume normalized minimax spherical-harmonic Hessian near Euclidean ball",
+    "Resultary published minimax ellipse record 179adc1046b6",
+    "independent_math_checks.py: exact d=3 coefficient, 3 numerical small-ε quadrature comparisons"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Hoehner v2 has a stronger self-reviewed result than the package v1 reference: its full average-risk formula and min-max lower bound are prior; prior priority for these components MUST be credited.",
+    "Potential general variational perturbation theorem could implicitly derive the local max Hessian; no universal priority guarantee.",
+    "Only leading large-sample intrinsic-volume coefficient ratios, not finite-sample expectations or global stability over bodies."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "PARTIAL_COVERAGE: exact averaged lower bound proved; local sharp max and harmonic spectrum not stated",
+      "evidence": "Proposition 3.5 proves min average and the lower inequality on max; Remark 3.7 says not asserting exact minimax maximum.",
+      "identifier_or_url": "https://arxiv.org/pdf/2602.18547",
+      "material_read": "Accessible full PDF v2, contents and Sections 3.1/3.4, pages 5–6 and 9–11, Proposition 3.5, Theorem 3.6, Remark 3.7",
+      "method": "Direct arXiv PDF text and page screenshots",
+      "title": "Simultaneous random polytope approximation characterizes the Euclidean ball",
+      "trigger": "Exactly same normalized expected intrinsic-volume coefficients and nonball simultaneous discrepancy"
+    },
+    {
+      "assessment": "RESTRICTED_SPECIAL_CASE; do not infer a full-document noncoverage from summary",
+      "evidence": "Record summary states planar ellipses and area/perimeter objectives only.",
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-unique-minimax-area-perimeter-sampling-law-for-random-polygons-i--179adc1046b6",
+      "material_read": "Resultary title and published summary only, not full primary proof",
+      "method": "Resultary published record search",
+      "title": "Unique minimax area–perimeter sampling law for random polygons in ellipses",
+      "trigger": "Nearby exact minimax objective in planar case"
+    }
+  ]
+}

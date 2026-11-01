@@ -1,21 +1,21 @@
-# Scientific review of sharp spherical-harmonic sampling compromise
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The normalizations are anchored to the established random boundary polytope formula: \(\mathcal I_j=\int w_j\rho^{1-\beta}\,dS\), \(w_j=\kappa^{1/(d-1)}H_{d-j}\), and \(\beta=(d+1)/(d-1)\). Strict Hölder optimization gives \(p_j\), and the radial-graph Weingarten first variation gives \(u_j=-(d-j+1)(g-\overline g)/(d+1)\). The two-endpoint average functional provides an exact lower bound. The geometric-mean sampler attains that lower bound through second order simultaneously for all intermediate indices. The spectral estimate follows from the exact Laplace–Beltrami eigenvalues, with sharp equality at degree two.
+PASS
 
-Direct numerical evaluation on a strictly convex three-dimensional zonal quadrupole independently brackets the minimax cost and reproduces the claimed \(1/5\) coefficient. Its finite quadrature is corroboration only, not the proof. The theorem is local and about limiting separately normalized coefficients, not finite-sample optimization.
+Hölder normalization gives R_j(r)=∫p_j^β r^{1−β}dμ, β=(d+1)/(d−1). The shape-operator perturbation S=I−ε(∇²_S f+fI)+O(ε²) yields p_j=1−ε(d−j+1)/(d+1)(g−E g)+O(ε²), g=(Δ_S+d−1)f. Exact weighted Hölder dual for the two extreme j gives a lower quadratic coefficient β(β−1)||u_+−u_-||²/8; the geometric-mean common density gives the matching upper coefficient because all other u_j lie on the endpoint segment. This is the infimum over all admissible r, not a finite-grid optimization. Harmonic eigenvalues yield V_f=Σ_{ℓ≥2}[ℓ(ℓ+d−2)−(d−1)]²||f_ℓ||², with sharp degree-two constant; independently verified d=3,P₂,J={1,2,3} coefficient exactly 1/5 and three shrinking-ε numerical risk coefficients 0.21551, 0.20820, 0.20420. The O(ε³) claim uses fixed C⁴ f and local smoothness. Finite quadrature is not the d-uniform proof.
 
-## Originality — PASS, with risks
+## originality
 
-Hoehner's 2026 primary text was inspected at Theorem 3.1, Lemma 3.3, and Theorem 3.4, providing the curvature error formula, the unique individual optimal densities, and qualitative simultaneous-optimality rigidity. It does not compute the sharp near-sphere quadratic worst-risk coefficient or the all-index spherical-harmonic spectrum. The endpoint average-risk lower bound used in this finding is proved directly from Hölder's inequality. The public ellipse minimax research record was read through its main theorem and proof: it treats two objectives in dimension two, giving the known planar coefficient \(3/8\), which is explicitly excluded as a novelty claim. The public Hellinger-gap paper was read: it compares two optimal probability distributions, not worst normalized intrinsic-volume loss. Böröczky–Fodor–Hug (2011) was inspected at its exact Reitzner asymptotic formula, and Besau–Hoehner–Kur (2019) at its abstract. Actual semantic and keyword searches did not identify an equivalent all-dimension near-ball spectral minimax theorem; such negative searches do not prove priority. Full inspection of every historical paper was not possible, leaving literature-priority uncertainty.
+PASS
 
-## Value — PASS
+Hoehner's updated arXiv:2602.18547v2 (2026-10-13), Proposition 3.5 and Theorem 3.6, ALREADY prove the exact average-of-two normalized Hölder infimum Z^β and its lower bound on maximum; these portions are prior, not new. Its Remark 3.7 explicitly disclaims the minimum of the maximum. The final submitted result adds the SHARP local minimax equality with a constructed upper bound, the entire d≥3 spherical-harmonic Hessian and the reduction from an arbitrary set of indices to its extrema. The published 2D ellipse minimax is a restricted object and does not dominate the all-dimensional theorem. The source's citation to Hoehner v1 omits this important v2 update; the full scientific novelty is narrowed to the stated exact local quadratic minimax/spectrum, without crediting the lower bound as original. Possible implicit derivations from general perturbation principles remain a residual risk.
 
-The geometric problem is an explicit quantitative version of the recent rigidity theorem: how much relative approximation quality must be lost when one vertex sampler serves several intrinsic volumes? The answer identifies the *sharp* second-order price for every index set, shows only its extreme indices matter at leading order, gives the full intrinsic spectrum, and determines exactly which geometric infinitesimal deformations are invisible. The sharp degree-two coefficient supplies a reusable calibration benchmark in stochastic convex geometry rather than an arbitrary numerical slice.
+## value
 
-## Limits
+PASS
 
-The perturbation must be fixed and sufficiently smooth; no global nonlinear bound or finite-sample sampler optimality is asserted. Published special cases and competing metrics are acknowledged without recasting them as new. Residual unseen-source overlap is possible.
+A physically motivated mismatch cost for using one boundary-sampling law across several intrinsic volumes; it gives a dimension-sharp geometric quadratic stability invariant, fully classifies its only zero modes (dilation and translation), and shows intermediate intrinsic-volume objectives are inactive to second order. The solution requires genuine simultaneous minimax analysis plus differential geometry, beyond known separate optimum densities or qualitative ball rigidity.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
