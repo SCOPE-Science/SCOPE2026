@@ -1,0 +1,148 @@
+{
+  "correctness": {
+    "evidence": [
+      "verify.py (executed); shelling_13.csv (169 distinct exhaustive facets); shelling_14.csv (238 distinct exhaustive facets)",
+      "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+      "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)"
+    ],
+    "rationale": "For n=13,14, the complete ordered-complement-triple certificates are independently checked against all disconnected induced triples. A definition-level purity test and a pairwise shelling-witness test both pass, with respectively one and eight spanning facets; the pure-shelling theorem yields integral sphere wedges. For n=3..8, exhaustive three-subset checks find no facets. For n=9..12, exhaustive all-face binary boundary reductions produce nonzero lower-dimensional reduced homology (degrees and ranks 3:1, 4:11, 5:1, 7:2), contradicting shellability of a pure complex. For n>=15, published Theorem 1.4 of arXiv:2603.23155v1 applies after p=3 substitution, with multiplicity binomial(n-6,2)-20. The verifier was executed from the actual artifact directory and returned VERIFY_OK; finite checks are not extrapolated to the infinite tail.",
+    "risks": [
+      "Reliance on the standard pure-shelling homotopy theorem and published n>=15 theorem, not independently reproven here."
+    ],
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+        "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+        "Rational cyclic homology representations of three-cut complexes of cycle powers (publicly indexed result, 2026), full RESULT.md: only p>=2, n>=6p-3"
+      ],
+      "reasoning": "The 2026 theorem requires n>=6p-3, giving n>=15 when p=3. The closest published rotation-representation theorem has precisely that same range. A theorem with general p parameters could logically cover p=3 n=13,14, but neither inspected theorem includes them.",
+      "searches": [
+        "3-cut complexes of powers of cycles C_n^p n=4p+1 p=3 boundary shellable",
+        "Sharp shellability threshold 3-cut complex third powers of cycles C_n^3 p=3 n >= 13",
+        "conjecture 4.2 shellability 3-cut complexes cycle powers 4p+1 2026 proven"
+      ]
+    },
+    "checked_sources": [
+      "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+      "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+      "Rational cyclic homology representations of three-cut complexes of cycle powers (publicly indexed result, 2026), full RESULT.md: only p>=2, n>=6p-3",
+      "M. Bayer et al., Topology of Cut Complexes of Graphs, SIAM J. Discrete Math. 38 (2024), abstract only."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+        "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+        "Rational cyclic homology representations of three-cut complexes of cycle powers (publicly indexed result, 2026), full RESULT.md: only p>=2, n>=6p-3",
+        "Theorem 1.4 of 2026 explicitly assumes n>=15 at p=3; Conjecture 4.2 of 2024 requests n>=13 but states it as conjectural."
+      ],
+      "reasoning": "Existing lower homology obstructions imply nonshellability for n=9..12, and existing broad shellability implies n>=15; neither has a logical implication proving n=13 or n=14 shellable. The new finite shellings close precisely the remaining gap. The homotopy wedge conclusion is then a theorem, not an inference from Betti tables.",
+      "searches": [
+        "3-cut complex C_14^3 shelling 2026",
+        "third power cycle neighborhood complexes shellable three-cut 2026",
+        "2026 arxiv cut complexes powers of cycles shelling C_13^3 C_14^3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+        "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+        "C_n^3 is precisely the circulant graph Cayley(Z/nZ, {±1, ±2, ±3}); ordinary three-cut complexes are complements of disconnected induced triples."
+      ],
+      "reasoning": "The equivalent circulant/Cayley descriptions use the same graph and all the same facets. Neither exact nor renamed formulations in the inspected sources state a shelling for n=13 or n=14; the table of homology groups is weaker than shellability.",
+      "searches": [
+        "3-cut complex of the third power of the 13-cycle C_13^3 shellability homotopy",
+        "3-cut complex circulant graph Z13 generating set 1 2 3",
+        "3 cut complex third power cycle n 13 n 14 shellable 2026"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+        "Published 2024 Table 2 includes n=13 top Betti rank one and n=14 top Betti rank eight, with low-n homology groups; these are acknowledged as known numerical data.",
+        "Rational cyclic homology representations of three-cut complexes of cycle powers (publicly indexed result, 2026), full RESULT.md: only p>=2, n>=6p-3"
+      ],
+      "reasoning": "Homology tables at exactly the same graph sizes do not certify shellability or sphere-wedge homotopy. The new primary finite evidence is an explicit complete shelling order for each of the 169- and 238-facet complexes, validated by two exact criteria.",
+      "searches": [
+        "Shellable p=3 C13^3 C14^3 cubic cycle power 3-cut 169 238 facets",
+        "Shelling certificate 3-cut complex cycle power n=13 n=14 2026",
+        "Homology 3-cut of third power cycle C9^3 C10^3 C11^3 C12^3"
+      ]
+    },
+    "rationale": "The new logical content is shellability for n=13 and n=14 at cubic cycle power, hence a sharp all-n threshold after combining existing n>=15 results and known low-n obstructions. The older homology table does not imply shellability, and the later all-power theorem explicitly starts at n=15 for p=3. Closest indexed mathematical claims do not cover these missing parameter instances.",
+    "residual_risks": [
+      "Equivalently stated shellings for n=13 or n=14 may exist in unindexed works or inaccessible full text.",
+      "The foundational Bayer et al. article was consulted at abstract and cited-result level, not read throughout.",
+      "The proof uses a standard shelling theorem and published n>=15 result rather than independently verifying those general mathematical results."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering cubic-power n=13 and n=14, since the stated n>=15 restriction is explicit.",
+        "evidence": [
+          "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+          "Section 4 explicitly recalls conjecture n>=4p+1 and only proves n>=6p-3."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.23155",
+        "material_read": "HTML introduction, Theorem 1.4, Section 3 theorem conclusion, Section 4 future directions, author MSC and first preprint date.",
+        "method": "Primary arXiv HTML full-text section inspection, verifying n>=6p-3 and the wedge multiplicity formula.",
+        "title": "Shellability of 3-cut complexes of powers of cycle graphs",
+        "trigger": "Same ordinary three-cut complex for general cycle powers; possible theorem covering all parameters."
+      },
+      {
+        "assessment": "Covers p=2 shellability and p=3 homology data; no claim of p=3 shellability, which is proposed as a conjecture.",
+        "evidence": [
+          "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.01979v2",
+        "material_read": "HTML introduction, Theorem 1.4 for p=2, Table 2 and Section 4 Conjecture 4.2, including the n=13 and n=14 p=3 entries.",
+        "method": "Primary arXiv HTML full-text section and table inspection; first date checked against v1.",
+        "title": "Shellability of 3-Cut Complexes of Squared Cycle Graphs",
+        "trigger": "Original conjecture of sharp cutoff and table of small homology ranks."
+      },
+      {
+        "assessment": "Restricted to p>=2 and n>=6p-3, hence n>=15 for cubic power, and addresses rational rotation characters rather than finite shelling certificates.",
+        "evidence": [
+          "Rational cyclic homology representations of three-cut complexes of cycle powers (publicly indexed result, 2026), full RESULT.md: only p>=2, n>=6p-3"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026 (specific public finding identified by its unique title)",
+        "material_read": "Complete public RESULT.md including theorem domain, proof, assumptions, prior-work comparison, and limitations.",
+        "method": "Read published repository RESULT.md through read-only GitHub file retrieval.",
+        "title": "Rational cyclic homology representations of three-cut complexes of cycle powers",
+        "trigger": "Closest indexed published result on the same graph family and ordinary three-cut complex."
+      },
+      {
+        "assessment": "Foundational definitions and results on other graph families; no direct evidence of a cubic-power n=13,14 shelling. Full-text incompleteness is treated as a residual originality risk.",
+        "evidence": [
+          "Journal abstract lists trees, cycles, multipartite graphs, and prisms, not third powers of cycles.",
+          "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)"
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/23M1569034",
+        "material_read": "Published article abstract and citation/coverage descriptions from the two newer primary papers; the full article was not inspected.",
+        "method": "Journal abstract plus explicit statements of the newer primary papers about its scope and subsequent conjecture.",
+        "title": "Topology of Cut Complexes of Graphs",
+        "trigger": "Original general cut-complex definition, a possible higher-coverage theorem."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f00512d3-3ca5-420b-ba5c-0f3de0f2869d",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "P. Chauhan, S. Shukla and K. Vinayak, arXiv:2406.01979v2, Conjecture 4.2 and Table 2 (homology table for p=3, n=9..14; proposed n>=4p+1 threshold)",
+      "P. Chauhan and S. Shukla, arXiv:2603.23155v1, Theorem 1.4 (p>=2, n>=6p-3; at p=3 only n>=15)",
+      "Complete verified shelling_13.csv and shelling_14.csv certificates with exactly 1 and 8 spanning facets."
+    ],
+    "rationale": "Settles the p=3 instance of an explicit sharp-threshold conjecture for a canonical infinite family of circulant graph complexes. Shellability for the first two missing sizes (169 and 238 facets) is mathematically stronger than the known Betti data, establishes the corresponding integral sphere wedges, and connects continuously to the published n>=15 classification. This is a motivated finite boundary resolution rather than an arbitrary small graph computation.",
+    "risks": [
+      "No direct theorem for higher powers p>=4 or for other cut parameters."
+    ],
+    "status": "PASS"
+  }
+}

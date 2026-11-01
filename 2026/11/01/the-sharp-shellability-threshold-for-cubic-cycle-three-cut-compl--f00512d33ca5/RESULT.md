@@ -1,0 +1,39 @@
+# The sharp shellability threshold for cubic-cycle three-cut complexes
+
+## Finding
+For an integer \(n\ge3\), let \(C_n^3\) be the simple graph on \(\mathbb Z/n\mathbb Z\) with distinct vertices adjacent when their cyclic distance is at most three. Let \(\Delta_3(C_n^3)\) be the **ordinary three-cut complex**: its facets are the complements of three-element vertex sets inducing disconnected subgraphs. Then:
+
+1. For \(3\le n\le8\), the complex is void (has no facets).
+2. For \(9\le n\le12\), the complex is nonvoid and **not shellable**.
+3. For every \(n\ge13\), the complex is **shellable**, and its integral homotopy type is
+   \[
+   \Delta_3(C_n^3)\simeq\bigvee^{\binom{n-6}{2}-20}S^{n-4}.
+   \]
+
+In the two previously uncovered boundary cases, \(n=13\) gives a shellable complex with \(169\) facets and the homotopy type \(S^9\); \(n=14\) gives a shellable complex with \(238\) facets and homotopy type \(\bigvee^8S^{10}\). The substantive new contribution is the **explicit certified shellability at these two values**, which, together with the published \(n\ge15\) theorem, establishes the sharp threshold for the cubic power. The lower-dimensional homology used below for \(9\le n\le12\) agrees with an earlier published table and is not claimed as a newly discovered homology calculation.
+
+## Assumptions and scope
+The graph is the ordinary, simple, undirected third power of a cycle. Its vertices are \(0,\ldots,n-1\), and \(\operatorname{dist}(i,j)=\min\{(i-j)\bmod n,(j-i)\bmod n\}\). A triple induces a disconnected graph if some vertex is unreachable from another using edges **within the triple**. The associated simplex is the complement of the triple, not the triple itself. A pure simplicial complex is shellable when its facets admit an order for which the intersection of each new facet with the preceding union is pure of codimension one. All homotopy statements concern geometric realizations and integral homotopy types. The non-shellability certificate uses homology with \(\mathbb F_2\) coefficients.
+
+## Proof
+**1. Complete finite facet enumeration.** For each \(n\in\{3,\ldots,14\}\), inspect every three-subset of \(\{0,\ldots,n-1\}\) and test connectedness by breadth-first search in its induced \(C_n^3\) graph. The standalone `verify.py` performs this exact exhaustive test. It finds no disconnected triple for \(3\le n\le8\). The numbers of facets for \(n=9,10,11,12,13,14\) are respectively \(9,30,66,112,169,238\). All recorded facet sets have the uniform size \(n-3\), so each nonvoid cut complex is pure of dimension \(n-4\).
+
+**2. Two explicit finite shellings.** The files `shelling_13.csv` and `shelling_14.csv` contain complete ordered lists of disconnected triples \(T_j\), with one sorted triple per line. For each such triple let \(F_j=V\setminus T_j\). The checker first establishes that the list contains every facet exactly once. It then checks the **definition** of a shelling: for each \(j>1\), every face of \(F_j\) already contained in the preceding union lies in a preceding codimension-one face of \(F_j\), and at least one such codimension-one face exists. This proves that the intersection is pure of dimension \(n-5\). A separate complementary-triple verification checks the equivalent criterion: for every \(i<j\), some \(r<j\) has \(F_r\cap F_j=F_j\setminus\{v\}\), with \(v\in F_j\setminus F_i\). Both checks pass for all \(169\) and \(238\) facets, respectively. The checker also counts spanning facets, defined by having every codimension-one face already present: exactly one at \(n=13\) and eight at \(n=14\). The standard pure-shelling theorem gives wedges of respectively one \(9\)-sphere and eight \(10\)-spheres, not just homology ranks.
+
+**3. The infinite tail.** Chauhan and Shukla [1, Theorem 1.4] prove that \(\Delta_3(C_n^p)\) is shellable for \(p\ge2\) and \(n\ge6p-3\), with exactly \(\binom{n-2p}{2}-(2p^2+p-1)\) top-dimensional spheres. Substituting \(p=3\) yields shellability for every \(n\ge15\), and the sphere count \(\binom{n-6}{2}-20\). Its values at \(n=13\) and \(n=14\) are respectively one and eight, agreeing with the independently checked finite shellings. Thus the formula holds for all \(n\ge13\).
+
+**4. Sharpness below the threshold.** To verify non-shellability independently of any numerical table, the checker builds every face of each of the four complexes at \(n=9,10,11,12\) and computes every reduced simplicial boundary rank by exact Gaussian elimination over \(\mathbb F_2\). Its only nonzero reduced Betti numbers are, respectively, \(\widetilde\beta_3=1\), \(\widetilde\beta_4=11\), \(\widetilde\beta_5=1\), and \(\widetilde\beta_7=2\). In each case the nonzero degree is strictly below the pure dimension \(n-4\). A pure shellable complex has reduced homology concentrated in top dimension, a contradiction. These finite computations are complete enumerations, not statistical samples; they corroborate the earlier homology table [2, Table 2].
+
+## Verification
+From the directory containing `verify.py`, `shelling_13.csv`, and `shelling_14.csv`, execute `python3 verify.py` using the Python 3 standard library. It reconstructs every graph and facet directly, validates the complete listed shellings by two equivalent criteria, counts spanning facets, and performs exact binary boundary-matrix reduction for the non-shellable cases. The executed checker returned `VERIFY_OK: all complete finite cases and both explicit shellings`. The general case \(n\ge15\) relies on the cited published theorem [1], not on an extrapolation from finite computation. Both CSV files are indispensable parts of the finite certificates.
+
+## Relationship to prior work
+Chauhan, Shukla, and Vinayak [2, Conjecture 4.2] proposed the sharp onset \(n=4p+1\) for shellability of ordinary three-cut complexes of powers \(C_n^p\), with supporting homology calculations in Table 2. Their work proves the case \(p=2\), not the present \(p=3\) boundary. Chauhan and Shukla [1, Theorem 1.4] later proved shellability for the broader family \(p\ge2\), but only when \(n\ge6p-3\); at \(p=3\) that starts at \(n=15\). Their theorem therefore does not imply shellability at \(n=13,14\). A published rational rotation-representation calculation [3] likewise assumes \(n\ge6p-3\) and leaves those values outside its scope. The previously tabulated homology at \(n=13,14\) does not by itself imply shellability or determine the homotopy type. The exact finite shellings fill precisely the two remaining values needed to settle the \(p=3\) sharp-threshold case.
+
+## Limitations
+The result treats ordinary three-cut complexes of **third powers** of cycles only. It does not establish Conjecture 4.2 for higher powers \(p\ge4\), for different cut sizes, or an equivariant homotopy classification. The certificate proves the two finite shellability statements; the infinite tail uses the published theorem [1]. Non-shellability below the threshold is established over \(\mathbb F_2\), which suffices to obstruct shellability but does not alone assert complete integral homology. Identical conclusions could still exist in unindexed literature; no claim of exhaustive literature uniqueness is made.
+
+## References
+1. P. Chauhan and S. Shukla, *Shellability of 3-cut complexes of powers of cycle graphs*, arXiv:2603.23155v1 (first publicly submitted 2026-03-24), Theorem 1.4, Section 3, and Section 4. https://arxiv.org/html/2603.23155
+2. P. Chauhan, S. Shukla, and K. Vinayak, *Shellability of 3-Cut Complexes of Squared Cycle Graphs*, arXiv:2406.01979v1 (first publicly submitted 2024-06-04), Conjecture 4.2 and Table 2; text also examined in v2. https://arxiv.org/html/2406.01979v2
+3. *Rational cyclic homology representations of three-cut complexes of cycle powers* (2026), publicly indexed mathematical result with range \(p\ge2\), \(n\ge6p-3\), confirming that its representation formula has no asserted coverage at \(n=13,14\) when \(p=3\).
