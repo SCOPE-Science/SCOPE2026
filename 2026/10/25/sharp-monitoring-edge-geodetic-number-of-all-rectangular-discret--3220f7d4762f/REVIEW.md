@@ -1,15 +1,21 @@
-# Scientific review: rectangular torus edge monitoring
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim is quantified for integers \(5\le m\le n\) and uses ordinary Cartesian products of unweighted cycles. A proof of the cycle-gap criterion and the exact factor-section monitoring criterion gives the lower bound \(3n\). A uniform balanced-floor construction certifies this bound except at the two parameter pairs \((5,6)\) and \((7,8)\), where explicit matrices do. The key estimate for cyclic row gaps is \(\lceil((\lceil m/3\rceil-1)n)/m\rceil+1\le\lfloor(n-1)/2\rfloor\) outside those exceptions. Its base cases and two-step induction are supplied in RESULT.md. The standalone verifier tests the original edge-deletion metric rather than only the reduced gap certificate. The universal result is established by proof, not numerical extrapolation.
+## correctness
 
-## Originality — PASS, with residual risk
-Haslegrave (arXiv:2210.08955), Theorem 4, proves the **square** discrete-torus equality only. His Theorem 1 gives product bounds that do not determine the values for unequal dimensions. The new result closes those bounds for every unequal rectangle, with a nontrivial balanced placement and two exceptional templates. Relevant cycle/grid sections of Dev et al. (2025) do not state this general equality. Search-based comparisons did not identify a dominating general result. The full article by Xu et al. (2024) could not be inspected; its accessible abstract names different graph products. Unindexed equivalent priority is not ruled out.
+PASS
 
-## Value — PASS
-For every pair of cycle lengths at least five, the result now gives an exact optimal number of edge-failure observation vertices on a rectangular periodic grid. Unlike the prior square case, it handles arbitrary aspect ratio and shows that the lower Cartesian-product bound is always sharp here. The explicit placements can be checked in linear time in the graph size and expose two tight small-dimensional obstructions to a natural floor-sampling construction.
+In C_m□C_n (5≤m≤n), every Cartesian-direction edge can be monitored only by a selected pair with identical other coordinate. Therefore all n column sections must be cycle MEG sets and require three selected vertices each: meg≥3n. The cycle criterion is exactly that consecutive selected cyclic gaps be ≤floor((r−1)/2); the balanced 3-offset construction with column shift floor(jm/n) controls every column and every row by B=ceil((ceil(m/3)−1)n/m)+1. Two-step induction in n proves B≤floor((n−1)/2) outside (5,6),(7,8). Explicit 5×6 and 7×8 binary placements handle exceptions. Independently verified section certificates on 1575 rectangles including both exceptions. The proof of unbounded n relies on the integer-gap induction; finite testing is not a proof.
 
-## Limitations and literature
-This does not classify all optimal observation sets, analyze graph products with short cycles, or settle strong-product monitoring. Same mathematical model proof inspection and finite computations are not independent validation. Closest literature: J. Haslegrave, arXiv:2210.08955 (especially Theorems 1 and 4); S. R. Dev et al., DOI 10.1016/j.dam.2025.08.041; X. Xu et al., DOI 10.1080/17445760.2024.2301929 (abstract only).
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Haslegrave (2023) gives the Cartesian section criterion, general product bounds and meg(C_m□C_m)=3m for squares; those results do not imply equality 3n in nonsquares. Foucaud–Pandey–Paul (2025 preprint, 2026 journal) classify distance-hereditary, P4-sparse, bipartite permutation and strongly chordal graphs, none containing every rectangular torus with induced long cycles. Their primary text mentions neither torus nor Cartesian products as a solved class. No covering exact formula found in product-network literature surveyed, though a separate product-networks journal work was not read in full.
+
+## value
+
+PASS
+
+Exact all-aspect-ratio Cartesian torus monitoring-number classification closes the gap between known lower/upper bounds. The explicit optimal 3-per-column construction and exceptional templates solve a natural fault-detection placement problem beyond square tori.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

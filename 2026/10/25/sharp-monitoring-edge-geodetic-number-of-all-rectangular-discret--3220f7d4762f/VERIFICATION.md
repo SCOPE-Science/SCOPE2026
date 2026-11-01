@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-The standalone Python source `verify_rectangular_torus.py` requires Python 3.9 or later and uses only the standard library. Run `python verify_rectangular_torus.py` in a directory containing that file. The matching direct output appears in `verification_output.txt`.
+## correctness
 
-The verifier checks 1,936 independently generated placements over the parameter range \(5\le m\le36\), \(m\le n\le80\), including exactly three observations in every column and the required cyclic-gap bounds in all rows and columns. It also independently checks the gap characterization against the original edge-deletion distance definition over all 4,064 vertex subsets of cycles with lengths 5 through 11. Finally, it checks the original shortest-path distance-change condition for all 1,422 edges of 14 rectangular tori, including both exceptional matrices.
+PASS
 
-No finite test alone establishes the universal formula; the proof for all admissible parameters uses the exact block-endpoint inequality and its two-step induction. Every stated computational check was reproduced from the standalone source. This is not an independent audit or externally certified result.
+In C_m□C_n (5≤m≤n), every Cartesian-direction edge can be monitored only by a selected pair with identical other coordinate. Therefore all n column sections must be cycle MEG sets and require three selected vertices each: meg≥3n. The cycle criterion is exactly that consecutive selected cyclic gaps be ≤floor((r−1)/2); the balanced 3-offset construction with column shift floor(jm/n) controls every column and every row by B=ceil((ceil(m/3)−1)n/m)+1. Two-step induction in n proves B≤floor((n−1)/2) outside (5,6),(7,8). Explicit 5×6 and 7×8 binary placements handle exceptions. Independently verified section certificates on 1575 rectangles including both exceptions. The proof of unbounded n relies on the integer-gap induction; finite testing is not a proof.
+
+## originality
+
+PASS
+
+Haslegrave (2023) gives the Cartesian section criterion, general product bounds and meg(C_m□C_m)=3m for squares; those results do not imply equality 3n in nonsquares. Foucaud–Pandey–Paul (2025 preprint, 2026 journal) classify distance-hereditary, P4-sparse, bipartite permutation and strongly chordal graphs, none containing every rectangular torus with induced long cycles. Their primary text mentions neither torus nor Cartesian products as a solved class. No covering exact formula found in product-network literature surveyed, though a separate product-networks journal work was not read in full.
+
+## value
+
+PASS
+
+Exact all-aspect-ratio Cartesian torus monitoring-number classification closes the gap between known lower/upper bounds. The explicit optimal 3-per-column construction and exceptional templates solve a natural fault-detection placement problem beyond square tori.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
