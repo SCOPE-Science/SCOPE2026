@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** At the rhombus base point, the area and arclength variances are exactly \(1/6\) and \(1/3\) in unit-edge normalization. Removing a corner triangle changes interior moments only at second order in the cut fraction; on the boundary the deleted and inserted arc lengths yield an exact first-order correction. Consequently the right derivative is \((\sqrt{2-2c}-2)(1+3c)/4\) for every \(-1<c<1\), establishing the sharp first-variation sign boundary. The integer pentagon certificate uses exact rational area/edge moment sums and has the strictly positive ratio excess recorded in `RESULT.md`. The checker was actually executed and passed. An exact-angle second-order claim is not made.
+## correctness
 
-**Originality — PASS with residual risk.** Tokmachev's arXiv:2607.08869v1 establishes lower moment comparisons through convex order; Lotnikov's arXiv:2608.14848 provides lower moment comparisons and symmetric/tangential moment relations. Neither supplies a factor-two upper bound or this asymmetric first variation. Indexed fourth-moment work for parallelograms studies a different exponent and untruncated bodies, while indexed second-moment results for triangles concern another class. Targeted searches for truncation, rhombus boundary variance, and squared-chord amplification did not identify equivalent statements. Full texts of both principal arXiv sources were inspected. An indexed related fourth-moment record was available only as a description, so unrecognized stronger implications in its inaccessible detailed proof and unindexed classical work remain residual risks.
+PASS
 
-**Value — PASS.** The result identifies a precise local symmetry-breaking mechanism for squared chord statistics: all rhombi saturate amplification \(2\), yet nearby genuine pentagons can strictly exceed it. The angular threshold \(\cos\theta=-1/3\) governs the complete first-order sign classification; the exact integer polygon prevents any ambiguity from a small numerical excess. No optimal global amplification or higher-moment extension is claimed.
+PASS. Since iid squared distance equals twice variance, the unit rhombus starts with Var(B)=1/3, Var(I)=1/6. Removing area O(t²) leaves interior first derivative zero; deleted boundary length 2t and new length h t, h=sqrt(2-2c), give perimeter 4+(h-2)t and unnormalized centered second moment 4/3+(h-2)(1+c)t/2+O(t²). Quotient derivative is (h-2)(1+3c)/4, with precise threshold c=-1/3 (no higher-order assertion). Independent exact-rational Green and segment moments of specified 5 integer vertices reproduce ratio 3586477854403938963/1792478301783239474>2, all consecutive turns convex.
 
-**Scientific limitations.** The theorem concerns a one-corner-truncated rhombus, its infinitesimal behavior, and one explicit finite counterexample; it does not determine the global extremum among arbitrary convex bodies or the exact transition behavior at the zero-derivative angle.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best knowledge. Lotnikov 2026 central-symmetric exact second moments and lower comparisons do imply rhombus baseline ratio2, but no asymmetric pentagon perturbation derivative; its general projective-boundary formulas use different sampling when not circumscribed. Tokmachev 2026 accessible abstract studies lower convex-order comparison, not an upper ratio. Risk inaccessible full Tokmachev paper/unindexed earlier upper-ratio examples.
+
+## value
+
+PASS
+
+PASS. The precise first-variation threshold distinguishes symmetry breaking that improves versus worsens a natural squared-chord statistic. An explicit strictly convex rational upper-bound counterexample has qualitative force: disproves plausible factor-two bound for all planar convex bodies. No global maximum or behavior at zero derivative asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
