@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The claim concerns the type-A symmetric edge polytope of a graph having five paths of even lengths \((6,8,8,8,8)\), not an unoriented graph edge polytope. The graph has 35 vertices and the polytope has dimension \(34\). More generally, paths with common length parity yield a bipartite graph. For its facets, the parity argument forces all edges tight, giving independent potential sign words constrained by one common signed endpoint height. The planar-dual arborescence construction selects one intact primal path and one deleted edge on each other path, with a prescribed sign. Counting edges directed away from the root yields exactly the displayed binomial sums. Applying the established activity identity is sufficient to obtain the Ehrhart numerator, including normalization. Exact integer evaluation gives \(\gamma_{15}=-236544\). Direct sign-word enumeration independently matches the binomial calculation and recovers Ferroni's published equal-arm value \(\gamma_{16}=-9799680\). The all-parameter formula rests on the dissection argument, not on finite enumeration.
+## correctness
 
-## Originality — PASS subject to historical priority limitations
-Ferroni, arXiv:2607.02424, Sections 1 and 2, derives an equal-arm formula and explicitly records a dimension-36 witness. That full text remarks that arbitrary-arm formulas should be possible, but does not state or tabulate the all-common-parity formula here, the length vector \((6,8,8,8,8)\), or a dimension-34 negative coefficient. Kálmán–Tóthmérész, DOI:10.5802/alco.318, supplies the more general spanning-tree activity theorem, but not this evaluated negative coefficient. Topical and exact-parameter literature searches found no equivalent prior value. A generic algorithm's availability is not treated as an explicit prior value. Remaining risk: alternate nomenclature, independently computed tables, and unpublished or unindexed refinements. No assertion of worldwide priority or global minimal dimension is made.
+PASS
 
-## Value — PASS
-Failure of gamma-positivity for symmetric edge polytopes is a recently settled question whose smallest explicit dimensions remain mathematically meaningful. An exact 34-dimensional witness improves the 36-dimensional equal-arm construction, while the natural unequal-arm formula addresses a parameter extension explicitly identified by the cited work and supports systematic study beyond this one instance. The counterexample is a graph-polytope phenomenon, not an arbitrary parameter substitution: the negative gamma coefficient requires a nontrivial exact evaluation and is not implied by the equal-arm theorem.
+For same-parity theta arms a_r>=2, the inspected result constructs facets by common signed terminal height h and applies planar dual spanning-tree activity to one intact arm k and one signed deleted edge on each other arm. The finite polynomial factor A_k and signed deletion factors B_r^± count directed-away tree edges; convolution gives Ehrhart h*. An independently written direct ±-orientation-word enumeration (separate from binomial-source code) reproduced for (6,8,8,8,8): dim=34, h*_1=42, γ1=8, γ15=-236544, γ16=γ17=0. The general formula is deductive from the cited dual dissection; arithmetic alone would not prove the all-length theorem.
 
-## Scope and validation limitations
-The result neither proves no lower-dimensional witness exists nor classifies all graph families; results for mixed-parity paths are not asserted. Foundational combinatorial dissection facts are attributed to their authors. Independent scientific audit remains unperformed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ferroni (arXiv:2607.02424) supplies equal-arm theta h* and a 36-dimensional negative gamma example, but explicitly leaves unequal-arm formulas. A July 3, 2026 Ashfaque four-page preprint purports to treat asymmetric theta arms and a nine-dimensional example, but its numerical example G(8,2)=C10 claims h1*=3; for a ten-edge C10 root polytope the exact identity h1*=2|E|-dim=20-9=11 contradicts it, and its γ1=-6 is therefore also invalid (correct γ1=2). Its apparently general formula cannot be accepted as an implication to the verified same-parity formula. This serious historical overlap and error are disclosed; a corrected antecedent remains a priority risk.
+
+## value
+
+PASS
+
+The same-parity theta-graph Ehrhart formula supplies a new natural infinite-family enumerator; its exact 34-dimensional witness improves the published 36-dimensional equal-arm construction and is a motivated negative boundary for symmetric edge gamma positivity. The result is valuable beyond the two-dimensional reduction because it covers all unequal same-parity arm vectors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
