@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Exact verification
+# Independent mathematical audit
 
-Execute `python3 verification/check_moments.py` with Python 3 (standard library only). The checker generates every partition of each integer up to 10 (corresponding to all abelian \(p\)-group invariant-factor types in that range). For each \(p\in\{2,3,5\}\) and \(k\in\{1,2,3,4\}\), it independently enumerates element-order multiplicities, computes \(F_k\) using exact rational arithmetic, and compares with the identity involving \(E_{p,k}(H)\) whenever \(\ell>b\). Exactly **624** partition/prime/moment cases satisfy this restriction and are checked. In separate parameter sweeps it checks the asserted positive correction and quantitative upper bound for \(p\in\{2,3,5\}\), \(k\in\{1,2,3\}\), \(0\le b\le4\), and \(\ell\in\{b+1,b+3,b+7\}\).
+## correctness
 
-Observed output: `VERIFY_OK exact_partition_cases= 624  and uniform error bounds`.
+PASS
 
-The checker does not enumerate all finite groups or establish any infinite limiting property. Those follow from equations (1)–(5) and the complete argument in `RESULT.md`. All arithmetic checks use `fractions.Fraction`, avoiding numerical rounding. Independent scientific audit is not performed.
+For |G|=p^(l+b) and expG=p^l, every element order <=p^l gives F_k<=p^(-kb). If l>b, split G=C_{p^l}xH with |H|=p^b: elements with first-coordinate order>p^b contribute p^b*(psi_k(C_{p^l})-psi_k(C_{p^b})), all others contribute psi_k(C_{p^b}xH). The cyclic geometric sum yields F_k=c_{p,k}p^(-kb)+E_{p,k}(H)/p^((k+1)(l+b)), 0<E<=2p^((k+2)b). Thus fixed b and l->infinity yield the stated limit uniformly over H. A positive F_k limit bounds b; distinct subsequence limits force eventual single integer b, giving all-moment rigidity. b->infinity forces all zero. Explicit sequences realize each candidate. Independent exact fractions for four invariant-factor types confirmed the decomposition and error bound; asymptotic exhaustion uses proof not tests.
+
+## originality
+
+PASS
+
+Fixed-prime geometric accumulation set and positive one-moment-to-all-moments defect rigidity compared against earlier cyclic and general finite-group normalized moment work; global density with variable primes has different quantifiers. The principal new point is arbitrary changing invariant-factor types with a uniform error bound.
+
+## value
+
+PASS
+
+The normalized moment is actively studied; holding p fixed exposes a genuine discrete geometric accumulation spectrum despite all-group density. Uniform asymptotic control across arbitrary invariant-factor complements and one-moment/all-moment rigidity furnish a complete useful primary asymptotic classification, not merely a cyclic special case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
