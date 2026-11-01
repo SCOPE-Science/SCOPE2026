@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exactly defined independence polytope equals the rank-capped unit cube. Coordinate-exchange symmetry forces precisely two covariance eigenspaces; the exact balanced identity follows from reflection on the cube and holds without asymptotics. In the critical window the conditioned sum obeys the truncated normal moment law; the transverse marginal remains uniform. Below it, a bounded-tilt local limit estimate makes the cap deficit asymptotically exponential and two fixed coordinates asymptotically independent tilted uniforms. The covariance and volume determinant then give the claimed affine-invariant limit. The proof explicitly restricts subcritical rank proportions away from zero and uses classical tilted density local limits; those uniform estimates are the most demanding analytical input and require specialist independent scrutiny.
+## correctness
 
-**Originality — PASS (qualified).** Published matroid-polytope sources [1]–[3] study Ehrhart enumeration, combinatorial/algebraic properties, or positivity; their central statements do not imply covariance identities. The nearest surfaced geometric results on rank-capped cubes concern Euclidean inballs/circumballs and John ellipsoids rather than the continuous uniform-volume inertia spectrum. A failed keyword match alone is not a priority certificate; older Gibbs-conditioning, Irwin–Hall, and truncated-convolution results may yield equivalent components. The combination of exact dimension-independent balanced transverse rigidity, central anisotropy law, subcritical sum-direction collapse, and affine-invariant isotropic profile is the specifically assessed claim.
+PASS
 
-**Value — PASS.** The first and second Euclidean volume moments of a natural infinite family of uniform-matroid independence polytopes have a sharp spectral transition controlled by normalized rank. In the central window a limiting anisotropy persists although the affine-invariant isotropic constant is asymptotically that of the cube; below it the global-sum eigenspace collapses at order inverse dimension, whereas other eigenspaces do not. The exact even-dimensional balanced identity makes this distinction geometrically rigid. This is more than a routine substitution into a standard CLT, though its probabilistic proof ingredients are classical.
+The full-dimensional uniform-matroid independence polytope is exactly the Boolean capped cube P=[0,1]^n∩{sum x_i≤k} for integers 1≤k≤n. Symmetry gives lambda_parallel=Var(S)/n and lambda_perp=E(X1−X2)^2/2. Under uniform cube sampling X is the vector of independent Uniform[0,1] variables conditioned on T_n≤k. Reflection at exact balanced n even k=n/2 fixes squared differences, proving lambda_perp=1/12, and conditional centered T_n variance equals n/12−(E|T_n−n/2|)^2. Uniformly integrable Gaussian truncation yields the central Mills-ratio longitudinal limit; exponential tilting and a uniform density local limit produce the subcritical exponential gap with n theta² lambda_parallel→1; Hoeffding gives the supercritical cube limit. The volume large-deviation rate, determinant decomposition and all near-half subsequences yield the normalized isotropic constant. Independent exact rational integrations verified 35 (n,k) from n=2..8 and four balanced transverse cases; this bounded test does not prove the infinite limits.
 
-**Limits.** Analytical statements are not consequences of numerical experiments. No rates or vanishing-rank claims are provided; quantitative uniform local-limit estimates and potentially equivalent probability-literature formulations remain external-review priorities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
 
-References: [1] https://arxiv.org/abs/2012.04711; [2] https://arxiv.org/abs/2005.08359; [3] https://arxiv.org/abs/2105.04465; [4] https://arxiv.org/abs/1202.0731.
+Best-of-knowledge PASS for the combined continuous-volume covariance spectrum, sharp integer-balanced rigidity, critical transition and isotropic constant, not for exponential tilting, conditioned CLT or the Irwin–Hall formula themselves. Ferroni 2020 studies Ehrhart coefficients of precisely the uniform-matroid independence polytope, a distinct lattice-counting invariant. Broniatowski–Caron 2014 derives general Gibbs conditioning and overshoot approximations that cover important probabilistic ingredients but neither states these exact eigenvalues nor the geometric isotropic transition. Other published capped-hypercube John-ellipsoid results optimize enclosure geometry, not uniform covariance. No stronger exact covariance theorem found; older conditional-limit work may imply some pieces through specialization.
+
+## value
+
+PASS
+
+The complete three-regime answer describes anisotropy of a canonical matroid family and isolates the one decaying longitudinal direction under a rank cap, an exact balanced eigenvalue, and an affine-invariant limit. These are geometrically meaningful continuous invariants, not a parameter renaming of a general theorem or an arbitrary finite table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
