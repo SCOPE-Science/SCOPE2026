@@ -1,0 +1,141 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T07:54:30.540363Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "pinned RESULT.md Git blob 3543665ee6a1f13e5a6d23087facee7ae040006e, complete proof",
+        "pinned check.py Git blob 6f5810a16a6fb422f97ba3f46ecc689bf6c47ac2 inspected but not executed",
+        "independent_check_results.json: 4 symbolic identities, 12 sample r values with 401-point parameter grids",
+        "git_tree_results.json record1 exact reconstructed SHA 20f1552a42782bbd0674c88d6fc39c5f987289dd"
+      ],
+      "rationale": "The actual Smith inner recursion yields cubic error polynomial g3(z;alpha)=(1−alpha)z+alpha(1−alpha)z²+alpha²z³. J-conjugation on symmetric 2×2 matrices is an isometric self-adjoint involution with BOTH ±r eigenmodes, so the Frobenius worst-case factor is exactly max(|g3(r)|,|g3(−r)|). Directly rederived sums and derivatives: u+v=2r²alpha(1−alpha), u−v=2r(1−alpha+r²alpha²), u′=−r(1−r)(1+2r alpha), v′=r(1+r)(1−2r alpha). On alpha<0 the negative mode is worse than unrelaxed; alpha∈[0,1] cannot improve on r³. For r≥1/2 v is maximally negative at alpha=1 on the remaining ray; for 2/5≤r≤1/2 its stationary maximal value gives a global lower bound; for r≤2/5 equating negative mode values yields alpha_c and the two monotonic flanks. Equality and strictness at both interfaces check uniquely. Independent Sympy rederivation and 12 finite minimax grids passed. This does NOT optimize other spectral families, stagewise positivity or floating-point work.",
+      "risks": [
+        "Finite minimax grids are not proof of all real alpha; analytic derivative inequalities supply completeness.",
+        "No positivity guarantee is made for intermediate overrelaxed matrices."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2607.00451: General iteration polynomial and convergence criteria are prior; global alpha thresholds 2/5 and 1/2 not stated in read sections.",
+          "https://doi.org/10.1016/j.jfranklin.2020.02.026: PLAUSIBLE INACCESSIBLE PRIOR ART, not claimed noncovering; continuous coupled Markovian Lyapunov setting differs from this discrete stochastic swap system"
+        ],
+        "reasoning": "A general model, theorem or algorithm does not itself establish the exact target quantifiers and sharp output unless a substantive implication is proved. Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it. Residual risk: Tian et al. 2020 full primary text inaccessible (authorized Oxford VPN disconnected); a general multi-step result may yield same minimizer.",
+        "searches": [
+          "stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2",
+          "higher-step Smith inner-outer iteration Lyapunov matrix equation finite spectral termination optimum parameter",
+          "A multi-step Smith-inner-outer iteration algorithm pdf Tian Wang Dong Liu 2020",
+          "Explicit iterative algorithm with optimal tuning parameter stochastic Lyapunov matrix equation pdf",
+          "https://arxiv.org/abs/2607.00451"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2607.00451",
+        "https://doi.org/10.1007/s11075-025-02019-7",
+        "https://doi.org/10.1016/j.jfranklin.2020.02.026",
+        "Resultary query: stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation: GENERAL POLYNOMIAL KNOWN; authors explicitly leave degree above two parameter determination as a further problem, not the exact signed-pair third-step phase diagram",
+          "Explicit iterative algorithm with optimal tuning parameter for stochastic Lyapunov matrix equation: INCOMPLETE COMPARISON; it constructs a different explicit iteration, not established as same three-inner Smith family, but cannot decisively exclude an equivalent specialization",
+          "A multi-step Smith-inner-outer iteration algorithm for solving coupled continuous Markovian jump Lyapunov matrix equations: PLAUSIBLE INACCESSIBLE PRIOR ART, not claimed noncovering; continuous coupled Markovian Lyapunov setting differs from this discrete stochastic swap system"
+        ],
+        "reasoning": "The primary statements were compared by logical implication, respecting the actual invariant, hypotheses and parameter ranges, and recognizing any prior definitions, recurrence or constructions as already known. Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it.",
+        "searches": [
+          "stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2",
+          "higher-step Smith inner-outer iteration Lyapunov matrix equation finite spectral termination optimum parameter",
+          "A multi-step Smith-inner-outer iteration algorithm pdf Tian Wang Dong Liu 2020",
+          "Explicit iterative algorithm with optimal tuning parameter stochastic Lyapunov matrix equation pdf",
+          "https://arxiv.org/abs/2607.00451"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation: GENERAL POLYNOMIAL KNOWN; authors explicitly leave degree above two parameter determination as a further problem, not the exact signed-pair third-step phase diagram",
+          "Resultary semantic query: stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2"
+        ],
+        "reasoning": "Translate the target into the canonical mathematical object/invariant and compare equivalent terminology or dual formulations. Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it.",
+        "searches": [
+          "stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2",
+          "higher-step Smith inner-outer iteration Lyapunov matrix equation finite spectral termination optimum parameter",
+          "A multi-step Smith-inner-outer iteration algorithm pdf Tian Wang Dong Liu 2020",
+          "Explicit iterative algorithm with optimal tuning parameter stochastic Lyapunov matrix equation pdf",
+          "https://arxiv.org/abs/2607.00451"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query: stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2",
+          "https://arxiv.org/abs/2607.00451: GENERAL POLYNOMIAL KNOWN; authors explicitly leave degree above two parameter determination as a further problem, not the exact signed-pair third-step phase diagram"
+        ],
+        "reasoning": "No inspected exact database entry/table gave the full stated parameter classification. This check is not a novelty proof; recorded related tables and special cases are weaker than the theorem in scope. General polynomial acceleration theory could provide an implicit theorem for the particular restricted minimax problem.",
+        "searches": [
+          "stochastic Lyapunov Smith inner outer three inner steps optimal parameter two signed modes spectral radius minimax 2/5 1/2",
+          "higher-step Smith inner-outer iteration Lyapunov matrix equation finite spectral termination optimum parameter",
+          "A multi-step Smith-inner-outer iteration algorithm pdf Tian Wang Dong Liu 2020",
+          "Explicit iterative algorithm with optimal tuning parameter stochastic Lyapunov matrix equation pdf",
+          "https://arxiv.org/abs/2607.00451"
+        ]
+      },
+      "rationale": "Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it.",
+      "residual_risks": [
+        "Tian et al. 2020 full primary text inaccessible (authorized Oxford VPN disconnected); a general multi-step result may yield same minimizer.",
+        "Chen et al. 2025 full mathematical article inaccessible despite author-site PDF link and institutional attempt.",
+        "General polynomial acceleration theory could provide an implicit theorem for the particular restricted minimax problem."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL POLYNOMIAL KNOWN; authors explicitly leave degree above two parameter determination as a further problem, not the exact signed-pair third-step phase diagram",
+          "evidence": "General iteration polynomial and convergence criteria are prior; global alpha thresholds 2/5 and 1/2 not stated in read sections.",
+          "identifier_or_url": "https://arxiv.org/abs/2607.00451",
+          "material_read": "Accessible primary arXiv PDF, mathematical equations (12), (14), (18), Theorem 2, Remark 2, Sec. 4 and relevant proof inspected; PDF page screenshot additionally examined",
+          "method": "arXiv primary PDF and mathematical comparison",
+          "title": "An Inner-Outer Iteration Algorithm with Optimal Parameters for Stochastic Lyapunov Matrix Equation",
+          "trigger": "Same original three-stage recurrence and optimization objective"
+        },
+        {
+          "assessment": "INCOMPLETE COMPARISON; it constructs a different explicit iteration, not established as same three-inner Smith family, but cannot decisively exclude an equivalent specialization",
+          "evidence": "Published online 2025-02-11; the accessible abstract discusses a new explicit recurrence and special-case optimal tuning. Oxford job b9ce94ed46d84c469b66884e98dfa968 reported vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.1007/s11075-025-02019-7",
+          "material_read": "Author-university publication entry and abstract, publisher/research bibliographic preview; author-site PDF link found but timed out; no complete mathematical full text",
+          "method": "Author open-access attempt and indexed abstract; authorized institutional retrieval blocked by disconnected VPN",
+          "title": "Explicit iterative algorithm with optimal tuning parameter for stochastic Lyapunov matrix equation",
+          "trigger": "Closest same stochastic Lyapunov application and optimal-tuning phrase"
+        },
+        {
+          "assessment": "PLAUSIBLE INACCESSIBLE PRIOR ART, not claimed noncovering; continuous coupled Markovian Lyapunov setting differs from this discrete stochastic swap system",
+          "evidence": "Tian et al., JFI 357 (2020) 3656–3679; Oxford job aed5cccf32d18ad2c12fb9c2b5a8e87c status vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.1016/j.jfranklin.2020.02.026",
+          "material_read": "Bibliographic citation/abstract only; open preprint/full text could not be obtained, and authorized Oxford retrieval was VPN blocked",
+          "method": "Lawful OA search followed by institutional-access attempt",
+          "title": "A multi-step Smith-inner-outer iteration algorithm for solving coupled continuous Markovian jump Lyapunov matrix equations",
+          "trigger": "Multi-step Smith-inner-outer with possibly stronger l=3 tuning"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "He et al. Remark 2 identifies higher-step parameter tuning as problem, not computed",
+        "two true nonzero error eigenspaces imply worst-case norm and sharp phase changes"
+      ],
+      "rationale": "The signed pair is a physically realized minimal nontrivial stochastic-Lyapunov spectrum, and the sharp three-regime optimizer quantifies when restricting to one real inner-step parameter can improve unrelaxed Smith from r³ to r⁴ at small coupling. This solves an optimization left open at higher step count, not merely a polynomial substitution.",
+      "risks": [
+        "Two-state swapping, 0<r<1, symmetric Frobenius error and a common real alpha; no arbitrary Lyapunov spectra, stagewise positivity or finite-precision conclusion."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the two-state swap stochastic Lyapunov operator L_r(E)=rJEJ with 0<r<1 and symmetric Frobenius errors, the three-inner-stage Smith iteration has unique globally optimal real alpha at the sharp r=2/5 and r=1/2 transitions with minimax factors r²alpha(alpha−1), (3r−1)/4, r³, respectively.",
+  "limitations": [
+    "Two-state swapping, 0<r<1, symmetric Frobenius error and a common real alpha; no arbitrary Lyapunov spectra, stagewise positivity or finite-precision conclusion.",
+    "Tian et al. 2020 full primary text inaccessible (authorized Oxford VPN disconnected); a general multi-step result may yield same minimizer.",
+    "Chen et al. 2025 full mathematical article inaccessible despite author-site PDF link and institutional attempt.",
+    "General polynomial acceleration theory could provide an implicit theorem for the particular restricted minimax problem."
+  ],
+  "schema_version": 1
+}

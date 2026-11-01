@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The stated operator is realized by a mean-square-stable two-state multiplicative-noise process; conjugation by the swap matrix is a self-adjoint involution on the symmetric Frobenius space. The exact three-inner-stage polynomial separates into two nonzero eigenspaces, reducing the worst-case contraction to the maximum of two explicit quadratic polynomials in the tuning parameter. Their sum, difference and derivatives yield a complete global minimax proof over every real parameter, including negative parameters and both transition endpoints. The actual packaged `check.py` confirms the critical symbolic identities and reproducible finite cases; numerical cases do not substitute for the universal proof.
+## correctness
 
-## Originality — PASS
-The closest primary source, He et al. (arXiv:2607.00451), already supplies the general polynomial recurrence and the second-step parameter analysis, but not the optimized three-inner-step signed-spectrum classification. Their Remark 2 explicitly leaves higher-degree parameter optimization for further analysis. The present result includes a nontrivial two-transition global minimax analysis, rather than merely substituting eigenvalues into their spectral-radius formula. Comparisons with mathematical records and related claims did not identify a covering result. The multi-step Smith–inner–outer paper by Tian et al. (2020) is relevant but its full text was unavailable; this is a residual originality risk, not evidence of absence.
+PASS
 
-## Mathematical value — PASS
-The signed pair is the smallest natural spectrum that includes both positive and negative eigenmodes of a positive stochastic Lyapunov map. The exact regime switch distinguishes balanced eigenmode constraints, a one-mode stationary optimum, and ordinary Smith iteration, and quantifies an extra asymptotic power of improvement in weak coupling with a single parameter. This is a complete rate-optimal classification for a motivated minimal stochastic matrix equation; no extension to general operators or independent certification is claimed.
+The actual Smith inner recursion yields cubic error polynomial g3(z;alpha)=(1−alpha)z+alpha(1−alpha)z²+alpha²z³. J-conjugation on symmetric 2×2 matrices is an isometric self-adjoint involution with BOTH ±r eigenmodes, so the Frobenius worst-case factor is exactly max(|g3(r)|,|g3(−r)|). Directly rederived sums and derivatives: u+v=2r²alpha(1−alpha), u−v=2r(1−alpha+r²alpha²), u′=−r(1−r)(1+2r alpha), v′=r(1+r)(1−2r alpha). On alpha<0 the negative mode is worse than unrelaxed; alpha∈[0,1] cannot improve on r³. For r≥1/2 v is maximally negative at alpha=1 on the remaining ray; for 2/5≤r≤1/2 its stationary maximal value gives a global lower bound; for r≤2/5 equating negative mode values yields alpha_c and the two monotonic flanks. Equality and strictness at both interfaces check uniquely. Independent Sympy rederivation and 12 finite minimax grids passed. This does NOT optimize other spectral families, stagewise positivity or floating-point work.
 
-## Closest literature and limitations
-He et al. (2026), equations (12), (14), (18), Theorem 2, Remark 2 and Section 4, is the closest accessible source. Chen et al. (2025 online, 2026 volume) study a separate one-step explicit recurrence; Tian et al. (2020) study multi-step Smith iterations in a different continuous coupled setting. Only the first source's complete mathematical paper was inspected; the others leave explicit bibliographic risk. The theorem covers two-state swapping dynamics, three inner stages, a common real parameter, symmetric Frobenius error, and exact arithmetic, not general spectra or stagewise-positive approximations.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it.
+
+## value
+
+PASS
+
+The signed pair is a physically realized minimal nontrivial stochastic-Lyapunov spectrum, and the sharp three-regime optimizer quantifies when restricting to one real inner-step parameter can improve unrelaxed Smith from r³ to r⁴ at small coupling. This solves an optimization left open at higher step count, not merely a polynomial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

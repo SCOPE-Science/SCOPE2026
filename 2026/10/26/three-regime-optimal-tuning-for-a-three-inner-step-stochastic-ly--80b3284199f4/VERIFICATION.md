@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scope
 
-Run `python check.py` with Python 3, NumPy, SymPy and SciPy. It checks the cubic error polynomial against symbolic formulas; computes both critical boundary cases exactly; checks a set of independent numerical minimax scans for each regime; and executes 300 seeded two-by-two stochastic Lyapunov examples, comparing three inner recurrence stages to the polynomial error operator. The mathematical proof of the global optimum is in `RESULT.md`; the finite code check is corroborating evidence only.
+# Independent mathematical audit
 
-Scientific limits: this is a restricted symmetric two-state stochastic Lyapunov problem. The result concerns an outer-cycle Frobenius norm contraction and exact arithmetic, not positivity of intermediate approximations, performance on other spectra, or a universal floating-point guarantee. The accessible primary source provides the general recurrence; complete text of the older related Smith–inner–outer article was unavailable, so the originality conclusion retains that explicit risk. No external independent audit has been performed.
+## correctness
+
+PASS
+
+The actual Smith inner recursion yields cubic error polynomial g3(z;alpha)=(1−alpha)z+alpha(1−alpha)z²+alpha²z³. J-conjugation on symmetric 2×2 matrices is an isometric self-adjoint involution with BOTH ±r eigenmodes, so the Frobenius worst-case factor is exactly max(|g3(r)|,|g3(−r)|). Directly rederived sums and derivatives: u+v=2r²alpha(1−alpha), u−v=2r(1−alpha+r²alpha²), u′=−r(1−r)(1+2r alpha), v′=r(1+r)(1−2r alpha). On alpha<0 the negative mode is worse than unrelaxed; alpha∈[0,1] cannot improve on r³. For r≥1/2 v is maximally negative at alpha=1 on the remaining ray; for 2/5≤r≤1/2 its stationary maximal value gives a global lower bound; for r≤2/5 equating negative mode values yields alpha_c and the two monotonic flanks. Equality and strictness at both interfaces check uniquely. Independent Sympy rederivation and 12 finite minimax grids passed. This does NOT optimize other spectral families, stagewise positivity or floating-point work.
+
+## originality
+
+PASS
+
+Exact MINIMAX SOLUTION of a natural two-mode l=3 problem appears additional to the known recurrence, with explicit boundaries and uniqueness; no previously inspected theorem or table gives it.
+
+## value
+
+PASS
+
+The signed pair is a physically realized minimal nontrivial stochastic-Lyapunov spectrum, and the sharp three-regime optimizer quantifies when restricting to one real inner-step parameter can improve unrelaxed Smith from r³ to r⁴ at small coupling. This solves an optimization left open at higher step count, not merely a polynomial substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
