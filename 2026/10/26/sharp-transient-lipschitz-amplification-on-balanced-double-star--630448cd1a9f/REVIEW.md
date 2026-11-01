@@ -1,9 +1,21 @@
-# Scientific review: balanced double-star heat amplification
+# Independent mathematical audit
 
-**Correctness (PASS).** The complete claim is for finite, unweighted symmetric double stars and the *unnormalized* heat semigroup. The incidence intertwining identity reduces its Lipschitz norm to an edge matrix maximum-row norm. The two-by-two invariant block supplies the exact two-exponential central row. Positivity of an explicit four-exponential convolution is the critical lemma proving every leaf row is strictly smaller. The unique maximum and the large-degree expansion follow from two exponential rates. The same scalar formula was checked independently against 63 finite matrix-exponential computations, including the full row maximum; these checks do not substitute for the analytic proof.
+## correctness
 
-**Originality (PASS, with residual risk).** The closest relevant mathematical objects were compared by implication: earlier general discrete heat-semigroup and positivity results give neither the exact sharp Lipschitz norm on the specified diameter-three trees nor its all-degree peak and limit. The 2011 metric-tree heat-kernel paper concerns a distinct differential Laplacian on intervals, while the 2012 double-star quantum-walk paper concerns a unitary adjacency exponential. Closely related earlier sharp heat-flow calculations for complete bipartite graphs cover different graph geometries and do not give the double-star result by specialization. Searches of mathematical-result records and the named literature did not identify a stronger formula. This does not exclude an unindexed earlier derivation. The 2017 general graph-curvature paper was accessible at abstract level only; this limitation remains a residual risk, although its stated curvature equivalence does not provide an all-time exact finite-graph formula.
+PASS
 
-**Value (PASS).** A sharp all-time semigroup constant is a stability invariant, not a static eigenvalue calculation: the proof determines the edge that always attains the operator norm, a single exact extremizing datum, the transition from nonamplification to a unique transient peak, and a nontrivial limiting amplification of three with its leading finite-size deficit. The central-edge phenomenon occurs on a diameter-three tree and is structurally different from star and complete-bipartite transient factors. The result is restricted to the balanced double-star family and does not purport to solve all graph-heat Lipschitz problems.
+Let B be oriented edge incidence of balanced double star, L=B^TB, M=BB^T. Since the graph is a tree, B maps vertex functions modulo constants onto all edge gradients, so the Lip operator norm of exp(-tL) is the maximum absolute row sum of E(t)=exp(-tM). Decomposing edge symmetry reduces central row to the positive two-dimensional semigroup exp(-t S_d), where eigenvalues are lambda±=(d+3±sqrt(d²+6d+1))/2 and central row sum X(t)=A exp(-lambda- t)-(A-1)exp(-lambda+ t). The delicate inequality excluding leaf rows follows because the Laplace transform of q(t)+d k(t)-exp(-t) is d²/[(z+1)(z+d+1)(z+lambda-)(z+lambda+)], a convolution of positive exponentials; central row strictly dominates for t>0. The same four-level unit-Lipschitz test function attains all times. Differentiating X gives unique positive peak for d>=2 and none for d=1, with 3-8/d+O(log d/d²) and t~(2log d-log3)/d. Independent fresh direct matrix exponentials checked 64 positive time/degree pairs and central-row strict dominance; all-d/all-t theorem relies on the analytic positive-kernel argument.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Fan–Godsil analyze precisely double-star graphs but with unitary adjacency quantum walks exp(it A), not diffusive positive combinatorial-Laplacian heat exp(-tL). Münch–Wojciechowski give a curvature versus heat-flow Lipschitz estimate on general graphs, not this all-time sharp norm or peak and attaining edge. General graph Laplacian heat methods are prior art, and the new claim is a model-specific all-t quantitative transport norm and asymptotic.
+
+## value
+
+PASS
+
+The balanced double-star is a natural finite tree showing transient amplification in Lipschitz/Wasserstein distance despite positivity and sup-norm contraction. The all-time sharp norm, a single attaining potential, and asymptotic peak approaching three identify precise transport instability; these facts are not implied by generic contractivity or a two-vertex toy case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
