@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T16:54:18Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The Brownian hitting-time transform E_x[e^{-s tau0}]=e^{-x sqrt(s)} yields M_N(u^2)=W(1-e^{-u})/[u^2 sum_j a_j e^{-a_j u}], and differentiation gives uM'/M=h(u)-2+u mu_N(u). At u=c/a_j, c=0.5 or 2, normalize by a_j: lower-index terms total <=1/999 and higher terms <=2*10^6 e^{-500}, hence |mu_N/a_j-1|<=e^2(1/999+2*10^6e^{-500})<0.01 uniformly for every N,j. The derivative is < -0.495 at c=0.5 and >2/7-2+1.98>0 at c=2. Each window has an interior strict local minimum since the positive real-analytic function is nonconstant; signs on successive windows imply intervening strict maxima. r=u^2 is order-preserving. Independent recalculation verifies the analytic bound and 231 endpoint windows up to N=21; finite tests do not establish all N.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Besga et al. Phys. Rev. Research 2 (2020) 032029 analyze Gaussian reset-location metastability, not geometrically increasing N-point support.",
+          "Mendez et al. arXiv:2401.01125 address reset distributions, equivalent first-passage points, finite-interval rate optimality; a general maximum number of local wells is not asserted in the available abstract."
+        ],
+        "reasoning": "The cited broader resetting processes do not have an inspected theorem implying unbounded local minima for one finite mixture at each N. A more general theorem on real exponential-ratio oscillation could still imply the construction.",
+        "searches": [
+          "Brownian resetting to multiple discrete locations arbitrary number local minimum mean first passage vs reset rate",
+          "arXiv:2004.11311, Poissonian Gaussian-reset protocol",
+          "arXiv:2401.01125 distributed resetting, abstract and optimal-rate discussion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2311.11897 (full HTML Eq.4, Sections IV–VI)",
+        "arXiv:2004.11311 (abstract and published abstract)",
+        "arXiv:2401.01125 (abstract)",
+        "Resultary semantic search: Brownian resetting to multiple discrete locations arbitrary number local minimum mean first passage vs reset rate"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq.(4) yields M_N once rates are fixed, but does not force the N different derivative patterns.",
+          "The explicit a_j=1000^j weighting and uniform |R-1|<0.01 estimate establish each negative-positive sign pair for arbitrary finite N."
+        ],
+        "reasoning": "The known N-site MFPT expression is a premise, not a logical implication of the new extremal count without the novel scale separation inequalities. Two-site results imply only a bounded fixed-instance example.",
+        "searches": [
+          "arXiv:2311.11897 Eq.(4), Sections IV-VI",
+          "Brownian resetting to multiple discrete locations arbitrary number local minimum mean first passage vs reset rate",
+          "Besga et al. 2020 Poisson resetting metastable minimum"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arXiv:2311.11897 lines 44–54 gives the N-site sum-of-exponentials renewal MFPT; lines 63–70 analyze two-site double minima.",
+          "The audited statement is equivalent to at least N negative-to-positive sign transitions in h(u)-2+u mu_N(u) in disjoint windows, for every finite N."
+        ],
+        "reasoning": "The common MFPT denominator is prior; the all-N derivative-sign uniformity is a strictly stronger conclusion than knowing the formula or a two-well example. Equivalent switching-diffusivity interpretation for two sites does not provide the N-well lower bound.",
+        "searches": [
+          "Brownian resetting to multiple discrete locations arbitrary number local minimum mean first passage vs reset rate",
+          "Brownian diffusion resetting multiple sites mean first passage time arbitrarily many minima optimal reset rate geometric separated sites",
+          "arXiv:2311.11897 Sections III-IV Eq.(4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 12 returned Resultary records concerned other restart variance, coupon collector, and diffusion topics, not the specific all-N MFPT minimizer construction.",
+          "No fixed finite table can certify an unbounded-for-every-N existence theorem."
+        ],
+        "reasoning": "A targeted returned semantic sample has no matching theorem; this is search evidence rather than priority proof.",
+        "searches": [
+          "Brownian resetting to multiple discrete locations arbitrary number local minimum mean first passage vs reset rate",
+          "Resultary semantic search, limit 12, top nearest 2026/10/4/SCOPE-sharp-variance-envelope-at-fixed-success-probability-under-memor--bbc2b636e783"
+        ]
+      },
+      "rationale": "The N-site MFPT formula and two-site metastability were established by Julián-Salgado, Dagdug and Boyer, arXiv:2311.11897, Eq.(4)/Sections III–VI. The new claim is a uniform explicit construction producing arbitrarily many disjoint strictly minimizing reset-rate windows, requiring derivative-sign and scale-dominance estimates not present in that two-site result. Besga et al. (arXiv:2004.11311) treat a Gaussian site law and a single metastable optimum. Mendez et al. (arXiv:2401.01125) study distributed reset locations and equivalent first-passage laws, not a uniform all-N multiple-well theorem. Searches are bounded, so absolute priority is not established.",
+      "residual_risks": [
+        "An unindexed multi-site restart theorem or exponential-ratio oscillation bound may already imply arbitrary local-optimum multiplicity.",
+        "Besga and Mendez full text was not exhaustively inspected; abstracts cannot justify whole-paper noncoverage.",
+        "Novelty applies only to unbounded LOCAL optima, not N equal-valued global optima."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "N-site renewal denominator and two-site metastable regime cover antecedents, not uniform unbounded N construction.",
+          "evidence": [
+            "Eq.(4) and paragraph directly afterward give N-site extension; Sec IV Fig.2 discusses two separated local minima and their coexistence."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2311.11897",
+          "material_read": "Full HTML text including Sections I–VI, especially Eqs.(1)–(6), Sections IV–V and conclusions.",
+          "method": "Read open-access ar5iv HTML https://ar5iv.labs.arxiv.org/html/2311.11897, text lines 0–198, and inspect underlying formulas.",
+          "title": "Diffusion with two resetting points",
+          "trigger": "Same Brownian search to absorbing target, explicit multi-site MFPT and local optima."
+        },
+        {
+          "assessment": "Gaussian resetting with a critical metastable local minimum is known; a full text priority risk is retained.",
+          "evidence": [
+            "APS Phys Rev Research 2, 032029 (2020) explicitly reports onset of a metastable rate minimum."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2004.11311",
+          "material_read": "ArXiv abstract and APS published abstract/metadata, not a claim of complete primary full-text inspection in this run.",
+          "method": "Read open-access paper abstract and publisher abstract; no broader full-text negative inference.",
+          "title": "Optimal mean first-passage time for a Brownian searcher subjected to resetting: experimental and theoretical results",
+          "trigger": "Closest earlier metastable local minimum under a distributed reset position."
+        },
+        {
+          "assessment": "Relevant broad resetting model; no assertion of whole-paper noncoverage.",
+          "evidence": [
+            "Abstract states interval-width/rate optimality and equivalent reset-point property, without multi-well N-bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2401.01125",
+          "material_read": "ArXiv abstract, which describes interval reset laws and equivalence of first-passage distributions; entire article not read in this run.",
+          "method": "Open arXiv abstract and compare model/observables, with limited-scope caveat.",
+          "title": "First-passage time of a Brownian searcher with stochastic resetting to random positions",
+          "trigger": "Distributed Brownian reset positions and optimal-rate theorems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unbounded numbers of local extrema in the mean search time are a structural multiscale optimization phenomenon for a natural stochastic-reset process. A uniform N-independent lower-bound construction rules out a universal finite cap and explains the competing timescales; not a routine two-site parameter substitution. It is useful without claiming any global-minimum coexistence or upper extrema count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For each finite N>=1, Brownian search with N positive geometrically separated resetting sites a_j=1000^j and fixed weights proportional to a_j has >=N strict local MFPT minima as a function of common Poisson reset rate, with >=N-1 strict intervening maxima. All minima occur in prescribed disjoint rate windows; no global equivalence claim.",
+  "limitations": [
+    "Finite N only; no infinite reset measure.",
+    "Strict LOCAL rather than equal-height GLOBAL minima; no upper bound on total extrema.",
+    "Brownian diffusion on half line, instantaneous independent Poisson resetting, fixed site probabilities and D=1 only (other D by rescaling).",
+    "Other reset timing and nonconstant spatial diffusion not analyzed."
+  ],
+  "schema_version": 1
+}
