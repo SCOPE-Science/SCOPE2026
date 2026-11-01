@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:53:53.802526Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Specialized the actual source METD1 eq(7), METD2 eq(9), and METD2RK constant-forcing correction: K1_ij=f(d_i), K2_ij=f(d_i)+(d_i-d_j)g(d_i) with [Σ,A]=ΣA−AΣ. Exact solution is Gram(e^{-at},e^{-bt}) on [0,1], positive definite for a≠b. Strict decrease of f from its integral makes det sym(K1)=−(f(a)−f(b))²/4<0. sym(K2)_12=[f(a)+f(b)+(a−b)(g(a)−g(b))]/2, and dividing by a gives limit [[0,−g(b)/2],[−g(b)/2,0]] with g(b)>0. Continuity of real symmetric eigenvalues yields the claimed diverging negative slope. Independent finite tests rechecked METD determinant for five parameter pairs, stiffness slopes at a=100,1000,10000 and endpoint a=10,b=1; source tree blob SHA was independently reconstructed. Bounded tests corroborate but do not prove all a,b or the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li Lemma 1 treats full S(X)=AX+XA (two-sided covariance integral), not METD2 truncated commutator correction.",
+          "SSP IF methods make different stages preserve PSD; a preservation result about their own algorithms cannot give a failure theorem for METD2.",
+          "Low-rank Lie-Trotter splitting is another update map."
+        ],
+        "reasoning": "Although all papers address matrix stiff evolution or positivity, differing integrators block direct theorem-level implication. Their results are not a stronger statement on METD2 spectral asymptotics.",
+        "searches": [
+          "Li arxiv:1907.12971 Section 2 Sylvester superoperator integration Lyapunov",
+          "Ostermann Piazzola Walach arxiv:1803.10473 low-rank Lie Trotter",
+          "Zhang Lan Jing arxiv:2606.15703 positivity preserving IF RK"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2406.13761",
+        "https://arxiv.org/pdf/1907.12971",
+        "https://arxiv.org/abs/1803.10473",
+        "https://arxiv.org/abs/2606.15703",
+        "Resultary published findings semantic search for METD-specific covariance negativity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published METD scheme formulas are the premises; further 2x2 rank-one specialization plus limiting eigenvalue analysis is required.",
+          "The exact two-sided map in Li is PSD, but its positive spectrum logically places no restriction on a different approximate K2 map."
+        ],
+        "reasoning": "METD convergence at fixed A and h→0 does not imply positivity for fixed h=1 as a→∞. Exact Sylvester positivity and alternative PSD-preserving schemes neither contradict nor imply the proposed METD2 failure; the explicit spectral slope is not stated in checked primary algorithm sections.",
+        "searches": [
+          "Shkeir Grafke 2406.13761 equations (7),(9), Section 2.4 and Lyapunov Section 6.1",
+          "Li 1907.12971 Lemma 1",
+          "Zhang Lan Jing 2606.15703 positivity-preserving integrating-factor"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact algebraic equivalent: sym(K1) has det=-(f(a)-f(b))²/4, while sym(K2)/a tends to off-diagonal [-g(b)/2]; searched indexed positivity bounds concern other time-stepping maps.",
+          "Shkeir/Grafke eqs (7),(9) give update formulas, not a stated covariance-cone or spectral negative-slope classification."
+        ],
+        "reasoning": "Recasting the result as failure of covariance-cone preservation after symmetrization or as a high-stiffness spectral instability does not turn general inconsistency of raw nonsymmetric matrices into the exact quantitative theorem. No exact equivalent theorem located; source formulas permit its derivation and are acknowledged as old.",
+        "searches": [
+          "Shkeir Grafke arxiv:2406.13761 METD2 symmetrized differential Lyapunov positive definite rank-one covariance counterexample",
+          "Resultary: Matrix exponential time differencing METD1 METD2 METD2RK differential Lyapunov covariance positive semidefinite rank one commutator and negative eigenvalues stiff limit"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned published findings concerned positivity barriers in Lanczos/Richardson/Broyden and other algorithms; no exactly matching METD2 negative eigenvalue rate among surfaced results.",
+          "No known precomputed table is relevant to this continuous a,b>0 all-parameter theorem."
+        ],
+        "reasoning": "A finite source index is not a novelty certificate. Parameter-continuous theorem was compared for meaning; algorithm families in hits are nonidentical.",
+        "searches": [
+          "Resultary search: METD1 METD2RK Lyapunov positivity rank-one commutator negative eigenvalues stiff limit",
+          "Shkeir Grafke source equations (7),(9) and applications (6.1)"
+        ]
+      },
+      "rationale": "Best-of-knowledge original quantified non-preservation of the actual published full-matrix METD algorithms, beyond familiar exact Lyapunov positivity or convergence-order statements. Closest primary algorithm paper examined at its equations; alternatives are distinct maps; no observed theorem entails both METD1 universal determinant and METD2 unbounded negative spectral slope. General unpublished equivalent matrix-positivity results remain a risk.",
+      "residual_risks": [
+        "An older/unindexed theorem on nonsymmetric exponential matrix update covariance preservation might imply the same exact spectral slope.",
+        "Complete primary PDF sections for 1803.10473 and 2606.15703 were not both fully independently inspected in this run; noncoverage assertions are limited to inspected algorithms and statements.",
+        "Primary method formulas assume a particular commutator convention; the audit checked this convention directly against displayed K2 entries.",
+        "No absolute literature-priority certification; named sources do not exhaust numerical analysis."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Supplies the algorithms and convergence studies but not a proved every-unequal-rates METD1 symmetrized determinant or METD2 stiff-limit min-eigenvalue law.",
+          "evidence": [
+            "Published METD1 left φ1(L+R) forcing; METD2 commutator [Σ,A] correction; Section 6.1 Lyapunov examples; no cited general PSD-preservation theorem for these formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2406.13761",
+          "material_read": "Published METD1/METD2 eqs. (7),(9), METD2RK Section 2.4, Lyapunov numerical Section 6.1, with source PDF page containing Eq. (9) visually inspected",
+          "method": "Read original primary mathematical formula sections and relevant Lyapunov applications in accessible PDF (not merely title/abstract).",
+          "title": "Exponential time differencing for matrix-valued dynamical systems",
+          "trigger": "Exact algorithms being challenged (same equations, special coefficients, one-step boundary); central self-review"
+        },
+        {
+          "assessment": "The full superoperator φ1(hS)Σ is the exact positive two-sided forcing integral in the constant Lyapunov case; it is a different map from the finite METD commutator correction and gives no METD2 asymptotic.",
+          "evidence": [
+            "Sylvester S(X)=AX+XA; constant Σ forcing yields integral_0^h exp(tA)Σ exp(tA)dt."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1907.12971",
+          "material_read": "Section 2 Lemma 1 and displayed Sylvester-superoperator exponential integral, including relevant PDF page visual inspection",
+          "method": "Read primary full mathematical method and exact Sylvester formulation in the original PDF.",
+          "title": "Exponential integrators for large-scale stiff matrix Riccati differential equations",
+          "trigger": "Potentially dominating full two-sided matrix exponential and covariance-cone positivity"
+        },
+        {
+          "assessment": "Its low-rank splitting/projector step is algorithmically distinct from the METD left-weighting plus commutator and does not imply the precise symmetrized METD spectral slope.",
+          "evidence": [
+            "A split congruence/projection flow does not algebraically coincide with the claimed K2(i,j)=f(d_i)+(d_i-d_j)g(d_i)."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1803.10473",
+          "material_read": "Abstract, method description and source-package comparison (no claim of full primary text examination during this audit)",
+          "method": "Cross-checked accessible primary bibliographic/method description against the operator maps in the assigned proof.",
+          "title": "Convergence of a low-rank Lie–Trotter splitting for stiff matrix differential equations",
+          "trigger": "Algorithmic alternative and possible positivity structure"
+        },
+        {
+          "assessment": "Provides motivation for positivity-preserving methods; its positivity result for different integration algorithms does not establish quantitative non-preservation in METD2, subject to incomplete full-text comparison.",
+          "evidence": [
+            "Positive congruence-type construction differs from the specified K2 formula; inaccessible detail retained as priority risk."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.15703",
+          "material_read": "Accessible abstract/method overview only; complete technical document not independently read in this run",
+          "method": "Scoped comparison of advertised positivity mechanism against exact METD coefficient formula; not a whole-text exclusion.",
+          "title": "Strong Stability Preserving Integrating Factor Runge–Kutta Methods for Differential Lyapunov Equations with Positivity Preservation",
+          "trigger": "Modern positive-covariance integration with potentially broader preservation claim"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strong structure loss on a minimal 2-mode PSD rank-one Lyapunov source is scientifically motivated for covariance integration. The unbounded negative eigenvalue survives symmetrization while the exact Gram covariance remains bounded, a quantitative obstruction distinct from the trivial observation that a raw output may be nonsymmetric or that a method is not exactly congruence-preserving. The sharp slope permits stiffness-sensitive benchmarking and distinguishes method order from covariance validity. No claim to all integrators or fixed-operator h→0 instability.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For published METD1/2/2RK full-matrix formulas applied to Qdot=AQ+QA+Σ, A=-diag(a,b), Σ=11^T, h=1, Q(0)=0, exact covariance Q(1) is positive definite for a!=b. The symmetric part of METD1 output has det=-(f(a)-f(b))^2/4<0, f(x)=(1-e^{-2x})/(2x). At fixed b>0, METD2=METD2RK and lim_(a→∞) λ_min(sym(K2(a,b)))/a= -g(b)/2<0, g(b)=[1-(1+b)e^{-b}]/b², while exact Q remains PSD and bounded.",
+  "limitations": [
+    "Only real negative diagonal A with two rates, PSD rank-one constant Σ, zero initial covariance, and h=1 are proved.",
+    "Eigenvalue claims are for symmetric parts, not raw nonsymmetric update matrices; METD2 and 2RK agree only for constant forcing.",
+    "No fixed-A mesh-refinement divergence, no classification of all parameter thresholds, no assertion about other integrators or formal Lean/expert certification."
+  ],
+  "schema_version": 1
+}

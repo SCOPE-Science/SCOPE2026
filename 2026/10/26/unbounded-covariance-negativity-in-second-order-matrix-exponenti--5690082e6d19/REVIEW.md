@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conclusion follows by specializing the exact printed METD1, METD2, and METD2RK formulas to the two-dimensional Lyapunov equation with zero initial matrix and constant rank-one forcing. The exact covariance is a Gram matrix of distinct exponential functions and is strictly positive definite. For METD1, the symmetrized determinant is exactly \(-[f(a)-f(b)]^2/4\), so it is negative for distinct decay rates. For the second-order schemes, the full entrywise formula is explicit, and its symmetrized matrix divided by \(a\) converges to a symmetric two-by-two matrix with eigenvalues \(\pm g(b)/2\). The rational upper bound for the determinant at the finite witness \((a,b)=(10,1)\) avoids relying on floating point. The accompanying standard-library verifier passes 55 numerical/integral and rational checks; the infinite assertions follow from the proof rather than those tests.
+PASS
 
-## Originality — PASS (self-review)
+Specialized the actual source METD1 eq(7), METD2 eq(9), and METD2RK constant-forcing correction: K1_ij=f(d_i), K2_ij=f(d_i)+(d_i-d_j)g(d_i) with [Σ,A]=ΣA−AΣ. Exact solution is Gram(e^{-at},e^{-bt}) on [0,1], positive definite for a≠b. Strict decrease of f from its integral makes det sym(K1)=−(f(a)−f(b))²/4<0. sym(K2)_12=[f(a)+f(b)+(a−b)(g(a)−g(b))]/2, and dividing by a gives limit [[0,−g(b)/2],[−g(b)/2,0]] with g(b)>0. Continuity of real symmetric eigenvalues yields the claimed diverging negative slope. Independent finite tests rechecked METD determinant for five parameter pairs, stiffness slopes at a=100,1000,10000 and endpoint a=10,b=1; source tree blob SHA was independently reconstructed. Bounded tests corroborate but do not prove all a,b or the asymptotic.
 
-The closest primary source is Shkeir and Grafke, arXiv:2406.13761, whose Section 2 supplies the exact schemes and whose Section 6.1 studies Lyapunov test problems. It does not present the universal METD1 rank-one indefiniteness or the linear-in-stiffness negative-eigenvalue limit for METD2/METD2RK. The low-rank Lie--Trotter construction of Ostermann, Piazzola, and Walach (arXiv:1803.10473) is a different update. Li’s Sylvester-superoperator exponential formula (arXiv:1907.12971, Section 2) uses an exact two-sided forcing integral instead of the source’s truncated commutator and does not imply its quantified failure. The symmetry- and positivity-preserving integrating-factor SSP methods of Zhang, Lan, and Jing (arXiv:2606.15703) are also different methods, and their general preservation results do not imply the quantitative negative-eigenvalue rate for the published METD algorithms. Specific source sections and claim-vs-prior comparisons are recorded in `AUDIT.json`. General geometric-integrator results and unlocated equivalent treatments remain a residual priority risk; absence from a search does not prove absolute novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is more than a symmetry or type-mismatch observation. On a uniformly bounded, strictly positive exact covariance problem with rank-one forcing, the **symmetric part** of the second-order approximation develops an arbitrarily large negative eigenvalue as one damped mode becomes stiff. Even post-step symmetrization cannot restore covariance validity. The exact coefficient \(g(b)/2\) quantifies the severity, and a rationally certified two-mode witness makes the boundary operationally detectable. The result separates fixed-operator convergence order from structure preservation and identifies a motivation for two-sided covariance-preserving quadratures.
+Best-of-knowledge original quantified non-preservation of the actual published full-matrix METD algorithms, beyond familiar exact Lyapunov positivity or convergence-order statements. Closest primary algorithm paper examined at its equations; alternatives are distinct maps; no observed theorem entails both METD1 universal determinant and METD2 unbounded negative spectral slope. General unpublished equivalent matrix-positivity results remain a risk.
 
-## Limits and residual risks
+## value
 
-Only the published full-matrix formulas with constant forcing, real negative diagonal generators, exact arithmetic, and one unit-length step are proved to have this behavior. Nothing here establishes divergence when the step tends to zero with the generator fixed, nor does it rule out alternative positivity-preserving exponential integrators. A covering statement may exist in other matrix-positivity literature; there has been no independent literature-priority adjudication or independent proof audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strong structure loss on a minimal 2-mode PSD rank-one Lyapunov source is scientifically motivated for covariance integration. The unbounded negative eigenvalue survives symmetrization while the exact Gram covariance remains bounded, a quantitative obstruction distinct from the trivial observation that a raw output may be nonsymmetric or that a method is not exactly congruence-preserving. The sharp slope permits stiffness-sensitive benchmarking and distinguishes method order from covariance validity. No claim to all integrators or fixed-operator h→0 instability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
