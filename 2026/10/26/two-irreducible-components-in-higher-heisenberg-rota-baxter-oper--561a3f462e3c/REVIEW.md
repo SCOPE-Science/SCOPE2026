@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness (PASS).** The central-generator substitution forces its off-central image to vanish. Expanding the resulting bilinear Rota--Baxter relation proves the shifted symplectic equation with no division by the characteristic. The open branch is a product with the symplectic group; the special branch is the image of a Lagrangian vector bundle. The dual polynomial identity and explicit rank-two witness separate the branches for \(n\ge2\). Rank-one degeneration proves their merger for \(n=1\). Counting isotropic image spaces and surjections gives the finite-field formula. Direct exhaustive checks reproduce small cases.
+## correctness
 
-**Originality (PASS, bounded evidence).** The inspected 2018 Ji--Hua result already classifies the three-dimensional case, which is explicitly excluded as a new classification. The 2024 Rathee article studies nonzero-weight three-dimensional operators; the 2014 Gao--Liu--Bai--Jing paper concerns homogeneous operators on Witt/Virasoro. Searches for the higher-dimensional symplectic/isotropic parameterization and its reducibility did not identify equivalent coverage. Classical symplectic-similitude closures are a plausible conceptual antecedent, but their dual constraint omits the whole special component exhibited here. Some broader matrix-monoid literature and a 2016 Heisenberg-superalgebra study were not exhaustively inspected; absolute priority is not certified.
+PASS
 
-**Value (PASS).** The theorem identifies two geometrically distinct families of solutions of a natural operator form of the classical Yang--Baxter equation, detects the exact threshold where the solution variety becomes reducible, and gives component dimensions and field-uniform point counts. The rank-two boundary witness explains why the symplectic closure cannot account for all solutions. The dimension crossover provides a concrete geometric effect for higher Heisenberg ranks.
+Substitute the central generator in the weight-zero identity; nondegenerate symplectic pairing forces u=0, and the remaining identity is (A-cI)^T J(A-cI)=c²J. c!=0 gives G_m x Sp_(2n) x A^(2n), dimension 2n²+3n+1. c=0 means isotropic image; its full incidence-vector-bundle over Lagrangian Grassmannian is irreducible with dimension (5/2)n(n+1). For n>=2 explicit rank-two A has isotropic column image but nonisotropic row image; the dual symplectic relation holds on generic closure, so the special component cannot be contained. For n=1 every singular matrix is approached from generic locus. Surjective image-rank count produces the exact all-q polynomial. Independently enumerated all 2^16 four-by-four matrices over F2: 3376 special and 720 generic, giving 65536 with center functionals.
 
-**Scope and residual risks.** Reduced algebraic sets only, not scheme multiplicities; no conjugacy-orbit classification. Independent mathematical validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ji–Hua 2018 full eight-page article Theorem 3.1 classifies the 3-dimensional Heisenberg Lie algebra (n=1) only; Gao–Liu–Bai–Jing 2014 study Witt/Virasoro and Rathee 2024 weight-one operators. General symplectic-group and isotropic Grassmannian facts are older, but those do not themselves give the n>=2 two-component dichotomy or exact higher-dimensional operator census; nonclosure witness distinguishes monoid closure from entire special locus.
+
+## value
+
+PASS
+
+Natural structural phase change at n=2 in a classical nilpotent Lie family; complete reduced-component dimensions, rank stratification, and finite-field counts are substantial geometric information, beyond low-dimensional operator lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

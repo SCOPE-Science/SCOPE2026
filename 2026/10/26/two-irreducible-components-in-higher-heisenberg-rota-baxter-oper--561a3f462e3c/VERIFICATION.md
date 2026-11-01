@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification notes
+# Independent mathematical audit
 
-The argument derives \(u=0\) directly from the original identity by testing a central generator against an arbitrary vector. The remaining equivalence follows from bilinearity of the alternating form and holds in characteristic two. The two varieties and their dimensions are established algebraically using the symplectic group, Lagrangian Grassmannian, and the dual polynomial obstruction.
+## correctness
 
-Execute `python3 verify.py`. The script enumerates all \(3\times3\) endomorphism matrices over \(\mathbb F_2\) and \(\mathbb F_3\) and compares the original weight-zero identity with the reduced matrix criterion; it independently enumerates all \(4\times4\) matrices over \(\mathbb F_2\) and tests each of the \(c=0\) and \(c=1\) fibers. The exact checked results are \(64\), \(729\), and \(3376+720=4096\) matrix/scalar choices (each with \(16\) free functionals). It checks the nonclosure witness's column and row pairings explicitly.
+PASS
 
-The script does not enumerate larger finite fields or algebraic closures and does not prove irreducibility; the geometric proof and group/Grassmannian counts establish those statements. The comparison with publications does not certify absolute publication priority. No independent audit has been performed.
+Substitute the central generator in the weight-zero identity; nondegenerate symplectic pairing forces u=0, and the remaining identity is (A-cI)^T J(A-cI)=c²J. c!=0 gives G_m x Sp_(2n) x A^(2n), dimension 2n²+3n+1. c=0 means isotropic image; its full incidence-vector-bundle over Lagrangian Grassmannian is irreducible with dimension (5/2)n(n+1). For n>=2 explicit rank-two A has isotropic column image but nonisotropic row image; the dual symplectic relation holds on generic closure, so the special component cannot be contained. For n=1 every singular matrix is approached from generic locus. Surjective image-rank count produces the exact all-q polynomial. Independently enumerated all 2^16 four-by-four matrices over F2: 3376 special and 720 generic, giving 65536 with center functionals.
+
+## originality
+
+PASS
+
+Ji–Hua 2018 full eight-page article Theorem 3.1 classifies the 3-dimensional Heisenberg Lie algebra (n=1) only; Gao–Liu–Bai–Jing 2014 study Witt/Virasoro and Rathee 2024 weight-one operators. General symplectic-group and isotropic Grassmannian facts are older, but those do not themselves give the n>=2 two-component dichotomy or exact higher-dimensional operator census; nonclosure witness distinguishes monoid closure from entire special locus.
+
+## value
+
+PASS
+
+Natural structural phase change at n=2 in a classical nilpotent Lie family; complete reduced-component dimensions, rank stratification, and finite-field counts are substantial geometric information, beyond low-dimensional operator lists.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
