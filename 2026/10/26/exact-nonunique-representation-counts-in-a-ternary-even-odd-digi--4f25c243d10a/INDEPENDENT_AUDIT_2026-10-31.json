@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:07:32Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 3ff6ad117c2bf46caf6d49f296f981ec117f8503",
+        "Git verification/source package",
+        "independent_checks.py, independent_checks_results.json; k=1..5"
+      ],
+      "rationale": "For the strictly positive ternary digit basis split into even and odd exponent positions, derived the base-nine B+3B decomposition with B-digits 0,1,2 and unique mixed split, including the required nonzero-summand conditions. Unordered same-part pair counts follow from the digit convolution (1,2,3,2,1), subtraction of two zero-summand ordered solutions, and reinsertion of the diagonal. The carry-automaton intersection is 2^(2k-1); inclusion–exclusion on mixed-support numbers and explicit pure-support exceptions contribute 3^k-3k and 3^k-2k-1, giving 8·5^(k-1)-2^(2k-1)-5k for every k>=1. Verified R(n)=0 only at n=0,1. An independently written exhaustive enumeration of every positive unordered pair and every n<9^k for k=1..5 agrees: nonunique counts (1,22,153,852,4463). No finite-k experiment is substituted for the all-k combinatorial argument.",
+      "residual_risks": [
+        "Result limited to this parity partition and cutoffs 9^k, not arbitrary partitions or continuous cutoffs.",
+        "Carry-state uniform proof, not tests at k<=5, supports all k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "All-partition g-adic minimality and density-one uniqueness imply only a zero-density qualitative exception, not its exact count.",
+          "General constructions or minimality criteria do not determine r(n)>=2 at 9^k."
+        ],
+        "reasoning": "Neither a broader partition theorem nor the general density conclusion yields the sharp 5^k-scale formula; generic coverage of minimality does not dominate precise representation multiplicity.",
+        "searches": [
+          "arXiv:2610.23152 Theorem 1.1 and Corollary 1.3",
+          "arXiv:1810.10925 introduction and results"
+        ]
+      },
+      "checked_sources": [
+        "Tang 2026 arXiv:2610.23152v1 full HTML",
+        "Tang–Ling arXiv:1810.10925 available record",
+        "Resultary query on exact alternating base counts"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tang gives the asymptotic basis and a density-one lower bound for the unique-representation set; its complement can be strictly larger than numbers with multiple representations.",
+          "The current proof derives an exact finite cutoff formula from a special 2-state base-nine automaton."
+        ],
+        "reasoning": "Neither prior implication contains the exact equality, 5^k growth constant, or cancellation of 3^k terms.",
+        "searches": [
+          "Tang 2026 Theorem 1.1, Corollary 1.3, equation (4.2)",
+          "Tang and Ling 2018"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Express the problem as r_{A,2}(n)>=2 for the alternating ternary exponent partition; or as digit convolution of B and 3B.",
+          "Tang 2026 discusses r_{A,2}(n)=1 on a density-one subset, rather than an equality for the complement."
+        ],
+        "reasoning": "The set of nonunique representations is not identified by the complement of the sufficient unique set in the earlier work. Its exact base-nine expression needs distinct carry-state counting.",
+        "searches": [
+          "Resultary: ternary 3-adic minimal asymptotic basis alternating even odd digit positions exact nonunique representation counts two summands 9^k",
+          "arXiv:2610.23152",
+          "arXiv:1810.10925"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No 8·5^(k-1)-2^(2k-1)-5k exact table located in these checked materials.",
+          "Our independent direct enumeration confirms k=1..5 but is not a pre-existing published table."
+        ],
+        "reasoning": "No identified exact database subsumes the universal count; failed lookup alone does not establish historical novelty.",
+        "searches": [
+          "Resultary: ternary 3-adic minimal asymptotic basis alternating even odd digit positions exact nonunique representation counts two summands 9^k",
+          "arXiv:2610.23152 Section 4",
+          "arXiv:1810.10925"
+        ]
+      },
+      "rationale": "Best-of-knowledge: Tang 2026 establishes a density-one uniquely represented subset and general minimality, not the precise exceptional count or exponent at 9^k. Tang–Ling gives minimal-basis constructions/criteria. No exact equivalent found in a Resultary semantic check or the inspected relevant primary work; unindexed additive-base enumeration remains a real historical risk.",
+      "residual_risks": [
+        "Unindexed earlier alternating-position representation multiplicity tables or broader digital automata results could contain the exact count.",
+        "Tang–Ling complete text not established as wholly inspected; no blanket noncoverage claim based on abstract."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Qualitative all-partition minimality/density; no exact alternating-partition exceptional count.",
+          "evidence": [
+            "Theorem 1.1, Corollary 1.3, Section 4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.23152v1",
+          "material_read": "Full arXiv HTML, Theorem 1.1, Corollary 1.3, Sections 1–4 and equation (4.2).",
+          "method": "Read full HTML and compared actual represented-set and multiplicity quantifiers.",
+          "title": "Minimal asymptotic g-adic bases from arbitrary partitions",
+          "trigger": "same object: parity g-adic bases and unique representations"
+        },
+        {
+          "assessment": "Basis minimality and nonminimality, not a demonstrated exact two-summand multiplicity census.",
+          "evidence": [
+            "arXiv:1810.10925 abstract and introduction"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1810.10925",
+          "material_read": "Accessible bibliographic abstract/introduction and cited theorem descriptions, not a full-text exclusion claim.",
+          "method": "Consulted accessible arXiv record and compared stated scope.",
+          "title": "On asymptotic bases and minimal asymptotic bases",
+          "trigger": "earlier g-adic digit-partition minimality criteria"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Tang 2026 density-one baseline",
+        "Actual base-nine carry combinatorics and k=1..5 independent enumeration"
+      ],
+      "rationale": "A canonical periodic partition at intrinsic two-digit-block cutoffs has a natural quantitative representation-multiplicity problem left open by density-one uniqueness. The exact universal count and sharp log_9 5 exponent give a precise model of exceptional behavior that density statements cannot recover; it is more than a few experimental values.",
+      "residual_risks": [
+        "The result does not resolve arbitrary g-adic partitions or all x asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only ternary even/odd exponent partition, unordered positive pairs and exact 9^k cutoffs."
+  ],
+  "schema_version": 1
+}
