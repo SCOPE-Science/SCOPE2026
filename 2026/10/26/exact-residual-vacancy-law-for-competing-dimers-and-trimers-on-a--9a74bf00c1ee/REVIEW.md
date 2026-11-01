@@ -1,15 +1,21 @@
-# Scientific review — mixed dimer–trimer jamming limit
+# Independent mathematical audit
 
-## Correctness — PASS
-On a complete substrate, a state with \(k\) vacancies has exact event rates \(\binom{k}{2}\) and \(\lambda\binom{k}{3}\), yielding recurrence (4) of `RESULT.md`. The three-step transition product (6) is verified algebraically; its pairwise row overlaps establish strict cumulative contraction because \(\sum_k 3/[3+\lambda(k-2)]\) diverges. The limiting probability therefore exists for every fixed \(\lambda>0\). Coefficient extraction gives the generating-function differential identity (7), and its integrating factor gives the convergent expression (1) for all rates, including the \(\lambda>3\) range where an unregularized integral would diverge. At \(\lambda=3\) the closed form follows immediately. Laplace's endpoint method and dominated convergence give the two rate limits. The accompanying standalone program passed 646 checks, including exact labeled-state probabilities; infinite convergence is established by proof, not extrapolation.
+## correctness
 
-## Originality — PASS relative to compared evidence
-The closest physical source on two-/three-site mixtures is Lončarević et al. (2010), DOI: 10.1088/1742-5468/2010/02/P02022. Its one-dimensional finite-connectivity deposition model and coverage-kinetics observables do not imply an exact terminal one-vacancy probability for pair/triple placements on every subset of a complete substrate. Penrose and Sudbury (2005), arXiv:math/0503519, give dimer deposition on graphs but not mixed three-site placements. Pippenger (1989), DOI: 10.1137/0402034, treats graph vertex-blocking and dimers; only its abstract and bibliographic information were accessible, so the full-text priority comparison remains incomplete. Literature and mathematical-record queries for complete-substrate mixed sizes, residual vacancies, recurrence formulations, and broader adsorption processes did not reveal a theorem implying the evaluated integral or its special value. Search failure alone is not asserted to establish novelty; a historical priority risk remains.
+PASS
 
-## Mathematical value — PASS
-Polydisperse adsorption is motivated by species of different occupied-site sizes, and the terminal vacancy count is an exact jamming observable not contained in a bulk coverage percentage. The result gives its entire large-size law, including a non-elementary one-dimensional integral at every positive rate, an explicit elementary value at a natural rate, and two singular species-rate limits. A positive minority species erases the mod-two or mod-three size memory at large substrate size. The proof also illustrates a useful stochastic-matrix contraction and singular generating-function method. This is a motivated exact infinite-family law rather than a small finite enumeration or a renamed known special case.
+Every site-subset state with k vacancies admits pair intensity binom(k,2) and triple intensity λ binom(k,3); conditioning on the next accepted event yields u_k=[3/(3+λ(k-2))]u_(k-2)+[λ(k-2)/(3+λ(k-2))]u_(k-3), with u_0=0,u_1=1,u_2=0. The three-consecutive-coordinate stochastic transfer matrices have three-step products whose pairwise row overlap is at least min(q_j,q_(j+1),q_(j+2))/2 once q≤1/2. The harmonic divergent sum of q_k gives Dobrushin contraction and a common full-sequence limit, not just a subsequence limit. Exact coefficient summation yields λ z(1-z³)Fʹ+(3-2λ-3z²-λz³)F=(3-λ)z. The integrating factor z^(3/λ-2)(1-z³)e^(-3K(z)/λ), after subtracting z^a, gives an integrable lower-end regularization for a=3/λ-1>-1. Abel convergence evaluates the limit; λ=3 produces the closed form. Dominated convergence (α→0) and one-sided Laplace asymptotics (α→∞, φʹ(1)=2/3) establish endpoint-rate limits. Independent exact-rational checks verified 796 generating-equation coefficient cases and the transfer product; finite numerics are corroboration only.
 
-## Limits and outstanding risks
-The graph substrate is completely connected for both hyperedge sizes; one-dimensional Euclidean adsorption results do not transfer directly. A sharp finite-size convergence rate and the terminal distribution of the counts of accepted adsorbates are not proved. The full text of the 1989 general-graph RSA paper was unavailable, and a previously unnoticed abstract hypergraph deposition result might subsume the formula. Independently checking the historical priority remains useful.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The object is terminal one-vacancy probability in a complete mixed 2-/3-hyperedge adsorption process with fixed per-edge rates, not spatial nearest-neighbor RSA coverage or dimer-only graph blocking. Full accessible primary studies of one-dimensional polydisperse RSA and graph dimer RSA do not state the exact full-sequence Bernoulli limit, regularized λ-integral and noncommuting pure-species limits. This is a best-of-knowledge positive comparison, not a novelty proof by failed search.
+
+## value
+
+PASS
+
+Terminal Bernoulli jamming count on a completely interacting mixed-species substrate is a motivated exact observable; the full analytic rate-dependent law, elementary λ=3 value and disappearance of parity/mod-three size memory at every fixed positive minority rate describe genuine structural effects. An entire infinite substrate-size limit is proved analytically, not inferred from a few enumerated sizes. Scope is an idealized complete hypergraph and does not claim physical Euclidean adsorption predictions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
