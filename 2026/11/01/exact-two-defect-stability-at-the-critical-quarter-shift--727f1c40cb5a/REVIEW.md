@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The normalized finite Fourier columns are orthonormal within each sign class. Removing two reference columns reduces the complete Gram problem to the smallest singular value of a two-by-two principal compression of a unitary change-of-basis matrix. A geometric-sum identity yields its exact Cauchy entries, and the negative phase of the off-diagonal product yields the explicit singular values. The strict adjacent minimizer follows from a real derivative inequality with a quadratic having negative discriminant. The limiting universal constant follows from monotonicity in the period parameter. Full-size direct eigenvalue comparisons passed 909 finite assertions; they supplement rather than replace the exact proof.
+
+**Originality (PASS, best knowledge).** Vellucci and Samad, arXiv:2610.31956v1, Theorem 6.1 and Remark 6.8, give the general finite matrix and a three-period special case; their Conjecture 7.4 explicitly proposes contiguous-block minimizers for prescribed sign counts, without an all-period proof of the two-minority case. The present theorem supplies that complete case and a sharp period-uniform constant. General Fourier/Vandermonde condition estimates of Pan (2016) and Batenkov et al. (2020) were considered; they do not present this exact sign-specific minimizer in the material checked. Searches cannot establish absolute publication priority.
+
+**Mathematical value (PASS).** The conjectured contiguous-block extremality is a natural open structural problem, and the two-minority sector is the first sector in which relative spacing is nontrivial. The exact profile distinguishes all circular separations and proves an unexpected fixed-defect stability barrier independent of the period, while unrestricted sign patterns can become arbitrarily ill-conditioned. This is a complete natural slice, not an arbitrary numerical cutoff.
+
+**Risks and scope.** The theorem is only for exactly two minority classes and the auxiliary shifted-sinc model. Fourier-frame conventions can mask equivalent formulations. No claim is made about the full balanced-block conjecture, arbitrary sign counts, or a genuine two-index Gram perturbation.
+
+Self-review: passed. Independent audit: not yet performed.
