@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The graph is defined by a complete explicit incidence rule. Depth-first Hamiltonian-path enumeration and an independent Held–Karp count both give 444 oriented and 222 undirected spanning paths. Exhaustive face generation gives 37,454 nonempty faces. A specified toggle matching has 18,724 pairs and exactly six critical cells, of dimensions zero once and six five times; topological sorting of all 237,072 reversed face incidences verifies its acyclicity. The discrete-Morse CW complex therefore has one vertex and five six-cells, proving the integral sphere wedge. Signed Lefschetz traces of all twelve graph symmetries, computed with exact integer arithmetic, establish the rational character decomposition. Risks: the checker and mathematical review are not independent, and a logic error shared by description and verifier remains a theoretical reproducibility risk.
+## correctness
 
-## Originality — PASS (best-knowledge assessment)
-The closest identified exact-Herschel result concerns the ordinary vertex independence complex, not this edge-based spanning-path containment complex. Jonsson's non-Hamiltonian graph-property complex includes all subgraphs of the fixed non-Hamiltonian Herschel graph; its restriction to those eighteen possible edges is a simplex, not the current complex. Previously recorded Petersen spanning-path results concern a nonisomorphic graph and cannot imply the Herschel computation or full symmetry representation. Actual searches covered graph names, spanning-path and Hamiltonian-containment aliases, homotopy, fixed exact counts, representation character, path ideals, the broader non-Hamiltonian graph complexes, and indexed research results. The author's 2003 article PDF and full book were not accessible in full, so an unindexed equivalent derivation cannot be excluded; no claim of exhaustive worldwide novelty is made.
+PASS
 
-## Value — PASS
-The Herschel graph is the smallest non-Hamiltonian polyhedral graph, yet it has many spanning simple paths. Their inclusion complex measures simultaneous path-extendibility rather than the mere existence or count of paths. Its pure nine-dimensional simplices collapse in homotopy to five six-spheres. The entire symmetry character under the full nontrivial automorphism group further demonstrates that no rational cycle class is globally invariant, a natural structural conclusion not implied by the spanning-path count or the previously known vertex independence complex. This is a complete exact invariant of a canonical graph rather than a random slice or small numeric improvement.
+The defined 11-vertex 18-edge bipartite graph is the Herschel graph. An independent exhaustive DFS of every simple spanning path, plus a separate Held–Karp recurrence in the inspected proof, shows 444 oriented and 222 undirected Hamiltonian paths; their edge subsets yield exactly 37454 nonempty simplices and f-vector [18,153,796,2742,6402,9913,9738,5694,1776,222]. An independently reconstructed specified vertex-toggle matching has exactly 18724 matched pairs and one 0-cell plus five 6-cells unmatched; a complete topological sort of all 237072 reversed Hasse incidences confirms global acyclicity, not just a Betti count. Forman therefore gives the integral wedge ∨5S6. The degree-defined graph automorphism group is S3×C2. Exact signed fixed-simplex Lefschetz summation over all twelve transformations gives H6 rational character (5,−1,−1,1,−1,1) for S3 classes identity, transposition, three-cycle, each with or without central involution, equal to (sgn⊕Std)⊗1 ⊕Std⊗ε. Averaged character is zero, so no invariants.
 
-## Sources and limitations
-The dated public Herschel graph illustration of Eppstein (2009), Lawson-Perfect's full graph symmetry discussion (2013), Jonsson's 2003 paper abstract and cached selected text, and the 2007 book preview were considered. Exact non-overlap searches were made in mathematical research records and open literature, including comparison to a previously recorded Petersen spanning-path complex. Full access to some older text remained unavailable. No independent mathematical validation was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The most relevant Hamiltonian graph-complex prior art considers non-Hamiltonian graphs on a complete edge universe; it differs fundamentally from edge subsets contained in fixed-graph Hamiltonian spanning paths. No earlier exact Herschel spanning-path complex homotopy or S3×C2 character was identified in semantic or targeted primary searches. The noncovering comparison is based on face conditions, not titles.
+
+## value
+
+PASS
+
+Hamiltonian spanning-path containment is a naturally defined simplicial complex on the smallest famous non-Hamiltonian polyhedral graph. Its exact integral homotopy type, unusually concentrated despite pure dimension nine, and the full finite automorphism representation are independently motivated invariants, not an arbitrary tiny parameter substitution. The complete finite exhaustive certificate makes this self-contained.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
