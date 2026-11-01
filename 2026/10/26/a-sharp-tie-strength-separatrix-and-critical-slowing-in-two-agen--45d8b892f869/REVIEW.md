@@ -1,15 +1,21 @@
-# Mathematical review: A sharp tie-strength separatrix and critical slowing in two-agent adaptive opinion dynamics
+# Independent mathematical audit
 
-## Correctness
-**PASS.** Starting from the original normalization, the two-variable vector field is derived without changing units or tie normalization. Direct differentiation proves the conserved quantity. The opinion gap decreases, and its ordering relative to the unique maximum of the analytic potential forces the exhaustive consensus, polarized, and critical cases. A second-order Taylor expansion at the critical gap and the flow equation establish both sharp asymptotic coefficients. The admissible opinion range gives the sharp global decay-parameter threshold. Numerical checks (128 assertions, `verify.py`) independently corroborate selected differential identities and trajectories but are not used as infinite-time proofs.
+## correctness
 
-## Originality
-**PASS under best-knowledge search, with residual priority risks.** Nugent, Gomes, and Wolfram, arXiv:2305.09483v1, introduced the precise dynamic weights model and the logistic and exponential response choices; the qualitative possibility of weight-driven clustering is prior. Inspected sections on the model, proved properties and discussion do not give this sharp two-agent first integral, exact initial-weight separatrix, or critical rates. Kan, Feng, and Porter, *Journal of Complex Networks* 11 (2023) cnac055, study discrete network rewiring rather than the same flow. Semantic mathematical-record and primary-literature searches under model, separatrix, special-function, and critical-slowing equivalents found no directly subsuming statement. Possible broader ODE-equivalence results and only partially inspected historical work remain a real priority risk; nonappearance in search results is not considered a novelty proof.
+PASS
 
-## Value
-**PASS.** The phenomenon is mathematically and socially motivated: an always-positive receptiveness is insufficient for consensus when the relationship is dynamically weakened. A sharp threshold in the initial relationship strength and explicit slow critical scaling separate three qualitatively different long-term outcomes of the minimal social tie. The result gives a reusable benchmark for testing adaptive-opinion numerical models, not a cosmetic finite instance or unsupported general-network claim.
+From the exact symmetric degree normalization k=1+w derive d′=−2w e^(−αd)d/(1+w), w′=w(1−w)(2e^(−αd)−1). Differentiating Ψα(d)=log d−Σ(αd)^k/(k k!) gives Ψ′=(2−e^(αd))/d; direct substitution cancels d/dt[Ψ+2atanh w] identically. Ψ rises to unique maximum at d_c=log2/α and falls beyond. Monotone d and phase-plane invariant yield exhaustive w_c=tanh[(Ψ(d_c)−Ψ(d0))/2] cases. Critical Taylor coefficient Ψ(d_c)−Ψ(d_c+z)=α z²/d_c+O(z³), w=(α/(2d_c))z²+O(z³), z′=−αz²/2(1+O(z)), hence z~2/(αt), w~2/((log2)t²). Since d0≤2, α*=(log2)/2 is sharp. Independent derivative/invariant and several numerical instances passed; those finite instances do not prove the global limit.
 
-## Limitations and relationships
-The statement is specific to two reciprocal agents, self-degree normalization, unit-rate logistic edge evolution, and exponential receptiveness. It does not establish behavior for directed/multinode graphs, stochastic rewiring, or other interaction rules. The proof is self-contained but the literature assessment is not independent or exhaustive; the scientific scope and residual risks are detailed in AUDIT.json.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The assessed new statement, not its model/semantic/occupancy/antipower/divisor premises, survives direct implication comparison to the inspected primary literature. Possible dynamical-systems textbook or unpublished equivalent first integral for the same ODE under a different parametrization. Best-of-knowledge priority is qualified, not certified by unsuccessful searching.
+
+## value
+
+PASS
+
+The model has strictly positive receptiveness for every finite gap but its adaptive edge can decay, so the exact initial-tie critical surface is a genuine structural consensus-vs-disagreement result. Sharp algebraic critical slowing and the all-initial-condition threshold on [-1,1] give mathematical benchmarks for the minimal connected network, not a cosmetic parameter case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
