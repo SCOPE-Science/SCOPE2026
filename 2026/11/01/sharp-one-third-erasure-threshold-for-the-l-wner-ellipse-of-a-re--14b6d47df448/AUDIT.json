@@ -1,0 +1,156 @@
+{
+  "correctness": {
+    "rationale": "Complete algebraic proof for \\(n\\ge6\\) and \\(1\\le k\\le n-3\\). The unit disk is Löwner iff positive contact weights have the first two Fourier harmonics zero. Reflection gives \\(\\mathbb Ec=0\\), \\(\\mathbb Ec^2=1/2\\) on the exact cosine interval \\([-B,C]\\). The bound \\(\\mathbb Ec^2\\le BC\\) rules out \\(3(k+1)>n\\); conversely parity analysis gives \\(BC\\ge1/2\\) if \\(3(k+1)\\le n\\). Two explicit positive zero-mean distributions with second moments on opposite sides of \\(1/2\\) interpolate to a valid contact certificate; global optimality and strict reverse area follow. Diagnostics cover 60,375 finite parameter pairs through \\(n=350\\), with 20,010 constructive positive certificates, plus separate 10,875 finite linear-program cases; they are not the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Rublev–Petunin 1998, pp. 1253–1261, section 6, provides an algorithm for the minimum-area ellipse of any polygon using at most five contact vertices; section 4 derives a special isosceles-trapezoid circle condition.",
+        "Güler–Gürtuna 2007, arXiv:0709.0707, general Löwner contact theorem is strictly broader as a characterization of candidate ellipsoids.",
+        "The published Boolean-polytope result concerns selected Hamming layers, not planar roots-of-unity arcs."
+      ],
+      "reasoning": "A general algorithm can in principle solve any finite erasure instance but its stated result does not imply without further work the explicit all-order if-and-only-if classification, nor the linear one-third tolerance. The new proof uses and credits the broader optimality theorem rather than claiming it as new. The small-support isosceles-trapezoid case has a related BC=1/2 condition, but alone does not establish the whole n,k threshold; no direct dominating exact threshold was found.",
+      "searches": [
+        "minimum area ellipse of n-gon after erasing k consecutive vertices of regular n-gon; original circumcircle unchanged exactly when n >= 3(k+1)",
+        "regular polygon deleting one vertex minimum enclosing ellipse remains circumcircle six vertices Fourier isotropic weights",
+        "arxiv:0709.0707",
+        "Rublev-Petunin-Ukrainian-Mathematical-Journal-50-8-1998",
+        "2026/10/11/SCOPE-exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3"
+      ]
+    },
+    "checked_sources": [
+      "Güler–Gürtuna, arXiv:0709.0707, 2007-09-05",
+      "Rublev–Petunin, Ukrainian Mathematical Journal 50(8), August 1998",
+      "Peherstorfer, arXiv:1001.2451, 2010-01-14",
+      "Kutyniok–Okoudjou–Philipp, arXiv:1310.8107, 2013-10-30",
+      "2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+      "2026/10/11/SCOPE-optimized-annulus-protection-scale-for-regular-even-polygons--a4a30368768b",
+      "2026/10/4/SCOPE-exact-convexity-gap-of-regular-polygon-vertex-sets--3af7e76e6b5c",
+      "2026/10/11/SCOPE-regular-polygon-moduli-of-circular-spiral-equicoverings--12132b2367fe",
+      "2026/10/11/SCOPE-sharp-perimeter-and-concave-gap-energy-laws-for-antipodal-lattic--3a5b20f544e8",
+      "2026/10/11/SCOPE-exact-l-wner-ellipsoids-of-arbitrary-rank-selected-boolean-polyt--3c04f47dc8c3"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general Löwner theorem states existence of balanced isotropic contact weights, from which only the *method*, not the claimed n,k threshold, follows.",
+        "The arbitrary polygon ellipse algorithm of Rublev–Petunin gives one-instance computational solution, but its stated conclusions contain no simple regular-grid erasure cutoff.",
+        "Positive trigonometric quadrature gives zero-harmonic moment characterizations; the present exact cosine-grid interval and parity-sensitive argument establish the missing implication.",
+        "The published antipodal-point selection result optimizes polygon perimeter, not post-erasure ellipsoid; the spiral covering result concerns arc-equicovering, not zero first and second moments."
+      ],
+      "reasoning": "The surviving-vertex set is fixed, with no freedom to choose a different polygon. A claim that every surviving subset of size at least \\(2n/3\\) works would be false for arbitrary scattered deletions; contiguity is essential. The equivalence of the disk question to moment feasibility is known. The new nontrivial implication is moment feasibility iff \\(3(k+1)\\le n\\), proved by extremal one-dimensional cosine variance and a constructive interpolation. Generic optimality criteria do not directly subsume this uniform threshold.",
+      "searches": [
+        "optimal 2-design weights on circular arc surviving a contiguous block of deleted regular polygon vertices",
+        "regular n-gon vertex deletion Löwner ellipsoid circumcircle tight frames",
+        "minimum area ellipse of n-gon after erasing k consecutive vertices of regular n-gon; original circumcircle unchanged exactly when n >= 3(k+1)",
+        "arxiv:0709.0707",
+        "Rublev-Petunin-Ukrainian-Mathematical-Journal-50-8-1998",
+        "2026/10/11/SCOPE-sharp-perimeter-and-concave-gap-energy-laws-for-antipodal-lattic--3a5b20f544e8",
+        "2026/10/11/SCOPE-regular-polygon-moduli-of-circular-spiral-equicoverings--12132b2367fe"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Löwner ellipse unchanged iff there are positive weights on retained roots of unity annihilating the first two nonzero Fourier harmonics (John contact moments).",
+        "Peherstorfer 2010, arXiv:1001.2451, p. 1 Eq. (2), studies positive trigonometric quadrature exactness; Kutyniok–Okoudjou–Philipp 2013, arXiv:1310.8107, sections on scalable frame convex cones."
+      ],
+      "reasoning": "An equivalent phrasing is positive degree-two circular cubature supported on all but a consecutive root-of-unity arc; another is isotropic centered circle-frame weights. The inspected quadrature and scalable-frame results characterize such moments abstractly, but neither derives the exact forbidden-arc length \\(3(k+1)\\le n\\) on the fixed regular grid; first-moment centering is in addition to the rank-one scalable-frame condition. No matched equivalent explicit cutoff was located.",
+      "searches": [
+        "minimum area ellipse of n-gon after erasing k consecutive vertices of regular n-gon; original circumcircle unchanged exactly when n >= 3(k+1)",
+        "optimal 2-design weights on circular arc surviving a contiguous block of deleted regular polygon vertices",
+        "regular n-gon vertex deletion Löwner ellipsoid circumcircle tight frames",
+        "2-design subset regular polygon consecutive removed vertices Löwner ellipse sharp threshold",
+        "arxiv:1001.2451",
+        "arxiv:1310.8107"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published indexed result for minimum-area parallelograms of regular polygons concerns parallelogram constraints and the full regular polygon, not the ellipse following block deletion.",
+        "The regular-polygon convexity-gap result is about chord metric rather than minimal enclosing ellipses.",
+        "The annulus-protection result concerns even-polygon annulus geometry, with no matching ellipse survival table."
+      ],
+      "reasoning": "Actual semantic searches did not identify a published tabulation of erased-vertex regular n-gon Löwner disks, their Fourier moment certificates or this boundary. Search non-detection is weak evidence: unindexed old tables, small low-order values or historical design books may contain equivalent data; there is no uniqueness claim based solely on search.",
+      "searches": [
+        "minimum area ellipse of n-gon after erasing k consecutive vertices of regular n-gon; original circumcircle unchanged exactly when n >= 3(k+1)",
+        "2-design subset regular polygon consecutive removed vertices Löwner ellipse sharp threshold",
+        "convex hull of trigonometric moment curve regular roots of unity after consecutive deletions degree two cubature exact",
+        "2026/10/11/SCOPE-exact-minimum-area-enclosing-parallelograms-for-regular-polygons--827c68cd7bad",
+        "2026/10/4/SCOPE-exact-convexity-gap-of-regular-polygon-vertex-sets--3af7e76e6b5c",
+        "2026/10/11/SCOPE-optimized-annulus-protection-scale-for-regular-even-polygons--a4a30368768b"
+      ]
+    },
+    "rationale": "The claim is the sharp uniform if-and-only-if consecutive erasure cutoff for the unchanged Löwner disk, not the general existence/contact characterization and not an arbitrary finite instance computed by existing algorithms. The inspected primary texts contain closely related optimality, polygon-algorithm, and positive-quadrature results but do not establish the explicit uniform \\(3(k+1)\\le n\\) threshold. Semantic research-index searches tested aliases and stronger generic formulations. A genuine historical-priority risk persists, particularly for old finite-design or quadrature results; the assessment is best-knowledge originality, not certification.",
+    "residual_risks": [
+      "Historic optimal-design or positive quadrature literature may have the exact cyclic contiguous-node-erasure threshold under a different language.",
+      "The 1998 general polygon algorithm could contain this as an unstated derivable corollary; generic algorithmic coverage is distinguished from an explicitly stated closed uniform classification.",
+      "Semantic search of published records cannot prove novelty or exhaust unindexed tables.",
+      "First-public exact day of the 1998 printed source is unknown; the metadata date identifies an independently verified first-posted preprint instead."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS_METHOD_NOT_SPECIFIC_THRESHOLD",
+        "evidence": [
+          "General sum of weighted boundary outer products and zero weighted mean characterizes minimum ellipsoids; no proposition about contiguous deletion from planar regular polygons located.",
+          "First arXiv public date 2007-09-05."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0709.0707",
+        "material_read": "Abstract, introduction, contact equations and theorem of section 2, and the overview and exemplars of later sections across the public 36-page full text",
+        "method": "Read PDF text and page-image inspection of contact theorem",
+        "title": "The extremal volume ellipsoids of convex bodies, their symmetry properties, and their determination in some special cases",
+        "trigger": "Primary general Löwner–John optimality theorem that might dominate special cases"
+      },
+      {
+        "assessment": "STRONG_RELATED_GENERAL_METHOD_NOT_EXPLICIT_CUTOFF",
+        "evidence": [
+          "Section 4 notes a circle-optimality case bb_1=1/2 for an isosceles trapezoid.",
+          "Section 6 enumerates ellipse algorithms for arbitrary polygons using triangles, quadrangles and pentagons.",
+          "No all-n consecutive regular-polygon deletion threshold stated in inspected text; older equivalent derivation remains possible.",
+          "Journal volume 50 no. 8 dated August 1998; earliest public day not verifiable from this source."
+        ],
+        "identifier_or_url": "https://www.mit.edu/~hlb/ellipse-paper.pdf",
+        "material_read": "Complete nine-page public article, particularly sections 4–7 and the arbitrary-polygon algorithm at pp. 1257–1261",
+        "method": "Read publisher PDF full text and inspected rendered page image",
+        "title": "Minimum-Area Ellipse Containing a Finite Set of Points. II",
+        "trigger": "Directly pertinent general finite-polygon ellipse algorithm and circle-optimal trapezoid"
+      },
+      {
+        "assessment": "RELATED_ABSTRACT_QUADRATURE_NO_SPECIFIC_ERASURE_BOUND",
+        "evidence": [
+          "Equation (2), p. 1, expresses exact trigonometric quadrature via vanishing Fourier coefficients.",
+          "No fixed evenly-spaced grid with a contiguous deleted block and threshold 3(k+1)<=n identified.",
+          "First public arXiv date 2010-01-14."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1001.2451",
+        "material_read": "18-page full-text introduction, exactness equations and statements describing positive quadrature nodes; rendered first-page inspection",
+        "method": "Read text-extracted PDF and first-page screenshot",
+        "title": "Positive Trigonometric Quadrature Formulas and Quadrature on the Unit Circle",
+        "trigger": "Equivalent positive finite harmonic moment/cubature reformulation"
+      },
+      {
+        "assessment": "RELATED_FRAME_SCALING_NOT_EQUIVALENT_CLASSIFICATION",
+        "evidence": [
+          "Scalable rank-one frames describe covariance isotropy; ellipse certificate additionally requires zero first moment.",
+          "No exact contiguous cyclic erasure tolerance found.",
+          "Initial preprint posted 2013-10-30."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1310.8107",
+        "material_read": "14-page full text: abstract, definitions, rank-one convex cone results, and relevant propositions",
+        "method": "Read PDF text and screenshot of section on characterization of scalable frames",
+        "title": "Scalable Frames and Convex Geometry",
+        "trigger": "Alternative isotropic weights/scalable frame formulation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "14b6d47d-f448-48a4-a5e4-ca80152b85cf",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural robustness invariant of the canonical regular n-gon minimal circumscribed ellipse is determined exactly for arbitrary lengths of a contiguous deleted vertex block. The sharp maximal erasure tolerance \\(\\lfloor n/3\\rfloor-1\\) has a nontrivial parity-sensitive proof and sparse constructive isotropic designs, and its threshold asymptotically erases one third of the vertices. The classification is a structural global condition rather than a routine single-polygon instance. Relevance extends to exact degree-two positive cubature on incomplete root-of-unity grids; general formulas for the optimizer beyond the threshold are not claimed.",
+    "status": "PASS"
+  }
+}
