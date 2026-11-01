@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The key nonstandard assertion that the next golden-rotation point divides a gap into the same two lengths throughout each Fibonacci index window follows from a signed-convergent unimodular basis argument, with every length covered. The entropy increment is exactly the entropy change of that single split. Binet summation gives the closed formula, and careful subsequence selection determines both *full* accumulation sets; it is not a finite-sampling extrapolation. Exact algebraic-number verification of 2000 insertions and independent direct interval-entropy computation to length 119 corroborate the derivation, but the proof is analytical.
+## correctness
 
-## Originality
-PASS under accessible evidence, not a priority guarantee. The full ordinal sorting-entropy framework of Unakafov and Keller and the older Bandt--Pompe introduction were compared against the exact invariant. Existing general theory and classical Sturmian frequency/gap structure do not by themselves constitute an inspected prior publication of the particular entropy-increment formula and complete logarithmic-defect profile. A near published-finding corpus record, 'A Fibonacci entropy staircase and its full scaled accumulation interval,' was read in full: it computes topological entropy of canonical finite-type *covers*, not Lebesgue-weighted finite-block or ordinal Shannon entropy. An equivalent computation of Sturmian measure block entropies might exist under a different title; this remains the main priority risk. Search failures are not treated as uniqueness certification.
+PASS
 
-## Mathematical value
-PASS. Finite-order entropy is a natural statistic for zero-entropy dynamical observations. The theorem gives a full, all-length profile, revealing exact Fibonacci plateaux and a sharp, nontrivial log-periodic defect interval, not an arbitrary finite table or unmotivated normalized slice. It quantifies where and by how much the observable deviates from its leading logarithmic information growth.
+For irrational α=φ^−1, distinct ordinal permutations occupy the n arcs cut by −jα mod 1 and their probabilities are precisely arc lengths. Consecutive Fibonacci convergents form a unimodular basis; the coefficient sign/index argument gives exact predecessor distances α^(m−1),α^m when F_m≤n<F_(m+1). The one split changes entropy by Cα^(m−2), and exact Binet summation yields H_n=(m−2)lnφ+C(1−(−α²)^(m−2))/5+(n−F_m)Cα^(m−2). Binet limits n/F_m→t∈[1,φ] yield scaled-gain [L,φL] and entropy-defect range from strictly convex G(t). Checked direct sorted irrational-rotation gaps and Shannon H_n for n≤250; max finite discrepancy 3.41e−13, not a substitute for the all-n proof.
 
-## Scope and risks
-The result applies only to a golden irrational rotation under Haar/Lebesgue measure. Its sorting entropy is not the conditional entropy between successive time-shifted ordinal patterns. The classical three-gap and Sturmian coding principles are not new. Priority is provisional against inaccessible or unindexed equivalent block-frequency entropy formulas. Independent validation has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Golden-rotation ordinal partition Shannon information is an explicitly different invariant from published canonical finite-type cover entropy and from successor-conditional ordinal entropy. Classical three-gap frequencies are openly acknowledged; inspected full published comparison does not supply the all-n Shannon formulas or full scaled defect interval. Best-of-knowledge priority qualified because an older equivalent Sturmian block-entropy computation may exist.
+
+## value
+
+PASS
+
+The exact entropy-increment staircase and full log-periodic defect profile quantify finite-resolution information of an otherwise zero-entropy uniquely ergodic dynamical system. These precise finite-block probabilities and worst-phase oscillations are natural invariants useful as benchmarks for Sturmian sources and ordinal-statistics calculations; no new three-gap theorem is asserted.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
