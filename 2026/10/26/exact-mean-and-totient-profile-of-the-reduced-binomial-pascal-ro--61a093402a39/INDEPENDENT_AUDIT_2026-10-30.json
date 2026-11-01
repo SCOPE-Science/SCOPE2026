@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:48:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the exact decomposition R(n)=P(gcd(n,X)>1)-E_n for X~Bin(n,1/2). Every reduced coefficient is no larger than the original coefficient by a block-union injection; 0<=E_n<=(n+1)2^{-n/2} since n/g<=n/2 on the nonprimitive indices. For every divisor d, centered indicator 1_{d|k}-1/d has partial sums in [0,1]. Abel summation against unimodal binomial probabilities bounds |P(d|X)-1/d| by 2M_n, *uniformly in d*, including d>sqrt(n). Mobius inversion over all d|n gives 2 tau(n) M_n. The divisor convolution bound sum_{n<=N}tau(n)/sqrt(n)=O(sqrt(N)(1+log N)), combined with the classical exact summatory totient ratio 6N/pi^2+O(log N), proves the mean rate. Prime and primorial limits follow using P(gcd(p,k)>1) endpoint behavior and the diverging sum of reciprocal primes. Independently enumerated 500 exact integer binomial rows and checked every pointwise bound. No finite test is used to infer the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Classical Mobius inversion and binomial-residue discrepancy bound yield O(tau(n)/sqrt(n)); summatory totient identity gives mean 6/pi^2."
+        ],
+        "reasoning": "Such standard general weighted-residue tools imply intermediate inequalities, and are expressly not claimed novel. However the inspected general apparatus is not itself a published solution to A271834 with a pointwise reduced-row replacement error and stated Cesaro rate.",
+        "searches": [
+          "binomial weighted coprimality probability gcd(n,Binomial(n,1/2)) totient discrepancy",
+          "Resultary semantic query gcd-reduced binomial Pascal triangle OEIS A271834 mean row deficit totient"
+        ]
+      },
+      "checked_sources": [
+        "OEIS A271834 main entry including comments and finite table",
+        "OEIS A082905 and A082906 cited formula/row-sum relation",
+        "Resultary 15-hit semantic search for reduced Pascal row mean, no implication match",
+        "classical summatory totient and elementary Mobius/discrepancy math"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source A271834 supplies R(n), zero at primes and approximate average 0.391718 for n<=5000, but no theorem about asymptotic mean; the proof adds an all-divisor uniform discrepancy estimate and averaging."
+        ],
+        "reasoning": "The prior definition, finite table, and classical totient mean do not alone imply the exact reduced-binomial mean absent a quantitative approximation R(n)-(1-phi(n)/n). The derivation of that comparison is the substantive newly assessed claim.",
+        "searches": [
+          "OEIS A271834 normalized deficit average conjecture",
+          "mobius inversion binomial residue equidistribution"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "OEIS A271834 identifies a(n)=2^n-sum_k binom(n/gcd(n,k),k/gcd(n,k)), so R(n)=a(n)/2^n; OEIS A082906 is the complementary row sum."
+        ],
+        "reasoning": "The problem is exactly the normalized OEIS deficit, not a new name for the sum. Its primitive-index component equals the Bin(n,1/2) probability that gcd(n,X)=1 up to a bounded reduced-replacement error. The inspected entry asks for a mean numerically; it does not state the totient asymptotic.",
+        "searches": [
+          "OEIS A271834 definition a(n)/2^n",
+          "Resultary semantic query gcd-reduced binomial Pascal triangle OEIS A271834 mean row deficit totient"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A271834 comments explicitly conjecture average near 0.3915+/-0.001 and list finite n<=5000 numerical ratios; A082906 tabulates reduced row sums."
+        ],
+        "reasoning": "Finite table entries cannot establish an infinite Cesaro limit or rate. The public source still phrases it as a conjecture rather than the precise constant 1-6/pi^2.",
+        "searches": [
+          "OEIS A271834 main record and ratio table 1..5000",
+          "OEIS A082905 A082906 precursor entries"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the stated final claim after direct comparison of prior implications and source materials; foundational methods, source models and matching components are explicitly credited. Exact mean and totient profile of reduced-binomial Pascal-row deficit is not inferred new merely because an exact phrase search fails. Unindexed equivalent publications remain a disclosed risk.",
+      "residual_risks": [
+        "Historical publication of the same exact limit under weighted coprimality or Pascal-triangle terminology might be unindexed.",
+        "The pointwise error is sufficient not optimized; novelty is assigned to the combined named-problem solution, not basic Mobius or Abel-summation tools."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING for definition/finite numerical predecessors; NOT COVERING for proved mean theorem.",
+          "evidence": "Comments explicitly conjecture average r about 0.3915+/-0.001; comments and examples stop at finite data.",
+          "identifier_or_url": "https://oeis.org/A271834",
+          "material_read": "Complete available main entry: formula, comments, average conjecture, numerical examples, initial values, references and timestamps.",
+          "method": "Primary sequence entry read as HTML",
+          "title": "OEIS A271834: Reduced binomial-row deficit",
+          "trigger": "exact invariant and stated conjecture"
+        },
+        {
+          "assessment": "Prior definition and row-sum table; no inspected infinite exact mean result.",
+          "evidence": "A271834 defines a(n)=2^n-A082906(n) and cites the reduced coefficients.",
+          "identifier_or_url": "https://oeis.org/A082906",
+          "material_read": "Mathematical formulas and relationship as linked in A271834 entry; not a claim of full A082906 page reading.",
+          "method": "Linked cross-reference and formula inspection",
+          "title": "OEIS A082905 / A082906: Reduced Pascal triangle and row sums",
+          "trigger": "equivalent row-sum formulation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The original OEIS sequence A271834 explicitly asks whether the mean normalized binomial-row deficit converges and records only an approximation near 0.3915. The exact 1-6/pi^2 answer and quantitative uniform pointwise totient profile resolve this naturally posed arithmetic problem and explain oscillations with liminf zero and limsup one. This is more than elementary restatement of a known formula: it settles the previously stated infinite mean and links it to a standard multiplicative invariant.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every integer n>=1, R(n) differs from 1-phi(n)/n by at most 2 tau(n)2^{-n} C(n,floor(n/2))+(n+1)2^{-n/2}; its Cesaro mean is 1-6/pi^2 with O((1+log N)/sqrt(N)) error; R(p)=0 for primes while primorials approach one.",
+  "limitations": "Absolute pointwise error need not be optimal; no convergence of R(n) itself, indeed liminf=0 and limsup=1. Source inspections do not certify absolute historical priority.",
+  "schema_version": 1
+}
