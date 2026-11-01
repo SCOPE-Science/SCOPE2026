@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility
 
-Execute `python3 check.py` in the directory containing this file. The script uses only the Python standard library. It independently performs an ordered bitset exhaustive clique search and a pivoted Bron–Kerbosch enumeration, compares all maximizing codebook sets, verifies every ordered prefix/suffix pairing in all optima, and computes global-alphabet-permutation/reversal orbits. The final line must be `TERNARY_RUN_ONE_NONOVERLAP_PASS`.
+# Independent mathematical audit
 
-It verifies the optimum sequence at lengths two through nine as `2 2 2 4 5 8 16 24`, with exactly 12 maximum length-nine codebooks split into two orbits of size six. The independent maximal-clique algorithm enumerates 121728 maximal cliques at length nine. Explicit representatives are available in `OPTIMA_N9.txt`. The strict upper-bound pruning rule cannot remove a tied or improved optimum, and the independent search verifies exhaustive coverage.
+## correctness
 
-This is an exact finite computational proof, not evidence that the same pattern persists beyond length nine. There is no proof or experiment here for larger alphabets, longer codes, or different maximum run length. Bibliographic originality remains subject to external verification.
+PASS
+
+Reconstructed all finite candidate words, tested both ordered prefix/suffix directions and self-overlap, and independently enumerated every inclusion-maximal clique with Bron-Kerbosch and all maximum cliques with an ordered complete branch-and-bound. For n=9, 342 valid candidate words, 121728 maximal cliques and exactly 12 cliques of size 24; direct word-level overlap and 12-element alphabet/reversal symmetry actions verify two six-element orbits. All eight n match pinned table. Branch exhaustiveness follows each clique has a unique strictly increasing vertex order and both algorithms prune only bounds incapable of reaching the current maximum. Finite complete classification; no n>9 assertion.
+
+## originality
+
+PASS
+
+Existing work characterizes general maximal non-overlapping code constructions and considers bounded run lengths; the inspected 2025 primary paper gives construction families and bounds, but does not evaluate the exact size-and-all-optima and symmetry census for ternary no-repeat lengths 2..9. Earlier general maximal-code framework implicitly contains enumerability but not these computed values. Unrestricted length-five/six Resultary findings do not cover the distinct constrained objective. Best-of-knowledge originality is qualified, not an absolute claim.
+
+## value
+
+PASS
+
+Ternary Smirnov/no-homopolymer constraints are natural in synchronization and sequence-storage codes. A complete small-length optimum plus number and symmetry classification of every maximizer is independently useful for testing constructions and distinguishing constrained from unconstrained maxima, not a mere normalized rewrite of published unconstrained table entries.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,98 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T04:55:27.581786Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed all finite candidate words, tested both ordered prefix/suffix directions and self-overlap, and independently enumerated every inclusion-maximal clique with Bron-Kerbosch and all maximum cliques with an ordered complete branch-and-bound. For n=9, 342 valid candidate words, 121728 maximal cliques and exactly 12 cliques of size 24; direct word-level overlap and 12-element alphabet/reversal symmetry actions verify two six-element orbits. All eight n match pinned table. Branch exhaustiveness follows each clique has a unique strictly increasing vertex order and both algorithms prune only bounds incapable of reaching the current maximum. Finite complete classification; no n>9 assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Springer constructs maximal non-overlapping run-limited code families and says every maximal constrained code may arise, but does not evaluate this complete finite optimum/orbit profile."
+        ],
+        "reasoning": "Prior construction covers the general search space conceptually, not the exact enumerated restricted optimum and orbit counts; implicit-algorithm coverage remains a documented risk.",
+        "searches": [
+          "Resultary: ternary cross-bifix free nonoverlapping code homopolymer free maximum n 9 24 complete census",
+          "Springer §4 maximal constrained code constructions",
+          "Resultary 2026/9/20/SCOPE-length-five-non-overlapping-code-optima--e8e2fd1a9e7a"
+        ]
+      },
+      "checked_sources": [
+        "Springer Computational and Applied Mathematics 44:109 (2025), §4-5",
+        "arXiv:2307.12593 unrestricted codes",
+        "Resultary published SCOPE length-five and length-six non-overlapping optima",
+        "Actual finite source RESULT.md and independent complete search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unconstrained optimum is an upper bound not an identity; a general constructive enumeration scheme does not directly assert the evaluated 24-word optimum and 12-codebook census."
+        ],
+        "reasoning": "General non-overlap optimum S(3,9)=656 cannot determine H(9)=24 by substitution; run-length constructions yield candidates, not their proven maximality/census.",
+        "searches": [
+          "Resultary: ternary cross-bifix free nonoverlapping code homopolymer free maximum n 9 24 complete census",
+          "Springer 2025 Construction 5 and §4; arXiv:2307.12593"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Smirnov/Carlitz word means no adjacent repeat, identical to homopolymer-free constraint; the target remains maximum cross-bifix-free sets, not all Smirnov words."
+        ],
+        "reasoning": "Cross-bifix-free/non-overlapping and no-homopolymer/Smirnov aliases were checked; no claim of inventing these definitions.",
+        "searches": [
+          "Resultary: ternary cross-bifix free nonoverlapping code homopolymer free maximum n 9 24 complete census",
+          "Springer §4 run-restricted non-overlapping codes; Smirnov/Carlitz synonyms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Springer 2025 Tables 1–2 concern balanced/code-construction sizes; no exact ternary fixed-n all-maximizers orbit census identified. Resultary published length-five/six results are for other unrestricted parameter regimes."
+        ],
+        "reasoning": "Direct comparison of published table scopes finds neither the constrained n=9 H=24/E=12/O=2 nor all n2..9 table entries.",
+        "searches": [
+          "Resultary: ternary cross-bifix free nonoverlapping code homopolymer free maximum n 9 24 complete census",
+          "Springer 2025 constrained run-length article Tables 1–2",
+          "Resultary 2026/10/4/SCOPE-exact-length-six-non-overlapping-codes-at-alphabet-sizes-seven-t--a4c76833d8cb"
+        ]
+      },
+      "rationale": "Existing work characterizes general maximal non-overlapping code constructions and considers bounded run lengths; the inspected 2025 primary paper gives construction families and bounds, but does not evaluate the exact size-and-all-optima and symmetry census for ternary no-repeat lengths 2..9. Earlier general maximal-code framework implicitly contains enumerability but not these computed values. Unrestricted length-five/six Resultary findings do not cover the distinct constrained objective. Best-of-knowledge originality is qualified, not an absolute claim.",
+      "residual_risks": [
+        "General maximal-run-constrained constructions may imply the small cases after substantial enumeration; numerical results/orbits may have appeared in an unindexed appendix or code database.",
+        "Exact claim limited to lengths 2..9 and ternary no-adjacent-equal alphabet."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General constrained-maximal construction provides a strong implicit coverage route but neither the exact ternary n2..9 numeric maxima nor complete codebook/orbit census in inspected text.",
+          "evidence": "Section 4 Construction 5; §5 combined constraint; publication 2025-01-08.",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s40314-024-03055-0",
+          "material_read": "Full available article HTML, especially §2 definitions, §4 Smirnov/run-length constructions and §5",
+          "method": "Primary full-text HTML reading",
+          "title": "On maximal almost balanced non-overlapping codes and non-overlapping codes with restricted run-lengths",
+          "trigger": "Same two constraints and natural strongest prior comparison"
+        },
+        {
+          "assessment": "Unconstrained maxima (including S(3,9)=656) are different since adjacent repetitions permitted; cannot imply constrained optimum 24.",
+          "evidence": "arXiv:2307.12593; pinned comparison section.",
+          "identifier_or_url": "https://arxiv.org/abs/2307.12593",
+          "material_read": "Abstract, reported table and comparison in pinned package; full text not independently read here",
+          "method": "Bibliographic and report comparison",
+          "title": "In search of maximum non-overlapping codes",
+          "trigger": "Unrestricted q=3 length-nine optimal parameter and possible coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Ternary Smirnov/no-homopolymer constraints are natural in synchronization and sequence-storage codes. A complete small-length optimum plus number and symmetry classification of every maximizer is independently useful for testing constructions and distinguishing constrained from unconstrained maxima, not a mere normalized rewrite of published unconstrained table entries.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For ternary homopolymer-free cross-bifix-free length n=2..9, exact clique maxima (2,2,2,4,5,8,16,24), all maximizing codebook counts (6,6,18,6,24,48,6,12) and alphabet-permutation/reversal orbit counts (1,1,2,1,2,5,1,2); n=9 has two orbits of size six.",
+  "limitations": [
+    "Exact finite census only 2≤n≤9, one fixed ternary alphabet, within-word run length one; does not prove general n formulas or biochemical performance.",
+    "General maximal-run-constrained constructions may imply the small cases after substantial enumeration; numerical results/orbits may have appeared in an unindexed appendix or code database.",
+    "Exact claim limited to lengths 2..9 and ternary no-adjacent-equal alphabet."
+  ],
+  "schema_version": 1
+}
