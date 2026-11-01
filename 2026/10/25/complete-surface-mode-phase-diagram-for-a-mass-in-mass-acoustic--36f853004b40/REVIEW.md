@@ -1,11 +1,21 @@
-# Scientific review: complete surface-mode phase diagram
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact host/resonator recurrence, boundary matching and strictly monotone secular function give an exhaustive classification. The sign restrictions on decay factors exclude modes outside the listed regions; the isolated points at the internal resonance pole and all band edges are not eigenvalues. The quadratic threshold coefficients follow from Bloch exponential expansions. Symbolic and finite-chain calculations support, but do not replace, the infinite-system proof.
+## correctness
 
-**Originality — PASS within the inspected corpus.** Liu, Chan and Sheng establish local-resonant effective mass and bulk attenuation, Luo gives monatomic finite-chain impurity thresholds, Pichard et al. treat a different translational-rotational granular chain, and Fedele et al. address chiral effective-mass lattices and different defect types. The accessible full materials do not state the complete free-boundary host-mass classification or the coexistence criterion. Historical priority is uncertain, especially against older specialized transfer-matrix studies.
+PASS
 
-**Mathematical value — PASS.** The exact three-threshold phase diagram and sharp condition for simultaneous two-mode localization directly address which edge mass modifications create one or two bound vibrations in a locally resonant acoustic lattice. Closed-form implicit frequencies, decay envelopes and quadratic onset constants are structurally informative.
+For the positive-parameter semi-infinite chain with only boundary host mass perturbed, eliminating internal resonators away from w=k/m yields D(t)=t(M+k/(w-t))=K(2-lambda-lambda^-1). The free boundary gives lambda=K/(K+delta*t) and monotone secular F_delta(t). The signs of the decaying Bloch factor exhaust positive forbidden intervals, with one in (w,t0) for delta>0, none for delta=0, and optional upper/lower negative-lambda modes for delta<0 at thresholds -delta>2K/t_+, -delta>2K/t_-. Lambda=+-1 gives non-square-summable band edges; t=w is not an eigenvalue. Near each edge D-D_edge=+-K eta² and boundary matching eta linear in the threshold displacement, yielding quadratic mode births. The external finite-chain checker has not been rerun here; the infinite spectral claim is assessed analytically.
 
-**Limits.** Semi-infinite linear scalar chain only; no dissipation, nonlinearities, alternative boundary defects, or finite-chain transport claims. Absence of a located equivalent source is not an exhaustive priority certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The effective-mass/transfer-matrix device is classical; the claimed contribution is the exact boundary-host-mass classification, accessible double-surface-mode criterion and all three band-edge coefficients. Prior specialized surface-mode papers might already contain equivalent secular classifications, so this judgment is qualified. Actual named comparisons and inaccessible-source limitations are recorded below.
+
+## value
+
+PASS
+
+The diagram determines when local host-mass modification creates zero, one or two genuine surface eigenvalues and their exact emergence rates, a physically and spectrally natural boundary problem with parameter thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

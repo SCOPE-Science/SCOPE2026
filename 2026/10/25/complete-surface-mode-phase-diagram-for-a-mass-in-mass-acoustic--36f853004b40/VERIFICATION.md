@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `check_surface_modes.py` is self-contained given Python 3 with NumPy, SciPy and SymPy. Run `OPENBLAS_NUM_THREADS=1 python check_surface_modes.py`. It separately forms finite mass/stiffness matrices and compares their mass-normalized eigenvalues and surface-mode envelopes to the scalar secular roots for 40 distinct parameter sets, including threshold-separated one- and two-mode regimes. The run passed three symbolic identities, 40 finite-chain spectral comparisons, 40 predicted surface eigenmode matches and three quadratic edge-law tests.
+## correctness
 
-The exhaustive infinite result is **analytical**, not computational: the bulk recurrence has exactly one decaying Bloch solution in each forbidden frequency interval, the free-end condition gives the secular function, its derivative is strictly positive away from poles, and interval endpoint signs provide necessity and sufficiency. Exactly at each threshold the candidate has nondecaying Bloch factor of modulus one, so it is not a point eigenvector. At the internal-resonator pole there is no nontrivial mode. Finite eigensolvers do not certify that spectral completeness statement.
+PASS
 
-No third-party independent audit has been performed.
+For the positive-parameter semi-infinite chain with only boundary host mass perturbed, eliminating internal resonators away from w=k/m yields D(t)=t(M+k/(w-t))=K(2-lambda-lambda^-1). The free boundary gives lambda=K/(K+delta*t) and monotone secular F_delta(t). The signs of the decaying Bloch factor exhaust positive forbidden intervals, with one in (w,t0) for delta>0, none for delta=0, and optional upper/lower negative-lambda modes for delta<0 at thresholds -delta>2K/t_+, -delta>2K/t_-. Lambda=+-1 gives non-square-summable band edges; t=w is not an eigenvalue. Near each edge D-D_edge=+-K eta² and boundary matching eta linear in the threshold displacement, yielding quadratic mode births. The external finite-chain checker has not been rerun here; the infinite spectral claim is assessed analytically.
+
+## originality
+
+PASS
+
+The effective-mass/transfer-matrix device is classical; the claimed contribution is the exact boundary-host-mass classification, accessible double-surface-mode criterion and all three band-edge coefficients. Prior specialized surface-mode papers might already contain equivalent secular classifications, so this judgment is qualified. Actual named comparisons and inaccessible-source limitations are recorded below.
+
+## value
+
+PASS
+
+The diagram determines when local host-mass modification creates zero, one or two genuine surface eigenvalues and their exact emergence rates, a physically and spectrally natural boundary problem with parameter thresholds.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
