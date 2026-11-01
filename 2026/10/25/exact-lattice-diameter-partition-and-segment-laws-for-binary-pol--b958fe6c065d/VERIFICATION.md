@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 verify.py` using Python's standard library only. The checker reconstructs hypersimplex integer points directly; calculates the gcd of coordinate differences over every unordered pair; compares it to the closed segment formula; and separately checks that residue classes modulo the dilation factor form the expected cliques with the maximum size \(\binom dk\). It covers 63 parameter triples with \(2\le d\le7\), \(1\le k\le d-1\), \(1\le n\le3\).
+## correctness
 
-For the even-parity binary tetrahedron, the checker independently applies its facet inequalities and counts all diameter pairs for each \(1\le n\le14\), verifying the parity function and direction counts. This does not establish the all-parameter conclusions on its own; the detailed geometric and counting proofs in `RESULT.md` do so. The rational-Ehrhart decomposition is a mathematical argument requiring only basic rational Ehrhart theory, not exhaustive enumeration of all binary polytopes. The formulas have no claimed extension to arbitrary integer vertex coordinates. No independent expert audit has been conducted.
+PASS
+
+A diameter segment has integer-point distance equal to the gcd of its endpoint coordinate differences. Every pair of scaled binary vertices attains gcd=n, while [0,n]^d bounds the gcd above by n. If x,y attain diameter then some coordinate equals 0 and n, so choosing any vertex of each point’s minimal P-face gives different labels, proving a proper f0(P) coloring matching the scaled-vertex clique. Each unoriented primitive ternary direction u has a unique zero-coordinate common part z in the rational polytope R_u; the resulting disjoint Ehrhart sums prove quasipolynomiality from n=1, including lower-dimensional pieces. The hypersimplex signed-support count, unique s=1 degree-leading term and Eulerian normalized volume follow, as does the parity tetrahedron support casework. Independent exact gcd enumeration confirmed 45 hypersimplex parameter triples (d<=6,n<=3) and 11 tetrahedral dilations.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS with precise overlap: Averkov–Brose–De Loera–Lopez-Campos–Torres (arXiv:2508.20009v2, Theorem 4.6) proves eventual Ehrhart-type quasipolynomiality for any integral P and Theorem 5.4 universal bound 2^d on lattice Borsuk, but not the exact f0(P) equality for every binary P and n, from-the-first-dilation decomposition, hypersimplex formula/Eulerian leading term or exact period-two tetrahedron. Their Lemma 5.2 clique characterization underlies the framework, not the binary vertex-face injection. Euclidean/Hamming Borsuk results on matroids concern another diameter metric.
+
+## value
+
+PASS
+
+PASS: natural full-class sharpening of a current lattice-diameter program. Exact face-based coloring replaces a uniform 2^d bound with an intrinsic vertex invariant. Rational Ehrhart slices give the entire segment sequence, hypersimplices supply an explicit rank-sensitive closed formula, and a small parity tetrahedron proves true quasiperiodicity cannot universally be strengthened to polynomiality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

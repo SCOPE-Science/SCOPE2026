@@ -1,0 +1,139 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:09:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A diameter segment has integer-point distance equal to the gcd of its endpoint coordinate differences. Every pair of scaled binary vertices attains gcd=n, while [0,n]^d bounds the gcd above by n. If x,y attain diameter then some coordinate equals 0 and n, so choosing any vertex of each point’s minimal P-face gives different labels, proving a proper f0(P) coloring matching the scaled-vertex clique. Each unoriented primitive ternary direction u has a unique zero-coordinate common part z in the rational polytope R_u; the resulting disjoint Ehrhart sums prove quasipolynomiality from n=1, including lower-dimensional pieces. The hypersimplex signed-support count, unique s=1 degree-leading term and Eulerian normalized volume follow, as does the parity tetrahedron support casework. Independent exact gcd enumeration confirmed 45 hypersimplex parameter triples (d<=6,n<=3) and 11 tetrahedral dilations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Averkov et al. theorem 4.6: eventual for arbitrary integral polytopes; theorem 5.4: beta<=2^d"
+        ],
+        "reasoning": "Generality in the ambient class does not imply strength for n=1 or exact coloring of each binary P: eventual quasipolynomiality permits initial exceptions and a 2^d upper bound does not determine f0(P). The present proof supplies those extra claims.",
+        "searches": [
+          "arxiv:2508.20009v2 Theorem 4.6 Theorem 5.4",
+          "lattice polytope Ehrhart Presburger eventual quasi-polynomial"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2508.20009v2",
+        "https://arxiv.org/abs/2506.17082",
+        "https://arxiv.org/abs/1104.5292",
+        "Resultary semantic search: binary polytope lattice diameter partition"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 4.6 uses Presburger definability to establish eventual quasi-polynomiality; Theorem 5.4 proves 2^d upper bound via clique components. The submitted rational R_u identity is all-dilation for binary P."
+        ],
+        "reasoning": "Classical rational Ehrhart counting proves the final implication only after the new binary direction/slice bijection is established. Distinct Euclidean matroid Borsuk results do not imply gcd-diameter coloring.",
+        "searches": [
+          "Averkov et al. v2 sections 4 and 5 exact statements",
+          "arxiv:2506.17082 matroid Borsuk"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Averkov et al. arXiv:2508.20009v2, Definition 1.2, Lemma 5.2, Theorems 4.6/5.4"
+        ],
+        "reasoning": "Rescale the integer-gcd diameter invariant rather than Euclidean or graph diameter. The closest previous lattice-Borsuk formulation makes diameter components cliques and gives a universal dimension bound; it does not explicitly derive the binary-polytope minimum-face coloring or f0(P) equality.",
+        "searches": [
+          "Resultary: lattice diameter segments discrete Borsuk partition binary zero one polytope dilation hypersimplex Ehrhart",
+          "web: lattice Borsuk number binary 0 1 polytope vertices exact partition nP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Li arXiv:1104.5292 classical Eulerian hypersimplex Ehrhart; Averkov et al. arXiv:2508.20009v2 examples (not this parity tetrahedron)"
+        ],
+        "reasoning": "A known hypersimplex volume coefficient is explicitly treated as a borrowed ingredient, not an exact segment enumeration. The searched earlier lattice-diameter examples were not the full k/d/n segment table or period-two binary tetrahedron count.",
+        "searches": [
+          "hypersimplex diameter segments exact polynomial Eulerian volume",
+          "binary tetrahedron lattice diameter period two",
+          "Resultary: hypersimplex lattice gcd diameter"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS with precise overlap: Averkov–Brose–De Loera–Lopez-Campos–Torres (arXiv:2508.20009v2, Theorem 4.6) proves eventual Ehrhart-type quasipolynomiality for any integral P and Theorem 5.4 universal bound 2^d on lattice Borsuk, but not the exact f0(P) equality for every binary P and n, from-the-first-dilation decomposition, hypersimplex formula/Eulerian leading term or exact period-two tetrahedron. Their Lemma 5.2 clique characterization underlies the framework, not the binary vertex-face injection. Euclidean/Hamming Borsuk results on matroids concern another diameter metric.",
+      "residual_risks": [
+        "The binary f0(P) coloring may be implicit in classical diameter-graph proofs via a short extra deduction; the exact corollary is not explicitly located in the 2026 primary paper.",
+        "Classical rational Ehrhart formulas for specific hypersimplices are known, although not the segment enumeration; priority could depend on terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides predecessor general methods and weaker conclusions, but no all-n binary segment or exact f0(P) result",
+          "evidence": "arXiv:2508.20009v2, pp. 15 and 18, Theorems 4.6 and 5.4",
+          "identifier_or_url": "https://arxiv.org/pdf/2508.20009v2",
+          "material_read": "Complete 21-page revised preprint including Definition 1.2, directions, Theorem 4.6 on eventual quasipolynomiality, Lemma 5.2 and Theorem 5.4 on discrete lattice Borsuk",
+          "method": "Read accessible arXiv primary full PDF; visually inspected printed pages 15 and 18",
+          "title": "On Lattice Diameter Segments: Algorithms and Structure",
+          "trigger": "Same invariant and closest stronger-general candidate"
+        },
+        {
+          "assessment": "Distinct metric, so not a direct implication for integer gcd-diameter of dilated hypersimplices",
+          "evidence": "arXiv:2506.17082, abstract",
+          "identifier_or_url": "https://arxiv.org/abs/2506.17082",
+          "material_read": "Author abstract and relevant descriptions of Euclidean/Hamming diameter for matroid bases; full PDF not required for different metric",
+          "method": "Read arXiv abstract/metadata and problem statement",
+          "title": "Matroids, intersecting bases, and Borsuk property",
+          "trigger": "Potential hypersimplex-specific Borsuk theorem"
+        },
+        {
+          "assessment": "Classical coefficient used as prior input, not evidence of full lattice-diameter segment law",
+          "evidence": "arXiv:1104.5292",
+          "identifier_or_url": "https://arxiv.org/abs/1104.5292",
+          "material_read": "Classical abstract/background on hypersimplex Ehrhart and Eulerian coefficients",
+          "method": "Read accessible arXiv abstract and cited normalized-volume relationship",
+          "title": "Ehrhart h*-vectors of hypersimplices",
+          "trigger": "Eulerian leading coefficient might already be known"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: natural full-class sharpening of a current lattice-diameter program. Exact face-based coloring replaces a uniform 2^d bound with an intrinsic vertex invariant. Rational Ehrhart slices give the entire segment sequence, hypersimplices supply an explicit rank-sensitive closed formula, and a small parity tetrahedron proves true quasiperiodicity cannot universally be strengthened to polynomiality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2508.20009v2",
+    "https://arxiv.org/abs/2506.17082",
+    "https://arxiv.org/abs/1104.5292",
+    "Resultary semantic search: binary polytope lattice diameter partition"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "The binary f0(P) coloring may be implicit in classical diameter-graph proofs via a short extra deduction; the exact corollary is not explicitly located in the 2026 primary paper.",
+    "Classical rational Ehrhart formulas for specific hypersimplices are known, although not the segment enumeration; priority could depend on terminology."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Provides predecessor general methods and weaker conclusions, but no all-n binary segment or exact f0(P) result",
+      "evidence": "arXiv:2508.20009v2, pp. 15 and 18, Theorems 4.6 and 5.4",
+      "identifier_or_url": "https://arxiv.org/pdf/2508.20009v2",
+      "material_read": "Complete 21-page revised preprint including Definition 1.2, directions, Theorem 4.6 on eventual quasipolynomiality, Lemma 5.2 and Theorem 5.4 on discrete lattice Borsuk",
+      "method": "Read accessible arXiv primary full PDF; visually inspected printed pages 15 and 18",
+      "title": "On Lattice Diameter Segments: Algorithms and Structure",
+      "trigger": "Same invariant and closest stronger-general candidate"
+    },
+    {
+      "assessment": "Distinct metric, so not a direct implication for integer gcd-diameter of dilated hypersimplices",
+      "evidence": "arXiv:2506.17082, abstract",
+      "identifier_or_url": "https://arxiv.org/abs/2506.17082",
+      "material_read": "Author abstract and relevant descriptions of Euclidean/Hamming diameter for matroid bases; full PDF not required for different metric",
+      "method": "Read arXiv abstract/metadata and problem statement",
+      "title": "Matroids, intersecting bases, and Borsuk property",
+      "trigger": "Potential hypersimplex-specific Borsuk theorem"
+    },
+    {
+      "assessment": "Classical coefficient used as prior input, not evidence of full lattice-diameter segment law",
+      "evidence": "arXiv:1104.5292",
+      "identifier_or_url": "https://arxiv.org/abs/1104.5292",
+      "material_read": "Classical abstract/background on hypersimplex Ehrhart and Eulerian coefficients",
+      "method": "Read accessible arXiv abstract and cited normalized-volume relationship",
+      "title": "Ehrhart h*-vectors of hypersimplices",
+      "trigger": "Eulerian leading coefficient might already be known"
+    }
+  ]
+}
