@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness: PASS
+The proof computes the autonomous favorable-season ratio equation, whose strict order-monotonic annual growth factor gives exactly one repelling positive fixed ratio under the bistability inequalities. The separated equation yields the displayed explicit slope in both nondegenerate and equal-growth cases; positivity and denominator nonvanishing follow from the endpoint ratios. On the ray, the exact logistic return has its unique positive attracting radial fixed point. Off the ray, the ratio tends to zero or infinity and reciprocal logistic recurrences with converging coefficients yield the specified axial limits. The triangular Jacobian at coexistence has one eigenvalue above one and one below one. A package-local standalone numerical diagnostic has been executed; finite tests are not used to prove infinite-time assertions.
+
+## Originality: PASS, subject to documented residual risk
+The 2025 founding paper, Theorem 2.3(i), **already proves a straight separatrix for the continuous favorable-season flow** at equal density dependence. This is acknowledged and not claimed as novel. Unlike the full annual map with unequal \(\delta_1,\delta_2\), the continuous flow has no winter reset. The October 2026 full-text theorem gives only an abstract invariant separating curve for the annual map. The same paper's straight-line statement in Section 4 refers instead to a boundary **in the winter-survival parameter plane**, not to the annual initial-population basin boundary. The present explicit survival-dependent annual ray, formula at \(g_1=g_2\), and precise basin criterion are not implied by those printed statements. Searches for projective ratio reduction, annual line geometry, and stronger direct coverage yielded no matching claim in the available mathematical record; negative search results do not establish uniqueness. A general skew-product theorem could be stronger, and independent historical review has not been performed.
+
+## Mathematical value: PASS
+The exact extinction-vs-persistence threshold is a directly motivated dynamical observable: a population manager can compare the initial species ratio to one explicit number rather than approximate a saddle stable manifold numerically. The result quantifies how unequal winter survival changes the continuously studied ray and proves the full global basin classification, including a nontrivial equal-growth limiting case. This is not merely changing an arbitrary parameter or reproducing the known continuous-flow special case.
+
+## Scope and independent checks
+This theorem assumes positive net growth, strictly bistable annual multipliers, common density coefficient, and unequal winter survival. It does not determine the annual basin boundary for unequal crowding, non-bistable parameter regimes, or intermediate within-season times. Potential subsumption by older general projective-flow literature remains a residual risk.
+
+Self-review: passed. Independent audit: not yet performed.
