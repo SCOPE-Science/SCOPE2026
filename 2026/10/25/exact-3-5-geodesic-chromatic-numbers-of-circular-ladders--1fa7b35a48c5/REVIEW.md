@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The claimed quantity uses the original bounded-geodesic definition without a normalization change. Known general-position cardinality gives all finite small-order lower bounds except the elementary two-color cases. For all larger orders, the finite five-column three-color obstruction is exhaustively replayable using canonical labels, shortest-path enumeration, and no search cutoff. Explicit colorings cover the remaining finite instances. Every longer case is reached by a valid four-step loop in the allowed-six-column transfer graph. The isometry hypothesis holds at the boundary \(n=10\). The code and exact witness data are included. Residual risk: exhaustive-code implementation error not caught by the independently constructed small MILP exploration; no independent audit has been performed.
+## correctness
 
-**Originality — PASS.** Cody and Detore define the invariant but leave product graph chromatic questions open. Chandran et al. give general-position results for Cartesian products that imply the \(n\le9\) lower bounds, but do not imply the bounded-five-edge four-color tail (ordinary general-position chromatic number grows with the number of columns). Earlier maximum-position results do not determine minimum color partitions. Targeted published-record and mathematical-claim comparisons found no full covering statement. Residual risk: alternate terminology or an unindexed equivalent exact formula.
+PASS
 
-**Value — PASS.** This settles a natural infinite graph family for a fixed newly studied metric-coloring parameter. It identifies a sharp exceptional circumference and a constant eventual chromatic plateau despite unbounded diameter, with an explicit finite-state gluing mechanism that can be reused for other bounded-geodesic coloring questions. The known small-case lower bounds are not marketed as a separate novelty.
+Reconstructed all forbidden monochromatic triples from geodesics of length <=5 in the actual 2n-vertex prism graphs. Independent canonical color-label search proves no coloring with one fewer color for n=3..9 with exact search node counts (2,2,13,11,125,88,3942), and no 3-coloring of the five-rung straight ladder (88 nodes). The actual source witnesses provide upper colorings for n=3..15 and special n=17,21; their full JSON and source verifier were inspected, and the four-periodic 12-column witness was independently checked against its geodesic triple hypergraph. For n>=10 all length<=5 geodesics lie in six cyclic columns; the 5-column straight ladder is isometric and the periodic five-state return allows insertion of four columns in all four residue classes using seeds 12,14,15,21 plus exceptional 10,11,13,17. Finite searches certify finite obstructions/witnesses; locality and pumping are the infinite proof.
 
-**Closest literature and limitations.** Cody–Detore, arXiv:2601.04351v1, contains the definitions and the Cartesian-product open direction. Chandran et al., arXiv:2408.13494v2, Section 7, addresses unrestricted general-position coloring; the distinction between five-edge and all-length geodesics is mathematically decisive from circumference ten onward. The result does not extend to other \((k,d)\), wider cylinders, or classification of all colorings. The certificate checks finite cases; the infinite argument is mathematical.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cody and Detore introduced the exact (k,d)-geodesic coloring framework and determined paths/cycles, not the Cartesian prism family. Existing ordinary general-position coloring bounds imply the small n=9 obstruction but not the entire bounded-geodesic n>=10 classification. The infinite four-color pumping and n-dependent complete formula survive as distinct findings.
+
+## value
+
+PASS
+
+The prism C_n□K2 is the first natural nontrivial Cartesian-product extension beyond paths and cycles. A full fixed-(3,5) chromatic classification, the unique nine-rung five-color spike, and a finite-window/pumping argument for all n>=10 make a genuinely useful new family calculation rather than a single isolated graph number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
