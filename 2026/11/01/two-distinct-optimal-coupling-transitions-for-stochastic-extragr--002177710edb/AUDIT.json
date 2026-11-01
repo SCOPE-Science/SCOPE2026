@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For every within-step pair, the exact 2x2 map has M^T M=g I with strictly positive g. Any fixed-uniform 2x2 joint law has a single parameter q. Independence across steps implies the exact n-step expectation; the strong law implies the log gain. Two factorizations and verified root comparisons establish all thresholds and endpoints, including the 1/5 strict disagreement. All needed algebra is in the proof and reproduced by standalone source.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorbunov et al. Theorem 2.1 gives parameterized convergence estimates, with arbitrary sampling introduced in Section 3 for S-SEG.",
+        "Yoon and Loizou (2026), available abstract, study S-SEG versus I-SEG and a double-stepsize separation."
+      ],
+      "reasoning": "General convergence guarantees do not automatically yield exact optimal dependence over all couplings or the strict separation of log and quadratic risk; only the recent source abstract was accessible, so specialized coverage in its body remains a priority risk.",
+      "searches": [
+        "\"Stochastic Extragradient: General Analysis and Improved Rates\" PDF",
+        "\"On Same-Sample and Independent-Sample Stochastic Extragradient\"",
+        "arXiv:2608.06182"
+      ]
+    },
+    "checked_sources": [
+      "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+      "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+      "https://arxiv.org/abs/2608.06182"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Li et al. same-sample algorithm p.2 and Theorem 3.3 p.6, with supplement mentioned.",
+        "Gorbunov et al. same/independent definitions p.2, arbitrary-sampling framework pp.5–7 and appendix contents p.12.",
+        "The 2026 Yoon–Loizou abstract is available but its full text could not be inspected."
+      ],
+      "reasoning": "The published bounds and algorithm variants are not equivalent to minimizing E[g] and E[log g] over all couplings of fixed marginals. The available 2026 abstract does not assert that precise comparison. We do not claim absence from an inaccessible full text.",
+      "searches": [
+        "arXiv:2107.00464",
+        "arXiv:2111.08611",
+        "arXiv:2608.06182",
+        "\"same-sample\" \"antithetic\" \"extragradient\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Li et al. define reused-sample bilinear SEG, PMLR 151, PDF p.2, Eq. (2).",
+        "Gorbunov et al. distinguish S-SEG and I-SEG, PMLR 151, PDF p.2 and p.5."
+      ],
+      "reasoning": "Those formulations fix either repeated or independent draws or a within-operator sampling scheme; they do not directly specify an arbitrary 2-by-2 coupling of fixed predictor/corrector marginals and optimize the two different loss functionals.",
+      "searches": [
+        "\"extragradient\" \"antithetic\" \"coupling\" stochastic bilinear",
+        "\"same-sample\" \"antithetic\" \"extragradient\"",
+        "\"extragradient\" correlated samples same antithetic two gradients",
+        "arXiv:2107.00464",
+        "arXiv:2111.08611"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected papers report general theoretical bounds, sampling cases and experiments, not a table of the four exact gains or the two coupling thresholds."
+      ],
+      "reasoning": "There is no observed exact database/table that lists the four multipliers, the policy diagram or its two split roots. This is limited evidence, not proof that no such table exists.",
+      "searches": [
+        "stochastic extragradient two-sample oracle coupling common random numbers antithetic bilinear games exact mean-square contraction stability",
+        "bilinear stochastic extragradient oracle coefficient values 1 and 2 same sample antithetic sample correlation phase crossover mean square rate",
+        "minimax extragradient exact Lyapunov exponent versus second moment optimal coupling two-point random bilinear"
+      ]
+    },
+    "rationale": "The candidate optimizes both E[g] and E[log g] over all joint laws with fixed uniform two-point marginals, obtaining distinct sharp step thresholds and an exact stability extension. Li et al. analyze same-sample bilinear SEG; Gorbunov et al. analyze same-sample arbitrary sampling and independent SEG separately. No inspected statement implies this two-criterion optimization, although general correlated-sampling literature remains a residual priority risk.",
+    "residual_risks": [
+      "General random-product or sample-coupling literature might give an equivalent exact two-point classification without using stochastic extragradient terminology.",
+      "Full text of arXiv:2608.06182 could not be inspected; the assessment of that source is abstract-level only.",
+      "The contribution is a minimal fixed-budget benchmark, not a theorem for general finite-sum monotone operators."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected claims focus on reused samples, averaging/restarting and convergence rates; no full-coupling optimizer or logarithmic-vs-quadratic policy split was identified.",
+        "evidence": [
+          "PMLR151/junchi-li22a, Eq. (2), Theorem 3.3 and related-work text; PDF search for antithetic and correlation returned no matches."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/junchi-li22a/junchi-li22a.pdf",
+        "material_read": "Full PDF opened; abstract, original problem and update (pp.1–2), assumptions and main theorem sections (pp.4–6), section/appendix references and exact targeted text searches for correlation, antithetic and independent sampling.",
+        "method": "Full-document PDF text indexing, reading relevant pages and page-image inspection of pp.2,4,6.",
+        "title": "On the Convergence of Stochastic Extragradient for Bilinear Games using Restarted Iteration Averaging",
+        "trigger": "Same two-call bilinear stochastic extragradient method and interpolation regime."
+      },
+      {
+        "assessment": "Arbitrary sampling is used for one common sample and mini-batch/importance-sampling variants, not proved a full predictor/corrector coupling risk optimizer.",
+        "evidence": [
+          "PMLR151/gorbunov22b, S-SEG/I-SEG definitions and Section 3.1; no antithetic or coupling search hits."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v151/gorbunov22b/gorbunov22b.pdf",
+        "material_read": "Full PDF opened; introduction, two variant definitions, generic theorem, arbitrary-sampling main subsections and appendix contents (pp.2–7,12), plus targeted full-document searches for coupling, antithetic and bilinear.",
+        "method": "Full-document PDF text indexing, relevant result/appendix reading, and screenshot inspection of pp.2–3 and 5–6.",
+        "title": "Stochastic Extragradient: General Analysis and Improved Rates",
+        "trigger": "Arbitrary sampling may dominate a new oracle-coupling result."
+      },
+      {
+        "assessment": "Abstract does not assert optimal arbitrary couplings or dual risk-threshold separation; body-level priority cannot be excluded.",
+        "evidence": [
+          "arXiv:2608.06182 abstract (August 6, 2026)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.06182",
+        "material_read": "Abstract and descriptive published metadata only. Full arXiv HTML/PDF fetch attempted and unavailable.",
+        "method": "Abstract/source inspection and attempted official full-text access.",
+        "title": "On Same-Sample and Independent-Sample Stochastic Extragradient for Monotone Variational Inequalities",
+        "trigger": "Contemporary close comparison of same versus independent oracle draws."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00217771-0edb-4c4f-a544-7e56399ce9d1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two legitimate fixed-cost sampling policies are provably ordered oppositely by finite-horizon expected squared error and almost-sure exponential contraction, and the optimal coupling sharply enlarges the mean-square-stable stepsize region from 5/17 (reused) or 8/25 (independent) to 3/8. This makes an exact benchmark for the dependence structure of stochastic two-call optimization, not an arbitrary polynomial curiosity.",
+    "status": "PASS"
+  }
+}
