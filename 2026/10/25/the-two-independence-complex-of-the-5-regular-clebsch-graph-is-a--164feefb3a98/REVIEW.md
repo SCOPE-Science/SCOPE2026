@@ -1,15 +1,21 @@
-# Scientific review: two-independence complex of the 5-regular Clebsch graph
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact graph and face definition, all 2,142 nonempty faces, the 1,070 pair Morse certificate, the 2,142-vertex 9,280-edge reversed Hasse graph, and its acyclicity were reconstructed by the accompanying standalone checker. One critical vertex and one critical four-simplex give a CW model of \(S^4\); this is stronger than a finite-field homology observation. The full automorphism group is proved to be the even-translation semidirect product with \(S_5\), and signed Lefschetz computations for all 1,920 elements establish the integer coordinate-sign character, not just parity.
+## correctness
 
-## Originality — PASS, with limitations
-Actual searches covered two-independence, three-path-free and folded-five-cube aliases and inspected the 2020/2021 Deshpande–Singh full-text homotopy-classification theorem list, Sawant's 2026 tree theorem, and Xu et al.'s 2025 Clebsch graph Section 3. These give the general element-matching method, recent tree-only results and the graph presentation respectively. Closest previously indexed same-graph results classify **ordinary** independence, neighborhood, matching or Čech complexes, not \(\operatorname{Ind}_2\); neither their statements nor the broader-family theorem hypotheses imply the result. No absolute novelty guarantee is claimed, and unindexed computations or inaccessible appendices remain possible.
+PASS
 
-## Mathematical value — PASS
-The 5-regular Clebsch graph is a canonical nonchordal strongly regular graph, outside the standard tree, chordal and cycle families for higher independence. Its two-independence complex turns out to be a single integral four-sphere in spite of being a nonpure complex of dimension seven. The nontrivial orientation action of the entire 1,920-element automorphism group is an additional invariant that homology ranks cannot detect. The result makes a motivated finite classification rather than an arbitrary parameter slice or a claim of broader generalization.
+Let the 16 graph vertices be even-parity five-bit masks, with edges when XOR weight is four; this is the 5-regular folded five-cube with exactly 40 edges. Ind_2 consists exactly of subsets whose induced degrees are <=1 (every connected component at most two vertices). Fresh complete enumeration of 65,535 nonempty masks produced exactly 2,142 faces with f=(16,120,400,660,576,280,80,10). Independently reconstructed sequential 16-vertex toggle pairing gave 1,070 pairs and precisely two critical simplices (a 0-cell and a 4-cell); complete 9,280-incidence reversed-Hasse topological sort visited all 2,142 faces, establishing a Morse CW model S4, not just its homology. Even-bit translations and permutations of five coordinates act faithfully, giving subgroup T⋊S5 of size 16×120=1920. A graph automorphism fixing zero injects into permutations of its five weight-four neighbors since other vertices are uniquely specified by common-neighbor patterns, so this is the full group. Fresh independent signed invariant-face Lefschetz calculations for every one of all 1,920 automorphisms obtained degree sgn(permutation) on top integral H4 (960 positive, 960 negative). This is a statement about H4 as an integral rank-one character, not an equivariant S4 homotopy equivalence.
 
-## Scientific scope and residual risks
-This is one specific graph, not a family result. The topological character does not assert an equivariant sphere equivalence. Search access did not cover every privately held or unindexed computation; external independent validation has not occurred. The published sequential-element matching technique itself is not claimed new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified originality PASS: Deshpande-Singh 2021 primary arXiv full HTML defines identical higher-independence functor and develops homotopy formulas for complete multipartite, fully whiskered, paths, cycles and perfect trees; its theorem list and Section 6 contain no Clebsch graph classification. The general known sequential matching method is credited as an antecedent. Sawant 2026 is restricted to tree r-independence complexes. The same 5-regular Clebsch model appears in Xu et al. 2025 for Hadwiger/minor questions, not Ind_2 homotopy. Prior ordinary Clebsch Ind_1 and open-neighborhood complexes are different functors. No earlier exact Ind_2(Clebsch) sphere plus affine orientation character was located; hidden computation and tables remain priority risks.
+
+## value
+
+PASS
+
+The 5-regular Clebsch/folded-five-cube graph is a canonical small nonchordal strongly regular graph, outside available general Ind_2 graph families. Determining its nonpure eight-dimensional face complex is nonetheless homotopy S4 and identifying its full 1920-element affine orientation character is a motivated exact invariant: neither follows from ordinary independent-set homology or abstract group order. The result is bounded to one naturally selected graph and functor, consistent with an exact self-contained classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
