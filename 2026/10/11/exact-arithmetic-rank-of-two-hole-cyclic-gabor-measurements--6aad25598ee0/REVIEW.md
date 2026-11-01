@@ -1,19 +1,13 @@
-# Scientific review: exact arithmetic rank of two-hole cyclic Gabor measurements
+# Scientific assessment: exact arithmetic rank of two-hole cyclic Gabor measurements
 
 ## Correctness — PASS
-The proof starts with the established rank/ambiguity theorem [1] and computes each deleted-character sum in the three overlap geometries, including the degenerate order-two difference. The only possible cancellations are order-two or order-three character values; exact congruence counting yields the divisor sum \(H_N\), the correction involving \(J_d\), and the \(4d\) order-three term. The packaged `CHECK.py` was executed from the included path, reproducing all \(589\) exact cases with no floating-point criterion; the unrestricted theorem is separately proved by the character and congruence argument.
+The all-\(N\ge5\) rank law follows from the Goldberger–Kang–Okoudjou Gram-rank/ambiguity theorem and an exact count of zeros of three deleted-character polynomials. At lags \(0\), \(\pm a\), and all remaining lags, the cancellation polynomials are respectively \(1+u\), \(1+u+u^2\), and \((1+u)(1+v)\), except that order-two spacings have the stated coincident-lag case. Inclusion–exclusion of two-torsion cancellation counts, with a separate primitive-cube-root count, yields the exact \(H_N\), \(J_d\), and \(4d\) terms. The packaged standard-library cyclotomic checker reproduces every \((N,a)\) with \(5\le N\le35\), totaling 589 cases. Direct projector-matrix ranks for selected \(N=5,6,9,12,15\) also match. These are bounded checks; the unrestricted proof is analytic.
 
-## Originality — PASS, with residual risk
-The exact general Gabor Gram rank criterion is [1, Theorem 1]; difference-set based injectivity criteria and antecedents are [2]. The coprime-gap case follows under affine relabelling from the previously known adjacent two-hole rectangle, and is not claimed as independent novelty. The all-dimensional nonunit-gap computation is additional: \(N=15\) with gaps \(1\), \(3\), and \(5\) has rank deficiencies \(4\), \(0\), and \(20\), which the adjacent case alone cannot determine. The checked public index descriptions for two-supported-point windows compute other invariants and do not state a two-missing-point rank formula. The possibility of an unindexed equivalent treatment remains.
+## Originality — PASS, best of knowledge
+Goldberger–Kang–Okoudjou established the general rank/ambiguity correspondence and small-support/low-order results. Bojarovska–Flinth gave a sufficient nonvanishing condition and difference-set constructions. Published cyclic-boxcar formulas already cover consecutive two-hole supports and gaps coprime to \(N\). A broader contemporaneous odd-order two-equal-amplitude resonance theorem, specialized to zero amplitude, also determines the *entire odd-order subcase* of this result. Neither the odd-only theorem nor the contiguous boxcar theorem establishes arbitrary nonunit even-modulus gap ranks. The distinct surviving contribution is the closed arithmetic law that includes those even composite gaps and the order-two collision regime; no older equivalent count was found in the inspected sources. This is a qualified best-of-knowledge comparison, not a priority certificate.
 
-## Value — PASS
-Exactly two failed coordinates are a canonical minimally damaged all-ones Gabor fiducial; the rank reveals whether the resulting measurement determines arbitrary operators. Resolving every cyclic modulus and deleted-site gap, rather than an arbitrary finite example, exposes a meaningful torsion and relative-spacing boundary. The full rank formula quantifies the lost operator directions even where reconstruction fails. No conditioning, erasure recovery, or nonlinear phase-retrieval guarantee is inferred.
+## Mathematical value — PASS
+The exact rank is a motivated invariant of a minimally damaged constant cyclic Gabor measurement vector. For even \(N=12\), changing the missing-site spacing among \(1,2,3,4,6\) changes operator-span ranks to \(116,102,104,108,62\). The natural complete classification separates torsion and spacing effects, without claiming a numerical stability theorem or an implication about nonlinear pure-state phase retrieval.
 
-## Sources and scientific limits
-[1] A. Goldberger, S. Kang, K. A. Okoudjou, *Towards a classification of incomplete Gabor POVMs in \(\mathbb C^d\)*, arXiv:2106.01509v1, Theorem 1.
-
-[2] I. Bojarovska and A. Flinth, *Phase Retrieval from Gabor Measurements*, arXiv:1503.05800v2, Section 2.
-
-Relevant indexed two-supported-point window studies were compared by accessible titles and summaries only, not certified as wholly non-covering. Unindexed older coverage remains an originality risk. All claims are scoped to \(N\ge5\) and full operator-Gram rank.
-
-Same-model review: passed. Independent audit: not yet performed.
+## Sources and scope
+Goldberger–Kang–Okoudjou, *Towards a classification of incomplete Gabor POVMs in \(\mathbb C^d\)*, arXiv:2106.01509v1, Theorem 1; Bojarovska–Flinth, *Phase Retrieval from Gabor Measurements*, arXiv:1503.05800v2, Theorem 2.3; published *Exact two-site amplitude-resonance law for odd-order cyclic Gabor projectors* (2026); published *Exact operator-span rank and arithmetic thresholds for cyclic boxcar Gabor measurements* (2026). Only linear operator-span rank for \(N\ge5\) is established. Unindexed equivalent even-order results remain a residual risk. No external expert or formal verification is asserted.
