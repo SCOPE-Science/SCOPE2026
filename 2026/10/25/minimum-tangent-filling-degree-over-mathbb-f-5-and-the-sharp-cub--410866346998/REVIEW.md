@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every nonzero homogeneous form up to scalar is represented exactly once by a first-nonzero-coefficient normalization. All \(31\) rational projective points and the gradients of each form are tested in exact \(\mathbb F_5\) arithmetic for all \(31\), \(3{,}906\), and \(2{,}441{,}406\) degree-one, -two and -three scalar classes, respectively. Their maximum tangent-union cardinalities are \(6\), \(21\), and \(29\). Both witness equations have independent smoothness arguments. Six explicitly specified quartic tangents give an entire pencil, so their incidence union is all \(31\) points. The smooth cubic witnesses sharpness at \(29\). Exact standalone C++ and Python replays agree. Arithmetic over larger fields and isomorphism classification are not asserted.
+PASS
 
-## Originality — PASS, with residual risk
+Enumerated every projective scalar class of nonzero forms over F5 in degrees 1,2,3 (31,3906,2441406). For each, computed all 31 projective zeros and gradients and union of rational tangent lines, independently of repository verifier, obtaining exact maxima 6,21,29 and zero tangent-filling cases. Smooth quartic X^4+X^3Y+Y^3Z-Z^4 has six distinct tangents forming complete six-line pencil through (1:1:0); gradient equations show geometric smoothness and hence irreducibility. Displayed smooth cubic reaches 29, so minimum irreducible tangent-filling degree is exactly four over F5. This is complete finite exhaustive proof only for F5.
 
-Asgarli–Ghioca's Question 1.5 asks for the minimum degree, and its general bounds do not imply the \(\mathbb F_5\) no-cubic result. Their specific unsuccessful degree-four example over \(\mathbb F_5\) is not a lower bound on arbitrary forms. The distinct 2022 point-blocking result concerns original rational curve points, not rational tangents in the dual plane. Earlier quartic-existence examples settle only the upper bound; the complete sharp \(29\)-point cubic obstruction and exact minimum remain distinct. Searches of published literature, mathematical research summaries and previously accessible arithmetic claims found no equivalent coverage. An unindexed complete census remains a residual originality risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result determines the exact minimum in the first odd prime field after three, directly answering a natural small-field case of a stated literature question. The \(29\)-of-\(31\) maximum, sharp even for smooth cubics, is a meaningful finite-projective-incidence threshold, not an arbitrary computed constant. The six-tangent pencil explains geometrically why a degree-four witness works.
+Asgarli and Ghioca explicitly ask the minimum tangent-filling degree over finite fields (Question 1.5) and note their degree q-1 construction fails at q=5, but that does not exclude other quartics or cubics; the sharp all-cubic obstruction and explicit alternative smooth quartic witness are not given by inspected results. Earlier Asgarli/Ghioca/Yip blocking-curve theorem is about covering with curve points rather than tangent lines.
 
-## Limitations and closest literature
+## value
 
-The 2023 Asgarli–Ghioca paper (`arXiv:2302.13420`) supplies the motivating problem and broad estimates. The 2022 Asgarli–Ghioca–Yip paper (`arXiv:2208.13299`) treats an inequivalent point-blocking notion. Earlier smooth-quartic examples over \(\mathbb F_5\) may yield different upper-bound witnesses. No priority claim over inaccessible or unindexed publications is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact finite-field cutoff answering a published minimum-degree question is substantive, with an independently exhaustive 2.44-million-form obstruction and sharp smooth witnesses; no unwarranted generalization to other fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,21 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Compile `verify.cpp` with `g++ -O2 -std=c++17 verify.cpp -o verify && ./verify`, and run `python3 check_witnesses.py`. Both programs use exact arithmetic in the five-element field and no network calls. The exhaustive certificate normalizes a nonzero coefficient vector by its first nonzero coordinate; thus all scalar classes, not merely a sample, are tested. It enumerates the complete rational projective plane, gradients at smooth zeros, and their tangent-line incidence masks.
+## correctness
 
-Verified console output:
+PASS
 
-```text
-DEGREE=1 SCALAR_CLASSES=31 FILLING=0 MAX_COVERAGE=6/31
-DEGREE=2 SCALAR_CLASSES=3906 FILLING=0 MAX_COVERAGE=21/31
-DEGREE=3 SCALAR_CLASSES=2441406 FILLING=0 MAX_COVERAGE=29/31
-QUARTIC_POINTS=11 SIX_TANGENTS_PENCIL=YES COVERED=31/31
-VERIFY_OK
-QUARTIC_TANGENT_PENCIL=6 POINTS=11 COVERAGE=31/31
-CUBIC_POINTS=10 COVERAGE=29/31 OMITTED=(1,1,4),(1,4,4)
-WITNESS_VERIFY_OK
-```
+Enumerated every projective scalar class of nonzero forms over F5 in degrees 1,2,3 (31,3906,2441406). For each, computed all 31 projective zeros and gradients and union of rational tangent lines, independently of repository verifier, obtaining exact maxima 6,21,29 and zero tangent-filling cases. Smooth quartic X^4+X^3Y+Y^3Z-Z^4 has six distinct tangents forming complete six-line pencil through (1:1:0); gradient equations show geometric smoothness and hence irreducibility. Displayed smooth cubic reaches 29, so minimum irreducible tangent-filling degree is exactly four over F5. This is complete finite exhaustive proof only for F5.
 
-The mathematical argument additionally checks geometric smoothness symbolically; a finite-field smooth-point test alone would not certify geometric smoothness. Results concern only the specified field and degrees, and neither independent scientific validation nor an independent audit has been performed.
+## originality
+
+PASS
+
+Asgarli and Ghioca explicitly ask the minimum tangent-filling degree over finite fields (Question 1.5) and note their degree q-1 construction fails at q=5, but that does not exclude other quartics or cubics; the sharp all-cubic obstruction and explicit alternative smooth quartic witness are not given by inspected results. Earlier Asgarli/Ghioca/Yip blocking-curve theorem is about covering with curve points rather than tangent lines.
+
+## value
+
+PASS
+
+An exact finite-field cutoff answering a published minimum-degree question is substantive, with an independently exhaustive 2.44-million-form obstruction and sharp smooth witnesses; no unwarranted generalization to other fields.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
