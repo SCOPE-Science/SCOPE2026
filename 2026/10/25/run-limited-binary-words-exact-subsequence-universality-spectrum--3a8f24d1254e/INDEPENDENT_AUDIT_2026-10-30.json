@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T03:54:09Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 4f3b8069108d42a4bec98426105208c62367d2cf",
+        "verification/verify.py inspected (not treated as proof)",
+        "Independent direct enumeration R=1..5 n=0..10 plus all-R coefficient endpoint identities"
+      ],
+      "rationale": "Greedy arch decomposition counts scattered subsequence-universality index. Tracking completed arches and current run length yields S_j=1+uzE+zS_(j+1), E=1+z(S_1+S_2). Solving gives F=1+2z A_R(1+uz)/(1−uz²(A_R+A_(R−1))); its coefficient polynomial has gapless support [2k,(R+1)k+R] and leading coefficient 2, proving all R,k and forcing thresholds. Independent direct target-subsequence exhaustive check of 5,235 admissible short binary strings plus exact support checks passed.",
+      "residual_risks": [
+        "Binary alphabet and two-sided identical maximum constant-run cap; no nonbinary extension."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted binary index generating function (1+z)/(1-z-2uz²) covers all binary words; no run cap R.",
+          "Kovačević–Vukobratović describe run-length-limited enumeration and asymptotic typicality, not the all-R arch-index distribution."
+        ],
+        "reasoning": "An unrestricted formula and a separate RLL word count do not determine their joint refinement.",
+        "searches": [
+          "Resultary: binary run length limited words subsequence universality index bivariate generating function exact forcing length",
+          "Web: binary run length limited subsequence universality index generating function arch factorization RLL",
+          "arxiv:2003.04629",
+          "arxiv:2104.09063",
+          "arxiv:2105.04617",
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2003.04629 original primary PDF read in relevant arch and algorithm sections",
+        "arxiv:2104.09063 primary abstract only",
+        "arxiv:2105.04617 original 13-page primary PDF, Section II Theorem 1 and selected other sections read",
+        "Resultary unrestricted exact binary universality law 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Barker et al give the universality definition and algorithms; Fleischmann et al study greedy arch remainder behavior.",
+          "The new leading coefficient precisely two at n=(R+1)k+R is not supplied by those general algorithmic definitions."
+        ],
+        "reasoning": "Using the greedy arch theorem as a premise does not make the new rational generating function a corollary of the older counting statements without a nontrivial run-aware automaton construction.",
+        "searches": [
+          "Barker et al 2020 arxiv:2003.04629 primary abstract",
+          "Fleischmann et al 2021 arxiv:2104.09063 abstract",
+          "Resultary 2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Greedy complete arches equal the scattered subsequence universality index, a known characterization.",
+          "The new automaton tracks run length and arch state jointly, yielding denominator 1-u z²(A_R+A_(R-1))."
+        ],
+        "reasoning": "An unrestricted arch count cannot be filtered to a bounded maximal run using a scalar substitution; both run types must be tracked.",
+        "searches": [
+          "Resultary: binary run length limited words subsequence universality index bivariate generating function exact forcing length",
+          "Web: binary run length limited subsequence universality index generating function arch factorization RLL",
+          "arxiv:2003.04629",
+          "arxiv:2104.09063",
+          "arxiv:2105.04617"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Retrieved exact unrestricted binary index law does not give N_R(n,k); no all-R joint table was observed."
+        ],
+        "reasoning": "No exhaustive index/RLL database was found; this is not absence proof.",
+        "searches": [
+          "Resultary: binary run length limited words subsequence universality index bivariate generating function exact forcing length",
+          "Web: binary run length limited subsequence universality index generating function arch factorization RLL",
+          "arxiv:2003.04629",
+          "arxiv:2104.09063",
+          "arxiv:2105.04617",
+          "Resultary: run-constrained scattered factor universality spectrum binary words"
+        ]
+      },
+      "rationale": "Known greedy arches, unrestricted binary universality enumerator and constrained run enumeration do not individually or jointly state the exact two-sided run-constrained bivariate index law; original mathematical synthesis is qualified by an unindexed joint-enumerator risk.",
+      "residual_risks": [
+        "The 2021 remainder paper was not read in full; a differently indexed refined enumerator could overlap.",
+        "No keyword search or abstract negative result alone establishes historical novelty; primary original statements were compared where available."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant arch-equivalence and algorithmic theorems covered, but no two-sided run-cap joint enumerator in the inspected source sections.",
+          "evidence": [
+            "Defines k-universality and studies k-spectrum, circular universality and algorithms, but accessible abstract has no RLL enumerator."
+          ],
+          "identifier_or_url": "arxiv:2003.04629",
+          "material_read": "Original 30-page primary PDF: introduction, page 4 rich/arch equivalence and Remark 7, pages 9–21 statements on universality of repetitions and concatenations, last sections surveyed; not every proof line reread.",
+          "method": "Compared claims in accessible primary abstract to exact counting and forcing statement",
+          "title": "Scattered Factor-Universality of Words",
+          "trigger": "Foundational greedy arch/universality theory"
+        },
+        {
+          "assessment": "No abstract-level full constrained index spectrum; unread text remains risk",
+          "evidence": [
+            "Abstract studies word repetitions, remainder and circular universality."
+          ],
+          "identifier_or_url": "arxiv:2104.09063",
+          "material_read": "Primary abstract including circular universality and remainder of Hebrard arch factorization; full proof not read",
+          "method": "Compared scope of stated results",
+          "title": "Scattered Factor Universality — The Power of the Remainder",
+          "trigger": "Related arch factorization and remainder methods"
+        },
+        {
+          "assessment": "NOT an implication of the published unrestricted generating function",
+          "evidence": [
+            "Unrestricted generating function (1+z)/(1-z-2uz²) does not encode maximal runs."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+          "material_read": "Indexed summary and generating function",
+          "method": "Compared unrestricted language to bounded-run sublanguage",
+          "title": "Closed-form law for binary subsequence universality",
+          "trigger": "Exact possible prior table"
+        },
+        {
+          "assessment": "PARTIAL_COVERAGE: run-length constrained counts and asymptotic capacity are prior, not the arch-universality refinement",
+          "evidence": [
+            "Theorem 1 yields log|S_L(n,ωn,ρn)|=nσ_L(ω,ρ)−log n+O(1), without a universality-index variable u; its parameters are Hamming weight and number of runs."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2105.04617",
+          "material_read": "Original 13-page primary PDF: abstract, Section II definition of S_L(n,w,r), Theorem 1 and generating function, selected Section III passages and final references inspected; not every proof line read",
+          "method": "Compared weight/run count and asymptotic information capacity against exact finite-length universality index joint distribution",
+          "title": "Asymptotic Behavior and Typicality Properties of Runlength-Limited Sequences",
+          "trigger": "Closest primary RLL counting literature on exactly the same constrained word family"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Motivated natural invariant and precise gap described in verified RESULT.md",
+        "Explicit comparison with antecedent scope as stated in originality section"
+      ],
+      "rationale": "The exact all-length all-cap index spectrum and two sharp forcing-boundary words connect natural homopolymer constraints with subsequence pattern completeness, a useful finite-language invariant beyond the known arch test.",
+      "residual_risks": [
+        "Binary alphabet and two-sided identical maximum constant-run cap; no nonbinary extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Binary alphabet and two-sided identical maximum constant-run cap; no nonbinary extension."
+  ],
+  "schema_version": 1
+}

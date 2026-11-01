@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,5 +19,24 @@
 }
 ---
 
-# Verification
-Run `python3 verification/verify.py` with Python 3.10+; no third-party packages are needed. The verifier independently performs direct subsequence universality tests over all allowed words at \(0\le n\le12\), \(1\le R\le6\), and checks against the displayed coefficient polynomial. A separate state-machine dynamic program checks length/index coefficient arrays to length 96 for run caps up to 12; it verifies the maximum support and two endpoint examples through index 14. Expected output: `RLL_BINARY_UNIVERSALITY_PASS` with recorded check counts. These finite calculations do not prove the all-length theorem. The formal-series recurrence and leading-coefficient proof are given in RESULT.md; no external code or data are required.
+# Independent mathematical audit
+
+## correctness
+
+PASS
+
+Greedy arch decomposition counts scattered subsequence-universality index. Tracking completed arches and current run length yields S_j=1+uzE+zS_(j+1), E=1+z(S_1+S_2). Solving gives F=1+2z A_R(1+uz)/(1−uz²(A_R+A_(R−1))); its coefficient polynomial has gapless support [2k,(R+1)k+R] and leading coefficient 2, proving all R,k and forcing thresholds. Independent direct target-subsequence exhaustive check of 5,235 admissible short binary strings plus exact support checks passed.
+
+## originality
+
+PASS
+
+Known greedy arches, unrestricted binary universality enumerator and constrained run enumeration do not individually or jointly state the exact two-sided run-constrained bivariate index law; original mathematical synthesis is qualified by an unindexed joint-enumerator risk.
+
+## value
+
+PASS
+
+The exact all-length all-cap index spectrum and two sharp forcing-boundary words connect natural homopolymer constraints with subsequence pattern completeness, a useful finite-language invariant beyond the known arch test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
