@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:02:43Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md and check.py Git blobs, all 9 package files read",
+        "Independent SymPy derivative and critical expansion checks, science_checks.py",
+        "NIST Mittag-Leffler cotangent expansion, invoked with explicit positive residues"
+      ],
+      "rationale": "For t>0 the sinc-fourth-derivative identity is exact: F_t(z)=2(s(z)-t s^(4)(z)), s=sin(z)/z. At w=z² the meromorphic ratio R=s^(4)/s has simple poles a_n=n²π² and positive residues c_n=8-48/a_n, obtained from the Mittag-Leffler cotangent expansion; R(w)=1+Σc_n/(w-a_n). Its imaginary part has strict sign opposite Im(w), excluding off-axis zeros; R is strictly decreasing on every real pole gap and the sinc-pole locations are not F_t zeros. R(0)=1/5 and R(-∞)=1 yield exactly the t=1 and t=5 transitions, root counts and locations. The expansion F_5(z)=(8/21)z²+O(z⁴) gives double origin and z²=(21/20)(t-5)+...; hyperbolic asymptotic yields y_t~4/(t-1). Independent exact SymPy reconstruction verified the fourth derivative, R(0) and critical Taylor coefficient; the full continuum proof relies on positive residues, not numerical tests.",
+      "residual_risks": [
+        "The pole expansion and its convergence are essential; finite numerical checks alone do not exclude unseen complex roots",
+        "No formal proof assistant or external expert certification was claimed"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baricz arXiv:1602.04295v2 introductory theorems cover pure Bessel/Struve derivatives; no all-t signed polynomial Fourier windows",
+          "Ki–Kim Duke Math J 104 (2000) is an unexcluded broader entire-function source, full text not established"
+        ],
+        "reasoning": "General Laguerre-Pólya and Fourier–Pólya principles are relevant but the inspected propositions do not directly bound this pencil in every t; residual historical coverage risk remains.",
+        "searches": [
+          "Fourier transform quartic taper (1-t x^4) sinc fourth derivative zeros imaginary axis zero classification positive residue Mittag Leffler",
+          "H Ki Y O Kim number nonreal zeros real entire Fourier Polya conjecture result Fourier polynomial zeros 2000"
+        ]
+      },
+      "checked_sources": [
+        "Zeros of Bessel function derivatives",
+        "On the number of nonreal zeros of real entire functions and the Fourier–Pólya conjecture",
+        "Resultary search: Fourier transform quartic taper (1-t x^4) sinc fourth derivative zeros imaginary axis zero classification positive residue Mittag Leffler"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Baricz Theorem 1 is Jν derivative reality with ν>n−1, not the varying pencil",
+          "Exact positive-residue R expansion and central collisions require extra derivation absent from inspected source"
+        ],
+        "reasoning": "The located Bessel derivative result cannot by direct substitution prove the quartic Fourier pencil statement, although unlocated classical wider theories could. General sinc product alone does not print the level-set geometry without nontrivial positive-residue derivation.",
+        "searches": [
+          "Fourier transform quartic taper (1-t x^4) sinc fourth derivative zeros imaginary axis zero classification positive residue Mittag Leffler",
+          "Bessel fourth derivative sinc fourth positive residues zeros quartic polynomial taper Fourier transform"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "s=sin(z)/z; F_t=2(s-t s^(4)), a sinc derivative pencil rather than pure Bessel derivative",
+          "Baricz et al. arXiv:1602.04295v2 Theorem 1 requires ν>n−1 for Jν^(n) reality"
+        ],
+        "reasoning": "The sinc-fourth-derivative pencil is the exact equivalent problem; neither the pure derivative result nor a fixed Dini linear combination implies all complex zeros and both transitions.",
+        "searches": [
+          "Fourier transform quartic taper (1-t x^4) sinc fourth derivative zeros imaginary axis zero classification positive residue Mittag Leffler",
+          "Bessel fourth derivative sinc fourth positive residues zeros quartic polynomial taper Fourier transform"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query retrieved finite Fourier zero sets on cyclic groups, not zeros of this continuous quartic window",
+          "DLMF Bessel zero tables concern related but different combinations"
+        ],
+        "reasoning": "Neither located exact tables nor the returned published findings tabulate or imply the simultaneous complex zero locus for all t; absence of hits is not novelty proof.",
+        "searches": [
+          "Fourier transform quartic taper (1-t x^4) sinc fourth derivative zeros imaginary axis zero classification positive residue Mittag Leffler"
+        ]
+      },
+      "rationale": "No prior work inspected supplies the exact all-parameter quartic-taper complex-zero classification with its critical t=1 and t=5 transitions. Baricz–Kokologiannaki–Pogány study zeros of pure Bessel derivatives under order restrictions, rather than the pencil s-t s^(4). Published Resultary Fourier-zero hits concern finite cyclic supports. The inaccessible complete Ki–Kim 2000 comparison is retained explicitly as priority risk. This is best-of-knowledge, not priority certification.",
+      "residual_risks": [
+        "Unindexed Laguerre–Pólya or Fourier-oscillation theorem could subsume the phase diagram",
+        "Full Ki–Kim 2000 text and broader older polynomial-window literature not conclusively compared"
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_IDENTICAL_PENCIL",
+          "evidence": "Theorem 1 treats Jν^(n) with ν>n−1; there is no all-positive-t sinc minus fourth derivative zero-classification in the inspected material.",
+          "identifier_or_url": "https://arxiv.org/pdf/1602.04295",
+          "material_read": "Original full PDF: abstract, introduction, Theorems 1–4, derivative-order hypotheses and parts of proofs",
+          "method": "Web PDF full-text reading with page-1 screenshot",
+          "title": "Zeros of Bessel function derivatives",
+          "trigger": "Higher derivatives and reality of entire-function zeros might dominate the result"
+        },
+        {
+          "assessment": "INACCESSIBLE_PLAUSIBLE_RESIDUAL_RISK",
+          "evidence": "The paper addresses nonreal zeros of real entire functions; without complete theorem hypotheses no NOT_COVERING conclusion is justified.",
+          "identifier_or_url": "DOI:10.1215/S0012-7094-00-10413-9",
+          "material_read": "Bibliographic description and publicly surfaced introductory excerpt only; full primary text NOT read",
+          "method": "Web search of title and bibliography, no claim of full-text exclusion",
+          "title": "On the number of nonreal zeros of real entire functions and the Fourier–Pólya conjecture",
+          "trigger": "Broad Fourier zero-count theorem could cover positive/negative quartic windows"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and check.py Git blobs, all 9 package files read",
+        "Independent SymPy derivative and critical expansion checks, science_checks.py",
+        "NIST Mittag-Leffler cotangent expansion, invoked with explicit positive residues"
+      ],
+      "rationale": "This is a complete infinite zero classification for the first genuinely quartic even polynomial taper beyond the quadratic/Dini case. The strict positive residues establish axial rigidity despite changing-sign density, exactly locate the zero-total-mass double collision and imaginary-to-real transition, and yield a parametric square-root law. The exact result is natural for Fourier-window spectral zeros and does not claim arbitrary tapers or larger even powers.",
+      "residual_risks": [
+        "Scope restricted to finite t>0 and the quartic window; no higher-degree classification"
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
