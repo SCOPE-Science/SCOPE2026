@@ -1,0 +1,151 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T12:17:19Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Full claim/proof https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/a-sharp-likelihood-ratio-threshold-for-proportional-odds-shock-m--dd1ab93b2ff9/RESULT.md, blob e4d3343894173eb02086613292f3e75110051eb3",
+        "Original diagnostic source https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/a-sharp-likelihood-ratio-threshold-for-proportional-odds-shock-m--dd1ab93b2ff9/verify.py, blob 5a8ce9e030c638adc962701429477d6580097ade; inspected but not trusted alone.",
+        "Independent /mnt/data/scope_worker01_20261027T1201Z/independent_lr_check.py: five symbolic identities (density-ratio derivative, atom boundary, both endpoint forms, and one-risk monotonicity) plus 10,800 exact rational parameter comparisons; sample transition n=5 verified.",
+        "Seven actual fetched Git blobs independently reconstruct assigned exact source tree."
+      ],
+      "rationale": "From CDF G=(E/D)^n with mass (1-p)^n and density n p alpha f E^(n-1)/D^(n+1), the LR derivative cancels f and has sign H(s)=(n−1)(beta(1−q)−alpha(1−p))−(n+1)(beta−alpha)P(s), P=(Ea Eb)/(Da Db), strictly decreasing from 1 to (1−p)(1−q). For beta>=alpha, maximum H is at s=1 and atom inequality beta p(1−q)<=alpha q(1−p) implies H<=0; for beta<alpha, maximum at s=0 and H(0)<=0 is exactly (n−1)(beta q−alpha p)>=2(alpha−beta), which forces strict atom condition. Conversely violating the max/atom condition violates LR. Equality, beta=alpha, n=1, tails and zero atom are covered. Independently derived symbolic identities and 10,800 exact rational parameter checks passed; finite tests are ancillary, not the universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://doi.org/10.1017/S0269964823000104, §3 heterogeneous PO risk parameters but only usual stochastic/reversed-hazard theorems.",
+          "https://arxiv.org/html/2104.08605v1, §4 heterogeneous ELS order theorems, not arbitrary PO LR.",
+          "https://doi.org/10.1111/stan.12296, 2023 Wiley abstract gives general semiparametric family, Marshall–Olkin instances but theorem list inaccessible."
+        ],
+        "reasoning": "General stochastic-order implications run LR ⇒ hazard/reversed hazard/usual stochastic, not conversely. Heterogeneous majorization theorems proving the latter orders do not dominate a sharp necessary-and-sufficient LR classification. The Wiley article plausibly contains a stronger result and was not ruled out from abstract alone.",
+        "searches": [
+          "\"Kundu\" \"Hawlader\" \"likelihood ratio\" \"largest claim\"",
+          "\"likelihood ratio ordering\" \"parallel systems\" \"proportional odds\" shocks",
+          "\"Stochastic comparisons of largest claim amounts from heterogeneous portfolios\" pdf arxiv preprint",
+          "Resultary: stochastic comparison portfolios proportional odds Marshall Olkin maximum claims likelihood-ratio (100 hits)"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1017/S0269964823000104",
+        "https://arxiv.org/html/2104.08605v1",
+        "https://doi.org/10.1111/stan.12296",
+        "https://onlinelibrary.wiley.com/doi/10.1111/stan.12296",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-the-l-order-likelihood-ratio-conjecture-holds-for-six-exponentia--c09f722f0d18"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://doi.org/10.1017/S0269964823000104 §§3,4,6, target objects coincide; available theorems derive stochastic/reversed-hazard/star order, and §6 invites LR work.",
+          "https://arxiv.org/html/2104.08605v1 §§3–4 theorems are sufficient stochastic/reversed hazard results for exponentiated location-scale models.",
+          "https://doi.org/10.1111/stan.12296 abstract only; complete implications cannot be decided.",
+          "Direct model calculus: positive LR log derivative sign switches endpoint depending on beta−alpha; mass ratio at zero imposes a second independent boundary condition."
+        ],
+        "reasoning": "No inspected earlier theorem logically yields an iff for all common baseline distributions and all n,p,q,alpha,beta, especially the lower-severity branch (n−1)(beta q−alpha p)≥2(alpha−beta). Known weaker orders do not imply LR. The inaccessible same-area Wiley paper is a documented qualification, not assumed noncovering.",
+        "searches": [
+          "https://doi.org/10.1017/S0269964823000104",
+          "https://arxiv.org/html/2104.08605v1",
+          "https://doi.org/10.1111/stan.12296",
+          "\"likelihood ratio\" \"proportional odds\" \"largest claim\" Bernoulli",
+          "\"likelihood ratio ordering\" \"parallel systems\" \"proportional odds\" shocks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent reformulations: LR order of maxima of homogeneous parallel systems with instantaneous Bernoulli shocks; monotonicity of positive density ratio plus its mass-at-zero jump; Marshall–Olkin/proportional-odds baseline change.",
+          "https://doi.org/10.1017/S0269964823000104, §§3–6 openly readable full text; its actual result orders are weaker and §6 proposes LR as a future problem.",
+          "https://arxiv.org/html/2104.08605v1, §2 Definition 2.1 and §§3–4 use usual and reversed-hazard comparisons."
+        ],
+        "reasoning": "The atom (1-p)^n makes a density-only LR theorem insufficient; independently one needs beta*p*(1-q)<=alpha*q*(1-p). The positive density ratio needs a separate n-dependent derivative inequality. None of the fully inspected same-object/equivalent sources establishes both.",
+        "searches": [
+          "\"likelihood ratio\" \"proportional odds\" \"largest claim\" Bernoulli",
+          "\"likelihood ratio\" shock largest claim amounts proportional odds Bernoulli sample size",
+          "\"proportional odds\" \"likelihood ratio order\" \"maximum\" shock",
+          "Resultary: likelihood ratio ordering largest claim maximum Bernoulli shock proportional odds common baseline severity parameters alpha beta sharp exact threshold sample size (25 hits)",
+          "Resultary: homogeneous Bernoulli thinned proportional odds largest claim maximum likelihood ratio order (100 hits; top related are exponential parallel systems and hazard identifiability)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top related result on l-order LR for six independent exponential components (2026/10/4/SCOPE-the-l-order-likelihood-ratio-conjecture-holds-for-six-exponentia--c09f722f0d18): different model and no Bernoulli no-claim atom.",
+          "Resultary 2026/9/21/SCOPE-first-two-failure-marginals-identify-proportional-hazards--ed35170c77f7: identifiability of component hazards, not LR comparison of shock maxima."
+        ],
+        "reasoning": "This theorem classifies a continuum parameter region, not a finite integer table. Relevant catalog/database searches surfaced related hazard and LR results but no exact two-branch portfolio-size threshold. Absence of hits is not proof of originality; direct primary-article implications were assessed separately.",
+        "searches": [
+          "Resultary: likelihood ratio ordering largest claim maximum Bernoulli shock proportional odds common baseline severity parameters alpha beta sharp exact threshold sample size (25 hits)",
+          "Resultary: homogeneous Bernoulli thinned proportional odds largest claim maximum likelihood ratio order (100 hits; top related are exponential parallel systems and hazard identifiability)",
+          "Resultary: stochastic comparison portfolios proportional odds Marshall Olkin maximum claims likelihood-ratio (100 hits)",
+          "\"likelihood ratio\" \"largest claim\" \"proportional odds\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after comparing theorem implications. Open primary paper on precisely the PO shock model treats weaker usual stochastic, reversed-hazard and star orders and explicitly proposes LR order; the other fully inspected primary paper treats ELS and weaker order types. Published mathematical-record searches did not reveal a dominating exact atom-sensitive LR classification. The inaccessible closely relevant Wiley source is specifically retained as a material residual priority risk rather than claimed noncoverage.",
+      "residual_risks": [
+        "The 2023 Wiley paper DOI 10.1111/stan.12296 could contain a general LR theorem specialized to the homogeneous PO+shock setting; only abstract and references were available after OA/preprint attempts, and authorized Oxford VPN was disconnected.",
+        "Unindexed equivalent formulations under parallel-system reliabilities or zero-inflated MO laws could exist; Resultary/web search incompleteness is not novelty proof.",
+        "No historical independent priority certification claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorems establish usual stochastic/reversed hazard/star orders, not iff mixed-distribution LR. §6 expressly identifies LR comparisons as possible future work.",
+          "evidence": [
+            "§3: usual stochastic and reversed-hazard comparisons for largest claims; §4: star order.",
+            "§6 concluding remarks: proposes likelihood ratio and convex ordering of same problem as potential future direction."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/S0269964823000104",
+          "material_read": "Complete openly readable HTML, model (1)–(2), sections 2–5 ordering results including §3, and §6 concluding remarks.",
+          "method": "Read primary full HTML and inspect result types, hypotheses and conclusions; targeted terminology lookups.",
+          "title": "Stochastic comparisons of largest claim and aggregate claim amounts",
+          "trigger": "Same Bernoulli-thinned proportional-odds largest-claim objects; potential dominating theorem."
+        },
+        {
+          "assessment": "Analyzes exponentiated location-scale distributions; main comparison results use usual stochastic and reversed-hazard order, and do not cover exact mixed LR theorem for unrestricted proportional-odds baselines.",
+          "evidence": [
+            "Introduction and Definition 2.1 list usual stochastic/reversed hazard; only likelihood ratio mention concerns a prior *smallest*-claim paper.",
+            "§4 Theorems 4.1–4.9 establish stochastic and reversed-hazard comparisons, not necessity-and-sufficiency LR."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2104.08605v1",
+          "material_read": "Full publicly available arXiv HTML manuscript, sections 1–6 including Definitions 2.1, Theorems 3.1–3.6 and 4.1–4.9, applications and conclusion.",
+          "method": "Direct full primary HTML reading with specific theorem and likelihood-ratio text checks.",
+          "title": "Ordering results between the largest claims arising from two general heterogeneous portfolios",
+          "trigger": "Potential larger heterogeneous shock-portfolio comparison covering homogeneous case."
+        },
+        {
+          "assessment": "An abstract-level partial comparison only: no valid whole-document noncoverage inference. Potential earlier LR theorem remains a material priority risk.",
+          "evidence": [
+            "Published 2023-04-20, Statistica Neerlandica 77, 497–515.",
+            "Publisher abstract: stochastic comparison theorems for heterogeneous/interdependent portfolios and Marshall–Olkin family; order types and sharp homogeneous iff cases not specified."
+          ],
+          "identifier_or_url": "https://doi.org/10.1111/stan.12296",
+          "material_read": "Publisher article landing page: complete abstract, bibliographic metadata and references only, NOT the full theorem text.",
+          "method": "arXiv/author preprint and lawful OA searches did not yield complete article; authorized institutional full-text retrieval returned vpn_disconnected; no bypass/retry.",
+          "title": "Stochastic comparisons of largest claim amounts from heterogeneous portfolios",
+          "trigger": "Highly pertinent original 2023 semiparametric largest-claim paper including Marshall–Olkin family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "https://doi.org/10.1017/S0269964823000104 §6 directly motivates LR ordering of the same claim maximum model.",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/a-sharp-likelihood-ratio-threshold-for-proportional-odds-shock-m--dd1ab93b2ff9/RESULT.md full two-branch necessity-and-sufficiency proof and explicit n=5 threshold illustration."
+      ],
+      "rationale": "The 2023 primary PO shock-model paper explicitly names LR comparison as a motivated open direction. The submitted all-parameter iff answers this natural strong-order problem for a broad homogeneous class, including the necessary atom-at-zero jump. Its sharp integer threshold when severity odds decrease but claim occurrence increases is a genuinely informative design tradeoff, not an arbitrary n=5 numerical lookup or a restatement of a known table. The work deliberately does not claim heterogeneous, unequal-size, dependent or varying-baseline extensions.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/a-sharp-likelihood-ratio-threshold-for-proportional-odds-shock-m--dd1ab93b2ff9/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/a-sharp-likelihood-ratio-threshold-for-proportional-odds-shock-m--dd1ab93b2ff9/verify.py",
+    "https://doi.org/10.1017/S0269964823000104",
+    "https://arxiv.org/html/2104.08605v1",
+    "https://doi.org/10.1111/stan.12296",
+    "Resultary published records, targeted semantic searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Highly pertinent Wiley DOI 10.1111/stan.12296 was not full-text inspected: open/preprint search unsuccessful and Oxford VPN disconnected. This is residual originality risk and not evidence of coverage/noncoverage.",
+    "The independent verification consists of proof reconstruction and finite exact checks; it does not constitute formal Lean or external expert certification.",
+    "No baselines with atoms/flat-density gaps, parameter endpoints p,q in {0,1}, different portfolio sizes or heterogeneous/dependent risk extensions."
+  ],
+  "schema_version": 1
+}

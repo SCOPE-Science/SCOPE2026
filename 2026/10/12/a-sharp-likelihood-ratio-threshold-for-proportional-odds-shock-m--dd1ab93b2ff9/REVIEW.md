@@ -1,12 +1,21 @@
-# Scientific review: likelihood-ratio threshold for homogeneous shock maxima
+# Independent mathematical audit
 
-## Correctness — PASS
-The claimed direction is established by an exact common-baseline distribution formula and a positive-part density ratio. The crucial derivative is reduced to one scalar function of the baseline survival; its maximum occurs at a known endpoint according to the sign of the difference between the two odds parameters. Atoms of no-claim probability \((1-p)^n\) and \((1-q)^n\) are explicitly compared. The boundary inequality in the higher-odds case and the sample-size inequality in the lower-odds case are both necessary and sufficient. The derivation covers every real parameter in its stated domain; the exact-rational script's 76,803 checks are only supplemental diagnostics.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The directly motivating open-access study of Panja, Kundu, Hazra and Pradhan (DOI 10.1017/S0269964823000104) investigates the same proportional-odds maximum model but proves usual-stochastic, reversed-hazard and star-order comparisons. Its concluding remarks specifically identify likelihood-ratio order as a further direction. The inspected Das–Kayal work (arXiv:2104.08605) gives sufficient comparisons for different parametric families and orders, rather than the present if-and-only-if atom-sensitive threshold. Nearby literature on general stochastic comparisons and smaller claim order statistics has not been found to imply the criterion. The 2023 Kundu–Kundu–Hawlader full text was inaccessible and could conceivably contain a relevant stronger result; this risk remains, as does the possibility of an equivalent unnamed theorem under a different parameterization. No independent priority verification is claimed.
+PASS
 
-## Value — PASS
-The source problem asks for stronger stochastic comparisons of largest claims; an exact classification rather than a merely sufficient ordering is useful in that context. In the scientifically meaningful tradeoff where frequency increases while severity odds decrease, the theorem gives the exact integer portfolio size at which likelihood-ratio ordering first appears. This is not a fixed-case arithmetic example: it holds over all positive odds parameters and all continuous positive common baselines, and it explicitly handles the discontinuous probability mass at zero. This first classification does not address heterogeneous risks within portfolios or dependence.
+From CDF G=(E/D)^n with mass (1-p)^n and density n p alpha f E^(n-1)/D^(n+1), the LR derivative cancels f and has sign H(s)=(n−1)(beta(1−q)−alpha(1−p))−(n+1)(beta−alpha)P(s), P=(Ea Eb)/(Da Db), strictly decreasing from 1 to (1−p)(1−q). For beta>=alpha, maximum H is at s=1 and atom inequality beta p(1−q)<=alpha q(1−p) implies H<=0; for beta<alpha, maximum at s=0 and H(0)<=0 is exactly (n−1)(beta q−alpha p)>=2(alpha−beta), which forces strict atom condition. Conversely violating the max/atom condition violates LR. Equality, beta=alpha, n=1, tails and zero atom are covered. Independently derived symbolic identities and 10,800 exact rational parameter checks passed; finite tests are ancillary, not the universal proof.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS after comparing theorem implications. Open primary paper on precisely the PO shock model treats weaker usual stochastic, reversed-hazard and star orders and explicitly proposes LR order; the other fully inspected primary paper treats ELS and weaker order types. Published mathematical-record searches did not reveal a dominating exact atom-sensitive LR classification. The inaccessible closely relevant Wiley source is specifically retained as a material residual priority risk rather than claimed noncoverage.
+
+## value
+
+PASS
+
+The 2023 primary PO shock-model paper explicitly names LR comparison as a motivated open direction. The submitted all-parameter iff answers this natural strong-order problem for a broad homogeneous class, including the necessary atom-at-zero jump. Its sharp integer threshold when severity odds decrease but claim occurrence increases is a genuinely informative design tradeoff, not an arbitrary n=5 numerical lookup or a restatement of a known table. The work deliberately does not claim heterogeneous, unequal-size, dependent or varying-baseline extensions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
