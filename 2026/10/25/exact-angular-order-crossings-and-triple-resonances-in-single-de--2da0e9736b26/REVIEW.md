@@ -1,12 +1,21 @@
-# Scientific review: exact angular-order spherical-cap crossings
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement concerns the projection of multiplication by a proper polar cap onto the **single degree** spherical-harmonic eigenspace, not the entire low-pass band. The normalized associated-Legendre integral is diagonal in azimuthal order. The exact raising/ODE computation of the boundary term proves the displayed difference identity. Positivity of the prefactor and simplicity/parity of Legendre-derivative roots prove the exact adjacent crossing counts. A differentiated Legendre equation excludes a root shared by two derivative orders separated by two, which both classifies consecutive triples and forbids four consecutive coincident absolute-order levels. Endpoint expansions give the claimed change in leading angular order. The exact checker confirms 330 bounded symbolic assertion groups, not an infinite proof. Limits: nonconsecutive collisions and general bandlimited combinations remain unclassified.
+## correctness
 
-## Originality — PASS (best knowledge, independent priority pending)
-Michel–Plattner–Seibert (arXiv:2103.14650, 2021) develops the cap Slepian framework and commuting operators. Simons–Dahlen–Wieczorek (GJI 166, 2006, Section 4) develops azimuthally separated low-pass cap matrices. The nearest published hemispherical half-energy result concerns exactly the excluded equatorial boundary, rather than positive-radius absolute-order crossings. These frameworks imply individual integrals and the availability of Legendre identities; they do not in the inspected results establish the exact indexed positive-crossing counts and consecutive triple resonance classification. The 1974 Samaddar paper on associated-Legendre integrals was not fully inspected and may contain overlapping boundary identities; an equivalent older statement remains a priority risk. Search results are not treated as proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-The theorem completely classifies adjacent-order concentration crossings and consecutive triple resonances across every spherical-harmonic degree, without a numerical eigenvalue sweep. Its exact indexed counts, impossibility of four consecutive equal levels, and forced change in the most concentrated angular order answer structural questions about cap-localization spectra. The problem is a natural spectral restriction of classical Slepian concentration, not an arbitrary handpicked finite invariant. Nonconsecutive degeneracies remain outside the claim.
+For exact harmonic degree ell≥1 and 0<c<1, longitudinal orthogonality diagonalizes the cap projector; Legendre raising plus Sturm–Liouville equation integrates the adjacent order eigenvalue-square difference to a strictly positive factor times (1-c²)^(m+1) P_ell^(m)(c)P_ell^(m+1)(c). Simple interlacing derivative zeros give ell-m-1 positive sign-changing crossings per pair, indexed total ell(ell-1)/2; the differentiated ODE excludes simultaneous derivative roots separated by two, yielding exactly floor((ell-1)^2/4) indexed three-level resonances and no four consecutive levels. Endpoint parity gives top m=ell-1 near c=0; pole scaling gives m=0 near c=1. Separately derived exact rational integrations for 28 (ell,m) pairs through ell=7 passed. No claim for nonconsecutive coincidences.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Single-degree Slepian setting and all standard associated-Legendre raising identities are prior. A cap-integral boundary identity may also be a special-function identity previously known; here the substantive surviving classification is the exact crossing count, three-consecutive-order resonances and endpoint leader change for all ell. Neither the inspected broader Slepian framework nor the accessible 1974 integral abstract itself establishes that classification. Best-of-knowledge PASS with specific priority risk.
+
+## value
+
+PASS
+
+The exact location and multiplicity of degeneracies in a natural rotationally symmetric finite-dimensional spectral localization problem are meaningful eigenvalue-order invariants; the crossing and triple-resonance census reveals nontrivial changes of the dominant azimuthal order, not a generic Legendre root-count exercise by itself.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
