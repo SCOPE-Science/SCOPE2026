@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For the exact product-recycling ODE and strictly positive initial data, inward-pointing boundaries and a conversion-capacity substrate ceiling give forward completeness. The flux cancellation \(\dot M=\nu-\lambda y/q\) proves global divergence for \(\lambda\le0\), while scalar asymptotic autonomy proves the unique substrate limit. Integrating the exact mass identity at \(\lambda=0\), and the variation-of-constants formula at \(\lambda<0\), proves both additive offsets and positivity of the exponential amplitude. For \(\lambda>0\), separate explicit upper bounds give global boundedness. All quantifiers and inequalities are checked in RESULT.md. The symbolic and numerical test script executes, but the proof does not rely on finite samples.
+
+## Originality — PASS, subject to historical-priority risk
+Wang, Gelens, Xu and Rong (arXiv:2606.31545), full accessible text Sections II–V and Appendices A–C, study the same exact model and derive a flux elimination at equilibria, but do not give a negative/zero net-removal runaway theorem or its two explicit offsets. Their blanket boundedness sentence needs a positive-net-removal qualification in the mathematically allowed signed removal parameter regime. Goldbeter and Moran (1988), Sections 2–3 and conclusions, analyze a related product-recycling allosteric system with **positive** removal and bounded attractors. The available Kar–Ray (2004) review abstract does not establish the current all-initial-data claim; full text was not independently obtained. Related published oscillator mass-balance theorems apply to different reaction networks or positive removal rates. Exact cancellation is established prior background, not the claimed novelty.
+
+## Value — PASS
+The sign of net removal is a natural domain boundary for the same glycolysis model used to study isolas and birhythmicity. The theorem establishes a sharp global mathematical boundary of the **entire** positive state space, not a numerical local stability or negative-state test. It quantifies the only two escape mechanisms (linear at zero and exponential at negative net removal) down to their exact additive offsets, and shows convergence of the substrate to an enzyme-capacity equilibrium independent of cooperative exponent. This fixes the regime in which bounded-attractor bifurcation diagrams can be applied and gives precise long-time dynamical predictions.
+
+## Closest literature and limits
+The original 2026 glycolysis article supplies positive-removal equilibrium and isola structure, not the signed-removal complete escape asymptotics. The 1988 Goldbeter–Moran article uses positive linear product clearance. This result does not classify the bounded positive-removal regimes, does not treat low conversion capacity, and does not identify the additive exponential amplitude \(C\) solely from parameters (it depends on the initial state). Negative net removal has a limited direct physiological interpretation. The 2004 related review's full text was not available for comparison. There has been no independent verification.
+
+Self-review: passed. Independent audit: not yet performed.
