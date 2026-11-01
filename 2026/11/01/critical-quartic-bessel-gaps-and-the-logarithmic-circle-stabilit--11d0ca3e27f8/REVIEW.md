@@ -1,0 +1,19 @@
+# Scientific review: critical quartic Bessel gaps
+
+## Correctness — PASS
+
+The all-order exact identity is derived from Bessel's two differential recurrences: differentiating \(r^2(J_{j-1}^2+J_j^2)^2/2\) gives \((2j-1)r(J_{j-1}^4-J_j^4)\). The origin contribution vanishes, and the adjacent Hankel phases force the boundary value \(2/\pi^2\) at infinity. Telescoping is performed at a common finite cutoff. The moments at \(q>4\) have the identical leading pole \(3/(\pi^2(q-4))\); a uniformly controlled mean-zero periodic remainder justifies taking the finite-mode difference through the critical limit. The square-root normalization then follows from a scalar mean-value argument. The semigroup expression is an exact Laplace representation of the odd reciprocal sum. The exact domain, strict spectral gap, and equality cases follow from Parseval and Tonelli. The final embedded supplementary checker passed its tests, including exact symbolic and finite-cutoff identities. Its finite examples are not treated as proofs of the infinite claims.
+
+## Originality — PASS relative to inspected material
+
+Xu (arXiv:2610.19648) identifies the divergent two-dimensional critical endpoint and proves strict zeroth-mode dominance for \(q>4\). Its §3.2.1 flux identity is an expressly credited technical precursor, restricted in that application to the first three modes and \(s>2\); it does not state or imply a numerical evaluation of the all-order **critical** boundary flux without additionally taking a nonvanishing boundary limit. Nor do its modal inequalities give the odd-harmonic-number eigenvalues, the logarithmic Poisson form, or the square-root critical coefficients. Carneiro--Oliveira e Silva--Sousa (arXiv:1710.10365) gives the modal reduction, and Ciccone--Sousa (2025) gives earlier comparison regions but no matched-cutoff critical classification. DLMF provides standard recurrences and asymptotics, not the claimed application. Targeted public-literature and mathematical-record searches did not locate a dominating equivalent statement. The possibility that a classical integral table or unindexed work contains the telescoped endpoint formula remains a material originality risk; searches are not proof of novelty.
+
+## Value — PASS
+
+The critical exponent \(q=4\) is the actual integrability obstruction for planar radial--angular spherical extension. The first nonzero mode and full mode hierarchy govern quantitative stability, while direct critical moments diverge and standard finite-exponent ordering is not a quantitative endpoint formula. Their exact renormalization produces a natural unbounded logarithmic Fourier multiplier, a sharp spectral Poincaré inequality, and exact leading constants for any prescribed finite harmonic bandwidth. These are precise, structurally motivated invariants of the original harmonic-analysis problem, rather than arbitrary parameter slices. An unrestricted identification of the second-largest mode near the critical endpoint is deliberately not asserted.
+
+## Closest literature and limitations
+
+Closest: Z. Xu, *Sharp radial--angular mixed norm Fourier extension and global stability on spheres*, arXiv:2610.19648, Theorems 1.2--1.3, Eq. (3.65), §3.2, Remark 3. Also E. Carneiro, D. Oliveira e Silva, M. Sousa, *Sharp mixed norm spherical restriction*, arXiv:1710.10365, and V. Ciccone, M. Sousa, *Global and local maximizers for some Fourier extension estimates on the sphere*, DOI 10.1007/s00041-025-10201-7. The result applies to integer Bessel orders and to matched radial cutoffs; its finite-band mode ordering depends on the fixed bandwidth, and it supplies no general nonzero-mode ordering for all \(q>4\). Classical-source coverage cannot be ruled out absolutely. Independent mathematical audit has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
