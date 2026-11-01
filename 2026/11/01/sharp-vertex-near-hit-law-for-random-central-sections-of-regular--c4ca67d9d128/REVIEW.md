@@ -1,0 +1,9 @@
+# Mathematical review
+
+**Correctness — PASS.** The section-edge norm identity gives an exact equivalence between a small squared-radius deficit and a union of near-vertex height-ratio events. Direct spherical belt integration gives the first-order coefficient; intersections of distinct belts have quadratic measure. The Gaussian tangent-projection covariance, independence of Gaussian radius and direction, and normalizing Gamma ratios yield the claimed sharp constant. In dimension two the three angular belts tile the unoriented circle at the given sharp endpoint. The extreme-value law and expectation follow from the established cdf expansion and bounded support. The included finite tests passed but do not certify the infinite argument.
+
+**Originality — PASS, with residual historical uncertainty.** Guédon–Litvak–Tatarko–Vritsiou (arXiv:2609.24131) prove high-probability random-section diameter bounds rather than exact simplex radial-tail constants. König (arXiv:2312.01325) optimizes simplex-section volume; Hinrichs–Krieg–Novak–Prochno–Ullrich (arXiv:1901.06639) consider ellipsoids. Inspected public published-finding corpus claims on regular-simplex sections determine combinatorial face counts from the normal sign pattern, while radial length depends on continuous height ratios. Their implications therefore do not reach the claimed endpoint law. Unindexed prior computations remain possible; search absence alone is not proof of absolute novelty.
+
+**Value — PASS.** A natural geometric inverse-sampling benchmark gets an exact dimension-dependent linear endpoint constant, a complete planar cdf, and a sharp exponential random-search rate. The Gaussian maximum connection is structural rather than an arbitrary numerical specialization. Only origin-centered radii, not entire high-dimensional laws or optimal section circumradii, are addressed.
+
+Self-review: passed. Independent audit: not yet performed.
