@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The exact decomposition by edge-label multiplicities is exhaustive: all distinct, exactly two equal, or all three equal. The distinct case uses orientation-preserving multilinearity, the repeated case uses E|U-V|=1/3. Their independent sums give Q. The area-squared identity follows from independent centered determinant expansion and isotropic covariance. Differentiation yields Q sign determined by H(z)>0. The Taylor coefficients agree with symbolic expansion and reproducible independent simulation; the finite tests do not replace proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Reitzner-Schütt-Werner (2019), Theorem 1.2: fixed body, sample number N tends to infinity; present result fixes sample size three and varies m.",
+        "Prior geometric results for triangle and parallelogram give m=3 and m=4 only; prior arbitrary polygon corner law is a large-N limit, not finite N=3."
+      ],
+      "reasoning": "No inspected stronger result implies the exact regular-m sequence for all m and both moments. The general covariance identity yields only the second moment after computing covariance, but not the first-moment shape ordering or quartic cancellation.",
+      "searches": [
+        "arxiv:1911.05917; full-text intro and Theorems 1.1-1.2",
+        "published-finding corpus: random boundary triangle area regular polygon monotone in number of sides variance",
+        "own ledger claims: vertex laws boundary-sampled polygons, optimal edge allocation and independent corner-area limits, finite-sample boundary-hull area parallelograms, exact boundary-hull area triangles"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1911.05917 (public 2019-11-14), PDF sections as specified",
+      "Madras and KC (2006), journal abstract and accessible full-text transcription",
+      "published-finding corpus search record 2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5",
+      "Own accessible week ledger claim records for sample triangle, parallelogram, and general asymptotic polygonal boundary hull"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Madras-KC expected area 3m cot(pi/m)/(2(m-1)(m-2)) comes from sampling WITHOUT replacement among polygon vertices; it is not the same quantity.",
+        "Reitzner-Schütt-Werner N->infinity fixed polytope asymptotics do not give fixed-three sample moments or m->infinity cancellation.",
+        "Known classical circle result is only the limiting 3/(2pi^2) normalized mean, with no finite-m coefficient."
+      ],
+      "reasoning": "The finite-m first-moment identity needs a distinct-edge midpoint sum plus a repeated-edge contribution; the latter is not part of discrete-vertex sampling and makes the m^-2 term vanish. Neither published claim contains the required calculation or resulting sharp ordering. The second moment follows a standard covariance identity but its exact specialization and quartic rate are included in one combined finding rather than independently claimed as novel.",
+      "searches": [
+        "Madras and KC (2006) Theorem 2 and Section 5, accessible full transcription",
+        "Reitzner et al. arxiv:1911.05917 Theorems 1.1 and 1.2, inspected PDF pages 1-4",
+        "own ledger: prior exact triangle and parallelogram sampling laws",
+        "published-finding corpus: regular polygon 3 boundary points triangle area 1+3 cotangent squared over m squared"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Madras and KC (2006), Theorem 2: uniformly choose a subset of three distinct polygon VERTICES, expected area 3m cot(pi/m)/(2(m-1)(m-2)); accessible full transcription https://paperzz.com/doc/9275334/randomly-generated-triangles-whose-vertices-vertices-...",
+        "New result samples continuously by arclength with replacement, whose same-edge probability is nonzero; its expected normalized area equals (1+3 cot^2(pi/m)/2)/m^2."
+      ],
+      "reasoning": "Discrete-vertex sampling is a different measure and cannot imply the continuous-edge integral without new conditioning. The same-angle circle limit is classical and excluded from novelty.",
+      "searches": [
+        "exact expected area and variance of three points uniformly sampled on boundary of regular m-gon arclength quartic convergence to circle",
+        "regular polygon 3 boundary points triangle area 1+3 cotangent squared over m squared",
+        "random boundary triangle area regular polygon monotone in number of sides variance",
+        "expected area three independent random points uniformly on perimeter regular polygon boundary arclength",
+        "geometric probability mean area three points perimeter regular hexagon 5-gon 1+cot",
+        "\"random triangle\" \"regular polygon\" \"boundary\" \"expected area\" continuous edges",
+        "\"inscribed triangle\" \"perimeter\" \"regular polygon\" \"average area\" sample points"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest published-finding corpus record 2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5 addresses distinct VERTICES, conditioned on center containment.",
+        "Closest own findings: area expectations for triangles (m=3), parallelograms (m=4)."
+      ],
+      "reasoning": "The searches returned no exact expression for the continuously arclength-sampled m>=5 regular polygons. This is bounded negative evidence, not a uniqueness proof.",
+      "searches": [
+        "published-finding corpus: exact expected area and variance of three points uniformly sampled on boundary of regular m-gon arclength quartic convergence to circle",
+        "published-finding corpus: regular polygon 3 boundary points triangle area 1+3 cotangent squared over m squared",
+        "web: expected area three independent random points uniformly on perimeter regular polygon boundary arclength"
+      ]
+    },
+    "rationale": "Full 2006 source transcription proves a distinct-vertex law; the 2019 boundary-simple-polytope paper treats large-N hull approximation. Neither supplies the complete mean and second-moment arclength laws across regular polygons or quartic finite-sidedness cancellation. The closest previous local boundary-hull records treat only triangles and parallelograms at three samples, and other prior records concern different statistics. Search does not prove absolute priority; older unindexed equalities remain a residual risk.",
+    "residual_risks": [
+      "Classical non-indexed geometric-probability texts could contain the continuous-perimeter exact formula or an equivalent general method.",
+      "Only relevant introductory theorems, not all 43 pages of the 2019 preprint, were inspected.",
+      "One relevant published-finding corpus distinct-vertex conditional record was compared from its abstract only; its different sampling rule makes direct dominance implausible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Addresses sample-number N tending to infinity with fixed body P, not exact N=3 moments as regular side count m varies",
+        "evidence": [
+          "Theorem 1.2 states N^{-n/(n-1)} asymptotics for missing volume; introduction explicitly says fixed-N explicit formulas generally not expected."
+        ],
+        "identifier_or_url": "arxiv:1911.05917; https://arxiv.org/pdf/1911.05917",
+        "material_read": "Full-text introduction, Theorems 1.1 and 1.2, discussion of planar n=2 and asymptotics on PDF pages 1-4, including visual page images; appendices not read",
+        "method": "arXiv open-access preprint PDF full-text extraction and page screenshots",
+        "title": "The convex hull of random points on the boundary of a simple polytope",
+        "trigger": "Same arclength boundary-sampled polytope model, potential stronger general theorem"
+      },
+      {
+        "assessment": "Discrete model chooses three distinct vertices, while new model chooses continuous arclength points with replacement and nonzero repeated-edge contribution; formula not the same",
+        "evidence": [
+          "Theorem 2: mean area 3m cot(pi/m)/(2(m-1)(m-2)) for three distinct vertices; new area mean has a different formula.",
+          "Its Section 5 also enumerates m-vertex subsets, not continuous edge samples."
+        ],
+        "identifier_or_url": "Madras and KC, Rose-Hulman Undergraduate Mathematics Journal 7(2) Article 12 (2006); https://scholar.rose-hulman.edu/rhumj/vol7/iss2/12/",
+        "material_read": "Full accessible text transcription: abstract, introduction, Sections 2-4 area formula and proof outline, Section 5 theorem, including source description and comparisons; institutional PDF refused HTTP 403",
+        "method": "University journal full abstract and accessible article text transcription https://paperzz.com/doc/9275334/randomly-generated-triangles-whose-vertices-are-vertices-...",
+        "title": "Randomly Generated Triangles whose Vertices are Vertices of Regular Polygons",
+        "trigger": "Exact expected triangle area for regular polygons with same outer shape"
+      },
+      {
+        "assessment": "Related but different sampling law and conditioning, so search summary cannot establish coverage; full text not inspected",
+        "evidence": [
+          "published-finding corpus summary expressly says sample uniformly from distinct vertices conditioned on strictly containing center."
+        ],
+        "identifier_or_url": "published-finding corpus 2026/10/11/SCOPE-conditional-area-moments-for-center-containing-regular-polygon-t--c4fde75045b5",
+        "material_read": "Search-record title and abstract summary only, not primary full text; restricted to distinct vertices and center-containment conditioning",
+        "method": "published-finding corpus semantic search",
+        "title": "Conditional area moments for center-containing regular-polygon triangles",
+        "trigger": "Same regular polygon and triangle area moments"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18ed2b67-d82a-403a-ab43-050ffeaa9b5b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Three-point boundary-sampled hull area is a natural invariant in stochastic convex approximation. The exact first-two-moment sequence for every regular polygon, a sharp strict ordering between all side counts, and quartic cancellation in the approach to the limiting disk constitute a motivated complete classification that is not implied by existing distinct-vertex results or large-sample estimates. The cancellation contrasts sharply with the usual quadratic geometric polygon-to-circle approximation.",
+    "status": "PASS"
+  }
+}
