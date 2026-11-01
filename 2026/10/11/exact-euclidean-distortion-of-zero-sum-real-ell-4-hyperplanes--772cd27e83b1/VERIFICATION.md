@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Mathematical verification record
-The proof uses the published half-degree principle for symmetric quartic polynomials [1] and the elementary convexity of feasible ellipsoid matrices. The independent audit channel remains unperformed.
+# Independent mathematical audit
 
-The standalone `verify.py` in the same directory uses SymPy to prove symbolically the two-level fourth-moment formula, both parity formulas, and the distortion quotient. It uses exact `Fraction` arithmetic to compare all two-level values for each integer dimension from \(3\) through \(150\); random centered samples in dimensions \(3\) through \(16\) are only diagnostic. It also proves symbolically the quartic identity on the three-coordinate zero-sum plane.
+## correctness
 
-Actual replay command: `python verify.py`. Actual output: `VERIFY_OK: two-level identities, parity formulas, and n=3 identity exact; finite diagnostics passed`.
+PASS
 
-The computer checks do not establish nonnegativity at arbitrary vectors, which follows instead from Riener's Theorem 1.3, nor do they establish that no linear reparametrization improves the distortion, which follows from the explicit feasible-ellipsoid averaging argument. They are not substituted for either proof step.
+The claim is the multiplicative real d_BM for H_n={x in R^n:sum x_i=0}, n>=3 with inherited unnormalized ell4. Riener Theorem 1.3 applies to F_c(z)=sum_i(z_i-mean z)^4-c(sum_i(z_i-mean z)^2)^2, a symmetric quartic: global nonnegativity reduces to <=2 coordinate levels. For levels multiplicities k,n-k, exact Q_k=n/[k(n-k)]−3/n. Its max occurs k=1 and min at nearest k to n/2, yielding M_n=(n²−3n+3)/(n(n−1)), m_even=1/n, m_odd=(n²+3)/(n(n²−1)), attained. For any optimal Hilbert ellipsoid, feasibility K⊂E(Q)⊂dK is convex in positive Q via affine constraints Q(x)<=1 and Schur complement block [Q f;f^T d²]>=0 for all polar f. Averaging under coordinate permutations gives scalar Euclidean form on irreducible real H_n. Thus d_BM^4=M_n/m_n globally, not just for one coordinate basis. n=3 yields Q≡1/2 and d=1; asymptotic d~n^(1/4). Direct fractional checks n=3..10 confirm expressions, and the seven-file Git tree matched the assignment. Finite checks are not the theorem; critical half-degree hypothesis and optimality proof were inspected.
 
-[1] https://arxiv.org/abs/1001.4464
+## originality
+
+PASS
+
+Best-of-knowledge PASS for the complete real all-n exact multiplicative Banach--Mazur invariant. Riener supplies symmetric-quartic positivity reduction, and Dalén may already supply the moment-extreme inequalities under finite-sample moment terminology; neither inspected source asserts the Euclidean BM distance for the constrained real space. Grundbacher--Kobos Theorem 1.1 is for direct ell-p sums. An adjacent published real p-dependent n=3 theorem covers only the n=3 member, while an adjacent complex result has different field and odd-n lower radial extrema. The full all-dimension real geometric invariant including parity and unrestricted ellipsoid optimality was not found in independent sources. A plausible historical moment source is inaccessible and flagged without using inaccessible material to claim absence.
+
+## value
+
+PASS
+
+The canonical sum-zero S_n-standard subspace of classical real ell4 is a natural geometric object. Its Euclidean Banach--Mazur distance is a natural GL-invariant quantity, computed sharply for every n, including odd/even level imbalance and the n=3 Hilbertian exception. These are intrinsic geometric distinctions for a whole subspace family rather than an arbitrary slice or slight numerical improvement. Direct-sum bounds do not answer it. The value claim is limited to exact real ell4 hyperplanes; the moment ingredient itself is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

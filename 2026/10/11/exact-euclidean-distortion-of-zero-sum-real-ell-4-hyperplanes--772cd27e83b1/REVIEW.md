@@ -1,15 +1,21 @@
-# Scientific review of an exact Euclidean distortion formula
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The center-subtracted quartic polynomial is invariant under all coordinate permutations and of degree four, so Riener's half-degree principle (Theorem 1.3 of arXiv:1001.4464) reduces each sharp inequality to two-valued test vectors. Exact calculation yields \(Q_k=n/[k(n-k)]-3/n\), with extrema at \(k=1\) and the nearest integer to \(n/2\). Averaging an arbitrary feasible distortion ellipsoid is legitimate because its inner containment inequalities are affine in its positive-definite matrix and its outer containment inequalities have a linear matrix inequality representation. Invariant matrices restrict to scalar Euclidean forms on the zero-sum hyperplane. The proof treats every real vector and every linear isomorphism, not just finite samples. The standalone symbolic checker verifies the algebra and is not presented as a universal proof.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic uncertainty.** Riener (arXiv:1001.4464, full text, Theorem 1.3 and proof) supplies a general symmetry reduction, not the Banach--Mazur distance. Grundbacher--Kobos (arXiv:2603.18268, full text, Theorem 1.1 and Section 2) treats direct \(\ell_p\)-sums, whereas the zero-sum hyperplane is a linear constraint coupling all coordinates. Existing exact planar Banach--Mazur records describe specific two-dimensional norms and do not imply a uniform codimension-one formula with distinct parity regimes. Targeted theorem- and parameter-level searches found no covering statement. Historical subspace literature not fully indexed or accessible remains a residual risk; no search failure is taken as mathematical proof of novelty.
+PASS
 
-## Value
-**PASS.** The zero-sum subspace is the canonical standard representation of coordinate permutations and a natural codimension-one subspace of the classical real \(\ell_4\) space. The exact Euclidean distortion in *every* dimension, including a sharp odd/even split, an exceptional Hilbertian two-dimensional member, and the optimal asymptotic constant, is a natural complete geometric invariant rather than an arbitrary finite example. The averaging step certifies the invariant under all changes of coordinates, not merely the inherited Euclidean coordinates.
+The claim is the multiplicative real d_BM for H_n={x in R^n:sum x_i=0}, n>=3 with inherited unnormalized ell4. Riener Theorem 1.3 applies to F_c(z)=sum_i(z_i-mean z)^4-c(sum_i(z_i-mean z)^2)^2, a symmetric quartic: global nonnegativity reduces to <=2 coordinate levels. For levels multiplicities k,n-k, exact Q_k=n/[k(n-k)]−3/n. Its max occurs k=1 and min at nearest k to n/2, yielding M_n=(n²−3n+3)/(n(n−1)), m_even=1/n, m_odd=(n²+3)/(n(n²−1)), attained. For any optimal Hilbert ellipsoid, feasibility K⊂E(Q)⊂dK is convex in positive Q via affine constraints Q(x)<=1 and Schur complement block [Q f;f^T d²]>=0 for all polar f. Averaging under coordinate permutations gives scalar Euclidean form on irreducible real H_n. Thus d_BM^4=M_n/m_n globally, not just for one coordinate basis. n=3 yields Q≡1/2 and d=1; asymptotic d~n^(1/4). Direct fractional checks n=3..10 confirm expressions, and the seven-file Git tree matched the assignment. Finite checks are not the theorem; critical half-degree hypothesis and optimality proof were inspected.
 
-## Sources, boundaries, and risk
-Primary theorem: Cordian Riener, *On the degree and half degree principle for symmetric polynomials*, arXiv:1001.4464 (2010), Theorem 1.3. Closest modern Banach--Mazur coverage: Florian Grundbacher and Tomasz Kobos, *Exact Banach--Mazur distances of certain \(\ell_p\)-sums and cones*, arXiv:2603.18268 (2026), Theorem 1.1, whose direct-sum assumption does not cover this constrained hyperplane. Other exact planar distances likewise do not supply an all-dimensional formula. No uniqueness of optimizers is claimed, and independent bibliographic and mathematical verification is not completed.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete real all-n exact multiplicative Banach--Mazur invariant. Riener supplies symmetric-quartic positivity reduction, and Dalén may already supply the moment-extreme inequalities under finite-sample moment terminology; neither inspected source asserts the Euclidean BM distance for the constrained real space. Grundbacher--Kobos Theorem 1.1 is for direct ell-p sums. An adjacent published real p-dependent n=3 theorem covers only the n=3 member, while an adjacent complex result has different field and odd-n lower radial extrema. The full all-dimension real geometric invariant including parity and unrestricted ellipsoid optimality was not found in independent sources. A plausible historical moment source is inaccessible and flagged without using inaccessible material to claim absence.
+
+## value
+
+PASS
+
+The canonical sum-zero S_n-standard subspace of classical real ell4 is a natural geometric object. Its Euclidean Banach--Mazur distance is a natural GL-invariant quantity, computed sharply for every n, including odd/even level imbalance and the n=3 Hilbertian exception. These are intrinsic geometric distinctions for a whole subspace family rather than an arbitrary slice or slight numerical improvement. Direct-sum bounds do not answer it. The value claim is limited to exact real ell4 hyperplanes; the moment ingredient itself is not claimed new.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
