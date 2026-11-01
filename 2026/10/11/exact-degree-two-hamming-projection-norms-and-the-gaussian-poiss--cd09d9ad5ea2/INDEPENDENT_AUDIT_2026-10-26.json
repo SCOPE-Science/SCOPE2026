@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T15:16:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The one-coordinate orthogonal projection to mean-zero functions has normalized integral kernel u(a,b)=q·1_{a=b}−1. Summing u_i u_j over pairs yields the displayed second Krawtchouk polynomial K(d)=[((q−1)n−qd)^2−(q−2)((q−1)n−qd)−n(q−1)]/2. The q^{-n} matrix has equal absolute row/column sums E|K(D)|, D~Bin(n,(q−1)/q), hence both endpoint operator norms. E K(D)=0 and K(0)>0, so an integer negative value exists; convex quadratic gives a unique strict negativity interval, with zero roots properly excluded. Conditioning on two mismatches gives signed second difference E[u1u2 1_{D≤t}]=p²[b(t)−b(t−1)], proving the four-boundary formula with out-of-range masses zero. For n/q→∞, standardized matching count has Lyapunov third-moment bound O(√(q/n)), vanishing linear correction and uniformly bounded fourth moments; this establishes Gaussian convergence plus L1 uniform integrability and √(2/(πe)) limit. For q→∞ with n/q→λ>0, Binomial matching counts converge to Poisson, factorial moment bounds imply fourth-moment UI, and the polynomial tends to second Charlier; k=1 is the sole negative term for 0<λ<2−√2, while k=2 changes sign transversally at λ*=2−√2. Differentiating uniformly summable Poisson tails gives positive derivative jump √2 λ*exp(−λ*). Finally λ↓0 and λ→∞ asymptotics follow first terms and Poisson CLT with UI. Independently coded exact rational checks of 1659 (n,q) pairs and 25 entire row enumerations, plus cusp numerical check, corroborate finite algebra only; no finite data are used to prove limits.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Scarabotti–Tolli gives the Hamming/wreath decomposition; it describes the object but the examined §5 theorems do not supply the absolute endpoint norm.",
+          "Polyanskiy analyzes binary spherical averaging/Fourier bounds and Kirshner–Samorodnitsky binary p≥2 moments: these are not a dominating q-varying absolute endpoint theorem.",
+          "Defant et al. and the closely related published Boolean exact-result document concern Boolean q=2, so q growth and a Poisson parameter cannot arise by specialization.",
+          "General closed-form polynomial summation of Diaconis–Zabell is a live unresolved possible domination of part of the finite formula; full theorem not read."
+        ],
+        "reasoning": "A prior general statement covering every finite q≥3 endpoint norm AND the precise varying-q Poisson profile/cusp would dominate this claim. No such full implication was established by inspected sources. Finite exact formulas alone might be classical and are flagged rather than counted as independent novelty proof.",
+        "searches": [
+          "Resultary query: Poisson Charlier absolute second polynomial moment Gaussian crossover varying alphabet Hamming projection and cusp threshold",
+          "Web: q-ary Hamming scheme primitive idempotent norm infinity degree two Krawtchouk mean absolute value asymptotic",
+          "arXiv:math/0701533v1 §5.2–5.4",
+          "arXiv:1309.3014 §2",
+          "arXiv:1909.11929 Theorems 1.3 and 1.10",
+          "arXiv:2302.00233 Boolean projection constants"
+        ]
+      },
+      "checked_sources": [
+        "Scarabotti and Tolli, Harmonic analysis on a finite homogeneous space, arXiv:math/0701533v1, Chapter 5, Sections 5.2–5.4 (primary arXiv full HTML).",
+        "Y. Polyanskiy, Hypercontractivity of spherical averages in Hamming space, arXiv:1309.3014, primary PDF, Section 2 Lemma 2.8 and Theorem 1.1.",
+        "N. Kirshner and A. Samorodnitsky, A moment ratio bound for polynomials and some extremal properties of Krawchouk polynomials and Hamming spheres, arXiv:1909.11929v1, Theorems 1.3 and 1.10, primary full HTML.",
+        "Defant, Galicer, Mansilla, Mastyło, Muro, Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces, arXiv:2302.00233, abstract and related exact Boolean consequence; full text of this paper was not independently read in this audit.",
+        "A lattice-phase second term for second-chaos projection constants on the Boolean cube, Resultary/2026 published research record 2026/10/11/...--ec79809353f9, full RESULT.md read (Git blob fe0d61e10a458b4ee32e6567b3a3264ac2b867a9).",
+        "Persi Diaconis and Sandy Zabell, Closed Form Summation for Classical Distributions: Variations on a Theme of De Moivre, Statistical Science 6(3) (1991), 284–302, DOI:10.1214/ss/1177011699; abstract and indexed Section 6.1 seen only; full text inaccessible during this run.",
+        "Resultary published semantic search twice: exact self mirror and related Boolean/Johnson/Hamming work; no independent published exact joint q-growing norm/cusp theorem identified."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published Boolean result starts with ∥P₂∥=½ E|S_N²−N| at q=2 and gives an exact one-mass finite identity; it cannot imply the q→∞ crossover.",
+          "Orthogonal projection kernels are standard in Scarabotti–Tolli, and any finite norm formula can be written as their absolute binomial Krawtchouk sum; identifying the kernel does not alone prove a NEW finite identity.",
+          "The 1991 orthogonal-polynomial sum results may already imply the signed telescoping evaluation, but its full text could not be compared. Accessible excerpts do not establish the λ=2−√2 cusp."
+        ],
+        "reasoning": "The earlier Boolean sharp constant and leading Gaussian limit are properly credited. The audited new joint-limit Poisson profile requires q→∞ and n/q finite, which is outside their domains; the derivative cusp follows a Charlier root crossing. Classical Charlier polynomial zero locations might make that calculation short, but no actual predecessor implying the complete q≥3 crossover was verified. No claim of independence or exhaustive coverage is made.",
+        "searches": [
+          "Web: degree two Krawtchouk L1 norm total variation second difference binomial",
+          "Web: Closed Form Summation for Classical Distributions Diaconis 1991 Charlier binomial formulas",
+          "arXiv:2302.00233 (Boolean Fourier support projections)",
+          "Resultary Boolean degree-two record ec79809353f9",
+          "Diaconis–Zabell 1991 Section 6.1 title"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kernel is the second q-ary Krawtchouk polynomial; the endpoint norm is its weighted absolute binomial mean and can also be viewed as an L1 Lebesgue constant or binomial second finite difference.",
+          "The inspected Resultary Boolean second-chaos RESULT.md proves a q=2 exact single-boundary binomial constant and lattice phase, not the variable q crossover.",
+          "Diaconis–Zabell 1991 abstract makes an older general orthogonal-polynomial summation formulation plausible, with full coverage undecidable from accessible material."
+        ],
+        "reasoning": "Compared Krawtchouk L1 moment, Fourier projector Lebesgue constant, orthogonal-polynomial Rodrigues/binomial second differences, and absolute second Charlier moments. The Boolean exact formula specializes a different parameter q=2; it does not logically establish the q≥3 family or the n/q finite asymptotic. A more general closed-form polynomial sum might mechanically imply the finite boundary identity, so only the combined asymptotic/cusp contribution is treated as possibly new.",
+        "searches": [
+          "Resultary query: Exact L1 Lebesgue constants of degree-two q-ary Hamming scheme primitive idempotent projections; Krawtchouk weighted absolute mean and binomial boundary formulas",
+          "Web: q-ary Hamming scheme primitive idempotent norm infinity degree two Krawtchouk mean absolute value asymptotic",
+          "Web: degree two Krawtchouk L1 norm total variation second difference binomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact-match entry with the same record suffix cd09d9ad5ea2 is a copy of the assigned finding and cannot establish independent priority.",
+          "Resultary Boolean second-chaos and degree-two Johnson spherical projector are exact values for different ambient schemes/parameters.",
+          "A Krawtchouk coefficient table gives individual kernel entries, not necessarily their weighted absolute sum or limit."
+        ],
+        "reasoning": "The claim is a two-parameter exact norm and scaling profile, not one finite constant. No independently published table of the full two-parameter result and Poisson cusp was found. Non-discovery is weak negative evidence only; classical sum identities remain a risk.",
+        "searches": [
+          "Resultary query: Exact L1 Lebesgue constants of degree-two q-ary Hamming scheme primitive idempotent projections; Krawtchouk weighted absolute mean and binomial boundary formulas",
+          "Resultary query: Poisson Charlier absolute second polynomial moment Gaussian crossover varying alphabet Hamming projection and cusp threshold",
+          "Resultary related published Hamming and Johnson degree-two projector titles",
+          "second q-ary primitive idempotent absolute eigenprojection norm exact tables"
+        ]
+      },
+      "rationale": "Best of knowledge for the COMPLETE q≥3 finite-n endpoint theorem and nonconstant q→∞, n/q→λ Poisson–Charlier crossover with first cusp: Hamming harmonic decomposition, fixed-binary exact projection constants and classical Krawtchouk identities are known input, but the inspected independent published statements do not establish the combined varying-alphabet assertion. An important inaccessible classical polynomial-summation paper may cover the finite four-mass reduction, so the finite formula is not claimed independently novel in isolation. This is not absolute priority certification.",
+      "residual_risks": [
+        "Diaconis–Zabell (1991) advertises summations for all orthogonal polynomials and contains a Poisson–Charlier section. Its FULL text could cover the finite four-boundary identity or portions of the absolute Charlier evaluation. Only the abstract and section index were accessible; authorized institutional retrieval responded vpn_disconnected. No whole-paper exclusion is asserted.",
+        "The exact finite boundary identity is potentially a routine special instance of classical Rodrigues/binomial summation formulas. Its algebraic correctness is independent of a novelty claim.",
+        "No independently dated source establishing the entire variable-alphabet n/q crossover plus precise first cusp was identified in searches conducted; searches cannot establish absolute historical priority.",
+        "Full primary text of Defant et al. arXiv:2302.00233 was not examined independently here, though its published Boolean scope and associated full Boolean exact-result document were checked.",
+        "Some primary papers were materially read in relevant original sections rather than every page; novelty is only best of knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Contains classical harmonic decomposition and Krawtchouk framework; inspected theorems do not assert the sharp absolute degree-two endpoint norm or joint n/q limit.",
+          "evidence": [
+            "§5.2 representation decomposition and §5.4 Theorem 5.12, rather than an absolute row-sum evaluation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/math/0701533v1",
+          "material_read": "Primary arXiv full HTML, Chapter 5 Hamming/wreath representation statements, especially §§5.2–5.4 and Theorem 5.12.",
+          "method": "Opened and inspected mathematical statements and definitions in relevant full-text sections.",
+          "title": "Harmonic analysis on a finite homogeneous space",
+          "trigger": "Potential general q-ary Hamming decomposition implying degree-two projection endpoint norm."
+        },
+        {
+          "assessment": "Binary Hamming sphere averages and Lp-to-L2/other p-norm bounds do not by themselves give q>=3 exact l1/l∞ norm or variable-q Poisson crossover.",
+          "evidence": [
+            "§2 Fourier sphere decomposition and Lemma 2.8; ambient Hamming cube is binary."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1309.3014",
+          "material_read": "Primary original PDF, opening theorem, Section 2 Krawtchouk formula and Lemma 2.8, including inspected PDF pages.",
+          "method": "Read relevant statements in primary PDF and visually inspected rendered PDF pages 0 and 14.",
+          "title": "Hypercontractivity of spherical averages in Hamming space",
+          "trigger": "Fourier projection norm bounds potentially implying endpoint claim."
+        },
+        {
+          "assessment": "Different binary p≥2 moment-ratio and spherical concentration questions; does not imply stated q≥3 norm plus crossover in inspected results.",
+          "evidence": [
+            "Theorems 1.3 and 1.10; moment ratios and binary Hamming concentration rather than q-varying endpoint norm."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/1909.11929v1",
+          "material_read": "Primary arXiv full HTML, opening and relevant Theorems 1.3 and 1.10, nearby explanatory sections.",
+          "method": "Read original theorem formulas and compare p≥2 binary moment ratios against endpoint norms.",
+          "title": "A moment ratio bound for polynomials and some extremal properties of Krawchouk polynomials and Hamming spheres",
+          "trigger": "Possible stronger Krawtchouk moment estimate or projection norm."
+        },
+        {
+          "assessment": "Covers q=2 and Gaussian leading constant and lattice correction, but not q≥3 or a q→∞ n/q→λ Poisson–Charlier norm profile with cusp.",
+          "evidence": [
+            "Exact Boolean one-boundary formula and cN+lattice second term, with no alphabet parameter q tending to infinity."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-lattice-phase-second-term-for-second-chaos-projection-constant--ec79809353f9/RESULT.md",
+          "material_read": "Entire published RESULT.md including exact one-binomial-boundary formula, phase-correction proof, relationship to Defant et al.",
+          "method": "Fetched primary full Git blob from published record and checked theorem domain q=2.",
+          "title": "A lattice-phase second term for second-chaos projection constants on the Boolean cube",
+          "trigger": "Close published exact absolute degree-two Walsh projection constant."
+        },
+        {
+          "assessment": "PRIORITY_RISK_NOT_EXCLUDED: may already imply the four-boundary finite identity or some Poisson expectation formulas. Inaccessible source alone is not evidence of noncoverage; the joint scaling/cusp is not established by accessible material.",
+          "evidence": [
+            "Statistical Science 6(3), 284–302 (1991) abstract on orthogonal-polynomial polynomial expectations; indexed §6.1 Poisson/Charlier. Full text could not be examined."
+          ],
+          "identifier_or_url": "https://doi.org/10.1214/ss/1177011699",
+          "material_read": "Publisher/indexed abstract and indexed Section 6.1 title; no main text, theorem, or appendix retrieved.",
+          "method": "Searched lawful preprint/open-access routes first, then attempted authorized institutional full-text retrieval; it returned vpn_disconnected.",
+          "title": "Closed Form Summation for Classical Distributions: Variations on a Theme of De Moivre",
+          "trigger": "Abstract promises closed forms for expectations of orthogonal polynomials; Section 6.1 includes Poisson and Charlier, directly plausible general ancestor."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The absolute ℓ¹/ℓ∞ amplification of a canonical degree-two Hamming harmonic projection is a natural operator invariant for product alphabets, not an arbitrary slice. The exact two-parameter reduction to four binomial masses enables sharp finite evaluation, while the q-growing regime produces a nontrivial Charlier limit that fixed-alphabet Boolean calculations cannot even parametrize. The first cusp at 2−√2 identifies an exact threshold where the minimizing sign support changes. This is an independently useful exact asymptotic invariant without needing a downstream general theorem. If the finite boundary identity is classical, the joint scaling/cusp remains the mathematically motivated distinction; routine classical inputs are acknowledged.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Scarabotti and Tolli, Harmonic analysis on a finite homogeneous space, arXiv:math/0701533v1, Chapter 5, Sections 5.2–5.4 (primary arXiv full HTML).",
+    "Y. Polyanskiy, Hypercontractivity of spherical averages in Hamming space, arXiv:1309.3014, primary PDF, Section 2 Lemma 2.8 and Theorem 1.1.",
+    "N. Kirshner and A. Samorodnitsky, A moment ratio bound for polynomials and some extremal properties of Krawchouk polynomials and Hamming spheres, arXiv:1909.11929v1, Theorems 1.3 and 1.10, primary full HTML.",
+    "Defant, Galicer, Mansilla, Mastyło, Muro, Asymptotic insights for projection, Gordon–Lewis and Sidon constants in Boolean cube function spaces, arXiv:2302.00233, abstract and related exact Boolean consequence; full text of this paper was not independently read in this audit.",
+    "A lattice-phase second term for second-chaos projection constants on the Boolean cube, Resultary/2026 published research record 2026/10/11/...--ec79809353f9, full RESULT.md read (Git blob fe0d61e10a458b4ee32e6567b3a3264ac2b867a9).",
+    "Persi Diaconis and Sandy Zabell, Closed Form Summation for Classical Distributions: Variations on a Theme of De Moivre, Statistical Science 6(3) (1991), 284–302, DOI:10.1214/ss/1177011699; abstract and indexed Section 6.1 seen only; full text inaccessible during this run.",
+    "Resultary published semantic search twice: exact self mirror and related Boolean/Johnson/Hamming work; no independent published exact joint q-growing norm/cusp theorem identified."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Higher-degree Hamming projections or arbitrary degree combinations are not classified.",
+    "No rates or uniform two-parameter convergence beyond specified sequences is asserted.",
+    "The finite-dimensional script is a corroborating computation, not proof of limits or originality.",
+    "Historical finite absolute-Charlier summation priority remains open at Diaconis–Zabell (1991) because the full text was not accessible.",
+    "No claim of independent external expert/Lean verification or priority certification."
+  ],
+  "residual_risks": [
+    "Diaconis–Zabell (1991) advertises summations for all orthogonal polynomials and contains a Poisson–Charlier section. Its FULL text could cover the finite four-boundary identity or portions of the absolute Charlier evaluation. Only the abstract and section index were accessible; authorized institutional retrieval responded vpn_disconnected. No whole-paper exclusion is asserted.",
+    "The exact finite boundary identity is potentially a routine special instance of classical Rodrigues/binomial summation formulas. Its algebraic correctness is independent of a novelty claim.",
+    "No independently dated source establishing the entire variable-alphabet n/q crossover plus precise first cusp was identified in searches conducted; searches cannot establish absolute historical priority.",
+    "Full primary text of Defant et al. arXiv:2302.00233 was not examined independently here, though its published Boolean scope and associated full Boolean exact-result document were checked.",
+    "Some primary papers were materially read in relevant original sections rather than every page; novelty is only best of knowledge."
+  ],
+  "schema_version": 1
+}

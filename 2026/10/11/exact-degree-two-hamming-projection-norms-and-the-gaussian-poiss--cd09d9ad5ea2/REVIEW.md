@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact orthogonal projection kernel is the coefficient of the two-coordinate mean-zero tensor product: \(K_{n,q}(d)=\sum_{i<j}u_i u_j\). Its Hamming-distance rows have binomial multiplicities, and the signs form a single strictly negative integer interval. A signed binomial CDF second difference shows that the absolute row sum equals four boundary masses. An explicit polynomial rescaling and fourth-moment uniform integrability prove the Gaussian and Poisson limits. The first Poisson cusp is an absolute-value sign change at index \(2\) and parameter \(2-\sqrt2\), with a nonzero exact derivative jump. The standalone exact checker passed all finite checks listed in `VERIFICATION.md`; those checks are supplementary, not a substitute for the proof.
+## correctness
 
-## Originality — PASS, with residual risk
-The 2007 primary source of the Hamming homogeneous-space representation (Scarabotti–Tolli, arXiv:math/0701533) gives decomposition machinery, not a sharp absolute endpoint norm or an alphabet-varying limit profile. Polyanskiy (arXiv:1309.3014) treats binary Fourier projections in \(L^p\to L^2\) contexts; Kirshner–Samorodnitsky (arXiv:1909.11929) treats binary Krawtchouk moment ratios for \(p\ge2\). Neither inspected statement is an endpoint \(\ell^1\) / \(\ell^\infty\) norm identity over \(q\ge3\) with a nonconstant Poisson–Charlier crossover and cusp. A previously recorded Boolean degree-two norm asymptotic does not imply the growing-alphabet crossover. Historical Krawtchouk/Charlier \(L^1\) calculations may contain a differently formulated identity; that is a genuine remaining risk, not disproved by search failure. A 2026 expository note on Hamming primitive idempotents was encountered only through indexed snippets; complete coverage was not established.
+PASS
 
-## Value — PASS
-The invariant is the endpoint amplification of the canonical degree-two Hamming primitive idempotent, a central object in harmonic analysis of product alphabets. A full absolute Krawtchouk sum collapses to four boundary probabilities for every finite parameter. The two-parameter asymptotic identifies the exact regime in which Gaussian amplification universality fails, supplies the explicit Poisson replacement, and exhibits its first genuine nonsmooth threshold. This is more than extending the binary formula by substitution: the sparse-alphabet regime and its cusp are absent at fixed alphabet size.
+The one-coordinate orthogonal projection to mean-zero functions has normalized integral kernel u(a,b)=q·1_{a=b}−1. Summing u_i u_j over pairs yields the displayed second Krawtchouk polynomial K(d)=[((q−1)n−qd)^2−(q−2)((q−1)n−qd)−n(q−1)]/2. The q^{-n} matrix has equal absolute row/column sums E|K(D)|, D~Bin(n,(q−1)/q), hence both endpoint operator norms. E K(D)=0 and K(0)>0, so an integer negative value exists; convex quadratic gives a unique strict negativity interval, with zero roots properly excluded. Conditioning on two mismatches gives signed second difference E[u1u2 1_{D≤t}]=p²[b(t)−b(t−1)], proving the four-boundary formula with out-of-range masses zero. For n/q→∞, standardized matching count has Lyapunov third-moment bound O(√(q/n)), vanishing linear correction and uniformly bounded fourth moments; this establishes Gaussian convergence plus L1 uniform integrability and √(2/(πe)) limit. For q→∞ with n/q→λ>0, Binomial matching counts converge to Poisson, factorial moment bounds imply fourth-moment UI, and the polynomial tends to second Charlier; k=1 is the sole negative term for 0<λ<2−√2, while k=2 changes sign transversally at λ*=2−√2. Differentiating uniformly summable Poisson tails gives positive derivative jump √2 λ*exp(−λ*). Finally λ↓0 and λ→∞ asymptotics follow first terms and Poisson CLT with UI. Independently coded exact rational checks of 1659 (n,q) pairs and 25 entire row enumerations, plus cusp numerical check, corroborate finite algebra only; no finite data are used to prove limits.
 
-## Closest literature and limits
-Scarabotti–Tolli (2007), Sections 5.1–5.4; Polyanskiy (2013), Section 2; Kirshner–Samorodnitsky (2019), Sections 1–3. Classical Gaussian, Poisson, Krawtchouk and Charlier facts are used, not claimed as discoveries. The result is limited to degree two; equivalent historical representations under orthogonal-polynomial terminology remain plausible.
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best of knowledge for the COMPLETE q≥3 finite-n endpoint theorem and nonconstant q→∞, n/q→λ Poisson–Charlier crossover with first cusp: Hamming harmonic decomposition, fixed-binary exact projection constants and classical Krawtchouk identities are known input, but the inspected independent published statements do not establish the combined varying-alphabet assertion. An important inaccessible classical polynomial-summation paper may cover the finite four-mass reduction, so the finite formula is not claimed independently novel in isolation. This is not absolute priority certification.
+
+## value
+
+PASS
+
+The absolute ℓ¹/ℓ∞ amplification of a canonical degree-two Hamming harmonic projection is a natural operator invariant for product alphabets, not an arbitrary slice. The exact two-parameter reduction to four binomial masses enables sharp finite evaluation, while the q-growing regime produces a nontrivial Charlier limit that fixed-alphabet Boolean calculations cannot even parametrize. The first cusp at 2−√2 identifies an exact threshold where the minimizing sign support changes. This is an independently useful exact asymptotic invariant without needing a downstream general theorem. If the finite boundary identity is classical, the joint scaling/cusp remains the mathematically motivated distinction; routine classical inputs are acknowledged.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
