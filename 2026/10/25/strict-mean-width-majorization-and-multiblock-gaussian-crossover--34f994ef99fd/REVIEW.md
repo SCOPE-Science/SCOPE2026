@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact domain is every unweighted complete multipartite stable-set polytope with \(r\ge3\) positive integer classes and fixed \(N\). The support is the largest positive-part sum from any one class. Gaussian radial factorization yields the exact spherical normalization; the strict transfer uses a monotone max-difference, exchangeability and a positive-probability strict event. Majorization connects all profiles and identifies the unique extremal orbits. Joint central limit convergence plus a uniform \(L^2\) bound justifies the expected-max critical limit. Gaussian full support proves strict convexity of its correction on the zero-sum plane. Finite exact rational and Gaussian numerical checks are independent corroboration, not an infinite proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The earlier exact mean width of the **two-block** height-two order polytope is a genuine stronger-than-title overlap for \(r=2\), because a coordinate reflection makes it congruent to the bipartite stable-set polytope. The present claim strictly excludes that case and establishes a new all-\(r\) outward-transfer inequality and an \(r\)-variate normal-max window for \(r\ge3\). The inspected original 2018 stable-set full paper proves vertex/edge facts, and the inspected 2023 ranked-poset full paper proves face inequalities, not this mean-width majorization theorem. Related ellipsoid, inradius, enclosing-sphere and graphical-zonotope width-variance findings do not imply this spherical mean width result. Indexed searches under stable-set, chain-polytope, free sums of cubes, Gaussian maxima, majorization and width aliases showed no directly covering statement. The risk of a prior probabilistic reformulation remains nonzero; neither database partition nor failed searches prove worldwide priority.
+PASS
 
-## Mathematical value — PASS
-The complete multipartite graphs form a canonical family of perfect graphs with a naturally varying independence-block profile. An exact **sharp** fixed-size geometric ordering, rigid extremal graphs, a multivariate critical scaling law and an \(r\)-fold macroscopic extremal separation provide motivated information unavailable from graph enumeration, face counts or minimum-radius formulas. The strict exchange lemma explains the extremal mechanism and may be useful for other free sums of coordinate cubes.
+The ORIGINAL RESULT.md contains a mathematically false auxiliary strict-transfer assertion for arbitrary independent C>=0: with Bernoulli Y and C identically 100, for p=5,q=2 both compared maxima are identically 100. An independent exact-rational counterexample confirms this. The corrected complete RESULT.md supplied in this review adds the necessary hypothesis P(C=0)>0 to the general lemma, and explicitly proves this hypothesis in the application because C is a maximum of finite independent rectified-normal block sums, all zero with positive probability. The strict coupling and derivative argument are then sound. Gaussian support identity, balancing/extremizing transfers, multivariate CLT and L2 uniform integrability, Gaussian-max strict convexity, fixed-r macroscopic limit and extremal ratio are reconstructed for the FINAL corrected claim. Independent 1,260 exact-rational Bernoulli surrogate transfers corroborate its strict comparison. This is a substantive correction to a false lemma, not a PASS of the unchanged original.
 
-## Boundaries and verification
-The result fixes \(r\ge3\), uses the canonical unweighted Euclidean realization and does not cover a growing number of blocks or other widths. The embedded checker completes direct support tests, rational surrogate transfers and Gaussian comparisons. No independent mathematical audit has occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The repaired statement retains the original natural multipartite width theorem but removes an unjustified stronger generality in its proof. Known two-block folded-normal width is explicitly excluded. Published stable-set polytope 1-skeleton, order/chain face-vector, and regular-polytope Gaussian mean width results do not imply integer-profile strict transfer and the r-way shifted Gaussian crossover. Indexed published records on John ellipsoids and enclosing spheres of the same polytopes study different functionals. A general stochastic sums-max majorization theorem might supply part of the proof and is a residual risk.
+
+## value
+
+PASS
+
+An exact Gaussian width representation plus strictly ordered finite block profiles, unique extremizers and a sharp near-balanced Gaussian crossover answer a natural geometric extremal problem for all fixed r>=3. The correction preserves that substantive result rather than replacing it with an arbitrary tiny instance.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

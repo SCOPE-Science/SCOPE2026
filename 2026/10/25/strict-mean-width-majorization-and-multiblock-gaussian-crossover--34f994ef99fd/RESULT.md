@@ -1,83 +1,67 @@
 # Strict mean-width majorization and multiblock Gaussian crossover for multipartite stable-set polytopes
 
 ## Finding
-For each fixed integer \(r\ge3\), every \(r\)-tuple of positive integers \(\mathbf n=(n_1,\ldots,n_r)\), and \(N=\sum_i n_i\), the standard Euclidean stable-set polytope of the complete multipartite graph \(K_{n_1,\ldots,n_r}\) has the exact mean-width representation
+Let \(r\geq3\), let \(\mathbf n=(n_1,\ldots,n_r)\) be positive integers, and put \(N=\sum_i n_i\). Let \(P_{\mathbf n}\subset\mathbb R^N\) be the stable-set polytope of the complete multipartite graph \(K_{n_1,\ldots,n_r}\), in its standard coordinate embedding. If \(Z_{ij}\) are independent standard normals and \(S_i=\sum_{j=1}^{n_i}(Z_{ij})_+\), then its Euclidean mean width is exactly
 \[
-\boxed{w(P_{\mathbf n})=\frac{2\,\mathbb E\max_{1\le i\le r}\sum_{j=1}^{n_i}(Z_{ij})_+}{\sqrt2\,\Gamma((N+1)/2)/\Gamma(N/2)}}.
+w(P_{\mathbf n})=\frac{2\,\mathbb E\max_{1\le i\le r}S_i}{\sqrt2\,\Gamma((N+1)/2)/\Gamma(N/2)}.
 \]
-The \(Z_{ij}\) are independent standard normal variables and \((t)_+=\max(t,0)\). At fixed \(N\) and \(r\), this width is **strictly Schur-convex** in the integer vector of part sizes: every nontrivial transfer of one vertex from a smaller positive part of size at least two into an at-least-as-large part strictly increases the width. Therefore its unique minimizers up to part permutation have part sizes differing by at most one; its unique maximizer up to permutation is \((N-r+1,1,\ldots,1)\).
+At fixed \(N,r\), every outward unit transfer between two blocks, from a smaller block of size at least two to an at-least-as-large block, **strictly increases** the width. Thus the unique minimizing profile up to permutation has entries differing by at most one; the unique maximizing profile up to permutation is \((N-r+1,1,\ldots,1)\).
 
-Put \(\mu=1/\sqrt{2\pi}\) and \(\sigma^2=1/2-1/(2\pi)\). For fixed \(r\ge3\), if \(N\to\infty\) through positive integer profiles and \((n_i-N/r)/\sqrt N\to c_i\) for all \(i\), so \(\sum_i c_i=0\), then
+Write \(\mu=1/\sqrt{2\pi}\), \(\sigma^2=1/2-1/(2\pi)\). For fixed \(r\), if \((n_i-N/r)/\sqrt N\to c_i\) as \(N\to\infty\), with \(\sum_i c_i=0\), then
 \[
-\boxed{w(P_{\mathbf n})=\frac{2\mu}{r}\sqrt N+F_r(\mathbf c)+o(1),\qquad
-F_r(\mathbf c)=2\,\mathbb E\max_{1\le i\le r}\left(\mu c_i+\frac{\sigma}{\sqrt r}G_i\right),}
+w(P_{\mathbf n})=\frac{2\mu}{r}\sqrt N+F_r(\mathbf c)+o(1),\qquad
+F_r(\mathbf c)=2\mathbb E\max_i\left(\mu c_i+\frac\sigma{\sqrt r}G_i\right),
 \]
-where the \(G_i\) are independent standard normal variables. The function \(F_r\) is symmetric and strictly convex on the zero-sum subspace, hence uniquely minimized at \(\mathbf c=0\). The explicit three-block balanced constant is \(F_3(0,0,0)=\sigma\sqrt{3/\pi}\).
+where the \(G_i\) are independent standard normals. The function \(F_r\) is strictly convex on the zero-sum subspace, symmetric, and uniquely minimized at \(\mathbf c=0\). For three balanced blocks, \(F_3(0,0,0)=\sigma\sqrt{3/\pi}\). More generally, if \(n_i/N\to\alpha_i\geq0\), \(\sum_i\alpha_i=1\), then
+\[
+\frac{w(P_{\mathbf n})}{\sqrt N}\longrightarrow 2\mu\max_i\alpha_i.
+\]
+Consequently the maximum/minimum width ratio over all positive \(r\)-block profiles of total size \(N\) tends to \(r\).
 
-For arbitrary fixed-rank profiles with \(n_i/N\to\alpha_i\ge0\) and \(\sum_i\alpha_i=1\),
+## Assumptions and normalization
+All assertions use the standard unweighted stable-set polytope
 \[
-\boxed{\frac{w(P_{\mathbf n})}{\sqrt N}\longrightarrow 2\mu\max_i\alpha_i.}
+P_{\mathbf n}=\operatorname{conv}\bigcup_{i=1}^r\{(0,\ldots,0,x,0,\ldots,0):x\in[0,1]^{n_i}\},
 \]
-Consequently, the ratio of the maximum to the minimum mean width among all \(r\)-part profiles with total size \(N\) converges to precisely \(r\) as \(N\to\infty\).
-
-## Assumptions and scope
-The graph \(G=K_{n_1,\ldots,n_r}\) has \(r\ge3\) nonempty independent vertex classes of sizes \(n_i\ge1\). Write the ambient vector space as the orthogonal sum \(\mathbb R^N=\bigoplus_i\mathbb R^{n_i}\). Its stable-set polytope is
-\[
-P_{\mathbf n}=\operatorname{conv}\left(\bigcup_{i=1}^r\{(0,\ldots,0,x,0,\ldots,0):x\in[0,1]^{n_i}\}\right).
-\]
-The Euclidean mean width uses ambient unit-sphere probability measure \(\omega_{N-1}\),
-\[
-w(K)=\int_{S^{N-1}}\bigl(h_K(u)+h_K(-u)\bigr)\,d\omega_{N-1}(u),\quad h_K(u)=\sup_{x\in K}\langle u,x\rangle.
-\]
-All dimension-dependent limits hold with the number \(r\) of blocks fixed. Distinct vectors of part sizes are compared at fixed \((N,r)\); equality classifications are up to permutation of blocks. The case \(r=2\) is explicitly not claimed as an original result here because the associated polytope is orthogonally congruent, by reflecting one coordinate block, to the previously analyzed two-level order polytope.
+in the canonical orthogonal decomposition of \(\mathbb R^N\). Its Euclidean mean width is \(\int_{S^{N-1}}(h_P(u)+h_P(-u))\,d\omega(u)\) with \(\omega\) normalized spherical measure. The asymptotics require fixed \(r\), not growing numbers of classes. Equality statements are up to permutation of parts. The already-studied two-block case is excluded from novelty scope. All displayed expectations are finite.
 
 ## Proof
-**Exact Gaussian representation.** Each stable set of a complete multipartite graph lies in one vertex class. Linear optimization over the convex hull of its coordinate cubes therefore gives, for every \(g\in\mathbb R^N\),
+**1. Gaussian support formula.** Every stable set lies inside one independent vertex class. Hence for any \(g\in\mathbb R^N\) the support function is
 \[
-h_{P_{\mathbf n}}(g)=\max_{1\le i\le r}\sum_{j=1}^{n_i}(g_{ij})_+.
+h_{P_{\mathbf n}}(g)=\max_i\sum_j(g_{ij})_+.
 \]
-For a standard Gaussian \(g=RU\) with \(U\) uniform on \(S^{N-1}\), radius \(R=\|g\|\) independent of \(U\), and \(\mathbb ER=\sqrt2\Gamma((N+1)/2)/\Gamma(N/2)\), homogeneity gives \(\mathbb Eh_P(g)=\mathbb ER\,\mathbb Eh_P(U)\). Gaussian central symmetry gives \(w(P)=2\mathbb Eh_P(U)\). This proves the displayed exact formula with no asymptotic approximation.
+For a standard Gaussian vector \(g=RU\), \(U\) is uniform on the sphere, independent of \(R=\|g\|\), and \(\mathbb ER=\sqrt2\Gamma((N+1)/2)/\Gamma(N/2)\). By homogeneity and central symmetry of Gaussian measure, the mean width equals \(2\mathbb Eh_P(g)/\mathbb ER\), proving the formula.
 
-**Strict transfer lemma.** Let \(Y\ge0\) be any random variable with both \(\mathbb P(Y=0)>0\) and \(\mathbb P(Y>0)>0\). For independent identically distributed copies \(Y_{ij}\), write \(S_m=\sum_{j=1}^mY_j\). For any \(p\ge q\ge2\) and any independent \(C\ge0\), the expected maximum of \((S_p,S_q,C)\) strictly increases when \((p,q)\) is replaced by \((p+1,q-1)\), with \(C\) unchanged. Here is a direct coupling and proof, including strictness.
-
-Use independent \(A,B\stackrel d=S_{q-1}\), \(V\stackrel d=S_{p-q+1}\), one \(Y\stackrel d=Y_1\), and \(C\); then before and after the transfer the respective maxima can be coupled as
+**2. Strict transfer lemma in the domain actually needed.** Let \(Y\ge0\) be integrable with both \(\Pr(Y=0)>0\) and \(\Pr(Y>0)>0\). For independent copies let \(S_m\) be the sum of \(m\) copies. Let \(C\ge0\) be **integrable**, independent of all those copies, and satisfy **\(\Pr(C=0)>0\)**. If \(p\ge q\ge2\), then
 \[
-M_{\mathrm{before}}=\max(A+V,B+Y,C),\qquad
-M_{\mathrm{after}}=\max(A+V+Y,B,C).
+\mathbb E\max(S_{p+1},S_{q-1},C)>\mathbb E\max(S_p,S_q,C),
 \]
-For fixed \(b,y,c\ge0\), let \(d(a,b;y,c)=\max(a+y,b,c)-\max(a,b+y,c)\). Its derivative with respect to \(a\), wherever it exists, is
+where each displayed family of sums consists of independent sums with the indicated lengths. The condition on \(C\) is essential to this general lemma: it cannot be omitted for arbitrary \(Y,C\).
+
+Indeed take independent \(A,B\sim S_{q-1}\), \(V\sim S_{p-q+1}\), \(Y\) and \(C\), and couple the two maxima as \(\max(A+V,B+Y,C)\) and \(\max(A+V+Y,B,C)\), respectively. For fixed nonnegative \(b,y,c\), define
 \[
-\mathbf1_{\{a>\max(b,c)-y\}}-\mathbf1_{\{a>\max(b+y,c)\}}\ge0.
+d(a,b;y,c)=\max(a+y,b,c)-\max(a,b+y,c).
 \]
-Thus \(d\) is nondecreasing in its first argument. By exchangeability, \(\mathbb E[d(A,B;Y,C)]=0\); since \(V\ge0\), it follows that \(\mathbb E[d(A+V,B;Y,C)]\ge0\). Strictness follows on the positive-probability event \(A=B=C=0\), \(V>0\), \(Y>0\), where \(d(V,0;Y,0)-d(0,0;Y,0)=\min(V,Y)>0\). For the desired \(Y=(Z)_+\), each extra block contributing to \(C\) equals zero with strictly positive probability, so this event applies. All expectations are finite. This proves strict width increase under each outward integer transfer.
-
-**Sharp global extremizers.** Repeatedly transfer one vertex from a part of size at least two to a strictly smaller part when their sizes differ by at least two; reversing this balancing operation strictly reduces width. Every profile reaches one whose entries differ by at most one, establishing the unique minimizing orbit. Conversely, repeatedly transfer one vertex from any non-largest part of size at least two to a largest part; each transfer strictly raises width and reaches \((N-r+1,1,\ldots,1)\), giving the unique maximizing orbit. The degenerate case \(N=r\) has one profile and is included.
-
-**Critical multiblock limit.** Write \(\mu=\mathbb E(Z)_+\), \(\sigma^2=\operatorname{Var}((Z)_+)\). Independently for the \(r\) blocks, the central limit theorem yields jointly
+It is nondecreasing in \(a\): wherever derivatives exist,
 \[
-\left(\frac{S_{n_i}-\mu N/r}{\sqrt N}\right)_{i=1}^r\Longrightarrow
-\left(\mu c_i+\frac{\sigma}{\sqrt r}G_i\right)_{i=1}^r.
+\partial_a d=\mathbf1_{\{a>\max(b,c)-y\}}-\mathbf1_{\{a>\max(b+y,c)\}}\ge0.
 \]
-Since \(r\) is fixed, \(\max_i|S_{n_i}-\mu N/r|/\sqrt N\) is uniformly bounded in \(L^2\) for profiles in this critical window, by the independent sum variance identity and the bounded normalized deterministic shifts. Hence expectations of maxima converge. Furthermore \(\mathbb E\|g\|/\sqrt N\to1\), and its relative error is \(O(1/N)\); division of the exact Gaussian width formula proves the \(o(1)\) assertion.
+Exchangeability of \(A,B\) gives \(\mathbb E d(A,B;Y,C)=0\), so \(\mathbb E d(A+V,B;Y,C)\ge0\). Strictness holds on the independent positive-probability event \(A=B=C=0,\ V>0,\ Y>0\), because there \(d(V,0;Y,0)-d(0,0;Y,0)=\min(V,Y)>0\). Thus the expected gain is strictly positive.
 
-For every pair of distinct shift vectors whose difference is not a common constant, Gaussian full support gives positive probability that their maximizing indices differ (choose two coordinates whose relative shifts change and push the others sufficiently negative). Since the pointwise maximum of affine functions is strictly below its chord at points where the endpoint maximizing indices differ, its expectation is strictly convex modulo the common-translation direction. Therefore \(F_r\) is strictly convex on \(\sum_i c_i=0\); permutation symmetry and averaging over all permutations imply its unique minimum is zero. For three independent standard normals, integrating their density gives \(\mathbb E\max(G_1,G_2,G_3)=3/(2\sqrt\pi)\), whence the explicit balanced constant.
+For our stable-set application, \(Y=(Z)_+\) has an atom of mass \(1/2\) at zero and is positive with positive probability. For a transfer between two blocks, let \(C\) be the maximum of the independent positive-part Gaussian sums in all **other** classes. These classes have finite positive sizes and their sums simultaneously vanish with positive probability, so \(\Pr(C=0)>0\). The strict lemma applies, including when there are no other classes (then set \(C=0\)). The conclusion is therefore true for every asserted block transfer. Note that the unrestricted claim for arbitrary nonnegative independent \(C\) would be false: for example, if \(Y\) is Bernoulli and \(C\) is a sufficiently large constant, both maxima are identically \(C\); no such constant occurs in our application.
 
-**Macroscopic limit and extremal ratio.** If \(n_i/N\to\alpha_i\), then \(S_{n_i}/N\to\mu\alpha_i\) in \(L^2\), even when \(\alpha_i=0\), since \(\operatorname{Var}(S_{n_i})\le\sigma^2N\). With fixed \(r\), the maximum converges in \(L^1\) to \(\mu\max_i\alpha_i\). The Gaussian radius is asymptotic to \(\sqrt N\). This proves \(w(P_{\mathbf n})/\sqrt N\to2\mu\max_i\alpha_i\). The minimizing balanced profile has limit \(\max\alpha_i=1/r\), whereas the maximizing one has limit 1; dividing yields the limiting extremal ratio \(r\). This completes the proof.
+**3. Extremizing finite profiles.** Repeated balancing transfers from a strictly larger part to a smaller part whenever the size gap is at least two decrease width strictly, until every pair differs by at most one. Conversely, moving one unit from any nonlargest part of size at least two into a largest part raises width strictly and ends at \((N-r+1,1,\ldots,1)\). This proves both extremal orbits; when \(N=r\), there is only one possible profile.
 
-## Verification
-A standalone Python 3 program, `verify_multipartite.py`, is included. It checks the support formula directly against independently enumerated vertices for profiles with three and four blocks; tests 1,980 strict transfers in an exact rational Bernoulli positive-part surrogate; and compares the Gaussian critical-window formula with 150,000 reproducibly seeded Gaussian samples using independent normal-max quadrature. It also checks the balanced three-block constant. Successful output begins `VERIFY_OK`. These finite tests are corroborations of the proved identities and do not establish the infinite theorem or priority.
+**4. Near-balanced limit.** The independent block sums have mean \(\mu n_i\), variance \(\sigma^2n_i\), and finite second moments. The multivariate central limit theorem gives
+\[
+\left(\frac{S_i-\mu N/r}{\sqrt N}\right)_{i=1}^r\Rightarrow\left(\mu c_i+\frac\sigma{\sqrt r}G_i\right)_{i=1}^r.
+\]
+Since \(r\) is fixed and the normalized centered shifts are bounded in \(L^2\), maxima are uniformly integrable; their expectations converge. Moreover \(\mathbb ER/\sqrt N=1+O(N^{-1})\). Substitution into the exact width formula gives the stated second-order expansion. For any two different shift vectors modulo common translation, the Gaussian density has full support and with positive probability their maximizing indices differ. At those samples the pointwise affine maximum is strictly below the chord between its endpoint values, proving strict convexity of its expectation modulo the common-translation direction. Symmetry under coordinate permutations and averaging show that its unique zero-sum minimizer is zero. Integrating the maximum of three standard Gaussians gives \(\mathbb E\max(G_1,G_2,G_3)=3/(2\sqrt\pi)\), hence the stated constant.
+
+**5. Macroscopic limit and ratio.** If \(n_i/N\to\alpha_i\), then \(S_i/N\to\mu\alpha_i\) in \(L^2\), with the same conclusion when \(\alpha_i=0\). A fixed finite maximum converges in \(L^1\), and \(\mathbb ER/\sqrt N\to1\). This proves \(w(P_{\mathbf n})/\sqrt N\to2\mu\max_i\alpha_i\). The balanced minimizing profile has \(\max\alpha_i=1/r\) in its limit and the maximizer has \(\max\alpha_i=1\); the extremal ratio is \(r\).
+
+## Verification and boundaries
+Independent exact-rational calculations checked 1,260 outward transfers with a Bernoulli positive-part surrogate and exposed the necessity of the additional hypothesis on the independent comparison variable \(C\). Other direct finite support and Gaussian diagnostics in `verify_multipartite.py` remain reproducible and corroborative only. The all-parameter conclusion follows from the foregoing proof. This result neither claims general graph stable-set polytopes, arbitrary coordinate weights, noninteger block sizes, growing \(r\), nor higher intrinsic volumes. Strict Schur-convexity is for positive integer part sizes. The integral Gaussian representation is an exact expectation, not a convergence-rate assertion.
 
 ## Relationship to prior work
-The original stable-set polytope construction and its vertex theory are classical; Aliniaeifard–Benedetti–Bergeron–Li–Saliola [1] analyze its 1-skeleton and diameter rather than Euclidean mean widths. Ahmad–Fourier–Joswig [2] analyze face-number inequalities for order and chain polytopes of maximal ranked posets. The chain polytope of a two-level complete poset is the stable-set polytope of a complete bipartite graph; reflecting one block shows it is congruent to the corresponding two-level **order** polytope. Accordingly the earlier exact bipartite mean-width and folded-normal result is already known and is **not** claimed here. The theorem above instead covers every number \(r\ge3\) of independent classes and its genuinely \(r\)-way Gaussian maximum, strict fixed-\(r\) majorization law and sharp asymptotic extremal ratio.
-
-General Gaussian support-function techniques for regular polytopes appear in [3] but do not imply this multipartite strict comparison. Accessible closely related geometric statements about ellipsoids, minimum enclosing spheres and symmetric-edge polytopes concern different functionals. No exhaustive priority assertion is made.
-
-## Limitations
-The theorem is about standard unweighted complete multipartite **stable-set** polytopes, fixed finite number of blocks, and the specified canonical Euclidean embedding; it makes no statement about arbitrary graph stable-set polytopes, general edge-weighted profiles, a growing number of blocks, higher intrinsic volumes or uniqueness of the result throughout inaccessible literature. Its strict Schur-convexity is in positive integer part sizes and does not assert strict convexity of an interpolating width for noninteger sizes. The width limit concerns expectations, not a rate or a functional central limit theorem. External independent mathematical validation has not yet occurred. An older probabilistic reformulation of the width inequality may exist outside the inspected literature.
-
-## References
-[1] Farid Aliniaeifard, Carolina Benedetti, Nantel Bergeron, Shu Xiao Li and Franco Saliola, *Stable set polytopes and their 1-skeleta*, arXiv:1804.00360 (version 1 submitted April 2, 2018). The accessible revised full PDF (2021, 21 pp.), especially Sections 2–3, Theorem 4 and later sections, concerns 0/1 vertices, edges, and graph diameters, not Euclidean mean width.
-
-[2] Ibrahim Ahmad, Ghislain Fourier and Michael Joswig, *Order and chain polytopes of maximal ranked posets*, arXiv:2309.01626 (version 1 submitted September 4, 2023). The accessible revised full PDF (16 pp.), Definitions 2.2 and 3.1, Theorem 4.1 and Corollary 4.2, concerns face combinatorics and \(f\)-vector inequalities, not mean width.
-
-[3] Z. Kabluchko, A. E. Litvak and D. Zaporozhets, *Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables*, Journal of Mathematical Sciences 225 (2017), 770–787, DOI:10.1007/s10958-017-3492-3. Relevant background for Gaussian-width formulas of classical regular polytopes, not a multipartite stable-set extremal theorem.
+Aliniaeifard, Benedetti, Bergeron, Li and Saliola, *Stable set polytopes and their 1-skeleta* (arXiv:1804.00360), analyze vertices and graph structure rather than the displayed Euclidean mean-width comparison. Ahmad, Fourier and Joswig, *Order and chain polytopes of maximal ranked posets* (arXiv:2309.01626), study face numbers. Kabluchko, Litvak and Zaporozhets, *Mean Width of Regular Polytopes and Expected Maxima of Correlated Gaussian Variables* (DOI:10.1007/s10958-017-3492-3), provide Gaussian-width techniques for different polytope families. The two-block folded-normal mean-width problem is earlier and is not asserted as new. A general stochastic-majorization theorem elsewhere could subsume part of the transfer argument; historical priority is best-of-knowledge rather than absolute.
