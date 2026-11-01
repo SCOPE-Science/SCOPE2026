@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:51:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The proof fixes the hub and invokes a Schur complement with path polynomials P_m, giving det(xI-H)=(prod P_{ell-1})[x-sum (2P_{ell-2}+w)/P_{ell-1}]. Path parity makes the only non-odd rational terms sum_{odd s} W_s/P_{s-1}. These fractions have distinct leading powers x^{-(s-1)} at infinity; their constant-coefficient linear independence forces every W_s=0 separately. An odd-length cycle has gain weight w=1 or -2; hence W_s=k_s-3a_s. For each odd s the edgewise phase sum equals 2, yielding a=(2^s-2)/3, b=(2^{s+1}+2)/3 and the closed orientation product. Covers k>=1, repeated odd lengths, mixed lengths, and arbitrary even petals. Independent numerical direct Hermitian eigenspectrum enumeration of all 512 orientations of three triangles reproduced exactly 216 symmetric cases with spectral mirror error <=1.6e-15. Independent exact phase enumeration for lengths 3,5,7,9 and the three-pentagon formula 14520 agree. Finite checks corroborate; arbitrary-length sufficiency/necessity follows from the Schur complement and Laurent-order argument.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Yu Theorems 2.6–2.8 treat arbitrary mixed graphs and provide general characteristic polynomial coefficients and recurrences.",
+          "Akbari et al. give an assembly operation provided inputs already have symmetric spectra."
+        ],
+        "reasoning": "General recurrence formulas could in principle rederive this bouquet specialization, but their stated conclusions do not imply the evaluated iff per-odd-length split or independent orientation census without further analysis. Residual implicit-coverage risk retained.",
+        "searches": [
+          "arXiv:2102.03760 Theorem 2.7 vertex-cycle deletion recurrence",
+          "arXiv:2512.08049 Section 4 one-sum closure",
+          "web: spectrally symmetric orientations bouquet odd cycles length balance"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, SLOGAN.txt, verify.py, AUDIT.json, METADATA.json and verification evidence at commit 6323fe545de95339bdcdf8c13699f85c2564122e",
+        "arXiv:2512.08049",
+        "arXiv:2102.03760",
+        "Resultary query on sixth-root Hermitian bouquet symmetry",
+        "Direct 512-Hermitian-matrix eigencheck and exact odd-cycle gain census"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A lone odd oriented cycle is not symmetric but three odd cycles of a matching length can cancel in a bouquet.",
+          "General coefficient/deletion formulas state an identity for every mixed graph, not this explicit threshold."
+        ],
+        "reasoning": "Closure for already symmetric components cannot supply cancellation among nonsymmetric components; a new use of the general Schur/path recurrences is needed for necessity and sufficiency. Prior broader tools acknowledged.",
+        "searches": [
+          "arXiv:2512.08049 Section 4 Theorem 4.4",
+          "arXiv:2102.03760 Theorems 2.6–2.8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spectral symmetry is equivalent to vanishing odd characteristic coefficients; the Schur ratio is odd except for sum_s W_s/P_{s-1}.",
+          "Akbari et al. prove triangle balancing and 1-sum closure of already-symmetric pieces, not cross-petal cancellation of individually nonsymmetric odd cycles."
+        ],
+        "reasoning": "Existing coefficient-recursion aliases and gain graph formulations are compared at implication level. Distinct odd length groups are separated by rational-function asymptotic orders, which does not follow just from triangle counts.",
+        "searches": [
+          "Resultary: Hermitian adjacency sixth root spectrally symmetric orientations one-sum odd cycles bouquet",
+          "arXiv:2512.08049, triangle balance and Theorem 4.4",
+          "arXiv:2102.03760, Theorems 2.6-2.8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nearest Resultary cactus entries concern oriented-cycle root polytopes and other invariants, not sixth-root Hermitian spectral-symmetry counts.",
+          "No identified published table gives 216 three-triangle and 14520 three-pentagon orientations as a universal product."
+        ],
+        "reasoning": "No exact database/table match located for the same labeled Hermitian orientation census. Search coverage is incomplete and is not evidence of nonexistence of a hidden table.",
+        "searches": [
+          "Resultary: spectrally symmetric orientations Hermitian adjacency sixth root bouquet cycles rooted cactus odd length balancing orientation count",
+          "web: Hermitian spectrally symmetric orientations bouquet odd cycles length balance"
+        ]
+      },
+      "rationale": "On examined primary results, general Hermitian gain-graph characteristic-polynomial coefficients and one-sum closure are established background, but neither states nor immediately gives the new necessary/sufficient odd-length-multiplicity split and complete labeled count. A specialized deduction of general recurrences is still possible; priority remains qualified. No earlier exact match was located in targeted corpus and web queries, but failed searching is not novelty proof.",
+      "residual_risks": [
+        "An equivalent specialized bouquet result may be hidden in an unindexed Hermitian spectral-symmetry paper.",
+        "A general Hermitian gain-graph coefficient recurrence might render the lengthwise evaluation an implicit corollary not individually stated.",
+        "The independent eigenvalue calculations cover the seven-vertex triangle bouquet, not all arbitrary-length bouquets."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides core problem, necessary triangle balance and closure; examined results do not state bouquet census.",
+          "evidence": [
+            "triangle necessary ratio",
+            "one-sum of already spectrally symmetric orientations"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.08049",
+          "material_read": "Abstract, introduction, triangle-balance lemma, section 4 one-sum construction and Theorem 4.4; full PDF search for bouquet conditions",
+          "method": "primary arXiv PDF text and rendered pages",
+          "title": "Spectrally symmetric orientations of graphs",
+          "trigger": "same Hermitian phase and symmetric spectrum"
+        },
+        {
+          "assessment": "Provides general coefficient and deletion framework, not evaluated one-hub-bouquet characterization.",
+          "evidence": [
+            "Theorem 2.6 coefficient sum",
+            "Theorem 2.7 hub deletion recurrence",
+            "Theorem 2.8 edge deletion recurrence"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2102.03760",
+          "material_read": "Abstract; Section 2 Theorems 2.6, 2.7, 2.8 and cycle-deletion expressions, PDF pages 5-7",
+          "method": "primary arXiv full text PDF text and rendered theorem page",
+          "title": "Hermitian adjacency matrix of the second kind for mixed graphs",
+          "trigger": "identical sixth-root matrix; stronger general characteristic identity"
+        },
+        {
+          "assessment": "Different invariant: which orientations are determined by H spectrum, not whether a given H spectrum is centrally symmetric.",
+          "evidence": [
+            "2020 EJC article abstracts classification of bicyclic ODHS graphs"
+          ],
+          "identifier_or_url": "https://doi.org/10.37236/9640",
+          "material_read": "Abstract and overview of ODHS orientation switching and cospectrality classification",
+          "method": "publisher abstract",
+          "title": "On Graphs whose Orientations are Determined by their Hermitian Spectra",
+          "trigger": "potential Hermitian graph-orientation table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A one-vertex cactus bouquet is a natural first non-bipartite assembly family for sixth-root Hermitian spectral symmetry. The length-by-length cancellation theorem sharply characterizes existence, shows different odd lengths cannot compensate one another, and counts every labeled orientation. This is more than a routine single-triangle identity or a small enumeration: arbitrary cycle multiplicities and lengths are handled, with a natural graph-spectral reason to need the exact balance and counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, SLOGAN.txt, verify.py, AUDIT.json, METADATA.json and verification evidence at commit 6323fe545de95339bdcdf8c13699f85c2564122e",
+    "arXiv:2512.08049",
+    "arXiv:2102.03760",
+    "Resultary query on sixth-root Hermitian bouquet symmetry",
+    "Direct 512-Hermitian-matrix eigencheck and exact odd-cycle gain census"
+  ],
+  "disposition": "passed",
+  "final_claim": "For a finite simple one-hub bouquet of cycles of lengths >=3 oriented with sixth-root Hermitian phase, spectral symmetry holds iff within every odd-length class s, one third of the k_s cycles have real gain -2 and two thirds have real gain +1; even cycles are unrestricted. Existence iff every odd k_s is divisible by 3; the labeled-orientation count is the exact lengthwise binomial/product formula in RESULT.md.",
+  "limitations": "Only a finite simple one-hub cycle bouquet, labelled orientations, phase exp(iπ/3); not all cacti or other phase conventions. The general proof is analytic; small instances are corroboration only.",
+  "schema_version": 1
+}

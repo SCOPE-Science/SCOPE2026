@@ -1,19 +1,21 @@
-# Research review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The hub Schur complement gives an exact characteristic polynomial expressed through path recurrences and the real gain weight of each petal. Parity separates odd-length petals, and the functions \(1/P_{s-1}(X)\) are independent for distinct odd \(s\), because they have strictly ordered decay at infinity. This proves that cancellation must occur separately at every odd length. The only possible odd-cycle weights are \(1\) and \(-2\), so every length group has an exact one-third/two-thirds split. An independent exact-integer-ring checker compared full matrix polynomials with the hub formula and the claimed parity predicate on 880 orientations, including exhaustive orientation enumeration of three triangles. The proof, rather than finite experiments, establishes the full range.
+PASS
 
-## Originality — PASS, with residual risk
+The proof fixes the hub and invokes a Schur complement with path polynomials P_m, giving det(xI-H)=(prod P_{ell-1})[x-sum (2P_{ell-2}+w)/P_{ell-1}]. Path parity makes the only non-odd rational terms sum_{odd s} W_s/P_{s-1}. These fractions have distinct leading powers x^{-(s-1)} at infinity; their constant-coefficient linear independence forces every W_s=0 separately. An odd-length cycle has gain weight w=1 or -2; hence W_s=k_s-3a_s. For each odd s the edgewise phase sum equals 2, yielding a=(2^s-2)/3, b=(2^{s+1}+2)/3 and the closed orientation product. Covers k>=1, repeated odd lengths, mixed lengths, and arbitrary even petals. Independent numerical direct Hermitian eigenspectrum enumeration of all 512 orientations of three triangles reproduced exactly 216 symmetric cases with spectral mirror error <=1.6e-15. Independent exact phase enumeration for lengths 3,5,7,9 and the three-pentagon formula 14520 agree. Finite checks corroborate; arbitrary-length sufficiency/necessity follows from the Schur complement and Laurent-order argument.
 
-The most direct primary sources are Akbari–Aloni–Levit–Mohar–Xia, arXiv:2512.08049, §§1–4, and Li–Yu, arXiv:2102.03760, Theorems 2.6–2.8. The former establishes triangle balance and a one-sum closure criterion for already symmetric inputs; the latter provides general gain-graph coefficient and deletion formulas. Neither inspected full-text statement supplies the length-stratified necessary-and-sufficient criterion together with its explicit orientation census. The general recurrence can underlie the determinant calculation, so novelty is explicitly confined to the closed classification/counting evaluation. Search and index coverage is imperfect and equivalent formulations may exist outside the inspected material.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This supplies a natural complete classification for a non-bipartite graph class in a recently studied spectral-symmetry problem, including cases made symmetric by cancellation between individually nonsymmetric odd cycles. The separate-length rigidity is stronger than a total triangle-balance constraint and resolves arbitrary mixed cycle lengths. The labelled orientation count provides exact multiplicities rather than a mere existence test.
+On examined primary results, general Hermitian gain-graph characteristic-polynomial coefficients and one-sum closure are established background, but neither states nor immediately gives the new necessary/sufficient odd-length-multiplicity split and complete labeled count. A specialized deduction of general recurrences is still possible; priority remains qualified. No earlier exact match was located in targeted corpus and web queries, but failed searching is not novelty proof.
 
-## Limitations
+## value
 
-The theorem does not cover general cactus graphs or quotient orientations by graph automorphisms. Reported finite tests are evidence, not a replacement for the exact proof. Priority remains provisional pending a wider independent literature review.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A one-vertex cactus bouquet is a natural first non-bipartite assembly family for sixth-root Hermitian spectral symmetry. The length-by-length cancellation theorem sharply characterizes existence, shows different odd lengths cannot compensate one another, and counts every labeled orientation. This is more than a routine single-triangle identity or a small enumeration: arbitrary cycle multiplicities and lengths are handled, with a natural graph-spectral reason to need the exact balance and counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
