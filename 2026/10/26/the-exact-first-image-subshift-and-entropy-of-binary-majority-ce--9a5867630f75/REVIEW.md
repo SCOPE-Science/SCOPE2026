@@ -1,19 +1,21 @@
-# Scientific review: exact first-image language and entropy of majority rule
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The map is defined on the bilateral binary full shift, and the observable is its image under one majority update. Four input-pair states yield the explicit twelve-state subset automaton; its transitions have been reconstructed directly from all eight majority triples. The exact ordered-pair reset calculation produces counts \(110,40,24,12,8,4,0\), so all nonempty image states agree after a common six-letter output suffix. This finite lemma, not numerical sampling, proves the complete seven-window forbidden description. Direct short-word enumeration gives exactly six minimal obstructions. The exact integer matrix identity proves the block-count recurrence; an independently computed characteristic polynomial and Perron theory prove the evaluated spatial image entropy. The attached verifier reproduces these critical finite certificates. Risks: an indexing error in the two-bit graph or an unproved identification of cellular-automaton time entropy with spatial image entropy would be serious; the displayed construction and explicit distinction of invariants address both.
+PASS
 
-## Originality — PASS under accessible evidence
+A four-state input-pair nondeterministic automaton records the eight majority triples. Subset determinization from full state 15 reaches exactly twelve masks including sink 0. Independently rebuilding transitions from the local truth table yields exactly 110,40,24,12,8,4,0 ordered pairs of distinct surviving states after successive common labels. Thus any nonempty output word of length six synchronizes all nonempty states. This finite *exhaustive* synchronization lemma propagates every accepted length-7 window to the full arbitrary word, proving the exact six minimal forbidden words (four of length 5, two of length 7); no other minimal forbidden patterns can occur. For the eleven nonempty deterministic states, the independently reconstructed integer adjacency matrix obeys (M^5-2M^4+M²-I)1=-e_15, with no transition to 15, giving the full recurrence. Independent exact characteristic polynomial factorization gives t(t^5+t²-1)(t^5-2t^4+t²-1); Perron growth gives the asserted entropy and its unique real root >1. Independent direct block languages through n=13 match 1,2,4,8,16,28,50,88,156,278,496,886,1582,2824. The infinite SFT/recurrent conclusion follows from exact DFA and matrix identities, not finite extrapolation.
 
-Closest inspected literature: Kůrka (2009) describes the same majority rule's long-time attractor, signal dynamics and columns; these are different objects from the *first* spatial image. Kari and Taati (preprint first public in 2013) establish broad factor-map entropy results but do not supply the six minimal forbidden words or the evaluated degree-five growth polynomial. Wolfram's rule-232 table specifies the local map only. Targeted exact-polynomial, forbidden-word, alias, and research-record searches did not find the same evaluated first-image statement. A finite-state technique alone is not a source claiming the answer. Residual risk: an earlier explicit rule-232 language computation may be buried in automata classification tables or proceedings, and historical priority is not independently certified.
+## originality
 
-## Value — PASS
+PASS
 
-The complete first-image language of a canonical nonlinear elementary cellular automaton is a natural object: it states exactly which spatial configurations can occur after one update. Determining that the image is a shift of finite type with *minimal* memory six and only six forbidden words is a complete structural classification. Its exact rational block complexity and algebraic positive spatial entropy quantify immediate information loss, sharply separating one-step spatial constraints from the established zero temporal/column entropy and the later attractor. This is not merely a single small count or an arbitrary parameter slice.
+Kůrka's full relevant Example 7 computes blocking words, attractors, signal/column subshifts and temporal zero entropy for the same rule, but not the one-update *spatial image* language or positive spatial image entropy; he explicitly gives first-image graphs for other elementary rules. Kari–Taati studies general preinjective/surjective maps and Gibbs entropy, not an evaluated Rule 232 one-step SFT. A forgotten automata catalogue may already encode this exact six-word image, so priority is qualified.
 
-## Limitations and relationship to previous literature
+## value
 
-The result concerns a single synchronous majority update on the entire bilateral binary full shift. It does not calculate the entropy of the cellular-automaton time action, the asymptotic limit set, the pushforward of a Bernoulli measure, or all elementary rules. General subset-automaton and Perron techniques are established. The specific evaluated first-image answer remains subject to independent historical-priority examination.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The first spatial image of the elementary majority rule is a canonical dynamical object distinct from the temporal action and long-time attractor. A complete six-word minimal SFT presentation, exact rational all-length word enumerator and explicit spatial entropy are substantive intrinsic invariants; the sharp forbidden-window length 7 has structural significance for recognition and further symbolic-dynamics calculations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

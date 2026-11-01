@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:51:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A four-state input-pair nondeterministic automaton records the eight majority triples. Subset determinization from full state 15 reaches exactly twelve masks including sink 0. Independently rebuilding transitions from the local truth table yields exactly 110,40,24,12,8,4,0 ordered pairs of distinct surviving states after successive common labels. Thus any nonempty output word of length six synchronizes all nonempty states. This finite *exhaustive* synchronization lemma propagates every accepted length-7 window to the full arbitrary word, proving the exact six minimal forbidden words (four of length 5, two of length 7); no other minimal forbidden patterns can occur. For the eleven nonempty deterministic states, the independently reconstructed integer adjacency matrix obeys (M^5-2M^4+M²-I)1=-e_15, with no transition to 15, giving the full recurrence. Independent exact characteristic polynomial factorization gives t(t^5+t²-1)(t^5-2t^4+t²-1); Perron growth gives the asserted entropy and its unique real root >1. Independent direct block languages through n=13 match 1,2,4,8,16,28,50,88,156,278,496,886,1582,2824. The infinite SFT/recurrent conclusion follows from exact DFA and matrix identities, not finite extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General theory says any CA image is sofic (via labeled de Bruijn automaton), but does not automatically give an SFT with maximal forbidden length seven.",
+          "Kari–Taati principally treats surjective/preinjective CA and equilibrium measures; majority is non-surjective."
+        ],
+        "reasoning": "The general finite automaton framework is stronger in scope but not a published evaluated formula for this particular non-surjective majority image.",
+        "searches": [
+          "arXiv:1311.2319 Sections 2–3 entropy of factor maps",
+          "Kůrka 2009 examples of ECA232 and first-image graphs for other rules",
+          "Wolfram Atlas rule 232"
+        ]
+      },
+      "checked_sources": [
+        "Pinned RESULT.md, standalone verify.py, VERIFY and metadata files",
+        "Kůrka full author PDF Example 7 and surrounding first-image examples",
+        "Kari–Taati arXiv:1311.2319 primary PDF",
+        "Resultary rule 232 and SFT queries",
+        "Wolfram Atlas rule 232",
+        "Independent reconstruct-from-rule DFA, all 110 ordered-pair reset check, exact 11×11 matrix identity and characteristic polynomial"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kůrka explicitly gives maximal attractor S_{...} and column zero entropy, not a first-image forbidden list.",
+          "The same paper illustrates first-image graphs for ECA128 and ECA106, not the explicit ECA232 image."
+        ],
+        "reasoning": "Knowing attractor restrictions or generic surjective factor invariance does not imply this one-update spatial SFT, recurrence or entropy polynomial. Exact synchronized automaton calculation supplies new evaluated data.",
+        "searches": [
+          "Kůrka Example 7 PDF pages 19–20",
+          "Kari–Taati arXiv:1311.2319 abstract and factor-map sections"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The claim concerns Y=Phi(full bilateral shift), its spatial language and shift entropy; it is not the maximal attractor intersection of iterates.",
+          "Kůrka Example 7 states attractor and column-subshift conditions with different forbidden families and zero entropy of temporal system."
+        ],
+        "reasoning": "Aliases ECA232/majority elementary CA, first image/sofic factor image and eventual attractor compared; they are different dynamical systems, and positive spatial entropy is compatible with zero temporal column entropy.",
+        "searches": [
+          "web: rule 232 majority cellular automata first image forbidden blocks 01001 01101",
+          "P. Kůrka Topological dynamics of one-dimensional cellular automata Example 7",
+          "arXiv:1311.2319"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest items concern other elementary CA temporal traces or unrelated symbolic shifts.",
+          "Wolfram Atlas lists Rule 232 and its Boolean rule properties, not an evaluated six-word first-image language/entropy table."
+        ],
+        "reasoning": "No exact match found in targeted indexed scientific corpus or accessible rule tables. Historical unindexed Wolfram/SFT graph catalogues remain possible.",
+        "searches": [
+          "Resultary: elementary cellular automaton rule 232 majority one step image shift forbidden words language entropy",
+          "web: rule 232 first image subshift forbidden 01001 01101 1011101",
+          "Wolfram Atlas Rule 232"
+        ]
+      },
+      "rationale": "Kůrka's full relevant Example 7 computes blocking words, attractors, signal/column subshifts and temporal zero entropy for the same rule, but not the one-update *spatial image* language or positive spatial image entropy; he explicitly gives first-image graphs for other elementary rules. Kari–Taati studies general preinjective/surjective maps and Gibbs entropy, not an evaluated Rule 232 one-step SFT. A forgotten automata catalogue may already encode this exact six-word image, so priority is qualified.",
+      "residual_risks": [
+        "An earlier explicit first-image automaton or forbidden-pattern table for Rule 232 may be unindexed or difficult to search.",
+        "The theorem concerns one update and spatial entropy, not the eventual attractor, temporal evolution entropy or Bernoulli pushforward entropy.",
+        "Finite raw-word checks n<=13 do not alone prove the full SFT; independent six-symbol reset and exact matrix identities are essential."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The same rule is treated, but the result is its attractor/column system, not explicit one-step spatial image SFT or positive entropy.",
+          "evidence": [
+            "Example 7 majority Rule 232",
+            "Maximal attractor S_{010^k1,10^k10,...}, zero column entropy",
+            "Figure 10 first-image graphs concern ECA128 and 106"
+          ],
+          "identifier_or_url": "https://www.cts.cuni.cz/~kurka/cantor.pdf",
+          "material_read": "Original article Table of Contents and Example 7 (PDF pages 19–20), blocking words, signal/column subshifts and maximal attractor; example first-image diagrams for other rules",
+          "method": "author manuscript primary PDF text and rendered pages",
+          "title": "Topological dynamics of one-dimensional cellular automata",
+          "trigger": "same majority Rule 232 and plausible first-image discussion"
+        },
+        {
+          "assessment": "The broad Gibbs and surjective factor entropy theorems do not evaluate this non-surjective Rule232 first image.",
+          "evidence": [
+            "Abstract and §§2–3 concern surjective/preinjective factor maps and invariant Gibbs measures"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1311.2319",
+          "material_read": "Primary PDF abstract, table of contents and sections on surjective automata, Gibbs measures and entropy-preserving preinjective maps",
+          "method": "arXiv PDF text and rendered title page",
+          "title": "Statistical Mechanics of Surjective Cellular Automata",
+          "trigger": "general strong entropy/factor-map framework"
+        },
+        {
+          "assessment": "Identifies the local rule but does not provide an exact six-forbidden-word and rational-GF classification.",
+          "evidence": [
+            "ECA rule number 232 and majority truth table"
+          ],
+          "identifier_or_url": "https://atlas.wolfram.com/01/01/232/01_01_1_232.html",
+          "material_read": "Rule identification and Boolean local expression",
+          "method": "reference catalogue page",
+          "title": "Wolfram Atlas Elementary Cellular Automaton Rule 232",
+          "trigger": "possible exact rule table"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first spatial image of the elementary majority rule is a canonical dynamical object distinct from the temporal action and long-time attractor. A complete six-word minimal SFT presentation, exact rational all-length word enumerator and explicit spatial entropy are substantive intrinsic invariants; the sharp forbidden-window length 7 has structural significance for recognition and further symbolic-dynamics calculations.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pinned RESULT.md, standalone verify.py, VERIFY and metadata files",
+    "Kůrka full author PDF Example 7 and surrounding first-image examples",
+    "Kari–Taati arXiv:1311.2319 primary PDF",
+    "Resultary rule 232 and SFT queries",
+    "Wolfram Atlas rule 232",
+    "Independent reconstruct-from-rule DFA, all 110 ordered-pair reset check, exact 11×11 matrix identity and characteristic polynomial"
+  ],
+  "disposition": "passed",
+  "final_claim": "For bilateral binary configurations updated once by three-neighbor majority rule 232, the spatial image shift is exactly the SFT avoiding 01001, 01101, 10010, 10110, 0100010, 1011101, all six being minimal forbidden words. Block-count generating function (1+z³+2z⁴-z⁵)/(1-2z+z³-z⁵); spatial entropy log(lambda) where lambda>1 is the unique larger-than-one real root lambda^5-2lambda^4+lambda²-1=0.",
+  "limitations": "Bilateral full binary shift and exactly one three-neighbor majority update; only spatial shift block counts/entropy, not the CA time-map, limit set or measure entropy.",
+  "schema_version": 1
+}
