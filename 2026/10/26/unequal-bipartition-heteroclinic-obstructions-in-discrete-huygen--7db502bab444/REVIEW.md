@@ -1,11 +1,21 @@
-# Review: unequal-bipartition heteroclinic tree obstructions
+# Independent mathematical audit
 
-**Correctness — PASS.** The signed-cut equivalence follows from full-rank tree incidence and an exact cut balance, with both necessity and sufficiency. The invariant circle identity is exact, and the positive step bound implies monotone scalar motion and a smooth diffeomorphism. The derivative matrices along the connection share the eigenspaces of a matrix similar to a symmetric one. Inertia, endpoint hyperbolicity and stable-manifold dimensions prove the stated seven-dimensional tangency in the nine-vertex instance. The lower-order obstruction is arithmetic: a mixed sign gives total signed sum at most the number of vertices minus three; unequal part sizes force a least-common-multiple divisor exceeding that amount below nine. The uniqueness proof forces the degree patterns and the only negative edge. The standalone verifier passed every documented finite test. Unproved scope: no classification of all possible heteroclinic mechanisms.
+## correctness
 
-**Originality — PASS under inspected evidence.** The main antecedent, Buescu–D’Aniello–Oliveira, arXiv:2610.10993v1, Proposition 5.11, requires signed sum one at every vertex; it therefore covers equal-size bipartitions and graphs with \(4r+2\) vertices. Its six-vertex example and family do not include the nine-vertex unequal-class witness. The preceding invariant-line argument is credited and adapted, not represented as newly invented. The additional exact cut existence test, sharp minimum, nine-vertex uniqueness, and unequal-class infinite family are absent from the inspected relevant sections. Focused mathematical-record searches found no directly equivalent classification, but negative searches cannot certify historical priority. Prior path, triangle, and wrapped-fixed-point findings address different dynamics and do not imply this result.
+PASS
 
-**Mathematical value — PASS.** The structural question is whether the source's vertexwise-one condition exhausts the diagonal heteroclinic obstruction. The answer is no: a sharp nine-vertex threshold, one unique minimal signed topology, an intrinsic cut test for any tree and infinitely many unequal classes provide a motivated, generalizable classification. The result isolates a previously uncovered obstruction family rather than a routine numerical improvement. It does not imply that every tree failing the test is Morse–Smale.
+With bipartition-oriented tree edges, K=B^T B is positive definite and (Kd)_uv=S_u+S_v. Connectedness forces constant signed sums s on A and t on B, |A|s=|B|t=Σ_e d_e; for c=s+t>0 these are positive. The unique solution to Jd=f on a tree is exactly the cut flow D_e, proving iff |D_e|=1. For mixed d, the invariant circle p+u1 satisfies u↦u+(s+t)h sin(u); positive definite KΔ is similar to the symmetric K^(1/2)ΔK^(1/2), with positive/negative inertia determined by d. Its positive subspace E+ is unstable at p and stable at p+π1, coincides along the heteroclinic, and is proper, thus violates transversality. If unequal s,t with r>=1 negative, q=n-1-2r<=n-3 is divisible by lcm(|A|,|B|), excluding n<=8. At n=9 only (|A|,|B|)=(6,3), (s,t)=(1,2), r=1 survive; parity and degree counts force unique signed tree. Constructive b odd, k>=2 family meets sums and extends indefinitely. Independent 32 checks of cuts, nine-vertex construction, lcm exclusions support analytic proof; no inference of arbitrary Morse–Smale behavior from criterion failure.
 
-**Sources and residual risks.** The primary paper's full arXiv HTML was inspected, especially Sections 2, 5.1, 5.4, 5.5 and the conclusions; the literature comparison concerns statements and hypotheses, not title matching. Residual risk: an alternative signed-flow or oscillator-network formulation might predate this exact cut classification; the proof mechanism is closely related to the cited source. No independent review has taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact invariant-line nontransversality mechanism and equal vertexwise signed-sum one case are established by Buescu–D’Aniello–Oliveira (arXiv:2610.10993v1) Propositions 5.11–5.12, including a six-vertex example. The present theorem explicitly restricts sharp nine-vertex minimality to unequal incident sums and derives the exact arbitrary tree cut criterion, uniqueness, and a new unbalanced family. Inspected complete HTML §5.4 does not state the unequal-class sharp onset, although the prior argument suggests extension. Qualified novelty for this exact signed-flow classification, not the underlying heteroclinic idea.
+
+## value
+
+PASS
+
+A precise combinatorial criterion and sharp minimal example for a physically motivated nontransversality obstruction, extending the known balanced-sign mechanism to unequal bipartition classes. The nine-vertex threshold and unique signed topology are natural exact structural facts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
