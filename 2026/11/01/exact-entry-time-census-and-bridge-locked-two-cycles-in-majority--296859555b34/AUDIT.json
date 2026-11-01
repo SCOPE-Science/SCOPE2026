@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "For each clique the nonbridge neighbor-one count is k-z and bridge count k-u+v. Exhaustively splitting odd weak-majority exceptions and even balanced/unbalanced classes proves all possible first-entry times, four fixed points, orbit number and every time-fiber formula. The m=2 boundary is handled separately. Exact Python microstate enumeration for all 349520 states on m=2..9 independently confirms each fiber, cycle orbit and absence of transient two-cycle basins. Algebraic size identities checked m=2..299. Experiments are supplementary; the finite-case symbolic proof is the all-m argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kaaser–Mallmann-Trenn–Natale Theorem 1.2 contracts graph families for convergence upper bounds; it does not present exact bridge-barbell entry-time fibers.",
+        "Goles–Olivos, Discrete Mathematics 30 (1980) 187-189, abstract: binary symmetric threshold functions eventually have periods at most two.",
+        "Earlier related exact records describe \\(K_n\\square K_2\\) (matching of n interclique edges), K_n join independent K_n, ladders and crowns, all with structurally different neighbor sets."
+      ],
+      "reasoning": "A generic eventual period theorem, a generic bound, and formulas for different graph families do not imply the exact counts or four-step sharp cutoff. In particular deleting \\(n-1\\) matching edges changes distinguished degrees and tie behavior, so there is no direct parameter substitution or monotonicity inference.",
+      "searches": [
+        "exact orbit census majority dynamics barbell graph K_m edge K_m convergence period transient",
+        "On the Voting Time of the Deterministic Majority Process arxiv 1508.03519",
+        "majority dynamics on complete split graph deterministic synchronous first periodic entry",
+        "majority dynamics on matching-coupled cliques K_n square K_2 exact orbit census"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1508.03519v1",
+      "arxiv:1403.4763v1",
+      "arxiv:1405.2486v1",
+      "doi:10.1016/0012-365X(80)90121-1",
+      "published-finding corpus mathematical search entries: “Zero forcing polynomial of bridge barbells” and “Sharp period-four census for complete multipartite parity automata” (distinct subjects)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2015 upper bound depends on compressed graph families and counts of bad arrows, not the distribution of first periodic entry for each initial coloring.",
+        "Masuda arXiv:1403.4763v1 Eqs. and Sections II-IV model stochastic edge sampling and coalescing random walks.",
+        "Related matched-clique exact census counts a different graph \\(K_n\\square K_2\\) and cannot be converted to a one-bridge graph by renaming variables."
+      ],
+      "reasoning": "Knowing that periods divide 2 leaves the numbers of fixed points, immediate cycles, basins and first-entry histogram unspecified; a worst-case bound does not supply exact counts. The new formula is derived from a direct bridge-vertex update identity, not imported as an unstated corollary of another theorem.",
+      "searches": [
+        "majority dynamics two cliques single edge periodic two cycles balanced configurations opposite bridge states",
+        "deterministic synchronous majority voting process dumbbell graph barbell two cliques fixed points cycles convergence time",
+        "On the Voting Time of the Deterministic Majority Process barbell graph",
+        "Voter model on the two-clique graph Masuda arxiv 1403.4763",
+        "Two complete graphs K_m connected by a single bridge edge, synchronous binary majority dynamics tie retention: exactly four fixed points; for even m C(m,m/2)^2/4 two-cycles and sharp first-periodic-entry four steps"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kaaser et al., arXiv:1508.03519v1 Section 1.1 defines the exact same synchronous lazy-tie update and a time to \\(F^{t+2}=F^t\\); its main results are general upper bounds, not a graph-specific distribution.",
+        "Masuda, arXiv:1403.4763v1 Section II uses a stochastic link-sampling voter model rather than the deterministic update map.",
+        "Benjamini et al., arXiv:1405.2486v1 Theorem 1.1 states eventual period at most 2 for finite graphs, not orbit or entry-time enumerations."
+      ],
+      "reasoning": "Searching barbell, dumbbell, two-clique, and bridge aliases did not reveal an equivalent deterministic-majority formula. The same graph topology in the voter model is not equivalent because stochastic one-vertex copying and simultaneous thresholding have different transition kernels and recurrent classes.",
+      "searches": [
+        "exact first periodic entry time distribution synchronous binary strict-neighbor majority barbell graph two complete cliques one bridging edge",
+        "majority dynamics two cliques single edge periodic two cycles balanced configurations opposite bridge states",
+        "deterministic synchronous majority voting process dumbbell graph barbell two cliques fixed points cycles convergence time"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The ranked mathematical search results closest to the topology include “Zero forcing polynomial of bridge barbells” and “Sharp period-four census for complete multipartite parity automata”; their dynamical or combinatorial objects differ from binary synchronous majority.",
+        "Available exact majority results concern wheel, ladder, crown, split, tripartite and matching-coupled-clique graphs rather than two cliques joined by exactly one bridge.",
+        "Web searches with the exact graph and dynamics returned general voting-time work or stochastic voter-model studies, not a finite-size orbit/entry-time table."
+      ],
+      "reasoning": "No exact census/table covering these conditions was located in the actual checked sources. The finite verifier independently generated the small-size rows; its output is not a pre-existing database. Search incompleteness remains a risk.",
+      "searches": [
+        "exact first periodic entry time distribution synchronous binary strict-neighbor majority barbell graph two complete cliques one bridging edge",
+        "exact orbit census majority dynamics barbell graph K_m edge K_m convergence period transient",
+        "synchronous majority dynamics clique community bridge two cycle oscillation",
+        "majority dynamics barbell graph two cliques one edge first entry distribution",
+        "Barbell graph deterministic majority dynamics exact transient shell counts C binomial(m,m/2) s0=4+C^2/2 s1=(2^m-C)^2-4 s4=C(2^(m-1)-C) no two-cycle basin"
+      ]
+    },
+    "rationale": "The full finite-time histogram, one-edge bridge-locking condition, exact two-cycle orbit census, no-transient basin property and sharp 4-step maximum are not statements of the closest inspected general-majority or stochastic two-clique papers. These are statement- and implication-level comparisons; absence of a search result alone is not treated as proof of novelty. A direct equivalence in incompletely indexed older literature remains a residual risk.",
+    "residual_risks": [
+      "Historic equivalent using a different alias for the bridge barbell or a nonindexed thesis could exist.",
+      "Goles–Olivos 1980 full text not accessed; only published abstract was inspected.",
+      "The original finite-system classification may be embedded in a broader published theorem or table not retrieved by the queries."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Gives general potential/module upper bounds and NP-completeness; no same graph exact entry distribution in inspected text.",
+        "evidence": [
+          "Definition 2 is lazy-tie synchronous majority; Definition 3 uses F^(t+2)=F^t",
+          "Theorem 1.2 and §3.2 are bounds using graph families",
+          "No occurrence of barbell in accessible HTML text"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1508.03519v1",
+        "material_read": "Abstract, definitions in §1.1, main theorem statements, §3 and §3.2, references, and appendices on module-based bounds.",
+        "method": "Accessible complete arXiv HTML viewed by sections and exact-term search for barbell and two-clique.",
+        "title": "On the Voting Time of the Deterministic Majority Process",
+        "trigger": "Exact model and convergence time metric, possibly stronger general theorem"
+      },
+      {
+        "assessment": "Studies stochastic link dynamics with sampled edges, unlike deterministic simultaneous majority, so its consensus-time laws do not cover the new histogram.",
+        "evidence": [
+          "Section II chooses an edge uniformly then copies an endpoint",
+          "Section IV derives consensus time from coalescing random walks"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1403.4763",
+        "material_read": "Accessible preprint full-text sections I-IV and model definition, including link-dynamics update and mean-consensus-time approach.",
+        "method": "arXiv accessible text including model and principal formula discussion.",
+        "title": "Voter model on the two-clique graph",
+        "trigger": "Same graph topology may encode stronger result under alternative terminology"
+      },
+      {
+        "assessment": "General period-two theorem and random graph analysis; does not in those inspected portions assert the present exact deterministic two-clique census.",
+        "evidence": [
+          "Theorem 1.1 attributes eventual period at most 2 to Goles and Olivos",
+          "Main new theorems concern infinite transitive networks and random graphs"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1405.2486",
+        "material_read": "Accessible text: abstract, Introduction, definition, Theorem 1.1 and statements of Theorems 1-3.",
+        "method": "arXiv accessible text searched for relevant finite-graph statement.",
+        "title": "Convergence, unanimity and disagreement in majority dynamics on unimodular graphs and random graphs",
+        "trigger": "Could provide dominating finite majority statement"
+      },
+      {
+        "assessment": "Abstract asserts eventual period one or two, not a barbell histogram. Full-text coverage not certified.",
+        "evidence": [
+          "Discrete Mathematics 30 (1980), 187-189",
+          "DOI 10.1016/0012-365X(80)90121-1"
+        ],
+        "identifier_or_url": "https://pure.uai.cl/en/publications/periodic-behaviour-of-generalized-threshold-functions/",
+        "material_read": "Bibliographic record and abstract only; original full text not obtained.",
+        "method": "University-hosted research-index abstract and DOI metadata.",
+        "title": "Periodic behaviour of generalized threshold functions",
+        "trigger": "Original general-period theorem under same class of symmetric threshold maps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "29685955-5b34-4a84-bb33-97fab4621a8d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is a canonical pair of dense opinion communities joined by the minimum possible coupling. The exact law separates odd-size deterministic fixation from even-size bridge-locked oscillation, proves sharp four-round stabilization outside immediate cycles, and counts every transient shell. These are natural, previously unprovided invariants of the dynamics; parity-dependent orbit populations and \\(m^{-1}\\) versus \\(m^{-1/2}\\) probabilities are not mere relabelings of generic period-two behavior.",
+    "status": "PASS"
+  }
+}
