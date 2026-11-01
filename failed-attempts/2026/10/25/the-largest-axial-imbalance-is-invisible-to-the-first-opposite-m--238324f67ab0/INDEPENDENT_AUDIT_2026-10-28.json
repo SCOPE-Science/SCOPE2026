@@ -1,0 +1,155 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T10:11:04Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md source proof at blob 8bc9993cccb5dfe78bd16d85e0b551fff476fc39",
+        "Independent exact Fraction enumerator: 700 vectors, dimensions 2..8, facet sum equals reciprocal-prefix formula",
+        "Sadovsky 2025 Lemma 2.2 and aligned simplex lemma independently imply the same identity"
+      ],
+      "rationale": "The normalized orthant-simplex facet support sum is valid for every d>=2 and t_i in (0,1]. Weight sum over negative-index subsets groups by least index; combining j=d term with the empty subset cancels (1+t_d), producing the claimed reciprocal-prefix formula. All-positive domain, ties, d=2, centered equality 1 and limiting upper endpoint d checked. This is a derivation, not an extrapolation from finite experiments.",
+      "risk": [
+        "d is approached only on the open arm-ratio domain; not attained for positive arms."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Sadovsky Lemma 2.2 applies to ANY locally anti-blocking bodies in ANY d and any j; Lemma 1.2 calculates mixed volume of aligned simplices."
+        ],
+        "reasoning": "The general result dominates the complete first-opposite-coefficient statement, including every sorted arm tuple. Its specialization is direct and exact.",
+        "searches": [
+          "arxiv:2312.03473v3 Lemma 1.2 and Lemma 2.2",
+          "Shephard aligned simplex mixed volumes"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 8bc9993cccb5dfe78bd16d85e0b551fff476fc39 and verify.py ce4f8afa9a948fa0744b239da05821da95daa96d",
+        "Resultary semantic mixed-volume search mixed volume V(K[d-1],-K) asymmetric cross-polytope arm lengths Godbersen exact formula order statistic",
+        "Sadovsky arxiv:2312.03473v3 full text Lemma 1.2 and 2.2",
+        "Explicit first-coefficient implication by substituting cross-polytope orthant simplices"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Orthant formula: d!V = Σ_S(Π_{i∈S}t_i) max({1/t_i:i∈S}∪{t_i:i∉S}); this is exactly the submitted proof identity.",
+          "Normalization d!vol(K)=Π(1+t_i)."
+        ],
+        "reasoning": "Divide by product volume; sort by least negative index and cancel (1+t_d). Thus prior theorem+lemma logically entail the full claim, including t_d invisibility.",
+        "searches": [
+          "arxiv:2312.03473v3 PDF p2-3 equations (6), Lemma 1.2",
+          "Current RESULT.md facet-support computation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "K and -K are locally anti-blocking; their intersections with each orthant are coordinate-aligned simplices.",
+          "Lemma 2.2 is an exact sum, not an inequality."
+        ],
+        "reasoning": "The submitted facet formula is equivalent to the orthant decomposition of already-known simplex mixed volumes.",
+        "searches": [
+          "mixed volume V(K[d-1],-K) asymmetric cross-polytope arm lengths Godbersen exact formula order statistic",
+          "Sadovsky arxiv:2312.03473v3, Lemma 2.2 eq.(6)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact crosspolytope value table needed: general published lemmas algebraically compute it for arbitrary continuous arm ratios."
+        ],
+        "reasoning": "The absence of a sorted-ratio table does not confer novelty: same numerical values are implied for the entire domain.",
+        "searches": [
+          "mixed volume V(K[d-1],-K) asymmetric cross-polytope arm lengths Godbersen exact formula order statistic",
+          "Resultary: exact Godbersen mixed-volume profile for one-vertex simplex truncations"
+        ]
+      },
+      "rationale": "FAIL: a prior 2025 primary theorem plus classical aligned-simplex lemma already computes the same mixed volume for all locally anti-blocking bodies. This family is an immediate specialization; ordering/telescoping reveals the largest-ratio cancellation without new mathematical input.",
+      "residual_risks": [
+        "No claim about other opposite mixed-volume coefficients.",
+        "Even if the sorted invariance is not written verbatim in the cited 2025 paper, the proved general equalities directly entail it; matching words are unnecessary for coverage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE PRIOR COVERAGE of this first mixed-volume coefficient: apply Lemma 2.2 to K,-K; Lemma 1.2 after independent diagonal scaling of each orthant gives the exact submitted facet sum. The displayed reciprocal-prefix form is an elementary sorting/telescoping simplification, not a novel underlying mixed-volume theorem.",
+          "evidence": [
+            "Lemma 2.2 equation (6): V_n(K[j],K'[n-j])=sum_sigma V_n(K_sigma[j],K'_sigma[n-j]);",
+            "Lemma 1.2: V_n(aligned simplex[j],Delta[n-j])=max_{|I|=j}prod_{i in I}alpha_i/n!;",
+            "Set j=d-1, K'=-K, each orthant simplex; obtain sum_S (prod_{i in S} t_i) max({t_i^-1:i in S} union {t_i:i notin S}), precisely RESULT.md intermediate formula."
+          ],
+          "identifier_or_url": "arxiv:2312.03473v3",
+          "material_read": "Complete relevant Definitions, Lemma 1.2 and Lemma 2.2 with proof, plus sections 3–4 and aligned-simplex consequences; not merely abstract",
+          "method": "Read full lawful arXiv PDF including page image and checked formulas (1.2),(2.2),(6)",
+          "title": "Godbersen’s conjecture for locally anti-blocking bodies",
+          "trigger": "Exact same K and -K are locally anti-blocking; original paper supplies orthant mixed-volume formula"
+        },
+        {
+          "assessment": "Universal upper bound supports only a bound; not basis of exact coverage decision",
+          "evidence": [
+            "Universal Godbersen inequality and simplex equality, not the submitted specialized formula."
+          ],
+          "identifier_or_url": "arxiv:2610.06806",
+          "material_read": "Article abstract/statement located, not full article independently inspected",
+          "method": "Public indexed text search",
+          "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+          "trigger": "Recent general inequality possibly overlaps sharp bound"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "Exact first opposite mixed-volume coefficient for all positive axis-arm choices",
+        "Largest-ratio cancellation provides a non-obvious geometric interpretation"
+      ],
+      "rationale": "The explicit invisible-largest-ratio effect is a mathematically interpretable natural exact invariant for asymmetric coordinate cross-polytopes, with sharp extremal range. This can be useful as a specialized formula, but its derivability from prior general results eliminates independent originality and acceptance, irrespective of value.",
+      "risk": [
+        "Its computation uses existing published exact orthant mixed-volume machinery; little new general theory is developed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob 8bc9993cccb5dfe78bd16d85e0b551fff476fc39 and verify.py ce4f8afa9a948fa0744b239da05821da95daa96d",
+    "Resultary semantic mixed-volume search mixed volume V(K[d-1],-K) asymmetric cross-polytope arm lengths Godbersen exact formula order statistic",
+    "Sadovsky arxiv:2312.03473v3 full text Lemma 1.2 and 2.2",
+    "Explicit first-coefficient implication by substituting cross-polytope orthant simplices"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "No claim about other opposite mixed-volume coefficients.",
+    "Even if the sorted invariance is not written verbatim in the cited 2025 paper, the proved general equalities directly entail it; matching words are unnecessary for coverage.",
+    "d is approached only on the open arm-ratio domain; not attained for positive arms.",
+    "Its computation uses existing published exact orthant mixed-volume machinery; little new general theory is developed."
+  ],
+  "residual_risks": [
+    "No claim about other opposite mixed-volume coefficients.",
+    "Even if the sorted invariance is not written verbatim in the cited 2025 paper, the proved general equalities directly entail it; matching words are unnecessary for coverage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVE PRIOR COVERAGE of this first mixed-volume coefficient: apply Lemma 2.2 to K,-K; Lemma 1.2 after independent diagonal scaling of each orthant gives the exact submitted facet sum. The displayed reciprocal-prefix form is an elementary sorting/telescoping simplification, not a novel underlying mixed-volume theorem.",
+      "evidence": [
+        "Lemma 2.2 equation (6): V_n(K[j],K'[n-j])=sum_sigma V_n(K_sigma[j],K'_sigma[n-j]);",
+        "Lemma 1.2: V_n(aligned simplex[j],Delta[n-j])=max_{|I|=j}prod_{i in I}alpha_i/n!;",
+        "Set j=d-1, K'=-K, each orthant simplex; obtain sum_S (prod_{i in S} t_i) max({t_i^-1:i in S} union {t_i:i notin S}), precisely RESULT.md intermediate formula."
+      ],
+      "identifier_or_url": "arxiv:2312.03473v3",
+      "material_read": "Complete relevant Definitions, Lemma 1.2 and Lemma 2.2 with proof, plus sections 3–4 and aligned-simplex consequences; not merely abstract",
+      "method": "Read full lawful arXiv PDF including page image and checked formulas (1.2),(2.2),(6)",
+      "title": "Godbersen’s conjecture for locally anti-blocking bodies",
+      "trigger": "Exact same K and -K are locally anti-blocking; original paper supplies orthant mixed-volume formula"
+    },
+    {
+      "assessment": "Universal upper bound supports only a bound; not basis of exact coverage decision",
+      "evidence": [
+        "Universal Godbersen inequality and simplex equality, not the submitted specialized formula."
+      ],
+      "identifier_or_url": "arxiv:2610.06806",
+      "material_read": "Article abstract/statement located, not full article independently inspected",
+      "method": "Public indexed text search",
+      "title": "Higher-order Godbersen inequality and a characterization of simplices via the face lattice",
+      "trigger": "Recent general inequality possibly overlaps sharp bound"
+    }
+  ]
+}
