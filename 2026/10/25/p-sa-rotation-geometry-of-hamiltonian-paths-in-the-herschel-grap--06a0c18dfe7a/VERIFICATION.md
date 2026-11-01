@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproduction and bounds
+# Independent mathematical audit
 
-Run `python3 code/posa_paths.py` and `python3 code/edge_subsets.py` using Python 3 standard library. The first uses only all vertex-simple eleven-vertex paths with a red initial endpoint; the second independently tests each of the \(43{,}758\) ten-edge subsets. Both construct all valid states and then perform complete graph searches from all states. Their asserted final values are 222 paths, 444 rotation/exchange edges, a single connected component, radius 8, diameter 9, and exactly 198 and 24 states at eccentricities 8 and 9. Compare stdout to `verification/posa_stdout.txt` and `verification/edge_stdout.txt` for the recorded results. All embedded file hashes and byte counts are checked separately by the envelope validator.
+## correctness
 
-The programs prove the exact finite instance, not general results for other planar or bipartite graphs. They are independent constructions of the same undirected path space, not independent external scientific audits.
+PASS
+
+The explicit eleven-vertex bipartite graph has five blue and six red vertices, eighteen edges, and red degree three. Both endpoints of a spanning path are red; four distinct Pósa moves follow. An independently written exhaustive red-start DFS recovered exactly 222 reversal classes. A separate construction of the complete rotation graph recovered 444 edges and eccentricities 8:198 and 9:24, connected from every root. The enumeration has no truncation; a one-edge exchange rejoining two split paths is an endpoint rotation because there is no Hamiltonian cycle.
+
+## originality
+
+PASS
+
+Pósa rotations themselves and the graph identity are classical. Krivelevich Section 2.3 bounds rotated endpoints in expanding graph settings; it does not classify the entire Herschel spanning-path reconfiguration graph. The computed diameter/eccentricity profile was not found in actual searches. This is a qualified priority assessment, not exhaustive novelty certification.
+
+## value
+
+PASS
+
+The smallest non-Hamiltonian polyhedral graph is a motivated test case for complete Hamiltonian-path reconfiguration. Connectivity, exact diameter and full eccentricity distribution distinguish the path-state geometry from existence of one Hamiltonian path, and have finite exact combinatorial meaning.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
