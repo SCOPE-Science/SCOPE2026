@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-11-01.md",
+      "INDEPENDENT_AUDIT_2026-11-01.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The standalone `CHECK.py` uses only the Python 3 standard library. It verified exact rational polynomial identities, five Bernstein nonnegativity certificates over complete height intervals, signs isolating the unique cubic root, and the exact ordering of the five Gram eigenvalue levels at the optimum. It also performed 1215 numerical complex-Gram entry comparisons for independent harmonic evaluations at 15 combinations of sample count and latitude; the specified tolerance was \(3\times10^{-9}\), with no failures.
+# Independent mathematical audit
 
-The proof of the all-height statement is analytic, using Fourier orthogonality, exact Bernstein positivity and monotonicity. Numerical matrices are corroboration only. No independent audit, external certification, or numerical proof of the infinite assertion is claimed. The scope is a single regular latitude ring and the exact-degree-four harmonic space.
+## correctness
+
+PASS
+
+PASS: Retrieved RESULT.md and CHECK.py at pinned Git blob SHAs. With N>=9, nine distinct Fourier orders diagonalize the Gram matrix; direct associated-Legendre derivatives give the five degree-four nonnegative a_j(t), with a0+2 sum(a1..a4)=1. Independently checked exact rational Bernstein coefficients for five covering outer intervals and polynomial identity, verified the unique decreasing cubic root and interior ratio monotonicity. The 13/4 outer bound exceeds the certified value at tau; exact interval ordering makes a3 largest and a1=a2 smallest at tau. The N>=9 and rank-zero boundaries are essential. Finite complex-Gram examples are corroborative, not proof of global optimization.
+
+## originality
+
+PASS
+
+PASS (best-of-knowledge): The prior harmonic-index latitude design cancels selected harmonics, whereas full-rank one-ring exact-degree-four conditioning is a different objective; published multi-ring degree-bounded transforms address a different evaluation space/geometry. Source-restricted and database searches supplied no mathematically dominating sharp one-ring quartic minimax theorem, but unindexed specialist optimizations remain a priority risk.
+
+## value
+
+PASS
+
+PASS: Minimal nine-point angular sampling and the sharp latitude conditioning of an exact-degree-four harmonic subspace are natural stable interpolation questions. The unique algebraic optimum and exact all-height certificate supply a reusable sharp benchmark, beyond routine orthogonality or a sample numerical condition number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
