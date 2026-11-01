@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T17:15:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git frozen RESULT.md blob 4516706c3474694ec3bcad57247a9a4e6819e8bd; all theorem, ellipsoid and spectral sections",
+        "independent_checks.py rational enumeration for n=3,4,5,6"
+      ],
+      "rationale": "For n>=3 and 0<δ<1, strict convexity of H=(1−δ)I+δ11^T yields a unique interior equilibrium q1 and a pathwise nonincreasing quadratic error potential. The prescribed strict ellipsoid implies ||e||_2<r and every coordinate update remains strictly interior, excluding clipping at all times. The identity e_i′=−δ(S−e_i) leads to S′=(1−δ)(S−e_i), Q′=Q−e_i²+δ²(S−e_i)² and exact averaging Σ(S−e_i)²=(n−2)S²+Q. This proves the displayed 2×2 evolution of E[S²],E[Q] for all steps. Strictly positive matrix entries and det(I−T)>0 imply 0<σ<ρ<1; from F_1≥(d/n)F_0 and σ<d/n, the Perron coefficient is strictly positive for every deterministic nonzero perturbation. Eigenvalue expansion gives both δ↑1 and n→∞ constants. Independent exact rational update-string enumeration matched each moment in four cases n=3..6 through depth four (81,256,625,1296 strings).",
+      "residual_risks": [
+        "Sharp factor is in expectation of squared Euclidean error, not almost-sure pathwise exponent.",
+        "Clipping outside the prescribed open ellipsoid destroys this exact moment closure."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General random iterative techniques encompass coordinate best-response linear algebra but typically supply upper bounds, not the exact symmetric covariance eigenvalues."
+        ],
+        "reasoning": "The broad abstract framework does not provide these special closed constants without a substantive symmetry computation; no dominating exact full-error theorem identified.",
+        "searches": [
+          "arXiv:1506.03296 randomized coordinate methods",
+          "arXiv:2602.15986 Theorem 3"
+        ]
+      },
+      "checked_sources": [
+        "Misiak–Dziubiński, Convergence rates of random-order best-response dynamics in public good games on networks, arXiv:2602.15986v1, Theorem 3 and §3.2.2",
+        "Gower–Richtárik, Randomized Iterative Methods for Linear Systems, arXiv:1506.03296",
+        "Resultary published 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 3 establishes general stability; broad coordinate descent results give bounds on expected errors."
+        ],
+        "reasoning": "Neither bound implies equality of the two moment sequences or positive coefficient for every nonzero initial error; the exact row identities and Perron argument are additional.",
+        "searches": [
+          "arXiv:2602.15986 Theorem 3",
+          "arXiv:1506.03296 Theorem 8"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact expectation of squared norm differs from the norm of a mean iterate and from pathwise contraction probability."
+        ],
+        "reasoning": "Known spectral convergence estimates are not equivalent to explicit closed 2×2 moment evolution and positive Perron coefficient for every initial perturbation.",
+        "searches": [
+          "arXiv:2602.15986",
+          "arXiv:1506.03296",
+          "Resultary: random best response complete network public good game exact mean square convergence two moment"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The motivating source presents numerical clique convergence rates, not symbolic matrices/eigenvalue tables for all n,δ."
+        ],
+        "reasoning": "Numerical rate curves do not imply exact every-time moment closure and universal asymptotic factor.",
+        "searches": [
+          "arXiv:2602.15986 §3.2.2",
+          "Resultary query: random best response complete network public good game exact mean square convergence two moment"
+        ]
+      },
+      "rationale": "The same Misiak–Dziubiński 2026 complete-network random-order public-good model has convergence bounds and numerical clique slowdown; it does not state the exact Euclidean two-moment matrix or universal initial-profile mean-square Perron factor. Gower–Richtárik randomized iterative method theory gives general expected squared norm inequalities rather than this special second-moment identity and its two sharp limits. A closely related Resultary entry on delayed two-coordinate Gauss–Seidel studies a different stochastic recurrence, not this game. The contribution is an exact symmetry reduction of an established algorithm, not a new general stochastic convergence theory.",
+      "residual_risks": [
+        "General randomized coordinate descent covariance-operator formulas may imply the exact 2×2 symmetry reduction with further calculation; no guarantee of historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Prior rate bounds and simulations, not the closed exact Euclidean second-moment recurrence",
+          "evidence": "Theorem 3 provides a probabilistic stability estimate; the present identity averages squared S and Q exactly.",
+          "identifier_or_url": "https://arxiv.org/html/2602.15986v1",
+          "material_read": "Full accessible manuscript, particularly Theorem 3 and clique §3.2.2",
+          "method": "arXiv HTML theorem and numerical section comparison",
+          "title": "Convergence rates of random-order best-response dynamics in public good games on networks",
+          "trigger": "Identical public-good model and random update setting"
+        },
+        {
+          "assessment": "General random iteration theory and inequalities; no explicit game-specific 2×2 rate identified in examined sections",
+          "evidence": "Theorem 8 supplies contraction estimates but not equality of this special two-moment process.",
+          "identifier_or_url": "https://arxiv.org/abs/1506.03296",
+          "material_read": "Accessible abstract and theorem-summary material relevant to expected norm contraction",
+          "method": "abstract and theorem-description comparison; not an exhaustive full-text reading",
+          "title": "Randomized Iterative Methods for Linear Systems",
+          "trigger": "Potentially dominant general coordinate descent result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Misiak–Dziubiński, Convergence rates of random-order best-response dynamics in public good games on networks, arXiv:2602.15986v1, Theorem 3 and §3.2.2",
+        "Gower–Richtárik, Randomized Iterative Methods for Linear Systems, arXiv:1506.03296",
+        "Resultary published 2026/9/20/SCOPE-exact-stochastic-delay-law-randomized-gauss-seidel--9ae0040f2dac"
+      ],
+      "rationale": "The exact mean-square relaxation rate is a natural observable for a canonical symmetric best-response game, not a arbitrary slice. The finite-dimensional closure yields all-time formulas and two sharp slowdown asymptotics with guaranteed generic coefficient, sharpening formerly numerical and inequality-based understanding of complete-network stochastic convergence.",
+      "residual_risks": [
+        "Value is limited to invariant near-equilibrium nonclipping conditions; generic graphs and clipping remain outside the theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No almost-sure rate, distant clipped starting profiles, or heterogeneous sampling.",
+    "General randomized coordinate descent covariance-operator formulas may imply the exact 2×2 symmetry reduction with further calculation; no guarantee of historical priority."
+  ],
+  "schema_version": 1
+}
