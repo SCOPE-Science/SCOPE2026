@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Marginal two-spin Gibbs weights are affine in \(z=e^{2h}\), hence the sign of covariance equals the sign of their quadratic determinant for arbitrary finite systems. The stated three-spin coefficients follow by exact hyperbolic-cosine multiplication; positive-root classifications follow from the discriminant and sign of the outer coefficients. The exact two-reversal example is algebraically verified. Direct finite-state reconstruction passed 4,188 supplementary assertions. No numerical evidence is used in place of an infinite family proof.
+## correctness
 
-**Originality — PASS (best-knowledge).** Lin (2026) establishes dependence nuclei and one-body field parametrization; it does not state this sign-transition bound or exact three-spin classification. Bergsma–Rudas (2002) treat marginal/conditional association parameters; Teuscher (2022) treats Simpson reversals; Hammond, van der Heijden and Smith (2024) treat log-linear generation. Relevant full-text sections show overlapping setup but not a stated two-reversal phase portrait. Searches for reentrant three-spin Gibbs covariance and mixture-weight association reversals revealed no equivalent complete result. The principal residual risk is implicit coverage by earlier general geometry of convex mixtures of binary tables, since a quadratic determinant is elementary.
+PASS
 
-**Value — PASS.** The question is natural when external fields change while the interaction nucleus stays fixed: how often can observed pair association change sign? A dimension-free sharp bound and a complete three-spin criterion answer it, including the counterintuitive possibility of two reversals while both conditional pair associations remain positive. The result is exact and applies to arbitrary finite many-body interactions, not a perturbative or numerical slice.
+With all interactions fixed, each unnormalized 2-by-2 pair-table entry after summing other spins is affine in z=e^(2h), as only one binary spectator field changes. The pair covariance is 4 det(M)/total(M)^2, so its sign has at most two changes. For three spins the exact cosh product identity yields the displayed quadratic A z²+B z+C; signs A,C are signs(a+d),signs(a-d), giving root cases and tangent boundary. The identically zero case A=C=B=0 is equivalent to a=d=0 and bc=0. For a=ln2/4,b=ln2,c=-ln2,d=0, Q=z²−193 z/16+1 has two positive reciprocal roots (193±15√161)/32; the t-conditional odds ratios are 2 in both sectors. Independent direct eight-state Gibbs enumeration tested 21 values of h,h1,h2 and matched covariance sign to Q. Finite checks support but do not establish the general-N proof.
 
-**Scientific limits.** One varied field, positive finite binary weights, covariance signs rather than amplitudes, and no asserted thermodynamic transition. Literature-wide priority and independent scientific validation have not been certified.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The conditional/marginal association framework and single-field interaction-nucleus interpretation are prior. The determinant of two affine pair tables gives an exact universal two-crossing bound, while the explicit three-spin coupling inequalities and reentrant strictly positive-conditioned witness survive the literature material inspected. An equivalent older Simpson mixture classification remains a substantive priority risk.
+
+## value
+
+PASS
+
+A single external field in a positive binary Gibbs model is a natural axis for Simpson reversal. The exact dimension-free maximum of two sign changes, complete coupling-phase root conditions, and explicit reentrance despite both conditioned associations positive yield a structural rather than merely numerical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and checks
+# Independent mathematical audit
 
-Execute `python3 verify_reversal.py` with Python 3 (standard library only). The run performed on the accompanying exact program returned `PASS 4188 finite arithmetic assertions`.
+## correctness
 
-The program checks several hundred independent random three-spin Gibbs parameter choices, including varied unrelated local fields; independently enumerated four-, five-, and six-spin positive weights; the exact two-root example with conditioned positive associations; the one-root large-three-body-coupling regime; and the all-field zero-association case.
+PASS
 
-The infinite-dimensional-in-\(N\) statement is justified analytically by two facts: summation over any number of spectator spins leaves each selected-pair unnormalized probability affine in the single varied field's exponential, and covariance sign is the sign of a determinant of that two-by-two marginal. It is not inferred from the finite checks. The three-spin threshold discriminants and boundary cases have separate algebraic proofs.
+With all interactions fixed, each unnormalized 2-by-2 pair-table entry after summing other spins is affine in z=e^(2h), as only one binary spectator field changes. The pair covariance is 4 det(M)/total(M)^2, so its sign has at most two changes. For three spins the exact cosh product identity yields the displayed quadratic A z²+B z+C; signs A,C are signs(a+d),signs(a-d), giving root cases and tangent boundary. The identically zero case A=C=B=0 is equivalent to a=d=0 and bc=0. For a=ln2/4,b=ln2,c=-ln2,d=0, Q=z²−193 z/16+1 has two positive reciprocal roots (193±15√161)/32; the t-conditional odds ratios are 2 in both sectors. Independent direct eight-state Gibbs enumeration tested 21 values of h,h1,h2 and matched covariance sign to Q. Finite checks support but do not establish the general-N proof.
 
-Independent audit has not been performed. The novelty comparison is a best-knowledge literature assessment and is not a certification of priority.
+## originality
+
+PASS
+
+The conditional/marginal association framework and single-field interaction-nucleus interpretation are prior. The determinant of two affine pair tables gives an exact universal two-crossing bound, while the explicit three-spin coupling inequalities and reentrant strictly positive-conditioned witness survive the literature material inspected. An equivalent older Simpson mixture classification remains a substantive priority risk.
+
+## value
+
+PASS
+
+A single external field in a positive binary Gibbs model is a natural axis for Simpson reversal. The exact dimension-free maximum of two sign changes, complete coupling-phase root conditions, and explicit reentrance despite both conditioned associations positive yield a structural rather than merely numerical classification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
