@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "All claims concern a finite specified labelled graph with 3^12=531441 exact states. The direct verifier tests F^9=F^6 for all codes, derives entrance-time and basin counts by explicit integer recurrence, and displays a sharp witness 3156. The separate indegree-peeling functional-graph implementation independently obtains the period and basin statistics. The independent successor-neighbor coloring enumerator counts 145200 recurrent period-three states. Verified two generators yield 120 spatial permutations; a vertex-stabilizer bound proves this is the full automorphism group, and exhaustive orbit action yields 473 geometric classes and one orbit of sixty extremal states. Programs and outputs are embedded and were replayed on their actual source paths; no finite sample extrapolates to an infinite conclusion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gravner–Lyu–Sivakoff 2016, arXiv:1610.07320v1, Theorem 3, characterizes fixation by vanishing initial circulation and computes activity from maximal normalized cycle integral.",
+        "Doba 2018, doi:10.25088/ComplexSystems.27.2.101, sections 6–7, determines long-term behavior from phase differences and maximum cycle density, with illustrative finite graphs."
+      ],
+      "reasoning": "These results are strong enough to explain the qualitative dichotomy on a triangulated sphere: an oscillatory circulation forces excitation activity 1/3. They do not determine the 145200 recurrent labeled states, 48400 temporal orbits, 473 symmetry classes, sharp entrance time six, or basin populations; the new claim excludes already implied qualitative facts as standalone novelty.",
+      "searches": [
+        "Gravner Lyu Sivakoff 2016 limiting behavior 3-color excitable media arbitrary graphs arxiv 1610.07320",
+        "Doba 2018 The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph maximum cycle density full text",
+        "icosahedral graph 3-state excitation general theorem attractor"
+      ]
+    },
+    "checked_sources": [
+      "Gravner, Lyu, Sivakoff (2016), arxiv:1610.07320v1, Theorem 3 and finite-graph discussion.",
+      "Doba (2018), The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph, sections 2, 3, 6, 7.",
+      "NetworkX stable graph reference and MathWorld icosahedral graph description.",
+      "Scientific claims in accessible earlier finite GHM graph-specific records, including Petersen and prism, contrasted by graph and update parameters."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In the icosahedral graph, triangular faces generate the cycle space; nonzero initial GHM circulation entails a nonzero triangular circulation and hence maximal normalized excitation rate 1/3 under the earlier activity theorem.",
+        "Previous exact finite graph counts for other graphs, such as generalized Petersen ten-vertex graphs, do not imply the icosahedral counts because they have different adjacency and state spaces."
+      ],
+      "reasoning": "The period-one/period-three qualitative restriction is anticipated by the earlier general theorem and is not treated as the novel core. New finite exact data are the tight entrance identity, the 48400 orbit count, the 473 geometric-class census, the basin distribution and the extremal spatial-orbit property. These are not numerical or logical corollaries of the earlier published statements without new enumeration or graph-specific analysis.",
+      "searches": [
+        "arxiv:1610.07320v1 Theorem 3 irrotationality cycle density finite graphs icosahedron",
+        "Doba 2018 Theorems 1 and 2 phase difference cycle density finite graph GHCA",
+        "prior exact Greenberg Hastings GP(5,1) GP(5,2) primitive periods basins"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The recurrent three-phase states are exactly the colorings in which every vertex has a neighbor colored by its cyclic successor; verify_phase.cpp counts 145200 such states. No inspected source reported this number for the icosahedral graph."
+      ],
+      "reasoning": "Ordinary proper 3-colorings and undirected dominating colorings do not encode the cyclic-successor condition. The direct phase characterization is compared rather than relying only on Greenberg–Hastings terminology. No matching exact count was located; absence of search hits is not proof of uniqueness.",
+      "searches": [
+        "\"icosahedron\" \"cyclically dominating\" 3 colorings neighbors",
+        "\"icosahedral graph\" \"3-colorings\" \"neighbor\" \"successor\"",
+        "\"icosahedral\" \"three-color\" \"cyclic successor\" domination",
+        "\"icosahedral graph\" \"cyclic\" \"coloring\" \"48400\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected graph descriptions from NetworkX and MathWorld identify the twelve-vertex, thirty-edge graph but do not give Greenberg–Hastings orbit tables.",
+        "The general finite-graph GHM primary literature inspected contains examples for other graphs, not an icosahedral orbit table."
+      ],
+      "reasoning": "The exact numerical invariant was checked under numbers, graph name, model name, color-constraint aliases and basin terminology. No identical table was identified. Historical unindexed compilations are an explicit residual risk.",
+      "searches": [
+        "\"icosahedral graph\" \"Greenberg-Hastings\" cycle attractor basin",
+        "\"icosahedral graph\" 48400 145200 473 colorings",
+        "icosahedral Greenberg Hastings automaton basin size distributions",
+        "icosahedron excitable automaton periodic orbit counts"
+      ]
+    },
+    "rationale": "The exact icosahedral three-cycle count, sharp global six-step identity, 473 full-symmetry classes, individual basin distribution, and unique symmetry orbit of extremal entrances are not obtained in the inspected general 3-color excitation results. The qualitative one/three-period restriction is substantially implied by those general results plus icosahedral triangulation and is not asserted independently novel. The claim is limited to the quantitative finite-graph census, and residual unindexed-table risk remains.",
+    "residual_risks": [
+      "An unindexed pre-existing enumeration of successor-neighbor three-colorings or deterministic GHM attractors on the icosahedral graph could contain all or some of the numerical census.",
+      "The general cited theory already implies substantial qualitative period information; only the exact quantitative finite-graph invariants are assessed as new.",
+      "External independent mathematical verification of the exhaustive programs and deductions has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers synchronization and limiting excitation rate for all graphs. These imply substantial qualitative period facts on an icosahedral triangulation; the text inspected does not provide the exact labelled icosahedral orbit, entrance, basin or symmetry census.",
+        "evidence": [
+          "arxiv:1610.07320v1, pp. 1–5, Theorem 3 and equation (10), with proof developed later in the paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1610.07320",
+        "material_read": "ArXiv version 1 full-text PDF; introduction and exact GHM definition, the cycle-integral construction, Theorem 3 with its finite-graph consequences, and relevant proof passages, plus document search for graph-specific mentions.",
+        "method": "Accessible primary full text, including theorem and proof sections; searched for icosahedral graph and explicit orbit counts.",
+        "title": "Limiting behavior of 3-color excitable media on arbitrary graphs",
+        "trigger": "Same update rule and strongest general theorem for three-color GHM on finite connected graphs."
+      },
+      {
+        "assessment": "Establishes persistence and limiting excitation frequency from cycle-density data. Does not tabulate the icosahedral 48400 orbit count, 473 symmetry classes, basin sizes or exact six-step entrance.",
+        "evidence": [
+          "Doba 2018, Complex Systems 27, pp. 101–126, Theorems 1–2 and Examples in Figs. 7–13."
+        ],
+        "identifier_or_url": "https://wpmedia.wolfram.com/sites/13/2018/09/27-2-1.pdf",
+        "material_read": "Accessible 26-page PDF; formal update definitions in section 2, convergence analysis in section 3, Theorems 1–2 in sections 6–7, concluding remarks and worked graph examples.",
+        "method": "Primary complete-text access; relevant theorems, statements and examples read, with search for icosahedral instances.",
+        "title": "The Time Evolution of a Greenberg–Hastings Cellular Automaton on a Finite Graph",
+        "trigger": "Later general finite-graph treatment of the same mathematical model potentially dominating a graph-specific calculation."
+      },
+      {
+        "assessment": "Supports the graph choice but has no excitation-dynamics statement.",
+        "evidence": [
+          "NetworkX stable documentation, icosahedral_graph generator."
+        ],
+        "identifier_or_url": "https://networkx.org/documentation/stable/reference/generated/networkx.generators.small.icosahedral_graph.html",
+        "material_read": "Reference documentation specifying 12 vertices and 30 edges and identity as the Platonic icosahedral graph.",
+        "method": "Publisher project documentation inspected.",
+        "title": "NetworkX icosahedral_graph documentation",
+        "trigger": "Independent graph identification and size check."
+      },
+      {
+        "assessment": "Graph-identification source only; no recurrent-excitation results.",
+        "evidence": [
+          "MathWorld, Icosahedral Graph."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/IcosahedralGraph.html",
+        "material_read": "Graph description including 12 vertices, 30 edges and Platonic identification.",
+        "method": "Mathematical reference page inspected.",
+        "title": "Icosahedral Graph",
+        "trigger": "Check canonical graph and its geometric meaning."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6295ce97-2482-405e-bdfe-4b77a8b5b0a3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A canonical five-regular Platonic graph has a natural complete deterministic excitable-media dynamical system. Its exact 48400 temporal oscillators, 473 geometric classes, all individual basins, and sharp six-step convergence are nontrivial dynamical invariants, not a single arbitrary slice. The sixty extremal inputs sharing one spatial symmetry orbit adds a structural geometric feature. General theory addresses the qualitative persistence criterion but does not provide these detailed exact populations and sharp finite-time behavior. The result does not assert a graph-family theorem or importance beyond its justified canonical graph scope.",
+    "status": "PASS"
+  }
+}
