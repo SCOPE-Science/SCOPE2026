@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:54:31.402647Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently reconstructed the one-vector sketched FOM formula (Sv)^dagger SAv and decomposed Av=alpha v+rho w with w orthogonal to v (SPD is more than necessary for this projection identity). For each of ell independent isotropic Gaussian rows, G=sqrt(ell)Sv and H=sqrt(ell)Sw are independent N(0,I_ell). The ratio (G^T H)/(G^T G)=Z/||G||, with Z independent N(0,1) and ||G||^2 chi-square(ell), is T_ell/sqrt(ell). Therefore Y=(lambda_hat-alpha)/rho has exactly normalized density c_ell(1+y^2)^(-(ell+1)/2), c_ell=Gamma((ell+1)/2)/(sqrt(pi)Gamma(ell/2)). Integrating the negative tail yields P(Y<-u)~c_ell u^(-ell)/ell; the deterministic exponential map changes u to (log R+O(1))/(t rho). Reverse triangle inequality bounds |error-approximation_norm| by the fixed finite true solution norm, proving the identical logarithmic tail constant for the actual error. The density has no finite negative-side exponential moments, giving every positive moment of approximation and error infinite (error controls half the norm beyond a fixed threshold). If rho=0, b is an eigenvector and the formula becomes exact a.s. All claims fix ell>=2<n and t>0 and condition on NO successful-embedding rejection. Independent script checked Gaussian-ratio normalization, explicit ell=2,3 constants and special-case limits; finite checks do not establish infinite-tail assertions.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cortinovis–Kressner–Nakatsukasa use randomized compression of f(A)b with sketching and discuss equivalent least-squares formulations.",
+          "Palitta–Schweitzer–Simoncini analyze sketched Ritz outliers; their published convergence analyses are conditional or address different dimensions/forms."
+        ],
+        "reasoning": "The specific fixed non-eigenvector b, Gaussian ell-row one-column projection law is not a direct corollary of a high-probability subspace-embedding bound; conditioning excludes the rare denominator collapse which drives the Student tail. No inspected theorem gives the unconditional moment spectrum.",
+        "searches": [
+          "Resultary: Gaussian sketched Krylov one-vector FOM Rayleigh quotient Student t exact distribution infinite moments matrix exponential errors",
+          "arXiv:2212.12758 randomized compression Section 3",
+          "arXiv:2306.06481 sketched/truncated Arnoldi error bounds Sections 5–7"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2208.11447",
+        "arXiv:2212.12758",
+        "arXiv:2306.06481",
+        "arXiv:2604.07158 (deterministic sketch, bibliographic scope)",
+        "Resultary semantic search for one-vector Gaussian sketch error distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior sketched-FOM existence and potential Ritz instability are already established.",
+          "The prior outlier Ritz analysis states that far-outside Ritz values may not adversely affect convergence in its regime; that is not a theorem bounding this unconditioned one-column exponential error law."
+        ],
+        "reasoning": "New result is exact when the ratio is evaluated under the unconditioned Gaussian ensemble; a theorem guaranteeing convergence subject to a good embedding cannot contradict or dominate a rare-event unconditional counterexample.",
+        "searches": [
+          "arXiv:2208.11447, sFOM definition and Section 2.3",
+          "arXiv:2306.06481 Sections 5–7",
+          "Resultary: Gaussian sketched Krylov one-vector FOM Rayleigh quotient Student t exact distribution infinite moments matrix exponential errors"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Güttel–Schweitzer 2022 Section 2 defines sFOM/sketched Galerkin and Section 2.3 notes sketched Ritz values can leave the positive spectral half-plane.",
+          "Palitta–Schweitzer–Simoncini 2023/2024 Sections 5–7 discuss outlying Ritz values and error bounds, not a one-column Gaussian Student distribution."
+        ],
+        "reasoning": "One-column sFOM also appears as a sketched least-squares scalar projection. A qualitative possibility of negative projected eigenvalues does not imply the exact normal/chi distribution nor sharp error-tail constant; higher-dimensional conditional bounds do not imply unconditional moment finiteness.",
+        "searches": [
+          "Resultary: Gaussian sketched Krylov one-vector FOM Rayleigh quotient Student t exact distribution infinite moments matrix exponential errors",
+          "web: Gaussian sketched FOM Student t Ritz probability infinite error moments one vector exponential",
+          "arXiv:2208.11447; arXiv:2212.12758; arXiv:2306.06481"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No directly matching Student-law/error-tail entry among top Resultary semantic matches; related Gaussian ratio and Krylov findings concern other observables.",
+          "The source package contains a bounded seeded verifier; finite simulated quantiles are not an externally published exact table."
+        ],
+        "reasoning": "The claimed object is a distributional formula and asymptotic tail, not an atlas invariant; comparison is to published probability laws and numerical-analysis theorems, not merely string or parameter matching.",
+        "searches": [
+          "Resultary: Gaussian sketched Krylov one-vector FOM Rayleigh quotient Student t exact distribution infinite moments matrix exponential errors",
+          "web: Gaussian sketched FOM Student t Ritz probability infinite error moments one vector exponential"
+        ]
+      },
+      "rationale": "The exact unconditioned shifted Student distribution and resulting logarithmic error-tail constant are not consequences of the qualitative outlier Ritz observation in the original sketched-FOM paper, nor of high-probability subspace-embedding error bounds. Palitta–Schweitzer–Simoncini analyze larger sketched Krylov approximants and outlier effects, not this precise all-positive-moment divergence for the one-column, unsafeguarded Gaussian scalar exponential. The Gaussian normal/chi ratio is classical, so originality resides only in its identification with this numerical method and its exact transformed-error implications. Equivalent random least-squares or one-vector regression results remain a real priority risk.",
+      "residual_risks": [
+        "Classical Student distributions of Gaussian regression coefficients may already be applied to this precise one-vector numerical map under different terminology.",
+        "The result is strictly one-vector, iid real Gaussian, exact-arithmetic and unconditioned; no inference for safeguarded or structured sketches or multi-vector Krylov methods."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS method and qualitative Ritz instability, not explicit unconditional law",
+          "evidence": "Güttel–Schweitzer 2022, sFOM definition and Section 2.3",
+          "identifier_or_url": "https://arxiv.org/abs/2208.11447",
+          "material_read": "Accessible primary full-text method and Section 2.3 stability/outlying-Ritz discussion",
+          "method": "Read formula, compare one-vector specialization and error assertions",
+          "title": "Randomized Sketching for Krylov Approximations of Large-Scale Matrix Functions",
+          "trigger": "Original precise method and possible overlap"
+        },
+        {
+          "assessment": "Different numerical embedding and bounds; no exact Student-error tail shown",
+          "evidence": "Cortinovis–Kressner–Nakatsukasa arXiv:2212.12758v2, introduction and Section 3",
+          "identifier_or_url": "https://arxiv.org/pdf/2212.12758",
+          "material_read": "Primary 15-page arXiv PDF, algorithm and relation to sketched FOM in introduction and Section 3",
+          "method": "Read PDF explanatory text and method comparisons",
+          "title": "Speeding Up Krylov Subspace Methods for Computing f(A)b via Randomization",
+          "trigger": "Equivalent sketched compression and least-squares normalization"
+        },
+        {
+          "assessment": "Focuses on convergence/robustness for sketched Arnoldi, no displayed one-column shifted-Student or log-error law",
+          "evidence": "Palitta–Schweitzer–Simoncini arXiv:2306.06481, Section 6–7",
+          "identifier_or_url": "https://arxiv.org/pdf/2306.06481",
+          "material_read": "Primary 22-page PDF, introduction, outlying Ritz Section 6 and robustness Section 7",
+          "method": "Read accessible full-text sections, search Student distribution and check displayed conclusion",
+          "title": "Sketched and Truncated Polynomial Krylov Methods: Evaluation of Matrix Functions",
+          "trigger": "Most directly related primary outlier-Ritz/error theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For an established SPD matrix-function algorithm, a high-probability accurate approximation can nevertheless have an unbounded unconditional mean and every positive error moment, with a computable log-Pareto tail. The sharp constant distinguishes embedding-conditioned guarantees from unconditioned risk and supplies a precise mathematical reason to consider safeguarding or rejection, without asserting such procedures are proved here. This is a motivated numerical stability result, not merely a Student-law rephrasing.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For finite SPD A and a non-eigenvector b, the one-column, unconditioned iid real Gaussian sketched-FOM projected Ritz scalar is alpha+(rho/sqrt(ell)) T_ell. The matrix-exponential approximation and its actual vector error have asymptotic tail constant (Gamma((ell+1)/2)/(ell sqrt(pi) Gamma(ell/2)))(t rho)^ell times (log R)^(-ell); every positive moment diverges. The eigenvector residual-zero case is exact.",
+  "limitations": [
+    "Classical Student distributions of Gaussian regression coefficients may already be applied to this precise one-vector numerical map under different terminology.",
+    "The result is strictly one-vector, iid real Gaussian, exact-arithmetic and unconditioned; no inference for safeguarded or structured sketches or multi-vector Krylov methods.",
+    "Scientific assessment complete; administrative publication change-set not ready. No GitHub writes, dispatcher closeouts or schedule changes."
+  ],
+  "schema_version": 1
+}
