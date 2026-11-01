@@ -1,0 +1,158 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T16:54:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed d>=s>=1, real beta, and positive normalized p_j, checked both directions of polynomial division: deg(P)<=N iff the remainder R=1-(1-t)P has deg<=N+1 and R(1)=1. Distinct homogeneous t^n are orthogonal under the radial total-degree coefficient norm and have exact weights w_n=(n+1)^beta V_n(p). Weighted Cauchy-Schwarz gives E_N^2=(sum_{n=0}^{N+1}1/w_n)^-1, achieved by unique r_n=(1/w_n)/sum_j(1/w_j). Torus Parseval for V_n has unique maximal phase on its (s-1)-torus; the log-modulus Hessian is A=diag(p_1,...,p_{s-1})-vv^T positive definite with det A=product p_j, giving V_n~(4*pi)^(-(s-1)/2)*product p_j^(-1/2)*n^(-(s-1)/2). For s=1, V_n=1 and the formula follows directly. Positive-series comparison correctly gives the subcritical power, critical logarithm and positive supercritical limit, without assuming uniformity as weights tend to zero. For p=(1/2,1/2), Vandermonde gives V_n=binom(2n,n)/4^n. Independently implemented Fraction-based minimization and determinant/Vandermonde tests across support sizes 1-4 matched formulas; the infinite statement is supported by analytical localization and sum comparisons, not extrapolated from these finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nailwal-Zalar Theorem 3.1 proves full cyclicity of 2-z1-z2 for beta<=2 with unrestricted bivariate multipliers.",
+          "Beslikas-Torkinejad Ziarati studies radial-space cyclicity and integrated affine lifts rather than exact polynomial-degree restricted optimization.",
+          "Classical bidisk results use product coefficient weights."
+        ],
+        "reasoning": "An unrestricted positive cyclicity claim does not imply a positive or negative exact restricted P(t)-approximation statement. The present all-support-size finite-degree formula is not a corollary of the broader unrestricted existence result alone; the claims are compatible in 3/2<beta<=2.",
+        "searches": [
+          "cyclic polynomials radial Dirichlet spaces bidisk 2-z-w restricted one variable P(z+w) vs full cyclicity",
+          "arXiv:2511.13441 Theorem 3.1 and proof",
+          "arXiv:2609.09952 §§1-3",
+          "arXiv:1408.3616 §§1-3"
+        ]
+      },
+      "checked_sources": [
+        "A. Beslikas and P. Torkinejad Ziarati, Cyclicity in Dirichlet-type spaces on the bidisk, arXiv:2609.09952, especially radial norm and Lemma 3.8.",
+        "R. Nailwal and A. Zalar, Cyclic polynomials in Dirichlet-type spaces of the unit bidisk, arXiv:2511.13441, Theorem 3.1 and proof.",
+        "C. Bénéteau et al., Cyclicity in Dirichlet-type spaces and extremal polynomials II: functions on the bidisk, arXiv:1310.4094, §§1,3.",
+        "C. Bénéteau et al., Cyclic polynomials in two variables, arXiv:1408.3616, §§1-3.",
+        "P. Torkinejad Ziarati, Cyclicity in Dirichlet-type spaces of several variables, doctoral thesis (2026), https://theses.hal.science/tel-05802867/document, abstract/index only (full text blocked).",
+        "Resultary published records search, queries transcribed in originality named checks below; self-identical record excluded as independent prior art."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For fixed t, degree-N optimal remainder solves min sum_{n<=N+1} w_n |r_n|^2 subject to sum r_n=1; this supplies exact 1/sum w_n^{-1}.",
+          "The full bidisk result permits all P(z1,z2) and therefore does not constrain the smaller restricted affine-symbol class.",
+          "The Gaussian exponent C_p n^{-(s-1)/2} depends on all positive weights, not on an average over affine slopes."
+        ],
+        "reasoning": "Previously known unrestricted positive statements are not the needed restricted finite-error calculation; no examined prior theorem entails the formula through a simple restriction of quantified multipliers. Conversely the restricted negative result cannot contradict unrestricted cyclicity. Residual unindexed weighted-composition literature remains possible.",
+        "searches": [
+          "cyclic polynomials radial Dirichlet spaces bidisk 2-z-w restricted one variable P(z+w) vs full cyclicity",
+          "arXiv:2511.13441 Theorem 3.1",
+          "arXiv:2609.09952 Lemma 3.8",
+          "arXiv:1310.4094 §§1,3",
+          "arXiv:1408.3616 §§1-3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "One-generator fixed-affine pullback has orthogonal homogeneous powers of squared norm (n+1)^beta V_n(p).",
+          "The different continuum-averaged lift in arXiv:2609.09952 Lemma 3.8 integrates over slopes and yields a distinct exact norm shift.",
+          "Related extremal polynomial sources arXiv:1310.4094 and arXiv:1408.3616 work with product weights."
+        ],
+        "reasoning": "Compared the operator, Hilbert weights and error constraints rather than title similarity. A fixed t-pullback has multinomial square mode norm V_n and a single evaluation at t=1; neither the continuum-averaged lift nor product-weight optimal approximants imply its claimed sharp series.",
+        "searches": [
+          "radial Dirichlet-type Hilbert space polydisk exact cyclicity one generator fixed affine linear form 1-sum p_j z_j polynomial P(sum p_j z_j) sharp (s+1)/2 threshold",
+          "multinomial-square weighted inverse norm approximation one-generator polynomial affine Dirichlet Hilbert space central binomial cyclicity threshold 3/2",
+          "Dirichlet composition operator affine symbol polynomial inverse approximation t^n orthogonality capacity evaluation boundary 1",
+          "arXiv:2609.09952 Lemma 3.8",
+          "arXiv:1310.4094 radial versus product norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Related Resultary findings address diagonal zeros for other weighted bidisk approximants or exact resistance for (1-z)(1-w), not this t-generated radial Hilbert subspace.",
+          "The self-identical Resultary published item matches the audited target but is excluded from independent prior-art coverage."
+        ],
+        "reasoning": "The claim is an all-N analytic variational identity and an asymptotic family, not a finite table lookup. Binomial or multinomial-sum tables alone give V_n but do not report its t-restricted degree-N approximation interpretation. An unsuccessful search is only limited evidence, not proof of priority.",
+        "searches": [
+          "radial Dirichlet-type Hilbert space polydisk exact cyclicity one generator fixed affine linear form 1-sum p_j z_j polynomial P(sum p_j z_j) sharp (s+1)/2 threshold",
+          "multinomial-square weighted inverse norm approximation one-generator polynomial affine Dirichlet Hilbert space central binomial cyclicity threshold 3/2",
+          "Dirichlet composition operator affine symbol polynomial inverse approximation t^n orthogonality capacity evaluation boundary 1",
+          "Resultary: dense diagonal zero locations for weighted bidisk optimal approximants",
+          "Resultary: sharp total-degree Hardy approximation at a bidisk normal crossing"
+        ]
+      },
+      "rationale": "Best-of-knowledge: investigated published mathematical research records, the entire accessible primary texts of the two contemporary radial Dirichlet/cyclicity sources, and classical product-weight optimal-approximant work. No independently established theorem located that implies the exact restricted fixed-affine all-N minimum, full unequal-weight support-size transition and constants. Published full cyclicity for beta<=2 quantifies over strictly more multipliers and does not entail restricted cyclicity; integral averaging across all affine slopes is not fixed-symbol substitution. This is not absolute priority certification; a recent thesis remained inaccessible.",
+      "residual_risks": [
+        "The accessible abstract of the October 2026 Dirichlet-space thesis cannot rule out a matching special lemma; its full text was not read because OA verification and institutional VPN blocked access.",
+        "Earlier unindexed Hilbert-space composition/pullback or weighted one-generator cyclicity papers may contain an equivalent finite-degree error formula.",
+        "Self-identical public Resultary text is not independent prior literature."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING this exact fixed-affine polynomial multiplier minimum: the article uses a continuum-averaged slope lift and considers unrestricted cyclicity, rather than all-degree optimal inverse interpolation in the one-dimensional t-generated subalgebra.",
+          "evidence": [
+            "Its radial norm weights monomial coefficients by (k+l+1)^alpha.",
+            "Lemma 3.8 uses T u(z,w)=integral_0^1 u(tz+(1-t)w)dt, not fixed positive p; it gives a distinct exponent shift.",
+            "It identifies the 3/2 obstacle for elementary radial procedures."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.09952",
+          "material_read": "Accessible full arXiv HTML: definitions of D_alpha radial norm, main theorem, §§1-3 including §3.3/Lemma 3.8 and its integral-averaging proof, references.",
+          "method": "Read primary arXiv mathematical text and compare exact affine operators, coefficients and multiplier quantifiers.",
+          "title": "Cyclicity in Dirichlet-type spaces on the bidisk",
+          "trigger": "Same radial total-degree Dirichlet norm and the reported 3/2 approximation-method barrier."
+        },
+        {
+          "assessment": "NOT_COVERING fixed-single-generator exact minimum. Theorem 3.1 proves full cyclicity of 2-z1-z2 for beta<=2, consistent with restricted failure when 3/2<beta<=2.",
+          "evidence": [
+            "Theorem 3.1 gives cyclicity for beta<=2 in radial D_beta.",
+            "Its approximation is by unrestricted polynomials in both coordinates; this does not imply a restricted P(t) sequence exists."
+          ],
+          "identifier_or_url": "https://zalara.github.io/Papers/Cyclic_polynomials_Dirichlet.pdf",
+          "material_read": "Full 14-page author preprint including abstract, introduction, exact Theorem 3.1 and proof on pp. 5-6, §§3-5 and relevant references; inspected PDF page screenshots for theorem/proof.",
+          "method": "Read primary full PDF and compare quantifiers over arbitrary bivariate multipliers with P((z1+z2)/2).",
+          "title": "Cyclic polynomials in Dirichlet-type spaces of the unit bidisk",
+          "trigger": "A stronger full-cyclicity theorem for exactly 2-z1-z2 and the same radial coefficient norm."
+        },
+        {
+          "assessment": "NOT_COVERING radial total-degree norm or fixed affine one-generator error; uses product weights (k+1)^alpha(l+1)^alpha and unrestricted polynomial multiples.",
+          "evidence": [
+            "The Hilbert norm is product-weighted in the two coefficient indices, unlike (k+l+1)^beta.",
+            "The results address coordinate-generated cyclicity/extremal polynomials, not the exact restricted t-subspace."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1310.4094",
+          "material_read": "ArXiv full-text HTML §§1 and 3, product-weight definitions, extremal polynomial and cyclicity statements, proofs relevant to weighted norms.",
+          "method": "Read primary full-text HTML and compared coefficient weighting and polynomial multiplier algebra.",
+          "title": "Cyclicity in Dirichlet-type spaces and extremal polynomials II: functions on the bidisk",
+          "trigger": "Classical extremal approximants on the bidisk potentially encompassing the exact optimizer."
+        },
+        {
+          "assessment": "NOT_COVERING radial fixed-linear-form restricted polynomial approximation; norms and admissible multipliers differ.",
+          "evidence": [
+            "The space carries product coefficient weights and [f] is generated by both coordinate multiplications."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1408.3616",
+          "material_read": "Full-text arXiv HTML including initial definitions, main theorem statements, §§2-3 and related examples.",
+          "method": "Read primary text; checked product coefficient weights and the coordinate-shift invariant subspace.",
+          "title": "Cyclic polynomials in two variables",
+          "trigger": "Possibly dominating classical two-variable cyclicity theorem."
+        },
+        {
+          "assessment": "ACCESS LIMITATION/RESIDUAL RISK, not evidence of coverage or non-coverage; an inaccessible plausible source alone does not determine O.",
+          "evidence": [
+            "Thesis deposited October 2026 and is topically related to multivariable Dirichlet cyclicity.",
+            "Its indexed abstract does not establish an equivalent exact fixed-symbol degree-N formula."
+          ],
+          "identifier_or_url": "https://theses.hal.science/tel-05802867/document",
+          "material_read": "Search-indexed thesis title, abstract and bibliographic metadata only. Full text was not accessible because the OA host served a verification challenge; arXiv/preprint search did not return the full text.",
+          "method": "Attempted lawful open access and preprint discovery; authorized institutional retrieval returned vpn_disconnected; did not bypass authentication or claim to have read the full thesis.",
+          "title": "Cyclicity in Dirichlet-type spaces of several variables (doctoral thesis)",
+          "trigger": "Recent same-specialty thesis plausibly contains related fixed-affine calculations under different terminology."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fixed-one-generator multiplier class is motivated by the precise 3/2 difficulty of elementary radial Dirichlet cyclicity arguments. The finding determines an intrinsic and sharp barrier of that natural restricted scheme and exhibits an actual interval 3/2<beta<=2 where it fails despite known unrestricted full cyclicity. Its unique finite-N minimizer, exact all-degree errors and unequal-weight support-rank critical exponent give a reusable quantitative diagnostic, not an arbitrary tiny finite slice or mere reformulation of known unrestricted cyclicity. It does not assert the stronger statement about arbitrary multivariate polynomials.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Strictly positive fixed p_j; no uniformity at degenerating support; only P(t) multipliers, not unrestricted full cyclicity.",
+    "No formal Lean proof or external expert attestation; independent analytical verification and bounded exact calculations only.",
+    "Highly relevant October 2026 thesis full text not accessible; residual originality risk expressly retained."
+  ],
+  "schema_version": 1
+}
