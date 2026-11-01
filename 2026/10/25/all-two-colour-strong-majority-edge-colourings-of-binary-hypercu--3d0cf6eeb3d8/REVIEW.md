@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** For a valid two-colour assignment, the red-degree deviation \(f(v)=R(v)-d/2\) satisfies \(Af=-(d-2)f\). A complete Walsh eigenbasis forces it to live in the \(d\)-dimensional co-singleton character space, and the requirement of two named colours forces each coordinate coefficient to be \(\pm1/2\). The explicit converse pairing verifies balance at every edge. Exhaustive low-dimensional testing and constructive higher-dimensional testing corroborate, but do not replace, this proof.
+## correctness
 
-**Originality — PASS, with residual risk.** Recent full-text primary research supplies general existence bounds and the strong-majority definition [1,3], not the exact two-colour hypercube classification. Another recent paper [2] has a five-colour existence abstract; its full text could not be inspected. The earlier exact two-colour result for cubic graphs already covers \(Q_3\), so the claim is restricted to \(d\ge4\). Semantically similar published-record searches for Walsh/parity descriptions, signless adjacency and hypercube strong-majority colouring found no dominating theorem; this is not a priority guarantee. An unindexed parity or spectral equivalent remains possible.
+PASS
 
-**Mathematical value — PASS.** Classifying all two-colourings, rather than providing an upper bound, identifies every optimal assignment on a fundamental infinite family with unbounded degree. The exact \(2^d\) count, coordinate-sign rigidity, and elementary spectral proof give a natural complete answer to a motivated graph-colouring question.
+For each edge uv of sign s=+1(red)/-1(blue), exactly d-1 adjacent red edges is equivalent to R(u)+R(v)-d=s, i.e. f(u)+f(v)=s for f=R-d/2. Summing over incident edges yields Af=-(d-2)f. Walsh diagonalization of Q_d confines f to co-singleton characters, and the unit edge signs force each coefficient to be epsilon_i/2. Thus every colouring has the unique asserted direction-parity form; conversely, toggling direction i reverses the two adjacent direction-j edge signs for each j!=i, proving sufficiency. Exactly 2^d named assignments, 2^(d-1) up to colour exchange; index 2, for all d>=4. Independently enumerated all 2^4 and 2^12 candidate edge assignments in dimensions 2 and 3 and recovered 4 and 8 legal assignments; the general proof is spectral, not enumeration.
 
-The restriction to hypercubes and the possibility of an unseen equivalent formulation are important limitations. Independent mathematical validation remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.
+
+## value
+
+PASS
+
+Exact classification and unique sign-parameterization of every optimal two-colour assignment on fundamental unbounded-degree cubes, including the exponential 2^d count, is a motivated structural graph-colouring result, not simply a prior existence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

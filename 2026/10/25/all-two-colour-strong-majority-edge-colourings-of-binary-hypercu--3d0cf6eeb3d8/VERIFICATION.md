@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproducibility and limits
 
-Run `python3 verify.py` in this folder. The verifier implements the adjacency-edge definition independently of the Walsh-space argument. It constructs binary cubes by bit operations and tests that each edge sees exactly \(d-1\) red edges among its \(2(d-1)\) adjacent edges. It enumerates every red/blue edge assignment of \(Q_2\) and \(Q_3\) and verifies that the respective complete sets of valid assignments coincide exactly with the stated sign-vector construction. It then constructs all predicted assignments for \(Q_4\), \(Q_5\), \(Q_6\) and \(Q_7\), checks uniqueness and their validity edge-by-edge. The exact observed console line is stored in `verify_output.txt`.
+# Independent mathematical audit
 
-These finite computations do **not** exhaust all possible edge assignments for \(d\ge4\). Exhaustiveness there is a consequence of the analytical eigenfunction argument in `RESULT.md`, which diagonalizes the finite-dimensional hypercube adjacency operator for every dimension and checks necessity and sufficiency. No external checker or independent mathematical audit has been performed.
+## correctness
+
+PASS
+
+For each edge uv of sign s=+1(red)/-1(blue), exactly d-1 adjacent red edges is equivalent to R(u)+R(v)-d=s, i.e. f(u)+f(v)=s for f=R-d/2. Summing over incident edges yields Af=-(d-2)f. Walsh diagonalization of Q_d confines f to co-singleton characters, and the unit edge signs force each coefficient to be epsilon_i/2. Thus every colouring has the unique asserted direction-parity form; conversely, toggling direction i reverses the two adjacent direction-j edge signs for each j!=i, proving sufficiency. Exactly 2^d named assignments, 2^(d-1) up to colour exchange; index 2, for all d>=4. Independently enumerated all 2^4 and 2^12 candidate edge assignments in dimensions 2 and 3 and recovered 4 and 8 legal assignments; the general proof is spectral, not enumeration.
+
+## originality
+
+PASS
+
+Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.
+
+## value
+
+PASS
+
+Exact classification and unique sign-parameterization of every optimal two-colour assignment on fundamental unbounded-degree cubes, including the exponential 2^d count, is a motivated structural graph-colouring result, not simply a prior existence bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

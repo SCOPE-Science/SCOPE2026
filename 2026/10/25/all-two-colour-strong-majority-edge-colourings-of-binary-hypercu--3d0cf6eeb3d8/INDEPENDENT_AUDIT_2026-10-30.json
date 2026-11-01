@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:57:13Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at verified Git blob 7c944eb8bdc2802afdf53559364e8ff119a50b68",
+        "independent_checks.py: exact edge-adjacency enumeration for d=2,3",
+        "Walsh basis computation for adjacency eigenvalues d-2|T|"
+      ],
+      "rationale": "For each edge uv of sign s=+1(red)/-1(blue), exactly d-1 adjacent red edges is equivalent to R(u)+R(v)-d=s, i.e. f(u)+f(v)=s for f=R-d/2. Summing over incident edges yields Af=-(d-2)f. Walsh diagonalization of Q_d confines f to co-singleton characters, and the unit edge signs force each coefficient to be epsilon_i/2. Thus every colouring has the unique asserted direction-parity form; conversely, toggling direction i reverses the two adjacent direction-j edge signs for each j!=i, proving sufficiency. Exactly 2^d named assignments, 2^(d-1) up to colour exchange; index 2, for all d>=4. Independently enumerated all 2^4 and 2^12 candidate edge assignments in dimensions 2 and 3 and recovered 4 and 8 legal assignments; the general proof is spectral, not enumeration.",
+      "residual_risks": [
+        "Named two-colour result only, dimension >=4; no three-colour enumeration.",
+        "Finite small-cube enumeration does not prove all dimensions."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Prior general 3-/5-colour sufficient bounds do not imply existence of 2 colours, let alone uniqueness and number of assignments.",
+          "Earlier cubic-graph two-colour characterization has degree-three scope."
+        ],
+        "reasoning": "Bounds on the number of allowed colours cannot imply the exact solution set of the stricter two-colour system in arbitrarily high cube degree.",
+        "searches": [
+          "arXiv:2605.23828 Strong majority colorings of graphs Section 3",
+          "arXiv:2608.04122 On Strong Majority Edge Colourings with Few Colours Theorem 4",
+          "arXiv:2607.00212 Strong Majority Edge-Coloring abstract"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2605.23828 (definition and general-bound statements)",
+        "arXiv:2608.04122 (primary abstract and stated theorem scope)",
+        "arXiv:2607.00212 (abstract only)",
+        "Resultary 2026/10/4/SCOPE-exact-strong-majority-index-of-complete-graphs--f0815fe7bf25",
+        "Resultary 2026/9/17/SCOPE005"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The precise new count 2^d and Walsh sign rigidity are strictly stronger than a general colour-count upper bound.",
+          "Q_d is d-regular, so results restricted to cubic graphs cannot specialize to all d>=4."
+        ],
+        "reasoning": "No observed prior theorem entails the all-colouring classification for each d>=4.",
+        "searches": [
+          "arXiv:2605.23828 Section 3",
+          "arXiv:2608.04122 Theorem 4",
+          "Resultary SCOPE005 and complete-graph index"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The parity sign vector is exactly the co-singleton Walsh eigenspace representation; eigenvalue -(d-2).",
+          "The retrieved hypercube Walsh results treat other operators, not strong-majority adjacency-edge constraints."
+        ],
+        "reasoning": "The spectral alias and signless edge balance were compared mathematically; no observed result provides the full d>=4 two-colour enumeration. The already-known cubic correspondence covers Q3 only.",
+        "searches": [
+          "Resultary: all two colour strong majority edge colourings hypercube Q_d Walsh parity signs exact 2^d classification",
+          "Resultary: strong majority edge coloring of cubic graphs exact two-color and efficient dominating sets hypercubes",
+          "Web: strong majority two-edge-coloring cube eigenfunctions signless adjacency"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published exact complete-graph index and generalized bipartite threshold concern different invariants and/or graph families.",
+          "No retrieved table determines all named optimal cube assignments in every dimension."
+        ],
+        "reasoning": "A search miss is not proof of absence; inspected retrieved exact results have non-dominating hypotheses.",
+        "searches": [
+          "Resultary: strong majority edge coloring of cubic graphs exact two-color and efficient dominating sets hypercubes",
+          "Resultary published record 2026/10/4/SCOPE-exact-strong-majority-index-of-complete-graphs--f0815fe7bf25",
+          "Resultary published record 2026/9/17/SCOPE005"
+        ]
+      },
+      "rationale": "Comparison is by exact mathematical statements, quantifiers and implications, with strong prior premises acknowledged; best-of-knowledge historical priority subject to the explicit unread-paper and alias risks.",
+      "residual_risks": [
+        "Unindexed older parity/signless-Laplacian formulation could state the same complete classification.",
+        "Full text of the 2026 five-colour paper not independently inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The edge-neighbourhood rule is antecedent, not full cube classification",
+          "evidence": [
+            "Introduces strong-majority edge index; general bounds, no inspected d>=4 cube assignment count."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2605.23828",
+          "material_read": "Accessible abstract and primary mathematical statement of strong-majority edge rule; repository includes correctly attributed Sections 3 and Theorem 12, full PDF not newly read in this execution",
+          "method": "Abstract/statement comparison with submitted local-edge equivalence",
+          "title": "Strong majority colorings of graphs",
+          "trigger": "Originating definition and bounds"
+        },
+        {
+          "assessment": "Non-dominating existence bound; unread portions remain risk",
+          "evidence": [
+            "Three colours suffice under degree conditions; this does not count 2-colour assignments."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.04122",
+          "material_read": "Accessible primary abstract/theorem summary and source-reported Theorem 4 minimum-degree three-colour bound; full text not newly read",
+          "method": "Compared hypotheses and conclusion with requirement of exactly two colours",
+          "title": "On Strong Majority Edge Colourings with Few Colours",
+          "trigger": "General high-degree theorem possibly dominating cube result"
+        },
+        {
+          "assessment": "No abstract-level coverage, no whole-document NOT_COVERING claim",
+          "evidence": [
+            "Abstract advertises five-colour upper bound."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.00212",
+          "material_read": "Primary abstract only; PDF inaccessible in this execution",
+          "method": "Abstract-level comparison only",
+          "title": "Strong Majority Edge-Coloring",
+          "trigger": "Recent general upper bound"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Strong-majority edge index from arXiv:2605.23828",
+        "RESULT.md exact classification"
+      ],
+      "rationale": "Exact classification and unique sign-parameterization of every optimal two-colour assignment on fundamental unbounded-degree cubes, including the exponential 2^d count, is a motivated structural graph-colouring result, not simply a prior existence bound.",
+      "residual_risks": [
+        "No extension beyond the two named colours or to arbitrary regular graphs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": "Exact two named colours on Q_d, d>=4; no extension to other Cartesian products. Priority qualified by uninspected equivalent formulations.",
+  "schema_version": 1
+}
