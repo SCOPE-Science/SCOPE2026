@@ -1,0 +1,159 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:56:10.048256Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md at Git blob 2190af02e24b0ba808e5580b15de7f661432923a",
+        "verify_rgs.cpp at Git blob 4e6728d2ad90fa1fe0af86052abce8b1b7c3d9b7",
+        "verify_direct.py at Git blob c833c1047c1c55503642b17a663e7e4873f675d8",
+        "PATTERN_COUNTS.csv at Git blob 84bc9e18df0fb0c88adc63db13ab4d6082745cc1",
+        "independent enumeration check_bursts_independent.cpp and independent direct channel check_bursts_direct.py (local, not included as claimed original package files)"
+      ],
+      "rationale": "For n=6, exactly two sequential adjacent-two-symbol deletions leave precisely the six original index pairs (1,2),(1,4),(1,6),(3,4),(3,6),(5,6). Hence D(a,b,c,d,e,f)={(a,b),(a,d),(a,f),(c,d),(c,f),(e,f)} as a set, even when alphabet labels coincide. If |D(x)|=6 then a,c,e must be pairwise distinct (otherwise edges duplicate), likewise b,d,f. Ordered-pair first-coordinate degrees are exactly 3,2,1 and second-coordinate indegrees exactly 1,2,3; the unique degree classes recover a,b,c,d,e,f even when a symbol participates in both first and second coordinates. Thus no different x,y have 6 shared outputs. The distinct ternary witness x=(0,0,1,0,2,1), y=(0,1,1,0,2,1) has equal five-element balls. For any q, every ordered input pair induces a unique set partition of twelve positions, a canonical restricted-growth encoding with k blocks and precisely (q)_k alphabet-label injections; x=y is removed. Independent C++ implementation generated all B_12=4,213,597 partitions (including 203 x=y partitions), with max distinct-input overlap 5 and ordered-pattern counts (k: both-five, mixed-five/six, both-six): 3:(72,96,42), 4:(72,288,222), 5:(12,144,207), 6:(0,16,55), 7:(0,0,4); no other nonzero categories. Divide the ordered labeled-pair sum by 2 to obtain T(q) and its leading 2q^7 term. A second direct two-step-deletion simulator independently gave q=2 overlap4/count120, q=3 overlap5/count630, q=4 overlap5/count9504. The infinite q statement follows by the finite partition-type bijection, not by testing finitely many alphabets.",
+      "residual_risks": [
+        "General all-q census depends on exhaustive finite enumeration of 4,213,597 equality patterns; the independently implemented enumeration reproduced the complete five coefficient groups, but no machine-checked formal proof is asserted.",
+        "No result claimed for q=2 via displayed T(q), longer blocklengths, other burst lengths, or multiple read multiplicities."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lan et al., Theorem IV.10 gives max single b-burst deletion-ball size D_{q,b}(n,t); at n=6,b=t=2 the value 6 bounds pair overlaps only by 6, not by 5.",
+          "Lan et al., Theorem IV.16 explicitly states N^-_{2,b}(n,t), a binary two-burst theorem; its q-ary Lemma IV.19 is a lower construction, not a universal upper bound.",
+          "For ordinary unrestricted four-deletion balls at n=6 and q=3, independent exhaustive computation finds a pair with intersection 9, so an ordinary-deletion maximum does not imply the claimed burst-specific upper bound 5.",
+          "ArXiv:2609.16837 and 2606.25822 publicly describe unrestricted-deletion ball problems, sometimes with center-distance/run constraints; their public abstracts do not claim this exact sequential two-burst polynomial."
+        ],
+        "reasoning": "The strongest directly relevant general theorem gives a weaker q-ary single-ball upper bound and a sharp binary pair-overlap theorem. Restricting the general ordinary-deletion channel decreases its balls and could yield stronger subchannel bounds, but the published unrestricted-channel figures alone do not imply the present 5 or T(q). The 2026 papers were abstract-level comparisons only; no whole-paper NOT_COVERING inference is made.",
+        "searches": [
+          "arXiv:2504.20460v1 Theorem IV.10, Theorem IV.16, Lemma IV.19, pages 10–14",
+          "web: 2026 multiple burst deletion sequence reconstruction nonbinary q-ary maximum intersection",
+          "arXiv:2609.16837 abstract On Sequence Reconstruction Problem for q-ary Deletion Channels",
+          "arXiv:2606.25822 abstract Extremal Deletion-Ball Intersections under Run-Count and Lower-Order Deletion-Ball Intersection Constraints"
+        ]
+      },
+      "checked_sources": [
+        "Lan–Sun–Yu–Ge, arXiv:2504.20460v1, §§I,IV.A–B, especially Theorem IV.10, Theorem IV.16, Lemma IV.19",
+        "Schoeny–Wachter-Zeh–Gabrys–Yaakobi, arXiv:1602.06820v2, introduction and single-burst model",
+        "Sun–Xi–Ge, IEEE Trans. Inf. Theory 69 (2023) 4466–4483, DOI 10.1109/TIT.2023.3250459, accessible abstract only",
+        "Wang–Li–Fu, arXiv:2609.16837, public abstract only",
+        "Sun–Ge, arXiv:2606.25822, public abstract only",
+        "Resultary published search: exact single-deletion reconstruction graph, ordinary binary two-deletion list codes and other deletion-related entries (different channels)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The q-ary five-overlap construction of Lan et al. Lemma IV.19 precedes this result; sharpness witness alone is not new.",
+          "Theorem IV.16 of Lan et al. assumes q=2 and therefore does not extend its claimed sharp intersection ceiling to q≥3; Theorem IV.10 only proves |D(x)|≤6 and allows the 6-overlap possibility for different x.",
+          "Schoeny et al. address error correction under one contiguous deletion; Sun–Xi–Ge abstract addresses a single burst and both variable/fixed burst lengths, not two successive bursts.",
+          "The exact all-alphabet pair polynomial requires partition enumeration, not a substitution into any cited general-alphabet ball-size formula."
+        ],
+        "reasoning": "The existing results supply the channel definition, individual-ball bound, binary sharp case and a q-ary attaining pair. They do not force distinct six-output balls to be distinct, nor determine the 4,213,597-pattern finite census. No decisive stronger implication was identified under the actual same-channel quantifiers. This remains best-of-knowledge, not a priority guarantee.",
+        "searches": [
+          "arXiv:2504.20460v1 pp.3 and 10–14, Problem I.2; Theorems IV.10/IV.16; Lemma IV.19",
+          "arXiv:1602.06820v2 pp.1–3 fixed single-burst model",
+          "doi:10.1109/TIT.2023.3250459 journal abstract",
+          "web: q-ary two bursts deletion balls intersection length six maximum five",
+          "Resultary: exact deletion reconstruction graph and radius-two overlap queries"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lan et al., Problem I.2, arXiv:2504.20460 p.3, formulates reconstruction reads as 1 plus maximum pairwise error-ball intersection.",
+          "The present 6-output guarantee is equivalent to max_{x!=y}|D(x) ∩ D(y)|=5; T(q) counts maximum-confusability edges of the induced channel graph.",
+          "Resultary published exact-edge two-read single-deletion reconstruction graph is for one ordinary deletion and does not imply this sequential two-burst census: https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-edge-count-of-the-finite-alphabet-two-read-single-deletion--737fed325e91"
+        ],
+        "reasoning": "The read-threshold formulation and confusion-graph edge-census formulation were both compared. Published single-deletion graph results use a different error channel; a matching title/wording would not be required for coverage, but no mathematical implication covering this ordered two-burst extremal value and falling-factorial census was found.",
+        "searches": [
+          "Resultary: q-ary two consecutive burst deletions length 2 each length 6 maximal intersection of deletion balls five outputs six reads exact worst-pair census falling factorial",
+          "Resultary: multiple burst deletions nonbinary sequence reconstruction sharp intersection two bursts length two n six",
+          "web: two burst deletions length 6 q ary intersection five six reads reconstruction",
+          "Lan–Sun–Yu–Ge arXiv:2504.20460 Section I.C Problem I.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact 5-overlap ordered-partition coefficient vector (210,582,363,71,4) and the polynomial T(q)=1/2 Σ_{k=3}^7 c_k(q)_k were not found in the three actual Resultary searches or targeted literature results.",
+          "The inspected arXiv:2504.20460 sections contain q-ary ball-size and a binary pair-overlap result, not a nonbinary all-q extremizer table.",
+          "Existing published Resultary deletion-related exact tables are for different channels (single deletion, ordinary two deletion, palindromic deletion, multiset deletion); no logical covering table was identified."
+        ],
+        "reasoning": "This check specifically sought precomputed equality-pattern tables and identical coefficients, not only matching paper titles. Failure to find a database entry is a residual-priority risk, not a proof of novelty.",
+        "searches": [
+          "web: \"210\" \"582\" \"363\" \"71\" burst deletion",
+          "web: \"sharp six-read reconstruction\" \"equality-pair\" burst",
+          "Resultary: symbol equality restricted-growth partition 12 deletion burst overlap maximum intersection enumeration reconstruction",
+          "web: burst deletion radius two q=3 n=6 exact intersection"
+        ]
+      },
+      "rationale": "Best-of-knowledge priority survives. Lan, Sun, Yu and Ge, arXiv:2504.20460v1 (2025), Sections IV.A–B, Theorem IV.10, Lemma IV.19 and Theorem IV.16 treat the exact same sequential multiburst model. They prove q-ary single-ball maxima and an explicit q-ary five-overlap lower construction, while their proven pair-overlap maximum is restricted to q=2. Neither implication supplies the sharp q>=3 upper bound five or all-q extremizer polynomial. Schoeny et al. arXiv:1602.06820v2 concerns single-burst correcting codes. Sun, Xi and Ge (IEEE TIT 2023) concern a single burst; its full text remained inaccessible, and an authorized full-text access action was blocked by safety controls, so no whole-paper noncoverage was asserted. Later papers on unrestricted deletions do not establish this sequential two-burst subchannel bound. Published mathematical-record searches returned related single-deletion and ordinary-deletion statements but no covering exact census. Searches alone are not proof of originality; unindexed exact censuses and inaccessible pertinent texts remain named risks.",
+      "residual_risks": [
+        "An unindexed or unpublished preexisting exact symbolic enumeration of this six-coordinate two-burst channel might contain the polynomial.",
+        "The full text of the closest 2023 single-burst journal paper was unavailable; the attempted authorized full-text retrieval was blocked without workaround or retry.",
+        "The recent 2026 ordinary-deletion papers were abstract-level checks only; no conclusion about their unread entirety was used to establish originality.",
+        "The accepted exact enumeration is finite and independently reproduced, but not accompanied by Lean formalization or external expert attestation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides general q-ary ball maximum and q-ary lower construction of overlap five, but proves exact pair-overlap extremum only for binary q=2; does not directly imply q≥3 upper five or the extremizer census.",
+          "evidence": [
+            "Theorem IV.10 pp.10–11; p.12 Theorem IV.16 explicitly N^-_{2,b}(n,t); p.13 Lemma IV.19 q≥2 lower construction; p.3 Problem I.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2504.20460",
+          "material_read": "Full preprint accessed; mathematical definitions and Problem I.2, Section IV.A, Theorems IV.10/IV.13, Section IV.B Theorem IV.16, Lemma IV.19 and its proof across pp.12–14, plus introduction and scope. PDF pages 3,12,13 visually inspected.",
+          "method": "Public full preprint PDF; exact q and n/t/b hypotheses compared line by line.",
+          "title": "Sequence Reconstruction under Channels with Multiple Bursts of Insertions or Deletions",
+          "trigger": "Most directly relevant primary full-text theorem on the same sequential multi-burst deletion model."
+        },
+        {
+          "assessment": "Studies correcting a single contiguous deletion burst with codebook restrictions, not an equality-pair count for two successive bursts.",
+          "evidence": [
+            "arXiv:1602.06820v2, p.1 abstract and introduction; single b-burst correction definition."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1602.06820",
+          "material_read": "Public 19-page preprint accessed; abstract, introduction, definitions, primary single-burst coding problem and scope read; PDF first page visually inspected.",
+          "method": "Open arXiv full-text PDF review of model and statement.",
+          "title": "Codes Correcting a Burst of Deletions or Insertions",
+          "trigger": "Foundational fixed-burst error correction cited by the submitted result."
+        },
+        {
+          "assessment": "Accessible descriptions explicitly state single-burst model; full-text inaccessible so NOT_COVERING cannot be asserted for the whole document. Retained as residual risk.",
+          "evidence": [
+            "IEEE Trans. Inf. Theory 69 (2023), 4466–4483, DOI 10.1109/TIT.2023.3250459; public abstract describes single burst."
+          ],
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2023.3250459",
+          "material_read": "Journal abstract, bibliography, and cross-citation in the 2025 preprint; original full text could not be inspected.",
+          "method": "ArXiv preprint and lawful OA searches unsuccessful; publisher PDF request inaccessible; authorized institutional retrieval blocked by a safety control and not retried.",
+          "title": "Sequence Reconstruction Under Single-Burst-Insertion/Deletion/Edit Channel",
+          "trigger": "Closest published q-ary reconstruction result for burst errors with exact intersection claims."
+        },
+        {
+          "assessment": "Unrestricted t-deletion model with center-distance constraints, rather than the precise two-current-word-burst model; an ordinary-ball max need not bound the restricted intersection by five. No whole-paper noncoverage certified.",
+          "evidence": [
+            "Public abstract (September 15, 2026); direct q=3,n=6 four-deletion overlap nine contrasts with two-burst maximum five."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.16837",
+          "material_read": "Public abstract only; full PDF unavailable in this run.",
+          "method": "ArXiv abstract comparison and separately calculated ordinary versus burst deletion outputs.",
+          "title": "On Sequence Reconstruction Problem for q-ary Deletion Channels",
+          "trigger": "Recent larger-parameter q-ary deletion reconstruction theorem that could dominate a burst bound."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Lan–Sun–Yu–Ge arXiv:2504.20460 Problem I.2 and partial nonbinary scope",
+        "Independent complete pattern enumeration, all 4,213,597 equality types",
+        "Direct deletion-ball checks q=2,3,4"
+      ],
+      "rationale": "The six-symbol/two-length-two-burst channel is the first output-length-two instance for these two bursts: at input length five only one symbol survives. Determining its sharp q≥3 reconstruction read threshold is a motivated exact boundary between uniquely reconstructable full six-output relations and confusable five-output pairs, while the all-q equality-pair polynomial classifies how often the worst-case channel ambiguity occurs among labeled words. Its fraction 4q^{-5}+O(q^{-6}) is quantitatively informative for comparing worst-case and typical reconstruction, and the output-set versus input-pair distinction is essential. This is a natural exact finite-channel invariant with an all-alphabet combinatorial proof, not an arbitrary integer slice or recomputation of the binary theorem. No algorithmic guarantee for longer words or arbitrary burst counts is inferred.",
+      "residual_risks": [
+        "The result is for the minimal nontrivial instance and does not extend its sharp formula to n>6, b>2, t>2.",
+        "The polynomial is an exact census, not an independently demonstrated improvement in practical decoding complexity."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

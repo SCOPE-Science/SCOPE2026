@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-The proof uses an exact two-step burst-deletion model, survivor positions \((1,2),(1,4),(1,6),(3,4),(3,6),(5,6)\), degree reconstruction on a six-edge ordered-pair relation, and a symbolic alphabet-independent census of equality patterns. These deductions are reproduced in `RESULT.md`.
+# Independent mathematical audit
 
-Run `g++ -O2 -std=c++17 verify_rgs.cpp -o verify_rgs && ./verify_rgs`. This checks the complete list of coordinate pairs via actual index deletion, all 4,213,597 restricted-growth symbol-equality patterns on twelve slots, the five nonzero census coefficients, and the global maximum overlap of five. The expected final line is `VERIFY_RGS_OK patterns=4213597 maximum_overlap=5 C3=210 C4=582 C5=363 C6=71 C7=4`.
+## correctness
 
-Run `python3 verify_direct.py`. This uses a separate direct channel simulator for \(q=2,3,4,5\), independently reconstructs deduplicated outputs under both deletion steps, and exhaustively compares all input pairs by aggregate output masks. The expected counts of unordered maximizing pairs for \(q=3,4,5\) are 630, 9504, and 63000; the binary control has maximum overlap four.
+PASS
 
-Finite checks of fixed alphabets alone cannot establish the statement for every alphabet size. The unrestricted-alphabet proof instead uses that every pair of length-six words induces one of finitely many equality patterns, that the canonical patterns are exhaustively enumerated, and that each pattern with \(k\) labels has exactly \((q)_k\) labeled realizations. No results about longer words or more than two bursts follow from this verification. Scientific review here does not constitute independent validation.
+For n=6, exactly two sequential adjacent-two-symbol deletions leave precisely the six original index pairs (1,2),(1,4),(1,6),(3,4),(3,6),(5,6). Hence D(a,b,c,d,e,f)={(a,b),(a,d),(a,f),(c,d),(c,f),(e,f)} as a set, even when alphabet labels coincide. If |D(x)|=6 then a,c,e must be pairwise distinct (otherwise edges duplicate), likewise b,d,f. Ordered-pair first-coordinate degrees are exactly 3,2,1 and second-coordinate indegrees exactly 1,2,3; the unique degree classes recover a,b,c,d,e,f even when a symbol participates in both first and second coordinates. Thus no different x,y have 6 shared outputs. The distinct ternary witness x=(0,0,1,0,2,1), y=(0,1,1,0,2,1) has equal five-element balls. For any q, every ordered input pair induces a unique set partition of twelve positions, a canonical restricted-growth encoding with k blocks and precisely (q)_k alphabet-label injections; x=y is removed. Independent C++ implementation generated all B_12=4,213,597 partitions (including 203 x=y partitions), with max distinct-input overlap 5 and ordered-pattern counts (k: both-five, mixed-five/six, both-six): 3:(72,96,42), 4:(72,288,222), 5:(12,144,207), 6:(0,16,55), 7:(0,0,4); no other nonzero categories. Divide the ordered labeled-pair sum by 2 to obtain T(q) and its leading 2q^7 term. A second direct two-step-deletion simulator independently gave q=2 overlap4/count120, q=3 overlap5/count630, q=4 overlap5/count9504. The infinite q statement follows by the finite partition-type bijection, not by testing finitely many alphabets.
+
+## originality
+
+PASS
+
+Best-of-knowledge priority survives. Lan, Sun, Yu and Ge, arXiv:2504.20460v1 (2025), Sections IV.A–B, Theorem IV.10, Lemma IV.19 and Theorem IV.16 treat the exact same sequential multiburst model. They prove q-ary single-ball maxima and an explicit q-ary five-overlap lower construction, while their proven pair-overlap maximum is restricted to q=2. Neither implication supplies the sharp q>=3 upper bound five or all-q extremizer polynomial. Schoeny et al. arXiv:1602.06820v2 concerns single-burst correcting codes. Sun, Xi and Ge (IEEE TIT 2023) concern a single burst; its full text remained inaccessible, and an authorized full-text access action was blocked by safety controls, so no whole-paper noncoverage was asserted. Later papers on unrestricted deletions do not establish this sequential two-burst subchannel bound. Published mathematical-record searches returned related single-deletion and ordinary-deletion statements but no covering exact census. Searches alone are not proof of originality; unindexed exact censuses and inaccessible pertinent texts remain named risks.
+
+## value
+
+PASS
+
+The six-symbol/two-length-two-burst channel is the first output-length-two instance for these two bursts: at input length five only one symbol survives. Determining its sharp q≥3 reconstruction read threshold is a motivated exact boundary between uniquely reconstructable full six-output relations and confusable five-output pairs, while the all-q equality-pair polynomial classifies how often the worst-case channel ambiguity occurs among labeled words. Its fraction 4q^{-5}+O(q^{-6}) is quantitatively informative for comparing worst-case and typical reconstruction, and the output-set versus input-pair distinction is essential. This is a natural exact finite-channel invariant with an all-alphabet combinatorial proof, not an arbitrary integer slice or recomputation of the binary theorem. No algorithmic guarantee for longer words or arbitrary burst counts is inferred.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
