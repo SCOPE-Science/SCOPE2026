@@ -1,12 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The new claim is a single theorem for the exact three-node FIMEX-Radau(3,0) propagator. Its active matrix follows by inverting the published equation (45) after setting scaled implicit and explicit rates to \(-s\) and \(-t\). The determinant \(2s^2+4s+3\) is positive on the full nonnegative domain. The three exact degree-two Jury expressions, endpoint eigenvalue checks, and ordering of the two quadratic boundaries prove the global necessary-and-sufficient power-boundedness and strict spectral-stability regions. The stiff limit gives a displayed rank-one nilpotent matrix with exact Euclidean norm \(3\); its power formula yields the sharp \(3/e\) transient constant. Continuity of each fixed power turns this idealized limit into arbitrarily large finite-stage transients for actual stable finite splits. A standalone exact-rational checker confirms the defining update and algebra; it is corroboration, not a substitute for the universal proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Buvoli–Southworth (arXiv:2109.03317, equation (45), section 5.3) already gives the defining scheme and a general spectral-radius characterization; neither is claimed novel. The explicit sharp three-node real-damping frontier, power-bounded boundary, stiff square-root correction, and defective-limit unbounded transient are not stated in its inspected mathematical development. Cardone–Jackiewicz–Zhang–Sandu (arXiv:1304.2276, sections 2–5) studies general extrapolation-based IMEX general-linear methods but does not cover these exact coefficients or stage-transient statements. published-finding corpus and accessible previously recorded statements were queried for the same claim, formula, reductions and parameter regimes: the closest overlaps concern different methods or generic Jordan transient examples, which do not imply this method-specific threshold. A more specialized unindexed computation or supplementary calculation remains a publication-priority risk.
+PASS
 
-## Value — PASS
-The source motivates stability regions of fully implicit-explicit block integrators used in split stiff differential equations. Here the exact admissible explicit damping is determined for all nonnegative implicit damping, including a nontrivial \(\sqrt{s}\)-wide penalty relative to naive equal-damping scaling. More importantly, the theorem exhibits unbounded amplification of stage errors **within a strictly stable scalar spectral region**, relevant to propagation of finite-precision or solver-stage perturbations. This is not merely a renamed generic Jordan example: an explicitly derived limit from a published numerical integrator is required. The result does not promise scalar endpoint-error growth, higher-order scheme guarantees, or an extension to arbitrary PDE operators.
+Independently inverted the actual frozen RESULT.md two-stage implicit 2×2 linear system and symbolically verified B(s,t), trace −(4st+2s+10t−3)/(2s²+4s+3), determinant 2t(t−2)/(2s²+4s+3), and all three quadratic Jury identities. The real split strip follows from middle Jury polynomial (s−t)²+s−7t+3≥0 and strict ordering 0<T(s)<P(s)<U(s). At t=T(s) the −1 eigenvalue is simple, zero-split eigenvalues are 0,1 simple, so full three-stage matrix is power bounded; above T(s) a root has modulus >1. For fixed t=cs, 0<c<1, as s→∞ the active block tends to cJ=c(−I+N), N²=0, ||N||₂=3; exact powers give (1−c)max_n||(cJ)^n||₂→3/e. Taking each finite n first and then sufficiently large but finite stable s establishes no UNIFORM bound across the stable family; no single finite B is asserted power-unbounded. A standalone independent SymPy derivation confirms the algebra; finite checks are supplementary.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Buvoli–Southworth introduce FIMEX-Radau stages and study spectral stability regions for their methods, but the inspected original publication's accessible material does not provide this explicit three-node nonnegative real split strip, the closed radical boundary, or its nonnormal stage-norm transient constant. The existing general-linear-method and Jordan-block spectral theory supplies tools but not this exact specialization with both effects. The full primary source was inaccessible via arXiv/OA and authorized Oxford returned vpn_disconnected; this remains a substantive cited risk, but no covering theorem was positively identified from inspected material. Originality is best-of-knowledge rather than an inaccessible-text claim of not covering.
+
+## value
+
+PASS
+
+A natural first uniterated small FIMEX-Radau method whose stability plots otherwise conflate spectral and nonnormal notions: exact full real damping domain with power-bounded boundaries plus a constructive demonstration that arbitrarily large stable-stage transients occur. This is a useful sharp numerical-analysis diagnostic rather than a textbook Jordan observation in isolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

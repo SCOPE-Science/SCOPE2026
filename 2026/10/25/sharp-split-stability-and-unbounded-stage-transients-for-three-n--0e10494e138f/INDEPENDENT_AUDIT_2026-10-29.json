@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Independently inverted the actual frozen RESULT.md two-stage implicit 2×2 linear system and symbolically verified B(s,t), trace −(4st+2s+10t−3)/(2s²+4s+3), determinant 2t(t−2)/(2s²+4s+3), and all three quadratic Jury identities. The real split strip follows from middle Jury polynomial (s−t)²+s−7t+3≥0 and strict ordering 0<T(s)<P(s)<U(s). At t=T(s) the −1 eigenvalue is simple, zero-split eigenvalues are 0,1 simple, so full three-stage matrix is power bounded; above T(s) a root has modulus >1. For fixed t=cs, 0<c<1, as s→∞ the active block tends to cJ=c(−I+N), N²=0, ||N||₂=3; exact powers give (1−c)max_n||(cJ)^n||₂→3/e. Taking each finite n first and then sufficiently large but finite stable s establishes no UNIFORM bound across the stable family; no single finite B is asserted power-unbounded. A standalone independent SymPy derivation confirms the algebra; finite checks are supplementary.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original works discuss more integrators but focus on spectral-stability diagrams, iteration and convergence; no explicit nonuniform Euclidean stage-power bound located in accessible text."
+        ],
+        "reasoning": "Broader families do not automatically dominate a precise 3-node real split threshold and stiff Jordan limit.",
+        "searches": [
+          "Buvoli–Southworth, arXiv:2109.03317, SIAM JSC 45 (2023); Cardone et al arXiv:1304.2276"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md and fimex_radau3_verifier.py",
+        "Exact matrix inversion and Jury algebra in independent_math_checks.py",
+        "Resultary query FIMEX Radau three-node uniterated split scalar stability sharp real wedge stage transient Jordan norm",
+        "Buvoli–Southworth publisher abstract and LANL OA metadata",
+        "Authorized Oxford institutional request reported vpn_disconnected (no retry/bypass)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Source method plus Jury mathematically permits calculation of strip, but published source does not state sharp power-bounded boundary and transient theorem in accessible description."
+        ],
+        "reasoning": "Novelty is the evaluated exact model and nonnormal transient conclusion, not the general Jury test or Jordan-block formula.",
+        "searches": [
+          "Buvoli–Southworth §5.3 summary, equation (45) as quoted/encoded in frozen primary-derived package; generic 2×2 Jury criterion"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Previous results describe general split stability, not the jointly quantified exact t≤T(s) and finite stable stage-transient 3/e constant in accessible material."
+        ],
+        "reasoning": "A general stability chart might encode the same stable set; exact coefficients and nonnormal stage norms were compared explicitly where text was accessible; full Eq.45 unavailable.",
+        "searches": [
+          "Resultary search FIMEX Radau three-node uniterated split scalar stability sharp real wedge stage transient Jordan norm; Buvoli–Southworth SIAM J Sci Comput 2023 §5.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned unrelated Jordan transient and numerical stability findings, no exact FIMEX-Radau(q=3,k=0) table or matching root formula."
+        ],
+        "reasoning": "A literature search is not proof that an unindexed supplementary coefficient table does not encode the exact frontier.",
+        "searches": [
+          "Resultary query FIMEX Radau three-node uniterated split scalar stability sharp real wedge stage transient Jordan norm"
+        ]
+      },
+      "rationale": "Buvoli–Southworth introduce FIMEX-Radau stages and study spectral stability regions for their methods, but the inspected original publication's accessible material does not provide this explicit three-node nonnegative real split strip, the closed radical boundary, or its nonnormal stage-norm transient constant. The existing general-linear-method and Jordan-block spectral theory supplies tools but not this exact specialization with both effects. The full primary source was inaccessible via arXiv/OA and authorized Oxford returned vpn_disconnected; this remains a substantive cited risk, but no covering theorem was positively identified from inspected material. Originality is best-of-knowledge rather than an inaccessible-text claim of not covering.",
+      "residual_risks": [
+        "Buvoli–Southworth original Eq.(45) full text/figures inaccessible; normalized coefficient match to source paper cannot be fully reconfirmed beyond the package equations.",
+        "Generic Jordan transient is known; new content is its realization in this specific stable method.",
+        "No complex splits, iterators, noncommuting systems, or physical-solution transient assertion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "INCOMPLETE_PRIMARY_ACCESS; precise source formula assumed as specified in frozen package; coverage not ruled out",
+          "evidence": "The paper introduces fully implicit-explicit Radau block schemes and plots/generalizes stability; the full 3-node coefficient and figures remain an originality/source-normalization risk.",
+          "identifier_or_url": "https://doi.org/10.1137/21M1446988",
+          "material_read": "SIAM publisher abstract, LANL OA repository description, arXiv abstract, accessible mathematical overview of §5.3; the original Eq.(45) full text could not be directly inspected",
+          "method": "arXiv PDF tried but unavailable, LANL OA redirect unavailable, authorized Oxford returned vpn_disconnected, no bypass",
+          "title": "Additive Polynomial Time Integrators, Part I: Framework and Fully-Implicit-Explicit Collocation Methods",
+          "trigger": "Exactly defining FIMEX-Radau(3,0) method and stability plots"
+        },
+        {
+          "assessment": "UNVERIFIED_FULL_TEXT; no whole-document exclusion claimed",
+          "evidence": "Concern is framework versus coefficients of a different FIMEX block method.",
+          "identifier_or_url": "https://arxiv.org/abs/1304.2276",
+          "material_read": "Bibliographic citation and secondary description in source package; primary full text not inspected",
+          "method": "Source reference comparison",
+          "title": "Extrapolation-based implicit-explicit general linear methods",
+          "trigger": "Potential broad IMEX GLM stability analysis"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A natural first uniterated small FIMEX-Radau method whose stability plots otherwise conflate spectral and nonnormal notions: exact full real damping domain with power-bounded boundaries plus a constructive demonstration that arbitrarily large stable-stage transients occur. This is a useful sharp numerical-analysis diagnostic rather than a textbook Jordan observation in isolation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md, SLOGAN.txt, VERIFICATION.md and fimex_radau3_verifier.py",
+    "Exact matrix inversion and Jury algebra in independent_math_checks.py",
+    "Resultary query FIMEX Radau three-node uniterated split scalar stability sharp real wedge stage transient Jordan norm",
+    "Buvoli–Southworth publisher abstract and LANL OA metadata",
+    "Authorized Oxford institutional request reported vpn_disconnected (no retry/bypass)"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Buvoli–Southworth original Eq.(45) full text/figures inaccessible; normalized coefficient match to source paper cannot be fully reconfirmed beyond the package equations.",
+    "Generic Jordan transient is known; new content is its realization in this specific stable method.",
+    "No complex splits, iterators, noncommuting systems, or physical-solution transient assertion."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "INCOMPLETE_PRIMARY_ACCESS; precise source formula assumed as specified in frozen package; coverage not ruled out",
+      "evidence": "The paper introduces fully implicit-explicit Radau block schemes and plots/generalizes stability; the full 3-node coefficient and figures remain an originality/source-normalization risk.",
+      "identifier_or_url": "https://doi.org/10.1137/21M1446988",
+      "material_read": "SIAM publisher abstract, LANL OA repository description, arXiv abstract, accessible mathematical overview of §5.3; the original Eq.(45) full text could not be directly inspected",
+      "method": "arXiv PDF tried but unavailable, LANL OA redirect unavailable, authorized Oxford returned vpn_disconnected, no bypass",
+      "title": "Additive Polynomial Time Integrators, Part I: Framework and Fully-Implicit-Explicit Collocation Methods",
+      "trigger": "Exactly defining FIMEX-Radau(3,0) method and stability plots"
+    },
+    {
+      "assessment": "UNVERIFIED_FULL_TEXT; no whole-document exclusion claimed",
+      "evidence": "Concern is framework versus coefficients of a different FIMEX block method.",
+      "identifier_or_url": "https://arxiv.org/abs/1304.2276",
+      "material_read": "Bibliographic citation and secondary description in source package; primary full text not inspected",
+      "method": "Source reference comparison",
+      "title": "Extrapolation-based implicit-explicit general linear methods",
+      "trigger": "Potential broad IMEX GLM stability analysis"
+    }
+  ]
+}
