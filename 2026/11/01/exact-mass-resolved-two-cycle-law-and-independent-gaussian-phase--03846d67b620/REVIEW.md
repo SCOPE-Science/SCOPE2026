@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact two-step firing equation and connected Laplacian kernel force complementary firing sets. Threshold inequalities give the necessary and sufficient independent interval boxes, and their generating polynomials yield the stated all-mass formula. Reciprocal factors yield the exact reflection symmetry and mean. A uniform lattice Laplace argument establishes the phase-size Gaussian fluctuations and total-orbit asymptotic. Conditional independent uniform chip counts, a uniform triangular-array central limit theorem and tightness give the independent mass Gaussian limit. The program `verify_cut_cycle.py` independently simulates all prescribed finite cases and checks exact polynomial coefficients; its successful output is `verification_output.txt`. The infinite theorem relies on proof, not extrapolation.
+## correctness
 
-## Originality — PASS, qualified
-The established complementary phase-cut/box characterization is explicitly background; it is not presented as a discovery. Levine's full paper analyzes activity, rotation number and existence of short-period windows on a differently normalized complete graph. Scully–Jiang–Zhang analyze possible firing patterns. Wang–Lannan prove a general middle-mass eventual-period-two assertion. The inspected materials do not state the complete **mass-graded count of states already on primitive two-cycles** for simple \(K_n\), nor the joint independent phase–mass Gaussian theorem. The exact statements and their implications were compared rather than only titles. A possible historical equivalent, especially in older chip-firing literature not fully accessible, remains a residual risk; the search is evidence, not a uniqueness certificate.
+PASS
 
-## Mathematical value — PASS
-Mass is the fundamental conserved energy of chip-firing dynamics, and the finite-size distribution of existing two-cycle states distinguishes the different microcanonical layers even where every state is known to approach a short cycle. The precise clique polynomial yields a natural all-mass census of an infinite mean-field graph family. The independent joint limiting fluctuation law quantifies two physically different observables—the alternating firing fraction and the chip population—at their distinct intrinsic scales, rather than restating a qualitative period-existence theorem or providing an arbitrary finite table.
+The two-update Laplacian equation L(f+g)=0 on connected loopless K_n forces complementary binary firing vectors in every nontrivial two-cycle. For a cut S of size a, exact iff threshold intervals are [n-1,n-1+(n-a)-1] for firing vertices and [n-1-a,n-2] for nonfiring vertices, giving independent lengths n-a and a. Summing labelled cuts and dividing by two proves the claimed all-mass polynomial; reciprocal exponents sum to n(2n-3) giving exact mean n²-3n/2. The entropy exponent h(u)=(1-2u)log(u/(1-u)) has sole maximum 0 at 1/2 and expansion -8(u-1/2)², so lattice Laplace gives N_n~n^n/4 and variance n/16 for cut size. Given a, the n chip counts are independent uniforms, common mass mean n²-3n/2 and total variance n[a(n-a)-1]/12; bounded increments relative to n^{3/2} justify the uniform conditional Lindeberg CLT and independent joint Gaussian. Checked the actual verify_cut_cycle.py and separately computed cut-population exact counts and conditional moments for n=2..13. These finite checks do not prove the limit.
 
-## Scope and risk
-The theorem counts periodic states/orbits only, not transient basins or convergence times. The loopless convention must not be conflated with the looped normalization in Levine. An older general phase-cut derivation may imply the finite polynomial by specialization, so conceptual novelty lies especially in its evaluated complete-graph mass census and joint asymptotics. The 1992 Bitar–Goles full text was not obtained; its contents cannot be judged from an abstract alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact graph-cut phase-box lemma and qualitative period-two complete-graph constraints are earlier work, but none of the inspected relevant sources supplies the complete orbit-mass polynomial together with the independent two-observable central limit law. It is important to distinguish immediately periodic states from trajectories eventually reaching a period-two cycle. A looped K_n model is conjugate after a one-chip-per-vertex translation and does not by itself yield the claimed mass distribution. This is best-of-knowledge priority with an older article not fully inspected.
+
+## value
+
+PASS
+
+The chip total is a conserved natural microcanonical coordinate in parallel chip-firing; the exact primitive-orbit mass generating function quantifies stationary two-cycles by every energy layer. The two-scale independent Gaussian limit captures both the population imbalance of alternating firing phases and mass fluctuations, beyond existence of a period-two window; it is an infinite family and not an arbitrary small enumeration.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

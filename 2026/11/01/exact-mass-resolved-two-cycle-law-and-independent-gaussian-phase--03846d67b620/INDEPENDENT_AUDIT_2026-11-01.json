@@ -1,0 +1,186 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T20:44:45.842072Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The two-update Laplacian equation L(f+g)=0 on connected loopless K_n forces complementary binary firing vectors in every nontrivial two-cycle. For a cut S of size a, exact iff threshold intervals are [n-1,n-1+(n-a)-1] for firing vertices and [n-1-a,n-2] for nonfiring vertices, giving independent lengths n-a and a. Summing labelled cuts and dividing by two proves the claimed all-mass polynomial; reciprocal exponents sum to n(2n-3) giving exact mean n²-3n/2. The entropy exponent h(u)=(1-2u)log(u/(1-u)) has sole maximum 0 at 1/2 and expansion -8(u-1/2)², so lattice Laplace gives N_n~n^n/4 and variance n/16 for cut size. Given a, the n chip counts are independent uniforms, common mass mean n²-3n/2 and total variance n[a(n-a)-1]/12; bounded increments relative to n^{3/2} justify the uniform conditional Lindeberg CLT and independent joint Gaussian. Checked the actual verify_cut_cycle.py and separately computed cut-population exact counts and conditional moments for n=2..13. These finite checks do not prove the limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang–Lannan establish eventual period two for a broad middle-mass interval on general graphs, not the count of initially periodic states; Levine classifies activity and period windows."
+        ],
+        "reasoning": "A stronger graph-family eventual-period theorem is not a stronger enumeration of existing primitive two-cycle states or their two-observable joint limiting distribution.",
+        "searches": [
+          "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+          "Wang–Lannan arXiv:2608.04153v1",
+          "Levine arXiv:0811.2800v1"
+        ]
+      },
+      "checked_sources": [
+        "actual frozen Git record RESULT.md, verify_cut_cycle.py, VERIFICATION.md; tree 1b434099ff11a7cfa31a03c455dcc488f084ccb8",
+        "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+        "arXiv:0811.2800",
+        "arXiv:2608.04153",
+        "HAL:hal-01207550",
+        "DOI:10.1016/0304-3975(92)90316-8"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Immediate periodic-state enumeration differs logically from eventual-period existence; a complement-firing classification can imply finite counts only with an evaluation and asymptotic argument."
+        ],
+        "reasoning": "The checked prior statements do not imply the independent Gaussian statement without substantial new enumeration and limit analysis; finite counting itself is a specialization of known phase-box method, transparently acknowledged.",
+        "searches": [
+          "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+          "Levine arXiv:0811.2800 Theorem 23",
+          "Wang–Lannan arXiv:2608.04153 main theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The phase-cut box parametrization is used as known general technique; Levine uses a looped complete graph with threshold n, conjugate to loopless threshold n−1 by a uniform chip translation."
+        ],
+        "reasoning": "Known generic phase boxes identify a route to the finite polynomial, but the cited activity/rotation-number and firing-pattern statements do not express the all-mass primitive-orbit distribution or its joint fluctuations; the latter claim must be compared as a pair.",
+        "searches": [
+          "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+          "Levine arXiv:0811.2800, period-two Theorem 23",
+          "Scully–Jiang–Zhang HAL:hal-01207550"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top responses concerned other graph automata, unrelated arithmetic counts and chip-like graph invariants; no exact complete-graph period-two mass polynomial found in these search results."
+        ],
+        "reasoning": "No exact table was located; even a table of initial small n cannot supply the infinite polynomial and CLT. Search nonmatches are not proof of novelty.",
+        "searches": [
+          "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+          "Resultary published-search closest hits: complete multipartite parity-cycle census (2026/10/11/...acea41c73be7)"
+        ]
+      },
+      "rationale": "The exact graph-cut phase-box lemma and qualitative period-two complete-graph constraints are earlier work, but none of the inspected relevant sources supplies the complete orbit-mass polynomial together with the independent two-observable central limit law. It is important to distinguish immediately periodic states from trajectories eventually reaching a period-two cycle. A looped K_n model is conjugate after a one-chip-per-vertex translation and does not by itself yield the claimed mass distribution. This is best-of-knowledge priority with an older article not fully inspected.",
+      "residual_risks": [
+        "1992 Bitar–Goles full text was not read; do not assert it lacks the statement.",
+        "Generic phase-cut box formula is pre-existing; the finite specialization is less conceptually novel than the joint Gaussian asymptotics.",
+        "Unindexed earlier enumeration or asymptotic could exist."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Period/rotation windows do not present the asserted primitive orbit-by-mass polynomial or joint CLT in the examined portions.",
+          "evidence": [
+            "Theorem 23 period/activity constraints; looped complete graph threshold n."
+          ],
+          "identifier_or_url": "arXiv:0811.2800; https://lionellevine.github.io/staircase-completegraph.pdf",
+          "material_read": "Relevant full-paper introduction and period-two Theorem 23 discussion (targeted excerpt/material); not all historical pages",
+          "method": "Open primary PDF excerpts and comparison of threshold convention and exact claims",
+          "title": "Parallel Chip-Firing on the Complete Graph: Devil’s Staircase and Poincaré Rotation Number",
+          "trigger": "Closest model and period classification"
+        },
+        {
+          "assessment": "Does not determine exact mass distribution among states already on two-cycles.",
+          "evidence": [
+            "Main theorem concerns eventual least periods in an energy window."
+          ],
+          "identifier_or_url": "arXiv:2608.04153v1",
+          "material_read": "Theorem statements and period-two discussion from accessible arXiv full-text material",
+          "method": "Compare eventual-period theorem conclusion against immediate periodic-orbit count",
+          "title": "All parallel chip-firing games with middle mass have period 2",
+          "trigger": "General-graph middle-mass theorem potentially stronger"
+        },
+        {
+          "assessment": "Establishes firing-pattern constraints but not inspected complete-graph mass law or joint Gaussian.",
+          "evidence": [
+            "Relevant finite firing-pattern classification."
+          ],
+          "identifier_or_url": "HAL:hal-01207550; https://ziv.codes/pdf/dmtcs2014-scully.pdf",
+          "material_read": "Abstract and targeted periodic firing-pattern portions",
+          "method": "Review relevant accessible proceedings text",
+          "title": "Firing Patterns in the Parallel Chip-Firing Game",
+          "trigger": "Pattern restrictions and complementary phases"
+        },
+        {
+          "assessment": "Not assessed for noncoverage: older equivalent results may be present.",
+          "evidence": [
+            "Bibliographic and abstract identification only."
+          ],
+          "identifier_or_url": "DOI:10.1016/0304-3975(92)90316-8",
+          "material_read": "Bibliographic metadata and abstract only; full article not obtained",
+          "method": "Partial source access, explicitly no whole-document no-coverage claim",
+          "title": "Parallel chip firing games on graphs",
+          "trigger": "Foundational older plausible stronger source"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The chip total is a conserved natural microcanonical coordinate in parallel chip-firing; the exact primitive-orbit mass generating function quantifies stationary two-cycles by every energy layer. The two-scale independent Gaussian limit captures both the population imbalance of alternating firing phases and mass fluctuations, beyond existence of a period-two window; it is an infinite family and not an arbitrary small enumeration.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "actual frozen Git record RESULT.md, verify_cut_cycle.py, VERIFICATION.md; tree 1b434099ff11a7cfa31a03c455dcc488f084ccb8",
+    "Resultary semantic search: primitive period two synchronous parallel chip-firing complete graph K_n count by conserved mass generating polynomial joint Gaussian firing set chip mass",
+    "arXiv:0811.2800",
+    "arXiv:2608.04153",
+    "HAL:hal-01207550",
+    "DOI:10.1016/0304-3975(92)90316-8"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every n≥2 on labelled loopless K_n, the mass generating polynomial of primitive period-two orbits is one-half the binomial cut sum of z^{n(n-1)-a(n-a)}[n-a]_z^a[a]_z^{n-a}; N_n~n^n/4, and the centered firing-set size and mass converge jointly to independent Gaussians with variances 1/16 and 1/48 under the indicated n^{1/2}, n^{3/2} scales.",
+  "limitations": [
+    "Only primitive period-two states on labelled loopless complete graphs; no transient basins or all eventual periods.",
+    "Limit theorem is as n→∞, not an exact finite-n normal distribution."
+  ],
+  "residual_risks": [
+    "1992 Bitar–Goles full text was not read; do not assert it lacks the statement.",
+    "Generic phase-cut box formula is pre-existing; the finite specialization is less conceptually novel than the joint Gaussian asymptotics.",
+    "Unindexed earlier enumeration or asymptotic could exist."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Period/rotation windows do not present the asserted primitive orbit-by-mass polynomial or joint CLT in the examined portions.",
+      "evidence": [
+        "Theorem 23 period/activity constraints; looped complete graph threshold n."
+      ],
+      "identifier_or_url": "arXiv:0811.2800; https://lionellevine.github.io/staircase-completegraph.pdf",
+      "material_read": "Relevant full-paper introduction and period-two Theorem 23 discussion (targeted excerpt/material); not all historical pages",
+      "method": "Open primary PDF excerpts and comparison of threshold convention and exact claims",
+      "title": "Parallel Chip-Firing on the Complete Graph: Devil’s Staircase and Poincaré Rotation Number",
+      "trigger": "Closest model and period classification"
+    },
+    {
+      "assessment": "Does not determine exact mass distribution among states already on two-cycles.",
+      "evidence": [
+        "Main theorem concerns eventual least periods in an energy window."
+      ],
+      "identifier_or_url": "arXiv:2608.04153v1",
+      "material_read": "Theorem statements and period-two discussion from accessible arXiv full-text material",
+      "method": "Compare eventual-period theorem conclusion against immediate periodic-orbit count",
+      "title": "All parallel chip-firing games with middle mass have period 2",
+      "trigger": "General-graph middle-mass theorem potentially stronger"
+    },
+    {
+      "assessment": "Establishes firing-pattern constraints but not inspected complete-graph mass law or joint Gaussian.",
+      "evidence": [
+        "Relevant finite firing-pattern classification."
+      ],
+      "identifier_or_url": "HAL:hal-01207550; https://ziv.codes/pdf/dmtcs2014-scully.pdf",
+      "material_read": "Abstract and targeted periodic firing-pattern portions",
+      "method": "Review relevant accessible proceedings text",
+      "title": "Firing Patterns in the Parallel Chip-Firing Game",
+      "trigger": "Pattern restrictions and complementary phases"
+    },
+    {
+      "assessment": "Not assessed for noncoverage: older equivalent results may be present.",
+      "evidence": [
+        "Bibliographic and abstract identification only."
+      ],
+      "identifier_or_url": "DOI:10.1016/0304-3975(92)90316-8",
+      "material_read": "Bibliographic metadata and abstract only; full article not obtained",
+      "method": "Partial source access, explicitly no whole-document no-coverage claim",
+      "title": "Parallel chip firing games on graphs",
+      "trigger": "Foundational older plausible stronger source"
+    }
+  ]
+}
