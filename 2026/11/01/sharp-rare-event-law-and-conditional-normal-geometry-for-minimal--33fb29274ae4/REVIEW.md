@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+For a generic central section, each section vertex comes from a unique cube edge crossing the hyperplane. Walsh–Fourier edge-influence decomposition gives the exact lower count \(2^{d-1}\) with dictator rigidity; coordinate dominance is the corresponding strict geometric inequality. The probability is an exact Gaussian cone angle, which is transformed into a gamma–Dirichlet importance-sampling identity. Exact rational first-to-fourth moments of its nonnegative tilted exponent prove the \(e^{-1}\) factor and the relative \(7/(2(d-1))\) correction with a controlled fourth-order Taylor remainder. The total-variation convergence of the auxiliary tilted law, together with Gaussian threshold concentration and Dirichlet laws of large numbers, proves the joint conditional exponential normal profile. The standard-library checker independently reconstructs exact moments and cube-edge events. Unproved: full-dimensional total-variation convergence of the growing normal vector, or analogues beyond Haar-central cubes.
+
+## Originality — PASS, subject to historical-priority risk
+Kabluchko–Seidel, *Convex cones spanned by regular polytopes*, arXiv:2006.09492, Sections 2.1 and 4, already establishes the relevant Gaussian probability and expected section-face-count framework. Neither fact is asserted as new. Their inspected asymptotics in Section 5.5 concern fixed-dimensional faces and different cone terms, not the two-term rare minimum-vertex probability and conditional exponential normal profile. König–Koldobsky, arXiv:1806.08659, addresses extremal section surface area; Brandenburg–Meroni, arXiv:2510.09265, describes finite-dimensional combinatorial classification. The latter full manuscript could not be inspected; only its original abstract was accessible. Equivalent high-dimensional rare-cone asymptotics under other terminology remain a concrete risk, and the search is not a proof of global novelty.
+
+## Mathematical value — PASS
+Typical central cube sections have many vertices, but the geometrically rigid minimum-vertex event is an exceptionally rare and natural benchmark. The explicit relative correction determines its small-probability scale beyond the leading solid angle; the conditional limit identifies how a randomly sampled normal must concentrate near a coordinate axis and how the remaining coordinates distribute. This creates a nontrivial bridge among exact hypercube combinatorics, Gaussian solid angles, Dirichlet geometry, and high-dimensional conditional limit laws. The leading finite-dimensional cone formula alone is previous work and is not the motivation for acceptance.
+
+## Scientific limitations and sources
+The theorem concerns strict minimal-vertex sections of the regular cube and fixed finite sets of normalized residual coordinates. All geometric equalities are almost sure; exceptional normals have zero Haar probability. Source details and the disclosed material-read restrictions appear in `AUDIT.json` and `RESULT.md`. The reproducible checker is supplementary to proof.
+
+Self-review: passed. Independent audit: not yet performed.
