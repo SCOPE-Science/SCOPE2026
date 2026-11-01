@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification of the explicit dyadic surgery
+# Independent mathematical audit
 
-The proof in `RESULT.md` checks the return-free interval inclusions, exact agreement on every orbit below the return horizon, the full-branch \(M\)-horseshoe for the \(P\)-th iterate, the cloned primitive Markov graph and uniform map distance. These are algebraic and dynamical arguments for all relevant integer parameters; they do not rely on numerical sampling.
+## correctness
 
-`period_spectrum_checker.py` uses rational arithmetic to check the endpoints, all short tent-periodic points, precise Markov adjacency, and reachability across its \(2P\)-step transition horizon for all twelve combinations \(H=1,2,3,4\) and \(M=3,5,9\). The checker completed with `CHECKS_PASS`. The finite program does not verify every infinite parameter choice or independently certify mathematical priority.
+PASS
 
-Independent audit: not performed.
+In the inspected RESULT.md the surgery interval I=[(2Q-2)/Q^2,(2Q-1)/Q^2], Q=2^P, has disjoint first P-1 tent iterates, and T^P(I)=[1/Q,2/Q] strictly contains I. Replacing one dyadic Markov state by odd M alternating laps of slope ±2M preserves all embedded periodic orbits of least period <P pointwise, while an M-branch F^P horseshoe gives h_top(F)>=log M/P. Cloning the primitive dyadic Markov adjacency yields a primitive Markov transition matrix, bounded inverse cylinder diameters and topological exactness. ||F-T||∞<=2/Q². Independent exact-fraction arithmetic rechecked first returns for P=3..7; these checks only supplement the all-parameter Markov/return proof.
+
+## originality
+
+PASS
+
+Published interval-map full-period-spectrum rigidity concerns the complete embedded orbit collection; Sharkovskii period type concerns lengths only. Neither logically yields preservation of the *exact sets of points* of all short cycles while arbitrarily inflating entropy near one exact expanding tent map. Resultary semantic searches found nearby dynamics, but no implication to the precise statement; accessible abstracts do not prove whole-document noncoverage.
+
+## value
+
+PASS
+
+The theorem proves a sharp non-identifiability phenomenon for finite spatial periodic-orbit observations inside topologically exact expanding interval maps. It complements a recent full-spectrum rigidity theorem and quantifies simultaneous arbitrary C^0 proximity and unbounded entropy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
