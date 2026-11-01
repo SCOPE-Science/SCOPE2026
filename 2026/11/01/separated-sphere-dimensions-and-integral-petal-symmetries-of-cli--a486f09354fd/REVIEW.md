@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact vertex-deletion/cofiber decomposition follows from the characterization of all forbidden cliques. The integral homotopy conclusion follows from elementary simplex-skeleton wedge homotopy types, joins, dimension-wise nullhomotopy of the link inclusion, and a mapping-cone splitting. The augmentation-lattice identification is an exact integer chain calculation and yields the actual petal symmetry action. The standalone script enumerated face boundaries in eight finite tests and checked 360 signed Lefschetz characters. Finite calculations are supportive, not the proof of the infinite theorem.
+
+**Originality — PASS (subject to residual literature risk).** The closest 2026 primary result, Ghosh and Selvaraja's Theorem 3.3 and Corollary 3.4, proves shellability for all block graphs, encompassing these windmills, but does not determine this family's homotopy type or integral homology modules. Earlier clique-ideal literature studies algebraic invariants and other families. The closest examined indexed result on two overlapping cliques has an intersection with at least two vertices and addresses homology rather than the multi-petal one-vertex homotopy/wreath classification. Another indexed result addresses Lovász neighborhood complexes of block graphs, a distinct functor. Exact-claim, structural-alias and stronger-coverage searches found no covering result; implicit prior coverage remains possible.
+
+**Mathematical value — PASS.** This natural infinite subclass of the recently studied block-graph family receives an exact integral homotopy classification, including a potentially arbitrarily large gap between surviving degrees and a complete integral symmetry action. Existing shellability does not supply the integer representation or the two separated homology ranks, and the distinction is already visible in small three-petal windmills.
+
+**Closest literature and limits.** The source of the construction is Ghosh–Selvaraja (2026), with Moradi and Khosh-Ahang–Moradi as earlier context. The result applies only to clique windmills and describes homology equivariantly, not a group-equivariant homotopy equivalence. Independent review is pending.
+
+Self-review: passed. Independent audit: not yet performed.
