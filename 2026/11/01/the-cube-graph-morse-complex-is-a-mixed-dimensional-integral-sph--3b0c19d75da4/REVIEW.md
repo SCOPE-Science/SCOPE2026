@@ -1,0 +1,12 @@
+# Scientific assessment
+
+## Correctness — PASS
+The cube-graph Morse complex is defined by compatible directed vertex-edge pairings. The finite enumeration is exhaustive (23,624 nonempty faces). A deterministic arc-pivot acyclic matching leaves, after releasing one augmented empty-face match, a single vertex, 50 five-cells and 185 six-cells; all 124,200 directed Hasse incidences were checked to exclude matching cycles. The signed critical-cell boundary is computed by integral path elimination, has rank 46, and has 46 unit Smith factors, also backed by a determinant-one full-rank minor. The resulting CW complex has no cells except in dimensions zero, five and six, so its degree matrix classifies all attaching maps. Integral elementary cell slides yield precisely four five-spheres and 139 six-spheres. Independent edge-oriented enumeration and mod-two boundaries confirm the earlier field-homology benchmark. Risks: reproducibility requires the included exhaustive programs and SymPy; an independent mathematics audit is pending.
+
+## Originality — PASS, with residual bibliographic risk
+The closest exact-object published result gives only reduced mod-two homology, explicitly leaving integral homology and homotopy uncomputed; this weaker statement cannot imply the sphere-wedge theorem. Chari--Joswig supply definitions and graph rooted-forest interpretations, Kozlov supplies the reduction formalism, and Scoville--Zaremsky give connectivity bounds rather than the precise cube homotopy type. The cube *matching* complex is a different construction. The full text of Kennedy Courtney's 2020 thesis *The Directed Forest Complex of Cayley Graphs* was inaccessible after trying the institutional PDF, and its abstract is too broad to exclude equivalent coverage. No complete novelty certification is claimed.
+
+## Value — PASS
+The three-dimensional cube is the first non-cycle member of the natural hypercube family. Its previously known mod-two homology occurs in two adjacent high degrees, for which torsion and integral attaching maps cannot be inferred from rank data. An explicit integral sphere-wedge equivalence resolves that meaningful topological gap at the canonical first case and provides a full reproducible degree-matrix certificate, not just a routine field computation or a slight numerical improvement. The method also supplies a concrete benchmark for future hypercube Morse-complex calculations without asserting such future results.
+
+Self-review: passed. Independent audit: not yet performed.
