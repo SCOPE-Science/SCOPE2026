@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact domain is the unit-sphere northern-hemisphere geodesic hull of a regular \(n\)-gon with \(n\ge3\) and \(0<\rho<\pi/2\). A positive-convex-combination representation yields colatitude at most \(\rho\); the only ambient-sphere critical points of the dot product are \(\pm v_0\), and the candidate minimizing antipode is excluded. All minima therefore occur on edges. For odd \(n\), the vertex-dot lower bound \(m\) and sharp normalized-chord lower bound \(c\) prove every branch and fully identify equality cases. Even \(n\) has an exact polar-angle inequality and unique opposite-vertex equality. The three-case result is a complete continuum theorem, not an enumeration conjecture.
+PASS
 
-## Originality — PASS (best-knowledge, with residual risk)
+PASS. For all n≥3 and 0<rho<pi/2, hemisphere containment excludes -v0 as an interior minimum of v0·x, reducing global farthest-point optimization to polygon edges. Even n: polar-angle bound v0·x≥cos(2rho) has equality only at opposite vertex. Odd n: every edge interpolation z has v0·z=t≥m and c≤||z||≤1, with equal t=m only on opposite edge. The sign of m forces respectively opposite two vertices (m>0), entire opposite edge (m=0), or sole geodesic midpoint (m<0); m=0 iff tan²rho=1/cos(pi/n). Endpoint cases 0<rho<pi/2 and n=3 valid. Independent boundary sampling at 50 n/rho pairs gave maximum prediction discrepancy 2.22e-16, used only as sanity check.
 
-The 2014 Zachos paper (arXiv:1408.6495v1; full nine pages inspected) optimizes weighted sums of spherical distances on spherical triangles, not maximum distance from one specified vertex of every regular spherical \(n\)-gon. The strongest indexed near-match, *Complete farthest-distance profiles and sharp self-Chebyshev stability for regular polygons* (published-finding corpus ID ending `7703b9469968`), states a result for **Euclidean** regular polygons; it cannot imply the curved-edge geodesic midpoint regime by metric substitution. Further indexed spherical minimum-area and Euclidean discrete chord-gap records do not cover the claim on their available statements. Search terms addressed fixed-vertex eccentricity, opposite-edge great-circle midpoint, parity, circumradius, general dominating maximum-distance formulas and spherical polygon tables. Unindexed equivalent literature and incompletely inspected related sources remain explicit risks; negative search alone is not used as novelty proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp, completely classified equality locus of a natural fixed-vertex farthest-distance problem changes dimension at an explicit curvature threshold. For odd order, the unique farthest-point location can lie in the **interior of an edge**, while for even order it remains a vertex; at the sharp boundary an entire arc ties. This is a meaningful spherical-versus-Euclidean structural distinction and may inform geodesic farthest-point or covering computations. The finding is limited to regular convex hemispherical polygons; it does not settle global diameters or irregular cases.
+PASS best knowledge. Available Zachos source minimizes weighted sums of distances on spherical triangle, not a maximum of one fixed vertex over all spherical regular n-gons. Published Resultary farthest-distance profile is Euclidean and does not imply the geodesic opposite-edge threshold. Exact all-n equality locus has no identified dominant prior formula. Risk: unindexed spherical farthest-point/diameter formula or specialized thesis.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS. The fixed-source farthest-point set on a natural spherical regular polygon undergoes a sharp geometry-driven dimension jump: two vertices, then entire geodesic edge, then a unique edge midpoint, contrasted with even-n rigidity. The exact radius and equality loci are structural geodesic-optimization data and not a renamed Euclidean result. Limitation: regular northern-hemisphere polygons only.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
