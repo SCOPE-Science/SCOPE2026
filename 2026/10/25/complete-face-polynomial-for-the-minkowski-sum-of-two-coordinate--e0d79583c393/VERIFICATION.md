@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification and limits
+# Independent mathematical audit
 
-Running `python CHECK_FVECTOR.py` uses Python's standard library alone. For every \(1\le n\le5\) and all \(p,q,r\ge0\) with \(p+q+r=n\) and both supports nonempty, it independently constructs the two signed coordinate vertex sets, enumerates normal exposures on \(\{-2,-1,0,1,2\}^n\), computes exact rational affine ranks, deduplicates by the intrinsic pair of summand exposed faces, and checks all coefficients against the symbolic formula. It passed all 45 triples. Representative vectors (low to high dimension, including the full face) are \((14,24,12,1)\), \((24,68,64,20,1)\), and \((34,128,192,136,40,1)\) at parameters \((1,1,1)\), \((1,1,2)\), and \((2,2,1)\).
+## correctness
 
-This finite enumeration is not a complete search in arbitrary dimension or over arbitrary real normals. The unrestricted proof rests on the exhaustive theoretical classification of maximizing normal-coordinate patterns and on dimension-rank arguments. The polar facet description is obtained algebraically, independent of the finite checker. No independent scientific audit has been performed.
+PASS
+
+For nonempty A,B and positive real a,b, exposing aC_A+bC_B by u produces an intrinsic pair of summand faces. The proof separates both-positive disjoint maxima (counted by inclusion-exclusion), shared maximizing indices (one joint signed-support family), one zero maximum (full summand times simplex) and u=0. Each class has derived face dimensions, and summing gives the stated U_p,U_q,U_r generating polynomial and f0=4(pq+pr+qr)+2r. Polar support inequalities yield facets of exclusive P,exclusive S, and shared R classes, 2^p 1_{p>0}+2^q 1_{q>0}+2^n 1_{r>0}; zero-cardinality p/q/r and n=1 are handled. Independently recomputed every valid support triple through n=4 (26 cases) by exposing both signed coordinate summands to all normals from a five-value integer grid, matching total polynomial face count and vertex coefficient. No finite test is treated as an all-n proof; all-n follows from the exhaustive normal-pattern classification. A separate independent affine-rank computation recovered EVERY f-vector coefficient for all 26 valid parameter triples through dimension four; its checker enumerated exposed summand face pairs and exact rational direction ranks.
+
+## originality
+
+PASS
+
+Directly relevant 2026 primary paper Wang et al. counts lattice points for general Minkowski sums of cross-polytopes and explicitly asks in Section 5 Problem 5.4 for their faces and f-vectors. Neither Ehrhart nor general type-B generalized permutohedral machinery, nor the Minkowski-sums-of-simplices flag polynomial, states the overlap-dependent two-summand complete face polynomial. Priority qualified against older normal-fan literature.
+
+## value
+
+PASS
+
+The result fully enumerates all nonempty faces in a natural, structurally important two-support subfamily of an explicit open question on cross-polytope Minkowski sums. It gives a coefficient-independent face lattice, exact facets and all dimensions, not just numerical tests or restatement of standard Minkowski addition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,9 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** A complete, disjoint classification of all exposed faces distinguishes disjoint positive maxima, common positive maxima, one vanishing maximum, and the full face. The proof establishes the dimension in each class, derives the generating series using signed subsets and inclusion–exclusion, and independently gives the irredundant facet inequalities by polarity. It includes the potentially degenerate cases of disjoint supports, identical supports, one-coordinate supports, and all positive scalings. The standalone standard-library exact checker agrees in every valid support-cardinality triple through ambient dimension five (45 configurations), although finite enumeration alone is not the infinite-dimensional proof.
+## correctness
 
-**Originality — PASS under examined literature.** Wang et al. (2026, arXiv:2608.16037, §5, Problem 5.4) ask for face posets and face vectors of the general Minkowski sums of coordinate cross-polytopes. The exact two-summand polynomial answers this open-ended question for a natural unrestricted-overlap subfamily. Eur et al. (arXiv:2209.06752) give broad signed-permutohedral volume/lattice-point/decomposition theory, without the two-support face-count formula; Agnarsson (arXiv:1006.5928) treats Minkowski sums of simplices, not sums of cross-polytopes. Searches for a pair-overlap face polynomial, facet counts, and signed-coordinate fan formulations found no stronger implication. Residual risk: older generalized-permutohedral and normal-fan literature could contain an equivalent but differently phrased enumeration. No assertion of historical priority beyond the inspected evidence is made.
+PASS
 
-**Value — PASS.** This is a motivated, complete subfamily answer to a recent general geometric counting question. It determines all face dimensions simultaneously, exact vertex and facet counts, an irredundant halfspace system, and coefficient-independence of the face lattice in every dimension. These are structural combinatorial-geometric facts, not just an Ehrhart restatement or a numerical example. It does not resolve the multi-summand case or compute full flag vectors.
+For nonempty A,B and positive real a,b, exposing aC_A+bC_B by u produces an intrinsic pair of summand faces. The proof separates both-positive disjoint maxima (counted by inclusion-exclusion), shared maximizing indices (one joint signed-support family), one zero maximum (full summand times simplex) and u=0. Each class has derived face dimensions, and summing gives the stated U_p,U_q,U_r generating polynomial and f0=4(pq+pr+qr)+2r. Polar support inequalities yield facets of exclusive P,exclusive S, and shared R classes, 2^p 1_{p>0}+2^q 1_{q>0}+2^n 1_{r>0}; zero-cardinality p/q/r and n=1 are handled. Independently recomputed every valid support triple through n=4 (26 cases) by exposing both signed coordinate summands to all normals from a five-value integer grid, matching total polynomial face count and vertex coefficient. No finite test is treated as an all-n proof; all-n follows from the exhaustive normal-pattern classification. A separate independent affine-rank computation recovered EVERY f-vector coefficient for all 26 valid parameter triples through dimension four; its checker enumerated exposed summand face pairs and exact rational direction ranks.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Directly relevant 2026 primary paper Wang et al. counts lattice points for general Minkowski sums of cross-polytopes and explicitly asks in Section 5 Problem 5.4 for their faces and f-vectors. Neither Ehrhart nor general type-B generalized permutohedral machinery, nor the Minkowski-sums-of-simplices flag polynomial, states the overlap-dependent two-summand complete face polynomial. Priority qualified against older normal-fan literature.
+
+## value
+
+PASS
+
+The result fully enumerates all nonempty faces in a natural, structurally important two-support subfamily of an explicit open question on cross-polytope Minkowski sums. It gives a coefficient-independent face lattice, exact facets and all dimensions, not just numerical tests or restatement of standard Minkowski addition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

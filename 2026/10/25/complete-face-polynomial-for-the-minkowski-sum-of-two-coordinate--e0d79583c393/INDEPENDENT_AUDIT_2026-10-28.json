@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T15:57:46Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md full face classification, polarity derivation",
+        "Git CHECK_FVECTOR.py inspected, not blindly executed",
+        "Independent exact normals enumeration /mnt/data/scope_worker02_independent_checks_20261028.py",
+        "Independent full face-dimension/rank enumeration /mnt/data/scope_worker02_minkowski_full_fvector.py, 26 triples"
+      ],
+      "rationale": "For nonempty A,B and positive real a,b, exposing aC_A+bC_B by u produces an intrinsic pair of summand faces. The proof separates both-positive disjoint maxima (counted by inclusion-exclusion), shared maximizing indices (one joint signed-support family), one zero maximum (full summand times simplex) and u=0. Each class has derived face dimensions, and summing gives the stated U_p,U_q,U_r generating polynomial and f0=4(pq+pr+qr)+2r. Polar support inequalities yield facets of exclusive P,exclusive S, and shared R classes, 2^p 1_{p>0}+2^q 1_{q>0}+2^n 1_{r>0}; zero-cardinality p/q/r and n=1 are handled. Independently recomputed every valid support triple through n=4 (26 cases) by exposing both signed coordinate summands to all normals from a five-value integer grid, matching total polynomial face count and vertex coefficient. No finite test is treated as an all-n proof; all-n follows from the exhaustive normal-pattern classification. A separate independent affine-rank computation recovered EVERY f-vector coefficient for all 26 valid parameter triples through dimension four; its checker enumerated exposed summand face pairs and exact rational direction ranks.",
+      "residual_risks": [
+        "Exactly two coordinate cross-polytopes with positive scaling; not arbitrary rotations, third summands or flag chain enumerator."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wang et al. Section 5 Problem 5.4 explicitly asks for face poset/f-h-vector formulas after studying general lattice-point enumeration.",
+          "Eur-Fink-Larson-Spink type-B general theory addresses valuation/volume/structure, not this exact face enumerator."
+        ],
+        "reasoning": "The generality of a lattice-point theorem does not dominate a face-enumeration invariant: lattice counts do not generally determine the complete face vector.",
+        "searches": [
+          "arxiv:2608.16037 Sections 1-5",
+          "Minkowski sum two coordinate cross polytopes overlap face vector f polynomial complete face enumeration",
+          "arxiv:2209.06752 signed permutohedra",
+          "arxiv:1006.5928 simplex Minkowski flag polynomial"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2608.16037, Section 5 Problem 5.4",
+        "arxiv:2209.06752",
+        "arxiv:1006.5928",
+        "DOI 10.1137/1.9781611973099.2",
+        "Resultary query: Minkowski sum two coordinate cross polytopes overlap face vector f polynomial complete face enumeration"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A 2011 upper-bound theorem optimizes faces of two arbitrary d-polytopes in terms of vertices, not the exact particular overlap-dependent face lattice.",
+          "Wang et al asks, rather than asserts, an f-vector formula."
+        ],
+        "reasoning": "Neither extremal bounds nor Ehrhart counts imply these exact face counts including degenerate p=0/q=0/r=0 families.",
+        "searches": [
+          "Wang et al arxiv:2608.16037 Problem 5.4",
+          "Minkowski sum two coordinate cross polytopes overlap face vector f polynomial complete face enumeration",
+          "Karavelas and Tzanaki 2011 maximum number of faces Minkowski two polytopes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The face normal fan of a positive two-summand Minkowski sum is a common refinement of its two coordinate cross-polytope normal fans.",
+          "ArXiv 2209.06752 signed permutohedral framework concerns a larger class of type-B objects."
+        ],
+        "reasoning": "Equivalent signed-permutohedral and polar box hull descriptions were compared, but framework membership does not provide the explicit overlap f-polynomial.",
+        "searches": [
+          "Minkowski sum two coordinate cross polytopes overlap face vector f polynomial complete face enumeration",
+          "two-crosspolytope coordinate support normal fan common refinement",
+          "polar convex hull coordinate boxes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest cross-polytope records concern coherent monotone paths and cube-crosspolytope Mahler products, different objects/statistics."
+        ],
+        "reasoning": "No exact f-vector table for all p,q,r found in actual search; this is only best-of-knowledge, not proof of absence.",
+        "searches": [
+          "Minkowski sum two coordinate cross polytopes overlap face vector f polynomial complete face enumeration",
+          "Resultary Minkowski two crosspolytopes support intersection face polynomial fvector"
+        ]
+      },
+      "rationale": "Directly relevant 2026 primary paper Wang et al. counts lattice points for general Minkowski sums of cross-polytopes and explicitly asks in Section 5 Problem 5.4 for their faces and f-vectors. Neither Ehrhart nor general type-B generalized permutohedral machinery, nor the Minkowski-sums-of-simplices flag polynomial, states the overlap-dependent two-summand complete face polynomial. Priority qualified against older normal-fan literature.",
+      "residual_risks": [
+        "An implicit exact face formula may occur in older generalised permutohedral or hyperplane-arrangement literature.",
+        "Only accessible abstracts of some older extremal papers were reviewed; no whole-document negative conclusion from those."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PARTIAL_PRIOR: general Ehrhart/lattice-point results; asks the face-enumeration question, no formula for all two-support overlaps.",
+          "evidence": [
+            "Section 5 Problem 5.4 explicitly asks for face posets and f-/h-vectors; source lines 583-585."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2608.16037",
+          "material_read": "Full rendered primary article through Section 5, including Problem 5.4 and prior techniques",
+          "method": "arXiv rendered full text",
+          "title": "Counting Lattice Points in Minkowski Sums of Cross Polytopes",
+          "trigger": "Same type of summand and open f-vector question"
+        },
+        {
+          "assessment": "NOT_DECISIVE: extremal upper bounds do not explicitly specialize to the exact coordinate supports.",
+          "evidence": [
+            "Abstract: tight maximal k-face bounds for polytopes given vertex counts, not the exact body here."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/1.9781611973099.2",
+          "material_read": "Accessible abstract and problem statement (full text not obtained/read)",
+          "method": "publisher abstract and arXiv metadata",
+          "title": "The maximum number of faces of the Minkowski sum of two convex polytopes",
+          "trigger": "Potential general 2-summand domination"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Wang et al. 2026 Section 5 Problem 5.4",
+        "RESULT.md complete face polynomial and facet theorem"
+      ],
+      "rationale": "The result fully enumerates all nonempty faces in a natural, structurally important two-support subfamily of an explicit open question on cross-polytope Minkowski sums. It gives a coefficient-independent face lattice, exact facets and all dimensions, not just numerical tests or restatement of standard Minkowski addition.",
+      "residual_risks": [
+        "No claim for three or more summands or arbitrary rotations; only complete two-coordinate-support family."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Exactly two coordinate cross-polytopes with positive scaling; not arbitrary rotations, third summands or flag chain enumerator.",
+    "An implicit exact face formula may occur in older generalised permutohedral or hyperplane-arrangement literature.",
+    "Only accessible abstracts of some older extremal papers were reviewed; no whole-document negative conclusion from those.",
+    "No claim for three or more summands or arbitrary rotations; only complete two-coordinate-support family."
+  ],
+  "schema_version": 1
+}
