@@ -1,19 +1,21 @@
-# Review of the two-period lake-loading reversal
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The two full two-year recurrences were reconstructed and subtracted. An explicit positive moving divided difference of quadratic saturating recycling gives the terminal stock gap. Its derivative is a difference of two values of a strictly single-peaked derivative, yielding precisely one interior maximum; monotonicity of the unforced phosphorus map turns a horizontal-line crossing into exactly two positive initial-stock crossings under the stated strict inequalities. The given rational parameters satisfy the criteria exactly, and the unforced bistability claim follows from exact fixed points and derivatives. The independent transition calculations and high-precision bisection in `verify.py` are supplemental; no numerical enumeration was used to infer universal quantifiers.
+PASS
 
-## Originality — PASS, subject to identified literature risk
+The two full iterates subtract exactly to Delta[r K_Delta(G(P0)+ell)-b]. For f(x)=x^2/(m^2+x^2), f' has a unique maximum at m/sqrt(3); comparison f'(t+Delta)-f'(t) changes sign once, so K_Delta is strictly unimodal. G'(P)>0 and G is unbounded for 0<b<1, hence [0,infinity) bijects with [ell,infinity). Two strict crossings are equivalent to the precise peak-versus-start inequalities; equality/tangency and ell at/after peak are not two reversals. Independent rational checks give K(0)=30/109<12/25<K(1/2)=26/41 and crossover stocks 0.20055782314646 and 0.87699149923997. The zero-load map fixes 0,3/4,4/3, the outer two attracting and inner repelling. All model hypotheses and the two-step terminal-only scope were retained.
 
-The model itself and the general phenomenon of lake hysteresis are established prior work. The specific contribution is the exact *two fixed loading years* initial-stock comparison, its iff criterion and a genuine bistable rational witness. Full-text material from Carpenter–Brock–Hanson (1999) and Janssen–Carpenter (1999), targeted paper searches and related research-record comparisons identified the original map and management studies but no theorem with the precise implication. The closely related Carpenter–Ludwig–Brock (1999) management paper was not accessible beyond the publisher abstract, and a general theorem on moving divided differences could potentially cover the observation. This review does not assert that inaccessible text is irrelevant or that searches establish global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The precise choice between front-loading and back-loading a fixed amount of lake phosphorus is naturally motivated by pollution timing and threshold management. A two-crossing law is materially stronger than asserting qualitative nonlinearity: it specifies when one order is preferable for low, medium and high initial phosphorus, including a sharply constructed bistable regime. The theorem remains a deterministic two-step terminal-phosphorus fact, not a prescription for multiyear stochastic lake management.
+Bistable lake phosphorus recurrence and resilience/policy modeling are acknowledged prior. The assessed claim is not a new lake model: it is the exact two-load order-reversal identity and iff classification of two strictly positive initial-stock crossings. The 1999 full-text lake-management treatments inspected did not give this precise ordering classification, and the closest same mathematical model management article was not completely accessible. A general scalar-map scheduling theorem could subsume the conclusion; best-of-knowledge PASS with that explicit risk.
 
-## References and limitations
+## value
 
-Key accessible original-source material: Carpenter, Brock and Hanson (1999), *Conservation Ecology* 3(2):4, https://www.ecologyandsociety.org/vol3/iss2/art4/; Janssen and Carpenter (1999), *Conservation Ecology* 3(2):15, https://www.ecologyandsociety.org/vol3/iss2/art15/. Related source with an unresolved full-text comparison: Carpenter, Ludwig and Brock (1999), *Ecological Applications* 9:751–771, https://doi.org/10.1890/1051-0761(1999)009[0751:MOEFLS]2.0.CO;2. See RESULT.md for the exact scope, algebra and limitations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordering of fixed total nutrient load across two years is a natural intervention variable, and the finding gives an exact criterion when the preferable terminal-stock order changes twice with starting lake condition. The bistable rational witness demonstrates this is not an artifact of a monostable toy parameter. The sharp sign structure is useful for interpreting load-timing sensitivity, without claiming optimal environmental policy.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
