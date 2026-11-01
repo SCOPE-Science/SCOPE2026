@@ -1,0 +1,15 @@
+# Scientific review of the spectral-edge erasure theorem
+
+## Correctness — PASS
+The Zak diagonalization uses the exact Cauchy Zak magnitude and a finite roots-of-unity geometric sum. The rank-one resolvent characterization is applied only below the original positive lower frame bound, where the operator is invertible. Its leverage at zero is exactly \(1/q\), not an approximate numerical value. The threshold arises from the finite improper logarithmic integral at the essential lower edge, where the nondegenerate angular minima generate integrable logarithmic singularities. Rank-one compact perturbation preserves the essential endpoints. The small-pole coefficient comes from \(q\) rescaled logarithmic singularities and the exact cosecant-square sum; the deep-pole limit follows from an integrable periodic logarithm. Numerical checks are supplementary and cannot establish any uniform theorem.
+
+## Originality — PASS, with residual priority risk
+Belov–Kulikov–Lyubarskii's 2022 Cauchy frame-operator paper supplies explicit Cauchy frame operations, not single-atom spectral-edge erasure asymptotics. Faulhuber–Shafkulovska's paper optimizes the sharp **unperturbed** Gabor bounds for related exponential windows. Belov–Kulikov–Lyubarskii's broader 2022 rational-window work establishes frame existence, not whether removal of one atom changes a sharp bound. General frame-excess and rank-one update theory provide qualitative removability and an abstract criterion, but not the evaluated Cauchy edge integral and its two parameter-dependent regimes. Existing published mathematical-record comparisons on singleton leverage are therefore not equivalent to the present spectral conclusion. A broader, difficult-to-index prior spectral perturbation calculation could imply portions of the result; no unconditional priority claim is made.
+
+## Mathematical value — PASS
+The motivating problem is the stability **margin** of reconstruction under one missing time-frequency coefficient, measured by optimal rather than merely positive frame bounds. The result distinguishes frames whose exact lower constant survives any singleton erasure from frames in which one erasure creates an eigenvalue below the continuous spectral band. It supplies a sharp edge test and proves a genuine change of behavior as the pole depth varies at each fixed redundancy \(q\ge3\), with explicit asymptotic constants. The theorem is not simply a renaming of a frame-excess criterion or a marginal numerical improvement.
+
+## Checks, boundaries and literature
+The focal source first appeared on 17 December 2022 and has primary MSC2020 classification 42C15. The 2022 Cauchy frame-operator manuscript, the 2022/2023 Gabor bounds work and the online 2022 rational-window study were inspected in relevant scientific sections. Classical excess results were available as abstract and bibliographic information, not represented as fully read. The result does not establish uniqueness of a transition depth or a theorem for noninteger oversampling. See RESULT.md and AUDIT.json for explicit comparisons and proof boundaries.
+
+Self-review: passed. Independent audit: not yet performed.
