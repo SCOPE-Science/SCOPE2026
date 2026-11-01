@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The theorem concerns only special-automorphism orbits **inside the invariant divisor** of Nikitina's smooth affine quotient, with the boundary product and affine complement treated as established background rather than claimed novelties. Nikitina proves the divisor is preserved by every additive-group action. Direct Laurent-lattice reduction verifies that its coordinate algebra is the Laurent polynomial cylinder ring in the stated coordinates. Every additive action fixes Laurent units, so every boundary orbit is contained in a fiber of the torus-coordinate map. The explicitly written homogeneous locally nilpotent derivation descends to the quotient and acts as the nonzero constant translation \(-3\partial/\partial C\) on every fiber. This proves both containment and transitivity, closedness, absence of fixed points, and the invariant algebra. The finite checker verifies critical identities for four small values of the integer parameter; universality follows from the written symbolic proof, not extrapolation.
+PASS
 
-## Originality — PASS, with historical-priority uncertainty
+On x=0 the equation forces z,w,u_i to be units; weight-zero character calculation reduces all invariant monomials to C=yz, B=zw and U_2...U_n, with relation E=zu_1²=(B²∏_{i>=2}U_i²)^−1 and C free. The coordinate ring is k[C,B±1,U_2±1,...]. Because any locally nilpotent derivation over characteristic zero annihilates units, every SAut action preserving Δ fixes B and U_i, so its orbit lies in a fiber. The degree-zero triangular derivation δ(z)=x², δ(y)=−3z²w²∏u_i² (others zero) annihilates the original defining polynomial and descends to Y; restricted to Δ it satisfies δ(C)=−3, translating C transitively along every fiber. Fibers are closed affine lines. This uses as acknowledged inputs the source theorem that the quotient is geometric and Δ invariant. Independent symbolic algebra verified weight-zero monomial reductions and δ identities for n=1..4; universal reasoning is algebraic, not finite extrapolation.
 
-The 2026 originating paper explicitly proves existence and invariance of this divisor and provides the locally nilpotent derivation, but its inspected full mathematical text does not classify **all special-automorphism orbits** on the divisor. Earlier direct analyses of the same family already established the divisor's torus-cylinder coordinates, its affine-space complement and its topology: none of those is claimed as a new result here. They are comparison premises, and the strictly additional assertion is the exact geometric orbit equivalence relation and its invariant algebra. Gaifullin's 2025 orbit classification is for a different, generally singular quotient and does not imply this infinite family of closed one-dimensional orbits. Targeted mathematical research-record queries and primary-source comparisons found no identical or dominating orbit theorem. Since the orbit argument is short once one has the explicit derivation and boundary algebra, a previously unstated or unindexed observation remains a serious priority risk; search non-detection is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The originating paper's central geometric theme is generic flexibility versus failure of global flexibility along an invariant divisor. An exhaustive classification of **every orbit on that divisor** directly resolves the natural question of how special automorphisms act at precisely the flexibility obstruction. In a smooth affine family, infinitely many disjoint closed affine-line orbits are indexed by an \(n\)-dimensional torus, unlike finite-orbit descriptions on other singular examples. The classification is a meaningful geometric quotient structure, not an arbitrary invariant or a restatement of the known boundary product. It does not address the action on the affine-space complement or the full automorphism group.
+Nikitina’s originating paper establishes the same quotient, boundary invariance, and a suitable LND, and the boundary product geometry was already known. The assembled statement identifies all SAut orbits and the invariant algebra through the unit lemma and the degree-zero translation. This may be an immediate unprinted corollary of that paper, so priority is genuinely high risk. The complete Nikitina primary text was not accessible through open arXiv/OA routes; a lawful institutional attempt explicitly returned vpn_disconnected, so no document-wide negative coverage judgment is made. Best-of-knowledge novelty is limited to the exact orbit classification, not the construction or geometric presentation.
 
-## Closest work, limitations and risks
+## value
 
-Nikitina, arXiv:2610.05344v1: exact family, source-proven divisor invariance, derivation; no stated complete boundary orbit partition. Previously available algebraic descriptions of this same boundary include the torus-cylinder ring and affine complement, which are explicitly excluded from the new contribution. Gaifullin, arXiv:2507.14745v1, Theorem 4.9: orbits of a distinct singular quotient. Classical unit invariance under additive-group actions is a proof ingredient. Priority cannot be established conclusively from the accessible index; no scheme-theoretic orbit moduli, complement-orbit classification or stronger independence claim is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact orbit equivalence relation and invariant algebra on the singularly important invariant boundary of a smooth generically flexible affine family. A natural global additive-group action question has a complete closed-orbit answer, beyond just knowing that the divisor is a torus-cylinder. A short argument can still resolve an exact natural orbit invariant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
