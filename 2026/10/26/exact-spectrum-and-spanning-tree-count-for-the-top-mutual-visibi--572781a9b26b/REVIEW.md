@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(m\ge4\), the geodesic criterion proves that maximum mutually-visible configurations in \(K_{m,m,m}\) are precisely complements of two vertices from different parts. Under token sliding the 2-hole configurations have the explicitly described triangle-sharing adjacency. An exhaustive orthogonal decomposition of the three block function spaces gives the four spectral levels with the claimed multiplicities, and the dimension sum checks completeness. The simplicity of the top eigenvalue proves connectedness. Kirchhoff's matrix-tree theorem then yields the exact spanning-tree formula. The packaged standalone finite verifier reconstructs the original feasibility relation for parameters \(m=4,5,6\), tests the annihilating polynomial and traces, and checks independent modular Laplacian cofactors for \(m=4,5\). Finite checks are supporting evidence only. Scope \(m=3\) is deliberately excluded because two omitted vertices from one part can still be feasible.
+PASS
 
-## Originality — PASS (qualified)
+For m≥4, a size-(3m−2) mutually visible set in K_{m,m,m} is exactly the complement of two vertices in different parts: any same-part hole pair strands a selected pair without a missing intermediate vertex. Thus the fixed top token-sliding layer is the triangle-adjacency graph on 3m² host cross-edges, each vertex degree 2m, with 3m³ edges and m³ triangles. On (R^A⊗R^B)⊕(R^A⊗R^C)⊕(R^B⊗R^C), decomposition of each part into constants and zero-sum vectors yields adjacency eigenvalues 2m once, +m with 3(m−1), −m with 3m−1 and 0 with 3(m−1)². The simple 2m eigenspace proves connectedness; L=2mI−A and Kirchhoff give exact tree count m^[3(m−1)](3m)^[3m−1](2m)^[3(m−1)²]/(3m²). Independent direct graphs for m=4,5 reproduce degree, edge/triangle counts and numerical spectra; for m=4, exact reduced Laplacian determinants mod two large primes agree. The proof, not finite tests, covers every m≥4.
 
-The relevant original preprint, Fresán-Figueroa, Goldfeder, and Lozano-Piña, arXiv:2610.24324v1, Sections 2, 4, and 7, establishes the reconfiguration framework and a complete bipartite maximum-layer **isolation** theorem, not the three-part graph, its spectrum, or its spanning-tree number. The general token-graph theorem recalled there does not determine the induced feasible layer. Exact and alias-based searches also covered triangular edge-adjacency graphs, third-part rewiring, multipartite visibility, and matching spectral parameter values. The closest accessible research records instead concern visibility polynomials, multipartite topology or invariants, or related token models; none provides an implication to the asserted four-level spectrum. This is best-knowledge originality, not a proof of worldwide absence. A spectral treatment under a different name may yet exist; independent priority examination remains outstanding.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating work finds that every maximum layer of \(K_{m,m}\), \(m\ge4\), is totally disconnected. The first substantial extension with three equally large parts has the opposite extremal-layer behavior: it is connected, \(2m\)-regular, triangle-rich, and admits a closed complete spectrum and exact spanning-tree count for all \(m\ge4\). The result determines a natural structural, spectral, and enumerative invariant of the new reconfiguration graph, quantifying a sharp change in the geometry of maximum feasible configurations rather than merely computing a small instance.
+Best-of-knowledge PASS for the spectral and spanning-tree invariant of the feasibility-restricted top mutual-visibility token-sliding layer. Fresán-Figueroa, Goldfeder and Lozano-Piña introduce the relevant reconfiguration framework and analyze the complete bipartite case; it is not automatically the equal-tripartite feasibility graph. The primary full text was inaccessible this run, including via authorized Oxford (VPN disconnected), so the possibility of an unlocated multipartite result remains explicit.
 
-## Closest literature and limitations
+## value
 
-Primary inspected full-text material: https://arxiv.org/html/2610.24324v1, particularly Sections 2, 4, and 7. Relevant general background: Fabila-Monroy et al., *Token graphs*, 2012, cited as Theorem 2.2 in the motivating work. The statement is restricted to balanced complete tripartite hosts of part size at least four. Independent mathematics and historical-priority reviews have not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A full infinite-family spectral and spanning-tree classification of a natural maximal reconfiguration layer gives effective connectivity, algebraic connectivity, and exact reliability complexity. The equal-tripartite host is a minimal structural departure from the isolated complete-bipartite top layers, making the sharp transition mathematically motivated.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
