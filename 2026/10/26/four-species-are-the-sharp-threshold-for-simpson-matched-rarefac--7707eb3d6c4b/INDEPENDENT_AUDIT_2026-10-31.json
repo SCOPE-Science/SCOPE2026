@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:54:31.402718Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct iid discovery-indicator calculation gives R_p(k)=sum_i(1-(1-p_i)^k), and Simpson matching forces R_p(1)=R_q(1) and R_p(2)=R_q(2). For m<=2, first two elementary symmetric power sums determine the unordered frequency multiset and all curves coincide. For m=3, x_i=1-p_i and y_i=1-q_i have common e1,e2; write E_x=1-e1 z+e2 z²-e_x z³, E_y analogous. Because G_x(z)=sum_i(1-x_i z)^(-1)= (3-2e1 z+e2 z²)/E_x, the exact identity G_y-G_x=(e_y-e_x)z³ G_x/E_y has strictly positive coefficients beyond z³ up to the fixed sign of e_y-e_x, unless both curves coincide. No finite grid is used for this all-k proof. For the four-species vectors, sum numerators 21 and square sums 153; independent exact integer checks verified Delta_k=2*19^k+13^k+12^k-20^k-17^k-15^k-11^k, positive k=3..7 and negative k=8..99, while the rigorous tail for all k>=14 follows 20^14>2*19^14 and 17^k+15^k>13^k+12^k. Extension to every m>4 by half-scaling and adding common positive species preserves Simpson equality; k=3 difference scales by 1/8 and eventually the unmatched p rarest species dominates negatively. The analysis concerns expected richness under independent WITH-replacement draws only, not empirical realized richness.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chao et al. use species accumulation/discovery rates in entropy estimation, not an exact fixed-quadratic-moment crossing classification.",
+          "General diversity ordering and power majorization may compare whole families of entropy indices but no inspected theorem supplies the tight support threshold and explicit all-k witness."
+        ],
+        "reasoning": "Generic order implications under majorization typically assume a partial order stronger than a single matched Simpson moment; equal first two moments alone need not impose those stronger hypotheses. An alternate older exact theorem remains a priority risk.",
+        "searches": [
+          "Chao–Wang–Jost DOI:10.1111/2041-210X.12108",
+          "Tóthmérész 1995 diversity ordering DOI:10.2307/3236223",
+          "Liu et al 2007 diversity ordering DOI:10.1007/s10144-006-0026-0"
+        ]
+      },
+      "checked_sources": [
+        "Lande–DeVries–Walla Oikos 2000 (publisher abstract; full PDF inaccessible)",
+        "Thompson–Withers Austral Ecology 2003 (publisher abstract; full PDF inaccessible)",
+        "Chao–Wang–Jost 2013 (substantive primary HTML)",
+        "Tóthmérész 1995 and Liu et al. 2007 (bibliographic/scoped concepts)",
+        "Resultary matched Simpson/reaccretion semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Lande et al. explicitly investigate intersecting accumulation curves when lower true richness has higher Simpson diversity, so their hypothesis differs.",
+          "Thompson & Withers simulations vary abundance/richness and examine curve crossings, not the exact equal-Simpson minimum m.",
+          "Chao et al. use the same expectation formula for entropy and discovery-rate work."
+        ],
+        "reasoning": "Neither a model identity nor existence of crossings at broad supports implies a noncrossing theorem for all m<=3 plus a sharp m=4 construction under two moment constraints. The new result uses coefficient positivity after fixing first two symmetric sums.",
+        "searches": [
+          "Lande–DeVries–Walla DOI:10.1034/j.1600-0706.2000.890320.x",
+          "Thompson–Withers DOI:10.1046/j.1442-9993.2003.01294.x",
+          "Chao–Wang–Jost DOI:10.1111/2041-210X.12108",
+          "Resultary: equal Simpson diversity expected species richness rarefaction curve crossings four species threshold power majorization"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Standard expected richness curves are sums of 1-(1-p_i)^k, equivalently negative power sums of 1-p_i.",
+          "Prior crossings with different richness/Simpson ordering do not satisfy simultaneously fixed species count and fixed Simpson."
+        ],
+        "reasoning": "Reformulation is a two-matched-moments discrete Laplace/power-sum order problem; equality of first two moments forbids sign changes for 3 support atoms but not four. A generic crossing example does not imply this minimum support under moment matching.",
+        "searches": [
+          "Resultary: equal Simpson diversity expected species richness rarefaction curve crossings four species threshold power majorization",
+          "web: species accumulation curve equal Simpson index three species crossing inverse power majorization",
+          "Lande–DeVries–Walla Oikos 2000",
+          "Thompson–Withers Austral Ecology 2003"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest semantic findings concern covariance of observed richness and estimated Simpson index rather than matched-population expected-richness curve crossings.",
+          "Independent integer witness recomputed exactly, including all k<=13 and an analytic k>=14 bound; this is not a prior known table in inspected sources."
+        ],
+        "reasoning": "There is no generic database of universal moment-matched crossing thresholds; the value is its structural theorem and sharp exact witness, while earlier numerical diversity simulations cannot establish the universal m<=3 exclusion.",
+        "searches": [
+          "Resultary: equal Simpson diversity expected species richness rarefaction curve crossings four species threshold power majorization",
+          "web: Simpson matched rarefaction curves crossing minimal species count four",
+          "Lande–DeVries–Walla Oikos 2000 butterfly examples"
+        ]
+      },
+      "rationale": "The expected-richness identity and the existence of crossing species-accumulation curves are classical, including Lande–DeVries–Walla and Thompson–Withers; those earlier studies compare different true species counts or Simpson values rather than impose both exactly equal. The 2013 Chao–Wang–Jost methods derive accumulation curves and entropy/discovery properties but do not give the sharp three-vs-four fixed-Simpson ordering dichotomy. Algebraic power-sum and majorization-order theory may subsume part of the no-reversal argument under different terminology, which is retained as a real bibliographic risk. The claim is not that curves cross for the first time in ecology but the sharp minimal support with equal Simpson index and exact integer phases.",
+      "residual_risks": [
+        "Possible older theorem on power majorization, Laplace transform ordering, diversity profiles or complete monotonicity that implies the three-support obstruction; not ruled out by matching terminology.",
+        "Full primary text of two classic ecology crossing papers was inaccessible; exact comparison is best-of-knowledge and based on their accessible stated models, so priority requires independent confirmation.",
+        "Only iid with-replacement expected richness, positive fixed frequencies, equal m and Simpson; no empirical confidence or incidence-sampling result."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Shows crossings when richness and Simpson ordering differ; not shown to prove fixed-both moment matched threshold. Cannot claim full document exhaustively read.",
+          "evidence": "Lande, DeVries, Walla Oikos 89 (2000) 601–605, publisher abstract",
+          "identifier_or_url": "https://doi.org/10.1034/j.1600-0706.2000.890320.x",
+          "material_read": "Publisher abstract/full bibliographic metadata and available scientific description, including comparison hypotheses; full PDF not accessible via available route",
+          "method": "Read accessible primary publisher text and distinguish exact hypotheses",
+          "title": "When Species Accumulation Curves Intersect: Implications for Ranking Diversity Using Small Samples",
+          "trigger": "Primary early crossings paper with the same ecological observable"
+        },
+        {
+          "assessment": "Crossings shown for heterogeneous vs even abundances, without a complete m=3 versus m=4 matched-Simpson theorem",
+          "evidence": "Thompson–Withers Austral Ecology 28 (2003) 355–360",
+          "identifier_or_url": "https://doi.org/10.1046/j.1442-9993.2003.01294.x",
+          "material_read": "Publisher full abstract/HTML summary and references, including conditions on abundance diversity; full PDF not accessible",
+          "method": "Read primary publisher abstract and concrete simulation setting",
+          "title": "Effect of Species Richness and Relative Abundance on the Shape of the Species Accumulation Curve",
+          "trigger": "Closest simulation of same curve crossings"
+        },
+        {
+          "assessment": "Establishes accumulation/entropy relationship, not a sharp population support threshold for moment-matched crossings",
+          "evidence": "Chao, Wang, Jost (2013) Methods in Ecology and Evolution 4,1091–1100",
+          "identifier_or_url": "https://doi.org/10.1111/2041-210X.12108",
+          "material_read": "Accessible primary full HTML: method, entropy estimator and discovery-rate argument",
+          "method": "Read substantive methods and discussion rather than only snippet",
+          "title": "Entropy and the Species Accumulation Curve: A Novel Entropy Estimator via Discovery Rates of New Species",
+          "trigger": "Same expected accumulation function and possible broader implication"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Matched species count and Gini–Simpson index fix the asymptote and initial two-draw expected richness yet do not fix ranking for later sampling effort. A sharp minimal species count, universal no-crossing proof at smaller supports, and explicit rational witness with exact all-k sign intervals form a motivated biodiversity-ordering theorem; it illustrates a substantive limitation of summary diversity indices without making empirical inference or sampling-confidence claims.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For iid with-replacement sampling from two equal-support positive species frequencies with matched sum of squares (Simpson diversity), expected sample-richness ordering cannot change sign at any integer k>=3 for m<=3. Four species are sharp: p=(1,4,6,10)/21 and q=(2,2,8,9)/21 have equal Simpson index 32/49 but R_p(k)>R_q(k) for 3<=k<=7, R_p(k)<R_q(k) for every k>=8; the phenomenon extends to all m>4.",
+  "limitations": [
+    "Possible older theorem on power majorization, Laplace transform ordering, diversity profiles or complete monotonicity that implies the three-support obstruction; not ruled out by matching terminology.",
+    "Full primary text of two classic ecology crossing papers was inaccessible; exact comparison is best-of-knowledge and based on their accessible stated models, so priority requires independent confirmation.",
+    "Only iid with-replacement expected richness, positive fixed frequencies, equal m and Simpson; no empirical confidence or incidence-sampling result.",
+    "Scientific assessment complete; administrative publication change-set not ready. No GitHub writes, dispatcher closeouts or schedule changes."
+  ],
+  "schema_version": 1
+}

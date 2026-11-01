@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The iid-indicator derivation gives the expected-richness formula. For two communities with at most three positive species and matching quadratic power sums, the formal generating functions have a difference equal to a scalar times a power series with strictly positive coefficients in every degree at least three; this proves a common sign without finite extrapolation. The four-species witness's 11 finite comparison numerators and universal tail inequality have been reconstructed exactly; the extension to every larger species count is by scaling and common-species augmentation. The standard-library verifier cross-checks multiple sample sizes with an independent multinomial sum. No conclusion is based solely on empirical enumeration.
+## correctness
 
-## Originality — PASS, subject to bibliographic uncertainty
-The primary papers of Lande–DeVries–Walla (2000) and Thompson–Withers (2003) were materially inspected, including their theory and example/simulation sections: both discuss accumulating species richness and crossing curves, but neither establishes a universal no-reversal theorem at three species under exact Simpson matching, nor the sharp four-species counterexample. Chao–Wang–Jost (2013) derive discovery-rate identities, not this comparison. Earlier general diversity ordering literature could imply an alternate formulation; some full text remained inaccessible during this assessment, and independent literature confirmation remains necessary. The point of novelty is restricted to the jointly stated exact moment-matched support-size boundary and full integer-sample witness.
+PASS
 
-## Mathematical value — PASS
-Matching richness and Simpson diversity removes both the common asymptote and the initial two-draw difference, leaving a practically motivated question: can conservation or survey priority nevertheless reverse as sampling effort changes? The theorem supplies a sharp dimension boundary, a structural generating-series obstruction in all smaller communities, and an exact rational four-species witness whose full sample-size phases are determined. This identifies a limitation of summary diversity indices without implying empirically reliable small-sample inference.
+Direct iid discovery-indicator calculation gives R_p(k)=sum_i(1-(1-p_i)^k), and Simpson matching forces R_p(1)=R_q(1) and R_p(2)=R_q(2). For m<=2, first two elementary symmetric power sums determine the unordered frequency multiset and all curves coincide. For m=3, x_i=1-p_i and y_i=1-q_i have common e1,e2; write E_x=1-e1 z+e2 z²-e_x z³, E_y analogous. Because G_x(z)=sum_i(1-x_i z)^(-1)= (3-2e1 z+e2 z²)/E_x, the exact identity G_y-G_x=(e_y-e_x)z³ G_x/E_y has strictly positive coefficients beyond z³ up to the fixed sign of e_y-e_x, unless both curves coincide. No finite grid is used for this all-k proof. For the four-species vectors, sum numerators 21 and square sums 153; independent exact integer checks verified Delta_k=2*19^k+13^k+12^k-20^k-17^k-15^k-11^k, positive k=3..7 and negative k=8..99, while the rigorous tail for all k>=14 follows 20^14>2*19^14 and 17^k+15^k>13^k+12^k. Extension to every m>4 by half-scaling and adding common positive species preserves Simpson equality; k=3 difference scales by 1/8 and eventually the unmatched p rarest species dominates negatively. The analysis concerns expected richness under independent WITH-replacement draws only, not empirical realized richness.
 
-## Closest literature and limitations
-See RESULT.md, Relationship to prior work and Limitations, and the cited DOI identifiers. The model is strictly individual-based, iid, with replacement. The assertion is about expected richness only. Full evaluation of all possible semantic aliases in historical diversity-order literature remains an independent bibliographic task.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The expected-richness identity and the existence of crossing species-accumulation curves are classical, including Lande–DeVries–Walla and Thompson–Withers; those earlier studies compare different true species counts or Simpson values rather than impose both exactly equal. The 2013 Chao–Wang–Jost methods derive accumulation curves and entropy/discovery properties but do not give the sharp three-vs-four fixed-Simpson ordering dichotomy. Algebraic power-sum and majorization-order theory may subsume part of the no-reversal argument under different terminology, which is retained as a real bibliographic risk. The claim is not that curves cross for the first time in ecology but the sharp minimal support with equal Simpson index and exact integer phases.
+
+## value
+
+PASS
+
+Matched species count and Gini–Simpson index fix the asymptote and initial two-draw expected richness yet do not fix ranking for later sampling effort. A sharp minimal species count, universal no-crossing proof at smaller supports, and explicit rational witness with exact all-k sign intervals form a motivated biodiversity-ordering theorem; it illustrates a substantive limitation of summary diversity indices without making empirical inference or sampling-confidence claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
