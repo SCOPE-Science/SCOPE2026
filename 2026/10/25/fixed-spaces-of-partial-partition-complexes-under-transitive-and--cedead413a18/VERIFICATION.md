@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and scope of checks
+# Independent mathematical audit
 
-Run both `python3 check_fixed_points.py` and `python3 check_young_fixed.py` with Python 3 and no third-party packages. The first enumerates every partial partition for regular cyclic degrees two through nine and compares invariant full partitions with positive divisors. For the regular Klein four, symmetric-three, and dihedral-eight groups, it enumerates group subgroups independently and checks the commuting right-translation action. It finished with `PARTIAL_PARTITION_TRANSITIVE_FIXED_VERIFIED`.
+## correctness
 
-The second enumerates every partial partition of label sets with Young factor sizes `(2,2)`, `(2,3)`, `(3,3)`, `(2,2,2)`, and `(2,2,2,2)`, tests invariance under generators, and separately constructs the proposed orbit complex. All invariant simplices match its faces. It computes exact binary boundary-matrix ranks for the orbit complexes with one through five Young factors, obtaining reduced Betti lists `[1]`, `[1,1]`, `[1,3,1]`, `[1,7,6,1]`, and `[1,15,25,10,1]` respectively, matching the independent combinatorial formula. It finished with `PARTIAL_PARTITION_YOUNG_FIXED_VERIFIED`.
+PASS
 
-The tests are exhaustive only for the specified finite parameters. The universal PL classifications and integral torsion-freeness rely on the written proof and the published nonequivariant homology theorem, not on these finite computations. No external independent validation was performed.
+A geometric fixed point has an H-invariant minimal simplex of disjoint blocks. Transitivity forces full support and one orbit of blocks, hence a unique barycenter. Invariant partitions are precisely block systems and correspond to H_x<=K<=H, proving discreteness and the subgroup-count formula, including regular cyclic and conjugation actions. For full Young factors of size at least two, the only admissible vertex orbits consist of whole-macroblock unions and singleton orbits; compatible supports yield the twin-singleton complex L_t. Duplicating a singleton joins a cone on its link, whose inclusion is nullhomotopic via the original vertex; iterated Mayer–Vietoris and Gottstein’s integral homology of ordinary D([m]) yield the complete torsion-free ranks.
+
+## originality
+
+PASS
+
+Gottstein supplies the nonequivariant partial-partition homology needed in the Young formula; Arone–Brantner study the order complex of the proper partition poset, not disjoint-block partial partitions. Neither inspected result states these geometric fixed spaces or the Young fixed-space integral homology formula.
+
+## value
+
+PASS
+
+This simultaneously classifies geometric fixed spaces of every finite transitive action and an infinite full-Young family, yielding explicit PL models, torsion-free integral ranks, primitive-action criterion, and regular-group conjugation representation. The extra fixed topology is not encoded in the ordinary Betti numbers of D(Omega).
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
