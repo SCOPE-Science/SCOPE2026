@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Run `python3 verify_cycle_fixed.py` with Python 3.9+ and only the standard library. The test enumerates actual edge orbits under 19 distinct explicit permutation cycle types, verifies cycle-support multiplicities, compares complete orbit-face polynomials to the independent factorial formula, reconstructs exact reduced simplicial homology over the field with two elements for 15 even-cycle factors, and checks directed acyclicity and the critical-face count for the prescribed matching on 3,366 enumerated faces.
+## correctness
 
-Expected final line:
+PASS
 
-`CYCLE_ORBIT_FIXED_SPACE_CHECKS_OK 19 cycle_types 15 even_component_mod2_cases 3366 acyclic_matched_faces`
+An invariant barycentric point has equal coefficients across whole edge orbits. A cross-cycle edge orbit is a matching exactly when cycle lengths coincide, with d phase shifts for each equal-length pair; an intra-cycle matching orbit occurs only for even d via antipodes. Compatible orbits occupy disjoint ground cycles, proving the exact PL join B_{d,m} and factor face polynomial. For even d, the singleton-toggle poset-fiber matching is acyclic by the cluster lemma; unmatched faces are exactly perfect labeled pairs, giving contractibility for odd m and a wedge of d^(m/2)*m!/(2^(m/2)(m/2)!) spheres of dimension m/2-1 for even m; joins produce the final all-even type. The argument handles empty-face join units and m=1,2. An independent ground-edge-orbit enumerator verified nine mixed parity/cycle type cases, not the infinite proof.
 
-These finite tests do not prove the theorem for all permutations. The general proof comes from orbit classification and the acyclic fiber-matching argument supplied in `RESULT.md`. The test does not independently verify integral homotopy type or bibliographic originality. No independent mathematical audit is represented by this file.
+## originality
+
+PASS
+
+The older involution-specific result is expressly a special case, and published Singh and Mondal–Mukherjee–Saha matching-complex work treats nonequivariant matching complexes and higher matchings. Bate–Everitt–Ford–Ramos calculates homology representations of other matching complexes, not geometric cyclic subgroup fixed sets. The exact all-cycle-length fixed PL model and all-even wedge formulas were not implied by inspected theorems. This is a best-of-knowledge claim, not certified priority.
+
+## value
+
+PASS
+
+The exact geometric fixed space for every permutation cycle type is a structural equivariant invariant. The closed integral sphere-wedge formula provides a natural family and explicit component counts that cannot be deduced from ordinary Betti numbers or from isolated involution cases. It distinguishes geometric fixed realization from fixed-vertex subcomplex, important in equivariant topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
