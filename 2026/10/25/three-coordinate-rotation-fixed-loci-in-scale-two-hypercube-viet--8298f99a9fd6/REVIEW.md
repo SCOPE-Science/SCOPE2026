@@ -1,14 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The barycentric fixed-orbit correspondence is bijective on every simplex and PL. The exact maximum-distance matrix yields all possible links, and the descending-cardinality free-face pairs leave two base complexes and exactly the stated number of bridges. Since the two base complexes are connected, the bridge count produces the claimed free circles. The integral wedge rank for each base is taken from Adamaszek–Adams, Theorem 1. An independently executed verifier tests pairwise orbit conditions, explicitly checks elementary free cofaces, and calculates finite-case Betti vectors; finite checks are not an infinite proof.
+## correctness
 
-## Originality — PASS
-The closest recent full-cube paper, Galetto–Montaño–Wellner (arXiv:2606.20784), gives rational group actions on **ambient homology**, not a homotopy equivalence for a geometric fixed locus. Adamaszek–Adams (arXiv:2103.01040) is the source of the known nonequivariant sphere count. A related weight-truncated function–Rips calculation has a different domain, and earlier fixed-locus results for coordinate involutions do not imply an order-three case. Statement-level implication checks, indexed mathematical searches and relevant full texts revealed no covering formula. Residual risk: unindexed equivalent equivariant geometry could exist.
+PASS
 
-## Value — PASS
-The exact free fundamental-group rank \(2^{n-2}-1\) and the mixed wedge of circles and three-spheres for all \(n\geq6\) reveal a persistent geometric distinction that ambient homology representation cannot supply. The fold and collapse work for an unbounded family, are natural under a coordinate three-cycle, and are not a routine invariant substitution.
+The geometric fixed realization is correctly modeled using full vertex orbits, not fixed vertices. The three-bit rotation has orbit types A=000, B=111, C=weight1, D=weight2 and independently verified max-distance matrix [[0,3,1,2],[3,0,2,1],[1,2,2,3],[2,1,3,2]]. Every pair compatibility agrees for m=0..4. Link of each C_u or D_u is a simplex on the radius-one Hamming ball plus an isolated opposite A/B vertex. Descending-dimensional elementary pair cancellations leave two copies of K_m connected by 2^(m+1) two-edge bridges; one bridge connects copies and remaining 2^(m+1)-1 yield circles. Published K_m wedge-of-c_m S3 gives the stated integral homotopy including m=0,1,2. Finite tests alone do not imply all n, but the orbit-link proof does.
 
-No claim of all-symmetry classification or independent certification is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Adamaszek–Adams proves K_m ambient homotopy, acknowledged and used. Galetto–Montaño–Wellner gives characteristic-zero homology representations of the ambient hypercube Rips complex, not the geometric fixed-point homotopy space; primary full HTML Sections 5/6 were read. Resultary semantic matches have different objects or parameters.
+
+## value
+
+PASS
+
+Gives the complete integral geometric fixed-space homotopy of an infinite family of coordinate cyclic actions, including nontrivial fundamental groups and loop multiplicities absent from the known ambient sphere wedge; this is a natural equivariant-topology question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

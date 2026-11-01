@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Computational verification and mathematical scope
+# Independent mathematical audit
 
-Run `python3 verify_fixed_c3.py` in the containing directory. The code uses only Python's standard library and verifies the four exact three-bit cyclic orbits and their complete maximum-Hamming-distance matrix. The checker independently verifies all 43,434 distinct orbit-vertex pairs over \(3\leq n\leq9\), compares every computed orbit edge with the explicit rule, builds full orbit-complex face sets for \(3\leq n\leq7\), and verifies 620 free-face pairs by checking the exact remaining coface set at each elementary collapse. For \(3\leq n\leq6\), independent mod-two simplicial boundary ranks reproduce the expected reduced Betti vectors. The final face sets exactly match two copies of the smaller Rips complex plus two edge-paths per remaining cube vertex. The supplied `verify.log` contains actual output from the complete run ending `VERIFY_OK`.
+## correctness
 
-The general PL correspondence, orbit distance identity, local link and free-collapse proof in RESULT.md apply for every integer \(n\geq3\), with integral homotopy conclusions. Numerical tests alone cannot prove that unlimited statement or determine integral attaching maps. Independent scientific audit has not been performed.
+PASS
+
+The geometric fixed realization is correctly modeled using full vertex orbits, not fixed vertices. The three-bit rotation has orbit types A=000, B=111, C=weight1, D=weight2 and independently verified max-distance matrix [[0,3,1,2],[3,0,2,1],[1,2,2,3],[2,1,3,2]]. Every pair compatibility agrees for m=0..4. Link of each C_u or D_u is a simplex on the radius-one Hamming ball plus an isolated opposite A/B vertex. Descending-dimensional elementary pair cancellations leave two copies of K_m connected by 2^(m+1) two-edge bridges; one bridge connects copies and remaining 2^(m+1)-1 yield circles. Published K_m wedge-of-c_m S3 gives the stated integral homotopy including m=0,1,2. Finite tests alone do not imply all n, but the orbit-link proof does.
+
+## originality
+
+PASS
+
+Adamaszek–Adams proves K_m ambient homotopy, acknowledged and used. Galetto–Montaño–Wellner gives characteristic-zero homology representations of the ambient hypercube Rips complex, not the geometric fixed-point homotopy space; primary full HTML Sections 5/6 were read. Resultary semantic matches have different objects or parameters.
+
+## value
+
+PASS
+
+Gives the complete integral geometric fixed-space homotopy of an infinite family of coordinate cyclic actions, including nontrivial fundamental groups and loop multiplicities absent from the known ambient sphere wedge; this is a natural equivariant-topology question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
