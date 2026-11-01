@@ -1,14 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The model is fully specified by \(p_j=Z_\beta^{-1}e^{-j^\beta}\) and independent Poisson occupancies. Equation (1) gives the exact variance. In the regime \(0<\beta<1\), the transition-window Riemann sum gives the constant \(\log2/\beta\), and the Lyapunov ratio is at most \(V_\beta(t)^{-1/2}\to0\). At \(\beta=1\), summable phase-indexed Bernoulli deviations yield a discrete limit; for \(\beta>1\), the tuned sequence isolates one nondegenerate Bernoulli urn. These arguments establish both the Gaussian regime and the failure of a full-sequence Gaussian limit outside it.
+## correctness
 
-## Originality — PASS, with a bounded literature risk
-The closest primary source is Abebe–Chebunin–Kovalevskii (arXiv:2602.13938v1). Its stated central limit theorem assumes regular-variation index \(\theta\in(0,1)\), and its functional theorem assumes \(\theta\in(0,1]\); the present family has index zero. It cites earlier central-limit work for a subclass of index-zero sequences, so the Gaussian regime alone is not claimed as the sole novelty. The explicit \(\beta=1\) phase-indexed law and the \(\beta>1\) Bernoulli subsequential obstruction are not stated in the inspected theorems. Targeted published-finding corpus and accessible-ledger searches found no exact stretched-exponential phase classification. Residual risk remains from the cited index-zero literature, whose full scope was not inspected.
+PASS
 
-## Value — PASS
-The family \(p_j\propto e^{-j^\beta}\) is a natural stretched-exponential boundary between slowly and rapidly separating urn probabilities. The transition-window width diverges for \(\beta<1\), stays order one at \(\beta=1\), and shrinks for \(\beta>1\). The resulting complete classification gives both the exact variance scale and a concrete criterion for when Gaussian occupancy approximations fail; it is more than a routine CLT application.
+Final corrected RESULT.md repairs a definite off-by-one centering: for beta>1, urns 1,...,m-1 are all occupied, urn m is asymptotically Bernoulli, higher urns are empty; hence K_beta(t_m)-(m-1) => B_gamma, equivalently K_beta(t_m)-m => B_gamma-1, NOT B_gamma. After this repair, independent Poisson occupancies give exact variance sum; width w_t=beta^-1 L_t^(1/beta-1) and Frullani integral log 2 show diverging variance and Lyapunov CLT for 0<beta<1. At beta=1 logarithmic phase yields integer-valued limits; beta>1 has nondegenerate Bernoulli subsequence. Fixed-sample de-Poissonization not asserted. Reconstructed finite integer-bookkeeping check and analytic proof of tails; finite tests are not the infinite proof.
 
-Closest literature: Abebe–Chebunin–Kovalevskii (2026), Chebunin–Zuyev (online 2020/print 2022), and Karlin (1968). The exact scope of the index-zero CLT cited as Dutko [6] by Abebe et al. was not inspected; this is the principal remaining priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison supports a specific unclaimed mathematical increment, not a proof of absolute priority. Lyapunov for independent Bernoulli variables is classical and not novel; the assessed increment is the complete sharp beta transition, variance constant, discrete boundary and corrected integer centering.
+
+## value
+
+PASS
+
+Natural stretched-exponential urn probabilities exhibit a complete Gaussian/lattice/Bernoulli transition with sharp variance scale; corrected integer-centering matters for exact subsequential distributions and asymptotic occupancy modeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
