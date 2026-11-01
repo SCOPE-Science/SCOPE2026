@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The exact point–line incidence rule is a Fano plane and yields a 14-vertex, 21-edge graph. Exhaustive enumeration of all 16,383 nonempty vertex subsets identifies exactly 2,256 two-independent simplices. Complete face-poset incidence verification checks 10,150 directed cover relations, producing an acyclic matching with 1,121 pairs and exactly one critical vertex plus thirteen critical five-cells. No unproved attaching maps survive: the CW model is a wedge of thirteen five-spheres. Separately, mod-two boundary ranks give degree-five Betti number thirteen. Exhaustive enumeration of all 168 Fano collineations and their 168 polarity translates establishes the full automorphism group. Signed fixed-simplex Lefschetz traces agree, element by element, with the natural augmentation character. Rational quotient homology follows by exactness of coinvariants in characteristic zero.
+## correctness
 
-## Originality
-**PASS against the accessible, specified comparisons; independent bibliographic review not performed.** Deshpande–Singh (arXiv:2001.05448) gives classes of higher-independence complexes but not the Fano incidence graph. Deshpande–Shukla–Singh (arXiv:2001.06775) provides connectivity bounds and chordal results, not this nonchordal exact classification. Abdelmalek et al. (arXiv:2106.10863) gives shellability and vertex decomposability for trees/caterpillars/chordal cases; the graph here is not in those families. Published entries on the ordinary Heawood independence, matching, perfect-matching, and two-matching complexes concern distinct face rules. Specific searches for Fano, Heawood, dissociation and 2-independence names found no exact classification or a stronger theorem implying the augmentation character. This is not a proof of worldwide priority; unindexed literature remains a risk.
+PASS
 
-## Value
-**PASS.** The Heawood graph is the unique cubic graph of girth six on fourteen vertices and the smallest projective-plane incidence graph. Its first higher-independence complex is a natural object that differs sharply from its ordinary independence and matching complexes. Determining the *integral* homotopy type together with the complete rational full-automorphism representation supplies mathematically motivated, reusable exact data. The quotient-homology comparison of the full symmetry and point/line-preserving symmetry adds structural information that cannot be inferred from the number thirteen alone. A single-graph classification is not asserted to yield a uniform projective-plane theorem.
+The incidence relation i-j in {0,1,3} modulo 7 realizes the Fano plane with 14 vertices and 21 edges; Ind_2 faces are exactly masks with selected degree <=1, so all 2^14-1 masks are decidable. Independently rebuilt all 2256 nonempty faces, f-vector (14,91,322,651,728,392,58), 1121 distinct vertex-toggle face/coface pairs and 10150 nonempty Hasse incidences. A complete topological sort of the resulting directed Hasse graph is acyclic, leaving one critical vertex and thirteen 5-faces; Forman gives precisely a wedge of thirteen S^5 over Z, not merely mod-two Betti ranks. All 7! point permutations exhaust the 168 Fano collineations; composition with the polarity p_i<->l_{-i} gives all 336 automorphisms because every graph automorphism preserves or exchanges the unique bipartition. Signed simplicial Lefschetz traces for every g equal its count of fixed graph vertices minus 1. By rational finite-group semisimplicity, the top homology QG-module equals the augmentation kernel of the 14-vertex permutation module. Full-group vertex transitivity and the two point/line orbits of G+ yield the rational orbit-space invariant dimensions 0 and 1 by barycentric subdivision and rational coinvariants. The script is exhaustive for this single finite graph; no general graph theorem is inferred.
 
-## Scope and residual risks
-The representation equivalence is rational only; no integral equivariant equivalence or integral orbit-space acyclicity is certified. All finite checks are replayable in `verify_heawood_ind2.py`; the inference from an acyclic matching and the rational character argument uses standard mathematical theorems. Equivalent inaccessible or unindexed work could remain.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The computed complex is Ind_2(H), not the published ordinary Ind_1(H), the matching complex on H-edges, or the complex on perfect matchings. General higher independence results cover complete multipartite, paths, cycles, trees and chordal constructions, but the Fano incidence graph is nonchordal, cubic, bipartite of girth 6 and not in the named special classes. No inspected primary result gives the 13 S^5 homotopy plus all-336-group augmentation character. Bounded best-of-knowledge originality with single-graph finite classification motivation.
+
+## value
+
+PASS
+
+Ind_2 of the Heawood incidence graph is a natural first higher-independence invariant of a canonical finite symmetric design. The result supplies an exact integral homotopy type and identifies the full nontrivial rational 336-element automorphism action and quotient invariant subspaces, which are not read off from face counts or earlier ordinary graph complexes. A fully exhaustive single-object classification is mathematically meaningful here without an infinite-family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
