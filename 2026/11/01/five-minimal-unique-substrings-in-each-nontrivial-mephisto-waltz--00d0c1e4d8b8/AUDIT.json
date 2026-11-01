@@ -1,0 +1,156 @@
+{
+  "claim_to_evidence": {
+    "domain": "All integer n>=2, finite W_n=phi^n(0), binary phi(0)=001, phi(1)=110, contiguous overlapping factor occurrences, zero-based half-open intervals.",
+    "finite_checks": "Exact suffix-array MUS enumeration to n=8, independently crosschecked with full substring counting to n=5; 3402 exhaustive parent-factor comparisons to n=4.",
+    "proof_steps": [
+      "disjoint phase-four sets",
+      "cover-parent occurrence equivalence",
+      "boundary lift preserves and exhausts MUSs",
+      "base W2 and short-factor exclusion in W3",
+      "induction producing five index formulas"
+    ],
+    "unproved_limits": "Other morphisms, other initial words and arbitrary factors of the infinite fixed point are outside the theorem; publication priority and independent validation are not certified."
+  },
+  "correctness": {
+    "rationale": "A complete proof identifies disjoint four-symbol phase languages, so every output factor of length at least four inherits exactly the multiplicity of its covering parent. A boundary lift of length 3l-4 sends each parent MUS to a child MUS and every unique child factor contains such a lift. The nine-letter base word has five MUSs, all length three; W3 already contains all eight binary factors of length three at least twice. Thus induction excludes all alternatives. Independent direct counting and suffix-array verification agrees through n=8; all 3402 small parent-transfer comparisons pass. No finite data is used in place of the induction.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2605.18034v1, Theorem 23 concerns occurrence preservation when interference-free hypotheses hold; it does not give a complete factor-specific MUS profile of this substitution.",
+        "arXiv:1909.02804 gives methods for computing MUSs in arbitrary texts and sliding windows; its general algorithm does not symbolically determine these five intervals.",
+        "arXiv:2508.16092v1 proves maximal numbers of MUSs crossing a text position, a distinct extremal quantity."
+      ],
+      "reasoning": "A generic algorithm or sufficient occurrence-preservation condition is not itself an exact all-iterate classification. The result needs additional phase synchronization and a coverage argument to exclude nonlifted MUSs. The prior results can help prove a piece but do not imply the displayed five-interval identity without substantive new analysis.",
+      "searches": [
+        "morphic words minimal unique substrings strongly interference-free mephisto waltz",
+        "MUS lifting under synchronizing morphisms with 4-factor synchronizing delay binary 001 and 110",
+        "arxiv:2605.18034v1",
+        "arxiv:1909.02804"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2605.18034v1",
+      "arxiv:2508.16092v1",
+      "arxiv:1909.02804",
+      "oeis:A064990",
+      "Wolfram MathWorld:Mephisto Waltz Sequence"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2605.18034v1 Corollary 16 covers strongly interference-free behavior of 001/110; the two explicit MUS classifications in its applications concern different morphisms.",
+        "An earlier exact finite-iterate MUS claim for period-doubling substitution 0->01,1->00 concerns four intervals and scaling in powers of two, not the Mephisto–Waltz substitution.",
+        "The new proof derives the three disjoint sets of length-four phase factors and a length-3-to-length-(3l-4) MUS lift for the specific substitution."
+      ],
+      "reasoning": "Occurrence preservation of full substituted factors alone does not classify partial-block minimal unique substrings. The old period-doubling result is not a parameter substitution or stronger general theorem: its morphism and phase code differ, and no implication provides the five positions or 3-adic scaling here. The claim is not covered by the closest inspected results.",
+      "searches": [
+        "arxiv:2605.18034v1",
+        "arxiv:2508.16092v1",
+        "Minimal unique substrings (MUS) of Mephisto-Waltz words phi(0)=001 phi(1)=110, all n five unique substrings of length 3^(n-2)+2 and positions 2,3,5,6,7 blocks",
+        "MUS lifting under synchronizing morphisms with 4-factor synchronizing delay binary 001 and 110"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.18034v1, Corollary 16 lists the exact morphism, while Theorems 33 and 35 enumerate MUSs for Fibonacci and Thue–Morse, not Mephisto–Waltz.",
+        "MathWorld Mephisto Waltz Sequence and OEIS A064990 identify the same morphic family but do not state the five-interval MUS profile.",
+        "Targeted literal and semantic searches did not surface an equivalent all-iterate MUS classification."
+      ],
+      "reasoning": "Aliases considered include Mephisto Waltz, Mephisto-Waltz, 001/110 complementary morphism, three-uniform binary fixed point, minimal unique factors, and MUS occurrence intervals. The exact substitution and all five intervals were compared, not merely titles. The consulted materials do not state an equivalent classification.",
+      "searches": [
+        "Minimal unique substrings (MUS) of Mephisto-Waltz words phi(0)=001 phi(1)=110, all n five unique substrings of length 3^(n-2)+2 and positions 2,3,5,6,7 blocks",
+        "Exact number, positions and lengths of minimal unique substrings for iterated ternary uniform morphism 0->001,1->110 (generalized Thue Morse), 5",
+        "\"Mephisto-Waltz\" \"minimal unique\" substrings",
+        "\"001001110\" \"minimal unique substrings\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A064990 records the Mephisto Waltz binary sequence, its 001/110 morphism, and related properties; no MUS table or formula was found in the inspected entry.",
+        "Wolfram MathWorld Mephisto Waltz Sequence lists the substitution and some enumeration of symbol counts, not MUS locations.",
+        "No matching five-MUS profile or table was returned in the checked mathematical research records."
+      ],
+      "reasoning": "A sequence entry or known 3-uniform substitution does not determine a sequence of unique-factor intervals. The present formula is for every iterate, not a finite recomputation of an OEIS table. Negative index searches leave an explicitly acknowledged priority risk.",
+      "searches": [
+        "minimal unique substrings of Mephisto Waltz binary word W_n = (0->001,1->110)^n(0), five factors length 3^(n-2)+2",
+        "Mephisto waltz word minimal unique substring formula",
+        "\"001001110\" \"MUS\" morphism",
+        "oeis:A064990"
+      ]
+    },
+    "rationale": "The May 18, 2026 primary paper specifically lists this morphism but derives MUS sets only for Fibonacci and Thue–Morse words. The complete five-interval law for all powers of the 001/110 substitution is not supplied or implied by the inspected general algorithmic or extremal sources. Targeted research-record, exact-string, and alias searches found no covering equivalent. This is a best-knowledge scientific originality assessment, not guaranteed publication priority.",
+    "residual_risks": [
+      "An unindexed or unpublished equivalent MUS classification may exist.",
+      "Only specifically relevant sections were materially inspected in the foundational general-algorithm sources; their uninspected material could contain a separate specialized example, though the reported scope differs."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers the substitution and general occurrence-preservation implications, but no exact MUS count, positions, or lengths for the Mephisto–Waltz finite iterates.",
+        "evidence": [
+          "arXiv:2605.18034v1 §§3–6, Corollary 16, Theorems 23,33,35, conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2605.18034v1",
+        "material_read": "Abstract, introduction, definitions, Lemma 15, Corollary 16, Theorems 20 and 23, application statements 33 and 35, conclusion and future work, and related proof passages.",
+        "method": "Accessible arXiv full-text HTML with theorem-and-section comparison.",
+        "title": "On Occurrence-Preserving Morphisms",
+        "trigger": "Primary recent paper introduces strongly interference-free morphisms and specifically names the 001/110 example."
+      },
+      {
+        "assessment": "Deals with extremal local density in arbitrary texts; no Mephisto–Waltz all-iterate result or dominating exact theorem.",
+        "evidence": [
+          "arXiv:2508.16092v1 §§1–3, Theorem 1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2508.16092v1",
+        "material_read": "Abstract, introduction, MUS definitions, main theorem, and upper-bound proof material in Section 3.",
+        "method": "Accessible arXiv full-text HTML, targeted inspection of the relevant statements and techniques.",
+        "title": "On the number of MUSs crossing a position",
+        "trigger": "Recent primary combinatorial theorem on MUS enumerations."
+      },
+      {
+        "assessment": "General string algorithms and change bounds, not a closed-form specialization to this morphism.",
+        "evidence": [
+          "arXiv:1909.02804 introductory and theorem-summary material"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.02804",
+        "material_read": "Accessible parsed full-text introduction, definitions, stated sliding-window algorithmic results and their scope.",
+        "method": "Read indexed full-text page, scoped comparison to the all-iterate interval formula.",
+        "title": "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window",
+        "trigger": "Foundational general MUS computation potentially broader than fixed-morphism classification."
+      },
+      {
+        "assessment": "Describes the same object but not its minimal unique factors.",
+        "evidence": [
+          "MathWorld Mephisto Waltz Sequence"
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/MephistoWaltzSequence.html",
+        "material_read": "Sequence definition, substitution, symbol count identities, and cited references.",
+        "method": "Read accessible webpage.",
+        "title": "Mephisto Waltz Sequence",
+        "trigger": "Canonical description of this named substitution."
+      },
+      {
+        "assessment": "No claimed MUS interval classification appears in inspected portions.",
+        "evidence": [
+          "OEIS A064990"
+        ],
+        "identifier_or_url": "https://oeis.org/A064990",
+        "material_read": "Sequence entry description, recurrence, formula and relevant citations.",
+        "method": "Read indexed OEIS entry.",
+        "title": "OEIS A064990",
+        "trigger": "Possible exact sequence/table for this morphic word."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "00d0c1e4-d8b8-4abb-9e77-02a721082e7b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 morphism paper explicitly calls for study of fixed points of strongly interference-free morphisms; it gives MUS classifications for Fibonacci and Thue–Morse. The identified Mephisto–Waltz family is a natural third test case. An exact five-MUS theorem with all indices, lengths, and a synchronizing lift is a complete infinite-family structural invariant, not a small finite table or an automatic relabeling.",
+    "status": "PASS"
+  }
+}
