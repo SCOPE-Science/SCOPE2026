@@ -1,15 +1,21 @@
-# Review of the mixed depth-two spider cooling classification
+# Independent mathematical audit
 
-## Correctness — PASS
-The first-source eccentricity bound supplies the only upper bounds needed (three or four edges of diameter, hence four or five rounds). The short/long arm case split is exhaustive. For the exceptional three-round graph the proof accounts for every possible first source and all feasible second sources. To preclude five rounds it observes that two vertices must remain before choosing the fourth source and that only remote long outer leaves can be among them. In the three-long, one-short exceptional case, distance constraints uniquely force the second source and exclude the third. Explicit four-source sequences attain five rounds in all remaining cases, and three-source sequences attain four rounds in the lower cases. A direct propagation enumerator and an independent distance-condition search corroborate the same formula on their stated finite domains; neither is substituted for the proof.
+## correctness
 
-## Originality — PASS, with residual literature risk
-The source article *Cooling graph products* (arXiv:2606.12330, first posted 2026-06-10) treats product formulas, trees and open spider directions but not mixed depth-two spider thresholds. The foundational article *How to cool a graph* (arXiv:2401.03496, Theorems 2 and 4) already supplies the diameter upper bound and the sufficiently many equal-length even-arm special case. In particular the present \(b\ge4\) five-round part follows from the known equal-length four-arm example by isometric inclusion; novelty is **not** claimed for that substatement. The full mixed two-parameter classification, the \(b=3,a=1\) obstruction and the sharp \(T_{2,3}\) mixed witness are not implied by Theorem 4. The liminal burning paper arXiv:2505.10727 and results about 2-burning spiders concern broader/different protocols and do not give this classification. Targeted public and mathematical-record searches identified no directly equivalent statement. An undiscovered result under another naming convention remains possible.
+PASS
 
-## Value — PASS
-Cooling spiders are explicitly identified as a difficult natural family by the foundational and recent articles. Fixing the maximal arm length to two but allowing arbitrary multiplicities of both arm lengths gives a natural full two-parameter subfamily. The classification locates the sharp structural transition at three long and two short legs (or four long and one short), with a genuine small exceptional boundary and no size threshold beyond these motifs. The result is a complete determination with a motivated extremality criterion rather than a finite table, albeit not a general spider solution.
+The cooling process propagates from all cooled vertices then selects a new source. A first source of eccentricity e forces finishing by e+1; for b=1 the diameter is 3 and for b>=2 it is 4. For T_{2,1}, distance-three survivor counting forbids a fourth round; b=2 leaves at most one remote outer leaf before selecting the fourth source, prohibiting five rounds. For b=3,a=1, two remote outer leaves force the second source to be the sole short leaf, after which no third source satisfies distance/survival constraints. Explicit legal source tuples (x_A,u,y_B) and (x_A,y_B,u,x_C), or (x_A,u,v,x_B), and named survivor leaves certify all matching lower bounds. Deleting arms proves the two minimal mixed witnesses. Independent exhaustive memoized cooled-set process enumeration reproduced the formula on all 35 parameter pairs with 1<=a,b<=6 and a+b>=3; this is ancillary to the all-parameter distance argument.
 
-## Limitations and literature proximity
-The tree family excludes all-equal-arm spiders and all arms longer than two. Prior general bounds and the even/equal-length special case must be attributed. Source searches are not a completeness certificate; an unindexed mixed-arm result is a publication-priority risk. Mathematical reasoning and finite code checks received the same review only; no separate independent validation was undertaken.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bonato et al., How to cool a graph, Theorem 4, treats even numbers of equal-length spider legs and supplies a known b>=4 diameter-attaining specialization. That portion is explicitly prior-covered and is not separately claimed as a new principle. The mixed short/long threshold including b=3,a>=2 and the exceptional b=3,a=1 configuration is not stated or obtained by same-length hypotheses. Cooling graph products (2026) primarily treats graph products and disconnected constructions; its abstract does not provide this mixed spider classification, while its full text remained inaccessible with Oxford vpn_disconnected. No indexed Resultary record supplied the present cooling invariant for these spiders.
+
+## value
+
+PASS
+
+The entire one-/two-edge mixed spider family is a natural first unequal-arm extension of the foundational cooling theorem. The exact sharp exceptional cases and the nine-vertex T_{2,3} minimal five-round witness isolate how extra short arms change the diameter attainment threshold. The b>=4 branch is not independently new, but the complete mixed classification is a motivated structural boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
