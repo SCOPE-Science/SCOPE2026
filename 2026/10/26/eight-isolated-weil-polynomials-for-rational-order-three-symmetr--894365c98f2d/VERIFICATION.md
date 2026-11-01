@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification instructions and limits
+# Independent mathematical audit
 
-Execute `python3 artifacts/verify.py` from the package root and compare its stdout, byte-for-byte, with `artifacts/expected.txt`. The complete check uses only the Python standard library; no computer-algebra library or external database is needed.
+## correctness
 
-The program constructs all \(24\) projective transformations over \(\mathbf F_3\), all smooth members of the \(2186\)-element nonzero sextic coefficient space, all \(69\) isomorphism orbits, and all Weil coefficient pairs by counting points in \(\mathbf F_3\) and \(\mathbf F_9\). Assertions check the complete \(1296\)-equation smooth locus, \(50\) distinct Weil types, exact eight singleton fibers, and the independent order-three fixed-form locus with \(42\) equations. The output prints the exact eight Weil pairs with representative coefficient vectors and orbit sizes. Finite exhaustion is mathematically complete because the entire input parameter space is enumerated, not sampled.
+PASS
 
-The hyperelliptic reduction and characteristic-three invariant-ring argument are presented in `RESULT.md`; the executable check supports its exact count and Weil uniqueness conclusions. No claim is made about extensions of the base field or an independent human audit.
+Structural proof: order-3 automorphism descends to PGL2(F3), conjugate to x↦x+1; its geometric fixed infinity cannot be a reduced six-point branch of invariant degree six. Invariants under translation are F3[x³−x], so models y²=c((x³−x)²+a(x³−x)+b) with c∈{1,2}, a²−b nonzero; a↔−a yields eight arithmetic models. Independently enumerated all 3^7−1=2186 nonzero binary sextic coefficients; derivative gcd plus infinity-degree test leaves exactly 1296 geometrically squarefree forms. Independent 24-element PGL2(F3) action partitions into 69 orbits; exact F3/F9 point counts yield 50 Weil coefficient pairs. Exactly the eight stated target pairs have singleton orbit fibers, with orbit sizes [1,1,4,4,8,8,8,8]; no extrapolation from incomplete enumeration. Frobenius coefficient A1=#C(F3)−4 and A2=(#C(F9)−10+A1²)/2 checked. The supplied artifacts/verify.py was read as evidence; independent implementation produced same counts.
+
+## originality
+
+PASS
+
+A prior complete 69-class genus-two sextic orbit census with stabilizers already allows identifying eight order-3 symmetry classes: neither count nor representatives are novel. The differentiated result is that each of eight Weil polynomials has a singleton fiber among all 69 arithmetic classes, a statement requiring the quadratic extension point counts not given by a stabilizer/branch table alone.
+
+## value
+
+PASS
+
+Weil polynomial usually determines an unpolarized Jacobian isogeny class rather than a unique genus-two curve. The eight F3 symmetry isogeny classes unexpectedly isolate a single curve each, so a natural arithmetic invariant exactly detects a wild automorphism on a complete field-specific locus. This is a motivated exact finite classification, not an arbitrary list of eight coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

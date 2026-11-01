@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The structural reduction follows from the hyperelliptic quotient, conjugacy of projective order-three translations, the six-point branch divisor, and the characteristic-three invariant ring. For the decisive global uniqueness assertion, the complete finite set of \(2186\) nonzero binary sextics is partitioned using every element of \(\operatorname{PGL}_2(\mathbf F_3)\). A squarefreeness test accounts for the point at infinity. Arithmetic in \(\mathbf F_3\) and \(\mathbf F_9\) yields \(69\) orbits, \(50\) distinct Weil types, and singleton fibers for all eight named Weil polynomials. The standalone checker is provided and was executed to completion. Scope: no inference from a nonexhaustive finite experiment.
+## correctness
 
-**Originality — PASS, qualified.** An earlier complete \(69\)-class sextic-orbit enumeration, including stabilizer sizes and rational branch/point stratifications, already covers the raw eight-class automorphism subset by a group-theoretic filter. No novelty is asserted for that count, model existence, or the aggregate \(69\)-class census. The differentiated theorem asserts that the eight *Weil polynomials* and their singleton fibers within **all** genus-two arithmetic classes exactly detect this symmetry. Zobernig describes \(3\)-rank strata; Howe–Nart–Ritzenthaler determine which Weil polynomials arise but do not state singleton fibers in the inspected portions. Unindexed or external zeta-refined tables remain a publication-priority risk.
+PASS
 
-**Value — PASS.** The Weil polynomial normally records a Jacobian isogeny class, not the isomorphism class of its genus-two curve. Here it detects a wild rational automorphism and isolates the curve in each of eight isogeny types. That is a natural arithmetic-Torelli boundary for a characteristic-three symmetry locus. Across all \(69\) genus-two arithmetic classes, only \(50\) distinct Weil types occur, so Weil rigidity is not automatic. The result is a complete natural finite-field classification, not an arbitrary coefficient slice.
+Structural proof: order-3 automorphism descends to PGL2(F3), conjugate to x↦x+1; its geometric fixed infinity cannot be a reduced six-point branch of invariant degree six. Invariants under translation are F3[x³−x], so models y²=c((x³−x)²+a(x³−x)+b) with c∈{1,2}, a²−b nonzero; a↔−a yields eight arithmetic models. Independently enumerated all 3^7−1=2186 nonzero binary sextic coefficients; derivative gcd plus infinity-degree test leaves exactly 1296 geometrically squarefree forms. Independent 24-element PGL2(F3) action partitions into 69 orbits; exact F3/F9 point counts yield 50 Weil coefficient pairs. Exactly the eight stated target pairs have singleton orbit fibers, with orbit sizes [1,1,4,4,8,8,8,8]; no extrapolation from incomplete enumeration. Frobenius coefficient A1=#C(F3)−4 and A2=(#C(F9)−10+A1²)/2 checked. The supplied artifacts/verify.py was read as evidence; independent implementation produced same counts.
 
-Independent validation, particularly of any unindexed genus-two isogeny-class tables, remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A prior complete 69-class genus-two sextic orbit census with stabilizers already allows identifying eight order-3 symmetry classes: neither count nor representatives are novel. The differentiated result is that each of eight Weil polynomials has a singleton fiber among all 69 arithmetic classes, a statement requiring the quadratic extension point counts not given by a stabilizer/branch table alone.
+
+## value
+
+PASS
+
+Weil polynomial usually determines an unpolarized Jacobian isogeny class rather than a unique genus-two curve. The eight F3 symmetry isogeny classes unexpectedly isolate a single curve each, so a natural arithmetic invariant exactly detects a wild automorphism on a complete field-specific locus. This is a motivated exact finite classification, not an arbitrary list of eight coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
