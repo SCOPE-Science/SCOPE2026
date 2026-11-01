@@ -1,0 +1,113 @@
+{
+  "correctness": {
+    "rationale": "The normalized killed backward PDE is uniformly elliptic on the fixed annulus. Analytic weak-speed perturbation gives the exact first- and second-order angular Fourier equations. The homogeneous-Bessel substitution gives an exact boundary integral identity. Matched large-argument I1,K1 expansions yield C_beta=-S beta^-3/2/(2L)+O(beta^-2) and B_beta second derivative h(1)beta^-1/2/2+O(beta^-1). Taylor expansion on the beta^-1 outer strip gives the quadratic, whose positive simple root is explicit. sinh(t)>t proves S>0 for every 0<alpha<1 and h(1)<0. The Bessel-vs-BVP standalone diagnostics passed 171 assertions. The high-beta result applies to the weak-speed coefficient only; no finite-speed joint limit was inferred.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2023 propagator solves a completely absorbing disk, not an annulus with two Dirichlet circles.",
+        "The 2025 study solves two-dimensional annular MFPT numerically and derives weak-activity first-order coefficients, not the second-order mean sign boundary layer.",
+        "Classical modified-Bessel asymptotic theory supplies inputs for the proof, but no physical escape theorem."
+      ],
+      "reasoning": "A full propagator for a disk does not imply the annular two-wall claim. A general PDE solver would in principle evaluate the same observable, but the sign change and its beta-inverse width require independent asymptotic comparison. The possibility of an unindexed stronger theorem remains a residual risk.",
+      "searches": [
+        "\"annulus\" \"active Brownian\" \"mean exit\" \"boundary layer\" rotational",
+        "2019 2021 2023 \"active Brownian\" \"annulus\" absorbing both boundaries",
+        "2024 active Brownian particle annular domain absorbing boundary first passage",
+        "arxiv:2306.12702v1 full text"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2306.12702v1 full HTML, disk model and first-passage propagator",
+      "arxiv:2506.15813v1 full HTML, annular PDE and first-order weak-activity sections",
+      "https://dlmf.nist.gov/10.40 modified-Bessel asymptotics",
+      "SIAM J. Appl. Math. 2024 1D ABP MFPT paper, accessible abstract only (different dimension)",
+      "Searches covering active Brownian annuli, weak propulsion, averaged MFPT, boundary layers and fast angular decorrelation"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2025 first-order correction fixes the inhomogeneous source in a subsequent second-order Poisson problem but does not state or prove its solution or high-rotation sign.",
+        "The 2023 source permits general spectral perturbations in a disk but does not cover the annular boundary conditions.",
+        "Standard Bessel I1,K1 large-argument formulas cover only an analytic step, not the wall-sign conclusion."
+      ],
+      "reasoning": "The first-order annulus result makes the new calculation feasible, but is not a statement-wise stronger theorem: establishing the beta-inverse boundary skin requires an additional angular average, an exact boundary integral and matched Bessel layers. The previous disk complete-monotonicity claim cannot be transferred because the annular h changes sign.",
+      "searches": [
+        "arxiv:2306.12702v1 main and conclusions",
+        "arxiv:2506.15813v1 disk/annulus and discussion",
+        "active Brownian particle mean first passage time disk second order weak propulsion rotational diffusion Bessel exact analysis 2025"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The annular paper presents an O(Pe) radial coefficient and notes that a uniform initial heading cancels O(Pe); the first relevant angular-average correction is O(Pe²).",
+        "The new result explicitly computes the sign and fast-rotation asymptotic of that O(Pe²) coefficient, rather than the O(Pe) heading-dependent term."
+      ],
+      "reasoning": "Expanding the backward PDE in speed is an equivalent route to the first-order source formula. Averaging first order does not determine the second-order wall signs or the beta-inverse skin. No equivalent complete statement was located in the materially inspected primary text.",
+      "searches": [
+        "active Brownian motion absorbing annulus weak propulsion orientation averaged mean exit time increases near outer boundary decreases near inner boundary high rotational diffusion boundary layer",
+        "\"active Brownian\" \"annulus\" \"mean first passage\" \"weak\" \"averaged\" sign",
+        "arxiv:2506.15813v1 section 4.1 and 4.2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The claim is a continuum asymptotic for all annulus ratios, not an isolated numerical constant or finite classification table.",
+        "The closest indexed findings concerned unrelated annular flows, and the accessible disk-only theorem has a different domain and conclusion."
+      ],
+      "reasoning": "An exact prior table of the angular-averaged second-order fast-rotation annular sign transition was not located. Finite numerical sweeps are incapable of establishing the claimed universal sharp scale, so this comparison does not rely on a table-only search.",
+      "searches": [
+        "annular Brownian active particle double absorbing ring small swimming speed mean first passage paradox enhancement thin boundary layer",
+        "active Brownian annulus second order mean first passage time fast rotational diffusion absorbing boundaries boundary layer",
+        "arxiv:2506.15813v1 displayed annulus coefficient"
+      ]
+    },
+    "rationale": "The derived sharp order-in-beta outer-wall sign reversal is not given by the closest inspected original disk propagator or the later annular first-order MFPT paper. It requires deriving the second-order angle-average and resolving a cancellation between two distinct radial Bessel boundary layers. Other equivalent formulations or broad theorems remain a stated residual publication-priority risk.",
+    "residual_risks": [
+      "The 2025 annulus first-order coefficient could be combined with unpublished or unindexed perturbative material to imply parts of the same second-order calculation.",
+      "No exhaustive survey of every closed-access or supplemental treatment of active-Brownian annular exit times has been performed.",
+      "A general unindexed singular-perturbation theorem for annular active transport might implicitly contain the boundary-skin asymptotic.",
+      "Numerical diagnostics are finite; correctness of the global asymptotic rests on the analytic Bessel argument."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for the annular two-boundary sharp second-order sign profile; relevant methods credited",
+        "evidence": "Source sets a single absorbing circle and discusses first-passage distributions; the conclusions identify MFPT and other domains as further applications.",
+        "identifier_or_url": "https://arxiv.org/html/2306.12702v1",
+        "material_read": "Full HTML main article including methods, propagator, survival and conclusions, with contents and appendices available",
+        "method": "Read accessible primary full-text HTML and inspected the main model, equations and concluding scope",
+        "title": "Active Brownian Particles in a Circular Disk with an Absorbing Boundary",
+        "trigger": "Original absorbing active-Brownian disk model and spectral propagator"
+      },
+      {
+        "assessment": "NOT_COVERING the proven second-order angular-average sign and narrow-layer scale; its first-order annular solution is a close input",
+        "evidence": "In §3 it notes that uniformly distributed initial headings remove first order, while annulus §4 gives explicit O(Pe) terms rather than O(Pe²) averages.",
+        "identifier_or_url": "https://arxiv.org/html/2506.15813v1",
+        "material_read": "Full accessible HTML article, especially disk §3, annulus §§4.1–4.3, discussion and references",
+        "method": "Compared its weak-activity expansion and annular boundary conditions to the precise second-order coefficient and fast-rotation sign claim",
+        "title": "Mean first passage time of active Brownian particles in two dimensions",
+        "trigger": "Direct treatment of the same annular geometry and weak-activity PDE"
+      },
+      {
+        "assessment": "Standard analytical supporting result only; not a competing active-particle first-passage theorem",
+        "evidence": "The explicit Iν,Kν large-positive-real-argument asymptotics yield the width and derivative of each radial homogeneous endpoint mode.",
+        "identifier_or_url": "https://dlmf.nist.gov/10.40",
+        "material_read": "Section 10.40(i) large-argument formulas for Iν, Kν and derivatives",
+        "method": "Verified the standard e^{±z}/sqrt(z) behavior and derivative asymptotics used for endpoint layer estimates",
+        "title": "DLMF §10.40, Asymptotic Expansions for Large Argument",
+        "trigger": "Large-argument expansions of modified Bessel functions needed for the critical proof step"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "02233086-b6e8-46b8-9820-ca8ba95a87d6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact outer-wall beta^-1 positive skin in a two-absorber annulus is physically and mathematically motivated: the fast-angular-mixing effective-diffusion approximation predicts faster exit at fixed interior positions but misses a strict opposite weak-activity sign arbitrarily near the outer absorber. The explicit layer polynomial and sharp zero location supply a nontrivial boundary nonuniformity benchmark across every annulus aspect ratio, not an arbitrary isolated parameter slice. Small amplitude and restricted sequential limits are stated.",
+    "status": "PASS"
+  }
+}
