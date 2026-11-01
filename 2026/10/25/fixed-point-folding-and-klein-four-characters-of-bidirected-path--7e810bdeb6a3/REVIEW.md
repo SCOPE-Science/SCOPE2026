@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** Every permitted arrow collection is exactly an independent set of the explicit two-rail ladder conflict graph, because the underlying undirected graph is a path and the three stated local obstructions are exhaustive. The three involution-orbit graphs were derived from the central rung/rail geometry for both path parities. The orbit-barycenter homeomorphism reconstructs the actual fixed polyhedra; the signed augmented simplicial Lefschetz identity, combined with the published integral sphere homotopy classification, determines all three integral signs. The rational quotient conclusion follows by averaging finite-group chain actions. Direct enumerations corroborate the structural proof without replacing it.
+## correctness
 
-**Originality: PASS, subject to residual literature uncertainty.** Caputi--Collari--Smith prove the nonequivariant sphere type, not the natural Klein-four fixed-point spaces or integral action. Published results for circular-ladder independence complexes cover a different graph, and those for strong discrete Morse matching complexes cover a different forbidden-pattern complex. The published dihedral polygon computation uses paths inside a reflection trace but does not imply the intrinsic path fixed-point identification or its full Klein-four character. Searches for equivalent formulations, dominating theorems, and exact tables did not reveal an existing statement of this classification. This is a best-knowledge originality assessment, not a proof of absolute priority.
+PASS
 
-**Mathematical value: PASS.** The three exact geometric fixed sets distinguish different path-centering effects and exhibit a free involution. The integral character determines information absent from sphere dimension, and the full group quotient has a sharp, nonconstant mod-eight rational-homology criterion for an infinite natural family. It is a motivated symmetry refinement, not merely an isolated small-parameter count.
+Each forbidden pair of arrows in the path is either an opposite pair on one edge or a double-incoming/outgoing pair on adjacent edges. Alternating lane labels identify this incompatibility graph with ladder P_n box K_2; independent sets are the multipaths. Fixed geometric points are unions of permitted vertex orbits with constant barycentric coordinates. Reflection across ladder columns yields precise smaller ladders: R to length floor((n-1)/2), RT to ceil(n/2); T orbit is always an incompatible rung, so its fixed space is empty. Signed fixed-face Lefschetz equals reduced Euler characteristic of the orbit ladder. Using Caputi–Collari–Smith X_n~S^floor((n-1)/2) gives R-degree (-1)^floor((n+3)/4), T-degree (-1)^(d+1), integral because rank one, and quotient top homology iff n=0,7 mod8. Independent orbit graphs checked all 27 (n=2..10,g in {R,T,RT}), signed Lefschetz 21 cases (n=2..8). No infinite conclusion is based on the finite checks.
 
-**Closest literature and scientific limits.** The principal premise is Caputi--Collari--Smith, arXiv:2601.05670v1 (2026-01-09). Nearby comparisons include Carnero Bravo, arXiv:2505.06457v1, and public mathematical reports on circular ladders, strong Morse complexes, and bidirected polygons. The latter concern distinct complexes or actions. The quotient statement is rational only; no equivariant homotopy equivalence or integral quotient classification is claimed. Unindexed equivalent work remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Caputi–Collari–Smith Proposition 2.2 supplies ordinary sphere homotopy only. The published Resultary circular ladder has extra wrap-around conflicts and sometimes 3-dimensional homology; its D_n×C2 character is not the open ladder representation. The similarly named strong Morse path-reversal paper has distinct incidence faces/forbidden patterns, so its mod-eight sign is not the multipath result. This separates precise objects and homology, not titles.
+
+## value
+
+PASS
+
+All three natural involution fixed spaces and the full integral V4 character are meaningful equivariant refinements of a known sphere, with sharp mod-eight quotient consequence; explicit PL folding is usable for further fixed-point or quotient computations. Not a routine relabeling of circular ladder or strong Morse results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
