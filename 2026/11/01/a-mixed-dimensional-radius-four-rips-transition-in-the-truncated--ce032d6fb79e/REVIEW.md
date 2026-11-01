@@ -1,0 +1,15 @@
+# Scientific self-review
+
+## Correctness — PASS
+The statement fixes the sixty-vertex directed-incidence presentation of the truncated dodecahedral graph, shortest-path metric, inclusive scale, coefficient field and exact ranges. The finite verifier constructs all 13,554 radius-four nonempty simplices, checks all mod-two boundary ranks by exact binary reduction, and independently computes the Euler characteristic. It directly replays 860 free-face deletions in the radius-three-to-two inclusion and 180 in radius-two-to-one, verifies maximality and freeness *at each step*, and verifies exact equality of the resulting target face sets. The boundary ranks give precisely \(\widetilde\beta_2=1\) and \(\widetilde\beta_4=12\), other reduced mod-two Betti numbers zero. The graph cycle count and simplicial collapses give the lower integral circle-wedge types. Graph diameter and scale convention are verified. Important boundaries: higher-radius death times, radius-four integral torsion and its homotopy type remain unproved.
+
+## Originality — PASS within searched evidence
+The first public motivating source of 2023-02-28 classifies only Platonic solids and does not imply the present truncated Archimedean graph. Adamaszek's clique graph-power results do not evaluate this 60-vertex fourth power; the relevant girth hypothesis fails. Closest mathematical records concern an intrinsic Čech filtration on the same truncated family (not fourth-scale Rips), or Rips filtrations of the distinct truncated cube or truncated octahedron. The accessible detailed statements were read and implication-compared, including equivalent line-of-subdivision and graph-power terminology. Targeted mathematical records and general web searches found no covered claim, though hidden or unindexed equivalent computations remain possible.
+
+## Value — PASS
+The truncated dodecahedron is a canonical Archimedean, highly symmetric cubic graph; its graph-power Rips filtration is directly motivated by the published Platonic classification. The first stage after a stable 11-circle region produces simultaneous homology in degrees two and four, an unexpectedly mixed topology and a concrete finite invariant that is not determined by the known result for the original 20-vertex dodecahedron or by analogous truncated solids. Explicit persistence across the three lower scales provides a mathematically useful filtration interpretation. This is a natural exact finite calculation and is not presented as a general all-graphs theorem.
+
+## Closest sources and residual limitations
+Saleh--Titz Mite--Witzel, arXiv:2302.14388; Adamaszek, arXiv:1104.0433; *Scale-three Čech persistence survives vertex truncation of triangle-free graphs*, record 050621e1a6fe; *Complete graph-metric Vietoris–Rips filtration of the truncated octahedral graph*, record 3b8391bcadb8; *A mixed-dimensional Rips wedge for the truncated cube*, record 4fae71a21a80. The exact result over other coefficients and scales above four is not established; unseen literature is a residual originality risk.
+
+Self-review: passed. Independent audit: not yet performed.
