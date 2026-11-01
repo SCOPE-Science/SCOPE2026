@@ -1,0 +1,171 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T22:55:52Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob c0e56066786c6ae82dbfcdfe4c949c3485f9c3f1",
+        "SLOGAN.txt Git blob 60cb19c1cb0631bce565813fb348fe730cb695a0",
+        "verify.py Git blob bbfb4bd30291e7ba8a7c6f30a9f4dfdfb075da68",
+        "Seven-file source Git tree 5388d8ce6aa8fc422ab8703b1dfa9c62d1af79b3"
+      ],
+      "rationale": "The exact claim is for each real 1<p<∞ and a>b>0 on real/complex ell_p^4, all six arrangements of (a,a,b,b). Duality map is |x_j|^{p-2}conj(x_j) with its continuous zero extension. Positive phases attain the triangle inequality, giving max Φ=Σw_j s_j^α s_{j+1}^β over the 4-simplex, α=(p−1)/p and β=1/p. Concavity of weighted geometric mean is strict up to proportional pairs; connected cyclic edges and mass normalization give unique maximizing positive simplex vector; a zero mass can be improved by transfer from an adjacent positive mass of order epsilon^α or epsilon^β versus O(epsilon) losses. For alternating (a,b,a,b), 2-step cyclic symmetry forces masses s1=s3,s2=s4, yielding H(t)=(a t^{p−1}+bt)/(1+t^p) with unique t>0. Its derivative at t=1 is (p−2)(a−b)/4, hence t>1 for p>2, t<1 for p<2, t=1 for p=2. For grouped (a,a,b,b), evaluating x=(t,t,1,1) for p>2 and (t,1,1,t) for p<2 yields exactly respective positive gaps (t−1)(a t^{p−1}−b)/(2(1+t^p)) and (1−t^{p−1})(a−bt)/(2(1+t^p)); all positive because a>b and t crosses 1 in the proved direction. For p=2, symmetric bipartite matrix singular values give grouped sqrt((a²+b²)/2), alternating (a+b)/2, strict by (a−b)^2>0. Four adjacent vs two alternating placements exhaust all six rotations, and at a=b all radii agree. Every quantifier follows from this analytic argument, not the finite verifier.",
+      "residual_risks": [
+        "Does not cover p=1, p=∞, nonpositive/complex weights, other multiplicities or longer cycles.",
+        "The claimed upper-free adjacent exact radius p≠2 is not supplied; the strict certificate alone suffices for the inequality.",
+        "72 numerical settings and random tests corroborate only finite examples; proof relies on fractional-power boundary argument and strict simplex concavity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cheung and Li 2014 handle arbitrary weighted cycles by Perron eigenvalues of (A+A*)/2 and maximize quadratic forms on complex Hilbert spaces; wider cycle length and multiplicity do not dominate the nonquadratic p≠2 axis.",
+          "Chang–Wang 2012 treat permutations of Hilbert-space weighted cyclic matrices and Hilbert unilateral/bilateral shifts.",
+          "Marionnet 2025 studies minimum permutations in Hilbert complex C^n, especially the n>=6 case; its introduction specifically recalls the known n=4 minimizer."
+        ],
+        "reasoning": "Broader dimensions, graph configurations or inequalities in Hilbert p=2 are not broader exponent coverage. The present theorem asserts the genuinely different spatial l_p radius at every 1<p<∞, so all these primary theorems cover p=2 only, not the claimed p≠2 assertion.",
+        "searches": [
+          "DOI:10.1080/03081087.2012.753594, Theorems 3.5–3.6",
+          "DOI:10.1016/j.jmaa.2012.04.039, Theorem 2.1",
+          "arXiv:2512.17399v2, Introduction, Theorem 3.2 and Section 4",
+          "arXiv:2304.06050v2, Theorem 4.4"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1016/j.jmaa.2012.04.039",
+        "https://cklixx.people.wm.edu/shift-final.pdf",
+        "https://arxiv.org/html/2304.06050v2",
+        "https://arxiv.org/pdf/2512.17399",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/main/2026/10/11/universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4/RESULT.md",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Hilbert results imply the special p=2 values w_A=(a+b)/2 and w_G=sqrt((a²+b²)/2), and hence strict grouping at p=2; this case is not original.",
+          "The nearby Green-kernel expansion at weights (1+epsilon,1+epsilon,1,1) vs alternating proves only an epsilon-local ordering for each fixed exponent.",
+          "For arbitrary p≠2, the true alternating optimizer solves a t-root equation and testing the adjacent arrangement there gives positive (t-1)(a t^(p-1)-b)/[2(1+t^p)] or (1-t^(p-1))(a-bt)/[2(1+t^p)] depending on exponent, an all-contrast consequence not found in the prior theorems."
+        ],
+        "reasoning": "Strongest known implication covers the Hilbert slice and small-contrast neighborhood. Neither a symmetric Perron spectral theorem valid at p=2 nor a second-order local perturbation determines the global nonlinear quotient for all positive contrast. No independent prior result establishing the full all-p sharp gap/placement classification was identified; residual equivalence risk remains.",
+        "searches": [
+          "Resultary exact self vs nearby Green-kernel Hessian SCOPE record",
+          "DOI:10.1016/j.jmaa.2012.04.039, Theorem 2.1 and introduction",
+          "DOI:10.1080/03081087.2012.753594, Theorems 3.5–3.6",
+          "arXiv:2304.06050v2, Theorem 4.4",
+          "arXiv:2512.17399v2, Theorem 3.2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For positive weights, both real and complex spatial numerical radii reduce to max_{s_j>=0,sum s_j=1} Σw_j s_j^((p-1)/p) s_{j+1}^(1/p); this is a nonlinear exponent-dependent variational problem away from p=2.",
+          "Chien–Kirkland–Li–Nakazato 2023, Theorem 4.4, compares planar Hilbert numerical ranges of the same n=4 directed cyclic matrices via characteristic-polynomial coefficients; their n=4 minimizing permutation yields an alternating multiset for a,a,b,b, but their definition is x*Ax on Euclidean C^4.",
+          "The previously published Green-kernel Hessian for spatial l_p cycles implies adjacent>alternating only for sufficiently small contrast, with an O(epsilon^3) remainder, not for all a>b."
+        ],
+        "reasoning": "Alias checked: spatial numerical radius on smooth l_p uses its nonlinear duality map; it coincides with classical matrix numerical radius only at p=2. The equal-contrast and infinitesimal cases are covered by known or separately published formulas, but neither gives a global all-p all-contrast implication. Dihedral reversal/rotation of the weight tuple changes labels but not the two rearrangement orbits.",
+        "searches": [
+          "Resultary semantic query: spatial numerical radius positive weighted cyclic shifts four-cycle l_p Banach weight permutation grouped a a b b alternating a b a b global rearrangement inequality p not 2",
+          "Resultary semantic query: numerical radius l_p^4 weighted shifts nonlinear Perron eigenvector weight rearrangement multiple positive weights",
+          "Web slow query: spatial numerical radius Banach l_p weighted cyclic shift rearrangement permutations weights inequalities",
+          "arXiv:2304.06050v2, Section 4, Theorem 4.4; DOI:10.1016/j.jmaa.2012.04.039 Section 2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned this exact record (excluded as self) and a nearby published local Green-kernel second variation, not an independent all-contrast table or all-p assignment classification.",
+          "Classical four-cycle Hilbert permutation tables and characteristic-polynomial formulas exist for p=2 (Chien et al., Theorem 4.4); neither specifies the nonlinear t-root or certificates for p≠2."
+        ],
+        "reasoning": "An exact table of discrete contrast/exponent samples would not imply the claimed infinite family; exhaustive searches did not reveal a table implying every real exponent and contrast. Failed searches alone are not used as novelty proof.",
+        "searches": [
+          "Resultary published records on four-cycle numerical radius and Green-kernel second variation (two semantic queries above)",
+          "Web queries: \"numerical radius\" \"permutation\" \"ℓp\" \"weighted shift\"; \"numerical radius\" \"weight permutation\" \"Banach\" shift",
+          "arXiv:2512.17399v2, its classification of n=6 Hilton-space minimizers"
+        ]
+      },
+      "rationale": "Best-of-knowledge only: multiple primary full-text comparisons show earlier sharp four-cycle permutation results in the classical p=2 Hilbert numerical radius and related local nonlinear Green-Hessian work, but neither gives the non-Hilbert all-exponent all-contrast strict ordering with certified witnesses. The n=4 p=2 slice is known and expressly excluded as new. Resultary published search found own record (not counted as prior) and local Hessian work, no dominating all-contrast Banach theorem. See structured comparisons and exact residual risks.",
+      "residual_risks": [
+        "Arbitrary p≠2 exact all-contrast result could occur under an unsearched nonlinear Perron, Banach duality-map, or rearrangement alias; no exhaustive priority certification is claimed.",
+        "The Chang–Wang 2012 publisher HTML supports the Hilbert scope, but the original archival PDF was not independently available in full.",
+        "Classical p=2 results, including 2023 n=4 minimum and 2025 citations, cover the Hilbert slice exactly and are not claimed novel.",
+        "Resultary reports an overlapping locally derived Green-kernel second variation; only the global contrast regime is the surviving contribution."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitively covers the exponent-two specialization, but the theorem and proof work with Euclidean/Hilbert inner-product numerical radius and do not state the non-Hilbert spatial radius; original archival PDF access is a residual limitation.",
+          "evidence": [
+            "JMAA 394 (2012), 592–602, DOI:10.1016/j.jmaa.2012.04.039; introduction defines H complex Hilbert and w(A)=sup|<Ax,x>|; Section 2 Theorem 2.1 concerns Hilbert cyclic matrices."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jmaa.2012.04.039",
+          "material_read": "Publisher-hosted full-text HTML: abstract, Hilbert numerical-range definition and Introduction, substantial original Section 2 weighted cyclic permutation theorem and surrounding method, and Section 3 bilateral/unilateral Hilbert shifts; original publisher PDF not independently read.",
+          "method": "Read publisher HTML scientific definitions/theorem text and compare Hilbert v(B)=sup|<Bx,x>| to smooth l_p duality-map radius.",
+          "title": "Maximizing numerical radii of weighted shifts under weight permutations",
+          "trigger": "Direct same graph, same weight-permutation problem, potentially dominating general cyclic theorem."
+        },
+        {
+          "assessment": "Theorem 3.6 is a broad quadratic-form rearrangement but only on complex Hilbert spaces; no p≠2 spatial numerical radius conclusion follows from the stated theorem.",
+          "evidence": [
+            "Author PDF pp.1–3 and 9–11: B(H) is Hilbert with (x,y), Proposition 2.2 uses λ1((A+A*)/2), Theorem 3.6 compares x^tAx on an ordered vector."
+          ],
+          "identifier_or_url": "https://cklixx.people.wm.edu/shift-final.pdf",
+          "material_read": "Author-hosted 16-page PDF: abstract, Section 1 exact definitions, Section 2 symmetric-matrix reductions, Section 3.2 Theorems 3.5–3.6 and their original quadratic-form proof, Section 4 discussion; visual inspection of pages 1 and 11 plus PDF text.",
+          "method": "Read PDF text and inspected screenshots of pages 1 and 11; compared polynomial/quadratic form hypotheses with the nonlinear duality-map objective.",
+          "title": "Maximizing the numerical radii of matrices by permuting their entries",
+          "trigger": "Potential stronger theorem for all weighted cycles and permutations."
+        },
+        {
+          "assessment": "Exact four-cycle minimum is already known for Hilbert numerical ranges. No corresponding theorem for every non-Hilbert ell_p exponent is stated in the inspected primary material.",
+          "evidence": [
+            "arXiv:2304.06050v2, August 29 2023, eqn W(A), Theorem 4.4 and Remark 7.2."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2304.06050v2",
+          "material_read": "Complete arXiv HTML source was accessible; materially read Section 1, preliminaries, Section 4 Lemma 4.3 and Theorem 4.4, and Section 7 related results/open questions.",
+          "method": "Read article HTML and compare the Euclidean numerical range W(A)={x*Ax: x*x=1}, determinant formula and ordered four-cycle cases with p-dependent spatial radius.",
+          "title": "Numerical ranges of cyclic shift matrices",
+          "trigger": "Exact n=4 minima/maximum numerical ranges under permutation, same cycle and patterns."
+        },
+        {
+          "assessment": "Primarily classifies Hilbert p=2 cyclic weights at n>=6; explicitly recalls that n=4 minimizer was established in 2023. Neither the n>=6 result nor its hypotheses cover arbitrary Banach spatial l_p radii.",
+          "evidence": [
+            "arXiv:2512.17399v2, Dec 29 2025, Introduction p.1 defines W(A) by a Hilbert inner product; p.3 cites known n=4 minimizer; Theorem 3.2 p.15 is about n=6."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2512.17399",
+          "material_read": "arXiv 21-page preprint v2: abstract and Introduction pp.1–3, recalled n=4 minimizing permutation and Hilbert-space hypothesis, Theorem 3.2 on p.15 and Section 4 remarks around pp.17–18; PDF pages 1,3 and 15 visually checked.",
+          "method": "Read arXiv open full text and PDF screenshot p.1, p.3, p.15, compared its H=C^n inner-product w(A) and n>=6 classification to claim.",
+          "title": "Minimizing numerical radius of weighted cyclic matrices under permutation of the weights",
+          "trigger": "2025 preprint has nearly identical minimum permutation wording and explicitly cites n=4 prior coverage."
+        },
+        {
+          "assessment": "Gives v_G-v_A=p² epsilon²/(32(p−1))+O(epsilon³) for sufficiently small epsilon; does not imply the claimed strict ordering for arbitrary finite contrast a/b.",
+          "evidence": [
+            "Published SCOPE RESULT.md, finding and limitations explicitly say a second-order local expansion, not a global rearrangement theorem."
+          ],
+          "identifier_or_url": "https://github.com/SCOPE-Science/SCOPE2026/blob/main/2026/10/11/universal-green-kernel-hessian-for-the-numerical-radius-of-cycli--523521e92cd4/RESULT.md",
+          "material_read": "Full RESULT.md proof and scope: variational simplex reduction, Green operator Hessian expansion, 4-cycle local example, limitations.",
+          "method": "Fetched published GitHub RESULT.md by path, inspected proof and exact epsilon asymptotics.",
+          "title": "Universal Green-kernel Hessian for the numerical radius of cyclic shifts on ell_p",
+          "trigger": "Nearest Resultary published result treats same Banach spatial radius, four-cycle, and grouped vs alternating weights."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Assigned RESULT.md and SLOGAN.txt",
+        "Published Green-kernel local perturbation finding",
+        "Chien et al. 2023 Hilbert n=4 theorem and Cheung–Li 2014 broader Hilbert rearrangement"
+      ],
+      "rationale": "The smallest directed cycle with two inequivalent repeated-two-weight arrangement orbits naturally asks which placement maximizes the Banach spatial numerical radius. The theorem gives a complete global (not perturbative) extremal classification for every weight ratio and every smooth l_p exponent, and explicit nonzero gap witnesses whose forms differ across p=2. This is a motivated structural operator-norm/duality-map ordering rather than a narrow arbitrary table. Unlike earlier local Hessian, no small-contrast restriction remains. It stops at four sites and does not claim exact non-Hilbert grouped radius or a general cycle rearrangement theorem.",
+      "residual_risks": [
+        "Contribution is specialized to four sites and multiplicity 2+2; significance does not extend automatically to arbitrary cycles.",
+        "The all-p strict inequality has short trial-vector proofs once uniqueness is established; this does not by itself erase its motivated sharp global classification, but limits generality."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Completed C/O/V assessment, but public delivery is not authorized until privacy and truthful provenance cleanup is fully staged and verified.",
+    "No GitHub write, no dispatcher closeout, no external proof or certification.",
+    "Earlier historical ledger defects and gaps preserved byte-for-byte without reinterpretation."
+  ],
+  "schema_version": 1
+}

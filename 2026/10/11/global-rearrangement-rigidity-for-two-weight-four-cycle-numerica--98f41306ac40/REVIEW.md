@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The real/complex spatial numerical radius reduces exactly to an \(\alpha\)-\(\beta\) geometric-mean functional on the positive simplex. Its maximizer is interior and unique: transferring mass to a zero vertex gives a fractional-power improvement, and equality in the geometric-mean concavity on a connected cycle forces proportional positive vectors. Two-step symmetry of the alternating pattern then yields an exact one-variable optimum with a unique positive critical ratio. Its derivative at the uniform ratio has sign \((p-2)(a-b)\). In the two non-Hilbert exponent regimes, explicit adjacent trial vectors give strictly positive, algebraically verified lower bounds on the global gap. At \(p=2\), direct singular-value calculation resolves both configurations. Cyclic rotations exhaust all arrangements. Numerical checks are supplementary and not used as infinite proofs.
+## correctness
 
-## Originality — PASS, with residual risk
-The closest sources establish rearrangement theorems for the classical inner-product numerical radius: Chang–Wang (DOI `10.1016/j.jmaa.2012.04.039`) and Cheung–Li (DOI `10.1080/03081087.2012.753594`, especially Theorem 3.6). Their Hilbert-space results already imply the \(p=2\) special case; that case is not asserted to be new. Vandanjav–Undrakh (DOI `10.1016/j.laa.2014.02.018`) studies Hilbert-space weighted shifts. The surviving contribution is an exact all-contrast, strict order for non-Hilbert \(\ell_p\) spatial numerical radii together with explicit gap witnesses. This is not a direct consequence of the symmetric-matrix reductions used by those papers. An older equivalent Banach-space rearrangement statement cannot be ruled out, and the Chang–Wang archival PDF could not be fully inspected, although substantial article text was available.
+PASS
 
-## Value — PASS
-The problem is naturally motivated by numerical-radius stability of weighted cyclic operators under rearranging a fixed multiset of coefficients. The result gives a complete sharp maximizer/minimizer classification for the first nontrivial repeated-two-weight cycle, valid globally for every contrast and all smooth \(\ell_p\) norms. The exponent-dependent different trial patterns expose nonlinear geometry invisible at \(p=2\). The result does not assert a general rearrangement theorem for longer cycles or determine the exact adjacent radius for non-Hilbert exponents.
+The exact claim is for each real 1<p<∞ and a>b>0 on real/complex ell_p^4, all six arrangements of (a,a,b,b). Duality map is |x_j|^{p-2}conj(x_j) with its continuous zero extension. Positive phases attain the triangle inequality, giving max Φ=Σw_j s_j^α s_{j+1}^β over the 4-simplex, α=(p−1)/p and β=1/p. Concavity of weighted geometric mean is strict up to proportional pairs; connected cyclic edges and mass normalization give unique maximizing positive simplex vector; a zero mass can be improved by transfer from an adjacent positive mass of order epsilon^α or epsilon^β versus O(epsilon) losses. For alternating (a,b,a,b), 2-step cyclic symmetry forces masses s1=s3,s2=s4, yielding H(t)=(a t^{p−1}+bt)/(1+t^p) with unique t>0. Its derivative at t=1 is (p−2)(a−b)/4, hence t>1 for p>2, t<1 for p<2, t=1 for p=2. For grouped (a,a,b,b), evaluating x=(t,t,1,1) for p>2 and (t,1,1,t) for p<2 yields exactly respective positive gaps (t−1)(a t^{p−1}−b)/(2(1+t^p)) and (1−t^{p−1})(a−bt)/(2(1+t^p)); all positive because a>b and t crosses 1 in the proved direction. For p=2, symmetric bipartite matrix singular values give grouped sqrt((a²+b²)/2), alternating (a+b)/2, strict by (a−b)^2>0. Four adjacent vs two alternating placements exhaust all six rotations, and at a=b all radii agree. Every quantifier follows from this analytic argument, not the finite verifier.
 
-## Independent status
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge only: multiple primary full-text comparisons show earlier sharp four-cycle permutation results in the classical p=2 Hilbert numerical radius and related local nonlinear Green-Hessian work, but neither gives the non-Hilbert all-exponent all-contrast strict ordering with certified witnesses. The n=4 p=2 slice is known and expressly excluded as new. Resultary published search found own record (not counted as prior) and local Hessian work, no dominating all-contrast Banach theorem. See structured comparisons and exact residual risks.
+
+## value
+
+PASS
+
+The smallest directed cycle with two inequivalent repeated-two-weight arrangement orbits naturally asks which placement maximizes the Banach spatial numerical radius. The theorem gives a complete global (not perturbative) extremal classification for every weight ratio and every smooth l_p exponent, and explicit nonzero gap witnesses whose forms differ across p=2. This is a motivated structural operator-norm/duality-map ordering rather than a narrow arbitrary table. Unlike earlier local Hessian, no small-contrast restriction remains. It stops at four sites and does not claim exact non-Hilbert grouped radius or a general cycle rearrangement theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
