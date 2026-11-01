@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:53:02Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md blob 9a8711bc07cb2b92e4added67570aa64f33f511f: combinatorial support decomposition (1), radial representation (2), beta-order-statistic tail bound and gamma-log covariance series reconstructed.",
+        "Independent direct enumeration of all connected induced subsets in K_{p,q} for (p,q)=(2,2),(2,4),(3,4), over 57 original random test vectors, checked exact support width identity to max absolute error 4.441e-16; gamma-log variance independently summed numerically to 1.4962113060018681 (double-copy T)."
+      ],
+      "rationale": "For the canonical unit-weight graph associahedron of K_{p,q} (p≤q, p→∞, n=p+q), support width additivity and the dichromatic connected-subset criterion give exactly 2^{-n}width(z)=H_n(z)-2^{-p}H_q(z_B)-2^{-q}H_p(z_A), H_m(z)=Σ2^{-r}(z_(r)-z_(m+1-r)). Projected Gaussian directions normalized by χ_{n-1} give sphere widths; radial error b_n²/√n→0. Gaussian maxima/minima have independent Poisson extremes and the geometric weights admit a true L1-uniform tail via beta order-statistics, not just fixed K convergence. The two class subtractions reduce to 2^{1-p}b_n at scale 1/b_n; hence b_n(√(n-1)W/2^n-2(1-2^{-p})b_n) converges to Xi_++Xi_-, each Xi=-Σ2^{-r}logΓ_r. The alternate 2b_n centering shifts by -4(log n)/2^p. Gamma-log covariance summation proves the stated mean/variance; a one-sided exponential lower tail shows non-Gaussianity.",
+      "risks": [
+        "Asymptotic requires p_n→∞, unweighted Minkowski-sum realization and Haar unit directions in 1-perp; no fixed-p claim. Finite checks cannot establish the infinite Gaussian Poisson point-process limit."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cardinal–Pournin–Valencia-Pabon, arXiv:2106.16130, studies graph-skeleton diameters; it supplies exact combinatorial diameters of unbalanced K_{p,q} associahedra, not spherical support widths.",
+          "General Gaussian extreme-order Poisson convergence supplies each H_n limit but lacks the graph-derived suppressed class terms."
+        ],
+        "reasoning": "A theorem on graph-skeleton diameter is not a theorem on Euclidean random width; the loglog threshold depends quantitatively on the connected-subset subtraction, not just standard Gaussian maxima.",
+        "searches": [
+          "complete bipartite graph associahedron Gaussian random widths loglog imbalance weighted order statistics Poisson",
+          "graph associahedron complete bipartite mean width Gaussian Gumbel poisson limit",
+          "arxiv:2106.16130"
+        ]
+      },
+      "checked_sources": [
+        "Jochemko–Ravichandran 2022 full open-access article DOI 10.1112/mtk.12122",
+        "Cardinal–Pournin–Valencia-Pabon 2022 arXiv:2106.16130 (main result scope)",
+        "Resultary balanced K4,4 associahedron eccentricity 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d",
+        "Resultary published search complete bipartite graph associahedron Gaussian random widths loglog imbalance weighted order statistics Poisson"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Jochemko–Ravichandran Theorem 2.4 and §3 classify Minkowski linear functionals; §4 discusses Ehrhart coefficients, not random Gaussian widths.",
+          "Cardinal–Pournin–Valencia-Pabon abstract and 2022 paper classify skeleton diameter for K_{p,q}, a different functional."
+        ],
+        "reasoning": "Even granting all prior Minkowski identity and Gaussian maxima convergence, the two-sided geometrically weighted extremes and deterministic 4λ crossover require an additional exact biclique subtraction and asymptotic tail control absent from the cited statements.",
+        "searches": [
+          "complete bipartite graph associahedron Gaussian random widths loglog imbalance weighted order statistics Poisson",
+          "Jochemko Ravichandran Generalized permutahedra Minkowski linear functionals Ehrhart positivity full text",
+          "Cardinal Pournin Valencia-Pabon diameter estimates graph associahedra unbalanced complete bipartite"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Jochemko–Ravichandran, Mathematika 68 (2022) §§1–3, gives signed simplex-sum and Minkowski linear functionals, without a random-width distribution.",
+          "The graph polytope is equivalently the nestohedron of the connected-building-set of K_{p,q}."
+        ],
+        "reasoning": "Minkowski decomposition permits the finite identity but does not automatically supply Gaussian extreme-order asymptotics or nontrivial smaller-part scaling.",
+        "searches": [
+          "complete bipartite graph associahedron Gaussian random widths loglog imbalance weighted order statistics Poisson",
+          "generalized permutahedra nestohedra simplex sum complete bipartite graph Gaussian width fluctuations",
+          "arxiv:1909.08448"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary 2026/10/11/SCOPE-the-complete-eccentricity-profile-of-the-balanced-k-4-4-graph-as--c2821713101d concerns exact graph eccentricities at n=8; Resultary zonotope Gaussian widths concern segment sums, not full connected simplex sums."
+        ],
+        "reasoning": "This is an asymptotic all-sequence limit, not an isolated database value. The finite exact width identity was independently verified but is only one component.",
+        "searches": [
+          "complete bipartite graph associahedron Gaussian random widths loglog imbalance weighted order statistics Poisson",
+          "complete bipartite graph associahedron random Gaussian width limit catalogue",
+          "stellohedron width p=1 Gaussian fluctuations"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the geometric log-log part-size crossover and full non-Gaussian fluctuation law of this canonical K_{p,q} graph associahedron. Gaussian extremal Poisson laws are known methodological ingredients, but known generalized-permutahedron Minkowski structure and graph-associahedron diameter bounds do not imply the exact 2^{-p} subtraction and shift T-4λ. Related stellohedron p=1 formulas lie outside the p→∞ assumption.",
+      "residual_risks": [
+        "An unindexed earlier probabilistic-support-functional or extreme-value theorem for graph nestohedra could imply the asserted limit, despite different keywords.",
+        "The two primary 2021 diameter-source results were compared by main mathematical statements, not fully inspected in current run; no whole-document novelty certificate."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides Minkowski structural background; no Gaussian random-direction width theorem or log-log Kpq limit in inspected results.",
+          "evidence": [
+            "Theorem 2.4: coefficient cone; Theorem 3.1: Minkowski linear functionals; §4: Ehrhart, not random width"
+          ],
+          "identifier_or_url": "https://londmathsoc.onlinelibrary.wiley.com/doi/full/10.1112/mtk.12122",
+          "material_read": "Open-access full HTML, abstract, §§1–4 including Theorem 2.4, Theorem 3.1 and applications",
+          "method": "Read primary full article HTML and main theorem sections",
+          "title": "Generalized permutahedra: Minkowski linear functionals and Ehrhart positivity",
+          "trigger": "Same simplex-Minkowski-sum class; plausible stronger general geometric functional"
+        },
+        {
+          "assessment": "Graph one-skeleton combinatorial diameter, not directional Euclidean width; could not infer any Poisson width law.",
+          "evidence": [
+            "arXiv:2106.16130 Abstract, complete and unbalanced Kpq diameter assertions"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2106.16130",
+          "material_read": "Full article bibliographic abstract and primary result scope; full-body examination of this source was not completed this run",
+          "method": "Read indexed arXiv/peer-reviewed paper synopsis",
+          "title": "Diameter estimates for graph associahedra",
+          "trigger": "Exactly same graph family and same polytope name"
+        },
+        {
+          "assessment": "Abstract-level subject comparison only; no whole-document noncoverage claim.",
+          "evidence": [
+            "arXiv:1910.00670"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1910.00670",
+          "material_read": "Bibliographic record and abstract only",
+          "method": "Read arXiv descriptive record",
+          "title": "Algebraic structures on graph associahedra",
+          "trigger": "Potential more general graph associahedron structure"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Geometric directional widths of generalized permutahedra and their random Gaussian support functions are natural high-dimensional convex-geometry invariants; an exact transition scale matters for asymptotic estimates."
+      ],
+      "rationale": "The formula isolates a geometrically meaningful double-scaling phase transition in canonical complete-bipartite graph associahedra: when the smaller part has log₂log n size, the Gaussian directional-width law shifts by a nontrivial deterministic amount. The precise non-Gaussian limiting law and explicit moments resolve information invisible to combinatorial diameters or a leading mean-width estimate.",
+      "risks": [
+        "No extension to fixed p, affine-rescaled realizations, or non-Haar anisotropic random directions."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
