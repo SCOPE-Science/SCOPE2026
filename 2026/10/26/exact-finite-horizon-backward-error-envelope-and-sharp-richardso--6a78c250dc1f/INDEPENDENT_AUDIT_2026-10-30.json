@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:53:57.120523Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Read RESULT.md spectral proof. Iteration residual is -(I-eta A)^k b and solution multiplier eta sum_(j=0)^(k-1)(1-beta)^j b at eigenvalue beta=eta lambda in [0,alpha]. This sum is strictly positive for beta<2, preventing 0/0 even for inconsistent systems. The residual-to-normwise-solution ratio is a positive-weight maximum of the scalar g(beta). On [0,1] it decreases and is bounded by 1/(alpha k); for beta>1 the formula increases in u=beta-1, yielding the top-eigenvalue endpoint. Both endpoints are attained by explicit PSD examples. On alpha>1 the first branch decreases and second increases, giving one crossing root; log expansion gives asymptotic. k=2 scalar witness sets sharp all-k bound u<=1/sqrt(3), while all even/odd k satisfy (k+1)u^k<=1 and (k-1)u^k<=1 by elementary recurrence monotonicity. k=1 has no admitted minimizer. Independent scalar spectral tests for k=1..40 and six alpha values over 401-point grids corroborated endpoints; grid search is not the minimax proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published stagewise-safe theorem optimizes products of two different Richardson factors on fixed SPD spectral intervals under nonexpansion; present problem optimizes a single constant factor at horizon k over all PSD matrices including zero eigenvalues.",
+          "The motivating paper is primarily a condition-independent 1/k guarantee."
+        ],
+        "reasoning": "The global backward-error denominator and null-eigenvalue witness make classical SPD interval minimax results inapplicable; a stronger theorem on arbitrary alpha and same ratio could cover the claim, but none was verified.",
+        "searches": [
+          "Published Resultary/2026 stagewise-safe-two-step-richardson-frontier RESULT.md",
+          "arXiv:2604.16075 abstract/intro",
+          "Cornell stationary iteration Richardson spectral radius"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2604.16075 abstract and publicly accessible intro preview",
+        "Resultary 2026/9/20 stagewise-safe two-step Richardson full RESULT.md",
+        "Cornell stationary iteration lecture notes identified in published record",
+        "Resultary semantic query 3"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source paper advertises Richardson <=1/k but not this alpha-dependent exact envelope in accessible material.",
+          "Published stagewise-safe result instead requires every factor nonexpansive over an SPD interval and measures polynomial error."
+        ],
+        "reasoning": "Neither cited theorem implies the two sharp competing witnesses or the all-horizon alpha upper bound by direct substitution; however full Section 3 of arXiv:2604.16075 was inaccessible and priority remains qualified.",
+        "searches": [
+          "arXiv:2604.16075 abstract and opening preview",
+          "Published stagewise-safe Richardson RESULT.md full",
+          "web: exact finite-horizon normwise backward error optimal Richardson"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The audited objective is the residual-to-iterate ratio with matrix perturbations only, unlike SPD spectral-radius forward-error tuning.",
+          "Original paper arXiv:2604.16075 establishes a 1/k bound; accessible abstract/introduction do not specify sharp alpha>1 envelope."
+        ],
+        "reasoning": "Equivalent parametrization is scalar residual-to-solution polynomial quotient under matrix-only backward error. The accessible part of the motivating paper and published related record do not state the endpoint/minimax formula. Full paper Section 3 could not be independently read here; no whole-document negative claim.",
+        "searches": [
+          "Resultary: Richardson matrix only backward error sharp overrelaxation uniform PSD k horizon 1/k",
+          "web: Richardson backward error overrelaxation optimal stepsize 1+1/sqrt(3)",
+          "arXiv:2604.16075"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No database entry found with exact threshold 1+1/sqrt(3) or root u_k for the matrix-only normwise objective."
+        ],
+        "reasoning": "This is an analytic continuum minimax problem, not a finite numerical table. Negative indexed searches do not establish absence from the inaccessible full article.",
+        "searches": [
+          "Resultary backward-error Richardson frontier search",
+          "web: \"Richardson\" \"backward error\" \"1+1/sqrt(3)\"",
+          "arXiv:2604.16075"
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct exact minimax optimization: source currently accessible establishes only generic 1/k guarantee; related published Richardson frontier uses another objective. The primary full-text comparison is explicitly incomplete due access; no negative whole-paper assertion or novelty certification.",
+      "residual_risks": [
+        "Highly relevant arXiv:2604.16075 full Section 3.2 could not be read due access/transport limitation; it could contain a dominating sharp alpha analysis. This is a material priority uncertainty, not proof of coverage or scientific falsehood.",
+        "Exact spectral norm and zero-start assumptions are indispensable; other backward error definitions change answer."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Known 1/k theorem, but insufficient full-text access to rule out more complete alpha-dependent analysis.",
+          "evidence": [
+            "arXiv:2604.16075 abstract; Paperity PDF preview https://paperity.org/p/374072081/towards-universal-convergence-of-backward-error-in-linear-system-solvers; full-body limitation recorded"
+          ],
+          "identifier_or_url": "arXiv:2604.16075; https://arxiv.org/abs/2604.16075",
+          "material_read": "ArXiv abstract, public publication record and introductory preview through early exposition; full Section 3.2 unavailable in this run",
+          "method": "Tried arXiv PDF and HTML, independent lawful OA preview, then authorized Oxford institutional retrieval; returned vpn_disconnected; no bypass",
+          "title": "Towards Universal Convergence of Backward Error in Linear System Solvers",
+          "trigger": "Direct motivating paper with same normwise backward-error objective"
+        },
+        {
+          "assessment": "Different spectral contraction norm and fixed SPD interval, so does not cover this matrix-only backward-error envelope.",
+          "evidence": [
+            "Theorem 1 and Theorem 2 statements"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-stagewise-safe-two-step-richardson-frontier--31fff666d705/RESULT.md",
+          "material_read": "Entire RESULT.md: definitions, two-step frontier, proof and limitations",
+          "method": "GitHub full text",
+          "title": "Sharp stagewise-safe Richardson frontier and a no-acceleration barrier",
+          "trigger": "Nearest published exact Richardson optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Provides exact optimal constant stepsizes for a mathematically motivated universal backward-error metric, improves the unit-step all-k guarantee by a sharp 1+1/sqrt(3) relaxation and asymptotically halves the best horizon-k constant. Crucially, includes inconsistent singular systems which classical forward-error treatments omit.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For real symmetric nonzero PSD A, nonzero b (including inconsistent equations), zero-start Richardson with eta=alpha/||A||_2 and 0<alpha<2 has exact universal matrix-only normwise backward error at horizon k>=1 equal to max(1/(alpha k), |1-alpha|^k/(1-(1-alpha)^k)), attained by singular 2x2 and scalar witnesses. For k>=2 the unique optimizing alpha=1+u_k solves u_k^k[k(1+u_k)+(-1)^k]=1 and approaches 2-log(2k)/k. A 1/k bound simultaneously at all horizons holds exactly for 1<=alpha<=1+1/sqrt(3).",
+  "limitations": [
+    "Full text of arXiv:2604.16075 Section 3.2 not independently read (arXiv/OA attempts failed; authorized Oxford VPN disconnected). This is a priority risk and source-access limitation, not a scientific FAIL.",
+    "Exact arithmetic, zero start, constant relaxation <2 and matrix-only backward error; not a finite-precision, forward-error or nonsymmetric result."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The stated claims concern all integers \(k\ge1\) and all dimensions. Their proof is the spectral reduction, monotonicity, exact endpoint witnesses, unique minimax intersection and parity argument in `RESULT.md`; finite computation does not certify universal quantifiers.
+## correctness
 
-## Reproducible checks
+PASS
 
-Run `python3 check.py` with a Python 3 standard library. It tests the exact \(k=2\) root and safe-window boundary, selected minimax root locations, a dense spectral grid, randomized diagonal positive-semidefinite instances and constructed sharp endpoint witnesses. It also verifies that \(\alpha<1\) and \(\alpha>1+1/\sqrt3\) have explicit violating examples. The checker requires no external dependencies.
+Read RESULT.md spectral proof. Iteration residual is -(I-eta A)^k b and solution multiplier eta sum_(j=0)^(k-1)(1-beta)^j b at eigenvalue beta=eta lambda in [0,alpha]. This sum is strictly positive for beta<2, preventing 0/0 even for inconsistent systems. The residual-to-normwise-solution ratio is a positive-weight maximum of the scalar g(beta). On [0,1] it decreases and is bounded by 1/(alpha k); for beta>1 the formula increases in u=beta-1, yielding the top-eigenvalue endpoint. Both endpoints are attained by explicit PSD examples. On alpha>1 the first branch decreases and second increases, giving one crossing root; log expansion gives asymptotic. k=2 scalar witness sets sharp all-k bound u<=1/sqrt(3), while all even/odd k satisfy (k+1)u^k<=1 and (k-1)u^k<=1 by elementary recurrence monotonicity. k=1 has no admitted minimizer. Independent scalar spectral tests for k=1..40 and six alpha values over 401-point grids corroborated endpoints; grid search is not the minimax proof.
 
-## Limits
+## originality
 
-No numerical test exhausts real step factors, all PSD matrices, or all positive integers. Arithmetic is exact in the mathematical theorem, while `check.py` uses floating-point for illustrative consistency tests. No claims about finite-precision backward stability, varying steps, non-PSD matrices or external independent auditing are implied.
+PASS
+
+Best-of-knowledge distinct exact minimax optimization: source currently accessible establishes only generic 1/k guarantee; related published Richardson frontier uses another objective. The primary full-text comparison is explicitly incomplete due access; no negative whole-paper assertion or novelty certification.
+
+## value
+
+PASS
+
+Provides exact optimal constant stepsizes for a mathematically motivated universal backward-error metric, improves the unit-step all-k guarantee by a sharp 1+1/sqrt(3) relaxation and asymptotically halves the best horizon-k constant. Crucially, includes inconsistent singular systems which classical forward-error treatments omit.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
