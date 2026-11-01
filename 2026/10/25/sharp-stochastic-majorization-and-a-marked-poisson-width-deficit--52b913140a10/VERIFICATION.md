@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The accompanying `verify.py` uses only the Python standard library and can be run in the extracted package directory with `python3 verify.py`. It enumerates color allocations and directly optimizes complete-multipartite Gaussian support for small profiles, comparing the exact conditional extreme-cap survival law; separately it checks 5,352 outward unit transfers, integrates the predicted limiting tail against the closed constant, and runs a seeded Gaussian event-frequency sanity check. Actual observed output: `VERIFY_OK exact_conditional_cases=33 transfer_cases=5352 montecarlo=6000 positive_fraction=0.27350 expected=0.26667`.
+## correctness
 
-The proof of the infinite-dimensional Poisson limit, uniform integrability and stochastic extremality is analytical in `RESULT.md`, not inferred from these finite tests. Bounds for standardized Gaussian maxima and classical Poisson convergence are mathematical inputs. The role of the numerical checks is corroborative only.
+PASS
+
+The centrally symmetric support is max_i g_i−min_i g_i for the full root polytope, and max_{different labels}|g_i−g_j| for multipartite. Positive loss D>s is exactly the event that the extreme upper/lower caps of radius s all have the same color. Uniform random rank labeling gives conditional probability Σ_c(n_c)_{K_s}/(N)_{K_s}. Outward integer part-size transfer changes the k falling factorial terms by k![C(p,k−1)−C(q−1,k−1)]≥0, strict for k=2 and attainable at every finite Gaussian s. Rotational Gaussian normalization gives spherical stochastic order and strict mean-width extremizers. Independent marked upper/lower Gaussian Poisson point-process limits give survival Σ α_c²/[α_c+(1−α_c)e^t]², positive-proportion uniform integrability via bounded second moments of rescaled Gaussian extrema, and mean −1−Σlog(1−α_c). Strict convexity of x²/[x+(1−x)e^t]² proves Schur majorization of limiting law. Independent exact rank-allocation enumeration for 20 small cases plus symbolic convexity identity corroborated finite claims; no finite experiment substitutes for the Poisson proof.
+
+## originality
+
+PASS
+
+D'Alì–Delucchi–Michałek (2022) define and relate symmetric edge, adjacency, and Kantorovich–Rubinstein polytopes and analyze algebraic, facet, and Ehrhart invariants; Higashitani–Jochemko–Michałek (2019) derive facet/Ehrhart results for complete bipartite/multipartite shapes. The exact two-part directional-width result is an acknowledged COVERED SPECIAL CASE and not independently original. The r≥3 finite exact conditional cap law, complete majorization of loss for every threshold, and multicolor independent upper/lower Poisson law are not supplied by the inspected primary theorem sections and not an algebraic consequence of the facet h* count. A general Gaussian colored-order-statistics paper could carry an equivalent formulation, residual risk retained.
+
+## value
+
+PASS
+
+Natural graph root-polytope metric width statistic, class-wide exactly ordered by graph partition imbalance, with sharp asymptotic distribution and mean correction. The positive r-part classification and marked extreme-value law are mathematically useful beyond a one-off numerical invariant and distinguish width loss from volume/Ehrhart properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

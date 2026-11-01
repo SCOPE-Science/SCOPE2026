@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The support maximum is the largest cross-part Gaussian difference. Its loss from the unrestricted range is exactly the lesser of the two extreme-to-first-outsider gaps. The rank-label exchangeability identity gives a finite conditional tail law. The unit-transfer falling-factorial difference is nonnegative for all cap sizes and positive at cap size two, establishing strict finite mean-width extremality. Joint marked upper and lower Gaussian Poisson limits yield the survival law and its explicit integral. Gaussian maximal-tail bounds control the first moment; the Euclidean radial factor is handled by the projected Gaussian polar decomposition. Strict convexity of the survival summand proves the asymptotic majorization claim. Small finite cases and 5,352 transfer checks reproduced the algebra, without serving as proofs of limits.
+PASS
 
-## Originality — PASS (qualified)
+The centrally symmetric support is max_i g_i−min_i g_i for the full root polytope, and max_{different labels}|g_i−g_j| for multipartite. Positive loss D>s is exactly the event that the extreme upper/lower caps of radius s all have the same color. Uniform random rank labeling gives conditional probability Σ_c(n_c)_{K_s}/(N)_{K_s}. Outward integer part-size transfer changes the k falling factorial terms by k![C(p,k−1)−C(q−1,k−1)]≥0, strict for k=2 and attainable at every finite Gaussian s. Rotational Gaussian normalization gives spherical stochastic order and strict mean-width extremizers. Independent marked upper/lower Gaussian Poisson point-process limits give survival Σ α_c²/[α_c+(1−α_c)e^t]², positive-proportion uniform integrability via bounded second moments of rescaled Gaussian extrema, and mean −1−Σlog(1−α_c). Strict convexity of x²/[x+(1−x)e^t]² proves Schur majorization of limiting law. Independent exact rank-allocation enumeration for 20 small cases plus symbolic convexity identity corroborated finite claims; no finite experiment substitutes for the Poisson proof.
 
-The geometric family was introduced and studied in arithmetic/combinatorial literature. The relevant published material inspects facets, faces, Ehrhart and graph-join operations, not the conditional Gaussian range-loss distribution. A prior result already covers two color classes; that case is explicitly excluded. A related multipartite stable-set-polytope width theorem concerns a distinct graph polytope and does not imply the symmetric-edge-polytope loss law. The new claims are the simultaneous three-or-more-color stochastic majorization and marked-Poisson limiting distribution. Targeted semantic searches returned closest work on inradii, tangent facets, Laplacian graph spectra, and random graphical-zonotope width variance, none of which implies the tail identity. Older order-statistics results may supply equivalent formulations not discovered; priority remains qualified.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result solves a natural fixed-vertex, fixed-part extremal mean-width problem and identifies an exact full limiting fluctuation law with a geometry-dependent point mass, a positive strict majorization ordering, and a closed sharp mean correction. This refines the geometry beyond face enumeration and is not a numerical edge-case improvement.
+D'Alì–Delucchi–Michałek (2022) define and relate symmetric edge, adjacency, and Kantorovich–Rubinstein polytopes and analyze algebraic, facet, and Ehrhart invariants; Higashitani–Jochemko–Michałek (2019) derive facet/Ehrhart results for complete bipartite/multipartite shapes. The exact two-part directional-width result is an acknowledged COVERED SPECIAL CASE and not independently original. The r≥3 finite exact conditional cap law, complete majorization of loss for every threshold, and multicolor independent upper/lower Poisson law are not supplied by the inspected primary theorem sections and not an algebraic consequence of the facet h* count. A general Gaussian colored-order-statistics paper could carry an equivalent formulation, residual risk retained.
 
-## Limitations and priority risk
+## value
 
-Asymptotic conclusions require fixed at least three parts with every limiting proportion positive. The finite stochastic-order statement concerns isotropic sampling, not deterministic containments. The complete literature, especially under colored extremes and restricted-range aliases, is not exhausted. Numerical checks are corroborative only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Natural graph root-polytope metric width statistic, class-wide exactly ordered by graph partition imbalance, with sharp asymptotic distribution and mean correction. The positive r-part classification and marked extreme-value law are mathematically useful beyond a one-off numerical invariant and distinguish width loss from volume/Ehrhart properties.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

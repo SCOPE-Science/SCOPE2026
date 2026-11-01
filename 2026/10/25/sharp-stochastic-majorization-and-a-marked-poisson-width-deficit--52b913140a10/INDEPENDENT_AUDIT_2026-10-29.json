@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T06:14:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The centrally symmetric support is max_i g_i−min_i g_i for the full root polytope, and max_{different labels}|g_i−g_j| for multipartite. Positive loss D>s is exactly the event that the extreme upper/lower caps of radius s all have the same color. Uniform random rank labeling gives conditional probability Σ_c(n_c)_{K_s}/(N)_{K_s}. Outward integer part-size transfer changes the k falling factorial terms by k![C(p,k−1)−C(q−1,k−1)]≥0, strict for k=2 and attainable at every finite Gaussian s. Rotational Gaussian normalization gives spherical stochastic order and strict mean-width extremizers. Independent marked upper/lower Gaussian Poisson point-process limits give survival Σ α_c²/[α_c+(1−α_c)e^t]², positive-proportion uniform integrability via bounded second moments of rescaled Gaussian extrema, and mean −1−Σlog(1−α_c). Strict convexity of x²/[x+(1−x)e^t]² proves Schur majorization of limiting law. Independent exact rank-allocation enumeration for 20 small cases plus symbolic convexity identity corroborated finite claims; no finite experiment substitutes for the Poisson proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 6 gives identification/cuts and other sections give root-polytope geometry; arithmetic facets/Ehrhart are broader in graph classes but do not imply probability over spherical support directions."
+        ],
+        "reasoning": "A broad class of graphs does not cover a different invariant unless it determines widths/cap labels.",
+        "searches": [
+          "D’Alì–Delucchi–Michałek 2022 Theorem 6, §4 graph constructions; Higashitani–Jochemko–Michałek 2018 Prop.3.5"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py in assigned frozen Git tree",
+        "OA D’Alì et al 2022 PDF page 3 Definition 1, Theorem 6 structural overview",
+        "Higashitani et al 2018 arXiv PDF main results on h* and facets",
+        "Resultary query complete multipartite symmetric edge root polytopes Gaussian spherical mean width deficits stochastic majorization marked Poisson",
+        "independent_math_checks.py exhaustive 20 small color-label conditional comparisons and symbolic f_t convexity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Graph definition is prior, and known r=2 is covered; neither faceting nor Ehrhart data mathematically determine the stochastic cap probability."
+        ],
+        "reasoning": "The new rank-exchangeability/marked-Poisson argument is needed; the special case is expressly excluded from novelty.",
+        "searches": [
+          "D’Alì et al 2022 Definition 1, Theorem 6, Higashitani et al 2018 facet/Ehrhart theorem"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Known aliases include symmetric edge, full root, adjacency and Kantorovich–Rubinstein polytopes; primary sources show these objects coincide or are cuts, but not the width-deficit law."
+        ],
+        "reasoning": "Comparisons used underlying vertex sets and induced Euclidean width, not merely title matching; coordinate-changed lattice norms must not be equated.",
+        "searches": [
+          "Resultary query complete multipartite symmetric edge root polytopes Gaussian spherical mean width deficits stochastic majorization marked Poisson; D’Alì–Delucchi–Michałek 2022 §2, Higashitani–Jochemko–Michałek 2018 §3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The 2-part distribution is prior, but inspected catalogs did not yield r≥3 exact color-marked survival or table for every positive proportion vector."
+        ],
+        "reasoning": "Claim goes beyond tabulated numbers: one exact finite stochastic-order law and an infinite family of limiting distributions.",
+        "searches": [
+          "Resultary query complete multipartite symmetric edge root polytopes Gaussian spherical mean width deficits stochastic majorization marked Poisson; prior published two-part Gaussian directional-width special case noted in frozen RESULT.md"
+        ]
+      },
+      "rationale": "D'Alì–Delucchi–Michałek (2022) define and relate symmetric edge, adjacency, and Kantorovich–Rubinstein polytopes and analyze algebraic, facet, and Ehrhart invariants; Higashitani–Jochemko–Michałek (2019) derive facet/Ehrhart results for complete bipartite/multipartite shapes. The exact two-part directional-width result is an acknowledged COVERED SPECIAL CASE and not independently original. The r≥3 finite exact conditional cap law, complete majorization of loss for every threshold, and multicolor independent upper/lower Poisson law are not supplied by the inspected primary theorem sections and not an algebraic consequence of the facet h* count. A general Gaussian colored-order-statistics paper could carry an equivalent formulation, residual risk retained.",
+      "residual_risks": [
+        "Two-part width formula is prior and is a covered special case; this audit assesses only r≥3 multicolor refinement.",
+        "Potential Gaussian rank statistic alias \"restricted-range\" or \"colored extreme spacings\" in older literature not fully exhausted.",
+        "Asymptotics require fixed r and each α_c>0; no vanishing proportions, growing r or other metric claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS_OBJECT_DEFINITION_AND_ALIASES; no stochastic mean-width statement located in read passages",
+          "evidence": "Definition 1: P_G=conv{e_v−e_w,e_w−e_v}; Theorem 6 links adjacency and fundamental polytopes.",
+          "identifier_or_url": "https://re.public.polimi.it/retrieve/c8933b89-2d07-4398-aa92-50625fa50bf1/",
+          "material_read": "Open-access complete 42-page article available; actual material read Introduction pages 1–4, Definition 1, Example 3 and cited structural summary of Theorem 6",
+          "method": "Institutional OA publisher PDF, text and page-3 screenshot",
+          "title": "Many faces of symmetric edge polytopes",
+          "trigger": "Same class under adjacency/Kantorovich–Rubinstein aliases, potential dominating graphs theorem"
+        },
+        {
+          "assessment": "PRIOR_FACETS_EHRHART; not same directional-width statistic in read material",
+          "evidence": "The main theorem concerns h* coefficients and real-rootedness, not Gaussian support gaps.",
+          "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+          "material_read": "Open primary 18-page PDF introduction, main statements, §3 facet enumeration overview and complete bipartite h* theorem",
+          "method": "ArXiv primary PDF text and page-1 screenshot",
+          "title": "Arithmetic aspects of symmetric edge polytopes",
+          "trigger": "Complete bipartite/multipartite part-size family and possible stronger invariants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Natural graph root-polytope metric width statistic, class-wide exactly ordered by graph partition imbalance, with sharp asymptotic distribution and mean correction. The positive r-part classification and marked extreme-value law are mathematically useful beyond a one-off numerical invariant and distinguish width loss from volume/Ehrhart properties.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md, SLOGAN.txt, VERIFICATION.md, verify.py in assigned frozen Git tree",
+    "OA D’Alì et al 2022 PDF page 3 Definition 1, Theorem 6 structural overview",
+    "Higashitani et al 2018 arXiv PDF main results on h* and facets",
+    "Resultary query complete multipartite symmetric edge root polytopes Gaussian spherical mean width deficits stochastic majorization marked Poisson",
+    "independent_math_checks.py exhaustive 20 small color-label conditional comparisons and symbolic f_t convexity"
+  ],
+  "disposition": "passed",
+  "residual_risks": [
+    "Two-part width formula is prior and is a covered special case; this audit assesses only r≥3 multicolor refinement.",
+    "Potential Gaussian rank statistic alias \"restricted-range\" or \"colored extreme spacings\" in older literature not fully exhausted.",
+    "Asymptotics require fixed r and each α_c>0; no vanishing proportions, growing r or other metric claim."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERS_OBJECT_DEFINITION_AND_ALIASES; no stochastic mean-width statement located in read passages",
+      "evidence": "Definition 1: P_G=conv{e_v−e_w,e_w−e_v}; Theorem 6 links adjacency and fundamental polytopes.",
+      "identifier_or_url": "https://re.public.polimi.it/retrieve/c8933b89-2d07-4398-aa92-50625fa50bf1/",
+      "material_read": "Open-access complete 42-page article available; actual material read Introduction pages 1–4, Definition 1, Example 3 and cited structural summary of Theorem 6",
+      "method": "Institutional OA publisher PDF, text and page-3 screenshot",
+      "title": "Many faces of symmetric edge polytopes",
+      "trigger": "Same class under adjacency/Kantorovich–Rubinstein aliases, potential dominating graphs theorem"
+    },
+    {
+      "assessment": "PRIOR_FACETS_EHRHART; not same directional-width statistic in read material",
+      "evidence": "The main theorem concerns h* coefficients and real-rootedness, not Gaussian support gaps.",
+      "identifier_or_url": "https://arxiv.org/pdf/1807.07678",
+      "material_read": "Open primary 18-page PDF introduction, main statements, §3 facet enumeration overview and complete bipartite h* theorem",
+      "method": "ArXiv primary PDF text and page-1 screenshot",
+      "title": "Arithmetic aspects of symmetric edge polytopes",
+      "trigger": "Complete bipartite/multipartite part-size family and possible stronger invariants"
+    }
+  ]
+}
