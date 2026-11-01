@@ -1,19 +1,21 @@
-# Scientific assessment: theta-network absorption theorem
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The quantum-loss normalization is fixed explicitly by the norm identity \(d\|\psi\|^2/dt=-\kappa|\psi_a|^2\). The dark spectral subspace is reducing and all complementary finite-dimensional generator eigenvalues have strictly negative real part. The full-source-overlap case is reduced, without assuming nondegenerate graph spectra, to the terminal recurrence on two three-edge arms and one \(m\)-edge arm. The exact Chebyshev invariant constrains any source-visible dark eigenvalue to \(\pm\sqrt3\); the length-specific endpoint conditions are equivalent to \(m\equiv7\pmod{12}\). Both normalized dark eigenvectors have squared source amplitude \(1/(2m+1)\). A direct finite-matrix verifier reproduces the eigenvector equations and sample loss dynamics. Risks: no infinite-time decay-rate lower bound or finite-time uniformity is asserted; computational samples do not prove the general statement.
+PASS
 
-## Originality — PASS (provisional publication priority)
+Reconstructed the finite-dimensional contraction-to-dark-subspace argument: the sink-free adjacency eigenvectors are reducing and every complementary eigenvalue of -ihA-(kappa/2)P_a has strictly negative real part (Jordan blocks also decay). For a source-visible eigenvector z!=0, short arms require lambda!=±1 and give u1=z/(lambda^2-1),u2=lambda*z/(lambda^2-1). The long Chebyshev recurrence, both endpoint constraints and identity U^2+V^2-lambda*U*V=1 imply -(lambda^2-1)(lambda^2-3)=0, hence lambda=±sqrt(3). The U recurrence at ±sqrt(3) selects exactly m≡7(mod12). At those m two sink-dark normalized vectors have squared norm 2m+1, b amplitude 1, are orthogonal and exhaust source-visible modes, producing S=2/(2m+1). Independent exact symbolic checks verified the identity and both endpoint signs for m=3..61, dense spectral projector computations for m=3..72 agreed to 2.1e-16, six constructed vectors passed and finite-time dynamics were checked. These computations corroborate rather than establish the all-m theorem.
 
-Caruso et al. (arXiv:0901.4454) and Razzoli et al. (arXiv:2011.13794) give the underlying invariant-subspace/transport framework. Wang et al. (MATCH 62, 581–598, 2009) consider exactly the theta-graph class but study unrooted adjacency cospectrality rather than absorption from one terminal to the other. Agliari (arXiv:1102.3994) treats trapping on random graphs. The present result computes a complete source-specific classification across an infinite theta family, with an exact modulo-twelve exception and trapped fraction absent from the inspected results. The general dark-projector framework is prior knowledge; the special arithmetic conclusion is the assessed addition. Residual risk: an unidentified broader theorem or a theta-specific source could subsume this calculation. Priority is not independently validated.
+## originality
 
-## Value — PASS
+PASS
 
-Two equal three-edge routes and a variable third route form a natural minimal bicyclic interference network with three genuinely separate transport channels. The theorem makes the physically consequential question “is the opposite-terminal excitation absorbed with certainty?” decidable by one arithmetic residue and supplies the exact asymptotic noncapture weight. The alternating capture/capture-failure behavior survives every positive sink rate and nonzero hopping scale, establishing a sharp boundary of coherent interference protection rather than a tiny numerical improvement or an arbitrary tabulation. The result is narrow but complete and supplies an exact benchmark for models of interference-limited excitation transfer.
+Statement-level literature comparison found the dark-projector/absorbing-site reduction to be established in quantum-walk transport, while the all-m evaluation for adjacency theta paths of lengths (3,3,m), exceptional residue m=7 mod 12, and exact terminal-source dark weight 2/(2m+1) were not identified in the inspected primary results. The assessment is best of knowledge: absence of a search hit is not a proof of novelty.
 
-## Closest literature and scientific limits
+## value
 
-Wang et al. is the closest same-graph primary source; Razzoli et al. the closest general rooted quantum-transport methodology. The theorem concerns an adjacency Hamiltonian and opposite-terminal source only, not graph-Laplacian propagation, phase disorder, asymmetric hopping or finite-time hitting. A general trapped-state formula should not be mistaken for a previously evaluated theta arithmetic classification; likewise, failing to find an identical formula does not certify novelty.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The three-route theta network is a natural minimal two-terminal, multichannel interference geometry; its quantitative question whether a designated opposite-terminal excitation is eventually fully absorbed is physically and spectrally motivated. The theorem closes that question for every third-arm length with a sharp period-twelve phase boundary and an exact trapped fraction invariant under any positive local sink rate and nonzero uniform hopping. This is a nontrivial complete classification and exact benchmark, not a table of arbitrary small cases. The value is specific to ideal coherent infinite-time adjacency transport and does not imply robustness to phase/disorder or a general transport theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

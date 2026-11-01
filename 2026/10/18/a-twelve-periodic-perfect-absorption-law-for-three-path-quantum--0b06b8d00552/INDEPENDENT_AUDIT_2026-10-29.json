@@ -1,0 +1,296 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T16:13:25Z",
+  "axes": {
+    "correctness": {
+      "key_mathematical_tests": {
+        "dark_eigenvector_checks": [
+          {
+            "m": 7,
+            "norm2": 15.0,
+            "residual": 1.066295359154902e-15,
+            "sign": 1
+          },
+          {
+            "m": 7,
+            "norm2": 15.0,
+            "residual": 1.066295359154902e-15,
+            "sign": -1
+          },
+          {
+            "m": 19,
+            "norm2": 38.99999999999999,
+            "residual": 4.778186241974954e-15,
+            "sign": 1
+          },
+          {
+            "m": 19,
+            "norm2": 38.99999999999999,
+            "residual": 4.778186241974954e-15,
+            "sign": -1
+          },
+          {
+            "m": 31,
+            "norm2": 63.00000000000001,
+            "residual": 1.3624926364662347e-14,
+            "sign": 1
+          },
+          {
+            "m": 31,
+            "norm2": 63.00000000000001,
+            "residual": 1.3624926364662347e-14,
+            "sign": -1
+          }
+        ],
+        "exact_endpoint_lengths_checked": [
+          3,
+          61
+        ],
+        "exact_endpoint_signs": 2,
+        "exceptional_lengths": [
+          7,
+          19,
+          31,
+          43,
+          55,
+          67
+        ],
+        "finite_time_samples": [
+          {
+            "finite_time_survival": 0.019789590386078963,
+            "h": 1.0,
+            "infinite_time_pred": 0.0,
+            "kappa": 0.7,
+            "m": 6,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.03180693750523071,
+            "h": -1.3,
+            "infinite_time_pred": 0.0,
+            "kappa": 2.1,
+            "m": 6,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.13363470376471626,
+            "h": 1.0,
+            "infinite_time_pred": 0.13333333333333333,
+            "kappa": 0.7,
+            "m": 7,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.13333386668363084,
+            "h": -1.3,
+            "infinite_time_pred": 0.13333333333333333,
+            "kappa": 2.1,
+            "m": 7,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.034203444164912035,
+            "h": 1.0,
+            "infinite_time_pred": 0.0,
+            "kappa": 0.7,
+            "m": 8,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.0453603784604541,
+            "h": -1.3,
+            "infinite_time_pred": 0.0,
+            "kappa": 2.1,
+            "m": 8,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.059849968945588194,
+            "h": 1.0,
+            "infinite_time_pred": 0.05128205128205128,
+            "kappa": 0.7,
+            "m": 19,
+            "time": 700
+          },
+          {
+            "finite_time_survival": 0.060648011068206144,
+            "h": -1.3,
+            "infinite_time_pred": 0.05128205128205128,
+            "kappa": 2.1,
+            "m": 19,
+            "time": 700
+          }
+        ],
+        "interpretation": "Finite checks corroborate but do not replace the all-length proof.",
+        "max_abs_spectral_deviation": 2.0816681711721685e-16,
+        "number_of_spectral_checks": 70,
+        "spectral_m_range": [
+          3,
+          72
+        ],
+        "symbolic_invariant_factorization": "-(l - 1)*(l + 1)*(l**2 - 3)/4"
+      },
+      "proof_boundaries": [
+        "Only adjacency Hamiltonian (not graph Laplacian) with uniform real nonzero h, one strictly positive local loss at a, initial source |b>, edge lengths 3,3,m with m>=3.",
+        "Only t→∞ survival, not capture rate uniform in m or finite-time equality.",
+        "Dark modes invisible from source may exist even when source survival vanishes."
+      ],
+      "rationale": "Reconstructed the finite-dimensional contraction-to-dark-subspace argument: the sink-free adjacency eigenvectors are reducing and every complementary eigenvalue of -ihA-(kappa/2)P_a has strictly negative real part (Jordan blocks also decay). For a source-visible eigenvector z!=0, short arms require lambda!=±1 and give u1=z/(lambda^2-1),u2=lambda*z/(lambda^2-1). The long Chebyshev recurrence, both endpoint constraints and identity U^2+V^2-lambda*U*V=1 imply -(lambda^2-1)(lambda^2-3)=0, hence lambda=±sqrt(3). The U recurrence at ±sqrt(3) selects exactly m≡7(mod12). At those m two sink-dark normalized vectors have squared norm 2m+1, b amplitude 1, are orthogonal and exhaust source-visible modes, producing S=2/(2m+1). Independent exact symbolic checks verified the identity and both endpoint signs for m=3..61, dense spectral projector computations for m=3..72 agreed to 2.1e-16, six constructed vectors passed and finite-time dynamics were checked. These computations corroborate rather than establish the all-m theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Razzoli et al prove a general transport-projection method and compute examples for complete bipartite, strongly regular, joins and complete-graph simplex families, rather than theta (3,3,m).",
+          "Le et al study suppression of dark states and general graph-symmetry mechanisms; the read source does not evaluate the requested rooted theta family.",
+          "Wang et al classify spectral/cospectral properties of the same theta graph objects but do not provide source-specific rank-one absorption weights."
+        ],
+        "reasoning": "A general projector theorem covers the *algorithmic reduction* to dark states but not the assessed evaluated result. A theorem explicitly computing source-sink overlap for arbitrary three-path lengths could dominate this result if found; none was identified in the read literature. Hamiltonians with graph-Laplacian rather than adjacency couplings are not interchangeable at the degree-three terminals.",
+        "searches": [
+          "Resultary: Perfect state trapping and absorption on two-terminal parallel path quantum networks with Chebyshev resonance condition and path lengths 3,3,m",
+          "Razzoli Paris Bordone arXiv:2011.13794 Sections 3, 4 and Appendices A-B",
+          "Le Donati Severini Caruso arXiv:1707.07482 Dark States in Quantum Networks",
+          "Wang Huang Belardo Li Marzi 2009 theta graph spectral characterization"
+        ]
+      },
+      "checked_sources": [
+        "Wang et al. MATCH 62 (2009) 581-598 official primary full text and page screenshots",
+        "Caruso et al. arXiv:0901.4454 full preprint, especially section II and Appendix A.5",
+        "Razzoli et al. arXiv:2011.13794 full preprint and PMC full text, sections 3-4 and appendices",
+        "Agliari arXiv:1102.3994 full preprint",
+        "Le et al. arXiv:1707.07482 full preprint",
+        "Resultary published record 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 (different invariant)",
+        "Resultary published record 2026/10/11/SCOPE-exact-algebraic-gnarledness-of-three-path-theta-graphs--cceb12dd2a0d (different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Unrooted adjacency characteristic-polynomial data omit which eigenvectors have zero amplitude at a specified absorber terminal and nonzero overlap at the opposite terminal.",
+          "General invariant-subspace methods imply the projection representation but require solving the theta terminal recurrence and normalizing the surviving modes.",
+          "The source proof reduces the source-visible dark eigenvalues to ±sqrt(3) and evaluates both normalized contributions exactly."
+        ],
+        "reasoning": "At the level of logical implication, the general projector formula plus the graph definition permit an independent derivation, as most specialized exact results do, but the closest inspected sources do not present an already-evaluated stronger parameterized absorption theorem whose direct corollary is the claimed formula. A hidden special theorem or equivalent basis calculation is a residual risk.",
+        "searches": [
+          "Wang et al On the spectral characterization of theta graphs MATCH 62 (2009), definitions and Theorems 5.1-5.6",
+          "Caruso et al 2009 dark-subspace theorem",
+          "Razzoli et al 2021 Sections 3-4 transport efficiency",
+          "Le et al arXiv:1707.07482 suppression of dark states on networks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Caruso et al, arXiv:0901.4454, Section II and Appendix A.5: sink-invisible invariant subspaces determine persistent populations in quantum networks.",
+          "Razzoli et al, arXiv:2011.13794, Sections 3-4: transport efficiency via trap-generated subspace, explicit non-theta graph families.",
+          "Current exact claim needs two short-arm boundary equations, a Chebyshev elimination, and the norm of two source-visible dark eigenvectors."
+        ],
+        "reasoning": "The absorbing-site dark-subspace projector and the trap cyclic/Krylov space are mathematically equivalent formulations of the long-time survival question. That general equivalence is prior and not claimed as original. In the inspected primary papers it is not accompanied by an evaluation of the rooted adjacency theta (3,3,m) family; the modulo-twelve resonance and fractional weight require additional computation, not simply substituting an input integer into a displayed general closed form.",
+        "searches": [
+          "Resultary: Continuous-time quantum walk absorption with trap at one terminal of theta graph three internally vertex-disjoint paths, dark subspace, rational noncapture, period twelve",
+          "Web: continuous time quantum walk theta graph sink dark states absorption paths",
+          "Caruso et al arXiv:0901.4454, invariant dark eigenspace; Razzoli et al arXiv:2011.13794, transport/trap Krylov subspace"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published SCOPE two-distance-coloring result calculates a different theta-graph invariant (chromatic number of graph square).",
+          "The published SCOPE gnarledness result calculates degree-one algebraic gnarledness for theta graphs, not transport absorption.",
+          "Wang et al tables and statements concern characteristic polynomials/adjacency spectral characterization, not rooted dark projector weights."
+        ],
+        "reasoning": "These are natural exact parameter and same-object database/table comparisons. None of the inspected tables lists absorption survival by path length. The negative search results support only qualified priority, not an exhaustive novelty guarantee.",
+        "searches": [
+          "Resultary: Source-sink quantum transport theta graphs path lengths dark eigenvectors inverse adjacency Krylov subspace",
+          "Resultary: 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47",
+          "Resultary: 2026/10/11/SCOPE-exact-algebraic-gnarledness-of-three-path-theta-graphs--cceb12dd2a0d",
+          "Wang et al MATCH 62 (2009) 581-598 theorems 5.1–5.6"
+        ]
+      },
+      "rationale": "Statement-level literature comparison found the dark-projector/absorbing-site reduction to be established in quantum-walk transport, while the all-m evaluation for adjacency theta paths of lengths (3,3,m), exceptional residue m=7 mod 12, and exact terminal-source dark weight 2/(2m+1) were not identified in the inspected primary results. The assessment is best of knowledge: absence of a search hit is not a proof of novelty.",
+      "residual_risks": [
+        "Some as-yet-unidentified special-purpose theta-network quantum trapping calculation may contain an equivalent formula or stronger all-arm theorem.",
+        "General dark-subspace formulas supply much of the method and can imply this result after a nontrivial source-visible Chebyshev calculation; originality attaches only to the exact evaluated arithmetic law, not the projector principle.",
+        "Publication-index search cannot establish exhaustive global priority, especially among unindexed theses, older transport reports or alternate physical vocabulary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Graph spectral/cospectral classification, no source-at-terminal single-trap noncapture calculation.",
+          "evidence": "MATCH Communications in Mathematical and in Computer Chemistry 62 (2009), pp 581-598; equations for theta adjacency characteristic polynomial and theorems 5.1-5.6.",
+          "identifier_or_url": "https://match.pmf.kg.ac.rs/electronic_versions/Match62/n3/match62n3_581-598.pdf",
+          "material_read": "Full 18-page open PDF text inspected by sections and result headings; pages 1, 8 and 13 visually reviewed; graph definition, spectral lemmas, theorems 5.1-5.6 checked.",
+          "method": "Official publisher lawful OA PDF text and page screenshots.",
+          "title": "On the spectral characterization of theta graphs",
+          "trigger": "Exactly the same three-internally-disjoint-path theta object, adjacency spectra and potentially dominating closed formulas."
+        },
+        {
+          "assessment": "Anticipates general dark-subspace mechanism but does not state the 3,3,m theta arithmetic result.",
+          "evidence": "arXiv:0901.4454, section II and Appendix A.5.",
+          "identifier_or_url": "https://arxiv.org/pdf/0901.4454",
+          "material_read": "Full public 16-page preprint searchable text; introduction, Section II dark states, Appendix A general-network invariant subspaces, with page-image inspection.",
+          "method": "arXiv open preprint full-text and PDF screenshot.",
+          "title": "Highly efficient energy excitation transfer in light-harvesting complexes: The fundamental role of noise-assisted transport",
+          "trigger": "Fundamental dark-state/subspace mechanism for quantum trapping and survival."
+        },
+        {
+          "assessment": "General source-trap method, explicit families other than this theta network; Laplacian conventions distinguish some examples.",
+          "evidence": "arXiv:2011.13794, sections 3-4 and appendices A-B.",
+          "identifier_or_url": "https://arxiv.org/pdf/2011.13794",
+          "material_read": "Full public 26-page preprint text and publisher OA article HTML; sections on transport method, explicit graph families, Appendices A-B; first page visually inspected.",
+          "method": "Lawful arXiv full-text PDF plus full-text PMC/Entropy HTML.",
+          "title": "Transport efficiency of continuous-time quantum walks on graphs",
+          "trigger": "Potential dominating general theorem for rooted trap transport and dark projection."
+        },
+        {
+          "assessment": "Statistical trapping on random graphs rather than deterministic theta-terminal arithmetic.",
+          "evidence": "arXiv:1102.3994 model and trapping/survival results.",
+          "identifier_or_url": "https://arxiv.org/pdf/1102.3994",
+          "material_read": "Public 13-page PDF text; graph model and random trapping/survival results; page 1 visually inspected.",
+          "method": "Lawful arXiv PDF full-text reading and screenshot.",
+          "title": "Trapping of Continuous-Time Quantum Walks on Erdős–Rényi Graphs",
+          "trigger": "Possible more general source-to-trap asymptotic law."
+        },
+        {
+          "assessment": "General dark-state suppression, not exact absorption law for the specified theta arm family.",
+          "evidence": "arXiv:1707.07482, sections on graph symmetry and dark-state suppression.",
+          "identifier_or_url": "https://arxiv.org/pdf/1707.07482",
+          "material_read": "Public 9-page preprint text, Sections I-IV and main network examples; first page visually inspected.",
+          "method": "Lawful arXiv preprint PDF and screenshot.",
+          "title": "How to Suppress Dark States in Quantum Networks and Bio-Engineered Structures",
+          "trigger": "Adjacency-based general dark states and possible stronger graph-theoretic coverage."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The three-route theta network is a natural minimal two-terminal, multichannel interference geometry; its quantitative question whether a designated opposite-terminal excitation is eventually fully absorbed is physically and spectrally motivated. The theorem closes that question for every third-arm length with a sharp period-twelve phase boundary and an exact trapped fraction invariant under any positive local sink rate and nonzero uniform hopping. This is a nontrivial complete classification and exact benchmark, not a table of arbitrary small cases. The value is specific to ideal coherent infinite-time adjacency transport and does not imply robustness to phase/disorder or a general transport theorem.",
+      "risks": [
+        "Specialized model and only one rooted initial state; no finite-time convergence estimate or disordered extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json and VERIFICATION.md",
+    "Frozen Git verification/check_theta.py and requirements.txt; independently written symbolic/spectral checker",
+    "Wang et al. MATCH 62 (2009) 581-598 official primary full text and page screenshots",
+    "Caruso et al. arXiv:0901.4454 full preprint, especially section II and Appendix A.5",
+    "Razzoli et al. arXiv:2011.13794 full preprint and PMC full text, sections 3-4 and appendices",
+    "Agliari arXiv:1102.3994 full preprint",
+    "Le et al. arXiv:1707.07482 full preprint",
+    "Resultary published record 2026/9/19/SCOPE-two-distance-coloring-theta-graphs--c303e1622d47 (different invariant)",
+    "Resultary published record 2026/10/11/SCOPE-exact-algebraic-gnarledness-of-three-path-theta-graphs--cceb12dd2a0d (different invariant)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer m>=3, uniform nonzero-real adjacency hopping h and positive sink rate kappa at one terminal of the theta graph with edge-path lengths 3,3,m, the long-time unabsorbed probability from the opposite terminal is 2/(2m+1) if m is congruent to 7 modulo 12 and zero otherwise.",
+  "limitations": [
+    "Scientific result judged by proof and independent bounded checks; no formal proof engine, expert attestation, global novelty guarantee or publication.",
+    "Five primary texts consulted including same-object graph spectra and general transport method; equivalent unindexed sources remain possible.",
+    "No public administrative file mutations staged because both METADATA.json and AUDIT.json contain provenance identifiers and complete final verified replacements have not been delivered."
+  ],
+  "residual_risks": [
+    "Originality priority remains best of knowledge, not established globally.",
+    "Finite time may retain substantial transient survival even if the t→∞ value is zero.",
+    "Both administrative scientific package files have operational provenance fields requiring sanitation before public synchronization.",
+    "Some as-yet-unidentified special-purpose theta-network quantum trapping calculation may contain an equivalent formula or stronger all-arm theorem.",
+    "General dark-subspace formulas supply much of the method and can imply this result after a nontrivial source-visible Chebyshev calculation; originality attaches only to the exact evaluated arithmetic law, not the projector principle.",
+    "Publication-index search cannot establish exhaustive global priority, especially among unindexed theses, older transport reports or alternate physical vocabulary."
+  ],
+  "schema_version": 1
+}
