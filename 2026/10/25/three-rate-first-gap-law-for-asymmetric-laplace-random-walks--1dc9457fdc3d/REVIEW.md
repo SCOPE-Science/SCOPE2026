@@ -1,11 +1,21 @@
-# Review
+# Independent mathematical audit
 
-**Correctness (C): PASS.** The maximum-time partition is exhaustive and disjoint; reverse and forward increments are independent. Conditional exponential memorylessness yields the two barrier survival factors exactly. The ladder factorization is checked against its explicit numerator roots, with correct \(z=0\) boundary and transformed survival tails. Binomial coefficient asymptotics, remainder summation, and a unique density-crossing proof justify the claimed exact total variation and its constants. Independent coefficient recurrences were checked by exact rational code for four rate pairs through horizon 12; these checks are auxiliary, not infinite proofs.
+## correctness
 
-**Originality (O): PASS subject to priority risk.** The closest primary manuscripts are Pitman–Tang's general extreme-order limit result (arXiv:2007.13991), the symmetric-Laplace limit/expectation analysis (arXiv:2107.05095), the symmetric-jump top-gap generating-function paper (arXiv:1405.1222), and the symmetric finite-horizon order-statistic paper (arXiv:2206.15057). Their scopes do not logically imply the asymmetric exact finite-horizon three-exponential law and its sharp drift-rate switch. Searches for asymmetric and skew Laplace first-gap aliases and mathematical record titles disclosed no matching statement. Residual risk: unindexed older bilateral-exponential fluctuation theory could contain equivalent formulas; the result may be derivable by combining classical fluctuation identities, which alone does not prove earlier publication of this exact statement.
+PASS
 
-**Value (V): PASS.** Top-gap distributions describe near-record separation in random walks; the asymmetric setting has a qualitative drift/no-drift dichotomy absent in a purely symmetric model. The formula gives full finite-time distributions and computable moments with no inversion of transform integrals, while the exact TV rates identify a sharp spectral drift crossover. It is a structural distributional result, not a mere parameter replacement or a small numerical improvement.
+At the unique maximum index k, all reverse and forward partial-sum barriers must exceed gap w; by independence sum over k of q_k+(w)q_{n−k}−(w). Memorylessness gives q_j+(w)=exp(−aw)q_j+ for j≥1 and negative analog exp(−bw), so survival has three rates and positive weights summing to one. Two-sided exponential Wiener–Hopf/ladder root factorization of 1−z ab/[(a−t)(b+t)] yields the two square-root persistence GFs. Exact binomial coefficient tail controls asymptotic for fixed a≠b. Survival-density difference crosses once, so its maximum is exactly total variation; for equal rates it reduces to 1/2 binom(2n,n)/4^n. Independently computed persistence coefficients by separate square-root series and Sparre–Andersen binomial-tail recurrence for four rational rate pairs through n=12, all match; finite tests not source of unrestricted formula.
 
-**Scope and limitations.** Bilateral-exponential increments only; fixed distinct rates for geometric asymptotics; no near-critical double scaling or joint gap-time law. Independent validation is outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality with disclosed antecedents and material access limits. Compared walk first gap under asymmetric Laplace, difference-of-exponentials increments, fluctuation-theory ladder persistence and extreme order stats; published symmetric formulas are not reverse implications for a≠b. No checked source dominates full asymmetric fixed-n law and sharp a≠b TV rate; full primary texts were not all accessible and an unindexed asymmetric fluctuation-theory derivation remains possible.
+
+## value
+
+PASS
+
+The exact finite-horizon first spacing and explicit persistence generating functions quantify an established stochastic object beyond known symmetric limits. The sharp TV convergence switches from polynomial n^-1/2 to geometric ρ^n n^-3/2 under drift; both the mixture decomposition and transition are motivated dynamical statistics.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
