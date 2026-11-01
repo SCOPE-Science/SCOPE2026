@@ -1,0 +1,167 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T06:13:53Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "RESULT.md exact ODE, two first integrals, envelopes, signed branch gluing and improper period integral",
+        "Independent private symbolic checker: log J_u and log J_v derivatives vanish identically; threshold at alpha=0.4 is 0.9574860433109675",
+        "checks.py read; finite 400-case and IVP tests are corroboration, not continuum proof"
+      ],
+      "rationale": "Reconstructed the smooth three-dimensional relative-phase ODE from the four sine-coupled equations. Logarithmic derivatives of J_u and J_v cancel identically against the reduced vector field; an independent SymPy implementation confirms this identity for general tangent parameter. On the balanced slice their squared-sine profiles have maxima rho^2 cos(alpha) exp(alpha tan(alpha)), giving the unique sharp threshold. Below threshold, cos u and cos v remain positive and delta decreases to zero; at the double envelope root, uniqueness prevents finite-time saddle arrival. Above threshold, simple envelope crossings glue four regular sign branches into a compact circle with nonvanishing vector field, yielding relative periodicity and the convergent endpoint-square-root quadrature. The argument excludes endpoint alpha,rho and common-phase periodicity.",
+      "risk": "One-dimensional balanced slice only; a given common-phase lift need not be periodic. Near separatrix numerical approach cannot certify the infinite-time equality trajectory.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burylko et al. section 5.2 pp.2092-2093 gives nontrivial periodic/heteroclinic geometry and dissipative regions; Yan et al. treats basin structure and phase-lag dependence."
+        ],
+        "reasoning": "Those works cover coarse basin and periodic-domain existence. A general known separatrix surface does not supply its closed-form transverse intersection with the stipulated balanced phase family and matching period quadrature without further calculation.",
+        "searches": [
+          "Burylko Mielke Wolfrum Yanchuk 2018 Proposition 5.2 periodic foliation heteroclinic separatrix",
+          "Yan Ozawa Sato Kori 2603.02135 four oscillator basin slice"
+        ]
+      },
+      "checked_sources": [
+        "https://imath.kiev.ua/files/uploads/26/BMWY_SIAM_2018.pdf",
+        "https://arxiv.org/pdf/2603.02135",
+        "https://arxiv.org/abs/1805.01027",
+        "Resultary mathematical records (query: four identical phase oscillators Sakaguchi ring skew coupling balanced initial phases separatrix exact critical amplitude cos(alpha) exp(alpha tan(alpha)) threshold)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2018 primary discussion is a genuine stronger source on existence and foliation; 2026 same sine phase-lag model examines basin complexity."
+        ],
+        "reasoning": "Claim includes an explicit rho-dependent inequality, equality saddle and physical-time quadrature not entailed merely by the prior existence result. Do not credit pre-existing periodic/dissipative coexistence as new.",
+        "searches": [
+          "DOI:10.1137/17M1155685 section 5.2 pp.2092-2093",
+          "arxiv:2603.02135 section 1 model"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Under theta_j=phi_j+j*pi/2 the sine-neighbor equations transform into the skew-neighbor cosine difference model; the 2018 paper is materially comparable despite different title."
+        ],
+        "reasoning": "The gauge is an equivalence of dynamical systems; all qualitative coexistence claims are prior, but exact balanced slice threshold remains a distinct quantified initial-value statement.",
+        "searches": [
+          "four identical phase oscillators Sakaguchi ring skew coupling balanced initial phases separatrix exact critical amplitude cos(alpha) exp(alpha tan(alpha)) threshold",
+          "skew-symmetric coupling gauge transform Sakaguchi four-site ring 2018 separatrix"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Searched exact analytic expression and related records; returned oscillator findings concern different models and parameters, not this intersection."
+        ],
+        "reasoning": "Continuous phase-lag exact threshold is not a tabulated finite invariant; no exact expression dominating this slice was found. Absence of search hits alone is not priority proof.",
+        "searches": [
+          "\"cos alpha\" \"alpha tan alpha\" \"separatrix\" \"ring\"",
+          "Resultary query: four identical phase oscillators Sakaguchi ring skew coupling balanced initial phases separatrix exact critical amplitude cos(alpha) exp(alpha tan(alpha)) threshold"
+        ]
+      },
+      "rationale": "Best-of-knowledge narrow novelty for the exact balanced-slice analytical intersection and period quadrature; qualitative periodic domains, neighboring dissipative regions and separatrix manifolds are covered by the gauge-equivalent 2018 skew-coupled four-ring. The known broad result does not state or directly imply the formula for this initial-value line without the new integrals and envelope calculation.",
+      "residual_risks": [
+        "An alternative parameterization of the 2018 separatrix could implicitly encode the same exact balanced threshold even if not stated in its inspected sections.",
+        "Other specialized oscillator integrability references were not exhaustively enumerated."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative periodic foliation, heteroclinic boundaries and adjacent basins, not the specific closed-form balanced-slice critical amplitude.",
+          "evidence": [
+            "Proposition 5.2; section 5.2 phase-portrait discussion"
+          ],
+          "identifier_or_url": "https://imath.kiev.ua/files/uploads/26/BMWY_SIAM_2018.pdf",
+          "material_read": "Section 5.2 pages 2092–2093 including Proposition 5.2 and surrounding dynamics",
+          "method": "Primary PDF text and page screenshots",
+          "title": "Coexistence of Hamiltonian-Like and Dissipative Dynamics in Rings of Coupled Phase Oscillators with Skew-Symmetric Coupling",
+          "trigger": "Gauge-equivalent oscillator model"
+        },
+        {
+          "assessment": "Studies phase-lag basins, not the stated closed-form four-site balanced initial-value threshold.",
+          "evidence": [
+            "Equation (1); discussion of basin slices"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2603.02135",
+          "material_read": "Title, abstract, governing equation (1) and introduction; v2 PDF",
+          "method": "Primary arXiv PDF text and screenshot",
+          "title": "Basin Metamorphosis in Coupled Phase Oscillators",
+          "trigger": "Exact original sine-neighbor equation"
+        },
+        {
+          "assessment": "Potentially related local mode results; cannot exclude an implicit equivalent calculation from abstract only.",
+          "evidence": [
+            "Unverified full-text priority remains a risk"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1805.01027",
+          "material_read": "Abstract and source citation only; no full material comparison",
+          "method": "Bibliographic search and source references",
+          "title": "Exact dynamical solution of the Kuramoto–Sakaguchi Model for finite networks of identical oscillators",
+          "trigger": "Four-oscillator dynamics and twisted-state reductions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Analytic threshold for every continuous 0<alpha<pi/2 distinguishes synchronized, saddle-asymptotic and periodic dynamics",
+        "Nontrivial first integrals and regular oval analysis are required; finite tests alone would not yield the exact trichotomy"
+      ],
+      "rationale": "The one-parameter slice is mathematically motivated by the symmetry of the four-node configuration; a sharp exact basin separator, critical saddle and complete oscillation quadrature give more than routine linearization or parameter substitution. The statement is narrow but a concrete, nontrivial quantified refinement of a known foliation.",
+      "risk": "Does not classify all three relative-phase coordinates or stability of the common-phase rotation.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://imath.kiev.ua/files/uploads/26/BMWY_SIAM_2018.pdf",
+    "https://arxiv.org/pdf/2603.02135",
+    "https://arxiv.org/abs/1805.01027",
+    "Resultary mathematical records (query: four identical phase oscillators Sakaguchi ring skew coupling balanced initial phases separatrix exact critical amplitude cos(alpha) exp(alpha tan(alpha)) threshold)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional balanced slice only; a given common-phase lift need not be periodic. Near separatrix numerical approach cannot certify the infinite-time equality trajectory.",
+    "Does not classify all three relative-phase coordinates or stability of the common-phase rotation.",
+    "An alternative parameterization of the 2018 separatrix could implicitly encode the same exact balanced threshold even if not stated in its inspected sections.",
+    "Other specialized oscillator integrability references were not exhaustively enumerated."
+  ],
+  "residual_risks": [
+    "An alternative parameterization of the 2018 separatrix could implicitly encode the same exact balanced threshold even if not stated in its inspected sections.",
+    "Other specialized oscillator integrability references were not exhaustively enumerated."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers qualitative periodic foliation, heteroclinic boundaries and adjacent basins, not the specific closed-form balanced-slice critical amplitude.",
+      "evidence": [
+        "Proposition 5.2; section 5.2 phase-portrait discussion"
+      ],
+      "identifier_or_url": "https://imath.kiev.ua/files/uploads/26/BMWY_SIAM_2018.pdf",
+      "material_read": "Section 5.2 pages 2092–2093 including Proposition 5.2 and surrounding dynamics",
+      "method": "Primary PDF text and page screenshots",
+      "title": "Coexistence of Hamiltonian-Like and Dissipative Dynamics in Rings of Coupled Phase Oscillators with Skew-Symmetric Coupling",
+      "trigger": "Gauge-equivalent oscillator model"
+    },
+    {
+      "assessment": "Studies phase-lag basins, not the stated closed-form four-site balanced initial-value threshold.",
+      "evidence": [
+        "Equation (1); discussion of basin slices"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2603.02135",
+      "material_read": "Title, abstract, governing equation (1) and introduction; v2 PDF",
+      "method": "Primary arXiv PDF text and screenshot",
+      "title": "Basin Metamorphosis in Coupled Phase Oscillators",
+      "trigger": "Exact original sine-neighbor equation"
+    },
+    {
+      "assessment": "Potentially related local mode results; cannot exclude an implicit equivalent calculation from abstract only.",
+      "evidence": [
+        "Unverified full-text priority remains a risk"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/1805.01027",
+      "material_read": "Abstract and source citation only; no full material comparison",
+      "method": "Bibliographic search and source references",
+      "title": "Exact dynamical solution of the Kuramoto–Sakaguchi Model for finite networks of identical oscillators",
+      "trigger": "Four-oscillator dynamics and twisted-state reductions"
+    }
+  ]
+}
