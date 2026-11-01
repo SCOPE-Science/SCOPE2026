@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T10:13:08Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/verify.py",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf"
+      ],
+      "rationale": "Reconstructed the all-integer n>=3 result for the Euclidean unit-edge uniform n-antiprism, with a=pi/(2n), H=sqrt(4cos(a)^2-1), and three unoriented line directions (cos(2pi j/3),sin(2pi j/3),H). Unit-edge geometry gives R=1/(2sin(2a)), h=H/(2cos a), and four outward facet normals e3, (gamma,0,-zeta), (gamma cos(2a), +/- gamma sin(2a),zeta), where gamma=H/(sqrt(3)cos a), zeta=tan(a)/sqrt(3). Verified gamma^2+zeta^2=1 and zeta H=gamma sin a. Their four strict scalar products reduce X-raying each upper vertex of angle theta to circular distance(theta,phi)<beta=pi/2-a; by bottom-face reflection/rotation, the lower criterion is circular distance(theta-pi,phi)<beta. For n>3, beta>pi/3 and 3 arcs of centers 0,2pi/3,4pi/3 cover every angle; for n=3 the only uncovered angles are arc midpoints, while all transformed upper/lower vertex angles are arc centers. Inclusion of each face Gauss image in an incident vertex Gauss image covers the full boundary; the universal d-dimensional X-ray lower bound gives X>=3. Verified failure of the almost-smooth condition because e3 dot m0=-tan(a)/sqrt(3)<0<1/2. Independently regenerated convex hull facets of both vertex rings and numerically tested all incident outward normals and strict direction signs for every integer 3<=n<=120 (without relying on packaged verify.py), maximum unit-normal mismatch 1.30e-15 and smallest computed best-direction strict dot 0.1139. This finite diagnostic does not establish the quantified theorem; the exact trigonometric proof does.",
+      "residual_risks": [
+        "Floating-point finite regression covers only 3<=n<=120; the analytic normal-cone and circular covering argument supplies the infinite conclusion.",
+        "The claim is restricted to convex uniform metric antiprisms, not arbitrary combinatorial realizations."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bezdek-Kiss https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf, Theorem 2.3: X(K)=d for almost-smooth d-dimensional bodies; Definition 2.1 requires e·f>=1/2 for any two incident outward unit normals in 3D.",
+          "For the actual uniform antiprism e3·m0=-tan(pi/(2n))/sqrt(3)<0, decisively violating that sufficient-class hypothesis.",
+          "Wu-Zhou https://cdm.ucalgary.ca/article/download/62685/53786/201277, Theorems 3.5 and 3.13: ordinary illumination of convex hulls of parallel planar bodies, with bounds such as c(K)<=6 for two regular polygonal bases; no assertion about X-ray numbers.",
+          "Bezdek 1991 https://doi.org/10.1112/S0025579300006707: publisher abstract addresses illumination by external affine subspace sources, not fixed unoriented line directions."
+        ],
+        "reasoning": "Explicit counterhypothesis excludes the nearest general X-ray theorem; nearby two-plane-hull and affine-source illumination results concern different invariants and do not yield X(A_n)<=3. No stronger theorem covering all uniform antiprisms was identified in actual primary-source comparisons.",
+        "searches": [
+          "X-ray number polyhedra all antiprisms three dimensional symmetry group rotating normals",
+          "three dimensional convex body X-ray number 3 characterisation",
+          "illumination and x ray numbers of antiprisms convex geometry known",
+          "\"X-ray number\" prisms antiprisms convex"
+        ]
+      },
+      "checked_sources": [
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf",
+        "https://cdm.ucalgary.ca/article/download/62685/53786/201277",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md",
+        "https://doi.org/10.1112/S0025579300006707",
+        "arXiv:0903.4830v1",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Bezdek-Kiss https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf, Def.2.1/Lemma2.2/Thm2.3: normal criterion and almost-smooth sufficient theorem, but uniform antiprism violates latter.",
+          "Wu-Zhou https://cdm.ucalgary.ca/article/download/62685/53786/201277, introduction and Theorems 3.5/3.13: bounds c(K), ordinary illumination by oriented point-source directions, not exact X(K).",
+          "The published five-Platonic-solid theorem https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md proves X(octahedron)=3 only, not a limiting or induction argument for other n."
+        ],
+        "reasoning": "Prior implication fails: almost-smooth statement needs a false hypothesis; c(K)<=6 does not imply X(K)<=3 (one-sided directions need not form three antipodal pairs); finite Platonic enumeration stops at n=3. The present exact all-n normal-cone certificate supplies the missing uniform-family quantifier.",
+        "searches": [
+          "X-ray number of antiprism regular uniform n-gonal convex polytope 3 directions",
+          "X-ray number polyhedra all antiprisms three dimensional symmetry group rotating normals",
+          "\"x-ray number\" \"antiprism\" 3",
+          "Bezdek Kiss almost smooth X-ray number 2009 full PDF",
+          "Wu Zhou 2019 illumination of a class of convex bodies convex hull parallel polygons"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bezdek-Kiss https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf, Lemma 2.2: X-raying a face iff its Gauss image avoids the direction-orthogonal great circle.",
+          "The present theorem equivalently asserts that three great circles avoid each vertex normal cone for every uniform antiprism, or that 3 open azimuth arcs of radius pi/2-pi/(2n) cover all transformed ring vertices.",
+          "Resultary semantic searches returned exact same-work mirror https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c, not independent priority."
+        ],
+        "reasoning": "Searched aliases X-ray/illumination, normal cone, three-direction and regular/uniform antiprism, explicitly distinguishing fixed unoriented directions from ordinary point-source illumination and tomographic X-rays. Neither independent indexed formulation nor a theorem implying the all-n statement was found; search incompleteness remains a residual risk.",
+        "searches": [
+          "X-ray number of antiprism regular uniform n-gonal convex polytope 3 directions",
+          "illumination number regular antiprism Gauss image 3 directional X ray covering vertex normals",
+          "\"x-ray number\" \"antiprism\" 3",
+          "\"x-ray number\" \"regular antiprism\" polytope",
+          "\"antiprism\" \"X-ray\" \"convex\" illumination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Full separate published Platonic-solids result https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md states X(regular octahedron)=3, which covers the triangular antiprism n=3 only.",
+          "Resultary indexed entry https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-every-uniform-antiprism-has-x-ray-number-three--8163a250996c reproduces the assigned theorem itself, and cannot count as independent prior knowledge.",
+          "No independent table or database found assigning X-ray numbers simultaneously to the infinite uniform n-antiprism family."
+        ],
+        "reasoning": "The n=3 exact value is recognized as old coverage. A five-solid table with octahedron=3 does not imply n>=4; the original all-n construction must be evaluated separately. No independent all-n table was located.",
+        "searches": [
+          "X-ray number of antiprism regular uniform n-gonal convex polytope 3 directions",
+          "\"regular antiprism\" \"illumination\" polyhedron directions",
+          "\"X-ray number\" \"polyhedra\" three",
+          "illumination number regular antiprism Gauss image 3 directional X ray covering vertex normals"
+        ]
+      },
+      "rationale": "Best-of-knowledge all-n X-ray theorem is not implied by inspected full primary literature on general almost-smooth bodies or ordinary illumination of two-plane convex hulls. The closest exact X-ray published result on Platonic solids covers only the n=3 octahedral endpoint; the exact-match Resultary entry is the audited work mirrored, not independent earlier coverage. Actual semantic published-record and multi-alias targeted web searches found no independent all-n uniform-antiprism X-ray result, but negative searches are not novelty proofs. A general classical result hidden in older illumination literature remains a priority risk.",
+      "residual_risks": [
+        "An unindexed classical or older translation-invariant X-ray/illumination theorem might cover uniform antiprisms under different vocabulary; searches cannot exclude it.",
+        "The 1991 affine-subspace article was available in abstract/theorem form only; its complete body was not inspected, although its described invariant differs.",
+        "Resultary includes the same research claim mirrored, and it has not been counted as independent earlier coverage.",
+        "Regular octahedron n=3 is already known; originality resides exclusively in the all-n>=3 uniform antiprism classification and uniform line construction."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FRAMEWORK_NOT_COVERING: criterion and lower bound support proof, but the almost-smooth hypothesis is demonstrably false for uniform antiprisms; no antitrism-family statement in material read.",
+          "evidence": "The source 3D threshold is pairwise unit-normal dot product >=1/2, whereas actual antiprism e3·m0=-tan(pi/(2n))/sqrt(3)<0.",
+          "identifier_or_url": "arXiv:0903.4830v1; DOI:10.4153/CMB-2009-037-0; https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf",
+          "material_read": "All seven PDF pages with definition of almost smooth, Gauss-image Lemma 2.2, Theorem 2.3 and its proof, and relevant later sections on constant width/weak neighborly antipodal polytopes; document search for antiprism.",
+          "method": "Lawful Cambridge published PDF; text reading and rendered-page visual inspection.",
+          "title": "On the X-ray Number of Almost Smooth Convex Bodies and of Convex Bodies of Constant Width",
+          "trigger": "Defines X-ray number, Gauss-image criterion and broad near-dimensional sufficient theorem."
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT: discusses one-sided ordinary illumination c(K), with an upper bound c(K)<=6 for two regular polygonal bases; does not show X-ray number 3 for antiprisms.",
+          "evidence": "Theorem 3.5 bounds c(K) by the illumination numbers of the bases; its six oriented sources cannot be inferred to pair into three unoriented line directions.",
+          "identifier_or_url": "https://cdm.ucalgary.ca/article/download/62685/53786/201277",
+          "material_read": "Complete 13-page published manuscript, especially definitions, parallel-planar-base construction, Theorems 3.5 and 3.13 and their hypotheses.",
+          "method": "Lawfully accessible journal PDF; text inspection and visual page inspection.",
+          "title": "On the illumination of a class of convex bodies",
+          "trigger": "Convex hulls of bodies contained in two parallel planes are a plausible class encompassing antiprisms."
+        },
+        {
+          "assessment": "SPECIAL_CASE_ONLY: X(octahedron)=3 is already covered; no arbitrary n-gonal uniform antiprisms are addressed.",
+          "evidence": "Theorem handles precisely five Platonic solids. The octahedron component corresponds to n=3, and n>=4 antiprisms are not among those five objects.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md",
+          "material_read": "Full RESULT.md including octahedron proof, other four Platonic case proofs, assumptions, limitations and prior comparison.",
+          "method": "Read published repository source at commit/file blob 27f5f96872a46f10f5a8676d5aff77776d0ec506.",
+          "title": "X-ray numbers of all five Platonic solids",
+          "trigger": "Direct same-invariant published record containing n=3 triangular antiprism (regular octahedron)."
+        },
+        {
+          "assessment": "DIFFERENT_FORMULATION_ON_READ_MATERIAL: illumination from external affine subspaces does not imply X-ray with fixed parallel unoriented line directions; unexamined full text is residual risk.",
+          "evidence": "The abstract states boundary illumination by external affine subspaces with dimension d-2 for symmetric polyhedra, not Gauss-image avoidance by three line directions.",
+          "identifier_or_url": "DOI:10.1112/S0025579300006707",
+          "material_read": "Accessible published journal abstract and exposed main theorem statement only; no claim to have read the inaccessible full text.",
+          "method": "Publisher bibliographic abstract/theorem record.",
+          "title": "The problem of illumination of the boundary of a convex body by affine subspaces",
+          "trigger": "Plausibly stronger older geometric illumination theorem for symmetric polyhedra."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/RESULT.md",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md",
+        "https://cdm.ucalgary.ca/article/download/62685/53786/201277"
+      ],
+      "rationale": "Uniform antiprisms form a canonical infinite family of convex uniform three-polytopes, making their exact X-ray number a natural geometric invariant. The n=3 regular octahedron case is already known, but the theorem resolves every n>=4 simultaneously, including an explicit dimension-minimal three-direction certificate with unchanged 120-degree azimuths and a natural n-dependent common slope. The proof connects vertex normal cones to exact circular arcs and shows the family is outside the only close broad sufficient class of almost-smooth bodies. This is a mathematically motivated family-level classification rather than a named-object substitution or a finite catalog.",
+      "residual_risks": [
+        "The result does not determine X-ray numbers of nonuniform antiprism realizations, nor ordinary illumination numbers.",
+        "No claim of a general classification of all convex polyhedra is made."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/blob/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/11/every-uniform-antiprism-has-x-ray-number-three--8163a250996c/verify.py",
+    "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7F27C41CFFD601D04483DD758B4479C1/S0008439500014855a.pdf/on-the-x-ray-number-of-almost-smooth-convex-bodies-and-of-convex-bodies-of-constant-width.pdf",
+    "https://cdm.ucalgary.ca/article/download/62685/53786/201277",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-x-ray-numbers-of-all-five-platonic-solids--ea9ec656f5e4/RESULT.md",
+    "https://doi.org/10.1112/S0025579300006707"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact all-n theorem only for the Euclidean uniform metric antiprism, not arbitrary prisms/antiprisms.",
+    "The n=3 Platonic octahedron case is a previously known special case.",
+    "Not a theorem about point-source ordinary illumination or tomographic X-rays.",
+    "No formal Lean proof or external human attestation obtained; the independent audit is mathematical and computational."
+  ],
+  "residual_risks": [
+    "An unindexed classical or older translation-invariant X-ray/illumination theorem might cover uniform antiprisms under different vocabulary; searches cannot exclude it.",
+    "The 1991 affine-subspace article was available in abstract/theorem form only; its complete body was not inspected, although its described invariant differs.",
+    "Resultary includes the same research claim mirrored, and it has not been counted as independent earlier coverage.",
+    "Regular octahedron n=3 is already known; originality resides exclusively in the all-n>=3 uniform antiprism classification and uniform line construction.",
+    "Numerical finite verification is diagnostic; universal claim rests on exact stated analytic proof.",
+    "Privacy-safe source administrative files have not been created; this is publication transport, not scientific failure."
+  ],
+  "schema_version": 1
+}

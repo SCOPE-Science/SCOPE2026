@@ -1,24 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The unit-edge coordinate model gives the exact height
-\[
-h=\frac{\sqrt{4\cos^2 a-1}}{2\cos a}.
-\]
-At one upper vertex, direct facet cross products give one base normal and three side normals with two scalar parameters \(\gamma,\zeta\). The identity
-\[
-\zeta H=\gamma\sin a
-\]
-reduces the X-ray condition for the line of azimuth \(\phi\) to the single circular inequality
-\[
-\operatorname{dist}_{S^1}(\phi,\theta)<\frac{\pi}{2}-a.
-\]
-The lower-ring condition is the same after subtracting \(\pi\) from its azimuth. Three azimuths separated by \(2\pi/3\) cover the circle whenever \(n>3\), and the endpoint case \(n=3\) misses no transformed vertex azimuth. Gauss-image inclusion passes vertex coverage to every face. The universal lower bound then gives equality. The packaged checker independently verifies all analytic identities and every vertex certificate for \(3\le n\le200\).
+## correctness
 
-## Originality
-**PASS, with an unindexed-classical-observation residual risk.** The closest primary X-ray paper was inspected in full. It proves the dimension-minimal value for almost smooth bodies and gives the Gauss-image characterization used here, but contains no “antiprism” occurrence. The uniform antiprism family is not almost smooth, so the source theorem does not imply the result. Candidate-specific searches under regular/uniform antiprism, X-ray number, illumination, Gauss images, and three-direction formulations found no covering statement. The known regular-octahedron case is treated as the \(n=3\) component of the family rather than as new.
+PASS
 
-## Value
-**PASS.** Uniform antiprisms are one of the two canonical infinite families of convex uniform polyhedra. Determining their X-ray number for all \(n\) is therefore a natural family-level classification. The result is structurally stronger than a list of low-\(n\) computations: the same three azimuths work in every case, only their common slope changes, and the proof explains this through an exact normal-cone arc criterion. The family also lies entirely outside the standard almost-smooth sufficient class.
+Reconstructed the all-integer n>=3 result for the Euclidean unit-edge uniform n-antiprism, with a=pi/(2n), H=sqrt(4cos(a)^2-1), and three unoriented line directions (cos(2pi j/3),sin(2pi j/3),H). Unit-edge geometry gives R=1/(2sin(2a)), h=H/(2cos a), and four outward facet normals e3, (gamma,0,-zeta), (gamma cos(2a), +/- gamma sin(2a),zeta), where gamma=H/(sqrt(3)cos a), zeta=tan(a)/sqrt(3). Verified gamma^2+zeta^2=1 and zeta H=gamma sin a. Their four strict scalar products reduce X-raying each upper vertex of angle theta to circular distance(theta,phi)<beta=pi/2-a; by bottom-face reflection/rotation, the lower criterion is circular distance(theta-pi,phi)<beta. For n>3, beta>pi/3 and 3 arcs of centers 0,2pi/3,4pi/3 cover every angle; for n=3 the only uncovered angles are arc midpoints, while all transformed upper/lower vertex angles are arc centers. Inclusion of each face Gauss image in an incident vertex Gauss image covers the full boundary; the universal d-dimensional X-ray lower bound gives X>=3. Verified failure of the almost-smooth condition because e3 dot m0=-tan(a)/sqrt(3)<0<1/2. Independently regenerated convex hull facets of both vertex rings and numerically tested all incident outward normals and strict direction signs for every integer 3<=n<=120 (without relying on packaged verify.py), maximum unit-normal mismatch 1.30e-15 and smallest computed best-direction strict dot 0.1139. This finite diagnostic does not establish the quantified theorem; the exact trigonometric proof does.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge all-n X-ray theorem is not implied by inspected full primary literature on general almost-smooth bodies or ordinary illumination of two-plane convex hulls. The closest exact X-ray published result on Platonic solids covers only the n=3 octahedral endpoint; the exact-match Resultary entry is the audited work mirrored, not independent earlier coverage. Actual semantic published-record and multi-alias targeted web searches found no independent all-n uniform-antiprism X-ray result, but negative searches are not novelty proofs. A general classical result hidden in older illumination literature remains a priority risk.
+
+## value
+
+PASS
+
+Uniform antiprisms form a canonical infinite family of convex uniform three-polytopes, making their exact X-ray number a natural geometric invariant. The n=3 regular octahedron case is already known, but the theorem resolves every n>=4 simultaneously, including an explicit dimension-minimal three-direction certificate with unchanged 120-degree azimuths and a natural n-dependent common slope. The proof connects vertex normal cones to exact circular arcs and shows the family is outside the only close broad sufficient class of almost-smooth bodies. This is a mathematically motivated family-level classification rather than a named-object substitution or a finite catalog.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
