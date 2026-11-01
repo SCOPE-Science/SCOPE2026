@@ -1,19 +1,21 @@
-# Review of the finite stochastic-majority classification
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definitions agree with the independent fair-coin random-majority rule on the cited primary model. For every connected labeled graph through five vertices, all edge masks, colorings and supported transitions are enumerated without sampling. Separate transition implementations agree; Tarjan and reachability-closure methods agree on all terminal communicating classes. The counts give zero stochastic terminal classes for orders two through four and exactly three isomorphism types at order five. Independent local-neighbor checks prove the exact four-coloring witnesses; the leaf-attachment argument gives a symbolic construction for every larger order. The bundled `verify.py` reproduces the exhaustive finite computation and the separate finite construction checks.
+PASS
 
-## Originality — PASS, subject to nonexhaustive publication-priority risk
+Independently enumerated all connected labeled simple graphs n=2..5 (1,4,38,728), every opinion state and exact positive transition support, and terminal SCC via networkx. Found zero stochastic terminal classes for n<=4, exactly 135 labeled at n=5; canonical graph isomorphisms identify bull/house/wheel with orbit sizes 60,60,15. Direct local neighbor counts show the four-state alternating phase closure for each witness. For every n>=5, leaf-augmented bull strict majorities force phase change and a unique tied vertex continues independent randomness; finite enumeration is not used as the infinite-family proof.
 
-Zehmakan (2023; expanded journal article 2024) defines random-majority diffusion and proves exponential-size absorbing components on large graphs, but does not present the minimum connected order, the exhaustive first exceptional layer or this small bull-based family. The cycle theorem excludes only cycle graphs. Deterministic tie-retention majority results concern a different transition relation. Searches for small-graph absorbing-class classifications and checks of accessible research comparisons found no directly dominating theorem. A matching result in uncatalogued literature remains possible; failed retrieval is not a uniqueness certificate.
+## originality
 
-## Value — PASS
+PASS
 
-The minimum network size for an indefinitely active random-tie mechanism is a natural structural invariant directly motivated by the known large-network absorbing-component phenomenon. The classification identifies **all** first possible graph structures, distinguishes true perpetual randomness from transient random tie-breaking, and supplies an elementary all-order witness mechanism. It is not an arbitrary numerical parameter slice or a recomputation of a known table.
+Zehmakan (2024) full open-access article Theorem 2.6 proves that stochastic absorbing components can be exponentially large; Theorem 2.7 classifies cycles. Neither exact five-vertex cutoff nor full 21-isomorphism census follows from those statements. Majority models retaining tie status differ from fresh independent fair tie model.
 
-## Limits
+## value
 
-Finite classification covers connected simple undirected graphs through order five under synchronous binary independent fair ties; larger-order existence is constructive, not a classification. A single isolated vertex is excluded. The four-coloring classes have period two in the Markov-chain sense, despite class cardinality four. Publication priority is not independently certified.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An exact smallest-order phase boundary and COMPLETE first exceptional graph classification for a natural finite Markov process are independently useful. The labeled/unlabeled enumeration and all-order bull family distinguish it from a one-off witness; the result does not purport to classify all larger graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

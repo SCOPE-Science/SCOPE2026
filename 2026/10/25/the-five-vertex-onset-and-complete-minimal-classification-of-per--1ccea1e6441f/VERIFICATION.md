@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification details
+# Independent mathematical audit
 
-Execute `python3 verify.py` without external Python packages. All assertions must complete and the last output line must be `CHECK_OK`.
+## correctness
 
-The complete labeled connected-graph counts checked at orders two through five are respectively 1, 4, 38 and 728; the corresponding unlabeled counts are 1, 2, 6 and 21. The positive-support Markov chains have respectively 4, 8, 16 and 32 opinion colorings for these orders. Two separately implemented transition-support tests agree on every coloring of every connected labeled graph; two separately implemented terminal-class algorithms agree on every computed chain. The exact exceptional labeled count at order five is 135, partitioned into three unlabeled classes of orbit sizes 60, 60 and 15.
+PASS
 
-The three explicit five-vertex graphs have closed four-coloring classes with transition probabilities exactly one half to each member of the opposite phase. The code tests all pendant-leaf distributions in the bull family at every order between five and sixteen. Existence at every larger order is established by the direct strict-majority proof in `RESULT.md` and is not inferred from those finite construction checks.
+Independently enumerated all connected labeled simple graphs n=2..5 (1,4,38,728), every opinion state and exact positive transition support, and terminal SCC via networkx. Found zero stochastic terminal classes for n<=4, exactly 135 labeled at n=5; canonical graph isomorphisms identify bull/house/wheel with orbit sizes 60,60,15. Direct local neighbor counts show the four-state alternating phase closure for each witness. For every n>=5, leaf-augmented bull strict majorities force phase change and a unique tied vertex continues independent randomness; finite enumeration is not used as the infinite-family proof.
 
-No stochastic simulation, numerical tolerance or inferred infinite assertion is used for the finite classification. The source-model and publication-priority comparisons are research judgments rather than machine certificates. This package has not received independent external audit or validation.
+## originality
+
+PASS
+
+Zehmakan (2024) full open-access article Theorem 2.6 proves that stochastic absorbing components can be exponentially large; Theorem 2.7 classifies cycles. Neither exact five-vertex cutoff nor full 21-isomorphism census follows from those statements. Majority models retaining tie status differ from fresh independent fair tie model.
+
+## value
+
+PASS
+
+An exact smallest-order phase boundary and COMPLETE first exceptional graph classification for a natural finite Markov process are independently useful. The labeled/unlabeled enumeration and all-order bull family distinguish it from a one-off witness; the result does not purport to classify all larger graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
