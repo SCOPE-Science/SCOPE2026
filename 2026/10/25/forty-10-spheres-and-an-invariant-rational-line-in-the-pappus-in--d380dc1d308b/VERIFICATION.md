@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproduction of exact mathematical checks
+# Independent mathematical audit
 
-The standalone `pappus_forest_verify.py` is included alongside this document. Run:
+## correctness
 
-```sh
-python3 pappus_forest_verify.py
-```
+PASS
 
-No external package, network call, database, downloaded graph, or input file is required. The script constructs the labeled Pappus graph using its LCF description; exhaustively checks all \(262144\) vertex subsets with two independent cycle tests; builds a deterministic vertex-toggle matching; and performs a full directed-Hasse topological sort. It computes signed Morse differentials in degrees \(11\) and \(10\) by finite gradient recursion, tests the chain condition, then carries out \(21\) literal integer unit-pivot eliminations. A separate exhaustive permutation backtrack generates all graph automorphisms using graph distances; the signed fixed-simplex formula computes their complete rational top-homology character.
+For the specified 18-vertex Pappus LCF graph, all 2^18 vertex subsets are tested for acyclicity. The lexicographic coordinate-toggle matching has precisely one critical 0-cell, one 9-cell, 62 10-cells and 21 11-cells, is acyclic, and its exact integral Morse boundaries have a surjective 1x62 map and primitive rank-21 image from Z^21. This gives reduced H_10=Z^40 with no other homology. The 8-connected Morse CW model is then 9-connected by Hurewicz, and Whitehead yields a wedge of forty 10-spheres. Separately, signed fixed-simplex Lefschetz sums over the full 216 graph automorphisms give the claimed 40,4,1,0 trace multiplicities, one invariant rational line and character inner-product ten.
 
-Expected decisive values are \(204492\) faces including the empty simplex, \(102203\) nonempty Morse pairs, critical cell counts \((1,1,62,21)\) in dimensions \((0,9,10,11)\), \(1704456\) Hasse incidences, matrices of sizes \(1\times62\) and \(62\times21\), and automorphism-character multiplicities \((0:135,1:48,4:32,40:1)\). The program emits a JSON data line and `VERIFY_OK`; compare it with `verification_output.txt`.
+## originality
 
-Finite enumeration here is exhaustive because the graph has exactly eighteen labeled vertices. No inference from a sample to a larger graph family is made. The homotopy conclusion additionally uses the standard discrete Morse, Hurewicz and homological Whitehead theorems; the verifier is not a formal proof assistant or independent audit. The rational character does not certify an integral representation decomposition.
+PASS
+
+The same Pappus graph has published Čech/Rips and matching complexes, but these use different faces (including edge-based matching) and their sphere counts do not cover the vertex-induced acyclic-subgraph complex. The inspected forest-filtration reference computes other graph families, not this exact Pappus Morse and automorphism-character calculation.
+
+## value
+
+PASS
+
+The Pappus graph is a canonical highly symmetric incidence graph, and the explicit 18-vertex induced-forest complex has unexpectedly highly connected nontrivial homotopy with an invariant automorphism line. The exact integral wedge and full 216-element character distinguish this natural complex from other Pappus graph constructions and supply a reproducible finite reference.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
