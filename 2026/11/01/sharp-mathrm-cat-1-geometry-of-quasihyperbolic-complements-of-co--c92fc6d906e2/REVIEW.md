@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness (PASS).** The argument explicitly derives conformal sectional curvature and the normal-distance Hessian for smooth convex bodies, proves a strict negative-square identity for log-distance along unit-speed geodesics, excludes periodic local geodesics, and invokes the published Bowditch short-loop criterion to globalize local curvature. It then proves pointwise and compact-uniform distance convergence for smooth convex outer approximants and applies the standard pointed-limit CAT-stability theorem. A direct round-ball tangent-plane computation establishes that \(1\) is sharp. The numerical checks are limited to finite rational examples and are not used to infer infinite statements.
+
+**Originality (PASS, best-knowledge).** Ikonen–Pandey prove unrestricted-domain \(\mathrm{CAT}(2)\), convex-domain \(\mathrm{CAT}(0)\), and convex-complement \(\mathrm{CBB}(-1)\); none of these statements implies the global \(\mathrm{CAT}(1)\) upper bound for convex complements. They identify the punctured-space cylinder as \(\mathrm{CAT}(1)\), but that special case does not cover a general compact convex obstacle. Bowditch supplies the known globalization theorem, while earlier planar sources supply separate two-dimensional statements. Targeted searches of mathematical records and prior accessible results found no covering formula. Remaining risk: unindexed literature and any stronger theorem for concave quasihyperbolic domains not surfaced by the searches.
+
+**Value (PASS).** The sharp improvement from \(2\) to \(1\) covers an entire geometrically defined infinite class in all higher dimensions, including singular obstacles, and improves local comparison and short-distance uniqueness scales. The log-distance geodesic concavity law gives a geometric obstruction to periodic geodesics and explains why the local bound globalizes. This is more than an example or a numerical improvement: it is a structural classification with a sharp endpoint.
+
+**Scientific limitations.** The proved family requires a nonempty *compact convex* complement; unbounded convex complements are not claimed. The second-derivative formula requires smooth strictly positive curvature. No proof of historical priority or independent validation is asserted.
+
+Self-review: passed. Independent audit: not yet performed.
