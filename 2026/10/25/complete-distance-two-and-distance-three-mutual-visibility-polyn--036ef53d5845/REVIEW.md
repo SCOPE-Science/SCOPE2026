@@ -1,15 +1,21 @@
-# Scientific review: complete low-distance visibility polynomials of rectangular grids
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof reduces every \(k=2,3\) configuration on every rectangular grid to a uniquely translated occupied bounding rectangle of at most \(4\times4\). Manhattan monotonicity proves that restriction preserves all relevant geodesic possibilities. The exact 16-box anchored histograms have been exhaustively enumerated by two distinct implemented shortest-path predicates, both run successfully using the actual accompanying source files. Summation over disjoint bounding-box types produces all displayed polynomial coefficients. Small-grid coefficient assertions passed. These are exhaustive finite certificates within a rigorously bounded universe, not a purported infinite experiment.
+## correctness
 
-## Originality — PASS, with residual priority risk
-The foundational paper arXiv:2408.03976 specifically suggests studying distance-limited visibility on rectangular grids, but does not give their all-set generating polynomials. A preceding grid theorem (opaque claim ID `f5210152-7629-4ed9-9dc1-4425cb3c81b1`) already proves the largest \(3\)-distance sets and counts. The present work does not assert originality for those top-degree consequences; it supplies every previously unspecified smaller-degree coefficient and the full \(k=2\) polynomial. Accessible primary literature and relevant research records were compared by implication, including unrestricted visibility, distance-visibility coloring, fault tolerance, and low-distance visibility on hypercubes. None of those statements determines these all-subset grid distributions. Residual priority risk remains from unindexed or inaccessible results on enumerative visibility complexes.
+PASS
 
-## Mathematical value — PASS
-The motivating distance-limited visibility problem explicitly calls for grid analysis. Counting every feasible placement by size, rather than only optimum occupancy, is a natural strengthening: it determines the full finite simplicial-complex size profile of each rectangular grid for both low distances, for every side length, with exact cutoff at four and six selected vertices. The \(k=3\) polynomial contains coefficients for configurations of sizes two through five that are not implied by the known maximum-set classification. Its all-dimension formulas follow from a structural localization principle and a complete small-box census, not an arbitrary fixed-grid recomputation. Potential extensions include weighted occupation models and higher distance cutoffs, but neither is claimed here.
+Under the existential k-distance definition, selected vertices must be pairwise Manhattan-separated by at most k=2 or3. Therefore their unique occupied bounding box has height and width at most k+1, hence <=4. Every shortest grid path is coordinate-monotone inside its endpoint bounding box; moving an anchored configuration to a larger rectangle does not change visibility. The given 16 h,w profiles for each k exhaust all nonempty anchored sets, verified with two independent shortest-route algorithms and a fresh independent Python enumeration of all 32 local box cases. Every ambient set has a UNIQUE translated anchored box, with exactly (m-h+1)_+ (n-w+1)_+ placements. Summing yields the complete cardinality polynomials for all m,n>=2; k2 degree<=4 and k3 degree<=6. The 3x3 coefficient vectors are k2 (1,9,26,24,1), k3 (1,9,34,64,29,4), and 4x4 k3 (1,16,90,212,140,32,4). No extrapolation from finite grid sizes is needed once the bounding-box lemma is proved.
 
-## Limitations and closest literature
-The result is limited to \(k=2,3\), two-dimensional rectangular path products, and the existential bounded-distance geodesic definition. The small-box polynomial table is certified by transparent code rather than a hand-only case split. The earlier top-degree \(k=3\) result is overlapping background, not a new contribution. Closest sources: Cera López et al., arXiv:2408.03976; Korže–Vesel, arXiv:2309.15201; distance mutual-visibility coloring arXiv:2510.10284; and fault-tolerant mutual visibility DOI:10.1002/net.70074. Unindexed literature may alter priority; independent human audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The notion of visibility polynomial is prior and prior k=3 grid optimization/maximum-set count is not claimed new. The complete k=2 and k=3 *bounded-distance* cardinality distribution for every rectangular grid, including low-degree coefficients, is not stated or implied by the inspected unrestricted visibility polynomial studies or grid maxima. Exact exhaustive anchored enumeration has mathematically proved finite locality and hence supplies a natural missing full profile.
+
+## value
+
+PASS
+
+The original k-distance mutual-visibility problem specifically motivates rectangular grids. The natural simplicial-complex size distribution for the two first nontrivial path-radius bounds is a complete classification for all side lengths, not an arbitrary finite grid slice. Lower-size counts and exact thresholds are independent of known maxima, and the clean 4x4 locality argument turns finite certificates into uniform global formulas.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,146 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T23:52:24Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual source tree d289f94b0a79b8ef53aba457428bc54b8744e1de; RESULT.md beec8e4568aabfabc1a3624a26899d9c4685e573, verify_grid.py 8e55f40c80e032cb67fcf3a189535d068f391267, verify_paths.py 10242ee7201c544c10e96e18c8a981461e0d574e.",
+        "Fresh distinct route-mask enumeration verified the full 32 anchored histograms in all 1..4 by 1..4 boxes for k=2,3, independently of supplied table/algorithm paths.",
+        "Source two independently implemented monotone BFS and path-bitmask programs inspected for complete bitmask coverage and exact endpoint geodesic rules."
+      ],
+      "rationale": "Under the existential k-distance definition, selected vertices must be pairwise Manhattan-separated by at most k=2 or3. Therefore their unique occupied bounding box has height and width at most k+1, hence <=4. Every shortest grid path is coordinate-monotone inside its endpoint bounding box; moving an anchored configuration to a larger rectangle does not change visibility. The given 16 h,w profiles for each k exhaust all nonempty anchored sets, verified with two independent shortest-route algorithms and a fresh independent Python enumeration of all 32 local box cases. Every ambient set has a UNIQUE translated anchored box, with exactly (m-h+1)_+ (n-w+1)_+ placements. Summing yields the complete cardinality polynomials for all m,n>=2; k2 degree<=4 and k3 degree<=6. The 3x3 coefficient vectors are k2 (1,9,26,24,1), k3 (1,9,34,64,29,4), and 4x4 k3 (1,16,90,212,140,32,4). No extrapolation from finite grid sizes is needed once the bounding-box lemma is proved.",
+      "risks": [
+        "Only k=2,3 and 2-dimensional Cartesian products P_m □ P_n with m,n>=2, not general graph diameter or all k.",
+        "A finite exhaustive table is rigorous here only with the proven radius-limited bounding-box reduction; without that reduction it would not be an all-grid proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Published unrestricted visibility-polynomial definitions and bounds do not determine k-limited coefficient counts.",
+          "Published k-distance grid top-degree/optimization facts do not supply the entire size profile."
+        ],
+        "reasoning": "A general brute-force algorithm computes instances but does not provide the closed all-m,n exact coefficients; the previous maximum-set formula is strictly weaker.",
+        "searches": [
+          "Resultary: k-distance mutual visibility grid P_m square P_n full cardinality polynomial k=2 k=3",
+          "arXiv:2507.01851 full HTML",
+          "arXiv:2509.22571 full HTML",
+          "arXiv:2408.03976 k-distance theorem"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2408.03976; DOI:10.1007/s40840-024-01811-3",
+        "arXiv:2507.01851v1",
+        "arXiv:2509.22571v1",
+        "Resultary record f5210152-7629-4ed9-9dc1-4425cb3c81b1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Knowledge of μ3(P_m□P_n)=6 and count of size6 maximal sets does not determine coefficients for sizes2,3,4,5.",
+          "The 3x3 k3 polynomial has all coefficients 1,9,34,64,29,4, while k2 counts differ; standard unrestricted polynomial cannot be substituted."
+        ],
+        "reasoning": "The all-size theorem requires k-dependent monotone-box exact enumeration, which cannot be read off from previously known optimization/ordinary visibility facts.",
+        "searches": [
+          "Resultary: k-distance mutual visibility grid P_m square P_n full cardinality polynomial k=2 k=3",
+          "arXiv:2408.03976 full Springer article",
+          "arXiv:2507.01851 and 2509.22571 polynomial papers",
+          "previous k3 optimizer-only result"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent names include k-distance mutual visibility complex face enumerator, bounded-geodesic pairwise visible subsets and its f-polynomial.",
+          "Unrestricted visibility polynomial uses shortest paths without upper distance bound; these are different when grid diameter exceeds k."
+        ],
+        "reasoning": "The current k=2,3 polynomial is not ordinary unrestricted visibility polynomial except on tiny grids with diameter<=k.",
+        "searches": [
+          "Resultary: k-distance mutual visibility grid P_m square P_n full cardinality polynomial k=2 k=3",
+          "arXiv:2408.03976 definition S_k-visible",
+          "arXiv:2507.01851 general visibility polynomial"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source gives 32 anchored histograms for k2,k3 and full closed m,n coefficient expression.",
+          "No inspected earlier source has the entire k2,k3 rectangle-table or all-grid polynomials; prior k3 table is only top-degree."
+        ],
+        "reasoning": "An existing table of maxima is not an exact table of counts of ALL k-visible subsets by cardinality.",
+        "searches": [
+          "Resultary: k-distance mutual visibility grid P_m square P_n full cardinality polynomial k=2 k=3",
+          "Resultary k-distance mutual visibility grid full polynomial",
+          "Resultary prior k3 grid maximum census",
+          "arXiv:2507.01851 graph family tables"
+        ]
+      },
+      "rationale": "The notion of visibility polynomial is prior and prior k=3 grid optimization/maximum-set count is not claimed new. The complete k=2 and k=3 *bounded-distance* cardinality distribution for every rectangular grid, including low-degree coefficients, is not stated or implied by the inspected unrestricted visibility polynomial studies or grid maxima. Exact exhaustive anchored enumeration has mathematically proved finite locality and hence supplies a natural missing full profile.",
+      "residual_risks": [
+        "The full earlier maximizer document was not independently inspected here; the already acknowledged partial overlap is taken at face value and not claimed as novelty.",
+        "An unindexed all-size k-distance visibility polynomial computation could alter priority.",
+        "No assertion for k>=4 or higher-dimensional Cartesian products."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING full grid cardinality polynomial",
+          "evidence": [
+            "Introduces k-geodesic condition and establishes bounds/other families; no all-size generating coefficients of every P_m □ P_n for k2,k3."
+          ],
+          "identifier_or_url": "arXiv:2408.03976; DOI:10.1007/s40840-024-01811-3",
+          "material_read": "Open Springer primary article full HTML, definitions, Section3 complexity, Theorem2.1 comparison and sections on exact families and open grids",
+          "method": "Primary full open-access HTML targeted comparison",
+          "title": "The k-Distance Mutual-Visibility Problem in Graphs",
+          "trigger": "Originating k-distance definition and natural rectangular-grid problem"
+        },
+        {
+          "assessment": "NOT_COVERING k-distance grid-polynomial theorem",
+          "evidence": [
+            "Studies ordinary unrestricted mutual visibility polynomial and other graph classes; does not supply k-limited 2D rectangular-grid coefficients."
+          ],
+          "identifier_or_url": "arXiv:2507.01851v1",
+          "material_read": "Open full extracted HTML with definition, theorem headings, graphs addressed; searched for grid and k-distance",
+          "method": "Primary open-access full HTML targeted search/read",
+          "title": "On the Visibility Polynomial of Graphs",
+          "trigger": "Prior polynomial-valued visibility invariant potentially dominating grid result"
+        },
+        {
+          "assessment": "NOT_COVERING k=2,3 rectangular grid law",
+          "evidence": [
+            "Unrestricted mutual-visibility polynomials of listed graph families do not imply the stricter k-distance all-grid distribution."
+          ],
+          "identifier_or_url": "arXiv:2509.22571v1",
+          "material_read": "Open full extracted HTML including definitions, studied graph classes; searched for grid and k-distance",
+          "method": "Primary open-access HTML targeted search/read",
+          "title": "Visibility Polynomial of Some Graph Classes",
+          "trigger": "Another broad enumeration of all mutual-visibility set sizes"
+        },
+        {
+          "assessment": "PARTIAL prior coverage of largest k3 sets",
+          "evidence": [
+            "Top-degree maximum k3=6 on sufficiently large grids and optimizer count known, but sizes2..5 of the whole size-generating polynomial are unspecified."
+          ],
+          "identifier_or_url": "Resultary record f5210152-7629-4ed9-9dc1-4425cb3c81b1",
+          "material_read": "Named previous mathematical finding in source package, detailed scope reported but original complete RESULT.md not accessed",
+          "method": "Prior named statement only; explicit access limitation",
+          "title": "Earlier degree-three grid maxima and optimizer census",
+          "trigger": "Exact same family top-degree prior result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "arXiv:2408.03976; DOI:10.1007/s40840-024-01811-3",
+        "arXiv:2507.01851v1",
+        "arXiv:2509.22571v1",
+        "Resultary record f5210152-7629-4ed9-9dc1-4425cb3c81b1"
+      ],
+      "rationale": "The original k-distance mutual-visibility problem specifically motivates rectangular grids. The natural simplicial-complex size distribution for the two first nontrivial path-radius bounds is a complete classification for all side lengths, not an arbitrary finite grid slice. Lower-size counts and exact thresholds are independent of known maxima, and the clean 4x4 locality argument turns finite certificates into uniform global formulas.",
+      "residual_risks": [
+        "No weighted occupation/analytic limit or extension to k>3 is claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}
