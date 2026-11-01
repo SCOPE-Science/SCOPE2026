@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T21:21:18Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "All seven Git blobs fetched at returned commit; independent tree SHA reconstruction matched afb07925a12501e35c624629a8b0d62414cef284.",
+        "Own sympy simplification of overlapping-pair Chernoff exponent and derivative, not the package executable; strict inequality checked analytically on (0,1).",
+        "Original 1992 Kanagawa–Mochizuki–Tanaka PDF inspected, page image 3 (Theorem 2.1); its dimension d is fixed unlike the growing k~c log m regime."
+      ],
+      "rationale": "PASS. For S_m=conv(e_i), Haar discarded k-plane of H_m is represented by centered m-by-k Gaussian rows; pairwise discarded squared edge length is (Z_i-Z_j)^T(Z^T C Z)^{-1}(Z_i-Z_j). Since every simplex diameter is realized by a vertex pair, Delta²=2-min discarded square. Wishart Frobenius second-moment bound gives spectral uniform replacement by |Z_i-Z_j|²/m because k~c log m. Each pair distance is 2 chi²_k, rate I(s)=(s−1−log s)/2. Counting m² pairs yields threshold c I(s)=2; the second-moment lower side handles dependent overlapping pairs with Chernoff q<=exp(-k J(s)) and exact identity 4(J−3I/2)=H(s)>0. Independent sympy log algebra verified identity and H'(s)=−(1−s)²(s+3)/[s(3−s)(1+s)]<0 for 0<s<1. Therefore k^{-1} min pair distances -> 2s_c and (m/k)(sqrt2−Delta)->s_c/sqrt2, where s_c−1−log s_c=4/c. No fixed-k/linear-k or CLT claim.",
+      "residual_risks": [
+        "The proof requires k/log m->c in (0,infinity), k=o(m), and Haar orthogonal projection.",
+        "Second-moment overlap inequality, not independence of all m choose 2 pair distances, is essential; Gaussian rows are independent but distances sharing a row are not."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baryshnikov–Vitale regular-simplex/Gaussian-sample equivalence is an input; Kanagawa–Mochizuki–Tanaka Theorem 2.1 establishes a fixed d point-process limit. Neither inspected theorem yields the k~c log m joint scaling."
+        ],
+        "reasoning": "Böröczky–Henk face-count laws concern a different combinatorial observable and do not directly imply metric diameter.",
+        "searches": [
+          "Resultary: Haar projection regular simplex diameter logarithmic codimension nearest pair high dimensional Gaussian",
+          "web: regular simplex diameter random projection Gaussian nearest pair logarithmic",
+          "web: Baryshnikov Vitale 1994 Regular Simplices and Gaussian Samples full paper PDF",
+          "web: Kanagawa Mochizuki Tanaka 1992 minimum interpoint distance R^d",
+          "Böröczky Henk Random Projections of Regular Polytopes 1997 preprint"
+        ]
+      },
+      "checked_sources": [
+        "https://www.ism.ac.jp/editsec/aism/pdf/044_1_0121.pdf",
+        "https://doi.org/10.1007/BF02574000",
+        "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gaussian sample equivalence permits rewriting the problem but not extracting the c-dependent threshold without overlap second-moment analysis."
+        ],
+        "reasoning": "The explicit shared-endpoint Chernoff inequality is the critical nonstandard deduction absent from the inspected fixed-d theorem.",
+        "searches": [
+          "Resultary: Haar projection regular simplex diameter logarithmic codimension nearest pair high dimensional Gaussian",
+          "web: regular simplex diameter random projection Gaussian nearest pair logarithmic",
+          "web: Baryshnikov Vitale 1994 Regular Simplices and Gaussian Samples full paper PDF",
+          "web: Kanagawa Mochizuki Tanaka 1992 minimum interpoint distance R^d",
+          "Böröczky Henk Random Projections of Regular Polytopes 1997 preprint"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Projected diameter deficit is equivalently a minimum of quadratic forms in independent Gaussian row-pair differences, and after Gram normalization a growing-dimensional Gaussian nearest-pair minimum."
+        ],
+        "reasoning": "The fixed-dimensional extreme-spacing formulation differs because k_m→infinity with log m, so rates rather than small-radius Poisson scaling control minima.",
+        "searches": [
+          "Resultary: Haar projection regular simplex diameter logarithmic codimension nearest pair high dimensional Gaussian",
+          "web: regular simplex diameter random projection Gaussian nearest pair logarithmic",
+          "web: Baryshnikov Vitale 1994 Regular Simplices and Gaussian Samples full paper PDF",
+          "web: Kanagawa Mochizuki Tanaka 1992 minimum interpoint distance R^d",
+          "Böröczky Henk Random Projections of Regular Polytopes 1997 preprint"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed database of all c>0 near-full-dimensional simplex projection diameter constants found; s_c is a new continuum rate-function root under searched scope."
+        ],
+        "reasoning": "A fixed-d nearest-neighbor rate or numerical projected-diameter table would not establish the growing-dimensional probability limit.",
+        "searches": [
+          "Resultary: Haar projection regular simplex diameter logarithmic codimension nearest pair high dimensional Gaussian",
+          "web: regular simplex diameter random projection Gaussian nearest pair logarithmic",
+          "web: Baryshnikov Vitale 1994 Regular Simplices and Gaussian Samples full paper PDF",
+          "web: Kanagawa Mochizuki Tanaka 1992 minimum interpoint distance R^d",
+          "Böröczky Henk Random Projections of Regular Polytopes 1997 preprint"
+        ]
+      },
+      "rationale": "PASS, best knowledge: the Gaussian realization of projected regular simplices and fixed-dimensional minimum interpoint distance law are classical. The new statement is the near-full-dimensional projected simplex diameter at logarithmically growing discarded dimension with exact rate root and dependence-corrected sharp constant. The fixed-d theorem inspected does not imply the moving-d limit; the 1994 Baryshnikov–Vitale exact same simplex/Gaussian relationship is not fully accessible, so its unknown scope remains a priority risk.",
+      "residual_risks": [
+        "Baryshnikov–Vitale original full text unavailable and one Oxford tool call safety-blocked; this alone does not change the best-knowledge O judgment."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed ambient d and n² min-distance^d Poisson process; no increasing dimension at log m.",
+          "evidence": "Kanagawa, Mochizuki, Tanaka, Ann. Inst. Statist. Math. 44 (1992), pp. 121–131, Theorem 2.1 assumes fixed R^d and f in L².",
+          "identifier_or_url": "https://www.ism.ac.jp/editsec/aism/pdf/044_1_0121.pdf",
+          "material_read": "Entire accessible 11-page PDF text indexed; inspected introduction, Theorem 2.1 on p.123 and its scanned screenshot, and point-process proof context",
+          "method": "Web PDF open and required screenshot of page index 2; searched theorem/assumptions",
+          "title": "Limit theorems for the minimum interpoint distance between any pair of iid random points in R^d",
+          "trigger": "Same nearest-pair random point statistic"
+        },
+        {
+          "assessment": "Plausible stronger coverage risk, not used as evidence of whole-paper noncoverage.",
+          "evidence": "Baryshnikov–Vitale, Discrete & Computational Geometry 11 (1994), 141–147, DOI 10.1007/BF02574000.",
+          "identifier_or_url": "https://doi.org/10.1007/BF02574000",
+          "material_read": "Bibliographic description only: 1994 Discrete & Computational Geometry 11, 141–147; full text inaccessible",
+          "method": "Public OA search; authorized Oxford attempt blocked by safety checks (no retry)",
+          "title": "Regular Simplices and Gaussian Samples",
+          "trigger": "Same simplex and Gaussian random projection representation"
+        },
+        {
+          "assessment": "Its known face-count focus differs from diameter, but priority risk remains where full proof is inaccessible.",
+          "evidence": "Böröczky and Henk, 1997 preprint, regular polytope projection face counts.",
+          "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+          "material_read": "Candidate source bibliography/description only, PDF not available to inspect here",
+          "method": "Source-reference identification and web searching",
+          "title": "Random Projections of Regular Polytopes",
+          "trigger": "General random projections of regular polytopes may dominate specific simplex case"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "PASS. Diameter is an intrinsic metric invariant of random regular-simplex projections; the logarithmic codimension is a natural extreme-pair transition scale. The explicit rate root and dependence-sensitive second moment supply an all-c classification inaccessible from fixed-dimensional spacing laws. It offers a sharp benchmark for near-full-dimensional random geometric projection, not an arbitrary constant.",
+        "PASS"
+      ],
+      "rationale": "PASS. Diameter is an intrinsic metric invariant of random regular-simplex projections; the logarithmic codimension is a natural extreme-pair transition scale. The explicit rate root and dependence-sensitive second moment supply an all-c classification inaccessible from fixed-dimensional spacing laws. It offers a sharp benchmark for near-full-dimensional random geometric projection, not an arbitrary constant.",
+      "residual_risks": [
+        "Baryshnikov–Vitale original full text unavailable and one Oxford tool call safety-blocked; this alone does not change the best-knowledge O judgment.",
+        "No error rate or fluctuations beyond convergence in probability; endpoint c->0,∞ pertains only to the deterministic coefficient."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1
+}

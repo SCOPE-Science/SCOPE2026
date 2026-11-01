@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof explicitly realizes the Haar Grassmannian by centered Gaussian rows, establishes a simultaneous spectral approximation, proves the requisite growing-dimensional nearest-pair law using a sharp lower-tail rate and the nontrivial inequality \(J(s)>3I(s)/2\), and converts squared lengths to the diameter deficit without losing normalization. The finite verifier reproduces the edge identity and overlap-algebra computation but does not substitute for the asymptotic argument. The claims hold for all integer sequences with \(k_m/\log m\to c\in(0,\infty)\).
+## correctness
 
-**Originality — PASS, subject to specified bibliographic risk.** Kanagawa–Mochizuki–Tanaka derives nearest-pair limits in fixed dimension, whereas the theorem here requires simultaneous growth of pair count and Gaussian dimension. Böröczky–Henk's projection results concern face numbers, which do not determine Euclidean diameter, and Kabluchko–Litvak–Zaporozhets studies mean widths and Gaussian maxima, not the minimum discarded squared edge norm. Published-database searches of the exact Gaussian-pair formulation and its projection equivalents did not retrieve an equivalent limit or a stronger theorem that implies it. Baryshnikov–Vitale and Affentranger–Schneider are plausible antecedents but their complete original manuscripts were not inspected; mathematical-priority uncertainty remains, without a known dominating claim.
+PASS
 
-**Value — PASS.** Determining whether a near-full-dimensional random projection preserves the diameter of a highly symmetric polytope is a natural geometric question. At logarithmic codimension, \(m^2\) competing edges interact through shared Gaussian vertices, creating an explicit, nontrivial rate-function threshold rather than a textbook single-edge concentration bound. The theorem gives the complete one-parameter phase law for this critical regime, with an exact dependence correction essential to the proof. The result is neither an arbitrary finite case nor a mere renaming of a fixed-dimensional nearest-neighbor theorem.
+PASS. For S_m=conv(e_i), Haar discarded k-plane of H_m is represented by centered m-by-k Gaussian rows; pairwise discarded squared edge length is (Z_i-Z_j)^T(Z^T C Z)^{-1}(Z_i-Z_j). Since every simplex diameter is realized by a vertex pair, Delta²=2-min discarded square. Wishart Frobenius second-moment bound gives spectral uniform replacement by |Z_i-Z_j|²/m because k~c log m. Each pair distance is 2 chi²_k, rate I(s)=(s−1−log s)/2. Counting m² pairs yields threshold c I(s)=2; the second-moment lower side handles dependent overlapping pairs with Chernoff q<=exp(-k J(s)) and exact identity 4(J−3I/2)=H(s)>0. Independent sympy log algebra verified identity and H'(s)=−(1−s)²(s+3)/[s(3−s)(1+s)]<0 for 0<s<1. Therefore k^{-1} min pair distances -> 2s_c and (m/k)(sqrt2−Delta)->s_c/sqrt2, where s_c−1−log s_c=4/c. No fixed-k/linear-k or CLT claim.
 
-**Limitations and residual risk.** Convergence only in probability for a fixed positive logarithmic ratio; no finite-sample rate, other codimension regimes, or independent historical-priority confirmation. The unavailable original 1994 and 1992 articles could contain relevant material. Computational checks cover finite identities, not the asymptotic assertion.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, best knowledge: the Gaussian realization of projected regular simplices and fixed-dimensional minimum interpoint distance law are classical. The new statement is the near-full-dimensional projected simplex diameter at logarithmically growing discarded dimension with exact rate root and dependence-corrected sharp constant. The fixed-d theorem inspected does not imply the moving-d limit; the 1994 Baryshnikov–Vitale exact same simplex/Gaussian relationship is not fully accessible, so its unknown scope remains a priority risk.
+
+## value
+
+PASS
+
+PASS. Diameter is an intrinsic metric invariant of random regular-simplex projections; the logarithmic codimension is a natural extreme-pair transition scale. The explicit rate root and dependence-sensitive second moment supply an all-c classification inaccessible from fixed-dimensional spacing laws. It offers a sharp benchmark for near-full-dimensional random geometric projection, not an arbitrary constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
