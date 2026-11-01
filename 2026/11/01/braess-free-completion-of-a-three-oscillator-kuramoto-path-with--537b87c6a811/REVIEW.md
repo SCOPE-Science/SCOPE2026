@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The exact equations (1) and potential (2) are derived from the stated oscillator system. For every principal-square equilibrium above or at the original path threshold, the nonstandard bound (5) proves strict positive definiteness even when the new chord has a negative cosine. A degree-one homotopy counts exactly one equilibrium above that threshold. The boundary classification at the path threshold gives the precise aligned versus nonaligned alternative; the opposite-sign corner is removed by the explicit quadratic negative energy term (6). The saturated cut gives the converse impossibility. The exact example and executable finite checks support, but do not substitute for, this proof.
+
+**Originality — PASS on the available comparisons, with residual priority risk.** The 2013 tree result covers the original path but not adding a third edge. The 2012 multi-vertex paradox analysis and a separate four-oscillator result do not imply this all-weights three-vertex no-go or its sharp equality classification. The 2026 motivating paper provides a first-order sensitivity formula and discusses specific motifs; a local derivative does not imply a global result for arbitrary closing-edge weights. A 2024 three-oscillator paper concerns identical frequencies in its retrieved account. The 2026 paper's primary full text was inaccessible, so detailed appendix-level overlap remains a historical-priority risk.
+
+**Mathematical value — PASS.** The three-node triangle is the smallest graph cycle, so classifying whether it can display edge-addition Braess inhibition separates an elementary cycle effect from larger-network geometric frustration. The theorem gives an all-parameter structural obstruction and a sharp equality criterion, not just a perturbative sign or one numerical example.
+
+**Limitations.** Only reciprocal positive sine coupling, no phase lags or inertia, exactly three vertices, and exponential phase-locking thresholds are covered. Global attraction and all possible phase classes are not classified. Novelty requires independent historical verification of the inaccessible 2026 primary full text.
+
+Self-review: passed. Independent audit: not yet performed.
