@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:14:33Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "RESULT.md Git blob 6564f88d077878ba23e982065ef49bdcfdb158ae",
+        "verify_fma_horner.py Git blob 686d99c0abd1415a7fbf2f2ffe6aaf26dc0c81ad",
+        "independent_scope_worker01_checks_results.json:115 exact rational Markov chains"
+      ],
+      "rationale": "The fused map F(y)=1+(1−1/L)y=y+(L−y)/L, L=2^q, makes the p-bit stochastic-rounding chain nondecreasing on finitely many floats in [1,L]. With upward probability computed from downward p+r-bit truncation, upward motion is possible iff the increment crosses the p+r-grid quantum. Below L, final p-spacing Δ=2^(q−p), higher-grid spacing Δ/2^r. If r<q, the first absorbing state reachable from below is B=L−(2^(q−r)−1)Δ, and no state can jump over B; if r≥q the unique absorber is L. Positive upward probability at all preceding states and independent choices prove finite-time almost sure absorption; the last predecessor is visited and has exact geometric holding mean 2^r or 2^q. Ideal SR always reaches L. Independently enumerated 115 full exact rational reachable finite chains and final holding laws; infinite integer parameter proof is monotonic finite-chain/grid reasoning.",
+      "residual_risks": [
+        "Normal arithmetic with wide exponent range, exact FMA, truncation-derived probabilities, independent random draws required; different rounding rules may have different thresholds."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "El Arar et al arXiv:2603.24161 general finite-degree Horner model; arXiv:2408.03069 limited-precision SR bias models."
+        ],
+        "reasoning": "The 2026 study explicitly excludes FMA, while general error bounds do not imply the exact sharp absorbing states in the fused recurrence.",
+        "searches": [
+          "limited precision stochastic rounding random bits fused Horner geometric series eventual stagnation threshold absorbing state",
+          "limited precision stochastic rounding Horner FMA 2603.24161 exact absorption"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2603.24161",
+        "https://arxiv.org/abs/2408.03069",
+        "https://arxiv.org/abs/2504.20634",
+        "Resultary published semantic search: limited precision stochastic rounding random bits fused Horner geometric series eventual stagnation threshold absorbing state"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "El Arar et al 2026 Definition 2 and Remark 3, Fitzgibbon–Felix 2025."
+        ],
+        "reasoning": "Prior operator definition is reused with attribution; separately rounded Horner results cannot be directly substituted for the one-round FMA recurrence, and alternative stochastic rounding definitions are inequivalent.",
+        "searches": [
+          "limited precision stochastic rounding random bits fused Horner geometric series eventual stagnation threshold absorbing state",
+          "limited precision stochastic rounding Horner FMA 2603.24161 exact absorption"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "finite-state stochastic rounding absorption, quantized affine contraction, terminal Horner stagnation, random-bit bias."
+        ],
+        "reasoning": "Limit is not just finite-horizon expected rounding error: it is an almost-sure deterministic absorbing output for all degrees n→∞.",
+        "searches": [
+          "limited precision stochastic rounding random bits fused Horner geometric series eventual stagnation threshold absorbing state",
+          "limited precision stochastic rounding Horner FMA 2603.24161 exact absorption"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic search fused Horner random-bit absorbing transition; arXiv:2603.24161 finite numerical tests."
+        ],
+        "reasoning": "No existing exact terminal-state table for this one-parameter fused series found; finite tests are not proof of novelty.",
+        "searches": [
+          "limited precision stochastic rounding random bits fused Horner geometric series eventual stagnation threshold absorbing state",
+          "limited precision stochastic rounding Horner FMA 2603.24161 exact absorption"
+        ]
+      },
+      "rationale": "El Arar et al (2026) define exactly the truncation-based few-random-bit SR operator and analyze separately rounded Horner, explicitly excluding FMA (Remark 3) and studying finite-degree stagnation. Prior bias and limited-bit SR results do not give the exact almost-sure absorbing threshold for fused all-one geometric polynomial. The contribution is an explicit sharp random-bit barrier and final geometric waiting law, not finite-degree stochastic rounding as such. An equivalent result in hardware/quantized-recursion literature remains a risk.",
+      "residual_risks": [
+        "Potential unindexed equivalent finite-bit absorbing Markov calculation; only precisely defined truncation-based SR_{p,r} is assessed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "RELATED_BUT_EXCLUDES_FMA: finite-degree separately rounded Horner, no fused all-one asymptotic absorbing-state theorem",
+          "evidence": "El Arar–Fasi–Filip–Mikaitis (2026), Definition 2 and Remark 3 expressly exclude fused multiply-add Horner.",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.24161",
+          "material_read": "Primary full text, Definition 2 rounding rule, Remark 3 FMA exclusion, Section 5.1 stagnation numerical results",
+          "method": "Read arXiv primary PDF text/pages; viewed screenshot",
+          "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding: Horner’s Algorithm and Pairwise Summation",
+          "trigger": "Identical finite-random-bit operator and Horner context"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY in inspected material; no evidence of exact fused Horner geometric threshold",
+          "evidence": "El Arar et al (2024/2025) studies bias and recursive summation, not an observed identical statement.",
+          "identifier_or_url": "https://arxiv.org/abs/2408.03069",
+          "material_read": "Paper metadata and high-level description only; full text not inspected",
+          "method": "Literature search and references",
+          "title": "Probabilistic Error Analysis of Limited-Precision Stochastic Rounding",
+          "trigger": "General bias model for limited random bits"
+        },
+        {
+          "assessment": "RESIDUAL_RISK: differing stochastic implementations may have overlapping absorbing-state implications",
+          "evidence": "Fitzgibbon–Felix (2025), alternative rounding model, full-text comparison limited.",
+          "identifier_or_url": "https://arxiv.org/abs/2504.20634",
+          "material_read": "Bibliographic summary only; no full text inspected",
+          "method": "Public arXiv metadata search",
+          "title": "On Stochastic Rounding with Few Random Bits",
+          "trigger": "Alternative few-random-bit stochastic rounding models"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md Git blob 6564f88d077878ba23e982065ef49bdcfdb158ae"
+      ],
+      "rationale": "Gives a sharp and counterintuitive limitation of finite-random-bit stochastic rounding under a fused operation: correct asymptotic limit iff r≥q and severe deterministic underestimation otherwise; quantifies exact waiting time. The natural geometric polynomial isolates a universal feedback saturation problem.",
+      "residual_risks": [
+        "Limited to fixed geometric x=1−2^(−q), all-one coefficients, no finite-degree uniform error bound; not necessarily representative of other SR implementations."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "p≥q+1, q≥2, r≥1, normal binary floating-point, exact fused multiply-add and p+r truncation in probability, independent choices, n→∞ with fixed p,q,r."
+  ],
+  "schema_version": 1
+}

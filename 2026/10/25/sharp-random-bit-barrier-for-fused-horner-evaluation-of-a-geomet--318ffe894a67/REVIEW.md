@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof uses the precise truncation-based limited-precision upward probability, establishes an increasing finite-state chain, characterizes every absorbing state, and prevents overshooting the first absorber. The final predecessor and exact geometric residence time follow by direct binary-grid arithmetic. In 224 exact rational finite parameter combinations the standalone program exhaustively reconstructed the reachable transition graphs and matched the theorem. This computation corroborates, but does not prove, arbitrary-precision claims; those are established analytically.
+## correctness
 
-## Originality — PASS (subject to independent historical checking)
-The principal 2026 source explicitly excludes fused multiply-add Horner (Remark 3), and its finite-degree bounds do not imply an almost-sure absorbing state or a sharp random-bit threshold. The foundational 2024/2025 source treats limited-precision rounding, summation, and inner products, not this contraction; the 2025 few-bit paper treats alternative rounding modes and their bias; and the 2026 survey is background. Searches for geometric-polynomial, fused-Horner, quantized-contraction and absorption aliases in published research records produced no equivalent mathematical implication. A negative search is not proof of priority; the main residual risk is a previously published specialized fixed-point quantization theorem covering the same state-dependent rounded affine map.
+PASS
 
-## Mathematical value — PASS
-This is a natural exact benchmark for the FMA variant expressly left outside the most relevant 2026 Horner analysis. It resolves whether additional random bits eliminate permanent long-horizon stagnation for a canonical near-one geometric polynomial, gives the exact nonzero bias when they do not, and also quantifies the final waiting time required even when the bias vanishes. The result is restricted to a particular representable evaluation point and rounding mechanism, but the exact threshold addresses a mathematically motivated open corner rather than an arbitrary invariant.
+The fused map F(y)=1+(1−1/L)y=y+(L−y)/L, L=2^q, makes the p-bit stochastic-rounding chain nondecreasing on finitely many floats in [1,L]. With upward probability computed from downward p+r-bit truncation, upward motion is possible iff the increment crosses the p+r-grid quantum. Below L, final p-spacing Δ=2^(q−p), higher-grid spacing Δ/2^r. If r<q, the first absorbing state reachable from below is B=L−(2^(q−r)−1)Δ, and no state can jump over B; if r≥q the unique absorber is L. Positive upward probability at all preceding states and independent choices prove finite-time almost sure absorption; the last predecessor is visited and has exact geometric holding mean 2^r or 2^q. Ideal SR always reaches L. Independently enumerated 115 full exact rational reachable finite chains and final holding laws; infinite integer parameter proof is monotonic finite-chain/grid reasoning.
 
-## Relationship to literature and limitations
-Closest: El Arar et al., arXiv:2603.24161 (Definition 2, §3, Remark 3, §5.1); El Arar et al., arXiv:2408.03069 (§§2.3,4,6); Fitzgibbon–Felix, arXiv:2504.20634 (§§I–III); and El Arar et al., arXiv:2603.06060 (§§1–2). Results are restricted to the exact FMA and truncation-based rounding, fixed \(p,q,r\), independent random decisions, and the all-one geometric polynomial; no claims about general polynomials or hardware. Specialized literature may contain an equivalent theorem, and further external comparison is warranted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+El Arar et al (2026) define exactly the truncation-based few-random-bit SR operator and analyze separately rounded Horner, explicitly excluding FMA (Remark 3) and studying finite-degree stagnation. Prior bias and limited-bit SR results do not give the exact almost-sure absorbing threshold for fused all-one geometric polynomial. The contribution is an explicit sharp random-bit barrier and final geometric waiting law, not finite-degree stochastic rounding as such. An equivalent result in hardware/quantized-recursion literature remains a risk.
+
+## value
+
+PASS
+
+Gives a sharp and counterintuitive limitation of finite-random-bit stochastic rounding under a fused operation: correct asymptotic limit iff r≥q and severe deterministic underestimation otherwise; quantifies exact waiting time. The natural geometric polynomial isolates a universal feedback saturation problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
