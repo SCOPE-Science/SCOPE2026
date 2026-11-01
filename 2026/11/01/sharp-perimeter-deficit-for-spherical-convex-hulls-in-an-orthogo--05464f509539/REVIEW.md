@@ -1,0 +1,15 @@
+# Scientific assessment: spherical-wedge perimeter deficit
+
+## Correctness — PASS
+The claimed object is the spherical positive hull of independent normalized-area-uniform points on the orthogonal lune. The proof derives a Crofton perimeter identity with its factor \(2\pi\), an exact Gaussian-orthant formula for every normal's hemisphere probability, and the full finite-sample double integral. The key nonstandard step is a global domination \(p(z,\theta)^n\le\exp(-nz^2/\pi)\), proved by maximizing the sum of two inverse-sines at fixed latitude. This supplies an integrable majorant after rescaling and legitimizes dominated convergence. Direct polygon simulations agree with the integral for independent finite sample sizes, and the standalone numerical checker reproduces the sharp constant. No numerical integration is used to prove the infinite-sample limit. The result does not claim a further remainder estimate.
+
+## Originality — PASS (historical priority provisional)
+The same sampling model is central to Besau et al., arXiv:2203.07916v1, where the inspected main theorem concerns expected edge counts of order \(\log n\), not perimeter convergence. The related paper by Bárány et al., arXiv:1505.04672v1, calculates expected spherical surface area and mean width for a halfsphere, using a Crofton formula similar to the one openly credited here. A hemisphere has a different supporting-normal geometry; substituting its expectation or its asymptotic coefficient does not produce the orthogonal-wedge beta constant. Actual literature and mathematical-record searches targeted spherical lunes, wedge hull perimeters, boundary-length deficits, Crofton representations, and \(n^{-1/2}\) corrections; no equivalent or dominating evaluated asymptotic was identified. The oldest archival spherical random-hull literature was not exhaustively available, so unconditional publication priority is not asserted.
+
+## Value — PASS
+The same natural stochastic-geometric model has a published logarithmic law for combinatorial complexity. Here a different intrinsic geometric measure has a sharp, fully evaluated \(n^{-1/2}\) approximation rate and a nontrivial beta constant. The result is an infinite-family metric asymptotic, not an arbitrary example, a finite enumeration, or merely a restatement of Crofton. The boundary-layer analysis identifies the one-dimensional continuum of nearly containing hemispheres that creates the slow convergence. The exact finite-sample integral is also usable for numerical benchmarking and further asymptotic terms.
+
+## Closest literature and limitations
+The strongest sources checked are Besau et al., 2022, arXiv:2203.07916v1 (same wedge, different invariant) and Bárány et al., 2015, arXiv:1505.04672v1 (mean-width/perimeter mechanism, different supporting domain). Older Miles/Efron-era general random-hull formulae remain a possible historical-priority risk, but no direct evaluated wedge constant was found. The theorem is restricted to an orthogonal lune, expected geodesic perimeter, and first-order asymptotics; independent review is still required.
+
+Self-review: passed. Independent audit: not yet performed.
