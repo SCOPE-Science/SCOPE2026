@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction of the algebraic certificate
+# Independent mathematical audit
 
-Run `python3 verify.py` with no arguments. It requires only the Python standard library. `verify_output.txt` contains the actual result of this command.
+## correctness
 
-The checker reconstructs ladder graph adjacency and exhaustively compares graph-based membership against transfer-counted polynomials for \(1\le n\le9\). It compares minimum-set subsets with the two (odd-order) or four (even-order) configurations, verifies the first five coefficients of the rational numerator, and checks the recurrence at order six. The decisive universal certificate consists of the sixteen exact formal polynomial identities \(u^{\mathsf T}T^jR(T;z)v=0\) for \(0\le j\le15\), encoded as residual polynomials at orders seven through twenty-two. Because the transfer matrix has exactly sixteen states, Cayley--Hamilton proves all later residuals vanish. All arithmetic uses integer coefficients and exact dictionary operations.
+PASS
 
-The direct enumeration is finite corroboration, not an exhaustive check of infinitely many graphs. The algebraic certificate, combined with the written transfer-model proof and Cayley--Hamilton, supplies the all-order inference. These checks are not independent mathematical validation.
+The definition imposes domination on outside vertices and at most one external neighbor for each selected vertex. Its constraints depend on at most three adjacent two-bit columns. The displayed 16-state pair transfer exactly enumerates every labeled subset with weight z^|D|. The supplied exact Z[z] polynomial calculation checks sixteen u^T T^jR(T)v=0 identities, j=0..15; Cayley–Hamilton propagates this to all j, proving the order-five denominator recurrence for every n, together with exact initial numerator. Independently brute-checked all 4^n subsets for n=1..8 and exact counting totals 3,9,18,43,99,226,517,1187 and min patterns. The crossing cut bound |V\D|<=|D| gives minimum n; equality enforces precisely two full rows or (even n) two 00,11,11,00 alternating patterns. End boundaries n=1 included.
+
+## originality
+
+PASS
+
+Tepeh 2026 studies the exact minimum 1-limited domination number on Cartesian grids, including ladder gamma=n, not all-cardinality subset polynomials or the number and types of exact minimizers. Original k-limited domination definitions and ordinary ladder domination polynomials concern different enumerands. No indexed equivalent generating series located; the prior known minimum value is not claimed new.
+
+## value
+
+PASS
+
+A complete rational bivariate generating series for every size of a constrained dominating set on a canonical graph family is an independently useful combinatorial enumeration; the small state certificate provides all-length structural control, and the exact minimizing patterns refine an existing minimum-size theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

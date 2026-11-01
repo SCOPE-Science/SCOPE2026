@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the full polynomial of all 1-limited dominating sets on the ordinary open ladder, including the single-rung boundary. Membership reduces exactly to explicit three-column Boolean tests. The 16-state transfer counts each subset once. An exact integer-polynomial calculation verifies sixteen residual identities \(u^{\mathsf T}T^jR(T;z)v=0\), \(0\le j\le15\); Cayley--Hamilton extends these to every \(j\), establishing the recurrence in all orders, not just finite tests. Initial coefficients establish the numerator. The minimum-set characterization follows from a separate perfect-cross-matching cut argument. See `RESULT.md`, `verify.py`, and `verify_output.txt`.
+PASS
 
-## Originality — PASS with remaining priority risk
+The definition imposes domination on outside vertices and at most one external neighbor for each selected vertex. Its constraints depend on at most three adjacent two-bit columns. The displayed 16-state pair transfer exactly enumerates every labeled subset with weight z^|D|. The supplied exact Z[z] polynomial calculation checks sixteen u^T T^jR(T)v=0 identities, j=0..15; Cayley–Hamilton propagates this to all j, proving the order-five denominator recurrence for every n, together with exact initial numerator. Independently brute-checked all 4^n subsets for n=1..8 and exact counting totals 3,9,18,43,99,226,517,1187 and min patterns. The crossing cut bound |V\D|<=|D| gives minimum n; equality enforces precisely two full rows or (even n) two 00,11,11,00 alternating patterns. End boundaries n=1 included.
 
-The motivating product paper, arXiv:2606.22428v1 (June 21, 2026), already proves the minimum cardinality \(n\) and must receive credit for it. The claimed new theorem instead gives the full cardinality polynomial and classification of all its minima. Inspection of the grid section did not find these refinements. The foundational DOI:10.1007/s40314-026-03902-2 proves general bounds, not the refined ladder count. Equivalent phrasing under \((0,1)\)-pitchfork domination, perfect matching cuts, and existing domination-polynomial or integer-sequence literature was considered. Generic ordinary and total domination sequences count different admissible families. No equivalent all-order ladder enumeration was identified. Inaccessible or unindexed prior literature remains a genuine risk; search failure is not proof of novelty.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem refines a newly determined graph-product invariant to count every feasible selected-set size on a standard infinite grid family. The five-step rational recurrence gives all counts without per-graph subset enumeration; the minimum configurations exhibit an exact parity-dependent structural classification. These are motivated multiplicity and distribution questions, not an arbitrary parameter slice or a restatement of the known minimum value.
+Tepeh 2026 studies the exact minimum 1-limited domination number on Cartesian grids, including ladder gamma=n, not all-cardinality subset polynomials or the number and types of exact minimizers. Original k-limited domination definitions and ordinary ladder domination polynomials concern different enumerands. No indexed equivalent generating series located; the prior known minimum value is not claimed new.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+A complete rational bivariate generating series for every size of a constrained dominating set on a canonical graph family is an independently useful combinatorial enumeration; the small state certificate provides all-length structural control, and the exact minimizing patterns refine an existing minimum-size theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
