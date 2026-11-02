@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification and reproducibility
 
-The result concerns a mathematically exact open interval and closed-system invariant initial measure. Its key independently checkable algebraic identity is \(x\mapsto u=x^{-\alpha}\), under which the LSV left branch acts as \(u\mapsto u(1+2^\alpha/u)^{-\alpha}=u-\alpha2^\alpha+O(u^{-1})\). Since each survivor remains below \(h_n\), the Taylor remainder is bounded uniformly by \(C_\alpha h_n^\alpha\) per iterate. Repeating at the endpoint gives \(a_n^{-\alpha}=h_n^{-\alpha}+\alpha2^\alpha n+O(nh_n^\alpha)\); the error relative to \(h_n^{-\alpha}+n\) is \(o(1)\) for **every** sequence \(h_n\to0\).
+# Independent mathematical audit
 
-The analytic input about the closed invariant density is recorded explicitly in RESULT.md with source Korepanov–Wei–Wormell, §6, equations (6.1)–(6.3), Lemma 6.3. The leading coefficient is \(\rho_\alpha(1/2)/2^{\alpha+1}\), and integration yields \(K_\alpha\). The conditional beta law follows from ratios of this regularly varying interval mass. The path convergence uses the displayed uniform estimate after multiplication by \(h_n^\alpha\) or division by \(n\), on beta-parameter compact sets excluding only limiting probability-zero endpoints.
+## correctness
 
-As a supplemental finite sanity check, at \(\alpha=1/2\), \(n=4000\), \(\lambda=1\), and cutoffs \(h_n=n^{-\beta}\) for \(\beta\in\{1,2,3\}\), repeated numerical inversion of the increasing left branch gave ratios \(a_n/(h_n^{-\alpha}+\alpha2^\alpha n)^{-1/\alpha}\) approximately \(1.002804\), \(1.000166\), and \(1.00000009\), respectively. These computations support the algebra but are not the proof of the asymptotic claim; no numerical certificate is required for the main theorem.
+PASS
 
-No result is asserted for \(\alpha\ge1\), for cutoffs failing to tend to zero, or for within-orbit varying absorbing boundaries. Path convergence by itself does not establish convergence of expectations for unbounded observables. Literature comparisons do not constitute formal priority certification.
+For 0<alpha<1, every h_n in (0,1/2) tending to zero is fixed for the n+1 observations. Survivors are exactly [0,a_n], a_n=F^{-n}(h_n), since F is increasing and pushes positive states upward. Setting u=x^{-alpha} gives u_{j+1}=u_j-c_alpha+O(1/u_j), c_alpha=alpha*2^alpha, and u_j>=h_n^{-alpha} throughout survivor trajectories. Hence |u_j-u_0+c_alpha*j|<=C*n*h_n^alpha uniformly; at the upper endpoint a_n^{-alpha}=h_n^{-alpha}+c_alpha*n+O(n*h_n^alpha), whose relative error tends to zero for arbitrary cutoff sequences. Quoted local invariant density rho(x)~rho(1/2)/(2^{alpha+1} x^alpha) yields mu([0,y])~K*y^{1-alpha}; thus mu(E_n)~K(h_n^{-alpha}+c_alpha*n)^{-(1-alpha)/alpha}. Conditional B_n=X_n/a_n converges to Beta(1-alpha,1) by regular variation. For theta_n=n*h_n^alpha tending to finite theta, uniform inverse-coordinate estimates on B_n>=delta give C([0,1])-weak limit ((1+c_alpha*theta)B^{-alpha}-c_alpha*theta*t)^(-1/alpha) under X_j/h_n scaling. For theta_n to infinity, on delta<=B_n<=1-delta obtain n^(1/alpha)-rescaled limit [c_alpha(B^{-alpha}-t)]^(-1/alpha); endpoint singularity B=1 has probability zero. The proof is analytic, not inferred from finite numerical experiments. This is a horizon-dependent but within-trajectory fixed retention boundary; alpha>=1 and within-orbit moving holes are unproved.
+
+## originality
+
+PASS
+
+Best-of-knowledge exact functional two-scale crossover for arbitrary shrinking retained neighborhoods. The inverse-iterate and density inputs are classical; the new aspect is the coupled n*h_n^alpha conditional C([0,1]) process limit including all finite and infinite theta. Related fixed-hole and opposite-hole escape works are not conflated with this claim. Priority is qualified: older renewal/neutral-fixed-point theory may imply the same limit in transformed coordinates.
+
+## value
+
+PASS
+
+Conditioned survival near a neutral fixed point is a natural intermittent-dynamical question; the scale n*h_n^alpha separates three genuine conditional path laws and the exact survival-mass transition. The result identifies both scaling and full limiting trajectories for all deterministic boundaries, instead of a routine special case or only an exponent. No claim of new invariant density or general open intermittent-map theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

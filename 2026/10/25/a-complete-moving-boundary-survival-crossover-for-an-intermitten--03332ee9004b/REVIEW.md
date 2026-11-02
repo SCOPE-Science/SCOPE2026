@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The survivor set is exactly a left-branch inverse interval, not a heuristic approximation. For positive surviving states the change \(u=x^{-\alpha}\) has the one-step expansion \(u\mapsto u-\alpha2^\alpha+O(u^{-1})\), with error uniformly bounded by \(C n h_n^\alpha\) after \(n\) steps; this yields the uniformly valid inverse-cutoff formula. The normalized LSV invariant density has a rigorous leading \(x^{-\alpha}\) singularity with positive coefficient (Korepanov–Wei–Wormell, §6, especially (6.3) and Lemma 6.3). Conditional regular variation gives a beta initial law; the path limits follow by uniform estimates on high-probability compact subsets of the beta parameter. The singular point of the infinite-crossover path occurs only at the beta endpoint of probability zero. Finite computations were not used as infinite proofs.
+## correctness
 
-## Originality — PASS, subject to residual priority risk
-Wang–Su's arXiv:2610.21175v1 treats fixed holes away from zero and conditioned Birkhoff sums, not a shrinking retained interval or arbitrary cutoff sequences. Froyland–Murray–Stancevic (arXiv:1012.2149v1) provides related small-neighborhood survival geometry and estimates but not the simultaneous boundary/horizon \(C([0,1])\) weak laws or the crossover parameter. Demers–Todd's three thermodynamic regimes concern a family of reference measures with fixed holes, not the present path-level limit. Bonanno–Tikekar (arXiv:2601.15908v1) treats the opposite hole orientation. The published-finding corpus searches and accessible related findings disclosed no same implication; searches are not a guarantee of priority. A related earlier inverse-branch argument might make an unindexed version already implicit; this is recorded rather than dismissed.
+PASS
 
-## Mathematical value — PASS
-The natural observation time \(n\) and local intermittent departure time \(h_n^{-\alpha}\) compete, so the ratio \(n h_n^\alpha\) is a mathematically motivated dimensionless parameter rather than an arbitrary slice. The theorem identifies every finite crossover law and the distinct infinite-aging law for the entire conditioned path, not only escape exponents. It sharpens the distinction between fixed-hole conditional asymptotics and small-neighborhood metastability by exposing a functional limit across their joint boundary. The result makes no claim of a paper-sized generalization or a bound for unrelated systems.
+For 0<alpha<1, every h_n in (0,1/2) tending to zero is fixed for the n+1 observations. Survivors are exactly [0,a_n], a_n=F^{-n}(h_n), since F is increasing and pushes positive states upward. Setting u=x^{-alpha} gives u_{j+1}=u_j-c_alpha+O(1/u_j), c_alpha=alpha*2^alpha, and u_j>=h_n^{-alpha} throughout survivor trajectories. Hence |u_j-u_0+c_alpha*j|<=C*n*h_n^alpha uniformly; at the upper endpoint a_n^{-alpha}=h_n^{-alpha}+c_alpha*n+O(n*h_n^alpha), whose relative error tends to zero for arbitrary cutoff sequences. Quoted local invariant density rho(x)~rho(1/2)/(2^{alpha+1} x^alpha) yields mu([0,y])~K*y^{1-alpha}; thus mu(E_n)~K(h_n^{-alpha}+c_alpha*n)^{-(1-alpha)/alpha}. Conditional B_n=X_n/a_n converges to Beta(1-alpha,1) by regular variation. For theta_n=n*h_n^alpha tending to finite theta, uniform inverse-coordinate estimates on B_n>=delta give C([0,1])-weak limit ((1+c_alpha*theta)B^{-alpha}-c_alpha*theta*t)^(-1/alpha) under X_j/h_n scaling. For theta_n to infinity, on delta<=B_n<=1-delta obtain n^(1/alpha)-rescaled limit [c_alpha(B^{-alpha}-t)]^(-1/alpha); endpoint singularity B=1 has probability zero. The proof is analytic, not inferred from finite numerical experiments. This is a horizon-dependent but within-trajectory fixed retention boundary; alpha>=1 and within-orbit moving holes are unproved.
 
-## Closest literature and limitations
-The strongest comparison is Froyland–Murray–Stancevic, §3, where inverse iterates of an arbitrary small fixed retention interval are already central. What is assessed here is the *simultaneous two-scale conditional process limit* and the explicit interpolation between frozen and aged profiles; it is not novelty of the inverse-branch lemma. The established invariant-density leading term is an input, not a new claim. Literature-priority risk persists outside the sources inspected. No independent audit has been carried out.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact functional two-scale crossover for arbitrary shrinking retained neighborhoods. The inverse-iterate and density inputs are classical; the new aspect is the coupled n*h_n^alpha conditional C([0,1]) process limit including all finite and infinite theta. Related fixed-hole and opposite-hole escape works are not conflated with this claim. Priority is qualified: older renewal/neutral-fixed-point theory may imply the same limit in transformed coordinates.
+
+## value
+
+PASS
+
+Conditioned survival near a neutral fixed point is a natural intermittent-dynamical question; the scale n*h_n^alpha separates three genuine conditional path laws and the exact survival-mass transition. The result identifies both scaling and full limiting trajectories for all deterministic boundaries, instead of a routine special case or only an exponent. No claim of new invariant density or general open intermittent-map theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

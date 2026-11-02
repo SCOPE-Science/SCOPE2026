@@ -1,0 +1,133 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T09:48:43.220922Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 0<alpha<1, every h_n in (0,1/2) tending to zero is fixed for the n+1 observations. Survivors are exactly [0,a_n], a_n=F^{-n}(h_n), since F is increasing and pushes positive states upward. Setting u=x^{-alpha} gives u_{j+1}=u_j-c_alpha+O(1/u_j), c_alpha=alpha*2^alpha, and u_j>=h_n^{-alpha} throughout survivor trajectories. Hence |u_j-u_0+c_alpha*j|<=C*n*h_n^alpha uniformly; at the upper endpoint a_n^{-alpha}=h_n^{-alpha}+c_alpha*n+O(n*h_n^alpha), whose relative error tends to zero for arbitrary cutoff sequences. Quoted local invariant density rho(x)~rho(1/2)/(2^{alpha+1} x^alpha) yields mu([0,y])~K*y^{1-alpha}; thus mu(E_n)~K(h_n^{-alpha}+c_alpha*n)^{-(1-alpha)/alpha}. Conditional B_n=X_n/a_n converges to Beta(1-alpha,1) by regular variation. For theta_n=n*h_n^alpha tending to finite theta, uniform inverse-coordinate estimates on B_n>=delta give C([0,1])-weak limit ((1+c_alpha*theta)B^{-alpha}-c_alpha*theta*t)^(-1/alpha) under X_j/h_n scaling. For theta_n to infinity, on delta<=B_n<=1-delta obtain n^(1/alpha)-rescaled limit [c_alpha(B^{-alpha}-t)]^(-1/alpha); endpoint singularity B=1 has probability zero. The proof is analytic, not inferred from finite numerical experiments. This is a horizon-dependent but within-trajectory fixed retention boundary; alpha>=1 and within-orbit moving holes are unproved.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Korepanov–Wei–Wormell supplies a precise rho(x)~kappa*x^{-alpha} theorem; it does not give the present moving-retention conditional path law.",
+          "Demers–Todd and Froyland et al. analyze fixed-hole escape regimes or conditionally invariant measures with different quantifiers."
+        ],
+        "reasoning": "Existing full-strength inputs for the local dynamics imply several steps after nontrivial conditioning and scaling; no inspected theorem asserts both path limits uniformly across arbitrary h_n. Dominating variants in older intermittent renewal work remain possible.",
+        "searches": [
+          "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival",
+          "arXiv:2610.01879 §6 inverse-coordinate and invariant-density framework",
+          "Demers–Todd (2017) fixed-hole thermodynamic limits"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.21175v1",
+        "https://arxiv.org/html/2610.01879v1",
+        "https://arxiv.org/abs/1012.2149",
+        "https://arxiv.org/abs/2601.15908",
+        "Demers–Todd, Slow and Fast Escape for Open Intermittent Maps (2017)",
+        "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The local density coefficient and F^{-n} inverse bound are real independent inputs; conditioned process convergence still requires the exact survivor interval, a two-scale inverse-trajectory expansion, and conditional beta-law regular variation."
+        ],
+        "reasoning": "The cited ingredients allow a short direct proof, but their stated theorems do not alone identify the full claimed moving-retention process crossover. This is a qualified gap-based assessment, not proof by failed search.",
+        "searches": [
+          "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival",
+          "arxiv:2610.01879 Lemma 6.3 invariant-density expansion",
+          "arxiv:2610.21175v1 fixed-hole conditional limits"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The actual survivor E_n is [0,F^{-n}(h_n)]; the limit is a conditional full C([0,1]) path under all horizon-dependent cutoffs.",
+          "Wang–Su studies fixed absorbing sets away from the neutral point and induced Birkhoff sums; Froyland–Murray–Stancevic studies escape for a fixed retained neighborhood."
+        ],
+        "reasoning": "Translating to the u=x^{-alpha} Abel coordinate suggests renewal-like equivalents, but neither inspected fixed-boundary statement yields the simultaneous arbitrary-sequence path crossover with the stated conditional normalization.",
+        "searches": [
+          "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival",
+          "Wang–Su arXiv:2610.21175v1; conditional Birkhoff sums under fixed holes",
+          "Froyland–Murray–Stancevic arXiv:1012.2149 retained neutral interval"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The claim gives a continuum of functions indexed by theta and a universal arbitrary-sequence asymptotic, rather than one finite database entry.",
+          "Numerical inversion at alpha=1/2 is corroboration only, not proof."
+        ],
+        "reasoning": "No natural discrete sequence table or finite census covers this infinite-sequence conditional-process result; absence of a hit does not establish historical priority.",
+        "searches": [
+          "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival",
+          "arxiv:1012.2149 escape-rate fixed-neighborhood asymptotic"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact functional two-scale crossover for arbitrary shrinking retained neighborhoods. The inverse-iterate and density inputs are classical; the new aspect is the coupled n*h_n^alpha conditional C([0,1]) process limit including all finite and infinite theta. Related fixed-hole and opposite-hole escape works are not conflated with this claim. Priority is qualified: older renewal/neutral-fixed-point theory may imply the same limit in transformed coordinates.",
+      "residual_risks": [
+        "Korepanov–Wei–Wormell invariant-density coefficient is a quoted primary mathematical input, not reproved independently from transfer-operator theory.",
+        "Older inverse-branch and renewal limit theorems could encode this two-scale path statement under different notation; searches are not exhaustive.",
+        "Resultary ranking and query coverage do not certify novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed-hole conditional sums do not state arbitrary shrinking retention and uniform C([0,1]) orbit paths.",
+          "evidence": [
+            "Fixed absorbing hole hypothesis, renewal/inducing observables distinct from moving retained [0,h_n]."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21175v1",
+          "material_read": "Accessible full arXiv HTML, introduction, setup of fixed holes and conditional Birkhoff-sum theorems; compared absorbing geometry and limiting observables.",
+          "method": "Primary open preprint HTML",
+          "title": "Conditional limit laws for open intermittent dynamics",
+          "trigger": "Same intermittent map and conditional survival limit framework"
+        },
+        {
+          "assessment": "Provides the quoted nonstandard coefficient; does not itself assert the claimed conditioned paths.",
+          "evidence": [
+            "rho_alpha(x)=rho_alpha(1/2)/(2^{alpha+1} x^alpha)+O(1); the survivor proof relies on this."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.01879v1",
+          "material_read": "Primary open HTML §6 including equations (6.1)–(6.3), Lemma 6.3 and leading normalized density coefficient.",
+          "method": "Primary full-text HTML relevant section read",
+          "title": "Rigorous and effective numerics for Liverani–Saussol–Vaienti maps",
+          "trigger": "Same LSV invariant density and rigorous local neutral-point expansion"
+        },
+        {
+          "assessment": "Fixed-retention dynamics supplies inverse-branch context but not an arbitrary horizon-indexed cutoff process limit.",
+          "evidence": [
+            "Small-neighborhood escape and inverse-iterate scaling; different boundary quantification."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1012.2149",
+          "material_read": "Original open paper §2–3 relating inverse branches, escape and conditional invariance (relevant statements inspected).",
+          "method": "Open original manuscript",
+          "title": "Spectral degeneracy and escape dynamics for intermittent maps with a hole",
+          "trigger": "Fixed retained interval near indifferent fixed point"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conditioned survival near a neutral fixed point is a natural intermittent-dynamical question; the scale n*h_n^alpha separates three genuine conditional path laws and the exact survival-mass transition. The result identifies both scaling and full limiting trajectories for all deterministic boundaries, instead of a routine special case or only an exponent. No claim of new invariant density or general open intermittent-map theory.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.21175v1",
+    "https://arxiv.org/html/2610.01879v1",
+    "https://arxiv.org/abs/1012.2149",
+    "https://arxiv.org/abs/2601.15908",
+    "Demers–Todd, Slow and Fast Escape for Open Intermittent Maps (2017)",
+    "Resultary: Liverani Saussol Vaienti intermittent map shrinking surviving neighborhood conditional path moving hole crossover n h^alpha survival"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only finite invariant-measure LSV regime 0<alpha<1, deterministic h_n<1/2->0 and within-observation fixed retention.",
+    "The invariant density leading coefficient is legitimately a quoted established theorem; no independent reproof of it.",
+    "No claim of randomly moving within-run holes, alpha>=1, or moment convergence for unbounded functionals.",
+    "Publication package contains operational provenance; research no_accepted_row until a privacy-safe publication path is genuinely verified."
+  ],
+  "residual_risks": [
+    "Korepanov–Wei–Wormell invariant-density coefficient is a quoted primary mathematical input, not reproved independently from transfer-operator theory.",
+    "Older inverse-branch and renewal limit theorems could encode this two-scale path statement under different notation; searches are not exhaustive.",
+    "Resultary ranking and query coverage do not certify novelty."
+  ],
+  "schema_version": 1
+}
