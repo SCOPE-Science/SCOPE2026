@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact growing-branch reduction, unique infectious peak, strict scalar comparison in the effective parameter \(\kappa\), and exact reciprocal change of compartments together prove the continuum theorem. The endpoint comparison and classical final-size equation prove the claimed supremum. The standalone symbolic checks and numerical replications in `verify.py` pass; they are corroborating checks rather than infinite-domain certificates. The proof explicitly excludes unmatched finite initial stage allocations.
+PASS
 
-## Originality — PASS (priority provisional)
+For the dimensionless closed SEIR system S˙=−ρ S I, E˙=ρ S I−λ E, I˙=λ E−I, R˙=I, ρ>1, λ>0, take the vanishing-seed unstable-branch limit. Let u=−log S and J(u)=1−e^(−u)−u/ρ=E+I, and V=(1+λ)I/λ. Direct differentiation gives the scalar singular phase equation ρ V V′=κ(J−V), κ=(1+λ)^2/λ=2+λ+1/λ, with a unique admissible branch V(u)>0 and initial slope b>0 solving ρb²+κb−κ(1−1/ρ)=0. The change λ↦1/λ, t↦λt, (S,E,I,R)↦(S,E+(1−1/λ)I,I/λ,R) is a direct exact SEIR conjugacy for λ≥1 and extends by inversion; the susceptible/removed trajectories are identical up to time scaling. The infectious peak occurs at V=J after u=logρ. The singular-ODE comparison gives strict earlier approach to J as κ increases, so S_peak is strictly increasing in κ (and the infection overshoot after peak is S_peak−S_∞). As κ=2+λ+1/λ is uniquely minimized at λ=1, the infectious peak overshoot is uniquely minimized there for fixed ρ; λ→0 or ∞ gives the SIR limit. Independently checked the exact transformed nonlinear vector field and solved the reduced phase ODE at ρ=1.4,2,3.5 for seven reciprocal rates; resulting reciprocal pairs agreed to 1e−12 and minima were strict. Numerical checks corroborate rather than prove global comparison.
 
-The original Nguyen–Freedman–Ozbay–Levin SIR overshoot theorem supplies the sharp classical constant but not an SEIR infectious-peak stage-rate comparison. The full Heng–Althaus homogeneous SEIR analysis gives approximated peak curves rather than an exact reciprocal conjugacy. The full Dobie et al. SEIR timing paper addresses different stage-delay questions. Semantic searches of mathematical research findings for reciprocal stage rates, SEIR peaks, and epidemic overshoot did not recover direct statement-level coverage; priority outside the accessible corpus remains a limitation. Merely changing an established SIR parameter or restating SEIR invariants is not claimed as original.
+## originality
 
-## Value — PASS
+PASS
 
-Post-infectious-peak attack fraction is an interpretable burden relevant to interpreting epidemic peaks. The previously uncharacterized exact reciprocity and unique strict minimum at equal progression and removal rates are structural results across every supercritical reproduction ratio, with a sharp relation to the known SIR maximum; their value does not rely on an arbitrary numerical instance.
+Qualified best-of-knowledge PASS for the exact reciprocal full-state/time conjugacy and unique λ=1 infectious-peak-overshoot minimizer. Heng–Althaus 2020 carefully analyze the same homogeneous SEIR model but explicitly introduce an approximation dropping a third derivative and infer approximate universal curves; the paper does not prove the claimed exact λ↔1/λ stage transformation or global strict monotone overshoot comparison. Nguyen–Freedman–Ozbay–Levin 2023 establish the SIR overshoot bound 0.2984..., which is reused in the λ→0/∞ limit rather than claimed new. General cooperative epidemic phase-plane theory could contain an implicit ordering or reparameterization, and remains an originality risk.
 
-## Limitations and closest literature
+## value
 
-The scope is deterministic homogeneous SEIR, exponential compartments, growing-mode infinitesimal seeding. Arbitrary finite unmatched initial exposed/infectious allocations, changing contact rates, and stochastic or network epidemic models are outside scope. Full comparison with all worldwide literature is impossible, and unidentified broader exact SEIR phase-curve literature is a publication-priority risk. Closest sources: Nguyen et al. (arXiv:2303.01650), Heng–Althaus (doi:10.1038/s41598-020-76563-8), Dobie et al. (arXiv:1909.11317).
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem identifies an exact, otherwise concealed parameter symmetry in a standard epidemiological system and settles a natural optimization of the post-peak infection burden over the latency-to-recovery ratio. Its unique equal-rates minimum, reciprocal symmetry and SIR extreme limit are structural global statements rather than a small numerical improvement or parameter rescaling alone. The proof distinguishes an exact susceptible/removal phase conjugacy from prior approximately universal epidemic curve shapes.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-11-01",
+  "audited_at_utc": "2026-11-01T00:02:16Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/26/reciprocal-latency-recovery-duality-and-the-unique-seir-overshoo--aecfc17f8040/RESULT.md",
+        "2026/10/26/reciprocal-latency-recovery-duality-and-the-unique-seir-overshoo--aecfc17f8040/VERIFICATION.md",
+        "2026/10/26/reciprocal-latency-recovery-duality-and-the-unique-seir-overshoo--aecfc17f8040/verify.py",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/"
+      ],
+      "rationale": "For the dimensionless closed SEIR system S˙=−ρ S I, E˙=ρ S I−λ E, I˙=λ E−I, R˙=I, ρ>1, λ>0, take the vanishing-seed unstable-branch limit. Let u=−log S and J(u)=1−e^(−u)−u/ρ=E+I, and V=(1+λ)I/λ. Direct differentiation gives the scalar singular phase equation ρ V V′=κ(J−V), κ=(1+λ)^2/λ=2+λ+1/λ, with a unique admissible branch V(u)>0 and initial slope b>0 solving ρb²+κb−κ(1−1/ρ)=0. The change λ↦1/λ, t↦λt, (S,E,I,R)↦(S,E+(1−1/λ)I,I/λ,R) is a direct exact SEIR conjugacy for λ≥1 and extends by inversion; the susceptible/removed trajectories are identical up to time scaling. The infectious peak occurs at V=J after u=logρ. The singular-ODE comparison gives strict earlier approach to J as κ increases, so S_peak is strictly increasing in κ (and the infection overshoot after peak is S_peak−S_∞). As κ=2+λ+1/λ is uniquely minimized at λ=1, the infectious peak overshoot is uniquely minimized there for fixed ρ; λ→0 or ∞ gives the SIR limit. Independently checked the exact transformed nonlinear vector field and solved the reduced phase ODE at ρ=1.4,2,3.5 for seven reciprocal rates; resulting reciprocal pairs agreed to 1e−12 and minima were strict. Numerical checks corroborate rather than prove global comparison.",
+      "residual_risks": [
+        "The result is for the canonical vanishing-seed unstable branch; arbitrary finite E_0,I_0 do not share exact parameter-free peak ordering.",
+        "Distinguish infectious peak from incidence peak and the normalized recovered fraction; overshoot is S(t_peak)−S(∞)."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Heng–Althaus 2020 obtains approximate semi-analytical SEIR curves via assumption R‴≈0.",
+          "Nguyen et al. 2023 derive exact SIR overshoot max 0.2984, separate from rate-ratio SEIR minimization."
+        ],
+        "reasoning": "Prior results contain approximate curve rescaling and SIR limit bounds but neither an exact reciprocal SEIR stage-change nor the strict global λ=1 minimizer.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+          "SEIR exact reciprocal incubation recovery rate duality infectious peak overshoot minimal equal rates",
+          "Heng Althaus 2020 approximately universal shapes SEIR",
+          "Nguyen Freedman Ozbay Levin 2023 overshoot upper bound SIR"
+        ]
+      },
+      "checked_sources": [
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/",
+        "https://slevin.princeton.edu/publications/fundamental-bound-epidemic-overshoot-sir-model",
+        "Resultary exact reciprocal latency recovery SEIR search during this run"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Heng–Althaus 2020 explicitly states its main solution is approximate, using R triple derivative ≈0.",
+          "SIR overshoot analysis controls λ limits but does not compare two finite SEIR latency rates."
+        ],
+        "reasoning": "The claimed exact conjugacy and phase comparison require new algebraic and monotonicity arguments; they do not follow directly from the approximate prior statements or SIR bound.",
+        "searches": [
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/",
+          "SEIR exact reciprocal incubation recovery rate duality infectious peak overshoot minimal equal rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The exact duality is equivalent to κ=2+λ+1/λ dependence of the canonical phase profile and to conjugacy of the full nonlinear epidemic ODE.",
+          "The overshoot minimizer is equivalently strict monotonicity of S_peak in κ."
+        ],
+        "reasoning": "The full-state relation is strictly stronger than an approximate generation-time stretch and is not the elementary conservation S+E+I+R=1.",
+        "searches": [
+          "SEIR exact reciprocal incubation recovery rate duality infectious peak overshoot minimal equal rates",
+          "SEIR latent infectious reciprocal rate symmetry transmission time rescaling",
+          "SEIR phase equation infectious peak S_inf lambda reciprocal"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Heng–Althaus 2020 Figure 2 studies numerically generated peak times and approximate universal scaling.",
+          "This audit independently evaluated S_peak for λ=0.1,0.25,0.5,1,2,4,10 at three ρ; equality at reciprocal rates is exact by conjugacy."
+        ],
+        "reasoning": "Existing plotted parameter sweeps do not constitute exact reciprocal-classification tables or proofs of the strict all-λ minimizer.",
+        "searches": [
+          "SEIR exact reciprocal incubation recovery rate duality infectious peak overshoot minimal equal rates",
+          "SEIR peak S lambda 1/lambda exact numerical table",
+          "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge PASS for the exact reciprocal full-state/time conjugacy and unique λ=1 infectious-peak-overshoot minimizer. Heng–Althaus 2020 carefully analyze the same homogeneous SEIR model but explicitly introduce an approximation dropping a third derivative and infer approximate universal curves; the paper does not prove the claimed exact λ↔1/λ stage transformation or global strict monotone overshoot comparison. Nguyen–Freedman–Ozbay–Levin 2023 establish the SIR overshoot bound 0.2984..., which is reused in the λ→0/∞ limit rather than claimed new. General cooperative epidemic phase-plane theory could contain an implicit ordering or reparameterization, and remains an originality risk.",
+      "residual_risks": [
+        "A broader exact SEIR phase invariant may have implicitly encoded reciprocity in older parameter-identifiability literature.",
+        "SIR maximal overshoot 0.2984... belongs to Nguyen et al. and must remain clearly attributed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_MODEL_APPROXIMATE_ONLY",
+          "evidence": [
+            "Eq. 18 imposes R‴=0 approximation and discussion emphasizes approximate timescale universality, not exact λ reciprocal conjugacy."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+          "material_read": "Complete openly accessible 2020 PMC full text (318 lines), model equations, derivation, Figures 1–2, Sections Extension and Summary",
+          "method": "Read primary full article, explicitly inspected the third-derivative approximation and peak formula",
+          "title": "The approximately universal shapes of epidemic curves in the SEIR model",
+          "trigger": "Exact same SEIR epidemic equations, possible exact rate duality"
+        },
+        {
+          "assessment": "LIMIT_ONLY_NOT_SEIR_MINIMIZER",
+          "evidence": [
+            "Derives maximal SIR overshoot 0.2984..., but no SEIR latent/recovery reciprocal rate comparisons."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/",
+          "material_read": "Complete PMC journal primary article (470 lines), Results §2.1 Theorem 2.1, SIR equations and Appendix A vaccination cases",
+          "method": "Read public complete PMC journal text, including overshoot bound and appendix",
+          "title": "Fundamental Bound on Epidemic Overshoot in the SIR Model",
+          "trigger": "Possible larger prior overshoot theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/26/reciprocal-latency-recovery-duality-and-the-unique-seir-overshoo--aecfc17f8040/RESULT.md",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7653910/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC10698490/"
+      ],
+      "rationale": "The theorem identifies an exact, otherwise concealed parameter symmetry in a standard epidemiological system and settles a natural optimization of the post-peak infection burden over the latency-to-recovery ratio. Its unique equal-rates minimum, reciprocal symmetry and SIR extreme limit are structural global statements rather than a small numerical improvement or parameter rescaling alone. The proof distinguishes an exact susceptible/removal phase conjugacy from prior approximately universal epidemic curve shapes.",
+      "residual_risks": [
+        "Physical interpretations presuppose homogeneous mass-action mixing and the infinitesimal-seed asymptotic; no heterogeneous or finite-seed universality implied."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Homogeneous, deterministic, closed SEIR, ρ>1 and canonical vanishing infection-seed branch.",
+    "Use infectious I(t) peak, not E, incidence or total active cases, and the fixed ρ comparison.",
+    "Source public metadata and first-public-date provenance need sanitization before any authorized publication."
+  ],
+  "schema_version": 1
+}
