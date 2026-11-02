@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Exact-line-search away steps are strictly interior near the barycenter. Differentiating yields the cyclic product of tangent-space orthogonal coordinate-killing projections. The proof reconstructs all eigenvalues from a closed scalar recurrence, proves strict spectral contraction, and uses uniform analytic limits plus a Lambert-branch comparison for the all-dimensional limit. The included verification program passed exact symbolic checks for dimensions 3 through 8 and 70 nonlinear derivative checks. The infinite statements rely on analytical reasoning rather than finite enumeration.
+## correctness
 
-**Originality — PASS (best-knowledge).** The original 2023 PolyCDwA paper specifies the algorithm and global linear-convergence theory, and its results are credited rather than restated as new. General cyclic coordinate descent/Kaczmarz equivalences, a later general triangular-Gram representation, and matching-claim mathematical research records were compared for mathematical coverage. The inspected material does not provide the full explicit isotropic-simplex sweep spectrum, the sharp local rate, or its Lambert-W limit. There remains a risk of an equivalent specialized eigenspectrum in older equiangular cyclic-projection literature.
+PASS
 
-**Value — PASS.** The theorem provides a natural complete local spectrum for a numerical optimization method, reveals oscillatory eigenmodes beginning at four vertices and a nontrivial limiting contraction factor, and supplies an exact benchmark for dimension dependence. It is not claimed to be a new global convergence theorem.
+PASS: At the simplex barycenter exact away-step minimization is interior, and the derivative of each vertex step on H is P_j=I−n/(n−1)w_jw_j^T, an orthogonal projection. The scalar partial-sum recurrence yields B_n(z)=(1+(n−1)z)^n−n^n z^(n−1); B_n has exactly a double root at 1, n−2 simple nonunit roots, plus one simple zero. Projection-norm strictness proves all nonunit roots have modulus<1. Analytic zero convergence and first nonreal Lambert W branch yield the spectral-radius limit 0.1238303227… and sharp uniform local linear rate. Independent exact rational charpolys n=3..8 reconstruct the same closed form. Boundary n=3 gives {0,−1/8}, n=4 nonreal pair; the theorem is explicitly local and requires away steps.
 
-**Limitations.** Exact line search, PolyCDwA with away steps, interior local behavior, isotropic Euclidean quadratic, and exact arithmetic. A spectral-radius rate is the sharp uniform neighborhood rate but does not assert that every individual orbit realizes it. Independent scientific validation has not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original: exact evaluated local Jacobian spectrum and Lambert-W limit for the original away-step simplex sweep, distinct from the published generic PolyCDwA convergence theorem and classical cyclic-projection machinery.
+
+## value
+
+PASS
+
+PASS: An explicit sharp spectrum and limiting rate for a canonical, original nontrivial vertex-cyclic algorithm are useful for estimating sweep speed and distinguishing local from global bounds. It is more than the known qualitative linear-convergence statement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
