@@ -1,11 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The graph and all face masks are specified without ambiguity; the bundled standard-library checker enumerates all 2881 augmented faces and all 12945 Hasse arrows, checks the 1395 toggling pairs and the complete directed acyclicity, and thereby proves a genuine integral wedge of 91 three-spheres. Signed Lefschetz traces for all 720 permutations determine the actual degree-three rational action, and independent rim-hook character calculations verify all eleven multiplicities. This exhaustive finite certificate is a proof for the one fixed graph, not an infinite-sample inference.
+## correctness
 
-**Originality — PASS with identified risk.** The indexed triangular-graph neighborhood census proves the already-known mod-two Betti rank 91 but disclaims integral homotopy and symmetry. The separately indexed four-cut result is for \(T_5\), whose open-neighborhood complex is indeed the same five-label object, but the present six-label result is different and neither a relabeling nor a corollary of its S5 character. The Kneser complement has different neighborhood facets and different homology. Shukla's scope excludes the present 8-regular graph; Matsushita–Wakatsuki's general dualities do not compute this attaching data or full group representation. No covering theorem was identified in targeted source and database comparisons. Residual risk: a complete equivalent computation may exist under the \(\operatorname{Hom}(K_2,L(K_6))\) or representation-theoretic naming.
+PASS
 
-**Mathematical value — PASS.** This determines the exact integral homotopy type for the canonical last single-degree example before the mixed-dimensional \(T_7\) behavior, and it classifies the nontrivial 91-dimensional S6 representation, distinguishing eight isotypic types and showing the absence of full symmetry invariants. Such conclusions do not follow from the earlier characteristic-two Betti table, and the six-label cutoff is motivated by that documented topological transition.
+The object is the open-neighborhood complex of the 15 pair-vertices of L(K6). A fresh independent Python implementation reconstructed all 2,881 faces, exact f-vector (1,15,105,420,945,840,420,120,15) including the empty face, 1,395 simplex-toggle pairs with one augmented empty pairing, and 91 remaining four-vertex faces. It independently checked acyclicity by topologically sorting all 2,881 nodes and all 12,945 signed Hasse cover arrows; after restoring one critical 0-cell the Morse CW model is point plus 91 3-cells, hence an integral wedge of 91 S^3 (not deduced from mod-2 Betti). Signed reduced Lefschetz traces independently computed across all 720 underlying S6 permutations reproduce all 11 conjugacy-class values (91,-13,7,7,1,-1,1,-3,-3,1,1) and the trivial multiplicity 0; the actual source verifier includes exact Murnaghan–Nakayama inner products giving the claimed Specht decomposition. Orbit quotient rational reduced homology vanishes by finite-group transfer, not contractibility.
 
-**Limits.** No uniform theorem for all triangular graphs, no integral group-lattice decomposition, no assertion that the quotient is contractible; independent audit has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+A published October 11 2026 full primary Resultary record already computes the same mod-2 β3(N(T6))=91, which is expressly not original here; it explicitly does not compute integral homotopy, attaching maps or S6 action. The entire new finite Morse certificate proves a torsion-free integral wedge, while the full rational S6 character is an additional invariant not implied by the known mod-2 dimension. Prior T5 four-cut representation is a different graph, definition and group. Kozlov/Matsushita–Wakatsuki are general equivalences/duality rather than calculations for T6.
+
+## value
+
+PASS
+
+The fifteen-vertex T6 neighborhood complex is a canonical highly symmetric graph complex whose mod-2 Betti rank was already known. Exact integral wedge homotopy (not merely rank) and the entire 11-class S6 representation distinguish torsion/attaching information and yield the non-obvious absence of invariant 3-cycles, hence rational homology vanishing of its quotient. Such full equivariant topological classification is a motivated exact invariant, despite being one canonical finite case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
