@@ -1,0 +1,119 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T12:54:03Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer n>=5, the graph J(n,2) has N=binom(n,2) vertices and unit edge conductances. Its incidence matrix B yields Laplacian 2(n−1)I−BᵀB and two nonzero spectral values n and 2(n−1). Two incidence dipoles have only the five orbit invariants (k,h)=(1,1),(1,0),(0,2),(0,1),(0,0), which give mixed L+ and (L+)² entries c_{k,h} and t_{k,h}. The diagonal r=(n+1)/(n(n−1)) is <1 and the 2×2 Woodbury denominator (1−r)²−c² is positive for n>=5, so any two-edge deletion remains connected and its Kirchhoff increase is the stated rational F_n(k,h). Orbit counting gives all five nonzero multiplicities, whose total is binom(|E|,2); symbolic positive rational differences establish strictly I_triangle>I_nontriangle>D2>D1>D0 and the displayed global maximum. Fresh independent enumeration exhausted every pair of edges for J(5,2) (435 pairs) and J(6,2) (1770 pairs), confirmed classes/multiplicities, and directly recomputed five representative Kirchhoff differences using grounded-Laplacian matrix inversion. General theorem rests on symbolic spectral proof, not finite cases.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier sources cover total effective resistance, spectral formulas and edge flow redistribution on broad graph classes. Triangular graph eigenvalues are classical."
+        ],
+        "reasoning": "Generality in graph class does not automatically imply a precomputed sharp two-deletion ranking and exact orbit multiplicities. All spectral premises were rederived for the record, and special n=4 multipartite coverage was excluded.",
+        "searches": [
+          "Ellens et al., Effective graph resistance, DOI:10.1016/j.laa.2011.02.024",
+          "Schaub et al. arXiv:1303.6241",
+          "Brouwer–Haemers Spectra of Graphs"
+        ]
+      },
+      "checked_sources": [
+        "Git RESULT.md 979757f468392f93fcafc903000f195fe971a070 and verify.py c2a04c33959d0500afbf7366f0559526b2779a3e",
+        "https://arxiv.org/abs/1303.6241",
+        "https://doi.org/10.1016/j.laa.2011.02.024",
+        "https://aeb.win.tue.nl/graphs/Johnson.html",
+        "Resultary semantic search: triangular Johnson graph two-edge deletion Kirchhoff index"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "T(4) is a complete multipartite graph and outside n>=5. J(n,2) with n>=5 is not complete multipartite; general edge-addition or single-failure formulas do not supply the strict simultaneous two-edge order."
+        ],
+        "reasoning": "The present result is a computed specialization of general Laplacian tools, not a direct table from them; no cited theorem states that these exact orbit values must have the displayed monotonic rank for all n>=5.",
+        "searches": [
+          "Ellens et al. 2011 effective graph resistance",
+          "Schaub et al. arXiv:1303.6241",
+          "known T(4)=K_{2,2,2}"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The rank-two Kirchhoff loss is expressed through transfer-current/effective-resistance matrices via Woodbury; Schaub et al. study edge-to-edge flow redistribution using related pseudoinverse machinery."
+        ],
+        "reasoning": "A general transfer-current identity is equivalent to the method, not to the complete five-orbit T(n) rational damage ordering; no queried Resultary result produced those values.",
+        "searches": [
+          "Schaub et al., arXiv:1303.6241",
+          "Resultary: triangular Johnson graph two-edge deletion Kirchhoff index"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Johnson-graph tables report adjacency/eigenparameters, not inspected two-edge Kirchhoff damage values or five paired edge-orbit multiplicities."
+        ],
+        "reasoning": "These classical parameters suffice to recompute the present formula but are not the stated exact damage census; independent arithmetic and orbit enumeration checked nontrivial parameters.",
+        "searches": [
+          "Resultary: triangular Johnson graph two-edge deletion Kirchhoff index",
+          "Brouwer Johnson graph tables https://aeb.win.tue.nl/graphs/Johnson.html"
+        ]
+      },
+      "rationale": "The five simultaneous two-edge-failure motif values and strict universal ordering for J(n,2), n>=5, are not provided by inspected general pseudoinverse, network robustness, edge-flow-redistribution or graph-spectral references. T(4) is a complete multipartite covered special case and is deliberately excluded. The method is classical but the full orbit-resolved failure classification is assessed as new to best knowledge.",
+      "residual_risks": [
+        "An unindexed exact two-link failure ranking for triangular graphs or line graphs could cover the five-class theorem.",
+        "Published general transfer-current identities can make the proof short; novelty is the explicit resulting classification, not the spectral/perturbation tools.",
+        "Full primary research articles were not all read; claims of noncoverage are only about inspected available material."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides related transfer-matrix methodology, not established exact J(n,2) pair ranking.",
+          "evidence": "Published focus is edge-to-edge relations from flow redistribution rather than complete two-edge graph-damage orbit census.",
+          "identifier_or_url": "https://arxiv.org/abs/1303.6241",
+          "material_read": "Accessible abstract and result description of failure-induced flow redistribution; entire paper text not verified.",
+          "method": "Compared object (flows versus aggregate Kirchhoff-index increase) and number of failed edges.",
+          "title": "Structure of complex networks: Quantifying edge-to-edge relations by failure-induced flow redistribution",
+          "trigger": "Same use of Laplacian inverse after edge failure"
+        },
+        {
+          "assessment": "Foundation for the objective; no verified direct coverage of five triangular motifs.",
+          "evidence": "General network-resistance study of effective graph resistance, not known exact J(n,2) deletion sequence.",
+          "identifier_or_url": "https://doi.org/10.1016/j.laa.2011.02.024",
+          "material_read": "Accessible bibliographic record/abstract and described effective-resistance scope; full paper not verified in this execution.",
+          "method": "Checked graph family and objective, separating global resistance metric from exact two simultaneous removals.",
+          "title": "Effective graph resistance",
+          "trigger": "Kirchhoff index as robustness metric and edge design"
+        },
+        {
+          "assessment": "Provides known spectral ingredients only.",
+          "evidence": "Laplacian nonzero eigenvalues n and 2(n−1) follow directly from incidence B.",
+          "identifier_or_url": "https://aeb.win.tue.nl/graphs/Johnson.html",
+          "material_read": "Public Johnson graph description and standard eigenparameter relationships.",
+          "method": "Matched n and two-element subset convention and independently derived Laplacian projectors.",
+          "title": "Spectra of Graphs (Johnson/triangular-graph parameters)",
+          "trigger": "Need to verify spectral parameter baseline"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "When a network uses pairwise interactions modeled by the triangular graph, all single failures are symmetric, so the exact double-failure damage classes distinguish its first nontrivial reliability behavior. A sharp maximizer shape, all class multiplicities and exact objective values are natural graph-resistance invariants of an infinite graph family, useful beyond a routine spectral exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git RESULT.md 979757f468392f93fcafc903000f195fe971a070 and verify.py c2a04c33959d0500afbf7366f0559526b2779a3e",
+    "https://arxiv.org/abs/1303.6241",
+    "https://doi.org/10.1016/j.laa.2011.02.024",
+    "https://aeb.win.tue.nl/graphs/Johnson.html",
+    "Resultary semantic search: triangular Johnson graph two-edge deletion Kirchhoff index"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Unit conductances, exactly two distinct graph edges deleted, n>=5; no extension to J(n,k>2), weighted graphs or three failures.",
+    "Numerical representative matrix checks were confined to n=5,6; symbolic proof covers every n>=5."
+  ],
+  "residual_risks": [
+    "An unindexed exact two-link failure ranking for triangular graphs or line graphs could cover the five-class theorem.",
+    "Published general transfer-current identities can make the proof short; novelty is the explicit resulting classification, not the spectral/perturbation tools.",
+    "Full primary research articles were not all read; claims of noncoverage are only about inspected available material."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,19 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-Run `python verify.py` in the package directory after installing `sympy>=1.11,<2` from `requirements.txt`. The checker performs four exact symbolic adjacent-class difference comparisons (positivity after shifting the size variable by five), enumerates all existing-edge pairs for triangular graphs on underlying sets of sizes 5 through 9 and verifies the five integer invariant classes and all closed-form class counts. Separately, for sizes 5 through 7, it computes the Kirchhoff index via exact rational inverses of grounded Laplacian matrices before and after deletion of one representative of each class, providing 15 direct matrix checks.
+## correctness
 
-Recorded execution result:
+PASS
 
-```
-matrix_n 5 classes 5 pairs 435
-matrix_n 6 classes 5 pairs 1770
-matrix_n 7 classes 5 pairs 5460
-orbit_n 8 classes 5 pairs 14028
-orbit_n 9 classes 5 pairs 31626
-VERIFY_OK symbolic_differences=4 orbit_classifications= 25  exact_matrix_comparisons=15
-```
+For every integer n>=5, the graph J(n,2) has N=binom(n,2) vertices and unit edge conductances. Its incidence matrix B yields Laplacian 2(n−1)I−BᵀB and two nonzero spectral values n and 2(n−1). Two incidence dipoles have only the five orbit invariants (k,h)=(1,1),(1,0),(0,2),(0,1),(0,0), which give mixed L+ and (L+)² entries c_{k,h} and t_{k,h}. The diagonal r=(n+1)/(n(n−1)) is <1 and the 2×2 Woodbury denominator (1−r)²−c² is positive for n>=5, so any two-edge deletion remains connected and its Kirchhoff increase is the stated rational F_n(k,h). Orbit counting gives all five nonzero multiplicities, whose total is binom(|E|,2); symbolic positive rational differences establish strictly I_triangle>I_nontriangle>D2>D1>D0 and the displayed global maximum. Fresh independent enumeration exhausted every pair of edges for J(5,2) (435 pairs) and J(6,2) (1770 pairs), confirmed classes/multiplicities, and directly recomputed five representative Kirchhoff differences using grounded-Laplacian matrix inversion. General theorem rests on symbolic spectral proof, not finite cases.
 
-These finite checks neither exhaust all integers nor supply a replacement for the spectral-projector proof. The formal universality comes from the exact symbolic formulas, denominator bounds and strict factor-sign arguments in `RESULT.md`. Independent audit has not been performed.
+## originality
+
+PASS
+
+The five simultaneous two-edge-failure motif values and strict universal ordering for J(n,2), n>=5, are not provided by inspected general pseudoinverse, network robustness, edge-flow-redistribution or graph-spectral references. T(4) is a complete multipartite covered special case and is deliberately excluded. The method is classical but the full orbit-resolved failure classification is assessed as new to best knowledge.
+
+## value
+
+PASS
+
+When a network uses pairwise interactions modeled by the triangular graph, all single failures are symmetric, so the exact double-failure damage classes distinguish its first nontrivial reliability behavior. A sharp maximizer shape, all class multiplicities and exact objective values are natural graph-resistance invariants of an infinite graph family, useful beyond a routine spectral exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
