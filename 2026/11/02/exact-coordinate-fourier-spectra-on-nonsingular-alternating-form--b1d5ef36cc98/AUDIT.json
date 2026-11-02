@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The stated family has precisely E+1 normalized unit columns. Transitivity of GL_d on nonsingular alternating forms reduces each coordinate Fourier moment to symplectic pairings of a uniformly random basis. Character orthogonality yields a=-1/(q^(d-1)-1) and b=1/[(q^(d-1)-1)(q^(d-3)-1)], including characteristic two. Coordinate-pair differences have rank two for adjacent edges and rank four for disjoint edges. The complete Johnson J(d,2) spectral decomposition plus a 2×2 constant/uniform block gives all multiplicities. Strict diagonal dominance proves positivity for q≥2 and d even≥6. The exact characteristic-polynomial comparison p(λ₂) has sign given by (8-d)V²−2(d-6)V−(d-4), positive in size six and negative for every even size at least eight. All boundaries, quantifiers and normalizations are explicit. A standard-library exact modular-Pfaffian checker independently reproduced all 183 frequency-moment identities in four finite test cases and checked the claimed algebraic identities; finite tests are not used to infer the universal theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Delsarte–Goethals 1975 and Stanton 1981 have general alternating-form character-transform machinery, confirmed via bibliographic records and Schmidt, Quadratic and symmetric bilinear forms over finite fields and their association schemes (2018), §3.",
+        "The inspected Plücker RESULT evaluates Fourier samples on rank-two decomposable bivectors and includes q−1 frequencies per edge; its underlying measure and character moments differ.",
+        "The inspected Veronese RESULT is on symmetric rank-one forms in odd characteristic, not alternating full-rank forms."
+      ],
+      "reasoning": "General rank-association eigenmatrices determine the rank-two/rank-four Fourier moments but do not by themselves state the Gram spectrum of the selected sparse coordinate frame, its Riesz bounds, or the strict dimension-eight branch change. The new proof also requires the complete Johnson edge-space decomposition and a nontrivial exact comparison polynomial. This is an algebraic consequence of classical ingredients, not claimed as a new association-scheme eigenmatrix. Whether an older general sampling theorem subsumes this special frame remains the principal priority caveat.",
+      "searches": [
+        "web: alternating bilinear forms association scheme eigenvalues Fourier transform rank Delsarte 1978 Stanton 1980 skew symmetric matrices",
+        "web: A partially ordered set and q-Krawtchouk polynomials Stanton 1981",
+        "GitHub published RESULT full text: Sharp coordinate Fourier spectrum on the finite-field Plücker cone",
+        "GitHub published RESULT full text: Sharp Fourier Riesz spectrum and a dimension transition on the finite-field Veronese cone"
+      ]
+    },
+    "checked_sources": [
+      "Alternating bilinear forms over GF(q) — https://doi.org/10.1016/0097-3165(75)90090-4",
+      "Affine spaces of symmetric or alternating matrices with bounded rank — https://arxiv.org/abs/1507.06213",
+      "Quadratic and symmetric bilinear forms over finite fields and their association schemes — https://math.uni-paderborn.de/fileadmin/mathematik/AG-Diskrete_Mathematik/Publications-schmidt/quadratic.pdf",
+      "Sharp coordinate Fourier spectrum on the finite-field Plücker cone — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-fourier-spectrum-on-the-finite-field-pl-cker-co--91dfe0fce2d0",
+      "Complete coordinate Walsh-frame spectrum on binary symplectic groups — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db",
+      "Sharp Fourier Riesz spectrum and a dimension transition on the finite-field Veronese cone — https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-fourier-riesz-spectrum-and-a-dimension-transition-on-the-f--7e4eb0365b75"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The full Plücker statement treats \\(\\{u\\wedge v\\}\\), of rank at most two, and yields a five-sector spectrum with all nonzero frequency labels; the present theorem concerns rank-d alternating forms for even d at least six and only one label per edge.",
+        "The full symplectic-group statement studies \\(\\operatorname{Sp}(d,2)\\), not \\(\\operatorname{GL}_d/\\operatorname{Sp}_d\\) as a congruence orbit; neither its Gram entries nor full-field quantifiers specialize to the new theorem.",
+        "De Seguins Pazzis classifies bounded-rank affine matrix subspaces, not Fourier character moments or finite-frame Riesz bounds."
+      ],
+      "reasoning": "A rank-two cone calculation cannot imply full-rank alternating character averages in d≥6 by set complementation because rank-four and intermediate strata intervene. A theorem on symplectic transformation matrices cannot be restricted to a theorem about nonsingular alternating forms through a measure-preserving coordinate identification. The new precise claim is a full-rank-orbit frame law, with sharp upper mode λ₂ only in size six and μ₊ from size eight onward; no inspected stronger statement directly gives this implication.",
+      "searches": [
+        "web: finite-field Fourier restriction to nonsingular alternating matrices coordinate characters Gram spectrum",
+        "GitHub published RESULT full text: Complete coordinate Walsh-frame spectrum on binary symplectic groups",
+        "GitHub published RESULT full text: Sharp coordinate Fourier spectrum on the finite-field Plücker cone",
+        "arxiv:1507.06213v2 HTML §§1–3,6 and full-text searches Fourier spectral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Delsarte–Goethals, Alternating bilinear forms over GF(q), DOI:10.1016/0097-3165(75)90090-4, describes alternating-form rank association schemes; full text not available.",
+        "Published full RESULT: Sharp coordinate Fourier spectrum on the finite-field Plücker cone, 2026/10/11/...91dfe0fce2d0, treats rank-two decomposable bivectors, not full-rank alternating matrices in dimension at least six.",
+        "Published full RESULT: Complete coordinate Walsh-frame spectrum on binary symplectic groups, 2026/10/11/...c844347e16db, treats group elements preserving a fixed symplectic form, not the open congruence orbit of forms."
+      ],
+      "reasoning": "The rank-two Plücker cone and full-rank alternating orbit are different for every even size at least six: there are also intermediate even ranks. The binary symplectic group is a different observation domain. No searched equivalent four-sector Gram law with the same full-rank domain, arbitrary prime powers, and dimension-eight extremal transition was identified. A hidden equivalent in Delsarte–Goethals remains an unresolved historical risk because its full text was not readable.",
+      "searches": [
+        "published-finding corpus semantic: Fourier Gram eigenvalues on full-rank alternating skew-symmetric matrices over finite fields for coordinate additive characters Johnson graph spectrum",
+        "published-finding corpus semantic: nonsingular alternating bilinear forms Fourier frame coordinates rank 2 rank 4 character sums spectral extremal switch dimension eight",
+        "web: Fourier frames restricted nonsingular alternating matrices coordinate characters eigenvalues spectrum",
+        "web: finite fields nonsingular alternating matrices Fourier coefficients rank two rank four additive character sums"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published-finding corpus result lists for Plücker, Veronese, and binary symplectic frames were inspected at their full scientific RESULT files; none tabulates the nonsingular alternating orbit spectrum.",
+        "The Stanton 1981 record describes generalized Krawtchouk values for alternating-form schemes, not the chosen (E+1)-column coordinate frame.",
+        "The 1975 original was accessible as bibliographic data, not as a checkable full table."
+      ],
+      "reasoning": "Published scheme tables may tabulate the two Fourier moments used as input, which are expressly acknowledged as classical. No exact database or table located in the accessible material contains the combined four-sector frame spectrum and the strict dimension-eight Riesz-maximizer classification. An undiscovered special-case table cannot be excluded.",
+      "searches": [
+        "published-finding corpus semantic: Fourier restriction of Pfaffian open orbit and exact Riesz bounds",
+        "web: coordinate Fourier restriction nondegenerate alternating forms Johnson Gram finite field",
+        "web: Delsarte Goethals Alternating bilinear forms GF(q) pdf 1975 eigenmatrices",
+        "web: Stanton q-Krawtchouk alternating bilinear forms 1981"
+      ]
+    },
+    "rationale": "Actual published-finding corpus semantic searches, the accessible current scientific ledger, related published full scientific results and primary literature were compared at the level of source/target sets and implication. Classical alternating-form association schemes supply rank-sensitive moment ingredients; they do not explicitly state this selected-coordinate full-rank-orbit Gram law or strict d=8 sharp-maximizer switch in accessible material. Closest published Plücker and Veronese frames work on rank-one/two cones, and binary symplectic frames work on a different group. The 1975 original full text was inaccessible, so a nontrivial historical implication risk is explicitly recorded; no historical uniqueness certification is claimed.",
+    "residual_risks": [
+      "Delsarte–Goethals (1975), the strongest historical source, was accessible only in bibliography/abstract form; its full text was not inspected because the authorized access service required a disconnected VPN. The general eigenmatrix might conceal a special-case implication.",
+      "A more general old spectral formula for sparse coordinate subsets of the alternating-form association scheme could subsume the four-sector frame calculation even if its terminology differs.",
+      "The archive provides accessible old and recent mathematical results for comparison, not an exhaustive priority certificate."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical Fourier moment input potentially included; whole-document noncoverage cannot be asserted",
+        "evidence": [
+          "Bibliographic record describes alternating bilinear forms rank schemes; journal 19 (1975), 26–50.",
+          "Schmidt 2018 §3 references its appendix for character sums."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0097-3165(75)90090-4",
+        "material_read": "bibliographic and abstract records only; full article unavailable",
+        "method": "DOI/OA/arXiv search, bibliographic review and authorized institutional access attempt (returned VPN-disconnected status)",
+        "title": "Alternating bilinear forms over GF(q)",
+        "trigger": "Foundational rank-association eigenmatrix, plausible stronger coverage"
+      },
+      {
+        "assessment": "Classifies bounded-rank affine subspaces; no Fourier restriction Gram spectrum or Riesz extrema",
+        "evidence": [
+          "Theorem 1.3 bounds dimensions of affine subspaces with upper rank at most 2s<n; the present domain is the collection of invertible alternating forms."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06213",
+        "material_read": "accessible full HTML, abstract, statement of Theorem 1.3, alternating-matrix §§3 and 6, and references; full text searched for Fourier and spectral",
+        "method": "arXiv full HTML reading and within-document searches",
+        "title": "Affine spaces of symmetric or alternating matrices with bounded rank",
+        "trigger": "Direct object family with first public preprint day 2015-07-22"
+      },
+      {
+        "assessment": "Concerns quadratic and symmetric forms; indirect confirmation of Delsarte–Goethals Fourier-moment heritage, not a covering alternating-orbit frame theorem",
+        "evidence": [
+          "§3 cites Delsarte–Goethals Appendix for alternating character sums; its theorem concerns quadratic/symmetric scheme eigenvalues."
+        ],
+        "identifier_or_url": "https://math.uni-paderborn.de/fileadmin/mathematik/AG-Diskrete_Mathematik/Publications-schmidt/quadratic.pdf",
+        "material_read": "title and abstract, §§2–3 relevant scheme formulas, §5 context, bibliography, with page screenshots",
+        "method": "public PDF text plus visual page inspection",
+        "title": "Quadratic and symmetric bilinear forms over finite fields and their association schemes",
+        "trigger": "Modern accessible derivation citing 1975 alternating scheme"
+      },
+      {
+        "assessment": "Rank-two decomposable bivector cone with q−1 labels per edge; does not directly cover full-rank d≥6 alternating orbit",
+        "evidence": [
+          "Its sample set is \\(\\{u\\wedge v\\}\\), all elements having alternating rank zero or two.",
+          "It derives distinct rank-two/rank-four averages from ordered pairs of vectors; these are not the full-rank-orbit averages."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-coordinate-fourier-spectrum-on-the-finite-field-pl-cker-co--91dfe0fce2d0",
+        "material_read": "complete published RESULT.md, including theorem, proof, exact frame spectrum, limitations and bibliography",
+        "method": "public repository read of published scientific result",
+        "title": "Sharp coordinate Fourier spectrum on the finite-field Plücker cone",
+        "trigger": "Closest Johnson-graph coordinate Fourier frame on alternating tensors"
+      },
+      {
+        "assessment": "Different object: symplectic group of transformations vs congruence orbit of full-rank alternating forms; restricted to q=2",
+        "evidence": [
+          "Its sample space is \\(\\operatorname{Sp}(d,2)\\) and its coordinate family has \\(d^2+1\\) functions."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-complete-coordinate-walsh-frame-spectrum-on-binary-symplectic-gr--c844347e16db",
+        "material_read": "complete published RESULT.md including spectral sectors, proof, scope and limitations",
+        "method": "public repository read of published scientific result",
+        "title": "Complete coordinate Walsh-frame spectrum on binary symplectic groups",
+        "trigger": "Similar sharp dimension-eight mode crossover"
+      },
+      {
+        "assessment": "Symmetric rank-one cone and odd characteristic, different moment laws; does not imply nonsingular alternating orbit spectrum",
+        "evidence": [
+          "Its sample set is \\(vv^{\\mathsf T}\\), not the open Pfaffian locus; its crossing concerns the lower Riesz mode."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-fourier-riesz-spectrum-and-a-dimension-transition-on-the-f--7e4eb0365b75",
+        "material_read": "complete published RESULT.md including theorem, proof, comparison and references",
+        "method": "public repository read of published scientific result",
+        "title": "Sharp Fourier Riesz spectrum and a dimension transition on the finite-field Veronese cone",
+        "trigger": "Related Johnson-module Riesz crossover on quadratic rank-one matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1d5ef36-cc98-44a3-acda-dd17d6f33d45",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The nonsingular alternating-form locus is a natural open Pfaffian orbit and coordinate additive characters form the most elementary ambient Fourier probing family. The exact all-field Riesz spectrum determines stable reconstruction of this specific low-band coefficient vector from uniform observations; it exhibits an unexpected field-independent change of the worst spectral direction at the first nontrivial dimensional step 6→8. This is a complete infinite-family classification with equality spaces, not a floating-point experiment, arbitrary slice, or a mere restatement of known full association-scheme eigenvalues.",
+    "status": "PASS"
+  }
+}
