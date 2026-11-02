@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-To reproduce the classification, compile and execute the standalone C++ exhaustive witness/classifier, then run the three separate Python checks from the folder containing all embedded files:
+## correctness
 
-```sh
-g++ -O3 -std=c++17 quartic_census.cpp -o quartic_census
-./quartic_census
-python3 quartic_profiles.py
-python3 verify_certificates.py
-python3 check_orbits_sympy.py
-```
+PASS
 
-The last checker uses SymPy 1.14.0; the others use only the Python standard library and a C++17 compiler. The finite-field library in the witness verifier is separate from the C++ singular-point search; it checks all 21,847 recorded witnesses over fields up to \(\mathbf F_{16}\). The geometric smoothness of every retained quartic is certified by the dehomogenized Jacobian ideal containing \(1\) in each of three affine charts for every one of the 78 projective orbit representatives. This is a proof of geometric smoothness, unlike simply failing to find singularities at small extension degrees. Every one of 32,767 nonzero masks is covered by either the certified singular or certified smooth collection, with no overlap.
+Reconstructed the 15-monomial coefficient-mask representation of all 32767 nonzero homogeneous ternary quartics over GF(2), the geometric smoothness condition F=Fx=Fy=Fz=0, GL3(2) projective action, and rational theta-line square test: restricted binary quartic has odd terms zero and nonzero Q(s,t)^2; n_i counts number of GF(2) rational zeros of Q. A new independent exact finite-field evaluator tested projective points over GF(2),GF(4),GF(8),GF(16) and found singular first-witness counts 20174,1015,616,42, exactly 21847 total, leaving 10920. Independently reconstructed all 168 GL3(2) polynomial substitution actions; the 78 source-listed representatives generate disjoint projective orbits covering all 10920 remaining masks with no overlaps. For each of 78 reps, independent exact GF(2) Groebner unit-ideal tests on all three affine charts gave (1), excluding singularities over the entire algebraic closure, not merely finite extension samples. Independently recomputed all seven line-restriction contact splitting counts and rational point counts for each orbit representative; after orbit weighting obtained EXACTLY the same 40 table rows, 10920 forms, 78 classes and rational theta-line frequency (0:3072,1:5278,2:2352,3:105,4:112,7:1), including 218 forms with >=3 theta lines, in five orbits. The singular-vs-smooth partition is exhaustive because witnesses exclude 21847 and symbolic ideal certificates cover all remaining 10920. Inspected primary RESULT, five algorithm/certificate sources and both published tables at exact frozen Git blob IDs.
 
-The exact line-restriction condition is \(a_1=a_3=0\) for a binary quartic restriction \(\sum_{j=0}^{4}a_js^{4-j}t^j\), and the unique contact quadratic \(Q_L=a_0s^2+a_2st+a_4t^2\) is checked at all three rational points of each line. Each of 10,920 geometrically smooth equation masks is assigned one joint contact profile. Independently, a SymPy substitution rechecks the line restriction and contact classification on all 78 orbit representatives, and group-equivariance transfers it to the full 10,920 equation list. The complete orbit catalogue and 40-cell frequency table are embedded.
+## originality
 
-The programs above were actually executed from the package's file directory, and their outputs agreed with 10,920 smooth, 21,847 certified singular, 78 ambient projective orbits and 40 joint contact profiles. The 78-orbit count agrees with the independent published Nart--Ritzenthaler isomorphism count; that agreement is corroboration, not a novelty claim. The check does not search arbitrary extensions for new classes beyond the fixed binary field, nor constitute external peer review.
+PASS
+
+Nart–Ritzenthaler full 2004 arXiv manuscript explicitly classifies all plane quartic isomorphism types over finite characteristic-two fields and supplies normal models, automorphism counts and bitangent-number/2-rank information; thus the 78 classes and raw seven-bitangent exceptional curve are already known, and cannot be claimed original. Pacini–Testa complete 2022 accepted open-access manuscript analyzes geometric theta-hyperplane/bitangent multiplicities in characteristic two; its Theorem 4.11 addresses generic characteristic-two multiplicity, not the finite F2 arithmetic 40-cell joint distribution including Galois splitting of contact quadratics and N. The exact simultaneous (N,n0,n1,n2) frequency and orbit table is extra arithmetic data that can be computed from known normal models but is not directly given in the inspected full papers. Extensive exact independent reconstruction makes this a real complete classification rather than an arbitrary unexplained collection of numbers.
+
+## value
+
+PASS
+
+This complete joint invariant over the smallest finite field quantifies rational theta-line contact divisors (conjugate pair, repeated rational point, two distinct rational points) together with rational point count and embedded projective orbit multiplicity for every smooth plane quartic. It refines the natural known 78-class census in a way relevant to arithmetic bitangents and rational theta characteristics. Exact self-contained finite complete classification remains mathematically valuable without a general theorem over all finite fields; the exhaustive certificates make the scope precise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
