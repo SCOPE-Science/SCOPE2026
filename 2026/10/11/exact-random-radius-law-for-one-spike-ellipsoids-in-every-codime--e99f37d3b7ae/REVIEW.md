@@ -1,33 +1,19 @@
-# Same-model review
+# Mathematical review
 
 ## Correctness
 
-PASS. The ellipsoid quadratic form is a scalar operator plus a single rank-one perturbation. Its compression to a codimension-\(n\) subspace therefore has only one nontrivial eigenvalue,
-\[
-b^{-2}-(b^{-2}-a^{-2})\|P_Ee_1\|^2.
-\]
-For a Haar random subspace, the complementary squared projection is exactly
-\[
-\operatorname{Beta}\!\left(\frac n2,\frac{N-n}{2}\right).
-\]
-This proves the distributional representation. The CDF is a monotone inversion, the moments follow from Euler's beta integral, and the proportional-dimensional limit follows from the exact beta variance. The checker independently replays the compression and integral identities.
+PASS. The reciprocal squared circumradius of a section is the least eigenvalue of the quadratic form restricted to the subspace. For a one-spike ellipsoid, the form is a scalar multiple of the identity minus a rank-one operator. Haar invariance makes the complementary squared projection a Beta(n/2,(N-n)/2) variable. Monotone inversion yields the exact CDF and success probabilities; Euler's beta integral gives the stated positive moments. Subspaces orthogonal to the long axis attain the optimal radius b. The beta variance proves the proportional-dimensional limit. The boundary cases N-n=1, C=1 and C=a/b are included.
 
 ## Originality
 
-PASS. The recent source and the earlier full ellipsoid paper provide broad high-probability, expected-radius, and asymptotic-order results. Neither inspected paper states the exact one-spike beta law, finite CDF, all-moment formula, or finite factor-\(C\) random-versus-optimal success curve. Targeted searches under one-spike, axisymmetric, beta-law, exact-distribution, and random-information terminology found no covering theorem.
+PASS, with qualification. Guédon–Litvak–Tatarko–Vritsiou (2026), Section 6.3, directly considers two-valued semiaxis sequences, including a single long axis, but presents probabilistic order bounds rather than the complete finite law. Hinrichs–Krieg–Novak–Prochno–Ullrich (2021), Lemma 25, already uses the same Haar projection statistic for an auxiliary problem and computes its expectation. The full one-spike section-radius law additionally identifies the rank-one compression of the ellipsoid quadratic form. The resulting beta law is an elementary exact specialization, not a newly discovered probability principle. Older unindexed equivalent calculations remain possible.
 
-## Value
+## Scientific value
 
-PASS. The one-spike ellipsoid is a canonical anisotropic test family for the random-information problem. The complete law gives a sharp finite benchmark in every codimension and shows that, under proportional codimension and extreme anisotropy, the random/optimal radius ratio converges exactly to
-\[
-\lambda^{-1/2}.
-\]
-Thus the general \(\sqrt{N/n}\) degradation mechanism is realized with its exact leading constant on a natural family.
+PASS. One-spike ellipsoids are a canonical sharply anisotropic benchmark for random versus optimal recovery. Exact finite probabilities, moments and optimality thresholds characterize a natural complete one-parameter anisotropy family in every codimension and calibrate general probabilistic radius estimates. No new universal inequality or multi-spike spectral distribution is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## Verification, sources and scope
 
-## Closest literature and limitations
+Independent bounded checks corroborate the rank-one eigenvalue identity and hypergeometric moments; their finite sample counts do not establish the infinite-dimensional and parameter-uniform conclusions. The unrestricted result rests on the analytic proof. Primary comparisons include arXiv:2609.24131v1, arXiv:1901.06639v2, arXiv:2109.14504v2, and Giannopoulos–Milman (1997), Section 2.2. The corresponding primary results do not state the full finite one-spike distribution. Equivalent coverage in older stochastic matrix literature is the main remaining bibliographic risk.
 
-The closest sources are Guedon--Litvak--Tatarko--Vritsiou on random diameters of convex bodies and Hinrichs--Krieg--Novak--Prochno--Ullrich on random sections of Hilbert ellipsoids. They give the governing framework and strong general estimates but do not determine this finite distribution.
-
-The theorem relies on the one-spike rank-one structure. It does not produce a comparable closed law for ellipsoids with several distinct semiaxis levels. An equivalent formula may exist under older random-compression or multivariate-statistics terminology; this remains the main originality risk.
+No external expert attestation or formal proof is asserted.

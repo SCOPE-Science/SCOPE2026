@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,47 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-For
-\[
-Q=b^{-2}I-(b^{-2}-a^{-2})e_1e_1^{\mathsf T},
-\]
-the compression to a subspace \(E\) is
-\[
-Q|_E
-=
-b^{-2}I_E-(b^{-2}-a^{-2})(P_Ee_1)(P_Ee_1)^{\mathsf T}.
-\]
-Therefore its least eigenvalue is
-\[
-b^{-2}-(b^{-2}-a^{-2})\|P_Ee_1\|^2.
-\]
+# Independent mathematical audit
 
-If \(E\) is Haar-uniform of codimension \(n\), then
-\[
-T=\|P_{E^\perp}e_1\|^2
-\sim
-\operatorname{Beta}\!\left(\frac n2,\frac{N-n}{2}\right),
-\]
-so
-\[
-R_n^{-2}=a^{-2}+(b^{-2}-a^{-2})T.
-\]
-This is the complete analytic proof of the random-radius law.
+## correctness
 
-The bundled checker performs four supplementary replays:
+PASS
 
-1. It constructs deterministic pseudorandom Haar subspaces by QR factorization and compares the smallest compressed eigenvalue with the rank-one formula.
-2. It checks the exact beta mean and variance
-\[
-\mathbb ET=\frac nN,
-\qquad
-\operatorname{Var}(T)=\frac{2n(N-n)}{N^2(N+2)}.
-\]
-3. It numerically integrates the beta density for selected moments and compares with the hypergeometric expression.
-4. It compares the beta-tail probability with the direct threshold transformation for several \((N,n,a/b,C)\) choices.
+For a>b>0, N>=2 and 1<=n<N the inverse-square ellipsoid matrix equals beta I-(beta-alpha)e1 e1^T with alpha=a^-2, beta=b^-2. Its subspace compression has smallest eigenvalue alpha+(beta-alpha)T, where T is the squared projection onto the n-dimensional complement. Rotational invariance and the Gaussian chi-square representation give T~Beta(n/2,(N-n)/2), including N-n=1. Monotone inversion proves the stated complete CDF and factor-C success curve; Euler's beta integral proves all q>0 moments. The infimum section radius is b, attained by subspaces of e1-perp. The high-anisotropy formula (T+(1-T)/kappa^2)^(-1/2) and beta variance 2n(N-n)/(N^2(N+2)) prove both limits. Independent bounded projection and moment comparisons corroborate, but do not establish, the universal proof.
 
-The computations are not used to infer any infinite or all-dimensional statement. The proof above supplies the quantifiers for every \(N\ge2\), \(1\le n<N\), and \(a>b>0\).
+## originality
 
-No claim is made for joint section eigenvalue laws beyond the one-spike case.
+PASS
+
+The closest 2026 study explicitly treats two-valued semiaxis sequences, including m=1, but its Section 6.3 Propositions 6.12-6.14 give probability bounds rather than the exact finite beta pushforward and its complete CDF/moments. The 2021 Hilbert-ellipsoid paper supplies general random-radius inequalities and, in Lemma 25, the same elementary Haar projection statistic for an auxiliary coordinate-recovery problem; it does not present the full one-spike radius law. The exact specialization uses standard rank-one spectral algebra and the classical beta law and is therefore modest, vulnerable to prior folklore, and not a new general random-section bound.
+
+## value
+
+PASS
+
+A centered ellipsoid with one outlying semiaxis is the minimal anisotropic test of random-versus-optimal information. The exact finite CDF, positive moments and factor-C success curve supply a reusable calibration for sharpness questions, while the proportional-codimension limit realizes the precise sqrt(N/n) scale. Prior broad inequalities do not provide those exact probabilities. This is a narrowly scoped elementary exact benchmark, not a general improvement for arbitrary ellipsoids.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

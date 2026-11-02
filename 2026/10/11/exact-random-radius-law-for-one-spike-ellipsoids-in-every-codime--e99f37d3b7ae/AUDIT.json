@@ -1,104 +1,120 @@
 {
   "correctness": {
-    "rationale": "The ellipsoid quadratic form is exactly \\(b^{-2}I-(b^{-2}-a^{-2})e_1e_1^{\\mathsf T}\\). Its compression to a subspace is a scalar operator minus one rank-one term, so the least restricted eigenvalue is \\(b^{-2}-(b^{-2}-a^{-2})\\|P_Ee_1\\|^2\\). For Haar codimension-\\(n\\) subspaces, the complementary squared projection is exactly \\(\\operatorname{Beta}(n/2,(N-n)/2)\\). This proves the distribution. Monotonic inversion gives the CDF, Euler's beta integral gives the moment formula, and the optimal section radius is \\(b\\) because a subspace contained in \\(e_1^\\perp\\) attains it while every section has radius at least \\(b\\). The proportional-dimensional limit follows from the exact beta variance.",
+    "rationale": "For a>b>0, N>=2 and 1<=n<N the inverse-square ellipsoid matrix equals beta I-(beta-alpha)e1 e1^T with alpha=a^-2, beta=b^-2. Its subspace compression has smallest eigenvalue alpha+(beta-alpha)T, where T is the squared projection onto the n-dimensional complement. Rotational invariance and the Gaussian chi-square representation give T~Beta(n/2,(N-n)/2), including N-n=1. Monotone inversion proves the stated complete CDF and factor-C success curve; Euler's beta integral proves all q>0 moments. The infimum section radius is b, attained by subspaces of e1-perp. The high-anisotropy formula (T+(1-T)/kappa^2)^(-1/2) and beta variance 2n(N-n)/(N^2(N+2)) prove both limits. Independent bounded projection and moment comparisons corroborate, but do not establish, the universal proof.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Hinrichs--Krieg--Novak--Prochno--Ullrich prove general upper and lower estimates and expected-radius asymptotics; their full text identifies optimal radius \\(\\sigma_{n+1}\\) but does not give this special-family distribution.",
-        "Guedon--Litvak--Tatarko--Vritsiou develop sharper general bounds and a random-information dichotomy, again at inequality and order level.",
-        "The 2021/2022 \\(\\ell_p\\)-ellipsoid work provides broad random-section bounds but no covering one-spike exact law was found."
+        "Guedon–Litvak–Tatarko–Vritsiou 2026 Section 6.3 covers m=1 within two-valued axes but provides high-probability order bounds and no exact law.",
+        "Hinrichs–Krieg–Novak–Prochno–Ullrich 2021 states general bounds on random radii and the optimum sigma_(n+1).",
+        "Hinrichs–Prochno–Sonnleitner 2023 gives probability upper bounds for general ell_p ellipsoids."
       ],
-      "reasoning": "The broader theorems include the one-spike ellipsoid as an object but their conclusions are not strong enough to imply the exact CDF, all moments, or the sharp finite factor-\\(C\\) success curve. The new statement is a strict exact specialization, not merely a rephrasing of an order estimate.",
+      "reasoning": "The earlier papers cover the geometric class but their stated bounds cannot be specialized to obtain an exact finite distribution or its moments. Lemma 25 provides a key projection building block, not the geometric identity relating it to the section radius.",
       "searches": [
-        "Random sections of ellipsoids and the power of random information exact distribution",
-        "random sections ellipsoid two semiaxes codimension n distribution",
-        "random Gelfand number axisymmetric ellipsoid exact law",
-        "p-ellipsoid random radius one spike exact"
+        "arXiv:2609.24131 Section 6.3 two-valued sequence Proposition 6.12 6.13 6.14",
+        "arXiv:1901.06639v2 Theorems 3-5 Lemma 25 one-coordinate radius",
+        "arXiv:2109.14504v2 random sections ellipsoids upper bounds"
       ]
     },
     "checked_sources": [
-      "arXiv:2609.24131v1",
-      "arXiv:1901.06639v2 and Trans. Amer. Math. Soc. 374 (2021), 8691--8713",
-      "arXiv:2109.14504",
-      "Published literature searches for one-spike/axisymmetric ellipsoid random-section beta laws and exact Gaussian-information success probabilities"
+      "arXiv:2609.24131v1 full text §6.3",
+      "arXiv:1901.06639v2 full text Lemma 25",
+      "arXiv:2109.14504v2 full text",
+      "Giannopoulos–Milman (1997) §2.2 full text OCR",
+      "Three Resultary searches excluding the assessed record",
+      "Classical Haar-projection chi-square ratio/Beta law"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "The 2026 source explicitly defines \\(\\mathcal R_n(K)\\), compares it with optimal Gelfand information, and states that a \\(\\sqrt{N/n}\\) loss can be unavoidable in general.",
-        "The 2019/2021 ellipsoid paper proves the optimal codimension-\\(n\\) radius is the \\(n+1\\)-st semiaxis and studies typical radii with high-probability and expectation bounds.",
-        "For the one-spike sequence \\(a,b,\\ldots,b\\), those statements bracket the random radius but do not determine its finite distribution."
+        "2026 Propositions 6.12-6.14 are inequalities for the same two-level family; no exact beta law.",
+        "2021 Lemma 25 identifies squared norm of a Haar projection of e1 but only uses its expectation in an auxiliary recovery problem.",
+        "1997 Section 2.2 treats geometrically differing semiaxes and M-star instability, not the two-level rank-one exact law."
       ],
-      "reasoning": "The new result uses the source framework but requires an additional rank-one compression computation and the exact Haar projection law. It sharpens the qualitative \\(\\sqrt{N/n}\\) obstruction by exhibiting its exact limiting constant on a canonical anisotropic family.",
+      "reasoning": "Neither the explicit probability bounds nor the auxiliary-projection lemma alone states the geometric random-radius pushforward. The full result follows by combining standard lemmas with a one-step compression calculation; hence originality is qualified as an exact specialized geometric benchmark, not a new probability or spectral principle.",
       "searches": [
-        "arXiv 2609.24131 random radius ellipsoid sqrt N over n unavoidable",
-        "arXiv 1901.06639 random sections ellipsoids optimal radius sigma n+1",
-        "one-spike ellipsoid exact random versus optimal information"
+        "Guedon Litvak Tatarko Vritsiou On random diameters 2026 Section 6.3 full text",
+        "Hinrichs Krieg Novak Prochno Ullrich Random sections of ellipsoids 2021 Lemma 25",
+        "Giannopoulos Milman 1997 diameter sections Section 2.2"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "The current 2026 paper defines random radius on the Grassmannian and derives general probabilistic bounds rather than a closed distribution for a two-level ellipsoid.",
-        "The earlier full ellipsoid paper formulates the same random radius and provides high-probability inequalities and asymptotic-order results for general semiaxis sequences.",
-        "Exact-distribution and beta-law searches did not locate the displayed CDF or moment formula."
+        "The one-spike radius is the reciprocal square root of the least eigenvalue of a rank-one compression.",
+        "Hinrichs et al. 2021, Lemma 25, expresses a related squared Haar projection as a sum of k coordinate squares of a uniform sphere vector; that distribution is classical beta but the ellipsoid radius CDF is not stated."
       ],
-      "reasoning": "Equivalent coverage would need to identify the random radius itself as a monotone transform of a beta variable, or at least supply the same all-parameter CDF. The inspected literature supplies bounds and asymptotic scales instead.",
+      "reasoning": "Haar projection, random-information error, largest section semiaxis and rank-one compressed eigenvalue are equivalent formulations after explicitly identifying the quadratic form. Searches found no prior full one-spike CDF; standard constituent lemmas are acknowledged rather than counted as a new mechanism.",
       "searches": [
-        "axisymmetric ellipsoid random hyperplane section exact radius beta distribution",
-        "one-spike ellipsoid random section arbitrary codimension beta random radius",
-        "random hyperplane ellipsoid section radius beta distribution",
-        "ellipsoid one long semiaxis Haar subspace circumradius distribution"
+        "one spike ellipsoid Haar random section radius beta distribution projection codimension exact CDF",
+        "random compression rank-one diagonal matrix Haar subspace beta eigenvalue law",
+        "axisymmetric ellipsoid random hyperplane section exact radius beta distribution"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The closest indexed findings concern other ellipsoid invariants, nested-ellipsoid section dominance, and random circumradius tails of point samples rather than Haar section radii.",
-        "No indexed result returned the beta parameters \\(n/2,(N-n)/2\\) in this one-spike random-radius setting.",
-        "The checked prior research records contain no source identifier arXiv:2609.24131 and no one-spike random-radius claim."
+        "Three Resultary searches returned the assessed finding as their closest hit; it is excluded from independent priority evidence.",
+        "Other returned records concern John ellipsoids, reconstruction from moments, random polygon sections, and unrelated invariants; no matching independent one-spike radius table was identified."
       ],
-      "reasoning": "Neither exact-parameter searches nor source-specific searches produced a table or theorem containing the claimed distribution or implication-equivalent data.",
+      "reasoning": "No independently indexed full CDF, moment or factor-C table was located; lack of a match alone does not establish novelty.",
       "searches": [
-        "one-spike ellipsoid random section beta distribution exact CDF",
-        "axisymmetric ellipsoid random radius beta n over 2 N minus n over 2",
-        "random information one long semiaxis exact success probability"
+        "Resultary: one spike ellipsoid Haar random section radius beta distribution projection codimension exact CDF",
+        "Resultary: random sections ellipsoids one long semiaxis optimal information rank one compression",
+        "Resultary: random ellipsoidal section largest radius Rayleigh quotient eigenvalues spiked covariance",
+        "one-spike ellipsoid exact CDF beta random information factor C"
       ]
     },
-    "rationale": "The 2026 source and the earlier full Hilbert-ellipsoid paper treat random radii by high-probability bounds, expected-radius estimates, and asymptotic-order comparisons for broad semiaxis sequences. Neither inspected source states the exact one-spike beta law, its finite CDF, all moments, or the exact factor-\\(C\\) success probability. Targeted published searches under one-spike, axisymmetric, beta-law, exact-distribution, and Gaussian-information formulations found no covering statement.",
+    "rationale": "The closest 2026 study explicitly treats two-valued semiaxis sequences, including m=1, but its Section 6.3 Propositions 6.12-6.14 give probability bounds rather than the exact finite beta pushforward and its complete CDF/moments. The 2021 Hilbert-ellipsoid paper supplies general random-radius inequalities and, in Lemma 25, the same elementary Haar projection statistic for an auxiliary coordinate-recovery problem; it does not present the full one-spike radius law. The exact specialization uses standard rank-one spectral algebra and the classical beta law and is therefore modest, vulnerable to prior folklore, and not a new general random-section bound.",
     "residual_risks": [
-      "A classical equivalent computation may exist in multivariate-statistics or random-compression literature under terminology not surfaced by the targeted searches.",
-      "The proof is short once the one-spike quadratic form is recognized as a rank-one perturbation, increasing the risk of an unindexed folklore antecedent."
+      "An older random-matrix, multivariate statistics or stochastic geometry treatment could state the exact rank-one compressed eigenvalue law under another name.",
+      "The derivation is short from standard spectral algebra and Haar beta projection. Its mathematical novelty is the natural exact geometric specialization, not a new general technique."
     ],
     "source_inspections": [
       {
-        "assessment": "FOUNDATIONAL_NOT_COVERING: it supplies the framework and broad sharp bounds, but not an exact finite beta distribution for one-spike ellipsoids.",
-        "evidence": "The source defines \\(\\mathcal R_n(K)\\) as the radius of a Haar random codimension-\\(n\\) section, treats \\(p\\)-ellipsoids by general estimates, and discusses random-versus-optimal degradation.",
-        "identifier_or_url": "arXiv:2609.24131v1",
-        "material_read": "Full arXiv HTML through the introduction, random-radius definition, Gelfand comparison, general upper and lower theorem statements, and the stated ellipsoid applications and examples.",
-        "method": "Primary full-text HTML inspection.",
+        "assessment": "Direct same-family coverage by probabilistic upper/lower bounds, not exact full beta distribution",
+        "evidence": "Section 6.3 assumes sigma_1=...=sigma_m>sigma_(m+1)=...=sigma_N and explicitly limits p=2; Propositions 6.12–6.14 state high probability bounds.",
+        "identifier_or_url": "arXiv:2609.24131v1; https://arxiv.org/html/2609.24131v1",
+        "material_read": "Primary arXiv HTML introduction, random-radius definitions, and Section 6.3 Propositions 6.12–6.14 and their proofs",
+        "method": "primary arXiv full text HTML and PDF verification",
         "title": "On random diameters of convex bodies",
-        "trigger": "Primary recent source defining random radii and emphasizing sharp random-versus-optimal information comparisons for ellipsoids."
+        "trigger": "2026 closest publication with exact two-valued ellipsoid family"
       },
       {
-        "assessment": "BACKGROUND_NOT_COVERING: it gives high-probability bounds and expected-radius asymptotics for general semiaxis sequences, not the exact finite one-spike law.",
-        "evidence": "The paper states that the minimal codimension-\\(n\\) radius is \\(\\sigma_{n+1}\\), while its random-radius results are inequalities, probability estimates, and asymptotic equivalences.",
-        "identifier_or_url": "arXiv:1901.06639v2; Trans. Amer. Math. Soc. 374 (2021)",
-        "material_read": "Full arXiv HTML introduction and problem/results section, including the geometric and information-based formulations, the optimal-radius identity, and Theorems 3--5 plus their main corollaries.",
-        "method": "Primary full-text HTML inspection.",
+        "assessment": "General estimates; projection coordinate law building block but no one-spike radius CDF",
+        "evidence": "Lemma 25 expresses squared coordinate-recovery radius as sum of first (N-n) squares of Haar unit sphere; the lemma computes expectation, not section CDF.",
+        "identifier_or_url": "arXiv:1901.06639v2; Trans. AMS 374 (2021)",
+        "material_read": "Primary 25-page PDF: definitions and main-result statements, Theorems 3–5, Proposition 24 and full text of Lemma 25 with proof",
+        "method": "primary full PDF text and page visual inspection",
         "title": "Random sections of ellipsoids and the power of random information",
-        "trigger": "Closest earlier primary work on the identical Hilbert-ellipsoid random-radius object."
+        "trigger": "Prior study of identical random radius and codimension"
+      },
+      {
+        "assessment": "Inequality bounds for general ell_p ellipsoids, not full finite one-spike distribution",
+        "evidence": "Main theorem abstract and Section 1.1 explicitly frame random radius and derive upper bounds.",
+        "identifier_or_url": "arXiv:2109.14504v2; J. Approximation Theory 293 (2023)",
+        "material_read": "24-page preprint PDF: introduction, random-radius definition, statement of general upper bounds, and selected proof passage",
+        "method": "primary arXiv full PDF text and screenshots",
+        "title": "Random sections of ell_p-ellipsoids, optimal recovery and Gelfand numbers of diagonal operators",
+        "trigger": "Broader ellipsoid random information inequality potentially dominating the claim"
+      },
+      {
+        "assessment": "Different geometric-axis family and an M-star instability analysis; no identified rank-one random-section beta law",
+        "evidence": "Section 2.2 uses ellipsoid with geometrically decaying semiaxes and examines M-star behavior, not one long semiaxis with constant remaining axes.",
+        "identifier_or_url": "Giannopoulos–Milman, IMRN 1997, DOI 10.1155/S1073792897000020",
+        "material_read": "Author-uploaded article text, especially Section 2.2 construction and its application; HTML OCR has substantial character spacing defects",
+        "method": "Lawful author-uploaded full text mirrored by ResearchGate; OCR imperfect",
+        "title": "On the diameter of proportional sections of a symmetric convex body",
+        "trigger": "Historical highly incomparable semiaxes example cited by the above studies"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "review_type": "mathematical_assessment",
   "schema_version": 1,
-  "scope_run_id": "e99f37d3-b7ae-4da2-8726-33df820ea551",
   "value": {
-    "rationale": "The one-spike ellipsoid is the canonical minimal anisotropic model for the random-versus-optimal information question emphasized by the source. The result replaces order bounds by a complete finite law in every codimension, gives exact success probabilities and moments, and identifies the high-anisotropy proportional-dimensional limit \\(\\lambda^{-1/2}\\). This makes the source's potentially unavoidable \\(\\sqrt{N/n}\\) loss exact on a natural family and supplies a reusable benchmark for testing general random-section estimates.",
+    "rationale": "A centered ellipsoid with one outlying semiaxis is the minimal anisotropic test of random-versus-optimal information. The exact finite CDF, positive moments and factor-C success curve supply a reusable calibration for sharpness questions, while the proportional-codimension limit realizes the precise sqrt(N/n) scale. Prior broad inequalities do not provide those exact probabilities. This is a narrowly scoped elementary exact benchmark, not a general improvement for arbitrary ellipsoids.",
     "status": "PASS"
   }
 }
