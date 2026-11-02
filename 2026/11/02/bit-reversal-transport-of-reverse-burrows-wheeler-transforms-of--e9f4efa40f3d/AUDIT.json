@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "evidence": [
+      "RESULT.md sections 1–5",
+      "verify_reversal.py prints VERIFY_OK after mask and Euler enumerations and exact joint table assertions",
+      "1994 BWT definition; 2012 de Bruijn context property"
+    ],
+    "limitations": [
+      "The sharp difference 8 and 36-cell census apply only to order five.",
+      "The all-order identity is not asserted for terminator-augmented or general alphabet variants."
+    ],
+    "rationale": "The successor of each binary n-factor is an invertible feedback permutation, and unique n-factors fix the lexicographic order of BWT rows. The incoming-bit and outgoing-bit calculations prove the complete forward and reverse two-bit block identities for all n>=2. A direct count of internal and interblock changes proves both exact run formulas. At n=5 the verified bounded 2^16-mask exhaustive scan is a bijection onto all 2048 necklaces; a disjoint Euler-tour construction independently recovers the same set and exact 36-cell joint table. Direct BWT rotation sorting of each word and its reversal agrees with the symbolic formula. This is a proof plus reproducible finite exhaustive certificate, not extrapolation from a sample.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Giuliani et al. give exact ratios for Fibonacci-plus and standard-plus words and a logarithmic lower-bound family, not an order-five de Bruijn reversal table or the block index rule.",
+        "The 2025 survey gives the complementary-block property in its de Bruijn section, plus separate general reversal sensitivity examples from Fibonacci-plus words.",
+        "Higgins characterizes BWT images of de Bruijn sets, potentially a union of necklaces; it does not supply the forward-to-reverse block permutation for single-cycle necklaces."
+      ],
+      "reasoning": "The strongest close results concern either all allowed BWT block outputs (a broader collection, without pairing original/reversed cycles) or general reversal sensitivity bounds (a broader class of input strings but weaker statements about exact outputs). Neither broader domain dominates the exact two-transform identity or full order-five joint census. Mathematical distinctions among outputs, inputs, and marginal counts were maintained.",
+      "searches": [
+        "Giuliani et al. arxiv:2008.08506 full text §§1,3–5: BWT reversed-string run ratio",
+        "Fici et al. DOI 10.4230/OASIcs.Manzini.1 full HTML §§5–6: de Bruijn BWT and reversal sensitivity",
+        "Higgins DOI 10.1016/j.tcs.2012.07.019 Theorem 3.4 and proof",
+        "Burrows Wheeler transform de Bruijn cycles BWT run number circular binary order five distribution",
+        "de Bruijn sequences BWT transform runs minimal maximal run counts"
+      ]
+    },
+    "checked_sources": [
+      "SRC Research Report 124 (1994), public PDF",
+      "Higgins (2012), Theoretical Computer Science 457, open manuscript arXiv:1901.08392",
+      "Giuliani et al. (2020), arXiv:2008.08506 full PDF",
+      "Lipták and Parmigiani (2024), LATIN talk slides and public abstract; conference full text not acquired",
+      "Fici et al. (2025), OASIcs 131 open HTML Sections 5–6",
+      "Semantic research-record searches for reverse BWT, feedback orientation, exact order-five joint census"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The earlier exact order-five forward marginal is compatible with numerous joint distributions; it does not imply that the reverse BWT is obtained by the bit-reversal index permutation.",
+        "Higgins Theorem 3.4 supplies the alphabet-permutation BWT block language, while the present exact incoming-versus-outgoing feedback derivation supplies the reverse linkage.",
+        "Giuliani et al. prove reversal sensitivity for Fibonacci-plus word families, which do not characterize the de Bruijn family or its order-five sharp difference."
+      ],
+      "reasoning": "Existing claims were compared by logical implication and object, not by numerical or title similarity. Recovering each marginal from the all-order identity plus enumeration is possible, but deriving the new joint table from the known marginal alone is impossible. The new structural statement is a different pairing property and does not follow from the identified published implications. The remaining risk of unknown unpublished coverage is disclosed.",
+      "searches": [
+        "Exact reversal-asymmetry spectrum of cyclic Burrows Wheeler run counts on binary order-five de Bruijn necklaces; bit reversal of feedback mask",
+        "Burrows Wheeler de Bruijn binary order five cyclic 2048 cycles exact BWT run spectrum and reversal",
+        "Higgins Theorem 3.4 https://arxiv.org/pdf/1901.08392",
+        "Giuliani et al. https://arxiv.org/pdf/2008.08506",
+        "Fici et al. https://drops.dagstuhl.de/storage/01oasics/oasics-vol131-manzinis-festschrift/html/OASIcs.Manzini.1/OASIcs.Manzini.1.html"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Higgins, Theorem 3.4, represents binary de Bruijn BWTs as products of the two complementary blocks 01 and 10; no map between a word and its reversed word is asserted there.",
+        "The 2024 author slides explain block orientations for generation but do not state a fixed-width bit-reversal correspondence for reversed source strings.",
+        "The present theorem computes the predecessor bit before each original n-factor and the successor bit after each reversed n-factor, giving two explicit, generally different sequences of block orientations."
+      ],
+      "reasoning": "Equivalent parameterizations via nonlinear feedback shift registers, de Bruijn Euler tours, and the BWT last-first permutation were explicitly compared. The earlier block property follows from unique length-n contexts, but it is not the claimed correspondence of the two full BWT strings. The correspondence needs an additional reversed-context comparison and nontrivial index permutation. No inspected source gave that same statement.",
+      "searches": [
+        "Exact reversal-asymmetry spectrum of cyclic Burrows Wheeler run counts on binary order-five de Bruijn necklaces; bit reversal of feedback mask",
+        "bit reversal permutation feedback orientation BWT reverse de Bruijn cycle",
+        "web: \"de Bruijn\" \"bit reversal\" \"Burrows Wheeler\" reversed word",
+        "web: \"Burrows-Wheeler\" \"bit-reversal permutation\" \"de Bruijn\"",
+        "Higgins 2012 Theorem 3.4 https://arxiv.org/pdf/1901.08392",
+        "Lipták and Parmigiani 2024 slide deck https://profs.scienze.univr.it/~liptak/files/Santiago2024.pdf"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matched order-five de Bruijn forward/reverse BWT joint table was returned by targeted literature and research-record searches.",
+        "An existing forward-only exact order-five BWT-run classification gives the six marginals 20:38, 22:426, 24:840, 26:608, 28:130, 30:6, but no pair matching or reversal discrepancy.",
+        "The candidate joint table has 30 positive cells and 6 zero cells; 8 cycles attain the absolute difference 8, information not recoverable from the marginals alone."
+      ],
+      "reasoning": "The exact comparison was against the SAME finite object and invariant, including six forward marginal values, not against title keywords alone. The forward histogram is acknowledged as covered; distinct reversal correlations require additional data. Negative searches supplement, rather than prove, the implication comparison.",
+      "searches": [
+        "de Bruijn 5 BWT reverse r(w) r(reverse(w)) joint distribution 2048",
+        "Burrows Wheeler de Bruijn binary order five cyclic 2048 cycles exact BWT run spectrum and reversal",
+        "web: de Bruijn 5 BWT reverse r(w) r(reverse(w)) joint distribution 2048",
+        "web: \"de Bruijn\" \"BWT\" \"reversal\" \"runs\""
+      ]
+    },
+    "rationale": "The earlier order-five one-sided BWT-run histogram is already known and is not claimed as novel. Previous de Bruijn BWT work provides the complementary pair-block property, and earlier reversal BWT work gives bounds and Fibonacci-plus examples, but the inspected sources do not establish the full bit-reversal transport between forward and reversed de Bruijn necklaces. This missing structural link yields the exact order-five joint table and extremal difference, which cannot be deduced from an unpaired marginal. A full-text access gap for the 2024 construction paper remains a disclosed historical-priority risk.",
+    "residual_risks": [
+      "The conference full text of Lipták–Parmigiani (2024) was not accessible; accessible author slides and abstract were inspected instead.",
+      "Unindexed older computations or alternative feedback-coordinate identities could precede this result.",
+      "Negative search alone cannot establish historical originality; comparison here is limited to accessible statements."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines cyclic-rotation BWT and the last-column extraction but does not concern de Bruijn cycles or reversing their feedback tables.",
+        "evidence": "SRC Research Report 124 cover dated May 10, 1994; Algorithm C sorts rotations and extracts their final characters.",
+        "identifier_or_url": "https://www.cl.cam.ac.uk/teaching/2425/Bioinfo/papers/burrows_wheeler.pdf",
+        "material_read": "Dated cover page, abstract, introduction and rotation-sorting algorithm in Section 2",
+        "method": "Opened text-extracted PDF and inspected cover image and text near pp.1–4",
+        "title": "A Block-sorting Lossless Data Compression Algorithm",
+        "trigger": "Original public definition and archival date of the transform"
+      },
+      {
+        "assessment": "Contains complementary-block characterization for de Bruijn sets, but no exact string reversal block-index permutation or order-five two-dimensional run table.",
+        "evidence": "Section 3 Theorem 3.4 characterizes BWT images as concatenations of alphabet permutations, with binary blocks 01 and 10.",
+        "identifier_or_url": "https://arxiv.org/pdf/1901.08392; doi:10.1016/j.tcs.2012.07.019",
+        "material_read": "Introduction and Section 3, including Lemma 3.3, Theorem 3.4, Lemmas 3.6–3.7, and examples, through the proof of Theorem 3.4",
+        "method": "Inspected open full-text manuscript with text and page image; searched for reverse and bit-reversal terms",
+        "title": "Burrows–Wheeler transformations and de Bruijn words",
+        "trigger": "Closest earlier mathematical treatment of BWT de Bruijn block decomposition"
+      },
+      {
+        "assessment": "Establishes reversibility sensitivity and logarithmic ratio growth in specified standard-word families, not a de Bruijn feedback reversal law.",
+        "evidence": "2020 arXiv abstract and Section 3 address Fibonacci-plus; Section 4 treats standard-plus; there is no de Bruijn classification.",
+        "identifier_or_url": "https://arxiv.org/pdf/2008.08506",
+        "material_read": "Abstract, introduction, Sections 3–5 and conclusion about reversed Fibonacci-plus and standard-plus words",
+        "method": "Read open PDF text and inspected page image of introductory and theorem discussion",
+        "title": "Novel Results on the Number of Runs of the Burrows-Wheeler-Transform",
+        "trigger": "Direct previous investigation of BWT run counts under word reversal"
+      },
+      {
+        "assessment": "Accessible material concerns sampling/generating cycles, without asserting reverse-block bit-reversal law; residual risk explicitly retained for uninspected full paper.",
+        "evidence": "Slides explicitly show BWT of de Bruijn sequences formed from blocks 01/10; reverse string comparison not shown in inspected slides.",
+        "identifier_or_url": "doi:10.1007/978-3-031-55598-5_9; https://profs.scienze.univr.it/~liptak/files/Santiago2024.pdf",
+        "material_read": "Author slide material discussing de Bruijn cycles, BWT inversion and complementary two-bit BWT blocks; full conference text not accessible",
+        "method": "Inspected author talk PDF slides around p.25 and associated public abstract; full manuscript inaccessible, and institutional download access unavailable",
+        "title": "A BWT-Based Algorithm for Random de Bruijn Sequence Construction",
+        "trigger": "Plausible intervening primary study combining BWT block orientations and de Bruijn cycles"
+      },
+      {
+        "assessment": "Separately documents binary de Bruijn complementary BWT blocks and general reversal sensitivity; no joint binary de Bruijn reverse-BWT theorem or exact n=5 table.",
+        "evidence": "Proposition 32 gives general de Bruijn BWT run bounds; Section 6.1 gives reversals of Fibonacci-plus rather than the de Bruijn reversal correspondence.",
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/01oasics/oasics-vol131-manzinis-festschrift/html/OASIcs.Manzini.1/OASIcs.Manzini.1.html",
+        "material_read": "Complete relevant HTML Sections 5 and 6 and references for Higgins and reversal paper",
+        "method": "Read full relevant sections of open HTML primary survey and searched for bit-reversal and de Bruijn",
+        "title": "BWT and Combinatorics on Words",
+        "trigger": "Recent survey covering both de Bruijn BWT and reversal sensitivity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e9f4efa4-0f3d-4a07-bdd3-6695c98c0136",
+  "self_review_status": "passed",
+  "value": {
+    "evidence": [
+      "Giuliani et al. (2020) motivates BWT reversal sensitivity",
+      "Higgins (2012) and Fici et al. (2025) establish relevance of BWT block structure on de Bruijn cycles",
+      "RESULT.md complete table and structural proof"
+    ],
+    "limitations": [
+      "A sharp general maximal reversal gap remains unknown from this work.",
+      "The exact finite joint table has not been independently certified beyond the supplied reproducible checker."
+    ],
+    "rationale": "BWT-run count governs the space of run-based compressed indexes, and reversal sensitivity is an explicit mathematical question. De Bruijn cycles hold factor coverage perfectly fixed, isolating the impact of orientation. The general bit-reversal block transport is a reusable structural algorithm for every order, rather than an arbitrary finite slice. The exact first substantial order-five discrepancy (eight runs, eight extremizing cycles), 648 equal-run cycles, and full correlation table clarify what marginal distributions omit.",
+    "status": "PASS"
+  }
+}
