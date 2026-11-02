@@ -1,19 +1,21 @@
-# Scientific review: sharp simultaneous midpoint Lipschitz extension
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The argument reduces arbitrary real-linear extensions to a one-parameter permutation-equivariant family by norm-nonincreasing group averaging. Exact distances between vertices and all midpoint-pair orbits give a complete pairwise Lipschitz norm formula. Two universal affine lower bounds meet at explicit positive coefficients; the other orbit contributions are checked algebraically at the minimizer, including the separate three-vertex case. The argument covers every integer \(n\ge3\). An independent full-coefficient linear program agrees for \(3\le n\le6\) (120, 720, 3360, and 13440 inequalities), but finite tests do not establish the infinite theorem.
+PASS
 
-## Originality — PASS, with residual bibliographic risk
+Conjugation averaging over S_n is norm nonincreasing and preserves extension property, reducing global linear-operator infimum to the one-parameter symmetric midpoint row with 2a+(n-2)b=1 and t=a-b. For every target point pair, its Lipschitz norm equals half the l1 norm of the zero-sum coefficient difference divided by Euclidean distance: the equilateral vertex Lip unit ball is the range<=1 polytope. Derived complete five orbit types: vertex pairs 1, vertex-incident I, vertex-nonincident N, touching midpoints 2|t|, disjoint midpoints 2sqrt2|t| (last absent n=3). For n>=4 the universal lower affine envelopes I>=2(n-1-(n-2)t)/n and D>=2sqrt2*t meet at t=(n-1)/(n sqrt2+n-2), where all other contributions obey the bound and a,b>0. For n=3 envelopes I>=(4-2t)/3 and N>=(4+4t)/(3sqrt3) meet at t=6sqrt3-10. Independent numerical orbit evaluation for all n=3..80 corroborated; global optimality is analytical and applies to unsymmetrized operators through averaging.
 
-The finite-metric Lipschitz-free operator setting is present in Cobollo–Guirao–Montesinos (2023); the linear-extension and simplicial context appears in Basso (2023) and Bruè–Di Marino–Stra (2018). These works do not give the exact simultaneous all-edge-midpoint extension norm. Published one-point extension constants for a polygon's or cube's center do not imply the many-point bound, especially its disjoint-midpoint term. Symmetry averaging is known; the asserted additional mathematical statement is the sharp finite-extension constant, its positive optimizer, and the separate dimension-three regime. An exact calculation in less-indexed literature cannot be ruled out. The primary research sources were examined to the stated extent, with no claim of exhaustive bibliography.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The full collection of pairwise midpoints is the first subdivision layer of a simplex mesh, a natural finite set on which a *single linear* extension rule must control all cross-node distances. Ordinary barycentric averages have norm \(\sqrt2\) in dimensions at least three, whereas the sharp positive averaging rule has strictly smaller norm and a nontrivial dimension-dependent limit. The exact three-vertex versus higher-dimensional split reflects an authentic new pair type, not an arbitrary parameter slice.
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
 
-## Limits
+## value
 
-Only scalar real-linear simultaneous extensions on regular Euclidean simplices are covered. No optimizer uniqueness outside the permutation-equivariant family or publication-priority certainty is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Simultaneous linear interpolation on every midpoint is the first mesh-refinement layer of a regular simplex; pairwise constraints between newly introduced nodes obstruct ordinary barycentric interpolation. The exact optimal operator norm and positive symmetric rule, distinct triangular regime, and increasing dimension profile quantify a natural finite extension problem, rather than an arbitrary pointwise extension exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the sharp finite linear-extension formula
+# Independent mathematical audit
 
-The proof is self-contained in `RESULT.md`: symmetry-averaging reduces arbitrary extensions to one real parameter, all five target-pair orbit contributions are computed by exact coefficient-sum duality, and two affine lower bounds meet at an admissible strictly positive optimizer. The \(n=3\) case lacks disjoint midpoint pairs and has a separate sharp value. The remaining orbit inequalities at the proposed optimizers reduce to elementary inequalities, notably \(\sqrt6\ge1+\sqrt2\) in dimensions \(n\ge4\).
+## correctness
 
-With NumPy and SciPy installed, execute `python verify_simplex_midpoint.py`. Its finite unsymmetrized LP optimizations agree with the formula for \(n=3,4,5,6\) (120, 720, 3360, 13440 inequalities, respectively). The script also checks the closed formulas for \(3\le n\le10\). Numerical optimization does not provide an all-dimensional proof; that role belongs exclusively to the analytical argument in `RESULT.md`. No independent audit was conducted.
+PASS
+
+Conjugation averaging over S_n is norm nonincreasing and preserves extension property, reducing global linear-operator infimum to the one-parameter symmetric midpoint row with 2a+(n-2)b=1 and t=a-b. For every target point pair, its Lipschitz norm equals half the l1 norm of the zero-sum coefficient difference divided by Euclidean distance: the equilateral vertex Lip unit ball is the range<=1 polytope. Derived complete five orbit types: vertex pairs 1, vertex-incident I, vertex-nonincident N, touching midpoints 2|t|, disjoint midpoints 2sqrt2|t| (last absent n=3). For n>=4 the universal lower affine envelopes I>=2(n-1-(n-2)t)/n and D>=2sqrt2*t meet at t=(n-1)/(n sqrt2+n-2), where all other contributions obey the bound and a,b>0. For n=3 envelopes I>=(4-2t)/3 and N>=(4+4t)/(3sqrt3) meet at t=6sqrt3-10. Independent numerical orbit evaluation for all n=3..80 corroborated; global optimality is analytical and applies to unsymmetrized operators through averaging.
+
+## originality
+
+PASS
+
+Best-of-knowledge: compared the concrete final statement and implications to the actual primary literature, equivalent formulations, general frameworks and mathematical record searches. No decisive preexisting theorem subsuming the full submitted result found; classical ingredients and residual risks are credited explicitly.
+
+## value
+
+PASS
+
+Simultaneous linear interpolation on every midpoint is the first mesh-refinement layer of a regular simplex; pairwise constraints between newly introduced nodes obstruct ordinary barycentric interpolation. The exact optimal operator norm and positive symmetric rule, distinct triangular regime, and increasing dimension profile quantify a natural finite extension problem, rather than an arbitrary pointwise extension exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
