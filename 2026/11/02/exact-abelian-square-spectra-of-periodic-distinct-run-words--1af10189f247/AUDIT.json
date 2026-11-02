@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "Circular two-arc support lemma uses q>=3 and one circular run per letter. Removing complete periods reduces any Abelian square to two adjacent residue arcs; complement arcs handle residue>p/2. Different start phases give distinct factors whenever length>=p. Counting run placements yields F_h and the coefficient p+2 sum floor(r_i^2/4); exact k=1,2,3 boundary analysis and k-to-k+2 phase-preserving shift prove every k. A reproducible literal verifier checks 997 cases, 14021 length profiles and 4340 cyclic-arc instances without treating finite checks as a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1701.02836 §4 and Theorem 2 provide an O(mn)-time algorithm to find all Abelian squares in an arbitrary RLE string and describe window position ranges.",
+        "arXiv:1701.00948 Proposition 6 bounds number of distinct Abelian squares in powers of arbitrary words by a general quadratic expression."
+      ],
+      "reasoning": "An algorithm capable of enumerating instances does not state the exact symbolic total for every tuple of run lengths and every power. The known upper bound does not imply the phase-sensitive parity law or its precise coefficient. No inspected stronger theorem subsumes these formulas.",
+      "searches": [
+        "Computing Abelian regularities on RLE strings Sugimoto Noda Inenaga Bannai Takeda 2017 full text PDF",
+        "abelian powers in periodic words with distinct symbols run length circular",
+        "periodic word Abelian squares circular arcs same Parikh distinct powers length spectrum run-length encoding"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1701.00948v3",
+      "arxiv:1701.02836v2",
+      "arxiv:1802.04481v1",
+      "arxiv:2207.09937v2",
+      "scientific comparator 06729630-df50-4025-8954-19e4ec5f6b74 (single-window Abelian factor spectrum)",
+      "semantic database: Abelian square factor count distinct words",
+      "semantic database: periodic word Abelian squares circular arcs same Parikh distinct powers length spectrum run-length encoding"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier own claim 06729630-df50-4025-8954-19e4ec5f6b74 gives distinct single-factor Parikh-vector spectra of cyclic distinct-run powers, symmetric in the multiset of run lengths.",
+        "The present explicit count in two copies is 7 for runs (4,1,2) and 5 for (1,4,2); literal enumeration and the closed formula agree.",
+        "arXiv:1701.02836 Theorem 2 gives a reporting algorithm but no symbolic phase-summed all-parameter cardinality."
+      ],
+      "reasoning": "The Parikh-vector spectrum does not encode the joint distribution of consecutive halves, as the differing 7/5 example proves; it cannot imply the new answer. General output-enumerating algorithms do not contain the closed-form period-two law as a stated theorem. Known results are not claimed as new.",
+      "searches": [
+        "previous scientific comparator claim 06729630-df50-4025-8954-19e4ec5f6b74 (single-window Abelian factor spectrum)",
+        "exact linear quasi-polynomial for number of distinct abelian square factors of powers of primitive words",
+        "Abelian Combinatorics on Words a Survey section Abelian square factors"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1701.00948 §3 defines AS(w), proves general bounds and surveys Thue-Morse/Sturmian examples; no cyclic distinct-run count appears in inspected sections.",
+        "arXiv:1802.04481 pp.1–8 distinguishes distinct and nonequivalent Abelian squares and studies extremal linear/circular counts, not this run-power identity.",
+        "published-finding corpus semantic matches returned no statement for these run vectors, exact two-power increment, or adjacent circular-arc monochromatic criterion."
+      ],
+      "reasoning": "An equivalent statement could use Abelian-square runs, circular windows, or Parikh balanced doubles as aliases. Searches covered these forms; the closest texts give other objects or different quantifiers. Absence of retrieval is not itself proof of novelty.",
+      "searches": [
+        "abelian square factors in periodic words with run length distinct alphabet, exact count of abelian squares per length",
+        "Exact enumeration distinct Abelian square factors of repeated cyclic run word P^k with each letter in exactly one run, period-two increment in number and sharp coefficient sum floors of squared run lengths",
+        "count distinct abelian square factors in periodic word powers primitive run length word exact formula",
+        "cyclic block powers abelian square count finite repetitions distinct run letters"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:1802.04481 pp.2–4 tabulates binary extremal totals at small n, with different parameters from the present q>=3 family.",
+        "arXiv:2207.09937 §4.3 summarizes global extrema and richness rather than all run-length, all-power formulas."
+      ],
+      "reasoning": "Known tables are for extremal binary words or general Abelian-square classes, not counts indexed by each nonbinary run vector and power. No exact prior tabulation of this natural invariant was located.",
+      "searches": [
+        "abelian squares factors periodic words enumeration runs Parikh vectors 2020 research",
+        "abelian square factors words consisting blocks same letter repeated cycles 0^a1^b2^c",
+        "Abelian square factor count distinct words"
+      ]
+    },
+    "rationale": "The inspected primary sources establish general enumeration algorithms, richness bounds and extremal binary/circular results, not an explicit all-run-length count of distinct Abelian-square factors of nonbinary periodic run powers. The earlier single-window Abelian Parikh-factor complexity of the same host family does not determine equality of adjacent windows: run-length permutations (4,1,2) and (1,4,2) have identical single-window Abelian factor complexity but distinct Abelian-square totals 7 and 5 for two periods. Genuine unlocated equivalent-specialization risk remains.",
+    "residual_risks": [
+      "A specialized periodic-word Abelian-square theorem not indexed by searched literature or published-finding corpus may encode an equivalent formula.",
+      "Inspection concentrated on relevant sections/claims; lack of an explicit formula in inspected sources is not a complete historical novelty proof."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No matching explicit finite distinct-run-power spectrum in inspected relevant material; general bounds and infinite aperiodic families, not this formula",
+        "evidence": [
+          "§3 defines AS and bounds powers in Proposition 6; §§4–5 discuss Thue-Morse and Sturmian families"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1701.00948v3",
+        "material_read": "Abstract, definitions, Section 3 including Proposition 6, Thue-Morse section and Sturmian claims through Section 5",
+        "method": "Direct open-access arXiv HTML section/theorem inspection",
+        "title": "Abelian-Square-Rich Words",
+        "trigger": "Same distinct Abelian-square factor-count invariant and general bound for periodic powers"
+      },
+      {
+        "assessment": "Locates Abelian squares in generic RLE words but does not state exact distinct-factor count for the cyclic unique-letter-run subclass",
+        "evidence": [
+          "§4, Theorem 2: output all Abelian squares in O(mn); no period-two numerical increment theorem"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1701.02836",
+        "material_read": "Abstract and Introduction, Section 4 algorithm and Lemmas 1–5 and Theorem 2, example figure",
+        "method": "Open-access arXiv PDF text and rendered pages 1, 5, 7",
+        "title": "Computing Abelian regularities on RLE strings",
+        "trigger": "Direct same algorithmic problem on run-length-encoded strings"
+      },
+      {
+        "assessment": "Extremal and mostly binary counts, rather than the present all-parameter q>=3 powers",
+        "evidence": [
+          "pp.1–4 describe distinct and nonequivalent binary extrema; pp.5–8 open problems"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1802.04481",
+        "material_read": "Abstract and discussion of linear/circular extrema on pages 1–8, tables and conjectures",
+        "method": "Open-access arXiv PDF text and rendered pages 1–2",
+        "title": "Solved and Unsolved Problems about Abelian Squares",
+        "trigger": "Survey explicitly treats distinct versus nonequivalent and linear versus circular Abelian-square counts"
+      },
+      {
+        "assessment": "Summarizes extremes, automatic words and richness, no exact unique-letter cyclic run-power parity formula in inspected section",
+        "evidence": [
+          "§4.3 discusses distinct Abelian-square factor totals and extrema"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2207.09937v2",
+        "material_read": "Section 4.3, especially definitions, bounds and references; adjoining §4.4 boundary",
+        "method": "Direct open-access arXiv HTML section inspection",
+        "title": "Abelian Combinatorics on Words: a Survey",
+        "trigger": "Survey of Abelian-square factor enumerations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1af10189-f247-4ad6-8358-65c9f6ccae8c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete all-length, all-run-length spectrum and exact period-two increment concern distinct Abelian-square *factors*, a useful invariant for Abelian-square reporting on compressed periodic words. The parity/boundary correction detects information absent from Abelian factor-Parikh complexity and sharply distinguishes alphabet sizes q>=3 versus q=2. The class is infinite and natural; the result is not a one-off computation, trivial reparametrization, or generic upper bound.",
+    "status": "PASS"
+  }
+}
