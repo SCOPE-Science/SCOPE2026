@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "For each vertical center, centering horizontal slices uniquely maximizes the two-interval overlap. Direct integration gives A_t(y)=4y-6(1-t)y^2 for y<=1/2 and A_t(y)=4t(1-y)+2(1-t)(1-y)^2 for y>=1/2. The second branch is strictly decreasing; the first has vertex y=1/[3(1-t)], feasible exactly through t=1/3. Division by area 1+t yields both formulas. Monotonicity, one-sided second derivatives (81/32,-27/32) and sharp square-root endpoint follow by elementary symbolic algebra. An independent rational polygon-clipping checker and symbolic verification both passed. The checker alone is not a universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chan and Hair (2025), arXiv:2504.18352, abstract/introduction/main theorem: generic linear-time maximum-overlap algorithm for fixed convex polygons.",
+        "de Berg et al. (1998), DOI 10.1007/PL00005845, known generic overlap algorithm; full text inaccessible."
+      ],
+      "reasoning": "Generic overlap algorithms can solve any fixed trapezoid instance, and therefore prohibit claiming novelty merely for computability or single numeric outputs. Their inspected theorems do not explicitly entail the claimed uniform analytic parameter formula, unique center migration and sharp inverse exponent as established structural results. A specialized equivalent derivation in older inaccessible work remains a risk.",
+      "searches": [
+        "Macbeath area trapezoid optimizer y 1/(3(1-t)) phase t=1/3",
+        "maximal intersection quadrilateral with point reflection one-third base ratio second derivative jump",
+        "arXiv:2504.18352 maximum overlap of two convex polygons under translation"
+      ]
+    },
+    "checked_sources": [
+      "Goenka et al. (2023), arXiv:2309.12597 (relevant full text)",
+      "Chan and Hair (2025), arXiv:2504.18352 (relevant full text)",
+      "de Berg et al. (1998), DOI:10.1007/PL00005845 (bibliography and later citation only)",
+      "Tóth (2015), DOI:10.1007/978-3-319-23733-6 (catalog preview only)",
+      "published-finding corpus indices listed in named equivalence, broad-coverage and table checks",
+      "Accessible previous geometry research claims, deduplication only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Kovner–Besicovitch: universal convex-body lower bound 2/3, with equality for triangles; this constrains only an endpoint, not interior exact trapezoid profile.",
+        "Goenka et al. 2023: axial symmetry/folding functional differs from central point symmetry.",
+        "Chan and Hair 2025: constructive fixed-input overlap algorithm does not state a two-branch closed family law or geometric phase transition."
+      ],
+      "reasoning": "Claim is a uniform parameterized identity together with unique optimizer, phase transition, inversion and endpoint exponent. Universal lower bounds have insufficient data to imply it, and axial symmetry is a different operation. General exact overlap algorithms can compute individual values and are acknowledged as broader computational coverage; their published statements, as inspected, do not supply the structural formulas as a corollary without additional analysis.",
+      "searches": [
+        "largest centrally symmetric subset inside convex trapezoid exact maximum overlap area and optimum point",
+        "Kovner Besicovitch measure trapezoids optimal center area fraction t side ratio transition 1/3",
+        "arXiv:2309.12597",
+        "arXiv:2504.18352"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Goenka et al. (2023) arXiv:2309.12597, Introduction, results and appendices: axial reflection/folding, with point-symmetry 2/3 as background; no trapezoid profile in inspected full text.",
+        "published-finding corpus 2026/10/11/SCOPE-exact-kovner-besicovitch-area-ratio-of-regular-reuleaux-odd-gons--71273748c58f studies regular Reuleaux odd-gons and a different maximizing center."
+      ],
+      "reasoning": "Point-symmetry measure, maximal centrally symmetric subset and maximum intersection with reflected translate were searched as aliases. The leading exact symmetry index result is for different bodies, and a published axial-reflection invariant is not the central point-symmetry invariant.",
+      "searches": [
+        "largest centrally symmetric subset inside convex trapezoid exact maximum overlap area and optimum point",
+        "Kovner Besicovitch index of trapezoid as function ratio of parallel sides",
+        "Kovner Besicovitch measure trapezoids optimal center area fraction t side ratio transition 1/3",
+        "Goenka Moore Sun White On Axial Symmetry in Convex Bodies arxiv 2309.12597",
+        "arXiv:2309.12597"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus closest 2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b addresses metric dilation, not symmetry ratio.",
+        "published-finding corpus closest 2026/10/11/SCOPE-exact-makai-volume-product-profile-of-convex-quadrilaterals--82932c1e6034 studies polar-difference-body area product."
+      ],
+      "reasoning": "No relevant indexed exact table for the symmetry ratio was located. Distinct trapezoid invariants do not determine point-reflection overlap from their statements; negative database search is evidence of search coverage, not proof of historical novelty.",
+      "searches": [
+        "Macbeath area trapezoid optimizer y 1/(3(1-t)) phase t=1/3",
+        "Kovner Besicovitch index of trapezoid as function ratio of parallel sides",
+        "maximal intersection quadrilateral with point reflection one-third base ratio second derivative jump"
+      ]
+    },
+    "rationale": "Indexed comparable research covers axial rather than central symmetry, the universal 2/3 Kovner-Besicovitch bound, and general polygon-overlap algorithms. Those facts do not explicitly provide the uniform exact two-branch trapezoid ratio, unique optimum-center bifurcation at t=1/3, analytic inversion, or optimal inverse exponent. Prior algorithmic computability of individual polygons is acknowledged. Historical priority remains provisional owing to full-text access gaps and possible equivalent specialized earlier results.",
+    "residual_risks": [
+      "A specialized exact formula may occur in inaccessible 1998 overlap-algorithm full text or 2015 symmetry monograph.",
+      "Generic polygon-overlap algorithms cover instance computability; originality is restricted to uniform closed form, optimizer phase and inverse conditioning.",
+      "Search indexing and bibliographic coverage are incomplete, so historical priority is provisional."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the point-reflection trapezoid family formula in inspected full text; studies axial symmetry instead",
+        "evidence": "Goenka–Moore–Sun–White (2023), arXiv:2309.12597",
+        "identifier_or_url": "https://arxiv.org/abs/2309.12597",
+        "material_read": "Abstract, introduction, main statements, relevant sections on axial/reflection symmetry and appendices; searched for trapezoid and Kovner–Besicovitch",
+        "method": "Read publicly accessible arXiv HTML/full text and searched key terminology",
+        "title": "On Axial Symmetry in Convex Bodies",
+        "trigger": "Kovner–Besicovitch measure and planar convex bodies, natural nearest source"
+      },
+      {
+        "assessment": "Broader fixed-instance computational coverage acknowledged, but no uniform trapezoid parameter law, unique-center transition, or inverse regularity was stated",
+        "evidence": "Chan–Hair (2025), arXiv:2504.18352",
+        "identifier_or_url": "https://arxiv.org/abs/2504.18352",
+        "material_read": "Abstract, introduction, stated main theorem, algorithm discussion of piecewise overlap under translation; searched trapezoid and Kovner",
+        "method": "Read accessible arXiv full text, inspect theorem and object/parameter implications",
+        "title": "A Linear Time Algorithm for the Maximum Overlap of Two Convex Polygons Under Translation",
+        "trigger": "Broad dominating maximum-overlap algorithm with a direct translation optimization relation"
+      },
+      {
+        "assessment": "UNRESOLVED_MATERIAL_ACCESS; avoid claiming the original paper contains no specialized formula",
+        "evidence": "de Berg et al. (1998), DOI:10.1007/PL00005845; inaccessible original full text",
+        "identifier_or_url": "https://doi.org/10.1007/PL00005845",
+        "material_read": "Available bibliographic description and later 2025 primary-paper discussion; original full text inaccessible",
+        "method": "Tried open access and institutional route; institutional source returned storage-limit error",
+        "title": "Computing maximum overlap of two convex polygons under translation",
+        "trigger": "Foundational earlier generic overlap results could dominate instance-level claims"
+      },
+      {
+        "assessment": "UNRESOLVED_MATERIAL_ACCESS; specialized equivalence cannot be excluded",
+        "evidence": "Tóth (2015), DOI:10.1007/978-3-319-23733-6",
+        "identifier_or_url": "https://doi.org/10.1007/978-3-319-23733-6",
+        "material_read": "Accessible metadata/catalog summary only; full chapters not available",
+        "method": "Online bibliographic and preview searches",
+        "title": "Measures of Symmetry for Convex Sets and Stability",
+        "trigger": "Specialized book could contain explicit planar convex-body symmetry formulas"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bb24ea7f-02f0-42c0-af95-67b9e1395b1e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural affine-invariant exact profile for all genuine trapezoids gives the largest centrally symmetric subset without per-instance optimization, identifies the only shape parameter that a point-symmetry ratio can recover, and determines a genuine optimizer transition at t=1/3. Exact inverse formulas and the sharp square-root breakdown at triangular degeneration explain limits of geometric identification. This is not a trivial substitution, arbitrary finite slice or mere numerical reproduction of a known table.",
+    "status": "PASS"
+  }
+}
