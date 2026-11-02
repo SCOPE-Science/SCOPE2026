@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:54:45Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 1/2<alpha<1 and distinct nonnegative rates, the endpoint kernel is g_i(t)=t^(alpha-1) E_{alpha,alpha}(-lambda_i t^alpha) in L2(0,T). Its first two linearly independent powers, t^(alpha-1) and t^(2alpha-1), have Gram determinant alpha^2*T^(6alpha-2)/[(2alpha-1)(4alpha-1)(3alpha-1)^2]. The coefficient determinant is (lambda_1-lambda_2)/[Gamma(alpha)Gamma(2alpha)]. Hence trace W~2*T^(2alpha-1)/[Gamma(alpha)^2(2alpha-1)] and det/trace gives lambda_min~(lambda_1-lambda_2)^2 alpha^2 T^(4alpha-1)/[2 Gamma(2alpha)^2(4alpha-1)(3alpha-1)^2]. Positive-definiteness follows from distinct analytic kernels, and Gramian inversion gives the supremal minimum energy over unit terminal targets. Independently checked the exact shape-Gram identity; finite checks are not the proof. Null-mode eigenvector tends to antisymmetric direction; no uniformity as rates merge.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Trélat–Zuazua discusses T,T^3,... classical integer-order Gramian spectra; the present Caputo exponent is 2alpha-1 and 4alpha-1 for 1/2<alpha<1.",
+          "Ge–Chen treats time-fractional diffusion regional tracking with a different infinite-dimensional objective."
+        ],
+        "reasoning": "Neither known broader control setting supplies this explicit fractional two-mode asymptotic; the alpha=1 endpoint is excluded.",
+        "searches": [
+          "Caputo fractional controllability Gramian small time eigenvalues two mode single input distinct rates fractional exponent minimum energy T^(4 alpha-1)",
+          "arXiv:2609.37077v1, introduction/small-time spectral hierarchy",
+          "arXiv:2104.12303v1"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE frozen RESULT.md 3219b31adaa5e63ba8826b9b5f607624a6e98e69",
+        "Independent analytic Gram determinant check; independent_checks.py",
+        "https://doi.org/10.1155/2014/618162",
+        "https://arxiv.org/abs/2104.12303",
+        "https://arxiv.org/abs/2609.37077",
+        "Resultary search: Caputo fractional controllability Gramian small time eigenvalues two mode single input distinct rates fractional exponent minimum energy T^(4 alpha-1)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2014: nonsingularity iff controllability; 2021: regional optimal tracking; 2026: integer-order spectra.",
+          "The claim needs Mittag-Leffler two-term expansion, specific Gram determinant and an alpha-dependent constant."
+        ],
+        "reasoning": "None of the inspected statements logically determines the fractional coefficient or exponent; each leaves this precise quantitative question open.",
+        "searches": [
+          "arXiv:2104.12303v1",
+          "DOI:10.1155/2014/618162",
+          "arXiv:2609.37077v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "2014 fractional controllability criterion is equivalent to nonsingularity of a Gramian, without small-time two-eigenvalue constants.",
+          "Endpoint minimum-energy quadratic form is W_T^{-1}, so the claim is a quantitative refinement of the standard formulation."
+        ],
+        "reasoning": "Same endpoint-map Gramian object; existence of its inverse does not imply the two precise powers or leading constants.",
+        "searches": [
+          "Caputo fractional controllability Gramian small time eigenvalues two mode single input distinct rates fractional exponent minimum energy T^(4 alpha-1)",
+          "DOI:10.1155/2014/618162, Theorem 7 and Corollary 8"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Returned published findings concerned control-contrast, classical spectral positivity and unrelated fractional dynamics; no exact fractional Gramian table or coefficient was identified."
+        ],
+        "reasoning": "A bounded corpus query is an overlap screen, not a proof that no equivalent paper exists.",
+        "searches": [
+          "Caputo fractional controllability Gramian small time eigenvalues two mode single input distinct rates fractional exponent minimum energy T^(4 alpha-1)",
+          "Resultary semantic search; 11 hits"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS: prior fractional-control papers provide controllability/Gramian nonsingularity and regional tracking, and recent small-time eigenvalue hierarchy literature covers classical alpha=1. Their inspected conclusions do not entail the fixed-fractional two-mode explicit exponent 4alpha-1 with sharp rate-separation constant. A generic Taylor/Gramian method is a proof technique, not a prior explicit numerical theorem; unindexed equivalent derivations remain a priority risk.",
+      "residual_risks": [
+        "An older fractional-controllability paper may present the same two-mode expansion under a different normalization or state-space notation.",
+        "No uniformity for alpha↓1/2 or lambda_1−lambda_2→0; no PDE or constrained-control extension."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant fractional-control motivation, not stated finite two-mode small-time Gramian spectral asymptotics",
+          "evidence": "Regional tracking/HUM in diffusion; not an explicit two-rate asymptotic theorem.",
+          "identifier_or_url": "https://arxiv.org/abs/2104.12303",
+          "material_read": "Accessible six-page manuscript, regional problem statement and control framework, with PDF visual crosschecks",
+          "method": "Read lawful open preprint; compared objective and theorem scope",
+          "title": "Optimal Regional Tracking Control of Time-Fractional Diffusion Systems",
+          "trigger": "Original fractional optimal tracking setting; possible older coverage"
+        },
+        {
+          "assessment": "Criterion for nonsingularity, not eigenvalue power constants",
+          "evidence": "Theorem 7 relates controllability to nonsingularity of a fractional Gramian.",
+          "identifier_or_url": "https://doi.org/10.1155/2014/618162",
+          "material_read": "Open-access full paper, Sections 2–4, Theorem 7, Corollary 8",
+          "method": "Read primary full text; compare quantifiers and Gramian statements",
+          "title": "Controllability and Observability of Fractional Linear Systems with Two Different Orders",
+          "trigger": "Most relevant older Gramian controllability theorem"
+        },
+        {
+          "assessment": "Classical control hierarchy T,T^3,... does not cover fixed alpha<1",
+          "evidence": "Integer-order ODE structure rather than Mittag-Leffler convolution.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.37077",
+          "material_read": "Accessible paper abstract, introduction and classical-order hypotheses",
+          "method": "Read accessible preprint sections; check integer versus fractional time order",
+          "title": "Two-term small-time spectral expansions for controllability Gramians",
+          "trigger": "Potentially dominating asymptotic spectral expansion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a motivated exact model of how a single actuator reaches a weak antisymmetric fractional mode. Its sharp control-energy blowup and dependence on modal separation quantify short-horizon ill-conditioning, a natural control-theoretic invariant not implied by Gramian invertibility alone. The result does not claim PDE-level generality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE frozen RESULT.md 3219b31adaa5e63ba8826b9b5f607624a6e98e69",
+    "Independent analytic Gram determinant check; independent_checks.py",
+    "https://doi.org/10.1155/2014/618162",
+    "https://arxiv.org/abs/2104.12303",
+    "https://arxiv.org/abs/2609.37077",
+    "Resultary search: Caputo fractional controllability Gramian small time eigenvalues two mode single input distinct rates fractional exponent minimum energy T^(4 alpha-1)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "alpha fixed strictly between 1/2 and 1; modal rates fixed and distinct, scalar L2 control, zero initial state.",
+    "Asymptotic calculation, not an independent formal/Lean certification."
+  ],
+  "residual_risks": [
+    "An older fractional-controllability paper may present the same two-mode expansion under a different normalization or state-space notation.",
+    "No uniformity for alpha↓1/2 or lambda_1−lambda_2→0; no PDE or constrained-control extension."
+  ],
+  "schema_version": 1
+}
