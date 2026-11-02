@@ -1,0 +1,153 @@
+{
+  "correctness": {
+    "rationale": "Rule 30 backward pair propagation has exact four-state truth tables T0=(0,2,3,3), T1=(2,0,1,1). An output ring has a same-length predecessor iff its composition has a pair-state fixed point, including n=1,2. The exact complete 41-element transformation closure yields a 41-state deterministic acceptor (30 accepting). The adjugate gives numerator degree at most 40 and denominator degree at most 41. The candidate rational expression has numerator/denominator degree seven; its cross-multiplied discrepancy has degree at most 48. All 49 exact coefficients n=0..48 match from a replayed certificate, proving equality for all lengths, not merely by finite extrapolation. An independently written direct Rule30 evaluator exhausts input rings through n=17; all 27 finite counts in Faulkenberry 2016 agree. Newton root-sum identities give recurrence and asymptotic.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Jen 1989, Enumeration of Preimages in Cellular Automata, pp. 421–456, particularly Rule-30 finite-window preimages on pp. 434–435 (full PDF inspected).",
+        "Faulkenberry 2016, Cellular Automata: Optimal Analysis, Coding, and Testing for Encryption, Appendix A Table 6, exact finite-ring Rule 30 Garden-of-Eden counts for lengths 1 through 27 (full relevant pages inspected).",
+        "Wolfram 2019, Announcing the Rule 30 Prizes, finite-ring state transition diagrams and dynamics for selected small ring lengths (full web article inspected).",
+        "Jen 1987, Scaling of Preimages, inspected abstract on preimage probabilities of finite patterns."
+      ],
+      "reasoning": "Jen’s arbitrary finite-window predecessor count is broader across words but weaker on closing periodic boundary conditions. Faulkenberry studies complete finite state graphs and tabulates exact counts only for lengths up to 27. Neither gives a theorem dominating arbitrary positive period n. The 1983 Wolfram manuscript has not been completely inspected, leaving a limited coverage risk.",
+      "searches": [
+        "\"rule 30 periodic boundary conditions image size number of reachable states ring cellular automaton exact enumeration\"",
+        "\"rule 30 preimage count configurations periodic loops de Bruijn 2012\""
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1103/RevModPhys.55.601",
+      "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+      "https://jewlscholar.mtsu.edu/server/api/core/bitstreams/46cbf4ee-2dd2-4358-b114-d7844e6cd8f5/content",
+      "https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/",
+      "https://cellular.solves.ca/gardens-of-eden",
+      "https://www.complex-systems.com/abstracts/v01_i06_a02/"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Jen 1989, Enumeration of Preimages in Cellular Automata, pp. 421–456, particularly Rule-30 finite-window preimages on pp. 434–435 (full PDF inspected).",
+        "Faulkenberry 2016, Cellular Automata: Optimal Analysis, Coding, and Testing for Encryption, Appendix A Table 6, exact finite-ring Rule 30 Garden-of-Eden counts for lengths 1 through 27 (full relevant pages inspected).",
+        "Wolfram 2019, Announcing the Rule 30 Prizes, finite-ring state transition diagrams and dynamics for selected small ring lengths (full web article inspected).",
+        "Elementary CA Zoo, Gardens of Eden, finite table for specified Rule 30 ring lengths (full web page inspected)."
+      ],
+      "reasoning": "Jen’s N(S)=4 for finite output windows is about boundary-freely extendible finite strings, which can be universal even when some same-period ring outputs have no predecessor. A finite 27-row table cannot logically determine all-length coefficients without an accompanying general recurrence bound; the current theorem supplies such a proof from a 41-state monoid. Wolfram’s selected state graphs and the zoo’s examples are weaker finite results. Thus inspected prior statements do not imply the stated infinite closed law.",
+      "searches": [
+        "\"rule 30 2^n preimage finite periodic configurations exact counting generating function\"",
+        "\"Rule 30\" \"image\" \"periodic\" \"generating function\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wolfram Rule 30 equivalence class [30,86,135,149] is also displayed in Faulkenberry 2016 Table 6; conjugacies can preserve image size, not an unrelated new result.",
+        "Jen 1989, Enumeration of Preimages in Cellular Automata, pp. 421–456, particularly Rule-30 finite-window preimages on pp. 434–435 (full PDF inspected)."
+      ],
+      "reasoning": "The claim is about indexed ring-image cardinality, equally expressible as 2^n minus periodic Garden-of-Eden count. Reflection/conjugacy of the elementary rule carries counts to equivalent rules and does not provide an earlier all-n formula. Free-boundary block-preimage enumeration is not an equivalent formulation.",
+      "searches": [
+        "\"Rule 30\" \"image\" \"periodic\" \"generating function\"",
+        "\"Rule 30\" \"1-z-2z^3\" image cyclic",
+        "Rule 30 equivalent rules 86 135 149 reflection complementation finite rings"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Faulkenberry 2016, Cellular Automata: Optimal Analysis, Coding, and Testing for Encryption, Appendix A Table 6, exact finite-ring Rule 30 Garden-of-Eden counts for lengths 1 through 27 (full relevant pages inspected).",
+        "Elementary CA Zoo, Gardens of Eden, finite table for specified Rule 30 ring lengths (full web page inspected).",
+        "Faulkenberry Table 6 enumerates 27 length-specific orphan totals, including 33 at n=8, 280 at n=12 and 2337 at n=16."
+      ],
+      "reasoning": "The finite table matches all coefficients through n=27 but does not prove its continuation, while the new certificate proves a generating function by a degree-bound identity; no equality of an arbitrary-length recurrence or exact entropy exponent is stated in the inspected table. Searches did not identify an exact sequence database entry with the proved formula, but absence is not novelty proof.",
+      "searches": [
+        "\"Rule 30\" \"33\" \"280\" \"2337\" garden eden",
+        "\"Rule 30\" \"1, 3, 5, 11, 26\" image",
+        "\"Rule 30\" \"1.695620769\" preimages periodic"
+      ]
+    },
+    "rationale": "The contribution is an explicit proved all-n count and sharp asymptotic for the image of one-step Rule 30 on indexed n-cycles. Jen 1989 covers arbitrary finite-window preimages with free boundary, not same-period cyclic images. Faulkenberry 2016 already tabulates exactly this invariant at n=1..27 and Wolfram 2019 inspects selected small rings; neither inspected study establishes the all-length rational identity, closed cubic-root recurrence or exponential missing-output proportion. The published records searched did not produce a stronger all-n result. Priority is provisional because an unindexed equivalent or undownloaded historic full text could exist.",
+    "residual_risks": [
+      "Unindexed or uncatalogued earlier results could supply the same all-period recurrence or rational image enumerator.",
+      "Wolfram 1983 full manuscript and Jen 1987 full paper were not materially inspected; no global negative coverage claim is based on their abstracts alone.",
+      "The 2016 published finite counts through n=27 cover all displayed numerical values at those lengths; novelty rests solely on the proved extension to every n and asymptotic law."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the new all-length fixed-period image enumerator: four open-boundary preimages of every finite block do not imply fixed-period closure",
+        "evidence": [
+          "Jen 1989, Enumeration of Preimages in Cellular Automata, pp. 421–456, particularly Rule-30 finite-window preimages on pp. 434–435 (full PDF inspected)."
+        ],
+        "identifier_or_url": "https://content.wolfram.com/sites/13/2018/02/03-5-2.pdf",
+        "material_read": "Full accessible primary PDF, introduction, general method, Rule30 discussion pp. 434–435, Garden-of-Eden discussion and conclusion",
+        "method": "Primary PDF text and visual-page inspection",
+        "title": "Enumeration of Preimages in Cellular Automata",
+        "trigger": "Rule-30 finite-window preimage formulas could imply periodic reachability counts"
+      },
+      {
+        "assessment": "EXACT_FINITE_COVERAGE n=1..27; no visible all-n rational, recurrence, or asymptotic theorem in inspected sections; explicitly acknowledged rather than claimed as new",
+        "evidence": [
+          "Faulkenberry 2016, Cellular Automata: Optimal Analysis, Coding, and Testing for Encryption, Appendix A Table 6, exact finite-ring Rule 30 Garden-of-Eden counts for lengths 1 through 27 (full relevant pages inspected).",
+          "Published series for n=1..27 equals independently predicted terms."
+        ],
+        "identifier_or_url": "https://jewlscholar.mtsu.edu/server/api/core/bitstreams/46cbf4ee-2dd2-4358-b114-d7844e6cd8f5/content",
+        "material_read": "Primary May 2016 thesis title/abstract, finite state-graph construction, Section 6.6 Garden-of-Eden trends, full Appendix A Rule30 Table 6 at page 61",
+        "method": "Primary PDF parsed text, targeted search, and page-image visual inspection",
+        "title": "Cellular Automata: Optimal Analysis, Coding, and Testing for Encryption",
+        "trigger": "Exact same object counted for finite periods, possible domination"
+      },
+      {
+        "assessment": "NOT_COVERING the exact all-length ring-image counting formula in inspected material",
+        "evidence": [
+          "Wolfram 2019, Announcing the Rule 30 Prizes, finite-ring state transition diagrams and dynamics for selected small ring lengths (full web article inspected)."
+        ],
+        "identifier_or_url": "https://writings.stephenwolfram.com/2019/10/announcing-the-rule-30-prizes/",
+        "material_read": "Primary full HTML, sections showing finite-size state-transition graphs and their behavioral questions",
+        "method": "Primary webpage read and targeted page text inspection",
+        "title": "Announcing the Rule 30 Prizes",
+        "trigger": "Rule30 finite-ring state graphs may contain same image invariant"
+      },
+      {
+        "assessment": "PARTIAL_FINITE_COVERAGE only; selected numbers already known and claimed as reproductions, not novel",
+        "evidence": [
+          "Elementary CA Zoo, Gardens of Eden, finite table for specified Rule 30 ring lengths (full web page inspected)."
+        ],
+        "identifier_or_url": "https://cellular.solves.ca/gardens-of-eden",
+        "material_read": "Complete relevant webpage, finite ring census including n=8,12,16",
+        "method": "Direct webpage text comparison",
+        "title": "Gardens of Eden",
+        "trigger": "Explicit Rule30 missing-output counts"
+      },
+      {
+        "assessment": "UNCERTAIN historical broader coverage: no claim about full text not inspected; residual risk retained",
+        "evidence": [
+          "Published 1983-07-01 in Reviews of Modern Physics 55, pp. 601–644."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/RevModPhys.55.601",
+        "material_read": "1983 publication dated bibliographic record and abstract; full manuscript not read",
+        "method": "Journal bibliographic abstract inspection",
+        "title": "Statistical Mechanics of Cellular Automata",
+        "trigger": "Earliest historical foundational Rule30 source"
+      },
+      {
+        "assessment": "NO_DERIVATION visible of the stated same-period image formula; full paper not inspected",
+        "evidence": [
+          "Jen 1987 abstract addresses preimage scaling for finite patterns."
+        ],
+        "identifier_or_url": "https://www.complex-systems.com/abstracts/v01_i06_a02/",
+        "material_read": "Publisher abstract-level record only",
+        "method": "Abstract and bibliographic inspection",
+        "title": "Scaling of Preimages",
+        "trigger": "Related Rule30 preimage scaling result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3077d094-7284-45b2-8857-e337c8c43ff4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a classical, left-permutive binary cellular automaton, finite-period image deficiency is a natural, exact measure of the tension between infinite-lattice surjectivity and lack of same-period predecessors. An all-period exact rational generating function and cubic-root decay rate give a structural answer beyond finite ring tables and reveal a sharp exponential proportion. It does not rely on generic numerical novelty or claim implications for unrelated dynamics.",
+    "status": "PASS"
+  }
+}
