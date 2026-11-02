@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "All n≥4 and integer t≥0 are covered: the square of the displacement sum is a matrix coefficient of the ordered-pair permutation module, forcing exactly four spectral modes. Stationary, one-step and two-step exact moments determine coefficients; exact rational enumeration of n=4,5,6 and combinatorial sums checks the algebra. The n→∞ limit uses a necessary first-order cancellation c_n^t−a_n^{2t}; calculus proves the unique limiting maximum. The standard-library verifier passed 59 checks; those finite checks do not substitute for the all-n character argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2410.23944 Thms. 1.1 and 1.2: stopped-time mixing and near-cutoff distributional approximation.",
+        "arxiv:2609.13387 Section 3 and Section 5: continuous-time classical/quantum mixing comparison.",
+        "Representation of ordered pairs decomposes into four irreducibles, but no specific footrule projection coefficients were found in these sources."
+      ],
+      "reasoning": "General spectral decompositions guarantee a finite linear combination of relaxation modes but do not automatically supply the explicit absolute-displacement coefficients; global cutoff bounds in the logarithmic-in-deck-size mixing regime do not imply the early linear-in-deck-size overshoot.",
+      "searches": [
+        "Quantum Stochastic Walks on the Permutation Group 2609.13387 He Hutsalyuk Mussardo Stampiggi",
+        "random transposition complete graph Spearman footrule stochastic walk exact transient variance 2026",
+        "arxiv random transpositions hitting time mixing 2026 published"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2609.13387",
+      "https://arxiv.org/abs/2410.23944",
+      "https://arxiv.org/abs/2505.01825",
+      "https://doi.org/10.1111/j.2517-6161.1977.tb01624.x",
+      "https://doi.org/10.1007/s00440-026-01479-9"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2609.13387 Eq. (1) and Section 2 concern total-variation cutoff, not fixed-t variance.",
+        "arxiv:2410.23944 near-cutoff mixing concerns a logarithmically longer timescale than the claimed peak.",
+        "arxiv:2505.01825 yields the stationary term v_n but not three transient eigenmode coefficients."
+      ],
+      "reasoning": "The claimed variance is not a verbatim corollary or special case of the cited mixing theorems because the latter control distributional distance and not the required early-time two-card covariance projections; the stationary footrule theorem determines only one of four spectral coefficients.",
+      "searches": [
+        "Quantum Stochastic Walks on the Permutation Group 2609.13387 He Hutsalyuk Mussardo Stampiggi",
+        "Spearman footrule Markov chain second moment spectral early time fluctuation overshoot",
+        "random permutation interchange process footrule distance second moment finite time spectral"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2505.01825 Eq. (2.1): normalized footrule is 1−3F/(n²−1); stationary variance is known.",
+        "arxiv:2609.13387 Sec. 2: unnormalized displacement of permutation positions is not among its computed diagnostics."
+      ],
+      "reasoning": "Normalization of the footrule to rank correlation changes the variance only by a constant square and does not convert stationary-null formulas into the three-mode transient variance. The claimed formula and overshoot are invariant under positive rescaling of the observable.",
+      "searches": [
+        "random transposition shuffle Spearman footrule finite time variance transient overshoot equilibrium",
+        "Spearman footrule Markov chain second moment spectral early time fluctuation overshoot",
+        "Spearman footrule random transposition shuffle transient fluctuation variance time evolution"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2505.01825 Table 1 provides only equilibrium normalized Spearman-footrule variance.",
+        "Published permutation indicator covariance: 2026/10/4 record on all inversion indicators, different observable and stationary distribution.",
+        "Searches for exact fixed-time footrule law and aliases did not identify a table of the claimed three-mode coefficients."
+      ],
+      "reasoning": "A stationary table is covered and credited, but it has no time parameter. Inversion-indicator covariance involves pairwise inversion events rather than absolute positional displacement after t transpositions. Searches alone do not establish uniqueness; exact priority remains best-knowledge.",
+      "searches": [
+        "finite time random transposition displacement sum absolute values rank variance nonmonotone spectral eigenvalues",
+        "random transposition walk Spearman footrule variance transient time exact expectation covariance",
+        "random transposition walk Spearman footrule variance transient time exact expectation covariance"
+      ]
+    },
+    "rationale": "Best-knowledge claim-level novelty for the three-mode finite-time variance and nonmonotone universal overshoot: contemporary physical random-transposition studies analyze mixing and quantum spectral observables, while contemporary footrule work supplies only the uniform-null variance. The evaluated coefficients and peak are not consequences of the reported prior results without additional calculation. A broad latent representation-theoretic identity remains an explicit residual risk.",
+    "residual_risks": [
+      "A general closed-form second-moment identity in interchange-process, distance-under-random-transpositions or association-scheme literature could imply the claim without footrule-specific wording.",
+      "Not all early historical sources have machine-readable full text; novelty is assessed from recoverable published claims and accessible primary manuscripts.",
+      "No independent human-led priority assessment has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THIS_CLAIM: discusses global mixing, quantum Hamiltonian spectral variance and untouched-label count; no evaluated transient Spearman-footrule second moment or overshoot.",
+        "evidence": [
+          "Section 2 defines independent uniform chosen labels and the transposition kernel, total-variation cutoff n log n /2.",
+          "Section on spectral variance defines Var_e[H], a quantum Hamiltonian dispersion unrelated to the observable F_t.",
+          "Appendix treatment of untouched-card count gives a different Bernoulli variance."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.13387",
+        "material_read": "Accessible full manuscript text, including introduction, Section 2 classical walk, Section 3 continuous-time translation, diagnostics sections, relevant appendices and searchable references.",
+        "method": "Read full-text arXiv extraction and compared equations/observables; searched explicitly for footrule and displacement, then examined every occurrence of variance.",
+        "title": "Quantum Stochastic Walks on the Permutation Group",
+        "trigger": "Same symmetric-group transposition kernel and nonequilibrium classical baseline in a recent mathematical-physics study."
+      },
+      {
+        "assessment": "NOT_COVERING_THIS_CLAIM: near-cutoff global distributional approximation does not contain a finite-step second-moment law in the early linear-in-deck-size regime, nor the overshoot.",
+        "evidence": [
+          "Theorem 1.1 concerns random all-touched stopping time.",
+          "Theorem 1.2 concerns distributional approximation near n log n/2, not at t~n.",
+          "No footrule variance is reported in the available manuscript."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2410.23944",
+        "material_read": "Accessible full arXiv preprint text, including introduction, model, Theorems 1.1–1.4, proof outline and later proof passages.",
+        "method": "Compared its stopped-time, TV and near-cutoff distributional theorems to the fixed-step footrule variance formula and searched the full text for footrule and variance.",
+        "title": "Hitting time mixing for the random transposition walk",
+        "trigger": "Exact same lazy discrete Markov chain, potentially dominating distributional mixing results."
+      },
+      {
+        "assessment": "COVERS_STATIONARY_SPECIAL_CASE_ONLY: it supplies the equilibrium variance (credited) but no transient transposition walk or nonmonotonic overshoot.",
+        "evidence": [
+          "Equation (2.1) normalizes the footrule correlation using 3/(n²−1).",
+          "Table 1 and formula near p.4 give exact variance under independent ranks, equivalent to (n+1)(2n²+7)/45 in raw displacement units.",
+          "The main theorems establish stationary-null asymptotic representations, not finite-time Markov evolution."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.01825",
+        "material_read": "Full 16-page arXiv PDF text including Introduction, Sections 2–3, table of stationary mean and variance, formulas and references; inspected rendered page 3.",
+        "method": "Compared the uniform-null model, exact stationary variance and asymptotic representations to the nonuniform random-transposition time family.",
+        "title": "Asymptotic representations for Spearman's footrule correlation coefficient",
+        "trigger": "Natural absolute-displacement statistic; uniform-permutation stationary variance and possible stronger formula."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f27b4cf2-cd28-42a1-83f3-9da6039198e0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies a natural nonequilibrium observable in the same random-transposition system used as the classical benchmark for permutation-group stochastic physics. An exact nonmonotone variance history contrasts with monotone mean and total-variation equilibration, with strict overshoot for every finite n≥4 and sharp universal 18.488377% limiting peak on the physically distinct early linear-in-deck-size timescale. This reveals a useful failure of stationary fluctuation baselines during randomization; not merely a re-expression of known equilibrium variance.",
+    "status": "PASS"
+  }
+}
