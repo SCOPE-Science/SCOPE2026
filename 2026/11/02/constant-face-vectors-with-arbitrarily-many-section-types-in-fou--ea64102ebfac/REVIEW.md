@@ -1,0 +1,12 @@
+# Self-review
+
+## Correctness — PASS
+The ambient polytope has an explicit complete 1-, 2- and 3-face list; a vertex-avoiding central section is supported by crossed edges and tetrahedral facets. Exactly two polygon edges and exactly two apex-pair edges cross, while exactly two spokes cross per base vertex, proving the constant vertex count. Facet sign partitions give exact triangle and quadrilateral counts. The two apex-pair crossing vertices have degree n, while all other section vertices have degree four. Their induced neighbor graph consists of paths of lengths k and n-k. This proves both necessity and sufficiency for type classification and gives a sharp realization for all split sizes. The separate checker runs 4,944 finite sign patterns with no external dependencies.
+
+## Originality — PASS
+Actual direct comparisons: Sanyal–Werner–Ziegler (arXiv:0708.3661, full HTML text consulted) concerns four-polytope face numbers without classifying central slices; Brandenburg–De Loera–Meroni (arXiv:2304.14239, full HTML Introduction/Theorem 1.1 inspected) supplies general slicing chambers but no sharp family-specific classification; De Loera–Lopez-Campos–Torres (arXiv:2412.12419, full HTML introduction and results inspected) covers vertex slice sequences of three-polytopes, cyclic polytopes and cubes, not this family; Birkemeyer et al. (arXiv:2609.16195, full HTML Section 3 and especially Proposition 3.10 inspected) gives a lower bound for central bipyramid-section face counts and explicitly stops short of a complete classification for standard bipyramids. Neither these statements nor the published-finding corpus nearest matches imply the exact n-dependent type spectrum. Residual risk: older combinatorial-slicing literature may contain equivalent formulations not surfaced in searches.
+
+## Mathematical value — PASS
+In fixed ambient dimension four, this is a natural complete classification that separates face-vector information from section combinatorics. It shows the maximum number of nonisomorphic generic central sections can grow without bound even when **all** face numbers and triangular/quadrilateral face proportions of sections are orientation-independent. The two-hub neighborhood invariant gives a reusable structural way to distinguish those sections. This is not a routine numerical case or renaming of a known formula.
+
+Self-review: passed. Independent audit: not yet performed.
