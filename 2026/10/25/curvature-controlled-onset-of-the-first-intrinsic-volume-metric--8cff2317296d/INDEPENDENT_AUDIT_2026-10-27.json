@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T19:17:58.919376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For n>=2, C^2 support functions with positive curvature-radius operator, use Besau–Hoehner line-symmetric-difference definition with Haar probability and c_n=omega_n/(2*kappa_{n−1}) to derive delta1(K,K+tv)=2c_n ∫min(t|u·v|,h_{K−K}(u))dσ. Thus F(t)=2t−delta1=2c_n ∫(t|u·v|−h_D(u))_+dσ. The support inequality for ±tv in D proves F(t)=0 exactly for 0<=t<=T, and strict positivity after contact. Uniform strict curvature yields precisely two antipodal equality normals ±u0 at Tv. In each cap h_D(u)−Tv·u=0.5 ξ^TQ ξ+o(|ξ|^2), Q=∇²_Sh_D+h_D I>0, γ=u0·v>0. Replacing ξ with sqrt(eps γ) Q^-1/2 z, integrating (1−|z|²/2)_+ over R^{n−1}, and accounting for two caps and sphere normalization gives F(T+eps)~2^((n+3)/2)/(n+1) *γ^((n+1)/2)*sqrt(κ_G(D,Tv))*eps^((n+1)/2). Independent planar-ball cap integral ratios ~0.99955 for radii 0.7,1,3; 3D exact 2eps²/(2r+eps) agrees coefficient 1/r. The curvature-positive hypothesis is essential for the nondegenerate exponent, and equality-before-contact is prior work.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2022 theorem covers all overlap (and a global upper bound), but not the displayed local κ_G coefficient. The 2025 topology follow-up focuses indices 2<=j<=n−1."
+        ],
+        "reasoning": "A general cap-volume/Steiner theorem is plausible as a method; no inspected theorem furnished the full metric normalization with incidence γ and the exact 2^((n+3)/2)/(n+1) factor.",
+        "searches": [
+          "arxiv:2208.13927",
+          "arxiv:2512.02379",
+          "first intrinsic volume metric Besau Hoehner translate smooth convex body contact curvature Gauss curvature epsilon (n+1)/2"
+        ]
+      },
+      "checked_sources": [
+        "Actual frozen Git RESULT.md, AUDIT.json, METADATA.json, REVIEW.md, SLOGAN.txt, VERIFICATION.md and verify.py at commit 6d72467f12de6d5dbde32d9e5fdf796d2ee820b5",
+        "Resultary published index: first intrinsic volume metric Besau Hoehner translate smooth convex body contact curvature Gauss curvature epsilon (n+1)/2",
+        "arxiv:2208.13927; Besau–Hoehner",
+        "arxiv:2512.02379"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Previously known delta1=rho1 for intersecting K,K+tv implies all t<=T in the finding.",
+          "The difference-body normal cap integral for eps>0 requires Q=∇²_Sh_D+h_DI and a two-cap asymptotic not entailed by equality on t<=T."
+        ],
+        "reasoning": "Accept originality only for the post-contact curvature-sensitive asymptotic; explicitly exclude the covered equality segment.",
+        "searches": [
+          "arxiv:2208.13927",
+          "arxiv:2512.02379"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Besau–Hoehner Definition 1.1 already yields the projected-interval integral; Proposition 2.6(v) gives delta1=rho1 when K and K+tv intersect."
+        ],
+        "reasoning": "Rewriting the metric through support functions is classical; the new statement is the leading power coefficient for t>T, not the contact equality itself.",
+        "searches": [
+          "first intrinsic volume metric Besau Hoehner translate smooth convex body contact curvature Gauss curvature epsilon (n+1)/2",
+          "arxiv:2208.13927",
+          "Besau Hoehner delta1 translation post-contact curvature"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest hits include other smooth convex support/contact exponents but for intersection bodies or separate metrics."
+        ],
+        "reasoning": "No exact K−K contact metric coefficient table found; the search alone cannot establish historical priority.",
+        "searches": [
+          "first intrinsic volume metric Besau Hoehner translate smooth convex body contact curvature Gauss curvature epsilon (n+1)/2",
+          "Resultary search: first intrinsic volume metric after contact curvature"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for curvature-dependent post-contact one-sided exponent and coefficient, while Besau–Hoehner 2022 Proposition 2.6(v) already implies equality throughout intersection; their Definition 1.1 supplies the exact integral. The audited post-contact local curvature asymptotic is not a mere restatement of the covered overlap theorem. Standard local cap asymptotics could yield an equivalent unindexed derivation; residual risk expressly retained.",
+      "residual_risks": [
+        "Classical convex local cap asymptotics may independently yield the identical metric-coefficient formula; mathematical reduction should be compared under support-function duality in broader literature.",
+        "Strict C² positive curvature radii, unique normal and fixed v are essential; multiple contacts/polyhedral bodies outside theorem.",
+        "A very close source may encode the same cap coefficient without naming the Besau–Hoehner metric."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Definitively covers the contact equality, not an explicitly stated after-contact curvature asymptotic in the sections materially read.",
+          "evidence": "Proposition 2.6(v) states equality in the intersecting regime; method uses projected intervals.",
+          "identifier_or_url": "arxiv:2208.13927; Besau–Hoehner",
+          "material_read": "Accessible full arXiv PDF Definition 1.1, Proposition 2.6 including parts (ii) and (v), normalization and surrounding definitions; page screenshot inspected",
+          "method": "arXiv full PDF text and PDF screenshot",
+          "title": "An intrinsic volume metric for the class of convex bodies in R^n",
+          "trigger": "Exact same metric delta1, possible dominating prior result"
+        },
+        {
+          "assessment": "Studies j>=2 topology rather than first-metric sharp one-sided contact coefficient on inspected material.",
+          "evidence": "Full-text noncoverage is not claimed.",
+          "identifier_or_url": "arxiv:2512.02379",
+          "material_read": "Abstract and introductory subject descriptions only",
+          "method": "Public arXiv bibliographic search",
+          "title": "Some topological properties of the intrinsic volume metric",
+          "trigger": "Possible later generalization of delta_j behavior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first intrinsic-volume metric is a natural convex-body metric, and the first departure from translation distance is a geometric phase transition. Its exact exponent and curvature/incidence constant give a local inverse measurement of the Gauss curvature of K−K, while exposing the smooth-curvature boundary of the earlier overlap result.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2208.13927; Besau–Hoehner",
+    "arxiv:2512.02379"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Classical convex local cap asymptotics may independently yield the identical metric-coefficient formula; mathematical reduction should be compared under support-function duality in broader literature.",
+    "Strict C² positive curvature radii, unique normal and fixed v are essential; multiple contacts/polyhedral bodies outside theorem.",
+    "A very close source may encode the same cap coefficient without naming the Besau–Hoehner metric.",
+    "Analytical/structural proofs support the universal statements; finite tests merely corroborate examples and coefficients.",
+    "Best-of-knowledge originality comparison, not external certification or a guarantee against unindexed antecedents."
+  ],
+  "schema_version": 1
+}
