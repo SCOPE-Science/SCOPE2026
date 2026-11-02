@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed exact four-node Lagrange interpolation coefficients, two-step companion determinant and trace, and strict scaled quadratic Schur--Jury certificates with manifestly positive polynomial numerators. The r->0 and infinity limits give the sharp 1/5 supremum. The reciprocal discriminant and one-sign-change quartic prove the phase boundary, and simple unit multiplier plus strictly damped parasitic multipliers yield fixed-r zero stability. All critical rational identities were replayed from a standalone checker.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Guglielmi--Zennaro 2000/2001 publisher abstract describes joint spectral-radius analysis on variable grids, while later literature reports a universal sufficient adjacent-ratio bound of about 1.501.",
+        "Li--Liao 2022 proves stability when almost all adjacent ratios are below about 2.553.",
+        "Söderlind--Fekete--Faragó 2018 derives stability on sufficiently smooth grids where each ratio approaches one."
+      ],
+      "reasoning": "For any r>2.553 the long/short alternation has infinitely many adjacent ratios above this sufficient bound; smooth grids do not cover fixed r distinct from one. General bounds for arbitrary-switching matrices need not imply the exact unrestricted two-periodic result. The unavailable primary full text may contain a special periodic calculation, retained as risk.",
+      "searches": [
+        "Guglielmi Zennaro BDF3 spectral radius 1.501 alternating grid stability",
+        "Li Liao BDF3 variable step theorem 2.553 ratios",
+        "Söderlind Fekete Farago BDF3 smooth nonuniform grids 2018"
+      ]
+    },
+    "checked_sources": [
+      "10.1007/s211-001-8010-0",
+      "arXiv:2201.00527",
+      "arXiv:1804.04553"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2022 theorem controls grids by a repeated ratio upper bound of 2.553; the arbitrarily large alternating ratio violates its hypothesis infinitely many times.",
+        "The 2018 smooth-grid theorem assumes \\(h_n/h_{n-1}=1+O(N^{-1})\\), violated by fixed nonunit ratio alternation.",
+        "The 2000 Guglielmi--Zennaro abstract concerns general zero-stability but does not disclose its detailed Floquet cases."
+      ],
+      "reasoning": "Neither verified accessible published theorem logically implies the new all-r claim. The 2000 source could conceivably contain an unreported stronger special case: no blanket noncoverage inference is made from its abstract.",
+      "searches": [
+        "10.1007/s211-001-8010-0 variable BDF3 spectral-radius sufficient 1.501",
+        "arXiv:2201.00527 theorem 3.1 BDF3",
+        "arXiv:1804.04553 smooth nonuniform grid ratio"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The published smooth-grid criterion in Söderlind--Fekete--Faragó 2018 assumes ratios approaching one; fixed alternation with r distinct from one does not meet it.",
+        "Li--Liao 2022 specifies an almost-all-step upper ratio 2.553 and does not state the unrestricted alternating-period theorem."
+      ],
+      "reasoning": "An equivalent result could be phrased as a period-two product of BDF3 companion matrices or as a deflated two-dimensional recurrence. Neither the inspected full primary texts nor the searched records give the all-r 1/5 exact spectral radius bound; the 2000/2001 spectral-radius paper remains an explicitly identified full-text risk.",
+      "searches": [
+        "BDF3 two-periodic alternating timestep mesh zero-stable for all ratios Floquet parasitic roots 1/5",
+        "variable-step BDF3 periodic grids monodromy eigenvalues root condition",
+        "variable-step BDF3 Floquet alternating grid parasitic roots two-step monodromy"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected primary texts and indexed summaries do not present the exact rational monodromy trace and determinant or the reciprocal discriminant quartic."
+      ],
+      "reasoning": "No exact symbolic matrix-root table or equivalent \\(1/5\\) maximum was located in accessible results. This is negative search evidence only and not a proof of priority; no claimed exhaustive census.",
+      "searches": [
+        "BDF3 two-periodic alternating timestep mesh zero-stable for all ratios Floquet parasitic roots 1/5",
+        "third order variable-step backward differentiation alternating long-short steps arbitrary ratio sharp Floquet spectral radius",
+        "variable-step BDF3 periodic grids monodromy eigenvalues root condition",
+        "backward differentiation formula 3 two-cycle mesh ratio zero stability",
+        "BDF3 two cycle r=28.5149315928808 Floquet discriminant"
+      ]
+    },
+    "rationale": "Exact all-positive-ratio 1/5 Floquet disk and reciprocal phase transition were not covered by the inspected primary theorems or closest indexed claims. The relevant 2000/2001 joint-spectral-radius paper was available only as abstract and may contain an unlocated special calculation; negative search is not claimed as proof of priority.",
+    "residual_risks": [
+      "The relevant 2000/2001 Guglielmi--Zennaro primary paper could not be inspected in full. It may contain periodic-product special cases not visible in the accessible abstract.",
+      "No search can establish absence of all equivalent results in specialist literature; an earlier unpublished or unindexed alternating-grid result remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Possibly overlapping but accessible description reports a general sufficient ratio criterion rather than the exact period-two all-r sharp bound. Full text priority uncertainty remains.",
+        "evidence": [
+          "Publisher notes online date 2000-11-08, 2001 printed volume, and BDF3 zero-stability using spectral radii.",
+          "2022 Li--Liao introduction cites a 1.501 bound for this work."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s211-001-8010-0",
+        "material_read": "Publisher abstract, scope, citation metadata and the explicit online publication date; full article unavailable",
+        "method": "Read accessible publisher HTML and public repository record; checked for accessible complete version",
+        "title": "On the zero-stability of variable stepsize multistep methods: the spectral radius approach",
+        "trigger": "Most directly relevant foundational BDF3 joint-spectral-radius analysis"
+      },
+      {
+        "assessment": "Its almost-all adjacent-ratio condition 2.553 does not cover alternating r>2.553; exact sharp period-two Floquet multipliers not stated in material inspected.",
+        "evidence": [
+          "Preprint publicly dated January 3 2022.",
+          "Main BDF3 result assumes almost all step ratios below the positive root ~2.553."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2201.00527",
+        "material_read": "Accessible preprint introduction, stability definition, main theorem statements, and displayed ratio criterion",
+        "method": "Read publicly accessible full-text presentation and cross-checked journal abstract",
+        "title": "Stability of variable-step BDF2 and BDF3 methods",
+        "trigger": "Modern strong BDF3 stability theorem could dominate periodic-grid result"
+      },
+      {
+        "assessment": "Requires step ratios to tend to one at order O(1/N); does not imply unbounded fixed alternating ratio result.",
+        "evidence": [
+          "Smooth-grid abstract and Section 2 specify \\(h_n/h_{n-1}=1+O(N^{-1})\\)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1804.04553",
+        "material_read": "Accessible full arXiv HTML: abstract, introduction, smooth-grid hypotheses, definitions, and main stability statement",
+        "method": "Read openly available full-text HTML, especially smooth-grid assumptions and result",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "An apparently general zero-stability result for variable steps"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8639cc7a-1b91-4338-9358-c0bc8140b774",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural two-cycle step alternation exposes cancellation missed by maximum-neighbor-ratio sufficiency conditions: BDF3 has an exact universal two-step damping disk despite arbitrarily large alternating jumps. The sharp constant and explicit real/complex Floquet transition give structurally informative boundaries rather than a routine numerical example. Limitations confine the claim to homogeneous fixed-r zero stability.",
+    "status": "PASS"
+  }
+}
