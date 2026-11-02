@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The bijection between total dominating Petersen vertex subsets and complementary triangle-free five-vertex graphs follows from the equivalence of two-vertex covers and independent triples. Single-vertex moves become one-edge toggles exactly. The two included, independent standard-library verifiers enumerate every one of 1024 bitmasks and every valid transition, independently reconstruct the 332-state graph, calculate all 54,946 unordered pair distances by BFS, verify all ten automorphism orbits, and confirm the sharp connectivity cap; one searches Petersen total dominating sets directly, the other uses forbidden triangle masks. Induction on BFS depth proves the exact finite certificate; no nonenumerated cases are claimed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Alikhani, Fatehi and Mynhardt, On k-Total Dominating Graphs, arXiv:1711.04363, introductory definition and results on paths/cycles/general d0 bounds.",
+        "Haas and Seyffarth, The k-Dominating Graph, arXiv:1209.5138, ordinary dominating-set reconfiguration and connectivity criteria.",
+        "Zhao et al., Total Domination Number of Generalized Petersen Graphs (2020), evaluates domination-number parameters rather than a total-dominating reconfiguration metric."
+      ],
+      "reasoning": "The general connectivity bounds constrain the Petersen threshold without determining it and give no shortest-path distances. Generalized-Petersen total-domination-number formulas do not give the move graph. Thus their statements do not imply the exact claimed distances.",
+      "searches": [
+        "general k-total dominating graph connectivity radius diameter Petersen",
+        "total domination reconfiguration of Petersen and generalized Petersen graphs",
+        "\"Petersen graph\" \"total dominating\" \"reconfiguration\" \"diameter\""
+      ]
+    },
+    "checked_sources": [
+      "Haas and Seyffarth, arXiv:1209.5138",
+      "Alikhani, Fatehi and Mynhardt, arXiv:1711.04363 and 2019 full journal PDF",
+      "OEIS A213434",
+      "MathWorld Total Domination Number",
+      "Zhao et al. (2020), total domination of generalized Petersen graphs (background comparison)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2017/2019 total domination paper defines the same move operation and establishes general bounds but does not enumerate a Petersen example.",
+        "The original 2012 domination reconfiguration paper has a different validity condition: vertices of the chosen set need not have selected neighbors.",
+        "OEIS records an aggregate count of five-vertex triangle-free graphs, not their constrained one-edge-toggle transition graph."
+      ],
+      "reasoning": "No cited earlier theorem subsumes this exact graph metric; the general construction is a framework, not a determination of the Petersen diameter or all pair distances. Existing state enumerations alone do not imply adjacency or metrics.",
+      "searches": [
+        "\"On k-Total Dominating Graphs\" Petersen graph",
+        "\"The k-Dominating Graph\" Petersen total domination",
+        "total dominating graph Petersen connected k=7"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Complementing the selected Petersen vertices inside E(K5) identifies the problem exactly with labelled triangle-free graphs on five vertices having at least three edges; adjacency is a one-edge toggle.",
+        "Haas–Seyffarth, arXiv:1209.5138, works with ordinary dominating configurations rather than total dominating configurations.",
+        "Alikhani–Fatehi–Mynhardt, arXiv:1711.04363, defines k-total dominating graphs but its investigated graph families are different."
+      ],
+      "reasoning": "These aliases and the exact complement reduction were checked against the closest related published literature. No inspected source provided an isomorphic metric classification, a Petersen-specific connectivity threshold, or a covering general formula.",
+      "searches": [
+        "\"total dominating\" \"reconfiguration\" \"Petersen graph\"",
+        "\"triangle-free graphs\" \"reconfiguration\" \"edge\" \"flip\" 2015",
+        "\"five vertices\" \"triangle-free\" \"reconfiguration\" graph edge deletion",
+        "triangle-free labelled graphs on five vertices at least three edges flip graph diameter ten 735 pairs"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A213434 records 388 labelled triangle-free graphs on five vertices; subtracting one zero-edge, ten one-edge, and 45 two-edge graphs yields the known count 332.",
+        "Direct independent finite certificates recover the ten orbits and metric distributions, rather than relying on an external table."
+      ],
+      "reasoning": "The eligible state count is a consequence of a preexisting database entry and is not new. No checked exact database or table provided the edge count, radius, diameter, eccentricities, shortest-path distances or Hamming defects.",
+      "searches": [
+        "OEIS A213434 triangle-free labelled graphs five vertices 388",
+        "\"Petersen graph\" \"total dominating sets\" enumeration",
+        "Petersen graph total domination reconfiguration 332 states 980 edges"
+      ]
+    },
+    "rationale": "The new exact connectivity threshold at cap seven, complete shortest-path metric including diameter ten and radius eight, 735 Hamming-defect pairs, eccentricity orbit distribution and six complementary-C5 diametral pairs are not implied by the known total-domination definition, general connectivity bounds, or the existing labelled triangle-free graph enumeration. The state count 332 and ten underlying small unlabeled graph types are explicitly excluded from independent novelty. Literature and research-record searches did not find a stronger covering theorem; priority in unindexed work remains uncertain.",
+    "residual_risks": [
+      "An equivalent shortest-path computation for the Petersen total dominating graph could exist in unindexed historical work or under the triangle-free five-vertex graph flip language.",
+      "Literature searches do not establish absolute historical priority; no independent external audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Introduces ordinary domination reconfiguration rather than total domination, and does not cover the Petersen total metric",
+        "evidence": [
+          "Haas and Seyffarth, first arXiv posting 2012-09-24, arXiv:1209.5138."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1209.5138",
+        "material_read": "Open manuscript summary and accessible primary manuscript sections explaining the definition and connectivity criteria",
+        "method": "Direct reading of open-access manuscript",
+        "title": "The k-Dominating Graph",
+        "trigger": "Earliest dated foundation of addition/deletion dominating-set reconfiguration, relevant to graph-operation comparison"
+      },
+      {
+        "assessment": "General k-total dominating graph results and paths/cycles, not the Petersen-specific graph or complete metric",
+        "evidence": [
+          "Alikhani, Fatehi and Mynhardt, arXiv:1711.04363 (2017-11-12); Australasian Journal of Combinatorics 73(2), 313–333 (2019)."
+        ],
+        "identifier_or_url": "https://ajc.maths.uq.edu.au/pdf/73/ajc_v73_p313.pdf",
+        "material_read": "Primary full-text discussion of definitions, general bounds, connectivity and families treated; introduction, main theorems and applicable relevant sections",
+        "method": "Open-access primary PDF text inspection and visual page confirmation",
+        "title": "On k-Total Dominating Graphs",
+        "trigger": "Exact same total dominating reconfiguration object and move operation"
+      },
+      {
+        "assessment": "Covers raw count of 332 after elementary subtraction; does not contain the proposed shortest-path geometry",
+        "evidence": [
+          "A213434(5)=388."
+        ],
+        "identifier_or_url": "https://oeis.org/A213434",
+        "material_read": "Definition and the n=5 entry 388",
+        "method": "Direct reading of the published sequence listing",
+        "title": "A213434: Number of labelled triangle-free simple graphs on n vertices",
+        "trigger": "Check whether total state enumeration is already tabulated"
+      },
+      {
+        "assessment": "Reports gamma_t(P)=4, consistent with the new certificate; no total-dominating reconfiguration metric",
+        "evidence": [
+          "The Petersen total domination number is 4."
+        ],
+        "identifier_or_url": "https://mathworld.wolfram.com/TotalDominationNumber.html",
+        "material_read": "Definition and Petersen graph example",
+        "method": "Direct reading of public reference entry",
+        "title": "Total Domination Number",
+        "trigger": "Cross-check known minimum total domination value for Petersen graph"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d482e646-4131-4fef-8ba6-e3d8c4d33050",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Petersen graph is a canonical ten-vertex cubic test case for reconfiguration. The sharp first connected cardinality cap, exact center/periphery, six antipodal configurations pairs, and precisely classified geodesic overhead are meaningful intrinsic invariants of shortest reconfiguration pathways. The triangle-free complement supplies a structural bridge to constrained graph edit metrics, and the data are an exact benchmark for path-finding and reconfiguration theory rather than arbitrary slices of a large table.",
+    "status": "PASS"
+  }
+}
