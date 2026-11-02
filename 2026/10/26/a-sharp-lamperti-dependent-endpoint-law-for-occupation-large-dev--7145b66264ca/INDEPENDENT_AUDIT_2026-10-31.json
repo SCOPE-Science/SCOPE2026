@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T16:09:35.691228Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Continuum origin-started sluggish diffusion with alpha>=0, mu=1/(alpha+2)∈(0,1/2], independent Exp(r) resets r>0. The exact free occupation fraction Y has Lamperti Stieltjes G_mu(q,k)=((q-k)^(mu-1)+q^(mu-1))/((q-k)^mu+q^mu) for q>max(k,0). Conditioning on first reset yields an exact renewal equation for moment generating M_k(T); rG_mu(s+r,k)=1 has a unique positive-tilt root because the Laplace transform is strictly decreasing and diverges at its lower boundary. Exponential renewal tilting plus nonarithmetic key renewal theorem establishes psi(k) growth. Implicit differentiation yields analytic strictly convex psi; symmetry psi(k)=k+psi(-k), gradient limits 0,1 and exponential tightness (compact [0,1]) yield the full LDP and Legendre rate. As k→∞ psi(k)=k-r+C k^{-mu/(1-mu)} with C=r^(1/(1-mu)), Legendre inf yields cusp r-r mu^-mu(1-mu)^(mu-1)delta^mu; Lamperti variance (1-mu)/4 yields central curvature r/(1-mu). Param z=(s+r-k)/(s+r) algebraically solves root. Independently checked 30 (mu,r,z) renewal-root pairs and the mu=1/2 Brownian closed form. Numerical comparisons are not proof of LDP or endpoint asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zamparo gives general reset renewal-reward LDP framework, potentially implying existence of an LDP once assumptions are verified.",
+          "Frimpong–Bresque–Roldán's analyzed occupation statistics include long-time Gaussian fluctuations, not a stated mu-dependent full rate cusp."
+        ],
+        "reasoning": "General LDP existence is already covered and is explicitly not claimed novel; the solved fractional root plus exact endpoint constant and parametric rate add information not given by a general existence theorem.",
+        "searches": [
+          "Zamparo 2022 arXiv:2207.07521 general resetting renewal rewards",
+          "den Hollander et al. 2018 full LDP Brownian",
+          "Frimpong et al. 2026 resetting occupation Gaussian center"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2410.22097v1",
+        "https://arxiv.org/abs/2610.21962",
+        "https://arxiv.org/abs/1801.09909",
+        "https://arxiv.org/abs/2207.07521",
+        "https://arxiv.org/abs/2610.34568"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Free Lamperti transform and general LDP method are antecedents. Brownian rate r(1−2sqrt(x(1−x))) is the mu=1/2 specialization.",
+          "The mu<1/2 endpoint delta^mu law follows after a new singular renewal-root expansion and Legendre dual optimization."
+        ],
+        "reasoning": "A pre-existing framework gives LDP existence but does not explicitly evaluate fractional edge exponents across sluggishness; assessed innovation resides in its exact model-specific solution.",
+        "searches": [
+          "arXiv:2410.22097v1 §III.1 Eq.(64)-(66)",
+          "arXiv:1801.09909 positive occupation reset-Brownian",
+          "arXiv:2207.07521 general renewing-reward LDP"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Del Vecchio–Majumdar derive the same Lamperti free occupation Stieltjes transform, but no reset LDP for that model.",
+          "den Hollander et al. study positive occupation LDP for resetting Brownian motion (mu=1/2)."
+        ],
+        "reasoning": "The original Y and renewal method are not novel. The explicit continuous family of mu<1/2 cusp powers is not the Brownian endpoint specialization.",
+        "searches": [
+          "Del Vecchio–Majumdar arXiv:2410.22097v1 Eq. (64)–(66)",
+          "Frimpong–Bresque–Roldán arXiv:2610.21962",
+          "den Hollander et al. arXiv:1801.09909",
+          "Resultary sluggish reset occupation LDP"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The later October 25 2026 Frimpong paper on extrema/global times concerns maximum, last passage and covariance with occupation; public abstract has no same occupation LDP cusp.",
+          "No examined exact-table resource records the full mu-dependent rate."
+        ],
+        "reasoning": "This is a continuum analytic rate function, not a finite database/table problem; searches did not identify direct numeric tabulation, but absence is not a priority certificate.",
+        "searches": [
+          "Resultary full query sluggish resetting occupation large deviations",
+          "Frimpong arXiv:2610.21962 original and later arXiv:2610.34568",
+          "Del Vecchio 2024 Lamperti paper"
+        ]
+      },
+      "rationale": "General reset renewal LDP machinery, the Brownian mu=1/2 rate, and the Lamperti occupation law are prior results. Qualified new remainder is the explicit mu-dependent positive-occupation cumulant root/parametric rate for sluggish mu<1/2 and the exact non-Brownian endpoint exponent and coefficient.",
+      "residual_risks": [
+        "General renewal-LDP principle and mu=1/2 Brownian rate are not original and must remain credited.",
+        "An uninspected proof of a more general resetting kernel formula might imply the explicit cusp.",
+        "The full finite-time and non-Poisson reset problems are outside scope."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECT INPUT: same free Lamperti distribution, no resetting in this paper",
+          "evidence": "Eq. (66) gives symmetric fractional Stieltjes expression used by renewal root.",
+          "identifier_or_url": "https://arxiv.org/html/2410.22097v1",
+          "material_read": "Abstract; §II model; §III.1 Eq. (64)–(66) free occupation transform and inverse Stieltjes discussion",
+          "method": "Primary author arXiv full HTML, relevant sections read",
+          "title": "Generalized arcsine laws for a sluggish random walker with subdiffusive growth",
+          "trigger": "Same free continuum process and occupation law"
+        },
+        {
+          "assessment": "ANTECEDENT: resetting occupation transform and Gaussian central fluctuations; exact mu-dependent edge not identified in material read",
+          "evidence": "Authors explicitly describe Lamperti short-time regime and Gaussian large-time regime, not an exact LDP cusp.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.21962",
+          "material_read": "Public arXiv abstract, and available full-text rendering sections on occupation transform and long-time Gaussian law",
+          "method": "Primary article material via available full-text scientific rendering and arXiv abstract",
+          "title": "Sluggish random walks with resetting: nonequilibrium aspects",
+          "trigger": "Same sluggish process with Poisson resetting, highly relevant possible exact-rate antecedent"
+        },
+        {
+          "assessment": "COVERS mu=1/2 and general method, not the non-Brownian cusp law",
+          "evidence": "Positive occupation Brownian reset LDP; cited rate r(1−2sqrt(x(1−x))).",
+          "identifier_or_url": "https://arxiv.org/abs/1801.09909",
+          "material_read": "Primary paper abstract and relevant general LDP/positive-occupation formula sections read",
+          "method": "arXiv primary text/PDF material",
+          "title": "Properties of additive functionals of Brownian motion with resetting",
+          "trigger": "Prior full-rate result in limiting Brownian parameter"
+        },
+        {
+          "assessment": "GENERAL COVERAGE of renewal-reward LDP principle; model-specific explicit rate not judged from unread text",
+          "evidence": "Abstract states LDP principles for additive functionals under general non-Poisson resetting.",
+          "identifier_or_url": "https://arxiv.org/abs/2207.07521",
+          "material_read": "Primary arXiv abstract/statement of scope only; complete theorem proof not read",
+          "method": "arXiv author abstract",
+          "title": "Statistical fluctuations under resetting: rigorous results",
+          "trigger": "Potential stronger general regenerative LDP"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The fractional Lamperti family interpolates between Brownian and increasingly sluggish diffusion. Exact rare occupation-edge delta^mu behavior, including coefficient, reveals information invisible in the existing Gaussian central limit and gives a usable full rate for fluctuation calculations. The specific non-Brownian exponent is a natural physically interpretable boundary invariant.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2410.22097v1",
+    "https://arxiv.org/abs/2610.21962",
+    "https://arxiv.org/abs/1801.09909",
+    "https://arxiv.org/abs/2207.07521",
+    "https://arxiv.org/abs/2610.34568"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "General renewal-LDP mechanism and Brownian specialization are prior results.",
+    "Only origin-started continuum symmetric process and independent Poisson resets.",
+    "No uniform finite-time error, microscopic lattice or threshold-reset LDP."
+  ],
+  "schema_version": 1
+}
