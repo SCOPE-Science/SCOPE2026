@@ -1,0 +1,98 @@
+{
+  "correctness": {
+    "rationale": "For the normalized Glauber generator, translation invariance closes the two-spin hierarchy. Differentiating gives a positive killed random-walk semigroup with uniform initial derivative; the image Bessel kernel telescopes to a finite positive sum S_n. Integrating from the proven Gibbs limit q^n gives the exact monotone C_n(t). Fixed-order Bessel asymptotics and exponential-tail integration give C_n(t)-q^n ~ n exp[-2(1-gamma)t]/sqrt(pi gamma t). Exact exponential-age change of variables then yields the lower-edge probability and density including the logarithmic exponent, with limiting cases treated separately. The stationary pair recurrence gives the unique bounded mean profile, independently checked against six- and eight-spin reset generators. The supplied checker passed 231 deterministic assertions. This is an analytic proof, not extrapolation from finite numerics.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Magoni–Majumdar–Schehr (2020) establishes full magnetization law and the one-dimensional Glauber flip rates, but does not provide the pair-correlation distribution.",
+        "Chen–Zhong, arXiv:2407.11708, Sections II–IV and appendix concern a finite two-dimensional Metropolis model, magnetization distribution, anomalous-diffusion crossover and magnetization temporal autocorrelation."
+      ],
+      "reasoning": "General renewal formulas apply to arbitrary observables only once their no-reset law is known; neither inspected source provides the spatial pair-correlation time dependence, edge asymptotic or doubled threshold. Classical Glauber 1963 supplies the underlying hierarchy but not this reset-age law.",
+      "searches": [
+        "Glauber Ising stochastic resetting spin correlations exact stationary distribution 2020 2024",
+        "arXiv:2407.11708",
+        "Ising chain reset two-point correlation distribution Bessel logarithmic cutoff"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2002.04867",
+      "arXiv:2407.11708",
+      "Glauber (1963), DOI:10.1063/1.1703954 (classical propagator reference, cited for background; full text not directly inspected)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Magoni et al. obtain m(t)=m_0 exp[-(1-gamma)t] and a power-law magnetization distribution with crossover r=1-gamma.",
+        "The new observable has relaxation C_n(t)-q^n ~ n exp[-2(1-gamma)t]/sqrt(pi gamma t), giving r=2(1-gamma) and a square-root logarithmic density singularity exactly at criticality.",
+        "The 2024 article measures temporal correlations of total magnetization at two-dimensional criticality, not equal-time spatial spin-pair correlations."
+      ],
+      "reasoning": "The 2020 magnetization theorem does not imply the present theorem by substituting parameters: its scalar exponential has no continuum-spectrum algebraic prefactor, and the four distinctive edge statements require the pair-hierarchy argument. Standard Markov semigroup methods could recover the claim with additional substantial computation, which is acknowledged as a residual subsumption risk.",
+      "searches": [
+        "arXiv:2002.04867 two-point correlation future work",
+        "arXiv:2407.11708 autocorrelation order parameter",
+        "magnetization distribution 1D Ising model resetting r star 1-tanh(2 beta J)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Magoni–Majumdar–Schehr, arXiv:2002.04867, main text near its conclusion identifies the distribution of two-point correlation functions as a prospective investigation; its displayed explicit distribution concerns magnetization."
+      ],
+      "reasoning": "The present random variable is the fixed-separation spatially averaged two-spin product, not magnetization or the time-autocorrelation of magnetization. Its time dependence is a Bessel combination with a t^{-1/2} correction and hence not an equivalent one-point exponential age transform.",
+      "searches": [
+        "Glauber chain Poisson reset nearest neighbor thermal spatial correlation random age logarithmic correction critical reset rate twice magnetization",
+        "Ising model with stochastic resetting correlation function stationary two point",
+        "arXiv:2002.04867"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "These targeted searches returned the existing Ising-resetting papers and different models, not a table or result containing the parameterized lower-edge law.",
+        "The object is a continuum family indexed by all positive rates, all 0<gamma<1 and every fixed positive separation, rather than a finite enumeration."
+      ],
+      "reasoning": "No exact database or table was located that states or dominates the continuous functional distribution and its logarithmic edge regime; a search failure alone is not novelty proof.",
+      "searches": [
+        "stochastic resetting kinetic Ising spins energy distribution logarithmic singularity Bessel",
+        "Glauber Ising chain reset bond correlation stationary distribution 2023",
+        "one-dimensional Ising stochastic resetting nearest-neighbor correlation Bessel"
+      ]
+    },
+    "rationale": "The principal closely related 2020 study solves a different observable: the thermal/spatial magnetization distribution, and explicitly proposes study of two-point-correlation distributions as further work. The 2024 extension studies a two-dimensional Metropolis-critical magnetization process and does not cover the one-dimensional Glauber pair distribution. The claimed doubled threshold, critical square-root logarithmic divergence and fixed-distance full law do not follow as stated from either article; they require the two-point killed-semigroup spectral edge and a nonlinear renewal pushforward. Targeted search found no equivalent claimed theorem. The underlying Glauber hierarchy, Bessel kernel and renewal mechanism are classical and not claimed as new. Generic resolvent and spectral-edge theorems might imply the present specialization, and full global priority is not certified.",
+    "residual_risks": [
+      "General Markov-renewal spectral-asymptotic theorems or an unlocated specialized Ising treatment might imply this exact log-corrected edge law.",
+      "Separate pages of the original 2020 supplementary material were not fully retrieved; an accessible excerpt focused on simulation details.",
+      "Direct independent domain-expert validation and exhaustive publication-priority search were not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "No stated two-point distribution theorem; concluding discussion explicitly identifies this distribution as future work. Some separately issued supplemental pages not independently examined.",
+        "evidence": "Equations 1–7 give flip rule, renewal and magnetization law; final paragraph proposes investigating distributions of two-point correlation functions.",
+        "identifier_or_url": "https://arxiv.org/abs/2002.04867",
+        "material_read": "Full accessible main article text, including one-dimensional Glauber equations, renewal derivation, magnetization distribution and closing discussion",
+        "method": "Accessible publisher-linked arXiv article HTML text",
+        "title": "Ising model with stochastic resetting",
+        "trigger": "Exact model, same generator and global Poisson reset; strongest plausible coverage"
+      },
+      {
+        "assessment": "Distinct finite two-dimensional Metropolis magnetization problem. Its temporal magnetization correlation-time measurement does not entail the present one-dimensional spatial pair-correlation edge law.",
+        "evidence": "Section II specifies 2D Metropolis resetting from zero magnetization; Section III.3 defines C(t)=<m(t)m(0)> and fits a temporal relaxation time.",
+        "identifier_or_url": "https://arxiv.org/abs/2407.11708",
+        "material_read": "Full accessible main article including model, Sections III.1–III.3 and its restoring-force appendix",
+        "method": "arXiv article HTML text",
+        "title": "Crossover from Anomalous to Normal Diffusion: Ising Model with Stochastic Resetting",
+        "trigger": "Later directly related resetting-Ising work"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65cef884-2981-4873-a6ef-a1ede64417bd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source 2020 paper identifies two-point-correlation distributions as an open direction. The present theorem solves that natural observable for every fixed spin separation and provides an exact continuous law, a physically distinct reset-rate crossover at twice the magnetization threshold, and a nontrivial logarithmic divergence at the critical rate. The logarithmic factor exposes the relaxation spectral edge and disappears exactly at the zero-coupling boundary. The accompanying explicit stationary spatial profile diagnoses common-clock-induced long-range connected correlations. These are structural results about physically meaningful energy/spin-pair observables rather than arbitrary numerical slices or a simple reparametrization.",
+    "status": "PASS"
+  }
+}
