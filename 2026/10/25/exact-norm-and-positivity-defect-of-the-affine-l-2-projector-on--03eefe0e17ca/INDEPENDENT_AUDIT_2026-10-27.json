@@ -1,0 +1,99 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:17:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Normalized Hausdorff measure on ∂B_1^d decomposes into 2^d congruent facets: Y_i=epsilon_i U_i with independent symmetric signs and U distributed uniformly on the simplex (Dirichlet(1,...,1)). E Y_i^2=2/[d(d+1)] and cross moments vanish, giving kernel K(x,y)=1+[d(d+1)/2] x·y. The row L1 norm Phi(x)=E|K(x,Y)| is convex on B_1^d, so one of ±coordinate vertices attains its maximum. At a vertex, U_1 has Beta(1,d-1) density and averaging over sign gives max(1,c U_1). Integrating exactly yields 1+[(d-1)(d+2)/(2d)](1-2/[d(d+1)])^(d-1). Since every kernel row integrates to 1, max negative mass is exactly (norm-1)/2. For d=1 the two-point affine projector is identity. Independent symbolic integration agreed for d=2..9, but the convexity/integration proof is dimension-free.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hangelbroek–Narcowich–Sun–Ward arXiv:1005.2424, Theorem 5.1 treats bounded localized approximation-projectors on compact manifolds."
+        ],
+        "reasoning": "General stability of a different projector does not determine the exact Hausdorff-boundary affine norm here; smoothness and kernel-basis hypotheses do not directly subsume the model.",
+        "searches": [
+          "cross polytope boundary uniform Hausdorff surface measure affine least squares orthogonal projector exact Linfinity operator norm positivity defect",
+          "arXiv:1005.2424 Kernel Approximation on Manifolds II"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1005.2424",
+        "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Candidate factor c=d(d+1)/2 derives from Var(Y_i)=2/[d(d+1)]; simplex volume Gram differs."
+        ],
+        "reasoning": "The previous simplex coefficient cannot be transferred by affine change of variables: 2^d signed facets with their induced mixture yield different moments. Independent Beta marginal integration needed.",
+        "searches": [
+          "cross polytope boundary uniform Hausdorff surface measure affine least squares orthogonal projector exact Linfinity operator norm positivity defect",
+          "cross polytope Dirichlet facets reproducing kernel"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Exact equivalence ||P||∞=sup_x ∫|K(x,y)|dμ and positivity defect half its excess; both proved directly for this kernel."
+        ],
+        "reasoning": "Projector norm can be phrased as Lebesgue function or signed reproducing-kernel mass; compared against published simplex formula, whose underlying probability law and domain differ.",
+        "searches": [
+          "cross polytope boundary uniform Hausdorff surface measure affine least squares orthogonal projector exact Linfinity operator norm positivity defect",
+          "projector Lebesgue function Hausdorff surface cross polytope",
+          "Resultary simplex affine projector"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary top near-match 2026/10/4 simplex result has dimension-dependent constant distinct from candidate."
+        ],
+        "reasoning": "Found no exact Hausdorff cross-polytope boundary table. This is bounded evidence, not a proof of absence.",
+        "searches": [
+          "cross polytope boundary uniform Hausdorff surface measure affine least squares orthogonal projector exact Linfinity operator norm positivity defect",
+          "Resultary exact positivity defect simplex",
+          "cross polytope least squares affine boundary L infinity exact formula"
+        ]
+      },
+      "rationale": "Known sharp simplex local projector and broad smooth-manifold L∞ stability theorems have different measures/domains and do not entail this cross-polytope-boundary exact Dirichlet marginal constant. No equivalent cross-polytope Hausdorff-boundary formula identified by targeted primary and published-record inspection. Priority is best-of-knowledge.",
+      "residual_risks": [
+        "Classical approximation theory could tabulate this exact polyhedral Lebesgue function under a less searchable formulation.",
+        "Source exactness limited to normalized Euclidean Hausdorff surface measure; cone/vertex measures may change constants."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: localized smooth Riemannian kernel spaces, not Hausdorff surface of nonsmooth cross-polytope with degree-one affine polynomial projection",
+          "evidence": "Theorem 5.1 controls projector norm under compact manifold/quasiuniform sampling and localized kernel bases; candidate kernel 1+c x·y uses a different finite-dimensional range.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+          "material_read": "Original accessible mathematical PDF including setup and Theorem 5.1, Sections 1 and 4–5",
+          "method": "opened and visually inspected relevant original PDF pages/theorems",
+          "title": "Kernel Approximation on Manifolds II: The L∞-norm of the L2-projector",
+          "trigger": "closest smooth-manifold projector stability paper"
+        },
+        {
+          "assessment": "DIFFERENT_GEOMETRY: simplex interior uniform volume, not cross-polytope surface with 2^d congruent facets",
+          "evidence": "Simplex norm 2(d+1)((d+1)/(d+2))^d-1, not cross-polytope boundary formula.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md",
+          "material_read": "Complete published RESULT.md including finding, barycentric Gram kernel, proof, asymptotics and limitations",
+          "method": "read actual Git file content of full published result",
+          "title": "Exact positivity defect and max norm of affine least-squares projector on a simplex",
+          "trigger": "same type of norm and positive-cone defect on a canonical simplex"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The cross-polytope boundary with Euclidean Hausdorff measure is a canonical polyhedral test geometry for affine least-squares approximation. Its exact L∞ amplification and loss-of-positivity constant grow linearly with dimension, a nontrivial quantitative stability calculation that can be independently reused; it is neither an arbitrary finite slice nor a generalization to unstudied measures.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/1005.2424",
+    "https://github.com/Resultary/2026/blob/main/2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "For d>=2 only the stated 2^d-facet Hausdorff probability, d=1 separately; no higher-degree or weighted-facet conclusion.",
+    "Classical approximation theory could tabulate this exact polyhedral Lebesgue function under a less searchable formulation.",
+    "Source exactness limited to normalized Euclidean Hausdorff surface measure; cone/vertex measures may change constants."
+  ],
+  "schema_version": 1
+}
