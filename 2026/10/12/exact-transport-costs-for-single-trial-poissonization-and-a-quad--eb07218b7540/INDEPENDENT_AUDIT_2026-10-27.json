@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T05:11:06Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all d≥1, the exchangeable Poisson vector admits a uniform marginal maximizer label by symmetric tie breaking. Pointwise squared cost 1+sum Y_j²−2Y_I is minimized by taking a maximum coordinate, hence W2²=2+1/d−2 E M_d. Similarly l1 cost=1+sum Y_j−2 1_{Y_I≥1}, giving 2/e because sum Y_j is Poisson(1). The tail-sum E M_d=sum_{k≥1}(1−F_{1/d}(k−1)^d) is absolutely convergent. Exact second factorial moments give excess 2 E[sum binom(Y_i,2)−(M_d−1)_+], nonnegative pointwise and strictly positive on Y_1≥3. With x=1/d, P(M≥2)=x/2−11x²/24+O(x³), P(M≥3)=x²/6+O(x³), and sum_{k≥4}P(M≥k)≤d E binom(Y_1,4)=x³/24, proving excess 7x²/12+O(x³). Independent symbolic Taylor expansions and d=1,2,3,5,10,20,50,100,400,1000 numerical tail evaluations corroborate rather than prove these universal identities. No extension to unequal weights, multi-trial multinomial, or arbitrary costs.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pianoforte–Turin bound on d_W(X,P) ≤ sum_k(sum_i p_ki)^2 specializes to ≤1 for the single categorical draw, not equality 2/e and not the W2 squared value.",
+          "Deheuvels–Pfeifer p.66 definition and p.69 Theorem 2.2 concern total variation Delta, so their bounds do not determine squared l2 optimal transport.",
+          "Rüschendorf summary advertises some explicit multivariate Wasserstein formulas and general Markov constructions; full article could not be read and therefore its complete coverage is UNKNOWN."
+        ],
+        "reasoning": "The prior theorems apply to broad Poisson approximation and transport, but the publicly inspected conclusions do not imply the exact vector quadratic cost and 7/12 coefficient. A generic semidiscrete OT principle may already entail maximal-coordinate optimality, leaving the particular analytic cost/expansion as the potential original contribution.",
+        "searches": [
+          "Pianoforte–Turin, Theorem 1.1, Section 3.1 and Corollary 3.1, DOI:10.1017/jpr.2022.33",
+          "Deheuvels–Pfeifer, Theorem 2.2, DOI:10.1016/0047-259X(88)90153-4",
+          "Rüschendorf 1985, DOI:10.1007/BF00532240 abstract and lawful open-access attempts",
+          "Web: Wasserstein multinomial Poisson quadratic coupling",
+          "Resultary: Sharp Poisson occupancy maximum and quadratic cost optimal coupling between multinomial and product Poisson laws"
+        ]
+      },
+      "checked_sources": [
+        "Pianoforte–Turin, J. Applied Probability 60 (2023), 223-240, DOI:10.1017/jpr.2022.33, OA PDF printed 223-224 and 232-233",
+        "Deheuvels–Pfeifer, Journal of Multivariate Analysis 25 (1988), 65-89, DOI:10.1016/0047-259X(88)90153-4, author OA full scan pp.65-69",
+        "Novak, On Poisson Approximation, Journal of Theoretical Probability 37 (2024), 2277-2303, DOI:10.1007/s10959-023-01310-4, OA HTML §1.1",
+        "Rüschendorf, The Wasserstein Distance and Approximation Theorems, 1985 DOI:10.1007/BF00532240, abstract only, fulltext unavailable",
+        "Three Resultary published mathematical finding queries, 2026-10-27; SCOPE-Science repository three read-only published-record code searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Specializing Pianoforte–Turin Corollary 3.1 to n=1, p_i=1/d yields d_W≤1; since 2/e<1 this does not imply the exact first-order value or W2 squared.",
+          "Scalar Kantorovich distance between δ_1 and Pois(1) equals 2/e; because ||e_I-y||_1≥|1-sum y| and the max-coordinate coupling attains equality, the W1 component is a standard scalar corollary.",
+          "Neither the total variation Theorem 2.2 of Deheuvels–Pfeifer nor Novak’s scalar Poisson-metric discussion implies the W2 squared maximum-coordinate law and its nonzero second-order collision correction."
+        ],
+        "reasoning": "A correct priority claim must separate the standard scalar/W1 reduction from the proposed exact squared-Euclidean vector law. Known general optimal-transport principles are inputs, while calculating this natural explicit invariant and cancellation is the surviving narrow result. Full Rüschendorf remains an unresolved risk, not evidence of coverage.",
+        "searches": [
+          "Pianoforte–Turin Section 1 p.224 and Corollary 3.1 p.233",
+          "Deheuvels–Pfeifer Sections 1–2 and Theorem 2.2 p.69",
+          "Novak, On Poisson Approximation 2024 §1.1 scalar Gini–Kantorovich",
+          "Rüschendorf 1985 publisher summary and attempted authorized fulltext"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For scalar total N~Pois(1), standard E|1-N|=2/e; max-coordinate transport attains it in vector l1, so this portion is reducible to known scalar W1 theory.",
+          "Pianoforte–Turin (2023) p.224 expressly defines d_W using l1-Lipschitz test functions, unlike squared Euclidean W2; pp.232–233 establish upper bounds.",
+          "No found equivalent model-specific formula for 2+1/d-2 E max of independent Poisson coordinates or its 7/12 d^-2 expansion."
+        ],
+        "reasoning": "Equivalent aliases include symmetric semidiscrete assignment, optimal one-hot coupling, independent Poisson occupancy maximum and Poissonization W2 squared. Exchangeability plus maximal-coordinate selection gives this instance, but the explicit Poisson maximum and collision expansion are not derived in the inspected competing texts. Failed alias search alone cannot certify priority.",
+        "searches": [
+          "Resultary: Exact squared 2 Wasserstein distance between uniform one hot categorical vector and independent Poisson count vector; maximum coordinate coupling; asymptotic collision correction 7/12 d^-2",
+          "Resultary: Multinomial single trial Poissonization transport optimal coupling one-hot count independent Poisson; L1 cost 2/e, L2 squared cost 2+1/d-2 maximum",
+          "Web: independent Poisson multinomial Wasserstein quadratic optimal transport exact Poisson approximation",
+          "Web: one-hot categorical uniform Poisson vector 2-Wasserstein maximum occupancy exact",
+          "Novak, On Poisson Approximation (2024), §1.1, scalar Gini–Kantorovich distance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest records include type-class Hamming W1, pairwise-independent occupancy probabilities, and Bernoulli pair balancing; none has the same pair of laws and exact quadratic transport invariant.",
+          "The coefficient arises from analytic Poisson tail expansion; no indexed table recording it was identified."
+        ],
+        "reasoning": "The claim is an all-positive-integer dimension formula, not a finite table computation. No database coverage was identified within these searches, but absence of an indexed table cannot prove absolute novelty.",
+        "searches": [
+          "Resultary: Exact squared 2 Wasserstein distance between uniform one hot categorical vector and independent Poisson count vector; maximum coordinate coupling; asymptotic collision correction 7/12 d^-2",
+          "Resultary: Sharp Poisson occupancy maximum and quadratic cost optimal coupling between multinomial and product Poisson laws",
+          "Web: 7/12 Poisson Wasserstein",
+          "Published SCOPE repository code search: single-trial Poissonization; independent Poisson quadratic Wasserstein; Poisson maximum transport"
+        ]
+      },
+      "rationale": "A fresh implication-level comparison found the same Bernoulli-vector/independent-Poisson domain in Pianoforte–Turin, but their Theorem 1.1 and Corollary 3.1 bound first-order l1 Wasserstein distance only. Deheuvels–Pfeifer (1988) give total-variation errors for multinomial Poissonization. Novak 2024 treats scalar 1-Wasserstein/other scalar probability metrics. These sources do not state or imply the exact vector squared-Euclidean optimal cost and cancellation coefficient 7/12 without the model-specific Poisson-maximum analysis. The scalar W1=2/e portion follows from standard one-dimensional Kantorovich formulas and is not treated as independently novel. Bounded Resultary, published-record and web alias searches found no independently published stronger exact statement. The originality judgment is best-of-knowledge and conditional on uninspected generic semidiscrete and Rüschendorf full texts.",
+      "residual_risks": [
+        "Rüschendorf 1985 full article not read; a general semidiscrete transport formula might imply maximal-coordinate optimality. Open-access/arXiv retrieval failed; Oxford authorized tool returned vpn_disconnected, so no full-text noncoverage finding.",
+        "Broad exchangeable-target semidiscrete OT optimality is elementary: originality resides in the model-specific W2 squared exact formula and 7/12 d^-2 occupancy correction, not in the general idea of maximizing a coordinate.",
+        "A previously unindexed occupancy-tail asymptotic may contain the same coefficient without Poissonization/Wasserstein terminology. Bounded literature/Resultary searches cannot prove global novelty.",
+        "The W1=2/e component reduces to a known scalar Gini–Kantorovich computation and should not be independently advertised as new."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Relevant setting but metric is l1 Wasserstein, result is an upper bound; no same-object exact quadratic value or 7/12 correction in inspected source",
+          "evidence": [
+            "p.224 Lipschitz test functions for l1 metric; p.233 Corollary 3.1 bound sum_k(sum_i p_ki)^2, giving 1 for n=1."
+          ],
+          "identifier_or_url": "https://doi.org/10.1017/jpr.2022.33; https://arxiv.org/abs/2105.01599",
+          "material_read": "Open-access full 18-page primary PDF available and examined: p.223-224 definitions, Theorem 1.1; pp.232-233 Section 3.1 Theorem 3.1/Corollary 3.1 with page screenshots; identified l1 cost and bound, not quadratic l2",
+          "method": "Published OA PDF parsed text plus actual rendered screenshots of printed pp.224,233",
+          "title": "Multivariate Poisson and Poisson process approximations with applications to Bernoulli sums and U-statistics",
+          "trigger": "Identical multinomial Bernoulli-vector and independent-Poisson laws, closest direct metric result"
+        },
+        {
+          "assessment": "Exact same probability family but metric is total variation and its semigroup error expansions, not squared Euclidean transport",
+          "evidence": [
+            "Printed p.66 equation (2.1) defines Delta as TV; p.69 Theorem 2.2 states Delta=1/4 d_n+R_n, no quadratic transport."
+          ],
+          "identifier_or_url": "https://uol.de/f/5/inst/mathe/personen/dietmar.pfeifer/Publ/P44.pdf; DOI:10.1016/0047-259X(88)90153-4",
+          "material_read": "Original full 25-page author-hosted scan available; introduction pp.65-66, model and total-variation definition p.66, main theorem p.69 inspected with PDF screenshots; broader scan searched",
+          "method": "Lawful author-hosted article, PDF parsed text and screenshots of pp.66 and 69",
+          "title": "Poisson Approximations of Multinomial Distributions and Point Processes",
+          "trigger": "Original same-object multinomial independent-Poisson predecessor"
+        },
+        {
+          "assessment": "Provides scalar W1 coupling identity and other scalar approximation metrics, not vector squared Euclidean Poissonization formula",
+          "evidence": [
+            "Section 1.1 states scalar d_G(X,Y)=inf E|X′−Y′|; source focuses scalar distributions of sums."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s10959-023-01310-4",
+          "material_read": "Open full-text HTML abstract and §1.1 definitions of total variation, Kolmogorov, scalar Gini–Kantorovich and point metric; bibliography inspected",
+          "method": "Publisher open-access original HTML full text; focused Section 1.1",
+          "title": "On Poisson Approximation",
+          "trigger": "Modern primary Poisson approximation account including Gini-Kantorovich alias"
+        },
+        {
+          "assessment": "Exact multivariate optimal formulas might supply a general assignment principle; no decisive comparison of all the uninspected results possible",
+          "evidence": [
+            "Publisher abstract advertises certain explicit multivariate Wasserstein formulas and Markov constructions but does not give this specific Poissonized categorical cost or expansion."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/BF00532240",
+          "material_read": "Publisher abstract and bibliographic summary only; no full article available after arXiv and OA searches, authorized Oxford access returned vpn_disconnected",
+          "method": "Publisher summary, bounded lawful OA/arXiv searches, authorized institutional retrieval with unavailable VPN; no inference of full-text noncoverage",
+          "title": "The Wasserstein Distance and Approximation Theorems",
+          "trigger": "Possible broad explicit multivariate transport formula / priority-dominating general theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Independent Poissonization of a categorical trial is a natural minimal benchmark for converting exclusive occupancy into independent cell counts, explicitly treated in the Bernoulli-vector Poisson approximation literature. The exact squared l2 optimal transport cost for every d is a natural invariant of this pair of laws; the pointwise strictly positive collision discrepancy and surprising disappearance of its first-order 1/d term produce a sharp 7/(12d²) correction. A future researcher comparing stronger probability metrics or testing Poisson approximation constructions could use precisely this closed-form benchmark. The scalar W1 part is classical and the max-coordinate optimizer elementary, so the value is narrow and contingent on the exact quadratic cost/cancellation, not general methodological novelty or numerics.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Pianoforte–Turin, J. Applied Probability 60 (2023), 223-240, DOI:10.1017/jpr.2022.33, OA PDF printed 223-224 and 232-233",
+    "Deheuvels–Pfeifer, Journal of Multivariate Analysis 25 (1988), 65-89, DOI:10.1016/0047-259X(88)90153-4, author OA full scan pp.65-69",
+    "Novak, On Poisson Approximation, Journal of Theoretical Probability 37 (2024), 2277-2303, DOI:10.1007/s10959-023-01310-4, OA HTML §1.1",
+    "Rüschendorf, The Wasserstein Distance and Approximation Theorems, 1985 DOI:10.1007/BF00532240, abstract only, fulltext unavailable",
+    "Three Resultary published mathematical finding queries, 2026-10-27; SCOPE-Science repository three read-only published-record code searches"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Result restricted to uniform one-trial categorical law and independent mean-1/d Poisson cells; W1 and W2² are different transport costs, not directly norm-equivalent metrics.",
+    "Rüschendorf general transport full article and broader unindexed semidiscrete/occupancy literature could affect priority; unavailable paper not deemed noncovering.",
+    "Existing public metadata contains provenance and an unsupported first_public_date; plan not_ready pending complete sanitized replacements.",
+    "Actual prior bytes and broken historical gaps preserved; no GitHub, dispatcher closeout, or schedule writes."
+  ],
+  "schema_version": 1
+}
