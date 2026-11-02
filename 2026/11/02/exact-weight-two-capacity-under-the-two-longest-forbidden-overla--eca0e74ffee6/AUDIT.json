@@ -1,0 +1,102 @@
+{
+  "correctness": {
+    "rationale": "Unique shorter-gap orbit decomposition gives an exact sum of cycle-square packing upper bounds. An explicit triple-spaced phase selection meets every orbit bound; four deletion-support cases, including the antipodal tie, exhaust all potential cross-orbit forbidden overlaps. Direct complete pairwise checks n=4..20, successor tests n=4..120, and independent exact optimization n=4..22 agree. Finite checks support but do not replace the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Blackburn et al. Theorem 1: |C| <= q^n/(2n-2k+1) without fixed-weight structure",
+        "Yazdi et al. Theorem 6: balanced WMU bounds, using half-weight rather than two markers"
+      ],
+      "reasoning": "These bounds are at least as broad in overlap condition or alphabet but do not evaluate the exact fixed-composition optimum. The fully non-overlapping length-five result forbids many more overlaps and hence cannot bound this optimum sharply.",
+      "searches": [
+        "arxiv:2211.10309 Theorem 1 (k,n-1) upper bound and Section V constructions",
+        "arxiv:1709.05214 WMU Theorems 3 and 6 and balanced Section 5",
+        "Published-findings semantic index: binary constant Hamming weight two non overlapping codes forbidden two maximal proper overlaps n-2 and n-1 exact capacity floor(n/3) necklaces"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2211.10309v4",
+      "https://arxiv.org/abs/1709.05214"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 1 of arxiv:2211.10309 gives q^n/5 at k=n-2, not this quadratic formula; its Lemma 24 counts separated ones for auxiliary asymptotics, not optimal overlap-free fixed-weight codes",
+        "arxiv:1709.05214 Section 5 specifies half-weight balanced constructions; no evaluation of maximum two-one words under n-2 WMU"
+      ],
+      "reasoning": "The general inequalities leave a nontrivial gap to the exact fixed-weight optimum. The new proof requires separate orbit packing bounds plus cross-orbit compatibility, which the identified prior statements do not imply.",
+      "searches": [
+        "arxiv:2211.10309 sections II, V-VII, all theorem and weight mentions",
+        "arxiv:1709.05214 sections 3-5 on WMU and balanced codes",
+        "Published-findings semantic index: constant composition synchronization code two longest overlaps formula floor((n-1)/2) floor(n/3) plus even n floor(n/6)"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2211.10309, Theorem 1 defines (k,n-1)-overlap-free codes with k=n-2, covering the same restriction but not this exact fixed-weight capacity",
+        "arxiv:1709.05214, Section 3 WMU definition likewise includes forbidding sufficiently long overlaps; Sections 4-5 treat distance and half-weight balanced constructions"
+      ],
+      "reasoning": "An exact formulation as a binary weight-two (n-2)-WMU code is equivalent to the claim, but inspected papers use this overlapping condition without establishing the restricted-composition optimum. No equivalence implies the stated formula from a published result found in searches.",
+      "searches": [
+        "Published-findings semantic index: Exact maximal binary weight-two code avoiding prefix suffix overlaps of lengths n-1 and n-2, cyclic necklaces independent sets",
+        "Published-findings semantic index: Fixed-composition two marker (n-2,n-1) overlap-free codes, sharp cardinality n floor(n/3) antipodal",
+        "web: binary weight two overlap free codes n-2 n-1 prefix suffix cyclic shift"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest indexed scientific result: Exact size and enumeration of maximum length-five non-overlapping codes, a stronger all-overlaps constraint and different alphabet parameters",
+        "Closest indexed scientific result: Exact binary two-multispectrum code size and singleton classification, a word-observation equivalence problem rather than suffix–prefix avoidance"
+      ],
+      "reasoning": "Neither cited result counts the present parameter family; no exact table or sequence of matching values was found. Search absence alone is not treated as proof of novelty.",
+      "searches": [
+        "Published-findings semantic index: optimal cardinality fixed Hamming weight 2 restricted overlap free code with forbidden overlaps of lengths n minus one and n minus two",
+        "Published-findings semantic index: restricted overlap synchronization code fixed weight two exact formula necklace square cycle independent set",
+        "web: two largest overlaps binary code fixed weight"
+      ]
+    },
+    "rationale": "The 2022 restricted-overlap source proves unrestricted q-ary bounds, not the binary weight-two exact cardinality. The 2017 WMU source treats general and balanced compositions, not this sparse subfamily. Relevant published code-size classifications for all forbidden overlaps and read-histogram equivalence problems do not logically cover the two-overlap constraint at fixed weight two. Multiple specific published-finding-index semantic searches and primary text inspections revealed no matching or strictly stronger conclusion, subject to the named residual risk.",
+    "residual_risks": [
+      "Possible equivalent unindexed weight-two WMU specialization or hidden exact capacity table in older coding literature",
+      "Structural all-length construction proof relies on correct handling of antipodal half-period and boundary marker deletion; finite checks do not certify infinite generality"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General unrestricted alphabet bounds and different code constructions; no exact binary weight-two maximum established",
+        "evidence": [
+          "Theorem 1 upper bound q^n/(2n-2k+1), valid k=n-2",
+          "Lemma 24 counts cyclically separated ones in an auxiliary enumeration for asymptotic constructions"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2211.10309v4",
+        "material_read": "Accessible full-text HTML including definitions, Sections II-VII, Theorem 1, Lemma 24, and applications/conclusion",
+        "method": "Section-by-section reading and text searches for weight, (k,n-1), constructions, and the stated formula",
+        "title": "Constructions and bounds for codes with restricted overlaps",
+        "trigger": "Same forbidden overlap lengths as the target, plausible dominating result"
+      },
+      {
+        "assessment": "General WMU and balanced constructions; exact fixed weight two maximum not supplied",
+        "evidence": [
+          "WMU forbids sufficiently long suffix-prefix matches",
+          "Section 5 balance applies to half-weight binary component and Theorem 6 order bounds"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1709.05214",
+        "material_read": "Introduction, WMU definitions and bounds, Section 4 error-correcting WMU, Section 5 balanced WMU, associated constructions and theorem statements",
+        "method": "Full-text preprint rendering inspection and searches for weight, balanced, WMU",
+        "title": "Mutually Uncorrelated Primers for DNA-Based Data Storage",
+        "trigger": "Original WMU formalism and composition restrictions; could imply the exact special case"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "eca0e74f-fee6-4439-84a5-4fabf7670663",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural sparse composition constraint for synchronization code design; exact capacity in every blocklength and sharp one-third packing fraction, with a parity correction caused by antipodal periodic words. Matching orbit bounds nontrivially requires cross-orbit collision elimination; not a mere evaluation of unrestricted q-ary inequalities. No generalized downstream claim is needed or asserted.",
+    "status": "PASS"
+  }
+}
