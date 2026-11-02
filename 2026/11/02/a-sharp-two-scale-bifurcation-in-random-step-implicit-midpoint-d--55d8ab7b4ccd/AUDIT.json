@@ -1,0 +1,103 @@
+{
+  "correctness": {
+    "rationale": "Direct midpoint scalar recurrence yields tanh multipliers and an exact independent-product second moment. Hyperbolic addition gives an exact rational q over y>=1. Derivative sign gives the complete one-to-two global minimizer classification, exact values and limits. Taylor expansion proves the quartic threshold and square-root branch law. Zero-atom hitting-time and strict mean-square suboptimality follow from direct identities. A reproducible 6,847-check verifier confirms algebra and representative boundaries, without substituting finite checks for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Abdulle–Garegnani, arXiv:1801.01340, Sections 2, 6–7: random time-step Runge–Kutta method, moment/conservation analysis and midpoint examples, without the two-atom damping design.",
+        "Lie–Stahn–Sullivan, arXiv:2103.16506 / Calcolo 59 (2022): operator error bounds with general grids and additive perturbations, without a sharp two-scale midpoint optimum."
+      ],
+      "reasoning": "The prior convergence and geometric results quantify different objectives. They do not imply the sharp optimum, critical ratio, quartic degeneracy or two-scale extinction criterion for fixed-iteration pseudotime relaxation.",
+      "searches": [
+        "two-point random time steps implicit midpoint scalar test equation optimal contraction factor",
+        "\"trapezoidal rule\" \"random step sizes\" \"damping\" optimization",
+        "randomised time stepping numerical ODE uncertainty quantification random time steps 2017"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1801.01340v1 (first public date 2018-01-04), PDF v4 read",
+      "arXiv:2103.16506v1, open-access Calcolo article read",
+      "MSC2020 official 65L20 category",
+      "Published-finding similarity searches for six topic and alias formulations",
+      "Classical midpoint stability function reference: Hairer–Lubich–Wanner (2006)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A related exact stage-law result fixes scaled time step and optimizes a Borel law of implicit RK internal stage weights; its amplification is (1-s+st)/(1+st).",
+        "Present update fixes midpoint internal stage at 1/2, varies the *external time step* between two log-symmetric values, and optimizes its common multiplicative scale.",
+        "Abdulle–Garegnani supplies the random positive time-step framework but not the stated design optimization."
+      ],
+      "reasoning": "Neither a stage-parameter optimum nor general mean-square convergence alone implies the joint two-point step-scale phase diagram; the random variable and feasible design parameter differ. The exact conclusion has independent proof here.",
+      "searches": [
+        "Three sharp optimal stage laws for mean-preserving randomized implicit Runge-Kutta damping",
+        "random step implicit midpoint Cayley transform two point distribution bimodal damping stability pitchfork threshold",
+        "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration arxiv 1801.01340"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The midpoint Cayley multiplier is a known stability function, while the joint binary-step objective reduces to a new one-variable rational optimization.",
+        "The related scalar implicit-stage analysis concerns a random Runge–Kutta stage variable with prescribed mean, not random physical step lengths."
+      ],
+      "reasoning": "An equivalent theorem would require the same log-symmetric two-atom physical time steps, global minimization over their common scale and the unique-to-double optimum transition. Classical Cayley formulas and stage-parameter optimizers do not establish that complete statement.",
+      "searches": [
+        "random time-step midpoint geometric mean optimal scale bifurcation ratio 7+4 sqrt 3",
+        "\"implicit midpoint\" \"random time steps\" \"mean square\" \"optimal\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved relevant published-finding record or inspected table directly lists the sharp ratio or optimized binary physical-step midpoint distribution.",
+        "The same algebraic number 7+4 sqrt(3) appears in a distinct published scalar Polyak step-size claim but is associated with a different algorithm and inequality."
+      ],
+      "reasoning": "Matching a constant does not imply matching mathematical objects. We found no exact database or table coverage of the binary random physical-step scalar midpoint problem, subject to non-exhaustive retrieval.",
+      "searches": [
+        "Cayley transform mean square damping random step lengths two-point phase diagram",
+        "two point random step implicit midpoint stability bimodal optimal damping trapezoidal method"
+      ]
+    },
+    "rationale": "The inspected first-posted 2018 random-time-step paper establishes its probabilistic integrator and geometric conservation, not a global two-atom scale optimum. The 2021/2022 operator-integrator source treats nonuniform-grid error bounds, primarily additive randomization, not the present binary physical-step optimization. The related scalar implicit-stage analysis optimizes random internal stage parameters with fixed physical step, which neither contains nor implies the present scale design; older specialized rational-iteration priority remains a residual risk.",
+    "residual_risks": [
+      "Search coverage of older specialized stochastic rational recursion and numerical damping design literature is incomplete.",
+      "The theorem is one-dimensional and criterion-specific; extrapolation to physically fixed final time or general systems is not supported.",
+      "No independently performed scientific audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_OBJECTIVE",
+        "evidence": [
+          "Section 2 defines H_k>0 random step with per-step IID law; Section 6 identifies implicit midpoint for geometric conservation. The inspected material concerns convergence and first integrals, not exact global damping-scale minimization."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1801.01340",
+        "material_read": "Full-text sections 1–2 (problem, random-time-step scheme and Assumption 1), Section 6 midpoint/conservation, midpoint numerical examples and conclusion; text cross-search for midpoint, Dahlquist and stability function.",
+        "method": "Lawful arXiv full PDF text and page screenshots, including pages 5 and 12; source date separately verified from arXiv abstract (2018-01-04).",
+        "title": "Random time step probabilistic methods for uncertainty quantification in chaotic and geometric numerical integration",
+        "trigger": "Primary source introducing positive random time steps and midpoint geometric behavior"
+      },
+      {
+        "assessment": "NOT_COVERING_CLAIM",
+        "evidence": [
+          "Main scheme adds independent random perturbations to numerical state and analyzes forward error; variable grids appear, but not the binary log-symmetric physical-step optimization."
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10092-022-00457-6",
+        "material_read": "Full open-access HTML sections 1.1–1.3, main contributions, general error setting and Section 5 conclusions, plus term searches for midpoint, random time-step, mean-square.",
+        "method": "Full publisher-hosted open-access article HTML; checked arXiv first public record 2021-03-30.",
+        "title": "Randomised one-step time integration methods for deterministic operator differential equations",
+        "trigger": "Possible broader coverage of random time-step linear solvers and strong mean-square estimates"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "55d8ab7b-4ccd-49ca-94a9-8295b46732ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The log-symmetric two-point step uncertainty is the minimal nondegenerate positive random-time design with fixed ratio, and iteration-count damping is a natural cost metric for pseudo-time relaxation. The exact bifurcation at 7+4sqrt(3), classification of global design minimizers, critical fourth-order flatness and conflict with almost-sure exact extinction distinguish the result from a textbook A-stability calculation. It is useful as a concrete benchmark and sensitivity boundary for randomized numerical relaxation, without claiming general solver performance.",
+    "status": "PASS"
+  }
+}
