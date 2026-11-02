@@ -1,11 +1,21 @@
-# Scientific review: terminal curling-transform fibers
+# Independent mathematical audit
 
-**Correctness — PASS.** Prefix heredity and the overlap-at-last recurrence prove that the three-branch prefix search exhausts all valid words. The square-suffix rule for curling values is valid because overlap-free words are cubefree. The full normalized terminal manifest has \(2016\) words, the normalized depth-\(83\) prefix layer has \(1680\), and depth \(85\) is empty. Two separately implemented enumerators agree. The independent direct-definition prefix-curling checks and all-factor overlap checks pass for every terminal word and its transform. All \(672\) normalized extendible parents have three children; all terminal transforms are the two specified words with normalized fibers \(1344\) and \(672\).
+## correctness
 
-**Originality — PASS within examined evidence.** Theorem 7 of Caveney–Dong–Shallit (arXiv:2608.15670v1, 2026), read with Section 2.3 and Appendix B, reports the length-\(84\) maximum and the count \(6048\) but only an individual transform example. Neither its count nor the original curling-number literature logically implies that all maximal transform outputs share a unique length-\(83\) prefix or that the inverse fibers have the stated sizes. Targeted research-record and literature searches did not identify an equivalent image classification. Equivalent unpublished or unindexed analyses remain possible.
+PASS
 
-**Mathematical value — PASS.** This is a nontrivial structural classification of *all* fibers of a natural transformation at the exact extremal boundary, not merely another example or a recomputation of the published maximum size. The all-or-none continuation property explains the sharp \(2:1\) fiber ratio and the collapse of \(6048\) distinct longest words to two images. It is a complete finite answer relevant to inverse reconstruction from curling-number data, without asserting broader consequences.
+Every overlap-free source prefix is cubefree, hence its curling digit is 2 precisely for a square suffix and 1 otherwise. Prefix heredity makes the terminal-overlap recursion exhaustive. Independently compiled and ran a standalone C++17 implementation of the complete first-symbol-normalized ternary search: exactly 1680 valid length-83 prefixes, 2016 length-84, zero length-85; at 84 exactly two transform images with normalized fibers 1344 and 672. Grouping normalized length-84 words yields 672 distinct parents, each with three terminal extensions. Multiplication by three first-letter choices gives 5040 length-83 words, 6048 length-84, fibers 4032/2016; the 2016 terminal words use all three source letters, so the S3 orbit counts are 1008 total, 672/336 by fiber. Direct finite recursion, not simulation, proves the full finite statement. The source normal-form T and final equal-last-pair digit test are consistent with the terminal recurrence.
 
-**Scope and evidence.** The finite computation is exhaustive through depth \(85\), but no broader-length theorem or external independent audit is claimed. The full normalized witness list, source programs and level counts are included. The primary paper is available in open-access HTML and was inspected beyond abstracts; older background material was consulted at abstract level only.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS with material limitation: maximum length 84 and total 6048 were explicitly published by Caveney–Dong–Shallit (2026) and are NOT novel. The purported contribution is the two-image complete fiber split and length-83 all-or-none extension rigidity, not stated in accessible abstract; source-package description cites Theorem 7 for total count. Attempts to retrieve full preprint via arXiv HTML/PDF were blocked, so an appendix could already include these exact finer counts. No contrary evidence uncovered; high priority risk retained.
+
+## value
+
+PASS
+
+The exact two-image collapse and all-or-none one-step branching describe meaningful internal structure at a previously known extremal finite boundary: a natural complete fiber classification, not mere repetition of the known 6048 total.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
