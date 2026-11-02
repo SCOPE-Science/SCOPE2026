@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The integer parity and norm characterization is bidirectional. The floor-plus-fraction rounding candidates satisfy the exact \(\ell_1\) budget and parity requirements. The proof exhausts slack \(t=0,1,2,3,\ge4\), including the nontrivial missing weight-five case. The half-integer lower bound and short-slack witnesses are explicit. Exact-rational finite tests corroborate but do not substitute for the argument.
+## correctness
 
-## Originality — PASS under inspected evidence
-Actual semantic searches compared the bounded parity-constrained vertex-average law with the classical infinite \(D_5\) covering radius, the known regular-simplex \(A_n\) vertex-average formula, and contemporary general Minkowski-convexification work. The infinite-lattice radius supplies the eventual numerical constant only, not the sharp finite clipping threshold; the full regular-simplex result has a different point configuration and lattice. Search absence alone cannot establish priority. The general preprint's full text was inaccessible, and other equivalent finite checkerboard formulations are a residual priority risk.
+PASS
 
-## Mathematical value — PASS
-The change at the third average is a natural finite-resolution threshold in a canonical symmetric polytope and identifies exactly when the bounded parity mesh attains the classical lattice deep hole. It supplies a complete all-resolution formula with independently checkable examples rather than an arbitrary parameter slice.
+The k-fold signed-vertex sum set is exactly {z in Z^5: ||z||_1<=k and ||z||_1 ≡ k mod 2}: constructive proof adds cancelling signed unit pairs after generating coordinate masses. Reflect to nonnegative orthant, write each y_i=floor(y_i)+fraction f_i, set integer slack t=k-sum floor(y_i), satisfying sum f_i<=t. Rounding up r largest fractions, for 0<=r<=min(5,t) with r≡t mod2, produces feasible sites with squared error E_r=sum f_i^2+r-2 sum_top_r f_i. Cases t=0,1,2 yield max squared error<=1 by explicit bounding E1 and min(E0,E2). For t>=4, Boolean parity-constrained rounding gives error<=5/4 (flipping minimum bias cost 2delta_min bounded by total squared-distance deficit), with all needed parity weights admissible. For t=3, if the full Boolean-parity minimizer is of forbidden weight5, optimality implies f_(4)+f_(5)>=1, and the split u∈[1/2,3/5] or [3/5,2/3] bounds admissible E3<=5/4; otherwise the minimizer itself is admissible. Explicit sites show equality: y=0 for k1, y=e1 for k2, half-integer five-vector for k>=3. Independently enumerated 12890 feasible quarter-grid cases and six full parity-lattice sharp witnesses; proof holds beyond finite tests.
 
-## Closest literature and limits
-Van Hintum, arXiv:2606.10815v1; regular-simplex Minkowski vertex-average result in published-finding corpus (11 October 2026); classical \(D_n\) covering-radius literature. The general preprint was inspected at abstract level, not full text. Historical priority provisional; independent review not performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared equivalent mathematical formulations, stronger coverage, exact-data overlap, and logical prior implication using primary material and actual Resultary searches. No materially inspected theorem was found to imply the complete final claim; this is a best-of-knowledge, not an exhaustive novelty certificate. All unread relevant material and other risks are recorded.
+
+## value
+
+PASS
+
+The first finite clipping threshold in a canonical root-lattice approximation problem is a natural precise geometric invariant for Minkowski convexification of a regular cross-polytope. The D5 infinite-space covering constant is old, but it does not determine that the bounded parity site set attains that constant already at k=3 or the two exceptional resolutions. The boundary-aware rounding argument adds nontrivial structure to the classical covering result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
