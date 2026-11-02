@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T02:54:41Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Established directly from greedy subsequence matching in infinite 0101... that minimal host-prefix length c(u)=|u|+1_{u1=1}+number of equal adjacent letter pairs; this is exact for all binary u and starting-letter boundaries. Every even palindrome is uniquely b1...bh bh...b1, giving exact minimal-cost series t²z³(1+z)/(1-t²(z²+z⁴)); every odd palindrome of length >=3 adds center factor t(1+z²); the two length-one words give tz(1+z). Summing minimal costs and multiplying by (1-z)^-1 yields the stated bivariate generating function. Setting t=1 gives z(1+z)(1+z²)/((1-z)(1-z²-z⁴)); parity splitting and Fibonacci series give P_2m=2F_(m+3)-4, P_(2m+1)=F_(m+5)-4, with P0=0, and growth base sqrt(golden ratio). Independently enumerated every distinct subsequence string for all alternating prefixes N=0..22 and counted literal palindromes; obtained 0,1,2,4,6,9,12,17,22,30,38,51,64,85,106,140,174,229,284,373,462,606,750, agreeing with all Fibonacci cases. Enumeration is finite support, not proof beyond N22.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 5.4 in the 2021 source assumes q>=N/2 and thus does not cover fixed q=2 for N>=5; its earlier upper bound is not exact on alternating prefixes. The 2019 paper concerns extremal palindromic subsequence *length*."
+        ],
+        "reasoning": "Maximizing over words and bounding longest palindrome length are not the same invariant as counting distinct palindromic strings of every length in this one infinite word.",
+        "searches": [
+          "arXiv:2108.02729 Sections 4-5 Theorem 5.4 Conjecture 5.6",
+          "arXiv:1901.07502 palindromic subsequences longest length",
+          "scattered palindromic subsequences of alternating binary word exact Fibonacci enumeration generating function"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md and verify_alternating.py eab23cef1d2d42647e3e9edc9651ce5335d98385; METADATA.json 24a0474e427b3ef588f8e01b4967e12bd3f202d3 and VERIFICATION.md 8b055f185cfa7d97b6251003cec2a6c2ce1b258a",
+        "Mahalingam-Pandoh arXiv:2108.02729 19-page primary PDF Table 4 screenshot; Müllner-Ryzhikov arXiv:1901.07502 abstract; Holub-Saari DOI 10.1016/j.dam.2008.03.039 abstract",
+        "Resultary query: scattered palindromic subsequences of alternating binary word exact Fibonacci enumeration generating function",
+        "Independent complete string subsequence enumeration N=0..22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2021 conclusions state fixed small alphabet cases remain to analyze; known q-large equality only applies when q>=N/2."
+        ],
+        "reasoning": "No inspected stronger theorem mathematically implies the exact bivariate GF. The actual proof requires greedy minimal-prefix cost and unique palindromic-half enumeration rather than simply inserting q=2 in a known theorem.",
+        "searches": [
+          "arXiv:2108.02729 Theorem 5.4 Table 4 and Conjecture 5.6",
+          "arXiv:1901.07502 longest palindromic subsequences"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Table 4 lists binary count values 1,2,4,6,9,12,17,22,30,38 up to N10, matching the alternating case but no general all-length formula or length-refined distribution is displayed there."
+        ],
+        "reasoning": "Finite matching values do not imply the general generating identity. A distinct-subsequence automaton or weighted palindromic-word interpretation could be equivalent, and a 2009 source remains uninspected.",
+        "searches": [
+          "scattered palindromic subsequences of alternating binary word exact Fibonacci enumeration generating function",
+          "Mahalingam Pandoh 2021 Table 4 binary maximum counts",
+          "Holub Saari 2009 highly palindromic words"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The q=2 column of Table 4 exactly reproduces P_N for N<=10, so these entries are covered prior data, not claimed as new."
+        ],
+        "reasoning": "The claim provides an infinite family plus all length-refined coefficients; the 10-value table is a genuine overlap and is explicitly disclosed, not mistaken for novelty of finite initial counts.",
+        "searches": [
+          "arXiv:2108.02729 Table 4 page 18 PDF",
+          "scattered palindromic subsequences of alternating binary word exact Fibonacci enumeration generating function"
+        ]
+      },
+      "rationale": "The old Mahalingam-Pandoh paper already tabulated the first ten binary maximum counts (which equal this alternating-family prefix census). These ten values are explicitly not new. Its full paper proves general bounds and exact q>=n/2 maximum, not an all-N alternating binary length-profile rational generating function. Holub-Saari 2009 studies highly palindromic words and scattered palindrome sets; full text inaccessible (including institutional VPN), so equivalent historical closed-form remains a risk. This is best knowledge only.",
+      "residual_risks": [
+        "Holub-Saari 2009 may contain equivalent alternate recurrence/closed form; authorized institutional access unavailable (vpn_disconnected).",
+        "Fixed alternating binary word only; does not prove maximum among all binary words.",
+        "Published small binary table already covers the N<=10 totals, explicitly excluded from novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING N<=10 binary maximum count table; NOT_COVERING inspected all-length alternating GF and by-length spectrum",
+          "evidence": [
+            "Table 4 q=2 column 1,2,4,6,9,12,17,22,30,38; conclusion limits proved exact maximum q>=N/2."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2108.02729",
+          "material_read": "19-page PDF sections 1, 4 and 5; complete Table 4 page 18, Conjecture 5.6 and conclusion; PDF screenshot of page 18 inspected",
+          "method": "primary arXiv PDF text plus rendered page",
+          "title": "Counting scattered palindromes in a finite word",
+          "trigger": "Same distinct scattered-palindrome statistic and binary alphabet"
+        },
+        {
+          "assessment": "UNDETERMINED full text; known object of longest subsequence length differs from number of distinct subsequences",
+          "evidence": [
+            "Primary topic is longest palindromic or antipalindromic subsequence length."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1901.07502",
+          "material_read": "Abstract and title/topic; HTML full text retrieval unavailable this run",
+          "method": "arXiv abstract and source search",
+          "title": "Palindromic Subsequences in Finite Words",
+          "trigger": "Potential broader palindromic-subsequence theorem"
+        },
+        {
+          "assessment": "UNDETERMINED exact equivalent counts; residual priority risk",
+          "evidence": [
+            "Abstract studies palindromic scattered subwords and word determination up to reversal, not an explicit known bivariate GF."
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.dam.2008.03.039",
+          "material_read": "Abstract/bibliographic page; full text unavailable on lawful OA, authorized institutional request returned vpn_disconnected",
+          "method": "publisher metadata/search and authorized institutional status",
+          "title": "On highly palindromic words",
+          "trigger": "Earlier binary scattered-palindromic-set paper with plausible hidden enumeration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This complete all-N and by-length rational generating function for a natural highly structured binary word answers a motivated fixed-two-letter scattered-palindrome counting question. Its parity-resolved exact Fibonacci totals and asymptotic growth differ from all subsequences; it is more than re-tabulating ten published counts and does not assert unproved binary extremality.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md and verify_alternating.py eab23cef1d2d42647e3e9edc9651ce5335d98385; METADATA.json 24a0474e427b3ef588f8e01b4967e12bd3f202d3 and VERIFICATION.md 8b055f185cfa7d97b6251003cec2a6c2ce1b258a",
+    "Mahalingam-Pandoh arXiv:2108.02729 19-page primary PDF Table 4 screenshot; Müllner-Ryzhikov arXiv:1901.07502 abstract; Holub-Saari DOI 10.1016/j.dam.2008.03.039 abstract",
+    "Resultary query: scattered palindromic subsequences of alternating binary word exact Fibonacci enumeration generating function",
+    "Independent complete string subsequence enumeration N=0..22"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The assigned source tree identity was used as the guard after reading actual named Git blobs at its frozen commit; the complete tree-object listing was not accessible with read-only connector, so the tree SHA was not independently recomputed.",
+    "No Lean/expert verification or external scientific certification is claimed; independent bounded tests are distinct from infinite/general proofs.",
+    "Relevant existing public METADATA.json includes an operational provenance field; publication requires safe complete replacement files and fresh blob guards."
+  ],
+  "residual_risks": [
+    "Holub-Saari 2009 may contain equivalent alternate recurrence/closed form; authorized institutional access unavailable (vpn_disconnected).",
+    "Fixed alternating binary word only; does not prove maximum among all binary words.",
+    "Published small binary table already covers the N<=10 totals, explicitly excluded from novelty."
+  ],
+  "schema_version": 1
+}
