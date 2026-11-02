@@ -1,0 +1,112 @@
+{
+  "correctness": {
+    "rationale": "First-divergent-run argument proves t<delta injectivity; an explicit two-pattern bridge collision exists at delta and extends through n-1 using common remaining capacities. Coefficientwise smoothing maximizes the deletion-pattern bound over fixed total/run count, and cycling q>=t+1 distinct run letters attains it; sharpness follows from n=r=t+1 and at most q one-letter descendants. All ranges including r=1 and t=n-1 are addressed. Independent exhaustive short finite checks corroborate, but do not replace, these all-parameter proofs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Li–Wang–Fu, Theorem 14 treats divisible run lengths; Corollary 15 bounds nondivisible lengths by padding to a divisible length; conclusion explicitly identifies nondivisible extremality as open. Full text https://arxiv.org/abs/2601.06493"
+      ],
+      "reasoning": "The exact high-alphabet nondivisible formula is neither a special case of divisible-run extremality nor implied by padding, which changes length. Existing generic upper bounds lack matching attainable construction and can be strict (18 vs 20). Broader all-alphabet exact statements were not found in accessible primary text.",
+      "searches": [
+        "Semantic literature query: nonbinary deletion channel exact r-run subsequence maximum n not divisible by r, balanced run lengths, alphabet q>=t+1, coefficient generating function",
+        "Semantic literature query: exact maximum t-deletion subsequences with r runs over q-ary alphabet q>t even when n not divisible by r attained by quasi-balanced cyclic r-run string",
+        "arXiv:2601.06493 Theorem 14 Corollary 15 conclusion"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2601.06493",
+      "https://arxiv.org/html/1202.1644v1",
+      "https://doi.org/10.1109/TIT.2008.924730",
+      "Relevant published research corpus: deletion-code redundancy coefficient and binary three-deletion reconstruction profile (semantically compared in private checks)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Liron–Langberg proves |D_t|≤|P_t| and illustrates noninjectivity; Li–Wang–Fu gives padding upper bound in nondivisible case; independently derived constructive injectivity for t<q makes balanced pattern coefficient exact."
+      ],
+      "reasoning": "The claimed equality and sharp alphabet threshold require proving absence or existence of pattern collisions, beyond the prior upper bound. In particular at n=10,r=4,t=3,q=4 a 2026 padding bound 20 does not imply the true 18, and the earlier lower bounds do not force it.",
+      "searches": [
+        "Semantic literature query: For q-ary strings with exactly r runs, n not divisible by r, and t deletions fewer than q symbols, exact maximum number of distinct subsequences equals coefficient [z^t](1+...+z^ceil(n/r))^(n mod r)(1+...+z^floor(n/r))^(r-n mod r); cyclic run labels attain.",
+        "Semantic literature query: nonbinary deletion channel exact r-run subsequence maximum n not divisible by r, balanced run lengths, alphabet q>=t+1, coefficient generating function",
+        "arXiv:2601.06493 Corollary 15 and Section VI",
+        "arXiv:1202.1644 Lemma VII.1 and VII.3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Liron–Langberg Section VII, Definition VII.1 and Lemma VII.1: deletion patterns and upper bound, with explicit collision 11011; accessible full text https://arxiv.org/html/1202.1644v1"
+      ],
+      "reasoning": "An exact description of when the deletion-pattern map is injective would be equivalent to the threshold identity, including its strict converse. The predecessor records a collision and proves only a general upper bound; no iff bridging-cost characterization appears in the inspected Section VII. Published semantic hits concerned other invariants.",
+      "searches": [
+        "Semantic literature query: For q-ary strings with exactly r runs, n not divisible by r, and t deletions fewer than q symbols, exact maximum number of distinct subsequences equals coefficient [z^t](1+...+z^ceil(n/r))^(n mod r)(1+...+z^floor(n/r))^(r-n mod r); cyclic run labels attain.",
+        "Semantic literature query: deletion patterns on runs of a word distinct subsequences injective if every two equal-letter runs have at least t symbols between them; first collision at one plus minimum intervening run lengths",
+        "https://arxiv.org/html/1202.1644v1 (accessible full-text, Section VII)",
+        "arXiv:1202.1644 Section VII"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No equivalent semantic research record surfaced in returned ranked indexed research results; closest records are documented in `closest_results`. Mercier–Khabbazian–Bhargava (2008) abstract mentions small-t formulas but the full article was inaccessible."
+      ],
+      "reasoning": "A universal first-collision threshold and a high-alphabet formula for all t cannot be established from an indexed table title alone. The older small-t work is explicitly treated as a priority risk, not dismissed by search absence.",
+      "searches": [
+        "Semantic literature query: Li Wang Fu 2026 On the Number of Subsequences in the Nonbinary Deletion Channel balanced strings upper bound for r not dividing n, equality",
+        "Semantic literature query: number of subsequences from nonbinary runs large alphabet t less q coefficient generating function patterns",
+        "Semantic literature query: deletion patterns on runs of a word distinct subsequences injective if every two equal-letter runs have at least t symbols between them; first collision at one plus minimum intervening run lengths",
+        "web: Mercier Khabbazian Bhargava On the Number of Subsequences When Deleting Symbols From a String full text pdf 2008"
+      ]
+    },
+    "rationale": "The closest 2026 paper explicitly leaves nondivisible-run extremality open and derives only an inflated padded-length bound. A 2012 predecessor supplies deletion-pattern counting and collisions but not the iff threshold. Actual semantic searches and close implication comparisons found no result covering the combined theorem. Older inaccessible small-t formulas create genuine residual priority uncertainty, noted explicitly.",
+    "residual_risks": [
+      "Mercier–Khabbazian–Bhargava 2008 full text unavailable; potential small-t implicit overlap cannot be ruled out.",
+      "Semantic research search is not an exhaustive novelty oracle; unindexed equivalent results remain possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covered divisible runs; nondivisible only upper bound, with gap explicit",
+        "evidence": [
+          "Corollary 15 and proof; Section VI conclusion: complete characterization of r not dividing n remains open."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.06493",
+        "material_read": "Introduction; Sections IV–VI, especially Theorem 14, Corollary 15, Sections V and conclusion; earlier definitions and principal lemmas",
+        "method": "Accessible arXiv full HTML rendered as text and compared by statements",
+        "title": "On the Number of Subsequences in the Nonbinary Deletion Channel",
+        "trigger": "Exactly same nonbinary fixed-run deletion-sphere extremal problem"
+      },
+      {
+        "assessment": "Clearly covers deletion-pattern upper bound; does not give first-collision threshold or high-q nondivisible exact extremum",
+        "evidence": [
+          "Section VII shows two patterns colliding on 11011 and gives general inequality."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1202.1644v1",
+        "material_read": "Accessible HTML full text with focus on Section VII Definitions VII.1 and Lemmas VII.1–VII.3, plus extremal bounds and conclusion",
+        "method": "Direct textual study of available arXiv paper",
+        "title": "A Characterization of the Number of Subsequences Obtained via the Deletion Channel",
+        "trigger": "Deletion-pattern mapping and run-based upper bound precede the present result"
+      },
+      {
+        "assessment": "Possible implicit special-case overlap not resolved; no assertion of whole-document noncoverage",
+        "evidence": [
+          "2008 abstract says closed-form subsequence counts for deletion counts 3,4,5; authorized full-text retrieval could not proceed."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/TIT.2008.924730",
+        "material_read": "Metadata/abstract only; full text not accessible through attempted open-access routes; authorized institutional download reported disconnected connection",
+        "method": "Bibliographic abstract and open-text availability check; full-document comparison unavailable",
+        "title": "On the Number of Subsequences When Deleting Symbols From a String",
+        "trigger": "Potentially stronger predecessor giving explicit small-deletion formulas over nonbinary alphabets"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2036e6f8-e3be-4818-87c9-135e8c823ac9",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first-collision cost is a natural exact structural invariant for when the standard pattern-counting upper bound is tight. It supplies infinitely many exact optimal values for the nondivisible-run deletion problem explicitly left open in recent literature, with q>=t+1 a demonstrably sharp uniform sufficient threshold. This includes r>q, where letters repeat and pattern collisions could otherwise arise; its use is not restricted to one arbitrary numerical slice.",
+    "status": "PASS"
+  }
+}
