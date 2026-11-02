@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T23:10:04.550607Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Alternate left/right SVD singular-vector bases on path vertices simultaneously diagonalize each T and T* edge, proving N_m(T) unitarily equivalent to direct sum_i s_i J_m even with repeated and zero singular values. The Hermitian part of e^{i theta}J_m has sine eigenvalues cos(j pi/(m+1)) independent of theta; Li–Sze half-plane intersection gives all disks/empty at ordered values h_k. For K=(d-1)q+1, any i-th largest singular value times c1 appears among the first (i-1)q+1 products. Greedy peeling with multiplicities recovers all values; if the next radius is zero the remaining singulars vanish. Inputs diag(1,...,1,t) and diag(1,...,1,tprime) with 0<t<tprime<c_q/c1 have identical first (d-1)q ranges, proving optimality. I independently diagonalized real symmetric parts and recovered spectra for 36 parameter sets. This tests only bounded m,d; the SVD/Jacobi/peeling argument covers all.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gau–Wu 2012 Theorem 1 uses the longer initial chain through floor(md/2)+1 to determine general Kippenhahn polynomial.",
+          "Argerami–Mustafa treats Jordan-plus-scalar variants."
+        ],
+        "reasoning": "A larger universal initial sample count does not imply the strictly shorter family-specific K=(d-1)floor(m/2)+1, nor show it is sharp.",
+        "searches": [
+          "arXiv:1208.1333 Gau Wu Kippenhahn polynomial Theorem 1",
+          "arXiv:1908.05692 Jordan-like matrices"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.15242",
+        "arXiv:1004.3751",
+        "arXiv:1208.1333",
+        "arXiv:1908.05692",
+        "Resultary semantic search: higher rank numerical range alternating T T star nilpotent block Jordan singular values initial ranks recovery"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Audeh and collaborators describe ordinary rank-one numerical radius of the exact alternating path, which depends only on the largest singular value.",
+          "Gaaya identifies one shift; Gau–Wu general range theory has a larger cutoff."
+        ],
+        "reasoning": "Rank-one radius cannot recover all singular values when d>1. Known general disk and Kippenhahn results, even combined with the path split, require a new ordered-product peeling and lower bound to establish exact K.",
+        "searches": [
+          "arXiv:2610.15242 Audeh Corollary 2.1",
+          "arXiv:1004.3751 Theorem 2.1",
+          "arXiv:1208.1333 Theorem 1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gaaya 2010 Theorem 2.1 computes rank-k disks for one Jordan shift; the path is a singular-value-scaled direct sum of such shifts."
+        ],
+        "reasoning": "The disk portion follows from established Li–Sze theory plus direct-sum decomposition, but no examined statement gives the new optimal initial-prefix inverse recovery cutoff for arbitrary input singular spectra.",
+        "searches": [
+          "Resultary: higher rank numerical range alternating T T star nilpotent block Jordan singular values initial ranks recovery",
+          "arXiv:1004.3751 Gaaya higher rank shift operator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No checked exact data source tabulates minimum-prefix tomography across arbitrary m,d and continuously variable singular values."
+        ],
+        "reasoning": "The claim is a parameter-uniform inverse theorem, not recovery of a finite lookup table. Failure to locate an index is only supporting context.",
+        "searches": [
+          "Resultary: higher rank numerical range alternating T T star nilpotent block Jordan singular values initial ranks recovery",
+          "web: alternating adjoint block operator higher rank numerical range recover singular values"
+        ]
+      },
+      "rationale": "Compared exact statements, not shared terminology. The disk portion follows from established Li–Sze theory plus direct-sum decomposition, but no examined statement gives the new optimal initial-prefix inverse recovery cutoff for arbitrary input singular spectra. A larger universal initial sample count does not imply the strictly shorter family-specific K=(d-1)floor(m/2)+1, nor show it is sharp. The claim is a parameter-uniform inverse theorem, not recovery of a finite lookup table. Failure to locate an index is only supporting context. Rank-one radius cannot recover all singular values when d>1. Known general disk and Kippenhahn results, even combined with the path split, require a new ordered-product peeling and lower bound to establish exact K.",
+      "residual_risks": [
+        "Full Audeh 2026 primary manuscript remained inaccessible; a stronger family-specific result could be hidden there.",
+        "Equivalent inverse measurements for direct sums of scaled Jordan blocks may be known under compression or spectral reconstruction terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Exact single-Jordan disks prior, not optimal inverse for scaled sums in inspected sections",
+          "evidence": "Theorem 2.1 cos(j pi/(m+1)) radius.",
+          "identifier_or_url": "https://arxiv.org/pdf/1004.3751",
+          "material_read": "Read PDF abstract, Theorem 2.1 and its proof/Corollary, and Theorem 2.3 in accessible full text; screenshot page 1.",
+          "method": "Read primary PDF sections and inspected mandatory screenshot",
+          "title": "On the higher rank numerical range of the shift operator",
+          "trigger": "Same shift geometry and potential dominating disk theorem"
+        },
+        {
+          "assessment": "General cutoff floor(N/2)+1 gives different, longer measurement requirement; no shorter family-specific claim in read result",
+          "evidence": "Theorem 1 for arbitrary N-by-N complex matrices.",
+          "identifier_or_url": "https://arxiv.org/pdf/1208.1333",
+          "material_read": "Primary PDF abstract, introduction and Theorem 1 statement, with screenshot page 1.",
+          "method": "Read PDF theorem and compare quantifier and cutoff",
+          "title": "Higher-rank Numerical Ranges and Kippenhahn Polynomials",
+          "trigger": "Potentially stronger general inverse theorem"
+        },
+        {
+          "assessment": "Same object and rank-one prior result; stronger hidden implications of full text remain possible",
+          "evidence": "Source Corollary 2.1 described as ||T|| cos(pi/(m+1)).",
+          "identifier_or_url": "https://arxiv.org/abs/2610.15242",
+          "material_read": "Abstract and relevant theorem identification from source package; complete primary full text inaccessible.",
+          "method": "Lawful public search and available abstract; institutional full-text access unavailable",
+          "title": "Integral Representations and Sharp Numerical Radius Inequalities for Hilbert Space Operators",
+          "trigger": "Exact alternating-adjoint path rank-one result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The known rank-one radius detects only ||T||. The theorem obtains all singular values from a provably minimal number of structured compression measurements, an exact information threshold for a natural alternating block operator. The matching indistinguishability construction is a substantive sharp lower bound.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite complex matrices, known m,d, exact noiseless rank-k sets; no singular vectors or noise stability.",
+    "The higher-rank disk proof uses standard Li–Sze theory and does not claim that criterion new.",
+    "Full Audeh 2026 primary manuscript remained inaccessible; a stronger family-specific result could be hidden there.",
+    "Equivalent inverse measurements for direct sums of scaled Jordan blocks may be known under compression or spectral reconstruction terminology."
+  ],
+  "schema_version": 1
+}

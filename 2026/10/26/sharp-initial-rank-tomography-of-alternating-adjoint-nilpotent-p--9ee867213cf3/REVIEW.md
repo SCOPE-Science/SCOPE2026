@@ -1,19 +1,21 @@
-# Scientific review: sharp initial-rank tomography of alternating-adjoint paths
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The conjugating unitary is explicitly the alternating left/right singular-vector basis, which changes both edge types to the same nonnegative diagonal matrix. Coordinate regrouping decomposes the path into scaled Jordan shifts. The phase-gauge identity and real Jacobi eigenvalues provide the complete, sign-sensitive Hermitian spectral list. The Li–Sze half-plane formula gives disks for nonnegative ordered eigenvalues and the empty set for negative ones. For the inverse, each next largest singular value times the largest cosine factor lies within the first \((d-1)\lfloor m/2\rfloor+1\) ordered products. Deletion with multiplicity covers ties; zero radii determine all remaining zeros. Two diagonal inputs with distinct small final singular values prove optimality of the exact initial-prefix cutoff. Computations are corroborative, not infinite proof.
+PASS
 
-## Originality — PASS, qualified
+Alternate left/right SVD singular-vector bases on path vertices simultaneously diagonalize each T and T* edge, proving N_m(T) unitarily equivalent to direct sum_i s_i J_m even with repeated and zero singular values. The Hermitian part of e^{i theta}J_m has sine eigenvalues cos(j pi/(m+1)) independent of theta; Li–Sze half-plane intersection gives all disks/empty at ordered values h_k. For K=(d-1)q+1, any i-th largest singular value times c1 appears among the first (i-1)q+1 products. Greedy peeling with multiplicities recovers all values; if the next radius is zero the remaining singulars vanish. Inputs diag(1,...,1,t) and diag(1,...,1,tprime) with 0<t<tprime<c_q/c1 have identical first (d-1)q ranges, proving optimality. I independently diagonalized real symmetric parts and recovered spectra for 36 parameter sets. This tests only bounded m,d; the SVD/Jacobi/peeling argument covers all.
 
-The October 2026 alternating-path paper computes only rank-one numerical radius. Gaaya's full accessible paper analyzes individual Jordan shifts and general contraction bounds, not exact scaled-direct-sum inverse identification. Gau–Wu prove a general all-matrix Kippenhahn-polynomial determination theorem using a longer initial chain, which does not by itself furnish the shorter optimal measurement count here. Argerami–Mustafa analyze one Jordan-like block plus scalar blocks, not these paths. Targeted semantically indexed and primary-literature searches did not identify the full disk spectrum together with the optimal inverse cutoff. Unindexed specialized inverse presentations remain a residual priority risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The motivating exact norm formula loses all singular-value information except the largest singular value. Higher-rank compression measurements make it possible to reconstruct the entire singular spectrum, and the theorem determines the **minimal** number needed uniformly over all complex input matrices. The sharp counterexample makes the cutoff an exact information threshold, not an arbitrary parameter slice. The result is an analytically closed finite-dimensional inverse theorem rather than a table recomputation.
+Compared exact statements, not shared terminology. The disk portion follows from established Li–Sze theory plus direct-sum decomposition, but no examined statement gives the new optimal initial-prefix inverse recovery cutoff for arbitrary input singular spectra. A larger universal initial sample count does not imply the strictly shorter family-specific K=(d-1)floor(m/2)+1, nor show it is sharp. The claim is a parameter-uniform inverse theorem, not recovery of a finite lookup table. Failure to locate an index is only supporting context. Rank-one radius cannot recover all singular values when d>1. Known general disk and Kippenhahn results, even combined with the path split, require a new ordered-product peeling and lower bound to establish exact K.
 
-## Boundaries and sources
+## value
 
-The theory assumes known finite path length and block size and noiseless sets; no singular vectors, perturbative conditioning, or infinite-dimensional conclusions are established. Scientific comparison focused on arXiv:2610.15242v1, arXiv:1004.3751v1, arXiv:1208.1333v1, and arXiv:1908.05692v3. Independent scientific priority and proof certification remain outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The known rank-one radius detects only ||T||. The theorem obtains all singular values from a provably minimal number of structured compression measurements, an exact information threshold for a natural alternating block operator. The matching indistinguishability construction is a substantive sharp lower bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
