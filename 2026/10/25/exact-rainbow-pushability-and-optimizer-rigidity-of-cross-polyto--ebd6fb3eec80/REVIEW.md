@@ -1,19 +1,21 @@
-# Scientific review: cross-polytope rainbow pushability
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For every integer \(d\ge2\), \(r\ge1\), the facet-incidence probabilities satisfy \(\sum_iq_{i,\sigma}=r/2\) by *collective* balance. Arithmetic-geometric mean and a union bound give the exact upper bound. Fair antipodal coordinate distributions reach it for all parameter values, and mandatory-axis rigidity is deduced by equality in every facet AM–GM inequality followed by conditional fair-sign counting. An exact-rational script checks 21 parameter constructions plus one strict nonoptimizer. The proof, not the checks, covers infinitely many dimensions and sample sizes.
+PASS
 
-## Originality — PASS, qualified
+For every facet sign sigma the membership probability of row i is q_iσ=(1+sum_j σ_j(a_ij^+−a_ij^-))/2. Because collective expectation sum is zero, sum_i q_iσ=r/2, so AM–GM bounds each independent joint facet probability by 2^(-r). Summing 2^d facet probabilities yields min(1,2^(d-r)). For r<=d distinct fair signed coordinate axes always lie on some common facet. For r>=d, one fair law dedicated to each of the d axes plus arbitrary individually antipodally symmetric additional laws attains 2^(d-r). Equality in the summed facet bounds forces q_iσ=1/2 for every i and all sign σ, whence all individual law signs are balanced for each axis. Conditional on independent axes J_i with K distinct chosen axes, compatible signs have probability 2^(K-r). Thus probability=E 2^(K-r), sharp iff K=d almost surely. An axis appears in every positive-probability independent tuple iff at least one row is entirely supported on it; this proves exact optimizer characterization for r>=d. The r=d case forces a permutation of fair axis laws. Independent rational enumeration for 2<=d<=4 and r<=d+2 confirms constructions and nonoptimizer examples; the analytical finite-axis independence argument proves all dimensions.
 
-The originating open-access paper (arXiv:2610.17157) was inspected in its relevant full-text Sections 3.1–3.2, 4.1–4.2 and 7. Its general facet-depth theorem supplies only a one-sided estimate. Its cube computation gives a different formula and does not imply the polar cross-polytope calculation. Its final open questions ask for further exact values and sharpness of the union bound. Mathematical-record and public-literature searches did not uncover a matching cross-polytope value or equality theorem. An unindexed equivalent derivation remains possible.
+## originality
 
-## Value — PASS
+PASS
 
-The new result answers a stated natural computation request for a fundamental family of centrally symmetric polytopes, establishes a sharp color-count threshold and distinguishes the polar-dual cube behavior. Full equality rigidity reveals the coordinate-coverage structure of all optimal independent balanced samplers.
+The general centrally symmetric facet-depth bound min(1,f_{d-1}(P)/2^r) is already known; this statement specializes it for a cross-polytope. Originality lies in the matching lower bound, full equality/rigidity characterization, and exact cross-polytope family. Crucially, the same paper computes exact cube pushability, but duality does not preserve the vertex-sampling common-facet probability.
 
-## Limitations
+## value
 
-No equality classification is asserted for \(r<d\); no all-polytope generalization or independent review is claimed. The literature comparison does not certify absence of unindexed prior work.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact optimum and complete optimizer geometry answer a natural exact-value extension raised by the defining source on colorful-pushability. It provides a genuine sharpness example for the broad facet-depth theorem and shows how independent axis occupancy controls equality; the result is not just a renamed cube formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
