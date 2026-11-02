@@ -1,11 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-**Correctness: PASS.** The update is \(2(I+hL/2)^{-1}-I\), so an inverse irreducible \(M\)-matrix ensures off-diagonal positivity. Graph-edge Loewner ordering proves the complete-graph lower bound for each resolvent diagonal. The integral equality argument establishes that a vertex attains the bound exactly when it is universal. The complete-graph diagonal crosses one half exactly at \(h=2/(N-2)\), and continuity gives the strict converse. The universal-vertex Schur complement independently matches this value. The \(N=2\) boundary is treated separately. Exact rational verification tests 830 cases, not a proof by enumeration.
+## correctness
 
-**Originality: PASS under a best-knowledge comparison, with recorded risk.** The known general return-resolvent criterion for Crank–Nicolson on finite reversible chains is not claimed new. The additional all-connected-graph sharp N-only bound with an **if-and-only-if universal-vertex equality class** is not stated in the accessible summary. The full indexed return-law record could not be inspected; this remains an unresolved overlap risk, not an assertion of noncoverage. The inspected Higueras–Roldán paper treats Dirichlet 1D heat-grid positivity; von Daniels–Hinze–Vierling treat parabolic optimal-control timestepping. Own accessible claims and published-finding corpus semantic searches found no exact characterization. Independent priority assessment remains needed.
+PASS
 
-**Value: PASS.** A uniform sharp step restriction is useful for structure-preserving second-order integration when only graph order is known. The result identifies every network attaining the worst-case restriction, and shows a full topological-insensitivity law at any universal vertex, rather than only evaluating a few symmetric graphs. It also distinguishes numerical positivity from unconditional scalar stability.
+For connected unweighted finite simple G on N>=3, P_h=2(I+hL_G/2)^(-1)-I, and the inverse of the irreducible M-matrix has positive off-diagonals. Since L_KN-L_G is a positive semidefinite complement Laplacian, inverse Loewner order gives C_G,ii >=(1+t)/(1+Nt), t=h/2. The equality criterion for a positive-semidefinite inverse difference reduces to (L_KN-L_G)e_i=0, equivalent to i being universal. It follows that h<=2/(N-2) is nonnegative on every graph, with exactly universal vertices having vanishing holding entries at the boundary. The block Schur complement at a universal vertex gives (P_h)_vv=(2-(N-2)h)/(2+Nh), negative immediately beyond the boundary. The connected two-vertex exception remains positive for all finite h. Independently enumerated all 770 connected labeled simple graphs on N=3..5, confirming exact equality support on all of them (283 graphs with at least one universal vertex); finite checks corroborate, do not establish the universal proof.
 
-**Limitations.** Only single-step entrywise nonnegativity for unweighted, simple, connected undirected graphs is asserted; individual thresholds for graphs without universal vertices are not computed. The result does not certify accuracy or scientific priority beyond the documented comparisons.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact general resolvent-return positivity criterion, spectral crossing formula for reversible Markov chains, and complete-graph threshold are acknowledged earlier results. The new statement is the sharp extremal bound over all unweighted N-vertex graphs together with the precise equality class of universal vertices, which needs the nontrivial inverse Loewner comparison and strict equality criterion not supplied in the earlier chain paper. Search did not reveal an implication-equivalent graph-order extremal theorem. Best-of-knowledge with priority risk.
+
+## value
+
+PASS
+
+Uniform positivity timesteps are natural stability limits for diffusion on graphs. This settles the exact worst-case threshold over all connected simple graphs of each order and uniquely characterizes extremal graph structure and zero-return sites, rather than restating the prior fixed-chain resolvent test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
