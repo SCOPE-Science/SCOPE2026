@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T18:02:05.360758Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For normal real K=aI+bJ, exactly three restarted inner calls give P3(γK)=I−γK+(γK)^2−(γK)^3; because K is rotation-dilation, its squared norm is the scalar |(1−z^4)/(1+z)|². With r=γL,c=a/L, q−1=G/(1+r²+2rc), G=r^8−2r^4(8c^4−8c²+1)−r²−2rc. Both angular boundaries and all r<=1/2 are strictly negative. Any first nonnegative maximum at r<1 is interior and solves G=∂cG=0. Independently verified resultant 65536r^16(4r^6+4r^4+4r²+3)^2 H(r²), H(u)=16u^6−32u^5+48u^4−104u³+72u²−8u+3; Descartes substitution yields exactly one positive root u∈(0,1). Rational sample r=19/20,c=2/3 has q=1773279907/1728000000>1 (independent exact 2×2 matrix multiplication); a neutral scaled rotation occurs at unique r*=sqrt(u*)≈0.940521095740431. The universal result applies only to normal two-dimensional saddle K, not arbitrary nonlinear/non-normal models.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Cevher et al. Algorithm 1 defines the same inner recurrence, but Lemma 3.5 uses γ=1/(2L) and a k-dependent error bound; their outer guarantee employs a growing logarithmic budget. Nemirovski 2004 §1–3 uses a different prox/extragradient construction and ergodic O(1/t) guarantee."
+        ],
+        "reasoning": "Neither inspected theorem supplies a fixed three-call normal-plane all-r uniform contraction threshold or the exhibited damping-induced instability; their algorithms/quantifiers differ.",
+        "searches": [
+          "three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+          "Cevher Piliouras Sim Skoulakis 2023 Algorithm 1 Lemma 3.5",
+          "Nemirovski 2004 prox method"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2301.03931",
+        "https://www2.isye.gatech.edu/~nemirovs/SIOPT_MP_2004.pdf",
+        "Resultary semantic search: three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+        "Resultary repository ranked published findings (search date 2026-10-30 UTC)",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/96820bea16c368ad87a6c40e0b6b65dea8f40266/2026/10/26/a-sharp-stability-radius-and-damping-induced-divergence-in-three--b117eb184a92"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Contraction of the inner map at γL<1 guarantees approximation to the implicit proximal point as k→∞; it does not ensure contractivity after the fixed k=3 inner calls."
+        ],
+        "reasoning": "A bound on the approximation error to a proximal step does not logically imply q<1 at all allowed γ, as the exact rational counterexample shows. No stronger prior condition in the inspected main results dominates the sharp restricted normal-plane radius.",
+        "searches": [
+          "three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+          "arXiv:2301.03931 Algorithm 1 and Lemma 3.5",
+          "Nemirovski 2004 DOI:10.1137/S1052623403425629"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three-call unprojected update is exactly a truncated resolvent/Neumann polynomial and can be analyzed by complex stability region |P3(re^{iθ})|<1."
+        ],
+        "reasoning": "That transformation is explicitly reconstructed; the new comparison requires restricting θ to a/L∈[0,1] and identifying the exact first uniform loss and its interior damping angle, not simply restating polynomial boundedness.",
+        "searches": [
+          "three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+          "Neumann polynomial P3(z)=1-z+z²-z³ truncated resolvent complex stability region"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary published work concerns sequential implicit-proximal updates or proximal multiblock ADMM, not the cubic three-Picard polynomial P3."
+        ],
+        "reasoning": "A historical scalar stability-polynomial table might encode the same angle-optimized 0.94052 radius; no exact such table was found in bounded searches, which is not priority proof.",
+        "searches": [
+          "three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+          "Resultary: sharp coupling frontier for sequential implicit proximal minimax",
+          "truncated resolvent polynomial stability degree three"
+        ]
+      },
+      "rationale": "Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.",
+      "residual_risks": [
+        "An old numerical-analysis stability region for the third-degree truncated resolvent may already imply the angular minimax radius under different notation.",
+        "No all-operator stability theorem or nonnormal guarantee follows from this normal two-dimensional computation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Method is inherited, sharp k=3 outer instability frontier not stated; parent end-to-end algorithm uses γ=1/(2L) and adaptive k.",
+          "evidence": [
+            "Algorithm 1 lines 321–327: w0=z, wm=[z−γF(wm−1)]D; Lemma 3.5 lines 329–351: k-dependent approximation at γ=1/(2L)."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2301.03931",
+          "material_read": "Primary arXiv pages 4–7, Algorithm 1, Lemma 3.5, Algorithm 2 and its stated convergence setup",
+          "method": "Read primary PDF full-text passages and page image",
+          "title": "Near-Optimal Min-Max Optimization Made Simple: Approximating the Proximal Point Method via Contraction Maps",
+          "trigger": "Exact ancestor Algorithm 1 of assessed three inner calls"
+        },
+        {
+          "assessment": "Establishes different bounded-set prox/extragradient scheme; does not quantify exactly three restarted Picard calls on a normal saddle.",
+          "evidence": [
+            "§1 explains two evaluation extragradient algorithm and ergodic rate O(1/t)."
+          ],
+          "identifier_or_url": "https://www2.isye.gatech.edu/~nemirovs/SIOPT_MP_2004.pdf",
+          "material_read": "Primary PDF introduction §1 and method §2–3, including equations (1.3)–(1.6) and two-evaluation Euclidean implementation",
+          "method": "Read primary PDF extracted full text of methods plus page image",
+          "title": "Prox-Method with Rate of Convergence O(1/t) for Variational Inequalities with Lipschitz Continuous Monotone Operators",
+          "trigger": "Classical provably convergent prox and extragradient iterations"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Fixed-cost approximate proximal schemes need a sharp safe outer-iteration step bound; inner fixed-point contractivity alone is not sufficient. The exact radius, a normal strongly convex-concave divergence witness and the reentrant stable/unstable dependence on damping resolve a concrete finite-iteration stability question not answered by end-to-end guarantees for a growing inner budget.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2301.03931",
+    "https://www2.isye.gatech.edu/~nemirovs/SIOPT_MP_2004.pdf",
+    "Resultary semantic search: three Picard proximal point fixed point iteration three steps normal saddle sharp stability radius divergence",
+    "Resultary repository ranked published findings (search date 2026-10-30 UTC)",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/96820bea16c368ad87a6c40e0b6b65dea8f40266/2026/10/26/a-sharp-stability-radius-and-damping-induced-divergence-in-three--b117eb184a92"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite symbolic and enumerative checks corroborate specified identities only; unrestricted correctness rests on reconstructed analytical proof.",
+    "Originality is best-of-knowledge, with specified unread primary texts/historical priority risks.",
+    "Read-only scientific review: no GitHub writes or external mathematical certification."
+  ],
+  "residual_risks": [
+    "An old numerical-analysis stability region for the third-degree truncated resolvent may already imply the angular minimax radius under different notation.",
+    "No all-operator stability theorem or nonnormal guarantee follows from this normal two-dimensional computation."
+  ],
+  "schema_version": 1
+}

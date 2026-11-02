@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** Three inner fixed-point evaluations of the cited contraction-map update produce the degree-three polynomial exactly. The complex eigenvalue calculation gives an explicit norm-gain polynomial. Exact endpoint signs and the small-radius inequality leave only interior double roots as possible first stability-loss events. Its exact polynomial resultant reduces the possible transition to a degree-six equation with exactly one root in the unit interval by Descartes' rule. An exact rational expanding saddle matrix realizes the loss; the norm recurrence then proves divergence for all nonzero initial states. The supplied standalone symbolic checker reproduces the needed algebra, while quantified sign conclusions are proved analytically.
+## correctness
 
-**Originality — PASS, best-knowledge comparison.** Cevher–Piliouras–Sim–Skoulakis, arXiv:2301.03931 (first posted 2023-01-10), supply the inner recursion and approximation theorem for \(\gamma L<1\), but their stated convergence analysis uses \(\gamma=1/(2L)\) and a logarithmic inner budget, not the fixed-three-call sharp outer radius. Nemirovski's earlier prox/extragradient analysis concerns a different update. Closest published records about sharp degree-two extragradient polynomials and sequential implicit-proximal steps do not dominate the three-Picard-step polynomial and its reentrant damping effect. Searches for equivalent stability polynomials and truncated-resolvent formulations did not find direct coverage. This is not proof of priority: older stability-polynomial tables or differently named inexact-proximal studies could contain the same sharp radius.
+PASS
 
-**Value — PASS.** The new exact radius solves a motivated safe-step problem for a natural fixed-cost specialization of a published approximate-proximal scheme. It distinguishes inner contraction from outer algorithm convergence, supplies a concrete exponentially diverging strongly convex–strongly concave game within the inner-contraction regime, and demonstrates damping-induced instability between two individually stable limiting cases. The result is a sharp structural stability boundary rather than a routine calculation at arbitrary parameters. It does not invalidate the published horizon-dependent algorithm and does not extrapolate to nonnormal or nonlinear problems.
+For normal real K=aI+bJ, exactly three restarted inner calls give P3(γK)=I−γK+(γK)^2−(γK)^3; because K is rotation-dilation, its squared norm is the scalar |(1−z^4)/(1+z)|². With r=γL,c=a/L, q−1=G/(1+r²+2rc), G=r^8−2r^4(8c^4−8c²+1)−r²−2rc. Both angular boundaries and all r<=1/2 are strictly negative. Any first nonnegative maximum at r<1 is interior and solves G=∂cG=0. Independently verified resultant 65536r^16(4r^6+4r^4+4r²+3)^2 H(r²), H(u)=16u^6−32u^5+48u^4−104u³+72u²−8u+3; Descartes substitution yields exactly one positive root u∈(0,1). Rational sample r=19/20,c=2/3 has q=1773279907/1728000000>1 (independent exact 2×2 matrix multiplication); a neutral scaled rotation occurs at unique r*=sqrt(u*)≈0.940521095740431. The universal result applies only to normal two-dimensional saddle K, not arbitrary nonlinear/non-normal models.
 
-**Scientific limitations and residual originality risks.** The analysis is confined to \(aI+bJ\), \(a\ge0\), and exactly three restarted inner evaluations. No outside review has established publication novelty; a generalized stability-region chart, historic inexact proximal theorem, or fixed-point iteration study may imply the radius without matching its terminology. The source's full algorithm operates at a different step and growing inner budget.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge exact statement and implication comparison: closest accessible primary papers and ranked published findings do not establish this precise claim under the stated parameters. This is not a historical-priority certificate; see source inspections and risks.
+
+## value
+
+PASS
+
+Fixed-cost approximate proximal schemes need a sharp safe outer-iteration step bound; inner fixed-point contractivity alone is not sufficient. The exact radius, a normal strongly convex-concave divergence witness and the reentrant stable/unstable dependence on damping resolve a concrete finite-iteration stability question not answered by end-to-end guarantees for a growing inner budget.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
