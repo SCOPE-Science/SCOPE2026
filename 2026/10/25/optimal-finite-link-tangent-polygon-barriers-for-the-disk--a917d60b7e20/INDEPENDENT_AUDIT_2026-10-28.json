@@ -1,0 +1,150 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T07:38:26Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At every convex tangent polygon vertex, the two outgoing tangency segments have lengths tan x_i, with half exterior angle x_i∈(0,π/2) and ∑x_i=π. Total k retained side lengths are weighted convex objective F=tan x1+tan x_{k+1}+2∑_{i=2}^{k}tan x_i. Strict convexity of tan on positive half interval plus Lagrange multipliers give endpoints a, others b, sec²a=2sec²b, and unique interior root, hence unique global optimum (including boundary infima). Adjacent normal gaps 2x_i give a valid strictly convex circumscribed polygon. Splitting any interior angle b halves its contribution with 4tan(b/2)<2tan b, proving strict improvement in k. At q=k−1, Taylor solve b=π/(2q)+O(q^-3), a=π/4+b²/2+O(b4), giving L_k=π+2+π³/(12q²)+O(q^-4). Projection of connected chain is an interval equal to its convex-hull projection, and its convex hull is the circumscribed polygon containing the disk, hence it hits every disk-intersecting line. Independent constrained SLSQP minimization k=2..11 recovers the angle pattern, exact k2/k3 and asymptotic trend.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Nikonorov provides general convex-hull path lower bounds, Opaque sets includes unrestricted barrier benchmarks and fixed polygon Theorem6; Faber full text inaccessible after OA and institutional VPN attempt."
+        ],
+        "reasoning": "Broader unrestricted results bound admissible chains but need not identify optimal finite-link tangent-polygon configurations. A fully classified unrestricted k-link paper would dominate, but none was materially established from accessible primary passages.",
+        "searches": [
+          "Nikonorov Properties of a curve whose convex hull covers a given convex body arXiv:2109.12830",
+          "Faber Mycielski Pedersen 1984 DOI:10.4064/ap-44-3-249-266",
+          "Dumitrescu Jiang Pach Opaque sets arXiv:1005.2218"
+        ]
+      },
+      "checked_sources": [
+        "Actual assigned RESULT.md and verify.py",
+        "Dumitrescu, Jiang, Pach Opaque sets arXiv:1005.2218 (full primary PDF)",
+        "Nikonorov arXiv:2109.12830 (abstract)",
+        "Faber, Mycielski, Pedersen 1984 DOI:10.4064/ap-44-3-249-266 (full inaccessible)",
+        "Resultary query opaque set unit disk connected polygonal barrier k tangent sides circumscribed polygon shortest chain length pi+2 finite links"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 6 in Opaque sets optimizes polygon-vertex Hamiltonian paths with the polygon held fixed; here the polygon itself is variable and must be tangential, and the objective is derived from weighted tan half-angles."
+        ],
+        "reasoning": "No inspected paper supplies the nonregular uniquely optimal two-angle family or π³/12 excess coefficient. The 1984 paper is a significant unknown comparison due unavailable complete text, not declared noncovering.",
+        "searches": [
+          "Dumitrescu–Jiang–Pach 2012 primary PDF arXiv:1005.2218, Theorem 6",
+          "Nikonorov 2021 arXiv:2109.12830",
+          "Faber et al 1984 DOI:10.4064/ap-44-3-249-266"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The source `Opaque sets` states optimal connected disk barrier length π+2 and the optimal Hamiltonian path through vertices of a fixed polygon."
+        ],
+        "reasoning": "Fixed-vertices Hamiltonian path or unrestricted connected-barrier length is not the same optimization as free choice of all tangent polygon exterior angles with a fixed number of links; new finite-k optimizer and coefficient do not follow directly.",
+        "searches": [
+          "opaque set unit disk connected polygonal barrier k tangent sides circumscribed polygon shortest chain length pi+2 finite links",
+          "Dumitrescu Jiang Pach Opaque sets arXiv:1005.2218 Theorem 6",
+          "Faber Mycielski Pedersen 1984 connected disk barrier"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary nearest findings include cyclic interval inball barriers and regular polygon moduli, distinct extremal objects; no exact L_k finite-k classification appeared."
+        ],
+        "reasoning": "The theorem is uniform in all integers k and not a finite table. The k=2,3 radicals and computations are consequences, not sufficient novelty evidence.",
+        "searches": [
+          "Resultary semantic query: opaque set unit disk connected polygonal barrier k tangent sides circumscribed polygon shortest chain length pi+2 finite links",
+          "Resultary tangent polygon barriers finite number of links π+2",
+          "opaque sets circumscribed k-gon barrier length"
+        ]
+      },
+      "rationale": "The classical connected-disk opaque barrier benchmark π+2 and theories of curves whose convex hull covers a disk are prior, and a minimum Hamiltonian path of the vertices of a *fixed* convex polygon does not solve simultaneous optimization of variable tangent side angles at prescribed k. Full Dumitrescu–Jiang–Pach Opaque sets and accessible Nikonorov descriptions lack this specific equal-two-endpoint and shared-interior-angle optimization. Faber–Mycielski–Pedersen (1984), the strongest historical connected-disk-barrier paper, was inaccessible in full even after authorized attempt; no whole-document noncoverage is asserted. Best-of-knowledge PASS with this specific residual risk.",
+      "residual_risks": [
+        "Faber–Mycielski–Pedersen original 1984 circle-barrier paper may contain essentially the same finite-link tangential-polygon problem or stronger finite-link optimization; publisher and authorized institutional full text unavailable.",
+        "The optimizer is unique only inside strictly convex (k+1)-gons circumscribed about the disk with one side removed; no claim for arbitrary k-link connected barriers.",
+        "The approach toward π+2 is an asymptotic benchmark, not proof of unrestricted exact optimality at finite k."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 6 fixes convex polygon vertices; quoted connected disk π+2 benchmark is prior; no demonstrated theorem for varying tangent polygon fixed k",
+          "evidence": "Theorem 6 states an optimal Hamiltonian path for vertices of a fixed polygon, not the best circumscribed polygon at each finite k.",
+          "identifier_or_url": "https://arxiv.org/abs/1005.2218",
+          "material_read": "Complete accessible 18-page primary PDF including Theorem 6, connected barriers and references, selected page screenshot",
+          "method": "Web PDF extraction and page screenshot",
+          "title": "Opaque sets",
+          "trigger": "Best accessible primary overview of connected and polygonal opaque barriers"
+        },
+        {
+          "assessment": "Known lower bounds on curve length and perimeter-minus-diameter, not verified finite tangent-side optimizer",
+          "evidence": "Nikonorov 2021 abstract; limited material prevents a whole-document noncoverage claim.",
+          "identifier_or_url": "https://arxiv.org/abs/2109.12830",
+          "material_read": "Abstract and publication summary, no complete primary full text read this execution",
+          "method": "arXiv bibliographic indexed record",
+          "title": "Properties of a curve whose convex hull covers a given convex body",
+          "trigger": "General convex-hull-curve lower bounds might dominate"
+        },
+        {
+          "assessment": "Unknown possible historical finite-link specialization; no novelty assertion from absence",
+          "evidence": "Faber, Mycielski, Pedersen, Ann. Polon. Math. 44 (1984), 249–266; Oxford status vpn_disconnected.",
+          "identifier_or_url": "https://doi.org/10.4064/ap-44-3-249-266",
+          "material_read": "Bibliographic/publisher information only; full PDF inaccessible, Oxford institutional VPN disconnected",
+          "method": "Lawful OA attempt followed by authorized Oxford attempt",
+          "title": "On the shortest curve which meets all the lines which meet a circle",
+          "trigger": "Foundational potentially stronger 1984 connected disk-barrier result"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Finite k connected polygonal barriers provide a natural geometric approximation hierarchy to the classical π+2 connected-disk barrier. Exact classification of all strict convex tangent polygon optimizers at each k, plus the sharp inverse-square excess constant, makes a motivated restricted geometric extremal result. Restriction to tangential polygons with one side omitted is essential, and no unproved unrestricted barrier claim is smuggled in.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual assigned RESULT.md and verify.py",
+    "Dumitrescu, Jiang, Pach Opaque sets arXiv:1005.2218 (full primary PDF)",
+    "Nikonorov arXiv:2109.12830 (abstract)",
+    "Faber, Mycielski, Pedersen 1984 DOI:10.4064/ap-44-3-249-266 (full inaccessible)",
+    "Resultary query opaque set unit disk connected polygonal barrier k tangent sides circumscribed polygon shortest chain length pi+2 finite links"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every integer k>=2, among chains obtained by deleting exactly one side of a strictly convex unit-circle-circumscribed (k+1)-gon, the minimum retained k-link length is L_k=2tan a_k+2(k-1)tan b_k, uniquely optimized by two equal endpoint half-exterior angles a and k-1 equal interior b satisfying sec²a=2sec²b and 2a+(k-1)b=π. L_2=(1+√5)√(2+√5), L_3=4√2, L_k strictly decreases to π+2 with excess π³/[12(k-1)²]+O(k^-4). Each chain is a connected opaque barrier for the unit disk. No unrestricted k-link optimum is claimed.",
+  "limitations": [
+    "k>=2, unit disk radius one, strict convex circumscribed tangent (k+1)-gon with precisely one omitted side; no arbitrary barrier minimization."
+  ],
+  "residual_risks": [
+    "Faber–Mycielski–Pedersen original 1984 circle-barrier paper may contain essentially the same finite-link tangential-polygon problem or stronger finite-link optimization; publisher and authorized institutional full text unavailable.",
+    "The optimizer is unique only inside strictly convex (k+1)-gons circumscribed about the disk with one side removed; no claim for arbitrary k-link connected barriers.",
+    "The approach toward π+2 is an asymptotic benchmark, not proof of unrestricted exact optimality at finite k."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 6 fixes convex polygon vertices; quoted connected disk π+2 benchmark is prior; no demonstrated theorem for varying tangent polygon fixed k",
+      "evidence": "Theorem 6 states an optimal Hamiltonian path for vertices of a fixed polygon, not the best circumscribed polygon at each finite k.",
+      "identifier_or_url": "https://arxiv.org/abs/1005.2218",
+      "material_read": "Complete accessible 18-page primary PDF including Theorem 6, connected barriers and references, selected page screenshot",
+      "method": "Web PDF extraction and page screenshot",
+      "title": "Opaque sets",
+      "trigger": "Best accessible primary overview of connected and polygonal opaque barriers"
+    },
+    {
+      "assessment": "Known lower bounds on curve length and perimeter-minus-diameter, not verified finite tangent-side optimizer",
+      "evidence": "Nikonorov 2021 abstract; limited material prevents a whole-document noncoverage claim.",
+      "identifier_or_url": "https://arxiv.org/abs/2109.12830",
+      "material_read": "Abstract and publication summary, no complete primary full text read this execution",
+      "method": "arXiv bibliographic indexed record",
+      "title": "Properties of a curve whose convex hull covers a given convex body",
+      "trigger": "General convex-hull-curve lower bounds might dominate"
+    },
+    {
+      "assessment": "Unknown possible historical finite-link specialization; no novelty assertion from absence",
+      "evidence": "Faber, Mycielski, Pedersen, Ann. Polon. Math. 44 (1984), 249–266; Oxford status vpn_disconnected.",
+      "identifier_or_url": "https://doi.org/10.4064/ap-44-3-249-266",
+      "material_read": "Bibliographic/publisher information only; full PDF inaccessible, Oxford institutional VPN disconnected",
+      "method": "Lawful OA attempt followed by authorized Oxford attempt",
+      "title": "On the shortest curve which meets all the lines which meet a circle",
+      "trigger": "Foundational potentially stronger 1984 connected disk-barrier result"
+    }
+  ]
+}
