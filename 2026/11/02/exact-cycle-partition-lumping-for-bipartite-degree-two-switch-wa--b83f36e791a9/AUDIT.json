@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Every legal rectangle corresponds bijectively to one pair of disjoint edges. For two distinct cycles all 4ab pairs merge. Within a cycle the two alternating 1-factors yield k or 2k nonconsecutive split pairs according to equal/unequal split sizes, while k(k-2) mixed-factor pairs preserve one cycle. This exhausts moves; the matrix degree and projected probabilities follow for all n>=2. Labelled bipartite cycle counts yield the multiplicity formula. Uniform reversible rectangle selection implies the conditioned Ewens(1/2) stationary distribution, with irreducibility from Ryser. The two separately implemented exhaustive verifiers check every state through n=6, and are embedded as executable source, not presumed from external logs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Miklós–Erdős–Soukup, Electronic J. Combinatorics 20(1) (2013) #P16, PDF sections 2-3: general swap definition, Ryser connectivity, uniform stationary distribution, polynomial mixing for half-regular degrees; Section 5 uses alternating circuits in symmetric differences, not cycle-type quotient of an individual degree-two graph."
+      ],
+      "reasoning": "General connectivity or rapid mixing does not imply strong lumpability of a particular statistic or determine any of the cycle-type transition counts. The auxiliary 2-regular decomposition on symmetric differences in the general proof is a different combinatorial object. This is the closest broad-covered literature, but its statements do not dominate the proposed finite kernels.",
+      "searches": [
+        "Towards random uniform sampling of bipartite graphs with given degree sequence arxiv 1004.2612 PDF full text",
+        "switch Markov chain 2-regular bipartite graphs Markov chain cycle partitions coagulation fragmentation 1/2 Ewens",
+        "regular bipartite 2-factor switch chain cycle type Markov lumping",
+        "sampling regular bipartite degree-sequence realizations Ryser switch ergodicity"
+      ]
+    },
+    "checked_sources": [
+      "Nester, JCMCC 16 (1994), 3-17, publisher PDF",
+      "Miklós–Erdős–Soukup, arXiv:1004.2612; Electron. J. Combin. 20 (2013) #P16, full-text primary PDF",
+      "Ryser 1957 connectivity theorem as quoted in Miklós–Erdős–Soukup",
+      "OEIS A001499 and A008300 for exact known totals",
+      "Related index results for bipartite realizations, graph switching and cycle processes, no mathematically covering explicit kernel identified"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 general swap walk is identical at matrix level, but its theorems state irreducibility/mixing, not partition lumping. Nester and OEIS supply counts, not swaps. Exhaustive independent finite checks verify nontrivial rates at n=6, with four quotient states and detailed balance."
+      ],
+      "reasoning": "A matrix-uniform stationary distribution implies only a pushforward stationary law; it does not imply the cycle-type process is Markov from arbitrary starts. The explicit local count theorem requires the separate cyclic alternating-factor argument, which is absent from the inspected primary conclusions. Same mathematical objects therefore do not by themselves establish prior implication.",
+      "searches": [
+        "Miklós Erdős Soukup 2013 PDF Definition 2.1 Theorem 2.2 Section 3 Markov chain",
+        "Nester 1994 PDF Table 5 enumeration orientations switch",
+        "two-switch 2-regular bipartite graphs cycle split merge Markov lumpable partition types",
+        "Markov chain on integer partitions parts at least two induced by two-edge switches in bipartite 2-factors, rates 4ab and 2k"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A001499 identifies binary matrices with two ones per row/column as labelled 2-regular relations; Nester 1994 encodes Eulerian orientations of K_{4,4} by balanced binary matrices; arXiv:1004.2612 defines the checkerboard rectangular swap."
+      ],
+      "reasoning": "The same objects are binary margin-two contingency tables, labelled bipartite two-factors, and (in the 4-by-4 case) balanced Eulerian orientations. The novelty comparison is against exact projected transition counts in all formulations, not merely matching titles. No covering explicit merge/split/stay formula was located.",
+      "searches": [
+        "2-regular bipartite graph simple graph switch chain cycle structure Ewens theta one half lumped Markov",
+        "2 regular zero one matrices switch walk cycles 1/2 Ewens Markov",
+        "2-regular bipartite graph switch chain cycle lengths exact transition rates number components",
+        "OEIS A001499 0-1 matrices row and column sums two"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A001499 already records the total counts 1,6,90,2040,67950, and its generating function exp(-x/2)/sqrt(1-x); Nester 1994 Table 5 records the 4-by-4 balanced orientation total 90 and investigates Eulerian-circuit counts."
+      ],
+      "reasoning": "The total-state sequence and basic generating function are known and expressly excluded from the novelty claim. The proposed result is an exact move-by-move Markov quotient with off-diagonal split/merge rates and within-type rates, not a recomputation of this enumeration table.",
+      "searches": [
+        "OEIS A001499 Number of n X n matrices with exactly 2 ones in each row and column",
+        "OEIS A008300 triangle row and column sums equal two",
+        "Nester 1994 Eulerian Orientations and Circuits of Complete Bipartite Graphs Table 5 PDF",
+        "1994 Nester 4x4 Eulerian orientations 90",
+        "90 2040 67950 binary matrices two ones each row column"
+      ]
+    },
+    "rationale": "Ryser connectivity, uniform switch-walk stationarity, exact total binary-matrix counts and the static generating function are explicitly credited. The searched and materially inspected 1994 orientation census, 2010/2013 general switch-chain work and OEIS do not state an exact degree-two cycle-type merge/split/stay kernel or establish strong lumpability. Neither general mixing nor known state counts imply this dynamical result. Residual risk: mathematically equivalent results could occur in unindexed fragmentation-coagulation literature.",
+    "residual_risks": [
+      "A prior paper using a different random two-factor/fragmentation–coagulation terminology could state the identical kernel and would defeat priority.",
+      "Broader 2-switch-degree literature may subsume the degree formula alone; the finding is not based on that formula alone.",
+      "Publisher full texts beyond the inspected and indexed material may contain unindexed equivalent special cases."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General fixed-margin swap chain, stationary uniform measure, connectivity and mixing; no exact special-case cycle-type transition kernel identified.",
+        "evidence": [
+          "Published PDF pp.3-5 Definition 2.1, Theorem 2.2, Section 3; p.9 auxiliary alternating-circuit decomposition; arxiv v1 first posted 2010-04-15."
+        ],
+        "identifier_or_url": "arXiv:1004.2612; DOI:10.37236/3028; https://www.combinatorics.org/ojs/index.php/eljc/article/download/v20i1p16/pdf/",
+        "material_read": "Full published PDF consulted: text of introduction and theorem pp.1-5, alternating-circuit discussion p.9, additional late proof segment p.44; targeted full-document searches for exact degree-two cases, Ewens and cycle-length terms. PDF page screenshots inspected at pp.3-4.",
+        "method": "Primary full-text PDF indexed extraction, targeted searches and page screenshots",
+        "title": "Towards random uniform sampling of bipartite graphs with given degree sequence",
+        "trigger": "Direct definition and strongest broad theory of the same 2x2 switch walk"
+      },
+      {
+        "assessment": "Tabulates orientation and Eulerian-circuit counts and some determinant problems; does not address rectangular switch moves or cycle-type lumping in material examined.",
+        "evidence": [
+          "Table 5 contains 90 orientations of K_{4,4}; page 7 describes the enumerative computation; 1994-10-31 publisher date."
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/article/jcmcc/Volume%2016/vol-16-paper%201.pdf",
+        "material_read": "Original 15-page PDF visually inspected at printed pp.3,5,7,8,13,15; Table 5 and enumeration-method discussion inspected directly.",
+        "method": "Original publisher PDF visual page review",
+        "title": "Eulerian orientations and circuits of complete bipartite graphs",
+        "trigger": "Direct count/classification of balanced 0-1 orientation matrices, including the 4-by-4 state count"
+      },
+      {
+        "assessment": "Establishes known static enumeration; no projected Markov transition matrix or strong-lumpability assertion in the entry.",
+        "evidence": [
+          "A001499 terms 1,6,90,2040,67950 and static generating function; legacy counting references back to Bricard 1901."
+        ],
+        "identifier_or_url": "https://oeis.org/A001499",
+        "material_read": "Entire short entry inspected including description, numerical terms, references and exp(-x/2)/sqrt(1-x) generating function.",
+        "method": "Online primary integer-sequence record",
+        "title": "OEIS A001499: Number of binary matrices with 2 ones in each row and column",
+        "trigger": "Exact database/table overlap and known coefficient formula"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b83f36e7-91a9-4c4f-8c58-56df8f7bfcc1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical rectangular-switch sampler on fixed margins is a canonical high-dimensional chain. A genuinely Markovian observable is not automatic; exact strong lumpability to integer partitions yields complete transition rates for all dimensions and an explicitly reversible reduced chain. In particular its full all-n merge/split/stay kernel, conditional Ewens equilibrium, and exact 4-state n=6 example are mathematically motivated and permit reduced-state analysis without large labelled-matrix enumerations. This exceeds routine state counting and does not rely on claiming known totals as new.",
+    "status": "PASS"
+  }
+}
