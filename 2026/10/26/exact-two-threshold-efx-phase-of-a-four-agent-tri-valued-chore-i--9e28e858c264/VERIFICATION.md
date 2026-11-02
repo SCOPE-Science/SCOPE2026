@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,24 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_phase.py` from this directory with Python 3 (standard library only). The script calculates all affine EFX inequalities for each of the seven named allocations using `fractions.Fraction`, checks their exact feasible parameter intervals, and verifies their interval union. It also enumerates all \(62{,}720\) distinguishable type-count distributions at each of the rational values \(39/2\), \(20\), and \(41/2\), finding no EFX allocation at those tested points. The exhaustive enumerations are corroboration only: they do not replace the universal argument for the entire open interval in `RESULT.md`.
+## correctness
 
-Confirmed output:
+PASS
 
-```
-P1: range r in [7, 13], lower_binding=[], upper_binding=[(4, 2)]
-P2: range r in [11, 19], lower_binding=[(2, 1), (2, 3), (2, 4)], upper_binding=[(1, 2)]
-P3: range r in [21, 23], lower_binding=[(2, 1)], upper_binding=[(1, 2)]
-P4: range r in [23, 25], lower_binding=[(2, 3)], upper_binding=[(1, 2)]
-P5: range r in [25, 38], lower_binding=[(2, 1)], upper_binding=[(3, 2), (4, 2)]
-P6: range r in [32, 39], lower_binding=[(2, 1), (2, 4)], upper_binding=[(3, 2)]
-P7: range r in [39, infinity], lower_binding=[(2, 1), (2, 3), (2, 4)], upper_binding=[]
-No EFX at r=39/2: 62720 exhaustive type-count allocations checked
-No EFX at r=20: 62720 exhaustive type-count allocations checked
-No EFX at r=41/2: 62720 exhaustive type-count allocations checked
-All exact checks passed. The nonexistence proof for every 19<r<21 is analytic, not inferred from sampling.
-```
+PASS. Audited exact additive EFX definition as removing each item from the envious agent own bundle. For 19<r<21, a bundle with two A chores either violates the average cost of other bundles after a deletion or requires two disjoint small-only bundles each of cost 20, impossible since x+7y=20 with 0≤x,y≤5 has no integer solution. Therefore exactly one agent has no A. If any A-holder valued this bundle below r, that A-holder must have only A, forcing the no-A bundle to contain at least three B and C and violate EFX against the A-singleton. Hence its B,C counts x,y≥3, giving threshold ≥23; pigeonhole one other A-holder contains no C and at most two B, evaluated below r+2<23: contradiction. Seven explicitly listed complete allocation vectors have independently recomputed exact affine feasible intervals (7,13], [11,19], [21,23], [23,25], [25,38], [32,39], [39,∞); union covers every allowed exterior real parameter and includes both r=19,21 boundaries. Independently enumerated every 62,720 type-count allocation at each rational r=39/2,20,41/2; these finite points supplement, do not replace, the whole-open-interval proof.
 
-The affine interval endpoints are inclusive in the checker. The theorem assumes strictly \(r>7\); thus the interval labelled `[7,13]` in the symbolic checker contributes only \((7,13]\) to the theorem. Exact arithmetic eliminates floating-point boundary ambiguity. The checker does not certify literature priority, general chore instances, or an external independent audit.
+## originality
+
+PASS
+
+PASS with priority qualifications. He–Tao construct the specific r=20 EFX impossibility and larger general-agent nonexistence, which neither gives exterior feasibility witnesses nor the exact two transition points under varying r. Two-type EFX existence cannot cover a three-type family; goods variants use different EFX direction. The new claim is only the complete fixed-instance parametric phase.
+
+## value
+
+PASS
+
+PASS. Determining whether a numerically chosen EFX impossibility is robust under continuous cost perturbation is a natural fair-division question. The mathematically sharp open infeasibility window (19,21), feasible endpoints and reappearance of feasibility for arbitrarily large r show a nonmonotone, structurally informative phase transition; exact full interval certificates matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

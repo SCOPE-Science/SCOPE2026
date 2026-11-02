@@ -1,15 +1,21 @@
-# Scientific review — exact two-threshold EFX phase
+# Independent mathematical audit
 
-## Correctness — PASS
-The theorem quantifies over every real \(r>7\), not just sampled integers. The nonexistence direction for \(19<r<21\) has a full analytic proof. The two-large-chore case reduces to an impossible integer cost equation \(x+7y=20\), the unique no-large bundle is forced to hold at least three chores of each small type, and the leftover-pigeonhole argument yields a strict EFX violation. The existence direction provides seven fully specified allocations, each checked against all agent-pair inequalities as exact affine expressions in \(r\). The checker reproduces all seven intervals, including both sharp endpoints, and enumerates all \(62{,}720\) count allocations at each of three rational interior points as independent corroboration. Finite enumeration is not used to establish the universal open-interval claim.
+## correctness
 
-## Originality — PASS, with priority risks
-He and Tao, *EFX for Additive Chores* (arXiv:2606.08872, first posted June 7, 2026), Section 3 and Appendix A, prove nonexistence at the one published triple of costs \((1,7,20)\) and give a general-agent impossibility construction. The present theorem does not claim that nonexistence example. It identifies two exact parametric feasibility boundaries, \(19\) and \(21\), and gives EFX allocations covering *all* real costs outside their intervening open interval. This bidirectional parameter classification is not implied by merely knowing failure at \(20\), and the cited proof does not provide its exterior witnesses. Aziz et al.'s two-chore-type EFX guarantee (arXiv:2211.00879) concerns a smaller domain; Neoh and Teh's EFX counting work concerns goods. Published-results searches and comparisons with related existing mathematical claims did not reveal equivalent parameter-phase coverage. Search failure does not certify novelty; unindexed or unpublished extensions are residual risks.
+PASS
 
-## Value — PASS
-The earliest additive-chore EFX impossibility construction uses a finely chosen numerical large-chore cost. Determining whether its obstruction is isolated, robust to perturbations, or persists for arbitrarily large cost ratios is a natural structural question. The full answer is nonmonotone: failure occurs on exactly \((19,21)\), while feasible EFX allocations reappear at and beyond both endpoints. These exact transitions distinguish an intrinsic three-type impossibility mechanism from the particular numerical choice and provide constructive robustness limits for a central counterexample. The claim is intentionally restricted to this mathematically motivated one-parameter family rather than extrapolated to arbitrary chore instances.
+PASS. Audited exact additive EFX definition as removing each item from the envious agent own bundle. For 19<r<21, a bundle with two A chores either violates the average cost of other bundles after a deletion or requires two disjoint small-only bundles each of cost 20, impossible since x+7y=20 with 0≤x,y≤5 has no integer solution. Therefore exactly one agent has no A. If any A-holder valued this bundle below r, that A-holder must have only A, forcing the no-A bundle to contain at least three B and C and violate EFX against the A-singleton. Hence its B,C counts x,y≥3, giving threshold ≥23; pigeonhole one other A-holder contains no C and at most two B, evaluated below r+2<23: contradiction. Seven explicitly listed complete allocation vectors have independently recomputed exact affine feasible intervals (7,13], [11,19], [21,23], [23,25], [25,38], [32,39], [39,∞); union covers every allowed exterior real parameter and includes both r=19,21 boundaries. Independently enumerated every 62,720 type-count allocation at each rational r=39/2,20,41/2; these finite points supplement, do not replace, the whole-open-interval proof.
 
-## Closest sources and limitations
-He and Tao (2026), Section 3 and Appendix A, are the closest full-text source: the same agents and chore classes, but one fixed large cost rather than its complete real-parameter phase. Aziz, Lindsay, Ritossa, and Suzuki (2023), *Fair Allocation of Two Types of Chores*, show EFX existence with only two chore types; this does not apply to three. Neoh and Teh (2025), *Understanding EFX Allocations*, concern goods and different existence/counting questions. The result does not characterize general tri-valued additive chores, welfare-optimal allocations, or the minimal number of chores for a counterexample. Independent external validation and publication-priority adjudication remain open.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS with priority qualifications. He–Tao construct the specific r=20 EFX impossibility and larger general-agent nonexistence, which neither gives exterior feasibility witnesses nor the exact two transition points under varying r. Two-type EFX existence cannot cover a three-type family; goods variants use different EFX direction. The new claim is only the complete fixed-instance parametric phase.
+
+## value
+
+PASS
+
+PASS. Determining whether a numerically chosen EFX impossibility is robust under continuous cost perturbation is a natural fair-division question. The mathematically sharp open infeasibility window (19,21), feasible endpoints and reappearance of feasibility for arbitrarily large r show a nonmonotone, structurally informative phase transition; exact full interval certificates matter.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
