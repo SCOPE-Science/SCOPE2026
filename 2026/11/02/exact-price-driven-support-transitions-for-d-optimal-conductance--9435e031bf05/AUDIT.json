@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Weighted spanning tree factorization holds exactly for every cactus. The grounded Laplacian embedding for a simple connected graph is injective, so log determinant is strictly concave on positive-tree-support feasible weights. Polynomial homogeneity yields block spending d_H B/(n−1). On each cycle face, differentiation at its unique face optimum shows KKT iff the omitted edge price is at least the sum of the other edge prices. Interior KKT and explicit one-exception algebra finish the exhaustive positive/one-zero classification. The exact rational and floating-point checks independently corroborate finite examples but are not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "In Khosoussi et al. the central edge-selection relaxation has bounded selectors over fixed candidate weights and cardinality/matroid constraints, not arbitrary cost coefficients times optimizable conductances.",
+        "Sagnol–Harman gives an SOCP representation for general linearly constrained approximate D-design, but not a solved sharp support theorem."
+      ],
+      "reasoning": "General computational treatment covers the formal optimization class in principle but does not state or logically yield the explicit cactus solution without new factorization and exact boundary KKT analysis.",
+      "searches": [
+        "cost-constrained log determinant weighted Laplacian cactus graphs optimum support cycle edge dropped iff cost greater than sum other prices",
+        "D-optimal graph experimental design cactus block cycle budget allocation relative spanning tree polynomial",
+        "arxiv:1604.01116 convex relaxation section 4.4 and 5.1.2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1604.01116",
+      "arxiv:1307.4953",
+      "S. Boyd, Convex Optimization of Graph Laplacian Eigenvalues (ICM 2006)",
+      "Published mathematical-record queries for priced cactus spanning-tree design"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The general log-det concavity approach gives convexity and KKT necessary/sufficient conditions, but by itself does not identify whether any cycle edge is deleted.",
+        "The cactus polynomial factorization plus price-specific face derivatives produces an exact per-cycle threshold not stated in the sources."
+      ],
+      "reasoning": "The proposed claim is a structure theorem resolving all finite simple cactus instances; it is a specialized solution of a broader design framework, not a corollary of its general existence/solver claims without the nontrivial block factorization and sharp edge-boundary comparison.",
+      "searches": [
+        "arxiv:1307.4953 D-optimal information matrix spanning tree section",
+        "arxiv:1604.01116 fixed weight edge selection convex relaxation",
+        "electrical network D-optimality log determinant optimal edge weights on cactus graph graph design"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The weighted Matrix–Tree theorem turns the problem into log determinant of a grounded Laplacian.",
+        "Sagnol and Harman, arXiv:1307.4953, discuss general information determinant design and block design, but do not give a cactus formula.",
+        "Khosoussi et al., arXiv:1604.01116, sections 4.4 and 5.1.2, use selector variables for given-weight candidate edges."
+      ],
+      "reasoning": "Exact aliases include D-optimal network conductance allocation, tree-entropy maximizing weights and Laplacian log determinant design. General optimization representations are not the claimed exact support characterization; no matched result found.",
+      "searches": [
+        "maximize weighted spanning tree polynomial under conductance budget edge prices cycle cactus graph Kirchhoff log determinant unique optimal allocation",
+        "electrical network D-optimality log determinant optimal edge weights on cactus graph graph design",
+        "weighted cycle maximization tree enumerator nonnegative conductances price dominance deletion threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Available published mathematical search records include sharp projection norms on cactus transportation spaces, but not continuous priced D-optimal cactus support.",
+        "Related weighted-ladder spanning-tree kernel studies fixed weights rather than maximizing over a price budget."
+      ],
+      "reasoning": "No exact table or calculation for this continuous family appeared in inspected records; this is limited retrieval evidence, not mathematical proof of priority.",
+      "searches": [
+        "tree entropy design weighted cycle unequal edge costs spanning tree maximizing conductance allocation",
+        "maximize weighted spanning tree polynomial under conductance budget edge prices cycle cactus graph Kirchhoff log determinant unique optimal allocation",
+        "weighted cycle maximization tree enumerator nonnegative conductances price dominance deletion threshold"
+      ]
+    },
+    "rationale": "The core established framework is weighted Matrix–Tree/log-det convexity (Boyd; Sagnol–Harman) and graph spanning-tree selection (Khosoussi et al.). Inspected accessible primary texts do not contain nor imply the explicit all-cactus block expenditure law and dominant edge deletion boundary for an unconstrained continuous conductance-price simplex; targeted mathematical-record and literature searches produced no equivalent claim. Novelty is best-knowledge, not uniqueness guaranteed by partition.",
+    "residual_risks": [
+      "Historical specialized D-optimal/cycle-block design papers not indexed by searches may predate this classification.",
+      "The present comparisons do not amount to a systematic full-database novelty guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General optimization method, no priced cactus support classification",
+        "evidence": [
+          "First public arXiv version 2013-07-18",
+          "Linear-weighted information matrices and spanning-tree link to block design"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1307.4953",
+        "material_read": "Original abstract/public history; full open article introduction and sections on block designs/graph Laplacians and computational formulation",
+        "method": "Publicly accessible PDF full-text and page-image inspection",
+        "title": "Computing exact D-optimal designs by mixed integer second-order cone programming",
+        "trigger": "General continuous D-optimal determinants and spanning-tree block designs"
+      },
+      {
+        "assessment": "Given-weight edge selection and continuous bounded selector relaxations, no independent per-edge price-budget cactus solution",
+        "evidence": [
+          "First publicly posted 2016-04-05 (arXiv v1)",
+          "Equations P1/P5 and section 4.4 use 0 to 1 candidate selectors and cardinality constraints"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+        "material_read": "24-page open PDF table of contents, background, §§4.4, 5.1.2 and §5.2; queried full PDF for price, cactus, budget, continuous",
+        "method": "Full-text navigation, find and page screenshots (pages 10 and 16)",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Directly related weighted spanning-tree maximizing and convex relaxation"
+      },
+      {
+        "assessment": "General spectral eigenvalue framework, not a spanning-tree logdet cactus threshold",
+        "evidence": [
+          "2006 ICM paper treats Laplacian eigenvalue optimization under edge-weight constraints"
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/laplacian_opt.html",
+        "material_read": "Open ICM 2006 article introduction and spectral optimization formulation; searchable full text",
+        "method": "Primary open paper and page-image inspection",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "Earlier general spectral network design and convexity reference"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "9435e031-bf05-47c2-bb4e-735134a20c1d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result gives a sharp symbolic edge-deletion decision and a topology-invariant budget split for arbitrary priced cactus designs; its exact support transition is mathematically and computationally useful beyond a textbook convexity reformulation. Interior arbitrary-price characterization and closed one-exception weights are nontrivial properties of the natural weighted spanning-tree design objective.",
+    "status": "PASS"
+  }
+}
