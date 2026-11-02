@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:56:27Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Bound valid for all n>=4, equality formula only proven under the theorem longer-length condition.",
+        "No assertion for q!=3 alphabets or survivor count !=2; exactly unordered two-symbol receive signatures are counted."
+      ],
+      "rationale": "For n>=4 each ternary length-n multiset has one or more heavy coordinates (multiplicity >=2), exactly 12 messages have only one heavy coordinate, and all remaining messages incur at least two monochrome-list incidences. Thus 2|C|-T <= H <= 3L and T<=12 imply |C|<=floor(3L/2)+6. For L>=6 the twelve one-heavy vectors and balanced two-heavy edge vectors with t_01=t_12=floor((L-4)/2),t_02=ceil((L-4)/2) achieve the bound: n>=ceil(L/2)+1 ensures all edge vectors valid and distinct, and mixed/pure traces each have load <=L. For L=5 the thirteen-word length-four deletion and injective, trace-preserving maximum-coordinate lift work for all permitted n. Equality at even L forces T=12,H=3L and every remaining word exactly two-heavy; no stronger uniqueness claim. Independent enumeration checked all six signatures, L=5..39 three permitted lengths, and the complete 2^15 subcodes at n=4.",
+      "status": "PASS",
+      "verification": "Independently authored distinct code-signature enumeration for 105 construction parameters and full n=4 exhaustive 32768-subcode capacity counts 3,6,9,11,13,15,15 for L=1..7. Validated heavy-coordinate incidence count, integrality and exact lift argument analytically; inspected CHECKER.py source rather than assuming reported logs."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unique-decoding two-survivor theorem uses at most one source parent per trace and has much smaller code sizes.",
+          "Resultary three-survivor theorem has a strictly different trace collection and does not bound or classify high-L two-survivor codes."
+        ],
+        "reasoning": "General multiset deletion-code bounds apply, but do not dominate the exact floor(3L/2)+6 capacity for every L>=5 at the specified n threshold.",
+        "searches": [
+          "Resultary: ternary multiset deletion codes two survivors list decoding high list capacity M3 n L 2",
+          "Resultary record 2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505",
+          "arXiv:2601.05636 Corollary 11"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md frozen blob 7739988eb8b51f031eab21ee10d3e3b612652208",
+        "CHECKER.py frozen blob e6f604373423a02c53088f6962c8ec3e7adb9b77",
+        "Kreindel/Barouch Essayag/Zabokritskiy, Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results, arXiv:2601.05636 (full 47-page PDF)",
+        "Kreindel/Barouch Essayag/Zabokritskiy, Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes, arXiv:2603.18322 (full 41-page PDF)",
+        "Resultary:2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An L=1 packing theorem merely forbids shared traces and cannot imply the optimal positive trace multiplicities for arbitrary L>=5.",
+          "The even-L rigidity follows exact equality in 2M−T<=H<=3L, not a simple restatement of unique decoding."
+        ],
+        "reasoning": "The claimed corollary relation to existing unique-decoding and lower-L results was assessed at parameter and implication level; neither result implies full high-list saturation and optimizer structure.",
+        "searches": [
+          "Resultary: ternary multiset deletion codes two survivors list decoding high list capacity M3 n L 2",
+          "arXiv:2601.05636 theorems on two survivors",
+          "arXiv:2603.18322 deletion ball geometry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Primary Kreindel et al. first paper treats disjoint deletion balls and exact UNIQUE-decoding bounds; second likewise addresses unique decoding and polynomial constructions.",
+          "A nearby Resultary record with 3 surviving symbols is a different channel parameter, hence cannot instantiate the exact 2-survivor high-list formula."
+        ],
+        "reasoning": "Aliases L-list decoding, bounded parent multiplicity, hypergraph b-matching, unordered multiset deletion were checked. Prior unique decoding cannot be restated as a high-L capacity theorem without new incidence packing analysis.",
+        "searches": [
+          "Resultary: ternary multiset deletion codes two survivors list decoding high list capacity M3 n L 2",
+          "Resultary: ternary four-list multiset deletion code 11 n at least 4 high deletions two surviving symbols exact size",
+          "arXiv:2601.05636",
+          "arXiv:2603.18322"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Exact list capacities at n=4 are 3,6,9,11,13,15,15; for L=5, the theorem supplies the all-length extension by injective signature-preserving lift.",
+          "No matching high-L ternary two-survivor database/table appeared in retrieved published findings."
+        ],
+        "reasoning": "A finite table at n=4 does not prove a uniform n>=ceil(L/2)+1 law; the upper-bound and constructive proof bridge that gap. Search failure is not proof that no prior table exists.",
+        "searches": [
+          "Resultary: ternary four-list multiset deletion code 11 n at least 4 high deletions two surviving symbols exact size",
+          "n=4 full source multiset census 32768 subsets",
+          "Resultary multiset deletion search"
+        ]
+      },
+      "rationale": "Novelty best-of-knowledge is the complete unbounded high-list regime L>=5 and even-L structural equality conditions; the known unique-decoding (L=1) and earlier four-list cases are credited and excluded.",
+      "residual_risks": [
+        "The high-list formula has sufficient, not proven minimal, blocklength n>=ceil(L/2)+1.",
+        "Even-list equality conditions are necessary only; no classification of all optimizing codes.",
+        "A prior list-decoding paper under alternative multiset/trace terminology could cover the same capacity; no comprehensive global absence proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The work gives unique-decoding capacities; high-L bounded multiplicity of possible parents is not its stated exact theorem.",
+          "evidence": "Its definitions require unique parent for a receive multiset, unlike up to L>=5 parent sources here.",
+          "identifier_or_url": "arXiv:2601.05636",
+          "material_read": "Full accessible 47-page primary PDF, abstract, high-deletion theorem and relevant unique-decoding constructions/corollaries read; first and relevant theorem pages visually inspected.",
+          "method": "Public arXiv PDF text and screenshots",
+          "title": "Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results",
+          "trigger": "Same multiset deletion channel with two survivors"
+        },
+        {
+          "assessment": "Deals with deletion-ball geometry and unique decoding, not all-L high-list exact ternary two-survivor capacity.",
+          "evidence": "Its central bounds pack disjoint receive signatures or control distances; capacity with list multiplicity L>=5 is a different optimization.",
+          "identifier_or_url": "arXiv:2603.18322",
+          "material_read": "Lawfully accessible complete 41-page PDF; introduction, contributions and construction/packing sections inspected, first page screenshot.",
+          "method": "Public arXiv PDF textual inspection plus screenshot",
+          "title": "Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes",
+          "trigger": "Follow-up same author group potentially broader coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The multiset channel with two surviving symbols is the smallest nontrivial trace family; the exact all-high-L capacity solves a natural incidence hypergraph list-packing problem. Even-L rigidity identifies unavoidable codewords and saturated received-symbol constraints, valuable structure beyond a numerical optimum.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md frozen blob 7739988eb8b51f031eab21ee10d3e3b612652208",
+    "CHECKER.py frozen blob e6f604373423a02c53088f6962c8ec3e7adb9b77",
+    "Kreindel/Barouch Essayag/Zabokritskiy, Multiset Deletion Codes: Cyclic Constructions, Bounds, and Exact Results, arXiv:2601.05636 (full 47-page PDF)",
+    "Kreindel/Barouch Essayag/Zabokritskiy, Polynomial Constructions and Deletion-Ball Geometry for Multiset Deletion Codes, arXiv:2603.18322 (full 41-page PDF)",
+    "Resultary:2026/10/4/SCOPE-exact-ternary-multiset-deletion-codes-when-three-multiset-elemen--d3a62a71c505"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Length condition is sufficient but not asserted sharp.",
+    "No full optimizer classification for odd L or all optimal even-L selections beyond proven necessary properties."
+  ],
+  "residual_risks": [
+    "The high-list formula has sufficient, not proven minimal, blocklength n>=ceil(L/2)+1.",
+    "Even-list equality conditions are necessary only; no classification of all optimizing codes.",
+    "A prior list-decoding paper under alternative multiset/trace terminology could cover the same capacity; no comprehensive global absence proof."
+  ],
+  "schema_version": 1
+}

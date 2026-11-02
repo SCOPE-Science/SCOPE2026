@@ -1,21 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six possible received pairs are determined by the positive/heavy coordinates of a ternary source multiset. For every source length \(\,n\ge4\,\), all codewords are heavy in at least one coordinate and only twelve possible words have exactly one heavy coordinate. Counting the three pure received-pair incidences yields the rigorous inequality \(2M-12\le3L\), hence \(M\le\lfloor3L/2\rfloor+6\). The explicit symmetric twelve-word core and the balanced edge additions meet the bound for \(L\ge6\); a direct length-four witness and injective signature-preserving lift handle \(L=5\). Equality at even \(L\) forces all three pure lists to saturate, inclusion of all twelve one-heavy messages, and exactly two heavy coordinates in every other message.
+PASS
 
-The standalone source checker reproduced the constructions in 198 parameter cases, all 9,119 source-word lift transitions across lengths four through thirty-six, and all \(2^{15}\) length-four subcodes. These tests corroborate, rather than replace, the symbolic proof. Boundary assumptions and quantifiers were checked directly.
+For n>=4 each ternary length-n multiset has one or more heavy coordinates (multiplicity >=2), exactly 12 messages have only one heavy coordinate, and all remaining messages incur at least two monochrome-list incidences. Thus 2|C|-T <= H <= 3L and T<=12 imply |C|<=floor(3L/2)+6. For L>=6 the twelve one-heavy vectors and balanced two-heavy edge vectors with t_01=t_12=floor((L-4)/2),t_02=ceil((L-4)/2) achieve the bound: n>=ceil(L/2)+1 ensures all edge vectors valid and distinct, and mixed/pure traces each have load <=L. For L=5 the thirteen-word length-four deletion and injective, trace-preserving maximum-coordinate lift work for all permitted n. Equality at even L forces T=12,H=3L and every remaining word exactly two-heavy; no stronger uniqueness claim. Independent enumeration checked all six signatures, L=5..39 three permitted lengths, and the complete 2^15 subcodes at n=4.
 
-## Originality — PASS within inspected evidence
+## originality
 
-The nearest primary source, Kreindel–Barouch Essayag–Zabokritskiy, arXiv:2601.05636, gives exact two-survivor **unique-decoding** values using a pairwise intersection condition. Its follow-up arXiv:2603.18322 develops distance-ball geometry and bounds, without determining bounded lists of size \(L\ge5\). An accessible previous finding establishes the four-list ternary two-survivor value, and a different result covers only \(L\le2\) for two survivors. The present high-list formula and even-list equality conditions are not implied by either. Targeted research-record and primary-literature searches did not identify a covering result; equivalent unindexed material remains a historical-priority risk.
+PASS
 
-## Mathematical value — PASS
+Novelty best-of-knowledge is the complete unbounded high-list regime L>=5 and even-L structural equality conditions; the known unique-decoding (L=1) and earlier four-list cases are credited and excluded.
 
-The exact formula \(M_3(n,L;2)=\lfloor3L/2\rfloor+6\) holds over an infinite, naturally motivated two-parameter family, with explicit optimal codes and a new structural explanation of the slope through twelve exceptional words and balanced two-heavy edge incidences. The even-\(L\) equality rigidity is a substantive restriction on all maximizers. The given source-length condition is sufficient, not necessarily the first attainment length; that distinction is retained consistently across the claim and proof.
+## value
 
-## Remaining limits
+PASS
 
-The precise smaller-length profile, other alphabet sizes and survivor lengths, full uniqueness classification and independent mathematical validation remain outside the result.
+The multiset channel with two surviving symbols is the smallest nontrivial trace family; the exact all-high-L capacity solves a natural incidence hypergraph list-packing problem. Even-L rigidity identifies unavoidable codewords and saturated received-symbol constraints, valuable structure beyond a numerical optimum.
 
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.
