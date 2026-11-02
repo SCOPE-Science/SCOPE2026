@@ -1,19 +1,28 @@
-# Scientific review
+# Scientific assessment
+
+## Mathematical claim and domain
+
+For fixed $a\in\mathbb R$, $\kappa>0$, the cubic center $\dot x=y$, $\dot y=-x+(a-\kappa x)y^2$ admits an exact original-time Hamiltonian conjugacy. On every energy $E>0$, the orbit is periodic. The large-energy minimal period obeys $T(E)\sqrt{\log E}\to2\pi$. Canonical position and momentum approach the unit harmonic orbit uniformly in normalized phase; the original coordinate instead converges in each finite $L^p$ to a square wave, and its physical-time occupation tends to the equal mixture at $-1$ and $+1$. All limits fix the parameters.
 
 ## Correctness — PASS
 
-The explicit positive integrating factor gives an exact Hamiltonian in the original time. Gaussian tail asymptotics are derived separately on both sides by l'Hôpital's rule; the critical leading constant in \(W(q)\sim q^2\log|q|\) is reconstructed from the two tail formulas. The rescaled force converges locally uniformly to the identity with a uniform local Lipschitz bound, so the canonical oscillation tends to the harmonic orbit and its minimal period tends to \(2\pi\). The inverse Gaussian coordinate map then forces the original-coordinate square wave almost everywhere; turning-point bounds justify dominated convergence and the occupation law. A standalone checker verifies algebraic identities and illustrative quadratures; finite computations are not used as the proof of an infinite statement.
+With $g(x)=\exp(\kappa x^2/2-ax)$, $q(x)=\int_0^x g(u)du$, $p=g(x)y$ and $V(x)=\int_0^x ug(u)^2du$, the invariant $H=p^2/2+V(x)=p^2/2+W(q)$ produces $\dot q=p$ and $\dot p=-W'(q)$ in the original physical time. The positive global integrating factor gives the required entire coordinate diffeomorphism and a coercive single-well potential. Its signed Gaussian tails yield $W(q)\sim q^2\log|q|$ and $W'(q)\sim2q\log|q|$. The exact $W''(q)=1+x(\kappa x-a)$ gives locally uniform, equi-Lipschitz convergence of the properly scaled force to $z$, whence the harmonic limit and the minimal-period constant. Inverting the Gaussian-tail coordinate away from the two harmonic zeros gives the square wave; global turning bounds prove the stated $L^p$ and occupation limits by domination. Algebraic and numerical checks support rather than establish these infinite limits.
 
-## Originality — PASS, with priority risk
+## Originality — PASS, best of current knowledge
 
-The full 2024 Appis–Llibre primary article establishes global-center classification for the same coefficient slice, not a physical-time asymptotic frequency or waveform. The closest general period-function literature concerns monotonicity, critical periods, boundary limits, or small-energy expansions. Actual targeted mathematical-database, primary-literature, and existing-claim comparisons identified no theorem that already implies the combined original-time high-energy period and two-point occupation law. The 2019 Villadelprat–Zhang paper was available as abstract/preview, not full theorem text; an uninspected stronger theorem or uncatalogued transformed-coordinate statement remains a residual priority risk. A failed search is not a proof of uniqueness.
+Appis and Llibre, *Global centers of a family of cubic systems* (2024), Theorem 4(a), proves qualitative global-center existence in this coefficient slice, which is credited and not treated as new. Villadelprat and Zhang, *The Period Function of Hamiltonian Systems with Separable Variables* (2019/2020), Theorem 5.1(b), proves that the period tends to zero when both stiffness limits are infinite; its complete preprint does not yield the stated leading logarithmic coefficient or inverse-observable occupation. Cima, Gasull and Mañosas, *Period Function for a Class of Hamiltonian Systems* (2000), Theorem C, assumes pure-power inverse-length derivatives and does not directly apply to the slowly varying factor in this transformed potential. Published mathematical records about two other cubic global centers were compared by their actual vector fields and asymptotic implications; neither covers this claim. An exact record of the finding itself was excluded from priority evidence. Residual risks include unindexed regular-variation and equivalent oscillator literature.
 
-## Value — PASS
+## Mathematical value — PASS
 
-A global-center classification tells whether all trajectories close, but not how fast large orbits rotate or where they spend their physical time. Here all real quadratic-velocity biases share an exact leading logarithmic frequency; the canonical waveform becomes sinusoidal while the directly observed position becomes a discontinuous square wave in the asymptotic limit. The occupation law quantifies this non-obvious distinction in a natural dynamical observable, not an arbitrary parameter slice or routine period recomputation.
+The full high-energy behavior of a natural globally periodic cubic family is a worthwhile dynamical question: its original-time angular frequency and time-occupation statistics are not determined by existence of a center. The result quantifies a distinctive singular mismatch between canonical harmonic shape and original-coordinate square-wave residence, with explicit constants and a complete fixed-parameter regime. It does not assert finite-energy monotonicity, a jump-layer profile, rate estimates or extension to arbitrary cubic centers.
 
-## Scope and residual limits
+## Primary references
 
-Only fixed \(a\in\mathbb R\), \(\kappa>0\), with \(E\to\infty\). No finite-energy period monotonicity, boundary-layer scaling, or uniform original-coordinate convergence is asserted. Literature priority is provisional. The mathematical proof is self-contained and requires neither independent validation nor extrapolation from finite experiments.
+- Appis & Llibre (2024), https://doi.org/10.1007/s00010-024-01051-7 (full open article, Theorem 4(a)).
+- Villadelprat & Zhang (2019 preprint; 2020 journal), https://doi.org/10.1007/s10884-019-09759-w (full author preprint, Theorem 5.1 and proof).
+- Cima, Gasull & Mañosas (2000), https://doi.org/10.1006/jdeq.2000.3912 (primary full text, Theorem C and proof).
+- Buzzi, Carvalho & Gasull (2020 preprint), https://arxiv.org/abs/2008.02316 (abstract-level screening only).
 
-Same-model review: passed. Independent audit: not yet performed.
+## Scope and risk
+
+The leading canonical period may also be accessible through more general regular-variation oscillator theory; the published priority comparison is best-of-knowledge, not an absolute novelty certificate. The original-coordinate claim is $L^p$ for finite $p$, not uniform convergence at the two jump phases. No Lean proof or external human attestation is claimed.

@@ -1,0 +1,266 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T13:45:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The weighted prefix/block/tail decomposition p+h+e of d(x,y) is exact. Applied to (P_m-P_n)(delta_x-delta_y), finite 2-by-2 Kantorovich transport gives min(a+b,2p+h) for sources p_mx,p_ny and sinks p_nx,p_my. For p=0 the image ratio is <=1; otherwise p>=a_n and a,b<=B_{n,m}, yielding ratio <=2 min(1,B_{n,m}/a_n). A pair differing in one block coordinate gives ratio 1, and a min-prefix-coordinate pair with a common all-one block gives ratio 2 min(1,B_{n,m}/a_n). This works for m=infinity since weights are summable. Retractions P_n have norm 1, rank 2^n-1, commute, and strongly tend to I; the tail criterion follows exactly. Independent exact-rational all-molecule exhaustive checks on six finite weighted cube configurations verified 66 intervals and 18,648 ordered-as-unordered molecule pairs, with zero discrepancy; no extrapolation from finite tests was used.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+          "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+          "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+          "The weighted binary product is a compact group under coordinatewise XOR with translation-invariant weighted Hamming metric, so Doucha-Kaufmann already implies MAP.",
+          "Lancien–Pernecká uses multilinear interpolation on dyadic grids in the ambient l1 free space; its projections are not prescribed binary-truncation retractions."
+        ],
+        "reasoning": "The MAP and existence of a monotone FDD are covered qualitatively or for related spaces; the claimed contribution is a fixed operator family with its exact interval-difference norm and half-tail condition. Qualitative MAP and norm-one initial projections imply only ||P_m-P_n||<=2, not the sharp dependence on B_{n,m}/a_n.",
+        "searches": [
+          "Doucha Kaufmann compact group compatible invariant metric Lipschitz-free MAP theorem 3.5",
+          "Lancien Pernecka l1 monotone finite-dimensional Schauder decompositions theorem 3.1",
+          "Cuth Doucha orbit quotient free space projection Theorem A"
+        ]
+      },
+      "checked_sources": [
+        "Talimdjioski, Lipschitz-Free Spaces over Cantor Sets and Approximation Properties, Mediterr. J. Math. 20 (2023) 302, https://link.springer.com/article/10.1007/s00009-023-02503-1; arXiv:2305.07591v1",
+        "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+        "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+        "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+        "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+        "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Talimdjioski, Lipschitz-Free Spaces over Cantor Sets and Approximation Properties, Mediterr. J. Math. 20 (2023) 302, https://link.springer.com/article/10.1007/s00009-023-02503-1; arXiv:2305.07591v1",
+          "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+          "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+          "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+          "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md",
+          "All p_n are 1-Lipschitz retractions, yielding P_n norm 1 already by functoriality; the cited general results do not provide the four-atom rectangle witness or a matching constant for the difference."
+        ],
+        "reasoning": "Doucha–Kaufmann directly implies the MAP corollary and that part is not original. The quantitative claim is not a corollary of the supplied existence results, whose conclusions allow norms from 1 to 2. In contrast this theorem distinguishes, for example, geometric weights r^j with block threshold 1/2 and full bimonotonicity threshold 1/3. An unnoticed general four-point transport projection theorem could still imply it.",
+        "searches": [
+          "arXiv:2305.07591 Talimdjioski Cantor approximation properties",
+          "arXiv:2005.09785 Doucha Kaufmann Theorem 3.5",
+          "arXiv:1207.1583 Lancien Pernecka Theorem 3.1",
+          "arXiv:2104.11519 Cuth Doucha Theorem A",
+          "Resultary exact coordinate projections Hamming"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+          "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md",
+          "In RESULT.md of S_RW the projection is translation-equivariant Walsh spectral averaging; in the assigned result P_n maps each Dirac mass to the deterministic coordinate-zero truncation. S_RD concerns Dirac-diagonal maps and cannot represent off-diagonal retractions."
+        ],
+        "reasoning": "We compared the actual maps on evaluation vectors, not only the shared Hamming/free-space terms. Walsh spectral projections average in character coordinates; Dirac diagonals retain or kill atoms, whereas P_m-P_n sends each atom to a signed pair. None of these is equivalent to the claimed coordinate truncation norm without additional mathematics. No exact equivalent formula found; negative search is not novelty proof.",
+        "searches": [
+          "\"Lipschitz-free\" \"Cantor\" \"bimonotone\" projections",
+          "weighted Hamming Cantor cube Lipschitz-free coordinate projections norm",
+          "Resultary semantic: metric transportation Arens Eells Hamming cube conditional expectation martingale difference projection norms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The top Resultary hit was the same assigned formula (self-match excluded); related Walsh spectral and Dirac-diagonal entries were read, and their operators are distinct.",
+          "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+          "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md"
+        ],
+        "reasoning": "No independent indexed table or stronger exact database covers this deterministic family in the searches performed; the six-suite finite-cube results in the package are verification experiments, not a known published table. Search incompleteness remains a risk.",
+        "searches": [
+          "Resultary three semantic searches on weighted Cantor Lipschitz-free projections and Hamming transportation",
+          "\"Lipschitz free\" weighted Hamming \"coordinate\" retraction norm",
+          "free spaces Hamming Cantor coordinate truncation projection complements norm"
+        ]
+      },
+      "rationale": "Qualitative MAP is already known for this compact invariant-metric group by Doucha–Kaufmann. The general monotone FDD and group-action projection results do not give the norms of deterministic coordinate-truncation differences. Read closest published Resultary findings about Walsh spectral and Dirac-diagonal projection operators; they are mathematically different. Four implication/comparison checks with actual searches and primary-source readings identify no direct published coverage; best-of-knowledge priority remains subject to possible unindexed transportation literature.",
+      "residual_risks": [
+        "An unindexed thesis or publication could calculate these canonical coordinate-truncation norms under Arens–Eells, transportation, martingale-difference, or Lipschitz-algebra language; the negative searches do not exclude it.",
+        "The exact threshold concerns only this coordinate-retraction family and the real scalar field, not optimality across all decompositions or bases.",
+        "Original Git tree SHA was recomputed from GitHub-returned blob identities, but original blob payload bytes were not all independently downloaded and rehashed in the local environment.",
+        "The independent exact tests exhaust only finitely many finite cubes. The proof, not these tests, supplies arbitrary weights and infinite upper intervals."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers generic residual MAP and AP phenomena, not deterministic weighted interval operator norm",
+          "evidence": [
+            "Talimdjioski, Lipschitz-Free Spaces over Cantor Sets and Approximation Properties, Mediterr. J. Math. 20 (2023) 302, https://link.springer.com/article/10.1007/s00009-023-02503-1; arXiv:2305.07591v1",
+            "Theorem 1.1 residual MAP; Proposition 1.2 dense meager AP failure; proof uses almost-extension operators"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-023-02503-1",
+          "material_read": "Full open-access HTML article sections 1-3 covering definitions, Theorem 1.1, Proposition 1.2, and proofs; comparison with arXiv:2305.07591v1 especially theorem and section 3",
+          "method": "Primary complete OA HTML plus arXiv PDF text with visual page check",
+          "title": "Lipschitz-Free Spaces over Cantor Sets and Approximation Properties",
+          "trigger": "Identical Cantor product underlying space"
+        },
+        {
+          "assessment": "Covers MAP for this class; does not state norm of deterministic interval differences",
+          "evidence": [
+            "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+            "Theorem 3.5 says any compact group with a compatible left-invariant metric has MAP"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2005.09785",
+          "material_read": "Primary arXiv full-text search and material read of introduction, Theorem 3.5, proof through finite quotients, and adjoining propositions",
+          "method": "Open-access PDF text and screenshot of p.11",
+          "title": "Approximation Properties in Lipschitz-Free Spaces over Groups",
+          "trigger": "Covers exact compact group class of weighted Hamming Cantor metric"
+        },
+        {
+          "assessment": "Existence of monotone FDD in ambient l1 through interpolation, not exact norm of specified binary Cantor truncation differences",
+          "evidence": [
+            "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+            "Theorem 3.1 and Sec.3.2 construct finite-grid interpolation operators"
+          ],
+          "identifier_or_url": "https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+          "material_read": "Primary 12-page PDF introduction and Section 3 (Theorem 3.1, Lemma 3.2, multilinear interpolation and proof)",
+          "method": "Open-access primary PDF read and screenshot of page 7",
+          "title": "Approximation properties and Schauder decompositions in Lipschitz-free spaces",
+          "trigger": "Potential broader monotone FDD theorem in l1 setting"
+        },
+        {
+          "assessment": "Theorem A and related constructions concern orbit-space projections, not coordinate-zero map or P_m-P_n",
+          "evidence": [
+            "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+            "Theorem A: F(M/G) complemented in F(M) under compact isometric action"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2104.11519",
+          "material_read": "Public primary 22-page PDF introduction, Theorem A, Section 4 orbit-average and quotient projection results",
+          "method": "OA arXiv full-text search and screenshot of p.2",
+          "title": "Projections in Lipschitz-free spaces induced by group actions",
+          "trigger": "Same compact group can produce group-action projections"
+        },
+        {
+          "assessment": "Different projection family: Walsh spectral averages vs deterministic coordinate truncation, and unweighted finite cubes rather than arbitrary summable weights",
+          "evidence": [
+            "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+            "Complete Walsh shadow kernel formula, different operator; stated limitation excludes weighted Hamming"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d",
+          "material_read": "Complete RESULT.md: theorem, proof, sharpness, prior work and limitations",
+          "method": "Read published Resultary GitHub source",
+          "title": "Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces",
+          "trigger": "Closest published mathematical finding involving Hamming free-space projections"
+        },
+        {
+          "assessment": "Inapplicable: P_n is not diagonal in the Dirac coordinates except on its image",
+          "evidence": [
+            "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md",
+            "Formal D_lambda delta_x=lambda_x delta_x, while P_n delta_x=delta_{p_n x}"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6",
+          "material_read": "Complete RESULT.md including universal diagonal norm and selector constants",
+          "method": "Read published Resultary GitHub source",
+          "title": "Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces",
+          "trigger": "Possible more general exact norm result for canonical atom operators"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact norm profile of every consecutive block of an explicit monotone FDD is a canonical quantitative invariant of that fixed decomposition. It distinguishes individual-block contractivity (geometric r<=1/2) from all-tail bimonotonicity (r<=1/3), giving a complete weight-sequence criterion absent from qualitative MAP or generic ||P_m-P_n||<=2. This is a motivated exact classification, not a broad basis optimality claim.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Talimdjioski, Lipschitz-Free Spaces over Cantor Sets and Approximation Properties, Mediterr. J. Math. 20 (2023) 302, https://link.springer.com/article/10.1007/s00009-023-02503-1; arXiv:2305.07591v1",
+    "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+    "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+    "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+    "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+    "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every strictly positive summable real weight sequence on K={0,1}^N, every coordinate interval retraction difference P_m-P_n with 1<=n<m<=infinity has norm max{1,2 min(1,B_{n,m}/a_n)}, with a_n=min_{j<=n}alpha_j, B_{n,m}=sum_{n<j<=m}alpha_j. Every P_m-P_0 has norm 1, and the canonical FDD is bimonotone exactly when sum_{j>n}alpha_j<=a_n/2 for every n.",
+  "limitations": [
+    "An unindexed thesis or publication could calculate these canonical coordinate-truncation norms under Arens–Eells, transportation, martingale-difference, or Lipschitz-algebra language; the negative searches do not exclude it.",
+    "The exact threshold concerns only this coordinate-retraction family and the real scalar field, not optimality across all decompositions or bases.",
+    "Original Git tree SHA was recomputed from GitHub-returned blob identities, but original blob payload bytes were not all independently downloaded and rehashed in the local environment.",
+    "The independent exact tests exhaust only finitely many finite cubes. The proof, not these tests, supplies arbitrary weights and infinite upper intervals.",
+    "Export preparation was incomplete in the original submission; this administrative limitation does not change the scientific assessment.",
+    "The current review is a completed scientific PASS, but confidentiality means this publication plan is not_ready; no importer action should run from operations: []."
+  ],
+  "residual_risks": [
+    "An unindexed thesis or publication could calculate these canonical coordinate-truncation norms under Arens–Eells, transportation, martingale-difference, or Lipschitz-algebra language; the negative searches do not exclude it.",
+    "The exact threshold concerns only this coordinate-retraction family and the real scalar field, not optimality across all decompositions or bases.",
+    "Original Git tree SHA was recomputed from GitHub-returned blob identities, but original blob payload bytes were not all independently downloaded and rehashed in the local environment.",
+    "The independent exact tests exhaust only finitely many finite cubes. The proof, not these tests, supplies arbitrary weights and infinite upper intervals."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Covers generic residual MAP and AP phenomena, not deterministic weighted interval operator norm",
+      "evidence": [
+        "Talimdjioski, Lipschitz-Free Spaces over Cantor Sets and Approximation Properties, Mediterr. J. Math. 20 (2023) 302, https://link.springer.com/article/10.1007/s00009-023-02503-1; arXiv:2305.07591v1",
+        "Theorem 1.1 residual MAP; Proposition 1.2 dense meager AP failure; proof uses almost-extension operators"
+      ],
+      "identifier_or_url": "https://link.springer.com/article/10.1007/s00009-023-02503-1",
+      "material_read": "Full open-access HTML article sections 1-3 covering definitions, Theorem 1.1, Proposition 1.2, and proofs; comparison with arXiv:2305.07591v1 especially theorem and section 3",
+      "method": "Primary complete OA HTML plus arXiv PDF text with visual page check",
+      "title": "Lipschitz-Free Spaces over Cantor Sets and Approximation Properties",
+      "trigger": "Identical Cantor product underlying space"
+    },
+    {
+      "assessment": "Covers MAP for this class; does not state norm of deterministic interval differences",
+      "evidence": [
+        "Doucha and Kaufmann, Approximation Properties in Lipschitz-free Spaces over Groups, J. Lond. Math. Soc. 105 (2022), Thm. 3.5, https://arxiv.org/pdf/2005.09785",
+        "Theorem 3.5 says any compact group with a compatible left-invariant metric has MAP"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2005.09785",
+      "material_read": "Primary arXiv full-text search and material read of introduction, Theorem 3.5, proof through finite quotients, and adjoining propositions",
+      "method": "Open-access PDF text and screenshot of p.11",
+      "title": "Approximation Properties in Lipschitz-Free Spaces over Groups",
+      "trigger": "Covers exact compact group class of weighted Hamming Cantor metric"
+    },
+    {
+      "assessment": "Existence of monotone FDD in ambient l1 through interpolation, not exact norm of specified binary Cantor truncation differences",
+      "evidence": [
+        "Lancien and Pernecká, Approximation Properties and Schauder Decompositions in Lipschitz-free Spaces, Thm. 3.1 and Sec. 3, https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+        "Theorem 3.1 and Sec.3.2 construct finite-grid interpolation operators"
+      ],
+      "identifier_or_url": "https://www.karlin.mff.cuni.cz/kma-preprints/2012-pap/2012-399.pdf",
+      "material_read": "Primary 12-page PDF introduction and Section 3 (Theorem 3.1, Lemma 3.2, multilinear interpolation and proof)",
+      "method": "Open-access primary PDF read and screenshot of page 7",
+      "title": "Approximation properties and Schauder decompositions in Lipschitz-free spaces",
+      "trigger": "Potential broader monotone FDD theorem in l1 setting"
+    },
+    {
+      "assessment": "Theorem A and related constructions concern orbit-space projections, not coordinate-zero map or P_m-P_n",
+      "evidence": [
+        "Cúth and Doucha, Projections in Lipschitz-free Spaces Induced by Group Actions, Theorem A and Section 4, https://arxiv.org/pdf/2104.11519",
+        "Theorem A: F(M/G) complemented in F(M) under compact isometric action"
+      ],
+      "identifier_or_url": "https://arxiv.org/pdf/2104.11519",
+      "material_read": "Public primary 22-page PDF introduction, Theorem A, Section 4 orbit-average and quotient projection results",
+      "method": "OA arXiv full-text search and screenshot of p.2",
+      "title": "Projections in Lipschitz-free spaces induced by group actions",
+      "trigger": "Same compact group can produce group-action projections"
+    },
+    {
+      "assessment": "Different projection family: Walsh spectral averages vs deterministic coordinate truncation, and unweighted finite cubes rather than arbitrary summable weights",
+      "evidence": [
+        "Resultary/2026, Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces, 2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d/RESULT.md",
+        "Complete Walsh shadow kernel formula, different operator; stated limitation excludes weighted Hamming"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-coordinate-shadow-norm-formula-for-walsh-projections-on-hamming--6d24f15eba8d",
+      "material_read": "Complete RESULT.md: theorem, proof, sharpness, prior work and limitations",
+      "method": "Read published Resultary GitHub source",
+      "title": "Coordinate-shadow norm formula for Walsh projections on Hamming Lipschitz-free spaces",
+      "trigger": "Closest published mathematical finding involving Hamming free-space projections"
+    },
+    {
+      "assessment": "Inapplicable: P_n is not diagonal in the Dirac coordinates except on its image",
+      "evidence": [
+        "Resultary/2026, Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces, 2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6/RESULT.md",
+        "Formal D_lambda delta_x=lambda_x delta_x, while P_n delta_x=delta_{p_n x}"
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-norms-of-dirac-diagonal-operators-on-real-lipschitz-free-s--8944eb70b2e6",
+      "material_read": "Complete RESULT.md including universal diagonal norm and selector constants",
+      "method": "Read published Resultary GitHub source",
+      "title": "Exact norms of Dirac-diagonal operators on real Lipschitz-free spaces",
+      "trigger": "Possible more general exact norm result for canonical atom operators"
+    }
+  ]
+}

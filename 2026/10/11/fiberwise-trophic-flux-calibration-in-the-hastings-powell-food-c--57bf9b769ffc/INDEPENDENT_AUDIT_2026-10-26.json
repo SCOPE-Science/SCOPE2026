@@ -1,0 +1,244 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T21:39:45Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md (blob b4b3b052cf9c8787fe851a1f6173bcfbe4386e20), all proof sections",
+        "Assigned verify.py (blob 97632fb89ce69fcf1562ef778b337b48bc58d85b), inspected not trusted as full proof",
+        "Independent exact symbolic checker",
+        "Klebanoff–Hastings (1994), eqs. (3.4), (3.11)–(3.13)"
+      ],
+      "rationale": "Compact invariant support inside (0,∞)^3 bounds x,y,z above and away from zero and makes all single-coordinate logarithmic antiderivatives legitimate. Invariance of H(x) with H′=φ(x)/x gives E[y|x]=((1−x)(1+b1x))/a1; analogous y,z generator tests give E[f1(x)−a2z/(1+b2y)|y]=d1 and E[f2(y)|z]=d2. Rearranging the exact ODE yields three normalized coordinate velocities, and L2 conditional orthogonality gives the Pythagorean variance budgets. Zero defect makes that coordinate constant on the invariant support; compact two-sided trajectory completeness and strict monotonicity of f1,f2 force the remaining coordinates constant, hence equilibrium-supported μ. Conversely any equilibrium-supported μ has zero defects. The top predator balance requires a2>b2d2, and strict concavity/monotonicity of f2 plus Jensen gives E[y]>=d2/(a2−b2d2) with equality only on equilibrium support. On a nonconstant positive cycle, the continuous integrand f2(y(t))−d2 has zero integral and is not identically zero, so it takes both signs, giving at least two level crossings. An independent SymPy checker verified six nontrivial pointwise algebra/curvature/special-parameter expressions identically zero; the analytic argument establishes all measure and continuum claims.",
+      "residual_risks": [
+        "Strictly positive compact support is essential to use logarithmic derivative tests and exclude boundary extinction measures.",
+        "Numerical VERIFY_OK and exact six symbolic identities do not independently certify the measure-theoretic conditional expectations or the full-time support rigidity.",
+        "The proof uses two-sided complete bounded trajectories on the invariant compact support, not merely bounded forward orbits.",
+        "No periodic orbit existence is claimed; the crossing statement is conditional on one existing."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klebanoff–Hastings (1994), §3, writes exactly the normalized system and y*=d2/(a2−b2d2) as the positive coexistence equilibrium middle-trophic density, then proves bifurcation mechanisms.",
+          "Coria (2013), Theorem 10, already yields a nonexistence obstruction when a2<=b2*d2; the candidate persistence inequality is not new.",
+          "Hastings–Powell (1991) gives the chaotic reference regime but no invariant-law fiber disintegration."
+        ],
+        "reasoning": "Earlier same mathematical model results dominate portions of the finding (model equations, equilibrium threshold and nonexistence condition). They address invariant regions, equilibria and bifurcations and do not entail the entire conditional moment and speed-budget profile for arbitrary compact interior stationary measures. The necessary persistence obstruction and equilibrium value are explicitly excluded from novelty.",
+        "searches": [
+          "Hastings Powell predator prey exact average mean crossing Holling type II predator break even invariant measures",
+          "doi:10.1007/BF00160167",
+          "doi:10.1155/2013/469072"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.2307/1940591",
+        "doi:10.1007/BF00160167",
+        "doi:10.1155/2013/469072",
+        "doi:10.1063/1.858830",
+        "Resultary published Chen-flow profile 6e42c5b9fd95",
+        "Resultary searches: three exact query strings preserved in comparison fields"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Generic stationary marginal-generator testing implies E[dot x_i|x_i]=0, so three fiber identities require only algebraic substitution for this particular vector field.",
+          "The source 1994 paper fixes the same equilibrium y* but does not assert stationary conditional regressions or variance-speed equalities for every invariant measure.",
+          "Pope–Ching (1993) provides a generic conditional-speed formalism for smooth stationary PDFs; the present claim allows singular compact invariant measures as well.",
+          "Conditional orthogonality and strict Jensen are standard mathematical ingredients, but the candidate combines them with a support rigidity argument for the specific three-species feed chain."
+        ],
+        "reasoning": "No located earlier same mathematical model theorem proves the complete candidate by implication; substantial generic ingredients and some scalar subclaims are prior art. A short model-specific specialization yields the three actual functions, strict non-equilibrium Jensen bound and crossing statement. Passing originality is therefore restricted to this specific package as a best-of-knowledge judgment, not to general generator/variance methods, persistence obstruction, or the generic Jensen and sign-crossing steps.",
+        "searches": [
+          "doi:10.2307/1940591",
+          "doi:10.1007/BF00160167",
+          "doi:10.1155/2013/469072",
+          "stationary dynamical system conditional expectation of time derivative given coordinate equals zero one dimensional current probability flow conditional mean drift"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "For any compact invariant measure of a smooth autonomous flow, testing the generator against one-coordinate antiderivatives proves E[dot x_i | x_i]=0; this generic mechanism is not novel.",
+          "Pope–Ching (1993), equations (4)–(7), express a stationary marginal PDF through conditional time derivative moments, but impose regular-density conditions absent from the candidate.",
+          "The published Chen-flow result verifies use of the same stationary-generator/conditional-Pythagoras template for a different vector field."
+        ],
+        "reasoning": "The three regressions are the Hastings–Powell specializations of the generic zero marginal-current identity, with logarithmic per-capita normalizations. This shared method and generic implication materially narrow novelty. However none of the materially inspected generic sources states or implies the full specific Holling-II three-tier regression, equilibrium rigidity and mean/crossing package without further model-specific calculation; do not claim originality for the general method or variance orthogonality.",
+        "searches": [
+          "Hastings Powell food chain compact invariant probability measure conditional expectation trophic flux per capita velocity zero fiberwise stationarity",
+          "stationary dynamical system conditional expectation of time derivative given coordinate equals zero one dimensional current probability flow conditional mean drift",
+          "Hastings Powell food chain invariant measure stationary moments conditional expectation",
+          "doi:10.1063/1.858830"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary search returns exact candidate self-match under the same title and prefix SCOPE-fiberwise-trophic-flux-calibration...57bf9b769ffc, excluded as independent prior-priority evidence.",
+          "Other ranked findings concern Holling–Tanner, Rosenzweig–MacArthur, Chen and distinct ecological models; their formulas have different vector fields or conditioned variables.",
+          "No separately identified published Hastings–Powell exact three-fiber moment table was found in the bounded semantic or primary-literature search."
+        ],
+        "reasoning": "An indexed self-match establishes only presence of the current assigned record, not independent prior discovery. The nonmatching model profiles do not directly imply the exact Hastings–Powell equations. Failed searches alone are not proof of novelty, and the possibility of an unindexed equivalent observation remains.",
+        "searches": [
+          "Resultary semantic search: Hastings Powell food chain compact invariant probability measure conditional expectation trophic flux per capita velocity zero fiberwise stationarity",
+          "Resultary semantic search: Hastings Powell predator prey exact average mean crossing Holling type II predator break even invariant measures",
+          "published Chen flow comparison: 6e42c5b9fd95"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS limited to the simultaneous Hastings–Powell three-coordinate conditional trophic-flux calibration, model-specific exact speed-defect budgets and equilibrium rigidity/strict non-equilibrium mean consequence. The generic marginal stationarity identity, conditional variance decomposition, Holling-II break-even level, Coria nonexistence obstruction and basic Jensen/crossing principles are prior or elementary and explicitly not claimed as original. Full-text reading of strongest same-object foundational, mathematical and global-bound sources found no statement-level implication yielding the whole stationary fiber profile. A precise equivalent hidden in ecological statistics remains a material priority risk.",
+      "residual_risks": [
+        "Stationarity of each one-dimensional coordinate projection, conditional zero drift and the Pythagorean variance identity are generic and mathematically elementary; independent originality attaches only to the application-specific triple profile and joint rigidity.",
+        "The necessary condition a2>b2*d2 and the positive equilibrium y* are already implicit or explicit in Klebanoff–Hastings and Coria; they are not counted as novel.",
+        "A mathematically equivalent three-fiber application in older or unindexed ecological-statistics literature may exist. Searches and full primary reading do not certify exhaustive absence.",
+        "Pope–Ching (1993) treats smooth marginal densities, not all compact singular invariant measures; literature on zero stationary probability currents might contain a more precise general statement.",
+        "The theorem is conditional on existence of a compact interior invariant measure; it proves neither existence nor chaos for arbitrary coefficient parameters."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives the model and chaotic regimes but not invariant-measure conditional trophic-flux regressions, speed budgets or the asserted measurewise Jensen rigidity.",
+          "evidence": "Hastings and Powell (1991), Ecology 72:896–903, model equations and the chaotic example; original result concerns numerically observed non-equilibrium dynamics.",
+          "identifier_or_url": "doi:10.2307/1940591",
+          "material_read": "The complete nine-page article, including model specification, Holling-II normalization, period-doubling/chaos figures, parameters and concluding ecological discussion.",
+          "method": "Open primary PDF text and visual page inspection.",
+          "title": "Chaos in a Three-Species Food Chain",
+          "trigger": "Original exact Hastings–Powell model and reference parameter values."
+        },
+        {
+          "assessment": "Derives the same Holling-II break-even equilibrium relation and local/global dynamical results, but its theorems do not state the three conditional stationary regressions for arbitrary compact interior invariant probabilities, the speed-defect identities, or the mixture rigidity.",
+          "evidence": "Klebanoff–Hastings (1994), J Math Biol 32:427–451, eqs. (3.4), (3.11)–(3.13), §5 and Appendix B.",
+          "identifier_or_url": "doi:10.1007/BF00160167",
+          "material_read": "All 25 pages, including pp. 427–451, §2 generalized food chains, §3 exact nondimensional equations (3.4) and equilibria (3.6)–(3.13), §§4–7 bifurcation analysis and the normal-form appendices.",
+          "method": "Institutionally authorized complete page-text inspection after unsuccessful lawful preprint/open-access attempts, including full appendices.",
+          "title": "Chaos in three species food chains",
+          "trigger": "Mathematical primary study of the exact self-review, its equilibria and global bifurcations."
+        },
+        {
+          "assessment": "The a2<=b2*d2 obstruction is essentially covered as prior nonexistence, and is not assigned novelty. Its invariant-set bounds do not imply the additional three-fiber conditional expectation/variance identities without invoking a separate stationary marginal-generator calculation.",
+          "evidence": "Coria (2013), Mathematical Problems in Engineering 2013:469072, model and Theorems 10–11.",
+          "identifier_or_url": "doi:10.1155/2013/469072",
+          "material_read": "Open full-text abstract, definitions, model, main compact-localization results and nonexistence/predator-survival theorems, including numbered Theorems 10–11.",
+          "method": "Lawful open full-text scientific comparison, including theorem statements and hypotheses.",
+          "title": "Global Dynamics of the Hastings-Powell System",
+          "trigger": "Same system; directly relevant earlier nonexistence and compact invariant set bounds."
+        },
+        {
+          "assessment": "Uses general stationary-process conditional speed moments and makes clear that conditional differentiation is pre-existing method. Its PDF formulation assumes regular one-time densities and other conditions; it neither supplies the Hastings–Powell three trophic regressions as a statement nor handles every singular compact invariant probability in the candidate scope.",
+          "evidence": "Pope–Ching (1993), Physics of Fluids A 5:1529–1531, eqs. (4)–(10).",
+          "identifier_or_url": "doi:10.1063/1.858830",
+          "material_read": "Complete three-page primary article, including the stationary-density conditional-derivative equation (6) and the resulting PDF formula (7).",
+          "method": "Open primary full PDF text and rendered page check.",
+          "title": "Stationary probability density functions: An exact result",
+          "trigger": "Generic stationary process conditional time-derivative identities and the need to separate method from model-specific consequences."
+        },
+        {
+          "assessment": "The generic stationarity-test and conditional orthogonality patterns are covered, but the Chen vector field differs materially from the Hastings–Powell Holling-II food chain and does not mathematically imply its specific three fiber laws, persistence conditions or break-even crossing theorem.",
+          "evidence": "The published Chen flow uses xdot=a(y−x), ydot=(c−a)x−xz+cy, zdot=xy−bz; its exact regressions are in those different variables/parameters.",
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-fiberwise-stationary-regressions-and-speed-coherence-laws--6e42c5b9fd95/RESULT.md",
+          "material_read": "Finding, the three conditional mean identities, exact speed-defect equations, scope, and initial proof deriving the regressions and variance budgets.",
+          "method": "Read the actual published result file from the repository, not merely Resultary search snippets.",
+          "title": "Three fiberwise stationary regressions and speed-coherence laws in the Chen flow",
+          "trigger": "Published closely analogous three-variable coordinatewise generator method and variance decomposition."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Hastings–Powell (1991), canonical chaotic model and parameter regime",
+        "Klebanoff–Hastings (1994), nontrivial positive equilibrium and bifurcations",
+        "Coria (2013), known invariant bounds and nonexistence checks",
+        "Published comparable Chen and Holling–Tanner conditional-profile results"
+      ],
+      "rationale": "A canonical chaotic three-trophic food chain is a natural setting for attractor-independent, exact statistical constraints. The linked three-fiber profile is tailored to each directly driven trophic level and covers positive equilibria, positive cycles, ergodic chaotic measures and their compact-supported mixtures. The mean-square per-capita speed gives an exact measurable decomposition of variation at each trophic layer. Rigidity identifies zero dynamical activity exactly with equilibrium support; every genuinely time-varying compact stationary state has mean intermediate-predator density strictly above its biologically defined top-predator break-even level, while positive cycles must cross that level. Though short and based on generic stationary tools, the complete concrete three-layer profile and its exact equality boundary are independently motivated enough to serve as a model-specific benchmark and consistency diagnostic, not an arbitrary parameter slice. No broader general theorem or paper-sized result is claimed.",
+      "residual_risks": [
+        "The proof mechanisms are elementary universal stationary-generator and conditional-variance identities; contribution is narrow and may have limited usefulness beyond diagnostics for this specified food chain.",
+        "The persistence condition and equilibrium break-even population are earlier known, and the Jensen and two-crossing deductions are short.",
+        "The model-specific conditional laws do not determine full joint distributions or guarantee invariant measures exist."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md (blob b4b3b052cf9c8787fe851a1f6173bcfbe4386e20), all proof sections",
+    "Assigned verify.py (blob 97632fb89ce69fcf1562ef778b337b48bc58d85b), inspected not trusted as full proof",
+    "Independent exact symbolic checker",
+    "Klebanoff–Hastings (1994), eqs. (3.4), (3.11)–(3.13)",
+    "doi:10.2307/1940591",
+    "doi:10.1007/BF00160167",
+    "doi:10.1155/2013/469072",
+    "doi:10.1063/1.858830",
+    "Resultary published Chen-flow profile 6e42c5b9fd95",
+    "Resultary searches: three exact query strings preserved in comparison fields",
+    "Hastings–Powell (1991), canonical chaotic model and parameter regime",
+    "Klebanoff–Hastings (1994), nontrivial positive equilibrium and bifurcations",
+    "Coria (2013), known invariant bounds and nonexistence checks",
+    "Published comparable Chen and Holling–Tanner conditional-profile results"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every compactly supported interior invariant probability of the Hastings–Powell Holling-II three-species food chain: three explicit x/y/z-fiber conditional trophic flux regressions, three exact per-capita-speed variance budgets, zero-defect rigidity to equilibrium support, a2>b2*d2, mean middle-trophic density ≥ y*=d2/(a2−b2d2) (strict away from equilibria), and at least two level crossings per nonconstant positive periodic orbit; at classic parameters y*=1/8.",
+  "limitations": [
+    "No local rematerialization and separate Git blob-byte rehash of all eight originals; exact connector blob identities and independently reconstructed tree SHA verified.",
+    "Best-of-knowledge historical priority, no absolute novelty guarantee.",
+    "Proof is conditional on positive compact invariant support; no boundary measures or existence theorem.",
+    "No public replacement files staged; publication not ready."
+  ],
+  "residual_risks": [
+    "Strictly positive compact support is essential to use logarithmic derivative tests and exclude boundary extinction measures.",
+    "Numerical VERIFY_OK and exact six symbolic identities do not independently certify the measure-theoretic conditional expectations or the full-time support rigidity.",
+    "The proof uses two-sided complete bounded trajectories on the invariant compact support, not merely bounded forward orbits.",
+    "No periodic orbit existence is claimed; the crossing statement is conditional on one existing.",
+    "Stationarity of each one-dimensional coordinate projection, conditional zero drift and the Pythagorean variance identity are generic and mathematically elementary; independent originality attaches only to the application-specific triple profile and joint rigidity.",
+    "The necessary condition a2>b2*d2 and the positive equilibrium y* are already implicit or explicit in Klebanoff–Hastings and Coria; they are not counted as novel.",
+    "A mathematically equivalent three-fiber application in older or unindexed ecological-statistics literature may exist. Searches and full primary reading do not certify exhaustive absence.",
+    "Pope–Ching (1993) treats smooth marginal densities, not all compact singular invariant measures; literature on zero stationary probability currents might contain a more precise general statement.",
+    "The theorem is conditional on existence of a compact interior invariant measure; it proves neither existence nor chaos for arbitrary coefficient parameters.",
+    "The proof mechanisms are elementary universal stationary-generator and conditional-variance identities; contribution is narrow and may have limited usefulness beyond diagnostics for this specified food chain.",
+    "The persistence condition and equilibrium break-even population are earlier known, and the Jensen and two-crossing deductions are short.",
+    "The model-specific conditional laws do not determine full joint distributions or guarantee invariant measures exist."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Gives the model and chaotic regimes but not invariant-measure conditional trophic-flux regressions, speed budgets or the asserted measurewise Jensen rigidity.",
+      "evidence": "Hastings and Powell (1991), Ecology 72:896–903, model equations and the chaotic example; original result concerns numerically observed non-equilibrium dynamics.",
+      "identifier_or_url": "doi:10.2307/1940591",
+      "material_read": "The complete nine-page article, including model specification, Holling-II normalization, period-doubling/chaos figures, parameters and concluding ecological discussion.",
+      "method": "Open primary PDF text and visual page inspection.",
+      "title": "Chaos in a Three-Species Food Chain",
+      "trigger": "Original exact Hastings–Powell model and reference parameter values."
+    },
+    {
+      "assessment": "Derives the same Holling-II break-even equilibrium relation and local/global dynamical results, but its theorems do not state the three conditional stationary regressions for arbitrary compact interior invariant probabilities, the speed-defect identities, or the mixture rigidity.",
+      "evidence": "Klebanoff–Hastings (1994), J Math Biol 32:427–451, eqs. (3.4), (3.11)–(3.13), §5 and Appendix B.",
+      "identifier_or_url": "doi:10.1007/BF00160167",
+      "material_read": "All 25 pages, including pp. 427–451, §2 generalized food chains, §3 exact nondimensional equations (3.4) and equilibria (3.6)–(3.13), §§4–7 bifurcation analysis and the normal-form appendices.",
+      "method": "Institutionally authorized complete page-text inspection after unsuccessful lawful preprint/open-access attempts, including full appendices.",
+      "title": "Chaos in three species food chains",
+      "trigger": "Mathematical primary study of the exact self-review, its equilibria and global bifurcations."
+    },
+    {
+      "assessment": "The a2<=b2*d2 obstruction is essentially covered as prior nonexistence, and is not assigned novelty. Its invariant-set bounds do not imply the additional three-fiber conditional expectation/variance identities without invoking a separate stationary marginal-generator calculation.",
+      "evidence": "Coria (2013), Mathematical Problems in Engineering 2013:469072, model and Theorems 10–11.",
+      "identifier_or_url": "doi:10.1155/2013/469072",
+      "material_read": "Open full-text abstract, definitions, model, main compact-localization results and nonexistence/predator-survival theorems, including numbered Theorems 10–11.",
+      "method": "Lawful open full-text scientific comparison, including theorem statements and hypotheses.",
+      "title": "Global Dynamics of the Hastings-Powell System",
+      "trigger": "Same system; directly relevant earlier nonexistence and compact invariant set bounds."
+    },
+    {
+      "assessment": "Uses general stationary-process conditional speed moments and makes clear that conditional differentiation is pre-existing method. Its PDF formulation assumes regular one-time densities and other conditions; it neither supplies the Hastings–Powell three trophic regressions as a statement nor handles every singular compact invariant probability in the candidate scope.",
+      "evidence": "Pope–Ching (1993), Physics of Fluids A 5:1529–1531, eqs. (4)–(10).",
+      "identifier_or_url": "doi:10.1063/1.858830",
+      "material_read": "Complete three-page primary article, including the stationary-density conditional-derivative equation (6) and the resulting PDF formula (7).",
+      "method": "Open primary full PDF text and rendered page check.",
+      "title": "Stationary probability density functions: An exact result",
+      "trigger": "Generic stationary process conditional time-derivative identities and the need to separate method from model-specific consequences."
+    },
+    {
+      "assessment": "The generic stationarity-test and conditional orthogonality patterns are covered, but the Chen vector field differs materially from the Hastings–Powell Holling-II food chain and does not mathematically imply its specific three fiber laws, persistence conditions or break-even crossing theorem.",
+      "evidence": "The published Chen flow uses xdot=a(y−x), ydot=(c−a)x−xz+cy, zdot=xy−bz; its exact regressions are in those different variables/parameters.",
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-three-fiberwise-stationary-regressions-and-speed-coherence-laws--6e42c5b9fd95/RESULT.md",
+      "material_read": "Finding, the three conditional mean identities, exact speed-defect equations, scope, and initial proof deriving the regressions and variance budgets.",
+      "method": "Read the actual published result file from the repository, not merely Resultary search snippets.",
+      "title": "Three fiberwise stationary regressions and speed-coherence laws in the Chen flow",
+      "trigger": "Published closely analogous three-variable coordinatewise generator method and variance decomposition."
+    }
+  ]
+}

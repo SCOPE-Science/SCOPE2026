@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The backward system specifies the gate and boundary conventions explicitly. Stationary averaging diagonalizes the PDE into a diffusion mode and a gate-relaxation mode, giving the full Laplace transform. Expansion supplies the exact mean and variance. Strict logarithmic convexity follows analytically from a positive Laplace integral representation and proves that the inversion parameter has one and only one positive solution. The two endpoint limits give the exact open feasible region. Fifteen independent Laplace-boundary comparisons and five moment-recovery tests passed. These numerical checks are corroboration, not proof of uniqueness.
+## correctness
 
-## Originality — PASS (with residual priority risk)
-The 2015 switching-boundary work establishes forward mean calculations, and the 2020 gated-target full text establishes a general transform and moment framework for the same target mechanism. Those results determine the underlying moments in principle, but do not state the injectivity of two scalar moments at one initial location or the complete open feasible moment region. The 2022/2023 inference work studies recovery from richer short-time detection information; no demonstration of the stated two-moment global criterion was identified in its inspected relevant sections and supplement. Direct implication from the forward formulas requires the additional strict log-convexity and onto-range argument. A specialized paper might contain an equivalent inverse derivation, which remains a priority risk.
+PASS
 
-## Mathematical value — PASS
-The fact that only two coarse absorption-time statistics identify both rates, together with an exact realizability inequality, resolves a natural inverse problem for intermittent reaction targets. The sharp variance floor and unbounded fixed-mean variance distinguish physically possible data from impossible data. The value does not depend on numerical enumeration or a general downstream theorem.
+Solved the coupled backward Laplace equations using stationary gate mean F and difference W. The exact transform is 1/[cosh(sqrt u)+q sqrt u sinh(sqrt u)*h(z+u)], z=(alpha+beta)L^2/D, q=beta/alpha, h(z)=coth(sqrt z)/sqrt z. Expansion yields m=1/2+q h(z), v=m^2-m/3+1/12-2(m-1/2)h'(z)/h(z). The Mittag-Leffler expansion of h as an integral of a strictly positive Laplace kernel makes (log h)' strictly increasing from -infinity to 0. Therefore every datum in the strict feasible half-region has exactly one z, q, and pair of positive rates. Independently tested rate reconstruction and moment floor for multiple parameter choices, with independent backward boundary-matrix checks in the inspected package. The inequality is strict at any finite positive rate.
 
-## Limitations
-The inversion assumes known diffusion/length scales and stationary independent gate preparation. It is exact-data identifiability, not measurement-error robustness. General resetting and nonstationary-gate cases are outside scope. Literature screening cannot establish unconditional historical priority.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Rate inference from full gated first-passage distributions and short-time detection tails was established by Kumar-Scher-Reuveni-Santhanam (2023), and forward gated diffusion moment transforms by Bressloff-Lawley/Bressloff. The inspected Kumar author-preprint main text and supplemental Section S6 explicitly use short-time density limits (not only the stationary-gate absorption mean and variance at one initial point); they do not provide this globally bijective two-moment image or the sharp variance feasibility floor. Best-of-knowledge originality survives, with cautious specialist-literature residual risk.
+
+## value
+
+PASS
+
+An experimentally natural inverse problem is reduced from a full distribution to two low-order time statistics, and an exact attainable region plus sharp unrealizable boundary is proved for the nontrivial coupled-boundary model. Exact structural identifiability and feasibility can inform inverse diffusion studies even if noisy statistical conditioning is not covered.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

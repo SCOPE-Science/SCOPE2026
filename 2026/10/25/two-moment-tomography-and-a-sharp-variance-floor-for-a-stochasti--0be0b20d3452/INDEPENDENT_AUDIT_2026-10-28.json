@@ -1,0 +1,149 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T22:37:42Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Solved the coupled backward Laplace equations using stationary gate mean F and difference W. The exact transform is 1/[cosh(sqrt u)+q sqrt u sinh(sqrt u)*h(z+u)], z=(alpha+beta)L^2/D, q=beta/alpha, h(z)=coth(sqrt z)/sqrt z. Expansion yields m=1/2+q h(z), v=m^2-m/3+1/12-2(m-1/2)h'(z)/h(z). The Mittag-Leffler expansion of h as an integral of a strictly positive Laplace kernel makes (log h)' strictly increasing from -infinity to 0. Therefore every datum in the strict feasible half-region has exactly one z, q, and pair of positive rates. Independently tested rate reconstruction and moment floor for multiple parameter choices, with independent backward boundary-matrix checks in the inspected package. The inequality is strict at any finite positive rate.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Kumar et al. derive model-free inference from full detection-time distributions and short-time limits, a richer data source but not a theorem on the image of the two-moment map.",
+          "Bressloff 2020 arxiv:2009.02739 derives forward gated target Laplace transforms with resetting."
+        ],
+        "reasoning": "A forward transform or inference from full distribution does not imply a unique inverse of its first two moments without strict log-convexity, which the current proof supplies.",
+        "searches": [
+          "Brownian absorbing reflecting switching gate identifiability switching rates mean variance stationary initial boundary finite interval",
+          "Inference from gated first-passage times Kumar Scher Reuveni Santhanam 2023 inverse rates short time",
+          "gated diffusion absorbing reflecting two moment variance identifiability switching rates"
+        ]
+      },
+      "checked_sources": [
+        "https://www.researchgate.net/publication/364126046_Inference_from_gated_first-passage_times",
+        "https://doi.org/10.1103/PhysRevResearch.5.L032043",
+        "https://arxiv.org/abs/2009.02739",
+        "https://doi.org/10.1088/1751-8113/48/22/225001"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Kumar et al. supplementary Eqs. S40-S44 and S56-S57 use t->0 detection-time densities to recover switching rates.",
+          "The present theorem proves strict increase of h'/h and derives z and q algebraically from m,v only."
+        ],
+        "reasoning": "Neither a pointwise forward moment calculation nor a separate short-time inference theorem establishes the two-moment map injectivity and global variance floor as a logical corollary.",
+        "searches": [
+          "Brownian absorbing reflecting switching gate identifiability switching rates mean variance stationary initial boundary finite interval",
+          "Inference from gated first-passage times Kumar Scher Reuveni Santhanam 2023 inverse rates short time",
+          "gated diffusion absorbing reflecting two moment variance identifiability switching rates"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kumar et al., arXiv:2210.00678 author preprint, main text and supplemental S6, develop gating-rate inference through short-time detection density and related first-passage density.",
+          "Bressloff-Lawley 2015 discuss switching absorption/reflecting boundary and forward mean first-passage."
+        ],
+        "reasoning": "Both the gate mechanism and generic inverse-rate inference are prior art; no source passage inspected proves unique rates from just mean and variance of this finite-interval stationary-gate model.",
+        "searches": [
+          "Brownian absorbing reflecting switching gate identifiability switching rates mean variance stationary initial boundary finite interval",
+          "Inference from gated first-passage times Kumar Scher Reuveni Santhanam 2023 inverse rates short time",
+          "gated diffusion absorbing reflecting two moment variance identifiability switching rates"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query on Brownian gated switching rates and variance returned no indexed exact feasible-region table.",
+          "Kumar et al. supplementary Section S6 describes asymptotic rate formulas, not a fixed-stationary-gate moment image table."
+        ],
+        "reasoning": "A finite table of parameter/moment examples does not imply the exact open feasible region for all positive alpha,beta. Unsuccessful search is not novelty proof.",
+        "searches": [
+          "Brownian absorbing reflecting switching gate identifiability switching rates mean variance stationary initial boundary finite interval",
+          "Inference from gated first-passage times Kumar Scher Reuveni Santhanam 2023 inverse rates short time",
+          "gated diffusion absorbing reflecting two moment variance identifiability switching rates"
+        ]
+      },
+      "rationale": "Rate inference from full gated first-passage distributions and short-time detection tails was established by Kumar-Scher-Reuveni-Santhanam (2023), and forward gated diffusion moment transforms by Bressloff-Lawley/Bressloff. The inspected Kumar author-preprint main text and supplemental Section S6 explicitly use short-time density limits (not only the stationary-gate absorption mean and variance at one initial point); they do not provide this globally bijective two-moment image or the sharp variance feasibility floor. Best-of-knowledge originality survives, with cautious specialist-literature residual risk.",
+      "residual_risks": [
+        "Unindexed inverse-moment treatments of the same switching-boundary diffusion could be prior coverage.",
+        "Oxford institutional PDF attempt returned vpn_disconnected, though author-uploaded full preprint text including supplement was accessible and read.",
+        "No claims about sampling noise, unknown D/L, nonstationary gate initialization or stable inference near feasible boundary."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Rate inference depends on short-time density limits; no stationary finite-interval two-moment feasible-region theorem found in inspected main/S6",
+          "evidence": [
+            "https://www.researchgate.net/publication/364126046_Inference_from_gated_first-passage_times",
+            "Supplement S6",
+            "Eqs. S40-S44 and S56-S57"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2210.00678",
+          "material_read": "Author-uploaded complete preprint text on ResearchGate including main text, supplementary S6 and formulas S40-S44 and S56-S57",
+          "method": "Full author preprint text inspected in lawful online manuscript; arXiv and OA PDF access attempted; Oxford institutional fallback reported VPN disconnected",
+          "title": "Inference from gated first-passage times",
+          "trigger": "Same two-state stochastic gate and direct rate inference"
+        },
+        {
+          "assessment": "Forward gating with resetting; does not itself establish two-moment inversion",
+          "evidence": [
+            "arxiv:2009.02739"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+          "material_read": "Abstract and available theorem descriptions only; no whole-document exclusion claimed",
+          "method": "Abstract/statement scope comparison",
+          "title": "Diffusive search for a stochastically-gated target with resetting",
+          "trigger": "Forward Laplace transform of a gating diffusion"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An experimentally natural inverse problem is reduced from a full distribution to two low-order time statistics, and an exact attainable region plus sharp unrealizable boundary is proved for the nontrivial coupled-boundary model. Exact structural identifiability and feasibility can inform inverse diffusion studies even if noisy statistical conditioning is not covered.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.researchgate.net/publication/364126046_Inference_from_gated_first-passage_times",
+    "https://doi.org/10.1103/PhysRevResearch.5.L032043",
+    "https://arxiv.org/abs/2009.02739",
+    "https://doi.org/10.1088/1751-8113/48/22/225001"
+  ],
+  "disposition": "passed",
+  "final_claim": "For D,L>0, stationary two-state gate and Brownian motion starting at reflecting x=L with absorption at open x=0, positive gate rates alpha,beta are uniquely recovered from dimensionless mean m and variance v exactly when m>1/2 and v>m^2-m/3+1/12.",
+  "limitations": [
+    "Unindexed inverse-moment treatments of the same switching-boundary diffusion could be prior coverage.",
+    "Oxford institutional PDF attempt returned vpn_disconnected, though author-uploaded full preprint text including supplement was accessible and read.",
+    "No claims about sampling noise, unknown D/L, nonstationary gate initialization or stable inference near feasible boundary.",
+    "Public release is withheld pending sanitization of provenance-bearing public metadata."
+  ],
+  "residual_risks": [
+    "Unindexed inverse-moment treatments of the same switching-boundary diffusion could be prior coverage.",
+    "Oxford institutional PDF attempt returned vpn_disconnected, though author-uploaded full preprint text including supplement was accessible and read.",
+    "No claims about sampling noise, unknown D/L, nonstationary gate initialization or stable inference near feasible boundary."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Rate inference depends on short-time density limits; no stationary finite-interval two-moment feasible-region theorem found in inspected main/S6",
+      "evidence": [
+        "https://www.researchgate.net/publication/364126046_Inference_from_gated_first-passage_times",
+        "Supplement S6",
+        "Eqs. S40-S44 and S56-S57"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2210.00678",
+      "material_read": "Author-uploaded complete preprint text on ResearchGate including main text, supplementary S6 and formulas S40-S44 and S56-S57",
+      "method": "Full author preprint text inspected in lawful online manuscript; arXiv and OA PDF access attempted; Oxford institutional fallback reported VPN disconnected",
+      "title": "Inference from gated first-passage times",
+      "trigger": "Same two-state stochastic gate and direct rate inference"
+    },
+    {
+      "assessment": "Forward gating with resetting; does not itself establish two-moment inversion",
+      "evidence": [
+        "arxiv:2009.02739"
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2009.02739",
+      "material_read": "Abstract and available theorem descriptions only; no whole-document exclusion claimed",
+      "method": "Abstract/statement scope comparison",
+      "title": "Diffusive search for a stochastically-gated target with resetting",
+      "trigger": "Forward Laplace transform of a gating diffusion"
+    }
+  ]
+}

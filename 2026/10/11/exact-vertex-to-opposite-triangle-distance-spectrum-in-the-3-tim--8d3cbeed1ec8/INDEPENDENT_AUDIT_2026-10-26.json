@@ -1,0 +1,248 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T20:39:13Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For four distinct sites of L={0,1,2}^3, a nonzero oriented volume determinant is exactly the full-dimensional tetrahedron condition. Each unordered four-site set generates four and only four marked point/opposite-triangle pairs. For triangle a,b,c, the squared Euclidean distance is the minimum of the convex quadratic ||p-a-u(b-a)-v(c-a)||^2 over u,v>=0,u+v<=1. Its unique unconstrained stationary point is found from the nonsingular 2x2 Gram matrix; when feasible it is the minimum, otherwise compactness and strict convexity force the minimum on one of the three closed edges, solved by clamped rational segment projections. This covers all faces/boundaries with exact rational arithmetic. The independent implementation loops over all C(27,4) unordered sets and each of four markings, checks nonzero determinants, uses its own Gram/active-face formulas and 48 cube isometries, and reproduces 14,632 tetrahedra, 58,528 marked pairs, 19,744 feasible perpendicular feet, the full 88-value CSV and all three specified orbit partitions. The source CSV is byte-exact to its Git blob SHA-1 91d88e..., and the assigned source tree object SHA is independently reconstructed. The enumeration is a proof for the finite domain only; no extrapolation to other k is made.",
+      "residual_risks": [
+        "The independent run uses standard-library exact fractions, but independent verifier correctness is still justified by a finite-domain combinatorial case partition and convex quadratic minimization; no general-k theorem results.",
+        "No separate formal proof assistant certification or human attestation. Original verify.py itself was inspected rather than executed; an independent verifier was executed."
+      ],
+      "sources": [
+        "Assigned RESULT.md, proof Steps 1-3, actual blob d18cc3fbf00ca159e644de682a388e885e5d9ffc.",
+        "Assigned spectrum.csv, independently rehashed Git blob 91d88e11c0678401ee0da5c019cc74c66704968a.",
+        "Assigned verify.py, actual blob 2c223547b8dc2df849f2d44aa3a5c8040577acf1, read but not executed.",
+        "Locally independent exact verifier independent_check.py and output independent_checks.json; arXiv:2601.03183v1 minimum cross-check."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Deza-Pournin 2026 establishes the global point-triangle minimum for every k>=2 and the unique minimizing orbit at k=2.",
+          "Deza-Liu-Pournin 2025 establishes global minimum between arbitrary disjoint 3-dimensional cube lattice polytopes, generally attained by segment pairs.",
+          "Deza-Liu-Pournin 2024 presents a constrained/relaxed search method and minimum-only tables."
+        ],
+        "reasoning": "Coverage of all k for the minimum is broader in domain but weaker in statistic. Neither minimum and uniqueness nor an algorithm capable of enumeration mathematically specifies the exact nonminimal threshold, its two orbit classes, or the complete signed multiplicity distribution.",
+        "searches": [
+          "Resultary published findings: Quantitative isolation of extremal flat lattice simplex k=2 second best vertex to opposite face distance",
+          "arXiv:2601.03183v1 Theorem 1.1 and Proposition 4.1",
+          "arXiv:2502.19554v1 Theorems 1.1-1.2",
+          "arXiv:2412.03479v1 Section 4"
+        ]
+      },
+      "checked_sources": [
+        "Deza and Pournin, Flat simplices and kissing polytopes, arXiv:2601.03183v1 (Theorem 1.1, Proposition 4.1, Tables 1-4, Sections 4-5).",
+        "Deza, Liu and Pournin, Kissing polytopes in dimension 3, arXiv:2502.19554v1 (Theorems 1.1-1.2, Sections 2-4).",
+        "Deza, Liu and Pournin, Small kissing polytopes, arXiv:2412.03479v1, 17-page OA PDF (Tables 1-2, Sections 2,4).",
+        "Hamm, width 2 tetrahedra with small multi-width, Zenodo 7802563 landing page only (different invariant; uninspected data).",
+        "Resultary exact self-match ID 2026/10/11/SCOPE-exact-vertex-to-opposite-triangle-distance-spectrum-in-the-3-tim--8d3cbeed1ec8 excluded.",
+        "Other Resultary results were different tetrahedral spectral, polytope/flat-simplex, lattice, or topological invariants; no positive coverage identified by statement comparison."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: the least point-triangle distance at k=2 equals 1/sqrt(29) with one orbit.",
+          "Audited: the next squared level is 1/21 (96 configurations in two orbits), the third is 1/17 (24 configurations in one orbit), and all remaining 85 levels have exact frequencies.",
+          "Exact independent census reproduces all values and the two distinct equality orbits."
+        ],
+        "reasoning": "A unique global minimizer and the numerical minimum do not imply a bound for nonminimizers or an enumeration of every remaining value. The new claims require a separate fully specified finite census, not a substitution of k into a known formula.",
+        "searches": [
+          "Resultary published findings: Exact second nearest vertex to opposite triangular face squared distance in [0,2]^3 lattice tetrahedra, sharp stability gap 1/29 1/21 and symmetry orbits",
+          "Resultary published findings: Quantitative isolation of extremal flat lattice simplex k=2 second best vertex to opposite face distance",
+          "arXiv:2601.03183v1 Proposition 4.1",
+          "arXiv:2502.19554v1 Theorem 1.2",
+          "web search: 3x3x3 lattice tetrahedra vertex opposite triangle distance spectrum 1/21 88 58528"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same configurations are marked full-dimensional tetrahedra with one vertex versus the closed opposite face.",
+          "Deza-Pournin point-to-affine-plane distance |integer determinant|/sqrt(Gram determinant) gives only a lower bound when the perpendicular foot lies outside the triangle.",
+          "The independent finite census has 19,744 of 58,528 perpendicular feet inside the triangle; 38,784 require the boundary minimization in the audited algorithm."
+        ],
+        "reasoning": "Aliases such as lattice simplex height, vertex-facet distance, pyramidal width and point-to-triangle separation were compared at the level of the constrained metric. Plane-distance or minimum-only formulae are not equivalent to the all-marked closed-triangle distance histogram; no independently published equivalent formula for all 88 levels was found.",
+        "searches": [
+          "Resultary published findings: Exact second nearest vertex to opposite triangular face squared distance in [0,2]^3 lattice tetrahedra, sharp stability gap 1/29 1/21 and symmetry orbits",
+          "Resultary published findings: Complete distribution spectrum 88 distinct squared distances 58528 marked tetrahedra 3x3x3 lattice cube point to triangle",
+          "arXiv:2601.03183v1 Section 4 equations (16)-(21)",
+          "arXiv:2412.03479v1 Section 2",
+          "web search: 3x3x3 lattice tetrahedra vertex opposite triangle distance spectrum 1/21 88 58528"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published 2026 Table 2 gives sqrt(29), the inverse first level at d=3,k=2, without other levels.",
+          "The 2024 Table 1 lists globally minimal distances and Table 2 lists candidate-row counts, not point-to-face histograms.",
+          "Hamm Zenodo dataset describes tetrahedron multi-width coordinate classes; the data file has not been read.",
+          "The exact self-match Resultary record is excluded as independent priority evidence: Resultary 2026/10/11/SCOPE-exact-vertex-to-opposite-triangle-distance-spectrum-in-the-3-tim--8d3cbeed1ec8 (assigned result itself; excluded from independent priority)"
+        ],
+        "reasoning": "No verified earlier numerical or symbolic table with all 88 closed-triangle values and 58,528 multiplicities was found. The existence of vertex-coordinate datasets or authors’ unpublished finite enumeration output is not ruled out by limited search.",
+        "searches": [
+          "Resultary published findings: Complete distribution spectrum 88 distinct squared distances 58528 marked tetrahedra 3x3x3 lattice cube point to triangle",
+          "web search: \"14632\" lattice tetrahedra 3x3x3; \"58528\" \"tetrahedra\"; \"88\" \"1/29\" \"1/21\" tetrahedron",
+          "arXiv:2601.03183v1 Tables 1-4",
+          "arXiv:2412.03479v1 Tables 1-2",
+          "Zenodo 10.5281/zenodo.7802563 description"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives for the complete 88-level distribution, the sharp second level 1/21 above the published minimum 1/29, and two equality orbits. Deza-Pournin 2026 Theorem 1.1 and Proposition 4.1 prove the global minimum and unique orbit but not next gap or multiplicities; earlier 2024/2025 Deza-Liu-Pournin papers give stronger general minimum frameworks for different statistics, not a complete closed-face census. Resultary searches produced the assigned record itself, excluded from independent priority evidence, and no supported earlier exact duplicate. Negative searches remain limited and do not establish priority by themselves.",
+      "residual_risks": [
+        "Deza-Pournin explicitly ran an exhaustive procedure for k<=8; unindexed numerical logs or supplementary computation might already contain runner-up and/or complete spectrum even though their published theorem/tables do not.",
+        "Preexisting lattice tetrahedron coordinate datasets could support recomputation of these distances; a dataset’s existence alone is not an exact table.",
+        "Resultary nearest exact hit is the assigned finding, not independent evidence; failed external text searches do not prove absolute novelty.",
+        "The value of this exact finite spectrum is limited to the 27-point cube; it supplies no asymptotic in k or general best stability bound."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1.1 and Proposition 4.1 settle only the first distance 1/sqrt(29) with a unique symmetry orbit. Its computational enumeration for k<=8 does not report the second distance/orbits, nor an all-distance histogram; these additional data are not a logical corollary of minimum uniqueness.",
+          "evidence": [
+            "Theorem 1.1 at HTML lines 52-59: universal minimum and minimizing orbit.",
+            "Table 2 at lines 61-71: inverse minimum sqrt(29) for d=3,k=2.",
+            "Section 4, lines 365-375: computation enumerates minimizers but Proposition 4.1 reports only min and uniqueness.",
+            "Equation (20), lines 377-402: affine-plane determinant quotient; not the full closed-triangle distribution."
+          ],
+          "identifier_or_url": "Deza and Pournin, arXiv:2601.03183v1; https://arxiv.org/html/2601.03183v1",
+          "material_read": "Accessible primary HTML: introduction, Theorem 1.1, Tables 1-4, Section 4 Proposition 4.1 and exact projection formula (20), and Section 5 finite-exhaustion/general-k proof passages. Searched the accessible full text for second, 1/21 and multiplicity.",
+          "method": "Statement-level and equation-level comparison of k=2 point-triangle minimizers, plane distance and convex triangle distance, with exact-table scope check.",
+          "title": "Flat simplices and kissing polytopes",
+          "trigger": "Same lattice cube, same Euclidean vertex-to-opposite-triangle distance, including k=2, and uniqueness of its minimum."
+        },
+        {
+          "assessment": "Theorem 1.2 places point-triangle separation strictly above the unrestricted two-polytope minimum. Theorems are minimum/bound results, not 88-value spectrum or its sharp second rank.",
+          "evidence": [
+            "HTML lines 51-67: Theorem 1.1 global minimum and Theorem 1.2 point-triangle strict inequality.",
+            "HTML lines 69-80: affine hull least-squares model is a lower bound for convex distance.",
+            "Theorem 1.1 formula applies principally to segment-pair global minimum rather than the full marked point-triangle spectrum."
+          ],
+          "identifier_or_url": "Deza, Liu and Pournin, arXiv:2502.19554v1; https://arxiv.org/html/2502.19554v1; journal DOI 10.1080/10586458.2025.2595009",
+          "material_read": "Accessible full-text primary HTML: abstract and Theorems 1.1-1.2; Section 2 algebraic model; Section 3 point-triangle estimates and Section 4 segment-pair case.",
+          "method": "Read relevant theorem/proof sections, distinguished global disjoint-polytope minimization from the entire marked-tetrahedron point-to-closed-triangle distance distribution.",
+          "title": "Kissing polytopes in dimension 3",
+          "trigger": "Same lattice polytopes and metric, possibility that a result for competing segment/segment and point/triangle faces already implies this classification."
+        },
+        {
+          "assessment": "Table 1 contains minima epsilon(d,k), Table 2 counts reduced enumeration rows. Neither is a squared-distance distribution; the paper provides a reusable finite search framework but not the asserted 88-frequency table or two runner-up classes.",
+          "evidence": [
+            "PDF page 2/Table 1: known inverse global minimum 5 sqrt(2) for d=3,k=2.",
+            "PDF pages 2-3: bounded convex simplex distance is a constrained quadratic minimum, affine distance a relaxation.",
+            "PDF page 12/Table 2: row counts |L| (24 for d=3,k=2), not distance frequencies.",
+            "Section 4 enumerates algebraic candidates to certify minima, not the complete per-tetrahedron point-to-closed-triangle spectrum."
+          ],
+          "identifier_or_url": "Deza, Liu and Pournin, arXiv:2412.03479v1; https://arxiv.org/pdf/2412.03479; Vietnam Journal of Mathematics 53 (2025), 901-913",
+          "material_read": "Lawful accessible full 17-page PDF, text in Sections 1-2 and 4 and Tables 1-2; original page images inspected for PDF pages 0,2,12.",
+          "method": "Checked constrained least squares against affine-plane relaxation, then read the actual headings and quantities in published tables rather than relying on abstract snippets.",
+          "title": "Small kissing polytopes",
+          "trigger": "Predecessor finite computation and tables potentially cataloguing small lattice-cube point/triangle distances."
+        },
+        {
+          "assessment": "Dataset concerns width-2 tetrahedra classified by lattice multi-width, not marked Euclidean distances to closed opposite faces; coordinates could support re-computation but the landing-page description does not establish a matching precomputed 88-level table.",
+          "evidence": [
+            "Dataset description explicitly identifies triple lattice multi-width and coordinate lists, not marked distance-to-opposite-triangle frequencies.",
+            "Potential uninspected supplementary data remains a residual risk, not negative proof of novelty."
+          ],
+          "identifier_or_url": "Girtrude Hamm, Zenodo 10.5281/zenodo.7802563; https://zenodo.org/records/7802563",
+          "material_read": "Public dataset landing page: definition of width/multi-width and description of 4814 vertex-coordinate entries; the 347 kB data file was not downloaded or parsed.",
+          "method": "Inspected dataset description and parameter/invariant scope; no assertion about unseen file content.",
+          "title": "Width 2 tetrahedra with small multi-width (data set)",
+          "trigger": "A plausible preexisting database of finite lattice tetrahedra that could indirectly encode the same small-cube classification."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The 27-point ternary lattice cube is the first nonbinary fixed cube in the natural series of lattice (3,k)-simplices. Point-to-closed-opposite-face separation is a motivating flatness/facial-distance quantity in the primary research. The complete exact 88-value probability/multiplicity profile and its sharp isolated next rank are not automatically obtained from the known global minimum; 1/21 supports a genuine quantitative nonminimizer gap with two geometrically inequivalent achieving symmetry orbits. The finite classification is a reproducible exact benchmark for testing vertex-facet distances, extremal stability assertions and constrained versus affine-hull distances. This is narrow, but represents a natural complete discrete classification rather than an ad hoc slice or a known table being recopied.",
+      "residual_risks": [
+        "Finite cutoff k=2 alone; no estimate or classification for larger k.",
+        "A full table is large and primarily computational; some readers may value the sharp first nonminimal orbit classification more than the other 85 frequencies."
+      ],
+      "sources": [
+        "Deza-Pournin 2026, Section 1 motivation in flatness and Theorem 1.1 extremal baseline.",
+        "Independent complete enumeration with 88 distinct values and verified cube-symmetry orbits.",
+        "Deza-Liu-Pournin 2024, Section 2 convex vs affine distance distinction."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Deza and Pournin, Flat simplices and kissing polytopes, arXiv:2601.03183v1 (Theorem 1.1, Proposition 4.1, Tables 1-4, Sections 4-5).",
+    "Deza, Liu and Pournin, Kissing polytopes in dimension 3, arXiv:2502.19554v1 (Theorems 1.1-1.2, Sections 2-4).",
+    "Deza, Liu and Pournin, Small kissing polytopes, arXiv:2412.03479v1, 17-page OA PDF (Tables 1-2, Sections 2,4).",
+    "Hamm, width 2 tetrahedra with small multi-width, Zenodo 7802563 landing page only (different invariant; uninspected data).",
+    "Resultary exact self-match ID 2026/10/11/SCOPE-exact-vertex-to-opposite-triangle-distance-spectrum-in-the-3-tim--8d3cbeed1ec8 excluded.",
+    "Other Resultary results were different tetrahedral spectral, polytope/flat-simplex, lattice, or topological invariants; no positive coverage identified by statement comparison."
+  ],
+  "disposition": "passed",
+  "final_claim": "All full-dimensional tetrahedra with four vertices from {0,1,2}^3, marked at one vertex and considered with unordered opposite triangle, give exactly 58528 pairs and exactly 88 rational squared distances to the closed triangle, with complete multiplicities in spectrum.csv. Minimum 1/29 has 48 pairs in one orbit, second 1/21 has 96 pairs in two 48-element cube-symmetry orbits, third 1/17 has 24 pairs in one orbit; hence all nonminimizers have distance at least 1/sqrt(21) sharply.",
+  "limitations": [
+    "Original eight-entry Git tree was independently reconstructed from returned blob SHA identities and matched the assigned source tree; only source spectrum CSV bytes were additionally materialized and rehashed locally.",
+    "The registered package verifier was inspected, not run; an independently written exact exhaustive verifier was run instead.",
+    "Originality best-of-knowledge: unpublished computations or datasets may predate complete enumeration.",
+    "Public-file provenance sanitization not fully materialized/guarded; publication withheld."
+  ],
+  "residual_risks": [
+    "Deza-Pournin explicitly ran an exhaustive procedure for k<=8; unindexed numerical logs or supplementary computation might already contain runner-up and/or complete spectrum even though their published theorem/tables do not.",
+    "Preexisting lattice tetrahedron coordinate datasets could support recomputation of these distances; a dataset’s existence alone is not an exact table.",
+    "Resultary nearest exact hit is the assigned finding, not independent evidence; failed external text searches do not prove absolute novelty.",
+    "The value of this exact finite spectrum is limited to the 27-point cube; it supplies no asymptotic in k or general best stability bound.",
+    "Finite cutoff k=2 alone; no estimate or classification for larger k.",
+    "A full table is large and primarily computational; some readers may value the sharp first nonminimal orbit classification more than the other 85 frequencies.",
+    "The independent run uses standard-library exact fractions, but independent verifier correctness is still justified by a finite-domain combinatorial case partition and convex quadratic minimization; no general-k theorem results.",
+    "No separate formal proof assistant certification or human attestation. Original verify.py itself was inspected rather than executed; an independent verifier was executed."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Theorem 1.1 and Proposition 4.1 settle only the first distance 1/sqrt(29) with a unique symmetry orbit. Its computational enumeration for k<=8 does not report the second distance/orbits, nor an all-distance histogram; these additional data are not a logical corollary of minimum uniqueness.",
+      "evidence": [
+        "Theorem 1.1 at HTML lines 52-59: universal minimum and minimizing orbit.",
+        "Table 2 at lines 61-71: inverse minimum sqrt(29) for d=3,k=2.",
+        "Section 4, lines 365-375: computation enumerates minimizers but Proposition 4.1 reports only min and uniqueness.",
+        "Equation (20), lines 377-402: affine-plane determinant quotient; not the full closed-triangle distribution."
+      ],
+      "identifier_or_url": "Deza and Pournin, arXiv:2601.03183v1; https://arxiv.org/html/2601.03183v1",
+      "material_read": "Accessible primary HTML: introduction, Theorem 1.1, Tables 1-4, Section 4 Proposition 4.1 and exact projection formula (20), and Section 5 finite-exhaustion/general-k proof passages. Searched the accessible full text for second, 1/21 and multiplicity.",
+      "method": "Statement-level and equation-level comparison of k=2 point-triangle minimizers, plane distance and convex triangle distance, with exact-table scope check.",
+      "title": "Flat simplices and kissing polytopes",
+      "trigger": "Same lattice cube, same Euclidean vertex-to-opposite-triangle distance, including k=2, and uniqueness of its minimum."
+    },
+    {
+      "assessment": "Theorem 1.2 places point-triangle separation strictly above the unrestricted two-polytope minimum. Theorems are minimum/bound results, not 88-value spectrum or its sharp second rank.",
+      "evidence": [
+        "HTML lines 51-67: Theorem 1.1 global minimum and Theorem 1.2 point-triangle strict inequality.",
+        "HTML lines 69-80: affine hull least-squares model is a lower bound for convex distance.",
+        "Theorem 1.1 formula applies principally to segment-pair global minimum rather than the full marked point-triangle spectrum."
+      ],
+      "identifier_or_url": "Deza, Liu and Pournin, arXiv:2502.19554v1; https://arxiv.org/html/2502.19554v1; journal DOI 10.1080/10586458.2025.2595009",
+      "material_read": "Accessible full-text primary HTML: abstract and Theorems 1.1-1.2; Section 2 algebraic model; Section 3 point-triangle estimates and Section 4 segment-pair case.",
+      "method": "Read relevant theorem/proof sections, distinguished global disjoint-polytope minimization from the entire marked-tetrahedron point-to-closed-triangle distance distribution.",
+      "title": "Kissing polytopes in dimension 3",
+      "trigger": "Same lattice polytopes and metric, possibility that a result for competing segment/segment and point/triangle faces already implies this classification."
+    },
+    {
+      "assessment": "Table 1 contains minima epsilon(d,k), Table 2 counts reduced enumeration rows. Neither is a squared-distance distribution; the paper provides a reusable finite search framework but not the asserted 88-frequency table or two runner-up classes.",
+      "evidence": [
+        "PDF page 2/Table 1: known inverse global minimum 5 sqrt(2) for d=3,k=2.",
+        "PDF pages 2-3: bounded convex simplex distance is a constrained quadratic minimum, affine distance a relaxation.",
+        "PDF page 12/Table 2: row counts |L| (24 for d=3,k=2), not distance frequencies.",
+        "Section 4 enumerates algebraic candidates to certify minima, not the complete per-tetrahedron point-to-closed-triangle spectrum."
+      ],
+      "identifier_or_url": "Deza, Liu and Pournin, arXiv:2412.03479v1; https://arxiv.org/pdf/2412.03479; Vietnam Journal of Mathematics 53 (2025), 901-913",
+      "material_read": "Lawful accessible full 17-page PDF, text in Sections 1-2 and 4 and Tables 1-2; original page images inspected for PDF pages 0,2,12.",
+      "method": "Checked constrained least squares against affine-plane relaxation, then read the actual headings and quantities in published tables rather than relying on abstract snippets.",
+      "title": "Small kissing polytopes",
+      "trigger": "Predecessor finite computation and tables potentially cataloguing small lattice-cube point/triangle distances."
+    },
+    {
+      "assessment": "Dataset concerns width-2 tetrahedra classified by lattice multi-width, not marked Euclidean distances to closed opposite faces; coordinates could support re-computation but the landing-page description does not establish a matching precomputed 88-level table.",
+      "evidence": [
+        "Dataset description explicitly identifies triple lattice multi-width and coordinate lists, not marked distance-to-opposite-triangle frequencies.",
+        "Potential uninspected supplementary data remains a residual risk, not negative proof of novelty."
+      ],
+      "identifier_or_url": "Girtrude Hamm, Zenodo 10.5281/zenodo.7802563; https://zenodo.org/records/7802563",
+      "material_read": "Public dataset landing page: definition of width/multi-width and description of 4814 vertex-coordinate entries; the 347 kB data file was not downloaded or parsed.",
+      "method": "Inspected dataset description and parameter/invariant scope; no assertion about unseen file content.",
+      "title": "Width 2 tetrahedra with small multi-width (data set)",
+      "trigger": "A plausible preexisting database of finite lattice tetrahedra that could indirectly encode the same small-cube classification."
+    }
+  ]
+}

@@ -1,117 +1,195 @@
 {
   "correctness": {
-    "rationale": "Exact first integral and globally monotone q-coordinate are proved, including all energy ovals. L’Hôpital yields q~g/(kappa x-a) and V~g²/(2kappa) at both signed infinities. Therefore W(q)~q² log|q|, W’(q)~2q log|q|, with uniform compact scaled force Lipschitz bounds from exact W’’=1+x(kappa x-a). Continuous dependence then rigorously gives canonical cosine and scaled period 2pi; inverse-tail and dominated convergence establish physical square-wave and occupation. All quantifiers fixed a,kappa, E→infty, finite p; no uniform x-limit at jumps. The standalone finite checker supports identities and quadrature without replacing proof.",
+    "rationale": "The original fixed-a, kappa>0 system has the exact invariant H=g(x)^2 y^2/2+int_0^x u g(u)^2 du; q=int_0^x g du is a global increasing diffeomorphism, and p=gy yields dot q=p, dot p=-W′(q) in physical time. The coercive single-well W has exactly two turning points, one minimal oval period at every E>0. At both signed infinities q~g/(kappa x-a), V~g²/(2kappa), so W(q)~q²log|q| and W′(q)~2qlog|q|. Exact W″(q)=1+x(kappa x-a)=O(log(2+|q|)) yields locally uniform and equi-Lipschitz scaled force F_E(z)=W′(Q_Ez)/(Q_E logE)->z; positive-turn initial z_E->1 and z′_E=0. Continuous dependence gives (z,z′)->(cos tau,-sin tau), with unique-monotone turn/crossing structure excluding spurious shorter returns; sqrt(log E)T(E)->2pi. The tail turning-coordinate equation yields x_±=a/kappa ±sqrt(logE/kappa)+o(1), and inverse q forces x/R_E->sgn cos(2pi s) except at the two transition phases, uniformly bounded by turning values; dominated convergence proves finite Lp and the two-atom occupation law. An independently implemented symbolic check verified H cancellation, canonical dp/dt and W″; independent high-precision quadrature at a=0,kappa=1 and A=3,5,8,10,14 shows normalized periods tending toward one, not proof of the universal limit.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Physical-time phase normalization requires return-time uniqueness; explicitly justified by the coercive single-well geometry and two transverse zero crossings, not finite quadrature.",
+    "Analytic proof has no asserted uniform x-convergence at s=1/4 or 3/4 and no rates or parameter-joint limits.",
+    "Generic high-energy asymptotics for regularly varying potentials could prove the leading canonical period/harmonic component in a more general guise, even though no covering full primary theorem was identified; any full implication would require explicit hypotheses and proof of the singular observable limit.",
+    "An unindexed original-equation treatment or source under quadratic-velocity/variable-mass terminology might predate the formula and waveform; searching cannot certify global historical priority.",
+    "The Buzzi–Carvalho–Gasull local period article was only screened by abstract; no whole-paper negative priority claim is made.",
+    "The published mathematical-record exact self-match cannot be used as independent earlier priority evidence.",
+    "Scope limited to fixed real a, fixed kappa>0 and E->infinity.",
+    "Proof method is elementary and other special oscillator models may share the phenomenon; no global classification of all cubic centers follows."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "https://link.springer.com/article/10.1007/s10884-019-09759-w (abstract and bibliography only, full text inaccessible from public publisher preview)",
-        "https://arxiv.org/abs/2008.02316 (abstract; local expansion for finite-energy analytic center)"
+        "Villadelprat–Zhang Theorem 5.1(b) gives lim T(E)=0 under beta_+=beta_-=infinity, weaker than lim sqrt(log E)T(E)=2pi and silent on original-coordinate occupation.",
+        "Cima–Gasull–Mañosas Theorem C demands pure-power inverse-length derivative asymptotics; the logarithmic slowly varying factor for W(q) violates those hypotheses.",
+        "Buzzi–Carvalho–Gasull arXiv:2008.02316 abstract addresses local Taylor period expansions; full text was not used to exclude all possible implications."
       ],
-      "reasoning": "The separable Hamiltonian article has broad scope but available text explicitly targets critical periods, monotonicity, and limits at annulus boundaries; it may contain the frequency limit under general conditions and remains an identified risk. Its abstract does not establish the additional original-coordinate time-occupation law, which does not follow from generic period monotonicity alone. The local-period article applies Taylor expansions at a nondegenerate center, not high energy.",
+      "reasoning": "Checked strongest accessible general separable-Hamiltonian period theorems by hypotheses and exact conclusion. Neither directly covers the logarithmically corrected period nor the singular inverse x waveform; not assuming lack of exact wording proves novelty. A more general regularly varying potential theorem not located might imply canonical frequency but still needs a comparison of transformed observables.",
       "searches": [
-        "period of Hamiltonian oscillator asymptotically quadratic logarithmic potential q^2 log|q| cosine limit and occupation two atomic endpoints",
-        "quadratic velocity-dependent force Lienard center coordinate transformation high amplitude period asymptotics",
-        "nonlinear oscillator potential regular variation high energy period asymptotics 2π",
-        "general asymptotic period Hamiltonian regular varying potential x squared logarithm x inverse waveform",
-        "https://link.springer.com/article/10.1007/s10884-019-09759-w",
+        "period of separable Hamiltonian W(q)~q²log|q| frequency sqrt(log E) original physical time square-wave occupation measure",
+        "Hamiltonian potential regularly varying x^2 log x period function asymptotic oscillations",
+        "\"The Period Function of Hamiltonian Systems with Separable Variables\" Villadelprat Zhang theorem asymptotic period pdf",
+        "\"Period function for a class of Hamiltonian systems\" Cima Gasull Manosas theorem C asymptotic",
+        "https://scispace.com/pdf/the-period-function-of-hamiltonian-systems-with-separable-4h1v8ldnad.pdf",
+        "https://www.researchgate.net/publication/222591604_Period_Function_for_a_Class_of_Hamiltonian_Systems",
         "https://arxiv.org/abs/2008.02316"
       ]
     },
     "checked_sources": [
       "https://link.springer.com/article/10.1007/s00010-024-01051-7",
-      "https://link.springer.com/article/10.1007/s10884-019-09759-w",
+      "https://scispace.com/pdf/the-period-function-of-hamiltonian-systems-with-separable-4h1v8ldnad.pdf",
+      "https://www.researchgate.net/publication/222591604_Period_Function_for_a_Class_of_Hamiltonian_Systems",
       "https://arxiv.org/abs/2008.02316",
-      "https://pubmed.ncbi.nlm.nih.gov/39247060/",
-      "https://portalrecerca.uab.cat/en/publications/global-centers-of-a-family-of-cubic-systems/"
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-occupation-and-the-two-term-high-energy-period-of-a--8be50b06b677",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30",
+      "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-logarithmic-frequency-and-square-wave-limit-at-a-cubic--5ef7d7af5678"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "https://link.springer.com/article/10.1007/s00010-024-01051-7 Theorem 4(a) (classifies all orbit levels as periodic for a6<0).",
-        "https://link.springer.com/article/10.1007/s10884-019-09759-w (abstract says monotonicity/critical periods and boundary limits).",
-        "https://arxiv.org/abs/2008.02316 (abstract says local Taylor expansion)."
+        "Theorem 4(a) of Appis–Llibre: every positive-energy orbit closes; no asymptotic period coefficient follows from this binary qualitative statement.",
+        "Theorem 5.1(b) of Villadelprat–Zhang gives T(E)->0, which cannot determine whether sqrt(log E)T(E) approaches 2pi; example slow-fast dynamics in the paper concerns a different force and limit.",
+        "Theorem C of Cima–Gasull–Mañosas: pure-power inverse-length asymptotics, excluding logarithmic prefactors here.",
+        "Complete published near hits r1 and r2 concern other vector fields; no known conjugacy or parameter specialization was found that turns their claimed asymptotics into this exact system."
       ],
-      "reasoning": "Knowing that each level closes does not imply a leading T(E) asymptotic; a general formula for T is only an integral until evaluated asymptotically. Generic one-dimensional period-function criteria do not by themselves determine the singular inverse-coordinate square-wave occupation. The full separable-Hamiltonian 2019 result remains a concrete residual uncertainty; it is not classified NOT_COVERING from a mere abstract.",
+      "reasoning": "A weaker period-zero statement, a pure-power theorem with unmet hypotheses, or a result for an inequivalent field does not dominate the joint exact period/coherent canonical waveform/physical-time square-wave limit. Known global-center existence is expressly credited. Residual risks of an unindexed specialization of a broad regular-variation oscillator theorem and of earlier equivalent Gaussian-model computations remain.",
       "searches": [
-        "Appis Llibre 2024 global centers cubic system x dot y y dot -x +(a-k x)y squared physical period high energy logarithmic square wave waveform",
-        "period of Hamiltonian oscillator asymptotically quadratic logarithmic potential q^2 log|q| cosine limit and occupation two atomic endpoints",
+        "high energy period asymptotics logarithmic frequency square wave occupancy cubic Lienard differential equation x'=y y'=-x+(a-kappa*x)*y*y integrating factor",
+        "global centers cubic systems high-energy period function asymptotics exponential integrating factor nonlinear oscillators",
+        "\"Global centers of a family of cubic systems\" Appis Llibre period asymptotic quadratic velocity square wave",
+        "\"Period function for a class of Hamiltonian systems\" Cima Gasull Manosas theorem C asymptotic",
         "https://link.springer.com/article/10.1007/s00010-024-01051-7",
-        "https://link.springer.com/article/10.1007/s10884-019-09759-w",
-        "https://arxiv.org/abs/2008.02316"
+        "https://scispace.com/pdf/the-period-function-of-hamiltonian-systems-with-separable-4h1v8ldnad.pdf",
+        "https://www.researchgate.net/publication/222591604_Period_Function_for_a_Class_of_Hamiltonian_Systems",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-occupation-and-the-two-term-high-energy-period-of-a--8be50b06b677",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "Exact canonical change q=integral exp(kappa x^2/2-a x) dx turns the claimed theorem into a potential W(q)~q^2 log|q| with a nonuniform inverse coordinate.",
-        "Published primary center classification: https://link.springer.com/article/10.1007/s00010-024-01051-7"
+        "The exact q=int exp(kappa x²/2-a x)dx, p=g y conjugacy gives unchanged-time p-dot=-x(q)g(x(q)) and W(q)~q² log|q|. This is equivalent to a near-quadratic oscillator with logarithmically growing stiffness, but the original x coordinate is a singularly scaled inverse Gaussian map.",
+        "Appis–Llibre Theorem 4(a) establishes the exact cubic slice as a global center, not the quantitative asymptotic phase law.",
+        "Villadelprat–Zhang Theorem 5.1(b) proves only T(E)->0 for infinite stiffness ratios, not the stated renormalized coefficient and waveform."
       ],
-      "reasoning": "Aliases including generalized Liénard, quadratic-velocity oscillator, variable-mass Hamiltonian, Gaussian integrating factor, and logarithmically varying stiffness were compared. No retrieved result proved the specific physical-time square-wave occupation statement or a logically stronger result for this exact potential; equivalences to classical harmonic scaling are acknowledged, not mislabeled new methods.",
+      "reasoning": "Explicitly checked quadratic-velocity Liénard, variable-mass, Gaussian integrating factor, separable Hamiltonian and regular-variation oscillator aliases. The primary general sources encompass the transformation or qualitative period decay, but no inspected theorem yields all leading constants, normalized harmonic dynamics, and inverse-coordinate two-atom occupation for this family. Generic regular-variation tools may reproduce part of the derivation; this remains a disclosed priority risk.",
       "searches": [
-        "Appis Llibre 2024 global centers cubic system x dot y y dot -x +(a-k x)y squared physical period high energy logarithmic square wave waveform",
-        "Gaussian integrating factor cubic oscillator global center logarithmically growing frequency period high energy asymptotic shape square wave",
-        "period of Hamiltonian oscillator asymptotically quadratic logarithmic potential q^2 log|q| cosine limit and occupation two atomic endpoints",
-        "\"Global centers of a family of cubic systems\" \"arxiv\" \"2023\"",
-        "non Hamiltonian cubic differential system \"y^2\" \"period\" \"global center\" \"x\""
+        "high energy period asymptotics logarithmic frequency square wave occupancy cubic Lienard differential equation x'=y y'=-x+(a-kappa*x)*y*y integrating factor",
+        "period of separable Hamiltonian W(q)~q²log|q| frequency sqrt(log E) original physical time square-wave occupation measure",
+        "\"Global centers of a family of cubic systems\" Appis Llibre period asymptotic quadratic velocity square wave",
+        "ODE x double dot + x log(x) high energy period asymptotic cosine wave",
+        "https://link.springer.com/article/10.1007/s00010-024-01051-7",
+        "https://scispace.com/pdf/the-period-function-of-hamiltonian-systems-with-separable-4h1v8ldnad.pdf",
+        "https://www.researchgate.net/publication/222591604_Period_Function_for_a_Class_of_Hamiltonian_Systems"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "published-finding corpus near hits: 2026/10/4/SCOPE-equilibrium-axis-barycenter-rigidity-in-the-cubic-clapp-oscillat--9d63b87fc7ce, 2026/9/21/SCOPE-lorenz84-exact-phase-and-critical-log-spiral--187e77a447b4, 2026/9/20/SCOPE-moore-spiegel-balance-laws-and-period-floor--8ed8e017fb90, 2026/9/18/SCOPE-exact-rotation-law-trigonometric-nose-hoover-axis--505b9a3beb70, 2026/9/18/SCOPE-exact-cubic-counterterm-stuart-landau-phase-reduction--40d4eb3f4497",
-        "Existing published mathematical claim records provide no equivalent theorem for the specified cubic system."
+        "Resultary published mathematical search returned the assigned finding as an exact self-match; excluded from independent prior-art priority.",
+        "The closest other published RESULT.md files r1 and r2 were read in full and use mathematically inequivalent polynomial fields with different period scaling.",
+        "The audited finding concerns a continuous fixed-parameter energy asymptotic and a measure-valued limit, not an exact finite dataset or discrete table."
       ],
-      "reasoning": "The search engine returned unrelated cubic/chaotic oscillator, critical relaxation, and recurrence results, not a table of physical-time periods for this family. Previously published claim summaries were compared by mathematical implication; lack of a hit is not proof of novelty.",
+      "reasoning": "Targeted the exact cubic coefficients, logarithmic frequency, slow variation and square-wave occupation, and compared the closest indexed findings rather than treating a search miss as novelty. There is no natural exact database/table that automatically fixes these continuous large-energy limits; relevant published mathematical records do not imply them.",
       "searches": [
-        "Appis Llibre 2024 global centers cubic system x dot y y dot -x +(a-k x)y squared physical period high energy logarithmic square wave waveform",
-        "Gaussian integrating factor cubic oscillator global center logarithmically growing frequency period high energy asymptotic shape square wave",
-        "oscillator high energy time distribution spends half at each turning point binary measure"
+        "high energy period asymptotics logarithmic frequency square wave occupancy cubic Lienard differential equation x'=y y'=-x+(a-kappa*x)*y*y integrating factor",
+        "period of separable Hamiltonian W(q)~q²log|q| frequency sqrt(log E) original physical time square-wave occupation measure",
+        "global centers cubic systems high-energy period function asymptotics exponential integrating factor nonlinear oscillators",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-universal-logarithmic-frequency-and-square-wave-limit-at-a-cubic--5ef7d7af5678",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-occupation-and-the-two-term-high-energy-period-of-a--8be50b06b677",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30"
       ]
     },
-    "rationale": "The originating full text (Appis–Llibre 2024, Theorem 4(a), proof in Section 3) classifies global cubic centers and does not quantify original-time period or occupation. General separable-Hamiltonian period sources concern critical periods/monotonicity or local expansions, not the simultaneous high-energy logarithmic period, canonical sinusoid, and original-coordinate two-atom limit of this family. Targeted publication searches and comparisons with indexed claims show no covering implication. Priority remains conditional on uninspected general full text and unindexed work.",
+    "rationale": "Best-of-knowledge: the original cubic global-center classification, the accessible full general separable-Hamiltonian 2019 preprint and 2000 leading-term theorem, and close published mathematical records do not mathematically imply the joint universal logarithmic physical period, uniform canonical sinusoid, and inverse-coordinate two-atom law. Full relevant theorems have been inspected; old center existence and generic conjugacy are not claimed new.",
     "residual_risks": [
-      "Potential implicit specialization of a broader theorem on periods for regularly varying Hamiltonian potentials; generic harmonic asymptotics might cover the canonical part.",
-      "The 2019 general separable-Hamiltonian period article was not accessible in full, so its strongest boundary theorems were not definitively excluded.",
-      "An uncatalogued treatment of the exact Gaussian-integrating-factor oscillator or equivalent large-energy occupation law could predate this result."
+      "Generic high-energy asymptotics for regularly varying potentials could prove the leading canonical period/harmonic component in a more general guise, even though no covering full primary theorem was identified; any full implication would require explicit hypotheses and proof of the singular observable limit.",
+      "An unindexed original-equation treatment or source under quadratic-velocity/variable-mass terminology might predate the formula and waveform; searching cannot certify global historical priority.",
+      "The Buzzi–Carvalho–Gasull local period article was only screened by abstract; no whole-paper negative priority claim is made.",
+      "The published mathematical-record exact self-match cannot be used as independent earlier priority evidence."
     ],
     "source_inspections": [
       {
-        "assessment": "SOURCE_OBJECT_ESTABLISHED_NOT_SAME_CLAIM",
-        "evidence": "Theorem 4(a) asserts a global center when a6<0 and the origin is the unique equilibrium; Section 3 uses Poincaré compactification and blow-ups, with no high-energy period, cosine scaling or occupation theorem.",
+        "assessment": "ESTABLISHES_GLOBAL_CENTER_NOT_HIGH_ENERGY_LAW",
+        "evidence": "Theorem 4(a) classifies existence of a global center when a6<0 for this coefficient slice; neither the leading 2pi/sqrt(log E) physical period nor the canonical cosine and original-coordinate two-atom/square-wave limit is stated or implied by classification alone.",
         "identifier_or_url": "https://link.springer.com/article/10.1007/s00010-024-01051-7",
-        "material_read": "Relevant material from the full open-access HTML: abstract, Theorem 4 and its case-1 proof in Section 3, publication metadata; also full-text keyword searches for period-function language.",
-        "method": "Direct read and full-text search of publisher open-access primary HTML, including equations and case-1 proof around lines 120–146 and 268–314.",
+        "material_read": "Full open-access publisher HTML, statement of Theorem 4(a), relevant Section 3 proof of global center, abstract and results section.",
+        "method": "Full primary article HTML read and targeted mathematical comparison of vector-field coefficients and results.",
         "title": "Global centers of a family of cubic systems",
-        "trigger": "Exact source object, cubic coefficient slice, and primary MSC/first online date."
+        "trigger": "Exactly the same cubic coefficient slice with a3=a, a6=-kappa<0 in Theorem 4(a)."
       },
       {
-        "assessment": "MATERIAL_INSUFFICIENT_TO_EXCLUDE_BROADER_COVERAGE",
-        "evidence": "Abstract focuses on monotonicity, unique critical periods and boundary limits; full formal hypotheses and theorems were not available at the publisher preview.",
-        "identifier_or_url": "https://link.springer.com/article/10.1007/s10884-019-09759-w",
-        "material_read": "Publisher abstract, bibliographic references, stated research aims; full article only subscription preview.",
-        "method": "Opened publisher article HTML and inspected available text and references; attempted open-access discovery before considering institutional route.",
+        "assessment": "RELATED_GENERAL_PERIOD_LIMIT_BUT_NOT_EXACT_RATE_OR_OCCUPATION",
+        "evidence": "Theorem 5.1(b) proves T(h)->0 when both asymptotic stiffness ratios are infinite, not the nonzero renormalized constant lim sqrt(log E) T(E)=2pi; its statement gives no phase-normalized uniform cosine or inverse-coordinate square-wave law. Pages 16–21 distinguish the qualitative limiting period and a different slow-fast phenomenon.",
+        "identifier_or_url": "https://scispace.com/pdf/the-period-function-of-hamiltonian-systems-with-separable-4h1v8ldnad.pdf",
+        "material_read": "Complete accessible 24-page author preprint, including introduction, Section 5 Theorem 5.1 on boundary period limits, its proof and examples, and contextual citations to Cima–Gasull–Mañosas.",
+        "method": "Full-text PDF inspection including rendered page 16, searched and read Theorem 5.1 and surrounding proofs.",
         "title": "The Period Function of Hamiltonian Systems with Separable Variables",
-        "trigger": "General theorem on periods of transformed Hamiltonian potential."
+        "trigger": "Highly relevant broad theorem for separable Hamiltonians after exact canonical conjugacy."
       },
       {
-        "assessment": "LOW_RELEVANCE_TO_HIGH_ENERGY_BUT_NO_FULL_DOCUMENT_NEGATIVE_CLAIM",
-        "evidence": "Source explicitly discusses a Taylor expansion of T(E) around a nondegenerate center, unlike E→infty.",
+        "assessment": "PURE_POWER_ASYMPTOTIC_CONDITIONS_DO_NOT_COVER_LOG_FACTOR",
+        "evidence": "Theorem C requires associated inverse-length derivatives ell_F′(h)~A h^alpha and ell_G′(h)~B h^beta with positive constants. For the audited potential, ell_W′(h) has an extra slowly varying (log h)^(-1/2) factor, so the pure-power hypotheses are not met; no original-coordinate limit appears in the theorem.",
+        "identifier_or_url": "https://www.researchgate.net/publication/222591604_Period_Function_for_a_Class_of_Hamiltonian_Systems",
+        "material_read": "Primary full article text displayed in HTML, Theorem C (page 184), the definition of potential-growth assumption, its proof via convolution (pages 191–193), and related remarks.",
+        "method": "Full-text primary-paper inspection and hypothesis matching of Theorem C with inverse-length derivative for potential W(q)~q² log|q|.",
+        "title": "Period Function for a Class of Hamiltonian Systems",
+        "trigger": "Foundational general leading-asymptotic theorem cited in the above primary period paper as stronger prior coverage."
+      },
+      {
+        "assessment": "LOCALLY_FOCUSED_LOW_RELEVANCE_WITH_LIMITED_INSPECTION",
+        "evidence": "The abstract specifies Taylor expansions of period near a nondegenerate center; the audited claim is an E->infinity law. Complete noncoverage of every theorem is not asserted from the abstract.",
         "identifier_or_url": "https://arxiv.org/abs/2008.02316",
-        "material_read": "ArXiv abstract and article metadata only; not full theorem text.",
-        "method": "ArXiv metadata and author description cross-check.",
+        "material_read": "ArXiv abstract and author metadata; article full text was not used to assert whole-paper noncoverage.",
+        "method": "Abstract-level relevance screening only.",
         "title": "The local period function for Hamiltonian systems with applications",
-        "trigger": "Potential period-function theorem in a Hamiltonian system after coordinate change."
+        "trigger": "Another period-function result for analytic Hamiltonian centers."
+      },
+      {
+        "assessment": "DIFFERENT_VECTOR_FIELD_AND_DIFFERENT_ASYMPTOTIC_REGIME",
+        "evidence": "This other cubic system has dot x=(1+2ax+kx^2)y and dot y=-x+ax²-kx³-(a+kx)y² and period of order (log E)/sqrt(E), not the current dot x=y, dot y=-x+(a-kappa x)y² and 1/sqrt(log E); its logarithmic-position law is uniform rather than a two-point square wave.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-logarithmic-occupation-and-the-two-term-high-energy-period-of-a--8be50b06b677",
+        "material_read": "Complete Resultary RESULT.md claim, assumptions, proof, and exact vector-field formula fetched from the linked Git tree.",
+        "method": "Compare vector field equations and invariant asymptotic rates, not merely shared words.",
+        "title": "Logarithmic occupation and the two-term high-energy period of a cubic global center",
+        "trigger": "High-ranked published mathematical-record match mentioning cubic global centers, logarithmic occupation, and a two-term period."
+      },
+      {
+        "assessment": "DIFFERENT_CUBIC_DYNAMICS_NOT_IMPLYING_PRESENT_RESULT",
+        "evidence": "This source studies dot x=y(1+alpha x²), dot y=-x(1+beta y²), with beta-law boundary-layer concentrations and a different logarithmic coordinate. Neither its exact density nor its limiting period implies the current Gaussian-integrating-factor oscillator result.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-beta-layer-concentration-transition-in-asymmetric-cubic-global-c--241e91583a30",
+        "material_read": "Complete Resultary RESULT.md claim, assumptions, proof and vector-field formulas fetched from linked Git tree.",
+        "method": "Direct mathematical object and implication comparison.",
+        "title": "Beta-layer concentration transition in asymmetric cubic global centers",
+        "trigger": "High-ranked published mathematical-record match on original-time concentration in cubic global centers."
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
+  "previously_published_pending_reaudit": false,
+  "prior_scientific_assessment": {
+    "correctness": {
+      "rationale": "An earlier scientific reading verified the exact first integral, globally monotone q coordinate, signed Gaussian tails, W(q)~q²log|q|, W′(q)~2qlog|q| and W″(q)=1+x(kappa x-a), then deduced the physical-time harmonic/period limits and dominated-convergence square wave. Its finite checker was explicitly treated only as illustration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "checked_sources": [
+        "https://link.springer.com/article/10.1007/s00010-024-01051-7",
+        "https://link.springer.com/article/10.1007/s10884-019-09759-w",
+        "https://arxiv.org/abs/2008.02316"
+      ],
+      "rationale": "That reading compared full open-access Appis–Llibre Theorem 4(a), the bibliographic preview of the broad separable-Hamiltonian period theorem, and local period theory; it credited global center existence, noted no direct quantitative period/waveform coverage in the material seen, and explicitly retained the then-uninspected full-general-period risk. The present assessment inspected that general full text.",
+      "residual_risks": [
+        "General 2019 period theorem initially inaccessible at the earlier stage, subsequently inspected in this assessment.",
+        "Equivalent logarithmically varying oscillator literature may not be fully indexed."
+      ],
+      "status": "PASS"
+    },
+    "status": "PASS",
+    "value": {
+      "rationale": "Physical period and residence statistics are not determined by the qualitative classification of global centers. The high-energy canonical harmonicity and original-coordinate square-wave law distinguish natural observables.",
+      "status": "PASS"
+    }
+  },
+  "review_type": "scientific_assessment",
   "schema_version": 1,
-  "scope_run_id": "5ef7d7af-5678-4311-abb3-453fd104eac9",
+  "scientific_claim": "For dot x=y, dot y=-x+(a-kappa x)y² with fixed real a and kappa>0, sqrt(log E)T(E)->2pi, canonical position/momentum converge uniformly to a phase-normalized harmonic orbit, and x/sqrt(log E/kappa) converges in finite Lp to sgn cos with equal two-atom occupation.",
   "value": {
-    "rationale": "The originating global-center classification does not specify the large-energy physical period or time spent in spatial regions. The leading constant and rate for physical frequency, uniform sinusoid after canonical transformation, and nonuniform square-wave/two-atom occupation in the observed coordinate provide structurally distinctive asymptotic dynamics for an entire two-parameter global-center family. The claim addresses a natural complete high-energy regime, not an arbitrary slice, and does not require downstream conjectural applications.",
+    "rationale": "This fixed two-parameter cubic global-center family is a natural coefficient slice in a published qualitative classification; asymptotic dynamics on its entire high-energy annulus is a motivated question. The exact physical-time 2pi/logarithmic-frequency law, globally uniform canonical cosine/momentum limit, and sharply nonuniform inverse-coordinate square wave/two-atom time measure are complementary structural asymptotic facts not obtained by the existing center classification. The latter distinguishes phase-space canonical harmonicity from observables measured in original physical coordinates; a researcher studying long orbits and residence statistics could use the precise limit. The algebraic conjugacy alone is standard; the mathematical value lies in the full quantitative asymptotic regime rather than a named new tool. No stronger multi-parameter, finite-energy monotonicity or jump-layer theorem is claimed.",
     "status": "PASS"
   }
 }
