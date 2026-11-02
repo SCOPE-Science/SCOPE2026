@@ -1,12 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-For any integer \(\ell\ge0\), longitude orthogonality reduces hemisphere concentration on \(\mathcal H_\ell\oplus\mathcal H_{\ell+1}\) to explicit \(2\times2\) fixed-order matrices and two singleton half-energy blocks. A Sturm–Liouville Wronskian identity evaluates the cross-degree integrals. The products of normalized central-binomial factors have opposite strict log-convexity and log-concavity. They establish not just the eigenvalues but exact inter-order ordering and sectoral optimality. The ratio \(a_{\ell+1}/a_\ell=\sqrt{1-1/(4(\ell+2)^2)}\) proves strict decrease of the maximal coupling and hence the sharp all-degree leakage bound. The checker independently integrates the associated Legendre factors and diagonalizes sampled blocks. Numerical tests are corroborative only.
+## correctness
 
-## Originality — PASS, qualified
-Simons–Dahlen–Wieczorek (arXiv:math/0408424v1, Sections 3 and 5) provide general cap concentration operators and order blocks. Ramamoorthi (2002, section on hemisphere orthogonality) studies low-degree hemispherical lighting matrices. The published record *Exact half-energy multiplicities for hemispherical spherical Slepian concentration with arbitrary degree masks* establishes parity splitting, general Cauchy rank and central half-energy multiplicities; its explicit limitations leave noncentral singular values undetermined. These results subsume block decomposition and center multiplicities, neither of which is asserted new. The distinct claim is the strict inter-order ordering for every adjacent-degree pair, sharp maximizing absolute order, and best leakage bound uniform in degree, proved by Wallis-factor monotonicity. Equivalent special-function or spectral inequalities might occur elsewhere; specialist publication-priority review remains necessary.
+PASS
 
-## Mathematical value — PASS
-A two-degree spherical spectral window is a natural minimal nontrivial bandpass localization problem. The theorem settles which azimuthal order concentrates best for **every** degree, determines all concentration eigenvalues and their strict order, and identifies a sharp universal leakage barrier, together with its asymptotic behavior. The all-degree sharp optimizer is not an arbitrary finite computation or a direct statement of the general parity-rank law. No claims extend to three or more degrees or to nonhemispherical caps.
+For every integer ell>=0, restrict scalar orthonormal spherical harmonics of exact degrees ell and ell+1 to a hemisphere. Longitudinal integration splits into signed orders m; parity makes each available 2x2 concentration block diagonal 1/2 with positive cross-term c_{ell,m}, plus two unpaired 1/2 modes. The associated Legendre Sturm–Liouville Wronskian at the equator gives explicit central-binomial Wallis products c=Q f_j f_k or Q g_j g_k for parities ell+m even/odd. The exact ratios f_{j+1}/f_j=sqrt(1−1/(4(j+1)²)) and g_{j+1}/g_j=sqrt(1+1/(4(j+1)(j+2))) give opposite strict convex/concave m-chain ordering; f_j>sqrt(2/pi)>g_k gives full cross-chain separation. Hence m=ell uniquely maximizes absolute order. a_ell=(2ell+1)sqrt(2ell+3)/(4(ell+1))*binom(2ell,ell)/4^ell decreases from sqrt3/4 to 1/sqrt(2pi); leakage >=1/2−sqrt3/4 with equality at ell=0. Independently computed 253 hemisphere Legendre overlap integrals via Gauss quadrature through ell=21, max absolute discrepancy <1.2e−13; all-degree proof rests on exact recurrence, not finite quadrature.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Simons–Dahlen–Wieczorek 2004 supplies spherical Slepian concentration/order blocks; a previously published Resultary 2026 full theorem for arbitrary degree masks already proves the half-energy eigenvalue multiplicities and parity/Cauchy rank decomposition. Those are not novel here. The additional adjacent two-shell closed noncentral eigenvalues, strict parity-chain and between-chain ordering, unique sectoral maximization and sharp universal leakage are not implied by the cited rank-only theorem, whose limitations explicitly withhold noncentral singular values. Specialized Legendre/hemisphere literature could contain an equivalent inequality.
+
+## value
+
+PASS
+
+Sharp spectral ordering and explicit maximizing sector quantify the best attainable hemispherical concentration and leakage for a natural minimal nontrivial two-degree band; the all-ell universal extremal value is a meaningful exact operator invariant beyond known parity/count information. The strict inter-order inequalities are mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

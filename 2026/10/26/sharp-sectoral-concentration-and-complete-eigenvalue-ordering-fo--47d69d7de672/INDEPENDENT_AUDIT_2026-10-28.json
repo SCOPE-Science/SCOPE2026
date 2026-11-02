@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T16:58:01Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every integer ell>=0, restrict scalar orthonormal spherical harmonics of exact degrees ell and ell+1 to a hemisphere. Longitudinal integration splits into signed orders m; parity makes each available 2x2 concentration block diagonal 1/2 with positive cross-term c_{ell,m}, plus two unpaired 1/2 modes. The associated Legendre Sturm–Liouville Wronskian at the equator gives explicit central-binomial Wallis products c=Q f_j f_k or Q g_j g_k for parities ell+m even/odd. The exact ratios f_{j+1}/f_j=sqrt(1−1/(4(j+1)²)) and g_{j+1}/g_j=sqrt(1+1/(4(j+1)(j+2))) give opposite strict convex/concave m-chain ordering; f_j>sqrt(2/pi)>g_k gives full cross-chain separation. Hence m=ell uniquely maximizes absolute order. a_ell=(2ell+1)sqrt(2ell+3)/(4(ell+1))*binom(2ell,ell)/4^ell decreases from sqrt3/4 to 1/sqrt(2pi); leakage >=1/2−sqrt3/4 with equality at ell=0. Independently computed 253 hemisphere Legendre overlap integrals via Gauss quadrature through ell=21, max absolute discrepancy <1.2e−13; all-degree proof rests on exact recurrence, not finite quadrature.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Simons et al. treats wide general polar-cap masks; prior Resultary arbitrary-degree parity theorem has broader masks but fixes central multiplicities only."
+        ],
+        "reasoning": "A more general operator definition or rank criterion does not imply the sharp eigenvalue order without extra Wallis-ratio comparisons; the older methods are premises, not the new claim.",
+        "searches": [
+          "hemisphere spherical harmonics two adjacent degrees sectoral maximal concentration eigenvalue Wallis products strict ordering",
+          "arxiv:math/0408424",
+          "Resultary source exact-half-energy...0284b88cef7a"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:math/0408424 original full PDF Section 5",
+        "Resultary 2026 exact-half-energy full RESULT.md",
+        "Ramamoorthi 2002 secondary attribution only",
+        "Resultary 2026 zonal determinant summary",
+        "Frozen Git RESULT.md and verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Half-energy parity theorem implies 2 extra lambda=1/2 eigenvalues for ell,ell+1; it does NOT give the nonzero gaps c_{ell,m} or their relative sizes."
+        ],
+        "reasoning": "The current sharp leakage and unique m=ell sector require strict pairwise Wallis-product inequalities not supplied by the prior rank result. Claims about half-energy counts and block decomposition are credited as covered.",
+        "searches": [
+          "arxiv:math/0408424",
+          "Resultary exact-half-energy...0284b88cef7a",
+          "hemisphere spherical harmonics two adjacent degrees sectoral maximal concentration eigenvalue Wallis products strict ordering"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Spherical Slepian order block matrices and associated Legendre half-interval overlaps are standard; prior full Resultary theorem computes half-energy multiplicity for arbitrary masks."
+        ],
+        "reasoning": "The current noncentral gap product and strict m ranking are not equivalent to parity nullity/rank alone; 2026 full Resultary explicitly does not assert noncentral singular values.",
+        "searches": [
+          "hemisphere spherical harmonics two adjacent degrees sectoral maximal concentration eigenvalue Wallis products strict ordering",
+          "arxiv:math/0408424",
+          "Resultary source 2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Previous arbitrary-mask record leaves noncentral eigenvalues open; zonal determinant record computes different weighted determinant product, not order-wise maximal gap."
+        ],
+        "reasoning": "No exact sectoral m=ell all-degree table identified. Negative search is not exclusive proof of novelty.",
+        "searches": [
+          "hemisphere spherical harmonics two adjacent degrees sectoral maximal concentration eigenvalue Wallis products strict ordering",
+          "Resultary source 2026/10/11/SCOPE-uniform-dimension-bandwidth-crossover-for-zonal-hemispherical-sp--ff7d4d2424fb"
+        ]
+      },
+      "rationale": "Simons–Dahlen–Wieczorek 2004 supplies spherical Slepian concentration/order blocks; a previously published Resultary 2026 full theorem for arbitrary degree masks already proves the half-energy eigenvalue multiplicities and parity/Cauchy rank decomposition. Those are not novel here. The additional adjacent two-shell closed noncentral eigenvalues, strict parity-chain and between-chain ordering, unique sectoral maximization and sharp universal leakage are not implied by the cited rank-only theorem, whose limitations explicitly withhold noncentral singular values. Specialized Legendre/hemisphere literature could contain an equivalent inequality.",
+      "residual_risks": [
+        "Classical associated-Legendre adjacent-degree integral inequalities might encode the same strict sectoral ordering under different terminology.",
+        "Older spherical-cap/hemisphere numerical tables or low-degree spectral results may already imply part of the claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Sets up general spectral localization, but no strict two-adjacent-degree sector optimizer located in inspected sections",
+          "evidence": "Simons–Dahlen–Wieczorek original 2004 arXiv, Section 5",
+          "identifier_or_url": "arxiv:math/0408424",
+          "material_read": "Original 48-page PDF, Sections 3 and 5, order-block matrices and hemispherical context",
+          "method": "Read original PDF relevant mathematics and visually inspected Section 5",
+          "title": "Spatiospectral concentration on a sphere",
+          "trigger": "Foundational spherical Slepian spectral-order construction"
+        },
+        {
+          "assessment": "Covers parity decomposition and exact half-energy multiplicity; does not compute noncentral singular values or rank all sectoral eigenvalues",
+          "evidence": "Full RESULT.md, especially explicit limitation: no closed form for noncentral singular values",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-half-energy-multiplicities-for-hemispherical-spherical-sle--0284b88cef7a",
+          "material_read": "Full RESULT.md including theorem, detailed proof, limitations and cited references",
+          "method": "Read entire published GitHub RESULT.md via frozen Git content fetch",
+          "title": "Exact half-energy multiplicities for hemispherical spherical Slepian concentration with arbitrary degree masks",
+          "trigger": "Highly relevant same hemisphere/masks and explicit broader theorem"
+        },
+        {
+          "assessment": "No whole-document NOT_COVERING conclusion based on indirect evidence",
+          "evidence": "2002 IEEE TPAMI hemisphere matrix, full-text priority unverified",
+          "identifier_or_url": "Ramamoorthi 2002 IEEE TPAMI",
+          "material_read": "Cited abstract and low-degree scope in assigned scientific source; original full text not materially obtained this run",
+          "method": "Source citation and bibliographic review only",
+          "title": "Analytic PCA construction for theoretical analysis of lighting variability in images of a Lambertian object",
+          "trigger": "Earlier hemisphere spherical-harmonic overlap matrix"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Sharp spectral ordering and explicit maximizing sector quantify the best attainable hemispherical concentration and leakage for a natural minimal nontrivial two-degree band; the all-ell universal extremal value is a meaningful exact operator invariant beyond known parity/count information. The strict inter-order inequalities are mathematically substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:math/0408424 original full PDF Section 5",
+    "Resultary 2026 exact-half-energy full RESULT.md",
+    "Ramamoorthi 2002 secondary attribution only",
+    "Resultary 2026 zonal determinant summary",
+    "Frozen Git RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only scalar spherical harmonics degrees ell and ell+1 on S² and exact hemisphere; not arbitrary caps or multi-shell masks.",
+    "Computed quadrature checks corroborate through ell=21; infinite strict ordering proven by ratios."
+  ],
+  "residual_risks": [
+    "Classical associated-Legendre adjacent-degree integral inequalities might encode the same strict sectoral ordering under different terminology.",
+    "Older spherical-cap/hemisphere numerical tables or low-degree spectral results may already imply part of the claim."
+  ],
+  "schema_version": 1
+}

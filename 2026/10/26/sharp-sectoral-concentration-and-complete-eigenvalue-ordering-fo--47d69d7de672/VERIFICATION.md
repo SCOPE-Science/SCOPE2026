@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility and verification
+# Independent mathematical audit
 
-The self-contained scientific statement and analytical proof are in `RESULT.md`. With Python 3, NumPy and SciPy installed from `requirements.txt`, run `python verify.py` in the same directory. The script independently integrates normalized associated Legendre functions by Gauss–Legendre quadrature, compares exact Wallis-product formulas, diagonalizes fixed-order hemispherical restriction matrices, checks the strict order chains and confirms the sharp expression for the maximal eigenvalue over tested degrees.
+## correctness
 
-The submitted `verification_output.txt` reports 630 cross-degree overlap comparisons, 136 independently assembled two-dimensional spectral blocks, and exact formula-based monotonicity checks over 300 integer degrees. It reports largest integral discrepancy below \(2.21	imes10^{-14}\). The tests are finite; the infinite theorem is established by the analytical Sturm–Liouville, central-binomial and ratio arguments in the proof. No independent mathematical audit has been performed.
+PASS
+
+For every integer ell>=0, restrict scalar orthonormal spherical harmonics of exact degrees ell and ell+1 to a hemisphere. Longitudinal integration splits into signed orders m; parity makes each available 2x2 concentration block diagonal 1/2 with positive cross-term c_{ell,m}, plus two unpaired 1/2 modes. The associated Legendre Sturm–Liouville Wronskian at the equator gives explicit central-binomial Wallis products c=Q f_j f_k or Q g_j g_k for parities ell+m even/odd. The exact ratios f_{j+1}/f_j=sqrt(1−1/(4(j+1)²)) and g_{j+1}/g_j=sqrt(1+1/(4(j+1)(j+2))) give opposite strict convex/concave m-chain ordering; f_j>sqrt(2/pi)>g_k gives full cross-chain separation. Hence m=ell uniquely maximizes absolute order. a_ell=(2ell+1)sqrt(2ell+3)/(4(ell+1))*binom(2ell,ell)/4^ell decreases from sqrt3/4 to 1/sqrt(2pi); leakage >=1/2−sqrt3/4 with equality at ell=0. Independently computed 253 hemisphere Legendre overlap integrals via Gauss quadrature through ell=21, max absolute discrepancy <1.2e−13; all-degree proof rests on exact recurrence, not finite quadrature.
+
+## originality
+
+PASS
+
+Simons–Dahlen–Wieczorek 2004 supplies spherical Slepian concentration/order blocks; a previously published Resultary 2026 full theorem for arbitrary degree masks already proves the half-energy eigenvalue multiplicities and parity/Cauchy rank decomposition. Those are not novel here. The additional adjacent two-shell closed noncentral eigenvalues, strict parity-chain and between-chain ordering, unique sectoral maximization and sharp universal leakage are not implied by the cited rank-only theorem, whose limitations explicitly withhold noncentral singular values. Specialized Legendre/hemisphere literature could contain an equivalent inequality.
+
+## value
+
+PASS
+
+Sharp spectral ordering and explicit maximizing sector quantify the best attainable hemispherical concentration and leakage for a natural minimal nontrivial two-degree band; the all-ell universal extremal value is a meaningful exact operator invariant beyond known parity/count information. The strict inter-order inequalities are mathematically substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
