@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof is uniform in dimension and uses exactly the three doubled-midpoint sites needed for its sharp upper bound. Its nontrivial estimate is \(\|y\|_2^2\le a^2+b(2-a)\) for nonnegative sorted \(y\) with \(\sum y_i\le2\). The threshold \(b=(a-1)^2/a\) partitions the possible nearest-site mechanisms; each open interval gives strict improvement, leaving only axis and four-half-coordinate equality cases. All listed equality points are checked against the complete site list, and the initial gap is independently bounded. Exact-rational finite tests of seven dimensions support the inequalities; no enumeration is used to justify the arbitrary-dimensional statement.
+## correctness
 
-## Originality — PASS, subject to literature risk
-The motivating June 2026 manuscript establishes a broad nonconvexification counterexample and a general eventual-convexification bound, but its specific construction is a raised simplex rather than the cross-polytope vertex midpoint net; neither theorem determines this exact radius and full deep-hole orbit structure. The midpoint-cardinality paper concerns counting sums of vertices, not directly the Euclidean covering radius; its full text was unavailable and could contain relevant examples. Published records concerning the simplex vertex-average deep-hole spectrum concern a different coordinate lattice and do not imply the claimed sharp cross-polytope midpoint covering. Searches for the exact twofold polytope, nearest-site lattice form, and four-coordinate deep holes did not produce an equivalent theorem; this is evidence of non-detection, not a proof of historical novelty.
+PASS
 
-## Value — PASS
-The all-dimensional theorem completely determines the first finite Minkowski-averaging stage of a canonical regular polytope, including the entire extremal locus rather than just its radius. It exhibits a fixed halving of the convexification gap independent of ambient dimension, contrasting with the arbitrary delay possible for general compact sets, and explains a sharp geometric transition at dimension four when new four-coordinate farthest points first appear. The object and approximation invariant are independently natural in geometric convexification.
+For V_d={±e_i}, P_d={||x||_1<=1}, twofold equal-weight midpoint set M_d=(V_d+V_d)/2 including repeated vertices, put y=2x so ||y||_1<=2 and doubled sites are 0, ±2e_i, ±e_i±e_j. By signed permutations sort a=y1>=b=y2>=0; R=||y||_2²<=a²+b(2-a). Squared distances to sites 0, 2e1, e1+e2 are respectively R, R+4−4a, R+2−2(a+b). The threshold b=(a−1)²/a proves one squared distance <1 for every open a-interval (1/2,1) and (1,2), and for a<=1/2 the bound R<=2a<=1 is sharp only at precisely four entries y_i=1/2. At a=1 the sole equality is y=e_i; a=2 is itself a site. Full site enumeration confirms the listed equality families and none else, giving d_H(P_d,M_d)=1/2 and 2d+16*C(d,4) holes; the original vertices have covering distance exactly 1, achieved at x=0. Independent rational grid count 843 points in d=2,3,4 found exactly 4,6,24 equality samples, consistent with theorem but not its infinite-dimensional proof.
 
-## Limits and audit state
-This result does not extend to later averaging stages or general centrally symmetric polytopes. The midpoint-cardinality full text and potentially unindexed finite parity-grid covering results remain literature risks.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Compared direct equivalences, stronger implications, exact tables, and the original papers; no decisive prior coverage identified for the same final statement. Residual priority and access risks separately recorded.
+
+## value
+
+PASS
+
+A Euclidean cross-polytope is a canonical centrally symmetric lattice polytope and the first Minkowski midpoint average is the natural earliest convexification stage. The exact first-step gap, complete farthest-point classification and first appearance of a second symmetry orbit at dimension four are an all-dimensional exact classification, not a selected isolated finite example or generic lattice site computation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
