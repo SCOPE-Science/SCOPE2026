@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The depth-of-first-occurrence recursion is exact. Induction makes M_i the unique minimal witness; every distinct same-depth witness is >=2M_i for large i. Euler products follow from multiplicativity and uniform summability of p^{-q}; positive local factors bound the full limit below. The event v_r(n)=M_i and all other valuations fully admissible has exact density K_S r^{-M_i}. All competing events have density O(r^{-2M_i}+s^{-M_i}), yielding the asymptotic by squeezing. Exact finite checks verify minimal witnesses and truncated local factors, not the infinite limit. Limits and domain restrictions are explicit.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "De Koninck–Verreault, arXiv:2308.09149, Lemma 1(ii) in Section 6, bounds the density of towers of a specified total height by minimal all-prime tower sizes.",
+        "Conti–Contucci–Iudelevich, arXiv:2512.01376, Theorem 2.3 counts a prescribed unlabeled tree shape."
+      ],
+      "reasoning": "Total height does not specify whether a forbidden prime label appears and has a different minimum tower; its general upper bound provides no positive leading coefficient for labeled-prime avoidance. A single unlabeled tree shape likewise does not sum over all labeled-prime-avoiding types with the necessary sharp leading coefficient.",
+      "searches": [
+        "\"Level Totients for Integer Mosaics\" limit depth infinite density",
+        "\"prime tower factorization\" limiting density depth forbidden primes",
+        "\"On the Tower Factorization of Integers\" \"depth\" pdf 2024"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2606.22842 Sections 2–8",
+      "arxiv:1204.5251v2 Sections 1–4",
+      "arxiv:2308.09149 Sections 1–7",
+      "arxiv:2512.01376 introduction and Theorem 2.3",
+      "OEIS A182318 full entry"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2606.22842, Sections 5 and 7, provide the least local exponent and finite-depth Euler products.",
+        "arXiv:1204.5251v2, Sections 2–3, evaluates singleton infinite-depth probabilities implicitly but not the level-index asymptotic.",
+        "arXiv:2308.09149, Section 6, has a weaker bound for the total-height tail."
+      ],
+      "reasoning": "An Euler product for each fixed level and a full-tower limit do not, without a uniform-in-level analysis, imply the precise asymptotic difference. The new proof supplies the minimal forbidden-depth tower, isolates its unique valuation event, and bounds every competing event by smaller exponential scales, giving a nonzero explicit leading constant. An earlier implicit derivation remains possible.",
+      "searches": [
+        "forbidden prime in exponent recursive prime tower level depth first occurrence minimal witness r exponent q limiting density convergence",
+        "Dao Kasian Mirabi Level Totients for Integer Mosaics 2606.22842 asymptotic stabilization fixed forbidden prime set",
+        "\"prime tower\" \"rate of convergence\" \"density\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Devlin–Gnang, arXiv:1204.5251v2, Theorem 1 and Proposition 2, express the complement as full-tower prime avoidance for a singleton.",
+        "Dao–Kasian–Mirabi, arXiv:2606.22842, Theorem 7.3, express finite-level avoidance through local Euler factors."
+      ],
+      "reasoning": "Replacing avoidance by the complement of a prime occurring somewhere in a complete prime tower gives the previously known singleton limiting constant, but none of the inspected equivalent presentations evaluates the depth-truncation error asymptotically, for either singleton or general finite forbidden-prime sets.",
+      "searches": [
+        "prime tower factorization level totient integer mosaics density infinite depth limiting Euler product superexponential convergence prime towers minimal forbidden depth",
+        "\"prime tower factorization\" \"density\" \"depth\" convergence",
+        "\"integer mosaics\" \"infinite\" \"level\" \"density\" prime"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A182318 identifies the integers whose complete prime-tower factorization omits 2; its entry gives sequence data and the recursive indicator, but not the sharp density error across truncation depths.",
+        "Devlin–Gnang, arXiv:1204.5251v2, Section 5 numerical bounds for complete-tower singleton probabilities."
+      ],
+      "reasoning": "Known sequence entries and numerical tables concern a full-tower indicator or limiting probability. The current assertion is a general sharp asymptotic in the level parameter, not a re-enumeration of a known table.",
+      "searches": [
+        "\"prime tower factorization\" \"density\" \"depth\" convergence",
+        "\"integer mosaics\" \"superexponential\" density convergence",
+        "\"prime tower factorization\" \"density\" \"level\""
+      ]
+    },
+    "rationale": "Finite-level Euler products are in Dao–Kasian–Mirabi; singleton full-tower density is in Devlin–Gnang; total-height bounds are in De Koninck–Verreault. The new exact leading constant for the level-to-complete-depth density error, with tower exponent determined jointly by the least forbidden and least permitted primes, is not stated or implied without a new uniform depth comparison in the inspected works. Relevant database/sequence listings were compared. Earlier implicit priority remains a residual risk.",
+    "residual_risks": [
+      "Earlier implicit or unindexed analyses of prime-tower level truncation may contain equivalent asymptotics.",
+      "The 2014 product and 2026 finite-level product conceptually facilitate this proof; mathematical priority must be independently assessed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Finite-depth Euler factors and error in integer cutoff; no evaluated asymptotic for depth tending to infinity with explicit tower-scale leading constant",
+        "evidence": "Section 7 states fixed-i Euler products; Section 8 varies the cutoff integer, not the tower depth.",
+        "identifier_or_url": "arxiv:2606.22842 | https://arxiv.org/abs/2606.22842",
+        "material_read": "Full searchable HTML, especially Sections 2, 5, 6, 7 and 8, including Theorems 5.2, 7.3 and 7.7",
+        "method": "Read mathematical statements and proof structure in the full-text HTML",
+        "title": "Level Totients for Integer Mosaics",
+        "trigger": "Same fixed-prime-set mosaic-level indicator and its natural densities"
+      },
+      {
+        "assessment": "Covers existence and product of the full-tower singleton avoidance density; no asymptotic in truncation depth",
+        "evidence": "Theorem 1 gives the complete tower probability, while Section 3 develops bounds by prime and exponent truncations.",
+        "identifier_or_url": "arxiv:1204.5251v2 | https://arxiv.org/html/1204.5251v2",
+        "material_read": "Full HTML Sections 1–4 including Theorem 1, Proposition 2, bounds and conclusions",
+        "method": "Read exact density formula and bounds; compared singular forbidden prime and level-dependent error",
+        "title": "Primes Appearing in the Tower Factorization of Integers",
+        "trigger": "Complete-tower forbidden-prime singleton density could already cover the limit"
+      },
+      {
+        "assessment": "Classifies all-prime tower height density and gives an upper bound but does not handle prime-label-restricted sharp leading coefficient",
+        "evidence": "Section 6 uses minimal towers with base 2 regardless of forbidden-prime labels.",
+        "identifier_or_url": "arxiv:2308.09149 | https://arxiv.org/abs/2308.09149",
+        "material_read": "Full searchable HTML Sections 1–7, especially Section 6 Lemma 1(ii)",
+        "method": "Read height-level recurrence and minimal all-prime tower bound; compared with prime-labeled exclusion",
+        "title": "On the tower factorization of integers",
+        "trigger": "Existing tower-height density may imply a strong level-convergence bound"
+      },
+      {
+        "assessment": "Counts integers with fixed unlabeled tree structure; does not evaluate prime-labeled avoidance differences over all trees",
+        "evidence": "Theorem 2.3 has a fixed-tree counting law of order a power of x divided by log x.",
+        "identifier_or_url": "arxiv:2512.01376 | https://arxiv.org/html/2512.01376v1",
+        "material_read": "Introduction, tree definitions, and Theorem 2.3 on counts for fixed unlabeled tree types",
+        "method": "Compared object, quantifiers, and output of the leading asymptotic",
+        "title": "Tree asymptotic densities in number theory",
+        "trigger": "Broader tree-shape counting might dominate special tower depth patterns"
+      },
+      {
+        "assessment": "The indicator is previously cataloged for the singleton case; no level-asymptotic leading coefficient supplied",
+        "evidence": "Entry describes numbers with complete prime tower not containing 2.",
+        "identifier_or_url": "https://oeis.org/A182318/internal",
+        "material_read": "Sequence definition, recursive membership criterion, and bibliographic pointers",
+        "method": "Compared cataloged object with asymptotic assertion",
+        "title": "OEIS A182318",
+        "trigger": "Potential existing exact data for prime-2 full-tower avoidance"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b5ba0989-12bf-4b74-9f7d-f49a58aa27a1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural gap links finite-level mosaic densities to complete-tower forbidden-prime probabilities. The theorem determines the precise and extraordinarily rapid loss at each extra level, identifies the unique minimal prime-power tower driving the limit, and gives a nonzero Euler-product leading coefficient for every fixed finite prime set. It is structural, infinite and not a table lookup or arbitrary narrow computation.",
+    "status": "PASS"
+  }
+}
