@@ -1,25 +1,21 @@
-# Scientific review: cubic section-volume cusp
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The stated domain is the zero-sum unit sphere of normals to central hyperplanes through a prescribed facet barycenter, with integer dimension \(n\ge3\). The collective direction has unit length and is tangent to that sphere. The Fourier-integral formula is the same normalization as the primary section problem, and its positive constant cancels from the claimed volume ratio.
+PASS
 
-The proof separates the two nonzero coordinates from the \(n-2\) coordinates activated at order \(|s|\). A uniformly integrable second-order expansion applies to the first two coordinate factors. The quadratic coefficient is established by two exact beta integrals, with ratio ten. For the last \(n-2\) factors, the proof **does not** expand termwise beyond second order: a rescaling of the tail produces a convergent positive integral, which is evaluated exactly through two integrations by parts. The explicit error bound is \(O_n(s^4)\), and the final gamma simplification gives \(C_8=1001/(1024\sqrt3)>0\). An independently evaluated transverse direction has negative second variation. These facts prove the eighth-dimensional saddle and the one-dimensional failure of third differentiability.
+At M_n={unit zero-sum normals}, n>=3, the sparse normal p_n=(1,-1,0...)/sqrt(2) and its normalized collective tangent define a unit-speed geodesic. The Fourier section integral factorizes into two large nonzero coordinates and (n-2) equal small ones. Taylor-expanding the two large factors under an integrable majorant gives I_0=pi sqrt(2)/4 and I_2/I_0=(n-8)/(2n) by beta integrals. The remaining small-coordinate tail yields E(s)=4|s|³ int_0^infty[(1+bu²)^-(n-2)-1+(n-2)bu²]/u⁴ du + O_n(s⁴); positivity follows from convexity, two integrations by parts evaluate C_n=64(n-1)Gamma(n-1/2)/(3 sqrt(pi) n^(3/2)sqrt(n-2)Gamma(n)). In dimension 8, C_8=1001/(1024sqrt3)>0; the transverse direction has -3s²/2+o(s²), proving a saddle and C²-not-C³ collective profile. Fresh high-precision quadratures for n=3,5,8,10 at shrinking s approach all predicted C_n, corroborating but not proving asymptotic.
 
-The packaged script `artifacts/verify_cusp.py` was executed successfully and returns `VERIFY_OK`. Its exact SymPy calculations verify the moment ratio and eighth-dimensional coefficient; independent direct mpmath quadrature checks the unexpanded integral in several dimensions. The latter finite tests are supplementary, not proof of the asymptotic theorem. The smoothness assertion uses separately justified domination for derivatives through order two.
+## originality
 
-## Originality — PASS, with stated uncertainty
+PASS
 
-The primary 2026 paper of Brazitikos–Pandis supplies the relevant restricted-section problem and Fourier formula and conjectures the global maximum. Its complete Section 5 does not compute the third-order volume change at the sparse normal. The closest indexed public result, *Exact local Hessian phase diagram for two conjectural cross-polytope section maximizers* (October 2026), proves the two quadratic Hessian eigenvalues \(-3\) and \((n-8)/n\) but explicitly leaves the local type at \(n=8\) undecided. Its theorem cannot imply the sign or size of the cubic term: a zero quadratic coefficient permits both increases and decreases. The present sharp positive \(|s|^3\) coefficient settles that missing local comparison and holds for every fixed dimension \(n\ge3\).
+The exact positive |s|³ coefficient is genuinely beyond the already published quadratic Hessian spectrum at the same sparse constrained normal, which expressly calls n=8 degenerate. Brazitikos–Pandis primary full text formulates the extremal problem and conjectural maximizing normals but not this cubic local type. A narrow but explicit new third-order regularity boundary survives.
 
-Nayar–Tkocz prove log-concavity under coordinate dilations of a fixed section, not a third-order expansion under changing normals with the zero-sum constraint. Targeted mathematical-record searches for equivalent formulations, higher-order cusp behavior, critical eighth-dimensional saddle behavior, and possible stronger theorems produced the quadratic result as the closest match, not coverage of the new term. Residual risks include unindexed local regularity results, unpublished notes, and possible equivalent integral-asymptotic formulations.
+## value
 
-## Value — PASS
+PASS
 
-The critical dimension \(n=8\) is the precise boundary where the known quadratic Hessian loses negative definiteness. Whether the candidate remains a local maximum there is an intrinsic mathematical question for the proposed section maximizer, not an arbitrary numerical slice. The positive cubic cusp gives the exact missing local classification and quantifies the first non-smooth correction in the canonical collective perturbation for **all** dimensions. It distinguishes quadratic degeneracy from local maximality without asserting or depending on the unresolved global conjecture. This is structural information about a natural geometric optimization problem, rather than a routine parameter substitution.
+The critical n=8 Hessian null direction was previously unresolved and could be local max, min, or saddle at higher order. The explicit positive nonanalytic cubic coefficient settles that natural degeneracy and reveals a sharp C²/C³ regularity cusp. It provides an exact local counterexample to extrapolating quadratic stability, not an arbitrary parameter slice.
 
-## Scope and residual risk
-
-The proof is limited to the explicitly described collective geodesic and one transverse direction; it does not supply a full multivariate cubic normal form or classify global maximizers. The remainder is fixed-dimensional. Priority cannot be guaranteed against unindexed work. Independent replication by a separate auditor has not occurred.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

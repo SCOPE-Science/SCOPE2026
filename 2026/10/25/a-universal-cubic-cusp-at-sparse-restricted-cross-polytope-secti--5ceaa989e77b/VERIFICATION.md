@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification scope
+# Independent mathematical audit
 
-The proof is an explicit Fourier-integral calculation and twice-integrated positive remainder. Its critical identities are the beta-moment ratio of ten, the tail mass \(J_m(b)>0\), and the gamma-function simplification \(C_8=1001/(1024\sqrt3)\). The accompanying program reconstructs the exact moment ratio, exact critical coefficient and high-precision numerical integrals of the **original**, unexpanded section-volume formula.
+## correctness
 
-Run `python artifacts/verify_cusp.py` with dependencies from `artifacts/requirements.txt`. The program's `VERIFY_OK` response was observed when the packaged file was executed. Its numerical checks are finite diagnostic checks only, not a replacement for the proof of the arbitrary-dimensional expansion. The exact analytic proof does not require sampling or an external certification service.
+PASS
 
-The asymptotic is for every fixed integer \(n\ge3\); it does not determine the global maximizing normal, uniformity as \(n\to\infty\), or the full multivariate third-order structure. Independent audit has not been performed.
+At M_n={unit zero-sum normals}, n>=3, the sparse normal p_n=(1,-1,0...)/sqrt(2) and its normalized collective tangent define a unit-speed geodesic. The Fourier section integral factorizes into two large nonzero coordinates and (n-2) equal small ones. Taylor-expanding the two large factors under an integrable majorant gives I_0=pi sqrt(2)/4 and I_2/I_0=(n-8)/(2n) by beta integrals. The remaining small-coordinate tail yields E(s)=4|s|³ int_0^infty[(1+bu²)^-(n-2)-1+(n-2)bu²]/u⁴ du + O_n(s⁴); positivity follows from convexity, two integrations by parts evaluate C_n=64(n-1)Gamma(n-1/2)/(3 sqrt(pi) n^(3/2)sqrt(n-2)Gamma(n)). In dimension 8, C_8=1001/(1024sqrt3)>0; the transverse direction has -3s²/2+o(s²), proving a saddle and C²-not-C³ collective profile. Fresh high-precision quadratures for n=3,5,8,10 at shrinking s approach all predicted C_n, corroborating but not proving asymptotic.
+
+## originality
+
+PASS
+
+The exact positive |s|³ coefficient is genuinely beyond the already published quadratic Hessian spectrum at the same sparse constrained normal, which expressly calls n=8 degenerate. Brazitikos–Pandis primary full text formulates the extremal problem and conjectural maximizing normals but not this cubic local type. A narrow but explicit new third-order regularity boundary survives.
+
+## value
+
+PASS
+
+The critical n=8 Hessian null direction was previously unresolved and could be local max, min, or saddle at higher order. The explicit positive nonanalytic cubic coefficient settles that natural degeneracy and reveals a sharp C²/C³ regularity cusp. It provides an exact local counterexample to extrapolating quadratic stability, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
