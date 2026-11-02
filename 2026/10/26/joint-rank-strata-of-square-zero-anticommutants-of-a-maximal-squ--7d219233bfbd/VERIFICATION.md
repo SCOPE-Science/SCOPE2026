@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproduction and checks
+# Independent mathematical audit
 
-Run `python3 verify.py` with an ordinary Python 3 installation; no third-party packages or network access are required. The program independently forms the prescribed square-zero matrix and the candidate anticommutants, verifies the matrix identities directly, calculates both ranks by field row reduction, and checks every stratum count against Gaussian-binomial formulas.
+## correctness
 
-**Completed checks:** for \((r,q)=(1,2),(1,3),(2,2),(2,3),(2,5),(3,2)\), exact totals respectively \(2,3,28,153,1225,1184\), with full stratum equality in each case. Separately, all \(2^{16}=65536\) matrices of size \(4\times4\) over \(\mathbb F_2\) were tested without the block parametrization; exactly \(28\) satisfied both relations, with the expected ranks. The script prints `VERIFY_OK_MAX_RANK_EXTERIOR_PAIR_JOINT_RANK` only after all assertions succeed.
+PASS
 
-**Mathematical dependencies:** count square-zero matrices of fixed rank via image/kernel flags and quotient isomorphisms; compute the centralizer dimension from length-one and length-two \(\mathbb F_q[z]\)-modules; show its induced action on \(\ker P/\operatorname{im}P\) is onto with constant fibers; and establish the product-rank identity by projection onto the second block. These prove the unrestricted theorem. Finite experiments do not establish it beyond tested parameters. The implementation's modular arithmetic is for **prime** field orders; the proof covers arbitrary prime powers.
+For square-zero A of rank r in dimension 2r, choose A=[0,I;0,0]. Anticommutation gives B=[P,Y;0,-P]; B²=0 iff P²=0 and PY=YP even in characteristic 2. Let t=rankP and H=kerP/imP of dimension h=r-2t; projection on B image proves rankB=2t+rank(Y on H)=2t+u. Square-zero P ranks counted by choosing imP,kerP and an isomorphism; its centralizer dimension is c=(r-t)^2+t². The induced centralizer-to-End(H) map is onto with kernel c-h², giving count Gaussian[r,t] Gaussian[r-t,t]|GL_t| q^(c-h²) Gaussian[h,u] product_{i<u}(q^h-q^i). Smooth rank-u endomorphism strata fibred over rank-t square-zero orbit have dimension r²-(h-u)², irreducibility; top u=h strata closures give floor(r/2)+1 components. Independently enumerated all r=2,q=2 (P,Y) combinations and recovered exact rank stratification 1,9,6,12 including all 28 B. Boundaries t=0 and h=0 valid; prime powers supported algebraically, finite tests only prime q.
 
-**Limits:** The thesis listed as a historical-priority risk was not accessible in full text. Geometric dimensions rely on the standard smooth rank-stratum and nilpotent-orbit constructions; the executable checks validate finite cardinalities, not scheme-theoretic assertions. No independent mathematical audit has been performed.
+## originality
+
+PASS
+
+Paul Levy (2006) establishes equidimensional components of commuting square-zero pairs in characteristic two; this component count is antecedent and not novel. Chen–Wang anticommuting varieties give block normal forms, not demonstrably the fixed maximal-square-zero fiber with joint ranks of B,AB over all finite-field orders. Fine finite-field count via centralizer-to-homology and rank-u endomorphisms is the proposed addition. A plausible Ngai 2024 thesis could state equivalent rank strata and its full text was not obtained, so originality remains qualified.
+
+## value
+
+PASS
+
+A full joint rank census is a natural arithmetic refinement of the geometry of square-zero anticommutants; conditional rankB-2t is exactly the rank law of an h-by-h random endomorphism. The exact stratification and dimensions are meaningful structural invariants beyond a known component count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
