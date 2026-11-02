@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "The forbidden-induced-subgraph equivalence is proved for every finite nonempty graph of maximum degree at most two. Each path factor follows from an exact binary-run count including n=1,2; each cycle factor includes the necessary C3 exception and a cyclic-boundary count valid for n>=4. The truncated product counts each admissible global two-coloring exactly once. The three-odd-cycle argument is a pigeonhole lower bound with matching constructive two-class colorings, and proper three-colorability gives a uniform upper bound. Independent brute-force forbidden-four-set checks passed on 26 single-component families and 134 disconnected cases; finite computations are corroborative, not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Dorbec–Montassier–Ochem, doi:10.1002/jgt.21724, abstract: vertex partitions into cographs and stars and NP-hardness; no full-text content claim.",
+        "Demange–Ekim–de Werra, doi:10.1016/j.ejor.2007.09.018, bibliography/abstract: older generalized coloring applications.",
+        "Bang-Jensen–Bessy–Reinald, arXiv:2610.32954v1, Corollary 4.2 is broad decision-complexity hardness, not a count."
+      ],
+      "reasoning": "The cograph constraint excludes induced P4 but does not in itself exclude induced C4 or 2K2, so a cograph coloring is not the same invariant. The general hardness theorem has no sparsity-specific enumerator. The 2009 paper may use alternate vocabulary and only abstract-level inspection was possible, which is an explicit priority risk.",
+      "searches": [
+        "literature query: Vertex Partitions of Graphs into Cographs and Stars Dorbec Montassier Ochem",
+        "literature query: graph partition into threshold graphs cograph coloring 2-path odd cycles",
+        "mathematical-record query: threshold graph vertex partition number and two-coloring count disjoint unions of paths cycles maximum degree 2 threshold induced P4 2K2"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2610.32954v1 (full accessible HTML)",
+      "doi:10.1002/jgt.21724 (publisher abstract only)",
+      "doi:10.1016/j.ejor.2007.09.018 (bibliography/abstract only)",
+      "Mathematical record 9aaf81e2ad5d (title and indexed claim)",
+      "Mathematical record b5200634-b0db-43fa-bcf5-957158e0e5a8 (previous claim)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bang-Jensen–Bessy–Reinald, arXiv:2610.32954v1, Introduction and Section 4, Corollary 4.2: general NP-completeness of two threshold classes, not sparse enumeration.",
+        "Mathematical-record item 9aaf81e2ad5d: ordinary proper-color-class sizes at maximum degree two, not induced threshold classes.",
+        "Mathematical-record item b5200634-b0db-43fa-bcf5-957158e0e5a8: threshold-class enumeration only for complete multipartite graphs."
+      ],
+      "reasoning": "The earlier complete-multipartite class overlaps small cases P2,P3,C3,C4 but does not contain P_n for n>=4 or C_n for n>=5; thus its hypothesis does not imply the full degree-two result. Earlier ordinary proper-coloring counts omit valid threshold classes with edges, so cannot imply the enumeration. The 2026 hardness result is existential-complexity rather than a counting theorem. Separate direct proofs are provided.",
+      "searches": [
+        "mathematical-record query: threshold graph vertex partition number and two-coloring count disjoint unions of paths cycles maximum degree 2 threshold induced P4 2K2",
+        "mathematical-record query: alternating chromatic number complete edge colored graphs with one color class a disjoint union of paths cycles sharp odd cycle count threshold partitions",
+        "literature query: Acyclic 2-edge-coloured graphs polynomial-time linkages and colouring hardness threshold partitions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bang-Jensen–Bessy–Reinald, arXiv:2610.32954v1, Introduction and Section 4, Corollary 4.2: general NP-completeness of two threshold classes, not sparse enumeration.",
+        "Mathematical-record item 9aaf81e2ad5d: ordinary proper-color-class sizes at maximum degree two, not induced threshold classes.",
+        "Mathematical-record item b5200634-b0db-43fa-bcf5-957158e0e5a8: threshold-class enumeration only for complete multipartite graphs."
+      ],
+      "reasoning": "A 2-edge-colored complete graph with red graph G has an acyclic induced color class precisely when the corresponding induced red graph is threshold (arXiv:2610.32954v1, Corollary 4.2). Therefore the alternating-chromatic formulation was searched explicitly; neither matching arbitrary-degree-two count nor three-odd-cycle trichotomy appeared in retrieved records.",
+      "searches": [
+        "mathematical-record query: threshold graph vertex partition number and two-coloring count disjoint unions of paths cycles maximum degree 2 threshold induced P4 2K2",
+        "mathematical-record query: alternating chromatic number complete edge colored graphs with one color class a disjoint union of paths cycles sharp odd cycle count threshold partitions",
+        "literature query: alternating chromatic paths cycles 2-edge-coloured"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved exact table with the two named-color counts for all paths and cycles or the truncated component product.",
+        "Mathematical-record item 9aaf81e2ad5d concerns counts with prescribed sizes of independent color classes, not threshold color classes."
+      ],
+      "reasoning": "The exact all-n path and cycle expressions plus their global product were compared against record summaries and literature queries. Failure to locate a table is not a mathematical uniqueness proof.",
+      "searches": [
+        "mathematical-record query: threshold partition enumeration path P_n: 2n squared minus 8n plus 14; cycle C_n: n(n minus 1) plus 2",
+        "literature query: threshold coloring path cycle vertex partition 2 color exact numbers",
+        "mathematical-record query: exact database table threshold graph 2 colorings path and cycle"
+      ]
+    },
+    "rationale": "The primary 2026 paper establishes decision hardness and correspondence, without the claimed degree-two component enumerator. The closest known degree-two coloring record is about ordinary proper colorings, while a threshold-class record applies to complete multipartite graphs; their statements do not imply the full path-cycle class. Specific remaining bibliographic uncertainty is disclosed.",
+    "residual_risks": [
+      "Earlier threshold-partition results may exist under alternative vocabulary or in uninspected older full texts.",
+      "Record-search coverage is incomplete and negative results do not establish absolute priority.",
+      "The 2026 primary-paper text was read in accessible HTML; older article comparisons were based on abstracts only."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The claims concern general two-threshold-class NP-completeness and edge-colored equivalence, not the degree-two enumeration or global odd-cycle threshold.",
+        "evidence": [
+          "Introduction lines 85–96 and Section 4 lines 281–284 establish definitions, equivalence, and hardness; no degree-two enumeration in examined paper."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.32954v1",
+        "material_read": "Full accessible HTML: introduction, definitions, Theorem 1.5 and proof outcome in Section 4 including Corollary 4.2, cited discussion of earlier threshold-class partitions.",
+        "method": "Web-accessible full HTML, examined statements and scopes, not just abstract.",
+        "title": "Acyclic 2-edge-coloured graphs: polynomial-time linkages and colouring hardness",
+        "trigger": "Exact model equivalence and nearest recent publication"
+      },
+      {
+        "assessment": "The abstract states cograph/star partition complexity, a different class constraint. Uninspected full text is a priority risk.",
+        "evidence": [
+          "Abstract specifies P4-free cographs and partition NP-completeness; it does not provide the present counts."
+        ],
+        "identifier_or_url": "https://doi.org/10.1002/jgt.21724",
+        "material_read": "Publisher bibliographic and abstract text; full article not obtained.",
+        "method": "Publisher article landing page and abstract.",
+        "title": "Vertex Partitions of Graphs into Cographs and Stars",
+        "trigger": "Potential broader vertex-class partition theorem"
+      },
+      {
+        "assessment": "Historical study of generalized coloring and scheduling; complete comparison unavailable.",
+        "evidence": [
+          "Publication abstract discusses generalized graph coloring for robotics; 2026 paper cites the article as earlier hardness work."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.ejor.2007.09.018",
+        "material_read": "Institutional bibliographic summary and publication abstract only; no complete text.",
+        "method": "Institutional publication page and bibliographic abstract.",
+        "title": "A tutorial on the use of graph coloring for some problems in robotics",
+        "trigger": "Cited prior work on minimum number of threshold classes"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a8cde62f-0f52-40b5-95d4-d0fbc05ebd3a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete two-color enumeration over all degree-two graphs is a natural class-wide exact invariant of the recently investigated threshold-partition problem. The four-state product records a nonlocal induced-2K2 interaction between components, and the exact three-odd-cycle cutoff shows a sharp, interpretable partition-number transition on the canonical sparse class. The result is more substantial than a trivial chromatic bound or a small enumeration table.",
+    "status": "PASS"
+  }
+}
