@@ -1,0 +1,145 @@
+{
+  "correctness": {
+    "rationale": "For each n>=2 the proof supplies a unique coordinate for every unordered pair, the exact two letter transitions including both parity-dependent diameter boundaries, and a finite-tail argument ensuring unique moment solutions. It verifies the first- and second-moment absorbing Bellman equations with explicit all-n polynomials and derives the aggregate second moment by power-sum identities. Both dependency-free verifiers check 85,320 pair states for n=2..80, and separate exact Fraction linear solves check 220 states per moment for n=2..11. Finite evidence is distinguished from the explicit all-integer argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gusev Theorems 3.1-3.2 calculate a more general Bernoulli bias for the hardest-pair *first* moment, and display a pair automaton but no higher moment theorem.",
+        "Lipin-Volkov 2026 concerns an adversarial synchronization game; Szykuła 2026 surveys shortest reset and subset problems."
+      ],
+      "reasoning": "The arbitrary-bias first-moment results are stronger in the bias dimension but weaker in moment order; knowledge of a mean cannot determine a second moment. The Markov transition model permits derivation but does not itself supply the new solution or sixth-degree aggregate. Deterministic-game theorems likewise cannot imply stochastic variance without further probabilistic analysis.",
+      "searches": [
+        "Černý automata random Bernoulli input exact expected merging times for every unordered pair and uniform average polynomial (n-1)(2n^2+n-4)/3",
+        "pair automaton Cerny Markov absorption times complete explicit formula cubic n expected mean uniform pairs",
+        "\"Černý\" \"variance\" \"random inputs\" pair synchronization",
+        "https://arxiv.org/abs/1404.6731 Section 3 Theorems 3.1 and 3.2"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1404.6731 (Gusev 2014, full accessible Section 3)",
+      "arXiv:2601.18362 (Lipin and Volkov 2026, accessible full text)",
+      "arXiv:2608.24245 (Szykuła 2026, accessible full text)",
+      "DOI 10.1137/100816109 (Jungers, abstract only)",
+      "DOI 10.1137/15M1024603 (Gonze and Jungers, abstract only)",
+      "2026/10/4/SCOPE-the-five-state-binary-triple-rendezvous-extremal-is-unique--c176f0fc06e0",
+      "2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+      "2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+      "2026/9/9/SCOPE010"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The established highest expected pair delay is a *first* moment; the new quantity includes E[tau^2] with separate recursive source term 4E[tau]-2.",
+        "The exact expression for Var[tau] depends on both Markov transition paths and uniform starting pair distribution."
+      ],
+      "reasoning": "Gusev already supplies the pair model, the first-moment recurrence, and the two worst-pair expectations; these are not counted as new. The published explicit first moments do not by mathematical implication fix the second moment. The new theorem establishes a different Poisson equation and a uniform exact sum. Neither the game-theoretic nor deterministic-compression claims cover these probabilities.",
+      "searches": [
+        "arXiv:1404.6731 full Section 3 Theorems 3.1, 3.2, equations for expected hitting times",
+        "arXiv:2601.18362 Section 1 and relevant Section 5",
+        "arXiv:2608.24245 Sections 1-2",
+        "Černý automaton random Bernoulli input second moment variance time to merge a uniformly sampled unordered state pair polynomial sixth degree"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gusev arXiv:1404.6731, Section 3, mean first-hitting-time equations and Theorems 3.1-3.2.",
+        "Targeted published-finding corpus mathematical-record matches were variance results for unrelated random processes rather than a Černý pair hitting-time law."
+      ],
+      "reasoning": "Absorption-time second moment and exact variance for a uniformly random pair are equivalent formulations of the present result once the first moment is known. Retrieved texts and exact semantic searches do not exhibit such statements for the same automaton, letter distribution, and pair distribution.",
+      "searches": [
+        "Černý automaton random Bernoulli input second moment variance time to merge a uniformly sampled unordered state pair polynomial sixth degree",
+        "Cerny pair automaton absorption time moment distribution sample uniform pair iid letters",
+        "\"Černý\" automaton random input synchronization variance pair hitting time second moment",
+        "\"Gusev\" \"Černý\" \"second moment\" pair random"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact law or table of the target aggregate in the returned published-finding corpus records.",
+        "The nearest-indexed Černý entries concern deterministic initial rank compression and avoiding thresholds, not the variance."
+      ],
+      "reasoning": "The claimed quantity is an exact polynomial over every n≥2, not a previously tabulated fixed-n numerical invariant in the searched records. A negative indexed search alone does not prove novelty, and no such claim is made.",
+      "searches": [
+        "finite automaton random synchronization time variance Cerny second moment asymptotic coefficient 28/45",
+        "expected random pair synchronization second moment variance Černý 16 n^6 32 n^5",
+        "published-finding corpus mathematical-record search for exact random Černý synchronization variance second moment, 25 result cap"
+      ]
+    },
+    "rationale": "The closest exact primary source, Gusev (2014), establishes arbitrary-bias first moments and the maximum among pairs, not second moments. The new all-length sixth-degree variance law for a uniformly sampled pair is not implied by a formula specifying only first moments. Its proof solves a distinct moment Bellman equation and sums a nontrivial family of statewise potentials. Recent Černý works address deterministic/adversarial synchronization, not this law. Actual indexed queries revealed no covering result; unindexed prior work remains a stated risk.",
+    "residual_risks": [
+      "An unindexed or inaccessible publication might already compute the uniform-pair second moment or variance.",
+      "The initial Markov-chain representation is classical; the distinct contribution is the explicitly solved second-moment potential and exact all-n mixture, not discovery of the chain.",
+      "The full texts of the two SIAM synchronizing probability function papers were not inspected; their abstracts suggest a different process.",
+      "Independent mathematical review and exhaustive priority confirmation have not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The published results give first-moment expectations for hardest pairs at arbitrary Bernoulli biases; the exact second moment, uniform-initial-pair variance, and nonzero limiting coefficient of variation are not stated. Its first-moment technique is credited, and stronger possible equivalent variance statements outside the inspected text remain a residual priority risk.",
+        "evidence": [
+          "Section 3, Theorems 3.1 and 3.2 and conclusion, arXiv:1404.6731; equations concern mean absorption time, not its second moment."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1404.6731",
+        "material_read": "Full accessible arXiv HTML, especially Section 3, pair-automaton transitions, Theorems 3.1 and 3.2, their proofs, and the conclusion.",
+        "method": "Compared the stochastic variable and moment order, read the published Bellman first-moment equations and final theorem statements, and checked whether raw second moments, variance, or uniform-pair averaging were computed.",
+        "title": "Synchronizing automata with random inputs",
+        "trigger": "The same fixed automaton, iid random-letter source, and initial pair-merging process are the direct conceptual baseline."
+      },
+      {
+        "assessment": "The deterministic and adversarial synchronization results do not imply a numeric second moment for iid random input from a uniformly sampled starting pair.",
+        "evidence": [
+          "arXiv:2601.18362, January 26, 2026 first public; Section 1 automaton setup and Section 5 strategy arguments."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2601.18362",
+        "material_read": "Accessible arXiv HTML, introduction, Černý-family setup, and relevant pair/strategy discussion in Section 5.",
+        "method": "Compared deterministic/adversarial game and shortest-word claims with the iid first-merging-time random variable.",
+        "title": "Adversarial Synchronization",
+        "trigger": "Recent full-text treatment of Černý pair geometry and adversarial/deterministic synchronization."
+      },
+      {
+        "assessment": "The surveyed deterministic reset and subset-compression results are distinct from the random-input delay variance computed here.",
+        "evidence": [
+          "arXiv:2608.24245, August 25, 2026 first public; Sections 1 and 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2608.24245",
+        "material_read": "Accessible arXiv HTML introduction, preliminaries, and Sections 2.1-2.3 on Černý, avoiding words, and subset compression.",
+        "method": "Checked whether random-input pair-merging second moments or full finite-size variance are obtained or inherited from another covered theorem.",
+        "title": "Synchronizing Automata: Open Problems",
+        "trigger": "Recent comprehensive statement of the automata synchronization questions and conceptual neighborhood."
+      },
+      {
+        "assessment": "The accessible material describes a two-player probabilistic game and convex optimization, not the specific fair-input hitting-time second moment. Because its full text was not examined, the comparison is limited.",
+        "evidence": [
+          "SIAM Journal on Discrete Mathematics 26(1), DOI 10.1137/100816109, abstract."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/100816109",
+        "material_read": "Publisher abstract, publication metadata, and 2012 mathematical problem description; no full manuscript.",
+        "method": "Compared its adversarial two-player synchronization probability function and optimization purpose with iid time-to-merge second moments.",
+        "title": "The Synchronizing Probability Function of an Automaton",
+        "trigger": "A stochastic-sounding published automata paper that could contain a stronger probabilistic formulation."
+      },
+      {
+        "assessment": "The accessible abstract does not make an iid Černý pair-absorption second-moment claim, but full-text overlap remains a small residual risk.",
+        "evidence": [
+          "DOI 10.1137/15M1024603, publisher abstract."
+        ],
+        "identifier_or_url": "https://epubs.siam.org/doi/10.1137/15M1024603",
+        "material_read": "Publisher abstract and bibliographic metadata; full paper not read.",
+        "method": "Compared triple-rendezvous word-length and game-theoretic probability claims with pair absorption-time moments.",
+        "title": "On the Synchronizing Probability Function and the Triple Rendezvous Time for Synchronizing Automata",
+        "trigger": "Potentially relevant stochastic title and triple-state merging."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d789ceed-8a66-45f0-b122-bb508e1320eb",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The variance of synchronization delay is a natural reliability invariant not determined by the already-known mean. The result provides an exact all-size polynomial in a classical extremal family, and proves that its normalized standard deviation tends to a nonzero constant sqrt(7/5). It reflects fluctuations at the same cubic scale as the expectation and is neither a short finite census nor a textbook renaming.",
+    "status": "PASS"
+  }
+}
