@@ -1,0 +1,92 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T13:11:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For nonempty S in a tournament, internal arcs give |F_i(S) intersect S|>=|S|-1. For |S|>=2, the forward/backward neighbor image is terminal in its own direction: each omitted vertex points to/receives from a survivor. When direction switches, all vertices outside the previous terminal set and all but at most one inside are reached, giving n-1. Singleton terminal sets are necessarily global sink/source; the same-direction step that would empty them violates the run condition. Full induction on arbitrary length uses terminality and n-r, with transitive tournament attaining all r<n. The clique lower language follows from each orientation containing an oriented K_n; a proper n-coloring gives an increasing-color orientation ruling out n-runs. The run GF and Myhill–Nerode suffix distinguishability give exactly 2n complete DFA states. Independently exhaustively explored the endpoint powerset/run product for ALL 1,098 labeled tournaments with n=2..5, including arbitrarily long legal words per fixed n; finite tests do not establish general n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pujol abstract emphasizes remanent languages and chromatic number, not uniform tournament reachable-rank lower bounds.",
+          "Other indexed automaton rank results specialize to named synchronizing DFAs, whose transitions are functions rather than tournament edge NFAs."
+        ],
+        "reasoning": "General orientation-acceptance results cannot directly infer a lower bound n-r on the number of simultaneously possible final vertices, a strictly stronger quantity.",
+        "searches": [
+          "tournament word path automaton remanent language endpoint reachability run lengths",
+          "https://arxiv.org/abs/2609.08843",
+          "Resultary: exact initial rank compression thresholds of bactrian automata"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2609.08843",
+        "Resultary semantic query: tournament word path automaton remanent language endpoint reachability run lengths"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Pujol Corollary 34 relates constant-direction paths to chi(G), and the paper introduces orientation-intersection remanence (as described in its abstract and source references)."
+        ],
+        "reasoning": "Chromatic necessary conditions and existence of one path do not imply n-r surviving endpoints for any mixed word, after arbitrarily many direction switches. Full source inspection was blocked and is a residual comparison risk.",
+        "searches": [
+          "https://arxiv.org/abs/2609.08843",
+          "tournament word path automaton remanent language endpoint reachability run lengths"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Pujol 2026 uses graph-based oriented-word NFAs with all vertices initial/accepting and defines the remanent language by intersection over orientations."
+        ],
+        "reasoning": "Same automaton objects; the new observable is endpoint-subset cardinality conditioned on suffix run length, not merely word acceptability. A known automaton rank bound with this n-r inequality would cover it; no such coverage surfaced.",
+        "searches": [
+          "tournament word path automaton remanent language endpoint reachability run lengths",
+          "https://arxiv.org/abs/2609.08843"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Run-avoiding word GF (1-z^n)/(1-2z+z^n) and the 2n-state DFA are elementary regular-language facts, not claimed as independently new."
+        ],
+        "reasoning": "The enumeration is a consequence of the quantitative endpoint theorem and clique/chromatic sandwich, not the central originality claim; no relevant database encodes endpoint counts across all tournaments.",
+        "searches": [
+          "tournament word path automaton remanent language endpoint reachability run lengths",
+          "binary run avoiding words rational generating function minimal DFA 2n"
+        ]
+      },
+      "rationale": "The initiating 2026 Pujol paper defines all-vertices-initial graph automata and remanent orientation languages, and already connects chromatic number to all-forward walks. The K_n run-language statement alone is an elementary consequence of the setup and is not claimed as new. The substantial survivor is a sharp n-r surviving-endpoint inequality uniform over ALL tournaments and direction changes, with extension to every graph having omega=chi and exact DFA enumeration. Pujol full text was not available in this run; its abstract plus source self-review description do not justify claiming complete noncoverage, so a targeted primary-text priority risk remains.",
+      "residual_risks": [
+        "Pujol original Sections 2.1 and 5.2 inaccessible in full; endpoint-count results or stronger remanence implications in appendices cannot be ruled out.",
+        "The complete-graph language and binary run enumeration alone are elementary and not treated as the novel core."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Abstract states remanent language and chromatic-number relation, but is insufficient to exclude an endpoint theorem hidden in Section 5.2; no whole-document NOT_COVERING asserted.",
+          "evidence": [
+            "arXiv:2609.08843 abstract, graph-based language and remanence definition"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.08843",
+          "material_read": "Accessible arXiv abstract, dated September 8, 2026, and author metadata; primary full text could not be retrieved",
+          "method": "arXiv abstract and attempted arXiv full text and lawful open-access mirrors; primary full text remained inaccessible",
+          "title": "Graph-based automata",
+          "trigger": "Introduces the identical graph-based automata and remanence notions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The endpoint count quantitatively measures resilience to adversarial orientation and arbitrary alternating walk directions; switching restores nearly all endpoints regardless of history. The omega=chi consequence and exact automaton complexity give an infinite natural graph class, not an arbitrary finite instance. Sharpness and all-length quantifiers make the bound independently reusable.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2609.08843",
+    "Resultary semantic query: tournament word path automaton remanent language endpoint reachability run lengths"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every loopless tournament T on n>=2 with every vertex initially reachable and accepting, if binary forward/reverse word w avoids runs of n equal letters and its final run has length r, then the ending subset has size at least n-r, sharply attained by a transitive tournament. For any graph with omega(G)=chi(G)=n the orientation-intersection language is precisely run-avoiding words, with GF (1-z^n)/(1-2z+z^n) and minimal complete DFA 2n states.",
+  "limitations": [
+    "Pujol original Sections 2.1 and 5.2 inaccessible in full; endpoint-count results or stronger remanence implications in appendices cannot be ruled out.",
+    "The complete-graph language and binary run enumeration alone are elementary and not treated as the novel core."
+  ],
+  "schema_version": 1
+}
