@@ -1,0 +1,15 @@
+# Self-review
+
+## Correctness — PASS
+The weighted Laplacian admits an explicit orthogonal decomposition into pair-difference and common-pair invariant spaces. Both eigenvalues of the peripheral 2-by-2 block have eigenvectors with two nonzero coordinates. For unequal spoke weights the hub coupling is nonzero in each block eigendirection, which prevents cross-block spectral collisions; the only global coordinate nodes occur at \(b=ma\) and \(b=mc\), using the strictly positive factor \(ac+b(a+c)\). For equal spokes the antisymmetric peripheral eigenspace meets the radial eigenmode precisely at \(b=mu\). PBH supplies necessary and sufficient controllability conditions and the exact minimum-placement counts. A standalone verifier compared 9,126 exact-rational Kalman ranks with the theorem; symbolic recomputation separately checked the spectral and nodal identities. These finite checks do not substitute for the proof over all real positive weights.
+
+## Originality — PASS on the inspected evidence
+Monshizadeh–Zhang–Camlibel (2014, arXiv:1403.4868) give strong-structural zero-forcing conditions across matrix families, not the fixed three-parameter Laplacian's minimum vertex inputs. Xiang–Zhu–Chen–Chen (2013, doi:10.1155/2013/405034) treat weighted network controllability broadly but do not specify the complete friendship-graph weight surfaces and actuator-set classification. Mousavi–Haeri–Mesbahi (2018, arXiv:1802.03599) give an unweighted cograph classification; that unweighted subcase is covered and not claimed as new. An earlier grounded leader-selection trace calculation on symmetric friendship graphs addresses a different objective. Checks of equivalent PBH formulations, stronger spectral criteria, database entries and published results found no dominating exact classification in the inspected materials. Specialist unpublished/unlocated coverage remains a risk; search absence is not a proof of priority.
+
+## Mathematical value — PASS
+The theorem gives a complete, natural three-parameter controllability and actuator-placement classification for a widely used repeated motif. Breaking spoke symmetry saves two inputs relative to the unweighted graph's zero-forcing bound, while exactly restoring symmetry creates a further sharp resonance and a one-input increase. Both exact nodal surfaces and all optimal placements are identified, enabling constructive design rather than casewise numerical rank calculations. Near-resonance conditioning, arbitrary independent weights, and energy-optimal control are not resolved.
+
+## Scope and remaining risks
+The theorem concerns full-state Kalman controllability of an exact-parameter, fixed-weight Laplacian with independent coordinate inputs. Its exact thresholds can be numerically fragile near coincident weights. The 2009 Rahmani–Ji–Mesbahi–Egerstedt general graph-control treatment was checked bibliographically rather than as a complete primary manuscript, and a related 2021 friendship spectral item was not successfully available in full text. No independent audit has been performed.
+
+Self-review: passed. Independent audit: not yet performed.
