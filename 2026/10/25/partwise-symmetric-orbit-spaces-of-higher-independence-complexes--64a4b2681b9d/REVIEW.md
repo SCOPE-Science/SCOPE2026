@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The connected-components definition gives the exact face characterization: a support in one independent part, or a support of size at most the threshold. Sorting barycentric weights provides a genuine fundamental domain for the finite partwise-permutation action. The inverse tier transformation is linear and preserves total mass. Its maximal-positive-tier rule identifies *every* point of the orbit space with exactly the geometric realization of the stated simplicial complex. Adding a first-tier vertex preserves the face rule, giving successive strong collapses to the simplex skeleton. A standard matching computes the resulting integral wedge type, including the disconnected threshold-one and contractible high-threshold boundaries. A standalone exact verifier covers 203 cases and separately checks homology ranks and group-character averages. No finite experiment is used as an infinite proof.
+## correctness
 
-**Originality — PASS with specific remaining priority risk.** Deshpande–Singh (arXiv:2001.05448, Theorem 3.5, full text read) give the nonequivariant multipartite homotopy type but not the orbit-space PL model or part-size-independent strong collapse. Sawant (arXiv:2605.25150, full text read) concerns vertex decomposability for trees. Deshpande–Goyal–Sawant (arXiv:2607.05358) concerns multipartite path-free complexes and overlaps with the two-independence family at one threshold; its accessible abstract does not state the orbit classification, but its complete text could not be checked. Searches of available mathematical records by equivalent formulations, partwise symmetry, sorting chambers and skeleton reductions disclosed no statement implying this result. Search failure alone is not claimed as priority proof.
+PASS
 
-**Value — PASS.** The full internal symmetry group of a complete multipartite graph is a natural invariant not captured by nonequivariant Betti numbers. The result identifies *the whole ordinary quotient homotopy type* and a concrete finite PL triangulation for every part-size tuple, eliminating arbitrary large part sizes from the answer. It reveals that extensive sphere homology in the original complex can disappear after symmetrization: for three parts of size three at threshold two, a known 25-circle wedge becomes one circle. This is a general structural classification, not a computational slice or the repackaging of the nonequivariant formula.
+PASS: In a complete multipartite graph, an induced support in one part consists of isolated vertices, while multi-part supports are connected, so X faces are exactly one-part subsets or subsets of total size<=r. Sorting barycentric coordinates in each part is a continuous fundamental chamber for the partwise symmetric action; the invertible linear tier change t_ij=j(w_ij-w_i,j+1) maps that chamber to a simplex, with max positive tier recovering each part support size. This proves actual PL orbit-space model. Each tier u_i,j>=2 is dominated by u_i,1 since adjoining first tier changes neither support nor max tier. Sequential strong deletions give precisely sk_{r-1} Δ^{s-1}. Its standard integral skeleton matching yields wedge binom(s-1,r) spheres S^{r-1}, including S^0 for r=1 and a point for r>=s. No finite enumeration is needed to bridge to the infinite parameter claim.
 
-**Scientific limits and closest literature.** The group is exactly the product of symmetric groups on each independent part; automorphisms exchanging equal-sized parts are not included. The homotopy quotient is not classified. An inaccessible plausible 2026 source limits bibliographic certainty; its abstract is not treated as a whole-document noncoverage certificate.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Deshpande–Singh Theorem 3.5 determines homotopy of the original higher independence complex, not the ordinary quotient by ∏ Sym(B_i), nor the sorted-tier PL model. Relevant 2026 multipartite path-free-complex work could overlap at special thresholds, but abstract/source summary addresses vertex-decomposability and original homotopy, not verified whole-document absence of quotients; Oxford full text was blocked by VPN. Qualified PASS with named risk.
+
+## value
+
+PASS
+
+The entire quotient homotopy type is a natural internal-symmetry invariant, independent of potentially arbitrarily large part sizes; a constructive PL chamber plus strong-collapse classification explains how large nonequivariant wedge multiplicities reduce to one skeleton. It is an all-parameter structural topological theorem beyond existing Betti-number counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

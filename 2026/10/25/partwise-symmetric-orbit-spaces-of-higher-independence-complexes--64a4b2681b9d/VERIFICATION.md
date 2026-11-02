@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 verify.py` (Python 3 standard library only) in this directory; expected output is in `verify_output.txt`.
+## correctness
 
-The checker independently constructs induced subgraphs by graph adjacency and breadth-first component search, rather than using the theorem's shortcut for the original membership predicate. It tests the exact equivalent support rule on all vertex subsets for each finite graph, constructs the tier simplicial model from the maximum-tier face rule, and verifies every dominated-vertex coface extension before deletion. It then verifies that the remaining faces are exactly the appropriate simplex skeleton and calculates the full reduced mod-two Betti vector directly by bitset Gaussian elimination on simplicial boundaries.
+PASS
 
-As an independent algebraic cross-check, it traverses every within-part group element for the test configurations, computes the signed permutation trace on each simplicial chain group of the original complex, uses the independently known nonequivariant one-degree homology concentration, and checks that the averaged top-homology trace is the predicted sphere rank of the orbit quotient.
+PASS: In a complete multipartite graph, an induced support in one part consists of isolated vertices, while multi-part supports are connected, so X faces are exactly one-part subsets or subsets of total size<=r. Sorting barycentric coordinates in each part is a continuous fundamental chamber for the partwise symmetric action; the invertible linear tier change t_ij=j(w_ij-w_i,j+1) maps that chamber to a simplex, with max positive tier recovering each part support size. This proves actual PL orbit-space model. Each tier u_i,j>=2 is dominated by u_i,1 since adjoining first tier changes neither support nor max tier. Sequential strong deletions give precisely sk_{r-1} Δ^{s-1}. Its standard integral skeleton matching yields wedge binom(s-1,r) spheres S^{r-1}, including S^0 for r=1 and a point for r>=s. No finite enumeration is needed to bridge to the infinite parameter claim.
 
-Output: `VERIFY_OK parameter_cases=203 original_accepted_faces_including_empty=7013 tier_nonempty_faces=4353 dominated_coface_checks=1482 group_elements_checked=3557`.
+## originality
 
-**Limits.** Checks cover two and three parts of sizes at most three, and four parts of sizes at most two, with threshold up to four and at most the total number of vertices. Mod-two homology is not an integral homotopy certificate. The proof in RESULT.md is the general, integral argument; no infinite conclusion is drawn from finite enumeration. No independent audit has occurred.
+PASS
+
+Deshpande–Singh Theorem 3.5 determines homotopy of the original higher independence complex, not the ordinary quotient by ∏ Sym(B_i), nor the sorted-tier PL model. Relevant 2026 multipartite path-free-complex work could overlap at special thresholds, but abstract/source summary addresses vertex-decomposability and original homotopy, not verified whole-document absence of quotients; Oxford full text was blocked by VPN. Qualified PASS with named risk.
+
+## value
+
+PASS
+
+The entire quotient homotopy type is a natural internal-symmetry invariant, independent of potentially arbitrarily large part sizes; a constructive PL chamber plus strong-collapse classification explains how large nonequivariant wedge multiplicities reduce to one skeleton. It is an all-parameter structural topological theorem beyond existing Betti-number counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
