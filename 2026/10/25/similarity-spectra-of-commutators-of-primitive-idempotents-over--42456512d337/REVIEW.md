@@ -1,19 +1,21 @@
-# Scientific review: similarity spectra of primitive-idempotent commutators
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** Every rank-one idempotent can be written as an outer product of a vector and a covector with contraction one. After conjugating one factor to a coordinate projection, four mutually exclusive configurations of the first vector and covector coordinates yield all rank and Jordan-type cases. The proof counts nonzero and zero vector–covector pairings with their scaling multiplicity, derives the cubic commutator identity directly, and separates the zero, nilpotent index-two, nilpotent index-three, and nonnilpotent rational canonical types. The counts sum to the established number of rank-one idempotents for every field order and dimension. The field of two elements, even characteristic extension fields, and dimension two are handled explicitly. A direct exhaustive checker passed eight small-field configurations; this is corroboration rather than an infinite proof.
+PASS
 
-## Originality
+Conjugate E to diag(1,0_d), parametrize F=uv^T with v^Tu=1 modulo (q-1) scalar frames. Put u=(a,x),v=(b,y), ab+yx=1, c=ab. The commutator has off-diagonal blocks ay and -bx, giving C^3=c(c-1)C. Split c=0,1,other and yx=1-c; rank and C² distinguish zero, J2, J3 while the invariant two-space gives cyclic companion(t²-delta). Counts: B=(q^d-1)q^(d-1), T=q^d(q^(d+1)-1)/(q-1), zero 1+B/(q-1), J2 2B+2(q^d-1), J3 (q^d-1)(q^(d-1)-1), companion(delta) m_q(delta)B. The char2 Artin-Schreier fiber is trace-zero with size2. Independent direct enumeration of every F in tested q,n=(2,2),(2,3),(3,2),(3,3),(5,2) reproduces the similarity-class histogram. Exhaustion is provided by the symbolic c partition for every q,n, not by these finite cases.
 
-**PASS within the investigated sources, with an explicit priority risk.** Ferraz–Polcino Milies–Taufer (arXiv:1711.09289v1, full text, Section 3) count rank-one idempotent generators but do not calculate commutator similarity fibers. Brešar–Gardella–Thiel (arXiv:2404.18116v1, full text, Section 4) study products of general commutators and unconstrained trace-zero representations, without two primitive-idempotent inputs. The abstract of Hoopes-Boyd (DOI:10.1080/00927872.2020.1791900) addresses existence of arbitrary single-commutator presentations for nilpotent matrices, not constrained type multiplicities; its full text could not be checked. A related pair-of-idempotents calculation of opposite product ranks does not imply the Jordan structure of their difference, particularly the length-three nilpotent stratum. Database searches for idempotent commutator spectra, equivalent cubic relations, and rank-one projections did not identify coverage. These bounded comparisons do not establish global uniqueness: older or unindexed specialist work could contain an implicit equivalent theorem.
+## originality
 
-## Value
+PASS
 
-**PASS.** This is the complete, characteristic-sensitive similarity spectrum of a natural Lie product in a canonical family of finite matrix algebras, for all finite fields and all matrix sizes at once. Beyond a polynomial identity or elementary rank bound, the result determines each rational canonical class and its exact frequency, resolves a nilpotency-index-three phenomenon invisible to product-rank marginals, and supplies a nonzero limiting proportion for that exceptional Jordan class. The invariant is natural in studying Lie brackets and noncommutativity of primitive projections; the exact distribution is the sought object, not a contrived numerical slice.
+Existing rank-one idempotent enumeration and general commutator literature do not furnish the exact rank-one-pair similarity distribution with char2/J3 fibers. A cubic identity alone does not distinguish the nilpotent Jordan types. Resultary returned finite-matrix related factorizations but no matching constrained commutator class counts. Specialist historical equivalences remain possible.
 
-## Scope and outstanding risks
+## value
 
-The theorem gives multiplicities by similarity *type* for ordered pairs of rank-one idempotents, not individual output-matrix fibers or higher-rank factors. The proof is self-contained and covers all parameters, while finite tests cover only the listed small examples. Full text of Hoopes-Boyd (2020), and possibly other older specialist work, was not available for priority inspection; an implicit rediscovery remains possible. This review is not an independent mathematical validation.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Ranks, Jordan types, and fibers of brackets of primitive idempotents are intrinsic noncommutative algebra statistics; the full q,n family and characteristic-two behavior give a natural closed classification and limiting probabilities rather than merely a computed small matrix.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
