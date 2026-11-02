@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:50:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md blob d8a6f83d1286f687874daf3e8b0f1d2d125c7442",
+        "Frozen verify_subdivision.py blob d7bee2e856da1c38360b0bcf9f611559e860aaa1",
+        "Independent direct adjacency enumeration n=2..5"
+      ],
+      "rationale": "Reconstructed if-and-only-if P3 convexity criterion: each omitted subdivision vertex cannot have both original endpoints selected (forcing every internal edge of U), and each omitted original vertex can meet at most one selected edge-vertex. Hence edges internal to W=V\\U form a matching, matched vertices disallow any cross choice, unmatched vertices independently take one of d_U(w) cross edges or none. This proves the exact weighted sum for every host. For K_n, matching counts are factorial ratios, cross choices (1+u z)^{w-2j}, giving A_n(z). Exponential labelled matching product and sum over u give exp(t+t^2/2+t e^t); counting external degree<=1 bounds |C|<=n+C(u,2), equality only u=n-1 with one external cross-edge. Independently enumerated every subset of S(K_n) for n=2,3,4,5 and checked the full polynomial and n(n-1) extremizers; counts 7,29,143,797. These checks are bounded; the bijection and formal EGF prove generality.",
+      "residual_risks": [
+        "Only one subdivision per host edge and P3 convexity; geodetic/cycle convexities not covered.",
+        "No general efficient exact counting algorithm for arbitrary hosts."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dourado et al 2026 general algorithms/counting hardness and tree/threshold subclasses",
+          "Classical matching exponential formula exp(t+t^2/2)"
+        ],
+        "reasoning": "General counting machinery does not imply the displayed all-host matching decomposition or the specific EGF without new incidence-graph analysis; matching EGF alone counts matchings, not forced internal and optional cross edges.",
+        "searches": [
+          "P3 convex vertex set counting edge subdivided complete graphs matching polynomial exponential generating function",
+          "arxiv:2603.04706"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2603.04706v1",
+        "DOI:10.46298/dmtcs.502",
+        "Resultary query P3 convex vertex set counting edge subdivided complete graphs matching polynomial exponential generating function"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Dourado et al 2026 P3-convex counting foundational methods",
+          "Centeno et al 2010 convex partitions"
+        ],
+        "reasoning": "General hardness and different tractable classes do not yield this exact subdivision enumeration. The proof constructs a new explicit matching/cross-edge correspondence; possibility of an equivalent incidence graph formula remains a documented risk.",
+        "searches": [
+          "arxiv:2603.04706",
+          "DOI:10.46298/dmtcs.502"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dourado et al arxiv:2603.04706 P3-convex sets (same closure definition), graph subdivisions not treated explicitly in inspected results",
+          "Centeno et al DMTCS 2010 partitions into P3-convex sets"
+        ],
+        "reasoning": "The same convexity is used, but counting individual sets in an incidence graph S(H) differs from counting partitions. No full matching enumeration equivalence was identified.",
+        "searches": [
+          "P3 convex vertex set counting edge subdivided complete graphs matching polynomial exponential generating function",
+          "\"subdivided graph\" \"P3-convex\" \"matching\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Direct P3-convex K_n subdivision count samples 2,7,29,143,797,4945 from source; independent enumerations n=2..5",
+          "No exact previously published same-family count/EGF or coefficient gap identified in inspected primary text"
+        ],
+        "reasoning": "These are infinite formulas rather than a finite table recomputation. Even if small numerical terms were catalogued, the general size polynomial and maximal-set rigidity are stronger statements.",
+        "searches": [
+          "P3 convex vertex set counting edge subdivided complete graphs matching polynomial exponential generating function",
+          "Resultary query P3 convex vertex set counting edge subdivided complete graphs matching polynomial exponential generating function",
+          "OEIS-style series searches"
+        ]
+      },
+      "rationale": "Dourado, Grippo, Lin and Protti (2026) develop P3-convex counting algorithms, hardness and tractable subclasses, but inspected theorem statements and textual search did not show this exact all-host subdivision matching bijection or complete-host EGF. The 2010 Centeno et al work counts partitions into convex sets, not the single-set size polynomial. Resultary matches concern other graph invariants or different graph constructions, not the statement. Historical equivalent enumerations in incidence graph or bootstrap terminology remain a risk; no search is a guarantee of novelty.",
+      "residual_risks": [
+        "An older incidence-graph or matching-polynomial identity might imply this specialization.",
+        "The Centeno 2010 full paper was not comprehensively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The inspected general counting results do not give the explicit once-subdivided all-host matching identity or complete graph closed EGF. Full historical exclusion not claimed.",
+          "evidence": "Dourado-Grippo-Lin-Protti, arxiv:2603.04706v1",
+          "identifier_or_url": "https://arxiv.org/pdf/2603.04706",
+          "material_read": "Original 27-page PDF; abstract, introduction, main algorithm and tractable-class statements, plus text search for subdivision; relevant sections inspected, not every line",
+          "method": "Primary PDF reading, text search and screenshot",
+          "title": "Counting P3-convex sets in graphs",
+          "trigger": "Exactly same convexity and enumeration problem"
+        },
+        {
+          "assessment": "Counts partitions rather than singleton convex subsets, hence does not directly imply the proposed polynomial.",
+          "evidence": "Centeno et al, DMTCS 12 (2010)",
+          "identifier_or_url": "https://doi.org/10.46298/dmtcs.502",
+          "material_read": "Public bibliographic and abstract material, not complete technical paper",
+          "method": "Scope and result-type comparison",
+          "title": "Convex Partitions of Graphs induced by Paths of Order Three",
+          "trigger": "Same P3-convexity terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Dourado et al general counting study",
+        "Frozen all-host subdivision matching decomposition and complete-host extremizers"
+      ],
+      "rationale": "The P3 convex-set count is algorithmically challenging in general; the submitted exact all-host decomposition and explicit complete-host EGF provide structurally useful enumeration for a natural incidence-graph family, while the top-coefficient gap and n(n-1) rigidity are independent extremal information. This is not a tiny arbitrary finite slice.",
+      "residual_risks": [
+        "No claim for arbitrary convexities, iterative subdivisions or faster generic counting."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For every finite simple host H, P3-convex sets of its once-subdivided graph are enumerated by a chosen original-vertex subset U, mandatory internal edges and a matching on H[V\\U] with independent cross-edge choices. For K_n, exact size polynomial A_n(z) and EGF of totals exp(t+t^2/2+t e^t); for n>=3, max proper size is N-(n-1) with exactly n(n-1) extremizers.",
+  "limitations": [
+    "Simple undirected host graphs and once-subdivision only; exact generating function for complete hosts only."
+  ],
+  "schema_version": 1
+}

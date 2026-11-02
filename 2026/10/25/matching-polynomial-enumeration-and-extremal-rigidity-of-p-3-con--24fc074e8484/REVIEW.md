@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The vertex-type classification is an if-and-only-if statement: an unselected subdivision vertex must not join two selected original endpoints, and every unselected original vertex can be incident to at most one selected subdivision vertex. This forces internal edges, a matching on the remaining original vertices and independent residual cross-edge choices. The specialization, formal exponential generating function and largest-proper-set equality cases follow by explicitly counted choices. Actual direct adjacency enumeration verified all 75 labelled hosts of orders at most four, the subdivided complete hosts through order six, and 31 generating-function coefficients. The proof, not those tests, supplies the infinite quantifiers.
+## correctness
 
-**Originality — PASS, qualified.** The directly relevant 2026 counting paper of Dourado, Grippo, Lin and Protti gives general hardness/algorithms, and its inspected body does not state the specialized subdivision matching identity or complete-host generating function. The earlier convex-partition paper of Centeno and collaborators addresses a distinct problem. Searches for subdivision, incidence-graph and bootstrap-closure formulations did not identify a dominating result; full historical literature coverage is not guaranteed. Closest database records treat the same subdivided complete graph under Vietoris–Rips topology, or use matching polynomials on different combinatorial structures. Same-object/same-claim implication was not found; an unindexed equivalent remains a risk.
+PASS
 
-**Value — PASS.** The closed exact size polynomial solves a natural family instance of a counting problem known to be hard generally. The matching decomposition works for every simple host, the compact entire-family exponential generating function is useful for extracting counts and asymptotics, and the largest-proper-set classification proves a sharp unexplained-by-total-count gap in high coefficients. None relies on an arbitrary parameter cutoff.
+Reconstructed if-and-only-if P3 convexity criterion: each omitted subdivision vertex cannot have both original endpoints selected (forcing every internal edge of U), and each omitted original vertex can meet at most one selected edge-vertex. Hence edges internal to W=V\U form a matching, matched vertices disallow any cross choice, unmatched vertices independently take one of d_U(w) cross edges or none. This proves the exact weighted sum for every host. For K_n, matching counts are factorial ratios, cross choices (1+u z)^{w-2j}, giving A_n(z). Exponential labelled matching product and sum over u give exp(t+t^2/2+t e^t); counting external degree<=1 bounds |C|<=n+C(u,2), equality only u=n-1 with one external cross-edge. Independently enumerated every subset of S(K_n) for n=2,3,4,5 and checked the full polynomial and n(n-1) extremizers; counts 7,29,143,797. These checks are bounded; the bijection and formal EGF prove generality.
 
-Scientific limitations: one-edge subdivision, undirected simple hosts, and no historical uniqueness claim or independent mathematical validation. Finite computations cannot prove the infinite identities.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Dourado, Grippo, Lin and Protti (2026) develop P3-convex counting algorithms, hardness and tractable subclasses, but inspected theorem statements and textual search did not show this exact all-host subdivision matching bijection or complete-host EGF. The 2010 Centeno et al work counts partitions into convex sets, not the single-set size polynomial. Resultary matches concern other graph invariants or different graph constructions, not the statement. Historical equivalent enumerations in incidence graph or bootstrap terminology remain a risk; no search is a guarantee of novelty.
+
+## value
+
+PASS
+
+The P3 convex-set count is algorithmically challenging in general; the submitted exact all-host decomposition and explicit complete-host EGF provide structurally useful enumeration for a natural incidence-graph family, while the top-coefficient gap and n(n-1) rigidity are independent extremal information. This is not a tiny arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
