@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "For any cover, select one cyclic occurrence of each of 32 distinct length-nine palindromes; successive start separations dominate their minimum overlap shifts. The explicit integer potentials sum to 81 and all 496 unordered pair costs have only seven positive deficits totaling 20, hence any covering circle has length at least 2*81-20=142. A 142-bit linear word contains all 32 palindromes. Two self-contained checkers recompute the complete cost certificate independently, one with literal strings and one with integer masks. A linear cover is also a cyclic cover of the same length.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Orenstein and Shamir (2013) optimize coverage of all quaternary DNA k-mers modulo reverse complementation; their palindrome terminology refers to fixed points of the DNA reverse-complement map, not the 32 binary ordinary-reversal palindromes as the sole required factors.",
+        "Their algorithm and theorem do not report the order-nine binary palindrome-only shortest-superstring length."
+      ],
+      "reasoning": "Even though reverse-complement covering uses related de Bruijn overlap methods, the required target family, alphabet, and quotient condition differ. Neither its optimum nor its generic algorithm establishes the stated exact bound.",
+      "searches": [
+        "\"Design of shortest double-stranded DNA sequences covering all k-mers\" \"palindrome\"",
+        "\"palindrome covering de Bruijn shortest circle reversal palindromic factors\"",
+        "\"circular\" \"all palindromes\" \"shortest\" binary sequence",
+        "doi:10.1093/bioinformatics/btt230, §§2–4"
+      ]
+    },
+    "checked_sources": [
+      "doi:10.1093/bioinformatics/btt230",
+      "arxiv:1511.08431",
+      "https://oeis.org/A330022",
+      "https://oeis.org/A390882"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2013 paper gives reverse-complement de Bruijn covering results rather than a 142-bound on a binary palindrome-only input.",
+        "The 2015 paper establishes general approximation and overlap formulations, not a specialized optimal-value table.",
+        "OEIS A330022 provides a construction-side upper bound, and OEIS A390882 stops before the relevant order."
+      ],
+      "reasoning": "No checked earlier result supplies both a lower and upper bound of 142 for the exact length-nine binary palindrome target set. The new 496-inequality certificate is what closes the implication gap.",
+      "searches": [
+        "\"A330022\" \"60\" \"74\" exact optimal palindrome shortest",
+        "\"all palindromes\" \"n=9\" \"142\" shortest string",
+        "2013 Orenstein Shamir optimal RC sequence palindromes",
+        "2015 Fici Kociumaka shortest superstring reversals palindromes"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A330022 records length-nine 142 with the explicit phrase \"Greedy supersequence algorithms give the upper bounds a(9) <= 142\"; it does not supply a lower-bound certificate.",
+        "Fici et al., arXiv:1511.08431, §2 explains overlap Hamiltonian paths for general shortest-superstring instances, without computing the all-nine-bit-palindrome optimum."
+      ],
+      "reasoning": "The order-nine palindrome input is a special fixed-point family of the general reversal problem, but an overlap-graph reduction and a recorded 142 upper bound do not imply that no shorter superstring exists. This finding supplies a finite integer dual lower bound.",
+      "searches": [
+        "\"shortest word all 32 nine-bit palindromes exact length 142\"",
+        "\"shortest superstring\" \"binary palindromes\" \"7\" \"8\" proven",
+        "OEIS A330022 (2026-10-31 accessible entry)",
+        "arXiv:1511.08431, §2 overlap-graph formulation"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A330022, comment added 2025-11-22, explicitly treats a(9) <= 142 as an upper bound and says some upper bounds are probably tight.",
+        "OEIS A390882, introduced 2025-11-22, tabulates numbers of shortest superstrings only through order eight, not order nine.",
+        "The new lower-bound certificate is the list of 32 integer potentials and seven edge deficits in certificate.json."
+      ],
+      "reasoning": "The numeric 142 is present in a database, so numerical priority is not claimed. Its database entry explicitly lacks an optimality assertion for nine, and the adjacent exact census does not cover nine; therefore the present proof is not implied by these indexed tables.",
+      "searches": [
+        "\"A330022\" \"a(9)\" \"142\" proof",
+        "OEIS A330022",
+        "OEIS A390882",
+        "\"binary palindromes\" \"142\" \"optimal\" shortest superstring"
+      ]
+    },
+    "rationale": "The numeric bound 142 was explicitly listed in a 2025 public table as an unproved upper bound; the exact lower-bound certificate for the order-nine palindrome target is not given by the inspected original papers or database entries. General overlap algorithms do not logically imply this numerical equality without applying an exact certificate. No equivalent or stronger indexed claim was identified in targeted searches; unindexed priority remains uncertain.",
+    "residual_risks": [
+      "OEIS A330022 displays 142 in the sequence while identifying it as an upper bound in comments; an unpublished or unlinked exact computation might exist.",
+      "Unindexed papers, personal archives, or late updates could contain the same lower bound; absence from the searched indexes is not a uniqueness guarantee."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIFFERENT_TARGETS_NOT_COVERING",
+        "evidence": [
+          "Published 2013-06-19. The article requires each k-mer or its reverse complement, not every binary ordinary palindrome; its table records unrelated quaternary reverse-complement lengths."
+        ],
+        "identifier_or_url": "https://doi.org/10.1093/bioinformatics/btt230",
+        "material_read": "Full accessible HTML: abstract, introduction, problem definitions, odd/even length cases, algorithms, optimality theorems 1–6, experimental table, and discussion",
+        "method": "Read accessible article HTML and compared quantifiers, alphabet, target family, and optimum implications",
+        "title": "Design of shortest double-stranded DNA sequences covering all k-mers with applications to protein-binding microarrays and synthetic enhancers",
+        "trigger": "Closest earlier full-length optimal strand-aware covering algorithm, using palindromic reverse complements"
+      },
+      {
+        "assessment": "GENERAL_METHOD_NOT_EXACT_NINE_PALINDROME_BOUND",
+        "evidence": [
+          "First public submission 2015-11-26. The paper establishes an overlap-graph formulation and a greedy compression guarantee, not the concrete 142 lower bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1511.08431",
+        "material_read": "Accessible full-text HTML, particularly introduction, §2 overlap graph and semi-Hamiltonian formulation, §3 algorithm, §4 analysis and conclusions",
+        "method": "Read primary text and checked for exact length-nine binary palindrome instance, special recurrence, or dominating numerical theorem",
+        "title": "On the Greedy Algorithm for the Shortest Common Superstring Problem with Reversals",
+        "trigger": "Potential general Hamiltonian-path result implying the palindrome superstring optimum"
+      },
+      {
+        "assessment": "KNOWN_UPPER_BOUND_ONLY",
+        "evidence": [
+          "Entry began 2019-11-27; 2025-11-22 extension lists 142 but explicitly calls it an upper bound. The claim here is the proof of optimality, not discovery of the number."
+        ],
+        "identifier_or_url": "https://oeis.org/A330022",
+        "material_read": "Complete accessible entry: sequence, comments, examples, links, author and extension dates",
+        "method": "Compared the numerical table to the explicit status of its length-nine bound",
+        "title": "OEIS A330022: Length of shortest binary string containing all palindromes of length n as substrings",
+        "trigger": "Exact target problem and parameter, numerically closest source"
+      },
+      {
+        "assessment": "ONLY_ORDERS_ZERO_THROUGH_EIGHT",
+        "evidence": [
+          "The sequence has nine terms with offset zero and a table for n=0..8. No order-nine exact enumeration is supplied."
+        ],
+        "identifier_or_url": "https://oeis.org/A390882",
+        "material_read": "Complete accessible entry including sequence values, offset, comments, and table coverage",
+        "method": "Checked the range of exact tabulated instances and whether it includes order nine",
+        "title": "OEIS A390882: Number of shortest strings containing all binary palindromes of length n as substrings",
+        "trigger": "Possible preexisting exhaustive minimizer enumeration that would imply length-nine optimum"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8ec65607-618f-4b8d-9b87-26eadf8217c4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This closes a specific outstanding exact finite-length minimum for the natural all-palindromes shortest-superstring family tracked in a public sequence. The proof is a small, reproducible combinatorial dual certificate, not just a repeated greedy construction or routine number-table computation; the same certificate establishes both linear and circular optimal lengths. No broader theorem is needed to make the exact ninth-order cutoff relevant.",
+    "status": "PASS"
+  }
+}
