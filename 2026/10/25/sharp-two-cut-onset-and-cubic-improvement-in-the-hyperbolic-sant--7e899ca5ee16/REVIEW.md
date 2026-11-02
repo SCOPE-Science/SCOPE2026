@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact input area and total-curvature formulas are correctly attributed to Hong, Section 4. Independently expand the normalized area and curvature through sixth order; their quadratic terms cancel. Subtract the explicit spherical benchmark and use the analytic area-preserving radius adjustment, which differs from its spherical value by fourth order. The resulting fourth coefficient has the unique positive zero at area \(2\pi\), with a strictly positive sixth coefficient there. A second analytic implicit-function argument in squared cut angle yields a unique nearby strict local minimum on the unstable side; exact substitution supplies the cubic gain. The comparison with the flat double disk is an elementary inequality on the claimed full interval. The standalone program checks symbolic identities and high-precision values. Critical risks checked: full nonsmooth edge contribution, curvature normalization, fixed-area rather than fixed-radius variation, critical equality, and separation of local from global claims.
+PASS
 
-## Originality — PASS, with priority uncertainty
+For the actual convex Klein-model region |x_3|<=tanh(r)cos(alpha) in hyperbolic curvature -1, reconstruct S/(4pi)=u cos(alpha)+sqrt(1+u sin^2(alpha))-1 and M/(4pi)=2 sqrt(u(1+u)) cos(alpha)+sqrt(u) sin(alpha) atan(sqrt(1+u)tan(alpha)), with u=sinh^2 r. The full edge curvature is essential and is present in the primary input. Both alpha^2 coefficients cancel. Subtract g(S/(4pi))=2sqrt(t(1+t)), use u(t,alpha)=t+O(alpha^4), and obtain sqrt(t(1+t))[(1-2t)alpha^4/24+(54t^2+13t-11)alpha^6/720+O(alpha^8)]. At t=1/2 the sixth coefficient is positive; for t>1/2 the fourth is negative. Analytic implicit function in y=alpha^2 yields the unique nearby positive minimizing branch alpha^2=(10/(9pi))(S-2pi)+O((S-2pi)^2) and cubic gain 25sqrt(3)/(1458pi^2)*(S-2pi)^3. Equal-area flat disk comparison M2>=M1 holds through S_hat=8pi(pi^2-8)/(16-pi^2)>2pi. Independent fixed-area root solves at four t and two angles each match the predicted expansions, while the actual package symbolic checker was inspected; the analytic proof, not those finite tests, establishes all area statements.
 
-The relevant full-text source is F. Hong, *On Santaló's Problem*, arXiv:2606.01771v4, Section 4 equations (4.1)–(4.2) and Note 4.1. Its input family and both exact formulas are prior art. Its proved existence near the sphere/double-disk crossover does not state a sharp local loss-of-stability area, the positive sixth-order borderline, an analytic minimizing branch, the cubic coefficient, or a counterexample at **every** area in \((2\pi,\widehat S]\). These are new analytic comparisons rather than newly discovered input objects. General hyperbolic Minkowski bounds depend on volume and do not give this unconstrained-area curvature bifurcation. Searches for the fixed-area drum perturbation and equivalent hyperbolic Santaló expansions gave no more-direct result. Because all details begin from previously published exact formulas, independent rediscovery or unindexed analyses are a genuine residual risk.
+## originality
 
-## Value — PASS
+PASS
 
-The area \(2\pi\) identifies the exact onset of a family of smooth-parameter, nonsmooth-surface counterexamples to the previously proposed sharp lower envelope, substantially below the classical crossover at approximately \(7.665\). The critical sixth-order positivity, optimizing angle and cubic gain quantify the entire local phase transition and indicate why sampling only finite truncations could miss small improvements. The interval consequence supplies a mathematically meaningful extension from an example at selected areas to a complete, explicit continuum of distinct fixed-area counterexamples. No claim is made for other convex variations or a global minimizer.
+QUALIFIED PASS: Hong published the exact same two-cut family and S/M formulas and existence near the crossover, but the inspected October 2026 full text does not state the 2pi fixed-area stability switch, positive critical sixth order, unique small-angle branch, cubic coefficient, or full open-to-closed interval (2pi,S_hat]. These are constrained variational consequences of acknowledged source data, not a newly invented drum shape. Possible historical independent Taylor derivations remain a priority risk.
 
-## Closest literature and limits
+## value
 
-Hong, arXiv:2606.01771 (full accessible HTML, especially Sections 1 and 4), is indispensable and credited. Ghomi–Spruck, arXiv:2206.06554, and Hong, arXiv:2603.19646, concern broader Minkowski inequalities; those papers' full texts were not independently read in this review, so they are not used for a sweeping noncoverage claim. Published mathematical-record results on spherical Hessians or unrelated hyperbolic illumination do not imply the fixed-area hyperbolic drum statement. Global priority is not certified, and independent mathematical audit has not yet occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The exact onset separates stable from unstable spherical slices inside a natural geometric family; the unusual fourth-order degeneracy and sixth-order endpoint make the phase transition mathematically substantive. The optimizing angle and cubic improvement give sharp quantitative information and extend a previously unspecified counterexample interval to every area in (2pi,S_hat]. Scope is explicitly local two-cut, not global hyperbolic convex minimization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

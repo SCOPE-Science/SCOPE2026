@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T08:50:43.476283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the actual convex Klein-model region |x_3|<=tanh(r)cos(alpha) in hyperbolic curvature -1, reconstruct S/(4pi)=u cos(alpha)+sqrt(1+u sin^2(alpha))-1 and M/(4pi)=2 sqrt(u(1+u)) cos(alpha)+sqrt(u) sin(alpha) atan(sqrt(1+u)tan(alpha)), with u=sinh^2 r. The full edge curvature is essential and is present in the primary input. Both alpha^2 coefficients cancel. Subtract g(S/(4pi))=2sqrt(t(1+t)), use u(t,alpha)=t+O(alpha^4), and obtain sqrt(t(1+t))[(1-2t)alpha^4/24+(54t^2+13t-11)alpha^6/720+O(alpha^8)]. At t=1/2 the sixth coefficient is positive; for t>1/2 the fourth is negative. Analytic implicit function in y=alpha^2 yields the unique nearby positive minimizing branch alpha^2=(10/(9pi))(S-2pi)+O((S-2pi)^2) and cubic gain 25sqrt(3)/(1458pi^2)*(S-2pi)^3. Equal-area flat disk comparison M2>=M1 holds through S_hat=8pi(pi^2-8)/(16-pi^2)>2pi. Independent fixed-area root solves at four t and two angles each match the predicted expansions, while the actual package symbolic checker was inspected; the analytic proof, not those finite tests, establishes all area statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Hong introductory theorem survey: sharp or generalized hyperbolic Minkowski bounds depend on volume or stronger horoconvexity hypotheses ( lines 65-76)."
+        ],
+        "reasoning": "Those broader convex-body inequalities involve additional data or restrictions and do not determine the two-cut fixed-area local Hessian-degenerate sign/cubic gain; they do not dominate this exact family-specific claim.",
+        "searches": [
+          "Hong arXiv:2606.01771v4 introduction eqs 1.3-1.5",
+          "Ghomi-Spruck arXiv:2206.06554",
+          "Hong arXiv:2603.19646"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 pinned RESULT.md 0ce972c0e4101de6680d1d9fc34c810b6ac4c86c",
+        "SCOPE2026 verification/check_drum.py bb9854c5a93c82956a09eec935a73dc2f25e9029",
+        "Fang Hong arXiv:2606.01771v4 Section 4 primary full text",
+        "Ghomi-Spruck arXiv:2206.06554 cited general bound via Hong Section 1",
+        "Resultary semantic query for hyperbolic Santalo two cut bifurcation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 1.2: some S1<S<S2 with counterexample; eqs. 4.1-4.2: identical S and M expressions; Note 4.1 only qualitative near S_hat."
+        ],
+        "reasoning": "Direct source implies only an unspecified open counterexample interval at the theorem level. Further Taylor expansion/implicit minimization gives the exact boundary and onset, so the original result is not literally restated; the strength of the source exact formulas remains an explicit novelty limitation.",
+        "searches": [
+          "Hong arXiv:2606.01771v4 Theorem 1.2 and Section 4 equations 4.1-4.2",
+          "Fang Hong On Santalo Problem arxiv full HTML 2026-10-09"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Hong Theorem 1.2 gives some open area interval; equations (4.1)-(4.2) give both full exact functions; Note 4.1 describes samples near S_hat (web , )."
+        ],
+        "reasoning": "Identical geometry and normalized parameters are translated explicitly. The primary theorem and Note provide neither the fourth/sixth fixed-area expansion nor unique onset branch; the given formulas are premises, not a direct prior statement of the final quantified consequences.",
+        "searches": [
+          "Fang Hong arXiv:2606.01771v4 Sections 1 and 4",
+          "web: hyperbolic Santalo two plane truncated ball fixed surface area mean curvature sharp local threshold",
+          "Resultary query hyperbolic Santalo two plane truncated ball fixed surface area mean curvature sharp local threshold"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hong Figure 2 samples area/curvature values near S_hat ( lines 587-595); no exact 2pi threshold/cubic table in inspected source."
+        ],
+        "reasoning": "This is a continuum analytic bifurcation rather than a finite dataset; sampled figures are not the quantified coefficient theorem. Negative retrieval is not priority proof.",
+        "searches": [
+          "Hong arXiv:2606.01771v4 Note 4.1/Figure 2",
+          "Resultary hyperbolic Santalo two plane truncated ball fixed surface area mean curvature sharp local threshold"
+        ]
+      },
+      "rationale": "QUALIFIED PASS: Hong published the exact same two-cut family and S/M formulas and existence near the crossover, but the inspected October 2026 full text does not state the 2pi fixed-area stability switch, positive critical sixth order, unique small-angle branch, cubic coefficient, or full open-to-closed interval (2pi,S_hat]. These are constrained variational consequences of acknowledged source data, not a newly invented drum shape. Possible historical independent Taylor derivations remain a priority risk.",
+      "residual_risks": [
+        "Input S/M equations and family are previously published by Hong; independent asymptotic derivations may be unindexed.",
+        "The claim establishes local geometry and an interval existence construction, not a global optimizer or instability under arbitrary perturbations."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SOURCE COVERS original input family and area/curvature formulas and an existence interval, NOT the explicit fixed-area bifurcation/gain statements in inspected sections",
+          "evidence": [
+            " lines 95-106;  lines 449-451 and 587-590"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2606.01771v4",
+          "material_read": "Accessible full HTML: Introduction Theorem 1.2, benchmark formulas, complete Section 4 equations (4.1)-(4.2), example, Note 4.1 and displayed Figure 2 description",
+          "method": "Read text around sections/theorem/equations; compare quantified intervals and expansion orders",
+          "title": "On Santaló's Problem",
+          "trigger": "Identical two-cut family and formulas"
+        },
+        {
+          "assessment": "Inapplicable as a covering theorem",
+          "evidence": [
+            " abstract"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00454-021-00290-8",
+          "material_read": "Not germane to hyperbolic fixed-area curvature; abstract only as a cross-domain control",
+          "method": "Title/object comparison",
+          "title": "Estimating the Reach of a Manifold via its Convexity Defect Function",
+          "trigger": "Check broader geometric regularity analogues"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact onset separates stable from unstable spherical slices inside a natural geometric family; the unusual fourth-order degeneracy and sixth-order endpoint make the phase transition mathematically substantive. The optimizing angle and cubic improvement give sharp quantitative information and extend a previously unspecified counterexample interval to every area in (2pi,S_hat]. Scope is explicitly local two-cut, not global hyperbolic convex minimization.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "SCOPE2026 pinned RESULT.md 0ce972c0e4101de6680d1d9fc34c810b6ac4c86c",
+    "SCOPE2026 verification/check_drum.py bb9854c5a93c82956a09eec935a73dc2f25e9029",
+    "Fang Hong arXiv:2606.01771v4 Section 4 primary full text",
+    "Ghomi-Spruck arXiv:2206.06554 cited general bound via Hong Section 1",
+    "Resultary semantic query for hyperbolic Santalo two cut bifurcation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Verification was bounded to the actual audited statement and source trees; finite checks supplement full proofs.",
+    "Publication withheld: existing public METADATA.json contains scope_run_id and requires confidentiality-neutral exact-guard replacement before importer ingestion.",
+    "No public research files or GitHub state changed."
+  ],
+  "residual_risks": [
+    "Input S/M equations and family are previously published by Hong; independent asymptotic derivations may be unindexed.",
+    "The claim establishes local geometry and an interval existence construction, not a global optimizer or instability under arbitrary perturbations."
+  ],
+  "schema_version": 1
+}
