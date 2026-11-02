@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction checks
+# Independent mathematical audit
 
-Use Python 3 standard library: `python3 verify.py`.
+## correctness
 
-The implementation independently reconstructs the categorical graph product and independence faces at \(n=2,3,4,5\), proves that the ten-cycle independence complex collapses by 48 verified elementary moves onto the induced three-edge matching's octahedral two-sphere, checks every color-collapse map in 36,888 face/map instances, and calculates signed Lefschetz traces of all 1,520 group elements at these sizes by a vertex-orbit conflict-graph recurrence. It computes the mod-two reduced Betti vector from simplicial boundary matrices by exact binary elimination. All checks passed, with completion marker `C5_PRODUCT_INTEGRAL_MODULE_CHECKS_OK`.
+PASS
 
-The elementary-collapse check verifies that each removed lower simplex has exactly one remaining immediate coface and that all retained faces are precisely those in the target; this is a finite exact certificate of the base generator. The general integral theorem uses a published homotopy-rank theorem and universal color-merging maps, not extrapolation from finite tests. This verification is not an independent external audit and does not certify novelty across all possible literature.
+For n>=2 the exact graph is the categorical C5 x Kn, not Cartesian. The n=2 base graph is C10; an independently reconstructed 122-face independence complex admits 48 checked elementary free-face pairs to the octahedral 2-sphere. Signed oriented fixed-face Lefschetz sums yield -1 for color swap, -1 for position reflection and +1 for rotation. The published all-n wedge of (n-1) 2-spheres fixes rank and integral freeness. Each color merge p_j is simplicial and retracts the corresponding two-color cycle, with p_j(z_{in})=delta_{ij} eta, establishing a primitive rank-(n-1) integral basis and the differences z_ab=z_an-z_bn. Hence the S_n augmentation module and D5 reflection sign, with no other reduced homology. Independent checks were bounded and the cited all-n homotopy theorem plus retraction argument, not finite extrapolation, supports universality.
+
+## originality
+
+PASS
+
+The published theorem computes homotopy rank and the C5 x K2 base; it has no stated integral S_n x D5 module or color-merging primitive cycle basis. Checked categorical-product and generalized-Mycielskian aliases do not supply the same module. Priority is best of knowledge and cannot exclude unindexed equivariant extensions.
+
+## value
+
+PASS
+
+This gives a canonical natural S_n x D5 integral representation in every size, including primitive geometric generators, antisymmetry and complete traces; this is significant symmetry structure absent from ordinary sphere counts and motivates equivariant refinements in graph-complex topology.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
