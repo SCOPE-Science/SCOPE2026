@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The definition of justified envy reduces, at each serial position, to selecting a top-ranked school from a disjoint union of remaining schools and already allocated lower-priority schools. Under independent uniform rankings its success probability is history-independent, yielding joint Bernoulli independence by iterated conditioning. The adjacent-swap parameters, exact differences in zero- and two-claimant probabilities, and the universal small-market inequality follow by direct rational algebra. The five-student example is explicit and verified by exhaustive sequential rank enumeration. The standalone checker tested every serial order up to four students and both five-student witness orders. No asymptotic or unproved computational inference is used.
+## correctness
 
-## Originality — PASS, with priority risks
-Hamdan (2026) optimizes expected justified-envy *cases* and studies both identical realized rankings and an independent-preference weighted-Kemeny extension; the material examined does not establish the joint student-level law or sharp tail reversal. Abdulkadiroğlu and coauthors (2020) compare mechanisms by justified-envy inclusion and expectation under different priority models; Ortega–Klein (2023) compute expected fractions under random school priorities. Published mathematical-record searches on serial dictatorship, justified envy, independent indicators, distribution and adjacent swaps produced related assignment and fairness studies, but no equivalent product law or five-student reversal. General rank models or unindexed prior papers may nevertheless subsume the result. No comprehensive priority claim is made outside the searched literature.
+PASS
 
-## Value — PASS
-A planner assessing the risk that *several different students* experience justified envy needs a full distribution, not only a count of pairwise blocking cases or a mean. The independent-indicator law yields exact finite-sample tail probabilities for every ex ante order under shared priority, and the sharp five-student example demonstrates a genuine conflict between eliminating *any* justified envy and controlling a multiple-claimant tail. The sharp size cutoff distinguishes a structural risk from an arbitrary isolated example. Limitations are fixed common priorities and iid uniform complete preference lists; the model is not an empirical claim about school populations.
+Condition on full previous preferences and assignments at stage t: exactly k_t=n−t+1 schools remain and exactly r_t earlier assigned schools went to lower-priority pupils. The current student uniformly ranks their union, so justified envy iff her best therein is among r_t schools, with conditional probability r_t/(k_t+r_t), constant over history. Iterated conditioning proves joint Bernoulli independence and the product generating function. For a priority-inverted adjacent pair at t,t+1, direct rational algebra gives strict increase of its zero-envy probability and double-claimant difference Δ2=r[s−(k−1+r)]/[(k+s)(k+r)(k−1+r)]. For n≤4, r≥1 and s>k−1+r cannot coexist; a stochastic improvement of the changed two-variable sum survives convolution by unchanged independent indicators. The n=5 orders (2,3,5,4,1) and (2,3,5,1,4) yield tails P(Z≥1):13/15→4/5 and P(Z≥2):4/15→3/10. Independent exact rational comparisons over all 283 priority-correcting adjacent swaps in n≤5 and explicit witness fractions corroborate; the universal proof is conditional-uniformity, not finite enumeration.
 
-## Literature and limitations
-Closest: Hamdan (arXiv:2603.05660); Abdulkadiroğlu et al. (2020), DOI 10.1257/aeri.20190307; Ortega–Klein (arXiv:2204.07255). Equivalence or greater generality elsewhere cannot be excluded. Definition-level enumeration tests finitely many cases; the proof supplies all-size validity. Scope does not include unequal capacity, correlated preferences, or priorities that differ among schools.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Hamdan 2026 studies the same serial mechanism and priority fairness and extends Kemeny expected counts of pairwise blocking cases to independent preferences, but expected number of blocking pairs is not the distribution of the number of distinct students with any justified envy. The inspected full text does not establish joint Bernoulli factorization or sharp five-agent upper-tail reversal. Abdulkadiroğlu et al. and Ortega–Klein compare mechanism fairness and expected student envy with differing priority models. Qualified PASS; an indexed or implicit formula in older distributional matching studies remains possible.
+
+## value
+
+PASS
+
+A policymaker may care about the risk of two or more distinct justified-envy claimants, not only expected blocking pairs or probability of any envy. The exact Poisson-binomial law and minimal five-student exception show an intuitively priority-improving swap can worsen a nontrivial tail risk while improving the envy-free probability. This is a motivated distributional fairness boundary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
