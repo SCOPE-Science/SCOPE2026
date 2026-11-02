@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The explicit two-by-two symmetric/antisymmetric eigenvalue calculation gives \\(V=a+1-(2a^2+u)/(t+2a+2u)-(1-u)/(t+2-2u)\\). Its derivative is \\(V'= -C/(t+2a+2u)^2+t/(t+2-2u)^2\\), with \\(C=t+2a-4a^2\\). For \\(C>0\\) the square-root sign function is strictly increasing and positive at \\(u=1\\), so its sign at \\(u=0\\) distinguishes antipodal and interior global minima. The quadratic threshold has exactly one positive root; exact substitution \\(a=1/2\\) yields \\(u_*=1/4\\). Taylor expansion for fixed \\(a<1/2\\) gives \\(1-u_*=(a+1)\\sqrt t/\\sqrt{2a(1-2a)}+O(t)\\), hence angle of order \\(t^{1/4}\\). At \\(t=0\\) direct Moore–Penrose evaluation establishes the half-unit collision discontinuity. Direct Gram integration and rational verifier ran successfully: 7,770 assertions. Numerical testing is not substituted for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gorodetsky and Marzouk (2015), sections 3-4, use numerical IVAR minimization and report periodic squared-exponential-kernel experiments, not an exact rank-three two-site theorem.",
+        "Xu and Shang (2014), accessible abstract, consider classical Q-, A-, G-optimality and minimax Fourier regression, with no stated positive-prior or nugget-specific two-observation theorem."
+      ],
+      "reasoning": "A general method for finding IVAR-optimal designs does not alone state or imply a closed-form threshold and singular noise asymptotic without solving the special optimization. Classical no-prior linear-regression optimality is not logically stronger than this specified Bayesian-ridge design. The uninspected Xu-Shang full text is explicitly retained as residual risk.",
+      "searches": [
+        "Bayesian A-optimal designs trigonometric regression cosine sine intercept two observations",
+        "\"Optimal and robust designs for trigonometric regression models\" pdf Xu Shang 2014",
+        "arxiv:1503.00021 sections 3-4",
+        "doi:10.1007/s00184-013-0463-7"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1503.00021",
+      "https://arxiv.org/abs/2301.09517",
+      "https://doi.org/10.1007/s00184-013-0463-7",
+      "https://doi.org/10.17877/DE290R-813"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2023 Nyström paper defines unregularized \\(k(Z,Z)^+\\) and analyzes sampling-dependent residual bounds; the proved formula here uses \\((K+tI)^{-1}\\) and gives a deterministic global optimum.",
+        "The 2015 IVAR paper already defines posterior covariance with sigma²I and covers periodic-kernel numerical design, but its displayed periodic experiment uses an exponential-sine-squared kernel on a square with many points.",
+        "The 2014 Fourier-design abstract does not assert a Bayesian two-point IVAR phase frontier."
+      ],
+      "reasoning": "The shared broad purpose is not enough for implication. The prior results do not provide the exact angle, threshold as a function of the kernel amplitude and noise variance, or the \\(t^{1/4}\\) collision constant; each requires evaluating and minimizing the specific two-point finite-rank posterior loss. A deeper unpublished or inaccessible exact result remains possible.",
+      "searches": [
+        "arxiv:2301.09517 regularization cosine two landmarks",
+        "arxiv:1503.00021 periodic kernel section 4.2.2",
+        "Optimal and robust designs for trigonometric regression models 2014 Q optimal mean squared error"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gorodetsky and Marzouk, arxiv:1503.00021, section 2 equations (2.1)-(2.2) formulate GP covariance and IVAR objective; sections 3-4 discuss numerical design and a different periodic kernel.",
+        "Hayakawa, Oberhauser and Lyons, arxiv:2301.09517, section 1 equation (1) and section 4 establish Nyström residual and general fixed-point-set performance without the positive ridge angle law."
+      ],
+      "reasoning": "Uniform integrated GP posterior variance is mathematically equivalent to the integrated diagonal ridge-Nyström residual for the chosen finite-rank kernel. These general formulations describe the objective and algorithms; the inspected source statements do not determine the exact two-site global optimizer with parameters a and t.",
+      "searches": [
+        "\"Mercer Kernels and Integrated Variance Experimental Design\"",
+        "\"Sampling-based Nyström Approximation and Kernel Quadrature\"",
+        "\"cosine kernel\" \"integrated posterior variance\" \"two\" points design",
+        "arxiv:1503.00021",
+        "arxiv:2301.09517"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact table or matching specialized formula was identified in the checked scholarly abstracts or sections of arxiv:1503.00021 and arxiv:2301.09517. The checked papers report algorithms, error bounds or experimental figures rather than a tabulation of this one-parameter boundary."
+      ],
+      "reasoning": "This is not a claim of exhaustive database uniqueness; no known published table was located whose values, or a stronger closed-form formula, subsume the result. Exact primary-source formula comparison is reported in the other checks.",
+      "searches": [
+        "ridge Nystrom regularized two-landmark uniform circle kernel exact critical constant offset phase",
+        "\"cosine kernel\" \"120\" \"optimal\" \"design\" posterior",
+        "\"A-optimal\" \"Bayesian\" \"trigonometric regression\" two observations"
+      ]
+    },
+    "rationale": "The most relevant inspected prior work supplies general IVAR/GP-design methods or Nyström residual bounds, but not the exact three-mode cosine-kernel two-landmark positive-noise phase classification, its invariant 120-degree balance point, or the quarter-root limiting design. Published trigonometric design sources use distinct classical objectives. Full specialist prior coverage remains a publication-priority risk, particularly one restricted 2014 paper.",
+    "residual_risks": [
+      "The restricted Xu–Shang 2014 full article was not read; it or earlier Bayesian trigonometric design results may contain a stronger specialized implication.",
+      "Finite search cannot establish mathematical publication priority or exclude differently phrased experimental-design results.",
+      "Results apply only to the exact rank-three cosine kernel, uniform circle and two equal-noise observations."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "DIRECT OBJECTIVE BUT NOT COVERING EXACT FORMULA: general IVAR optimization and experimental periodic kernel with a different model, not the fixed-two-site rank-three analytic phase.",
+        "evidence": [
+          "Equations (2.1)–(2.2) give the GP posterior covariance and additive observation noise.",
+          "section 4.2.2: periodic squared-exponential covariance experiment and multiple design locations, without exact two-site threshold"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1503.00021",
+        "material_read": "Full-paper PDF text relevant to sections 2, 3, and 4 including 4.2.1 and 4.2.2, pages with posterior covariance, optimization algorithm and periodic experiments; visual inspection of PDF pages 4 and 8.",
+        "method": "Open preprint PDF, read body text and inspect two page images.",
+        "title": "Mercer Kernels and Integrated Variance Experimental Design: Connections Between Gaussian Process Regression and Polynomial Approximation",
+        "trigger": "Same integrated posterior-variance objective, with periodic-kernel design examples."
+      },
+      {
+        "assessment": "NOT COVERING CLAIM: provides general Nyström and residual bounds, does not derive the positive-ridge cosine-kernel two-site phase.",
+        "evidence": [
+          "introduction equation (1): k^Z(x,y)=k(x,Z)k(Z,Z)^+k(Z,y)",
+          "section 4 proposition 1: integrated Nyström residual bound, different criterion details and no two-angle optimizer"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.09517",
+        "material_read": "Full-paper PDF text including abstract, introduction, sections 3-4, conclusions and references, with page 1 and page 5 visually inspected.",
+        "method": "Read lawful PMLR full PDF and inspect relevant page images and text.",
+        "title": "Sampling-based Nyström Approximation and Kernel Quadrature",
+        "trigger": "Motivating deterministic landmark residual and continuous-kernel Nyström design."
+      },
+      {
+        "assessment": "UNRESOLVED SPECIALIST PRIORITY RISK; abstract treats classical Q/A/G design and minimax trigonometric regression but does not state this Bayesian-noise two-sample formula.",
+        "evidence": [
+          "abstract names Q-, A- and G-optimal and minimax regression criteria rather than positive-nugget integrated posterior variance"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00184-013-0463-7",
+        "material_read": "Publisher metadata, abstract and bibliographic entry only; full text unavailable through attempted authorized routes.",
+        "method": "Scholarly abstract/metadata lookup; no claim of having read the paper.",
+        "title": "Optimal and Robust Designs for Trigonometric Regression Models",
+        "trigger": "Potential stronger exact Fourier-design theorem using the same regression basis."
+      },
+      {
+        "assessment": "RELATED BUT DIFFERENT TARGET: optimal estimation of coefficient contrasts in ordinary Fourier regression, not the stated ridge Nyström posterior criterion.",
+        "evidence": [
+          "abstract describes general L-optimal coefficient estimation in Fourier regression"
+        ],
+        "identifier_or_url": "https://doi.org/10.17877/DE290R-813",
+        "material_read": "Public scholarly abstract and citation details only.",
+        "method": "Bibliographic abstract lookup.",
+        "title": "Optimal Designs for Trigonometric Regression Models",
+        "trigger": "Potential earlier closed Fourier-design classification."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "98c56c92-dae5-41fd-98ed-e8740cd4e8c8",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The first periodic constant-plus-first-harmonic GP is a natural rank-three benchmark for two-location optimal sensor/landmark placement, and integrated posterior variance is a standard design criterion. The classification gives a global exact boundary for all a,t>0, a nontrivial universal 120-degree rule at balanced spectral weight, and a sharp quarter-power collapse due to noiseless rank loss; these facts materially distinguish adaptive placement from generic antipodal or coincident samples and may guide other regularized kernel design problems. The result has a specified physical meaning, and no unproved downstream theorem is claimed.",
+    "status": "PASS"
+  }
+}
