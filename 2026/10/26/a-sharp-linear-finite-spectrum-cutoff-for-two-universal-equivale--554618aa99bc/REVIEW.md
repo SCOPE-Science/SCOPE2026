@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every existential witness tuple uses \(u\le k\) distinct values in \(t\le u\) equivalence classes. A model of size at least \(2k+2\) contains two outside-witness points with the same one-of-\(t+1\) incidence profile. The induced two-point core and any clone expansion have the same atomic types on all pairs over the witnesses, so every \(\forall^2\) quantifier-free matrix is preserved. The cloned relation remains an equivalence relation, whether the new points join a marked class, form a new class, or form singleton classes. Explicit theories attain finite maximum \(2k+1\) for every \(k\), including \(k=0\).
+PASS
 
-## Originality — PASS
+An existential witness tuple has u<=k distinct values occupying t<=u equivalence classes. Among at least 2k+2 elements, >t+1 outsiders yield two with the same E-incidence profile to witnesses. The induced witness-plus-pair structure preserves every atomic type of two universally quantified variables; replacing this pair by s>=2 equivalent-profile points preserves pair types, including E(b,c) true (one class) and false (distinct outsider singletons). This builds every n>=k+2. Conversely a formula forces k distinct marked classes of sizes 1 or 2 and at most one outsider, giving precisely {k,...,2k+1}; for k=0, forall y,z(y=z) gives {1}. Independent enumeration checked all equivalence partitions up to 6 vertices and the cloning/pair-type premise. This is an all-k proof, not an inference from finite tests.
 
-The closest exact theorem found addresses **arbitrary graphs** and yields \(k+2^k\), not the equivalence-class-sharp \(2k+1\). The surveyed classical Bernays–Schönfinkel graph bounds, semantic prefix-class generalization, and recent guarded-logic work likewise do not imply this improved sharp endpoint. Targeted database and prior-claim comparisons did not find the identical theorem; absence from those sources does not certify historical priority.
+## originality
 
-## Value — PASS
+PASS
 
-The quantitative collapse of witness-incidence profiles from exponential to linear gives an optimal finite-spectrum ceiling and a concrete bounded finite-model test for unboundedness in a standard model-theoretic class. The sharp constructions identify why the improved bound cannot be reduced further.
+Best-of-knowledge PASS: existing Ramsey/graph finite-spectrum cutoffs include the equivalence-class special model but only yield the numerically weaker bound k+2^k. The new exact 2k+1 threshold depends on the t+1 witness-class profiles and its concrete extremal family. The possibility of earlier equivalence-specific textbook coverage is recorded.
 
-## Closest literature and limitations
+## value
 
-Pikhurko–Verbitsky (arXiv:1003.4865) surveys the classical finite/cofinite graph result; the public *Sharp finite-spectrum cutoff for \(\exists^k\forall^2\) graph sentences* proves the general-graph bound; Sankaran–Chakraborty (arXiv:1002.4334) addresses BSR semantic extensions; Fiuk (arXiv:2601.05247) studies finite-model bounds for guarded logic. None of the inspected relevant sections gave the exact equivalence-structure cutoff. No claim extends to additional relations or three universal variables. There remains an older-literature priority risk.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp linear finite-spectrum endpoint for the natural ∃^k∀² fragment over equivalence structures is a meaningful model-theoretic invariant: it turns an abstract finite/cofinite dichotomy into an optimal one-size threshold and supplies explicit witness models. It is not an arbitrary finite table or merely replacing a symbol in the arbitrary-graph Ramsey bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

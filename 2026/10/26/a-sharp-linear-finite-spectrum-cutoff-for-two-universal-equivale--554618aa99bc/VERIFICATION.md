@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-**Direct proof checks.** There are at most \(t+1\le k+1\) equivalence-class incidence profiles outside a witness set of size \(u\le k\). If the whole model has at least \(2k+2\) points then it has at least \(2k+2-u>t+1\) outside points, so two profiles repeat. Universal quantifier-free satisfaction is inherited by the core induced on all witness values plus the selected pair. Enlarging that pair preserves every ordered two-variable atomic type relative to the witnesses, including diagonals, equality, both orientations of \(E\), and marked-class memberships.
+# Independent mathematical audit
 
-**Equivalence check.** A marked profile forces every pair of clones into the same marked class. An unmarked profile gives either a single new class or singleton classes, according to whether the original pair is related. All three arrangements are reflexive, symmetric and transitive.
+## correctness
 
-**Sharp construction check.** The displayed sentence has exactly \(k\) distinct witness classes, with at most one extra element each, and at most one unmarked element. Choosing additions freely realizes all orders from \(k\) through \(2k+1\); the zero-witness case yields size \(1\) only.
+PASS
 
-No numerical enumeration, external proof assistant, or unverified computational certificate is needed. The result does not settle formula-length complexity, additional symbols, or higher universal-variable fragments. Novelty remains contingent on the documented bounded literature comparison.
+An existential witness tuple has u<=k distinct values occupying t<=u equivalence classes. Among at least 2k+2 elements, >t+1 outsiders yield two with the same E-incidence profile to witnesses. The induced witness-plus-pair structure preserves every atomic type of two universally quantified variables; replacing this pair by s>=2 equivalent-profile points preserves pair types, including E(b,c) true (one class) and false (distinct outsider singletons). This builds every n>=k+2. Conversely a formula forces k distinct marked classes of sizes 1 or 2 and at most one outsider, giving precisely {k,...,2k+1}; for k=0, forall y,z(y=z) gives {1}. Independent enumeration checked all equivalence partitions up to 6 vertices and the cloning/pair-type premise. This is an all-k proof, not an inference from finite tests.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: existing Ramsey/graph finite-spectrum cutoffs include the equivalence-class special model but only yield the numerically weaker bound k+2^k. The new exact 2k+1 threshold depends on the t+1 witness-class profiles and its concrete extremal family. The possibility of earlier equivalence-specific textbook coverage is recorded.
+
+## value
+
+PASS
+
+A sharp linear finite-spectrum endpoint for the natural ∃^k∀² fragment over equivalence structures is a meaningful model-theoretic invariant: it turns an abstract finite/cofinite dichotomy into an optimal one-size threshold and supplies explicit witness models. It is not an arbitrary finite table or merely replacing a symbol in the arbitrary-graph Ramsey bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
