@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T23:41:50Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p<q, gcd(pq,φ(pq))>1 iff p|(q−1). Fixing p∤m and unit residue gives one reduced CRT class for q modulo mp with coefficient 1/(φ(m)p(p−1)); nonunits force q|m hence only small exceptions. For p|m, q simultaneously ≡1 mod p and ≡c/p mod m/p, compatible iff c/p≡1 mod gcd(p,m/p), and reduced iff gcd(c/p,m/p)=1; leading coefficient 1/[pφ(lcm(p,m/p))]. Fixed-p PNT in AP supplies main terms. For p∈(Y,X^(1/3)], Brun–Titchmarsh at X/p and modulus mp gives O_m(X/(p(p−1)log X)), with tail O_m(1/Y); p>X^(1/3) contribute O(X^(2/3)) by q=1+kp. Hence summation interchange is valid. Exact support and cutoff follow from all large pairs needing q>m. Independent bounded integer enumerations confirm forbidden-class implications for m≤40 but do not establish the asymptotic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Unrestricted semiprime asymptotic counts are larger and have different order than the constrained X/log X subfamily.",
+          "Distribution of cyclic numbers in progressions is a distinct set and cannot dominate a formula for noncyclic semiprimes."
+        ],
+        "reasoning": "Neither broader semiprime total or cyclic-number statement algebraically determines the m,c local-prime weights and forbidden classes.",
+        "searches": [
+          "noncyclic squarefree semiprime p divides q-1 residue arithmetic progression leading constant forbidden residue classes",
+          "arxiv:2006.16491",
+          "Cohen JIS 28 (2025)"
+        ]
+      },
+      "checked_sources": [
+        "Cohen (2025) JIS 28, 25.4.7",
+        "arxiv:2006.16491",
+        "prime number theorem AP and Brun–Titchmarsh classical statements",
+        "Resultary query",
+        "frozen RESULT.md / verify.py"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Standard PNT and Brun–Titchmarsh imply the local fixed-p asymptotics and error uniformity after the new decomposition.",
+          "CRT compatibility for the primes dividing m yields novel exact forbidden-class criterion and finite cutoff."
+        ],
+        "reasoning": "The result is a well-motivated theorem derived from classical analytic number theory; classical estimates alone do not explicitly imply the chosen constrained family and local-support classification without this arithmetic argument.",
+        "searches": [
+          "noncyclic squarefree semiprime p divides q-1 residue arithmetic progression leading constant forbidden residue classes",
+          "Cohen 2025",
+          "Brun–Titchmarsh and prime number theorem in arithmetic progressions"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Squarefree noncyclic semiprimes are exactly p<q with p|(q−1); this equivalence is elementary and not claimed as new.",
+          "Cohen investigates cyclic numbers and progression conjectures rather than the complementary constrained two-prime family."
+        ],
+        "reasoning": "Compared cyclic vs noncyclic, Euler totient gcd, p|(q−1), and sieve prime pairs rather than keyword matching.",
+        "searches": [
+          "noncyclic squarefree semiprime p divides q-1 residue arithmetic progression leading constant forbidden residue classes",
+          "Cohen 2025 cyclic numbers residue classes",
+          "arxiv:2006.16491"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed Resultary hits concern other prime-power arithmetic constructions, not this all-moduli constant or residue-class exact support."
+        ],
+        "reasoning": "No external count table used. Negative corpus retrieval cannot certify novelty.",
+        "searches": [
+          "noncyclic squarefree semiprime p divides q-1 residue arithmetic progression leading constant forbidden residue classes",
+          "Resultary semantic query: noncyclic squarefree semiprime residue progression p divides q-1"
+        ]
+      },
+      "rationale": "The precise constrained p|(q−1) semiprime progression constants and forbidden residue cutoff are not supplied by the inspected cyclic-number or unrestricted semiprime statements. PNT in AP/Brun–Titchmarsh are classical ingredients, properly credited. Best-of-knowledge PASS subject to unindexed constrained prime-pair asymptotic results.",
+      "residual_risks": [
+        "Unindexed prime-pair distribution or sieve results may explicitly cover this specialized local condition.",
+        "Only fixed m asymptotics; no growing-modulus uniformity or sharp error is supplied."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Cohen studies cyclic numbers and raises their progression behavior, not this exact complement-subfamily p|q−1 constant and forbidden classes.",
+          "evidence": "Cohen 2025 Journal of Integer Sequences 28, article 25.4.7, early sections.",
+          "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Cohen/cohen41.pdf",
+          "material_read": "Full accessible 34-page PDF and first-page image; read definitions and introductory progression conjectures, including Section 1",
+          "method": "Compared arithmetic-progression questions to the precisely noncyclic squarefree semiprime subset",
+          "title": "Conjectures about Primes and Cyclic Numbers",
+          "trigger": "Same cyclic-number gcd(n,φ(n)) concept and progression question"
+        },
+        {
+          "assessment": "Unrestricted semiprime asymptotics do not by themselves establish this divisibility-constrained progression law; unread details remain risk.",
+          "evidence": "Crisan–Erban 2021, arxiv:2006.16491.",
+          "identifier_or_url": "https://arxiv.org/abs/2006.16491",
+          "material_read": "Primary bibliographic description and abstract; complete body not newly inspected",
+          "method": "Compared unconstrained semiprime-counting quantifiers with additional p|(q−1) and modular condition",
+          "title": "On the counting function of semiprimes",
+          "trigger": "Potential broader semiprime progressions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Classifies exactly which arithmetic progressions contain positive-density-on-X/log X many noncyclic squarefree semiprimes, with explicit constants and a finite cutoff for all forbidden progressions. This is a natural all-moduli arithmetic characterization, not an isolated numerical computation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For fixed m,c, squarefree p<q with p|(q−1), pq≤X and pq≡c (mod m) have B_{m,c}(X)=(K_{m,c}+o(1))X/log X, with stated absolutely convergent explicit local-prime constant; positive classes characterized by gcd(c,m)=1 or the specified prime gcd and lift condition; forbidden classes contain no product beyond m².",
+  "limitations": [
+    "Fixed m, squarefree p<q, condition p|(q−1); repeated-prime or general composite noncyclic numbers excluded.",
+    "No uniformity when m grows with X."
+  ],
+  "schema_version": 1
+}
