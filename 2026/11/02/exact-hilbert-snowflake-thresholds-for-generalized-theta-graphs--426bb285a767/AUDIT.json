@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "The graph has exact distance set {0,1,2}. On the full zero-sum space, adjacency has middle-contrast eigenvalue 0, antisymmetric eigenvalues (-1±sqrt5)/2 and symmetric generalized eigenvalues satisfying (m+4)lambda^2+(3m+2)lambda-5m=0. Exhaustive sector dimensions m-1+2+2=m+3. For m>=3 the negative root -t_m is strictly smaller than all competing eigenvalues. The powered-distance maximum is exactly (t_m-1)2^p-t_m, proving all p quantifiers, endpoint nullity one and Hilbert ranks. The positive polynomial root monotonicity and simple-root expansion justify the asymptotic; BFS/Jacobi checker replayed but is only supplementary.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2024 paper arXiv:2409.17662 Definition 4.1 restricts its theta-graph object to three paths, whereas the new claim requires m>=3 two-edge paths plus one three-edge path, hence at least four total paths.",
+        "Młotkowski–Obata arXiv:2403.16348 concerns graph joins and fans, not the present two-pole path union.",
+        "Liu–Yang, DOI 10.1137/21M1408439, studies generalized theta Turán extremal numbers, a different invariant."
+      ],
+      "reasoning": "General Hilbert distance-matrix criteria and the known three-path ordinary-QE result do not give the explicit all-m eigenvalue, the snowflake threshold, strict m-monotonicity, endpoint rank, or asymptotic limit. The family is not a complete join or fan, nor covered by a one-hub result.",
+      "searches": [
+        "generalized theta with k paths of length 2 and one of length 3 graph spectra",
+        "quadratic embedding constant generalized theta graph multiple length 2 paths one length 3 fan K2 m",
+        "graph with m length two paths and one length three path between two poles quadratic embedding constant"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.17662",
+      "doi:10.5614/ejgta.2018.6.1.4",
+      "arxiv:2403.16348",
+      "doi:10.1137/21M1408439",
+      "arxiv:2603.23681",
+      "Published record titles checked: Exact algebraic gnarledness of three-path theta graphs; Complete theta-class relations for three-point generalized theta configurations; Complete Vietoris–Rips persistence and symmetry of three-edge theta graphs"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Published 2024 three-path result supplies only the m=2 graph; the explicit m=3 threshold 0.757908242053 differs from the m=2 value 0.920788590481, so the smaller graph’s endpoint cannot determine the larger graph’s value by inheritance.",
+        "The elementary isometric-submetric principle gives at most an upper bound on later exponents, not the exact decreasing sequence or positive limiting threshold.",
+        "The final analytical proof computes a family-specific generalised eigenproblem and proves its critical mode dominates the other modes for all m>=3."
+      ],
+      "reasoning": "The main classification, dimension drop and asymptotic depend on a new exact quotient calculation, not solely on applying a general negative-type criterion to known m=2 data. A different previously published projection-spectrum formula could imply the result, but none was found in the inspected material.",
+      "searches": [
+        "theta graph generalized roundness supremal negative type exponent theta 2 2 k paths",
+        "generalized theta graph Theta(2,2,...,2,3) negative type exponent Hilbert snowflake metric strict negative type",
+        "negative type theta graph three internally disjoint paths distance matrix exponent"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For every diameter-two graph with adjacency matrix A, the powered-distance matrix is D_p=2^p(J-I)+(1-2^p)A, a standard identity.",
+        "The closest 2024 theta result is the m=2 boundary only (Młotkowski–Skrzypczyk–Wojtylak, Example 7.2, arXiv:2409.17662)."
+      ],
+      "reasoning": "The powered-distance problem is equivalent to finding the least adjacency Rayleigh quotient on the zero-sum space. This identity by itself does not determine that quotient for all m. The new calculation gives the exact polynomial and its unique dominant mode for every generalized-theta graph with at least four paths.",
+      "searches": [
+        "generalized theta graph Theta(2,2,...,2,3) negative type exponent Hilbert snowflake metric strict negative type",
+        "p negative type diameter 2 graphs quadratic embedding constant formula 2^p",
+        "diameter two generalized theta adjacency spectrum least projected eigenvalue (m+4)t^2-(3m+2)t-5m"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Obata–Zakiyyah (2018) five-vertex table lists QEC(C5)=-2/(3+sqrt(5)); this is exactly the m=1 ordinary-QE specialization t_1-2.",
+        "Młotkowski–Skrzypczyk–Wojtylak (2024), Example 7.2, lists QEC(Theta(2,2,3))=(sqrt(19)-4)/3; exactly the m=2 specialization t_2-2.",
+        "The checked prior-result list and available own claim corpus contain no formula for generalized theta with at least four internally disjoint paths and this invariant."
+      ],
+      "reasoning": "Both known small cases are explicitly designated calibration, not novelty. The final claim is restricted to m>=3, so it is not an implication of the tabulated m=1 and m=2 values. No matching table across m>=3 was identified.",
+      "searches": [
+        "On quadratic embeddability of bipartite graphs and theta graphs arxiv 2024 Mlotkowski Skrzypczyk Wojtylak",
+        "Obata Zakiyyah 2018 Distance matrices quadratic embedding of graphs pdf electronic journal graph theory applications 2018",
+        "theta(2,2,3) five cycle plus repeated two-edge pole paths negative type QEC"
+      ]
+    },
+    "rationale": "Known C5 (m=1) and Θ(2,2,3) (m=2) ordinary-QE values are explicitly excluded from novelty; the checked 2024 theta paper defines exactly three paths. No inspected primary source, published record or recoverable own claim implies the exact infinite m>=3 family classification and asymptotic. Standard diameter-two and Gram criteria are acknowledged; priority outside inspected literature remains uncertain.",
+    "residual_risks": [
+      "The full literature and all unindexed/other-language spectral formulations are not exhaustively searchable; an equivalent earlier formula might exist.",
+      "The 2026 theta RKHS work was inspected only at accessible scope and excerpt level, but it advertises three-path graphs, a different number of arms.",
+      "Some broad diameter-two spectral methods could make the calculation easier without directly presenting the family formula; this does not substantiate a claim of foundational technique novelty."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers Θ(2,2,3) ordinary QEC, a boundary m=2, and three-path theta graphs; not an all-m >=3 snowflake formula.",
+        "evidence": [
+          "Definition 4.1 has exactly three paths; Example 7.2 reports QEC(Θ(2,2,3))=(sqrt19-4)/3."
+        ],
+        "identifier_or_url": "arxiv:2409.17662; https://arxiv.org/pdf/2409.17662",
+        "material_read": "Accessible 21-page full-text PDF: abstract, Introduction, Section 2 methods, Definition 4.1 and Theorems 4.2–4.3, Section 7 conclusions and Example 7.2, Section 8 scope. Page-image review of pages 3 and 15.",
+        "method": "Opened primary arXiv PDF, inspected text ranges and page screenshots",
+        "title": "On quadratic embeddability of bipartite graphs and theta graphs",
+        "trigger": "Direct three-path theta-graph precedent and ordinary quadratic embedding threshold"
+      },
+      {
+        "assessment": "Known C5 (m=1) QEC and all graphs on at most five vertices; m>=3 graphs have at least seven vertices.",
+        "evidence": [
+          "Five-vertex table states QEC(C5)=-2/(3+sqrt5)."
+        ],
+        "identifier_or_url": "doi:10.5614/ejgta.2018.6.1.4; https://www.ejgta.org/index.php/ejgta/article/download/435/pdf_64",
+        "material_read": "Accessible 24-page full-text PDF: abstract, introductory methods, Section 5 five-vertex classification, table on page 20 (printed page 56), and adjoining table text.",
+        "method": "Opened primary journal PDF, extracted text and inspected table screenshot",
+        "title": "Distance matrices and quadratic embedding of graphs",
+        "trigger": "Exact five-cycle ordinary QEC and possible small-graph table coverage"
+      },
+      {
+        "assessment": "General joins/fans do not have the two-pole, one three-edge branch graph structure here; no formula for this family located.",
+        "evidence": [
+          "The article’s main join family is empty-graph plus arbitrary G, with a separate fan application."
+        ],
+        "identifier_or_url": "arxiv:2403.16348; https://arxiv.org/abs/2403.16348",
+        "material_read": "Abstract and detailed journal article introduction and Section 4 overview, retrieved as accessible HTML",
+        "method": "Read publisher full-text HTML sections and arXiv abstract",
+        "title": "Quadratic embedding constants of fan graphs and graph joins",
+        "trigger": "Potential general graph-join domination"
+      },
+      {
+        "assessment": "Extremal edge count, not quadratic embeddings or negative-type exponent. No claim of full-text inspection.",
+        "evidence": [
+          "Abstract defines generalized theta path lengths but states extremal Turán-number bounds only."
+        ],
+        "identifier_or_url": "doi:10.1137/21M1408439; https://epubs.siam.org/doi/abs/10.1137/21M1408439",
+        "material_read": "Abstract and reported object definition only",
+        "method": "Read bibliographic abstract and abstract definition",
+        "title": "On the Turán Number of Generalized Theta Graphs",
+        "trigger": "Same object name generalized theta, possible stronger coverage"
+      },
+      {
+        "assessment": "Treats three-path thetas and ordinary quadratic embeddability; not the present at-least-four-path sharp variable-exponent classification.",
+        "evidence": [
+          "Reported scope explicitly says graphs consisting of three paths."
+        ],
+        "identifier_or_url": "arxiv:2603.23681; https://link.springer.com/article/10.1007/s11785-026-02043-y",
+        "material_read": "Abstract and accessible published Section 5 excerpt describing theta(2,3,gamma) results",
+        "method": "Read arXiv abstract and publisher HTML excerpt",
+        "title": "Quadratic Embedding of Theta Graphs via Reproducing Kernel Hilbert Spaces",
+        "trigger": "More recent three-path theta QE classification could dominate"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "426bb285-a767-4884-afb3-cba4782527e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural complete Hilbert-snowflake classification for generalized theta graphs with m>=3, with a unique critical obstruction, strict deterioration with parallel two-edge paths, a nonzero limiting exponent and exact first asymptotic correction. Ordinary QE non-embeddability inherited from Θ(2,2,3) does not imply these quantitative thresholds or dimensions. The fact is a self-contained two-pole network invariant, not an arbitrary finite slice.",
+    "status": "PASS"
+  }
+}
