@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For each arbitrary mesh the Galerkin solution is exactly the interpolant of u=t(1-t)/2 by cell-average derivative orthogonality, so energy error is sum(h_j^3)/12. Dirichlet(1,...,1) moments give mean/variance, exponential representation gives CLT with variance 5/2. Empirical-CDF integration by parts and Poincaré prove n λ_min→π², isolated-small-exp edge decomposition proves λ_max/n²⇒2/Exp(1), hence κ/n³⇒2/(π²Exp(1)). Deterministic λ_min≥1/(n-1), λ_max≤4/h_min plus a fixed interior-collapse event give κ positive moments finite exactly below one. 550 exact rational Galerkin identities, 150 exact rational moment identities and finite numerical spectral probes passed when executed from supplied verify.py. No finite experiment is used as a proof of an infinite statement.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:1201.3651 sections 4 and 5: upper and lower eigenvalue/condition bounds for arbitrary meshes, including diagonal scaling, but no exact random-mesh limit law.",
+        "arXiv:1801.05684 sections 1–2: asymptotics of small eigenvalues in higher-dimensional random conductance models with small conductances; does not provide the high-eigenvalue extreme from inverse uniform spacings."
+      ],
+      "reasoning": "The arbitrary-mesh estimates permit useful order bounds after inserting mesh geometry, but bounding λ_max within a fixed factor cannot entail the exact 2/Z limit; a separate isolated-edge proof and the sharp π²/n lowest-eigenvalue limit are required. The conductance article concerns a different tail and opposite spectral edge.",
+      "searches": [
+        "random finite element mesh shortest cell stiffness matrix spectral condition number heavy tail random uniform order statistics",
+        "random conductance one dimensional path graph Laplacian largest eigenvalue extremal edge conductance Fréchet heavy tail isolated edges",
+        "finite element stiffness matrix uniformly random mesh points condition number Frechet order statistics 1d",
+        "condition number random mesh one-dimensional finite element order statistics",
+        "order statistics random finite element stiffness eigenvalue uniform mesh knots"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2103.06204, primary full text",
+      "arXiv:1201.3651, primary full text",
+      "arXiv:1801.05684, primary full text",
+      "arXiv:1908.03460, abstract and metadata only",
+      "Relevant published mathematical research records retrieved by stated semantic searches",
+      "Earlier related mathematical claims compared for possible implication or overlap (180 accessible records)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2103.06204 Theorem 3.6 assumes quasi-uniformity and controlled perturbations, excluding meshes with arbitrarily small uniform-order-statistic spacings.",
+        "arXiv:1201.3651 Lemma 4.1 gives a factor-two maximum-eigenvalue comparison but cannot determine its limiting normalization; Section 5 gives deterministic bounds rather than the probabilistic small-eigenvalue constant.",
+        "arXiv:1801.05684, Theorem in Section 2 treats a distinct low-conductance model and low spectral edge."
+      ],
+      "reasoning": "The result is not a corollary of any inspected theorem solely by parameter substitution: the source mesh laws differ, a factor-two deterministic bound does not yield the sharp limit, and a high-edge inverse-spacing extreme is distinct from small-edge localization. The standard Dirichlet and extreme-value lemmas contribute proof ingredients, not the full numerical result.",
+      "searches": [
+        "random mesh finite element 1D Poisson energy norm interpolation error uniform random knots Dirichlet spacings exact expected error factor six asymptotic normal",
+        "ordered iid uniform points one-dimensional finite element Poisson tridiagonal stiffness spectral condition number n cubed Frechet inverse exponential limit",
+        "random conductance one dimensional path graph Laplacian largest eigenvalue extremal edge conductance Fréchet heavy tail isolated edges",
+        "random mesh finite element 1D stiffness infinite expected condition number but bounded Poisson energy error",
+        "finite element stiffness matrix uniformly random mesh points condition number Frechet order statistics 1d",
+        "random grid random points 1D finite element stiffness condition number smallest spacing distribution"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2103.06204 sections 2, 3 and 5: random node perturbations of a fixed quasi-uniform base mesh, not i.i.d. uniform order-statistic knots.",
+        "No equivalent exact paired Poisson energy and stiffness Fréchet statement appeared in the actual published mathematical research records returned by these queries."
+      ],
+      "reasoning": "Considered aliases random P1 interpolation, random mesh finite elements, uniform spacings/Dirichlet simplex, path-graph stiffness Laplacians, and Fréchet extreme-spacing laws. The claimed conjunction is not an algebraic restatement of the controlled-perturbation FEM analysis; its mesh model violates the regular-mesh hypothesis.",
+      "searches": [
+        "random mesh finite element 1D Poisson energy norm interpolation error uniform random knots Dirichlet spacings exact expected error factor six asymptotic normal",
+        "ordered iid uniform points one-dimensional finite element Poisson tridiagonal stiffness spectral condition number n cubed Frechet inverse exponential limit",
+        "Dirichlet(1) cell spacings piecewise linear finite element error squared sum cubic spacings exact central limit variance 5/2",
+        "random grid random points 1D finite element stiffness condition number smallest spacing distribution",
+        "uniform order statistics random mesh piecewise linear interpolation L2 H1 error sum cube spacings exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual published mathematical research searches gave nearby interpolation and conditioning findings, not a tabulation of the n-cell uniform-spacing FEM stiffness condition distribution or the stated finite-sample error variance.",
+        "Uniform-spacing Beta/Dirichlet mixed moments are classical inputs, not a claimed new table."
+      ],
+      "reasoning": "No checked database row or closed-form table exactly gave the five coupled invariants (error mean, variance, CLT, condition-number moments, Fréchet limit). A failed search alone is not uniqueness evidence; exact formulas are proved separately.",
+      "searches": [
+        "probabilistic finite element method random meshes Abdulle Garegnani quadratic Poisson 1D Dirichlet exact distribution finite sample error",
+        "Dirichlet(1) cell spacings piecewise linear finite element error squared sum cubic spacings exact central limit variance 5/2",
+        "random mesh finite element 1D stiffness infinite expected condition number but bounded Poisson energy error",
+        "uniform order statistics random mesh piecewise linear interpolation L2 H1 error sum cube spacings exact"
+      ]
+    },
+    "rationale": "The closest material-read mesh-randomization paper addresses controlled perturbations of a quasi-uniform base grid, while the arbitrary-mesh spectral paper provides bounds and scaling insights, not exact order-statistic distributional asymptotics. The heavy-tail random-conductance work concerns lower eigenvalues for degenerate conductances in higher dimensions. Actual research-record, own-claim, and literature queries found no covering statement for the paired sharp energy and conditioning laws. This is a qualified best-knowledge assessment subject to independent priority checking.",
+    "residual_risks": [
+      "The 2019 arbitrary-mesh smallest-eigenvalue preprint was not accessible beyond metadata and abstract; it may sharpen deterministic bounds but exact random limit has not been ruled out from its full text.",
+      "A result under the equivalent weighted-path random-conductance formulation, potentially outside checked terminology, may imply the largest-eigenvalue extreme law.",
+      "Dirichlet-spacing moment formulas are classical; originality is claimed only for their joint numerical finite-element conditioning/error consequences, not for these probabilistic identities.",
+      "Independent priority verification not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING in the inspected assumptions/results: different controlled-perturbation random mesh, error estimator rather than exact uniform order-statistic spectral law.",
+        "evidence": "Section 2.2 uses x_i+h^p α_i; Section 3 assumes λ-quasi-uniform mesh; no Fréchet stiffness limit asserted.",
+        "identifier_or_url": "arXiv:2103.06204; https://arxiv.org/abs/2103.06204",
+        "material_read": "Full arXiv HTML text sections 1–3 and 5, including mesh perturbation (2.8), quasi-uniform assumptions (3.8), and Theorem 3.6; reference and discussion sections",
+        "method": "Primary arXiv HTML, direct reading and find",
+        "title": "A probabilistic finite element method based on random meshes: Error estimators and Bayesian inverse problems",
+        "trigger": "Primary motivating 2021 random-mesh FEM paper with same Poisson/Galerkin setting"
+      },
+      {
+        "assessment": "RELATED_BUT_NOT_COVERING: deterministic factor bounds and scaling; no exact n³ Fréchet law for iid uniform knots or Poisson energy distribution.",
+        "evidence": "Lemma 4.1 bounds max eigenvalue by diagonal max within dimension-dependent factor; no random knot distribution.",
+        "identifier_or_url": "arXiv:1201.3651; https://arxiv.org/html/1201.3651v3",
+        "material_read": "Full arXiv HTML sections 1–4, especially Lemma 4.1 and conditioning/preconditioning discussion in Section 5",
+        "method": "Primary arXiv HTML direct reading",
+        "title": "Conditioning of Finite Element Equations with Arbitrary Anisotropic Meshes",
+        "trigger": "Broad arbitrary-mesh conditioning bound could imply present statement"
+      },
+      {
+        "assessment": "DIFFERENT_DOMAIN: low eigenvalues, small conductances, d≥2 lattice, not largest eigenvalue of 1D FEM inverse spacings.",
+        "evidence": "Paper explicitly assumes d≥2 and studies kth Dirichlet eigenvalues governed by minimum local speed measure.",
+        "identifier_or_url": "arXiv:1801.05684; https://arxiv.org/abs/1801.05684",
+        "material_read": "Full arXiv HTML sections 1–2 and theorem/corollary on localized low eigenvalues",
+        "method": "Primary arXiv HTML direct reading",
+        "title": "Eigenvector localization in the heavy-tailed random conductance model",
+        "trigger": "Possible stronger edge-spectral extreme value asymptotic under graph Laplacian alias"
+      },
+      {
+        "assessment": "ACCESS_LIMITED: no whole-text NOT_COVERING assertion; objective is arbitrary deterministic lower-eigenvalue bounds, but exact random-mesh claims cannot be fully compared.",
+        "evidence": "Accessible abstract states bounds on the smallest eigenvalue of arbitrary conforming simplicial mesh stiffness; full text could not be read.",
+        "identifier_or_url": "arXiv:1908.03460",
+        "material_read": "Search-result abstract/snippet only; attempted arXiv abstract, arXiv HTML, alternate HTML without access. Full-text retrieval remained unavailable after open-access and authorized-library attempts.",
+        "method": "Search metadata, arXiv/OA attempts, authorized-library attempt unavailable",
+        "title": "Sharp bounds on the smallest eigenvalue of finite element equations with arbitrary meshes without regularity assumptions",
+        "trigger": "Plausible stronger mesh conditioning lower eigenvalue result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e278daef-d755-4616-a8e8-66e3363af7c6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The model is a natural diagnostic of unconstrained random-node finite elements. It establishes exact finite-sample energy accuracy and variance, a nontrivial CLT, and a sharp infinite-mean stiffness-conditioning pathology with normalized Fréchet scaling, quantitatively contrasting the order n³ random system with order n² uniform meshes. This exposes a meaningful tradeoff between mesh randomness, approximation, and solver robustness, with direct motivation for mesh-quality safeguards; it is not a mere renamed elementary interpolation identity.",
+    "status": "PASS"
+  }
+}
