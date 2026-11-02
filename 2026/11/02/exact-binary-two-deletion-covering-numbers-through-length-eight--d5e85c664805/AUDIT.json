@@ -1,0 +1,104 @@
+{
+  "correctness": {
+    "rationale": "All upper covers are explicit and their full deletion shadows cover each of the 1, 2, 4, 8, 16, 32, and 64 targets for n=2..8. One length-five word cannot contain both 000 and 111. For n=6,7,8, nonnegative orbit weights give total/cap pairs (8,3),(10,3),(74,12); the weighted union inequality forces 3,4,7 words. All of 64,128,256 source words at those n are checked by a self-contained exact finite enumerator and an independent greedy subsequence implementation. No extrapolation beyond n=8.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Xie–Sun–Ge Theorem V.1 is asymptotic as alphabet q tends to infinity, with fixed n,R; it does not yield exact q=2,n=8.",
+        "Lenz et al. Theorem 14 bounds asymptotic density with fixed radius and length tending to infinity."
+      ],
+      "reasoning": "Neither paper gives a finite small-alphabet bound as strong as seven at (q,n,R)=(2,8,2); the standard volume bound only gives three. Burst-deletion results allow contiguous deletions and do not bound arbitrary-deletion covers below.",
+      "searches": [
+        "arxiv:2606.15379 Section V arbitrary deletion covering Theorem V.1",
+        "arxiv:1911.09944 multiple-deletion covering Theorem 14",
+        "\"binary\" \"two deletions\" \"covering codes\" \"7\""
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.15379, Sections I, II, V–VII (primary full text)",
+      "arXiv:1911.09944, summary and multiple-deletion Sections V-B / VI (primary PDF)",
+      "An exact ternary length-five one-deletion covering record (comparative parameters only)",
+      "A length-six binary two-list two-deletion packing record (different optimization)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Elementary sphere covering gives 2^(8-2)/C(8,2)=64/28, hence only D_2(8)>=3; the actual certificate totals 74 and caps each shadow at 12, proving D_2(8)>=7.",
+        "The two-burst-deletion model in arXiv:2606.15379 Section VI is strictly restricted and its positive covering construction does not give an arbitrary two-deletion lower bound."
+      ],
+      "reasoning": "The new exact profile is not a formal specialization or consequence of the cited asymptotic theorems, single-deletion q-ary exact result, burst-deletion construction, or list-decoding maximum-code problem.",
+      "searches": [
+        "arxiv:2606.15379 Section V Section VI",
+        "arxiv:1911.09944 Table I Theorem 14",
+        "\"subsequence covering\" binary strings length 6 length 8 seven"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "For binary alphabet, a two-deletion cover of length-eight codewords is equivalent to a family of length-eight supersequences collectively containing every length-six word.",
+        "The 2026 primary article states the same deletion-covering definition at arXiv:2606.15379, Section I."
+      ],
+      "reasoning": "The notation and the supersequence interpretation describe the same finite set cover. The searched descriptions produced no matching numerical exact result. This absence is not itself proof of novelty.",
+      "searches": [
+        "\"D(2,8,2)\" deletion covering code",
+        "\"deletion covering\" \"8\" \"2\" binary length",
+        "binary subsequence covering number strings length 8 cover all length 6 subsequences minimum seven supersequences"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected related exact-record result D(3,5,1)=21 is ternary with a single deletion, not binary with two deletions.",
+        "The related length-six binary two-list decoding result optimizes code size under bounded descendant multiplicities, rather than minimizing a covering family."
+      ],
+      "reasoning": "No matching exact finite covering table was located in these searches or inspected primary sources. A database search cannot establish absence of unindexed or differently formulated work.",
+      "searches": [
+        "\"deletion covering\" \"length eight\" code 7",
+        "\"deletion covering\" \"n=8\" binary",
+        "\"binary\" \"subsequence covering\" \"64\" \"7\" 8"
+      ]
+    },
+    "rationale": "The complete seven-term binary two-deletion covering profile and the integral orbit-weight certificate were not implied by inspected primary results. The original papers give asymptotic bounds or different deletion models, not the stated finite exact covering values; research records of nearby exact results concern different channels/parameters. Priority remains uncertain for unindexed prior tables.",
+    "residual_risks": [
+      "Possible unindexed or differently named exact small-parameter covering tables or equivalent set-cover calculations",
+      "Full independent publication-priority and mathematical review not performed"
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Theorem V.1 is for alphabet size growing at fixed n and R. Section VI deals with contiguous two-burst deletions, which is a different target relation. Neither statement determines the binary small-length optimum.",
+        "evidence": [
+          "arXiv:2606.15379, Section V Theorem V.1 and its distinct-symbol hypergraph proof",
+          "arXiv:2606.15379, Section VI Theorem VI.1 (two-burst deletions), Section VII"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+        "material_read": "arXiv full-text sections I and II (definitions and comparison), V (arbitrary-deletion large-alphabet theorem and proof), VI (two-burst comparison), VII (conclusions and open questions)",
+        "method": "Inspected primary HTML full-text displayed sections and verified date on arXiv (v1 June 13, 2026)",
+        "title": "New bounds for covering codes under insertions or deletions",
+        "trigger": "Same deletion-covering definition; general 2026 bounds, possible stronger coverage"
+      },
+      {
+        "assessment": "Theorem 14 gives asymptotic density bounds for R >= 2, rather than the finite exact binary profile. The bound is not an exact covering-number formula at n=8.",
+        "evidence": [
+          "arXiv:1911.09944, Section I Table I",
+          "arXiv:1911.09944, Section V-B Theorem 14, Section VI conclusion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.09944",
+        "material_read": "Primary PDF pages 1-2 (definitions and summary table), pages 10-11 (multiple-deletion Theorem 14 and supporting lemmas), conclusion and appendix context",
+        "method": "Read full-text PDF extraction of the relevant sections and inspected actual PDF page images",
+        "title": "Covering Codes using Insertions or Deletions",
+        "trigger": "Original covering-code definitions and bounds for arbitrary multiple deletions"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d5e85c66-4805-4de8-84bf-f3c96a95c321",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The minimum template-cover size is a natural exact code covering invariant under arbitrary two deletions. The complete initial binary profile, especially \\(D_2(8)=7\\), provides a nontrivial optimality benchmark: the elementary bound gives only 3 at n=8. A compact symmetric integer lower certificate accompanies an explicit matching cover, enabling reuse in finite covering theory without claiming new asymptotics.",
+    "status": "PASS"
+  }
+}
