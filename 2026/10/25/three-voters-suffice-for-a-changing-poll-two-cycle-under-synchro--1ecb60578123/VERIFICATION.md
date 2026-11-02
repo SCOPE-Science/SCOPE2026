@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,6 +19,24 @@
 }
 ---
 
-The exact analytical proof in RESULT.md determines the coefficients of all six top-versus-middle response margins and proves the global lower bounds for fewer voters and candidates. The independently written standalone script `verify.py` directly enumerates all nine possible terminal pairs of opponent ballots for each voter at both orbit states, computes polynomial probabilities from `(1-p)` and `p/2`, and evaluates each plurality-winner uniform lottery with exact rational arithmetic. It passed all six affine margin coefficient identities, checked both directions of the explicit rational cycle, and tested 27 further rational utility triples inside the theorem's open parameter box. The program has no external dependencies and can be run with `python verify.py`.
+# Independent mathematical audit
 
-This computation does not enumerate all utility profiles, all electorates, or all candidate counts and does not establish uniqueness or new publication priority; those are not asserted. Independent scientific audit has not been conducted.
+## correctness
+
+PASS
+
+For the precise independent p-tremble model, each of two other ballots independently remains fixed with probability 1-p or goes to either other candidate with probability p/2. Independently enumerating all nine terminal opponent profiles with exact rational polynomial weights gives, for top-minus-middle actions at truthful (A,B,C), constant (1-2rho_i)/3; at unanimous (A,A,A), zero constant and linear coefficients (5-4rho1)/3 for voter 1 and (4-5rho_i)/3 for voters 2,3. Signs are strict on 0<rho1<1/2, 1/2<rho2,rho3<4/5. Worst ballot is strictly dominated for any p>0 by favorite, since each pivotal opponent tally has positive probability; thus only the compared actions matter. These are exact leading coefficients, so a common sufficiently small p exists per parameter triple, proving the 2-cycle of full ballots and distinct polls. For one or two voters and any m, conditioning on the other voter gives strict favorite dominance; for any N and two candidates, favorite weakly dominates pointwise and is strictly better on a positive-probability pivotal tally. Those arguments prove simultaneous minimality, not merely numerics. Independent checker confirms the six polynomial profiles at rho=(1/4,3/4,3/4). No assertion for a fixed tremble p uniformly over the full open parameter box.
+
+## originality
+
+PASS
+
+The new object is an exact truthfully initiated two-cycle in the specific synchronous independent-tremble update with strictly changing public vote counts and simultaneous sharp dimensions. Prior finite examples of cycles, static trembling equilibria, and a different top-bottom response do not imply that conjunction; publication priority remains qualified.
+
+## value
+
+PASS
+
+A sharp smallest-voter/candidate witness for a publicly observable changing-poll instability is a motivated boundary for the studied iterative voting rule, not just another already-known ballot cycle. Its open strict cardinal-utility region gives robustness and the proof establishes the two independent necessary dimensions. The exact phenomenon could be useful in stability and convergence modeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

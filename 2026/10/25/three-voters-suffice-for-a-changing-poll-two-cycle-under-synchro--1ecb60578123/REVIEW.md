@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The six necessary limiting response comparisons reduce to the exact constant-order coefficient \((1-2\rho_i)/3\) at the sincere three-way tie and the order-one coefficients \((5-4\rho_1)/3\) or \((4-5\rho_i)/3\) at unanimity, with all relevant strict signs on the open parameter box. Every possible single-tremble destination is included. Strict domination rules out the worst ballot. Direct conditional dominance proves the one- and two-voter lower bounds for arbitrary candidate counts; pointwise ballot dominance proves the two-candidate lower bound for arbitrary electorates. A separate exact-rational checker independently obtains all six coefficients from the original expected-utility definition and verifies the cycle and sample utility parameters. It is not substituted for the general proof.
+PASS
 
-## Originality — PASS with residual priority risk
+For the precise independent p-tremble model, each of two other ballots independently remains fixed with probability 1-p or goes to either other candidate with probability p/2. Independently enumerating all nine terminal opponent profiles with exact rational polynomial weights gives, for top-minus-middle actions at truthful (A,B,C), constant (1-2rho_i)/3; at unanimous (A,A,A), zero constant and linear coefficients (5-4rho1)/3 for voter 1 and (4-5rho_i)/3 for voters 2,3. Signs are strict on 0<rho1<1/2, 1/2<rho2,rho3<4/5. Worst ballot is strictly dominated for any p>0 by favorite, since each pivotal opponent tally has positive probability; thus only the compared actions matter. These are exact leading coefficients, so a common sufficiently small p exists per parameter triple, proving the 2-cycle of full ballots and distinct polls. For one or two voters and any m, conditioning on the other voter gives strict favorite dominance; for any N and two candidates, favorite weakly dominates pointwise and is strictly better on a positive-probability pivotal tally. Those arguments prove simultaneous minimality, not merely numerics. Independent checker confirms the six polynomial profiles at rho=(1/4,3/4,3/4). No assertion for a fixed tremble p uniformly over the full open parameter box.
 
-Full-text reading of Weigel–Berriaud–Wattenhofer (arXiv:2610.23330v1, posted 2026-10-16) covered model definition, Section 5, examples, lower-bound theorem and relevant appendices. Their known four-voter period-two witness has a constant public poll, whereas the present three-voter orbit changes the poll on every round; their period-three active-voter lower bound and higher-population examples do not imply this joint-minimality statement. Obraztsova and coauthors (IJCAI 2016) are acknowledged for the underlying static equilibrium analysis, not misrepresented as new. Goldberg–Mavronicolas–Wąs (AAMAS 2026), as discussed by Weigel et al., use top-bottom updates instead of the present tremble response, so their two-voter cycle is not a counterexample to the lower bound. Targeted mathematical-result, accessible own-history and external-literature searches found no equivalent statement. Limited direct access to the 2016 publisher PDF and other unindexed work leaves a residual priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Unlike a ballot-swap cycle invisible to the poll, this is the smallest possible instance with changing *public count vectors*, giving a sharp and directly motivated boundary for an observable instability of a newly studied synchronous-poll model. Its strict utility inequalities define a nonempty open region rather than a knife-edge example. This adds a substantive qualitative distinction while keeping the model and computation self-contained.
+The new object is an exact truthfully initiated two-cycle in the specific synchronous independent-tremble update with strictly changing public vote counts and simultaneous sharp dimensions. Prior finite examples of cycles, static trembling equilibria, and a different top-bottom response do not imply that conjunction; publication priority remains qualified.
 
-## Limitations
+## value
 
-The theorem covers one fixed plurality tie lottery and uniform independent belief trembles, not asynchronous updates, arbitrary tremble destination weights or empirical voter behavior. The review is not independent and does not resolve publication priority for inaccessible or unindexed sources.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A sharp smallest-voter/candidate witness for a publicly observable changing-poll instability is a motivated boundary for the studied iterative voting rule, not just another already-known ballot cycle. Its open strict cardinal-utility region gives robustness and the proof establishes the two independent necessary dimensions. The exact phenomenon could be useful in stability and convergence modeling.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

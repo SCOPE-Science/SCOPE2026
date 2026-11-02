@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T07:55:28Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the precise independent p-tremble model, each of two other ballots independently remains fixed with probability 1-p or goes to either other candidate with probability p/2. Independently enumerating all nine terminal opponent profiles with exact rational polynomial weights gives, for top-minus-middle actions at truthful (A,B,C), constant (1-2rho_i)/3; at unanimous (A,A,A), zero constant and linear coefficients (5-4rho1)/3 for voter 1 and (4-5rho_i)/3 for voters 2,3. Signs are strict on 0<rho1<1/2, 1/2<rho2,rho3<4/5. Worst ballot is strictly dominated for any p>0 by favorite, since each pivotal opponent tally has positive probability; thus only the compared actions matter. These are exact leading coefficients, so a common sufficiently small p exists per parameter triple, proving the 2-cycle of full ballots and distinct polls. For one or two voters and any m, conditioning on the other voter gives strict favorite dominance; for any N and two candidates, favorite weakly dominates pointwise and is strictly better on a positive-probability pivotal tally. Those arguments prove simultaneous minimality, not merely numerics. Independent checker confirms the six polynomial profiles at rho=(1/4,3/4,3/4). No assertion for a fixed tremble p uniformly over the full open parameter box.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Weigel et al. Example 5.1 gives a four-voter period-two behavior but poll counts (2,1,1) remain fixed; its active-voter bound concerns period three.",
+          "Top-bottom updating permits two-voter behavior under different response rules."
+        ],
+        "reasoning": "The stronger-looking period-three lower bound is inapplicable to period two. A two-voter cycle under a different deterministic top-bottom map cannot dominate a theorem about the independent uniform trembling-hand response.",
+        "searches": [
+          "arXiv:2610.23330v1 sections 5, appendix E",
+          "Goldberg–Mavronicolas–Wąs AAMAS 2026 different update"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.23330v1",
+        "https://www.ijcai.org/Proceedings/16/Papers/069.pdf",
+        "Goldberg et al., AAMAS 2026",
+        "Resultary semantic voting query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Existing four-voter period-two orbit has constant publicly observed poll, while period-three examples use a different temporal period; the new three-voter witness yields counts (1,1,1)↔(3,0,0)."
+        ],
+        "reasoning": "None of the inspected prior conclusions implies the joint sharp lower bound N>=3,m>=3 and existence of a changing-poll period-two trajectory with truthful initialization in the specified model.",
+        "searches": [
+          "Weigel Berriaud Wattenhofer 2026 Section 5 Example 5.1 Theorem 5.2",
+          "Obraztsova et al. 2016",
+          "Goldberg et al. 2026"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The original model uses independent uniform destination trembles; Obraztsova studies equilibria, and a 4-voter oscillation is known under the same update."
+        ],
+        "reasoning": "A static nonexistence equilibrium result or ballot-only cycle is not the same as a truthfully initiated two-cycle whose public count vector changes. Both ballot and poll orbits are explicitly checked in this new claim.",
+        "searches": [
+          "Resultary: Three-voter synchronous plurality trembling-hand period two changing public poll exact minimal electorate",
+          "Weigel–Berriaud–Wattenhofer arXiv:2610.23330v1 sections 3,5 and appendix E",
+          "Obraztsova et al. IJCAI 2016 trembling-hand plurality"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary retrieved voting-theory census records for IRV/Coombs/Bucklin rather than a table of changing-poll two-cycles for this model; the original example is nonminimal for changing poll."
+        ],
+        "reasoning": "No exact database or numerical classification of this precise synchronous trembling-poll quantity was identified. Failure to retrieve a table is not a proof of priority.",
+        "searches": [
+          "Resultary search: changing public poll plurality two cycle three voters",
+          "SCOPE/Resultary published electoral boundary search",
+          "arXiv:2610.23330v1 model and examples"
+        ]
+      },
+      "rationale": "The new object is an exact truthfully initiated two-cycle in the specific synchronous independent-tremble update with strictly changing public vote counts and simultaneous sharp dimensions. Prior finite examples of cycles, static trembling equilibria, and a different top-bottom response do not imply that conjunction; publication priority remains qualified.",
+      "residual_risks": [
+        "Other preprints and unindexed utility-response tables may contain equivalent three-voter cycles. The 2016 and AAMAS primary complete texts were not each read end-to-end."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not covering the specific changing-poll three-voter simultaneous minimum",
+          "evidence": "Example 5.1 four voters fixed poll; Theorem 5.2 concerns period three",
+          "identifier_or_url": "https://arxiv.org/html/2610.23330v1",
+          "material_read": "Full accessible HTML including response definition, Section 5 examples, Theorem 5.2, appendix discussion",
+          "method": "Primary full text inspected by web HTML",
+          "title": "Trembling toward Duverger: Convergence and Cycles in Synchronous Plurality Dynamics",
+          "trigger": "Precisely same dynamical update and candidate/voter count"
+        },
+        {
+          "assessment": "Equilibrium rather than synchronous periodic orbit; broader uninspected passages remain priority risk",
+          "evidence": "2016 equilibrium and counterexample differ in quantified statement",
+          "identifier_or_url": "https://www.ijcai.org/Proceedings/16/Papers/069.pdf",
+          "material_read": "Accessible title/abstract and cited equilibrium claim, not relied on for whole-document noncoverage",
+          "method": "Targeted literature comparison",
+          "title": "Trembling Hand Equilibria of Plurality Voting",
+          "trigger": "Earliest same trembling-hand terminology"
+        },
+        {
+          "assessment": "Different top-bottom iterative rule; cannot imply the same uniform tremble response result",
+          "evidence": "Two-voter trajectories do not contradict the present lower bound",
+          "identifier_or_url": "AAMAS 2026 Goldberg–Mavronicolas–Wąs",
+          "material_read": "Update-rule description as compared in Weigel 2026 Section 2, not independent complete manuscript",
+          "method": "Contextual cross-model comparison",
+          "title": "Complexity of (Non-)Convergence in Iterative Voting",
+          "trigger": "Potential smaller electorate cycles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A sharp smallest-voter/candidate witness for a publicly observable changing-poll instability is a motivated boundary for the studied iterative voting rule, not just another already-known ballot cycle. Its open strict cardinal-utility region gives robustness and the proof establishes the two independent necessary dimensions. The exact phenomenon could be useful in stability and convergence modeling.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md: all six leading-response coefficients and universal lower bounds",
+    "verify.py inspected source; independent_checks.py voting() exact rational 9-outcome reconstruction",
+    "arXiv:2610.23330v1 primary model/examples"
+  ],
+  "disposition": "passed",
+  "limitations": "Applies only to specified tremble belief, strict utilities, truthful initial profile, small positive p chosen per parameter triple and m>=2; no empirical voting claim.",
+  "residual_risks": [
+    "Priority not mathematically certified against inaccessible or unindexed alternatives; no uniform fixed p across all continuous parameter values; the statement assumes uniform tie lotteries, independent uniform trembles and simultaneous deterministic updates."
+  ],
+  "schema_version": 1
+}
