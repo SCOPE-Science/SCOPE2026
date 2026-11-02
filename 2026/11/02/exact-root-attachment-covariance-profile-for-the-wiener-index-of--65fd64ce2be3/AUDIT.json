@@ -1,0 +1,117 @@
+{
+  "correctness": {
+    "rationale": "The Wiener-growth recurrence is exact conditional on each earlier tree. Conditioning on a marked root attachment changes the initial conditional expectation by 3(j-1)-(j+1)H_(j-1), while every future step scales the difference by (m+2)/m. Bernoulli covariance gives the local formula. The ratio (j+1)H_(j-1)/(j-1) equals 3 at j=2,3 and strictly increases thereafter by a harmonic bound, so all later contributions are negative. Swapping finite sums yields the displayed global identity and the pi-squared limit. Exact exhaustive enumeration of 5913 trees through size 8 and 149 more finite identity checks independently corroborated the derived results; they are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Neininger Theorem 1.2: asymptotic Wiener variance and Wiener/internal-path-length covariance.",
+        "Grübel–Michailow Section 3.3: Wiener-index strong limit theory.",
+        "The separate root-attachment/root-path-length law has a distinct harmonic expression and order in final size."
+      ],
+      "reasoning": "The published broad limit theorems do not determine the finite-size root-degree covariance or sharp arrival sign profile. General growth recurrences are tools from which a new mixed calculation can be made, not statements already giving the result.",
+      "searches": [
+        "random recursive trees dependence root children degree and total Wiener path length correlation",
+        "Neininger 2002 Wiener index random recursive tree root degree covariance formula conditional on root attachments",
+        "Grübel Michailow 2014 random recursive trees Wiener root children degrees mixed covariance"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1406.7614",
+      "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf",
+      "https://doi.org/10.1239/jap/1339878805",
+      "https://doi.org/10.1002/rsa.10074"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Neininger 2001, Theorem 1.2: E(W_n)=n(n+1)H_n-2n^2 and Cov(W_n, S_n) asymptotics.",
+        "Grübel–Michailow 2014, Section 3.3: Wiener strong limits and expected values.",
+        "Published attachment/internal-path-length covariances involve S_n rather than W_n."
+      ],
+      "reasoning": "The known expectation and uniform growth construction are explicitly prior premises. Neither Wiener/internal-path-length covariance nor root-degree/internal-path-length covariance implies the root-degree/Wiener covariance; these are different entries of the joint covariance matrix. The new result needs the conditional Wiener-growth calculation and exact summation.",
+      "searches": [
+        "Neininger 2002 Wiener index random recursive tree root degree covariance formula conditional on root attachments",
+        "Grübel Michailow 2014 random recursive trees Wiener root children degrees mixed covariance"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Wiener index is sum over all unordered vertex-pair distances; root outdegree equals sum of root-attachment indicators.",
+        "Neininger 2001 full author manuscript Theorem 1.2 provides a bivariate law with internal path length, not root degree."
+      ],
+      "reasoning": "Equivalent formulations as root-degree/Wiener covariance, marked-arrival influence, and root-neighbor-count versus total pairwise distances were compared. Neither total root path length nor leaf or Zagreb index is identical to these quantities.",
+      "searches": [
+        "random recursive tree root degree Wiener index covariance exact",
+        "random recursive trees Wiener index root degree joint distribution",
+        "recursive tree Wiener index degree of the root harmonic"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The actual published-record searches returned results on internal path length, leaves, and different random-tree models, rather than a table containing this root-degree/Wiener profile.",
+        "The exact rational verifier independently computed all values up to eight vertices; no known index table was merely copied."
+      ],
+      "reasoning": "No exact database/table entry for the full local profile or closed formula was identified. Non-detection does not certify global novelty.",
+      "searches": [
+        "random recursive tree root degree Wiener index covariance exact",
+        "random recursive trees Wiener index root degree joint distribution",
+        "uniform random recursive tree Wiener index root degree covariance exact formula H_n^(2) negative root children attachments"
+      ]
+    },
+    "rationale": "The inspected recursive-tree Wiener literature establishes expectation/limits and covariance with internal path length, not covariance with the root child count. A published local root-attachment covariance for total root path length is a different statistic and does not imply the Wiener covariance. Distinct other published results address leaf or Zagreb index interactions. The arrival-by-arrival exact Wiener law and strict threshold were not identified in the actual searches; this is qualified best-knowledge originality, subject to older unpublished or unstated corollaries.",
+    "residual_risks": [
+      "Searches and two primary full-text inspections cannot establish mathematical uniqueness; an unstated older corollary could cover the profile.",
+      "Munsonius tail-bound paper and Janson simply-generated-tree paper were only compared at the accessible abstract level, though their stated objects and methods differ.",
+      "No external independent scientific review has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for exact root-degree versus Wiener covariance: studies tree limits, total path length and Wiener index, not root-child-count joint moments",
+        "evidence": [
+          "arXiv submitted 2014-06-30; Primary MSC 60C05.",
+          "Section 3.3 defines Wiener index and proves strong limit; section 3.1 examines total path length; no root outdegree mixed covariance identified."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1406.7614",
+        "material_read": "Original 2014-06-30 arXiv metadata, 2000 MSC Primary 60C05, Introduction, Sections 3.1 and 3.3–3.4 with theorem statements and Wiener proof",
+        "method": "Full public arXiv HTML text, scoped section and term comparisons",
+        "title": "Random recursive trees: A boundary theory approach",
+        "trigger": "Exact tree model, Wiener index and root-path-length expectations; primary source for MSC and archival date"
+      },
+      {
+        "assessment": "NOT_COVERING for root outdegree/Wiener covariance: Theorem 1.2 concerns Wiener index with internal root path length, not root child count",
+        "evidence": [
+          "Theorem 1.2 gives E(W_n)=n(n+1)H_n-2n^2 and mixed asymptotics for the pair (W_n,S_n).",
+          "No degree/root-degree term in the manuscript full-text search; recursive-tree derivation is based on subtree splitting for the (W_n,S_n) vector."
+        ],
+        "identifier_or_url": "https://www.math.uni-frankfurt.de/~neiningr/w-ind.pdf",
+        "material_read": "Author manuscript dated 2001-09-19, 11-page PDF; introduction, Theorem 1.2, recursive-tree proof and remarks, searched full text for degree and root degree",
+        "method": "Full accessible author PDF text and page-image inspection",
+        "title": "The Wiener Index of Random Trees",
+        "trigger": "Most plausible exact prior treatment of Wiener index in uniform random recursive trees"
+      },
+      {
+        "assessment": "INCOMPLETE: abstract indicates Wiener-index and path-length tail bounds; no decisive full-text implication assessment",
+        "evidence": [
+          "Abstract describes tail bounds from multivariate sum recurrences, applied to Wiener index and internal path length; no root-degree result stated in accessible material."
+        ],
+        "identifier_or_url": "https://doi.org/10.1239/jap/1339878805",
+        "material_read": "Publisher abstract and primary MSC listing only; full paper not inspected",
+        "method": "Published abstract/metadata comparison",
+        "title": "On Tail Bounds for Random Recursive Trees",
+        "trigger": "Archive-era related Wiener-index distribution result"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "65fd64ce-2be3-4967-9029-993fb7e1ebe1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Wiener index is a canonical global distance statistic and root degree is a canonical local growth/centrality statistic. The complete marked-arrival profile isolates exactly two neutral early arrivals, proves strict negative influence for each later root attachment uniformly in final tree size, and gives a nontrivial quadratic covariance constant. This goes beyond routine recomputation of a marginal mean and exposes interaction of all-pairs distance with the growth history.",
+    "status": "PASS"
+  }
+}
