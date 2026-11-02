@@ -1,19 +1,21 @@
-# Scientific review: sharp true-residual frontier for one-step SPD sketched GMRES
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The matrix-embedding hypothesis is explicitly restricted to \(\operatorname{span}\{r,Ar\}\), and positivity of the Gram matrix makes the scalar sketched minimizer unique. Its actual true-residual norm equals the unsketched GMRES angle sine times an oblique projection penalty. Maximizing the penalty over symmetric \(2\times2\) Gram matrices with spectrum in \([1-\varepsilon,1+\varepsilon]\) gives exactly \((1-\varepsilon^2)^{-1/2}\). The elementary eigenvalue-weight proof of the Kantorovich inequality gives the sharp SPD sine \((\kappa-1)/(\kappa+1)\). One two-mode construction attains both maxima simultaneously. The exact rational examples verify threshold equality and strict overshoot. The independent source-code checks are supplementary and do not substitute for the inequalities.
+PASS
 
-## Originality — PASS, with residual risk
+Reconstructed exact geometric proof for every real SPD matrix κ≥1, every nonzero residual and 0≤epsilon<1 with a squared-norm sketch embedding on span{r,Ar}. In orthonormal basis u=Ar/||Ar||,v residual-perpendicular, the true ratio is d sqrt(1+(B21/B11)^2). The embedding eigenvalue constraint bounds the off-diagonal ratio by epsilon/sqrt(1-epsilon²), and the Gram with B11=1-epsilon² attains this. The SPD endpoint moment inequality bounds d by (κ-1)/(κ+1), and A=diag(1,κ), r=(sqrt(κ),1) attains it simultaneously. At κ=1 the residual vanishes. The iff epsilon≤2 sqrt(κ)/(κ+1) and strict-growth witness follow. Independently checked both κ=9 rational Gram witnesses and alpha values exactly, including threshold epsilon=3/5 ratio 1 and epsilon=4/5 ratio 4/3. Any stochastic samples are corroboration only, not proof of the universal quantifier.
 
-Bucci–Durastante [1, Section 2] explicitly describe sketched GMRES and possible true-residual nonmonotonicity, but their central claim is a sketched-AA equivalence. Burke–Güttel–Soodhalter [2, Section 3] have a strictly weaker generic embedding quasi-optimality factor; it does not imply this exact SPD one-step factor or its sharp nonexpansion threshold. Epperly–Webber [3, Section 2] address expected sketched-regression error, not this deterministic one-step envelope. Burke–Carson–Ma [4] and Jang–Grigori [5] study numerical stability and orthogonalization. Existing sharp unsketched GMRES(1) bounds and classical oblique-projection geometry are credited rather than presented as original. Residual risk: an unindexed classical projector-angle inequality may contain the abstract norm-distortion lemma, although no inspected source explicitly covers the combined SPD safety frontier.
+## originality
 
-## Value — PASS
+PASS
 
-The gap is directly motivated by the sketched-GMRES literature's distinction between true and sketched residual monotonicity. A necessary-and-sufficient tolerance \(\varepsilon\le2\sqrt\kappa/(\kappa+1)\), rather than merely a sufficient generic distortion estimate, is useful when deciding whether a sketch can be trusted to preserve one-step true-residual descent. The proof provides dimension-two equality and strict-growth examples, with a finite-precision and multi-step limitation. The condition-number/embedding interaction is more informative than a small isolated numerical example.
+Qualified best-of-knowledge originality: closest fully inspected primary sketched-GMRES result gives general angle/quasioptimal bounds but not the precise deterministic worst-case SPD first-step residual factor, simultaneous two-mode equality, or necessary-and-sufficient embedding-safety frontier. Classical Kantorovich angle and oblique-projection geometry are acknowledged ingredients. The inspected published Resultary findings concern different error metrics or algorithms. Inaccessible full text of the closest 2026 same-method article and possible older projector-angle reformulations remain genuine priority risks, not grounds by themselves for scientific rejection.
 
-## Literature and limitations
+## value
 
-Scientific sources: [1] https://arxiv.org/html/2607.04904v1; [2] https://arxiv.org/html/2311.14206v2; [3] https://arxiv.org/html/2605.19096v2; [4] https://arxiv.org/html/2503.19086v3; [5] https://doi.org/10.1002/nla.70029. This is not a claim of independent audit or exhaustive uniqueness. The finding does not cover general nonsymmetric matrices or later iterations.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+For sketched GMRES, the sketched objective may decrease while the true Euclidean residual grows; the sharp admissible embedding distortion for guaranteed SPD first-step descent is a natural, operationally relevant unanswered mathematical boundary. This result gives an exact κ-dependent if-and-only-if certificate, distinguishes it from a weaker general quasioptimality estimate, and constructs exact simultaneous sharp two-dimensional equality/strict-growth witnesses. The calculation is not a standalone new geometric lemma—classical Kantorovich and perturbed-projection ingredients are credited—but their interaction yields a nontrivial complete safety frontier for a specific canonical algorithm. No claims about later iterations, finite precision, typical random sketches, nonsymmetric matrices, or solution error are made.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

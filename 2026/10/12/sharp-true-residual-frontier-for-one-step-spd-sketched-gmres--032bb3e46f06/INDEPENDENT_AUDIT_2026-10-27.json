@@ -1,0 +1,202 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T07:46:30.706601Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed exact geometric proof for every real SPD matrix κ≥1, every nonzero residual and 0≤epsilon<1 with a squared-norm sketch embedding on span{r,Ar}. In orthonormal basis u=Ar/||Ar||,v residual-perpendicular, the true ratio is d sqrt(1+(B21/B11)^2). The embedding eigenvalue constraint bounds the off-diagonal ratio by epsilon/sqrt(1-epsilon²), and the Gram with B11=1-epsilon² attains this. The SPD endpoint moment inequality bounds d by (κ-1)/(κ+1), and A=diag(1,κ), r=(sqrt(κ),1) attains it simultaneously. At κ=1 the residual vanishes. The iff epsilon≤2 sqrt(κ)/(κ+1) and strict-growth witness follow. Independently checked both κ=9 rational Gram witnesses and alpha values exactly, including threshold epsilon=3/5 ratio 1 and epsilon=4/5 ratio 4/3. Any stochastic samples are corroboration only, not proof of the universal quantifier.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Burke et al cover multiple Krylov steps and nonsymmetric matrices but give a weaker true-residual upper estimate; generic embedding quasioptimality factor sqrt((1+eps)/(1-eps)) exceeds the exact oblique penalty 1/sqrt(1-eps²).",
+          "Epperly–Webber Theorem 2.1 is a sharp expected squared-error identity for random Gaussian and random-orthonormal sketch-and-solve regression, not a deterministic SPD first-step adversarial sketch supremum.",
+          "Burke–Carson–Ma derive finite-precision backward-stability estimates driven by unit roundoff and Krylov-basis condition numbers."
+        ],
+        "reasoning": "Broader in matrix class, number of steps, or sketch distribution does not mean implying the exact all-(kappa,epsilon) two-parameter sharp factor. Specific prior inequalities were compared mathematically: a larger upper factor cannot establish the smaller exact constant or its necessary threshold, and expected error with fixed sketch law has different quantifiers.",
+        "searches": [
+          "Resultary semantic search: sharp one step sketched GMRES SPD true residual Euclidean amplification epsilon condition number Kantorovich oblique projection",
+          "Resultary semantic search: one step GMRES randomized sketch residual contraction spectral condition number necessary sufficient embedding tolerance",
+          "arXiv:2311.14206v2, Sections 3-4 and Corollary 4.4",
+          "arXiv:2605.19096v2, Theorem 2.1",
+          "arXiv:2503.19086v3, Section 4"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2311.14206v2 (Burke–Güttel–Soodhalter full relevant primary text)",
+        "https://arxiv.org/pdf/2605.19096v2 (Epperly–Webber sharp expected least squares)",
+        "https://arxiv.org/html/2503.19086v3 (Burke–Carson–Ma finite precision)",
+        "https://arxiv.org/abs/2607.04904 (Bucci–Durastante accessible abstract/partial preview; full unavailable)",
+        "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Exact GMRES(1) SPD Kantorovich angle sine (κ-1)/(κ+1) is classical.",
+          "A generic embedding quasioptimality factor sqrt((1+eps)/(1-eps)) applied to the Kantorovich bound yields a sufficient but not necessary threshold; it is strictly larger than the exact 1/sqrt(1-eps²) perturbation penalty for eps>0.",
+          "Candidate needs an independent two-by-two Gram extremizer B and SPD endpoint spectral mixture attaining both factors simultaneously.",
+          "Resultary 2/sqrt(3) theorem is on solution-error in a different uns sketched and not necessarily definite system."
+        ],
+        "reasoning": "The candidate theorem is derivable through elementary optimization from known geometric ingredients, which limits the originality scope; however no specific inspected prior theorem directly implies the simultaneously sharp product and if-and-only-if κ–ε frontier. Complete underlying algebra and realization were checked independently; the possibility of a previously published general oblique-projector theorem implying the exact result remains a residual risk.",
+        "searches": [
+          "Resultary semantic search: sharp one step sketched GMRES SPD true residual Euclidean amplification epsilon condition number Kantorovich oblique projection",
+          "Resultary semantic search: one step GMRES randomized sketch residual contraction spectral condition number necessary sufficient embedding tolerance",
+          "Resultary semantic search: perturbed inner product minimal residual norm under sketch true residual worst case sketch Gram",
+          "Burke–Güttel–Soodhalter arXiv:2311.14206v2 Corollary 4.4",
+          "Epperly–Webber arXiv:2605.19096v2 Theorem 2.1",
+          "Resultary symmetric-GMRES1 2026/9/20"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Burke–Güttel–Soodhalter Corollary 4.4 (PDF p.13) states an angle-dependent bound involving sin^2(theta)+2 epsilon(1+cos theta) over 1-epsilon^2; it does not identify exact two-plane oblique amplification.",
+          "Resultary symmetric-GMRES(1) theorem bounds Euclidean SOLUTION error by 2/sqrt(3) for unsketched real symmetric systems, including indefinite A; source claim is TRUE RESIDUAL under SPD sketch.",
+          "For the candidate B=I+[[-eps²,eps sqrt(1-eps²)],[eps sqrt(1-eps²),eps²]], the sketch penalty is attained exactly as 1/sqrt(1-eps²), while SPD spectral extremal separately attains (kappa-1)/(kappa+1)."
+        ],
+        "reasoning": "Equivalent terminology includes perturbed inner products, oblique least-squares projections, sharp principal angles, and restarted GMRES(1). The explicit primary theorems inspected do not yield the exact simultaneous sharp bound; nevertheless the two ingredients are classical and an abstract earlier theorem may imply the combination.",
+        "searches": [
+          "Resultary semantic search: sharp one step sketched GMRES SPD true residual Euclidean amplification epsilon condition number Kantorovich oblique projection",
+          "Resultary semantic search: sketched minimal residual sharp 1/sqrt(1-epsilon^2) one-dimensional least squares SPD",
+          "Resultary semantic search: perturbed inner product minimal residual norm under sketch true residual worst case sketch Gram",
+          "Burke–Güttel–Soodhalter arXiv:2311.14206v2, Sections 3.4 and 4.1-4.4",
+          "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Four actual Resultary searches returned no record establishing this exact deterministic κ-ε sketched GMRES(1) supremum.",
+          "Closest full Resultary mathematical records concern, respectively, symmetric GMRES solution error, greedy Kaczmarz residual spikes, and weak Gauss–Newton energy error.",
+          "Burke et al numerical and theoretical angle plots do not print an exact two-parameter SPD first-step tolerance table or equivalent theorem."
+        ],
+        "reasoning": "The requested object is an all-real-parameter analytic envelope, so a finite database table would be relevant only if it encoded the same exact sharp formula or stronger implication. Inspected exact published findings and primary papers do not; searches do not certify absence from all literature.",
+        "searches": [
+          "Resultary semantic search: sharp one step sketched GMRES SPD true residual Euclidean amplification epsilon condition number Kantorovich oblique projection",
+          "Resultary semantic search: one step GMRES randomized sketch residual contraction spectral condition number necessary sufficient embedding tolerance",
+          "Resultary semantic search: sketched minimal residual sharp 1/sqrt(1-epsilon^2) one-dimensional least squares SPD",
+          "Resultary published findings: symmetric GMRES(1), Kaczmarz coherence frontier, weak Gauss–Newton frame obstruction",
+          "arXiv:2311.14206v2, Sections 4-5"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge originality: closest fully inspected primary sketched-GMRES result gives general angle/quasioptimal bounds but not the precise deterministic worst-case SPD first-step residual factor, simultaneous two-mode equality, or necessary-and-sufficient embedding-safety frontier. Classical Kantorovich angle and oblique-projection geometry are acknowledged ingredients. The inspected published Resultary findings concern different error metrics or algorithms. Inaccessible full text of the closest 2026 same-method article and possible older projector-angle reformulations remain genuine priority risks, not grounds by themselves for scientific rejection.",
+      "residual_risks": [
+        "The full July 2026 Bucci–Durastante same-method paper could not be inspected after arXiv access failed and authorized institutional access returned vpn_disconnected; it might contain an equivalent specialized bound.",
+        "Classical oblique-projection/principal-angle literature could formulate an exact 1/sqrt(1-eps²) estimate whose combination with Kantorovich is already an explicit known corollary; current searches cannot rule this out.",
+        "Indexed web and Resultary semantic searches are nonexhaustive and do not prove historical novelty."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Corollary 4.4 yields a non-sharp sine/cosine/epsilon bound with added 2 epsilon terms; neither a sharp SPD one-step κ-ε factor nor equivalence threshold is stated.",
+          "evidence": [
+            "arXiv:2311.14206v2, equations (3.1), (4.1)-(4.5), Section 4.4, Corollary 4.4, PDF p.13"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2311.14206v2",
+          "material_read": "Author arXiv 24-page PDF: introduction, sketched projection Section 3, angle-based residual analysis Section 4.1-4.4 including Lemma 4.3/Corollary 4.4 on PDF p.13; implementation and conclusion inspected for scope.",
+          "method": "Full accessible primary PDF extracted text; relevant theorem pages visually inspected",
+          "title": "GMRES with randomized sketching and deflated restarting",
+          "trigger": "Closest broad primary theorem on the identical sketched Krylov minimization and true residual"
+        },
+        {
+          "assessment": "Theorem 2.1 concerns expectation of Frobenius residual squared for a random Gaussian or orthonormal sketch, optimized over sketch distributions; not a worst-case deterministic epsilon-embedding on span{r,Ar}.",
+          "evidence": [
+            "arXiv:2605.19096v2 PDF p.3, Theorem 2.1; rank/sketch-dimension hypotheses and expected squared error"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2605.19096v2",
+          "material_read": "Original 24-page arXiv PDF introduction and Section 2.1; Theorems 2.1–2.2 and their statistical hypotheses checked, later content and proof-section scopes surveyed.",
+          "method": "Full accessible primary PDF extracted text with theorem page visually inspected",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "Sharp sketched least-squares theory plausibly dominating residual bound"
+        },
+        {
+          "assessment": "Backward error and attainable finite-precision stability as a function of unit roundoff; no exact-arithmetic, one-step deterministic κ–ε true residual sharp envelope.",
+          "evidence": [
+            "arXiv:2503.19086v3, abstract, Sections 3–4"
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2503.19086v3",
+          "material_read": "Open arXiv full HTML; abstract and Sections 1, 3, 4, 5 and conclusion inspected for theorem scope (finite precision and basis-conditioning effects).",
+          "method": "Read primary arXiv HTML equations/theorem text",
+          "title": "On the numerical stability of sketched GMRES",
+          "trigger": "Potential broad sGMRES stability guarantee"
+        },
+        {
+          "assessment": "Available portions describe sketched Anderson–GMRES equivalence and motivation; insufficient material to assert all uninspected sections lack a covering sharp bound. Qualified priority risk retained; not assigned automatic FAIL solely for access.",
+          "evidence": [
+            "arXiv:2607.04904v1 abstract; limited public preview, introduction and beginning of Section 2; institutional access limitation"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.04904",
+          "material_read": "ArXiv abstract/metadata and publicly available preview through the opening of Section 2; remaining primary full text inaccessible: arXiv HTML/PDF blocked and authorized institutional source returned vpn_disconnected.",
+          "method": "Attempted arXiv and lawful open-access mirror; authorized Oxford retrieval attempted once and returned vpn_disconnected. No workaround or repeated request.",
+          "title": "An Equivalence result for sketched Anderson Acceleration and sketched GMRES",
+          "trigger": "Most directly named source on the same algorithm and subspace embedding, plausible independent geometric theorem"
+        },
+        {
+          "assessment": "Unsketched symmetric GMRES solution error (indefinite allowed), sharp 2/sqrt3; does not bound the candidate SPD sketched true residual factor.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+            "Result: 2/sqrt3 error spike; no sketch epsilon"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+          "material_read": "Complete published RESULT.md mathematical claim, proof, assumptions, equality case, boundaries and literature.",
+          "method": "Retrieved actual GitHub RESULT.md and compared the objective and sketch assumptions",
+          "title": "A sharp Euclidean solution-error barrier for symmetric GMRES(1)",
+          "trigger": "Top ranked Resultary published finding with same one-step symmetric GMRES algorithm"
+        },
+        {
+          "assessment": "Exact residual spike formula for maximal-distance Kaczmarz with row-coherence parameter; distinct coordinate selection operator, not sketched GMRES.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f/RESULT.md",
+            "Kaczmarz coherence threshold sqrt(m/(m-1))-1"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f/RESULT.md",
+          "material_read": "Complete published RESULT.md including sharp norm proof and coherence witness.",
+          "method": "Retrieved actual GitHub mathematical source and compared update rule and controlling parameter",
+          "title": "Sharp coherence frontier for residual spikes in maximal-distance Kaczmarz",
+          "trigger": "High-ranked published exact sharp residual-safety frontier from related Krylov/linear-solver mathematics"
+        },
+        {
+          "assessment": "Frame-dependent weak Gauss–Newton solution-energy spike from nearly parallel test functionals; not SPD sketched GMRES residual for an epsilon near-isometric two-plane.",
+          "evidence": [
+            "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af/RESULT.md",
+            "Exact frame-condition-number law and energy norm, rather than fixed κ–ε residual safety"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af/RESULT.md",
+          "material_read": "Complete published RESULT.md including Gram-induced energy metric, counterexample and limit.",
+          "method": "Retrieved actual GitHub proof and compared invariant and optimization object",
+          "title": "Unit-normalized weak Gauss–Newton can amplify energy error without bound",
+          "trigger": "Related exact oblique least-squares frame perturbation precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "For sketched GMRES, the sketched objective may decrease while the true Euclidean residual grows; the sharp admissible embedding distortion for guaranteed SPD first-step descent is a natural, operationally relevant unanswered mathematical boundary. This result gives an exact κ-dependent if-and-only-if certificate, distinguishes it from a weaker general quasioptimality estimate, and constructs exact simultaneous sharp two-dimensional equality/strict-growth witnesses. The calculation is not a standalone new geometric lemma—classical Kantorovich and perturbed-projection ingredients are credited—but their interaction yields a nontrivial complete safety frontier for a specific canonical algorithm. No claims about later iterations, finite precision, typical random sketches, nonsymmetric matrices, or solution error are made.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned frozen package RESULT.md, REVIEW.md, AUDIT.json, METADATA.json, SLOGAN.txt, VERIFICATION.md and verify.py, at Git blob IDs listed in source_blob_shas",
+    "Independent symbolic reconstruction of projection and Kantorovich sharpness",
+    "Exact-rational independent matrix check: κ=9, epsilon=3/5 and 4/5",
+    "https://arxiv.org/pdf/2311.14206v2 (Burke–Güttel–Soodhalter full relevant primary text)",
+    "https://arxiv.org/pdf/2605.19096v2 (Epperly–Webber sharp expected least squares)",
+    "https://arxiv.org/html/2503.19086v3 (Burke–Carson–Ma finite precision)",
+    "https://arxiv.org/abs/2607.04904 (Bucci–Durastante accessible abstract/partial preview; full unavailable)",
+    "https://github.com/Resultary/2026/blob/main/2026/9/20/SCOPE-symmetric-gmres1-euclidean-error-barrier--89eb763dddfc/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/9/21/SCOPE-kaczmarz-coherence-residual-spike-frontier--332a15a5d36f/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/9/19/SCOPE-unit-normalized-weak-gn-frame-obstruction--7915401e13af/RESULT.md"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only exact arithmetic; one GMRES(1) step, not a general multistep contraction theorem.",
+    "SPD, real, nonzero residual, ε squared-norm embedding on full residual plane; no claims for indefinite/nonsymmetric systems.",
+    "The finite rational and sample checks are supportive; the unrestricted proof rests on symbolic inequalities and simultaneous equality.",
+    "No claim that stochastic sketches commonly attain the deterministic worst case."
+  ],
+  "residual_risks": [
+    "The sharp inner-product perturbation estimate may be classical under a non-GMRES abstract theorem; originality qualified accordingly.",
+    "Closest same-method 2026 full preprint inaccessible through authorized routes; human literature priority verification could change judgment.",
+    "Source metadata includes operational provenance, so publication remains explicitly withheld.",
+    "Saved source verification logs do not certify universal mathematics, originality or value."
+  ],
+  "schema_version": 1
+}
