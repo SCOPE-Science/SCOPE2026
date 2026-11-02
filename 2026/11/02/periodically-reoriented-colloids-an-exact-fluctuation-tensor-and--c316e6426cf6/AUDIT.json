@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "Positive-definite Schur complement gives an exact independent-noise representation. Ito's formula identifies an endpoint primitive of angular coupling and a conditionally centered Gaussian martingale. Angular first/second Fourier harmonics yield the full single-cycle covariance, iid cycle LLN and CLT give the transport limit, and scalar convexity gives unique positive optimum. Analytical work and 56 deterministic checks plus 90000-cycle finite Monte Carlo are separate evidence.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "[1] includes full body-frame SPD mobility but only first moment in its colloid section.",
+        "[2] independent-noise assumption implies zero cross mobility.",
+        "[3] unreset colloid coupling, abstract-level comparison."
+      ],
+      "reasoning": "General regenerative CLTs imply existence and covariance per cycle but not the explicit analytic tensor or special-case optimum without new conditional stochastic calculations. No inspected broader source includes both nonzero translation–rotation cross mobility and periodic orientation-only resetting.",
+      "searches": [
+        "\"Anisotropic Brownian particles under resetting\" rotation translation coupling off diagonal μ13 pdf",
+        "\"Brownian\" \"translation rotation coupling\" \"variance\" \"reset\" hydrodynamic",
+        "arXiv:1410.6057",
+        "periodic reset orientational mobility Schur complement covariance"
+      ]
+    },
+    "checked_sources": [
+      "Cleuren–Eichhorn arXiv:2603.19430v1, full text",
+      "Chaki–Olsen–Löwen arXiv:2406.17550v2, full text",
+      "Chakrabarty et al. arXiv:1410.6057, abstract-level only"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "[1] closing discussion treats second-moment modulation as a prospective effect.",
+        "[2] Eqs. (1)–(3) disallow the cross-mobility h required for the theorem; its long-time tensor is for Poisson orientation resets.",
+        "[3] is unreset Brownian shape dynamics."
+      ],
+      "reasoning": "The exact h≠0, K=kI dispersion gap cannot be obtained by substituting parameters into [2], because [2] assumes h=0, and is not a corollary of [1] merely from its mean displacement expression. An additional nontrivial covariance calculation is required. The earlier unreset theory can supply the one-cycle propagator but not the periodic-reset optimization without further work.",
+      "searches": [
+        "\"Sorting by Resetting\" \"second moments\"",
+        "\"Anisotropic Brownian particles under resetting\" orientational tensor",
+        "Brownian Motion of Arbitrarily Shaped Particles in Two Dimensions 2014"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "[1] full text, Sec. (ii), Eqs. (4)–(8): mean drift only.",
+        "[2] full text, Sec. V, Eqs. (63)–(64): long-time diffusion tensor with independent translational and angular noises."
+      ],
+      "reasoning": "The closest equivalent notion is the effective diffusion tensor (half covariance-growth rate). [2] includes one for Poisson angular resets but lacks h, whereas [1] includes h but calculates mean velocity. The exact combined cross-coupled periodic-reset covariance and isotropic-K induced gap are not their stated results.",
+      "searches": [
+        "\"Sorting by Resetting\" Cleuren Eichhorn dispersion covariance effective diffusion tensor translation rotation",
+        "\"orientation resetting\" \"effective diffusion\" colloids translation rotation coupled",
+        "arXiv:2603.19430v1",
+        "arXiv:2406.17550v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "[1] graph of drift vs resetting period, rather than tabulation of centered covariance.",
+        "[2] explicit anisotropy ratios for a different independent-noise model."
+      ],
+      "reasoning": "The dimensionless optimizer and nonzero induced anisotropy are analytic expressions rather than an extracted database or table value. The inspected source graphs and tables concern different observables.",
+      "searches": [
+        "periodically reoriented colloids centered dispersion peak 0.628215604",
+        "isotropic translational mobility coupling angular resetting covariance anisotropy"
+      ]
+    },
+    "rationale": "Comparison of actual theorems and hypotheses in [1] and [2] supports a new explicit centered covariance tensor for periodically angular-reset full SPD colloids and the special nonzero finite-period anisotropy maximum for K isotropic with h nonzero. Earlier mean drift and independent-noise diffusion results are credited. General Markov-additive or older hydrodynamic work remains a stated priority risk.",
+    "residual_risks": [
+      "An unlocated generic periodic Markov-additive covariance theorem might yield part of the formula as an application.",
+      "Older free-colloid fluctuation analyses, especially [3], were not exhaustively read; they could contain overlapping one-cycle moment identities.",
+      "Search coverage and independent priority checking are necessarily incomplete; novelty is a best-knowledge judgment."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "SAME_MODEL_DIFFERENT_OBSERVABLE: mean drift established, centered covariance and optimal anisotropy not stated",
+        "evidence": [
+          "Full-text Sec. (ii), Eqs. (4)–(8), Fig. 4 and closing paragraph establish the cross-coupled model and mean drift, but no spatial centered covariance-growth tensor or finite optimum for a dispersion gap."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2603.19430v1",
+        "material_read": "Full primary article: colloid equations (4)–(8), Fig. 4, discussion of second moments, model and appendix mobility examples",
+        "method": "Read lawful arXiv HTML and inspected corresponding full-text PDF pages 2–6",
+        "title": "Sorting by Resetting",
+        "trigger": "Exactly the underlying periodic fixed-angle reset and full cross-mobility colloid model"
+      },
+      {
+        "assessment": "DIFFERENT_HYPOTHESES: independent body-frame translation and rotation noises, Poisson resets, no off-diagonal cross mobility",
+        "evidence": [
+          "Full-text Secs. II and V assume independent translational and rotational driving noises (their Eqs. (1)–(3)); their diffusion tensor under Poisson orientation resets is driven by anisotropy of the translational block, not a nonzero cross-mobility vector. Thus its hypotheses exclude nonzero h in the isotropic-K theorem."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2406.17550v2",
+        "material_read": "Full primary article Secs. II, V and VI; Eqs. (1)–(3), (47)–(64)",
+        "method": "Read lawful arXiv HTML full text and scanned mathematical assumptions and resulting tensors",
+        "title": "Anisotropic Brownian particles under resetting",
+        "trigger": "Highly relevant orientational resetting and effective diffusion tensor"
+      },
+      {
+        "assessment": "PLAUSIBLE_GENERAL_BACKGROUND_WITH_ACCESS_RISK",
+        "evidence": [
+          "Unreset particle model concerns translational–rotational coupling in free motion, but does not study deterministic periodic orientation resetting or optimize its asymptotic covariance anisotropy. Only abstract/metadata were inspected here; a hidden equivalent special-case calculation remains a priority risk."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1410.6057",
+        "material_read": "Abstract and bibliographic description; full article not substantively assessed",
+        "method": "Read arXiv bibliographic/abstract evidence; no full-text NOT_COVERING assertion",
+        "title": "Brownian Motion of Arbitrarily Shaped Particles in Two Dimensions",
+        "trigger": "Free Brownian hydrodynamic translation–rotation coupling may dominate a portion of one-cycle calculations"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c316e642-6cf6-4193-a5c7-75e8cf6f56b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "[1] specifically identifies second moments and diffusion enhancement as practical targets. The tensor isolates fluctuations around mean sorting drift; nonzero cross-mobility generates a counterintuitive strictly positive anisotropy even when translational mobility is isotropic. A dimensionless unique peak supplies an exact experimental tuning target and enables distinguishing anisotropic diffusion induced by hydrodynamic cross coupling from anisotropy of the bare translational block. The result does not claim an optimized sorting classifier.",
+    "status": "PASS"
+  }
+}
