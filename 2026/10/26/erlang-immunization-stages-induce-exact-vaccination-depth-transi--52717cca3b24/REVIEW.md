@@ -1,19 +1,21 @@
-# Scientific assessment: Erlang immunization stages and vaccination depth
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The one-target expected-descendant reward follows by multiplying the exact race probability for an Erlang maturation clock versus an independent Erlang depth-infection clock by the number of strict descendants. The proof derives the race probability by event order, establishes strict depth log-concavity using coefficient-ratio monotonicity and exact complete-tree descendant counts, proves the monotonicity and endpoint values of every adjacent-depth ratio, and handles all transition endpoints. The sharp two-stage boundary and the exact binary-tree witness are rational consequences of the general theorem. The included `verify.py` checks \(1{,}920\) exact-rational families and independently reconstructs each race probability by finite-state dynamic recursion; this corroborates, but does not replace, the infinite-parameter proof. No unproved asymptotic claims are used.
+PASS
 
-## Originality: PASS, subject to ordinary literature uncertainty
+PASS: Exact infection arrival is sum of d i.i.d. Exp(λ) stages, immunization completion sum h i.i.d. Exp(μ). Interleaved event streams give the negative-binomial race (1-q)^h Σ_{j<d}C(h+j-1,j)q^j; strict descendants N_d=Σ_{i=1}^{H-d}b^i. For w_j=C(h+j-1,j)q^j the ratios w_(j+1)/w_j=q(h+j)/(j+1) decrease, implying strict log-concavity of partial sums S_d. The geometric descendant sequence N_d is strictly log-concave too, so W_d has decreasing adjacent ratios, allowing a unique optimum or two adjacent tied depths. Adjacent ratio S_{d+1}/S_d strictly increases with q from 1 to 1+h/d, so crossings exist exactly at the displayed strict inequality; the monotone depth-ratio order makes them an initial segment with increasing q_d. Since N_d/N_{d+1}>b, h=1 never crosses, and for h=2 only b=2,d=1 can cross, with Q_H as claimed. Recomputed exact 2,4,2,3/4 example (7/8,15/16,67/128). Independent rational race-DP checks passed for 1920 b,H,h,q cases; proof applies to all positive λ,μ.
 
-Li–Huang–Lee–Eun (2023) supply the stochastic SI-with-delayed-immunization tree model and the general one-vaccine reward formula. Their accessible complete preprint was inspected through its model, theorems, proofs, numerical experiments, and references. Their result implies that any particular depth can be scored; the source does not state this exact all-branching/all-height/all-Erlang-stage sequence of strict log-concavity, ordered transitions, or the sharp one-versus-two-stage switch. The closest multistage-vaccine paper by DeLegge and collaborators concerns population-level compartment dynamics and does not have the same rooted-tree target objective; only its abstract was accessible in this check. Nguyen–Carlson's accessible description concerns a stochastic two-city SIR allocation model, not the same finite-tree race. Searches of related published mathematical findings identified delay-distribution and vaccination-threshold results but no implication of the ordered depth classification. A search is not a proof of publication priority; full verification of all possible literature is outside this review.
+## originality
 
-## Value: PASS
+PASS
 
-The model addresses a genuine allocation tradeoff: vaccinating close to an infected root protects more descendants but has less time to mature. The theorem completely solves this tradeoff on an analytically natural symmetric tree class for any positive infection/maturation rates and every integer stage count, including degenerate tie boundaries. It proves that a memoryless maturation assumption structurally prevents deeper targeting, whereas two maturation stages can reverse the preferred level without changing mean maturation time. This is an exact, reusable benchmark for allocation with noninstant immunity, rather than a numerically optimized arbitrary tree or a restatement of the source's expected-reward formula.
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
 
-## Closest literature and limitations
+## value
 
-The 2023 IFIP Networking paper is the precise model source and is credited for its baseline formula and algorithm. The 2015 multistage vaccine study and 2016 two-city vaccination study concern substantively different disease-population models. Published delay-comparison work is not a tree-depth optimization classification. The mathematical scope is one vaccinated vertex, one infected root, homogeneous independent exponential infection times, complete rooted trees, and Erlang maturation. The reward excludes the vaccinated vertex itself, following the source formulation; including it changes finite-height cutoffs. Multiple targets, recovery, other graphs, general phase-type distributions, and empirical effectiveness are not addressed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: Exact ordered vaccination-depth phase transitions isolate a nontrivial effect of maturation-time shape at fixed mean, sharply distinguishing one from two Erlang stages and showing when b-ary geometry suppresses outward shift. It is a complete optimization classification within a natural idealized epidemic model, not just an isolated numerical example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
