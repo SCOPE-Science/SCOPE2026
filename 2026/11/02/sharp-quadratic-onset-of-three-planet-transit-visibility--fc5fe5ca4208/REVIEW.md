@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** The cube transformation proves an exact if-and-only-if positivity cutoff. Strict convexity and comparison with adjacent vertices prove that only finitely many maximizing corners can contribute and that every required corner slope is positive. A local plane-section calculation provides the signed-corner coefficient and the cubic area remainder. Exact rational checks and an independent spherical integral confirm an orthogonal benchmark; they are not offered as an infinite proof. No unverified computational lemma is needed.
+
+**Originality — PASS, subject to historical-priority risk.** Full relevant sections of Ragozzine–Holman (2010) and Brakensiek–Ragozzine (2016) were compared at the statement/implication level. The latter already gives accurate general joint-transit probabilities and empty-region detection. Those contributions are expressly excluded from novelty. The added claim is the explicit local quadratic law and positive coefficient for every non-coplanar triple (plus the closed sign criterion), which is not supplied by the published general-probability algorithm or numerical examples. No equivalent coefficient formula was found in the targeted literature and mathematical-record searches. A general convex-intersection asymptotic may imply the result and is the principal priority risk; independent historical review remains necessary.
+
+**Mathematical value — PASS.** The onset exponent and coefficient quantify how rare triple-transit visibility emerges at its exact geometric threshold. They permit sensitivity analysis near a vanishing joint detection region and avoid estimating a tiny probability by subtracting nearly equal spherical areas. Unlike an arbitrary numerical slice, the result applies to all linearly independent orbital-normal triples and arbitrary positive relative transit widths. It is confined to ideal static circular-orbit geometry.
+
+The closest primary prior is Brakensiek–Ragozzine (2016), which solves general joint probability numerically to near machine precision, and Ragozzine–Holman (2010), which discusses multi-transit geometric selection. No claim is made to replace those general methods or to have independent certification.
+
+Self-review: passed. Independent audit: not yet performed.
