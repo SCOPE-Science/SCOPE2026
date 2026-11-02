@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-For every prime power \(q\), every dimension \(n\ge1\), and every factor length \(m\ge1\), the proof derives the nilpotent operator count by an explicit Fitting-decomposition count; then it conjugates a fixed rank-\(r\) factor times a uniform matrix to a block-triangular matrix whose \(r\)-square leading block is uniform. This proves the conditional probability \(q^{-r}\), which becomes the probability that an independent uniform vector lies in the factor's kernel. The independent random-vector survival recurrence produces \(1-(1-q^{-n})^m\) without relying on computational induction. The finite semisimple case follows from Wedderburn–Artin, finite-division-ring commutativity, and independence across ring factors.
+## correctness
 
-Exact checker artifacts enumerate all factors with multiplicity and test nilpotency by actual powers for small prime fields; they are not substituted for the universal proof. No generalization to nonsemisimple or nonuniform rings is asserted.
+PASS
 
-## Originality — PASS
-Sarma and Subedi, *Nilpotent Product Probability of Finite Rings* (arXiv:2610.07892v1), was read in full. Its matrix results treat triangular and scalar-upper-triangular subrings; the product-of-rings rule does not supply the new full-matrix block value. Leinster (arXiv:1912.12562v2) proves the one-factor nilpotent census but no multi-factor law. Two closest complete published matrix results count constrained idempotent–nilpotent product fibers or additive t-fine decompositions. Those are not unrestricted products of independent uniform matrices, and their claims cannot imply the present all-length formula. Numerical agreement with field entries of a probability table does not establish that the full-matrix law was previously classified. Multiple source-, alias-, parameter- and implication-oriented searches found no covering statement.
+For finite fields of prime-power order q, dimensions n>=1 and all product lengths m>=1, the proof is correct. Fitting decomposition partitions every n-endomorphism into invariant nilpotent and invertible summands. Counting ordered decompositions proves N_r=q^{r^2-r} (also for r=0). If fixed C has rank r, write C=P diag(I_r,0) Q; P^{-1}CBP=diag(I_r,0)(QBP) is block upper-triangular with a uniform r-by-r leading block, so Pr(CB nilpotent|C)=q^{-r}. This is also Pr(Cv=0|C) for an independent uniform vector v. For C=A_1...A_{m-1}, independence allows replacing nilpotence of CB by vanishing of Cv. Starting with a uniform vector, nonzero survives each independent matrix multiplication with probability 1-q^{-n}; zero is absorbing. The survival probability is (1-q^{-n})^m and its complement proves the result. For products of matrix blocks Wedderburn–Artin and independence of uniform coordinates show exact multiplication of their probabilities. Edge cases m=1, n=1, any prime-power q and r=0 are consistent; the zero ring and m=0 are correctly excluded. The reviewed script performs exact power-test enumeration in limited small rings; independently written trace-and-determinant convolution verifies all q=2,n=2,m=1..5 and q=3,n=2,m=1..4, nine exact counts. The universal proof, not finite tests, establishes unrestricted quantifiers. No inconsistency found in displayed 2026 proof, scopes or normalizations.
 
-Residual risk: an older unindexed random-matrix-product identity might encode the same probability. No inference of absolute uniqueness is made from the search results.
+## originality
 
-## Value — PASS
-An exact noncommutative class missing from a recent finite-ring probability investigation is resolved for all dimensions, all prime powers and all product lengths. The surprising equivalence to the zero-product law in a field of degree \(n\) exposes a dimension-dependent cancellation absent from a mere single-operator count. The semisimple product theorem gives a complete natural class rather than an isolated small computation.
+PASS
 
-## Closest literature and limits
-Sarma–Subedi gives the motivating invariant and special-ring results; Leinster/Fine–Herstein supplies the classical single-factor nilpotent count. The result assumes independent uniform factors and finite semisimple unital rings. Exhaustive numerical checks are finite and restricted to small prime-field cases. No external independent audit has occurred.
+IMPORTANT NEW PRIOR COVERAGE: Wästlund (2020), arXiv:2008.13017 Proposition 14, establishes the exact m=2 square-matrix value as a specialization of his stronger rectangular two-factor formula; Fine–Herstein/Leinster establish m=1. Thus neither m=1 nor m=2 is novel. The all-product-length formula for m>=3 is the surviving substantive originality claim: Wästlund assumes two independent UNIFORM factors; their proposition cannot simply be applied to a grouped product of m-1 matrices because it is nonuniform. The submitted conditional-rank/vector-survival derivation proves the additional step, yielding an exact all-length law and a natural complete semisimple family. Full relevant primary sections of Wästlund and Leinster and two complete published Resultary findings were read. Sarma–Subedi 2026 is highly relevant but only an accessible extended excerpt was inspected; protected full-text access required a disconnected VPN. We therefore do not claim whole-document noncoverage of that paper, and retain its priority risk. The PASS is best-of-knowledge for the extension m>=3, not historical uniqueness of any two-factor formula.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The probability of nilpotence after m unrestricted independent uniform matrix factors is a canonical, motivated finite-ring invariant; it is not determined by a one-factor count or Wästlund’s exact two-factor result alone. The full m>=3 identity provides a closed all-length law for every n and prime power, quantifies absorption across successive random linear maps and yields the complete finite semisimple class by direct-product decomposition. The surprising match to zero products over the extension field is an exact structural observation despite nonisomorphic rings. This is a natural complete family with future comparative usefulness; it is not an arbitrary tiny case, although the foundational calculation is short and the m=1,2 specializations are prior work. No claims for nonuniform/correlated factors or nonsimisimple rings.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

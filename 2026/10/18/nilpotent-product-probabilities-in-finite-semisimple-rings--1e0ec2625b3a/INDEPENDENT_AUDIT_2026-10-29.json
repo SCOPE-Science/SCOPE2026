@@ -1,0 +1,148 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:04:42.600121Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For finite fields of prime-power order q, dimensions n>=1 and all product lengths m>=1, the proof is correct. Fitting decomposition partitions every n-endomorphism into invariant nilpotent and invertible summands. Counting ordered decompositions proves N_r=q^{r^2-r} (also for r=0). If fixed C has rank r, write C=P diag(I_r,0) Q; P^{-1}CBP=diag(I_r,0)(QBP) is block upper-triangular with a uniform r-by-r leading block, so Pr(CB nilpotent|C)=q^{-r}. This is also Pr(Cv=0|C) for an independent uniform vector v. For C=A_1...A_{m-1}, independence allows replacing nilpotence of CB by vanishing of Cv. Starting with a uniform vector, nonzero survives each independent matrix multiplication with probability 1-q^{-n}; zero is absorbing. The survival probability is (1-q^{-n})^m and its complement proves the result. For products of matrix blocks Wedderburn–Artin and independence of uniform coordinates show exact multiplication of their probabilities. Edge cases m=1, n=1, any prime-power q and r=0 are consistent; the zero ring and m=0 are correctly excluded. The reviewed script performs exact power-test enumeration in limited small rings; independently written trace-and-determinant convolution verifies all q=2,n=2,m=1..5 and q=3,n=2,m=1..4, nine exact counts. The universal proof, not finite tests, establishes unrestricted quantifiers. No inconsistency found in displayed 2026 proof, scopes or normalizations.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Wästlund covers arbitrary rectangular dimensions but ONLY a product of two independent matrices; for equal dimensions his theorem is precisely m=2, not a multi-length classification.",
+          "Sarma–Subedi 2026 arXiv abstract/intro and publicly indexed pp.1–3 define the two-factor invariant, characterize commutative cases and state a matrix-subring program for T_n(R), S_n(R); full text beyond the excerpt was inaccessible this run.",
+          "Leinster/Fine–Herstein count nilpotent single operators; Resultary exact IN/NI factorization counts constrain factors, and its t-fine counts concern additions, not unrestricted products."
+        ],
+        "reasoning": "The powerful new primary prior source gives a dominating dimension range for TWO factors, so any claim of novelty already at m=2 would be false. It does not, by its stated proposition, give all m>=3: conditioning on a product changes the distribution. Sarma–Subedi full text could not be read, so the abstract and excerpt do not justify a whole-document NOT_COVERING judgment; the residual risk is recorded.",
+        "searches": [
+          "arXiv:2008.13017 Proposition 14 rectangular nilpotent product",
+          "arXiv:2610.07892 Sarma Subedi nilpotent product finite rings full matrix semisimple",
+          "random product k independent uniform finite field matrices nilpotent all k",
+          "Resultary query: finite ring nilpotent product probability matrix algebras probability of product being nilpotent"
+        ]
+      },
+      "checked_sources": [
+        "Wästlund 2020 arXiv:2008.13017v1 §15 Proposition 14 and equation (6), full directly relevant pages visually checked.",
+        "Leinster 2020 arXiv:1912.12562v2 §3 Theorem 5, full five-page primary PDF.",
+        "Sarma–Subedi arXiv:2610.07892v1, public abstract and indexed pp.1–3 excerpt; full paper inaccessible, no whole-paper coverage assertion.",
+        "Resultary 2026/10/4 exact fibers idempotent-nilpotent factorizations, complete published RESULT.md.",
+        "Resultary 2026/10/4 exact t-fine decomposition multiplicities, complete published RESULT.md.",
+        "Resultary three actual semantic searches on nilpotent random matrix products and semisimple rings; no all-m counterpart surfaced.",
+        "Web queries on uniform product nilpotence, explicit all-length formula, Wästlund multi-factor extension and semisimple class."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Wästlund Prop.14 assumes both factors uniform independently. For three factors A_1,A_2,A_3, the grouped factor A_1A_2 is not uniform (e.g. zero occurs more often), hence its Prop.14 cannot be applied without new reasoning.",
+          "The submitted conditional-rank identity Pr(CB nilpotent|C)=q^{-rank C}, plus the independent uniform test vector and absorbing survival chain, supplies the necessary extra mechanism for every m.",
+          "Wedderburn–Artin plus coordinate independence is a standard product extension once a valid all-m simple-block law is available; that semisimple step itself is not an independent novelty argument."
+        ],
+        "reasoning": "The current proof establishes a genuine further mathematical implication beyond the EXACT preexisting m=1 and m=2 cases. Wästlund’s martingale method may plausibly admit a multi-partite extension, but the inspected result states only two matrix factors. Resultary constrained product/additive work is logically different. Best-of-knowledge original content is the m>=3 law and resulting complete semisimple family, not its known lower-length special cases.",
+        "searches": [
+          "arXiv:2008.13017 Sections 14–15 Proposition 13 Proposition 14",
+          "arXiv:1912.12562v2 Theorem 5 and Fitting decomposition",
+          "Resultary: exact fibers of idempotent nilpotent factorizations in two dimensions; exact t-fine decompositions",
+          "Sarma Subedi Nilpotent Product Probability finite rings 2610.07892 Proposition 2.2 and introduction"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Wästlund, Padlock Solitaire, Proposition 14 (arXiv:2008.13017v1, p.16), proves Pr(AB nilpotent)=q^{-a}+q^{-b}-q^{-(a+b)} for uniform A in M_{a,b} and B in M_{b,a}; setting a=b=n is EXACTLY the submitted factor-length two formula, so m=2 is PRIOR ART.",
+          "Leinster, The probability that an operator is nilpotent, Theorem 5 (arXiv:1912.12562v2, p.4), proves Pr(A nilpotent)=q^{-n}; thus m=1 is also PRIOR ART.",
+          "The claimed field comparison is numerical: Pr(product of m independent elements of F_{q^n} is zero)=1-(1-q^{-n})^m; it is not an isomorphism of rings or distributions."
+        ],
+        "reasoning": "Exact square-matrix m=2 and single-factor m=1 instances are covered, irrespective of naming. The remaining substantive assertion is one formula valid for all factor lengths m>=3, all n and prime powers, with the semisimple factorization. A two-factor rectangular result cannot be applied to A_1...A_{m-1} as one uniformly distributed matrix because that product is generally not uniform. No inspected equivalent statement for arbitrary m>=3 was found.",
+        "searches": [
+          "\"nilpotent product\" \"random matrices\" \"finite field\" exact probability",
+          "\"Wästlund\" \"nilpotent matrix products\" Proposition 14",
+          "Resultary semantic query: random matrix product nilpotence conditional rank q^-r probability equals field zero product",
+          "arXiv:2008.13017 Section 15 Proposition 14; arXiv:1912.12562 Theorem 5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Wästlund 2020 Equation (6) is an EXACT infinite-family formula, not merely a table: square specialization yields 2q^{-n}-q^{-2n}, covering all m=2 values including 7/16 for M_2(F_2).",
+          "The direct independent count for M_2(F_2) m=3 yields 2368/4096=37/64; m=5 yields 799744/1048576=781/1024. These are finite examples of the all-length extension, not novelty proof.",
+          "Resultary high-similarity hits count restricted idempotent-nilpotent factor fibers and additive t-fine decompositions; their full RESULT.md files were inspected."
+        ],
+        "reasoning": "An exact preexisting table/formula covers the two-factor specialization, so do not claim that specialization is an unknown computation. The reported novel part is the arbitrary-length identity for at least three factors; no exact multi-factor table or universal formula was found in inspected sources. Absence from search is only a qualified observation.",
+        "searches": [
+          "Wästlund 2020 arXiv:2008.13017 Eq.(6) nilpotent matrix products",
+          "Sarma–Subedi 2026 arXiv:2610.07892 Table 1 nilpotent-product probability 7/16",
+          "\"1-(1-q^-n)^m\" nilpotent matrix product probability",
+          "Resultary semantic search: nilpotent product probability uniform full matrices all lengths"
+        ]
+      },
+      "rationale": "IMPORTANT NEW PRIOR COVERAGE: Wästlund (2020), arXiv:2008.13017 Proposition 14, establishes the exact m=2 square-matrix value as a specialization of his stronger rectangular two-factor formula; Fine–Herstein/Leinster establish m=1. Thus neither m=1 nor m=2 is novel. The all-product-length formula for m>=3 is the surviving substantive originality claim: Wästlund assumes two independent UNIFORM factors; their proposition cannot simply be applied to a grouped product of m-1 matrices because it is nonuniform. The submitted conditional-rank/vector-survival derivation proves the additional step, yielding an exact all-length law and a natural complete semisimple family. Full relevant primary sections of Wästlund and Leinster and two complete published Resultary findings were read. Sarma–Subedi 2026 is highly relevant but only an accessible extended excerpt was inspected; protected full-text access required a disconnected VPN. We therefore do not claim whole-document noncoverage of that paper, and retain its priority risk. The PASS is best-of-knowledge for the extension m>=3, not historical uniqueness of any two-factor formula.",
+      "residual_risks": [
+        "Wästlund 2020 exactly covers all m=2 cases; a publication must explicitly credit him and must not portray the two-factor formula as new.",
+        "The most relevant 2026 Sarma–Subedi primary preprint was unavailable in complete form; Oxford returned vpn_disconnected, so no claim of complete exclusion from that paper.",
+        "A prior generalization to three or more random matrices, perhaps based on Wästlund’s multi-partite padlock method, could be unindexed or implicit in older random matrix product literature; the bounded search cannot guarantee absence.",
+        "The semisimple direct-product step by itself is routine once the simple-block law is known; value and originality lie in the all-m formula, not a restatement of Wedderburn–Artin."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DEFINITIVELY COVERS m=2, including arbitrary square n, with stronger rectangular two-factor scope; does not state an arbitrary number of factors.",
+          "evidence": "Prop.14 p.16: Pr(AB nilpotent)=q^{-a}+q^{-b}-q^{-(a+b)}; a=b=n recovers two-factor claimed specialization.",
+          "identifier_or_url": "Johan Wästlund, arXiv:2008.13017v1, https://arxiv.org/pdf/2008.13017",
+          "material_read": "20-page PDF accessible; examined §§14–15 (pp.14–16), Proposition 13, Proposition 14, Eq.(6), proof, abstract and references; visually verified page 16.",
+          "method": "Read primary PDF full text of relevant sections and inspected page image.",
+          "title": "Padlock Solitaire: A martingale trick for combinatorial enumeration",
+          "trigger": "Direct antecedent: explicit probability for product of random finite-field matrices."
+        },
+        {
+          "assessment": "Exactly establishes m=1 case q^{-n} but no product of multiple independent random matrices.",
+          "evidence": "Theorem 5 and its concluding probability, p.4; Fitting decomposition and block nilpotence p.3.",
+          "identifier_or_url": "Tom Leinster, arXiv:1912.12562v2, https://arxiv.org/pdf/1912.12562",
+          "material_read": "Full five-page PDF text; §§2–3, Fitting Lemma 4 and Theorem 5, with a direct page-4 image check.",
+          "method": "Primary PDF full-text and page image examination.",
+          "title": "The probability that an operator is nilpotent",
+          "trigger": "Classical single-factor count and proof via Fitting decomposition."
+        },
+        {
+          "assessment": "The excerpt concerns two random elements, commutative rings and triangular matrix subrings; no claim of whole-paper noncoverage because the remaining full text was not read.",
+          "evidence": "arXiv:2610.07892 abstract and publicly indexed introduction; Proposition 2.2 on two-factor direct products; §2.3 outline for T_n and S_n.",
+          "identifier_or_url": "Dibyasman Sarma and Tikaram Subedi, arXiv:2610.07892v1, https://arxiv.org/abs/2610.07892",
+          "material_read": "Abstract, published arXiv metadata and a publicly indexed extended excerpt of pp.1–3 including Proposition 2.2 and stated §2.3 scope. Later theorem pages were not independently accessible.",
+          "method": "Read accessible public abstract/extended indexed source text; direct arXiv PDF and HTML unavailable. Authorized Oxford request returned VPN disconnected; no credential bypass or retry.",
+          "title": "Nilpotent Product Probability of Finite Rings",
+          "trigger": "The 2026 motivating primary paper defines the exact two-factor ring invariant and includes matrix-subring results; plausible direct coverage."
+        },
+        {
+          "assessment": "Counts restricted EN factorizations with idempotent E and nilpotent N; does not count unrestricted independent uniform products.",
+          "evidence": "Finding defines E^2=E, N nilpotent and EN=A; fiber count q^3+2q^2+1 at zero.",
+          "identifier_or_url": "Resultary published record 2026/10/4/SCOPE-exact-fibers-of-idempotent-nilpotent-factorizations-in-two-dimen--376b6f723a17",
+          "material_read": "Complete published RESULT.md: finding, hypotheses, proof, counts, literature and limits.",
+          "method": "Read full original Git record text at published path.",
+          "title": "Exact fibers of idempotent–nilpotent factorizations in two dimensions",
+          "trigger": "Close result about products in 2x2 finite-field matrices with nilpotent factors."
+        },
+        {
+          "assessment": "Counts T+N with T invertible and N nilpotent; additive multiplicity does not imply unrestricted nilpotent-product probability.",
+          "evidence": "Finding gives d_q(A) for A=T+N as function of eigenline count.",
+          "identifier_or_url": "Resultary published record 2026/10/4/SCOPE-exact-t-fine-decomposition-multiplicities-for-two-by-two-finite--7b7188752131",
+          "material_read": "Complete published RESULT.md including finding, proof, boundaries and limits.",
+          "method": "Read full original published Git record.",
+          "title": "Exact t-fine decomposition multiplicities for two-by-two finite-field matrices",
+          "trigger": "Related finite matrix enumeration with a nilpotent component."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The probability of nilpotence after m unrestricted independent uniform matrix factors is a canonical, motivated finite-ring invariant; it is not determined by a one-factor count or Wästlund’s exact two-factor result alone. The full m>=3 identity provides a closed all-length law for every n and prime power, quantifies absorption across successive random linear maps and yields the complete finite semisimple class by direct-product decomposition. The surprising match to zero products over the extension field is an exact structural observation despite nonisomorphic rings. This is a natural complete family with future comparative usefulness; it is not an arbitrary tiny case, although the foundational calculation is short and the m=1,2 specializations are prior work. No claims for nonuniform/correlated factors or nonsimisimple rings.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Wästlund 2020 arXiv:2008.13017v1 §15 Proposition 14 and equation (6), full directly relevant pages visually checked.",
+    "Leinster 2020 arXiv:1912.12562v2 §3 Theorem 5, full five-page primary PDF.",
+    "Sarma–Subedi arXiv:2610.07892v1, public abstract and indexed pp.1–3 excerpt; full paper inaccessible, no whole-paper coverage assertion.",
+    "Resultary 2026/10/4 exact fibers idempotent-nilpotent factorizations, complete published RESULT.md.",
+    "Resultary 2026/10/4 exact t-fine decomposition multiplicities, complete published RESULT.md.",
+    "Resultary three actual semantic searches on nilpotent random matrix products and semisimple rings; no all-m counterpart surfaced.",
+    "Web queries on uniform product nilpotence, explicit all-length formula, Wästlund multi-factor extension and semisimple class."
+  ],
+  "disposition": "passed",
+  "limitations": "m=1 is classical; m=2 is EXACTLY Wästlund 2020 Proposition 14, so novelty applies only to the all-length extension m>=3. Sarma–Subedi full text inaccessible this run due protected VPN disconnection; only public extended excerpt consulted. Uniform independent factors, finite semisimple unital nonzero rings; no nonsemisimple or correlated result. No formal/independent external certification asserted. Publication withheld for source provenance and needed credit correction; no source write.",
+  "schema_version": 1
+}
