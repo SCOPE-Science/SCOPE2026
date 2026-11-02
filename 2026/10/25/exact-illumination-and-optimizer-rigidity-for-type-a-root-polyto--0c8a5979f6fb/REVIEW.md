@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The type-\(A\) root polytope is the zero-sum section of the \(\ell_1\) ball of radius two. Its root-vertex one-sided norm derivative gives the exact criterion \(a_i+b_j>T\). Summing two inequalities for disjoint directed edges contradicts conservation of positive and negative coordinate masses; every direction consequently illuminates at most one full star, consisting of at most \(m-1\) vertices. Vertex counting yields the fractional lower bound \(m\); explicit full outgoing-star directions attain it and illuminate each boundary face. Equality in both counting inequalities forces all weighted directions to be full stars with exact vertex coverage. The resulting linear system has precisely the solution segment \(\alpha_i=\theta,\beta_j=1-\theta\) for \(m\ge3\), with only two integer endpoints. Exact finite direction and incidence checks are reproduced by `verify.py` but are not used as a proof of the infinite-dimensional statement.
+## correctness
 
-## Originality
-**PASS on the inspected accessible record, with residual historical-priority uncertainty.** The September 20, 2026 general fractional-illumination theorem proves a universal bound and equality rigidity for parallelotopes, not an exact type-\(A\) invariant or all of its optimal fractional coverings. Naszódi's foundational formulation establishes the fractional invariant and general estimates. Živaljević's same-object simplex difference body and polar constructions concern topological illumination complexes, not minimizing inward direction weights; Ardila and coauthors' type-\(A\) root polytope work concerns triangulations and growth series. Exact results for Cartesian products of simplices and type-\(D\) root polytopes involve different convex bodies and no implication to the asserted type-\(A\) optimizer segment. Known planar regular-hexagon fractional and three-dimensional cuboctahedron ordinary values are specializations and are credited as such, but do not imply the theorem for all higher dimensions or the all-dimensional optimal-family rigidity. The closest known general overlap is a shared illumination framework, not equivalent statements. Web searches, a mathematical publication search, and comparisons with available earlier published mathematical results did not reveal an equal or stronger result. That is not a proof of global historical novelty; an equivalent result under simplex difference body, cuboctahedral generalization, or directed-star language remains possible.
+PASS
 
-## Mathematical value
-**PASS.** The result evaluates both illumination invariants simultaneously for all simplex difference bodies and gives a complete rigidity theorem for *every* optimum weighted family, not merely a collection of explicit witnesses. A one-dimensional optimal face with exactly two integral extremes is a structural dual-incidence phenomenon that links convex inward cones to bipartite star packings. It holds in unbounded dimension and is motivated by the newly established universal fractional bound. The formula is nontrivial even though the proof is elementary; no claim of a general downstream theorem is needed for its value.
+For every m>=3, root polytope R_m=Delta_(m-1)-Delta_(m-1)={x:sum x_i=0, sum |x_i|<=2}. For u in H_m with positive mass T and a_i=(-u_i)^+, b_j=(u_j)^+, the exact one-sided derivative at root e_i-e_j gives illumination iff a_i+b_j>T; derivative zero stays on boundary locally and cannot enter later by convexity. Two illuminated edges with distinct source and target contradict total masses, so every illuminated vertex set is a directed star of size <=m-1. Equality forces one sign on the unique star center and all other coordinates of opposite strict sign, giving the full outgoing/incoming stars. Vertex counting yields both I and finite-direction I* >=m; m outgoing stars illuminate all vertices and hence every boundary point by active supporting-facet inclusion. At fractional optimum all positively weighted directions are full stars and each vertex receives exactly one unit, so alpha_i+beta_j=1 for i!=j, forcing alpha_i=theta, beta_j=1-theta. Ordinary m-unit covers require theta in {0,1}. Independent exact integer-grid probes m=3..5 corroborate the star bound; proof is analytic for all m.
 
-## Scope and risks
-The theorem covers only finite weighted-direction illumination of the nonpolar type-\(A\) polytope for \(m\ge3\). The exact-star classification is for illuminated vertex sets, not a uniqueness assertion about direction vectors. Historical priority has not been independently certified; the foundational 2009 paper's abstract, rather than its entire PDF, was read. Finite tests support only their enumerated instances. No external scientific audit was conducted.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for the complete all-m optimizer family, not for existing planar and cuboctahedral special cases. The published fractional-illumination definition and general inequality do not yield the exact directed-star incidence or theta rigidity.
+
+## value
+
+PASS
+
+The type-A root polytope is a canonical simplex difference body. Exact fractional AND ordinary illumination, plus a full one-dimensional optimizer-face classification and global rigidity in every dimension, constitute structural knowledge far beyond the already-known low-dimensional hexagon/cuboctahedron values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

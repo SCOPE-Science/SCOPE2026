@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof in `RESULT.md` establishes the type-\(A\) root-polytope representation, the exact strict vertex criterion, the pairwise intersecting-edge property, the \(m-1\)-vertex maximum, both sharp illumination bounds, and the uniqueness of the one-parameter aggregate fractional optimizer family. No unproved computational extrapolation enters these steps.
+## correctness
 
-The stand-alone standard-library script `verify.py` was executed as `python verify.py` and returned:
+PASS
 
-`EXACT_OK type-A roots; integer-direction profiles: {3: 24, 4: 124, 5: 624, 6: 3124}`
+For every m>=3, root polytope R_m=Delta_(m-1)-Delta_(m-1)={x:sum x_i=0, sum |x_i|<=2}. For u in H_m with positive mass T and a_i=(-u_i)^+, b_j=(u_j)^+, the exact one-sided derivative at root e_i-e_j gives illumination iff a_i+b_j>T; derivative zero stays on boundary locally and cannot enter later by convexity. Two illuminated edges with distinct source and target contradict total masses, so every illuminated vertex set is a directed star of size <=m-1. Equality forces one sign on the unique star center and all other coordinates of opposite strict sign, giving the full outgoing/incoming stars. Vertex counting yields both I and finite-direction I* >=m; m outgoing stars illuminate all vertices and hence every boundary point by active supporting-facet inclusion. At fractional optimum all positively weighted directions are full stars and each vertex receives exactly one unit, so alpha_i+beta_j=1 for i!=j, forcing alpha_i=theta, beta_j=1-theta. Ordinary m-unit covers require theta in {0,1}. Independent exact integer-grid probes m=3..5 corroborate the star bound; proof is analytic for all m.
 
-This checks finite integer direction grids and exact rational weighted star assignments in dimensions \(m-1\) from two through five. It is not an exhaustive test of all real directions and does not establish results for untested dimensions. The unlimited-dimensional conclusion follows solely from the stated symbolic arguments.
+## originality
 
-Scientific priority is provisional, and independent audit is not yet performed. The 2009 foundational source was consulted at abstract level; the directly relevant 2013 type-\(A\) construction and 2026 fractional illumination results were inspected in accessible primary text.
+PASS
+
+Best-of-knowledge PASS for the complete all-m optimizer family, not for existing planar and cuboctahedral special cases. The published fractional-illumination definition and general inequality do not yield the exact directed-star incidence or theta rigidity.
+
+## value
+
+PASS
+
+The type-A root polytope is a canonical simplex difference body. Exact fractional AND ordinary illumination, plus a full one-dimensional optimizer-face classification and global rigidity in every dimension, constitute structural knowledge far beyond the already-known low-dimensional hexagon/cuboctahedron values.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
