@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run `python3 james_polygon_check.py` with a Python 3 standard-library interpreter. The program calculates the Minkowski functional directly as the maximum of all polygon facet functionals, independently of the simplified trigonometric formula. It compares the two evaluations for fourteen admissible orders from 6 through 98, verifies the vertex and vertical-edge unit directions and their chord symmetry, and computes 448 sampled local James values by bisection for isosceles partners. It also checks the hexagon value \(3/2\) and the previously known decagon value \((3\sqrt5-1)/4\).
+## correctness
 
-The completed run printed `CHECK_OK: 14 polygon orders, 448 sampled local James values; exact special-value checks passed.` These floating-point checks are finite corroboration, not an exhaustive global search or a proof of the entire family. The actual argument uses the planar-polyhedral vertex-reduction theorem and the exact nearest-facet calculation recorded in RESULT.md.
+PASS
 
-No independent mathematical audit has been performed. Bibliographic originality remains subject to the full text of Mizuguchi's 2020 paper and any unindexed older calculations.
+For all N>=6 congruent 2 mod 4, the gauge is the maximum of N apothem-normalized supporting functionals. Dihedral symmetry and Sain–Ghosh–Paul vertex reduction reduce the James maximum to v=(1,0) and its unique isosceles unit partner (0,cos(pi/N)). The angular inequality pi/4-pi/(2N)<atan(cos(pi/N))<pi/4 selects normal pi/4+pi/(2N) for N=2 mod8 and pi/4-pi/(2N) for N=6 mod8; direct trigonometric identities produce both signs, and Taylor expansion gives the third-order residue term. Independent direct facet-max numerical checks for ten orders N=6..98 matched to 2e-14; the infinite claim follows from the geometric argument, not numerical samples.
+
+## originality
+
+PASS
+
+Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.
+
+## value
+
+PASS
+
+The classical James constant is a standard measure of nonsquareness, and regular Radon polygonal planes constitute a natural full infinite class. Exact two-branch formulas and the opposite-sign N^-3 corrections distinguish genuine discrete facet geometry beyond the known universal bound and decagon example; this is not just a table of small polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

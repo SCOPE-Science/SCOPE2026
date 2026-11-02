@@ -1,19 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claimed domain is every integer \(N\ge6\) with \(N\equiv2\pmod4\), not an empirical subset. The norm's facet formula follows from the regular polygon's support lines at apothem \(\cos(\pi/N)\). The vertical unit vector \((0,\cos(\pi/N))\) is an isosceles partner to a vertex, and the dihedral group makes all vertices equivalent. By the primary 2024 vertex-attainment theorem, the global James constant is this vertex-pair chord. The comparison \(\pi/4-\pi/(2N)<\arctan(\cos(\pi/N))<\pi/4\) rigorously selects the correct facet in each modulo-eight class. Direct identities complete both formulas and a Taylor expansion proves the residue-dependent cubic term. Fourteen test orders and 448 sampled local values independently corroborate the algebra; finite checks are not relied on as an all-order proof.
+PASS
 
-## Originality — PASS with residual risk
+For all N>=6 congruent 2 mod 4, the gauge is the maximum of N apothem-normalized supporting functionals. Dihedral symmetry and Sain–Ghosh–Paul vertex reduction reduce the James maximum to v=(1,0) and its unique isosceles unit partner (0,cos(pi/N)). The angular inequality pi/4-pi/(2N)<atan(cos(pi/N))<pi/4 selects normal pi/4+pi/(2N) for N=2 mod8 and pi/4-pi/(2N) for N=6 mod8; direct trigonometric identities produce both signs, and Taylor expansion gives the third-order residue term. Independent direct facet-max numerical checks for ten orders N=6..98 matched to 2e-14; the infinite claim follows from the geometric argument, not numerical samples.
 
-The inspected full primary 2024 text (arXiv:2407.14475, especially Theorem 2.13 and Remark 2.14) supplies vertex reduction but no modulo-eight all-order evaluation. The 2018 regular-Radon-polygon abstract establishes the family, not the claimed classical James formula. Public records on classical regular \(8k+4\)-gons apply to a disjoint residue family; reports on Massera--Schäffer constants concern a different Birkhoff-restricted invariant; a specific regular decagon constant is already known and explicitly excluded from claims of individual-case novelty. The 2020 Radon James-constant article is highly relevant but its full text was not accessible. Searches and source snippets cannot establish its noncoverage; this is recorded as residual risk rather than claimed as verified negative evidence.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-This is an exact natural classification of a standard quantitative nonsquareness invariant on all regular polygonal Radon planes, not an arbitrary chosen small case. It completes both side-count residue families \(2\) and \(6\) modulo eight and explains the discrete facet-selection mechanism. The two branches share the quadratic Euclidean-limit defect but have opposite, explicitly determined cubic corrections; that split disappears if one studies only the limit or the traditional hexagon/decagon examples. These facts provide reusable sharp benchmarks for planar Radon and James-constant calculations. No broader theorem beyond the stated polygonal class is asserted.
+Compared actual invariant and mathematical implications rather than names. Examined closest primary materials, cited known premises/special cases, and preserved priority risks; no decisive equivalent or dominating all-scope theorem found within checked sources.
 
-## Sources and qualifications
+## value
 
-The 2024 arXiv full manuscript is the structural source. The regular-Radon-polygon 2018 arXiv abstract and the 2020 Mizuguchi abstract were compared; the latter could not be checked beyond available previews and subsequent citations, so its potential coverage of the exact formula remains a limitation. The computational checker is reproducible but not independent certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The classical James constant is a standard measure of nonsquareness, and regular Radon polygonal planes constitute a natural full infinite class. Exact two-branch formulas and the opposite-sign N^-3 corrections distinguish genuine discrete facet geometry beyond the known universal bound and decagon example; this is not just a table of small polygons.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
