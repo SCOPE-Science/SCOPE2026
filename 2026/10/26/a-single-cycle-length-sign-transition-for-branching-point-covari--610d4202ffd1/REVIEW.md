@@ -1,9 +1,21 @@
-# Scientific review of cycle-length and two-preimage covariance
+# Independent mathematical audit
 
-**Correctness (PASS).** The conditional binomial decomposition under a prescribed directed cycle gives the exact mixed moment; its polynomial simplification was checked independently by exact enumeration of every function on up to six labeled vertices. The first-difference factorization proves unimodality of the covariance sign, coprimality removes exceptional integer zeros, and a strictly single-peaked limit function identifies the asymptotic cutoff. The accompanying standalone verifier completed 11,828 exact assertions. Finite computation supplements, rather than replaces, the proof; the two smallest orders are handled separately.
+## correctness
 
-**Originality (PASS, subject to historical-priority risk).** The full accessible texts of Arney–Bender (1982), Flajolet–Odlyzko (1990), and Hansen–Jaworski (2008, local-properties paper) discuss indegree and/or cycle statistics but do not state the conditional mixed moment or exact sign transition. Hansen–Jaworski (first published 4 September 2007) treats exchangeable indegrees and global cyclic statistics; its available abstract and bibliography were inspected, although the full companion paper was not obtained. Searches of existing claims and relevant research records did not identify an equivalent or dominating exact length-dependent covariance theorem. The Berg–Jaworski (1992) local-structure chapter remains inaccessible; a stronger unindexed result is an unresolved priority possibility, not evidence of nonexistence.
+PASS
 
-**Mathematical value (PASS).** Indegree-two vertices record binary coalescence/branching in the in-trees of a functional digraph, whereas directed cycle length measures global recurrent structure. The exact single crossover—from increased expected branching for short cycles to depletion for long cycles—and its nontrivial universal fractional location cannot be inferred from marginal distributions. The finite sign classification is an interpretable dependence law, not a single arbitrary coefficient.
+Conditioning on a prescribed directed r-cycle fixes exactly r arrows, leaving m=n−r independent uniform arrows. Vertices on the cycle have indegree 1+Bin(m,1/n), off-cycle vertices Bin(m,1/n), yielding the stated conditional E B_2; the oriented-cycle indicator sum gives E[C_r B_2]. Algebra reduces the covariance sign to F_n(r)−n²(n−1) with F_n=P_n(r)/a^r. Its first difference changes sign at most once; the coprimality n⊥(n−1) excludes equality beyond r=1 (except n=3,r=2). The scaling limit has unique positive root of (1−ρ)(1+ρ²)e^ρ=1. Independent exhaustive enumeration of all 50,068 functions on n=2..6 and exact sign checks through n=49 corroborated the identity. For m=0,1 zero combinatorial terms are interpreted as zero before polynomial simplification.
 
-Self-review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+The conditioning-on-prescribed-cycle identity yields a new all-cycle-length mixed covariance and monotone sign phase in the canonical uniform mapping model. Earlier random-mapping sources cover local degrees and marginal cycles but no directly dominating prior theorem was found. Unread 1992 chapter remains a material priority risk.
+
+## value
+
+PASS
+
+The exact all-cycle-length covariance and unique sign threshold link global cycle structure with local branching in the canonical uniform random mapping model, refining marginal and asymptotic accounts. The 58.47-percent limit is natural, not an arbitrary finite slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
