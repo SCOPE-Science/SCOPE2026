@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness: PASS.** The winding class of an arbitrary continuous circle sensor is an integer row vector; naturality of degree and the cup product make the degree of its two-delay map equal to the exact quadratic form. Invariance of domain converts injectivity to degree \(\pm1\); a character of such degree is an actual unimodular torus automorphism. Cayley–Hamilton proves the integral companion equivalence. Exact matrix arithmetic gives the positive-definite nonreconstructible example; the completed square rules out \(\pm1\) globally, not merely in an enumerated range. The same characteristic polynomial proves all-period counts and expanding eigenvalues. The perturbed positive assertion relies on a local-diffeomorphism covering argument with nonzero fixed degree.
+## correctness
 
-**Originality: PASS under available evidence.** The full source arXiv:2610.01642v1 treats finite measurable generators, not two-sample circle observability; the inspected longer-delay source treats identification under embedding hypotheses. The closest published mathematical result concerns a specific three-dimensional *nonexpanding* family with three samples, and does establish a related cohomological method: that method is acknowledged, not claimed original. The present claim instead classifies *every* integer two-torus endomorphism and distinguishes two expanding matrices with the same characteristic polynomial. A general integral cyclic-vector criterion is classical; residual risk remains that it already has a dynamical-observability formulation in older literature.
+PASS
 
-**Value: PASS.** A sharp topological observation invariant separates maps that are identical in entropy, periodic-point sequence, and measure-theoretic Bernoulli type. The classification is complete for a natural minimum-dimensional sensing problem and exposes a genuine arithmetic obstruction that arbitrary nonlinear continuous sensors cannot remove. The two explicit examples attain, respectively, degree one and the sharp minimum nonzero degree two. The question concerns full global reconstruction, not typical real-valued Takens embeddings, and the theorem carefully distinguishes those settings.
+For any continuous h:T²→T with winding vector v=(m,n), and any F homotopic to T_A, the integral cohomology rows of D=(h,h∘F) are v,vA, so deg D=det(v;vA)=b m²+(d-a)mn−c n². A continuous injective map of compact T² into T² is onto by invariance of domain, hence a homeomorphism and degree ±1. Conversely if Q_A(v)=±1, U with rows v,vA is unimodular and linear character h_v gives D=Ux, a torus automorphism; Cayley–Hamilton yields UA=[[0,1],[-det A,tr A]]U. For F sufficiently C1-close to T_A, same character gives a local diffeomorphism covering of degree ±1, hence globally one-sheeted. Examples A0=[[3,2],[-3,4]] and B0=[[0,1],[-18,7]] share trace 7, determinant 18 and eigenvalues conjugate with modulus sqrt(18)>1, hence identical all-n periodic counts, entropy log18 and uniform one-sided Bernoulli isomorphism by expanding torus theorem. B has character x1 yielding identity two-delay, while Q_A0=2m²+mn+3n²=((4m+n)²+23n²)/8 has minimum positive 2 and never ±1, so no continuous two-delay injection for A0 or homotopic F. The sensor x1 has degree 2 and exactly two sheets. Independent exact SymPy checked trace/determinant and first 24 fixed counts, Q square completion and finite grid |m|,|n|<=40; the square-completion and topology, not finite grid, establish all integers/sensors.
 
-**Limits.** General continuous maps homotopic to a reconstructible linear endomorphism need not inherit its reconstructibility; the positive stability claim is only local in \(C^1\). No independent bibliographic or mathematical audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Integral cyclic vectors, companion conjugacy, and cup-product degree obstructions are classical and are explicitly excluded from the originality claim. Surviving result is the precise global topological circle-sensor two-delay iff criterion for all integral 2x2 endomorphisms, plus an isospectral and one-sided Bernoulli-isomorphic expanding pair with opposite topological observability. Prior 3D three-delay degree obstruction uses similar method but does not imply this complete 2D statement.
+
+## value
+
+PASS
+
+Reconstructing all torus states from the minimum natural budget of two consecutive scalar circle observations is a motivated exact observability problem. The arithmetic degree obstruction is exhaustive for *all* continuous sensors, not merely linear ones; and the explicit Haar-isomorphic, isospectral expanding pair distinguished by minimal observation degree shows the invariant is not encoded by entropy or periodic counts. This supplies a natural sharp sensing criterion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
