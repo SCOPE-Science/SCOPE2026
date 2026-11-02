@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T02:49:02Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source tree 5a73e1644d9f3b5c8e30b00392013fee65e002dd / RESULT.md (actual frozen Git blob 29a24b4c5218c0c38a2f74c6229ab86265c8afb8)",
+        "Frozen verify_weighted_shift_budget.py (actual Git blob 00de66c48002d4e0c5a0144f46a26f1358f2186a), inspected without executing opaque code",
+        "Independent SymPy exact characteristic and effective 2×2 eigenvalue checks in this execution",
+        "Independent SciPy 160×160 finite-Jacobi checks for q=.3,.6,.85 and five relative budgets each"
+      ],
+      "rationale": "The circle-unitary symmetry gives w(T)=lambda_max(T+T*)/2 on complex ℓ². The positive geometrically decaying Jacobi matrix is compact; for s,t>0 its simple isolated Perron eigenvalue and positive eigenvector support analytic perturbation. At s=0 the block split is one weight-1 edge plus geometrically scaled four-vertex paths with edges (q²,tq³,q⁴); the quartic λ⁴-(a²+b²+d²)λ²+a²d² gives λ=1 at t=q^{-3}sqrt((1-q⁴)(1-q⁸)). Every s>0 forces λ>1 via principal first-three vertices. Above that budget, endpoint derivatives decrease strictly along the segment into its interior; global strict Hessian positivity follows from the spectral second-derivative formula, since Dv=αv has α=0 at row 0 then direction components vanish at rows 1 and 3. Thus unique strictly positive analytic optimizer and strict convexity in c. At large c, the leading disjoint A and B edges have equal top weight a=q³/(1+q²) at x0=q²/(1+q²). Principal edges bound the optimizer displacement y in a fixed compact interval. The top two-dimensional eigenspace has complementary gap a(1-q⁴); uniform Schur control leaves 2×2 M_y=[[qy,q²/2],[q²/2,-q³y]], whose minimum eigenvalue top branch is a at y*=-(1-q²)/(2(1+q²)). This proves the stated nonuniform-in-q two-term expansions. Independently SymPy verified the quartic zero and M_y eigenvalues and a 160-dimensional Jacobi spectral implementation sampled q=.3,.6,.85 at c/c*=.7,1,1.3,10,1000, confirming phases and asymptotic convergence. These finite checks are not asserted to prove all q,c.",
+      "residual_risks": [
+        "Infinite-dimensional proof relies on standard compact positive Jacobi Perron/Kato perturbation facts; they were reconstructed analytically, not certified in Lean or an external proof assistant.",
+        "Finite truncations only corroborate; they are not uniform-in-q or exhaustive over c.",
+        "Two-term c-asymptotic is proven for each fixed q∈(0,1), no uniformity at q→0 or q→1."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Chakraborty–Ojha–Birbonshi 2022, section 2, treats tails converging to a nonzero periodic two-cycle; the target Jacobi matrix is compact (weights decay geometrically) and has no such essential spectral edge.",
+          "Full public Airy-edge RESULT.md, 2026-10-11, uses exactly the same modulated shift but holds fixed s,t>0 and studies q approaching one; its expansion is in (1-q)^(2/3), not optimal s+t=c as c approaches infinity at fixed q.",
+          "Boyd, Convex Optimization of Graph Laplacian Eigenvalues (2006) is a general budgeted eigenvalue optimization framework for graph Laplacians, not the compact adjacency Jacobi top eigenvalue or the explicit phase threshold. https://www-leland.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html"
+        ],
+        "reasoning": "Generic convexity or determinant evaluation can provide tools, but does not by itself supply the exact four-path threshold and degenerate two-edge perturbation yielding the coefficient of the optimizer displacement. The most relevant full source with identical parameters has a distinct asymptotic regime.",
+        "searches": [
+          "Web: Jacobi matrix spectral radius minimizing weighted path edges under sum budget convex optimization bifurcation endpoint",
+          "Web: infinite Jacobi spectral radius two parameters fixed sum edge allocation exact threshold split",
+          "Resultary: spectral radius minimization compact Jacobi operators fixed total weights edge allocation phase transition",
+          "Read Resultary/SCOPE public RESULT.md: A sharp Airy-edge law for four-periodic geometric weighted shifts"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2608.17486",
+        "https://www.emergentmind.com/papers/2608.17486",
+        "https://files.ele-math.com/articles/oam-16-75.pdf",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d/RESULT.md",
+        "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/RESULT.md",
+        "https://portal.mardi4nfdi.de/wiki/On_the_numerical_radius_of_weighted_shift_operators_with_generalized_geometric_weights",
+        "https://www-leland.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ghosh–Birbonshi–Ojha, 2026: identical weights (1,sq,q^2,tq^3,...) and full numerical-radius entire determinant at fixed parameters; read the abstract and third-party detailed synopsis only.",
+          "The 2022 primary paper explicitly studies eventually alternating positive tails (w_1,...,w_{2n-1},b,a,b,a,...) and finite-prefix determinants.",
+          "The full Resultary Airy-edge theorem fixes s,t>0 as q↑1, so neither its domain nor conclusion supplies the large-c optimal allocation for fixed q."
+        ],
+        "reasoning": "Existing exact determination of w(s,t) by a zero of an entire function does not directly state the infimum over s+t=c or locate its phase boundary without additional spectral optimization; the new four-block/Hessian/Schur analysis is substantively specific. Could be hidden coverage in inaccessible original full text; no false claim that the entire 2026 article was read or ruled out. Best-of-knowledge PASS with this risk.",
+        "searches": [
+          "Web: arxiv:2608.17486 Ghosh Birbonshi Ojha PDF HTML ar5iv",
+          "Web: 2025 generalized geometric weights Chakraborty Ojha full text",
+          "Source: arXiv:2608.17486 indexed abstract and EmergentMind detailed synopsis",
+          "Source: Chakraborty–Ojha–Birbonshi 2022 PDF, doi:10.7153/oam-2022-16-75",
+          "Oxford institutional attempt on the same arXiv paper (VPN disconnected; no further bypass)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The target objective equals one-half the top eigenvalue of the compact nonnegative Jacobi matrix, by circle-unitary symmetry; its exact parameter family is the arXiv:2608.17486 family (abstract dated 2026-08-18).",
+          "The 2026 original abstract: bounds on w(T) and its entire-function characterization for arbitrary fixed positive s,t; no explicit constrained allocation result in the portion actually read. https://arxiv.org/abs/2608.17486",
+          "2022 Operators and Matrices 16, pp.1155-58: characteristic and determinant machinery for weights eventually alternating between positive a,b, unlike the present geometrically vanishing modulated weights. https://files.ele-math.com/articles/oam-16-75.pdf"
+        ],
+        "reasoning": "Jacobi top-eigenvalue minimization is exactly equivalent to the claimed numerical-radius optimization and was checked as such. A fixed-parameter root formula is not itself an explicit theorem about minimizers along s+t=c, endpoint attainment, or constant-order c-asymptotics; the original complete 2026 paper remains inaccessible, so no whole-document noncoverage assertion is made.",
+        "searches": [
+          "Web: \"On the numerical radius of a class of weighted shift operators\" Ghosh Birbonshi Ojha arxiv 2608.17486 full text PDF",
+          "Web: \"numerical radius\" \"s+t\" \"weighted shift\" geometric",
+          "Resultary: geometric four-periodic weighted shift numerical radius minimizing allocation fixed sum threshold",
+          "GitHub primary RESULT.md: 2026/10/11/exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact hit 2026/10/11/SCOPE-exact-allocation-transition-for-a-geometric-four-periodic-weight--e1e34ea2e0ab is the record being audited and is not independent priority evidence.",
+          "Resultary full public result 2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d computes a fixed-modulation Airy edge, not the fixed-sum optimization.",
+          "Resultary full public result 2026/10/11/SCOPE-exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7 explicitly minimizes a published upper-bound functional over theta on finite cyclic invertible matrices, not the numerical radius itself on the infinite unilateral shift."
+        ],
+        "reasoning": "One database hit repeats the assigned claim and cannot establish previous discovery. Two nearby full public claim texts were materially inspected and differ in objective or limiting regime. Negative search coverage is evidence of search activity, not proof of novelty.",
+        "searches": [
+          "Resultary: geometric four-periodic weighted shift numerical radius minimizing allocation fixed sum threshold",
+          "Resultary: compact Jacobi spectral radius fixed total weights edge allocation phase transition",
+          "Resultary: unilateral compact four periodic geometric Jacobi numerical radius sum constraint eigenvalue large c asymptotic allocation"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty of the fixed-total-modulation optimization theorem, not of the four-periodic shift itself: the identical weight family is introduced in Ghosh–Birbonshi–Ojha (2026), and a general entire-determinant representation evaluates its numerical radius at fixed parameters. The accessible abstract and detailed secondary synopsis discuss bounds, polynomial critical-point questions, and determinant recurrences, but do not establish the constrained c=s+t threshold, uniqueness/analytic curvature, or the two-term c-to-infinity optimizer displacement. The originating full text could not be inspected despite lawful arXiv/OA attempts and authorized Oxford request, so possible direct coverage is an explicit residual risk rather than a fabricated negative conclusion. The earlier 2022 primary paper has a different eventually-periodic nonzero tail; related published SCOPE findings concern q-to-one limits with fixed s,t or finite cyclic bound optimization, and do not imply this budget theorem.",
+      "residual_risks": [
+        "The primary 2026 manuscript has the exact same parameters and could contain an unindexed constrained-optimization argument or appendix. Its full text was inaccessible by arXiv/OA and institutional VPN; this is a priority limitation, not a scientific proof of novelty or an automatic O failure.",
+        "Generic infinite-dimensional weighted-Jacobi spectral design results might subsume the theorem through a nonobvious specialization not detected by the targeted searches.",
+        "The 2025 generalized geometric one-modulation paper and the later pages of the 2022 determinant paper were not completely read; their inspected scope differs, but comprehensive whole-text noncoverage is not asserted.",
+        "No external human expert priority review or formal certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Same operator and fixed-parameter numerical-radius computation certainly predate this claim. Available reading does not show exact fixed-sum optimization, but whole-manuscript noncoverage cannot be asserted.",
+          "evidence": [
+            "2026-08-18 arXiv abstract https://arxiv.org/abs/2608.17486",
+            "https://www.emergentmind.com/papers/2608.17486 (secondary, not original full text)"
+          ],
+          "identifier_or_url": "arxiv:2608.17486v1; https://arxiv.org/abs/2608.17486",
+          "material_read": "Original indexed abstract and publication metadata, plus a detailed third-party synopsis describing lower bounds, a degree-eight stationary polynomial, recurrence and finite-section numerical examples. Complete 2026 manuscript not read.",
+          "method": "Public arXiv metadata and accessible indexing; attempts to open arXiv PDF/HTML and lawful OA mirrors unsuccessful; authorized institutional retrieval returned vpn_disconnected, with no retry/bypass.",
+          "title": "On the numerical radius of a class of weighted shift operators",
+          "trigger": "Identical weight list and earliest published model source."
+        },
+        {
+          "assessment": "Its principal explicitly stated family has eventually alternating a,b>0 tails and does not directly contain the compact geometric two-modulation budget problem; did not assert every theorem in unexamined later pages is noncovering.",
+          "evidence": [
+            "p.1155 abstract weight family and p.1158 Section 2, https://files.ele-math.com/articles/oam-16-75.pdf"
+          ],
+          "identifier_or_url": "doi:10.7153/oam-2022-16-75; https://files.ele-math.com/articles/oam-16-75.pdf",
+          "material_read": "Publisher 20-page PDF parsed, selected original rendered pages 1155 and 1158 inspected visually; introduction pages 1155-1158 and setup of section 2 read, including definition of eventually periodic positive tails and spectral polynomial method.",
+          "method": "Publisher lawful OA PDF textual reading and first/fourth PDF-page screenshots.",
+          "title": "Numerical radii of weighted shift operators using determinantal polynomials",
+          "trigger": "Prior primary technical work by originating authors; determinant and spectral-overlap risk."
+        },
+        {
+          "assessment": "Fixes s,t while sending q↑1; the Airy fractional-power edge law does not determine fixed-q, c→∞ budget minimizers or the exact c_*(q) allocation transition.",
+          "evidence": [
+            "Finding and assumptions explicitly say s,t fixed and q tends to one; full linked RESULT.md."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d/RESULT.md",
+          "material_read": "Full published RESULT.md theorem, assumptions, six-step Airy asymptotic proof, limitations and references.",
+          "method": "Read-only GitHub primary result-file retrieval.",
+          "title": "A sharp Airy-edge law for four-periodic geometric weighted shifts",
+          "trigger": "Identical two-modulation weight family; possible stronger neighboring result."
+        },
+        {
+          "assessment": "Finite invertible cyclic matrices; optimizes theta in an upper-bound expression, expressly not the numerical radius itself. No mathematical implication to the infinite unilateral fixed-s+t budget result.",
+          "evidence": [
+            "Finding/Scope in linked full RESULT.md explicitly distinguish the optimized upper bound from numerical radius."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/RESULT.md",
+          "material_read": "Full public RESULT.md, including exact theta-dependent bound objective and complete proof.",
+          "method": "Read-only GitHub result-file retrieval.",
+          "title": "Exact weight optimization for geometric cyclic shifts and the dimension-three gain",
+          "trigger": "Similar title and geometric-shift optimization, plausible false positive coverage."
+        },
+        {
+          "assessment": "Available summary describes a single recurring modulation s in weights (1,sq,q²,sq³,...), unlike independent s,t; full-text implications not excluded from snippets alone.",
+          "evidence": [
+            "2025 JMAA 543(2), article 129021, DOI as linked."
+          ],
+          "identifier_or_url": "doi:10.1016/j.jmaa.2024.129021; https://portal.mardi4nfdi.de/wiki/On_the_numerical_radius_of_weighted_shift_operators_with_generalized_geometric_weights",
+          "material_read": "Journal indexing, summary, authors and publication data only; full paper not retrieved.",
+          "method": "Publisher/academic metadata search and bibliography cross-check.",
+          "title": "On the numerical radius of weighted shift operators with generalized geometric weights",
+          "trigger": "Earlier geometric-family predecessor, possible parameter dominance."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Exact weight family and natural s,t parameters in Ghosh–Birbonshi–Ojha, arxiv:2608.17486",
+        "Frozen full RESULT.md analytic classification, unique optimizer, and c-asymptotic with degree and normalization explicit",
+        "Related published Airy-edge Resultary result (different q→1 regime)"
+      ],
+      "rationale": "The already-motivated two-parameter four-periodic geometric shift makes a fixed total coefficient budget s+t=c a natural spectral allocation problem, not an arbitrary finite sample. An exact threshold separating a nonattained open-domain infimum from a unique interior optimizer is a full, nontrivial parametric classification for every q∈(0,1), with rigorous curvature and the sharp order-one displacement of the optimal split as c→∞. The model is compact infinite-dimensional, and the singular two-edge spectral crossing requires specific analysis beyond fixed-parameter determinant evaluation. The result is self-contained and could inform subsequent optimal spectral design calculations for weighted Jacobi operators; no general theorem or paper-sized downstream consequence is required. Its mathematical significance does not depend on uniqueness of wording; remaining priority caveats are in originality.",
+      "residual_risks": [
+        "The objective uses the particular coefficient sum s+t rather than the sum of physical weighted edges; this modeling choice is mathematically natural for the existing modulation parameters but not a universal design principle.",
+        "No explicit closed elementary formula for finite-c interior optimizer; value lies in exact phase/uniqueness/asymptotics."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/abs/2608.17486",
+    "https://www.emergentmind.com/papers/2608.17486",
+    "https://files.ele-math.com/articles/oam-16-75.pdf",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-a-sharp-airy-edge-law-for-four-periodic-geometric-weighted-shift--cffc9a187d0d/RESULT.md",
+    "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-weight-optimization-for-geometric-cyclic-shifts-and-the-di--2aa0131979e7/RESULT.md",
+    "https://portal.mardi4nfdi.de/wiki/On_the_numerical_radius_of_weighted_shift_operators_with_generalized_geometric_weights",
+    "https://www-leland.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html",
+    "Assigned frozen RESULT.md/VERIFICATION.md/AUDIT.json/REVIEW.md/SLOGAN.txt/METADATA.json/verify_weighted_shift_budget.py"
+  ],
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Finite numerical tests do not establish infinite-dimensional results; proofs for arbitrary real parameters rest on reconstructed Jacobi and perturbation analysis.",
+    "The primary full August 2026 originating manuscript was inaccessible despite lawful access attempts; Oxford institutional retrieval returned vpn_disconnected, with no bypass attempted. This is a residual historical-priority risk, not automatic originality failure.",
+    "No uniformity of the large-budget remainder as q tends to zero or one is claimed; no external human certification."
+  ]
+}
