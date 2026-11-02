@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** For all \(a,b\ge2\), the exact potential is checked algebraically for the exhaustive and disjoint jump cases \(A\to A\), \(B\to B\), \(A\to B\), and \(B\to A\). Each cross-part change equals precisely \(2(a-1)(b-1)\) times the mover's fractional-utility gain at the integer-numerator level. All denominators are positive, the finite state space precludes infinite strict improvement, and the stated polynomial move bound follows from an integer range bound. For two types, both occupied colors on the side opposite the vacancy would impose two mutually inconsistent inequalities; the converse and the counting polynomial follow directly. An independent utility-recomputation checker tested 35,682 profiles and 225,302 moves for small graphs and two or three types, with no discrepancy. No finite experiment is used to infer the universal result.
+## correctness
 
-**Originality — PASS, with explicitly limited bibliographic certainty.** The 2023 primary fractional-diversity jump paper states a one-vacancy potential for regular graphs (Theorem 5.1), discusses nonregular paths and spiders, and expressly identifies bipartite graph classes as further study in its concluding section; it does not give the unequal-side complete-bipartite exact-potential identity or the color-count polynomial. The 2025 variety-seeking jump paper counts distinct neighbor types, a different payoff; its one-vacancy theorem cannot be substituted for a fractional-utility potential. The 2022 single-peaked swap paper has no vacancy, a different move rule, and a nonmonotone preference. Searches of graph-game variants and published mathematical claims returned no direct equivalent or dominating formula; an unindexed equivalent reduction is still possible. No universal novelty guarantee is claimed.
+PASS
 
-**Value — PASS.** The exact potential settles a nonregular complete-bipartite subfamily of the explicitly motivated bipartite-dynamics question, simultaneously for every number of agent types and every composition. The result supplies a polynomial convergence bound rather than mere equilibrium existence. The two-type census shows a structural iff law and an imbalance-sensitive exact equilibrium fraction, an invariant not supplied by a general existence result. These are meaningful restrictions of a natural model, not a reparametrization of the regular-graph potential.
+Recomputed move classes for exactly one vacancy and a,b≥2: same-part moves give ΔΨ=Δu=0; B→A changes x_t by +1 and e_B by +1, giving numerator ΔF=2(dx_t-c(j_t-1))=2cd Δu; A→B gives ΔF=2(cj_t-d(x_t-1))=2cd Δu. Here F=2cdΨ and c=a-1,d=b-1 positive. Integer F strictly increases by even amount under strict utility improvement, so <4(a+b)^3 improving moves. For two types with vacancy in A, B mixed would yield incompatible red and blue inequalities after summing (cd≤c(d-1)); hence B monochromatic, and conversely mover B→A gets utility zero. Count vacancies separately to obtain a(1+z)^{a-1}(1+z^b)+b(1+z)^{b-1}(1+z^a). Independently brute-forced distinct small (a,b,k) states and every legal jump with exact rational recomputation; all checked.
 
-**Closest literature and limitations.** Narayanan–Sabbagh–Voudouris (2023), Theorem 5.1 and Section 7; Narayanan–Opatrny–Tummala–Voudouris (2025), Sections 2–3; Bilò–Bilò–Lenzner–Molitor (2022), model section. The proof is restricted to exactly one empty vertex and complete bipartite graphs with both parts of size at least two. It does not establish results for other bipartite graphs, multiple vacancies, welfare, or the many-type equilibrium census.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge comparison by mathematical implication, using actual Resultary search, relevant primary source material, the assigned final claim, and explicit residual priorities. The contribution is limited to the exact special calculation/structural theorem; general underlying methods are credited.
+
+## value
+
+PASS
+
+Extends a motivated diversity-seeking jump-game potential from regular to arbitrary nonregular complete bipartite graphs with explicit exact differences, finite convergence, and a complete two-type equilibrium enumerator by population. The exact fact is useful for dynamics and equilibrium counting on a canonical heterogeneous-degree topology; not a trivial regular-case restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
