@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,15 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The finding is proved analytically, not inferred from finite experiments. The following logically exhaustive checks were reconstructed from the definitions:
+## correctness
 
-1. The origin is the unique cut point and each punctured petal is a connected component; all homeomorphisms must fix the origin and permute complete petals.
-2. Every nonzero point lies on either an infinite or a finite petal permutation orbit; the first kind is wandering.
-3. On a finite orbit, the circle-return map is either orientation preserving, in which case monotone drift away from its fixed-point set is wandering, or orientation reversing, whose square has the same property on its two exchanged arcs.
-4. Every point periodic is equivalent to all permutation orbits finite and every return map of order at most two (the order-two case must reverse orientation unless it is the identity).
-5. Under that condition the finite invariant union of all cycles meeting finitely many large petals has finite iterate order, and the collapse map from the omitted small petals commutes with all integer iterates. The error is bounded at both ends of a triangle inequality.
-6. The entropy-zero case has uniformly bounded separated sets at every scale; the entropy-one lower bound has at least \(N\) separated points for every integer \(N\ge1\); the matching upper bound is the published regular-curve theorem.
+PASS
 
-No computer program, numerical output, external certificate, or finite computation is required for these universal statements. A full independent audit and complete historical priority determination were not performed. The primary text of the 2026 pointwise-periodic flexibility paper was inaccessible; the source-comparison limitation is recorded in the review.
+The common touching point is the only cut point of the Hawaiian earring, so every homeomorphism fixes it and permutes circle petals. Each point on a petal in an infinite permutation orbit has a petal-local wandering neighbourhood; for a finite petal cycle of length q, the return map is a circle homeomorphism fixing the common point. An orientation-preserving circle homeomorphism with a fixed point has nonwandering set exactly its fixed-point set, because a nonfixed interval drifts monotonically; an orientation-reversing return has the corresponding two-step version. Therefore Omega(T)=Per(T), including the common point, for all petal cycles. If all points are periodic, each finite petal-return map is identity or an involution; at each spatial resolution finitely many large petal cycles form an invariant core and the remaining petals have uniformly small diameter, giving two-sided equicontinuity. Conversely, equicontinuity on a compact space excludes wandering points. Equicontinuity forces polynomial entropy zero; any wandering point gives polynomial entropy at least one, and the 2026 regular-curve bound supplies at most one. Hawaiian earring is regular but not a local dendrite; no local-dendrite theorem was misapplied.
+
+## originality
+
+PASS
+
+The inspected full 2026 regular-curve paper bounds entropy by one for all regular curves and treats local dendrites; it explicitly asks about non-local-dendrite regular curves. The Hawaiian earring is not a local dendrite, and the present new step is nonwandering-equals-periodic plus the petal-return criterion, which gives a zero/one dichotomy for this specific continuum. Full 2026 flexibility work constructs different continua with positive entropy despite pointwise periodicity; its examples are not an implication for this space. Naghmouchi 2020 gives nonwandering/recurrent relations but not equality with periodicity on an earring. Best-of-knowledge original as a complete special-space structure result, without claiming an all-regular-curves general theorem.
+
+## value
+
+PASS
+
+A complete nonwandering, periodicity, return-map and polynomial-entropy classification for the canonical compact regular curve that is not a local dendrite directly addresses the boundary of a 2026 local-dendrite rigidity result. The constructive finite-petal-core argument explains why pointwise periodicity can force equicontinuity here although it cannot on arbitrary continua. This is a motivated structural theorem, not a renamed elementary corollary.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
