@@ -1,0 +1,151 @@
+{
+  "correctness": {
+    "rationale": "For odd bicliques each local majority is strict and determines the update opinion of the opposite part. If both local majorities match, they cannot change, and every vertex rings within finite time. If opposed, exactly i initially positive first-part and b-j initially negative second-part first-clock rings matter until one of two exact thresholds \\(r=i-u\\) or \\(s=v+1-j\\) is reached. Their iid exponential first-clock ranks give a uniform subset of size r+s-1, hence the stated hypergeometric tail; color swap handles the reverse case. Hitting times are sums of independent \\(E/h\\), with mean log(\\(x/(1-y)\\))+O(1/N) and critical variance (2x-1)/(x λ(1-λ)N), and Lyapunov gives the stated normal CDF. Exact verifier replay checked 1,764 independent absorbing recurrences, 144 full first-clock permutations and 820 symmetry cases; finite tests are not an infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Amir–Baldasso–Beilin analyze general majority/median duality and specific complete-graph and bipartite examples, but the inspected statements do not derive general biclique absorption probabilities.",
+        "Zehmakan (arXiv:2302.06760v1) concerns simultaneous updates, where opposing community majorities on a biclique can alternate instead of absorb.",
+        "Lesfari–Giroire–Pérennes (IJCAI 2022) introduce persistent exogenous bias and all-negative initialization, so their almost-sure eventual superior-opinion consensus for positive bias is not an unbiased winner distribution."
+      ],
+      "reasoning": "General convergence and synchronous dynamics do not imply an exact absorption law for random asynchronous first-clock races. The stronger-looking convergence claims carry different update kernels and/or starting conditions. The inspected sources contain no theorem whose specialization and parameter limits give the claimed hypergeometric numerator and Gaussian window.",
+      "searches": [
+        "Binary opinion dynamics synchronous asynchronous majority update on complete bipartite and multipartite graphs with stubborn agents; absorbing configurations, convergence, exact basins",
+        "asynchronous opinion dynamics binary majority update graph, absorption probability of consensus",
+        "arXiv:1911.08613v1 Sections 3 and 4",
+        "arXiv:2302.06760v1 Sections 2–4",
+        "doi:10.24963/ijcai.2022/54"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2309.04691v1 (full HTML, initial private-signal rule and theorem statements)",
+      "arXiv:1911.08613v1 (full HTML, Proposition 3.6 on \\(K_{3,m}\\) and Proposition 3.10)",
+      "arXiv:2302.06760v1 (full HTML, synchronous model and results)",
+      "doi:10.24963/ijcai.2022/54 (official full-text extraction)",
+      "arXiv:1904.11625v1 (open full text, tree model)",
+      "Semantic mathematical-record queries on asynchronous majority, complete bipartite absorption and hypergeometric clock races",
+      "Accessible claim history, including synchronous complete-bipartite majority dynamics"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The current statement conditions on every count pair (i,j) and gives the exact probability of future unanimous positive consensus, including an \\(N^{-1/2}\\) Gaussian transition and an initial-global-minority takeover example.",
+        "Prior \\(K_{3,m}\\) example measures a finite-time marginal after fixed ordered updates; complete-graph Proposition 3.10 is not on K_{a,b}.",
+        "Random-graph asymptotic results use unannounced private signals; synchronized-round results include periodic configurations that do not exist under odd-biclique asynchronous strict-majority updating."
+      ],
+      "reasoning": "Neither existing same-clock local marginal examples nor qualitatively stronger-looking consensus theorems entail the specific full conditional absorption law under identical assumptions. In particular an eventual-consensus guarantee has no information about the competing color probability in opposed majority states. A generic hypergeometric order-statistic identity alone does not imply its application to this Markov chain or the stated graph-dependent critical threshold without the first-clock reduction.",
+      "searches": [
+        "Exact absorption probabilities for asynchronous deterministic binary majority updates on complete bipartite graphs K_{a,b} with odd part sizes, initial opposite local majorities; hypergeometric order-statistic race and consensus",
+        "Poisson asynchronous local majority imitation on two-community complete bipartite network; initial global minority wins consensus with probability approaching one",
+        "arXiv:1911.08613v1 Proposition 3.6 and Proposition 3.10",
+        "arXiv:2309.04691v1 Theorems 1.1–1.3",
+        "arXiv:2302.06760v1 Sections 2–4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Amir–Baldasso–Beilin (arXiv:1911.08613) define exactly the independent-Poisson neighbor-majority rule, and Proposition 3.6 constructs finite-time nonmonotone marginals on \\(K_{3,m}\\) under a fixed vertex-update schedule.",
+        "Mohan–Prałat (arXiv:2309.04691v1) start with private, unannounced signals on random G(n,p) graphs; this is not the fully visible odd biclique initial-state model."
+      ],
+      "reasoning": "The natural equivalence is to zero-temperature independent-clock majority without ties. Its relevant examined \\(K_{3,m}\\) example has a deterministic prescribed schedule and a finite-time marginal comparison, neither yielding the probability that one of two independent first-clock thresholds is reached before the other. A random-graph announced-signal model has a different initial state space. No exact equivalent statement was found in these inspected sources.",
+      "searches": [
+        "Exact absorption probabilities for asynchronous deterministic binary majority updates on complete bipartite graphs K_{a,b} with odd part sizes, initial opposite local majorities; hypergeometric order-statistic race and consensus",
+        "Race of independent first update clocks for majority-dynamics polarization on complete bipartite graphs; local fraction threshold \\(x+y\\)=1, Gaussian crossover",
+        "arXiv:1911.08613v1 Proposition 3.6",
+        "arXiv:2309.04691v1 Section 1.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic mathematical-record queries returned nearest entries on unrelated binomial-tail comparisons, majority coloring, synchronous parity automata and threshold diffusion, but no entry on independent-clock majority absorption on odd complete bicliques.",
+        "A direct textual scan of accessible previously recorded claims found a same-topology synchronous binary-majority result with three closed classes; its alternating opposing-majority class differs from asynchronous all-consensus dynamics."
+      ],
+      "reasoning": "An exact finite winner probability and scaling law were not found in searched mathematical-record abstracts or accessible claim statements. This is a noncoverage observation, not a proof of exhaustive indexing or uniqueness. The closest same-network statement uses simultaneous updates and cannot be specialized to the asynchronous transition kernel.",
+      "searches": [
+        "Exact absorption probabilities for asynchronous deterministic binary majority updates on complete bipartite graphs K_{a,b} with odd part sizes, initial opposite local majorities; hypergeometric order-statistic race and consensus",
+        "Race of independent first update clocks for majority-dynamics polarization on complete bipartite graphs; local fraction threshold \\(x+y\\)=1, Gaussian crossover",
+        "Poisson asynchronous local majority imitation on two-community complete bipartite network; initial global minority wins consensus with probability approaching one",
+        "asynchronous opinion dynamics binary majority update graph, absorption probability of consensus"
+      ]
+    },
+    "rationale": "The full-text nearest same-clock \\(K_{3,m}\\) result studies finite-time marginals under an imposed deterministic schedule, not the random-clock absorption probability; published 2023 asynchronous random-graph social learning starts with unannounced signals, and 2023 random majority diffusion is synchronous. The exact full-conditional hypergeometric tail and its nontrivial Gaussian critical scaling were not implied by any inspected theorem. Semantic searches and accessible previous claims found no encompassing result. Publication-priority uncertainty remains.",
+    "residual_risks": [
+      "Potential unlocated exact first-update-race formula in specialist interacting-particle or opinion-dynamics literature.",
+      "Semantic search is not an exhaustive indexed-theorem or full-publication census; no independent priority review.",
+      "Results on different clock-rate asymmetries, even sizes and tie-breaking do not directly specialize to the stated theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering: initially private signals and no public opinions at time zero on random binomial networks rather than already-colored complete bipartite networks; no conditional hypergeometric winner law in inspected theorem statements.",
+        "evidence": [
+          "§1.1 states C^0(v)=⊥ for all vertices and a first-announcement phase",
+          "Main theorem concerns correct social learning on G(n,p) and time to consensus"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.04691",
+        "material_read": "Open full HTML: introduction, model and initial-announcement rule in §1.1, main theorem statements, portions of model analysis and appendix, bibliographic first-version date 2023-09-09.",
+        "method": "arXiv full-text HTML section inspection, not just abstract",
+        "title": "Asynchronous Majority Dynamics on Binomial Random Graphs",
+        "trigger": "Closest 2023 asynchronous-majority social-learning source; establishes permitted source-date range"
+      },
+      {
+        "assessment": "Relevant but not covering: the bipartite proposition gives a finite-time marginal nonmonotonicity example along a fixed update schedule; no formula for random-clock absorption at arbitrary (a,b,i,j) or its Gaussian critical window.",
+        "evidence": [
+          "Proposition 3.6 explicitly sets a distinguished deterministic sequence on \\(K_{3,m}\\)",
+          "Proposition 3.10 specializes to complete graphs K_N"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1911.08613",
+        "material_read": "Full arXiv HTML introduction, majority generator/model, §3 marginal/conjectures, Proposition 3.6 \\(K_{3,m}\\) proof and §3.1 complete-graph Proposition 3.10, relevant §4 fixation discussion.",
+        "method": "arXiv full HTML, targeted finding and reading of the relevant proposition and its proof",
+        "title": "Majority dynamics and the median process: connections, convergence and some new conjectures",
+        "trigger": "Exact independent-clock majority dynamics; Proposition 3.6 explicitly uses \\(K_{3,m}\\)"
+      },
+      {
+        "assessment": "Not covering: simultaneous rounds and fair random ties rather than independent local clocks; bipartite phase behavior can be qualitatively different.",
+        "evidence": [
+          "Abstract and model define simultaneous update of all vertices in each round",
+          "Theorems focus on cycles, general stabilization bounds and winning sets"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2302.06760v1",
+        "material_read": "arXiv full HTML, abstract, §§1–4 and appendix statements including model rule, stabilization, winning sets and random initial coloring.",
+        "method": "HTML full-text reading and targeted term searches for bipartite and asynchronous",
+        "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+        "trigger": "Fully visible initial binary opinions and known consensus/periodicity phenomena"
+      },
+      {
+        "assessment": "Not covering: persistent positive bias \\(\\alpha>0\\) and all-negative initial configuration, rather than zero-bias random-clock competition between two initial local majorities.",
+        "evidence": [
+          "§1 states starting all-negative with exogenous superior-opinion adoption probability alpha",
+          "§3 specifies \\(\\alpha\\in(0,1]\\) and examines waiting times for the forced absorbing all-positive state"
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2022/54",
+        "material_read": "Official IJCAI page with extracted article body: abstract, §§1–3, §4 stable structures and the beginning of §5.",
+        "method": "Accessible official primary article full-text extraction with prose sections inspected",
+        "title": "Biased Majority Opinion Dynamics: Exploiting Graph k-domination",
+        "trigger": "Asynchronous deterministic neighbor majority with graph-dependent opinion spread and known minority reversal literature"
+      },
+      {
+        "assessment": "Not covering: the infinite degree-three tree and median coupling are distinct from finite odd bicliques and do not imply the exact competing first-update clock formula.",
+        "evidence": [
+          "The article studies the infinite 3-regular tree with degree-three majority"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1904.11625",
+        "material_read": "arXiv full-text discussion of model, assumptions, introductory results for infinite three-regular tree.",
+        "method": "arXiv lawful open text inspection",
+        "title": "Zero-temperature Glauber dynamics on the 3-regular tree and the median process",
+        "trigger": "Background independent-clock zero-temperature spin dynamics and median coupling"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f630b798-3010-4664-81d9-2e860c663b0a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A complete natural tie-free graph family has an exact answer for every binary initial configuration, rather than a selected example or one-step estimate. The large-size outcome depends on \\(x+y\\) independent of part-size weights; the critical width and exact Gaussian constant give a genuine predictive asymptotic invariant. The initial global minority can win nearly surely despite occupying only \\(61/200\\) of all vertices. The theorem thus exposes a structural limitation of global population-headcount heuristics and supplies a reproducible social-learning benchmark.",
+    "status": "PASS"
+  }
+}

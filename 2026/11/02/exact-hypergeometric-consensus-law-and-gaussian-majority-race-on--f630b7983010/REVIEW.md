@@ -1,0 +1,15 @@
+# Scientific assessment
+
+## Correctness — PASS
+
+Both claims follow from the precisely specified odd-degree, full-visibility asynchronous rule. A conflict between opposite local majorities cannot change except at the first-ring threshold of one of two disjoint collections of initially misaligned vertices. Their independent exponential arrival times yield the finite hypergeometric tail by exchangeability. The difference of two exponential order-statistic hitting times gives the threshold and the critical Gaussian normalization with the stated nondegeneracy assumptions. The independent exact-rational recurrence and complete ordering enumeration agree with the displayed formula in all reported finite cases. Boundary cases with size-one parts, aligned majorities, opposite majorities and finite fair races are included. Risks: an unforeseen mathematical error in the analytic reduction or CLT proof remains possible without external checking; finite tests do not prove the general theorem.
+
+## Originality — PASS, with residual priority risk
+
+The closest full-text primary source with the exact same asynchronous clock rule is Amir–Baldasso–Beilin (2019), especially their complete-bipartite \(K_{3,m}\) construction in Proposition 3.6; it concerns finite-time nonmonotonicity under a **fixed** update order, not the random-clock absorption law. Mohan–Prałat (2023) use initially unannounced private signals on binomial random graphs, not fully visible fixed initial opinions on complete bicliques; Zehmakan (2023) uses synchronous rounds, and Lesfari–Giroire–Pérennes (2022) uses biased dynamics from all-negative initial conditions. A directly related earlier record classifies **synchronous** majority on bicliques and includes an opposing-majority two-cycle; that statement cannot imply almost-sure consensus under asynchronous updates, let alone the precise hypergeometric tail. Dedicated searches for equivalences and stronger claims returned no decisive coverage, but absence of a match is not proof of priority. Residual risk: preexisting specialist Markov-chain or interacting-particle literature may derive the same exact first-update race and scaling.
+
+## Mathematical value — PASS
+
+This resolves the entire naturally tie-free complete-bipartite family for arbitrary initial configurations and supplies a nontrivial closed-form law, not only a convergence existence statement. The large-population phase boundary is an **unweighted sum of local fractions** independent of the population ratio, with an explicit \(N^{-1/2}\) crossover amplitude depending on the ratio. In particular, an initial global opinion minority occupying just \(61/200\) of agents can win with probability tending to one: a substantive demonstration of how local topology and timing override global headcounts. The exact expression and critical scaling are usable in social-learning benchmark models. Scope is deliberately restricted to the equal-rate, odd-biclique process and does not settle arbitrary graphs or tie-breaking rules.
+
+Self-review: passed. Independent audit: not yet performed.
