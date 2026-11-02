@@ -1,0 +1,174 @@
+{
+  "audit_date_utc": "2026-10-25",
+  "audited_at_utc": "2026-10-25T23:46:44Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Reconstructed the full n-group invariant simplex, disease-free S_i=s_i=(μ_i+γ)/(μ_i+ν_i+γ)>0 and true next-generation infected matrix K=(Ds BA+α Ds BI DI^{-1}) DA^{-1}. For ρ(K)=1, Perron p>0 and q^T=p^T Ds BI DI^{-1}>0 give exact cancellation Wdot=Σ_i p_i (S_i-s_i) f_i for W=p·A+q·I. The susceptible excess e_i obeys e_i_dot=-(μ_i+ν_i+γ)e_i-S_i f_i-γ(A_i+I_i). Adding H=Σ p_i(e_i)_+ yields the exact nonpositive Dini derivative: Σ_{e_i<0}p_i e_i f_i−Σ_{e_i>0}p_i(s_i f_i+κ_i e_i+γ(A_i+I_i)). At e_i=0 its upper Dini derivative is zero since e_i_dot≤0; nonsmoothness is handled. Any infected state on a positive-time invariant zero-derivative ω-limit orbit forces f_j>0 for some j by strictly positive transmission diagonal; constancy forbids e_j≠0, yet at e_j=0 the derivative is −s_j f_j−γ(A_j+I_j)<0, causing an immediate strict derivative contradiction. All infected classes therefore decay; stable linear susceptible errors and conservation give global attraction, and W≤V plus variation-of-constants gives Lyapunov stability, including γ=0 and n=1. Independently generated an exact heterogeneous two-group rational critical example with μ=(1,2), ν=(2,1), α=γ=δA=δI=1, BA=BI=((8/3,3/2),(8/9,3)), K=((2/3,1/4),(1/3,3/4)); verified p=q=(1,1), cancellation, both surplus/deficit branches and zero-boundary crossing for three rational admissible states: Vdot=−193/120, 0, −151/160. These finite calculations corroborate algebra, not the all-n proof. The strict-subcritical and supercritical sides follow independently for this exact K from eventual S_i≤s_i+ε plus Metzler comparison and infected linearized instability; they are background, not assigned novelty.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Guo–Li–Shuai 2012, Eq. (2.1)/(2.6), assumptions (A1),(A2), Theorem 4.1: a common scalar susceptible state and upper incidence bound at its DFE, not separately varying group susceptibilities with arbitrary initial S_i>s_i.",
+          "Shuai–van den Driessche 2013, Sec 2 Theorems 2.1–2.2: general positive left eigenvector technique requires sign-controlled nonlinear remainder on the invariant domain; here Σp_i(S_i-s_i)f_i may be strictly positive.",
+          "Fan–Hao–Sun–Wei 2018, DOI 10.1142/S1793524518500067, abstract reports a vaccinated multi-group susceptible-exposed-infective-recovered-susceptible model, but exact full-text hypotheses and reach were not established."
+        ],
+        "reasoning": "The first two general theorems do not directly imply the heterogeneous ν_i vaccinated equality result under all allowed S_i. A broad result with additional structural assumptions would require a worked reduction, absent here. The similar 2018 model remains a real residual risk because its theorem text could not be read; abstract-only difference in SEIRS architecture is not a decisive noncoverage proof.",
+        "searches": [
+          "Guo Li Shuai 2012 Global dynamics of a general class of multistage models Theorem 4.1",
+          "Shuai van den Driessche 2013 Global Stability of Infectious Disease Models Using Lyapunov Functions Theorems 2.1,2.2",
+          "doi:10.1137/110827028",
+          "doi:10.1137/120876642",
+          "2018 global stability multi-group SEIRS epidemic models with vaccination Fan Hao Sun Wei"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic searches (three actual queries listed in four checks), excluding identical indexed SCOPE copy",
+        "Ottaviano–Sensi–Sottile, arXiv:2202.02993 and DOI:10.1002/mma.9303, full primary model/theorems",
+        "Guo–Li–Shuai 2012, DOI:10.1137/110827028, full authors-hosted paper",
+        "Shuai–van den Driessche 2013, DOI:10.1137/120876642, full authors-hosted article",
+        "Li–Zhang 2023, DOI:10.3934/era.2023328, publisher descriptive material only",
+        "Fan–Hao–Sun–Wei 2018, DOI:10.1142/S1793524518500067, publisher abstract only; institutional verification interrupted"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Current final theorem supplies GAS at exactly ρ((DsBA+αDsBI DI^{-1}) DA^{-1})=1, for arbitrary independent ν_i≥0 and initial conditions on the full Γ.",
+          "Strict subcritical theorem in same model yields no implication at R0=1; source critical theorem assumes ν_i=0.",
+          "Guo–Li–Shuai applies under global incidence dominance for a single S and cannot be specialized without proving an additional invariant restriction on all S_i; valid initial S_i>s_i prohibit the direct specialization.",
+          "The identity Wdot=Σp_i(S_i-s_i) f_i may be positive; the new sum p_i(S_i-s_i)_+ converts it to an everywhere nonpositive Dini derivative, not present in the directly compared original conclusions."
+        ],
+        "reasoning": "No inspected primary theorem entails the full claim by a justified reduction or special-case implication. The potentially overlapping inaccessible 2018 SEIRS theorem and possible unindexed positivity-based Lyapunov theorem remain material risks but not established coverage.",
+        "searches": [
+          "arXiv:2202.02993 Theorems 5, 6 and full model",
+          "Guo–Li–Shuai 2012 Theorem 4.1 assumptions (A1), (A2)",
+          "Shuai–van den Driessche 2013 Theorems 2.1 and 2.2",
+          "Fan–Hao–Sun–Wei 2018 publisher abstract, DOI 10.1142/S1793524518500067"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Ottaviano, Sensi and Sottile, Global stability of multi-group SAIRS epidemic models, source model eq (1) and DFE threshold section: vaccinated GAS is asserted for R0<1 in Theorem 5, while Section 3.1 imposes ν_i=0 for the R0=1 theorem (Theorem 6).",
+          "The current claim permits each ν_i>=0 independently, and states R0=1 on the entire nonnegative invariant group simplices, including initial S_i>s_i."
+        ],
+        "reasoning": "Matching the compartment names is not coverage: strict R0<1 is not the nonhyperbolic equality case, and ν=0 is a proper restriction. The submitted correction explicitly treats possible transient susceptible excess, which defeats the cited source Lyapunov deficit sign.",
+        "searches": [
+          "Resultary: multi-group SAIRS vaccinated disease free equilibrium R0 equals 1 global asymptotic stability positive-part susceptible surplus",
+          "Resultary: multi group SAIRS epidemic vaccinated heterogenous nu Perron threshold equality extinction global stability",
+          "arXiv:2202.02993, original model and Theorems 5,6; doi:10.1002/mma.9303",
+          "Search: multi-group SAIRS disease free equilibrium vaccine rates R0=1 globally stable Perron Lyapunov"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Highest-ranked Resultary hit is the indexed copy of this very assigned result, 2026/10/11/SCOPE-critical-threshold-extinction-with-heterogeneous-vaccination-in--45f2bd1d5fd8, expressly excluded as independent earlier work.",
+          "Other named Resultary hits address a seven-class single-population waning-immunity model, two-risk SLEIRS, mixed-strain threshold errors and other distinct models; their stated hypotheses do not dominate arbitrary independently varying S_i and BA,BI.",
+          "The theorem is continuum-parameter and all-group-count, not an exact finite database/table entry."
+        ],
+        "reasoning": "An exact indexed self-copy is not independent priority evidence. The searched records furnish related methods and thresholds but no fully covering mathematical implication; nonappearance alone is not novelty certification.",
+        "searches": [
+          "Resultary: multi-group SAIRS vaccinated disease free equilibrium R0 equals 1 global asymptotic stability positive-part susceptible surplus",
+          "Resultary: multi group SAIRS epidemic vaccinated heterogenous nu Perron threshold equality extinction global stability",
+          "Resultary: vaccination multi-group SEIRS threshold R0=1 globally asymptotically stable disease free"
+        ]
+      },
+      "rationale": "A qualified best-of-knowledge PASS for the vaccinated R0=1 endpoint, not for the Perron method or strict-subcritical theorem. The identical model of Ottaviano–Sensi–Sottile (arXiv:2202.02993, 2022; 2023 journal) explicitly proves vaccinated GAS only when R0<1 (Theorem 5) and handles equality only without vaccination (Section 3.1, Theorem 6). The complete Shuai–van den Driessche (2013) general Perron method uses a globally nonnegative Lyapunov remainder, unavailable when vaccinated susceptible levels exceed their disease-free levels. Guo–Li–Shuai (2012) has one susceptible variable with a global incidence dominance assumption; this is not available for independent S_i>s_i. The exact new correction uses positive susceptible excess for each group and fills the published nonhyperbolic threshold gap. A potentially related 2018 vaccinated SEIRS primary full text remained inaccessible after OA/preprint search and authorized institutional retrieval, so direct coverage cannot be decisively excluded; this is recorded as a genuine residual risk.",
+      "residual_risks": [
+        "The 2018 Fan–Hao–Sun–Wei vaccinated multigroup SEIRS theorem, DOI:10.1142/S1793524518500067, was not readable beyond abstract; a more general reduction remains possible and is not ruled out.",
+        "Unindexed preprints/general threshold theorems might already supply the susceptible-excess correction or an equivalent implication.",
+        "The motivating 2022/2023 source may display inconsistent row/column indices in next-generation matrix entries for heterogeneous rates; compare using the actual Jacobian FV^{-1} definition rather than potentially mis-indexed printed expression.",
+        "Li–Zhang 2023 full mathematical body not fully reread; available description suggests different network/exposed model but no whole-document noncoverage is asserted."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers vaccinated GAS for R0<1 and unvaccinated equality, not all vaccinated equality; matching general formula may contain displayed row/column index ambiguity for heterogeneous parameters, so current theorem uses correct FV^{-1} reduction.",
+          "evidence": [
+            "Theorem 5: vaccinated R0<1",
+            "Section 3.1 and Theorem 6: critical threshold under ν_i=0",
+            "Group-specific s_i and contact matrices in equations/next generation section"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2202.02993",
+          "material_read": "Original full-text model equations, Assumption 1, DFE and NGM, Theorems 4–6 with hypotheses/proofs, vaccinated strict theorem and unvaccinated critical Section 3.1; 2023 publisher full text cross-compared.",
+          "method": "Primary arXiv full text and publisher full-article HTML (https://onlinelibrary.wiley.com/doi/full/10.1002/mma.9303)",
+          "title": "Global stability of multi-group SAIRS epidemic models",
+          "trigger": "Same four compartments, same multigroup vaccinated SAIRS dynamics and the motivating R0=1 omission"
+        },
+        {
+          "assessment": "One susceptible population and global susceptible-incidence upper bound; not a direct coverage of independent vaccinated susceptible surplus across groups.",
+          "evidence": [
+            "Eq. (2.1), (2.6) have scalar S",
+            "Theorem 4.1 requires (A1) and (A2) in critical regime"
+          ],
+          "identifier_or_url": "https://sites.ualberta.ca/~myli/research/ps_files/multistage_2012.pdf",
+          "material_read": "Authors-hosted original 19-page primary PDF, especially underlying model Eq. (2.1)/(2.6), incidence assumptions (A1),(A2), Theorem 4.1 and its proof around pages 263–269; theorem page examined visually.",
+          "method": "Full primary PDF extracted text plus selected page-image examination",
+          "title": "Global dynamics of a general class of multistage models for infectious diseases",
+          "trigger": "Potentially broader global nonhyperbolic R0<=1 epidemic threshold theorem"
+        },
+        {
+          "assessment": "Its general theorem assumes an everywhere favorable derivative remainder; vaccinated susceptible surplus violates the naive infected-only condition. Similar methodological framework does not by itself supply the positive-excess correction.",
+          "evidence": [
+            "Section 2 Theorems 2.1–2.2 sign hypotheses",
+            "The nonlinear infection remainder has sign of S_i-s_i for weighted infected mass"
+          ],
+          "identifier_or_url": "https://sciences.ucf.edu/math/zshuai/wp-content/uploads/sites/11/2016/09/Global-stability-2013siap.pdf",
+          "material_read": "Full authors-hosted primary PDF introduction and Section 2 general theorems 2.1 and 2.2 with remainder-sign conditions, plus epidemic examples; first theorem page visually checked.",
+          "method": "Complete open primary PDF examined in text and sampled page image",
+          "title": "Global Stability of Infectious Disease Models Using Lyapunov Functions",
+          "trigger": "General Perron-vector method could subsume the proposed corrected Lyapunov argument"
+        },
+        {
+          "assessment": "Exposed-stage and network-degree model not shown to imply all-arbitrary-contact SAIRS critical endpoint; lack of complete same-source reread is a residual limitation.",
+          "evidence": [
+            "Publisher model summary concerns S,E,J,I/network-degree mixing rather than current arbitrary BA,BI SAIRS compartments"
+          ],
+          "identifier_or_url": "https://doi.org/10.3934/era.2023328",
+          "material_read": "Open publisher article landing material, title, abstract/figure-model description and theorem context; complete body not verified in this run.",
+          "method": "Public publisher page and related reference metadata",
+          "title": "Global dynamics of an endemic disease model with vaccination: Analysis of the asymptomatic and symptomatic groups in complex networks",
+          "trigger": "Potential asymptomatic/symptomatic vaccinated network comparator"
+        },
+        {
+          "assessment": "Unresolved potential primary overlap. Do not label the full paper NOT_COVERING; inaccessible alone does not prove or disprove originality.",
+          "evidence": [
+            "2018 DOI 10.1142/S1793524518500067, abstract names vaccinated multi-group SEIRS model",
+            "Full-text access interruption prevents comparing exact hypotheses and theorems"
+          ],
+          "identifier_or_url": "https://doi.org/10.1142/S1793524518500067",
+          "material_read": "Publisher abstract and bibliographic information only. No full original paper obtained or read.",
+          "method": "Primary publisher abstract; searched arXiv and lawful OA for same paper without a full-text find. Authorized Oxford Download returned interrupted, verification tab expired, HTTP 403; no retry/bypass.",
+          "title": "Global stability of multi-group SEIRS epidemic models with vaccination",
+          "trigger": "Very close title and vaccinated multigroup R0 global dynamics could conceivably dominate the claim despite SEIRS compartment distinction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The exact R0=1 vaccinated endpoint is a motivated nonhyperbolic gap in a specific published multigroup SAIRS theorem, not a routine numerical parameter substitution. Group-specific vaccination places the DFE susceptible levels below admissible initial S_i, invalidating the naive infection-only Lyapunov sign. The new Perron-weighted positive-part susceptible-excess term restores a global monotone functional for any n and independent nonzero ν_i with arbitrary irreducible BA,BI. It completes the closed R0≤1 disease-free phase boundary, an exact structural stability fact relevant to multiple-group infectious-disease dynamics. The statement is deterministic autonomous with fixed group totals and linear force of infection; no critical decay rate, stochastic/delayed extension or endemic classification is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic searches (three actual queries listed in four checks), excluding identical indexed SCOPE copy",
+    "Ottaviano–Sensi–Sottile, arXiv:2202.02993 and DOI:10.1002/mma.9303, full primary model/theorems",
+    "Guo–Li–Shuai 2012, DOI:10.1137/110827028, full authors-hosted paper",
+    "Shuai–van den Driessche 2013, DOI:10.1137/120876642, full authors-hosted article",
+    "Li–Zhang 2023, DOI:10.3934/era.2023328, publisher descriptive material only",
+    "Fan–Hao–Sun–Wei 2018, DOI:10.1142/S1793524518500067, publisher abstract only; institutional verification interrupted"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All-n critical result applies only to the stated deterministic SAIRS group-wise compact Γ, positive mortality μ_i, α, removals, fixed vaccination rates, and irreducible nonnegative matrices with strictly positive diagonals.",
+    "No critical decay rate, global endemic-supercritical dynamics, stochastic, delayed or other general infection mechanisms.",
+    "Exact finite checks do not replace proof across all n and parameters.",
+    "2018 multi-group vaccinated SEIRS original full text inaccessible; authorized institutional retrieval interrupted with human-verification tab expiry (HTTP 403), no bypass.",
+    "Printed-source next-generation matrix indexing needs care; assessment uses derived FV^-1 threshold.",
+    "Publication sanitization not verified and no public files modified."
+  ],
+  "residual_risks": [
+    "The 2018 Fan–Hao–Sun–Wei vaccinated multigroup SEIRS theorem, DOI:10.1142/S1793524518500067, was not readable beyond abstract; a more general reduction remains possible and is not ruled out.",
+    "Unindexed preprints/general threshold theorems might already supply the susceptible-excess correction or an equivalent implication.",
+    "The motivating 2022/2023 source may display inconsistent row/column indices in next-generation matrix entries for heterogeneous rates; compare using the actual Jacobian FV^{-1} definition rather than potentially mis-indexed printed expression.",
+    "Li–Zhang 2023 full mathematical body not fully reread; available description suggests different network/exposed model but no whole-document noncoverage is asserted."
+  ],
+  "schema_version": 1
+}
