@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:20:46.943480Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Direct Poisson mean differentiation for mu1=Ku and mu2=K(L-u) gives I_KK=L/K, I_Kc=-(1-e^-L)/c and the exact nuisance-adjusted J_L(u)=L/[u(L-u)](1-e^-u-u(1-e^-L)/L)^2. Under log-time transform y=log(1+t/c), the continuous score is e^-y and the between-bin variance equals J_L. Differentiating the within-bin quadratic loss yields W'=(a-b)(a+b-2e^-u); A(u)=(e^u-1-u)/u is strictly increasing, B(L-u)=1-(1-e^-(L-u))/(L-u) is strictly decreasing with u, proving a unique global crossing, not merely Lloyd-Max stationarity. Monotone convergence gives e^uinf=1+2uinf and the two efficiency limits from full Poisson information. Independent direct roots, Schur/full-information inequalities and 1000-point cutoff scans for 8 horizons pass; small L expansion analytic, not a numerical extrapolation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ogata obtains exact-event-time likelihood/parameter estimation for aftershock intensity; full observation contains more information.",
+          "Lloyd–Max quantization offers general necessary conditions but not sufficiency for arbitrary distributions."
+        ],
+        "reasoning": "No inspected broader theorem gives this specific log-uniform exponential-score unique breakpoint and efficiency; general binned Fisher design might yet imply it.",
+        "searches": [
+          "Ogata 1983 modified Omori maximum likelihood information",
+          "Ogata 2004 regional seismicity",
+          "Lolli Gasperini 2005/2006 catalog incompleteness",
+          "Fisher optimal binning for Poisson processes"
+        ]
+      },
+      "checked_sources": [
+        "Ogata (1983), DOI:10.4294/jpe1952.31.115",
+        "Ogata (2004), DOI:10.1029/2003JB002621",
+        "Girod Stanford EE398A Quantization notes",
+        "Resultary semantic query inverse-time Poisson bin Fisher"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ogata data consist of all arrival times, not only two counts; thus full likelihood does not select optimal tau.",
+          "Generic quantization theory gives candidate score-centroid condition; uniqueness and asymptotic ratios require the specific monotonicity and integration."
+        ],
+        "reasoning": "The source theorems are premises/frameworks, not exact implication of the final specialized decision rule.",
+        "searches": [
+          "Ogata 1983 DOI:10.4294/jpe1952.31.115",
+          "Lloyd–Max scalar quantization classical theorem",
+          "Girod EE398A quantization notes"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "General scalar Lloyd-Max two-cell quantization has the same centroid-midpoint stationary equation.",
+          "The special continuous score is e^-y under uniform log-time and exact A(u)=B(L-u) monotonicity gives global uniqueness."
+        ],
+        "reasoning": "Generic quantizer first-order equations are not an evaluated exact optimal cutoff nor the two asymptotic Fisher efficiencies; these are the assessed contribution.",
+        "searches": [
+          "Resultary modified Omori inverse time aftershock two bin Fisher information optimal cutoff unknown amplitude",
+          "\"Omori\" \"Fisher information\" optimal two count bins",
+          "Girod Quantization Lloyd Max midpoint centroid"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No direct exact constant table among closest published mathematical records; retrieved quantization entries concern other distributions."
+        ],
+        "reasoning": "The constants are roots of elementary equations; failure to find a table is weak novelty evidence and never alone decisive.",
+        "searches": [
+          "\"2.512862417\" aftershock",
+          "\"0.814528755\" Omori Poisson",
+          "Resultary semantic query two count inverse-time Fisher"
+        ]
+      },
+      "rationale": "Best-of-knowledge: compared mathematical implication, equivalent aliases, broader frameworks and exact tables; not directly covered by sources actually inspected. Residual literature risks and incomplete full-text access are explicitly recorded.",
+      "residual_risks": [
+        "A specialized general quantized-Poisson experiment design theorem may imply global uniqueness.",
+        "Real aftershocks have trigger clustering, incomplete early detections and unknown Omori exponent; model assumptions fixed.",
+        "Original arxiv/lecture PDFs were not fully independently accessible during this execution; no blanket noncoverage claim."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FULL_ARRIVAL_NOT_TWO_BIN_OPTIMUM",
+          "evidence": "Conventional exact event arrival likelihood is not a deterministic two-count design optimum.",
+          "identifier_or_url": "https://doi.org/10.4294/jpe1952.31.115",
+          "material_read": "Published formulation and likelihood/Fisher information discussion, with source-bibliography checks",
+          "method": "Primary publication comparison; no complete full PDF claimed on fresh retrieval",
+          "title": "Estimation of the parameters in the modified Omori formula for aftershock frequencies by the maximum likelihood procedure",
+          "trigger": "Same intensity family and likelihood"
+        },
+        {
+          "assessment": "MODEL_MISSPECIFICATION_NOT_OPTIMAL_CUTOFF",
+          "evidence": "Practical incompleteness is relevant limitation, but no located two-bin Fisher optimum.",
+          "identifier_or_url": "https://arxiv.org/abs/physics/0510081",
+          "material_read": "Public preprint abstract and catalog-completeness/model comparisons",
+          "method": "ArXiv bibliographic and available primary passages",
+          "title": "Comparing different models of aftershock rate decay: the role of catalog incompleteness in the first times after main shock",
+          "trigger": "Same time-offset uncertainty"
+        },
+        {
+          "assessment": "GENERAL_NECESSARY_CONDITION",
+          "evidence": "Stationary midpoint criterion is prior knowledge; strict uniqueness and limits are not stated.",
+          "identifier_or_url": "https://web.stanford.edu/class/ee398a/handouts/lectures/05-Quantization.pdf",
+          "material_read": "Lecture presentation of Lloyd–Max nearest-neighbor/centroid conditions, not specialized inverse-time rate",
+          "method": "Author-hosted lecture material and mathematical comparison",
+          "title": "Quantization, Stanford EE398A lecture notes",
+          "trigger": "General two-cell centroid optimization"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A fully specified statistically interpretable experiment-design decision: optimal time boundary for retaining exactly two counts with unknown amplitude, and exact information loss relative to retaining individual event times. Sharp uniqueness and efficiency constants make a natural design fact rather than a routine first-order condition.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "A specialized general quantized-Poisson experiment design theorem may imply global uniqueness.",
+    "Real aftershocks have trigger clustering, incomplete early detections and unknown Omori exponent; model assumptions fixed.",
+    "Original arxiv/lecture PDFs were not fully independently accessible during this execution; no blanket noncoverage claim.",
+    "No formal Lean proof or human expert attestation inferred from bounded independent computations."
+  ],
+  "schema_version": 1
+}
