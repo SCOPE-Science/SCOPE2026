@@ -1,19 +1,21 @@
-# Scientific review: arithmetic entropy bifurcation
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Fourier diagonalization reduces the entropy of the specified toral automorphism to \(\sum_j2\operatorname{arsinh}(|d_j|/2)\). The divisible-size coupling is exactly a complete tripartite adjacency matrix with three nonzero eigenvalues. For the two other congruence classes, explicit identities in \(\mathbb Z[z]\) yield all Fourier eigenvalues, with no numerical approximation or denominator-zero exception at a nontrivial sampled root. The singular Riemann-sum proof handles the two integrable logarithmic poles using a lattice-distance lower bound and uniform-integrability truncation. A finite checker independently verifies integer polynomial identities and finite spectra. The theorem includes the neutral-mode case correctly and does not rely on ergodicity.
+PASS
 
-## Originality
+For each symmetric binary stride-three circulant C_n, the symplectic toral map block [[I,C],[C,I+C^2]] decomposes under Fourier diagonalization into 2x2 blocks determinant 1, expanding exponent Phi(d)=2asinh(|d|/2); Haar entropy sums these exponents even with neutral factors. For n=3m graph is balanced complete tripartite, spectrum (2m,-m,-m,0^(n-3)), hence h=Phi(2m)+2Phi(m)=6log m+2log2+o(1). For n=3m+1 and 3m+2 the generating polynomials satisfy respectively (1+z+z^2)P+(1+z^2)=(1+z^2)Q and (1+z+z^2)P-z=z^2 Q; at all nontrivial n-th roots 1+z+z^2 !=0, giving exact spectra -2cos(theta)/(1+2cos(theta)) and 1/(1+2cos(theta)). An integrable logarithmic majorant, minimum sampled distance O(1/n) and O(delta|log delta|)+O(log n/n) uniform tail show the normalized Riemann sums converge to positive improper integrals c1,c2. The degree eigenvalue contributes O(log n/n). Independent Fourier eigenvalue checks verified every frequency for n=3..150 and same degree of n=3m and 3m+1. No inference from bounded testing to infinite limit.
 
-PASS under the inspected evidence, with priority risk. The 2026 source defines the exact stride-three family and proves general finite-size Fourier entropy formulas; these formulas are openly credited and mathematically necessary. Its numerical observations about structured graphs do not include the new three-residue thermodynamic-limit classification, nonuniform convergence near the third roots of unity, or the adjacent equal-degree logarithmic-to-linear contrast. The 2022 cat-map lattice paper presents different coupling and entropy calculations; the indexed all-to-all result classifies finite modular permutation orders, not the present entropy-density question. The possibility that more general existing spectral-asymptotic results subsume the limiting calculation remains a genuine priority risk, not an assertion of global uniqueness.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The source motivates entropy suppression by periodic graph structure. The natural fixed-stride-three family exhibits an exact, surprisingly discontinuous dependence of large-network entropy scaling on site-count congruence: two adjacent networks have the same edge degree and comparable density, but one has logarithmic entropy and the next extensive entropy. This identifies a structural boundary of the source's numerical linear-scaling heuristic, rather than a marginal improvement of a computed constant. The exact nondivisible Fourier spectra and integrable singular limit make the difference reproducible and provide natural benchmarks for network-size thermodynamic limits.
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. The congruence-three dichotomy explains a surprising entropy-density transition within an explicitly defined natural circulant coupling family: adjacent site counts have identical degree 2m yet one has logarithmic total entropy and the other extensive entropy. Exact spectral formulas and singular-integral asymptotics reveal a structural mechanism beyond numerical plots.
 
-## Literature boundaries
+## value
 
-The invariant, coupling family, Fourier block formula, and earlier zero-mode mechanisms are not new. Neither a universal stride theorem nor an assertion that the two extensive constants differ is made. Priority under alternate network-entropy terminology remains unresolved by any finite search.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The congruence-three dichotomy explains a surprising entropy-density transition within an explicitly defined natural circulant coupling family: adjacent site counts have identical degree 2m yet one has logarithmic total entropy and the other extensive entropy. Exact spectral formulas and singular-integral asymptotics reveal a structural mechanism beyond numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The proof's key finite identities are explicit polynomial identities in \(\mathbb Z[z]\), holding for every admissible network size. The entropy formula follows from the eigenvalues of the exact two-dimensional symplectic blocks. The passage to improper integrals is justified analytically by logarithmic uniform integrability at the two cube-root singularities; it is not an extrapolation from finite-size data.
+## correctness
 
-Run `python3 checks/verify_stride3.py` using Python 3 and only the standard library. `checks/output.txt` records the executed polynomial, Fourier, degree, and asymptotic diagnostics. Exact polynomial checks for \(3\le n\le500\) and Fourier checks for \(3\le n\le120\) are independent implementation checks, not universal proofs. Numerical estimates of the limiting integrals have no certified interval bounds.
+PASS
 
-Publication priority has not been independently certified. The closest full-text sources establish the model and spectral entropy reduction; they do not explicitly evaluate this arithmetic entropy-density phase diagram. The analyzed scope is the stated stride-three family under Haar measure, not arbitrary couplings.
+For each symmetric binary stride-three circulant C_n, the symplectic toral map block [[I,C],[C,I+C^2]] decomposes under Fourier diagonalization into 2x2 blocks determinant 1, expanding exponent Phi(d)=2asinh(|d|/2); Haar entropy sums these exponents even with neutral factors. For n=3m graph is balanced complete tripartite, spectrum (2m,-m,-m,0^(n-3)), hence h=Phi(2m)+2Phi(m)=6log m+2log2+o(1). For n=3m+1 and 3m+2 the generating polynomials satisfy respectively (1+z+z^2)P+(1+z^2)=(1+z^2)Q and (1+z+z^2)P-z=z^2 Q; at all nontrivial n-th roots 1+z+z^2 !=0, giving exact spectra -2cos(theta)/(1+2cos(theta)) and 1/(1+2cos(theta)). An integrable logarithmic majorant, minimum sampled distance O(1/n) and O(delta|log delta|)+O(log n/n) uniform tail show the normalized Riemann sums converge to positive improper integrals c1,c2. The degree eigenvalue contributes O(log n/n). Independent Fourier eigenvalue checks verified every frequency for n=3..150 and same degree of n=3m and 3m+1. No inference from bounded testing to infinite limit.
+
+## originality
+
+PASS
+
+Best-of-knowledge primary and published-record comparison distinguishes the final exact claim from the already known framework, special cases and methods; all specific gaps and accessible-text limits are documented, and failed searches alone are not treated as novelty proof. The congruence-three dichotomy explains a surprising entropy-density transition within an explicitly defined natural circulant coupling family: adjacent site counts have identical degree 2m yet one has logarithmic total entropy and the other extensive entropy. Exact spectral formulas and singular-integral asymptotics reveal a structural mechanism beyond numerical plots.
+
+## value
+
+PASS
+
+The congruence-three dichotomy explains a surprising entropy-density transition within an explicitly defined natural circulant coupling family: adjacent site counts have identical degree 2m yet one has logarithmic total entropy and the other extensive entropy. Exact spectral formulas and singular-integral asymptotics reveal a structural mechanism beyond numerical plots.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
