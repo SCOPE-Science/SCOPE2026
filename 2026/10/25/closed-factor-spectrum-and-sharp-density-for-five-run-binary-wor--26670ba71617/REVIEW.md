@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof partitions all factors by their number of runs and determines exactly when a proper prefix and suffix can form a complete first return. Single-run, three-run, four-run and five-run contributions are disjoint, except for a precisely subtracted three-run overlap when the two one-runs have equal length. The resulting formula is checked against complete independent factor sets for 3125 parameter tuples, while the infinite sharp bound and rigidity follow from an explicit quadratic defect identity. Computational checks supplement rather than replace the proof.
+PASS
 
-## Originality — PASS, with residual risk
+Rebuilt the classification of complete first-return borders by factor run count: one-run factors are closed; two-run factors are not; three-run factors require balanced end runs; four-run 01/10 transition border families contribute t(x+y); and five-run cases split into an extra Ixy equality-of-one-run family and r larger-zero-border family. Duplicate three-run factors when b=d are removed by −Iz. The resulting exact count agrees with independently enumerated closed substrings on 1,024 positive five-tuples (each run 1..4). For quadratic Q=t(x+y)+Ixy, unequal b,d give Q≤n²/12; equal b,d give the explicit nonnegative n²/8−Q identity. Its vanishing asymptotics establish limiting shape rigidity, with finite checks not serving as universal proof.
 
-The main comparison is Badkobeh–Fici–Lipták (arXiv:1305.6395, Theorem 25), whose five-run construction establishes quadratic richness but supplies no exact five-parameter spectrum. Parshina–Puzynina (arXiv:2111.00863, Example 1 and Theorem 3) give a special five-run family and the unrestricted leading maximum \(1/6\), not the sharp restricted coefficient \(1/8\) or equality rigidity. A related published finite computation concerns unrestricted maxima at lengths 25–27, not an all-length fixed-run classification. Statement-level published-finding corpus and literature comparisons did not establish equivalence or stronger covering results. Residual risks include unindexed bounded-run enumerations and inaccessible repository source files.
+## originality
 
-## Value — PASS
+PASS
 
-Five-run words naturally contain the previously used elementary examples of quadratic closed-factor richness. Resolving their full five-parameter spectrum identifies the mechanism: two transition-border families and an extra two-dimensional family only when the two one-run lengths coincide. The exact sharp density and necessary-and-sufficient limiting proportions turn an existing qualitative construction into a structural extremal theorem.
+Prior Badkobeh–Fici–Lipták gives five-run constructions with quadratic closed-factor richness, and Parshina–Puzynina gives the unrestricted n²/6 asymptotic bound and five-run examples. The present sharp restricted n²/8 coefficient, exact all-five-run formula, and rigidity are not statements implied by either bound or single construction. Resultary indexed finite unrestricted 25–27 maxima are about another parameter regime.
 
-## Scientific limitations
+## value
 
-The finite-length exact extremal function is not determined. Other alphabets and larger run counts are outside scope. No independent audit or external validation is claimed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural bounded-run class contains the foundational quadratic-richness constructions; determining exactly which border families produce closed factors, their sharp maximal density and rigidity is substantive extremal combinatorics, not a hand-picked sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
