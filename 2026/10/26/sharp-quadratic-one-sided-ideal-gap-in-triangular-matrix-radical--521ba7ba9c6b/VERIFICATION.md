@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification record
+# Independent mathematical audit
 
-The proof uses exact linear-algebra rank inequalities over an arbitrary field; no computational conjectures are assumed. The relevant identities are (i) principal right and left ideal dimensions as sums of leading and trailing principal-corner ranks, (ii) the sharp inequalities \(\operatorname{rank}(X^{[j]})\le\min(r,j-1)\) and \(\operatorname{rank}(X_{[i]})\ge\max(r-i+1,0)\), (iii) the nonvanishing of the superdiagonal-product minor at equality, and (iv) rank-preserving rook moves proving interval attainability.
+## correctness
 
-Run with Python 3 from the package directory: `python check.py`. Successful output: `TRIANGULAR_ONE_SIDED_GAP_OK 13 exhaustive field-and-size cases`. The script enumerates all radical matrices for field sizes \(2,3,4,5\) at stated small dimensions, constructs products with triangular matrix units directly in smaller instances, computes independent ideal-span ranks and compares all fixed-rank gap and endpoint predictions. The computation is exhaustive only in those thirteen finite cases; the written algebraic proof covers all fields and sizes.
+PASS
 
-No independent mathematical audit was performed. The finite tests do not establish publication priority, rule out an indirect consequence of older orbit classifications, or resolve the uncounted nonextremal gap fibers.
+Reconstructed dim(XT_n)=sum_j rank(X[1:j,1:j]) and dim(T_n X)=sum_i rank(X[i:n,i:n]) by independent triangular columns/rows. Leading profile is at most min(r,j-1); trailing at least max(r-i+1,0), giving sharp bound. Positive equality forces nonzero first r superdiagonal pivots and zero rows below r; coordinates yield the torus-affine locus. Anti-diagonal-transpose gives negative extremizers. A sequence of nonattacking rook placements moves one coordinate at a time, changing the difference by -1, so every intervening integer occurs. Boundary r=0,n-1 gives zero. New direct exact GF(2) enumeration covered n=2..5 (1098 matrices), including direct product-span ranks and counts; all passed, but finite results are not the unrestricted proof.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality of the precise stated full theorem: mathematical antecedents and equivalent formulations were compared from real source readings. Standard ingredients are credited and genuine historical coverage risks remain; unsuccessful search is not a novelty proof. Already provides componentwise row/column principal ideal descriptions; it does not assert the two-sided fixed-rank extremal difference, all gap values, nor torus-affine equality locus. Rook-superclass orbit framework is structurally related; equality-spectrum consequence not established by what was read. Its Jordan/rank counting does not directly distinguish the sign of one-sided ideal gap; priority remains qualified.
+
+## value
+
+PASS
+
+One-sided principal ideal dimension imbalance is a natural measure of left-right asymmetry in hereditary triangular matrix algebras. The theorem resolves the sharp rank-dependent scale, every possible gap, and the entire equality geometry over arbitrary fields; rank and Jordan type alone cannot distinguish the signed gap.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
