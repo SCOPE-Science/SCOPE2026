@@ -1,0 +1,120 @@
+{
+  "correctness": {
+    "rationale": "On \\(E:y^2=x^3-1\\), addition by \\(T=(0,i)\\) gives the exact identity \\(x(P)x(P+T)x(P-T)=4\\). The divisor valuation matrix of each H-coset has columns (−2,1,1),(1,−2,1),(1,1,−2); two-column minor 3 is invertible modulo every allowed m. Each complete coset gives exactly one constant Kummer relation and no other relation occurs because different cosets have disjoint divisor supports. Kummer theory therefore gives \\(m^t\\) normalized components of degree \\(m^{r-t}\\), with Galois group \\((\\mathbb Z/m\\mathbb Z)^{r-t}\\). Riemann–Hurwitz over E and three fully m-ramified points per occupied coset yields \\(1+\\frac{3c}{2}m^{r-t-1}(m-1)\\). The exact SymPy checker was executed successfully, confirming the identity and finite sample modular kernels. The proof, not sample arithmetic, covers all allowed m,r and distinct shifts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pagani, arXiv:1303.2991, abstract: studies moduli and components of general abelian covers of elliptic curves.",
+        "Pardini, Abelian covers of algebraic varieties (1991): general building-data perspective; specific application not inspected.",
+        "Stewart, arXiv:2606.03779, uses generic separation of translated ramification supports."
+      ],
+      "reasoning": "General abelian-cover and Kummer theory is sufficiently broad to supply the method, and its prior status is acknowledged. The assessed exact result requires the special x-coordinate norm identity, determination of the kernel of the 3-by-3 valuation matrix for all occupied cosets, and computation of the induced branch/genus data for this specified family. No inspected stronger theorem was found giving these explicit consequences directly; uninspected broad sources remain a priority risk.",
+      "searches": [
+        "fiber products of abelian covers elliptic curves branch points collisions connected components degree genus Kummer",
+        "Moduli of abelian covers of elliptic curves arXiv:1303.2991",
+        "Pardini abelian covers branch divisors connectedness building data",
+        "fibre products of Kummer covers function field mth roots connectedness independent Kummer classes genus"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2606.03779 (primary portions of Sections 2--4.2)",
+      "arXiv:1303.2991 (abstract)",
+      "arXiv:0806.0674 (indexed abstract)",
+      "Classical Kummer theory and Riemann--Hurwitz (proof methods)",
+      "Exact web searches about translated elliptic torsion norm identities and fiber-product collisions",
+      "Mathematical research-index semantic searches; closest hits concerned different objects"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Stewart explicitly requires \\(Q_j-Q_l\\)≠(0,±i) to obtain at most one ramified coordinate at each branch point.",
+        "Pagani examines abstract moduli of abelian covers; Chen considers simply branched covers, not these translated high-order Kummer products.",
+        "The exact formula depends on an m-th-power relation between a complete three-translate orbit, which is absent from the noncolliding hypotheses."
+      ],
+      "reasoning": "The new theorem is not a restatement of the prior separated-case formula: for m=5,r=4, one full torsion triple and one independent point yield five components of genus 301, while separated shifts yield one component of genus 3001. General Kummer statements justify proof steps but the specific implication comparison has no identified dominating explicit prior theorem.",
+      "searches": [
+        "arXiv:2606.03779 Section 4.2 Q_j-Q_l nonzero 3-torsion condition",
+        "arXiv:1303.2991 abelian elliptic covers connectedness components",
+        "Dawei Chen 2008 simply branched covers elliptic curve genus components"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Stewart, arXiv:2606.03779, Section 4.2 explicitly assumes \\(Q_j-Q_l\\) is neither nonzero three-torsion point; the model and their Kummer-cover description match ours.",
+        "The addition identity is the multiplicative norm relation over the order-three translation subgroup; it is algebraically proved here, but no checked search result states the connected-component/genus classification for this fiber product."
+      ],
+      "reasoning": "The same object could be described as a tensor product of translated cyclic Kummer extensions, an abelian cover, or a translated elliptic isogeny-norm construction. These aliases were searched. The known generic degree \\(m^r\\) and genus formula require noncolliding support, so they do not themselves imply the degree-loss and splitting formulas on a complete three-point orbit.",
+      "searches": [
+        "\"Chloe Stewart\" \"T_m\" \"3-torsion\" genus",
+        "\"Complete Families of Curves\" \"three torsion\" fiber product",
+        "elliptic curve y^2=x^3-1 x(P)x(P+T)x(P-T)=4 triple relation m-th root covers genus",
+        "fiber product of cyclic Kummer covers elliptic curve x(P+Q_i) m-th roots collisions by 3-torsion reducible normalization components genus formula"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The cited construction tabulates the genus for separated branch points, with 3r distinct branch points, whereas collisions yield 3c with c<r.",
+        "No located exact table classifies component counts \\(m^t\\) and genus \\(1+\\frac{3c}{2}m^{r-t-1}(m-1)\\) for all distinct shifts."
+      ],
+      "reasoning": "The exact natural invariant here is the connected-component count plus the genus of each normalization component, not a known generic genus table recomputed at sample parameters. A failed search is not a uniqueness proof; partial access is disclosed.",
+      "searches": [
+        "Stewart 2026 complete families genus g curve T_m torsion collision condition",
+        "elliptic curve Kummer fiber product translated x coordinate torsion reducible genus",
+        "simply branched covers elliptic curve components genus Chen 2008"
+      ]
+    },
+    "rationale": "The motivating explicit cyclic-cover construction calculates a genus under exclusion of precisely the nonzero order-three translation differences classified here. This theorem determines the previously excluded normalization components and genera using an explicit special norm relation and an occupancy invariant. Classical Kummer theory and generic abelian-cover moduli methods are acknowledged as tools, not claimed new. Corpus and literature searches did not return a claim-level equivalent. Historical priority is provisional because portions of primary and broad antecedent full texts were inaccessible.",
+    "residual_risks": [
+      "Stewart arXiv:2606.03779 Sections 4.3--5 could not be exhaustively revisited after temporary HTML/PDF access failures; a statement under alternate wording remains possible, although the explicit separation hypothesis makes direct coverage unlikely.",
+      "Full text of Pagani arXiv:1303.2991 and older general abelian-cover literature was not inspected; a stronger theorem could yield this corollary.",
+      "Historical originality is provisional; semantic search and a partition of existing records cannot prove universal uniqueness."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Known separated construction, not a checked explicit classification of three-torsion collision strata. Later material was not exhaustively readable; qualified novelty risk retained.",
+        "evidence": [
+          "arXiv:2606.03779, Sections 3--4.2: \\(E:y^2=x^3-1\\), \\(X_m:v^2=u^{3m}-1\\), \\(Q_j-Q_l\\)≠(0,±i), and 3r branch points under that restriction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2606.03779",
+        "material_read": "Accessible primary HTML: abstract, Section 2, Section 3, Section 4.1, and Section 4.2 through its branch-separation condition and branch count; later full-text retrieval attempts failed.",
+        "method": "Read accessible original HTML mathematical definitions, Lemmas 3.1, 4.1--4.3, explicit Q_j separation and its proof; cross-checked bibliographic first-submission time.",
+        "title": "Complete Families of Curves in the Moduli Space of Genus g Curves",
+        "trigger": "Exact original X_m to E construction, connectedness and genus of its translated parameter curve"
+      },
+      {
+        "assessment": "General moduli framework, exact named translated Kummer construction not verified absent; residual broad-coverage risk.",
+        "evidence": [
+          "Pagani, arXiv:1303.2991, abstract concerns components of moduli of abelian G-covers of elliptic curves."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.2991",
+        "material_read": "Primary abstract and metadata, not full text; HTML access unsuccessful.",
+        "method": "Examined arXiv abstract and bibliographic description.",
+        "title": "Moduli of abelian covers of elliptic curves",
+        "trigger": "Potential general connectedness and abelian-cover theory that might dominate the claim"
+      },
+      {
+        "assessment": "Simply branched covers are not the explicitly translated high-order cyclic Kummer tensor product; not a decisive overlap.",
+        "evidence": [
+          "Chen, arXiv:0806.0674, abstract describes simply branched elliptic covers varying a branch point."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0806.0674",
+        "material_read": "Indexed original abstract only.",
+        "method": "Compared object, branching and genus topic in indexed paper metadata.",
+        "title": "Simply branched covers of an elliptic curve and the moduli space of curves",
+        "trigger": "Related parameter curves in moduli of covers of elliptic bases"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "45866338-5a0b-4f77-9143-9905a0cb54d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The separated-shift hypothesis is a natural geometric restriction in the motivating construction of complete curves in moduli. The excluded three-torsion collisions are an entire geometric boundary stratum, not an arbitrary special parameter choice. An occupied coset changes branch support; a full coset introduces a hidden norm relation and physically separates the normalization into m components. The precise component count, Galois group and genus for every occupancy pattern supply usable structural invariants of these parameter curves and explain a sharp and sometimes dramatic departure from the generic formula.",
+    "status": "PASS"
+  }
+}
