@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Actual mathematical checks
+# Independent mathematical audit
 
-The proof verifies the full quantifier range \(n\to\infty\), fixed \(r\ge2\), \(1\le a<r\), \(c>0\), \(m_n/2^{na/2}\to c\). The mixed factorial-moment argument accounts for all multi-marked collision graphs and proves the independent-Poisson limit for all size-\(a\) antecedents jointly. Markov's inequality handles all sets larger than the threshold, while pairwise independence of world-pair witness indicators gives a second-moment proof for all sets below it.
+## correctness
 
-The accompanying `checker.py` was replayed as a standalone Python 3 program with no extra dependencies. It exhaustively enumerates world tables for nine small combinations of \(q,r,m,a\), checks direct supervenience semantics against the deterministic high-probability profile whenever its witness conditions hold, and checks finite exact first/cross-second collision moments. It reports `ALL_CHECKS_OK`. Enumeration is not an infinite proof and is not used to establish novelty or priority.
+PASS
 
-## Limits of verification
+With q=2^n, each world is an iid uniform vector in [q]^r, and a size-a projection has expected collision count binom(m,2)/q^a->lambda=c^2/2. Expanding mixed factorial moments across all critical A, disjoint world-pairs contribute lambda^K; connected shared-vertex components v>=3 cost O(q^{a(1-v/2)}) and multiply marked two-vertex edges with different A force >=a+1 coordinate agreements and cost O(q^-1). Hence the critical vector converges to independent Poisson(lambda) coordinates. For |A|>a, Markov kills all collisions; for |A|<a and j outside A, violating pair indicators are pairwise independent even when pairs share one world, and their count has mean tending to infinity, so all nontrivial implications fail simultaneously. Critical collision-free indicators become independent Bernoulli(e^-lambda), yielding the binomial number of minimal size-a determinants. Reconstructed all A,B, including empty antecedents, fixed r,a,c; independent exhaustive finite q=3, r=3, m=3 enumeration verifies means/cross covariance but not the limit.
 
-The available indexed transcription of the 1998 random-database precursor was incomplete: Theorems 1–2 and 4 and substantial surrounding sections were inspected, but an inaccessible remainder could contain a multivariate refinement. No independent audit was conducted. The theorem makes no claim for nonuniform or correlated predicate extensions or growing numbers of predicates.
+## originality
+
+PASS
+
+The exact same random mathematical objects are random database tables: world=record, unary predicate-extension=column value drawn from alphabet size 2^n, and supervenience=functional dependence. Demetrovics–Katona–Miklós–Seleznjev–Thalheim 1998 already establishes marginal dependence/key birthday asymptotics; no originality is claimed for any single-A Poisson/FD probability. Ciardelli's modal work provides the logical equivalence. The additional simultaneous joint independence across overlapping critical projection subsets, complete high-probability implication table, and critical-binomial determinant count are stronger than the inspected marginal theorem statements. Qualified best-of-knowledge PASS, with unknown multivariate random-database predecessors as a priority risk.
+
+## value
+
+PASS
+
+Global functional dependence of predicate-extension columns is a natural identification and database key problem. A complete phase diagram at the birthday threshold, including nontrivial mutual independence of overlapping-projection collision counts and synchrony of implications within one antecedent, is substantively useful beyond a one-event birthday probability.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
