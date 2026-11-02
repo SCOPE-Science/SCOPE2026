@@ -1,0 +1,10 @@
+# Scientific assessment
+
+**Correctness — PASS.** Prefix heredity and overlap/square-suffix tests cover every possible extension. The first checker retains one representative per alphabet-relabeling orbit and proves all 1008 terminal representatives use three symbols; independent unrestricted three-symbol search computes the curling number directly and finds 6048 labeled words. Both report precisely the two printed image strings with fiber sizes 4032 and 2016, common first 83 symbols, and no admissible length-85 extension. Exhaustiveness rests on an explicit finite recurrence, not statistical testing.
+
+**Originality — PASS, with residual priority risk.** The closest arXiv primary full text (Caveney–Dong–Shallit, arXiv:2608.15670v1, Theorem 7, §2.3 and Appendix B) proves the existing length bound and total 6048 count, but gives just one example transform; neither the complete image nor unequal fiber counts appear in its statement or appendix description. Searches of mathematical research records for the exact parameter, alternative curling-number and square-suffix formulations, and broader ternary coding-related findings returned no implying statement. Published total-cardinality data alone does not imply the two-output classification. The primary supplementary archive was not inspected in full; it could contain a latent partition, and independent priority checking remains necessary.
+
+**Value — PASS.** The theorem exposes extreme rigidity of the square-suffix signature: all 6048 maximizers share 83 transform symbols, with only a binary final branch and an exact two-to-one split in source multiplicities. This is a natural inverse-fiber invariant of the central transform in the motivating paper, far more specific than the known extremal length and count and useful for understanding why the equality boundary is constrained.
+
+**Limits.** The argument is a complete machine-checkable finite exhaustion for this single extremal length; it does not assert analogous rigidity at arbitrary lengths, nor rely on uninspected supplementary data for proof. 
+Self-review: passed. Independent audit: not yet performed.
