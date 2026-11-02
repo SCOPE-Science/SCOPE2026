@@ -1,0 +1,95 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T00:47:43Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For all distinct nonzero ternary cubics F,G over F2, exhaustive projective point evaluation on the seven normalized vectors computes distinct rational intersections, while common geometric components are exactly those admitting a common F2 factor of degree one or two. The descent claim follows because the full Frobenius orbit of a geometric common irreducible factor divides both forms, and distinct degree-three F2 forms cannot share a degree-three factor. Independent direct enumeration over all 522753 unordered pairs of the 1023 nonzero forms and the complete seven linear/63 quadratic divisor-incidence table reproduces the unordered coprime histogram (69972,163191,162918,85554,23604,3339,210,0), hence the stated doubled ordered spectrum and maximum six. The source's separately inspected exhaustive PGL3(F2) substitution program enumerates all 168 matrices and obtains five nonoverlapping extremal orbits with sizes 84,28,28,28,42 and representatives (10,180),(10,660),(10,670),(16,446),(57,407). The independent count was complete; independent orbit enumeration was not separately rerun, so the orbit check rests on reconstructed exhaustive code and the total-size partition, not on a fresh second implementation.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The first theorem is for q>2; the latter analyzes pencils with every rational member smooth, not unrestricted ordered coprime pairs."
+        ],
+        "reasoning": "Neither stronger parameter range covers q=2 under its actual hypotheses. Smooth-only restrictions do not dominate all pairs.",
+        "searches": [
+          "arXiv:2003.13944",
+          "arXiv:2203.07169"
+        ]
+      },
+      "checked_sources": [
+        "Kaplan–Matei arXiv:2003.13944 primary full PDF",
+        "Asgarli–Ghioca arXiv:2203.07169 abstract",
+        "Frozen RESULT.md, both counting programs and Git blob tree",
+        "Resultary semantic corpus query"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The Kaplan–Matei theorem assumes q>2; the latter is existence of smooth-member pencils rather than all-cubic intersection distribution."
+        ],
+        "reasoning": "No prior implication supplies the exact q=2 histogram or extremal orbit classification merely by taking a corollary; a new complete finite count is supplied.",
+        "searches": [
+          "arXiv:2003.13944 Theorem 1",
+          "arXiv:2203.07169"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kaplan–Matei studies ordered rational plane-cubic intersections but states q>2; present computation includes singular F2 cubics and excludes any common geometric factor."
+        ],
+        "reasoning": "The same enumerative invariant is compared at an exceptional field size explicitly outside the stated prior hypothesis; its q=2 value cannot be obtained simply by specializing the cited theorem.",
+        "searches": [
+          "Resultary: binary field F2 pairs plane cubic curves rational intersection points coprime histogram 7 6 Kaplan Matei exceptional binary",
+          "Kaplan–Matei arXiv:2003.13944 Theorem 1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Seven-column exact F2 frequency table, 210 unordered six-point pairs, PGL3(F2) orbit sizes 84,28,28,28,42 do not appear in the inspected prior statement."
+        ],
+        "reasoning": "Searched for a direct small-field table or orbit census, and examined the corresponding original paper; this remains a best-of-knowledge claim, with unindexed computations possible.",
+        "searches": [
+          "Resultary: binary field F2 pairs plane cubic curves rational intersection points coprime histogram 7 6 Kaplan Matei exceptional binary",
+          "arXiv:2003.13944"
+        ]
+      },
+      "rationale": "The claimed object is the q=2 all-cubic coprime rational-intersection frequency distribution and classification of coordinate-fixed extremal pair orbits, not general cubic intersection counts over arbitrary q. Kaplan–Matei's primary theorem expressly restricts the analogous family to q>2; the exceptional q=2 endpoint is not a theorem instance. Asgarli–Ghioca's pencil smoothness question is not a count of all (including singular) coprime pairs. Semantic Resultary comparisons returned no prior exact F2 table or five orbit types; this negative search is supporting context only, not a novelty proof. Residual overlap with unindexed small-field tables remains.",
+      "residual_risks": [
+        "Unindexed binary finite-geometry tables or computation collections may contain the exact small-field spectrum or orbit types.",
+        "Independent reproduction verified the full histogram, but not independently the complete projective-orbit partition, whose source certificate was inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "General q>2 study; its main enumerative theorem explicitly omits F2. Does not supply the claimed binary pair-orbit census.",
+          "evidence": "Theorem 1 q>2; finite-field cubic intersection framework.",
+          "identifier_or_url": "arXiv:2003.13944 https://arxiv.org/pdf/2003.13944",
+          "material_read": "Primary full PDF (39 pages), theorem hypotheses, introduction and enumerative statements",
+          "method": "Read PDF text and visual page inspection",
+          "title": "Counting plane cubic curves over finite fields with a prescribed number of rational intersection points",
+          "trigger": "Same pair-of-cubics and number-of-rational-intersections invariant"
+        },
+        {
+          "assessment": "Pencils with smooth rational members are not all coprime cubic pairs; no whole-document noncoverage certification claimed.",
+          "evidence": "Different all-smooth-members restriction.",
+          "identifier_or_url": "arXiv:2203.07169 https://arxiv.org/abs/2203.07169",
+          "material_read": "Title, abstract and stated scientific question; complete proof not inspected",
+          "method": "Abstract/metadata comparison",
+          "title": "Smoothness in pencils of hypersurfaces over finite fields",
+          "trigger": "Nearby finite-field plane-cubic pencil topic"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The smallest field excluded by a closely related general counting theorem is a mathematically motivated boundary: finite-field cubic pair incidence can change sharply at q=2. The exact all-pair histogram, sharp six-point extremum instead of seven, and five extremal projective classes are natural finite-geometric invariants that can be reused as reference counts. They are not a random finite slice or a merely repeated already-published table.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Exceptional binary-field intersection spectrum of pairs of plane cubics",
+  "limitations": [
+    "Only F2, degree-three plane curves, fixed-coordinate pairs, with singular cubics permitted; no intersection multiplicity counts.",
+    "The sample SymPy gcds are not exhaustive; exhaustive linear/quadratic membership follows separately from degree and Frobenius descent."
+  ],
+  "schema_version": 1
+}

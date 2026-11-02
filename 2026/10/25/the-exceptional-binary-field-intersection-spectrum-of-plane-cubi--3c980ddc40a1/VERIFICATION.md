@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-## Reproduction
-Run the two programs from the same directory:
+# Independent mathematical audit
 
-```
-python verify_cubic_intersections.py
-python verify_independent_count.py
-```
+## correctness
 
-The first program requires Python 3 only; the second requires SymPy. Compare output to `primary_output.txt` and `independent_output.txt`. No data downloads or other package files are required. The coefficient monomial order is explicitly defined in both scripts. All evaluation is in characteristic two.
+PASS
 
-**Checked facts:** exact \(1023\)-form search, \(522753\) unordered distinct pairs, \(13965\) excluded unordered pairs, \(508788\) admissible unordered pairs, seven-bin frequency distribution, \(210\) extremal unordered pairs, five complete projective orbits of orders \(84,28,28,28,42\). Restriction-pattern counting and exact gcd spot checks are an independent implementation cross-check, not an external scientific audit.
+For all distinct nonzero ternary cubics F,G over F2, exhaustive projective point evaluation on the seven normalized vectors computes distinct rational intersections, while common geometric components are exactly those admitting a common F2 factor of degree one or two. The descent claim follows because the full Frobenius orbit of a geometric common irreducible factor divides both forms, and distinct degree-three F2 forms cannot share a degree-three factor. Independent direct enumeration over all 522753 unordered pairs of the 1023 nonzero forms and the complete seven linear/63 quadratic divisor-incidence table reproduces the unordered coprime histogram (69972,163191,162918,85554,23604,3339,210,0), hence the stated doubled ordered spectrum and maximum six. The source's separately inspected exhaustive PGL3(F2) substitution program enumerates all 168 matrices and obtains five nonoverlapping extremal orbits with sizes 84,28,28,28,42 and representatives (10,180),(10,660),(10,670),(16,446),(57,407). The independent count was complete; independent orbit enumeration was not separately rerun, so the orbit check rests on reconstructed exhaustive code and the total-size partition, not on a fresh second implementation.
 
-**Limits:** The theorem is finite and restricted to the binary field. The gcd spot-check is not substituted for the complete algebraic degree argument. No claim of publication priority, external review, or infinite-field extension is made.
+## originality
+
+PASS
+
+The claimed object is the q=2 all-cubic coprime rational-intersection frequency distribution and classification of coordinate-fixed extremal pair orbits, not general cubic intersection counts over arbitrary q. Kaplan–Matei's primary theorem expressly restricts the analogous family to q>2; the exceptional q=2 endpoint is not a theorem instance. Asgarli–Ghioca's pencil smoothness question is not a count of all (including singular) coprime pairs. Semantic Resultary comparisons returned no prior exact F2 table or five orbit types; this negative search is supporting context only, not a novelty proof. Residual overlap with unindexed small-field tables remains.
+
+## value
+
+PASS
+
+The smallest field excluded by a closely related general counting theorem is a mathematically motivated boundary: finite-field cubic pair incidence can change sharply at q=2. The exact all-pair histogram, sharp six-point extremum instead of seven, and five extremal projective classes are natural finite-geometric invariants that can be reused as reference counts. They are not a random finite slice or a merely repeated already-published table.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
