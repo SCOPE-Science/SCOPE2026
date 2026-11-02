@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exact residue model gives \(17\) vertices, \(68\) edges and \(68\) triangles, with no four-cliques. A sixteen-edge spanning tree together with the stated ordered sequence of fifty-two triangle relations eliminates every non-tree edge of the fundamental group and certifies a unit minor of the integral second boundary. Consequently \(\pi_1=0\) and \(H_2\cong\mathbb Z^{16}\), and Hurewicz–Whitehead upgrades this to a sixteen-sphere wedge. Signed Lefschetz traces for all \(136\) affine elements recover precisely the point-augmentation character; the packaged verifier exhaustively checks every finite certificate item.
+## correctness
 
-## Originality — PASS (best-knowledge comparison)
-The nearest actual same-graph published treatment [Jones, arXiv:1006.0514] concerns surface embeddings, **not** the flag complex. The broader strongly-regular clique-homology paper [Cioabă–Mim, arXiv:2606.27328] does not supply the small conference case's wedge or its affine \(H_2\) module. Research-record searches for the clique/independence dual, the Ramsey graph and the augmentation character returned neighborhood-complex or other-graph results, not a theorem whose hypotheses imply this result. An equivalent unindexed source remains a residual bibliographic risk; absence of a search hit alone has not been treated as a proof of novelty.
+PASS
 
-## Value — PASS
-The unique seventeen-vertex Ramsey \((4,4)\)-critical Paley graph is a structurally distinguished small strongly regular graph. The finite integral homotopy type goes beyond field-level Betti computations, and the complete \(136\)-element symmetry character distinguishes its sixteen generators as a natural point-augmentation module. The result is a useful topological and equivariant benchmark for work on clique complexes of conference graphs.
+Quadratic residues mod17 give the eight-regular undirected Paley graph with 17 vertices, 68 edges, 68 triangles, and no four-cliques. An independent graph enumeration reproduces these exact counts. The provided 16-edge spanning tree was independently checked connected, and every one of the 52 specified triangular relators has exactly one still-unknown non-tree edge in the given order, exhausting all 52 edge generators. This kills π1 and yields a 52-by-52 unit triangular boundary minor. With no cells above dimension two, ∂2 rank52 and integral H2 is free rank68−52=16; simply connected Hurewicz and Whitehead give wedge_16 S². Independent signed Lefschetz enumeration across all 136 affine transformations x↦ax+b (a a quadratic residue) gives character frequencies identity 1 with 16, 16 nontrivial translations with −1, 119 nontranslations with 0. This matches the vertex permutation module with its invariant line removed. Character equality identifies the rational G-module by semisimplicity; no integral equivariant lattice isomorphism is asserted. The fixed-sign contribution for a=−1 correctly includes both fixed edges and triangles.
 
-## Limits
-No integral equivariant splitting, extension to larger Paley graphs, or independent external audit is asserted. The full bibliography cannot be certified exhaustive.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Paley graph properties and Paley maps are classical; the clique complex, its integral wedge homotopy, and its complete affine rational H2 character are different from regular surface embeddings and from the Lovász open-neighborhood complex of the same graph.
+
+## value
+
+PASS
+
+The small canonical self-complementary conference graph P17 is a natural test object in flag-complex topology. The theorem supplies both complete integral homotopy classification and a full nontrivial 136-element group representation, information not captured by graph spectra, Euler characteristic or neighborhood-complex topology. The fixed-face parity calculation identifies a distinctive canonical augmentation module and is a motivated finite classification rather than arbitrary parameter slicing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
