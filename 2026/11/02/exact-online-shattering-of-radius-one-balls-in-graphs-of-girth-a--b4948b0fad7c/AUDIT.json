@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "In every triangle- and four-cycle-free graph, two distinct closed radius-one balls intersect in at most two vertices. Connected order at least three excludes true-twin centers, hence every two candidate centers admit a distinguishing query. The positive first-query version space has depth two exactly at a vertex of degree at least three; the negative branch has depth two precisely when a second closed ball has between two and all-but-two centers outside the first. A complete depth-three tree exists exactly when both branches have depth two; a depth-four tree is impossible since a second positive query retains at most two centers. Three fixed queries cannot be shattered because two neighbors of an all-positive center uniquely force that center. Paths, cycles and a degree-three vertex supply the fixed two-query lower bound. The eight-vertex tree has a fully described depth-three decision tree. Verification scripts reproduce the criterion against a separate exhaustive Littlestone recurrence on all 35 connected atlas graphs without triangles or quadrilaterals through seven vertices, all 986 nonisomorphic trees of orders 2–12, and 1,845 additional labeled/random/unicyclic instances. Only the finite counts use computation; the structural proof covers every finite graph in the stated scope.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bousquet–Thomassé, arXiv:1412.1793, Theorem 4 implies a static distance-VC upper bound two in forests (via excluding a triangle minor). It does not bound the adaptive Littlestone dimension or supply a necessary-and-sufficient graph-local online test.",
+        "Benediktsson–Macpherson–Adler, arXiv:2007.16042, Theorem 1.1 and Sections 3–4 concern Johnson/Hamming graph open-neighborhood static bounds, not the family of arbitrary girth-at-least-five graphs or online closed balls.",
+        "The published article on clique-fiber Čech nerves over girth-at-least-five graphs concerns homotopy of a topological nerve, not Boolean online shattering."
+      ],
+      "reasoning": "The strongest inspected broader static ball result does cover the already-credited tree VC upper bound but does not imply the adaptive dichotomy. The other families and homotopy invariants are not superclasses of the present Boolean online dimension statement.",
+      "searches": [
+        "VC dimension and Erdős–Pósa property arxiv:1412.1793",
+        "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs arxiv:2007.16042",
+        "closed neighborhood Littlestone dimension girth at least five graphs: exact dimension at most three and local degree criterion"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2007.16042, accessible full text",
+      "arxiv:1412.1793, accessible long-form text",
+      "Clique-fiber Čech nerves over graphs of girth at least five (published source indexed by title, topologically distinct object)",
+      "A scale-two Čech collapse theorem for line graphs of girth at least five (published source indexed by title; not a Boolean online classification)",
+      "Mixed-dimensional mod-two neighborhood homology first appears at T7 (published source indexed by title; different invariant)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Static VC dimension two does not force online dimension two or three; the proved eight-vertex tree has VC dimension two and online dimension three.",
+        "The closed-ball concepts on the eight-vertex tree differ from open neighborhoods of line graphs and of Johnson/Hamming graphs.",
+        "The 2020 article proves a different class-wise static bound and contains no online decision-tree theorem; the 2014 article discusses static distance VC dimension and the Erdős–Pósa property."
+      ],
+      "reasoning": "A proof of static VC dimension two is strictly weaker than an exact online depth classification; even an online upper bound three in a related family would not yield the criterion distinguishing depth two from three. The new claim is not a parameter restatement or corollary of either inspected theorem.",
+      "searches": [
+        "arxiv:2007.16042 Theorem 1.1 Sections 3 and 4",
+        "arxiv:1412.1793 Theorem 4 Section 3",
+        "Littlestone dimension girth neighborhood graphs closed balls"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The full text of arXiv:2007.16042 (2020-07-31) has no occurrence of Littlestone; its statements classify static open-neighborhood VC dimension and density on Hamming and Johnson graphs.",
+        "The inspected text of arXiv:1412.1793 (2014-12-04) has no occurrence of Littlestone or online and treats graph-ball VC and 2VC parameters.",
+        "Indexed published mathematics records returned topically related graph-neighborhood complexes and girth constructions, with no identified assertion about online two/three-round shattering of closed balls."
+      ],
+      "reasoning": "Online mistake-tree dimension is also called thicket dimension; both terms and one-step/closed-ball variants were sought. The inspected candidates lack the decision-tree object or exact local criterion, rather than merely using different titles.",
+      "searches": [
+        "Littlestone dimension of closed neighborhoods of trees, radius-one balls on graphs, exact online VC shattering trees",
+        "closed neighborhood Littlestone dimension girth at least five graphs: exact dimension at most three and local degree criterion",
+        "triangle-free C4-free graph closed neighborhoods VC dimension two online thicket dimension three",
+        "Littlestone dimension girth neighborhood graphs closed balls",
+        "online shattering radius one balls trees",
+        "VC dimension and Littlestone dimension of closed neighborhood set systems on finite trees, possible dimension 3",
+        "Littlestone closed neighborhoods trees radius one balls",
+        "thicket dimension graph neighborhood C4 free girth 5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No retrieved indexed table reported the exact Littlestone dimensions or the two-ball cardinality criterion for all girth-at-least-five graphs.",
+        "The eight-vertex example and small-tree census were generated by the supplied exact scripts, not transcribed from a known published table.",
+        "The published article on scale-two Čech collapse for line graphs of girth-at-least-five graphs is a topological collapse theorem, not a graph-ball shattering classification."
+      ],
+      "reasoning": "The discovery searches included the exact smallest-witness parameters and family names. Retrieved topically nearby tables concern topology or static VC dimensions, not an equivalent answer. Absence in a search result is not itself a uniqueness guarantee.",
+      "searches": [
+        "closed neighborhood Littlestone dimension girth at least five graphs: exact dimension at most three and local degree criterion",
+        "triangle-free C4-free graph closed neighborhoods VC dimension two online thicket dimension three",
+        "VC dimension and Littlestone dimension of closed neighborhood set systems on finite trees, possible dimension 3",
+        "finite tree radius-one balls online mistake dimension 3 first minimal eight-vertex tree"
+      ]
+    },
+    "rationale": "No inspected primary work or accessible indexed result was found to state or imply the sharp exact online closed-ball classification on the entire connected girth-at-least-five graph class. The closest relevant primary literature concerns static VC dimensions for graph balls (including a prior tree upper bound) or static open-neighborhood VC dimension/density in Hamming and Johnson graphs. The known static bounds are not claimed new. Alternate terms and incompletely indexed work remain a residual priority risk.",
+    "residual_risks": [
+      "A historically earlier exact online closed-neighborhood result might exist under thicket dimension or graph-ball terminology in an unindexed source.",
+      "A strong unpublished or inaccessible manuscript could cover the same graph family; available searches do not prove historical priority.",
+      "No independent scientific audit has yet been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING_THE_ONLINE_CLOSED_BALL_CLASSIFICATION",
+        "evidence": [
+          "First arXiv public date 2020-07-31.",
+          "Main theorems are static VC dimension/density for open graph neighborhoods in Johnson and Hamming graphs.",
+          "No occurrence of Littlestone or girth in the rendered full text; the sharp local online criterion is not stated."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2007.16042",
+        "material_read": "Open arXiv full rendered text, including abstract, introduction, Theorem 1.1, preliminaries, Johnson and Hamming sections, Theorems 3.7, 4.7, 4.8 and the end of the work; full-text term searches for Littlestone, girth and tree.",
+        "method": "Read accessible arXiv full-text HTML and compared the exact quantified theorem statements and neighborhood definitions.",
+        "title": "Vapnik-Chervonenkis Dimension and Density on Johnson and Hamming Graphs",
+        "trigger": "Primary 2020 literature anchor, same neighborhood query object and VC terminology."
+      },
+      {
+        "assessment": "COVERS_BACKGROUND_STATIC_TREE_BOUND_ONLY",
+        "evidence": [
+          "Public preprint dated 2014-12-04.",
+          "Theorem 4 bounds the distance 2VC dimension in minor-excluding classes and hence implies the static VC upper bound for forests.",
+          "No online/Littlestone analysis or exact girth-five closed-radius-one local classification is present in the inspected material."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1412.1793",
+        "material_read": "Accessible long-form full-text rendering, abstract, introductory definitions and statements, Section 3 and Theorem 4, with text searches for Littlestone and online.",
+        "method": "Compared static ball hypergraph VC/2VC results with adaptive mistake-tree dimension.",
+        "title": "VC-dimension and Erdős–Pósa property",
+        "trigger": "Strong potential domination: arbitrary-radius graph balls and minor-free families including trees."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b4948b0f-ad7c-4870-9341-2c6d2c61f44f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural exact classification of the static and adaptive membership-query complexity of closed radius-one graph balls in every connected graph with girth at least five. The qualitative gap from static VC dimension two to online depth three is characterized by an explicit local obstruction, with smallest possible instance already a tree on eight vertices. The criterion is checkable directly from adjacency data and avoids evaluating a decision-tree recursion, so it is structurally informative for sparse graph learning. The result is not a mere fixed small computation: it proves a uniform all-graph dichotomy and its necessary and sufficient conditions. The previously known static tree bounds are acknowledged rather than counted as novel value.",
+    "status": "PASS"
+  }
+}
