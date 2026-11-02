@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T22:49:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The VC upper bound uses each shattered query x_i to obtain a distinct prime with strictly largest exponent at x_i, all dividing a common positive-label hypothesis y<=N; the k smallest distinct primes thus have product <=N. Queries at those primes and hypotheses equal to selected products give the lower bound. The exact bitset recursive game W_N(H,d) checks existence of an adaptive full binary mistake tree by enumerating all x>=2 and both nonempty depth-(d-1) version spaces; cardinality pruning uses the necessary 2^d distinct leaves. Monotonicity of [N] then converts each pair of false/true neighboring N into a least threshold. Independent bitset dynamic programming reproduced false at (319,6),(1279,7),(1280,8), true at (320,6),(1280,7), and all five earlier threshold boundary pairs. The actual witness.json was read and independently checked: 128 distinct valid leaf hypotheses of depth seven and every root-to-leaf divisibility decision. This proves the finite cutoff with an exhaustive finite certificate, not an infinite formula for all deeper thresholds.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://arxiv.org/abs/2203.12211",
+          "https://doi.org/10.1007/s11083-023-09653-7"
+        ],
+        "reasoning": "Walker general tree-dimension bounds and Haiman Dushnik–Miller order dimension are not upper/lower values for this specified concept class. The latter has a different dimension functor.",
+        "searches": [
+          "divisibility relation finite initial segment Littlestone dimension VC dimension exact thresholds first gap thicket dimension",
+          "Tree Dimension and the Sauer-Shelah Dichotomy",
+          "The Dimension of Divisibility Orders and Multiset Posets"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2108.05569",
+        "https://arxiv.org/abs/2203.12211",
+        "https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+        "https://doi.org/10.1007/s11083-023-09653-7"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "https://arxiv.org/abs/2108.05569",
+          "https://arxiv.org/abs/2203.12211",
+          "https://doi.org/10.1007/s11083-023-09653-7"
+        ],
+        "reasoning": "General shatter-function estimates constrain growth but do not imply the exact finite thresholds. The VC primorial formula plus complete recurrence and threshold checks are needed to prove N=1280 is first.",
+        "searches": [
+          "divisibility relation finite initial segment Littlestone dimension VC dimension exact thresholds first gap thicket dimension",
+          "Sauer-Shelah tree-dimension implication divisibility VC primorial"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://arxiv.org/abs/2108.05569",
+          "https://arxiv.org/abs/2203.12211",
+          "https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf"
+        ],
+        "reasoning": "Littlestone, thicket dimension and full binary mistake-tree definitions are equivalent in the relevant finite class, but cited general bounds do not compute this arithmetic initial-interval example.",
+        "searches": [
+          "divisibility relation finite initial segment Littlestone dimension VC dimension exact thresholds first gap thicket dimension",
+          "\"Littlestone\" \"divisibility\"",
+          "thicket dimension finite divisibility poset"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "https://arxiv.org/abs/2108.05569",
+          "https://arxiv.org/abs/2203.12211",
+          "https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+          "https://doi.org/10.1007/s11083-023-09653-7"
+        ],
+        "reasoning": "The reviewed sources do not publish the tuple (2,4,9,27,81,320,1280) or an exact Ldim-vs-VC cutoff; the bitset outputs in the package are newly verified data, not evidence that no earlier table exists.",
+        "searches": [
+          "divisibility relation finite initial segment Littlestone dimension VC dimension exact thresholds first gap thicket dimension",
+          "finite divisibility thicket Littlestone table 1280 320 81"
+        ]
+      },
+      "rationale": "General online-learning/thicket-dimension theory supplies tree definitions and bounds, but neither the finite initial-segment divisibility arithmetic recurrence results nor the sharp first 3-unit Littlestone–VC gap follow directly from those general theorems. The divisibility order-dimension literature studies Dushnik–Miller poset dimension, not Littlestone dimension. Resultary semantic retrieval for explicit finite-divisibility thresholds returned no directly dominating statement; priority remains qualified.",
+      "residual_risks": [
+        "Unindexed computations for the thicket dimension of divisibility orders could give equivalent thresholds.",
+        "High-N false instances are exhaustive finite search by an exact recursion, contingent on correct bitset version-space encoding; independent implementation and witness supply cross-checks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GENERAL_BOUND_NOT_EXACT_ARITHMETIC",
+          "evidence": "General tree-Sauer–Shelah bounds do not report finite divisibility thresholds.",
+          "identifier_or_url": "https://arxiv.org/abs/2203.12211",
+          "material_read": "arXiv abstract and general result description, not full article",
+          "method": "arXiv bibliographic and research search",
+          "title": "Tree Dimension and the Sauer–Shelah Dichotomy",
+          "trigger": "closest general dimension framework"
+        },
+        {
+          "assessment": "INAPPLICABLE_DIMENSION",
+          "evidence": "Dushnik–Miller embedding dimension, not labelled-tree Littlestone dimension.",
+          "identifier_or_url": "https://doi.org/10.1007/s11083-023-09653-7",
+          "material_read": "MIT repository abstract and theorem description",
+          "method": "institutional bibliographic view",
+          "title": "The Dimension of Divisibility Orders and Multiset Posets",
+          "trigger": "possible use of divisibility order terminology"
+        },
+        {
+          "assessment": "DEFINITIONS_ONLY",
+          "evidence": "Definition 4 matches exact W_N recursion and leaf realization; no divisibility-specific threshold assessed.",
+          "identifier_or_url": "https://proceedings.mlr.press/v65/manurangsi17a/manurangsi17a.pdf",
+          "material_read": "PDF definition 4 and finite concept class context",
+          "method": "read PDF extracted text; no source-wide noncoverage claim",
+          "title": "Inapproximability of VC Dimension and Littlestone’s Dimension",
+          "trigger": "confirm exact complete binary mistake-tree definition"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This is a natural, directly motivated separation of two fundamental learning-theoretic dimensions for the elementary arithmetic divisibility predicate. The exact first occurrence of gap three, including its two adjacent negative certificates and fully explicit 128-leaf adaptive witness, is a meaningful finite structural threshold. It neither renames a generic inequality nor claims unsupported later-depth completeness.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the concept class h_y(x)=1 exactly when x divides y, with both x,y in {1,...,N}, VC dimension is the largest k with the k-th primorial <=N. The first N supporting Littlestone depths 1,...,7 are 2,4,9,27,81,320,1280. In particular L_1280=7, V_1280=4, and 1280 is the first gap of at least three.",
+  "limitations": [
+    "Only finite initial segment of positive integers and exact divisibility queries; finite Ldim thresholds proved only through depth seven.",
+    "No general formula for eighth or later Littlestone thresholds; tests at N=1280 do not establish infinite impossibility."
+  ],
+  "schema_version": 1
+}

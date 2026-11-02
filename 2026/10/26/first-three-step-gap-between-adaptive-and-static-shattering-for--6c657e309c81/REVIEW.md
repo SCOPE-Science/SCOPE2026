@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The first-seven threshold claim reduces exactly to the fully quantified root-split recursion on finite version spaces; a one-hypothesis leaf realizes only one label sequence, justifying the cardinality pruning. Two differently implemented attached recurrences recompute all 14 sharp boundaries, the depth-eight negative test at 1280, and the explicit 128-path positive certificate. The general VC formula is proved by the pairwise-distinct private-maximal-prime argument and the product-of-primes construction. The first gap follows by comparing the exact monotone threshold intervals. There is no extrapolation from partial enumeration to an unbounded claim.
+## correctness
 
-## Originality
-**PASS, with residual priority risk.** Inspections of substantive sections of the accessible Malliaris–Moran (2021) and Walker (2022) primary full texts found general stability/shatter-growth results, not the exact smallest \(N\) for an online/static gap of three in divisor incidence. The known VC/online general comparison and Sauer–Shelah inequalities do not numerically imply 1280. Targeted database searches for divisibility, arithmetic mistake trees, thicket dimension, the exact threshold sequence and the alternative initial-interval parameterization did not yield a claim implying this cutoff. An older period-divisibility oracle thesis uses a different information model; its possible uninspected connections remain a disclosed risk.
+PASS
 
-## Value
-**PASS.** The problem isolates a mathematically canonical definable binary relation, divisibility, and asks when adversarial adaptive labeling first outstrips ordinary shattering by three levels. The earliest threshold is not chosen arbitrarily: it is defined by a natural comparative invariant, and the proof identifies the exact transition after six earlier finite ranks, with a reusable exhaustive recurrence and explicit optimal adversarial tree. The resulting sharp cutoff distinguishes realizable online-learning complexity from static sample complexity without needing a downstream theorem.
+The VC upper bound uses each shattered query x_i to obtain a distinct prime with strictly largest exponent at x_i, all dividing a common positive-label hypothesis y<=N; the k smallest distinct primes thus have product <=N. Queries at those primes and hypotheses equal to selected products give the lower bound. The exact bitset recursive game W_N(H,d) checks existence of an adaptive full binary mistake tree by enumerating all x>=2 and both nonempty depth-(d-1) version spaces; cardinality pruning uses the necessary 2^d distinct leaves. Monotonicity of [N] then converts each pair of false/true neighboring N into a least threshold. Independent bitset dynamic programming reproduced false at (319,6),(1279,7),(1280,8), true at (320,6),(1280,7), and all five earlier threshold boundary pairs. The actual witness.json was read and independently checked: 128 distinct valid leaf hypotheses of depth seven and every root-to-leaf divisibility decision. This proves the finite cutoff with an exhaustive finite certificate, not an infinite formula for all deeper thresholds.
 
-## Closest literature and limits
-The closest sources establish the general equivalence between mistake-tree depth and model-theoretic stability and provide global combinatorial counting bounds. No claim is made that generic finite-Littlestone decidability, standard VC counting, or the prime argument is itself new. The proof is finite and model-specific; the comparison is not an assertion of exhaustive worldwide publication search.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+General online-learning/thicket-dimension theory supplies tree definitions and bounds, but neither the finite initial-segment divisibility arithmetic recurrence results nor the sharp first 3-unit Littlestone–VC gap follow directly from those general theorems. The divisibility order-dimension literature studies Dushnik–Miller poset dimension, not Littlestone dimension. Resultary semantic retrieval for explicit finite-divisibility thresholds returned no directly dominating statement; priority remains qualified.
+
+## value
+
+PASS
+
+This is a natural, directly motivated separation of two fundamental learning-theoretic dimensions for the elementary arithmetic divisibility predicate. The exact first occurrence of gap three, including its two adjacent negative certificates and fully explicit 128-leaf adaptive witness, is a meaningful finite structural threshold. It neither renames a generic inequality nor claims unsupported later-depth completeness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
