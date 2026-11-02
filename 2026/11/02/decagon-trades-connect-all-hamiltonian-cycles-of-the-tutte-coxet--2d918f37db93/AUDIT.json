@@ -1,0 +1,130 @@
+{
+  "correctness": {
+    "rationale": "The least-unmatched-vertex recursion enumerates each of exactly 288 matchings uniquely; complement connectivity identifies exactly 144 Hamiltonian cycles. Exhaustive 10,296 pair comparisons reconstruct all 504 ten-cycle trades; the 144 BFS traversals each give (1,7,36,85,15). Independent DFS of all oriented spanning walks anchored at one vertex, canonicalized by reversal, produces 144 Hamiltonian cycles and the same 504 edges and distance distribution. The girth-eight argument and no eight-edge differences prove the sharp minimum. Both included codes executed successfully from their actual artifact paths.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Eppstein arXiv:cs/0302030 counts/lists cubic Hamiltonian cycles algorithmically, not a fixed-graph exchange metric.",
+        "Takaoka 2018 doi:10.3390/a11090140 uses a two-edge switch; it is not an alternating ten-cycle trade.",
+        "Ito et al. arXiv:1907.01700 treats alternating-cycle matching transformations in general; no Tutte–Coxeter Hamiltonian-complement length-ten profile was located."
+      ],
+      "reasoning": "Comparing hypothesis and conclusion shows none of the identified broader frameworks supplies the concrete 144-state induced ten-cycle connectivity and all-root distances.",
+      "searches": [
+        "Hamiltonian cycle reconfiguration switch cubic graphs 2018 Takaoka",
+        "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles Ito 2019",
+        "The Traveling Salesman Problem for Cubic Graphs Eppstein 2003"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:cs/0302030",
+      "doi:10.3390/a11090140",
+      "arxiv:1907.01700",
+      "AMS Visual Insight Tutte–Coxeter graph (2015)",
+      "Earlier exact census of all 288 perfect matchings and eight-cycle exchanges"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier eight-flip result: all 288 matchings form a connected 10-regular graph, split evenly into 144 Hamiltonian-complement and 144 (10,20)-complement states; every 8-flip changes class.",
+        "Current result: a different, seven-regular graph on just 144 Hamiltonian states using single 10-cycle exchanges, with 504 edges and diameter four.",
+        "The known 288-state graph has no edges internal to the Hamiltonian class and thus provides no ten-cycle adjacency or distance formula between Hamiltonian states."
+      ],
+      "reasoning": "Known 8-flip connectivity does not imply any within-class 10-flip connectivity. There is no implicit corollary from the existing complete 8-flip graph because length-ten edges are not part of it. Earlier 144 and 288 counts are reused as premises, not discoveries.",
+      "searches": [
+        "Tutte Coxeter graph 144 Hamiltonian cycles 10-cycle alternating exchange flip graph 7-regular connected diameter four",
+        "Cremona Richmond duad syntheme incidence graph Hamiltonian cycle reconfiguration 10-opt alternating decagon swap",
+        "Tutte 8 cage Hamiltonian 2 factors ten-cycle trade Hamiltonicity preserving",
+        "Tutte Coxeter perfect matching 8 cycle flip graph 288 1440 radius 5 diameter 6"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The new configurations are complements of the 144 Hamiltonian-complement perfect matchings. Symmetric difference remains unchanged by complementation.",
+        "The graph differs from the 288-state, eight-cycle alternating-flip graph because every 8-flip exits the Hamiltonian sector."
+      ],
+      "reasoning": "Searched the equivalent matching-complement, ten-cycle, decagon and five-edge switch formulations. Same graph and the same 144-state length-ten metric were not recovered; an equivalent unpublished or unindexed result remains possible.",
+      "searches": [
+        "Tutte Coxeter graph 144 Hamiltonian cycles 10-cycle alternating exchange flip graph 7-regular connected diameter four",
+        "Cremona Richmond duad syntheme incidence graph Hamiltonian cycle reconfiguration 10-opt alternating decagon swap",
+        "Hamiltonian cycle 5-opt swap Tutte Coxeter graph",
+        "Tutte Coxeter graph alternating decagon perfect matching reconfiguration"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The traditional counts 288 matchings and 144 Hamiltonian complements occur in earlier exact work; those are not novelty claims.",
+        "The graph-specific 504 trade edges, all-root vector (1,7,36,85,15), and sharp ten-cycle threshold were independently computed but not found in retrieved exact tables."
+      ],
+      "reasoning": "Existing base-object counts cannot, by themselves, recover adjacency, connectedness or distances under a specified move. Failure to locate a table is evidence only of remaining novelty risk, not proof of priority.",
+      "searches": [
+        "Tutte Coxeter graph 144 Hamiltonian cycles 10-cycle alternating exchange flip graph 7-regular connected diameter four",
+        "Tutte Coxeter 144 Hamiltonian cycles 504 decagon swaps distance 4",
+        "Tutte Coxeter ten cycle flip seven regular Hamiltonian graphs"
+      ]
+    },
+    "rationale": "No equivalent ten-cycle restricted Hamiltonian trade graph was found in the accessible claim-level histories or targeted semantic and primary-source queries. Earlier 288-matching eight-flip results are explicitly excluded: their edges alternate between Hamiltonian and split complementary 2-factors, so they neither supply the within-144-state length-ten adjacency nor its seven-regularity or diameter. General Hamiltonian listing and alternate reconfiguration moves do not entail these counts. Residual publication-priority risk remains, particularly under decagon or k-opt terminology.",
+    "residual_risks": [
+      "An equivalent old finite computation may use decagon/5-opt nomenclature and escape searches.",
+      "No independent scholarly priority audit has been conducted; database coverage and historical records are not exhaustive."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Algorithms to enumerate cycles, no same-graph ten-cycle trade classification identified",
+        "evidence": [
+          "arXiv first version 2003-02-20; listings of Hamiltonian cycles in maximum-degree-three graphs",
+          "No diameter-four ten-exchange graph of the named cage was identified"
+        ],
+        "identifier_or_url": "arxiv:cs/0302030",
+        "material_read": "Abstract and available full-text treatment of Hamiltonian cycle listing and cubic graph algorithms",
+        "method": "Inspected algorithmic scope and searched for named graph and reconfiguration statements",
+        "title": "The Traveling Salesman Problem for Cubic Graphs",
+        "trigger": "Earlier archived primary algorithm for Hamiltonian cycles in cubic graphs"
+      },
+      {
+        "assessment": "Uses two-edge switch rather than the five-edge alternating decagon exchange",
+        "evidence": [
+          "A 2018 two-edge-switch complexity theorem; different move and scope"
+        ],
+        "identifier_or_url": "doi:10.3390/a11090140",
+        "material_read": "Article abstract, move definition and relevant full-PDF sections",
+        "method": "Compared edge-switch definition and graph classes",
+        "title": "Complexity of Hamiltonian Cycle Reconfiguration",
+        "trigger": "Directly related Hamiltonian reconfiguration literature"
+      },
+      {
+        "assessment": "General perfect-matching alternating-cycle model; specific 144-state Hamiltonian graph not identified",
+        "evidence": [
+          "Alternating-cycle moves in general graphs; no cited 504-edge Tutte–Coxeter decagon graph"
+        ],
+        "identifier_or_url": "arxiv:1907.01700",
+        "material_read": "Accessible full HTML text and statements of main results",
+        "method": "Compared state space, move length and Hamiltonicity restriction",
+        "title": "Shortest Reconfiguration of Perfect Matchings via Alternating Cycles",
+        "trigger": "Alternating-cycle matching trade closest framework"
+      },
+      {
+        "assessment": "Defines the object; does not provide the ten-cycle restricted reconfiguration metric",
+        "evidence": [
+          "15 duads, 15 synthemes, degree three"
+        ],
+        "identifier_or_url": "https://blogs.ams.org/visualinsight/2015/08/15/tutte-coxeter-graph/",
+        "material_read": "Graph description and duad–syntheme incidence construction",
+        "method": "Matched vertices and edges to independent programmatic definition",
+        "title": "Tutte–Coxeter Graph",
+        "trigger": "Archived specification of incidence graph using 6 symbols"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d918f37-db93-4d25-b923-58552d0c8fbc",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A Hamiltonicity-preserving exchange threshold and the entire short-move connectivity metric are natural in travelling-salesperson local search and the combinatorics of symmetric cubic graphs. Unlike total matching-graph connectivity, every intermediate Hamiltonian tour remains feasible. Exact seven choices and four-trade diameter provide a meaningful structural benchmark; the result is finite and motivated, not an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
