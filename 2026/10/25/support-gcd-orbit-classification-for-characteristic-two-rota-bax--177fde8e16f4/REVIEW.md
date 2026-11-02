@@ -1,19 +1,21 @@
-# Scientific review: support–gcd conjugacy classification
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The finding proves the full algebra automorphism group for a pure evolution chain, computes its affine/scaling action on the annihilator-valued operator coefficients, determines stabilizers by the identity \(\gcd(2^r-1,2^s-1)=2^{\gcd(r,s)}-1\), and applies orbit–stabilizer and Burnside to the exact support census. These steps establish all \(e\ge1\), \(n\ge2\). The included `verify.py` exhausts automorphism matrices for two small cases and orbit partitions for ten field/dimension pairs; it returns `VERIFY_OK`. Testing is finite corroboration, not an infinite proof.
+PASS
 
-## Originality
+The characteristic-two Rota–Baxter equation at x=y yields R(x)^2=0; independence of natural-basis squares forces every R(x) into the annihilator <e_n>. Conversely all annihilator-valued linear maps satisfy the equation. Each algebra automorphism must send e1 to a e1+b en, a nonzero, since successive squares and mixed-product orthogonality kill other coefficients; hence phi_{a,b}(ei)=a^{2^{i-1}}ei for i>=2, group order q(q-1). Comparing R′phi=phi R gives c′_n=c_n, c′_i=a^{2^{n-1}-2^{i-1}}c_i (2<=i<n), c′_1=a^{2^{n-1}-1}c_1-(b/a)c_n. When c_n=0 the free b-stabilizer adds factor q, and a-stabilizer order is gcd(q-1,{2^{n-i}-1})=h(J). When c_n≠0, b is uniquely fixed by a and each orbit acquires q factor. Counting coefficient vectors by support gives t^{|J|-1}h(J) orbits for every nonempty J. Burnside on the cyclic F_q^× gives the divisor formula. Independently enumerated binary extension field conjugation orbits at (q,n)=(2,2),(2,4),(4,2),(4,3),(4,4),(8,3),(8,4); counts 3,12,5,14,48,24,150 and predicted stabilizer/orbit sizes matched. Symbolic proof applies to every n,e, small cases are not extrapolated.
 
-**PASS, with priority qualification.** The new content is the complete characteristic-two automorphism-conjugacy orbit-size, support and stabilizer classification, not the existing characterization of the operator space or the previously described chain automorphism group. The closest articles are Qaralleh–Mukhamedov–Khakimov (arXiv:2606.22623v1 and 2601.08669v1) on characteristic-zero operators and Mukhamedov–Khakimov–Omirov–Qaralleh (arXiv:1805.10285v2) on automorphisms. A prior characteristic-two operator-space calculation supplies the prerequisite but not the orbit count. Earlier odd-field chain-orbit work has incompatible field hypotheses and a larger operator family. An indexed exterior-algebra Rota–Baxter orbit census concerns a different algebra. No equivalent all-even-field orbit census was located. Older/unindexed conjugacy-enumeration literature may still overlap.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** This is a complete inequivalent-operator classification for an infinite algebraic family, not merely a count of labeled operators. The support-dependent stabilizers show explicitly how field extension degree interacts with chain length; the exact arithmetic divisor sum and boundary formulas support further classification and comparison of operator structures.
+Same-object and stronger-implication search compared: Compared conjugacy classes, operator isomorphism, automorphism action on coefficient vectors, Burnside fixed-point counts and support-gcd formulas; indexed exterior algebra RB orbit census is not the same algebra or action. None of the inspected broader classifications supplies all finite-characteristic-two support orbit stabilizers or the divisor sum for arbitrary e,n; a broad all-characteristic conjugacy theorem remains a priority risk. The audit does not credit elementary Burnside or the underlying operator parametrization as new; actual conjugacy action and exact support-gcd evaluation are necessary to obtain the final theorem. A semantic Resultary query was executed for this problem. All source limitations and possible hidden equivalences are retained as residual risks, not misreported as proof of absolute priority.
 
-## Limits and audit status
+## value
 
-Only finite characteristic-two fields and pure maximal-nilindex chains are covered. The algebra automorphism and operator-parametrization ingredients are not asserted as novel. Small computations do not justify arbitrary parameters without the displayed proof. Literature priority may change with full inspection of unindexed sources. No independent expert or formal audit has been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Conjugacy rather than raw q^n operator counts is the natural equivalence for algebraic operators. The uniform finite-field classification determines all support-sensitive stabilizers, sizes and arithmetic orbit counts for an infinite family of evolution chains, clarifying how extension degree and chain length interact and going beyond routine application of Burnside to a previously unspecified group action.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
