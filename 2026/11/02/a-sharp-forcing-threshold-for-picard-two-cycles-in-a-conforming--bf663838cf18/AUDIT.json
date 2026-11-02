@@ -1,0 +1,109 @@
+{
+  "correctness": {
+    "rationale": "On the four-triangle conforming mesh, each triangle has area 1/4 and the center hat has mass 1/6, stiffness 4, eigenvalue 24. Substitution in the exact published Picard update yields x_next=(g+2)/(2(1+x^2)). Its fixed point solves the strictly increasing cubic x+x^3=(g+2)/2. The exact factorization of the second iterate and monotone convergence of its even subsequence prove the if-and-only-if g=2 transition. Exact cycle roots, residuals, multiplier and unbounded upper-phase ratio follow algebraically; checker.py independently verifies the critical identities.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.31487v1, Lemma 4.1 explicitly requires sufficiently small timestep",
+        "arXiv:2609.27707 abstract likewise reports convergence once the time step is small enough"
+      ],
+      "reasoning": "The known small-timestep contraction and error theorems do not imply convergence or preclude a two-cycle at timestep one. General one-dimensional rational dynamics cover the scalar dynamical step alone, not the identified finite element implementation. No inspected broader theorem covers their conjunction.",
+      "searches": [
+        "Kirchhoff wave equation nonlinear fixed-point solver scalar Picard map a/(1+b x^2) globally attracting period 2 exact threshold",
+        "Picard iteration Crank Nicolson nonlinear three-level Kirchhoff sharp convergence failure forcing sample finite element",
+        "Kirchhoff type wave finite element Picard iteration period two oscillation nonlinear solver"
+      ]
+    },
+    "checked_sources": [
+      "Dörich et al., arXiv:2610.31487v1, full HTML §§1.2,3.2,4.1,5, appendix opening",
+      "Krumbiegel et al., arXiv:2609.27707, abstract only",
+      "published-finding corpus targeted queries and closest claim IDs listed in comparison checks"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.31487v1 §§3.2,4.1,5 and appendix; source proves a small-timestep convergence condition",
+        "arXiv:2609.27707 abstract, earlier time-discrete companion",
+        "published-finding corpus: 2026/10/4/SCOPE-depth-one-anderson-acceleration-can-break-a-positive-diagonal-co--5b097239b6a3"
+      ],
+      "reasoning": "The source defines Picard iteration and establishes convergence under a small-step hypothesis. This accepted statement gives a sharp all-forcing phase transition for a particular finite element stage and a stable incorrect two-cycle outside that hypothesis. Consequently the source theorem neither states nor implies the new failure classification; the underlying scalar-map factorization itself is not counted as new.",
+      "searches": [
+        "Dörich Krumbiegel Rogava Rupp Vashakidze 2026 Kirchhoff finite element Picard iteration two-cycle period doubling unique implicit solution one interior node",
+        "sharp Picard forcing threshold g=2 two-cycle x next=(g+2)/(2+2x^2) Kirchhoff three-layer finite element",
+        "Conservative Three-Layer Schemes Kirchhoff Picard converges period doubling cycle",
+        "Conservative Finite Element Methods Kirchhoff two-cycle Picard"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.31487v1, equations (3.16), (4.1), (4.2), Lemma 4.1",
+        "Classical scalar decreasing rational map x -> a/(1+x^2), whose dynamics are treated as background",
+        "published-finding corpus closest: 2026/10/11/SCOPE-a-unique-inverse-power-two-cycle-and-its-sharp-stability-boundar--71916f1b4c2a"
+      ],
+      "reasoning": "The factorization for an abstract scalar rational map is elementary and potentially established elsewhere. The accepted statement is about its exactly normalized conforming 2D P1 finite element realization with the published material parameters and load, a distinct implication requiring the mass/stiffness and discrete coefficient identities; no inspected source states that specialization.",
+      "searches": [
+        "Dörich Krumbiegel Rogava Rupp Vashakidze 2026 Kirchhoff finite element Picard iteration two-cycle period doubling unique implicit solution one interior node",
+        "Kirchhoff wave equation nonlinear fixed-point solver scalar Picard map a/(1+b x^2) globally attracting period 2 exact threshold",
+        "Picard iteration Crank Nicolson nonlinear three-level Kirchhoff sharp convergence failure forcing sample finite element",
+        "Kirchhoff type wave finite element Picard iteration period two oscillation nonlinear solver",
+        "first order rational difference equation x_n+1 = a / (1 + x_n^2) global two cycle threshold"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted published-finding corpus records: 2026/10/11/SCOPE-a-unique-inverse-power-two-cycle-and-its-sharp-stability-boundar--71916f1b4c2a",
+        "Targeted published-finding corpus records: 2026/9/21/SCOPE-aitken-steffensen-contraction-stability-frontier--6741f4b1d748",
+        "Targeted published-finding corpus records: 2026/10/4/SCOPE-a-sharp-projection-free-invariant-neighborhood-for-the-he-you-yu--d7aa3f27e56e"
+      ],
+      "reasoning": "Semantic database searches returned results on different discrete maps, acceleration, and periodic orbits. Accessible same-topic claims did not exhibit the specified Galerkin step or its sharp forcing threshold. A missing hit alone is not proof of novelty.",
+      "searches": [
+        "sharp Picard forcing threshold g=2 two-cycle x next=(g+2)/(2+2x^2) Kirchhoff three-layer finite element",
+        "conforming P1 Kirchhoff finite-element nonlinear Picard solver attracting period two unique implicit cubic state",
+        "Kirkhhoff Galerkin Picard fixed-point rational map x to a/(1+x squared) global phase bifurcation threshold"
+      ]
+    },
+    "rationale": "The inspected original full manuscript supplies the numerical scheme and conditional small-timestep convergence but no exact forcing-dependent nonconvergence boundary. The older companion abstract contains conditional small-step convergence and does not announce a two-cycle, though its full text was inaccessible. Prior scalar rational dynamics are elementary and NOT claimed original. The precise conforming 2D Kirchhoff finite element specialization, sharp forced solver threshold and unbounded phase error were not found in targeted accessible comparisons; specialist priority remains an explicit risk.",
+    "residual_risks": [
+      "The earlier arXiv:2609.27707 companion full manuscript was not accessible, though the abstract is available and explicitly concerns small-step convergence.",
+      "Classical rational-map dynamics are likely known; novelty is limited to the precise finite element solver specialization and forcing threshold.",
+      "Semantic records and checked sources do not exhaust old finite-element and discrete-dynamics literature. Independent expert priority verification remains open."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines method and proves conditional small-timestep convergence; no sharp forcing threshold or attracting Picard period-two claim in inspected sections",
+        "evidence": [
+          "arXiv:2610.31487v1 §§3.2,4.1,5, Appendix A.1",
+          "Published MSC2020: 65M60; 65M12; 65M15; 35L70; 35L90"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.31487v1",
+        "material_read": "Abstract, Introduction §1.2, numerical scheme §3.2 including (3.16), Picard equations (4.1)-(4.2), Lemma 4.1 and proof context, numerical experiments §5 and implementation Remark 5.1, appendix heading and beginning, cited bibliography",
+        "method": "Primary author manuscript HTML full-text reading and targeted keyword inspection",
+        "title": "Conservative Finite Element Methods for Kirchhoff-Type Equations",
+        "trigger": "Exact source of the analyzed finite element iteration and potentially covering solver statements"
+      },
+      {
+        "assessment": "Abstract reports small-step Picard convergence; full text uninspected, so absence of a previously known counterexample is not established",
+        "evidence": [
+          "arXiv:2609.27707 (public 23 September 2026) abstract and source bibliography citation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2609.27707",
+        "material_read": "Public abstract and bibliographic metadata only; attempted arXiv and alternate lawful open-access full-text access without obtaining the full text",
+        "method": "Published abstract and metadata consultation; bounded full-text retrieval unsuccessful",
+        "title": "Conservative Three-Layer Schemes for Kirchhoff-Type Equations",
+        "trigger": "Same authors, earlier temporal-discretization companion potentially stronger prior coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bf663838-cf18-4e52-84b9-8b114e56b4ca",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a complete sharp feasibility classification for an actual conforming P1 nonlinear time-step solver, not a normalized scalar exercise: the exact implicit stage remains uniquely solvable while the published undamped Picard update undergoes an attracting flip. The explicit threshold separates solvable-but-nonconvergent stages from globally convergent ones, identifies an exact nonzero residual and unbounded upper-phase error as load increases, and motivates nonlinear residual monitoring, damping, or solver substitution at larger forcing/time steps. The narrow one-node benchmark is self-contained and directly reproducible.",
+    "status": "PASS"
+  }
+}
