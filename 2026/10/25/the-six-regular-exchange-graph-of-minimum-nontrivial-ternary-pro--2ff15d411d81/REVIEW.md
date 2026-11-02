@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The object is the set of six-point nontrivial blocking sets for the unique Desarguesian order-three projective plane, with exactly one point removed and inserted per move. Three incidence identities prove the lower bound, and force the dual-projective-frame representation at equality. Projective-frame transitivity supplies the \(234\)-set count. A single reference-frame tangent-line computation establishes the unique-replacement rule, while two separately implemented exhaustive computations establish the full graph, its \(702\) edges, connectivity and distance profile. Each verifier computes all \(234\) breadth-first search profiles; output and program files are supplied. The finite computation is exhaustive and the domain is finite.
+PASS
 
-## Originality — PASS, residual risk acknowledged
+Reconstructed PG(2,3) from 13 projective points and 13 four-point lines. Line incidence identities force minimum nontrivial blocking-set size six, with t1=6,t2=3,t3=4 and four triple secants in a no-three-concurrent four-line frame. PGL(3,3) orbit count 5616/24=234. Independently enumerated all 6-subsets of the 13 points and applied the blocking/nontrivial tests; obtained exactly 234 states. Independently constructed all single-point swap edges, obtaining six neighbors per state, 702 edges, and BFS layers (1,6,24,72,116,12,3) from every one of 234 vertices. Verified every adjacent pair shares exactly two frame lines in the package checker derivation; a separate dual-frame checker in the actual tree provides a second exhaustive construction. Finite exhaustive enumeration is a proof for this specific 13-point plane, not extrapolation to other orders.
 
-The 2015 field-reduction source establishes broader minimal blocking set theory, but not the six-point one-swap graph. The 2022 classification is a material close source: individual optimal configurations may be present, but an abstract and bibliography alone cannot exclude an exchange-graph result in the inaccessible full text. The 2016 Conway groupoid uses permutation moves on the same thirteen-point plane, not one-point changes to optimal blocking sets. Actual mathematical-record searches for blocking-set token jumps, projective frames, a 234-vertex six-regular graph and diameter six found no covering statement. This is a best-knowledge priority assessment, not proof of global uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A known static extremal family becomes a precise transformation problem: can one pass between any two minimum nontrivial blocking sets while retaining optimality at every move, and how many moves are needed? The unique replacement for each point, connectivity and exact distance distribution settle these natural questions in the smallest projective plane admitting nontrivial blocking sets. The dual-frame representation explains why the configuration space is homogeneous. The metric result is not a mere restatement of the earlier small-plane classification and provides a finite model for blocking-set reconfiguration.
+Qualified PASS: the six-point blocking-set minimum and frame classification precede this work. The new assessed claim is the labeled minimum-set one-point exchange graph, exact degree, uniform layer profile, radius and diameter, and shared-two-lines rule. Earlier small-plane classifications give vertices, but do not on their accessible statements specify these graph metrics. The closely relevant 2022 classification full text was unavailable, so overlap in its appendix/computational tables remains a substantial risk.
 
-## Limitations
+## value
 
-Only \(\operatorname{PG}(2,3)\) is covered; no general-order prediction is proven. Full-text access to Coolsaet–Botteldoorn–Fack (2022) was unavailable, leaving meaningful priority uncertainty. Independent external scientific validation has not occurred.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+PASS: the graph is the natural reconfiguration space under the smallest possible legal move on optimal nontrivial blocking sets, and its full metric, connectedness, unique per-point replacement, and frame overlap are exact finite invariants. The exhaustive 234-state classification is complete and well-motivated by reconfiguration theory, not an arbitrary slice or solely a recomputation of known blocking-set count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
