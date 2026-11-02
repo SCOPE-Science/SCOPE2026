@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Generic facet intersections give precisely two support values and disjoint half-normal dominance events. Exact sum-simplex decomposition gives B_m E exp(-X_m), with B_m=1/(pi^(m/2)Gamma(m/2+1)). Independently verifiable Dirichlet moment formula yields EDelta=-2/(m+2), EDelta^2=(3m+8)/((m+2)(m+4)), EDelta^3=O(m^-2), EDelta^4=O(m^-2). Bounded fourth-order Taylor remainder proves the e^-1(1+7/(2m)+O(m^-2)) factor. Verified with packaged standard-library script.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Lonke 1998, Introduction formula (2), f(n-m,n-l,n)~(2n)^(m-l)/(m-l)! for fixed m>l; specializing m=2,l=1 gives only mean facets ~2n.",
+        "Kabluchko and Seidel 2020 Proposition 4.1 and Proposition 4.2: exact expected section face counts via conic intrinsic volumes.",
+        "Donoho and Tanner arXiv:0807.3590 Sections 1.1-1.2: random projected hypercubes with proportional-growth thresholds, a distinct ensemble and regime.",
+        "Böröczky-Henk May 1997 preprint p.2, Theorem 1.1: random projections of crosspolytopes onto fixed-dimensional subspaces as ambient dimension grows."
+      ],
+      "reasoning": "Lonke implies only vanishing exceptional probability without rate. The Kabluchko-Seidel formula dominates finite probability evaluation, which is not claimed as new, but does not supply the sharp high-dimensional expansion inspected here. The other projection-growth regimes do not imply this gamma-normalized probability with first correction by direct substitution.",
+      "searches": [
+        "random central hyperplane sections of high-dimensional hypercubes have either 2d or 2d-2 facets with probability of exceptional case asymptotic",
+        "high dimensional cube Haar random hyperplane face count codimension one zonotope crosspolytope polar",
+        "Kabluchko Seidel Convex cones spanned by regular polytopes Section 4 Proposition 4.2",
+        "Lonke On random sections of the cube asymptotic f(n-m,n-l,n)"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/math/9812123v1",
+      "https://arxiv.org/html/2006.09492v2",
+      "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac/RESULT.md",
+      "https://arxiv.org/abs/0807.3590",
+      "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "For F_d taking values 2d and 2d-2, E F_d=2d-2 p_d. Lonke E F_d~2d permits p_d=o(d), which is tautologically weaker than a sharp vanishing rate.",
+        "Kabluchko-Seidel Proposition 4.2 can be specialized to obtain exact p_d, but a nontrivial new asymptotic analysis is necessary to extract e^{-1}, 7/(2m), and O(m^-2).",
+        "The four-cube record treats d=4 only."
+      ],
+      "reasoning": "Finite probability is prior-covered, as are two-point support and the d=4 benchmark. The final claimed object is the explicit sharp superexponential dimension asymptotic with first correction. It neither restates a known face-count formula nor claims that an implicit exact source is original.",
+      "searches": [
+        "random central hyperplane sections of high-dimensional hypercubes have either 2d or 2d-2 facets with probability of exceptional case asymptotic",
+        "asymptotic facet deficit probability of random central hyperplane section of d cube with first correction 7/(2d)",
+        "source reading: Lonke 1998, Kabluchko Seidel 2020, public four-cube RESULT.md"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The event of a missed opposite-facet pair is equivalent to |G_0|>sum_{i=1}^m |G_i|.",
+        "Lonke arXiv:math/9812123v1, Sections 1-3, studies central cube sections by Gaussian spherical geometry.",
+        "Kabluchko-Seidel arXiv:2006.09492v2, Proposition 4.2, gives a conic-intrinsic-volume representation for the same facet-intersection question."
+      ],
+      "reasoning": "The geometry can equally be described through the polar projected crosspolytope, as a Gaussian ell-one dominance cone, or through conic intrinsic volumes. Prior implicit finite-dimensional expressions and exact d=4 counts are acknowledged as covering those portions. None of the inspected material states the explicit e^{-1} leading factor together with the 7/(2m) relative correction as m tends to infinity.",
+      "searches": [
+        "dominant Gaussian absolute coordinate exceeds sum other coordinates probability asymptotic n^-n/2 cube section facets",
+        "sharp asymptotic probability Gaussian positive coordinate greater than ell one norm of remaining Gaussian coordinates equals exp(-1) over pi^(n/2) Gamma(n/2+1)",
+        "spherical cone solid angle cone generated by one coordinate dominating l1 sum Gaussian high dimensions",
+        "Gaussian half-normal ell-one dominance cone probability asymptotic; web searches on 2026-10-26 UTC"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Public record 2026/10/11/...88770003c8ac/RESULT.md gives p_4=1/3 and no general-d limit; its full RESULT.md was read.",
+        "Numerical benchmark p_3=6 arcsin(1/3)/pi from classical cube-section geometry.",
+        "Relevant returned research-record hits included 88770003c8ac, 5ebe8c4adfad, 15e20638cf70 but no matching e^{-1} Gamma-prefactor and 7/(2m) correction."
+      ],
+      "reasoning": "Exact low-dimensional tables and implicit finite-dimensional integral data do not specify the two leading asymptotic terms. No retrieved table contains the same high-dimensional coefficient; unindexed tables remain a residual risk.",
+      "searches": [
+        "asymptotic facet deficit probability of random central hyperplane section of d cube with first correction 7/(2d)",
+        "published-finding corpus research record four-cube exact two-point face-vector law 2026/10/11/...88770003c8ac",
+        "web: random hyperplane section cube nearly always 2n facets superexponential probability"
+      ]
+    },
+    "rationale": "Sharp two-term high-dimensional asymptotic is not present in the highly relevant inspected source statements; finite-d probability and 4D exact law are expressly acknowledged as known. The contrast is of implication, not just title. Priority risk remains for older equivalent cone asymptotics.",
+    "residual_risks": [
+      "An older or unindexed result on Gaussian ell-one dominance solid angles may contain the same two-term asymptotic in equivalent form.",
+      "Kabluchko-Seidel-type exact conic intrinsic-volume expressions implicitly determine the finite-dimensional p_d; novelty is limited to the explicit asymptotic expansion, not the underlying probability.",
+      "Historical priority has not been independently established."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers leading expected facet count but not the superexponential deficit normalization or first correction.",
+        "evidence": "Intro (2) gives f(n-m,n-l,n)~(2n)^(m-l)/(m-l)! for fixed l<m; m=2,l=1 yields ~2n. Primary MSC 52A22; first public posting 1998-12-21.",
+        "identifier_or_url": "https://arxiv.org/html/math/9812123v1",
+        "material_read": "Abstract, Introduction formulas (1)-(6), Section 3 proposition and relevant proof discussion.",
+        "method": "Direct arXiv HTML full-text inspection of the cited sections.",
+        "title": "On random sections of the cube",
+        "trigger": "Same object and dimension varying: random central cube sections and asymptotic face counts."
+      },
+      {
+        "assessment": "Implicit exact finite-dimensional facet-intersection probability is prior-covered; inspected statements do not include the sharp d-to-infinity two-term asymptotic.",
+        "evidence": "Section 4 Proposition 4.2 gives an intersection probability in conic intrinsic volumes; the source was first posted 2020-06-16 and has primary 60D05.",
+        "identifier_or_url": "https://arxiv.org/html/2006.09492v2",
+        "material_read": "Sections 4, 4.1, Propositions 4.1-4.2, and Section 5.4 proof of Proposition 4.2.",
+        "method": "Direct arXiv HTML inspection of relevant theorem statements and proof.",
+        "title": "Convex cones spanned by regular polytopes",
+        "trigger": "Broader conic probability formulas for regular-polytope face intersections."
+      },
+      {
+        "assessment": "Establishes p_4=1/3 and the d=4 phase criterion; does not address growing d or sharp e^{-1} and 7/(2m) terms.",
+        "evidence": "Its Finding and Proof §§1-3 state two face vectors with probabilities 1/3,2/3; its Limitations expressly restrict to R^4.",
+        "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-two-point-face-vector-law-for-random-central-sections-of-t--88770003c8ac/RESULT.md",
+        "material_read": "Complete RESULT.md including theorem, proof, limits and references.",
+        "method": "Direct read of the published file.",
+        "title": "Exact two-point face-vector law for random central sections of the four-cube",
+        "trigger": "Closest public mathematical claim, d=4 exact law and dominance criterion."
+      },
+      {
+        "assessment": "Projected hypercube/orthant rather than central cube section, and proportional-growth thresholds rather than codimension-one superexponential rare events.",
+        "evidence": "Intro §1.1 and Theorem 1.1 use n/N->delta and k/n->rho; first posted 2008-07-23.",
+        "identifier_or_url": "https://arxiv.org/abs/0807.3590",
+        "material_read": "Full HTML Introduction and Theorems 1.1 and 1.5 descriptions, model and proportional-dimensional regime.",
+        "method": "ArXiv text presentation inspection.",
+        "title": "Counting the Faces of Randomly-Projected Hypercubes and Orthants, with Applications",
+        "trigger": "Potential stronger face-count threshold results for random regular-polytopal projections."
+      },
+      {
+        "assessment": "Studies fixed projection dimension as ambient dimension grows and spherical regular-simplex angles; no direct formula for codimension-one cube facet-deficit sharp probability.",
+        "evidence": "Theorem 1.1 uses fixed integers k,d and n->infinity; May 1997 preprint date.",
+        "identifier_or_url": "https://page.math.tu-berlin.de/~henk/preprints/boeroeczky%20henk%26random%20projections%20of%20regular%20polytopes.pdf",
+        "material_read": "Preprint pp. 1-3 including theorem setup and Theorem 1.1; visual inspection of page with the theorem.",
+        "method": "Primary PDF text plus page screenshot.",
+        "title": "Random projections of regular polytopes",
+        "trigger": "Plausible cross-polytope polar-dual projection asymptotics."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d549be0-e580-452b-82c6-7a398257c42e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Quantifies the previously unmeasured superexponential rarity of a natural face-count defect in Haar central cube sections, including exact dimension-dependent normalization and the first correction. It refines existing expected-face asymptotics E F_d~2d by an explicit extreme-event scale and gives a reusable Dirichlet rare-event method.",
+    "status": "PASS"
+  }
+}
