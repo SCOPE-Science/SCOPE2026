@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T14:06:37Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed a,b>=2, summing opposite-class isolation-indicator covariances yields ab[h_m((a-1)(b-1))-h_m((a-1)b)h_m(a(b-1))], where h_m(s)=C(s,m)/C(ab,m). Exact ratio factorization has factors 1-t/((R-t)(C-t)); the t=1 factor proves negativity for 2<=m<=J, while J<m<=min(R,C) has zero joint and positive marginals and m>min(R,C) has a vanishing marginal. Thus the strict sign interval is precisely 2<=m<=ab-max(a,b); the other values vanish. Bernoulli covariance is ab*p*(1-p)^(a+b-1)>0, and with-replacement endpoints make X and Y independent. Expanding the log product for a~alpha*n,b~beta*n,m~gamma*n gives fixed-edge limit -gamma^2*exp(-gamma*(1/alpha+1/beta))/(2*alpha*beta), and Bernoulli covariance/n tends to gamma*exp(-gamma*(1/alpha+1/beta)). Independent exact edge-subset enumeration checked all m for three small rectangles; finite checks do not prove the general or limit formulas.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bohman–Warnke–Zhu study binomial random graph domination and isolate probability; Glebov–Luria–Simkin address bipartite exposure hitting times and perfect matchings in accessible descriptions."
+        ],
+        "reasoning": "These stated results do not supply exact fixed-m opposite-class covariance signs and sparse constants; full older occupancy literature is not exhausted.",
+        "searches": [
+          "random bipartite graphs isolated left right vertices covariance fixed number edges versus binomial and with replacement",
+          "Bohman Warnke Zhu arxiv:2401.10486",
+          "Glebov Luria Simkin arxiv:1805.06944"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2401.10486",
+        "arxiv:1805.06944",
+        "Blasiak–Durrett 2005 PDF",
+        "Resultary query: random bipartite graphs isolated left right vertices covariance fixed number edges versus binomial and with replacement"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Blasiak–Durrett use independent left/right replacement endpoint lists; Bohman–Warnke–Zhu use independent Bernoulli edges."
+        ],
+        "reasoning": "The replacement-independence and shared-star Bernoulli identities alone do not imply the hypergeometric fixed-distinct strict interval or sparse constant.",
+        "searches": [
+          "Blasiak Durrett Random Oxford Graphs author manuscript",
+          "Bohman Warnke Zhu binomial paper full text"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Uniform m distinct bipartite edges is an a-by-b fixed-weight zero-one matrix; opposite isolate variables count its empty rows/columns."
+        ],
+        "reasoning": "This alias has the same joint and marginal hypergeometric probabilities; an older occupancy theorem may cover it and remains a residual risk.",
+        "searches": [
+          "random bipartite graphs isolated left right vertices covariance fixed number edges versus binomial and with replacement",
+          "fixed weight binary matrix zero row zero column covariance hypergeometric"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "15 semantically retrieved Resultary records were not the exact m-subset random bipartite isolate covariance theorem."
+        ],
+        "reasoning": "No exact covering table located; absence of hits is not proof of novelty.",
+        "searches": [
+          "Resultary: random bipartite graphs isolated left right vertices covariance fixed number edges versus binomial and with replacement",
+          "bipartite fixed-weight matrix opposite class isolation count table"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS, qualified: exact all-m fixed-distinct sign boundary and sparse constant appear beyond inspected binomial and replacement sources; the Bernoulli and replacement special cases are not claimed as historically new.",
+      "residual_risks": [
+        "An earlier equivalent hypergeometric empty-row/empty-column covariance law may be unindexed.",
+        "The full 2018 matching exposure manuscript and older occupancy literature were not completely inspected.",
+        "Result does not prove full negative dependence or other graph-density scaling."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers replacement endpoints, different distinct-edge law",
+          "evidence": [
+            "Independently chosen left and right endpoint sequences"
+          ],
+          "identifier_or_url": "https://sites.math.duke.edu/~rtd/RG/rndgr0604.pdf",
+          "material_read": "Author PDF model construction, introductory results and opening page image",
+          "method": "Primary PDF text/visual reading",
+          "title": "Random Oxford Graphs",
+          "trigger": "Same two-sided graph sampling"
+        },
+        {
+          "assessment": "Binomial sampling and domination estimates, not a confirmed fixed-m classification",
+          "evidence": [
+            "Independent-edge probability model"
+          ],
+          "identifier_or_url": "arxiv:2401.10486",
+          "material_read": "Author-hosted PDF introductory sections and model description",
+          "method": "Primary PDF partial textual inspection",
+          "title": "Two-Point Concentration of the Domination Number of Random Graphs",
+          "trigger": "Isolates in random graphs"
+        },
+        {
+          "assessment": "Full-paper coverage not ruled out",
+          "evidence": [
+            "Matching hitting-time motivation"
+          ],
+          "identifier_or_url": "arxiv:1805.06944",
+          "material_read": "Indexed abstract and source description only",
+          "method": "Abstract-level source check",
+          "title": "Perfect Matchings in Random Subgraphs of Regular Bipartite Graphs",
+          "trigger": "Fixed-edge exposure bipartite setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Cross-class isolate covariance is an intrinsic bipartite random-network observable. Equal expected edge counts across standard sampling ensembles yield opposite covariance signs and different sparse scaling, quantified exactly rather than by arbitrary finite data.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arxiv:2401.10486",
+    "arxiv:1805.06944",
+    "Blasiak–Durrett 2005 PDF",
+    "Resultary query: random bipartite graphs isolated left right vertices covariance fixed number edges versus binomial and with replacement"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An earlier equivalent hypergeometric empty-row/empty-column covariance law may be unindexed.",
+    "The full 2018 matching exposure manuscript and older occupancy literature were not completely inspected.",
+    "Result does not prove full negative dependence or other graph-density scaling.",
+    "Computational tests cover only stated bounded domains, not universal proof. No external/human attestation inferred.",
+    "The scientific PASS is not importable or published until full metadata sanitization."
+  ],
+  "residual_risks": [
+    "An earlier equivalent hypergeometric empty-row/empty-column covariance law may be unindexed.",
+    "The full 2018 matching exposure manuscript and older occupancy literature were not completely inspected.",
+    "Result does not prove full negative dependence or other graph-density scaling."
+  ],
+  "schema_version": 1
+}
