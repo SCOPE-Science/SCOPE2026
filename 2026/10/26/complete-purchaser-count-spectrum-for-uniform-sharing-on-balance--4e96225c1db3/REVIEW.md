@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The general proof reconstructs the exact DP-Nash definition: every provider must offer precisely \(k\) distinct other-side free recipients and every free recipient must be covered. The one-sided case supplies \(n\); the mixed case gives the necessary and sufficient integer region \(1\le p,q\le n-k\), \(kp+q\ge n\), \(p+kq\ge n\). A cyclic nomination map constructs every feasible point, including boundary equalities. Balancing proves the all-cardinality interval, and the capacity \(k=n\) case is separate. A direct subset-enumeration checker agrees for \(35\) parameter pairs; the proof, not the finite checks, establishes the all-size claim.
+## correctness
 
-## Originality
-**PASS, subject to bibliographic risk.** Gerke et al. introduce DP-Nash sets, general bounds and complete-graph extrema, while Gutin–Neary–Yeo analyze uniqueness complexity. A later matching result already covers the minimum when capacity is one, which is not claimed as novel in isolation. Related released-packing and limited-domination statements on bicliques have materially different feasibility restrictions. No inspected result implies the entire biclique spectrum or its \(\{2,n\}\) capacity boundary. An equivalent result in unindexed literature remains a possibility.
+PASS
 
-## Mathematical value
-**PASS.** The attainable count spectrum, rather than just an extreme, determines which participation burdens can occur in equilibrium selection. Its arbitrarily large forbidden interval at capacity \(n-1\) and the abrupt \(2\)-to-\(n\) jump at full capacity exhibit a strong structural nonmonotonicity even in vertex-transitive-in-each-side regular networks. This gives a complete natural graph-family benchmark for exact capacitated domination.
+PASS: A one-sided purchaser configuration forces the entire side (n buyers); mixed purchaser counts p,q≥1 have exact necessary and sufficient feasibility 1≤p,q≤n-k, kp+q≥n, p+kq≥n. Sufficiency follows by independently covering recipients with distinct length-k cyclic nomination blocks. For fixed s=p+q, balanced p,q maximize min(p,q), yielding 2≤s≤2(n-k) and s+(k-1)floor(s/2)≥n. The inequality is monotone, with first even and odd feasible thresholds equal to the displayed a(n,k); the maximal s is feasible. k=n precludes mixed buyers. Fresh exhaustive exact recipient-subset coverage agreed on every (n,k) with 2≤n≤8 (35 pairs). The all-size theorem follows from the constructive inequalities, not enumeration.
 
-## Scope and limitations
-Only uniform \(K_{n,n}\), positive integer capacity, and specialised Nash equilibria are covered. Neither heterogeneous networks nor nonspecialised effort profiles are classified. The finite computation is confirmatory and does not certify a universal formula by enumeration.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.
+
+## value
+
+PASS
+
+PASS: The full cardinality spectrum (rather than its min or max) displays arbitrarily long unattainable intervals on connected regular graphs and a sharp one-step capacity transition from minimum 2 to n purchasers. This matters for equilibrium multiplicity and structure in capacitated public-goods networks and is not mechanically equivalent to standard domination extrema.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

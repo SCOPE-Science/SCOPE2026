@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T14:08:36Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: A one-sided purchaser configuration forces the entire side (n buyers); mixed purchaser counts p,q≥1 have exact necessary and sufficient feasibility 1≤p,q≤n-k, kp+q≥n, p+kq≥n. Sufficiency follows by independently covering recipients with distinct length-k cyclic nomination blocks. For fixed s=p+q, balanced p,q maximize min(p,q), yielding 2≤s≤2(n-k) and s+(k-1)floor(s/2)≥n. The inequality is monotone, with first even and odd feasible thresholds equal to the displayed a(n,k); the maximal s is feasible. k=n precludes mixed buyers. Fresh exhaustive exact recipient-subset coverage agreed on every (n,k) with 2≤n≤8 (35 pairs). The all-size theorem follows from the constructive inequalities, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Proposition 5 gives broad min/max bounds; Proposition 6 determines complete GRAPH K_n extrema, not complete BIPARTITE K_{n,n} all-cardinality spectra.",
+          "Capacity-one maximum matching minimum-buyers result is in directed/related model, does not cover every cardinality at arbitrary k."
+        ],
+        "reasoning": "Extremal bounds or clique special case cannot produce exact two-sided forbidden intervals on bicliques without additional construction.",
+        "searches": [
+          "Gerke et al full primary PDF Appendix C Proposition 5 and Proposition 6",
+          "Deligkas et al arXiv:2511.11475 Theorem 9"
+        ]
+      },
+      "checked_sources": [
+        "Actual source RESULT.md and verify_spectrum.py",
+        "arXiv:1905.01693 full PDF Definition 3 and Appendix C",
+        "arXiv:2003.07106 abstract",
+        "arXiv:2511.11475",
+        "Resultary query: K_{n,n} DP-Nash full spectrum"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The prior model-to-graph equivalence is used but does not quantify all p+q for K_{n,n}; uniqueness complexity results do not imply the closed spectrum.",
+          "Min/max values alone cannot imply internal interval presence or the isolated n value."
+        ],
+        "reasoning": "The full novel conclusion is not a restatement of the general model equivalence or its extremal bounds.",
+        "searches": [
+          "Gerke et al Definition 3, Theorem 1 and Appendix C",
+          "Gutin–Neary–Yeo uniqueness work"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The new feasible purchaser pairs are exact-degree DP-Nash configurations in original model; the source primary theorem supplies correspondence but not biclique all-cardinality classification.",
+          "Released packing/paired domination involve different neighborhood degree and nomination rules."
+        ],
+        "reasoning": "Compared graph family, exact buyer degree and all attained cardinalities rather than merely the term Nash equilibrium.",
+        "searches": [
+          "Gerke–Gutin–Hwang–Neary arXiv:1905.01693 Definition 3 and Appendix C",
+          "Gutin–Neary–Yeo arXiv:2003.07106",
+          "Resultary capacitated domination, released packing"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No same K_{n,n} purchaser-count spectrum found in Resultary summaries.",
+          "A released-packing k-limited optimization result is about a distinct set system, not a DP-Nash count table."
+        ],
+        "reasoning": "Exact spectrum not identified in checked records; absence from search index is only qualified evidence.",
+        "searches": [
+          "Resultary public goods DP-Nash complete biclique spectrum query",
+          "Gerke et al Appendix C examples",
+          "Resultary released packing on complete bipartite graphs"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS on the particular final statement after comparing objects, hypotheses, quantifiers, dominating statements and actual inspected materials; accessible primary evidence does not imply this exact result. No search failure constitutes a novelty proof. Specific same-source risks are retained; any inaccessible literature remains explicitly qualified.",
+      "residual_risks": [
+        "Alternative names for exact-capacity D-set spectra in earlier biclique optimization work might yield an equivalent theorem.",
+        "The result concerns specialized equilibria only, not all possible continuous-action equilibria or welfare consequences."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Model equivalence applies; general graph bounds and complete graph extremes do not state/all imply balanced complete-bipartite full attainable spectrum",
+          "evidence": [
+            "Definition 3; Theorem 1; Appendix C Proposition 5 & Proposition 6"
+          ],
+          "identifier_or_url": "arXiv:1905.01693; https://arxiv.org/pdf/1905.01693",
+          "material_read": "Full accessible preprint, Definition 3, Theorem 1, and entire Appendix C (especially Propositions 5–6)",
+          "method": "primary PDF text and page visual inspection",
+          "title": "Public goods in networks with constraints on sharing",
+          "trigger": "defining DP-Nash objects and strongest potential general theorem"
+        },
+        {
+          "assessment": "Different uniqueness complexity property, not all-cardinality spectrum",
+          "evidence": [
+            "Abstract"
+          ],
+          "identifier_or_url": "arXiv:2003.07106",
+          "material_read": "paper abstract and bibliographic description of uniqueness question",
+          "method": "index/publisher abstract",
+          "title": "Exact capacitated domination: on the computational complexity of uniqueness",
+          "trigger": "same DP-Nash terminology"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The full cardinality spectrum (rather than its min or max) displays arbitrarily long unattainable intervals on connected regular graphs and a sharp one-step capacity transition from minimum 2 to n purchasers. This matters for equilibrium multiplicity and structure in capacitated public-goods networks and is not mechanically equivalent to standard domination extrema.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual source RESULT.md and verify_spectrum.py",
+    "arXiv:1905.01693 full PDF Definition 3 and Appendix C",
+    "arXiv:2003.07106 abstract",
+    "arXiv:2511.11475",
+    "Resultary query: K_{n,n} DP-Nash full spectrum"
+  ],
+  "disposition": "passed",
+  "final_claim": "For n≥2 and 1≤k≤n on K_{n,n} with exact purchaser nomination capacity k, the specialized DP-Nash purchaser-count spectrum E(n,n)={n}, and E(n,k)={n}∪{a(n,k),a(n,k)+1,…,2(n-k)} for k<n, where a=min(2ceil(n/(k+1)),2ceil((n-1)/(k+1))+1). For n≥4 capacity n-1 has spectrum {2,n}.",
+  "limitations": [
+    "Only balanced complete bipartite K_{n,n}, uniform integer capacities 1..n, specialized DP-Nash purchaser counts.",
+    "The finite verifier tests n≤8, whereas all-n coverage is from the modular nomination construction.",
+    "Alternative names for exact-capacity D-set spectra in earlier biclique optimization work might yield an equivalent theorem.",
+    "The result concerns specialized equilibria only, not all possible continuous-action equilibria or welfare consequences."
+  ],
+  "schema_version": 1
+}
