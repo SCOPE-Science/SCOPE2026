@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-The exact conditional Laplace transform is given in RESULT.md. Run `python verification.py` with Python 3 and the public `mpmath` package installed. The executable performs nine high-precision checks of the first and second transform derivatives at zero, six numerical integrations of those conditional moments against the exponential target density, five checks of the large-distance limiting normalized moments, and analytic-value substitutions at the two optimized rates. This executable has been run successfully from the delivered contents.
+## correctness
 
-The exact moment-finiteness conditions, nonexistence of moments at critical values, and uniqueness of the two optimal rates are derived analytically in RESULT.md; no finite computations are used as proof of these infinite-domain statements. The numerical large-distance convergence checks are empirical corroboration rather than a uniform-convergence certificate. The first-passage model fixes one randomly sampled target for all resets and excludes target resampling.
+PASS
 
-Independent scientific audit has not been performed.
+For the target distance R sampled once and held fixed, the conditional Laplace transform is F_R(s)=(r+s)e^{-R sqrt((r+s)/D)}/[s+r e^{-R sqrt((r+s)/D)}]. Differentiation yields E[T|R]=(e^{qR}-1)/r and E[T^2|R]=(2e^{2qR}-(2+qR)e^{qR})/r^2. Integrating against lambda exp(-lambda R) proves the stated first/second moments, finite iff q<lambda and 2q<lambda respectively. Rescaling Y_R=r e^{-qR}T makes its transforms converge uniformly on a small complex neighborhood to 1/(1+w), hence fixed integer moments tend to m!, giving the exact all-moment criterion mq<lambda. Algebraic optimization of 1/[D lambda^2 z(1-z)] yields mean optimum z=1/2; of 1/[z(1-2z)]-1 yields CV optimum z=1/4, CV²=7 and mean cost factor 4/3. Independent symbolic differentiation/integrals verified the finite formulas; divergence and uniqueness follow analytically.
+
+## originality
+
+PASS
+
+Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+The broad fixed-random-target setting has known mean-optimal Poisson resetting, but a natural reliability question is whether variance remains finite and which rate optimizes dispersion. The sharp integer-moment thresholds, infinite variance at the known mean optimum, and distinct exact CV-optimum with small mean cost are concrete mathematically useful boundary phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

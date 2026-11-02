@@ -1,11 +1,21 @@
-# Scientific review: quenched exponential-target reset search
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof derives a conditional Laplace transform by first-attempt renewal and differentiates it to obtain exact conditional first and second moments. Positive integration against the target-distance density establishes the finite/infinite boundaries without substituting finite observations for a proof. A uniform analytic transform limit in the scaled large-target regime gives every integer-moment threshold, including equality. Quadratic optimization proves two distinct unique minimizers. The independent high-precision numerical checker reproduces the differential and integral identities.
+## correctness
 
-**Originality — PASS, subject to literature risk.** Evans–Ray arXiv:2410.01941 proves the previously known mean-first-passage optimization for exponentially distributed fixed target distance; it does not claim these averaged second-moment and all-integer-moment thresholds or the coefficient-of-variation optimum. Evans–Majumdar arXiv:1107.4225 addresses mean resetting optimization for distributed targets. García-Valladares et al. arXiv:2305.14245 directly study passage-time variance for a different dichotomous fixed-distance target and heterogeneous spatial reset rates; their small-disorder-probability divergence does not imply the new fixed-exponential-law formulas. Closely related published general regeneration or mixture-moment results might still imply portions of this finding; novelty is not an independent priority certificate.
+PASS
 
-**Mathematical value — PASS.** The same target distribution is used in published mean-optimal-protocol research. The theorem demonstrates the failure of second-moment integrability at its natural unique mean optimum and gives a complete integer-moment hierarchy. It identifies an exact, physically meaningful reliability alternative with quantified 4/3 mean cost, not an arbitrary finite numerical example.
+For the target distance R sampled once and held fixed, the conditional Laplace transform is F_R(s)=(r+s)e^{-R sqrt((r+s)/D)}/[s+r e^{-R sqrt((r+s)/D)}]. Differentiation yields E[T|R]=(e^{qR}-1)/r and E[T^2|R]=(2e^{2qR}-(2+qR)e^{qR})/r^2. Integrating against lambda exp(-lambda R) proves the stated first/second moments, finite iff q<lambda and 2q<lambda respectively. Rescaling Y_R=r e^{-qR}T makes its transforms converge uniformly on a small complex neighborhood to 1/(1+w), hence fixed integer moments tend to m!, giving the exact all-moment criterion mq<lambda. Algebraic optimization of 1/[D lambda^2 z(1-z)] yields mean optimum z=1/2; of 1/[z(1-2z)]-1 yields CV optimum z=1/4, CV²=7 and mean cost factor 4/3. Independent symbolic differentiation/integrals verified the finite formulas; divergence and uniqueness follow analytically.
 
-Limitations: one-sided exponentially distributed quenched target, Brownian diffusion, homogeneous Poisson instantaneous reset to the origin; integer-moment results, not a full target-averaged tail expansion. Mathematical derivations and reproducible checks are in RESULT.md and verification.py.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.
+
+## value
+
+PASS
+
+The broad fixed-random-target setting has known mean-optimal Poisson resetting, but a natural reliability question is whether variance remains finite and which rate optimizes dispersion. The sharp integer-moment thresholds, infinite variance at the known mean optimum, and distinct exact CV-optimum with small mean cost are concrete mathematically useful boundary phenomena.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

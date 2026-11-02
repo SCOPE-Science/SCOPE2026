@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T16:43:49.985376Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For the target distance R sampled once and held fixed, the conditional Laplace transform is F_R(s)=(r+s)e^{-R sqrt((r+s)/D)}/[s+r e^{-R sqrt((r+s)/D)}]. Differentiation yields E[T|R]=(e^{qR}-1)/r and E[T^2|R]=(2e^{2qR}-(2+qR)e^{qR})/r^2. Integrating against lambda exp(-lambda R) proves the stated first/second moments, finite iff q<lambda and 2q<lambda respectively. Rescaling Y_R=r e^{-qR}T makes its transforms converge uniformly on a small complex neighborhood to 1/(1+w), hence fixed integer moments tend to m!, giving the exact all-moment criterion mq<lambda. Algebraic optimization of 1/[D lambda^2 z(1-z)] yields mean optimum z=1/2; of 1/[z(1-2z)]-1 yields CV optimum z=1/4, CV²=7 and mean cost factor 4/3. Independent symbolic differentiation/integrals verified the finite formulas; divergence and uniqueness follow analytically.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Evans–Ray develops a more general target-distribution/ protocol conjugacy theory for minimizing mean, but the accessible material does not establish all-moment sharp integrability boundaries."
+        ],
+        "reasoning": "Mean optimality is prior and explicitly credited. A general renewal-tail theorem might imply the moment boundary and remains a genuine specialty-literature risk; no automatic noncoverage claim about the inaccessible full paper.",
+        "searches": [
+          "infinite variance mean optimal Poisson resetting exponential first passage",
+          "Evans Ray 2025 random target exponential resetting variance all positive integer moments",
+          "stochastic restart variance tail mixture mgf"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1103/2wpq-gl2j",
+        "https://arxiv.org/abs/2410.01941",
+        "https://arxiv.org/abs/2305.14245",
+        "https://doi.org/10.1103/p3yc-kmt1"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Evans–Ray 2025 has the known mean-optimal fixed random target setting. García-Valladares et al analyse heterogeneous reset rates and two fixed-magnitude possible targets, not the exponential-distance mixture."
+        ],
+        "reasoning": "The moment-integrability and CV statements are additional calculations on a known conditional renewal law; they are not claimed as new resetting laws. Strong prior full-text access risk remains.",
+        "searches": [
+          "https://doi.org/10.1103/2wpq-gl2j",
+          "arXiv:2410.01941",
+          "arXiv:2305.14245"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Evans–Ray 2025 explicitly considers a random target selected once, and exponential tails, but its accessible abstract frames mean-first-passage resetting optimality."
+        ],
+        "reasoning": "Matched quenched target distribution versus annealed resampling, constant Poisson resetting rate and unconditional T moments; other reset-target models are not equivalent.",
+        "searches": [
+          "infinite variance mean optimal Poisson resetting exponential first passage",
+          "fixed quenched exponential random target resetting first passage moments variance optimal CV"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search and Resultary retrieved general memoryless-catastrophe variance envelopes but no matching continuous Brownian quenched-exponential target all-moment table."
+        ],
+        "reasoning": "Checked model features (fixed single R vs resampled/catastrophe probabilities) and exact formulas rather than numerical coincidence.",
+        "searches": [
+          "infinite variance mean optimal Poisson resetting exponential first passage",
+          "r mean optimum one quarter coefficient variation optimum exponential target"
+        ]
+      },
+      "rationale": "Qualified best-of-knowledge assessment after independent statement-level comparisons of the cited specific results, published index and accessible primary texts; inaccessible full texts remain explicitly stated risks, not proof of noncoverage.",
+      "residual_risks": [
+        "Crucial Evans–Ray full text was inaccessible: arXiv/OA attempts failed and authorized institutional access returned vpn_disconnected. This source could contain moment details beyond the inspected abstract.",
+        "An unlocated general regeneration or mixture-integrability theorem may imply some or all of the moments; no global novelty certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already establishes optimal stochastic resetting for exponential/broader tails; abstract does not resolve the all-integer moment/CV optimum claims; full-document negative claim deliberately not made",
+          "evidence": [
+            "Physical Review Letters 134, 247102, published 18 June 2025; authorized access returned vpn_disconnected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1103/2wpq-gl2j",
+          "material_read": "Published journal abstract and metadata, full paper unavailable through arXiv/OA and authorized institution",
+          "method": "Read publisher abstract and Edinburgh repository record; attempted arXiv HTML/OA and institutional source",
+          "title": "Stochastic Resetting Prevails Over Sharp Restart for Broad Target Distributions",
+          "trigger": "Exact same random-target Brownian resetting model; strongest priority comparator"
+        },
+        {
+          "assessment": "Two fixed magnitude candidate target locations and spatially dependent rates, not the quenched exponential mixture formula",
+          "evidence": [
+            "Distinct target law and reset policies mean no immediate theorem implication."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2305.14245",
+          "material_read": "Public bibliographic/abstract and model scope, plus assigned source comparison",
+          "method": "Web search and inspect claimed target-law difference",
+          "title": "Optimal resetting strategies for search processes in heterogeneous environments",
+          "trigger": "Prior variance warning in heterogeneous random search"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The broad fixed-random-target setting has known mean-optimal Poisson resetting, but a natural reliability question is whether variance remains finite and which rate optimizes dispersion. The sharp integer-moment thresholds, infinite variance at the known mean optimum, and distinct exact CV-optimum with small mean cost are concrete mathematically useful boundary phenomena.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://doi.org/10.1103/2wpq-gl2j",
+    "https://arxiv.org/abs/2410.01941",
+    "https://arxiv.org/abs/2305.14245",
+    "https://doi.org/10.1103/p3yc-kmt1"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "One-dimensional Brownian diffusion, strictly positive homogeneous reset rate, and one fixed exponential target; integer m>=1 only, not fractional moments or resampled-target protocols."
+  ],
+  "residual_risks": [
+    "Crucial Evans–Ray full text was inaccessible: arXiv/OA attempts failed and authorized institutional access returned vpn_disconnected. This source could contain moment details beyond the inspected abstract.",
+    "An unlocated general regeneration or mixture-integrability theorem may imply some or all of the moments; no global novelty certification."
+  ],
+  "schema_version": 1
+}
