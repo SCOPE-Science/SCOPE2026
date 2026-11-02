@@ -1,0 +1,212 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T08:05:13.201503Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/every-residue-modulo-a-power-of-three-occurs-infinitely-often-am--d51f816a0c2f/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/every-residue-modulo-a-power-of-three-occurs-infinitely-often-am--d51f816a0c2f/CHECKER.py",
+        "Kummer carry theorem (1852); lifting-the-exponent for odd prime 3",
+        "independently written exact integer and modular-factorial checks for bounded ranges"
+      ],
+      "rationale": "For every k>=1 and S>=1, B(N+a)/(B(N)B(a)) is a ratio of 3-adic units 1+3^k Z_3 when v3(N)>=k+floor(log_3(2a)); this yields separated-block multiplicativity modulo 3^k. For N=3^R, the b_R=2 prod_{i=1}^{N-1}(1+N/i) expansion has exactly the two exceptional modulo-9 factors at i=N/3,2N/3, whose product is 10=1(mod9), so b_R=2(mod9) and by LTE has exact order 2*3^(k-1) modulo 3^k. Infinite pigeonhole yields a repeating unit u among b_R residues along unbounded exponents; spaced choices yield B(A_t+sum 3^Ri)=B(A_t)u^j mod3^k. The seed A_t=3^S(3^t+1)/2 for t>=1 (or 3^S for t=0) has exactly t ternary carries, so v3(B(A_t))=t; multiplication by u^j traverses all valuation-t units (0<=t<k), while t=k supplies zero. For each fixed residue, infinitely many j in a suitable congruence class and arbitrarily large spaced exponents supply distinct indices. If S>=k, C_{N-1}=B(N)/(2(2N-1))=-B(N)/2 mod3^k for constructed N, transferring all classes. Independent exact checks: seeds t<=8, primitive roots R<=8 and k<=6, 825 separated-block instances, all classes modulo 3,9,27,81,243 among first 30000 Catalans. Finite checks corroborate only; analytical argument proves all k.",
+      "residual_risks": [
+        "No density or effective bound; the infinitude construction is existential via an infinite repeated-residue subsequence.",
+        "The source checker independently confirms examples only and is not a proof of unbounded k."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krattenthaler--Muller Theorem 37 is a finite-modulus generating-function expansion and Theorems 38--39 give explicit modulo-27/9 formulas; they do not state all-residue reachability for every exponent.",
+          "Barat--Grabner Theorem 7 equidistributes p-free binomial coefficients among all pairs (n,j) with 0<=j<=n<N. This 2D population does not constrain the central diagonal j=n/2, much less Catalan normalization.",
+          "Sun--Zhang 2008/2011 abstract covers binomial(n,k) with specified fixed lower k as n varies; k=n on a central diagonal is not fixed.",
+          "Rowland--Yassawi Theorem 1.2 gives a finite automaton for each prescribed modulus, not universal surjectivity as its explicit Open Question 3.6 confirms."
+        ],
+        "reasoning": "Stronger general algorithms for computing modular coefficients and full-Pascal-array equidistribution do not mathematically imply that each residue occurs among central coefficients at arbitrarily 3-divisible indices. A general block-multiplicative theorem specialized to the diagonal could still implicitly cover the result and is a residual risk.",
+        "searches": [
+          "https://arxiv.org/pdf/1308.2856 Section 12 Theorems 37--39",
+          "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf Section 4 Theorems 6--7",
+          "https://arxiv.org/abs/0812.3089",
+          "https://oro.open.ac.uk/67095/7/67095.pdf Theorems 1.1--1.2, Sec 3.1"
+        ]
+      },
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/every-residue-modulo-a-power-of-three-occurs-infinitely-often-am--d51f816a0c2f/RESULT.md",
+        "https://oro.open.ac.uk/67095/7/67095.pdf",
+        "https://arxiv.org/pdf/1308.2856",
+        "https://arxiv.org/pdf/1703.02705",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf",
+        "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+        "https://arxiv.org/abs/0812.3089",
+        "https://oeis.org/A130851"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "2015 Rowland--Yassawi explicitly ask whether a forbidden class occurs for some 3^alpha.",
+          "2013 Krattenthaler--Muller finite-level coefficients and 2022 Rampersad--Shallit prime-modulus pattern theorems do not state all 3-power surjectivity.",
+          "Burns Theorem 2.2 and abstract give all residues infinitely often for primes p>=5, excluding the power-of-three setting.",
+          "Barat--Grabner count a two-dimensional triangle of binomial coefficients, which includes far more indices than the central diagonal and does not imply diagonal density."
+        ],
+        "reasoning": "The claim has a stronger all-k, diagonal-constrained existential quantifier. General coefficient computation or full-triangle positive density cannot imply it without new structural input. The explicitly open question in 2015 is strong evidence of the gap at that date, not proof nobody solved it later.",
+        "searches": [
+          "https://oro.open.ac.uk/67095/7/67095.pdf Section 3.1 Open Question 3.6",
+          "https://arxiv.org/pdf/1308.2856 Section 12",
+          "https://arxiv.org/pdf/1703.02705 Sections 1--2",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf Section 4",
+          "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf Theorem 7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland--Yassawi, 2015, page 260 (PDF p16), Open Question 3.6 explicitly asks whether any Catalan residue class modulo 3^alpha is absent.",
+          "The claim is equivalent to the Catalan sequence being dense in Z_3; the infinite-multiplicity theorem further strengthens mere density.",
+          "Two independent published-findings semantic searches returned binomial/ternary studies but no matched all-power Catalan theorem."
+        ],
+        "reasoning": "Surjectivity for each 3^k is exactly 3-adic density. The stronger assertion of arbitrarily many distinct witnessing indices does not follow from density alone, but is proved by repeated separated blocks. No earlier equivalent statement was located; negative search cannot certify absolute priority.",
+        "searches": [
+          "Resultary semantic: Catalan numbers every residue modulo powers of 3 3-adic dense forbidden residue Rowland Yassawi Question 3.6",
+          "Resultary semantic: central binomial coefficients values modulo 3^k all residue classes with arbitrarily sparse ternary digits primitive roots",
+          "web: Catalan every residue modulo 3^k infinitely often number theory proof",
+          "web: Catalan numbers dense 3-adic integers modulo powers of three",
+          "https://oro.open.ac.uk/67095/7/67095.pdf"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A130851 lists Catalan residues modulo 9; such finite tables are known and do not cover every 3^k.",
+          "Rowland--Yassawi produce an automaton for each fixed 3^alpha but do not establish universal reachability across every alpha, indeed posing that question.",
+          "Independent finite checker covers 3^k up to 243 in the first 30,000 indices; this is a diagnostic, not a complete infinite table."
+        ],
+        "reasoning": "Known individual modulus tables and finitely many automata or enumerations cannot settle all exponents k. No exact all-k covering table was found, but an unindexed table or general automaton criterion is possible.",
+        "searches": [
+          "OEIS A130851 Catalan numbers modulo 9",
+          "https://oeis.org/A130851",
+          "OEIS Catalan numbers modulo 3^k residues all residue classes",
+          "Rowland--Yassawi finite automata for Catalan modulo 3^alpha",
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf Section 4"
+        ]
+      },
+      "rationale": "Best-of-knowledge original: proves the all-exponent Catalan 3-adic density and infinitely many witnesses, answering the explicitly stated Rowland--Yassawi Open Question 3.6. Krattenthaler--Muller give 3-power coefficient formulas, Burns gives prime-modulus surjectivity, and Rampersad--Shallit analyze prime-modulus Catalan automata; none of their inspected statements proves the uniform 3^k surjectivity. Barat--Grabner equidistribution concerns the full triangular Pascal array (n,j), not the constrained central diagonal (2N,N); Sun--Zhang concerns fixed lower binomial index. Unindexed implicit coverage remains a historical-priority risk, not a proof of novelty.",
+      "residual_risks": [
+        "Historical priority is best-of-knowledge: an unindexed proof from after the 2015 open question could exist.",
+        "General block-digit or 3-adic binomial congruence machinery might yield the same result after a non-obvious diagonal specialization.",
+        "Sun--Zhang full paper and older specialized catalogues not exhaustively read; its fixed-index scope is different.",
+        "No positive natural density or effective least-index bound is proved; do not infer either from infinitude."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "EXPLICIT_OPEN_QUESTION for any forbidden residue modulo 3^alpha in 2015; does not prove none exist",
+          "evidence": [
+            "Journal de Theorie des Nombres de Bordeaux 27 (2015), p260; PDF p16, text lines 911--920."
+          ],
+          "identifier_or_url": "https://oro.open.ac.uk/67095/7/67095.pdf",
+          "material_read": "Introduction (PDF pp1--4), Section 3.1 Catalan passage and Open Question 3.6 on PDF p16; inspected page image",
+          "method": "Lawful OA PDF text and page-image inspection",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Exact published Catalan forbidden-residue problem"
+        },
+        {
+          "assessment": "NOT_COVERING by inspected Theorems 37--39: coefficient expansion and explicit modulo 9/27, no all-exponent surjectivity",
+          "evidence": [
+            "arXiv:1308.2856v1, PDF p36, Theorem 37--Corollary 39."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1308.2856",
+          "material_read": "Introduction and entire short Catalan Section 12 (PDF pp35--36), Theorem 37, Theorem 38, Corollary 39, page image",
+          "method": "arXiv full-text PDF search, passage and screenshot inspection",
+          "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+          "trigger": "Same Catalan sequence and all three-power moduli; plausible broader theorem"
+        },
+        {
+          "assessment": "DIFFERENT_SCOPE: main statement treats p>=5, not 3^k for arbitrary k",
+          "evidence": [
+            "arXiv:1703.02705, PDF pp0--2: prime p>=5; prime-power behavior explicitly distinguished."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1703.02705",
+          "material_read": "Full five-page primary paper searched/read, including abstract, Section 1, Section 2 theorem, prime range and relation to higher prime powers; screenshot PDF p1",
+          "method": "arXiv lawful PDF and screenshot",
+          "title": "The Catalan numbers have no forbidden residue modulo primes",
+          "trigger": "Closest previously established no-forbidden-residue statement"
+        },
+        {
+          "assessment": "NOT_COVERING by inspected statements: describes prime-modulus run patterns, not all residues modulo every 3^k",
+          "evidence": [
+            "EJC 29(3) (2022), #P3.36, Section 4, PDF p8."
+          ],
+          "identifier_or_url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf",
+          "material_read": "Abstract/introduction, entire Catalan Section 4 and conclusion; PDF p8 image inspected",
+          "method": "OA journal PDF text, searches and screenshot",
+          "title": "Congruence Properties of Combinatorial Sequences via Walnut and the Rowland--Yassawi--Zeilberger Automaton",
+          "trigger": "Later primary published study of Catalan modular automata"
+        },
+        {
+          "assessment": "NOT_DIRECTLY_COVERING: uniformity among all binomial(n,j), j<=n, does not assert restricted central diagonal and Catalan normalization",
+          "evidence": [
+            "Barat--Grabner JLMS 64 (2001), Theorem 7 formula (4.16), PDF p20."
+          ],
+          "identifier_or_url": "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+          "material_read": "Introduction PDF pp0--1, Section 4 p13 onward, Theorem 7 at PDF p20, proof summary and screenshots of pp13,20",
+          "method": "Author lawful OA full-text PDF and page-image inspection",
+          "title": "Distribution of Binomial Coefficients and Digital Functions",
+          "trigger": "Earlier prime-power equidistribution potentially dominating diagonal reachability"
+        },
+        {
+          "assessment": "FIXED_INDEX rather than central diagonal; does not directly imply the stated result, with full-text-inspection limitation",
+          "evidence": [
+            "arXiv:0812.3089 abstract treats binomial(n,k) as n varies for fixed k."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0812.3089",
+          "material_read": "Public arXiv abstract only; full text not materially inspected because lower index fixed is explicit scope distinction",
+          "method": "arXiv abstract and theorem scope comparison",
+          "title": "Binomial coefficients and the ring of p-adic integers",
+          "trigger": "Broad p-adic binomial density claim that could dominate"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://oro.open.ac.uk/67095/7/67095.pdf",
+        "https://arxiv.org/pdf/1308.2856",
+        "https://arxiv.org/pdf/1703.02705",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf"
+      ],
+      "rationale": "This is the exact published forbidden-residue question for Catalan numbers modulo every power of 3, not a single finite census or routine fixed-modulus calculation. It proves a strong complete natural classification: every 3-adic residue neighbourhood is hit infinitely often, with a reusable separated-block and primitive-root mechanism. The precise mathematical gap was explicitly recorded as Open Question 3.6 by Rowland--Yassawi; first-index bounds or density are not claimed.",
+      "residual_risks": [
+        "The technique does not furnish natural densities or computationally efficient witness bounds; these limitations do not diminish the complete reachability theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/every-residue-modulo-a-power-of-three-occurs-infinitely-often-am--d51f816a0c2f/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/359233893f22559a64d1a2a83158566d85606adf/2026/10/18/every-residue-modulo-a-power-of-three-occurs-infinitely-often-am--d51f816a0c2f/CHECKER.py",
+    "Kummer carry theorem (1852); lifting-the-exponent for odd prime 3",
+    "independently written exact integer and modular-factorial checks for bounded ranges",
+    "https://oro.open.ac.uk/67095/7/67095.pdf",
+    "https://arxiv.org/pdf/1308.2856",
+    "https://arxiv.org/pdf/1703.02705",
+    "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v29i3p36/pdf",
+    "https://www.math.tugraz.at/~grabner/Publications/Binomial.pdf",
+    "https://arxiv.org/abs/0812.3089",
+    "https://oeis.org/A130851"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "No effective least-index bound or natural densities proved; all checks beyond source proof are bounded diagnostics.",
+    "Originality best-of-knowledge; no historic priority guarantee; specialized unindexed work may implicitly cover.",
+    "PDF primary-source review focused on passages relevant to implications, not exhaustive all literature.",
+    "External Lean and expert attestation statuses remain not_performed; no independent external certification is claimed."
+  ],
+  "residual_risks": [
+    "No density or effective bound; the infinitude construction is existential via an infinite repeated-residue subsequence.",
+    "The source checker independently confirms examples only and is not a proof of unbounded k.",
+    "Historical priority is best-of-knowledge: an unindexed proof from after the 2015 open question could exist.",
+    "General block-digit or 3-adic binomial congruence machinery might yield the same result after a non-obvious diagonal specialization.",
+    "Sun--Zhang full paper and older specialized catalogues not exhaustively read; its fixed-index scope is different.",
+    "No positive natural density or effective least-index bound is proved; do not infer either from infinitude.",
+    "The technique does not furnish natural densities or computationally efficient witness bounds; these limitations do not diminish the complete reachability theorem."
+  ],
+  "schema_version": 1
+}
