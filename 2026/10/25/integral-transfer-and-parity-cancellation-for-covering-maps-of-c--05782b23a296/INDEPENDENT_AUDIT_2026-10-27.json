@@ -1,0 +1,100 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:08:19.428893Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For m>=4,n>=5,k,l>=1 the canonical reduction C_kn→C_n and pullback C_lm→C_m define the Hom-complex map. The circle-sector component classification excludes strict equality |kn·w|=m (isolated maps). For a target cycle length t>=5, the cubical covering of a circle component has primitive deck period t/gcd(t,2); evaluation along a primitive deck generator traverses the target circle 2/gcd(t,2)=d(t) times. The evaluation map is natural under postcomposition by C_kn→C_n (geometric degree k) and under precomposition by the source cover fixing vertex 0. Comparing evaluation degrees forces D=k*d(kn)/d(n): k/2 precisely if n odd and k even, otherwise k. Strict inequality and parity guarantee that mapped circle sectors remain circles. Repeating edge step sequence l times gives winding k*l*w; odd/even target labels govern sector merges. Within each target sector every mapped generator has the same positive integer coefficient D, giving a single Smith invariant D for each hit row; hence ker Z^(B-s) and coker (Z/D)^s⊕Z^(T-s). Independently enumerated homomorphism colorings for 5 mixed-parity cases and checked winding conversion; source finite script examines closed paths but the universal argument is the deck normalization and naturality, not enumeration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Fujii et al. prove for arbitrary connected source graphs that every component of Hom(G,C_n) is a point or circle and construct a particular cubical cover; they do not state the map under changing target covering degree.",
+          "Čukić–Kozlov Theorem 6.1 is a homotopy-type result and does not identify integral cover-induced H1 morphisms."
+        ],
+        "reasoning": "The broader source-graph class does not automatically provide a natural generator comparison for different cycle targets. Evaluation functoriality plus deck normalization is an additional computation, though mathematically close to known premises.",
+        "searches": [
+          "arXiv:2408.04802 universal covers for Hom(G,C_n)",
+          "arXiv:math/0408015 §5–6 homotopy type of Hom(C_m,C_n)",
+          "Dochtermann 2009 Hom functoriality"
+        ]
+      },
+      "checked_sources": [
+        "pinned RESULT.md and cover_hom_verifier.py",
+        "arXiv:math/0408015v3",
+        "arXiv:2408.04802",
+        "Dochtermann 2009 doi:10.1016/j.ejc.2008.04.009",
+        "independent_checks.py winding comparisons"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published deck period t/gcd(t,2) combined with naturality gives immediately D(k,n)=k*d(kn)/d(n), a transparent strong dependence of the new result on prior lemmas.",
+          "The new source specifies target-sector collisions and performs the blockwise integer Smith reduction, not merely a new notation for component homotopy types."
+        ],
+        "reasoning": "The source findings imply the new coefficient once one proves that the chosen evaluation loop is a primitive H1 generator and checks naturality. The Smith kernel/cokernel then follows by an integral sector map; the resulting complete morphism is a derived corollary rather than directly quoted as a published theorem. Remaining risk: regarded as covered by a sufficiently general unstated naturality theorem.",
+        "searches": [
+          "arXiv:2408.04802 primitive deck period and circle cover",
+          "arXiv:math/0408015 winding circle sectors",
+          "Dochtermann functoriality"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Čukić and Kozlov, arXiv:math/0408015, Theorem 6.1: components points or circles indexed by winding.",
+          "Fujii et al., arXiv:2408.04802, cubical universal cover and primitive deck period."
+        ],
+        "reasoning": "Compared integer H1 map of induced Hom-covering to winding-degree, target-evaluation degree, and component counts. The known object equivalences provide the base normalization but do not present the full functorial Smith matrix.",
+        "searches": [
+          "Resultary: coverings cyclic graphs Hom(C_m,C_n) induced first homology degree parity odd even k/2 Smith normal form winding",
+          "web: Hom complexes cycle target covering homology evaluation degree parity C_m C_n"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest returned item 2026/10/4/SCOPE-divisibility-controls-homotopy-classes-between-finite-crown-circ--706147a4828e concerns maps of finite Alexandrov crown models, not graph Hom complexes.",
+          "Other results concern neighborhood complexes of cycle powers or cyclic tournament path homology."
+        ],
+        "reasoning": "No exact published result entry directly tabulates this integral covering-map Smith group; absence of a database entry is not proof of novelty.",
+        "searches": [
+          "Resultary: coverings cyclic graphs Hom(C_m,C_n) induced first homology degree parity odd even k/2 Smith normal form winding"
+        ]
+      },
+      "rationale": "Čukić–Kozlov classify winding and circle/point components, Fujii et al. construct the explicit universal cover and deck generator, and Dochtermann gives graph Hom functoriality. These strong premises make the degree extraction short and transparent, but their inspected statements do not give this exact integer map for arbitrary simultaneous cyclic coverings, the parity-primitive two-sheeted exception, or the full kernel/torsion-cokernel classification across target sectors. It is a direct derived invariant, not an independently discovered new circle topology; an implicit corollary in these sources remains a genuine risk.",
+      "residual_risks": [
+        "Integral coefficient is a short corollary of published deck normalization plus ordinary evaluation naturality; an equivalent full map may be implicit in the primary constructions or other uncatalogued functorial Hom literature.",
+        "Finite checker does not establish all-component homology morphisms without analytic deck proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_PREMISE_NOT_FULL_MAP",
+          "evidence": "Theorems classify winding sectors and their homotopy types; no Smith map for simultaneous canonical coverings located.",
+          "identifier_or_url": "arXiv:math/0408015v3",
+          "material_read": "full primary 15-page PDF accessible; introduction, definitions, §5 cell encoding and Theorem 6.1 circle/point classification",
+          "method": "primary PDF inspected including graphical page 6",
+          "title": "The homotopy type of complexes of graph homomorphisms between cycles",
+          "trigger": "same exact Hom(C_m,C_n) objects and winding-indexed components"
+        },
+        {
+          "assessment": "STRONG_PRIOR_PREMISE_NOT_DIRECT_FULL_MAP",
+          "evidence": "Primitive deck period is t/gcd(t,2), sufficient to derive evaluation degree d(t); paper focuses on homotopy types, and the present explicit post/precover Smith morphism was not stated.",
+          "identifier_or_url": "arXiv:2408.04802",
+          "material_read": "full paper made accessible as primary PDF, including universal cover deck transformation and circle generator sections",
+          "method": "PDF text and representative primary-page screenshot",
+          "title": "Homotopy types of Hom complexes of graph homomorphisms whose codomains are cycles",
+          "trigger": "general universal cover that might subsume functorial integer map"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Canonical covering-induced maps are natural morphisms whose first-homology Smith factors are not captured by classifying components individually. The parity cancellation distinguishes an odd-target two-fold map of index one from an even-target map of index two, and the complete integral sectorwise kernel/cokernel controls genuinely different functorial invariants for all winding admissibilities. This motivated exact interpretation goes beyond a rephrasing of Betti numbers, albeit with a short proof using known deck data.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "schema_version": 1,
+  "scientific_limitations": [
+    "Only orientation-preserving canonical cyclic coverings, first integral homology, m>=4 and target lengths>=5.",
+    "No claim for arbitrary target maps or higher homology."
+  ]
+}
