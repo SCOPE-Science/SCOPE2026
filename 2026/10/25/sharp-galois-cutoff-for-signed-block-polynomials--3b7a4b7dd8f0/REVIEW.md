@@ -1,11 +1,21 @@
-# Review: sharp Galois cutoff for signed-block polynomials
+# Independent mathematical audit
 
-**Correctness: PASS.** The new boundary \(n=8\) consists of two reciprocal representatives. The reductions modulo \(7\) and \(3\) are irreducible, proving transitivity in prime degree \(7\); the two discriminants have odd prime factors appearing once, giving transpositions, and hence \(S_7\). The lower-degree table's modular irreducibility, cycle, and discriminant certificates are replayable. The infinite \(n\ge9\) step is explicitly sourced to Garmi; it is not extrapolated from experiments. The two exceptional cubics have distinct quadratic discriminants and linearly disjoint \(S_3\) splitting fields.
+## correctness
 
-**Originality: PASS, with residual risk.** Garmi's public v1 theorem and proof require \(n>8\) for the coefficient-two family. The new contribution is the sharp cutoff obtained by resolving \(n=8\), not the older large-degree result or previously catalogued \(n=7\) factors. Searches did not reveal a dominating degree-seven endpoint computation; such a computation might nevertheless be implicit in earlier literature.
+PASS
 
-**Value: PASS.** The least uniform threshold is mathematically natural for an explicit bounded-coefficient family previously treated only above an effective cutoff. Its exact determination includes both missing degree-seven Galois groups and a counterexample at the immediately preceding degree. This is a sharp boundary classification and not a claim of a new proof for all large degrees.
+For n≥2, gcd(n,k)=1 and P_{n,k}=(X^n−2X^k+1)/(X−1), reciprocal indices k and n−k give the same splitting field. The cited Garmi theorem supplies full S_(n−1) for n>8; the finite boundary is not inferred from numerical experiments. I independently reconstructed each P as the difference of the two consecutive coefficient blocks and used SymPy over exact rationals and finite fields to verify ten representative discriminants, irreducible Frobenius reductions, the (1,d−1) factor-cycle reductions in composite degrees d=4,6, and discriminant primes of valuation exactly one. The n=8 representatives (8,1),(8,3) have discriminants −5390272 and −1205696, irreducible modulo 7 and 3 respectively, and tame-transposition primes 84223 and 18839. Prime-degree transitivity gives primitivity, and a (d−1)-cycle with one fixed point forces primitivity for the composite d; a transposition then yields S_d. The exceptional n=7,k=2 factorization has two irreducible S3 cubics with discriminants −31 and −23, hence distinct quadratic subfields and linearly disjoint splitting fields, giving S3×S3. Edge cases n=2 and reciprocal k=5 are included. Thus the best uniform cutoff is N=8, conditional only on the precisely cited established n>8 theorem.
 
-**Limitations.** Coprime exponents only. No independent audit. The full earlier literature on specific degree-seven polynomials has not been exhaustively indexed. Complete proof details and a runnable exact certificate are in RESULT.md and verify.py.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The interesting new statement is the exact cutoff N=8 with explicit degree-seven Galois calculations; the large n>8 S_(n−1) theorem and the n=7 exceptional factorization are expressly prior. Garmi's public preprint specifies n>8 for the relevant coefficient-two family and a later public correction warns that n>8 matters to the corollary. Neither the checked indexed results nor the inspected abstract/correction covers the two endpoint n=8 polynomials. This is a best-of-knowledge assessment, not exhaustive priority certification: the Garmi full text was inaccessible during this run and older low-degree polynomial Galois tables could contain these exact entries.
+
+## value
+
+PASS
+
+A least uniform threshold for full symmetric Galois groups across all coprime signed-block polynomials is a mathematically natural sharp boundary: the immediately preceding n=7 has two genuine exceptional S3×S3 splitting fields. Resolving both missing degree-seven cases, rather than merely citing a sufficient large-n theorem, closes a finite but structurally motivated gap. The calculation is a meaningful sharp cutoff, not a renamed restatement of the known infinite-range result.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
