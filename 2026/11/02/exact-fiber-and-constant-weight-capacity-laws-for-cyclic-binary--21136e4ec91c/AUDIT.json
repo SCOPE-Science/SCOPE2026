@@ -1,0 +1,163 @@
+{
+  "correctness": {
+    "rationale": "Exact adjacent-window difference identity fixes the integer difference to gcd(n,ell) residue cycles; binary constraints freeze all mixed cycles, and equality of one window sum is exactly conservation of pure-one cycle count. This proves binomial fibers, every multiplicity, singleton and extremal counts. Summing weighted mixed patterns and pure classes proves a true polynomial fixed-weight output enumerator; all n>=2 and 1<=ell<=n, including ell=n and ell=1, are covered. The standalone exact enumerator checked 425984 binary source instances over all n<=14 and all window sizes; independently implemented inverse check covered 3036 output cases. Finite checks only corroborate the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Chee et al. (2023) explicitly mention that a cyclic segment-read definition is possible but restrict their subsequent paper to the noncyclic channel.",
+        "Banerjee et al. (2024) use a linear/zero-padded read vector with boundary observations and focus on deletion correction.",
+        "Yerushalmi et al. (2024) prove asymptotic capacities for general noncyclic window and stride parameters."
+      ],
+      "reasoning": "The model with the same local arithmetic observations is more general in the stride parameter but remains linear; extending those conclusions to periodic windows would require a new equivalence theorem, not supplied by the publications. The injectivity of the padded linear observation is in fact incompatible with the nontrivial cyclic gcd fibers. The papers do not cover the present periodic statement as corollaries.",
+      "searches": [
+        "circular binary word length n spectrum of sliding window sums gcd n window length reconstruction list size capacity",
+        "consecutive cyclic substring Hamming weights list size gcd window length fixed weight code capacity",
+        "reconstruction from nanopore sequencer window Hamming weight read vectors cyclic words all fibers equivalence",
+        "arXiv:2401.15368v1",
+        "arXiv:2401.15939v1",
+        "Transverse-Read-Codes for Domain Wall Memories 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2401.15368",
+      "https://ymchee66.github.io/home/PDF/transverse-readj.pdf",
+      "https://arxiv.org/abs/2401.15939",
+      "https://arxiv.org/html/2011.10130v2",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+      "https://arxiv.org/abs/2011.10130"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "In arXiv:2401.15368v1 the word has endpoints and the output is a finite linear sequence; here no endpoint exists, with n circular observations.",
+        "The noncyclic (3,2) result has stride two and a Fibonacci maximum; this claim has stride one with maximum binomial(d,floor(d/2)).",
+        "The prior composition and substrings results discard output order; the new invariant retains all n labeled coordinates."
+      ],
+      "reasoning": "Neither an asymptotic limit on noncyclic channel size nor an exact count of unindexed read histograms determines the number of indexed cyclic vectors. The Fourier sample-inversion source studies a distinct spectral sampling mask and uniqueness, not all inverse-list multiplicities. Explicit discrepancies in map, boundary and measured data prevent direct implication, even though standard circulant rank facts inform the proof.",
+      "searches": [
+        "cyclic sliding window Hamming weight read vector binary sequences gcd(n,ell) exact number of distinct profiles inverse fiber binomial",
+        "circular binary word length n spectrum of sliding window sums gcd n window length reconstruction list size capacity",
+        "cyclic sliding window sum reconstruction capacity exact collision fibers residue classes binary sequences",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "arXiv:2401.15368v1",
+        "arXiv:2011.10130v2"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Full binary DFT study formulates recovery from a contiguous low-frequency band, rather than all Fourier coefficients surviving a periodic boxcar mask (arXiv:2011.10130, Secs. II and IV).",
+        "The 2024 weighted-read primary defines shifted sliding-window sums of an open linear source and studies asymptotic channel capacity; it does not classify periodic integer convolution fibers (arXiv:2401.15368v1)."
+      ],
+      "reasoning": "Cyclic integer windows are equivalent to a boxcar circulant convolution, and equality of adjacent output differences gives constants on the gcd(n,ell) step-orbits. We compared this alias, its Fourier nullspace, and binary Fourier inverse terminology: a generic kernel dimension or uniqueness bound does not imply the exact discrete binomial fibers, their numbers, or the fixed-weight generating polynomial. No inspected equivalent all-parameter theorem was found.",
+      "searches": [
+        "cyclic sliding window Hamming weight read vector binary sequences gcd(n,ell) exact number of distinct profiles inverse fiber binomial",
+        "cyclic sliding window sum reconstruction capacity exact collision fibers residue classes binary sequences",
+        "cyclic sliding window sums binary inverse ambiguity gcd exact counting",
+        "circular sliding sums all fiber sizes binomial p h residue classes length n",
+        "arXiv:2011.10130v2",
+        "arXiv:2401.15368v1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The published transverse-read maximum-fiber finding gives a Fibonacci list for noncyclic (3,2) windows, not a periodic unit-shift channel.",
+        "The published binary r=2 composition study aggregates unordered substring compositions and reports a different polynomial count."
+      ],
+      "reasoning": "Searches for the closed-form cardinality and polynomial coefficient law, plus exact small-case tables, returned no directly matching indexed cyclic weighted-read capacity. Prior exact tables refer to distinct read maps, and their numerical data do not determine the present general formula.",
+      "searches": [
+        "binary cyclic weighted read channel distinct outputs number (2^L-1)^(d-1)(2^L+d-1)",
+        "fixed weight circular sliding Hamming sums reconstruction polynomial generating function",
+        "cyclic read Hamming weight vectors integer convolution binary word count distinct outputs",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e"
+      ]
+    },
+    "rationale": "The 2024 weighted-read source treats finite linear, not periodic, windows; the 2023 transverse-read primary explicitly sets aside its cyclic analogue. The complete cyclic fiber partition, numerical class-count law, exact weight polynomial and arithmetic rate transition were not implied by any inspected source. Published results on noncyclic transverse fibers, unindexed composition multisets and low-frequency DFT sampling concern distinct observation maps. Remaining priority risk under alternate boxcar convolution terminology is acknowledged; absence of a hit alone is not the reason for originality.",
+    "residual_risks": [
+      "A mathematically equivalent combinatorial enumeration may occur under unindexed circulant convolution or inverse discrete tomography terminology; targeted queries and inspected closest full texts do not exclude all prior literature.",
+      "Other observations, such as unknown origin or aggregated spectra, are not covered by this result."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: finite linear readout with endpoints, not indexed complete cyclic observation",
+        "evidence": [
+          "arXiv:2401.15368v1, Definitions and capacity theorems; no periodic gcd residue-class fiber enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.15368",
+        "material_read": "Full primary manuscript, channel definitions and capacity results; inspected derivations of finite linear read windows",
+        "method": "Read full accessible text and inspected source pages",
+        "title": "The Capacity of the Weighted Read Channel",
+        "trigger": "Direct 2024 source for binary sliding-weight observations"
+      },
+      {
+        "assessment": "NOT_COVERING: explicitly notes cyclic version but analyzes noncyclic segment reads",
+        "evidence": [
+          "Chee et al. 2023, introduction expressly sets aside cyclic segment-read vectors"
+        ],
+        "identifier_or_url": "https://ymchee66.github.io/home/PDF/transverse-readj.pdf",
+        "material_read": "Original full journal manuscript; introduction, model definition and adjacent main sections including explicit cyclic caveat",
+        "method": "Read author-hosted full text with page inspection",
+        "title": "Transverse-Read-Codes for Domain Wall Memories",
+        "trigger": "Potentially broader memory read model"
+      },
+      {
+        "assessment": "NOT_COVERING: zero-padded linear observations with boundary information, not periodic fibers",
+        "evidence": [
+          "arXiv:2401.15939v1, read-vector definition and noiseless reconstruction"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2401.15939",
+        "material_read": "Full preprint including zero-padded observation model and reconstruction proposition",
+        "method": "Read full accessible manuscript and inspected pages",
+        "title": "Correcting a Single Deletion in Reads from a Nanopore Sequencer",
+        "trigger": "Unit-shift Hamming-weight read channel with closely matching parameters"
+      },
+      {
+        "assessment": "NOT_COVERING: contiguous low-frequency DFT sampling mask and uniqueness; no complete boxcar-output counting",
+        "evidence": [
+          "arXiv:2011.10130v2, Sections II and IV, distinction between Fourier sample bands and convolution measurements"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2011.10130v2",
+        "material_read": "Full arXiv HTML primary text, Sections I–IV, including Fourier sampling definitions and uniqueness theorems",
+        "method": "Read original manuscript HTML",
+        "title": "Binary Discrete Fourier Transform and its Inversion",
+        "trigger": "Plausible Fourier-dual general result about binary inverse uniqueness"
+      },
+      {
+        "assessment": "NOT_COVERING: noncyclic stride-two finite windows, Fibonacci worst-case rather than periodic stride-one gcd classification",
+        "evidence": [
+          "Published theorem gives Fibonacci(m+3) on n=2m+1 noncyclic sources"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-worst-case-ambiguity-of-the-binary-3-2-transverse-read--d72c6473df5e",
+        "material_read": "Entire public RESULT.md, model, proof, scope and references",
+        "method": "Read full published scientific result",
+        "title": "Fibonacci worst-case ambiguity of the binary (3,2) transverse-read channel",
+        "trigger": "Closest published exact inverse-fiber computation"
+      },
+      {
+        "assessment": "NOT_COVERING: unordered length-one/two composition histogram and run decomposition rather than indexed window sums",
+        "evidence": [
+          "Published formula 3m²−2m+2 for even length counts unordered composition classes"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "material_read": "Entire public RESULT.md including assumptions, proof and relationship section",
+        "method": "Read full published scientific result",
+        "title": "Exact binary r=2 length-limited composition reconstruction",
+        "trigger": "Closest published exact multiset composition capacity"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "21136e4e-c91c-438f-9688-189634cd8d7e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The complete finite-length ambiguity distribution and exact zero-error capacity are natural missing invariants for an explicitly recognized cyclic version of binary weighted-read channels. The constant-composition polynomial has direct constrained-coding significance and is not implied by a channel rate alone. The gcd threshold produces sharp injectivity and macroscopic resonant information-rate loss, while the full inverse-fiber formula gives exact decoder list sizes and extremizers. No claim about noisy channels is made.",
+    "status": "PASS"
+  }
+}
