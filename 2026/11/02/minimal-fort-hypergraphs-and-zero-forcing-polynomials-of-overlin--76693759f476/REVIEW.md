@@ -1,0 +1,11 @@
+# Scientific assessment
+
+**Correctness — PASS.** For a path complement, each outside vertex loses at most two possible neighbors. This forces all sets of size at least four to be forts; the path's absence of exterior twin pairs rules out forts of sizes one and two. The exact three-set obstruction is the absence of an open \(101\) pattern. A four-fort is inclusion-minimal exactly when all four of its triples contain an open pattern, forcing sorted gaps \(2,\text{positive},2\). A run-of-ones count completes the three-fort coefficient, and the original forcing rule gives the complete forcing polynomial. All \(32{,}752\) small-instance subsets checked by the standalone code agreed. Infinite correctness rests on the proof, not enumeration.
+
+**Originality — PASS with stated risk.** Curl et al., arXiv:2206.03932, prove the scalar zero-forcing number for complements of nonstar trees; Boyer et al., arXiv:1801.08910, give generic top coefficients and derive polynomials for other families; Becker et al., arXiv:2404.05963, enumerate minimal forts of paths themselves and several other graph classes. None of the inspected relevant statements provides the two-rank minimal-fort hypergraph of path complements or the extra leading forcing-polynomial coefficient. Published mathematical-record queries, title/alias searches, and comparisons to accessible related claims identified no full equivalent. Unindexed or differently framed prior enumeration remains possible; absence from search results cannot prove global priority.
+
+**Mathematical value — PASS.** The classification gives every inclusion-minimal blocking constraint for an infinite, natural dense graph family and pinpoints the first genuinely necessary four-vertex constraints at \(n=6\). These constraints cannot be derived from the known scalar forcing minimum. In addition to exact rank counts, the result solves the cardinality enumeration of all zero-forcing sets. This is a complete structural obstruction classification rather than an arbitrary small instance or a substitution into an established closed polynomial.
+
+The work applies to ordinary zero forcing only. External independent mathematical validation and definitive literature priority remain open.
+
+Self-review: passed. Independent audit: not yet performed.
