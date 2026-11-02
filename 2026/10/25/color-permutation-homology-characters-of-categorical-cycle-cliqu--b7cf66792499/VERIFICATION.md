@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The standalone `checker.py` (Python standard library only) builds the original adjacency relation for the categorical cycle–clique product. For every permutation of \(n=2,3,4\) colors and every \(m=3,\ldots,9\), it enumerates permutation-invariant row subsets, counts weighted independent cyclic configurations without the three-by-three closed formula, and compares the resulting \(224\) signed face traces with the theorem. All \(224\) passed.
+## correctness
 
-A second routine generates the independent simplices of the **original graph** for \((m,n)=(3,2),(3,3),(6,2),(6,3)\), explicitly computes permutation signs in their oriented chain bases and compares the chain Lefschetz number against the theorem for all \(16\) corresponding permutations. All \(16\) passed.
+PASS
 
-An independent rank-reduction routine builds reduced augmented boundary matrices over \(\mathbb F_2\) for these four graph instances, checks their nonzero reduced Betti ranks \(2,4,4,14\) in degrees \(1,1,3,3\) and reports respective augmented face counts \(18,34,324,1650\). These checks also passed. Reproduction: run `python3 checker.py` from a directory containing this file and `checker.py`; no datasets or dependencies are needed.
+Fixed simplices under color permutation are unions of color orbits in each cycle row. With s chosen orbits, oriented augmented alternating trace contribution is -(-1)^s. Two adjacent nonempty color rows in C_m×K_n must equal the same singleton fixed color; aggregate signed weight of all other nonempty invariant choices is f−1 since total nonempty orbit-subset weight is -1. Transfer matrix has f−1 dimensional -1 eigenspace and 3×3 quotient charpoly t³−(f−1), with f=0 handled by cancellation of spurious -1 eigenvalue. Thus cyclic trace Z_m=3(f−1)^r+(-1)^r(f−1) when m=3r and (-1)^m(f−1) otherwise. Reduced Lefschetz is −Z_m. Applying published pure homology degree 2r−1 yields actual character for m divisible by 3; otherwise only virtual Euler character. Independently enumerated invariant independent faces for all permutations n=2,3 and m=3,4,5; exact matches. Scope is rational, no integral/dihedral assertion.
 
-The proof of the infinite transfer trace does not depend on exhaustive enumeration. The inference that only degree \(2r-1\) is present at cycle length \(3r\) uses the homotopy theorem of Antolín Camarena–Carnero Bravo, arXiv:2307.12401. The finite mod-two calculations do not establish an integral torsion claim, and no independent validation or audit has been undertaken.
+## originality
+
+PASS
+
+Qualified PASS: earlier Antolín Camarena–Carnero Bravo homotopy wedge theorem determines rank for m=3r, which equals identity permutation value, but does not determine nonidentity S_n characters. Generalized-Mycielskian S_n character results concern another graph family, with no known equivariant equivalence. Full published Theorem 22 text not independently obtained this run; possible equivariant remarks under alternative graph product language remain priority risk.
+
+## value
+
+PASS
+
+Complete rational representation character for an established infinite family from its canonical color action, together with an all-length virtual character where individual homology is not determined. Nonidentity traces distinguish actions with identical Betti ranks and show fixed-color-count rigidity and standard-module tensor behavior.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
