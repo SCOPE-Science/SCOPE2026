@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "Full finite proof: an injective/surjective 16-bit feedback map encoding enumerates all 2^16 maps, selecting exactly 2,048 full 32-state orbits. A genuinely different edge-simple Euler-tour enumeration gives the identical canonical cycles. For each of 32 roots per cycle, Duval factorization is cross-checked against definition-level longest Lyndon prefixes with independent checks of the Lyndon property and non-increasing order. The checker ran successfully and verifies both complete frequency tables and extremal witnesses. No infinite extrapolation is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Daykin, Algorithms for the Lyndon unique maximal factorization, JCMCC 77 (2011), pp. 65–74, general algorithms and examples",
+        "Kociumaka et al., arXiv:1510.02637, Theorems 32 and 34 and conclusion: ranking/decoding rather than arbitrary-cycle enumeration",
+        "Fredricksen–Maiorana (1978), as restated in arXiv:1510.02637: one explicitly constructed de Bruijn cycle"
+      ],
+      "reasoning": "The general algorithms can evaluate each word once it is given but do not prove the exact population histogram or the sharp two-cycle extremum. The FKM theorem is for a particular constructed cycle and does not dominate the full-population result.",
+      "searches": [
+        "\"de Bruijn\" \"Lyndon factorization\" \"rotations\" count",
+        "\"de Bruijn\" \"Lyndon factorization\" \"2048\"",
+        "\"Suffixes, Conjugates and Lyndon Words\" 2013 Bonomo Mantaci Restivo Rosone Sciortino pdf"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1510.02637",
+      "doi:10.1016/0012-365X(78)90002-X (metadata and technical secondary statement only)",
+      "https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/",
+      "doi:10.1007/978-3-642-38771-5_13 (abstract/conference slides only)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fredricksen–Maiorana construction, DOI 10.1016/0012-365X(78)90002-X, concerns lexicographic necklace concatenation",
+        "Daykin, JCMCC 77, defines and computes unique maximal Lyndon factorization",
+        "Bonomo et al., DLT 2013, use conjugacy and factorization to sort suffixes"
+      ],
+      "reasoning": "A single de Bruijn construction does not entail counts for the other 2,047 cycles, and an algorithm without a proved exhaustive evaluation does not supply the histogram. The newly certified exhaustive 16-bit feedback equivalence and full-root count are additional substantive work.",
+      "searches": [
+        "\"Necklaces of beads in k colors and k-ary de Bruijn sequences\" pdf",
+        "\"Algorithms for the Lyndon Unique Maximal Factorization\" Duval",
+        "\"Lyndon factorization\" \"de Bruijn\" rotations"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kociumaka et al., arXiv:1510.02637, introduction and §7, FKM Lyndon-word concatenation and decoding of the lexicographically minimal cycle",
+        "Bonomo et al., DLT 2013 conference abstract/slides, cyclic conjugates and Lyndon factorization in suffix sorting"
+      ],
+      "reasoning": "Generating a distinguished cycle by concatenation of Lyndon words is not equivalent to applying the non-increasing Chen–Fox–Lyndon factorization independently to all 32 cuts of every order-five de Bruijn cycle. The general conjugacy/suffix relations do not specify any all-cycle factor-count multiplicities.",
+      "searches": [
+        "\"Lyndon factorization\" \"de Bruijn\" rotations",
+        "\"Chen Fox Lyndon\" \"de Bruijn\" distribution rotation",
+        "de Bruijn cycles binary order five complete rooted Lyndon factorization frequency 2048 Duval factors"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching numeric table or statement was surfaced by the recorded exact-phrase searches; unrelated mathematical-record results were compared by object and were not the claimed spectrum",
+        "An accessible 2015 primary paper and 2010–2013 factorization and conjugacy literature furnish methods but do not tabulate these counts"
+      ],
+      "reasoning": "The exact table searches returned no apparent covering record. Search failure is explicitly not used as a uniqueness proof; unindexed historical tables remain a residual risk.",
+      "searches": [
+        "\"de Bruijn\" \"Duval\" \"65,536\" factorization",
+        "\"de Bruijn\" \"Lyndon\" \"12,698\" factors",
+        "exact distribution Chen Fox Lyndon Duval factorization phrase counts all roots all binary order-five de Bruijn necklaces 1 through 16"
+      ]
+    },
+    "rationale": "Closely relevant constructions, algorithms and conjugacy results were inspected at their mathematical statements and are not equivalent to or sufficient for the full rooted binary order-five CFL-count census. Actual targeted searches of the mathematical record and primary literature found no covering table. An inaccessible historical original and unindexed tables remain specified priority risks, not grounds to pretend uniqueness.",
+    "residual_risks": [
+      "The 1978 Fredricksen–Maiorana full article was not obtained; its explicitly known main construction is narrower, but full-text priority cannot be ruled out from metadata alone.",
+      "The 2013 DLT full proceedings article was inaccessible; the published abstract and slide deck were examined, but they cannot certify absent results in unseen sections.",
+      "An exact-match and semantic search cannot prove that no unindexed or differently titled enumeration exists."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: rank/unrank and position queries for the lexicographically minimal sequence; no all-cycles, all-roots Chen–Fox–Lyndon factor-count distribution in the inspected theorems",
+        "evidence": [
+          "Introduction states two ranking/decoding problems",
+          "Theorem 32 computes occurrence positions in the minimal sequence",
+          "Conclusion enumerates algorithms for rankings and minimal-sequence decoding"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1510.02637",
+        "material_read": "Complete abstract and introduction, definitions in §2, theorem/argument around Theorems 32 and 34, examples, conclusion and reference list in the 19-page PDF",
+        "method": "Opened arXiv full-text PDF and inspected text and page images including pages 2–3 and results on pages 14–17",
+        "title": "Efficient Ranking of Lyndon Words and Decoding Lexicographically Minimal de Bruijn Sequence",
+        "trigger": "Direct shared concepts: Lyndon words and binary de Bruijn cycles; primary anchoring literature"
+      },
+      {
+        "assessment": "NOT_COVERING in inspected material: algorithms for factoring arbitrary input strings, no exhaustive order-five de Bruijn census",
+        "evidence": [
+          "Opening page describes Duval and algorithms for maximal Lyndon factorization",
+          "Algorithm 3 takes a list of Lyndon words; its complexity examples concern general strings"
+        ],
+        "identifier_or_url": "https://combinatorialpress.com/jcmcc-articles/volume-077/algorithms-for-the-lyndon-unique-maximal-factorization/",
+        "material_read": "Published abstract and selected original PDF pages with the definitions, Algorithm 2, and Algorithm 3 complexity discussion; not a full-page-by-page article inspection",
+        "method": "Publisher abstract and screenshots of original PDF pages 65, 68 and 72",
+        "title": "Algorithms for the Lyndon unique maximal factorization",
+        "trigger": "Potential general factorization theorem or algorithm covering the new object"
+      },
+      {
+        "assessment": "The checked work concerns ordering conjugates, EBWT/BWT, suffix arrays and leveraging Lyndon factorization, with no de Bruijn order-five count; full article remains a residual source-inspection risk",
+        "evidence": [
+          "Abstract states algorithms for ordering conjugates and suffixes",
+          "Talk application slide 21 discusses using suffix arrays for Lyndon factorization"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-38771-5_13",
+        "material_read": "Official abstract, full 54-page conference slide deck, representative introductory and conclusion/application slides; not the restricted-access full article",
+        "method": "Institutional abstract and conference talk https://pages.di.unipi.it/rosone/talks/DLT_2013.pdf",
+        "title": "Suffixes, Conjugates and Lyndon Words",
+        "trigger": "Conjugates and factorization may imply a rotation-spectrum result"
+      },
+      {
+        "assessment": "Known content concerns constructing one distinguished de Bruijn sequence by necklace/Lyndon concatenation; original full text uninspected, priority risk is acknowledged",
+        "evidence": [
+          "The accessible 1978 metadata says a lexicographic necklace list constructs a de Bruijn sequence",
+          "Kociumaka et al. §7 invokes exactly this construction"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/0012-365X(78)90002-X",
+        "material_read": "Bibliographic abstract and the technically explicit restatement in Kociumaka et al. §7; original article full text not obtained",
+        "method": "Metadata and secondary primary-literature quotation; public complete article not accessible in this check",
+        "title": "Necklaces of beads in k colors and k-ary de Bruijn sequences",
+        "trigger": "Original FKM construction is the closest conceptual link between de Bruijn cycles and Lyndon words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7a3540ed-28da-48e5-a54b-540b181e2c06",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "An exact complete classification of a canonical factorization invariant for a canonical complete family of universal cycles, with both rooted and per-cycle sharp spectra. The FKM de Bruijn–Lyndon relationship provides a specific motivation: its distinguished concatenation does not control the non-increasing factorization under root changes. The census identifies the 1–16 variation, exactly one Lyndon cut per cycle, and only two maximal rooted cases. This finite naturally motivated invariant is valuable independently of higher-order generalization.",
+    "status": "PASS"
+  }
+}
