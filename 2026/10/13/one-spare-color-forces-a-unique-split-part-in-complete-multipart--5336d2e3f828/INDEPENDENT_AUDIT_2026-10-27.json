@@ -1,0 +1,244 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T12:38:55Z",
+  "axes": {
+    "correctness": {
+      "rationale": "A full proper coloring of K_{n1,...,nr} with r+1 labelled colors has r disjoint nonempty part palettes, so either every part is monochromatic (one unused color), or exactly one part j has two colors, and all others are monochromatic. In the first case every blank sees at most r−1 neighbor colors forever, so forcing implies a total initial coloring. In the second case every vertex of the split part sees at most r−1 external colors and thus must be seeded; if >=2 nonsplit parts are completely blank, no first force sees r colors. Conversely, a fully seeded split part with both colors, all other parts seeded except at most one, forces the missing part then forces all remaining blanks. The r+1 colors can be chosen as an unordered pair for j and bijection on other parts in (r+1)!/2 ways; surjective two-color assignments on j number 2^{n_j}−2, and nonempty/blank seed choices give the exact H_G coefficient factor. Independent vertex weighting p,q gives FC. The minimum seed domain m+r−2 and its multiplicity follow by taking one blank nonsplit part and one selected vertex from every other nonsplit part. The all-singleton case is r! times choice of unused color. An independently written exhaustive enumerator verified all states for seven profiles (r=3 or 4 and singleton boundary), 89,557 initial assignments total, with exact polynomial coefficients and minimum counts. The universal theorem rests on the analytic dichotomy, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Farr–Morgan gives the general definition, sum over successful domains, and stalled-extension condition; it does not compute the multipartite λ=r+1 polynomial.",
+          "Complete-multipartite λ=r Resultary theorem forces ≥r−1 monochromatic seeded parts, but cannot specialize a palette-r formula to palette r+1.",
+          "The complete-bipartite λ=3 theorem has r=2, not the claimed r>=3 family."
+        ],
+        "reasoning": "An arbitrary-graph indicator expansion is tautological rather than a closed classification. The known results involve a different palette, only two parts, or low-degree graphs. A general join formula for Farr forcing could in principle cover the claim, but the directly checked accessible material did not provide one and the whole 2026 preprint remains inaccessible.",
+        "searches": [
+          "Resultary semantic: Forced colouring function of complete multipartite graphs with chromatic number r and r+1 palette colors, unique bicolored part, forcing partial colorings distribution polynomial",
+          "Resultary semantic: Coloring propagation rule one missing neighbor color, K_{n1,...,nr}, forcing seeds",
+          "web: \"forced colouring function\" \"join\" graph Farr",
+          "https://arxiv.org/abs/2609.17108",
+          "https://www.researchgate.net/publication/381666584_Graph_polynomials_some_questions_on_the_edge",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+        ]
+      },
+      "checked_sources": [
+        "Farr, The forced colouring function of a graph (2026), arXiv:2609.17108v1; abstract only this run; full text inaccessible after lawful attempts",
+        "Farr and Morgan, Graph polynomials: some questions on the edge (2024), arXiv:2406.15746v1, open full text Section 3.5 and Proposition 2",
+        "Resultary/2026 complete-multipartite chromatic-palette RESULT.md (2026-10-04), complete theorem and proof read",
+        "Resultary/2026 complete-bipartite 3-colour RESULT.md (2026-10-04), complete theorem and proof read",
+        "Resultary/2026 max-degree-two forced-three-colouring RESULT.md (2026-09-17), complete theorem and proof read",
+        "Bozeman and collaborators, Multi-color forcing in graphs, arXiv:1912.02001; terminology compared with original self-review, not full text independently read"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Farr–Morgan 2024 Proposition 2 recognizes stalled extensions; applying it still requires the new complete-multipartite structural dichotomy and counting.",
+          "At λ=r the final proper coloring uses exactly one color per part; at λ=r+1 a unique part may use two colors, requiring complete initial seeding there.",
+          "The bipartite λ=3 result already has a split part but does not settle the support constraints for r−1 remaining parts."
+        ],
+        "reasoning": "None of these known statements has both the graph family and palette needed for direct parameter specialization. The r=2 result suggests a proof method but does not logically supply all r>=3 coefficients or minimal-count formula. No decisive stronger prior implication was demonstrated; uninspected 2026 Farr sections remain a documented priority risk.",
+        "searches": [
+          "Resultary semantic: Forced colouring function of complete multipartite graphs with chromatic number r and r+1 palette colors, unique bicolored part, forcing partial colorings distribution polynomial",
+          "Resultary semantic: Coloring propagation rule one missing neighbor color, K_{n1,...,nr}, forcing seeds",
+          "https://www.researchgate.net/publication/381666584_Graph_polynomials_some_questions_on_the_edge",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The submitted missing-colour process is exactly the λ=r+1 specialization of FC(G;p,λ) from Farr–Morgan; equivalent language includes partial proper colouring, forcing/precolouring, and domain-size generating function.",
+          "The conditional profile is not merely unique extendability: the process must force each blank by seeing r distinct neighbour colours."
+        ],
+        "reasoning": "Translate both formulas to the same iterative local process and identical random assignment model. The claim classifies ALL successful seeds and produces all coefficients, not only a coloring number; no searched equivalent statement was located, which alone is not evidence of absence.",
+        "searches": [
+          "Resultary semantic: Forced colouring function of complete multipartite graphs with chromatic number r and r+1 palette colors, unique bicolored part, forcing partial colorings distribution polynomial",
+          "Resultary semantic: Complete multipartite graph forced coloring number with one extra colour, exact coefficients and random partial assignment probabilities",
+          "web: complete multipartite graph forced colouring function lambda r+1 splitting part",
+          "Farr–Morgan 2024 §3.5",
+          "arXiv:2609.17108 abstract"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published exact full r-partite chromatic-palette and two-part spare-palette formulas, both read completely.",
+          "The packaged checker reports finite 34 small profiles, but that is not an independent published full arbitrary-profile database.",
+          "Independent checker enumerated seven natural profiles and 89,557 initial assignments including all states, agreeing with displayed H_G coefficients."
+        ],
+        "reasoning": "The existing records cover boundary parameters but do not form an all-profile r>=3 λ=r+1 coefficient table. No matching exact table was located; database absence is not claimed proven.",
+        "searches": [
+          "Resultary semantic: Complete multipartite graph forced coloring number with one extra colour, exact coefficients and random partial assignment probabilities",
+          "Resultary records for exact chromatic-palette multipartite and complete-bipartite 3-colouring",
+          "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "web: forced coloring complete multipartite one spare color exact probability polynomial"
+        ]
+      },
+      "rationale": "The exact all-profile r>=3 one-spare-palette formula and split-part characterization were compared against the 2024 primary definition, the published complete-multipartite λ=r theorem, the published bipartite λ=3 theorem, and maximum-degree-two results. The 2024 source gives only the general forcing indicator sum and a stall criterion. The two strongest later records cover complementary boundary cases; neither directly proves the new all-r condition or all-coefficient polynomial. Three semantic Resultary searches and targeted open literature searches found no decisive covering statement. The 2026 Farr preprint full text could not be independently retrieved in this run; that substantial uncertainty is expressly retained rather than pretending full-text exclusion.",
+      "residual_risks": [
+        "The complete 29-page 2026 Farr preprint was not independently materialized this run: direct arXiv and lawful OA full text were unavailable, and authorized institutional retrieval returned vpn_disconnected. Its remaining theorems and appendices cannot be declared non-covering. Previously published mathematical records reported closer partial reading but are not a substitute for this audit.",
+        "A general join/complete-multipartite identity for the forced-colouring polynomial in unindexed or not-yet-reviewed literature could imply this elementary first-spare classification.",
+        "The already published r=2 palette-three classification contains the same two-color fully seeded part mechanism; the extension to r>=3 is naturally close and has limited standalone depth."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "This source is a substantial priority risk and is not declared non-covering as a whole. Accessible abstract identifies general and complexity results; secondary mathematical evidence identifies bipartite and bounded-degree special results, not the exact r>=3 one-spare-color census.",
+          "evidence": [
+            "ArXiv 2609.17108, submitted 2026-09-15, 29 pages; abstract states foundational properties and #P-hardness.",
+            "Previously published Resultary RESULT.md for chromatic-palette multipartite and 3-colour bipartite classifications explicitly compare their theorems to Farr; these are secondary reports, not a substitute for independently reading the original full preprint."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.17108",
+          "material_read": "During this run: complete available abstract and bibliographic information, plus independently published earlier analyses quoting its named specific theorems and examples; NOT the complete 29-page preprint. Direct arXiv PDF/HTML and mirror acquisition failed; authorized institutional retrieval returned vpn_disconnected.",
+          "method": "Public abstract; attempted arXiv PDF/HTML and open versions followed by authorized institutional retrieval; examined cited theorem content through independently published mathematical-record full texts",
+          "title": "The forced colouring function of a graph",
+          "trigger": "Foundational 2026 paper with exactly the same local forcing rule, fixed-palette probability and potentially broad general results"
+        },
+        {
+          "assessment": "Defines the invariant and a general enumeration by initial domain; does not give a specialized complete r-partite λ=r+1 if-and-only-if classification or closed coefficient formula in the inspected full text.",
+          "evidence": [
+            "Section 3.5 defines FC(G;p,λ)=Pr(partial assignment eventually forces a proper λ-colouring).",
+            "Proposition 2 characterizes failure via stalled partial extensions, not a multipartite λ=r+1 closed formula.",
+            "Displayed examples cover λ=3 small graphs; no complete-multipartite family theorem found."
+          ],
+          "identifier_or_url": "https://www.researchgate.net/publication/381666584_Graph_polynomials_some_questions_on_the_edge",
+          "material_read": "Full-text HTML of open licensed preprint; Section 3.5, definitions of immediate/eventual forcing, probability polynomial, equations (4), typical small examples and Proposition 2; browsed neighboring text and searched complete multipartite",
+          "method": "Read searchable complete open preprint text, concentrating on mathematical definitions and the relevant worked formulas (lines 912-1305 of available rendering)",
+          "title": "Graph polynomials: some questions on the edge",
+          "trigger": "2024 primary introduction of the exact forcing-colour probability invariant and local missing-color process"
+        },
+        {
+          "assessment": "Proves seeds meet >=r-1 parts, all final parts monochromatic; no two-colour split occurs at λ=r. Its formulas do not directly imply λ=r+1, where monochromatic incomplete seeds cannot propagate.",
+          "evidence": [
+            "λ=r structural condition: each seeded part monochromatic and >=r-1 seeded parts.",
+            "Enumerator r![product A_i + sum over one empty part of product A_i]; distinct from required split-part factor (2^n_j−2)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+          "material_read": "Entire publicly accessible RESULT.md, including theorem, proof, every polynomial formula, and limitations",
+          "method": "Retrieved and read full published scientific result from GitHub source",
+          "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+          "trigger": "Identical graph class and forcing process, but palette λ=r rather than r+1"
+        },
+        {
+          "assessment": "Covers exactly r=2 and palette three. It contains a two-colour fully seeded part, but no arbitrary r>=3 case, its additional seeded-part-support rule, or arbitrary-profile enumerator.",
+          "evidence": [
+            "Formula FC_3(K_{m,n};p)=3(2^m−2)p^m(1−2p)^n + symmetric +6p^{m+n}.",
+            "For r>=3 the other r−1 parts need at least r−2 seeded parts, a structural constraint not expressed in the r=2 result."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+          "material_read": "Entire published RESULT.md including three disjoint classes, exact probability polynomial, and proof",
+          "method": "Retrieved and read full published scientific result from GitHub source",
+          "title": "Forced three-colouring polynomial of complete bipartite graphs",
+          "trigger": "Exact first spare palette r=2, natural boundary and strongest known structural analogue"
+        },
+        {
+          "assessment": "Covers maximum-degree-two graphs and 3-color palette; does not dominate complete multipartite graphs with r>=3 and arbitrary large degrees/palette r+1.",
+          "evidence": [
+            "All graphs Δ<=2 are disjoint unions of paths and cycles.",
+            "General r>=3 multipartite with λ=r+1>=4 lies outside the fixed λ=3 classification."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+          "material_read": "Entire published RESULT.md for path/cycle formulas, scope and correction to small Farr example",
+          "method": "Retrieved and read full published scientific result from GitHub source",
+          "title": "Exact forced 3-colouring polynomials at maximum degree two",
+          "trigger": "Potential low-order exact graph-polynomial database and coverage of special complete bipartite profiles"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The first color count above the chromatic number is a natural threshold in Farr’s recently introduced forced-colouring invariant. For arbitrary r>=3 and arbitrary positive part sizes, the exact successful-seed classification changes qualitatively from λ=r: propagation requires a wholly seeded two-color part and all but at most one other part seeded. This yields every coefficient, a probability polynomial and exact extremal seed number/count; it gives a benchmark for a natural graph class with unbounded sizes. Though the proof uses elementary counting and parallels the r=2 boundary, the complete r>=3 λ=r+1 invariant is not mechanically obtained by direct specialization of the inspected prior theorems. The result does not address larger palettes or arbitrary graphs.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Farr, The forced colouring function of a graph (2026), arXiv:2609.17108v1; abstract only this run; full text inaccessible after lawful attempts",
+    "Farr and Morgan, Graph polynomials: some questions on the edge (2024), arXiv:2406.15746v1, open full text Section 3.5 and Proposition 2",
+    "Resultary/2026 complete-multipartite chromatic-palette RESULT.md (2026-10-04), complete theorem and proof read",
+    "Resultary/2026 complete-bipartite 3-colour RESULT.md (2026-10-04), complete theorem and proof read",
+    "Resultary/2026 max-degree-two forced-three-colouring RESULT.md (2026-09-17), complete theorem and proof read",
+    "Bozeman and collaborators, Multi-color forcing in graphs, arXiv:1912.02001; terminology compared with original self-review, not full text independently read"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every finite K_{n1,...,nr}, r>=3, positive n_i, with r+1 labelled colors, all forcing partial proper assignments are either completely seeded monochromatic r-part colorings, or have a unique fully seeded bicolored part j and all but at most one other part seeded in its singleton eventual color. The generating polynomial H_G, probability FC_{r+1}(G;p), minimum domain m+r-2 (when a non-singleton part exists), and minimum coefficient are as in RESULT.md.",
+  "limitations": [
+    "Only r>=3 and exactly λ=r+1; singleton parts allowed. The r=2 case is prior and the all-singleton case trivial.",
+    "No general result for λ>=r+2 or for nonmultipartite graphs.",
+    "Independent verification covers seven finite profiles, not the infinite family; analytic argument supplies universality.",
+    "The primary 2026 Farr preprint was not fully accessible: authorized institutional retrieval unavailable with VPN disconnected. This is access risk, not a correctness failure.",
+    "Full original blob bytes were not all separately rehashed; verified Git API tree and recomputed tree from eight blob SHA identities.",
+    "Publication operations are guarded and unapplied; technical intake and source conflict must be checked downstream."
+  ],
+  "residual_risks": [
+    "The complete 29-page 2026 Farr preprint was not independently materialized this run: direct arXiv and lawful OA full text were unavailable, and authorized institutional retrieval returned vpn_disconnected. Its remaining theorems and appendices cannot be declared non-covering. Previously published mathematical records reported closer partial reading but are not a substitute for this audit.",
+    "A general join/complete-multipartite identity for the forced-colouring polynomial in unindexed or not-yet-reviewed literature could imply this elementary first-spare classification.",
+    "The already published r=2 palette-three classification contains the same two-color fully seeded part mechanism; the extension to r>=3 is naturally close and has limited standalone depth.",
+    "The original Git blob identities and aggregate tree SHA were verified, but not every original byte stream was independently rehashed locally; source-tree state was not modified."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "This source is a substantial priority risk and is not declared non-covering as a whole. Accessible abstract identifies general and complexity results; secondary mathematical evidence identifies bipartite and bounded-degree special results, not the exact r>=3 one-spare-color census.",
+      "evidence": [
+        "ArXiv 2609.17108, submitted 2026-09-15, 29 pages; abstract states foundational properties and #P-hardness.",
+        "Previously published Resultary RESULT.md for chromatic-palette multipartite and 3-colour bipartite classifications explicitly compare their theorems to Farr; these are secondary reports, not a substitute for independently reading the original full preprint."
+      ],
+      "identifier_or_url": "https://arxiv.org/abs/2609.17108",
+      "material_read": "During this run: complete available abstract and bibliographic information, plus independently published earlier analyses quoting its named specific theorems and examples; NOT the complete 29-page preprint. Direct arXiv PDF/HTML and mirror acquisition failed; authorized institutional retrieval returned vpn_disconnected.",
+      "method": "Public abstract; attempted arXiv PDF/HTML and open versions followed by authorized institutional retrieval; examined cited theorem content through independently published mathematical-record full texts",
+      "title": "The forced colouring function of a graph",
+      "trigger": "Foundational 2026 paper with exactly the same local forcing rule, fixed-palette probability and potentially broad general results"
+    },
+    {
+      "assessment": "Defines the invariant and a general enumeration by initial domain; does not give a specialized complete r-partite λ=r+1 if-and-only-if classification or closed coefficient formula in the inspected full text.",
+      "evidence": [
+        "Section 3.5 defines FC(G;p,λ)=Pr(partial assignment eventually forces a proper λ-colouring).",
+        "Proposition 2 characterizes failure via stalled partial extensions, not a multipartite λ=r+1 closed formula.",
+        "Displayed examples cover λ=3 small graphs; no complete-multipartite family theorem found."
+      ],
+      "identifier_or_url": "https://www.researchgate.net/publication/381666584_Graph_polynomials_some_questions_on_the_edge",
+      "material_read": "Full-text HTML of open licensed preprint; Section 3.5, definitions of immediate/eventual forcing, probability polynomial, equations (4), typical small examples and Proposition 2; browsed neighboring text and searched complete multipartite",
+      "method": "Read searchable complete open preprint text, concentrating on mathematical definitions and the relevant worked formulas (lines 912-1305 of available rendering)",
+      "title": "Graph polynomials: some questions on the edge",
+      "trigger": "2024 primary introduction of the exact forcing-colour probability invariant and local missing-color process"
+    },
+    {
+      "assessment": "Proves seeds meet >=r-1 parts, all final parts monochromatic; no two-colour split occurs at λ=r. Its formulas do not directly imply λ=r+1, where monochromatic incomplete seeds cannot propagate.",
+      "evidence": [
+        "λ=r structural condition: each seeded part monochromatic and >=r-1 seeded parts.",
+        "Enumerator r![product A_i + sum over one empty part of product A_i]; distinct from required split-part factor (2^n_j−2)."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-colourings-of-complete-multipartite-graphs-at-the-chromat--ab08eebc2655",
+      "material_read": "Entire publicly accessible RESULT.md, including theorem, proof, every polynomial formula, and limitations",
+      "method": "Retrieved and read full published scientific result from GitHub source",
+      "title": "Forced colourings of complete multipartite graphs at the chromatic palette size",
+      "trigger": "Identical graph class and forcing process, but palette λ=r rather than r+1"
+    },
+    {
+      "assessment": "Covers exactly r=2 and palette three. It contains a two-colour fully seeded part, but no arbitrary r>=3 case, its additional seeded-part-support rule, or arbitrary-profile enumerator.",
+      "evidence": [
+        "Formula FC_3(K_{m,n};p)=3(2^m−2)p^m(1−2p)^n + symmetric +6p^{m+n}.",
+        "For r>=3 the other r−1 parts need at least r−2 seeded parts, a structural constraint not expressed in the r=2 result."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-forced-three-colouring-polynomial-of-complete-bipartite-graphs--3fb93c858f69",
+      "material_read": "Entire published RESULT.md including three disjoint classes, exact probability polynomial, and proof",
+      "method": "Retrieved and read full published scientific result from GitHub source",
+      "title": "Forced three-colouring polynomial of complete bipartite graphs",
+      "trigger": "Exact first spare palette r=2, natural boundary and strongest known structural analogue"
+    },
+    {
+      "assessment": "Covers maximum-degree-two graphs and 3-color palette; does not dominate complete multipartite graphs with r>=3 and arbitrary large degrees/palette r+1.",
+      "evidence": [
+        "All graphs Δ<=2 are disjoint unions of paths and cycles.",
+        "General r>=3 multipartite with λ=r+1>=4 lies outside the fixed λ=3 classification."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-forced-three-colouring-max-degree-two--2226d8f07ffd",
+      "material_read": "Entire published RESULT.md for path/cycle formulas, scope and correction to small Farr example",
+      "method": "Retrieved and read full published scientific result from GitHub source",
+      "title": "Exact forced 3-colouring polynomials at maximum degree two",
+      "trigger": "Potential low-order exact graph-polynomial database and coverage of special complete bipartite profiles"
+    }
+  ]
+}

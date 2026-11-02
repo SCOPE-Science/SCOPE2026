@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The object is a genuine convex bipyramid with odd \(n\ge3\); the probability is for Haar-uniform two-dimensional orthographic shadows. The proof begins with projected polygon support inequalities, identifies exactly when both opposite apices replace one facet each without eliminating an equatorial vertex, and reduces the angular geometry to a uniform gap on \([a/2,a]\). Direct integration over a uniform vertical direction cosine yields the precise arcsine formula. For the unique maximizer, the coefficient sequence of the derivative has a single positive-to-negative sign change, forcing at most one stationary point; endpoint signs force existence. A uniform small-angle expansion proves the asymptotic optimum. Independent monotone-chain shadow reconstruction agrees with the geometric criterion on 40,000 sampled cases. Finite checks corroborate, but do not replace, the proof. Boundary angles, the triangular base, and limiting heights are handled explicitly.
+## correctness
 
-## Originality — PASS relative to inspected sources
-Exact odd-sided bipyramid all-vertex shadow probabilities and their unique height optimizer were not found in the searched scientific records or the inspected primary results. Glisse–Lazard prove silhouette-complexity bounds for broad polyhedra; Glisse–Lazard–Michel–Pouget prove results for *random polytopes*, not fixed odd regular bipyramids; Black–Criado prove *expectation bounds*, not exact all-vertex event probabilities. An established even-prism maximal-section computation is geometrically adjacent but its antipodal angular spacing cannot imply the odd case without a new angular proof. Mathematical statements, not titles, were compared. Residual risk: an unindexed or inaccessible exact treatment of regular bipyramid silhouettes might exist, and an older 2006 conference version of the 2007 background paper exists.
+PASS
 
-## Mathematical value — PASS
-The all-vertex silhouette event is a natural exact-projection complexity statistic with meaningful dependence on geometric height. The theorem gives a complete exact law for every odd base order and every height, proves global rigidity of its optimizer, and identifies an asymptotic parity split versus the even family. The gap is geometric rather than a numerical parameter increment: opposite facet-normal lattices have two different parity structures, causing a factor-of-two limiting probability. This answers a motivated quantitative visibility question and supplies a reference for random viewing of non-centrally symmetric polyhedra.
+A projected equatorial polygon is an ellipse-affine regular n-gon with normals at odd angular offsets. All vertices survive exactly when each added opposite apex violates precisely one distinct projected polygon facet. For odd n the nearest positive/negative normal gaps are x and a-x; d=max(x,a-x) is uniform on [a/2,a] with density 2/a, and second closest gap is 2a-d. The Haar vertical absolute direction is independent Uniform[0,1]. Integrating the exact facet window gives 2/a*[2asin(q sin a)-asin(q sin(a/2))-asin(q sin(3a/2))]. A power-series derivative with a single sign change in coefficients proves a unique q in (0,1), including n=3 endpoint case. A uniform t->0 expansion provides the n^-2 limit and optimizer limit. Independent quadrature of the Haar facet-window integral agrees at 18 (n,h) pairs, but the proof is analytic.
 
-## Limitations
-No claims for irregular bipyramids, non-Haar orientations, or the full distribution of silhouette vertex numbers. Priority is provisional and independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Black--Criado Random Shadows of Fixed Polytopes treats general expected shadow-vertex bounds, not the exact all-vertex event for odd regular bipyramids. Glisse and Lazard examine average silhouette complexity; Glisse et al study Poisson random polytopes. Relevant Resultary records concern rectangular pyramids, triaxial octahedra and other different shape families. None of the materially inspected theorems implies the closed arcsine probability plus uniqueness and odd parity limit. Generic conic/facet methods may make aspects derivable, so literature-priority risk remains.
+
+## value
+
+PASS
+
+PASS: The all-vertex silhouette event is a geometrically natural extremal projection statistic. Odd/even parity changes opposite facet-normal alignment; the exact odd-n probability, unique optimal aspect ratio and factor-two asymptotic contrast resolve a motivated infinite-family silhouette optimization question rather than a random finite numerical example. Analytic uniqueness and uniform asymptotics add meaningful structure.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

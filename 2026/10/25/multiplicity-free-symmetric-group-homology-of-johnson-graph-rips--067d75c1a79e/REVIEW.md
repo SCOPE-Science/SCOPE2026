@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The Johnson star/top maximal-clique description is independently reconstructed from common neighbors. Every simplex of size at least three belongs to one such clique. A non-equivariant elementary collapse to dimension two, and the hypersimplex two-skeleton's simple connectivity, establish homology concentration in degree two. The natural action on augmentation, vertices and signed edges is explicit. The alternating character contribution from the higher simplices of each maximal clique is exactly the exterior square of its augmentation representation. Frobenius characteristics and three stated Pieri identities cancel all Schur terms except the distinct four-row constituents. Finite signed traces and irreducible-character calculations cross-check the derivation; they do not replace the general proof.
+## correctness
 
-**Originality — PASS (qualified).** The earlier Johnson-Rips classification proves only the nonequivariant two-sphere wedge and Betti number; its complete publicly readable theorem expressly disclaims a representation classification. Shuldiner–Oldford supply only clique geometry. Line-graph and Johnson-spectrum results concern either excluded instances or modules on graph vertices, without the signed edges and higher-face Euler correction. Targeted searches for the exact four-row Specht sum, hypersimplex flag-complex characters, and Johnson-graph Rips representations found no prior equivalent; unindexed equivalent work remains possible.
+PASS
 
-**Mathematical value — PASS.** The result determines a complete, multiplicity-free rational symmetry module uniformly over an infinite two-parameter family. The distinct four-row constituents and vanishing invariant subspace are not consequences of known Betti ranks, and the proof exposes the nontrivial cancellation between the two maximal-clique families. The result makes no claim about integral representation splitting, higher scales or equivariant homotopy.
+Reconstructed the two maximal clique types (star from a (k-1)-set, top inside a (k+1)-set); every simplex with at least three vertices belongs to exactly one. The previously published full nonequivariant all-parameter collapse and hypersimplex 2-skeleton proof establishes H2 concentration and simple connectivity. Oriented edge stabilizers exchange endpoints with sign, giving h_(k-1)e2 h_(n-k-1). Each star/top simplex above dimension 1 contributes wedge^2 of its augmentation representation to the Euler class. Their induction yields the five-term Frobenius characteristic displayed in RESULT.md; applying e2 h_b=s_(b,1,1)+s_(b+1,1) and the three horizontal-strip Pieri identities cancels all non-four-row summands exactly. Complementation is S_n-equivariant. Independent hook-length dimensions agree at (6,3)=19,(7,3)=55,(8,4)=181. Finite code cannot replace the all-parameter Pieri argument.
 
-The closest source is *Sphere-wedge collapse of scale-one Johnson-graph Rips complexes*; its known nonequivariant statement is preserved and not presented as new. The general proof is mathematical rather than a finite extrapolation. The conclusion remains potentially vulnerable to less-indexed equivalent literature.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
+
+## value
+
+PASS
+
+A natural infinite family of flag/Rips complexes already has a known wedge-of-two-spheres homotopy; determining the actual relabeling S_n-action requires signs on oriented edges and higher simplicial corrections. The complete multiplicity-free Specht formula and uniform vanishing of full-symmetry invariant homology are meaningful independent equivariant structure, beyond a dimension formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

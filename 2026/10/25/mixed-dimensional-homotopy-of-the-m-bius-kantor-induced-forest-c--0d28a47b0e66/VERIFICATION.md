@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction
-Place `mk_forest_verify.py`, `mk_forest_mod2_check.py`, and their respective output text files in the same directory. Run `python3 mk_forest_verify.py` and compare standard output to `mk_forest_verify_output.txt`. Then run `python3 mk_forest_mod2_check.py` and compare its output to `mk_forest_mod2_output.txt`. Both programs use only the Python standard library.
+# Independent mathematical audit
 
-The first program checks exact graph edges, all 65,536 masks under two cycle predicates, face counts, Euler characteristic, deterministic pair counts and critical-cell dimensions, acyclicity of the fully oriented face-poset graph, and every coefficient of both relevant integer Morse boundaries. It prints `VERIFY_OK` only after all assertions succeed. The second program constructs full ordinary simplicial boundary matrices modulo two independently and reports ranks in every degree.
+## correctness
 
-# Interpretation and limits
-The signed Morse complex has one dimension-eight cell, 26 dimension-nine cells and four dimension-ten cells, with a primitive differential to the eight-cell and zero ten-to-nine differential. This verifies the claimed integral wedge through the standard CW-cell cancellation and Hurewicz arguments. The independent mod-two computation alone would not rule out odd-primary torsion or higher attaching obstructions; it is a consistency check rather than the integral proof. No independent audit or external certification is asserted.
+PASS
+
+The exact 16-vertex, 24-edge graph and induced-forest predicate were reconstructed. Independently enumerated all 65536 vertex masks: 50997 faces including empty, face vector (1,16,120,560,1820,4368,7984,11200,11792,8672,3792,672), reduced Euler -21. Reimplemented the greedy pivot match and obtained 25483 pairs, 31 critical faces (one dimension 8, 26 dimension 9, four dimension 10); independently topologically sorted all 375056 directed Hasse incidences. Exact signed gradient projection gives d9 with seven +1 entries and 19 zeros, and d10=0. The primitive unit cancels the 8-cell with a 9-cell. On the residual wedge of 25 S9 the four 10-cell attaching maps are in pi9=Z25 and vanish with their boundary coefficients, proving the claimed integral homotopy. This is exhaustive finite proof, not mere mod-two evidence.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
+
+## value
+
+PASS
+
+The vertex-induced forest complex of a natural cubic, highly cyclic, 16-vertex symmetric graph has a nontrivial mixed-dimensional integral sphere-wedge homotopy; this determines homotopy rather than only Betti ranks and demonstrates an exact computable boundary beyond cactus families. Its finite scope is explicit and does not require a whole family theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

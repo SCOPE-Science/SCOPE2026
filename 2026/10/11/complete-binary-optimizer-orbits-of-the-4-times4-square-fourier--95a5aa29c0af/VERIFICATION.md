@@ -1,10 +1,7 @@
 ---
 {
+  "schema_version": 1,
   "expert_attestation": {
-    "evidence": null,
-    "status": "not_performed"
-  },
-  "independent_audit": {
     "evidence": null,
     "status": "not_performed"
   },
@@ -12,14 +9,18 @@
     "evidence": null,
     "status": "not_performed"
   },
-  "schema_version": 1
+  "independent_audit": {
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ],
+    "status": "passed"
+  }
 }
 ---
 
 # Verification notes
 
-Execute `python3 checker.py` from the directory containing this document. The Python standard library suffices. The exact checker derives the 24 source masks, tests every one of 8192 states in the free eight-element sign-symmetry quotient, and evaluates both the autocorrelation and polynomial-square Parseval identities on every tested state. It confirms a minimum moment of 304, precisely four quotient winners, a moment gap to 336, and two disjoint 16-element orbits in the original 65,536-state binary domain. It also checks the orbit cardinalities under all enumerated rotations/reflections and sign modulations.
+The packaged `checker.py` exhaustively computes all 8192 states normalized by the free sign-modulation action. It checks two exact moment identities and the two sixteen-member symmetry orbits. A separate full-domain enumeration has also independently checked all 65536 arrays, and a second convolution formula on all 8192 normalized representatives. Both agree on minimum moment 304, 32 total minimizers, second moment 336, and orthogonal/oblique dominant-lobe orbit invariants.
 
-An inspection of the two displayed representative arrays separately finds their magnitude-three autocorrelation displacement pairs to be \((1,3),(3,-1)\) and \((1,-3),(1,3)\), with absolute dot products zero and eight. The complete proof is finite and does not rely on approximate floating-point checks. The previously published sharp scalar merit factor is not assigned novelty; specialized prior optimizer censuses may exist in historical sources not completely accessible here.
-
-This record reflects same-model review only. No independent audit or external verification is asserted.
+This is exhaustive finite arithmetic for the stated binary 4-by-4 aperture. No formal proof-assistant verification or expert attestation is claimed. The known scalar merit factor is not presented as a new numerical bound; historical optimizer-classification priority remains qualified by inaccessible originals. A completed scientific assessment does not constitute a proof-assistant proof or an expert attestation.

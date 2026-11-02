@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,10 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify_johnson_rep.py` and `python3 decompose.py` in the same directory. Only Python 3 standard-library modules are required.
+# Independent mathematical audit
 
-The signed simplicial-trace script enumerates every clique-complex simplex for \((6,3)\), \((7,3)\), and \((8,4)\), and checks the predicted Euler character against direct oriented fixed-face traces. It checks all 720 and 5,040 permutations in the first two cases, and all 22 conjugacy-class representatives for the third, totaling 5,782 comparisons. The exact finite GF(2) boundary ranks for the first two cases confirm a unique positive homology degree (degree two) of ranks 19 and 55. All three cases have zero group-averaged trace. Successful output ends in `JOHNSON_EQUIVARIANT_CHECKS_OK 5782`.
+## correctness
 
-The second checker implements symmetric-group irreducible characters by explicit rim-hook recurrence and computes all character inner products. It obtains multiplicity one precisely for the partitions \((n-j-2,j,1,1)\), for all valid \(j\), in the six test cases \((6,3),(7,3),(8,3),(8,4),(9,4),(10,5)\); every other irreducible has multiplicity zero. Calculations test finite examples only, and no finite test establishes the all-parameter theorem. The uniform conclusion instead uses the proof from star/top equivariant Euler classes and Pieri decomposition. No independent mathematical audit has been performed.
+PASS
+
+Reconstructed the two maximal clique types (star from a (k-1)-set, top inside a (k+1)-set); every simplex with at least three vertices belongs to exactly one. The previously published full nonequivariant all-parameter collapse and hypersimplex 2-skeleton proof establishes H2 concentration and simple connectivity. Oriented edge stabilizers exchange endpoints with sign, giving h_(k-1)e2 h_(n-k-1). Each star/top simplex above dimension 1 contributes wedge^2 of its augmentation representation to the Euler class. Their induction yields the five-term Frobenius characteristic displayed in RESULT.md; applying e2 h_b=s_(b,1,1)+s_(b+1,1) and the three horizontal-strip Pieri identities cancels all non-four-row summands exactly. Complementation is S_n-equivariant. Independent hook-length dimensions agree at (6,3)=19,(7,3)=55,(8,4)=181. Finite code cannot replace the all-parameter Pieri argument.
+
+## originality
+
+PASS
+
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
+
+## value
+
+PASS
+
+A natural infinite family of flag/Rips complexes already has a known wedge-of-two-spheres homotopy; determining the actual relabeling S_n-action requires signs on oriented edges and higher simplicial corrections. The complete multiplicity-free Specht formula and uniform vanishing of full-symmetry invariant homology are meaningful independent equivariant structure, beyond a dimension formula.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

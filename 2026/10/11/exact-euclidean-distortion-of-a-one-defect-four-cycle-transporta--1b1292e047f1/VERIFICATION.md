@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The analytic proof gives exact outer and inner quadratic extrema over the full parameter interval \(0<t\le3\) and reduces global Euclidean distortion to a one-variable minimization. It uses group averaging to cover every Euclidean position, including non-symmetric ones. The four-branch formula is therefore not a finite-data conjecture.
+# Independent mathematical audit
 
-Execute the included `verify_weighted_cycle.py` using Python 3 standard library. The check independently enumerates every candidate vertex of the cube clipped by the two slab planes, optimizes along facets in exact rational arithmetic, tests the proposed optimal quadratic form, and compares against a grid of alternative rational quadratic forms. It performs 189 separate rational checks and prints `WEIGHTED_CYCLE_RATIONAL_CHECK_OK 189`.
+## correctness
 
-The test does not exhaust all real \(t\) or all real quadratic forms. Its scope is diagnostic; the analytic proof supplies those quantifiers. The sharpness witnesses are the explicit boundary/vertex configurations in RESULT.md. The finding is restricted to real spaces and one distinguished edge of a four-cycle.
+PASS
+
+The final long-edge formula follows from the dual clipped-cube norm, symmetry averaging over all positive-definite Hilbert quadratic forms, exhaustive vertex/facet extrema, and exact piecewise scalar minimization with derivative sign checks. The proof is valid for every real 1<t<3; exact-rational finite experiments corroborate, rather than replace, the continuous proof.
+
+## originality
+
+PASS
+
+The originally stated short-edge branch 0<t<=1 is already a special case of the published all-dimensional weighted-cycle result, hence it has been removed from the substantive finding. The surviving 1<t<3 theorem includes two interior transition parameters and a flat Banach-Mazur distance 5/3 interval, which are not implied by the materially inspected stronger short-edge theorem or by classical weighted-tree, graph-quotient and three-dimensional extremal-ellipsoid results. Originality is best of knowledge, not proof of exhaustive historical priority.
+
+## value
+
+PASS
+
+For a natural essential long-edge deformation of the four-cycle, the exact Euclidean Banach-Mazur distance exhibits two sharp contact transitions and a nontrivial flat 5/3 interval. This is a complete, potentially reusable, intrinsically motivated classification not obtainable from known short-edge and tree endpoints.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

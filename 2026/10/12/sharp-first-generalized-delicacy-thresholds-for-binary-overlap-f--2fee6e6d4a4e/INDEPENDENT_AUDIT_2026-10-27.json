@@ -1,0 +1,229 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:40:13Z",
+  "axes": {
+    "correctness": {
+      "definitions": "An overlap is a factor xYxYx with one-letter x and possibly empty Y. Binary k-delicacy means every set of 1 to k position flips creates an overlap; equivalently no other overlap-free same-length word at Hamming distance 1..k. Nonempty finite words n>=1 and exact bit flips used.",
+      "exact_counts": "n=13: 60 words; delta histogram {1:44,2:12,3:4}. n=14: 62 words; histogram {1:44,2:14,3:2,4:2}.",
+      "rationale": "For each n, exactly enumerating all 2^n binary words and rejecting every factor with period p and length 2p+1 generates O_n. An independent prefix-growth route gives identical sets for n=1..14. The Hamming distance to every distinct O_n word gives maxima <=2 through n=12, 3 at n=13, <=3 through n=13 and 4 at n=14. There are exactly four delta=3 words of length 13 and exactly two delta=4 words of length 14, with the listed reversal/complement orbits; direct flipping of every set of 1..k positions confirms delicacy for extremizers. Thus L_2=13, L_3=14, and complete shortest lists. This exhaustive finite check covers exactly the finite domain required for the two claimed minima, not arbitrary k.",
+      "replay": "independent_checks.py and independent_counts.json in the private audit artifact bundle; two independent enumerators and all pairs checked for n=1..14.",
+      "status": "PASS",
+      "witnesses_13": [
+        "0100110010110",
+        "0110100110010",
+        "1001011001101",
+        "1011001101001"
+      ],
+      "witnesses_14": [
+        "00101100110100",
+        "11010011001011"
+      ]
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Przybocki Theorem 1.4 proves ordinary (k=1) delicate overlap-free existence for all n>=7; Section 5 asks generalized existence.",
+          "Schaeffer–Shallit prove first-order decidability of the overlap-free language but give no evaluated k-delicacy minima or classification.",
+          "A 2023 talk PDF named for these topics is inaccessible; its mathematical coverage is unknown."
+        ],
+        "reasoning": "A general automata/decidability framework can make a finite test possible but does not logically provide the specific exact numerical minima or equality-case lists without an evaluated theorem. The older k=1 classification does not imply k=2 or k=3. No evidenced broader statement actually dominates the result.",
+        "searches": [
+          "arXiv:2108.06646 Sections 3 and 5",
+          "arXiv:2209.03266 Theorems 1-3 Corollary 4",
+          "\"k-delicate\" \"overlap-free\" 2022 2023 2024 2025 2026",
+          "GitHub SCOPE2026 search: generalized delicacy"
+        ]
+      },
+      "checked_sources": [
+        "Przybocki, Lengths of Irreducible and Delicate Words, arXiv:2108.06646v3, Theorem 1.4 and Section 5 Question 5.1 (public PDF materially read)",
+        "Schaeffer and Shallit, The First-Order Theory of Binary Overlap-Free Words is Decidable, arXiv:2209.03266, Theorems 1-3, Corollary 4",
+        "OEIS A007777, overlap-free binary word counts at n=13 (60), n=14 (62)",
+        "Anselmo, Flores, Madonia, Computing the index of non-isometric k-ary words with Hamming and Lee distance, DOI:10.3233/COM-230441 (published abstract only)",
+        "Relevant published mathematical-record semantic searches for overlap-free Hamming isolation and k-delicacy, 2 queries with no mathematically overlapping top results",
+        "GitHub SCOPE repository code searches for delicate overlap-free/generalized delicacy/Hamming isolation (no matching indexed files)",
+        "Public exact-string, parameter and alias web searches for k=2,k=3 and two representative shortest witnesses",
+        "kDelicate.pdf 2023 title/search snippet only; PDF full text inaccessible"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Przybocki proves k=1 existence only, while the generalized all-k question is explicit.",
+          "The logical decision procedure gives an algorithmic route for some overlap-free statements but no specific L_2/L_3 statements.",
+          "Anselmo et al study geodesic transformations avoiding a fixed factor f, not nearest-neighbor separation of the entire overlap-free language.",
+          "Existing OEIS counts do not identify Hamming-isolated elements."
+        ],
+        "reasoning": "None of the materially inspected prior conclusions entails the claimed exact minima and all minimum-length witnesses by a direct specialization. The objects and quantifiers have been compared, not just paper titles.",
+        "searches": [
+          "Przybocki Theorem 1.4 and Question 5.1",
+          "Schaeffer Shallit arXiv:2209.03266 logical decidability",
+          "Anselmo et al DOI:10.3233/COM-230441 Hamming-isometric words abstract",
+          "SCOPE-Science/SCOPE2026 GitHub code search: delicate overlap-free"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Przybocki Section 5 defines k-delicate as every 1..k letter change creating a forbidden overlap.",
+          "Binary symbols have exactly one alternative, so this property equals Hamming-ball isolation distance >=k+1 among all words avoiding overlaps at the same length.",
+          "Public searches and semantic records retrieved related coding/string topics rather than a theorem identifying all shortest 2-/3-delicate words."
+        ],
+        "reasoning": "The equivalence holds at the level of every fixed word and fixed length; the literature comparison included the Hamming-isolation radius formulation, not only the k-delicate name. Failure of searches by itself is not proof of novelty.",
+        "searches": [
+          "\"k-delicate\" overlap-free shortest 2 3 Hamming word length 13 14",
+          "\"2-delicate\" \"overlap-free\"",
+          "\"3-delicate\" \"overlap-free\"",
+          "overlap-free binary words Hamming neighbor isolation distance tables 13 14",
+          "Resultary semantic query: Sharp minimum length finite 2-delicate and 3-delicate binary overlap-free words; overlap-free Hamming isolation radius and classification of all shortest witnesses"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A007777 records 60 length-13 words and 62 length-14 words, but not their internal Hamming graph adjacency or isolated-radius profiles.",
+          "Independent census reproduces known language sizes and computes additional isolation histograms 13: (44,12,4), 14: (44,14,2,2).",
+          "No exact indexed search hit with the two witness strings was shown."
+        ],
+        "reasoning": "Counts alone do not give Hamming isolation distances. The claimed new exact invariants are the first lengths with delta>=3 or delta>=4 and the full shortest witness symmetry classes. Search results do not certify absence of every unpublished table.",
+        "searches": [
+          "OEIS A007777 overlap-free binary words counts",
+          "\"0100110010110\" overlap-free",
+          "\"00101100110100\" overlap-free",
+          "finite 2-delicate overlap-free word shortest length 13 binary",
+          "finite 3-delicate overlap-free word shortest length 14 binary",
+          "Relevant Resultary published finding search for shortest overlap-free generalized delicate words"
+        ]
+      },
+      "rationale": "Best-of-knowledge new exact first-two generalized-delicacy minima and equality cases. The primary 2021/2022 source names generalized k-delicacy and asks its all-k existence question; it classifies only ordinary k=1. A broader 2022 first-order decidability theorem does not evaluate these minima. OEIS A007777 supplies total overlap-free word counts but not Hamming-isolation distances, while the 2024 isometry paper addresses a different invariant. Targeted exact-string/parameter/alias searches and published mathematical-record searches identified no covering result. Inaccessible plausible 2023 slides are a nontrivial residual priority risk, not a mathematical implication or proof of coverage.",
+      "residual_risks": [
+        "An unindexed computation, unpublished note, or public talk slide could state the same first two finite thresholds and their extremizers.",
+        "Plausible 2023 presentation PDF was not retrieved in full, so its potential coverage is undetermined.",
+        "The 2024 Hamming-isometric word paper was screened by abstract, not exhaustively read; its stated object is distinct.",
+        "Finite certificate does not establish a formula or even existence for all generalized levels k>=4.",
+        "Eight Git blob IDs and file contents were fetched through repository API, and their tree was independently hashed; original complete blob byte streams were not independently SHA-1 rehashed in local storage."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING: Theorem 1.4 classifies existence for ordinary k=1; Section 5 poses existence for generalized k without computing L_2, L_3 or their complete minimizer lists.",
+          "evidence": "Theorem 1.4 explicitly states n>=7 for delicate overlap-free binary words; Section 5 Question 5.1 asks about finite k-delicate words for every k. Source: https://arxiv.org/pdf/2108.06646 , pp.2 and 11.",
+          "identifier_or_url": "arXiv:2108.06646 (v3), DOI:10.37236/10669",
+          "material_read": "Complete relevant original PDF: Introduction and Theorem 1.4 (p.2), ordinary delicacy Section 3, Section 4 simultaneous family, Section 5 definition and Question 5.1 (p.11), references. Rendered pages 2 and 11 inspected.",
+          "method": "Public full-text PDF, line/text inspection and visual page screenshot.",
+          "title": "Lengths of Irreducible and Delicate Words",
+          "trigger": "Direct original introduction of k-delicacy and motivating problem."
+        },
+        {
+          "assessment": "NOT_COVERING the exact thresholds: proves decidability of relevant first-order theory but does not state the isolation-distance extrema, the lengths 13/14, or the shortest witnesses. General decision procedures do not logically assert those evaluated outputs.",
+          "evidence": "Theorems 2,3 and Corollary 4 on logical decidability; no delicate or Hamming occurrence identified in its retrieved PDF text. https://arxiv.org/pdf/2209.03266",
+          "identifier_or_url": "arXiv:2209.03266",
+          "material_read": "Introduction, overlap-free definition, Restivo/Salemi factorization in Theorem 1, Theorems 2 and 3, Corollary 4 and implementation discussion; PDF-wide terms delicate and Hamming checked.",
+          "method": "Open full PDF inspection including text and rendered title page.",
+          "title": "The First-Order Theory of Binary Overlap-Free Words is Decidable",
+          "trigger": "Broader classification/algorithmic theorem on exactly the same overlap-free language."
+        },
+        {
+          "assessment": "PARTIAL BACKGROUND: contains counts |O_13|=60 and |O_14|=62, matching independent census, but not per-word Hamming-isolation histogram or k-delicacy first thresholds.",
+          "evidence": "A007777 entries at indices n=13,14 are 60,62; definition enumerates words but no nearest-neighbor invariants.",
+          "identifier_or_url": "https://oeis.org/A007777",
+          "material_read": "Entire OEIS entry, sequence and notes, references including Cassaigne counting and Brandenburg correction.",
+          "method": "Official OEIS sequence page read.",
+          "title": "OEIS A007777 — Number of overlap-free binary words of length n",
+          "trigger": "Exact numerical table of relevant language size and potential stronger lookup coverage."
+        },
+        {
+          "assessment": "Different object: shortest transformations u to v avoiding occurrences of a fixed factor f, rather than minimum Hamming separation between elements of the overlap-free language. No whole-document NOT_COVERING inference is made.",
+          "evidence": "Publisher abstract explicitly defines the fixed-factor shortest-path avoidance problem.",
+          "identifier_or_url": "DOI:10.3233/COM-230441",
+          "material_read": "Publisher abstract, subject terms, references and description of Ham-isometric transformations; complete full text not inspected.",
+          "method": "Journal abstract and bibliographic page screening.",
+          "title": "Computing the index of non-isometric k-ary words with Hamming and Lee distance",
+          "trigger": "Hamming distance, overlap and avoidance terminology could suggest an equivalence."
+        },
+        {
+          "assessment": "UNINSPECTED: priority risk retained. Cannot conclude covering or not covering from the snippet.",
+          "evidence": "Indexed February 2023 PDF title; no theorem or exact threshold text accessible.",
+          "identifier_or_url": "https://sdimitrov.xyz/CROPS/kDelicate.pdf",
+          "material_read": "Only search-index title/date snippet; PDF retrieval timed out and subsequent alternate public fetch failed. Full content not read.",
+          "method": "Search discovery and unsuccessful lawful public PDF retrieval, not Oxford publisher journal access.",
+          "title": "Lengths of Extremal, Irreducible, and Delicate Words (conference slides)",
+          "trigger": "Plausible 2023 follow-up slides named for the same words; could contain unpublished generalized examples."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "These are not arbitrary chosen word lengths: they are the first two natural generalized k-delicacy parameters beyond the explicitly established k=1 theory and are motivated by Przybocki Question 5.1. Exact first-occurrence thresholds with complete minimum witness lists and symmetry classes answer two meaningful initial cases of the established problem. The finite proof is exhaustive (not a sampling extrapolation), though modest in computational scale. A later study of higher k could use the precise initial thresholds and extremizers as base cases; no general all-k theorem is claimed.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Przybocki, Lengths of Irreducible and Delicate Words, arXiv:2108.06646v3, Theorem 1.4 and Section 5 Question 5.1 (public PDF materially read)",
+    "Schaeffer and Shallit, The First-Order Theory of Binary Overlap-Free Words is Decidable, arXiv:2209.03266, Theorems 1-3, Corollary 4",
+    "OEIS A007777, overlap-free binary word counts at n=13 (60), n=14 (62)",
+    "Anselmo, Flores, Madonia, Computing the index of non-isometric k-ary words with Hamming and Lee distance, DOI:10.3233/COM-230441 (published abstract only)",
+    "Relevant published mathematical-record semantic searches for overlap-free Hamming isolation and k-delicacy, 2 queries with no mathematically overlapping top results",
+    "GitHub SCOPE repository code searches for delicate overlap-free/generalized delicacy/Hamming isolation (no matching indexed files)",
+    "Public exact-string, parameter and alias web searches for k=2,k=3 and two representative shortest witnesses",
+    "kDelicate.pdf 2023 title/search snippet only; PDF full text inaccessible"
+  ],
+  "disposition": "passed",
+  "final_claim": "Among nonempty binary overlap-free words, L_2=13 with exactly the four listed shortest words, each of isolation distance 3 and one reversal/complement orbit; L_3=14 with exactly the two listed shortest complementary palindromes, each of isolation distance 4 and one orbit. The result is only for k=2,3.",
+  "limitations": [
+    "Only k=2 and k=3 are proved; neither all-k existence nor upper growth is addressed.",
+    "Algorithmic finite exhaustion is a proof for bounds n<=14, not an infinite structural theorem.",
+    "A plausible 2023 presentation was not available in full; priority risk is retained.",
+    "Complete original Git blob byte streams were not independently rehashed locally, but actual Git blob identifiers match the snapshot and reconstructed tree SHA.",
+    "The reported publication plan is guarded and unapplied; it does not itself create an independent public certificate."
+  ],
+  "residual_risks": [
+    "An unindexed computation, unpublished note, or public talk slide could state the same first two finite thresholds and their extremizers.",
+    "Plausible 2023 presentation PDF was not retrieved in full, so its potential coverage is undetermined.",
+    "The 2024 Hamming-isometric word paper was screened by abstract, not exhaustively read; its stated object is distinct.",
+    "Finite certificate does not establish a formula or even existence for all generalized levels k>=4.",
+    "Eight Git blob IDs and file contents were fetched through repository API, and their tree was independently hashed; original complete blob byte streams were not independently SHA-1 rehashed in local storage."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING: Theorem 1.4 classifies existence for ordinary k=1; Section 5 poses existence for generalized k without computing L_2, L_3 or their complete minimizer lists.",
+      "evidence": "Theorem 1.4 explicitly states n>=7 for delicate overlap-free binary words; Section 5 Question 5.1 asks about finite k-delicate words for every k. Source: https://arxiv.org/pdf/2108.06646 , pp.2 and 11.",
+      "identifier_or_url": "arXiv:2108.06646 (v3), DOI:10.37236/10669",
+      "material_read": "Complete relevant original PDF: Introduction and Theorem 1.4 (p.2), ordinary delicacy Section 3, Section 4 simultaneous family, Section 5 definition and Question 5.1 (p.11), references. Rendered pages 2 and 11 inspected.",
+      "method": "Public full-text PDF, line/text inspection and visual page screenshot.",
+      "title": "Lengths of Irreducible and Delicate Words",
+      "trigger": "Direct original introduction of k-delicacy and motivating problem."
+    },
+    {
+      "assessment": "NOT_COVERING the exact thresholds: proves decidability of relevant first-order theory but does not state the isolation-distance extrema, the lengths 13/14, or the shortest witnesses. General decision procedures do not logically assert those evaluated outputs.",
+      "evidence": "Theorems 2,3 and Corollary 4 on logical decidability; no delicate or Hamming occurrence identified in its retrieved PDF text. https://arxiv.org/pdf/2209.03266",
+      "identifier_or_url": "arXiv:2209.03266",
+      "material_read": "Introduction, overlap-free definition, Restivo/Salemi factorization in Theorem 1, Theorems 2 and 3, Corollary 4 and implementation discussion; PDF-wide terms delicate and Hamming checked.",
+      "method": "Open full PDF inspection including text and rendered title page.",
+      "title": "The First-Order Theory of Binary Overlap-Free Words is Decidable",
+      "trigger": "Broader classification/algorithmic theorem on exactly the same overlap-free language."
+    },
+    {
+      "assessment": "PARTIAL BACKGROUND: contains counts |O_13|=60 and |O_14|=62, matching independent census, but not per-word Hamming-isolation histogram or k-delicacy first thresholds.",
+      "evidence": "A007777 entries at indices n=13,14 are 60,62; definition enumerates words but no nearest-neighbor invariants.",
+      "identifier_or_url": "https://oeis.org/A007777",
+      "material_read": "Entire OEIS entry, sequence and notes, references including Cassaigne counting and Brandenburg correction.",
+      "method": "Official OEIS sequence page read.",
+      "title": "OEIS A007777 — Number of overlap-free binary words of length n",
+      "trigger": "Exact numerical table of relevant language size and potential stronger lookup coverage."
+    },
+    {
+      "assessment": "Different object: shortest transformations u to v avoiding occurrences of a fixed factor f, rather than minimum Hamming separation between elements of the overlap-free language. No whole-document NOT_COVERING inference is made.",
+      "evidence": "Publisher abstract explicitly defines the fixed-factor shortest-path avoidance problem.",
+      "identifier_or_url": "DOI:10.3233/COM-230441",
+      "material_read": "Publisher abstract, subject terms, references and description of Ham-isometric transformations; complete full text not inspected.",
+      "method": "Journal abstract and bibliographic page screening.",
+      "title": "Computing the index of non-isometric k-ary words with Hamming and Lee distance",
+      "trigger": "Hamming distance, overlap and avoidance terminology could suggest an equivalence."
+    },
+    {
+      "assessment": "UNINSPECTED: priority risk retained. Cannot conclude covering or not covering from the snippet.",
+      "evidence": "Indexed February 2023 PDF title; no theorem or exact threshold text accessible.",
+      "identifier_or_url": "https://sdimitrov.xyz/CROPS/kDelicate.pdf",
+      "material_read": "Only search-index title/date snippet; PDF retrieval timed out and subsequent alternate public fetch failed. Full content not read.",
+      "method": "Search discovery and unsuccessful lawful public PDF retrieval, not Oxford publisher journal access.",
+      "title": "Lengths of Extremal, Irreducible, and Delicate Words (conference slides)",
+      "trigger": "Plausible 2023 follow-up slides named for the same words; could contain unpublished generalized examples."
+    }
+  ]
+}

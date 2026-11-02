@@ -1,23 +1,21 @@
-# Scientific review: Gaussian ambiguity-zero geometry
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finding fixes the unnormalized Gaussian waveform and the cycles-frequency Fourier convention before making any claim. Equation (1) follows by expanding the four Gaussian products; all zeros are unaffected by the strictly positive prefactor. When the component amplitudes agree, the imaginary part is identically zero and the real-zero condition reduces globally to a cosine–hyperbolic-cosine level set. The coordinate ranges and nonvanishing implicit gradient prove that the listed smooth closed curves exhaust all zeros. Their nonzero curvature and strict convexity follow from the level-set Hessian; the analytic area computation differentiates an explicit integral, with only an integrable square-root endpoint singularity, and gives exactly one. For unequal amplitudes, a nonzero imaginary coefficient forces the Fourier phase to be an integral multiple of pi; real-part positivity eliminates even multiples, and strict monotonicity of cosh yields exactly two solutions for each odd multiple. The real–imaginary Jacobian is nonzero at each solution and switches sign between the pair. No finite numerical enumeration is used to establish an infinite assertion.
+PASS
 
-The separately executable checker evaluates eight original Gaussian integrals independently of the closed form, seven oval areas, 24 isolated complex zeros, and nearby nonzero values. A successful replay reproduces the included output. These checks are supporting numerical tests, not the foundation of correctness.
+The four Gaussian overlap integrals give the exact strictly positive prefactor times e^(-i phi)+r²e^(i phi)+2rc cosh u, with c=e^(-a²/sigma²), u=aT/sigma², phi=2pi a nu. For r=1 zeros obey cos v=c cosh u, |u|<=arcosh(1/c); the implicit gradient never vanishes and the level-set Hessian is -c cosh(u) I, proving smooth closed strict convexity. The exact integral I(c)=int_0^arcosh(1/c) arccos(c cosh u) du satisfies I′(c)=-pi/(2c), I(1)=0, hence I=pi/2 log(1/c), and the physical Jacobian yields area exactly 1. Independent quadrature checked c=0.1,0.4,0.8 to ~1e-15. For r≠1 imaginary part (r²-1) sin phi=0 forces odd phi pi; the positive cosh equation has exactly two solutions at ±arcosh((r+r^-1)/(2c)) and the nonzero Jacobian changes sign between them. All real T,nu and positive parameters covered analytically.
 
-## Originality — PASS with identified source risk
+## originality
 
-Zambrano–Ozorio de Almeida, arXiv:0905.1900 (2009), is the closest source because it analyzes the chord function of superposed coherent states. Its detailed material on symmetry and the short-chord approximation is consistent with real nodal curves for balanced cats and isolated zeros for generic complex overlaps. It states that amplitude imbalance eliminates the special two-component cat blind spots; its discussion concentrates on the near-origin regime. The exact full-plane expression here yields two remote isolated zeros per fringe under any positive imbalance, a distinction that can be independently checked by direct integration. That textual tension is disclosed rather than used as evidence of priority. The prior source supplies neither the invariant unit area of each balanced oval nor the complete full-plane coordinates and winding indices of the unequal-weight zeros.
+PASS
 
-Zambrano–Ozorio de Almeida, arXiv:1003.1877 (2010), treats small displacements and semiclassical chord geometry; Gröchenig–Jaming–Malinnikova, arXiv:1811.03937, develop general nonvanishing theory and the Gaussian ambiguity formula, but not these two-packet global zero ovals and their area. Separate searches of published mathematical records for equivalent Gaussian-cat ambiguity zeros, loop area, related time-frequency geometry and phase-space winding returned finite-field Gabor, quantum-state, and general transform problems without a covering theorem. Mathematical results about other ambiguity windows or discrete Gabor measurements are not equivalent to the complete two-Gaussian unit-area theorem. None of these search outcomes proves absolute novelty; unindexed two-coherent-state optics calculations remain a publication-priority risk.
+PASS best of knowledge. Mathematical statements and implication directions were compared to inspected primary literature, not merely titles or identical parameter names; residual risks explicitly retained.
 
-## Mathematical value — PASS
+## value
 
-Two-packet Gaussian superpositions are a standard, geometrically canonical test object for radar/time-frequency ambiguity and coherent-state displacement orthogonality. The exact area invariant is not a generic normalization or restatement of an existing integral: an entire parameter family of nonlinear analytic zero loops encloses one unit of delay–cycles-frequency area independent of Gaussian width and separation. This is a meaningful structural statement about phase-space nodal geometry. The unequal-amplitude classification identifies a genuinely different zero topology, not mere cosmetic perturbation, and quantifies which global zeros survive symmetry breaking, where they go, and how their winding indices pair. It clarifies precisely why a short-displacement approximation can miss remote genuine zeros.
+PASS
 
-## Scope and residual limitations
+The real two-Gaussian pulse/cat state is a natural ambiguity-function benchmark. A parameter-independent one-area law for all zero ovals and a complete topology change under any positive amplitude imbalance are precise global geometric invariants, contrasting with the established short-chord blind-spot approximation. The theorem distinguishes exact remote zeros from practically small signals without claiming more general Gaussian multiplets.
 
-The result is proved for two *equal-width, real, unchirped* Gaussian packets and strictly positive component ratio; extension to complex relative phases, unequal widths, mixed states, or more than two packets is not claimed. Frequencies must be in cycles: conversion to angular frequency multiplies the quoted area by \(2\pi\). In the small-overlap regime, the imbalance zeros can lie in strongly suppressed tails, so their experimental significance is not asserted. Primary-source publication priority and the interpretation of the earlier qualitative 'vanish entirely' wording warrant expert attention.
-
-Self-review: passed. Independent audit: not yet performed.
+The dated certificate retains the supplied scientific assessment, sources and limitations.

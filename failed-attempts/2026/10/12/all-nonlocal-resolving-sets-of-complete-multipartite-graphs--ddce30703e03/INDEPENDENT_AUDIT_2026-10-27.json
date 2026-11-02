@@ -1,0 +1,267 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T03:35:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/verify.py",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/verify_output.txt",
+        "/mnt/data/nonlocal_independent_check.py",
+        "https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf"
+      ],
+      "rationale": "For u!=v in one part, every w outside {u,v} has d(w,u)=d(w,v): it is 2 for a third vertex in that part and 1 for w in another part; u and v alone distinguish this nonedge. Hence all nonedges are distinguished iff at most one vertex is omitted from every part of size >=2, with singleton classes unconstrained. Every such omitted set is a clique. The minimum is N-r because one omitted vertex per class is possible, including singleton classes; when G=K_N this correctly yields dimension 0. Each size-n_i class contributes n_i z^(n_i-1)+z^n_i (n_i>=2), while a singleton contributes 1+z; multiplication yields the given polynomial and the coefficient of z^(N-r) gives the basis count. A wholly separate checker examined 128 complete multipartite isomorphism types, 64,916 subsets, 1,371 minimum bases across orders 2..10; all distance-definition evaluations matched the exact product. The infinite family is proved by the endpoint-only lemma, not the finite check.",
+      "residual_risks": [
+        "Published audit tree identities were recomputed from GitHub tree entry SHA values but original source blobs were not all materialized/rehashed locally.",
+        "The exhaustive checks cover n<=10 only; universal correctness rests on the explicit pairwise distance argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2211.10614 Proposition 5.1: complement of every clique is nonlocal resolving in ANY graph; the published proof gives this stronger graph-universal sufficient direction.",
+          "The same paper Proposition 5.2 proof gives the endpoint-only requirement inside bipartition classes, with wording independent of the number of other classes.",
+          "The 2022 multipartite ordinary-metric paper covers similar partwise constructions but its stated all-singleton ordinary-dimension case is unreliable and is not required for the rejection."
+        ],
+        "reasoning": "The claim is obtained by specializing the universally known clique-complement construction and repeating the already-published endpoint-only obstruction for each independent twin class. Both directions and their content are preexisting; the multi-class indexing adds no lemma or nontrivial case.",
+        "searches": [
+          "arXiv:2211.10614v1 Proposition 5.1 and Proposition 5.2; screenshot printed p.10",
+          "\"nonlocal metric dimension\" \"true twins\" \"false twins\" general characterization",
+          "\"nonlocal metric dimension\" \"twin\" n-k",
+          "2022 Hayat Khan Zhong Theorem 2 metric dimension of complete multipartite graphs",
+          "Resultary: nonlocal metric dimension false twins complete multipartite graphs n minus number of classes"
+        ]
+      },
+      "checked_sources": [
+        "https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf",
+        "https://www.mdpi.com/2227-7390/10/11/1815",
+        "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html",
+        "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md",
+        "DOI:10.1080/17445760.2026.2694358"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The 2022 nonlocal paper explicitly proves complements of cliques are resolving in Proposition 5.1 and that same-part pairs in complete bipartite graphs can be distinguished only by endpoints in Proposition 5.2.",
+          "Those same-pair distances remain 2 to every third same-part vertex and 1 to vertices in other parts for all r>=2, so the published proof works verbatim for r arbitrary.",
+          "Clique polynomial product_i(1+n_i t) gives both the stated enumerator and its lowest coefficient product_{n_i>=2}n_i, while deg C_G=r gives dim_nl=N-r."
+        ],
+        "reasoning": "The exact set family and every claimed numerical consequence are direct consequences of known clique counts and the published endpoint-only obstruction, with no new theorem required. The research claim is mathematically covered even though prior sources do not print this precise nonlocal generating-polynomial notation.",
+        "searches": [
+          "Klavzar Kuziak Proposition 5.1 clique complement general nonlocal resolving upper bound",
+          "Klavzar Kuziak Proposition 5.2 proof endpoint-only bipartition classes",
+          "SageMath clique polynomial and complete multipartite clique number",
+          "Resultary published doubly resolving sets of complete multipartite graphs"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Every nonlocal resolving set S of this graph has V\\S a clique: two omitted vertices from the same part have equal distances to every selected vertex.",
+          "Conversely the complement of ANY clique is nonlocal resolving by Klavzar–Kuziak Proposition 5.1; no multipartite-specific hypothesis is needed in this direction.",
+          "Thus the all-set classification is EXACTLY the already familiar clique-complement family for this graph class."
+        ],
+        "reasoning": "The equivalence S nonlocal resolving iff V\\S is a clique is immediate from the general published sufficient direction plus the same-part twin obstruction already articulated in the published bipartite proof. The assigned statement reexpresses a standard clique family, not a new selection constraint.",
+        "searches": [
+          "\"nonlocal metric dimension\" \"complete multipartite\" graph 2025 2026",
+          "\"nonlocal resolving\" \"complete multipartite\" graph sets",
+          "\"nonlocal metric dimension\" \"complete r-partite\"",
+          "nonlocal resolving set enumerator complete r-partite graph basis count",
+          "Resultary: nonlocal metric dimension complete multipartite graph nonlocal resolving sets product generating polynomial all vertex classes"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The standard clique polynomial of G counts k-cliques. For complete multipartite G its exact coefficient generating series is C_G(t)=product_i(1+n_i t).",
+          "By the complement equivalence, R_nl(G;z)=z^N C_G(z^{-1})=z^{N-r} product_i(z+n_i), including the singleton factors (1+z)^s.",
+          "SageMath documents exactly this standard clique-polynomial object; no special nonlocal database row is needed for formula-level coverage."
+        ],
+        "reasoning": "There is no newly independent data table: the entire polynomial is a variable reversal of the standard clique-counting polynomial; this is exact algebraic equivalence, not empirical matching of a few coefficients.",
+        "searches": [
+          "\"nonlocal resolving polynomial\" complete multipartite",
+          "\"resolving polynomial\" \"complete multipartite\" graphs",
+          "\"clique polynomial\" \"complete multipartite graph\" product",
+          "SageMath Graph.clique_polynomial manual"
+        ]
+      },
+      "rationale": "The all-set criterion is exactly the statement that the complement of S is a clique of a complete multipartite graph. Klavzar–Kuziak (2022), Proposition 5.1, already proves that the complement of any clique is nonlocal resolving for arbitrary graphs; their Proposition 5.2 proof already gives the endpoint-only obstruction inside an independent twin class. Combining these requires no new hypothesis, structural lemma, or computation. The entire alleged enumerator is z^N times the standard clique polynomial evaluated at 1/z, namely z^N product_i(1+n_i/z), so its coefficients, minimum, and basis count are mechanically preexisting clique counts. This is substantive exact prior mathematical implication, not an unsuccessful-search failure.",
+      "residual_risks": [
+        "The 2022 multipartite ordinary-metric dimension formula as printed includes problematic singleton cases and has not been used as decisive coverage.",
+        "No explicitly identical nonlocal enumerator was located; rejection instead rests on the exact algebraic equivalence to the known clique polynomial plus already published nonlocal-distance lemmas.",
+        "The hierarchical-product article was screened at abstract level only; no whole-document exclusion is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Proposition 5.1 already proves V\\Q is nonlocal resolving for every clique Q in every graph. Proposition 5.2 proves two equal-distance same-class vertices of K_{s,t} require one selected endpoint. The same exact argument applies without change to each class of any complete multipartite graph, so the audited iff is the conjunction of these preexisting mechanisms. It does not explicitly print the polynomial for arbitrary r.",
+          "evidence": [
+            "Proposition 5.1: dim_nl(G) <= |V|-omega(G), proof shows complements of arbitrary cliques resolve all nonedges.",
+            "Proposition 5.2 proof: vertices in one bipartition class have equal distances to all third vertices, forcing all but one of that class into a nonlocal resolving set.",
+            "No occurrence of multipartite in searchable 17-page preprint."
+          ],
+          "identifier_or_url": "arXiv:2211.10614v1; DOI:10.1007/s40840-022-01459-x; https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf",
+          "material_read": "The 17-page primary preprint in searchable full text, including definitions (pp.1–3), Proposition 5.1 and proof, Proposition 5.2 and proof (printed p.10); screenshot of printed p.10 inspected; searched for multipartite.",
+          "method": "Read original preprint and theorem proofs, compare quantifiers and implications; verified page image of Proposition 5.2.",
+          "title": "Nonlocal metric dimension of graphs",
+          "trigger": "Defines exactly the invariant being audited and proves a generic clique-complement sufficient condition and endpoint-only obstruction for complete bipartite graphs."
+        },
+        {
+          "assessment": "The source states ordinary metric dimension n-r for complete multipartite graphs, but that unqualified claim has a singleton-part problem (for K_n it predicts zero, contrary to ordinary metric dimension n-1). It is not relied upon as an all-case correct theorem or as proof of the nonlocal polynomial. Its partwise metric-profile method overlaps the elementary construction.",
+          "evidence": [
+            "Theorem 2 states beta(K_{t1,...,tr})=n-r.",
+            "Tripartite proof constructs a resolving set by omitting one vertex in each class.",
+            "For all classes singleton, the stated formula conflicts with ordinary metric dimension of K_n; thus this source requires caution."
+          ],
+          "identifier_or_url": "DOI:10.3390/math10111815; https://www.mdpi.com/2227-7390/10/11/1815",
+          "material_read": "Accessible indexed original article text: abstract, Section 3.1 Theorem 2 and displayed proof/claims for bipartite and tripartite cases; live site subsequently returned HTTP 429, so entire document is NOT claimed read.",
+          "method": "Reviewed original source passages from search-index extraction; checked what the theorem actually claims and edge cases.",
+          "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+          "trigger": "Same complete-multipartite objects, prior calculation of standard resolving dimension and use of partwise distinguishing."
+        },
+        {
+          "assessment": "Sage defines the clique polynomial as the enumerator of all cliques. For complete multipartite G, choosing at most one vertex from each part gives C_G(t)=product_i(1+n_i t). The audited generating polynomial is exactly z^N C_G(1/z), i.e. a variable reversal of the standard clique polynomial.",
+          "evidence": [
+            "clique_polynomial: coefficient at t^k is the number of k-vertex cliques; constant term one.",
+            "Complete multipartite graph has clique number r; a clique picks zero or one vertex per part, giving the product."
+          ],
+          "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html",
+          "material_read": "Reference-manual definitions and examples for clique_polynomial and CompleteMultipartiteGraph clique_number.",
+          "method": "Read documented definition of clique polynomial and independently derive its product for multipartite graphs.",
+          "title": "SageMath Reference Manual: Graph Theory, clique_polynomial",
+          "trigger": "Tests whether the entire purported nonlocal cardinality enumerator is a known graph polynomial under a standard transformation."
+        },
+        {
+          "assessment": "The stronger doubly resolving condition forces at most one omitted vertex from each non-singleton part (necessary partwise condition), followed by further support obstructions. It is not itself the same iff because its predicate also quantifies adjacent cross-part pairs and two landmark differences. It independently documents the familiar twin-class obstruction.",
+          "evidence": [
+            "Finding: m_i >= n_i-1 for every n_i>=2 is necessary for doubly resolving.",
+            "Proof: every third vertex is equidistant from two same-part vertices.",
+            "Additional t=1,2,>=3 support conditions make this a different invariant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md",
+          "material_read": "Complete Resultary RESULT.md including final theorem, case classification and proof, and relationship to earlier bipartite work.",
+          "method": "Read full published result through GitHub connector and compare the exact quantified definition to nonlocal resolving.",
+          "title": "Doubly resolving sets of complete multipartite graphs",
+          "trigger": "Relevant published mathematical record on the identical graph family, with a stronger/different resolving predicate and the same false-twin obstruction."
+        },
+        {
+          "assessment": "Published 30 June 2026, treats hierarchical graph products with particular examples; abstract provides no general complete-multipartite all-set theorem. Its inaccessible full text is not used to make a decisive exclusion.",
+          "evidence": [
+            "The abstract focuses on hierarchical products and exact dimensions for selected product families, rather than complete multipartite all-set enumerators."
+          ],
+          "identifier_or_url": "DOI:10.1080/17445760.2026.2694358",
+          "material_read": "Publisher abstract, publication metadata and listed graph-product families only; no full-document noncoverage asserted.",
+          "method": "Primary publisher abstract screening.",
+          "title": "Nonlocal metric dimension of some hierarchical product graphs",
+          "trigger": "More recent work using precisely the nonlocal resolving-set definition; screened for possible general product implication."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "checked_sources": [
+        "https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf",
+        "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html",
+        "https://www.mdpi.com/2227-7390/10/11/1815",
+        "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md"
+      ],
+      "rationale": "Complete multipartite graphs and the nonlocal invariant are natural, but the purported classification is just the elementary description of complements of cliques. The factorized size enumerator is literally the reciprocal of the classical clique polynomial, and the basis count is its leading coefficient. Once the endpoint-only false-twin observation and general clique-complement construction are known, every asserted fact follows by independent binomial factors. No new obstruction, computation of an unknown invariant, qualitative boundary, extremal phenomenon, or nontrivial natural classification remains. The rejection is for this specific known-polynomial reexpression and textbook deduction, not for finite or elementary mathematics as such.",
+      "residual_risks": [
+        "The formula can still serve as a pedagogical example or regression test for nonlocal resolving-set software; such utility is not an independent new mathematical finding."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf",
+    "https://www.mdpi.com/2227-7390/10/11/1815",
+    "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html",
+    "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md",
+    "DOI:10.1080/17445760.2026.2694358",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/RESULT.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/VERIFICATION.md",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/verify.py",
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6c379935c2e469fc18959fc6c387e31328c64bcf/2026/10/12/all-nonlocal-resolving-sets-of-complete-multipartite-graphs--ddce30703e03/verify_output.txt",
+    "/mnt/data/nonlocal_independent_check.py",
+    "https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf"
+  ],
+  "disposition": "failed",
+  "final_claim": "For any connected finite complete multipartite graph K_(n1,...,nr) with r>=2, S is nonlocal resolving iff each part omits at most one vertex. Hence dim_nl=N-r; the full size enumerator is z^(N-r)(1+z)^s prod_(n_i>=2)(n_i+z), with prod_(n_i>=2)n_i minimum sets. The complete displayed claim is correct, but is exactly clique-complement enumeration.",
+  "limitations": [
+    "Complete original Git blob bytes were not independently fetched and rehashed in the local runtime; tree SHA was reconstructed from actual GitHub tree entry hashes.",
+    "Independent enumeration through n<=10 is finite corroboration, not universal proof.",
+    "Secondary 2022 complete-multipartite ordinary-metric theorem has a singleton-part error; not used as proof.",
+    "Publication is withheld for confidentiality, not scientific uncertainty."
+  ],
+  "residual_risks": [
+    "The 2022 multipartite ordinary-metric dimension formula as printed includes problematic singleton cases and has not been used as decisive coverage.",
+    "No explicitly identical nonlocal enumerator was located; rejection instead rests on the exact algebraic equivalence to the known clique polynomial plus already published nonlocal-distance lemmas.",
+    "The hierarchical-product article was screened at abstract level only; no whole-document exclusion is claimed.",
+    "Published audit tree identities were recomputed from GitHub tree entry SHA values but original source blobs were not all materialized/rehashed locally.",
+    "The exhaustive checks cover n<=10 only; universal correctness rests on the explicit pairwise distance argument.",
+    "The formula can still serve as a pedagogical example or regression test for nonlocal resolving-set software; such utility is not an independent new mathematical finding."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Proposition 5.1 already proves V\\Q is nonlocal resolving for every clique Q in every graph. Proposition 5.2 proves two equal-distance same-class vertices of K_{s,t} require one selected endpoint. The same exact argument applies without change to each class of any complete multipartite graph, so the audited iff is the conjunction of these preexisting mechanisms. It does not explicitly print the polynomial for arbitrary r.",
+      "evidence": [
+        "Proposition 5.1: dim_nl(G) <= |V|-omega(G), proof shows complements of arbitrary cliques resolve all nonedges.",
+        "Proposition 5.2 proof: vertices in one bipartition class have equal distances to all third vertices, forcing all but one of that class into a nonlocal resolving set.",
+        "No occurrence of multipartite in searchable 17-page preprint."
+      ],
+      "identifier_or_url": "arXiv:2211.10614v1; DOI:10.1007/s40840-022-01459-x; https://users.fmf.uni-lj.si/klavzar/preprints/2211.10614.pdf",
+      "material_read": "The 17-page primary preprint in searchable full text, including definitions (pp.1–3), Proposition 5.1 and proof, Proposition 5.2 and proof (printed p.10); screenshot of printed p.10 inspected; searched for multipartite.",
+      "method": "Read original preprint and theorem proofs, compare quantifiers and implications; verified page image of Proposition 5.2.",
+      "title": "Nonlocal metric dimension of graphs",
+      "trigger": "Defines exactly the invariant being audited and proves a generic clique-complement sufficient condition and endpoint-only obstruction for complete bipartite graphs."
+    },
+    {
+      "assessment": "The source states ordinary metric dimension n-r for complete multipartite graphs, but that unqualified claim has a singleton-part problem (for K_n it predicts zero, contrary to ordinary metric dimension n-1). It is not relied upon as an all-case correct theorem or as proof of the nonlocal polynomial. Its partwise metric-profile method overlaps the elementary construction.",
+      "evidence": [
+        "Theorem 2 states beta(K_{t1,...,tr})=n-r.",
+        "Tripartite proof constructs a resolving set by omitting one vertex in each class.",
+        "For all classes singleton, the stated formula conflicts with ordinary metric dimension of K_n; thus this source requires caution."
+      ],
+      "identifier_or_url": "DOI:10.3390/math10111815; https://www.mdpi.com/2227-7390/10/11/1815",
+      "material_read": "Accessible indexed original article text: abstract, Section 3.1 Theorem 2 and displayed proof/claims for bipartite and tripartite cases; live site subsequently returned HTTP 429, so entire document is NOT claimed read.",
+      "method": "Reviewed original source passages from search-index extraction; checked what the theorem actually claims and edge cases.",
+      "title": "On Resolvability- and Domination-Related Parameters of Complete Multipartite Graphs",
+      "trigger": "Same complete-multipartite objects, prior calculation of standard resolving dimension and use of partwise distinguishing."
+    },
+    {
+      "assessment": "Sage defines the clique polynomial as the enumerator of all cliques. For complete multipartite G, choosing at most one vertex from each part gives C_G(t)=product_i(1+n_i t). The audited generating polynomial is exactly z^N C_G(1/z), i.e. a variable reversal of the standard clique polynomial.",
+      "evidence": [
+        "clique_polynomial: coefficient at t^k is the number of k-vertex cliques; constant term one.",
+        "Complete multipartite graph has clique number r; a clique picks zero or one vertex per part, giving the product."
+      ],
+      "identifier_or_url": "https://doc.sagemath.org/html/en/reference/graphs/sage/graphs/graph.html",
+      "material_read": "Reference-manual definitions and examples for clique_polynomial and CompleteMultipartiteGraph clique_number.",
+      "method": "Read documented definition of clique polynomial and independently derive its product for multipartite graphs.",
+      "title": "SageMath Reference Manual: Graph Theory, clique_polynomial",
+      "trigger": "Tests whether the entire purported nonlocal cardinality enumerator is a known graph polynomial under a standard transformation."
+    },
+    {
+      "assessment": "The stronger doubly resolving condition forces at most one omitted vertex from each non-singleton part (necessary partwise condition), followed by further support obstructions. It is not itself the same iff because its predicate also quantifies adjacent cross-part pairs and two landmark differences. It independently documents the familiar twin-class obstruction.",
+      "evidence": [
+        "Finding: m_i >= n_i-1 for every n_i>=2 is necessary for doubly resolving.",
+        "Proof: every third vertex is equidistant from two same-part vertices.",
+        "Additional t=1,2,>=3 support conditions make this a different invariant."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/9/30/SCOPE-doubly-resolving-sets-of-complete-multipartite-graphs--3d968bf6d9b9/RESULT.md",
+      "material_read": "Complete Resultary RESULT.md including final theorem, case classification and proof, and relationship to earlier bipartite work.",
+      "method": "Read full published result through GitHub connector and compare the exact quantified definition to nonlocal resolving.",
+      "title": "Doubly resolving sets of complete multipartite graphs",
+      "trigger": "Relevant published mathematical record on the identical graph family, with a stronger/different resolving predicate and the same false-twin obstruction."
+    },
+    {
+      "assessment": "Published 30 June 2026, treats hierarchical graph products with particular examples; abstract provides no general complete-multipartite all-set theorem. Its inaccessible full text is not used to make a decisive exclusion.",
+      "evidence": [
+        "The abstract focuses on hierarchical products and exact dimensions for selected product families, rather than complete multipartite all-set enumerators."
+      ],
+      "identifier_or_url": "DOI:10.1080/17445760.2026.2694358",
+      "material_read": "Publisher abstract, publication metadata and listed graph-product families only; no full-document noncoverage asserted.",
+      "method": "Primary publisher abstract screening.",
+      "title": "Nonlocal metric dimension of some hierarchical product graphs",
+      "trigger": "More recent work using precisely the nonlocal resolving-set definition; screened for possible general product implication."
+    }
+  ]
+}

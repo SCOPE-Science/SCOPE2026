@@ -1,15 +1,21 @@
-# Mathematical assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof in `RESULT.md` explicitly inverts the bipartite incidence-graph Laplacian on its nonconstant spectral subspaces and obtains the transfer-current entries. Symmetric design identities count every edge class, and strict sign checks leave exactly two negative classes; the row-sum identity gives the exact norm. The diagonal computation and a direct algebraic sign comparison give the circulation norm and crossover. The standard-library checker independently solves a reduced Laplacian using rational arithmetic and passes 5,979 assertions for nine finite symmetric designs. Universal conclusions follow analytically, and no finite sweep is treated as proof.
+## correctness
 
-## Originality — PASS within examined literature
-Jiang–Lim–Yao–Ye (arXiv:0811.1067) establishes graph Hodge decomposition and least-squares ranking; Kassel–Wu (arXiv:1312.2946) gives the transfer-current representation; Kelner–Maymounkov (arXiv:0909.2859) and Schild–Rao–Srivastava (arXiv:1708.01632) place electrical-flow projections into norm and localization frameworks. Their inspected primary material does not state the all-symmetric-design five-class current kernel, both exact endpoint norms, or the block-size-four reversal. Closest published mathematical records concerning cactus transport projections, finite design incidence complexes, and Heawood metric embedding give different operators or invariants. A result under alternative electrical-network terminology remains a historical priority risk.
+PASS
 
-## Value — PASS
-Symmetric designs form a natural highly structured but not necessarily edge-transitive family of sparse bipartite networks; the sharp sensitivity of their least-squares potential reconstruction is mathematically and computationally motivated. The finding provides a complete parameter-level stability law, a sharp circulation comparison, finite attainable extremizers, and asymptotic regimes. These are not routine parameter substitutions into an established exact design-specific formula, and the crossover is not a Hilbert-space contractivity consequence.
+For square incidence matrix A, AA^T=A^TA=(k-lambda)I+lambda J, and symmetric design identity v*lambda=k*(k-1)+lambda. Inverting the bipartite Laplacian on two zero-mean blocks, then restoring its one anti-constant eigenvector, yields the exact transfer-current kernel P_ef=[k(delta_p,pprime+delta_l,lprime)-A_p,lprime-A_pprime,l]/(v lambda)+1/(vk). The five row classes sum to vk edges, and the crossed-incidence classes alone carry negative entries. Since P 1=1, absolute row sums yield exact ||P||_inf. Q=I-P differs only at the diagonal, yielding ||Q||-||P||=(k-4)/k+2/(vk). Sign input vectors attain norms. Fresh independent pinned-Laplacian solve on Fano incidence graph recovers each transfer entry and norm; finite test not a universal proof.
 
-## Scope and remaining risks
-The claim is confined to equal conductances, symmetric designs, and induced edge-coordinate maximum norms. The cited sources and semantic mathematical records were checked, but prior equivalent calculations in algebraic graph or electrical-network theory cannot be ruled out by search alone. Mathematical peer review and independent bibliographic validation have not been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS best of knowledge: Jiang--Lim--Yao--Ye establish combinatorial Hodge decomposition, Kassel--Wu discuss transfer-current, and Schild--Rao--Srivastava bound electrical-flow localization, but the primary theorem statements inspected do not supply exact parameter-only five-class current kernel nor sharp coordinatewise operator norms for arbitrary symmetric designs. A related published symmetric-design block intersection theorem supplies the standard AA^T identity only. Semantic published-record searches found no dominating identity; potential prior electrical-network computations remain a risk.
+
+## value
+
+PASS
+
+PASS: Worst-edge amplification is a natural, operational robustness invariant for Hodge least-squares fitting and circulation removal. Symmetric 2-design incidence networks include non-Desarguesian examples without transitive automorphisms; a parameter-only exact formula and universal block-size-four reversal are genuinely structural, with asymptotic projective-plane realizations. Neither Euclidean nonexpansivity nor generic logarithmic electrical localization bounds provide sharp infinity norms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

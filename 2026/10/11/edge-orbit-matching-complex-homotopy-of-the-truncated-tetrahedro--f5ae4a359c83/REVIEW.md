@@ -1,12 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness: PASS
-The graph, all five complexes, and their face sets are defined explicitly. The included first verifier enumerates every face, constructs an explicit element-toggle matching, and verifies its gradient digraph acyclic over all face incidences. Its resulting critical-cell models have only a critical vertex and cells in one dimension, giving genuine integral wedge homotopy types without relying on field homology. A separate line-graph construction and boundary-rank computation reproduces all five reduced mod-two Betti counts. The edge-orbit and nullhomotopic cofibration arguments are direct and apply to all graph edges. Risk: the guarantee is only for the specified finite graph and the reproducible combinatorial certificate, not a broader family.
+## correctness
 
-## Originality: PASS with residual bibliographic risk
-Engström (arXiv:math/0512420) proves connectivity bounds rather than this decomposition; Barmak (arXiv:1007.0418) provides general tools. The polygonal-line results of Bayer–Jelić Milutinović–Vega (arXiv:2211.12559) treat chains of overlapping cycles; their outerplanar classification (arXiv:2411.04601) does not include a graph with a \(K_4\) minor. A related public record computes graph-metric Vietoris–Rips complexes of the truncated tetrahedron, which have different faces and cannot imply the matching-complex result. Searches under graph aliases, cofiber formulations, and exact multiplicities did not identify equivalent or stronger coverage, but cannot rule out unindexed literature or independent unpublished calculations. The claim is not asserted to have absolute priority.
+PASS
 
-## Value: PASS
-The truncated tetrahedron is a canonical Archimedean polyhedral graph, and its matching complex is a natural graph-topology invariant. Complete, integral edge-orbit deletion/link information shows a nontrivial local-to-global pattern with two different local multiplicity pairs yielding the same 22-sphere result. This is a motivated exact nonouterplanar planar-graph example relevant to the published planar matching-complex sphere-wedge question, not a routine parameter substitution or unsupported conjectural generalization.
+The final claim applies to the explicitly labeled graph on twelve ordered distinct pairs (a,b) from {0,1,2,3}, with triangles at fixed first coordinate and six reversal edges. Independently reconstructed all 18 graph edges, full 1010 face masks including empty and f=(18,117,332,390,144,8). For each of the five exact complexes, rebuilt all simplicial faces from pairwise-disjoint graph-edge masks, greedily paired by first available bit (with empty pair converted to a critical vertex), and oriented EVERY nonempty Hasse incidence upward if paired and downward otherwise. Full topological sorts visited all 1009,819,189,793,215 vertices; critical cells respectively (0:1,3:22), (0:1,3:14), (0:1,2:8), (0:1,3:20), (0:1,2:2). No other critical dimensions survive. Forman discrete Morse theory then gives CW models comprising one point plus only 2- or 3-dimensional cells, so all attaching maps are trivial and the spaces are integral wedges, not merely field-homology equivalents. Checked S4 permutes graph vertices and acts transitively on exactly two edge classes of sizes 12 and 6. For every edge the simplicial link inclusion from a wedge of 2-spheres to the deletion wedge of 3-spheres is null-homotopic by pi2=0. The deletion-star cone cofiber splits into (14+8) or (20+2) S3. The independent calculation supports the entire exact finite claim; no extension to all planar graphs or an infinite family is claimed.
 
-Same-model review: passed. Independent audit: not yet performed.
+## originality
+
+PASS
+
+Best-of-knowledge PASS for exact integral homotopy types of the truncated-tetrahedral ordinary matching complex, its two edge-orbit deletions and links, and their nullhomotopic cofibration splittings; not for the general deletion-link identity or general Morse methods. The published outerplanar theorem excludes the candidate with its K4 minor and supplies no exact multiplicities; the polygonal-line, manifold and claw-free treatments also do not imply the five values. An indexed exact truncated-tetrahedral Rips result is for a different simplicial complex. The separately published cuboctahedral and rhombic-dodecahedral matching-complex results are different graphs. Equivalent graph aliases and full matching-complex formulations were tested. No independent prior theorem/table giving all five integral homotopy groups and the orbit distinction was found; this is limited priority evidence, not proof of absolute novelty.
+
+## value
+
+PASS
+
+The truncated tetrahedron is a canonical Archimedean 3-connected cubic planar but nonouterplanar graph, and the ordinary matching complex is its natural topology-valued invariant. Establishing an integral wedge of 22 S3 and both complete edge-orbit deletion/link homotopy profiles (14,8) vs (20,2) is a motivated exact classification, not a textbook sign/normalization check. This provides a concrete nonouterplanar case of the published planar sphere-wedge conjecture, and the two distinct local decompositions give nontrivial edge-sensitive information beyond the global Betti count. Its value is a finite structural benchmark; no paper-sized or general-family theorem is asserted. The result could be independently useful when testing or building planar graph matching-complex decompositions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

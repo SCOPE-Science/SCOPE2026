@@ -1,15 +1,14 @@
-# Scientific review: biquadratic arithmetic of five-node Howe sextics
+# Mathematical review: arithmetic singularities of a genus-five Howe sextic
 
-## Correctness — PASS
-The source's complete geometric classification (case I of Proposition 4.2.6) gives exactly one origin node and four sign-related nodes. Exact elimination for the rational parameter tuple gives the only nonzero squared-node pair \((11/560,1/56)\); the Hessian determinant is \(-253584\ne0\). The origin has nondegenerate tangent cone. Independent square classes \(385\) and \(14\) imply residue-field degree four. Normality at the explicit smooth node-parameter specialization prevents generic independent square classes from collapsing. Good reduction preserves the finite étale node scheme outside finitely many primes, and Chebotarev gives densities \(1/4\) and \(3/4\). The exact verifier and sample finite-field tests passed, but samples are not an infinite-prime proof.
+## Correctness
+The curve in the original five-node Howe-sextic construction is even in each plane coordinate. The complete geometric classification of Moriya and Kudo, Proposition 4.2.6, supplies one origin node and four nonzero sign-related nodes. Uniqueness forces the squared-coordinate pair to lie in the rational parameter field.
 
-## Originality — PASS
-Moriya–Kudo's first paper supplies the sextic equation, generic five nodes, and the sign quartet but does not calculate arithmetic node residue fields or the exact fixed rational model's Frobenius distribution. The sequel studies a distinct family; broader plane-sextic papers and unrestricted nodal curve monodromy do not imply full V4 arithmetic action for this restricted symmetric family. Focused published-record and primary-source comparisons did not identify an equivalent statement. Residual risk: unindexed arithmetic computations may exist.
+For the rational tuple `(2,3,4,5,6)`, exact resultant and Jacobian-ideal calculations give the unique nonzero squared pair `u=11/560`, `v=1/56`, with nonzero Hessian determinant `-253584`. The four affine nodes are `(±sqrt(385)/140, ±sqrt(14)/28)`; the origin is also an ordinary node. Checks of the degree-six leading form and the two axes rule out further projective singularities. The independent square classes of 385 and 14 give a biquadratic splitting field. The nonsingular local specialization shows that the generic squared-coordinate classes are independent as well.
 
-## Value — PASS
-The generic arithmetic Galois action and explicit prime-density stratification answer a natural field-of-definition question for the complete singular locus of a five-node Howe plane sextic. Sign symmetry alone would allow proper Galois subgroups, so proving the maximum regular action has genuine content.
+Away from finitely many primes, the five-point reduced singularity scheme extends etale. The four noncentral nodes are rational exactly when both quadratic characters are +1, giving prime densities 1/4 and 3/4 by Chebotarev. The modular experiments with 18 primes are illustrative and not a substitute for the global argument.
 
-## Limits
-No classification of nongeneric three-singularity cases, all specializations, or all excluded primes; no assertion about geometric monodromy after algebraically closing constants. Independent mathematical validation has not been performed.
+## Comparison with prior results
+Moriya–Kudo, *Explicit construction of a plane sextic model for genus-five Howe curves, I*, arXiv:2310.15993v1, establishes the resultant and geometric node configuration; the arithmetic field calculation is additional. Kudo, *... II*, arXiv:2401.00760v1, treats a different Howe presentation. Ohashi, *Generalized Howe curves of genus 4, 5, and 6 with completely decomposable Jacobians*, arXiv:2604.18074v3, studies superspeciality of restricted families rather than fields of definition of these plane nodes. The 2024 authors' poster concerning explicit sextics and superspecial enumeration remains a historical-priority risk because its mathematical contents were not examined in full.
 
-Self-review: passed. Independent audit: not yet performed.
+## Mathematical contribution and limits
+The splitting field of the entire noncentral singularity orbit is an intrinsic arithmetic descent datum for this natural plane model. The generic V4 action and the fixed-model reduction densities are not forced by geometric sign symmetry alone. The result is limited to the generic five-node locus and one rational example; the full exceptional-prime set and nongeneric arithmetic stratification are not determined.

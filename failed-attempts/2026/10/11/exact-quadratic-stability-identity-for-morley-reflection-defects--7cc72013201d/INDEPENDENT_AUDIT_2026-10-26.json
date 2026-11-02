@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T18:40:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Under exactly regular Morley geometry, Tran’s affine formula l_j(M_i)=t_i q_ij and q_ii=1 yields a=n_i-n_j with a·v=(q-1)(t_i+t_j), |a|^2=(q-1)^2(q+2), |v|=L. Thus ||P_{v^perp}a||^2=(q-1)^2 epsilon. The other n−1 Morley vertices relative to the edge midpoint lie in v^perp, with Gram G=(L^2/4)(2I+J), invertible with G^-1=(2/L^2)(I-J/(n+1)). Their a-pairings are the candidate r_k, so the boxed Q equality follows in every n>=3. The source two-projection inequality gives |t_i-t_j|<=L sqrt((2-q)/(q+2))*sqrt(epsilon). Cauchy–Schwarz with ||w_k||=sqrt(3)L/2 gives the weighted-row bound. The quadratic form eigenvalues 1 and 2/(n+1) give exactly the stated aggregate bounds. At epsilon=0 all rows and scales agree. The equivalent derivation directly from published Theorem 2.3 is verified symbolically and is the basis of the originality rejection, not a correctness error.",
+      "residual_risks": [
+        "Global optimality of the phrase \"sharp square-root scale\" in SLOGAN.txt is unestablished for sequences of genuinely realizable exact-regular-Morley simplices; the mathematical identities and upper bounds are valid.",
+        "The symbolic check covers only 3<=n<=11; the proof for arbitrary n comes from the inverse of 2I+J, not from finite extrapolation."
+      ],
+      "sources": [
+        "Actual pinned GitHub RESULT.md, VERIFICATION.md and verify.py fetched with their blob identities",
+        "https://arxiv.org/html/2610.01216v1 Theorem 2.3 and Proposition 3.2",
+        "https://arxiv.org/html/2609.06553v3 Proposition 9.2",
+        "Independent symbolic verifier checks n=3..11 and algebraic general proof"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tran’s Theorem 2.3 Eq. (4) is a complete n+1 by n+1 Gram identity for all i,j, stronger than the candidate single-pair scalar quadratic identity.",
+          "Tran’s Proposition 3.2 Eq. (5) already controls t_i-t_j via a two-projection inequality, and proves the exact zero-reflection equivalence.",
+          "The companion paper’s Eq. (5) and Proposition 9.2 give the same ingredients in the tetrahedron case."
+        ],
+        "reasoning": "The stronger published matrix relation and inequalities apply to precisely the same nondegenerate n-simplex, q_ij, t_i, L and exact regular-Morley hypothesis, and imply every branch of the assigned result without new quantitative premises.",
+        "searches": [
+          "arXiv:2610.01216v1 Theorem 2.3 regular Morley simplex all n",
+          "arXiv:2609.06553v3 Proposition 3.2 normal Gram equation tetrahedron",
+          "Morley tetrahedron regular Morley simplex transposition reflection quantitative approximate symmetry epsilon normal projections (Resultary)"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2610.01216v1 (Sections 2–3: Theorem 2.3 Eq. 4 and Proposition 3.2 Eq. 5, complete statements and proofs)",
+        "https://arxiv.org/html/2609.06553v3 (Sections 3, 9, and 18.1: Proposition 3.2 Eq. 5 and Proposition 9.2 Eqs. 21–22, complete statements and proofs)",
+        "Resultary: 2026/10/11/SCOPE-exact-quadratic-stability-identity-for-morley-reflection-defects--7cc72013201d (assigned finding; excluded from independent priority)",
+        "Resultary: 2026/10/11/SCOPE-a-radical-nonregular-five-simplex-with-regular-morley-simplex--b08ba2d33204 (indexed title and summary; independent geometric existence result, not this identity)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Let s=diag(t)K(e_i-e_j), N=n+1, and P=I-J/N. The printed equation gives (q-1)^2(q+2)=(2/L^2)s^TPs.",
+          "Writing c=(q-1)(t_j-t_i)/2 and d=(q-1)(t_i+t_j)/2, s-c1=(-d,d,r_1,...,r_{n-1}), hence s^TPs=2d^2+sum(r_k^2)-(sum r_k)^2/N. Algebra gives Q=(L^2/2)(q-1)^2 epsilon exactly.",
+          "Prop. 3.2 yields (t_i-t_j)^2 <= L^2(2-q)/(q+2) epsilon; |r_k|<=sqrt(3)L(q-1)sqrt(epsilon)/2 follows from regular-simplex geometry and Cauchy–Schwarz."
+        ],
+        "reasoning": "This is a decisive direct mathematical implication from published theorems for the same objects/parameters. The added linear-algebra bookkeeping does not create a genuinely unproved surviving claim.",
+        "searches": [
+          "Tran arXiv:2610.01216v1 Theorem 2.3 Eq. 4 and Proposition 3.2 Eq. 5",
+          "Tran arXiv:2609.06553v3 regularity equations Proposition 3.2 Eq. 5 and reflection criterion Proposition 9.2 Eqs. 21-22",
+          "Morley simplex approximate reflection symmetry Gram matrix stability source Eq. (4)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Tran 2026 all-dimensional Theorem 2.3 gives H=(2/L^2)K diag(t) P diag(t) K, P=I-J/(n+1).",
+          "The (i,j) contrast of this exact published matrix relation is ||n_i-n_j||^2=(2/L^2) s^T P s for s=diag(t)K(e_i-e_j).",
+          "Here s_i=-(q-1)t_i and s_j=(q-1)t_j; after subtracting c=(s_i+s_j)/2, the remaining entries are precisely the candidate r_k, yielding its full energy equality."
+        ],
+        "reasoning": "The prior global quadratic-form identity determines every pair contrast, including the exact candidate. Centering two coordinates and using P1=0 is a routine re-expression, not an independent theorem.",
+        "searches": [
+          "arXiv:2610.01216v1 Section 2 Theorem 2.3 Eq. (4), normal Gram matrix",
+          "arXiv:2609.06553v3 Section 3 Proposition 3.2 Eq. (5), dimension three normal Gram matrix",
+          "Morley simplex reflection defect epsilon_ij centered weighted row differences exact quadratic stability Gram matrix (Resultary)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary: 2026/10/11/SCOPE-exact-quadratic-stability-identity-for-morley-reflection-defects--7cc72013201d is an exact assigned-self match and was excluded as independent historical priority.",
+          "Resultary: 2026/10/11/SCOPE-a-radical-nonregular-five-simplex-with-regular-morley-simplex--b08ba2d33204 concerns nonregular five-simplex existence, not the quadratic row norm.",
+          "The exact source is not a tabulated scalar constant: the published all-dimensional matrix identity already encodes the scalar formula for each ordered pair."
+        ],
+        "reasoning": "Even absent a separate scalar table, the exact known matrix formula is a stronger exact database of all pairwise normal contrasts. A missing literal table entry cannot establish novelty.",
+        "searches": [
+          "Resultary semantic search Morley simplex higher dimensions reflection defects epsilon_ij centered weighted row differences exact quadratic stability Gram matrix",
+          "Resultary semantic search Morley tetrahedron regular Morley simplex transposition reflection quantitative approximate symmetry epsilon normal projections",
+          "arXiv:2610.01216v1 formula (4) and arXiv:2609.06553v3 formula (5)"
+        ]
+      },
+      "rationale": "The audited equality is a direct algebraic corollary of Tran’s all-dimensional published Theorem 2.3, Eq. (4): H=4K(D^2-dd^T/(n+1))K with D=diag(t_i/(sqrt(2)L)). Taking the (e_i-e_j) contrast gives the complete weighted row-square energy; translating its entries by their special-pair mean immediately yields exactly the candidate centered Q=(L^2/2)(q-1)^2 epsilon. No new hypothesis or nonstandard lemma is required. Tran’s Proposition 3.2 additionally gives the quantitative projection inequality that rearranges to the claimed t_i-t_j bound. The pointwise bound follows by Cauchy–Schwarz and the elementary regular-simplex perpendicular-bisector length. Thus the candidate is materially covered as a corollary of stronger prior source statements, not just a differently titled potentially new result.",
+      "residual_risks": [
+        "The core equality, scale bound, and weighted-row estimate follow directly from previously published normal-Gram equations, so a new-priority claim is not supported even though the exact centered quadratic expression may not be printed verbatim.",
+        "The wording \"sharp square-root scale\" is not certified as a global optimality claim over actual families of regular-Morley simplices approaching the reflection locus. The displayed exact energy identity itself is correct.",
+        "Verification at dimensions 3–11 checks algebra; only the general matrix derivation proves the unbounded dimension statement.",
+        "Original Git blob hashes were supplied by the pinned GitHub connection and independently assembled into the exact tree SHA; complete original blob byte streams were not separately materialized and rehashed locally.",
+        "A protected institutional connection was unavailable during a preliminary access attempt; the relevant companion paper was subsequently read through its openly accessible arXiv HTML, so the literature comparison does not rely on inaccessible content."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DIRECTLY_COVERING: Theorem 2.3 Eq. (4), with the (i,j) contrast and elementary centering, gives the candidate energy identity. Proposition 3.2 supplies its defect and projection inequality.",
+          "evidence": "Theorem 2.3 Eq. (4) and its d_i=t_i/(sqrt(2)L) normalization at lines 162–185; Proposition 3.2 Eq. (5) and proof at lines 197–212.",
+          "identifier_or_url": "https://arxiv.org/html/2610.01216v1",
+          "material_read": "Full statements and proofs of Section 2 normal and Morley-coordinate formulas, Lemma 2.1, Theorem 2.3 including Eq. (4), and Section 3 Propositions 3.1–3.2 including the entire reflection-defect proof; introduction and open-problem discussion.",
+          "method": "Primary open-access arXiv HTML, material inspected in source context.",
+          "title": "Morley Simplices in Higher Dimensions: Regularity, Reflections, and Counterexamples",
+          "trigger": "Exact same n-simplex, Morley regularity, q and t parameters; strongest general prior matrix relation."
+        },
+        {
+          "assessment": "DIRECTLY_COVERING_IN_DIMENSION_3 for the algebraic input: the full Gram and defect inequalities are given, although the candidate’s centered row formula is not written as a separate result.",
+          "evidence": "Section 3 around lines 214–279; Section 9 around lines 541–579; Section 18.1 around lines 1576–1578.",
+          "identifier_or_url": "https://arxiv.org/html/2609.06553v3",
+          "material_read": "Section 3, Proposition 3.2 normal-Gram relation Eq. (5) and proof; Section 9, Proposition 9.2 defect and projection bound Eqs. (21)–(22) and proof; Section 18.1 use of defects and supporting introduction.",
+          "method": "Complete source sections read via primary arXiv HTML.",
+          "title": "The Converse Problem for the Morley Tetrahedron: Counterexamples, Conjectures, and Partial Results",
+          "trigger": "Same Morley geometry with n=3 and reflection defects; potential earlier specialized coverage."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The weighted Morley row difference is a natural symmetry diagnostic, and the reformulation can be useful pedagogically. Nevertheless the displayed exact energy is only a centered (i,j) contrast of the published complete normal-Gram equation, the t-gap bound is a rearrangement of Tran’s printed projection inequality, the pointwise estimate is Cauchy–Schwarz, and the aggregate inequality is the textbook spectrum of I-J/(n+1). The result does not establish an independently unknown exact natural invariant, new extremal case, new realizable optimal stability exponent, or independent structural theorem beyond these mechanical deductions. The mathematics is correct but intrinsically too derivative to be accepted as a distinct valuable research finding; no paper-sized generalization was demanded.",
+      "residual_risks": [
+        "The centered expression may still be a convenient expository lemma; rejection concerns the threshold for a distinct research result rather than its utility as explanation."
+      ],
+      "sources": [
+        "https://arxiv.org/html/2610.01216v1 Theorem 2.3 / Proposition 3.2",
+        "https://arxiv.org/html/2609.06553v3 Proposition 3.2 / Proposition 9.2",
+        "Algebraic implication verified independently"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2610.01216v1 (Sections 2–3: Theorem 2.3 Eq. 4 and Proposition 3.2 Eq. 5, complete statements and proofs)",
+    "https://arxiv.org/html/2609.06553v3 (Sections 3, 9, and 18.1: Proposition 3.2 Eq. 5 and Proposition 9.2 Eqs. 21–22, complete statements and proofs)",
+    "Resultary: 2026/10/11/SCOPE-exact-quadratic-stability-identity-for-morley-reflection-defects--7cc72013201d (assigned finding; excluded from independent priority)",
+    "Resultary: 2026/10/11/SCOPE-a-radical-nonregular-five-simplex-with-regular-morley-simplex--b08ba2d33204 (indexed title and summary; independent geometric existence result, not this identity)"
+  ],
+  "disposition": "failed",
+  "final_claim": "For any nondegenerate real n-simplex n>=3 whose Morley simplex is exactly regular with side L, Tran’s reflection defect epsilon_ij for each i!=j equals 2/(L^2(q_ij-1)^2) times the centered weighted-row positive quadratic energy Q; the exact relation implies the written t_i−t_j and weighted-row square-root bounds and aggregate eigenvalue estimates.",
+  "limitations": [
+    "Correct claim is rejected as known mathematical implication; rejection is not based on numerical tests, literature inaccessibility, or transport.",
+    "The core equality, scale bound, and weighted-row estimate follow directly from previously published normal-Gram equations, so a new-priority claim is not supported even though the exact centered quadratic expression may not be printed verbatim.",
+    "The wording \"sharp square-root scale\" is not certified as a global optimality claim over actual families of regular-Morley simplices approaching the reflection locus. The displayed exact energy identity itself is correct.",
+    "Verification at dimensions 3–11 checks algebra; only the general matrix derivation proves the unbounded dimension statement.",
+    "Original Git blob hashes were supplied by the pinned GitHub connection and independently assembled into the exact tree SHA; complete original blob byte streams were not separately materialized and rehashed locally.",
+    "A protected institutional connection was unavailable during a preliminary access attempt; the relevant companion paper was subsequently read through its openly accessible arXiv HTML, so the literature comparison does not rely on inaccessible content."
+  ],
+  "residual_risks": [
+    "The core equality, scale bound, and weighted-row estimate follow directly from previously published normal-Gram equations, so a new-priority claim is not supported even though the exact centered quadratic expression may not be printed verbatim.",
+    "The wording \"sharp square-root scale\" is not certified as a global optimality claim over actual families of regular-Morley simplices approaching the reflection locus. The displayed exact energy identity itself is correct.",
+    "Verification at dimensions 3–11 checks algebra; only the general matrix derivation proves the unbounded dimension statement.",
+    "Original Git blob hashes were supplied by the pinned GitHub connection and independently assembled into the exact tree SHA; complete original blob byte streams were not separately materialized and rehashed locally.",
+    "A protected institutional connection was unavailable during a preliminary access attempt; the relevant companion paper was subsequently read through its openly accessible arXiv HTML, so the literature comparison does not rely on inaccessible content."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DIRECTLY_COVERING: Theorem 2.3 Eq. (4), with the (i,j) contrast and elementary centering, gives the candidate energy identity. Proposition 3.2 supplies its defect and projection inequality.",
+      "evidence": "Theorem 2.3 Eq. (4) and its d_i=t_i/(sqrt(2)L) normalization at lines 162–185; Proposition 3.2 Eq. (5) and proof at lines 197–212.",
+      "identifier_or_url": "https://arxiv.org/html/2610.01216v1",
+      "material_read": "Full statements and proofs of Section 2 normal and Morley-coordinate formulas, Lemma 2.1, Theorem 2.3 including Eq. (4), and Section 3 Propositions 3.1–3.2 including the entire reflection-defect proof; introduction and open-problem discussion.",
+      "method": "Primary open-access arXiv HTML, material inspected in source context.",
+      "title": "Morley Simplices in Higher Dimensions: Regularity, Reflections, and Counterexamples",
+      "trigger": "Exact same n-simplex, Morley regularity, q and t parameters; strongest general prior matrix relation."
+    },
+    {
+      "assessment": "DIRECTLY_COVERING_IN_DIMENSION_3 for the algebraic input: the full Gram and defect inequalities are given, although the candidate’s centered row formula is not written as a separate result.",
+      "evidence": "Section 3 around lines 214–279; Section 9 around lines 541–579; Section 18.1 around lines 1576–1578.",
+      "identifier_or_url": "https://arxiv.org/html/2609.06553v3",
+      "material_read": "Section 3, Proposition 3.2 normal-Gram relation Eq. (5) and proof; Section 9, Proposition 9.2 defect and projection bound Eqs. (21)–(22) and proof; Section 18.1 use of defects and supporting introduction.",
+      "method": "Complete source sections read via primary arXiv HTML.",
+      "title": "The Converse Problem for the Morley Tetrahedron: Counterexamples, Conjectures, and Partial Results",
+      "trigger": "Same Morley geometry with n=3 and reflection defects; potential earlier specialized coverage."
+    }
+  ]
+}

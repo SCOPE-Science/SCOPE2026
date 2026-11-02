@@ -1,0 +1,239 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T12:49:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and exact Git tree/blobs (7 files)",
+        "Dumitrescu et al., arXiv:math/0407135, Lemma 1",
+        "Independent arclength quadratic-piece verifier (kite_independent_check.py)"
+      ],
+      "rationale": "For every p,q,r>0 and p>=r, convex-curve perimeter-halving lemma reduces dilation to half-perimeter H=s+t divided by shortest halving chord. Complete arclength symmetry reduction gives two affine-vector regimes; the stationary minimum h0 is feasible whenever it beats h1, because G-F=ps(p+r)(s-t)>=0. Hence delta=max{s/q,sqrt(q^2(s+t)^2+(pt+rs)^2)/(q(p+r))}, equivalently max{sec alpha, 2cos((alpha-beta)/2)/sin(alpha+beta)}. For alpha<=pi/4 second branch >=2; for alpha>pi/4 the beta-minimized branch is strictly decreasing while sec alpha is strictly increasing. Their unique crossing is in (pi/4,pi/3) with unique interior beta, yielding the displayed two equations and one similarity class. A separately written full-edge halving-chord optimizer matched formula in 2000 moderate-aspect random triples, maximum relative difference 5.40e-14, and stress-tested limiting aspect cases; 500 independent trig-formula tests agreed to 1.10e-15. Independent root solution alpha=1.0241728055456187, beta=0.3817722511939446, delta=1.9237956679610035. The finite checks are diagnostics only; the exact regime and monotonicity argument supplies the quantified proof.",
+      "residual_risks": [
+        "Extremely ill-conditioned geometric shapes can cause floating-point cancellation in finite implementation; proof uses exact inequalities and does not rely on this numerical domain.",
+        "Global minimizer represented implicitly by two transcendental equations and a numerical root rather than an elementary closed form."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General four-gon lower bound is 4 tan(pi/8)=1.656854..., weaker than sharp kite result.",
+          "Symmetric four-gon theorem gives dilation >=2 for parallelograms and equality for squares; it does not cover non-centrally-symmetric kites.",
+          "The analogous trapezoid exact classification is for neither a superclass nor a similar image of kites."
+        ],
+        "reasoning": "General convex four-gon inequalities are logically weaker and do not imply the sharp minimum or equality classification. Neither the general polygon theory nor the trapezoid subfamily dominates the kite theorem.",
+        "searches": [
+          "arXiv:math/0407135 Section 8.2",
+          "WADS 2005 Section 5.2",
+          "Resultary query: geometric dilation of four vertex convex polygon kite optimal shape"
+        ]
+      },
+      "checked_sources": [
+        "Dumitrescu et al. arXiv:math/0407135v2, complete relevant original sections and visual pages",
+        "Dumitrescu et al. WADS 2005 complete article and p.11 image",
+        "Published SCOPE isosceles-trapezoid classification complete RESULT.md",
+        "Ebbers-Baumann/Grüne/Klein 2007 abstract only; Oxford VPN disconnected",
+        "Grüne 2006 dissertation public abstract/bibliography only; full PDF blocked"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known equality delta=L/(2h) reduces the task to minimizing a halving chord but does not give its two-branch kite formula.",
+          "n-gon bound gives only 1.65685 for n=4; symmetric-polygon theorem covers parallelograms, not asymmetric kites.",
+          "Trapezoid minimizer is 1.89615 and not the proposed kite minimizer 1.92380."
+        ],
+        "reasoning": "The theorem uses a classical general lemma, but the exact kite chord decomposition and global two-parameter unique minimization require additional work. None of the inspected prior statements entails the final claim; no assertion of exhaustive priority is made.",
+        "searches": [
+          "Dumitrescu et al., arXiv:math/0407135, Lemma 1 and Section 8.2",
+          "Dumitrescu et al. WADS 2005, Theorem 3",
+          "Resultary published isosceles trapezoid RESULT.md"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Kite profile uses diagonal half-lengths p,q,r or two angles alpha,beta; arXiv halving-pair formula is a general reduction only.",
+          "Published isosceles-trapezoid three-branch formula concerns a geometrically distinct family."
+        ],
+        "reasoning": "Compared perimeter-halving shortest-chord characterizations, half-diagonal/angle normalizations, and reflected quadrilateral families. Published results inspected do not give an equivalent all-kite two-branch identity or unique non-rhombic optimizer. A failed keyword search is not treated as proof of absence.",
+        "searches": [
+          "\"geometric dilation\" kite unique minimum 1.923795",
+          "\"halving chords\" kite quadrilateral geometric dilation minimum",
+          "\"geometric dilation\" kites polygon minimization",
+          "Resultary query: exact geometric dilation kite quadrilateral perimeter-halving chords asymmetric sharp minimizer",
+          "arXiv:math/0407135 PDF search: kite/quadrilateral"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned the assigned exact self-match, excluded as independent priority evidence.",
+          "Related trapezoid and triangle records involve other polygon families; no independently established exact 1.9237956679 kite table was identified."
+        ],
+        "reasoning": "Searched numerical constant, aliases, and published mathematical-record database. Absence from search is not proof of novelty, and inaccessible historical sources remain risks.",
+        "searches": [
+          "\"1.923795\" geometric dilation",
+          "\"geometric dilation\" \"kite\" optimum",
+          "Resultary semantic search: exact geometric dilation kite quadrilateral perimeter-halving chords asymmetric sharp minimizer",
+          "Resultary semantic search: geometric dilation closed convex curve halving chord shortest chord optimizing kites"
+        ]
+      },
+      "rationale": "Best-of-knowledge original exact two-branch formula and unique asymmetric sharp minimizer for all strictly convex Euclidean kites. General convex-curve halving-pair lemma is prior art; polygon lower bounds, centrally symmetric equality theorem, and isosceles-trapezoid classification do not imply this exact theorem. Inaccessible highly relevant 2007 paper and Grüne thesis are specifically retained as priority risks.",
+      "residual_risks": [
+        "2007 paper on planar curve lower bounds could contain specialized four-gon calculation not disclosed by abstract; full text inaccessible through available routes, Oxford VPN disconnected.",
+        "Ansgar Grüne dissertation PDF was inaccessible and could contain an unindexed kite example or proof.",
+        "A non-indexed historic exact computation or simple unpublished reduction may reproduce this short family-specific calculation."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes convex halving-pair equality and general/symmetric polygon bounds, not an explicit two-parameter kite profile or asymmetric sharp kite minimizer.",
+          "evidence": [
+            "Lemma 1: delta(C)=|C|/(2h) for convex C; Section 8.2 Theorem 10: centrally symmetric n-gon delta >= n/2 tan(pi/n); Corollary 2: arbitrary n-gon delta >= n tan(pi/(2n)); conclusion asks for sharp arbitrary convex polygon bounds."
+          ],
+          "identifier_or_url": "arXiv:math/0407135v2; https://arxiv.org/pdf/math/0407135",
+          "material_read": "Original 31-page preprint: introduction, Lemma 1 on p.5, Sections 7-8, Theorem 10 and Corollary 2 on printed pp.25-26, concluding open problem; PDF page 5 visually inspected; theorem statements in Section 8.2 read from the full parsed PDF text.",
+          "method": "Full searchable arXiv PDF with visual page check",
+          "title": "On the Geometric Dilation of Closed Curves, Graphs, and Point Sets",
+          "trigger": "Primary source of perimeter-halving theorem and general n-gon dilation bounds"
+        },
+        {
+          "assessment": "Gives the perimeter-halving characterization, symmetric n-gon lower bound and generic polygon estimates, not a kite-specific optimizer.",
+          "evidence": [
+            "Lemma 1 gives convex halving-pair equality; Theorem 3 applies to centrally symmetric n-gons, with square equality at n=4."
+          ],
+          "identifier_or_url": "DOI:10.1007/11534273_22; https://page.mi.fu-berlin.de/rote/Papers/pdf/On+geometric+dilation+and+halving+chords.pdf",
+          "material_read": "Full 12-page conference paper including Lemma 1, Sections 2 and 5.2, Theorem 3 and Corollary 1; printed p.11 inspected as page image.",
+          "method": "Full publicly accessible PDF and page screenshot",
+          "title": "On Geometric Dilation and Halving Chords",
+          "trigger": "Full original 2005 conference paper for the same halving methods"
+        },
+        {
+          "assessment": "Covers nondegenerate isosceles trapezoids with a unique optimum 1.89615765, not all kites. Neither family contains the other, and the distinct sharp values show no equivalence through isometry/similarity.",
+          "evidence": [
+            "Trapezoids parameterized by equal legs and two parallel bases; kite family instead has equal adjacent side pairs and a symmetry diagonal, with only square among centrally symmetric regular examples."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+          "material_read": "Full published RESULT.md: assumptions, three halving-chord branches, quintic minimizer, proof, and scope.",
+          "method": "Published repository source file read through GitHub connector",
+          "title": "Sharp geometric dilation among isosceles trapezoids",
+          "trigger": "Closest published SCOPE result for reflection-symmetric four-gons and same dilation invariant"
+        },
+        {
+          "assessment": "Abstract describes general planar-curve lower bounds and circle rigidity. Whole-document coverage of specialized kite calculations remains unknown, not asserted absent.",
+          "evidence": [
+            "Computational Geometry 37 (2007), 188-208; Oxford authorized service responded vpn_disconnected; no bypass."
+          ],
+          "identifier_or_url": "DOI:10.1016/j.comgeo.2004.12.009",
+          "material_read": "Public abstract and bibliographic summary only. arXiv / lawful open-access searches did not yield a readable whole paper.",
+          "method": "Public bibliographic search; authorized institutional full text attempted after OA and preprint searches",
+          "title": "Geometric dilation of closed planar curves: New lower bounds",
+          "trigger": "Plausibly relevant earlier lower-bound paper by authors of the halving-pair method"
+        },
+        {
+          "assessment": "Material unresolved priority risk. No assertion that the dissertation omits the kite formula.",
+          "evidence": [
+            "Dissertation 214 pages; Bonn link access denied by site restriction."
+          ],
+          "identifier_or_url": "Ansgar Gruene, Bonn dissertation (2006); https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/3563",
+          "material_read": "Thesis bibliography, public abstract/figure captions, and online repository information; PDF text could not be read due access denial.",
+          "method": "Bonn repository PDF attempted; access-denied page and unavailable author-uploaded alternative",
+          "title": "Geometric Dilation and Halving Distance",
+          "trigger": "Historical full-length dissertation may contain unindexed specialized examples"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "ArXiv halving-chord literature, general convex polygon bounds",
+        "Published analogous isosceles-trapezoid classification"
+      ],
+      "rationale": "Geometric dilation is a natural worst-detour invariant in convex geometry and embedded networks. This theorem classifies a complete natural non-centrally-symmetric family of four-gons, identifies an exact two-mode shortest-halving-chord profile, and proves a uniquely asymmetric global optimizer strictly below the symmetric square/rhombus bound 2. The exact invariant and extremizer are not known from or immediately implied by published generic bounds; no broader arbitrary-quadrilateral result is claimed.",
+      "residual_risks": [
+        "Value is a precise natural-family classification, not a general sharp bound for all convex quadrilaterals."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Dumitrescu et al. arXiv:math/0407135v2, complete relevant original sections and visual pages",
+    "Dumitrescu et al. WADS 2005 complete article and p.11 image",
+    "Published SCOPE isosceles-trapezoid classification complete RESULT.md",
+    "Ebbers-Baumann/Grüne/Klein 2007 abstract only; Oxford VPN disconnected",
+    "Grüne 2006 dissertation public abstract/bibliography only; full PDF blocked",
+    "Assigned RESULT.md and exact Git tree/blobs (7 files)",
+    "Dumitrescu et al., arXiv:math/0407135, Lemma 1",
+    "Independent arclength quadratic-piece verifier (kite_independent_check.py)"
+  ],
+  "disposition": "passed",
+  "final_claim": "For every nondegenerate convex Euclidean kite with p>=r>0, q>0, dilation equals max{s/q,sqrt(q^2(s+t)^2+(pt+rs)^2)/(q(p+r))}; among all such kites it has the unique asymmetric similarity-class minimum 1.9237956679610035..., characterized by the two explicit angular stationarity/balance equations in RESULT.md.",
+  "limitations": [
+    "The accessible arXiv and conference full texts were compared; the 2007 related paper and dissertation were inaccessible in full.",
+    "The official Git tree and content SHA references were inspected through the connected repository, but original Git file bytes were not independently downloaded and rehashed locally.",
+    "Numerical checks confirm finite instances and implicit optimizer only; universal result relies on proof.",
+    "No repository write, dispatcher closeout or scientific publication has occurred."
+  ],
+  "residual_risks": [
+    "2007 paper on planar curve lower bounds could contain specialized four-gon calculation not disclosed by abstract; full text inaccessible through available routes, Oxford VPN disconnected.",
+    "Ansgar Grüne dissertation PDF was inaccessible and could contain an unindexed kite example or proof.",
+    "A non-indexed historic exact computation or simple unpublished reduction may reproduce this short family-specific calculation.",
+    "Extremely ill-conditioned geometric shapes can cause floating-point cancellation in finite implementation; proof uses exact inequalities and does not rely on this numerical domain.",
+    "Global minimizer represented implicitly by two transcendental equations and a numerical root rather than an elementary closed form."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "Establishes convex halving-pair equality and general/symmetric polygon bounds, not an explicit two-parameter kite profile or asymmetric sharp kite minimizer.",
+      "evidence": [
+        "Lemma 1: delta(C)=|C|/(2h) for convex C; Section 8.2 Theorem 10: centrally symmetric n-gon delta >= n/2 tan(pi/n); Corollary 2: arbitrary n-gon delta >= n tan(pi/(2n)); conclusion asks for sharp arbitrary convex polygon bounds."
+      ],
+      "identifier_or_url": "arXiv:math/0407135v2; https://arxiv.org/pdf/math/0407135",
+      "material_read": "Original 31-page preprint: introduction, Lemma 1 on p.5, Sections 7-8, Theorem 10 and Corollary 2 on printed pp.25-26, concluding open problem; PDF page 5 visually inspected; theorem statements in Section 8.2 read from the full parsed PDF text.",
+      "method": "Full searchable arXiv PDF with visual page check",
+      "title": "On the Geometric Dilation of Closed Curves, Graphs, and Point Sets",
+      "trigger": "Primary source of perimeter-halving theorem and general n-gon dilation bounds"
+    },
+    {
+      "assessment": "Gives the perimeter-halving characterization, symmetric n-gon lower bound and generic polygon estimates, not a kite-specific optimizer.",
+      "evidence": [
+        "Lemma 1 gives convex halving-pair equality; Theorem 3 applies to centrally symmetric n-gons, with square equality at n=4."
+      ],
+      "identifier_or_url": "DOI:10.1007/11534273_22; https://page.mi.fu-berlin.de/rote/Papers/pdf/On+geometric+dilation+and+halving+chords.pdf",
+      "material_read": "Full 12-page conference paper including Lemma 1, Sections 2 and 5.2, Theorem 3 and Corollary 1; printed p.11 inspected as page image.",
+      "method": "Full publicly accessible PDF and page screenshot",
+      "title": "On Geometric Dilation and Halving Chords",
+      "trigger": "Full original 2005 conference paper for the same halving methods"
+    },
+    {
+      "assessment": "Covers nondegenerate isosceles trapezoids with a unique optimum 1.89615765, not all kites. Neither family contains the other, and the distinct sharp values show no equivalence through isometry/similarity.",
+      "evidence": [
+        "Trapezoids parameterized by equal legs and two parallel bases; kite family instead has equal adjacent side pairs and a symmetry diagonal, with only square among centrally symmetric regular examples."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-geometric-dilation-among-isosceles-trapezoids--7a8e4b9fd72b",
+      "material_read": "Full published RESULT.md: assumptions, three halving-chord branches, quintic minimizer, proof, and scope.",
+      "method": "Published repository source file read through GitHub connector",
+      "title": "Sharp geometric dilation among isosceles trapezoids",
+      "trigger": "Closest published SCOPE result for reflection-symmetric four-gons and same dilation invariant"
+    },
+    {
+      "assessment": "Abstract describes general planar-curve lower bounds and circle rigidity. Whole-document coverage of specialized kite calculations remains unknown, not asserted absent.",
+      "evidence": [
+        "Computational Geometry 37 (2007), 188-208; Oxford authorized service responded vpn_disconnected; no bypass."
+      ],
+      "identifier_or_url": "DOI:10.1016/j.comgeo.2004.12.009",
+      "material_read": "Public abstract and bibliographic summary only. arXiv / lawful open-access searches did not yield a readable whole paper.",
+      "method": "Public bibliographic search; authorized institutional full text attempted after OA and preprint searches",
+      "title": "Geometric dilation of closed planar curves: New lower bounds",
+      "trigger": "Plausibly relevant earlier lower-bound paper by authors of the halving-pair method"
+    },
+    {
+      "assessment": "Material unresolved priority risk. No assertion that the dissertation omits the kite formula.",
+      "evidence": [
+        "Dissertation 214 pages; Bonn link access denied by site restriction."
+      ],
+      "identifier_or_url": "Ansgar Gruene, Bonn dissertation (2006); https://bonndoc.ulb.uni-bonn.de/xmlui/handle/20.500.11811/3563",
+      "material_read": "Thesis bibliography, public abstract/figure captions, and online repository information; PDF text could not be read due access denial.",
+      "method": "Bonn repository PDF attempted; access-denied page and unavailable author-uploaded alternative",
+      "title": "Geometric Dilation and Halving Distance",
+      "trigger": "Historical full-length dissertation may contain unindexed specialized examples"
+    }
+  ]
+}

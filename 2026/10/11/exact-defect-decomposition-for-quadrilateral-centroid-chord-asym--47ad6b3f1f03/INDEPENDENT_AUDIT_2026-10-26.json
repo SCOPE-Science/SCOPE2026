@@ -1,0 +1,152 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T08:15:51Z",
+  "axes": {
+    "correctness": {
+      "normalization_and_boundaries": "All 0<=v<=u<1; non-parallelograms have u>0, parallelogram u=v=0 has rho=1; exactly one transition v=u/(u+2) with duplicate chord counted once; square defect vanishes iff u=3/7 and v defect iff v=0.",
+      "proof_paths": [
+        "RESULT.md §§Finding, Proof",
+        "verify.py (source inspected but not blindly executed)",
+        "independent_verifier.py (independently written and executed locally)"
+      ],
+      "rationale": "Affine normal form from intersecting diagonals, positive x>=y>=1 and 0<=v<=u<1 covers all nondegenerate convex quadrilaterals up to affine/dihedral relabeling. Area centroid G=((x-1)/3,(1-y)/3) follows by triangle area weighting. Solving the linear endpoint equations for all six edge pairs shows only three distinct valid bisected chords: (1,2),(1,3), plus (0,2) when v<=u/(u+2) or (2,3) when v>=u/(u+2); at the interface the latter two represent the same vertex chord. The other two edge pairs have parameters outside [0,1]. Directed shoelace areas yield a12,a13,a02,a23 as displayed; difference factors and domain signs give a12<=all<=a13. Independent exact-rational geometry checks: 127 configurations including v=0, v=u, chamber boundary and u=3/7,v=0; exact chord count 3 and exact area-ratio agreement in every case. Independent SymPy simplification proves the displayed rho formula and two-term defect identity. Delta>0 and B>0 on 0<=v<=u<1, so equality iff u=3/7,v=0; parallelogram endpoint rho=1. Additionally d(rho)/dv=v(1-u)P/[(1+u)Delta²]>0 for 0<v<=u, by explicit polynomial coefficient bounds. The rational finite checks supplement the algebraic proof, rather than proving it by sampling.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The 2015 source is a general study of alpha-sections and centroidal chords and explicitly discusses quadrilaterals, but publishes no theorem evaluating rho for all affine-moduli pairs (u,v).",
+          "Its midcurve/three-chord statements concern existence and geometry of chords, not area-fraction quotient profiles or the exact positive defect splitting."
+        ],
+        "reasoning": "A general convex-body theorem with the exact centroid-chord quotient would cover this special case even under different language. The most directly applicable full-text primary source was checked: no implication giving rho(u,v) or its monotone reduction was found. Other retrieved generic convex-body and quadrilateral geometry sources do not supply a stronger formula on the inspected evidence.",
+        "searches": [
+          "Resultary: alpha sections quadrilateral centroid ratio three midpoint chords full moduli formula",
+          "Resultary: centroid-chord asymmetry quadrilateral fixed u diagonal bisection stability",
+          "Web: quadrilateral centroid chord asymmetry ratio full formula diagonal two parameters stability defect 24/25",
+          "Web: \"midpoint\" \"mass center\" \"quadrilateral\" \"asymmetry\" chords",
+          "arXiv:1509.02084v1 §§8.8–8.9"
+        ]
+      },
+      "checked_sources": [
+        "Chevallier–Fruchard–Vîlcu, Envelopes of alpha-sections, arXiv:1509.02084v1, especially printed pp.18–19",
+        "Resultary semantic-search result sets (three actual queries), 2026-10-26, excluding the assigned finding self-match",
+        "Independent public-web mathematical exact-form/alias searches (six actual queries)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: 24/25 is the smallest quadrilateral quotient, with equality at the c=7/4 affine family, reported via Maple.",
+          "New: closed rational formula for rho(u,v) at every 0<=v<=u<1, and exact split rho-24/25=(7u-3)^2/[25(9-u)(1+u)]+v²(1-u)B/[(9-u)(1+u)Delta].",
+          "Independent rational-geometry verification obtained exact matches on 127 pairs, with analytical sign analysis establishing positivity and fixed-u monotonicity for the displayed formula."
+        ],
+        "reasoning": "The scalar sharp inequality and equality orbit logically cannot imply the off-extremum two-parameter profile: infinitely many functions have the same minimum and minimizer. Source one-parameter formulas constrain only v=0. Direct symbolic geometry supplies new pointwise relations. This is a bounded exact structural refinement, not a new sharp constant.",
+        "searches": [
+          "arXiv:1509.02084v1 printed p.19 Section 8.9",
+          "Resultary: quadrilateral centroid-bisecting chords asymmetry 24/25 exact affine two-variable defect decomposition diagonal ratios",
+          "Resultary: centroid-chord asymmetry quadrilateral fixed u diagonal bisection stability",
+          "Web: \"centroid\" \"chords\" \"quadrilateral\" \"24/25\" mathematical"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The 2015 paper defines the same quotient alpha_min/alpha_max and states minimum 24/25 for quadrilaterals at c=7/4; it only writes chord areas for its example family.",
+          "The explicit two-variable rho(u,v) and v²-dependent defect in assigned RESULT.md are not stated in inspected relevant primary sections.",
+          "The exact semantic-index self-match is explicitly excluded as prior independent evidence."
+        ],
+        "reasoning": "Coordinate aliases include alpha-section midpoint chords, mass-center chords, alpha_min/alpha_max, diagonal intersection ratios and affine quadrilateral moduli. Existing one-variable c family yields rho along a strict subfamily only and cannot identify arbitrary v dependence; the 2015 reported scalar minimum alone does not determine a full pointwise function.",
+        "searches": [
+          "Resultary: quadrilateral centroid-bisecting chords asymmetry 24/25 exact affine two-variable defect decomposition diagonal ratios",
+          "Resultary: alpha sections quadrilateral centroid ratio three midpoint chords full moduli formula",
+          "Resultary: centroid-chord asymmetry quadrilateral fixed u diagonal bisection stability",
+          "Web: Envelopes of alpha-sections Chevallier Fruchard Vilcu quadrilaterals ratio 24/25 centroid chords Maple",
+          "Web: \"centroid\" \"chords\" \"quadrilateral\" \"24/25\" mathematical",
+          "arXiv:1509.02084v1 §§8.8–8.9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The published 24/25 extremum is a previously known scalar table-like entry (2015 Section 8.9), explicitly not claimed new.",
+          "Semantic database returned exact self-match but no independent entry describing the full centroid-chord moduli profile.",
+          "The full symbolic two-dimensional formula and defect equality are reconstructed from geometric endpoints and displayed rational identities, not copied from a known published table."
+        ],
+        "reasoning": "Known extremum/equality does not cover every point on two-dimensional affine-moduli space. Search results are negative evidence only and do not certify novelty; the affirmative comparison rests on the exact published 2015 statements.",
+        "searches": [
+          "Resultary: quadrilateral centroid-bisecting chords asymmetry 24/25 exact affine two-variable defect decomposition diagonal ratios",
+          "Resultary: alpha sections quadrilateral centroid ratio three midpoint chords full moduli formula",
+          "Web: quadrilateral centroid chord asymmetry ratio full formula diagonal two parameters stability defect 24/25",
+          "Web: quadrilateral centroid chord midpoint area ratio 24/25 7/4 exact formula",
+          "Web: \"centroid\" \"chords\" \"quadrilateral\" \"24/25\" mathematical",
+          "Web: \"alpha_min\" \"alpha_max\" \"quadrilateral\" diagonal formula"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty attaches ONLY to the full affine two-modulus pointwise rho-profile, exact positive two-term defect identity, and fixed-u reduction. The sharp scalar 24/25 lower bound and affine equality class were already in Chevallier–Fruchard–Vîlcu (2015) and are not credited as new. The materially read Section 8.9 reports the known extremum using Maple, but does not state the general rho(u,v) formula or the positive v² defect. No stronger implication identified in separate alias, formula, or semantic-index searches. Published self-match excluded from priority.",
+      "residual_risks": [
+        "An unpublished Maple worksheet associated with the 2015 quadrilateral computation could contain the same full moduli formula or equivalent defect identity, but unpublished/private material was neither assumed nor presented as prior publication.",
+        "An unindexed published note under affine quadrilateral/centroidal midpoint-chord terminology may contain an equivalent two-parameter result. Negative searches are not novelty proof.",
+        "The published source was inspected in its most relevant sections; other sections or obscure appendix notation could theoretically hide an implication, although no such result was found in the available text."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERING: exact scalar quadrilateral lower bound 24/25, extremal affine class c=7/4, example-family chord areas. NOT_COVERING the full two-dimensional diagonal-asymmetry formula, a formula for rho(u,v), the v-dependent positive defect, or the new fixed-u monotonic comparison.",
+          "evidence": "Printed p.19 Section 8.9 explicitly says the quadrilateral minimization was found using Maple and provides c=7/4 and alpha_min/alpha_max=24/25; immediately preceding examples concern the one-parameter O,I,J,C family, not arbitrary affine diagonal ratios. Section 8.8 discusses midcurves and the three chord situation.",
+          "identifier_or_url": "arXiv:1509.02084v1; https://arxiv.org/pdf/1509.02084",
+          "material_read": "Full public arXiv PDF was opened; title/abstract and introductory framing, Section 8.8 (printed p.18), complete Section 8.9 (printed p.19), including the displayed family calculations, diagram, Maple minimum paragraph, and reference [30] context. The two relevant pages were visually inspected as PDF screenshots.",
+          "method": "Read arXiv 22-page PDF text at the relevant sections and inspect its printed pages 18-19 as rendered page images.",
+          "title": "Envelopes of alpha-sections",
+          "trigger": "Introduces the exact centroid-bisecting-chord alpha_min/alpha_max ratio and reports quadrilateral 24/25 extremum."
+        },
+        {
+          "assessment": "The exact same-title indexed result is the subject under audit, so it is excluded as independent priority evidence. The retrieved near-title summaries do not state the same centroid-chord two-coordinate formula. Primary-literature implication check remains anchored to the materially read 2015 paper.",
+          "evidence": "Results included self-match id 2026/10/11/SCOPE-exact-defect-decomposition-for-quadrilateral-centroid-chord-asym--47ad6b3f1f03; related hit 2026/10/11/SCOPE-exact-makai-volume-product-profile-of-convex-quadrilaterals--82932c1e6034 concerns Makai product, not centroid-bisecting chord areas.",
+          "identifier_or_url": "Resultary_Search queries (2026-10-26); https://github.com/Resultary/2026",
+          "material_read": "Three semantic-search result lists and their titles/summaries were examined. The first returned exact title is the assigned finding itself; near hits involve distinct quadrilateral invariants, convex-body asymmetries, polygonal chord moments and general centroid questions.",
+          "method": "Read semantic-search summaries only; not treated as full-paper inspections, and no NOT_COVERING claim about the complete source files inferred from snippets.",
+          "title": "Published mathematical-record semantic search — exact self-match and related geometry",
+          "trigger": "Search for published scientific claims, equivalent exact identities, and stronger generalizations."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The quotient is a natural affine asymmetry invariant explicitly introduced in the original centroidal-section literature; arbitrary nondegenerate quadrilaterals form a complete two-parameter affine moduli chamber. The known scalar extremum 24/25 does not evaluate the quotient at other quadrilaterals. The exact full-moduli profile and positive separated defects identify the contribution of each diagonal imbalance and a unique fixed-u minimizer, providing a reusable analytic stability description and potential starting point for other polygons or convex bodies. This is a motivated exact structural classification, not a renaming or recomputation of a known table entry. No higher-dimensional or general-body theorem is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Chevallier–Fruchard–Vîlcu, Envelopes of alpha-sections, arXiv:1509.02084v1, especially printed pp.18–19",
+    "Resultary semantic-search result sets (three actual queries), 2026-10-26, excluding the assigned finding self-match",
+    "Independent public-web mathematical exact-form/alias searches (six actual queries)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Sole scientific claim is about centroid-bisecting chord fractions of strictly convex-position quadrilaterals, not the general all-convex-body minimum.",
+    "The original 24/25 numerical bound and c=7/4 equality class belong to Chevallier–Fruchard–Vîlcu (2015); no novelty credited for those alone.",
+    "Exact-rational tests cover 127 selected configurations and are not a replacement for algebraic universal proof.",
+    "The seven Git tree entries and all file contents were inspected through the connected GitHub interface and the Git tree SHA reconstructed, but original UTF-8 Git blob byte hashes were not independently rehashed in the local container."
+  ],
+  "residual_risks": [
+    "An unpublished Maple worksheet associated with the 2015 quadrilateral computation could contain the same full moduli formula or equivalent defect identity, but unpublished/private material was neither assumed nor presented as prior publication.",
+    "An unindexed published note under affine quadrilateral/centroidal midpoint-chord terminology may contain an equivalent two-parameter result. Negative searches are not novelty proof.",
+    "The published source was inspected in its most relevant sections; other sections or obscure appendix notation could theoretically hide an implication, although no such result was found in the available text."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "COVERING: exact scalar quadrilateral lower bound 24/25, extremal affine class c=7/4, example-family chord areas. NOT_COVERING the full two-dimensional diagonal-asymmetry formula, a formula for rho(u,v), the v-dependent positive defect, or the new fixed-u monotonic comparison.",
+      "evidence": "Printed p.19 Section 8.9 explicitly says the quadrilateral minimization was found using Maple and provides c=7/4 and alpha_min/alpha_max=24/25; immediately preceding examples concern the one-parameter O,I,J,C family, not arbitrary affine diagonal ratios. Section 8.8 discusses midcurves and the three chord situation.",
+      "identifier_or_url": "arXiv:1509.02084v1; https://arxiv.org/pdf/1509.02084",
+      "material_read": "Full public arXiv PDF was opened; title/abstract and introductory framing, Section 8.8 (printed p.18), complete Section 8.9 (printed p.19), including the displayed family calculations, diagram, Maple minimum paragraph, and reference [30] context. The two relevant pages were visually inspected as PDF screenshots.",
+      "method": "Read arXiv 22-page PDF text at the relevant sections and inspect its printed pages 18-19 as rendered page images.",
+      "title": "Envelopes of alpha-sections",
+      "trigger": "Introduces the exact centroid-bisecting-chord alpha_min/alpha_max ratio and reports quadrilateral 24/25 extremum."
+    },
+    {
+      "assessment": "The exact same-title indexed result is the subject under audit, so it is excluded as independent priority evidence. The retrieved near-title summaries do not state the same centroid-chord two-coordinate formula. Primary-literature implication check remains anchored to the materially read 2015 paper.",
+      "evidence": "Results included self-match id 2026/10/11/SCOPE-exact-defect-decomposition-for-quadrilateral-centroid-chord-asym--47ad6b3f1f03; related hit 2026/10/11/SCOPE-exact-makai-volume-product-profile-of-convex-quadrilaterals--82932c1e6034 concerns Makai product, not centroid-bisecting chord areas.",
+      "identifier_or_url": "Resultary_Search queries (2026-10-26); https://github.com/Resultary/2026",
+      "material_read": "Three semantic-search result lists and their titles/summaries were examined. The first returned exact title is the assigned finding itself; near hits involve distinct quadrilateral invariants, convex-body asymmetries, polygonal chord moments and general centroid questions.",
+      "method": "Read semantic-search summaries only; not treated as full-paper inspections, and no NOT_COVERING claim about the complete source files inferred from snippets.",
+      "title": "Published mathematical-record semantic search — exact self-match and related geometry",
+      "trigger": "Search for published scientific claims, equivalent exact identities, and stronger generalizations."
+    }
+  ]
+}

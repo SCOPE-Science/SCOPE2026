@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The four neighbors of each graph vertex give one tetrahedral facet. The two vertices two steps apart in the cycle direction have one common graph neighbor for all \(n\ge5\), so the displayed triangle–tetrahedron and edge–triangle pairs are genuine independent elementary collapses. The remaining triangles have coherent integer orientations and single-cycle vertex links. Their connected closed oriented surface has Euler characteristic zero, so the asserted PL torus core follows. The graph-automorphism lemma proves the noncirculant property. The standalone finite verifier is corroboration, not the infinite proof.
+## correctness
 
-## Originality — PASS, with residual risk
-Shukla's 2019 circulant theorem covers part of the family; those cyclic instances are not claimed as new. The infinite subfamily with \(3\mid n\) is provably noncirculant, hence not covered by that theorem. The inspected 2026 product theorem specifically assumes \(m\ge4\), and the separate 2026 square-grid theorem excludes periods of length three. No stronger covering theorem was identified from the actual research-record queries or accessible historical claims. Unindexed equivalent work remains possible.
+PASS
 
-## Value — PASS
-The three-color case of the product family is a motivated sharp structural boundary: its open-neighborhood complex is an aspherical torus with nonzero degree-one cup product, unlike the higher-color sphere wedges. Uniform simple-homotopy collapses work for infinitely many noncirculant four-regular graphs.
+Each vertex of K3 square Cn (n>=5) has the exact four-vertex open neighborhood tetrahedron F_{i,a}. Opposite-layer edge {v_{i−1,a},v_{i+1,a}} has exactly one common graph neighbor, yielding two genuine sequential elementary collapses per center (triangle/tetrahedron, then edge/triangle), for 6n steps. The surviving 6n triangles have 3n vertices and 9n edges, every edge lies in two oppositely oriented triangles, every vertex link is a single hexagon, and the complex is connected, orientable, closed, Euler characteristic zero: it is a PL torus. Thus pi1=Z² and integral cup pairing unimodular. The only graph triangles are K3 fibers, so Aut(G_n)=S3×Dn and no automorphism acts as a 3n-cycle when 3 divides n, proving noncirculant infinite subfamily. Fresh independent finite complex enumerator checked free face pairs and exact final simplices for n=5,6,7,9,12; the arbitrary-n proof is local/surface-theoretic.
 
-## Limitations
-The theorem concerns the open-neighborhood functor for \(n\ge5\), not closed neighborhoods or short cycles. It makes no new claim for previously classified circulant instances, and does not provide equivariant classification or independent scientific certification. Primary comparisons inspected Shukla 2019 and both adjacent 2026 full research records.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The 2019 Shukla primary theorem on four-regular circulants covers only the circulant portion; the 3|n infinite family is provably outside its assumptions. Two especially close October 2026 primary Resultary records were read in full: one requires K_m with m>=4 and expressly excludes m=3; another requires no lattice period shorter than five and excludes the triangle fiber. Neither implies the claimed 6n torus collapse of K3 square Cn. Unindexed classification of the noncirculant subfamily is a residual risk.
+
+## value
+
+PASS
+
+This computes a natural missing boundary of the established K_m square Cn neighborhood-complex series. The m=3 case changes from higher-m sphere wedges to an aspherical torus with nontrivial cup product, including infinitely many genuine noncirculant graphs. Uniform explicit simple-homotopy collapses give motivated structural information rather than a tiny numerical census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

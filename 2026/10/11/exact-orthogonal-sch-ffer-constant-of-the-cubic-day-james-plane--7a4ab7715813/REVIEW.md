@@ -1,15 +1,12 @@
-# Same-model review
+# Mathematical review
 
 ## Correctness
-PASS. The proof exhausts cubic arcs, taxicab facets, and axes. Smooth strata have forced Birkhoff directions; axes use the complete norming-functional cone. A strict \(4/3\) bound removes noncompetitive cases, and an exact derivative factorization proves the remaining cubic branch is minimized at the diagonal. The balanced pair attains the radical. Exact symbolic replay verifies the nontrivial identities.
+The complete sphere-stratum proof yields the claimed exact radical for the Birkhoff--James orthogonal Schäffer constant. Smooth cubic arcs, opposite-sign taxicab facets, and both nonsmooth axis families are covered. The derivative sign is controlled analytically, not by finite sampling. The balanced pair attains equality.
 
 ## Originality
-PASS. Baronti--Papini Example 5.7 is the decisive same-object, same-invariant source and states only \(g_\perp\approx1.2987\), explicitly noting the calculation difficulty. The proposed radical evaluates to that decimal. Yang--Li concern the classical James constant. Searches over aliases, the decimal, and the radical found no exact equivalent.
+Baronti--Papini's 2022 Example 5.7 gives exactly the same invariant and norm but only a numerical value of approximately 1.2987. Martín--Papini's 2024 analysis concerns different extrema; Yang--Li 2016 determines the classical James constant. Related published calculations for p=2 or for J_perp do not imply the cubic g_perp value. Priority remains best-of-knowledge.
 
-## Value
-PASS. The orthogonal Schäffer constant is a natural Birkhoff--James restriction of a classical Banach-space invariant. The source itself singles out this cubic Day--James example with only a numerical answer, so the exact radical closes a natural benchmark and supplies a structural extremizer.
+## Mathematical value
+The exactification supplies a closed form and structural extremal witness for a natural benchmark explicitly highlighted in the literature. Its scope is a single real Banach plane, not the complete Day--James parameter family.
 
-## Closest literature and limitations
-Baronti--Papini is inspected in full and gives the same value numerically. Yang--Li provide earlier classical geometry of the same space. The theorem does not give a general \(\ell_p-\ell_1\) profile, and a differently notated later derivation remains a bibliographic risk.
-
-Same-model review: passed. Independent audit: not yet performed.
+The symbolic checks corroborate exact identities. No Lean verification or external expert attestation is claimed.

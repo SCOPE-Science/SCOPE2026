@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-## Mathematical checks
+# Independent mathematical audit
 
-The support function is obtained exactly from the vertex set:
-\[
-H(\phi)=\max\{0,2\cos\phi,\cos\phi+\sin\phi,\sin\phi\}.
-\]
-The edge support numbers are \(0,\sqrt2,1,0\). The nonnegative-dependence cone of the four edge normals has the two extreme generators \(n_b+n_t=0\) and \(n_b+\sqrt2n_r+n_\ell=0\), which yield the exact containment thresholds \(W(t)\) and \(Q(t)\).
+## correctness
 
-The width branches are checked on the full angular domain modulo \(\pi\). The set on which \(W(t)<3/\sqrt5\) is covered by the three stated intervals; on each, \(Q(t)\geq3/\sqrt5\). At \(t=2\pi-\arctan(1/2)\), both thresholds equal \(3/\sqrt5\). The other boundary points have a strictly larger \(Q\), establishing uniqueness of the minimizing axis.
+PASS
 
-No numerical sampling is used to prove the infinite family of orientation inequalities. The conclusion is limited to the specified trapezoid. Independent audit and independent validation remain unperformed.
+The support H(phi)=max(0,2cos(phi),cos(phi)+sin(phi),sin(phi)) and target reflected edge normals allow exact containment by four halfspaces. Their nonnegative dependence cone has precisely two extremal generators, producing two necessary-and-sufficient dilation thresholds W(t) (width) and Q(t) (three-side balance), where t=2theta. The piecewise exact width profile shows W<3/sqrt5 only on three explicitly identified angular intervals, where direct support branches prove Q>=3/sqrt5. At t=-atan(1/2), both equal 3/sqrt5, with other angular cases strictly larger, proving global value and uniqueness. Fresh independent support-function grid over 100001 orientations finds minimum 1.3416484 and exact analytic witness 1.3416407865; the proof of continuum bound comes from piecewise inequalities, not sampling.
+
+## originality
+
+PASS
+
+PASS best of knowledge: Caragea et al 2025 define Minkowski chirality and prove general bounds and exact optimizer classifications for triangles and parallelograms, not non-centrally-symmetric right trapezoids; their general inequality supplies neither equality nor unique axis for this K. Relevant Resultary published-record hits concern ordinary Minkowski asymmetry or different trapezoid invariants, not the reflected-copy translative circumradius. No inspected exact covering theorem was found, but unindexed polygon optimization remains a risk.
+
+## value
+
+PASS
+
+PASS: The trapezoid is the simplest integer-coordinate non-parallelogram right quadrilateral, a natural first nonsymmetric test case for the newly introduced reflectional containment invariant. The exact nontrivial value and unique optimal direction supply a reproducible benchmark for extending the literature from triangles/parallelograms to general quadrilaterals. This is a narrow complete exact invariant, not a general sharp bound or an arbitrary unmotivated parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,233 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T02:38:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS for the precise FINITE capped statement. Starting from gamma=(0,2,4,7,3,8,6,1,5), with each cyclic position rotation identified and Vernitski's exact T±, X, R, S definitions, I reconstructed both the package BFS and an independent two-stage exhaustive closure calculation. D_9(gamma) has 18 words; all admissible additions from these yield 2916 distinct eleven-petal seeds. Closing those under R and S gives precisely 3168 eleven-petal words; their 144 distinct D_11 orbits each have size 22, so all stabilizers are trivial. An independent complete test of every crossing-exchange basepoint and height pair found zero applicable X across all 3186 states. All eleven-petal deletions land in the nine-petal gamma orbit, nine-petal states have no deletion/X, and every eleven-petal orbit contains a directly added seed. Thus the enumerated union is closed under every allowed capped move, contains gamma and is entirely reachable, and its simple quotient is K_{1,144}; all inter-orbit edges are T±. The independent 2-stage algorithm did not use the source's BFS for completeness. The known 3186/18/3168 totals from Vernitski independently cross-check. The package script, inspected before execution and transcribed for a local replay, also prints VERIFY_OK with the same orbit and edge profile. No claim is made about paths with at least 13 petals or the unrestricted move graph. The Git source tree was independently reconstructed by Git tree-object SHA-1 from all seven actual returned entries and matched the assigned SHA; locally transcribed script bytes differ from the repository blob and are not claimed to be identical.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Vernitski §6.1: every eleven-petal T^- from the closed 3186-state component returns to the 18-word orbit of gamma; neither freeness nor inter-orbit X adjacency follows.",
+          "Vernitski Cor. 6.2: gamma remains hard after adding short composites, a different implication about monotone reduction.",
+          "Colton et al. Theorem 1: any isotopic petal permutations are connected by moves, without bounded-length or capped-state orbit classification."
+        ],
+        "reasoning": "The broader move-completeness, excess/hardness, and component-closure theorems do not determine the specific orbit adjacency graph. The new computation additionally establishes zero crossing exchanges on every capped component state and that each eleven-petal orbit contains a direct addition from gamma. Hence no stronger covering implication was identified.",
+        "searches": [
+          "Primary source: arXiv:2610.01596v1, Result B, Result C, §§3,5--6, Corollary 6.2 and full text",
+          "Primary move-theorem: arXiv:1812.08930v1, Theorem 1 and §2",
+          "Resultary query: Petal diagram hardness unknot crossing exchange gamma 3186 11 petals connected component exact orbit quotient structural compression"
+        ]
+      },
+      "checked_sources": [
+        "Vernitski, Some petal diagrams of the unknot are hard, arXiv:2610.01596v1, https://arxiv.org/pdf/2610.01596, 2026-10-01",
+        "Colton et al., A Reidemeister type theorem for petal diagrams of knots, arXiv:1812.08930v1, https://arxiv.org/pdf/1812.08930, 2018",
+        "Published SCOPE/Resultary eleven-petal local rigidity census, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171/RESULT.md",
+        "Published SCOPE/Resultary alpha-beta move-distance result, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eight-move-untangling-distances-for-two-minimal-hard-petal--84c0c8215d06/RESULT.md",
+        "Published SCOPE/Resultary height-rotation-fixed words, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-height-rotation-symmetry-forces-crossing-exchange-rigidity-in-pe--664be5780199/RESULT.md",
+        "Resultary exact candidate self-match https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-quotient-of-the-gamma-petal-trap-is-a-144-leaf-star--ee5e67fe421b (excluded from independent priority evidence)",
+        "Public web exact/alias query results for gamma, 3186, 144, star and orbit adjacency"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eight-move-untangling-distances-for-two-minimal-hard-petal--84c0c8215d06/RESULT.md proves exact distances of alpha and beta, specifically excludes gamma; it does not determine gamma capped component quotient.",
+          "Published https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-height-rotation-symmetry-forces-crossing-exchange-rigidity-in-pe--664be5780199/RESULT.md classifies height-rotation-fixed words p_s and local move rigidity for all odd N; gamma has a full 18-element D_9 orbit and belongs to a different object class.",
+          "Vernitski publishes gamma orbit size 18, eleven-petal state count 3168 and T^- return behavior, without the 144 free eleven-petal orbits or X-absence calculation."
+        ],
+        "reasoning": "The candidate is an exact finite-state quotient classification. Neither a shortest-path classification of different words nor global local rigidity/rotation-fixed families implies the full induced quotient adjacency. A source that provides an exhaustive enumeration algorithm makes this question computable, but does not by its stated theorems furnish the exact star classification. An unindexed equivalent computation remains possible and is a residual priority risk.",
+        "searches": [
+          "Resultary closest hit: exact eight-move untangling distances for two minimal hard petal unknots",
+          "Resultary closest hit: height-rotation symmetry forces crossing-exchange rigidity in petal diagrams",
+          "Read same source arXiv:2610.01596, Results B--C and proof of Result C"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Vernitski, arXiv:2610.01596v1, Result C and §6.1: gamma capped reachable set has 3186 states, of which 3168 have eleven petals; the text gives no D_11 orbit enumeration nor quotient graph.",
+          "Colton--Glover--Hughes--Sandberg, arXiv:1812.08930v1, §§2.1--2.3 and Theorem 1: isotopy-preserving petal moves and completeness, without the gamma finite-state quotient.",
+          "Resultary exact self-match https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-quotient-of-the-gamma-petal-trap-is-a-144-leaf-star--ee5e67fe421b was excluded from priority evidence."
+        ],
+        "reasoning": "Equivalent descriptions include symmetry-reduced gamma move graph, 145 quotient nodes, freeness of 144 D_11 orbits, or absence of crossing-exchange inter-orbit edges. The primary source establishes the unquotiented capped-state count, not those statements. A number 3168 divisible by 22 does not force free orbits, and deletion return to gamma does not alone exclude X-edges. The matching Resultary finding is the candidate itself, not independent prior art.",
+        "searches": [
+          "Resultary query: Dihedral symmetry quotient of Vernitski hard nine-petal unknot gamma (0 2 4 7 3 8 6 1 5) eleven-petal 3186 trapped state graph 144 orbits star adjacency",
+          "Resultary query: Petal diagram hardness unknot crossing exchange gamma 3186 11 petals connected component exact orbit quotient structural compression",
+          "web query: Alexei Vernitski Some petal diagrams of the unknot are hard 3186 dihedral orbits star graph quotient",
+          "web query: gamma 144 petal dihedral graph unknot"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Vernitski Table 2 tabulates nine-petal graph components, not D_11 gamma orbit counts; §5.3 and Result C supply 3186=18+3168 and closure but not an explicit 145-node quotient table.",
+          "Published Resultary local-rigidity census https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171/RESULT.md exhaustively enumerates all 10! eleven-petal words, yielding 12,786 locally rigid dihedral orbits globally; its theorem does not select the gamma capped reachable component or compute its quotient adjacency.",
+          "The candidate’s own Resultary publication is a self-match, excluded as independent priority evidence."
+        ],
+        "reasoning": "The precise data needed are both the orbit partition of the 3168 gamma-reachable eleven-petal words and the induced edges. Global local rigidity counts and the original raw size 3168 are not an exact database/table of that quotient, nor do the displayed counts uniquely imply K_{1,144}. The original ancillary code may permit recomputation; executable reproducibility alone does not constitute a published quotient theorem.",
+        "searches": [
+          "Resultary two petal-gamma queries above; inspected exact eleven-petal local-rigidity census, full RESULT.md",
+          "web: \"dihedral\" \"3168\" \"petal\" \"gamma\"",
+          "web: \"petal\" \"144\" \"11\" \"hard\" \"Vernitski\"",
+          "Vernitski Table 2 and §5.3; ancillary computation description"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the full orbit-and-adjacency classification, NOT for the 3186-state count: Vernitski Result C already proves the latter. The full 13-page 2026 primary paper was materially read at the definitions, finite-search protocol, Results B--C and gamma section, and lacks the 144 free D_11-orbit partition and the no-inter-orbit-X statement. That absence was assessed at statement/implication level rather than title alone. The independent 2018 move theorem, global eleven-petal local-rigidity census, and alpha/beta shortest-distance finding do not cover gamma's quotient. The Resultary search finds the exact candidate itself; self-match is excluded. Priority remains qualified by possible ancillary-code/private-table derivations and unindexed computations; search absence is not itself a novelty proof.",
+      "residual_risks": [
+        "An unindexed prior computation or ancillary data file of the gamma capped graph could already include the exact 144 free orbit and star quotient.",
+        "The original published 3186-state enumeration is complete but the derived orbit theorem is elementary once a machine-readable full state list is available; historical computational priority cannot be excluded absolutely.",
+        "The classification is only for the eleven-petal cap and does not extend to the unrestricted move graph."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING for the candidate quotient theorem; COVERING for the 3186-state closed component, 18/3168 layer counts and nine-petal gamma orbit.",
+          "evidence": [
+            "Result C pp2 and §6.1 p12: 3186=18+3168 and all T^- from eleven-petal states go to gamma orbit.",
+            "§§3.1--3.4 pp4--6 define T±, X, R and S; the dihedral group has order 2N.",
+            "No explicit eleven-petal orbit-size profile, universal absence of X in the gamma component, or 144-leaf quotient star in the inspected primary results."
+          ],
+          "identifier_or_url": "Alexei Vernitski, arXiv:2610.01596v1; https://arxiv.org/pdf/2610.01596",
+          "material_read": "Full 13-page OA preprint text, with detailed inspection of §§2--3, §5 finite search, §6 Results B--C and §6.1 gamma proof, Corollary 6.2, questions and references; rendered screenshots of pp5,9,12.",
+          "method": "Open-access arXiv PDF, full-text reading and page rendering, comparison of exact statements and their implications against dihedral orbit/adjacency conclusions.",
+          "title": "Some petal diagrams of the unknot are hard",
+          "trigger": "Same gamma word, same nine-/eleven-petal capped state set and exact move definitions; decisive primary source."
+        },
+        {
+          "assessment": "NOT_COVERING specific finite gamma quotient; establishes foundational move definitions and isotopy completeness.",
+          "evidence": [
+            "Theorem 1 says any isotopic petal permutations connect through petal moves, not how a specified finite cap quotient decomposes.",
+            "§2 gives the precise consecutive-height insertion/deletion and nested paired-position X rules."
+          ],
+          "identifier_or_url": "Colton, Glover, Hughes, Sandberg; arXiv:1812.08930v1; https://arxiv.org/pdf/1812.08930",
+          "material_read": "OA 21-page PDF, abstract, Theorem 1, §2.1 trivial additions/deletions and §§2.2--2.3 left/right pairs and crossing exchanges, including rendered page 3.",
+          "method": "Material reading and definition comparison with the package implementation and Vernitski §3.",
+          "title": "A Reidemeister type theorem for petal diagrams of knots",
+          "trigger": "Original primary definitions and completeness of the petal addition, deletion and crossing exchange moves."
+        },
+        {
+          "assessment": "NOT_COVERING: global locally rigid word table neither isolates the 3168 gamma-reachable states nor determines 144-vertex quotient adjacency.",
+          "evidence": [
+            "Reports 270630 D-locally-rigid words in 12786 orbits of sizes 1,11,22; does not classify the gamma component; explicitly references the candidate as an earlier result, so is not independent covering evidence."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171/RESULT.md",
+          "material_read": "Full accessible RESULT.md, including exact global counts, orbit-size distribution, proof, scope, relationship to previous results and limitations.",
+          "method": "Compared specified subsets and invariants; distinguished no-T-/no-X global local rigidity from gamma-reachable subgraph adjacency.",
+          "title": "Exact eleven-petal local-rigidity census",
+          "trigger": "A published SCOPE result counts all eleven-petal words and D_11 orbit profiles, a plausible dominating tabulation."
+        },
+        {
+          "assessment": "NOT_COVERING, its formal claim excludes gamma.",
+          "evidence": [
+            "Exact M-distances for alpha and beta equal 8; does not state any gamma orbit graph invariant."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eight-move-untangling-distances-for-two-minimal-hard-petal--84c0c8215d06/RESULT.md",
+          "material_read": "Full accessible RESULT.md, statement, proof, scope, limitations, source comparison.",
+          "method": "Compared graph objects: alpha/beta to trivial-word distances versus gamma capped-state orbit quotient.",
+          "title": "Exact eight-move untangling distances for two minimal hard petal unknots",
+          "trigger": "Published SCOPE work uses the same paper and move calculus with exact shortest-path enumerations."
+        },
+        {
+          "assessment": "NOT_COVERING: different fixed-locus family and no eleven-petal gamma component adjacency.",
+          "evidence": [
+            "Proves p_s unit-step arithmetic permutations and phi(N)-2 local rigidity; does not classify the 144 gamma eleven-petal orbits."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-height-rotation-symmetry-forces-crossing-exchange-rigidity-in-pe--664be5780199/RESULT.md",
+          "material_read": "Full accessible RESULT.md, classification of rotation-fixed cyclic words, proof, numerical scope and limitations.",
+          "method": "Compared hypotheses and implications; gamma orbit has size 18 at N=9, so is not the height-rotation-fixed singleton class.",
+          "title": "Height-rotation symmetry forces crossing-exchange rigidity in petal diagrams",
+          "trigger": "Potential general orbit-rigidity theorem for petal permutations could imply the quotient structure."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The object is not an arbitrary subcase but the exact finite component that certifies the first published excess-four nine-petal hard unknot gamma. Its natural dihedral quotient collapses a 3186-vertex trapped move graph to 145 vertices and classifies every eleven-petal symmetry type as a free D_11 orbit attached to one nine-petal type. The new zero-X property explains why the quotient has no lateral transitions, rather than merely restating the known total 3168. This naturally motivated complete classification is a reusable structural benchmark for later petal-move/quotient studies; no broad theorem or conjectural impact is asserted. It is finite and derivative of a known enumeration, but the orbit graph is not mechanically forced by the published aggregate counts.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Vernitski, Some petal diagrams of the unknot are hard, arXiv:2610.01596v1, https://arxiv.org/pdf/2610.01596, 2026-10-01",
+    "Colton et al., A Reidemeister type theorem for petal diagrams of knots, arXiv:1812.08930v1, https://arxiv.org/pdf/1812.08930, 2018",
+    "Published SCOPE/Resultary eleven-petal local rigidity census, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171/RESULT.md",
+    "Published SCOPE/Resultary alpha-beta move-distance result, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eight-move-untangling-distances-for-two-minimal-hard-petal--84c0c8215d06/RESULT.md",
+    "Published SCOPE/Resultary height-rotation-fixed words, https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-height-rotation-symmetry-forces-crossing-exchange-rigidity-in-pe--664be5780199/RESULT.md",
+    "Resultary exact candidate self-match https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-dihedral-quotient-of-the-gamma-petal-trap-is-a-144-leaf-star--ee5e67fe421b (excluded from independent priority evidence)",
+    "Public web exact/alias query results for gamma, 3186, 144, star and orbit adjacency"
+  ],
+  "disposition": "passed",
+  "final_claim": "For gamma=(0,2,4,7,3,8,6,1,5), the eleven-petal-capped component under T±,X,R,S modulo cyclic position rotation has exactly one nine-petal D_9 orbit of size 18, exactly 144 eleven-petal D_11 orbits each of size 22 and hence trivial stabilizers, and quotient simple graph exactly K_{1,144} with the nine-petal orbit as hub. Every inter-orbit edge is induced by T±; X,R,S induce no inter-orbit edges.",
+  "limitations": [
+    "Eleven-petal-capped finite reachability only; no extrapolation to unrestricted move graph.",
+    "The primary Result C already publishes unquotiented component size and layer counts; only orbit decomposition and quotient structure are assessed as candidate novelty.",
+    "Original source code inspected but executed local transcription is not byte-identical; second independent algorithm supplies separate corroboration.",
+    "All source-file Git blob IDs are tree-verified, not all files independently rehashed from full local bytes.",
+    "Originality PASS is best-of-knowledge with unindexed computation residual risk."
+  ],
+  "residual_risks": [
+    "An unindexed prior computation or ancillary data file of the gamma capped graph could already include the exact 144 free orbit and star quotient.",
+    "The original published 3186-state enumeration is complete but the derived orbit theorem is elementary once a machine-readable full state list is available; historical computational priority cannot be excluded absolutely.",
+    "The classification is only for the eleven-petal cap and does not extend to the unrestricted move graph.",
+    "Package Python source inspected through GitHub and separately transcribed for local execution; the transcription has the same checked move logic and replay outputs, but does not byte-match the repository blob; not every original file blob was independently materialized/rehashed.",
+    "No independent knot-type certification was performed; the asserted gamma unknotness and hardness are established inputs from Vernitski. The finite quotient graph proof itself is combinatorial.",
+    "No claim about other hard words, 13-or-more-petal intermediate states, or all eleven-petal permutations."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "NOT_COVERING for the candidate quotient theorem; COVERING for the 3186-state closed component, 18/3168 layer counts and nine-petal gamma orbit.",
+      "evidence": [
+        "Result C pp2 and §6.1 p12: 3186=18+3168 and all T^- from eleven-petal states go to gamma orbit.",
+        "§§3.1--3.4 pp4--6 define T±, X, R and S; the dihedral group has order 2N.",
+        "No explicit eleven-petal orbit-size profile, universal absence of X in the gamma component, or 144-leaf quotient star in the inspected primary results."
+      ],
+      "identifier_or_url": "Alexei Vernitski, arXiv:2610.01596v1; https://arxiv.org/pdf/2610.01596",
+      "material_read": "Full 13-page OA preprint text, with detailed inspection of §§2--3, §5 finite search, §6 Results B--C and §6.1 gamma proof, Corollary 6.2, questions and references; rendered screenshots of pp5,9,12.",
+      "method": "Open-access arXiv PDF, full-text reading and page rendering, comparison of exact statements and their implications against dihedral orbit/adjacency conclusions.",
+      "title": "Some petal diagrams of the unknot are hard",
+      "trigger": "Same gamma word, same nine-/eleven-petal capped state set and exact move definitions; decisive primary source."
+    },
+    {
+      "assessment": "NOT_COVERING specific finite gamma quotient; establishes foundational move definitions and isotopy completeness.",
+      "evidence": [
+        "Theorem 1 says any isotopic petal permutations connect through petal moves, not how a specified finite cap quotient decomposes.",
+        "§2 gives the precise consecutive-height insertion/deletion and nested paired-position X rules."
+      ],
+      "identifier_or_url": "Colton, Glover, Hughes, Sandberg; arXiv:1812.08930v1; https://arxiv.org/pdf/1812.08930",
+      "material_read": "OA 21-page PDF, abstract, Theorem 1, §2.1 trivial additions/deletions and §§2.2--2.3 left/right pairs and crossing exchanges, including rendered page 3.",
+      "method": "Material reading and definition comparison with the package implementation and Vernitski §3.",
+      "title": "A Reidemeister type theorem for petal diagrams of knots",
+      "trigger": "Original primary definitions and completeness of the petal addition, deletion and crossing exchange moves."
+    },
+    {
+      "assessment": "NOT_COVERING: global locally rigid word table neither isolates the 3168 gamma-reachable states nor determines 144-vertex quotient adjacency.",
+      "evidence": [
+        "Reports 270630 D-locally-rigid words in 12786 orbits of sizes 1,11,22; does not classify the gamma component; explicitly references the candidate as an earlier result, so is not independent covering evidence."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eleven-petal-local-rigidity-census--8ff357b52171/RESULT.md",
+      "material_read": "Full accessible RESULT.md, including exact global counts, orbit-size distribution, proof, scope, relationship to previous results and limitations.",
+      "method": "Compared specified subsets and invariants; distinguished no-T-/no-X global local rigidity from gamma-reachable subgraph adjacency.",
+      "title": "Exact eleven-petal local-rigidity census",
+      "trigger": "A published SCOPE result counts all eleven-petal words and D_11 orbit profiles, a plausible dominating tabulation."
+    },
+    {
+      "assessment": "NOT_COVERING, its formal claim excludes gamma.",
+      "evidence": [
+        "Exact M-distances for alpha and beta equal 8; does not state any gamma orbit graph invariant."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-exact-eight-move-untangling-distances-for-two-minimal-hard-petal--84c0c8215d06/RESULT.md",
+      "material_read": "Full accessible RESULT.md, statement, proof, scope, limitations, source comparison.",
+      "method": "Compared graph objects: alpha/beta to trivial-word distances versus gamma capped-state orbit quotient.",
+      "title": "Exact eight-move untangling distances for two minimal hard petal unknots",
+      "trigger": "Published SCOPE work uses the same paper and move calculus with exact shortest-path enumerations."
+    },
+    {
+      "assessment": "NOT_COVERING: different fixed-locus family and no eleven-petal gamma component adjacency.",
+      "evidence": [
+        "Proves p_s unit-step arithmetic permutations and phi(N)-2 local rigidity; does not classify the 144 gamma eleven-petal orbits."
+      ],
+      "identifier_or_url": "https://github.com/Resultary/2026/blob/main/2026/10/11/SCOPE-height-rotation-symmetry-forces-crossing-exchange-rigidity-in-pe--664be5780199/RESULT.md",
+      "material_read": "Full accessible RESULT.md, classification of rotation-fixed cyclic words, proof, numerical scope and limitations.",
+      "method": "Compared hypotheses and implications; gamma orbit has size 18 at N=9, so is not the height-rotation-fixed singleton class.",
+      "title": "Height-rotation symmetry forces crossing-exchange rigidity in petal diagrams",
+      "trigger": "Potential general orbit-rigidity theorem for petal permutations could imply the quotient structure."
+    }
+  ]
+}

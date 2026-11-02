@@ -1,0 +1,185 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T19:37:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For fixed 0<=t<1, C_t=D(I-tS)^(-1), D=diag(1/(n+1)), and D is compact with singular sequence 1/n. For every finite cutoff A_m=sum_{r=0}^m t^r S^r, the printed block decomposition of DA_m is valid: P0DA_m finite rank; within-block diagonal error trace class by summing (r+1)/(kB)^2; each cross-boundary strip has rank <=m and norm <=M/(kB+1), giving epsilon N(epsilon,R)<=mM/B; block direct sum Q_B/(kB) gives the exact coefficient ||Q_B||_1/B; Q_B differs from a circulant by rank <=m and the normalized trace norm tends to the Fourier-symbol modulus mean. Sending B to infinity and the Ky Fan perturbation tolerance to zero yields epsilon N(epsilon,DA_m) -> c_m. The analytic-symbol tail has s_n(D(A-A_m))<=t^(m+1)/((1-t)n); Ky Fan inequalities let m tend to infinity, yielding epsilon N(epsilon,C_t)->c(t). The standard monotone counting inversion yields n s_n(C_t)->c(t)>0. The integral equals 2 K(2 sqrt(t)/(1+t))/(pi(1+t)), with K modulus convention; checked at t=0 and by independent quadrature and 240x240 singular-value calculations for t=0.3,0.7. Thus log partial sums, membership S_{1,infty} and all S_q (q>1), and nonmembership S_1 follow. Finite sections only corroborate; all fixed t<1 and the real/complex versions are proved, not uniform t->1 or t=1.",
+      "residual_risks": [
+        "Universal proof depends on standard singular-value counting inequalities; finite numerical 240x240 SVD cannot establish asymptotic n->infinity.",
+        "No assertion is made for t=1 or a uniform t approaching 1; the geometric tail bound diverges near t=1."
+      ],
+      "sources": [
+        "Pinned package RESULT.md, Steps 1-3, actual blob 2f356225254d5c1bb71fe12cde9234c1cf7b421b",
+        "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+          "Pushnitski Theorem 1.2 applies to general (possibly nonsymmetric) compact matrices with finitely many diagonals a_{j,j+r}=b_r j^{-gamma}+o(j^{-gamma}), any gamma>0, and gives the integral of |sum b_r e^{ir theta}|^(1/gamma).",
+          "Section 2.2 inequality (2.4)-(2.5) controls Delta_p and delta_p under weak-Schatten perturbations; the discarded geometric series has S_{1,infty} quasi-norm at most t^(m+1)/(1-t)."
+        ],
+        "reasoning": "The prior result is materially broader in bandwidth patterns, complex coefficients and power exponents. Finite truncation followed by a vanishing weak-S1 tail is a direct standard closure step and covers every fixed t in [0,1). The article does not literally print the full infinite-band family, but the mathematical implication is decisive.",
+        "searches": [
+          "web: Spectral asymptotics for Toeplitz operators and an application to banded matrices Pushnitski",
+          "web: compact banded matrices singular values n^-1 average modulus symbol exact coefficient Toeplitz",
+          "web: Weyl asymptotic weak Schatten products of diagonal and Toeplitz matrices"
+        ]
+      },
+      "checked_sources": [
+        "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+        "Albanese, Bonet and Ricker, Spectral properties of generalized Cesàro operators in sequence spaces, arXiv:2305.04805v2, Sections 1, 4 (Proposition 4.4 and Theorem 4.5), 5: https://arxiv.org/html/2305.04805v2",
+        "H. C. Rhaly Jr., Generalized Cesàro Matrices, Canadian Mathematical Bulletin 27 (1984), 417-422, DOI:10.4153/CMB-1984-064-5, publisher abstract: https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/generalized-cesaro-matrices/967DB4D41F4A7EB149E5E3CBFC548BDE",
+        "Resultary record 2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d (assigned self-match, excluded from priority)",
+        "Resultary other related published results: 2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69; 2026/10/11/SCOPE-the-sharp-trace-class-endpoint-for-monotone-modulus-rhaly-matric--182bfa9e0a1a"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+          "Albanese, Bonet and Ricker, Spectral properties of generalized Cesàro operators in sequence spaces, arXiv:2305.04805v2, Sections 1, 4 (Proposition 4.4 and Theorem 4.5), 5: https://arxiv.org/html/2305.04805v2",
+          "H. C. Rhaly Jr., Generalized Cesàro Matrices, Canadian Mathematical Bulletin 27 (1984), 417-422, DOI:10.4153/CMB-1984-064-5, publisher abstract: https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/generalized-cesaro-matrices/967DB4D41F4A7EB149E5E3CBFC548BDE",
+          "C_{t,m} is an instance of prior Thm 1.2 (gamma=1, b_{-r}=t^r); its coefficient c_m is the average modulus of p_m(e^{-i theta}).",
+          "Ideal inequality: s_n(D(A-A_m))<=||A-A_m|| s_n(D)<=delta_m/n with delta_m=t^(m+1)/(1-t).",
+          "Published estimates (2.4) and (2.5) show the upper/lower counting coefficients for C_t differ from the cutoff coefficients by quantities tending to zero with delta_m; uniform convergence p_m ->(1-tz)^-1 gives the candidate circular mean. The elliptic integral change of variables and harmonic-sum conclusions are then elementary."
+        ],
+        "reasoning": "Direct mathematical implication: Pushnitski 2017 theorem supplies the hard spectral asymptotics for all finite Toeplitz truncations, and printed Ky Fan perturbation inequalities plus a geometric tail bound supply the passage to C_t. The earlier same-operator works establish operator identity and compactness but are not the decisive coverage. A change of notation, infinite but absolutely summable geometric tail and standard elliptic-integral evaluation do not establish a new invariant.",
+        "searches": [
+          "web: Pushnitski banded matrix Theorem 1.2 power j^-gamma singular values",
+          "web: same generalized Cesaro Ct Albanese Bonet Ricker arxiv 2305.04805 first version",
+          "web: Rhaly 1984 Generalized Cesaro Matrices Hilbert Schmidt"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+          "Under the finite cutoff C_{t,m}=D sum_{r=0}^m t^r S^r, entries a_{j,j-r}=t^r/(j+1)=t^r j^{-1}+O(j^{-2}) for 0<=r<=m; other diagonals vanish. This is precisely Pushnitski Theorem 1.2 with gamma=1 and b_{-r}=t^r.",
+          "Theorem 1.2 then yields lim n s_n(C_{t,m})=(2pi)^{-1} integral |sum_{r=0}^m t^r e^{-ir theta}| dtheta, the candidate finite-band coefficient."
+        ],
+        "reasoning": "The same spectral statement occurs as a special case of the 2017 compact-banded-matrix singular-value law after identifying finite Toeplitz diagonals. The general parameter-t infinite tail is a norm-small perturbation in weak S1: s_n(C_t-C_{t,m})<=t^(m+1)/((1-t)n). The standard Ky Fan count comparison already printed in the prior paper transfers upper/lower counting coefficients as m tends to infinity; no new nonstandard lemma is needed. Thus absence of the exact operator name in the prior theorem is not novelty.",
+        "searches": [
+          "web: singular values diagonal operator 1/n times Toeplitz operator asymptotics mean modulus symbol Birman Solomyak",
+          "web: Weyl asymptotic singular values D inverse Toeplitz operator Hardy space 1/n angular integral",
+          "web: Pushnitski singular value asymptotics compact banded matrices coefficients 1/n",
+          "Resultary: generalized Cesàro operator singular values exact asymptotic Schatten singular-value coefficient Hardy weighted average operators"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary exact record 2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d is the assigned finding and was excluded as independent priority evidence.",
+          "Other Resultary hits treat finite classical Cesaro matrix high-rank edge, unrelated Rhaly spectra, Toeplitz Schur multipliers and weighted shift problems; indexed summary matches did not show the same t-dependent Hilbert compact operator coefficient.",
+          "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1"
+        ],
+        "reasoning": "No independent named table need be located because published Theorem 1.2 plus its standard perturbation estimates already yields exactly the candidate circular integral; the elliptic evaluation follows by a standard half-angle substitution. The Resultary self-match is not independent coverage and search absence cannot justify novelty.",
+        "searches": [
+          "Resultary query: generalized Cesàro operator singular values exact asymptotic Schatten singular-value coefficient Hardy weighted average operators",
+          "Resultary query: Pushnitski theorem spectral asymptotic compact banded matrices a_{j,j+m}=b_m/j yields n s_n mean |b(e^{i theta})|; exponential Toeplitz tail geometric generalized Cesaro",
+          "web: singular value asymptotics generalized Cesàro Ct t<1 elliptic integral"
+        ]
+      },
+      "rationale": "FAIL by specific mathematically decisive prior coverage, not lack of evidence: Pushnitski arXiv:1710.02652v1 Theorem 1.2 already proves the same sharp symbol-average first-order singular-value asymptotic for all compact finite-band power-decaying matrices. The operators D sum_{r=0}^m t^r S^r directly satisfy its gamma=1 hypotheses; the full C_t is obtained from these by the elementary S_{1,infty} geometric tail estimate and the prior article Section 2.2 Ky Fan coefficient continuity. This gives exactly the claimed integral for every fixed 0<=t<1 without any unproved new lemma. The elliptic evaluation is a standard half-angle substitution, and Schatten and logarithmic-trace consequences follow from s_n~c/n. The older same-family literature did not give this coefficient explicitly, but that does not defeat implication by a stronger matrix theorem.",
+      "residual_risks": [
+        "Pushnitski 2017 Theorem 1.2 is printed only for strictly finite bandwidth; the implication for the geometric infinite tail is an explicit standard perturbation step, not a verbatim quotation.",
+        "Rhaly 1984 complete PDF was not reopened in this execution. Its abstract alone does not support whole-paper NOT_COVERING; the independent 2017 general theorem already decisively covers the claim.",
+        "Resultary exact self-match is excluded from independent priority; no claim of exhaustive literature novelty is made."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVELY_COVERING by direct consequence under finite-band truncation and standard weak-S1 tail continuity; theorem itself is finite band, and the infinite analytic tail extension is explicitly demonstrated, not inaccurately attributed as printed.",
+          "evidence": "Theorem 1.2 Eq. (1.3) gives n^gamma s_n limit for any banded a_{j,j+m}=b_m j^-gamma+o(j^-gamma); Section 4 proves it; Section 2.2 Eqs. (2.4)-(2.5) ensure continuity of counting coefficients under S_{p,infty} perturbations.",
+          "identifier_or_url": "arXiv:1710.02652v1; https://arxiv.org/html/1710.02652v1",
+          "material_read": "Full introduction and Theorems 1.1-1.2 including matrix hypotheses and symbol; Section 2.1 counting-limit equivalence; Section 2.2 Ky Fan continuity and (2.4)-(2.5); Section 4 entire proof of Theorem 1.2.",
+          "method": "Open-access primary arXiv HTML material read directly, including all load-bearing theorem and proof equations.",
+          "title": "Spectral asymptotics for a class of Toeplitz operators on the Bergman space",
+          "trigger": "Published theorem for power-decaying compact banded matrices, precisely the finite-band approximants of the assigned weighted Cesaro operator."
+        },
+        {
+          "assessment": "SAME_OPERATOR_BUT_NOT_DIRECT_SINGULAR_VALUE_COVERAGE: studies compactness, spectra, dynamics and ergodicity in sequence spaces. Supplies known factorization but not claimed first-order singular coefficient.",
+          "evidence": "Eq. (1.1) identical definition; Proposition 4.4(iii) C_t=D_phi R_t=sum t^n D_phi S^n; Theorem 4.5 concerns compactness and spectra.",
+          "identifier_or_url": "arXiv:2305.04805v2; https://arxiv.org/html/2305.04805v2",
+          "material_read": "Full HTML introduction and section map; Eq. (1.1) operator definition; Proposition 4.4 and Theorem 4.5 scopes and proof statements; textual searches for singular values, Schatten, approximation numbers (none found).",
+          "method": "Open-access primary arXiv HTML checked by exact operator, theorem hypotheses and relevant scientific statements.",
+          "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+          "trigger": "Exactly the same operator C_t and parameter t in [0,1), potentially direct same-object priority."
+        },
+        {
+          "assessment": "Only the publisher abstract was checked; it asserts Hilbert-Schmidt property for t<1 and other norm/numerical-range properties. It is not cited as a whole-paper NOT_COVERING finding.",
+          "evidence": "Publisher abstract says A_alpha is Hilbert-Schmidt for alpha<1; article December 1984, pp. 417-422.",
+          "identifier_or_url": "DOI:10.4153/CMB-1984-064-5; https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/generalized-cesaro-matrices/967DB4D41F4A7EB149E5E3CBFC548BDE",
+          "material_read": "Publisher article abstract, date, citation and theorem topic list; complete PDF not reopened in this execution.",
+          "method": "Official Cambridge publisher HTML abstract (not full-text comparison).",
+          "title": "Generalized Cesàro Matrices",
+          "trigger": "Historical original paper for the same matrix family and Hilbert-Schmidt property."
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "The compact generalized Cesaro family is motivated and the exact elliptic coefficient is a useful reference benchmark. Nonetheless this precise coefficient, its logarithmic partial trace and sharp weak-Schatten endpoint are a routine specialization of Pushnitski’s much broader spectral law, using the elementary geometric-tail weak-S1 estimate, a standard elliptic substitution and harmonic-series summation. No independently unknown exact invariant, new qualitative or extremal phenomenon, sharp second-order asymptotic, nontrivial structural lemma or distinct classification survives. Correctness and a convenient closed form do not rescue value as a new research result; it can remain a pedagogical corollary.",
+      "residual_risks": [
+        "The derived closed form may be a convenient special case, but no demonstrably independent mathematical problem is resolved beyond direct prior implication."
+      ],
+      "sources": [
+        "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+        "Pinned RESULT.md: coefficient, endpoint classes, elliptic integral and log summation"
+      ],
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "Alexander Pushnitski, Spectral asymptotics for a class of Toeplitz operators on the Bergman space, arXiv:1710.02652v1, Theorem 1.2, Eq. (1.3), Section 4, and Section 2.2 inequalities (2.3)-(2.5): https://arxiv.org/html/1710.02652v1",
+    "Albanese, Bonet and Ricker, Spectral properties of generalized Cesàro operators in sequence spaces, arXiv:2305.04805v2, Sections 1, 4 (Proposition 4.4 and Theorem 4.5), 5: https://arxiv.org/html/2305.04805v2",
+    "H. C. Rhaly Jr., Generalized Cesàro Matrices, Canadian Mathematical Bulletin 27 (1984), 417-422, DOI:10.4153/CMB-1984-064-5, publisher abstract: https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/generalized-cesaro-matrices/967DB4D41F4A7EB149E5E3CBFC548BDE",
+    "Resultary record 2026/10/11/SCOPE-exact-singular-value-coefficient-of-generalized-ces-ro-operators--d56b622eed1d (assigned self-match, excluded from priority)",
+    "Resultary other related published results: 2026/10/11/SCOPE-logarithmic-spectral-edge-of-higher-singular-values-of-finite-ce--502b7b013a69; 2026/10/11/SCOPE-the-sharp-trace-class-endpoint-for-monotone-modulus-rhaly-matric--182bfa9e0a1a"
+  ],
+  "disposition": "failed",
+  "final_claim": "For 0<=t<1, C_t=D(I-tS)^(-1) on real/complex ell2 has n s_n(C_t)->(2pi)^(-1) integral_0^{2pi}|1-t e^{i theta}|^(-1)dtheta = 2K(2sqrt(t)/(1+t))/(pi(1+t)), with the displayed weak-S1/Sq/logarithmic consequences; scientifically correct but directly implied by Pushnitski 2017 compact-banded-matrix theorem and standard weak-S1 geometric-tail closure.",
+  "limitations": [
+    "Pushnitski’s general banded theorem is the decisive prior, combined with standard geometric weak-ideal tail control; no verbatim specialized formula in that publication is claimed.",
+    "Official Rhaly abstract only, not full PDF, was inspected this run; no whole-paper NOT_COVERING inference.",
+    "No independent local rehash of complete original Git blob byte streams; fetched Git tree entries produced exact tree SHA.",
+    "No scientific edit, public metadata change, repository write or publication was performed."
+  ],
+  "residual_risks": [
+    "Universal proof depends on standard singular-value counting inequalities; finite numerical 240x240 SVD cannot establish asymptotic n->infinity.",
+    "No assertion is made for t=1 or a uniform t approaching 1; the geometric tail bound diverges near t=1.",
+    "Pushnitski 2017 Theorem 1.2 is printed only for strictly finite bandwidth; the implication for the geometric infinite tail is an explicit standard perturbation step, not a verbatim quotation.",
+    "Rhaly 1984 complete PDF was not reopened in this execution. Its abstract alone does not support whole-paper NOT_COVERING; the independent 2017 general theorem already decisively covers the claim.",
+    "Resultary exact self-match is excluded from independent priority; no claim of exhaustive literature novelty is made.",
+    "The derived closed form may be a convenient special case, but no demonstrably independent mathematical problem is resolved beyond direct prior implication.",
+    "Only actual pinned Git blob SHAs were fetched and used to independently reproduce the tree SHA; original complete blob bytes were not independently materialized and rehashed in the local runtime.",
+    "Unchanged source metadata contains workflow provenance not suitable for public failed relocation; publication is withheld without rewriting the rejected package."
+  ],
+  "schema_version": 1,
+  "source_inspections": [
+    {
+      "assessment": "DECISIVELY_COVERING by direct consequence under finite-band truncation and standard weak-S1 tail continuity; theorem itself is finite band, and the infinite analytic tail extension is explicitly demonstrated, not inaccurately attributed as printed.",
+      "evidence": "Theorem 1.2 Eq. (1.3) gives n^gamma s_n limit for any banded a_{j,j+m}=b_m j^-gamma+o(j^-gamma); Section 4 proves it; Section 2.2 Eqs. (2.4)-(2.5) ensure continuity of counting coefficients under S_{p,infty} perturbations.",
+      "identifier_or_url": "arXiv:1710.02652v1; https://arxiv.org/html/1710.02652v1",
+      "material_read": "Full introduction and Theorems 1.1-1.2 including matrix hypotheses and symbol; Section 2.1 counting-limit equivalence; Section 2.2 Ky Fan continuity and (2.4)-(2.5); Section 4 entire proof of Theorem 1.2.",
+      "method": "Open-access primary arXiv HTML material read directly, including all load-bearing theorem and proof equations.",
+      "title": "Spectral asymptotics for a class of Toeplitz operators on the Bergman space",
+      "trigger": "Published theorem for power-decaying compact banded matrices, precisely the finite-band approximants of the assigned weighted Cesaro operator."
+    },
+    {
+      "assessment": "SAME_OPERATOR_BUT_NOT_DIRECT_SINGULAR_VALUE_COVERAGE: studies compactness, spectra, dynamics and ergodicity in sequence spaces. Supplies known factorization but not claimed first-order singular coefficient.",
+      "evidence": "Eq. (1.1) identical definition; Proposition 4.4(iii) C_t=D_phi R_t=sum t^n D_phi S^n; Theorem 4.5 concerns compactness and spectra.",
+      "identifier_or_url": "arXiv:2305.04805v2; https://arxiv.org/html/2305.04805v2",
+      "material_read": "Full HTML introduction and section map; Eq. (1.1) operator definition; Proposition 4.4 and Theorem 4.5 scopes and proof statements; textual searches for singular values, Schatten, approximation numbers (none found).",
+      "method": "Open-access primary arXiv HTML checked by exact operator, theorem hypotheses and relevant scientific statements.",
+      "title": "Spectral properties of generalized Cesàro operators in sequence spaces",
+      "trigger": "Exactly the same operator C_t and parameter t in [0,1), potentially direct same-object priority."
+    },
+    {
+      "assessment": "Only the publisher abstract was checked; it asserts Hilbert-Schmidt property for t<1 and other norm/numerical-range properties. It is not cited as a whole-paper NOT_COVERING finding.",
+      "evidence": "Publisher abstract says A_alpha is Hilbert-Schmidt for alpha<1; article December 1984, pp. 417-422.",
+      "identifier_or_url": "DOI:10.4153/CMB-1984-064-5; https://www.cambridge.org/core/journals/canadian-mathematical-bulletin/article/generalized-cesaro-matrices/967DB4D41F4A7EB149E5E3CBFC548BDE",
+      "material_read": "Publisher article abstract, date, citation and theorem topic list; complete PDF not reopened in this execution.",
+      "method": "Official Cambridge publisher HTML abstract (not full-text comparison).",
+      "title": "Generalized Cesàro Matrices",
+      "trigger": "Historical original paper for the same matrix family and Hilbert-Schmidt property."
+    }
+  ]
+}
