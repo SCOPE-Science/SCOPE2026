@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T00:06:10Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Independently reconstructed the actual stationary Moran-forest representation: U_j independent uniform among the n−1 other labels, and edge U_j→j only if U_j<j, with an irrelevant final relabeling. For fixed other H indicators, flipping H_j from attachment to root removes one edge, so no terminal vertex is lost. For i<j, Cov(H_j,A_i)=(n−j)/(n−1)^2 q_n^(n−i−1); summing the independent-parent covariance gives the stated positive finite-n sum. E[A_iA_j]=q_n^(j−i) r_n^(n−j), r_n=(n−3)/(n−1), implying nonpositive off-diagonal terminal covariances because r_n<=q_n². A Riemann-sum limit gives covariance/n=1−5/(2e), and expansion of the exact terminal variance yields 1/e−2/e²; combining with the published root variance limit 1/6 yields the claimed correlation. Independently enumerated every parent configuration for n=3..7, checking exact rational means, variances, cross covariances and conditional influences against formulas. These bounded checks corroborate, rather than prove, all-n statements.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bienvenu et al. Propositions 2.1, 3.1 and §4; Balińska et al. 1994 abstract defines a uniform random recursive forest."
+        ],
+        "reasoning": "Broader coverage: the Moran paper proves general forest construction and single-vertex degree distributions; these do not give exact joint root–terminal covariance or order conditional on other root indicators. Uniform recursive forest theorems have different sampling.",
+        "searches": [
+          "Resultary semantic query: Moran forest Bienvenu Duchamps Foutel Rodier root terminal vertices covariance joint fluctuations correlation",
+          "Web scientific search: Random recursive forests Balinska Quintas Szymanski 1994 pdf; Moran forest number of leaves covariance roots",
+          "https://arxiv.org/pdf/1906.08806",
+          "https://doi.org/10.1002/rsa.3240050103"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/1906.08806",
+        "https://doi.org/10.1002/rsa.3240050103",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Explicit factor E[A_iA_j]=q^(j−i)r^(n−j) and Cov(H_j,A_i) above give unprovided cross moments."
+        ],
+        "reasoning": "Implication: known root variance or marginal degree laws cannot alone imply covariance with terminal vertices. New pairwise dependence calculation and edge-deletion coupling are necessary.",
+        "searches": [
+          "Resultary semantic query: Moran forest Bienvenu Duchamps Foutel Rodier root terminal vertices covariance joint fluctuations correlation",
+          "Web scientific search: Random recursive forests Balinska Quintas Szymanski 1994 pdf; Moran forest number of leaves covariance roots",
+          "https://arxiv.org/pdf/1906.08806",
+          "https://doi.org/10.1002/rsa.3240050103"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bienvenu et al. Proposition 2.1 explicitly realizes independent uniform parents; Resultary random recursive tree record concerns root degree rather than total roots."
+        ],
+        "reasoning": "Equivalent formulations: represent roots as indicators of discarded backward parent choices, and terminals as avoidance of any later accepted attachment. Related statistics in uniform random recursive trees are not the same joint law.",
+        "searches": [
+          "Resultary semantic query: Moran forest Bienvenu Duchamps Foutel Rodier root terminal vertices covariance joint fluctuations correlation",
+          "Web scientific search: Random recursive forests Balinska Quintas Szymanski 1994 pdf; Moran forest number of leaves covariance roots",
+          "https://arxiv.org/pdf/1906.08806",
+          "https://doi.org/10.1002/rsa.3240050103"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Moran paper root marginal variance n(n−2)/(6(n−1)), while covariance with terminal count is not tabulated in inspected Sections 2–4."
+        ],
+        "reasoning": "Exact database/table: there is no direct published table for all n of this covariance in the inspected sources; exact parent-configuration enumeration n=3..7 was newly performed and is only a check.",
+        "searches": [
+          "Resultary semantic query: Moran forest Bienvenu Duchamps Foutel Rodier root terminal vertices covariance joint fluctuations correlation",
+          "Web scientific search: Random recursive forests Balinska Quintas Szymanski 1994 pdf; Moran forest number of leaves covariance roots",
+          "https://arxiv.org/pdf/1906.08806",
+          "https://doi.org/10.1002/rsa.3240050103"
+        ]
+      },
+      "rationale": "PASS (qualified): The full primary Moran forest paper supplies the independent-parent distribution and variance of the number of roots, as well as single-vertex degree laws. It does not state the cross covariance with outdegree-zero terminals, conditional edge-deletion stochastic order, ordered influences or limiting Pearson correlation. General uniform random recursive forests are a different distribution; related Resultary work concerns root degree versus leaves in a single uniform recursive tree, rather than total components versus terminals in the Moran law. The accepted contribution is this exact joint-dependence classification using antecedent construction, not the construction itself.",
+      "residual_risks": [
+        "1994 Balińska–Quintas–Szymański full text unavailable; authorized institutional attempt returned vpn_disconnected. Its model differs, but possible general covariance identity has not been excluded.",
+        "The forest is distributionally specific, and the result does not establish joint CLTs or concentration.",
+        "The coupling gives stochastic monotonicity conditioned on other root-indicator patterns, not on arbitrary revealed parent values."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS parent construction and root mean/variance, but not inspected joint root–terminal dependence theorem",
+          "evidence": [
+            "Proposition 3.1 E[N]=n/2, Var[N]=n(n−2)/(6(n−1)); Proposition 4.1 single-degree moments."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1906.08806",
+          "material_read": "34-page primary PDF, Propositions 2.1 (pp.5–6), 3.1 (p.7) and Section 4 (p.11), adjacent material and full-text searches for covariance",
+          "method": "arXiv open primary full-text extraction and page screenshot",
+          "title": "The Moran forest",
+          "trigger": "Same exact stochastic object, hypotheses and quantitative root statistics"
+        },
+        {
+          "assessment": "DIFFERENT LAW and inaccessible full text, no whole-document noncoverage judgment",
+          "evidence": [
+            "1994 abstract explicitly studies uniform recursive forest, while Moran paper §2.2 distinguishes its random forest from that law; authorized retrieval vpn_disconnected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/rsa.3240050103",
+          "material_read": "Publisher full abstract and bibliographic record, not full 10-page article; lawful OA attempts unsuccessful",
+          "method": "publisher abstract and authorized institutional retrieval",
+          "title": "Random recursive forests",
+          "trigger": "1994 close title potentially covering leaf/root joint statistics"
+        },
+        {
+          "assessment": "DIFFERENT root-degree statistic on a single uniform recursive tree, and its limiting correlation decays rather than persists",
+          "evidence": [
+            "Record reports Cov(D_n,L_n)→1/2 and correlation O(1/sqrt(n log n)); Moran forest instead Cov(R_n,L_n)~cn."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f",
+          "material_read": "Resultary indexed mathematical statement and summary; not full-result proof",
+          "method": "Resultary semantic search, summary comparison",
+          "title": "Equal-share covariance of root degree and leaves in a random recursive tree",
+          "trigger": "Semantically nearby previously published exact root/leaf correlation"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: In a stationary reproduction/ancestry forest, number of components and terminal progenitors are two canonical statistics. An explicit strictly positive macroscale root–terminal covariance and nonzero asymptotic correlation, despite pairwise negative terminal correlations, reveal a non-obvious global dependence. The pointwise conditional stochastic order and its arrival-index gradient provide more than a routine single expectation and are biologically/combatorially motivated by birth-time attachment.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/1906.08806",
+    "https://doi.org/10.1002/rsa.3240050103",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-equal-share-covariance-of-root-degree-and-leaves-in-a-random-rec--ab0acf44833f"
+  ],
+  "disposition": "passed",
+  "final_claim": "For stationary Moran forests on n>=3 labeled vertices with terminal meaning zero children, the root count and terminal count have the exact positive covariance 1/[2(n-1)^2] Σ_{m=1}^{n-1} m(m-1) q_n^(m-1), q_n=(n-2)/(n-1), every root-indicator switch stochastically increases terminal count given any other root pattern, and the influences strictly increase with arrival index; distinct terminal indicators correlate nonpositively; the Pearson root–terminal correlation converges to ((2e-5)/2)√(6/(e-2)).",
+  "limitations": [
+    "1994 Balińska–Quintas–Szymański full text unavailable; authorized institutional attempt returned vpn_disconnected. Its model differs, but possible general covariance identity has not been excluded.",
+    "The forest is distributionally specific, and the result does not establish joint CLTs or concentration.",
+    "The coupling gives stochastic monotonicity conditioned on other root-indicator patterns, not on arbitrary revealed parent values.",
+    "No new repository modifications; source publication requires separate confidentiality-safe metadata review."
+  ],
+  "residual_risks": [
+    "1994 Balińska–Quintas–Szymański full text unavailable; authorized institutional attempt returned vpn_disconnected. Its model differs, but possible general covariance identity has not been excluded.",
+    "The forest is distributionally specific, and the result does not establish joint CLTs or concentration.",
+    "The coupling gives stochastic monotonicity conditioned on other root-indicator patterns, not on arbitrary revealed parent values."
+  ],
+  "schema_version": 1
+}
