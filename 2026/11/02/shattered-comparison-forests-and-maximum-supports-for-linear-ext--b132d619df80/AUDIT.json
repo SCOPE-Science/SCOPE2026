@@ -1,0 +1,134 @@
+{
+  "correctness": {
+    "rationale": "Any cycle in a query support admits a nonextendible cyclic orientation; on a query forest, every directed cycle in the comparability quotient (including loops) admits a nonextendible labeling by orienting unique paths in successive components. Conversely, an acyclic quotient ensures every forest orientation can be topologically sorted with the poset. A longest chain hits different shattered components, giving at most \\(n-h\\) edges; longest-chain-ending ranks provide h independent fibers attaining equality. At equality the longest chain orders all h components uniquely, and Cayley tree counts yield the stated nonoverlapping summation. The accompanying standard-library verifier compared literal label realizability and the theorem for 4,332,544 supports across all 4,231 labeled five-point posets; no infinite conclusion depends on the finite test.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2110.15168 provides a broad compression bound for all COMs but is parametrized by their already specified VC dimension.",
+        "arXiv:2412.06402 covers a different class of incidence relations between orders and posets."
+      ],
+      "reasoning": "Broader framework inclusion is not the same as statement implication: neither general scheme identifies the rank nor all extremizers for this special linear-extension class. No accessible stronger theorem was found that specializes to the claimed classification.",
+      "searches": [
+        "VC dimension of all linear extensions topological sorts of DAG under comparison queries",
+        "VC dimension equals order minus height for linear extensions of finite partially ordered set under pair comparisons",
+        "maximum VC shattered pair-query supports of topological sort of acyclic digraph spanning trees of order-preserving levels",
+        "\"VC-dimension\" \"linear extensions\" \"poset\""
+      ]
+    },
+    "checked_sources": [
+      "Kozik–Micek–Trotter, Dimension is Polynomial in Height for Posets with Planar Cover Graphs, arXiv:1907.00380 (2019)",
+      "Chepoi–Knauer–Philibert, Labeled Sample Compression Schemes for Complexes of Oriented Matroids, arXiv:2110.15168 (2021)",
+      "Bandelt–Chepoi–Knauer, COMs: Complexes of Oriented Matroids, arXiv:1507.06111 (2015)",
+      "Duan–Ouyang–Wang, VC-dimensions Between Partially Ordered Sets and Totally Ordered Sets, arXiv:2412.06402 (2024)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1907.00380 studies order dimension and alternating cycles of reversed incomparable pairs; this quantifier order differs from VC shattering every labeling on a chosen pair set.",
+        "arXiv:1507.06111 supplies precisely the linear-extension concept family but not the numerical/shattered-support conclusion.",
+        "The known antichain forest rule is the h=1 restriction and imposes no comparabilities."
+      ],
+      "reasoning": "The present theorem requires every labeling of each query forest to remain extendible in the presence of all poset precedence relations; the quotient DAG condition and equality-class enumeration are additional mathematical claims. The existing statements inspected cannot derive them by a direct specialization without the arguments supplied in this result.",
+      "searches": [
+        "For arbitrary finite poset P of n elements and height h, pair-comparison concept class of linear extensions has VC dimension n minus height h",
+        "Extremal shattered query forests for linear extensions of partially ordered sets antichain levels",
+        "ranking COM of finite poset complete characterization of shattered coordinates and maximal shattering supports",
+        "maximum VC shattered pair-query supports of topological sort of acyclic digraph spanning trees of order-preserving levels",
+        "\"linear extensions\" \"shattering\" \"comparisons\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ranking-COM topes in arXiv:1507.06111 §10 encode all linear extensions; its theorems concern their COM structure, not maximal coordinate shattering.",
+        "arXiv:2110.15168 §§1.3,4 gives size-d compression assuming VC dimension known."
+      ],
+      "reasoning": "Order-orientation coordinates on linear extensions, realizable sign vectors of a ranking COM, and topological-sort pair labels are equivalent concept systems. None of the inspected statements equates their VC dimension to poset cardinality minus height or gives the cycle-contraction criterion or Cayley extremizer sum.",
+      "searches": [
+        "For arbitrary finite poset P of n elements and height h, pair-comparison concept class of linear extensions has VC dimension n minus height h",
+        "VC shattering comparison sets in linear extensions of partial orders exactly max n-height(P) Mirsky anti-chain partition",
+        "ranking COM of finite poset complete characterization of shattered coordinates and maximal shattering supports",
+        "\"VC dimension\" \"linear extensions\" poset height pairwise comparisons",
+        "\"linear extensions\" \"shattering\" \"comparisons\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published mathematical record: Exact interval-endomorphism dimensions for finite weak orders (homological invariant, not pair-comparison VC).",
+        "Published mathematical record: Minkowski asymmetry and canonical center polytopes of finite-poset order polytopes (different geometric invariant).",
+        "Published mathematical record: Oriented-tree general position as a Greene–Kleitman two-family (different reachability invariant).",
+        "Published mathematical record: Height and width are the exact Euclidean radii of enriched chain polytopes (different metric invariant)."
+      ],
+      "reasoning": "The located published records use height in unrelated poset dimensions or concern other concept systems. None records a table of query supports or exact \\(n-h\\) comparison shattering for all finite posets. Own previous findings include the antichain special case for unrestricted total orders, but that does not imply the arbitrary-poset criterion.",
+      "searches": [
+        "VC shattering comparison sets in linear extensions of partial orders exactly max n-height(P) Mirsky anti-chain partition",
+        "Extremal shattered query forests for linear extensions of partially ordered sets antichain levels",
+        "Mirsky antichain layers maximum shattering forest linear extensions of poset count Cayley",
+        "\"VC dimension\" \"linear extensions\" poset height pairwise comparisons"
+      ]
+    },
+    "rationale": "Relevant full-text work treats the identical ranking-COM concept family structurally, general compression conditioned on the VC dimension, or distinct order-compatibility and order-dimension invariants. No inspected source establishes the uniform \\(n-h\\) comparison VC formula, contracted-cycle criterion, or unique-layer Cayley enumeration; searches for aliases and stronger statements also found no dominating result. Residual unindexed or implicit prior coverage is explicitly retained.",
+    "residual_risks": [
+      "A previously unnoticed theorem on VC dimension of ranking COMs or a folklore topological-sort concept system could imply the height formula.",
+      "Some potentially relevant order-learning literature was searchable only by titles or abstracts; searches cannot establish global absence.",
+      "No independent priority or mathematical validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "Order dimension minimizes the size of a family of linear extensions reversing all incomparable pairs; it is not the VC dimension of the full family of linear extensions on pair coordinates. The height is an input parameter to their theorem, not equalized with the comparison VC dimension."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1907.00380",
+        "material_read": "Full preprint introduction and Section 2 definitions and reversibility of incomparable pairs; page images checked on pages 1 and 5 (one-indexed).",
+        "method": "Read arXiv original PDF sections and page images, compare predicates and theorem quantifiers",
+        "title": "Dimension is Polynomial in Height for Posets with Planar Cover Graphs",
+        "trigger": "Poset height, linear extensions and alternating-cycle obstruction may dominate proposed criterion"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The ranking COM has topes corresponding to linear extensions; the inspected section addresses its COM/geometry structure and does not compute the VC dimension of ranking tope coordinates or classify/count maximum shattered query supports."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1507.06111",
+        "material_read": "Full arXiv PDF, Section 10 ranking COM discussion, definitions and main propositions on orderings; page image of page 25 (one-indexed).",
+        "method": "Read full PDF relevant same-object section and search document for VC dimension, shattering and height formulas",
+        "title": "COMs: Complexes of Oriented Matroids",
+        "trigger": "Ranking COM topes coincide with the concept class of linear extensions; highly plausible equivalence"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The main compression scheme has size bounded by the VC dimension given as an input; it does not evaluate that dimension as n minus poset height or identify maximal supports."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2110.15168",
+        "material_read": "Full arXiv PDF, Sections 1.3 and 4 including main compression statement; page image of page 2 (one-indexed).",
+        "method": "Inspect hypothesis class, definition of VC and role of dimension parameter in theorem",
+        "title": "Labeled Sample Compression Schemes for Complexes of Oriented Matroids",
+        "trigger": "A general theorem for the exact class of ranking COMs might imply the claim"
+      },
+      {
+        "assessment": "NOT_COVERING",
+        "evidence": [
+          "The points are posets or orders and ranges encode compatible order structures; the present points are unordered pairs and hypotheses are all extensions of a fixed poset. Different incidence relations, no implication of forest support criterion."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2412.06402",
+        "material_read": "Full accessible HTML sections 1–2 (definition of incidence system, principal statements, proofs overview).",
+        "method": "Compare the ground set of points and tested ranges with individual pair comparisons on one fixed poset",
+        "title": "VC-dimensions Between Partially Ordered Sets and Totally Ordered Sets",
+        "trigger": "Title explicitly links VC dimension and partial/total orders, plausible domination of claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b132d619-df80-4978-8631-45c954015c49",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The arbitrary-poset classification identifies an invariant of a natural finite relational learning class, unifies height with coordinate shattering, and gives a graph-theoretic obstruction for every possible query support. Characterizing all maximum supports by uniquely ordered antichain layers and enumerating them by the Cayley-weighted strict-rank-map sum provides new structural/enumerative information beyond the antichain case or routine height counting.",
+    "status": "PASS"
+  }
+}
