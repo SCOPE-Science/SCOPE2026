@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:50:22Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS. For B_r=K_{1,r}□K_2, r≥2, the two adjacent spine vertices and r opposite page pairs form all vertices. Every paired dominating set falls into exactly one of no-spine, one-spine, or both-spine cases. With both hubs, a perfect matching forces either whole selected pages or two opposite singleton pages on distinct pages; with exactly one hub, domination forces its full side and matching permits exactly one omission on the other; with neither hub, all 2r page vertices must be selected. This yields P_r(z)=z²(1+z²)^r+r(r−1)z⁴(1+z²)^{r−2}+(2r+1)z^{2r}. To identify inclusion-minimal sets, test all strict paired-dominating subsets (not just one-vertex deletions): exactly the spine pair and 2r+1 sets of size 2r are minimal. Independent brute-force from original graph definition and recursive exact matching checked all subsets for r=2..6 and coefficients/membership, e.g. r=6 total 557 and 14 minimal; bundled script checks through r=8 and 349,504 subsets. Finite checks substantiate the case proof, not replace it.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "2021 full paper addresses characterization Γ_pr(G)=2Γ(G), with bipartite and cactus families, not exact counts by cardinality.",
+          "Generic algorithmic complexity and upper paired number bounds do not give all feasible sets for this restricted graph."
+        ],
+        "reasoning": "A general theorem on other bipartite domination invariants is not automatically a corollary formula for these book graphs; no direct mathematical implication to the stated P_r(z) was found.",
+        "searches": [
+          "Alizadeh–Gözüpek 2021 arXiv:2104.02446 full primary",
+          "2022 AIMS Mathematics paired domination APX-completeness",
+          "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2"
+        ]
+      },
+      "checked_sources": [
+        "Frozen full RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt, verify_paired_book.py and verification_output.txt; administrative JSON privacy-checked",
+        "Alizadeh and Gözüpek arXiv:2104.02446 full 16-page primary paper with screenshots",
+        "Resultary paired domination chain graphs; book graph power domination (different problem)",
+        "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2",
+        "Independent subset/pair-matching exhaustive r=2..6 on graph defined by listed edges"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The full primary paper states Γ_pr=2Γ characterization and generic upper bounds.",
+          "The new polynomial includes every even cardinality and an exact extreme minimal-size spectrum with 2r+2 minimal sets."
+        ],
+        "reasoning": "A numerical bound/equality classification on Γ_pr does not determine each coefficient of P_r nor the number of minimal sets, so the candidate statement is not prior-implied by those cited results.",
+        "searches": [
+          "arXiv:2104.02446 pages 1–16",
+          "paired domination algorithmic/upper bounds",
+          "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "B_r is also a two-vertex-spine book of r squares or the prism of a star K1,r.",
+          "General upper paired domination Γ_pr differs from full vertex-set polynomial, and power domination differs from paired domination."
+        ],
+        "reasoning": "Search comparisons under star prism, quadrilateral book, square-page book and full paired-domination polynomial found related graph descriptions but not equivalence to an inspected theorem.",
+        "searches": [
+          "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2",
+          "arXiv:2104.02446 paired domination bipartite/cactus results",
+          "Resultary book graph paired domination power domination"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Chain graphs have nested bipartite neighborhoods, unlike these cyclic books.",
+          "A book POWER domination polynomial does not count PDS under perfect-matching constraint."
+        ],
+        "reasoning": "Neither exact table has both the correct graph family and paired-domination predicate. Search noncoverage alone is not novelty proof.",
+        "searches": [
+          "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2",
+          "Resultary: paired-domination polynomial of chain graphs 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+          "Resultary: power-domination polynomial of book graphs 2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3"
+        ]
+      },
+      "rationale": "PASS best-of-knowledge for an exact quadrilateral-book PDS vertex-set polynomial and full inclusion-minimal classification, excluding general paired-domination definitions. The 2021 Alizadeh–Gözüpek primary result classifies equality of upper paired domination and upper domination under bipartite/unicyclic/girth hypotheses, not polynomial coefficients on K1,r□K2. Resultary returned a paired-domination polynomial of CHAIN graphs and a power-domination polynomial of book graphs; neither is this combination of predicate and graph. No direct stronger implication or table covering the B_r polynomial was established. Unindexed book/prism variants remain a residual originality risk.",
+      "residual_risks": [
+        "Possible unindexed exact paired-domination enumerations of K1,r□K2 under star prism or square-book terminology.",
+        "No claim of results for arbitrary book page length or general Cartesian products; finite enumeration stops at r=8 in supplied verifier."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "BACKGROUND; NOT_DIRECT_COVERAGE",
+          "evidence": "It classifies graphs satisfying Γ_pr(G)=2Γ(G), not the book-family PDS vertex-set weight polynomial or counts.",
+          "identifier_or_url": "arXiv:2104.02446v3; DMTCS 23:3 (2021), #17",
+          "material_read": "Full 16-page primary PDF, introduction/preliminaries and characterization theorems, including page-image inspection",
+          "method": "arXiv PDF and visual page 1",
+          "title": "Upper paired domination versus upper domination",
+          "trigger": "Same paired-domination invariant and bipartite/cactus hypotheses"
+        },
+        {
+          "assessment": "DIFFERENT_GRAPH_FAMILY",
+          "evidence": "Connected chain graphs have nested neighborhoods and different perfect-matching balance conditions.",
+          "identifier_or_url": "Resultary: 2026/10/4/SCOPE-paired-domination-polynomial-of-chain-graphs--38091feaa528",
+          "material_read": "Published semantic record title and summary, NOT full source",
+          "method": "Published mathematical database/summary comparison",
+          "title": "Paired domination polynomial of chain graphs",
+          "trigger": "Exact same polynomial notion on a different family"
+        },
+        {
+          "assessment": "DIFFERENT_INVARIANT",
+          "evidence": "Power domination via propagation is not paired domination requiring an induced perfect matching.",
+          "identifier_or_url": "Resultary: 2026/10/4/SCOPE-power-domination-polynomial-of-book-graphs--646ff77569c3",
+          "material_read": "Published semantic record title and mathematical summary, NOT full paper",
+          "method": "Summary statement comparison",
+          "title": "Power domination polynomial of book graphs",
+          "trigger": "Book graphs with an exact weight polynomial"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS. Exact enumeration of a natural family of planar, bipartite, 2-vertex-connected quadrilateral books determines every feasible cardinality and all inclusion-minimal PDS. The contrast between all even sizes in unrestricted solutions and only sizes 2 and 2r among inclusion-minimal solutions gives an arbitrarily long, mathematically motivated gap; it is not a textbook substitution into a generic count.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen full RESULT.md, REVIEW.md, VERIFICATION.md, SLOGAN.txt, verify_paired_book.py and verification_output.txt; administrative JSON privacy-checked",
+    "Alizadeh and Gözüpek arXiv:2104.02446 full 16-page primary paper with screenshots",
+    "Resultary paired domination chain graphs; book graph power domination (different problem)",
+    "Resultary: paired domination polynomial and inclusion minimal sets of quadrilateral book K_1,r Cartesian K_2",
+    "Independent subset/pair-matching exhaustive r=2..6 on graph defined by listed edges"
+  ],
+  "disposition": "passed",
+  "limitations": "Only B_r=K_{1,r} Cartesian K2 with r>=2; count distinct labeled vertex subsets with perfect matching in induced subgraph, not matchings. Inclusion-minimal means no strictly smaller feasible subset.",
+  "residual_risks": [
+    "Possible unindexed exact paired-domination enumerations of K1,r□K2 under star prism or square-book terminology.",
+    "No claim of results for arbitrary book page length or general Cartesian products; finite enumeration stops at r=8 in supplied verifier."
+  ],
+  "schema_version": 1
+}
