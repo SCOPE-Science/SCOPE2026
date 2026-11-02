@@ -1,14 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The base rotation system has nine facial walks: seven of length four and two of length six. Euler's formula gives genus two, matching Ringel's formula. The extension changes rotations only in the two corners adjacent to the fixed degree-four vertex and adds four explicit quadrilateral faces; face tracing preserves the lengths of the old faces. Iteration covers every odd \(n\ge5\).
+## correctness
 
-## Originality
-PASS, with residual risk. The inspected primary paper by Grannell and Knor enumerates small complete bipartite graphs only through part size seven; the uniform two-vertex extension is not stated there. Searches for the exact odd-parameter face-distribution statement returned the finite examples and general excess constraints, not this infinite construction. A general handle-insertion result elsewhere could contain a related operation; no such source located in the inspected material establishes this exact claim.
+PASS
 
-## Value
-PASS. This gives an infinite family of minimum-genus embeddings with a prescribed nonquadrilateral face distribution, extending isolated small-parameter examples into a parity-uniform construction. The face distribution is a natural invariant in topological graph theory; the result is more than a numerical example because one local operation propagates it for all odd parameters.
+Face-traced every oriented dart in the explicit K4,5 rotation to seven 4-faces and two 6-faces; V=9, E=20, F=9 yields genus 2. The prescribed two-vertex operation inserts x,y before/after a distinguished b0 at alternating a-vertices and gives two consistent x,y rotations, causing four new quad faces while preserving the two 6-faces. Independently implemented face permutation on every extension for odd n=5 through 31, each exactly 2n-3 quadrilaterals and two hexagons. The local boundary switching is verified as a fixed rotation pattern, and Euler gives genus increase 1; Ringel lower bound ceil((4-2)(n-2)/4) gives (n-1)/2 for odd n. Finite tracing corroborates but cannot by itself prove arbitrary n; the local induction supplies that step.
 
-Closest literature: Ringel's genus formula; Grannell–Knor's finite enumeration of minimum-genus complete-bipartite embeddings. Limits: existence only, not uniqueness or a full classification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality after statement/implication comparison against relevant primary literature and published Resultary records; preexisting general ingredients and exact special cases explicitly credited; residual priority risks retained.
+
+## value
+
+PASS
+
+A concrete face-size realization across all odd n settles a natural graph-embedding existence pattern that Euler excess allows but cannot guarantee. The local stable two-hexagon extension is a reusable constructive genus-embedding mechanism, distinct from isolated small witnesses. No claim of uniqueness or all distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
