@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "For every n=2,...,8, each listed word set is proved correction-capable by exhausting distinct deletion shadows. Certified positive rational feasible LP primal and dual vectors have matching sums 1,2,4,4,8,13,21, so these are exact fractional optima. At n<8 the integer witnesses meet these bounds. At n=8 a 20-word witness and 77 positive-weight pairwise-conflict cliques cover each of 256 source words with total rational weight 482/23<21. Every clique pair, word-coverage inequality, LP constraint, and objective is exactly checked using Fraction, independently rebuilding all deletion shadows by string and bit operations, with no trust placed in solver output. This proves A_2(8)=20, F_2(8)=21, and no earlier fractional gap in the complete defined domain n>=2. Actual packaged verifier prints VERIFY_OK.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Ye and Ge, arXiv:2610.05696, abstract, Section I, Section VI Corollary VI.1, and Section VII, submitted 2026-10-05.",
+        "Schoeny, Wachter-Zeh, Gabrys, Yaakobi, arXiv:1602.06820, Sections II-A and IV (Theorem 4); original submitted 2016-02-22.",
+        "2026 source gives asymptotically small redundancy for (<=t) deletion and substring-edit channels, not all-length exact finite maximizers."
+      ],
+      "reasoning": "A correction code for at most two deletions also corrects exactly two, but asymptotic construction and redundancy bounds do not fix the exact cardinality of the larger exactly-two-deletion code at n=8. Prior work on two separate bursts, general two deletions, or insertion-plus-deletion has a distinct feasible-code family, so a numerical result for those models does not imply the displayed exact maximum or integrality gap.",
+      "searches": [
+        "arXiv:2610.05696, Sections I, VI, VII",
+        "\"binary two-burst deletion correcting codes exact maximum cardinality length eight length nine small n\"",
+        "\"binary adjacent two deletion burst codes length 8 9 exact optimum size\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/1602.06820",
+      "https://arxiv.org/abs/2610.05696",
+      "https://arxiv.org/abs/2408.03113 (two distinct bursts; abstract only)",
+      "Targeted public mathematical search for exact burst-two-deletion n8 sizes; only nonmatching channel and asymptotic results located"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Schoeny, Wachter-Zeh, Gabrys, Yaakobi, arXiv:1602.06820, Sections II-A and IV (Theorem 4); original submitted 2016-02-22.",
+        "Its Theorem 4 gives (2^(n-b+1)-2^b)/(n-2b+1) = 124/5 at n=8,b=2, whence integer maximum at most 24; not at most 20.",
+        "Ye and Ge, arXiv:2610.05696, abstract, Section I, Section VI Corollary VI.1, and Section VII, submitted 2026-10-05."
+      ],
+      "reasoning": "The claimed equality 20 cannot be inferred from the published 24-word bound, and the existence of asymptotically efficient constructions at different parameters does not give the upper bound 20. Independently, published hypergraph-fractional methodology alone does not imply F_2(8)=21 nor prove its integrality gap; both are established by new explicit certificates.",
+      "searches": [
+        "arXiv:1602.06820 Theorem 4 and Appendix A",
+        "arXiv:2610.05696 Corollary VI.1 and conclusion",
+        "\"two consecutive deletions\" optimal length eight 20 codewords"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Schoeny, Wachter-Zeh, Gabrys, Yaakobi, arXiv:1602.06820, Sections II-A and IV (Theorem 4); original submitted 2016-02-22.",
+        "Exact-burst words correspond to a matching in the hypergraph of received-output sets; the candidate claims a sharp matching number and first matching-LP gap."
+      ],
+      "reasoning": "The exact-burst model is explicitly translated to a hypergraph matching problem and to a weighted conflict-clique covering bound, so merely changing terminology cannot create novelty. The 2016 prior work uses the same hypergraph but proves a weaker general fractional bound. No equivalent n=8 exact matching value or first-gap statement was located in its inspected main results.",
+      "searches": [
+        "\"exact 2 burst deletion correcting codes length eight 20\"",
+        "\"two burst deletion\" \"length 8\" \"20\" binary codes",
+        "arXiv:1602.06820 Section II-A same burst-deletion ball definition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Schoeny, Wachter-Zeh, Gabrys, Yaakobi, arXiv:1602.06820, Sections II-A and IV (Theorem 4); original submitted 2016-02-22.",
+        "The arXiv 2016 article contains general results and an Appendix A on sphere-size counts, with no inspected n=8 exact-code-size table.",
+        "No identical-length/identical-channel database result was identified in actual published-record searches."
+      ],
+      "reasoning": "An exact table for the same channel could cover the 20-word answer even under different words. Targeted searches and inspection of the relevant 2016 theorem/appendix found a sphere-size table formula but not the exact matching value. Search incompleteness remains a stated historical risk.",
+      "searches": [
+        "\"exact maximum cardinality twenty binary length eight codes correcting two consecutive deletions\"",
+        "\"Schoeny Gabrys burst deletions n 8 2 optimum maximum codeword cardinality 20\"",
+        "\"first integrality gap fractional transversal of binary two-burst deletion hypergraph at length eight\""
+      ]
+    },
+    "rationale": "Published full-text comparison was by implication. Schoeny et al. define precisely the same exact-burst channel and give a general upper bound that evaluates to 124/5 (integer bound 24) at n=8,b=2, not 20; neither the exact n=8 optimum nor the first fractional-relaxation gap is reported in inspected sections. Ye and Ge give asymptotic construction bounds for a more demanding substring-edit and (<=t)-burst channel, not a length-eight exact cardinality or shadow-LP integrality result. Searches of prior indexed scientific records showed distinct deletion/edit/list channels and no implication of the new finite theorem. Missing primary access to Levenshtein 1967 and imperfect bibliographic indexing retain historical-priority risk; absence of a hit is not asserted as a proof of novelty.",
+    "residual_risks": [
+      "1967 Levenshtein full text not inspected; unpublished or unindexed short-blocklength tables could affect historical originality.",
+      "Searches do not constitute a completeness or publication-priority proof; self-review only.",
+      "Later sources covering stronger channels asymptotically may contain overlooked supplementary small-n tables outside inspected relevant sections."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Same model. General fractional-transversal bound at parameters equals 124/5, giving integer bound 24, and does not cover exact 20 or first gap in inspected results.",
+        "evidence": [
+          "Schoeny, Wachter-Zeh, Gabrys, Yaakobi, arXiv:1602.06820, Sections II-A and IV (Theorem 4); original submitted 2016-02-22.",
+          "Introduction gives historical Levenshtein relation; Theorem 4 gives explicit nonasymptotic upper bound."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1602.06820",
+        "material_read": "Full-text HTML Introduction, Section II definitions and prior results, Section IV theorem and proof, Section V construction outline, Section VIII conclusion and open problems; PDF title and relevant theorem pages",
+        "method": "Original arXiv full text and PDF pages, examined statements and specialized n=8,b=2",
+        "title": "Codes Correcting a Burst of Deletions or Insertions",
+        "trigger": "Identical exact-burst deletion model and published general cardinality bound"
+      },
+      {
+        "assessment": "Addresses asymptotic code constructions for stronger/different channels; the inspected relevant sections do not give the exact binary n=8 matching value or fractional-LP gap.",
+        "evidence": [
+          "Ye and Ge, arXiv:2610.05696, abstract, Section I, Section VI Corollary VI.1, and Section VII, submitted 2026-10-05."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2610.05696",
+        "material_read": "Full-text HTML abstract, Sections I-A and I-B, Corollary VI.1 and Section VII conclusions",
+        "method": "Original arXiv full text, comparison of channel implications and parameter-specific results",
+        "title": "Substring Edit Correcting Codes and Optimal Single Burst-Deletion Correcting Codes",
+        "trigger": "Recent stronger burst/substring-edit constructions possibly dominating channel"
+      },
+      {
+        "assessment": "Historical-priority uncertainty explicitly retained; no NOT_COVERING assessment is claimed for unseen text.",
+        "evidence": [
+          "Levenshtein, Asymptotically optimum binary code with correction for losses of one or two adjacent bits (1967), cited by Schoeny et al., Introduction; original text inaccessible."
+        ],
+        "identifier_or_url": "1967 Levenshtein; bibliographic reference in arXiv:1602.06820",
+        "material_read": "Secondary description in introduction of arXiv:1602.06820; original full text unavailable",
+        "method": "Search by original title and alternative citations; no lawful accessible full text located",
+        "title": "Asymptotically optimum binary code with correction for losses of one or two adjacent bits",
+        "trigger": "Historically closest initial two-adjacent-deletion source"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ed9eddc6-a0cf-42be-8b86-67e538ff1e8a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The optimum A_2(n) is a natural fundamental code-size invariant of the exact two-adjacent-deletion channel. The cutoff n=8 is not selected solely as a record increment: exhaustive exact rational certificates establish it is the first length at which the standard deletion-shadow fractional transversal/matching relaxation ceases to determine the integral optimum. The new pairwise-conflict clique-cover witness explicitly bridges 21 to 20, revealing a structural limitation of a core upper-bound method and providing a precise, reproducible finite benchmark for stronger synchronization-code bounds. Neither asymptotic results nor previously known run-count identities answer this exact invariant.",
+    "status": "PASS"
+  }
+}
