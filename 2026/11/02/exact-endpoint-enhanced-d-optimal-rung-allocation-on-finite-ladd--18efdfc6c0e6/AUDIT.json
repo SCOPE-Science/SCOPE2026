@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The block-Laplacian eigenvalue decomposition gives tau=det(L_path+2diag(w))/2 exactly. The unique positive budget root yields an AR(1) precision matrix with all inverse diagonals equal, certifying all logdet gradients. Strict concavity globally proves uniqueness even against boundary/asymmetric allocations; a closed AR(1) determinant produces the optimum and the explicit root its two asymptotic laws. A standalone checker passed 793 exact rational determinant, matrix inverse, cofactor, budget and sample-comparison checks; the infinite statement rests on the analytic argument.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Boyd (2006) discusses general convex eigenvalue and weighted graph optimization, not this objective-specific allocation formula.",
+        "Khosoussi et al. (2016), Sections 1, 2, 4.4, formulate general weighted spanning-tree design and relax combinatorial edge selection; no analytical all-n ladder specialization identified.",
+        "Earlier cyclic-prism budgeted designs differ in that the rails are periodic and have adjustable costs.",
+        "Klenke, arXiv:1704.00182, full HTML Sections 1–2, analyzes random spanning trees and explicit uniform rung distributions on the infinite ladder; its objective is a fixed-weight probability law, not optimization of independent weights."
+      ],
+      "reasoning": "General convexity provides an optimization method, not this explicit optimum. A cyclic graph has no free rung endpoints and is not an implication for a finite nonperiodic ladder with rails fixed at conductance one.",
+      "searches": [
+        "optimal ladder rung conductance D optimal spanning tree allocation price endpoint bulk",
+        "unique optimum max weighted spanning tree polynomial finite path ladder variable rung weights fixed unit horizontal rails sum rung conductances; rungs endpoints boosted common interior and inverse Green's function equal diagonals",
+        "optimal algebraic connectivity weighted ladder graph edge budget rung prices"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1604.01116, complete accessible HTML material",
+      "Boyd (2006), public paper page and PDF opening page",
+      "Gantert–Klenke, 2023 open-access abstract and introductory definitions",
+      "Complete public finite-volume ladder rung-kernel theorem and proof 2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+      "Previously published cyclic-prism spanning-tree optimization statement compared for implication only",
+      "Klenke (2017), arXiv:1704.00182, full open HTML Sections 1 and 2"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:1604.01116, complete accessible text, general log-tree edge selection and convex relaxation.",
+        "Gantert–Klenke 2023 open-access sections 1.1–1.2, two-sided infinite ladder with identical positive rung weight c.",
+        "Complete finite-volume rung-kernel RESULT.md studies uniform rung weights c>0 and expressly flags nonuniform weights as beyond its proof."
+      ],
+      "reasoning": "The new theorem optimizes all independent rung weights and proves global uniqueness with a nonuniform endpoint-heavy optimum. Full-text finite-volume theorem assumes all rungs share one c, its proof computes correlations at that c, and its limitations explicitly exclude nonuniform rungs. Khosoussi and Boyd provide general optimization machinery, not this closed-form theorem.",
+      "searches": [
+        "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs arXiv 1604.01116 convex relaxation edge selection ladder",
+        "finite-volume rung kernel boundary-bulk weighted ladder spanning trees uniform weight",
+        "D-optimal cyclic prism weighted spanning trees independent rail rung budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The objective is equivalently the determinant of a path Laplacian with a freely chosen nonnegative diagonal of fixed sum (Kirchhoff rail decomposition).",
+        "The complete public finite-volume rung-kernel RESULT.md studies a common rung weight c, explicitly says nonuniform rung weights require a different inverse problem, and supplies no fixed-budget design theorem.",
+        "arXiv:1604.01116 develops log-spanning-tree objective and general convex edge-selection relaxation, without the finite fixed-rail ladder closed-form optimizer in Sections 1, 2 and 4.4."
+      ],
+      "reasoning": "The prior finite-volume Green function has fixed uniform rung weights c and cannot be directly substituted into a variable diagonal optimality condition. Its complete source text was examined, including assumptions, proof and limitations.",
+      "searches": [
+        "two rail ladder P_n square K_2 with fixed horizontal rail conductance 1 and optimally chosen vertical rung weights under sum of rung weights budget maximize weighted spanning tree number determinant logdet; optimal endpoint vs interior rung conductance and AR1 Toeplitz covariance",
+        "maximum determinant of path Laplacian plus diagonal nonnegative weights sum fixed; optimum equal inverse diagonal endpoint and bulk AR1 precision stationary correlation",
+        "weighted spanning tree ladder determinant path laplacian plus positive diagonal equals AR(1) precision inverse Toeplitz; closed-form D optimal design"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The complete public finite-volume ladder kernel result 2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c provides explicit uniform-rung inclusion probabilities and does not give budgeted independent rung allocation.",
+        "No precise matching all-n, all-B endpoint/interior weight table surfaced in these searches."
+      ],
+      "reasoning": "A uniform-weight rung-probability kernel or tabulation of fixed weights cannot supply the unique optimum under independent variable weights without an additional global inverse-diagonal optimization argument. Searches alone do not certify uniqueness of the literature.",
+      "searches": [
+        "n-rung ladder vertical conductance investment budget exact endpoint uniform interior maximizer",
+        "optimal spanning tree weights complete bipartite graph one expensive edge"
+      ]
+    },
+    "rationale": "All directly relevant accessible primary texts and the full published finite-volume rung-kernel theorem were compared by mathematical implication. They cover general convex design or uniform-weight ladder correlation kernels, whereas the claim exactly solves independently adjustable rung prices at any budget on a fixed-rail finite ladder. No equivalent theorem appeared in the inspected records; broader design literature remains an acknowledged priority risk.",
+    "residual_risks": [
+      "Published finite-volume rung-kernel theorem was inspected fully and does not imply the independent-rung optimization; priority against unknown specialist D-optimal resource-allocation literature is still not independently certified."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General combinatorial design and convex methodology; no exact endpoint-enhanced fixed-rail finite ladder allocation detected",
+        "evidence": "Introduces weighted spanning-tree objective and near-optimal edge selection; first public version 2016-04-05.",
+        "identifier_or_url": "https://arxiv.org/abs/1604.01116",
+        "material_read": "Full accessible HTML text: abstract, introduction, background, Sections 4 and 4.4 on convex relaxation",
+        "method": "Read theorem statements, graph-design constraints, optimization and relaxation scope",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Closest general weighted tree-connectivity optimization source, and focal archive source"
+      },
+      {
+        "assessment": "General convex graph eigenvalue design, not an explicit finite-ladder tree-determinant allocation",
+        "evidence": "ICM 2006 treatment of graph-weight convex optimization.",
+        "identifier_or_url": "https://www-leland.stanford.edu/~boyd/papers/cvx_opt_graph_lapl_eigs.html",
+        "material_read": "Abstract, introduction and available PDF opening page",
+        "method": "Compared stated convex optimization objective classes and graph-weight constraints",
+        "title": "Convex Optimization of Graph Laplacian Eigenvalues",
+        "trigger": "General dominating weighted-Laplacian budget optimization"
+      },
+      {
+        "assessment": "Infinite ladder weighted by a shared uniform rung parameter; does not state a continuous independent-rung design solution",
+        "evidence": "Gantert–Klenke 2023 assume identical rung conductance c.",
+        "identifier_or_url": "https://doi.org/10.1007/s10955-023-03091-w",
+        "material_read": "Open-access abstract and Sections 1.1–1.2",
+        "method": "Inspected finite versus infinite ladder, fixed versus variable rung-weight assumptions",
+        "title": "Biased Random Walk on Spanning Trees of the Ladder Graph",
+        "trigger": "Same ladder object and spanning-tree weights"
+      },
+      {
+        "assessment": "Full text assumes a common rung conductance c and expressly excludes nonuniform weights from its theorem; no implication of the price-budget maximizer.",
+        "evidence": "Its Proof constructs B_n=L_path+2cI and computes 2c B_n^{-1}; its Limitations state that nonuniform rung weights require a different inverse problem.",
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-volume-rung-kernel-and-boundary-bulk-split-for-weig--647fc3f7ee8c",
+        "material_read": "Full public RESULT.md: finding, hypotheses, tridiagonal kernel proof, verification scope, literature relationships and limitations.",
+        "method": "Compared finite uniform-parameter Green-function theorem, its exact eigenmatrix and explicitly noted nonuniform-weight limitation, against the independently variable budgeted determinant.",
+        "title": "Exact finite-volume rung kernel and boundary-bulk split for weighted ladder spanning trees",
+        "trigger": "Closest same-object finite weighted ladder rung result"
+      },
+      {
+        "assessment": "Uniform and infinite ladder sampling/distribution results; does not optimize variable rung design with a budget",
+        "evidence": "The paper develops stationary infinite-ladder rung processes, a finite-ladder partition function under common rung weights and electrical-network methods.",
+        "identifier_or_url": "https://arxiv.org/html/1704.00182v1",
+        "material_read": "Complete open HTML Sections 1 and 2, including definitions and ladder counting constructions",
+        "method": "Compared statistical-mechanical uniform rung laws and finite weight-count recurrences with independently allocated finite-rung logdet optimization",
+        "title": "The Random Spanning Tree on Ladder-like Graphs",
+        "trigger": "Primary infinite-ladder weighted spanning-tree and rung-count source cited by finite-volume literature"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "18efdfc6-c0e6-4f51-85e2-e6a624347ff2",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-budget exact solution of independent rung resource allocation on every fixed-rail finite ladder is a natural D-optimal graph-design problem. It establishes a nontrivial endpoint premium and a scale-separated, quantifiable boundary/bulk allocation law, while proving unrestricted global uniqueness and optimal value instead of reporting numerical KKT solutions.",
+    "status": "PASS"
+  }
+}

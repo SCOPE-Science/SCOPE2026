@@ -1,0 +1,15 @@
+# Review: exact endpoint-enhanced D-optimal rung allocation
+
+## Correctness — PASS
+The weighted matrix-tree theorem and the symmetric/antisymmetric rail decomposition give exactly \(\tau=\det(L_{P_n}+2\operatorname{diag}w)/2\). At the explicit positive optimizer, \(\rho=(1+u)^{-1}\) makes this tridiagonal matrix the exact inverse of a scaled AR(1) correlation matrix. Thus every inverse diagonal and every coordinate derivative of the log determinant is equal. Concavity establishes the global upper bound for every feasible rung vector; strict log-determinant concavity gives uniqueness, even against asymmetric and zero-rung allocations. The budget quadratic has exactly one positive root, the determinant has the stated closed form, and the fixed-budget/long-ladder asymptotics follow from its expansion. The independent standalone exact-rational verifier passed 793 comparisons; those tests are supplementary to the analytic proof.
+
+## Originality — PASS on the inspected evidence, qualified
+Khosoussi et al. (arXiv:1604.01116, published online 2016-04-05) frame and optimize weighted spanning-tree objectives, including a general convex relaxation of edge selection. Boyd (ICM 2006) gives a broad convex-optimization framework for graph weights. Gantert–Klenke (2023) study the infinite ladder with identical rung weight, not budgeted independent finite rungs. The full proof of a public finite-volume rung-kernel finding derives a tridiagonal Green function for a **uniform** rung weight and expressly excludes nonuniform rung weights from its claim; this does not imply an independent-rung budget optimizer. A prior cyclic-prism optimization has different constraints and no free endpoints. These studies do not, on their inspected statements, imply the full fixed-rail optimization theorem. Its full theorem and proof were inspected after a source-access retry. Other specialist optimization literature could still contain equivalent statements; a failed search alone is not treated as originality proof.
+
+## Mathematical value — PASS
+Weighted spanning-tree count is a recognized D-optimal connectivity and high-reliability design surrogate. The result solves a natural independently adjustable edge-allocation problem for every ladder length and every positive budget without imposing symmetry, and it proves a non-obvious endpoint premium, exact global uniqueness and asymptotic endpoint-versus-bulk differentiation. A precise optimization law rather than a generic KKT restatement is obtained.
+
+## Scientific scope and remaining risks
+Fixed rail weights, a single horizontal width, equal rung prices, and no per-rung caps. The closely named finite-volume kernel theorem was inspected in full and does not optimize independent rung weights; specialist D-optimal design literature beyond the inspected texts may still contain an equivalent formulation. The verifier is finite and does not establish the infinite family without the proof.
+
+Self-review: passed. Independent audit: not yet performed.
