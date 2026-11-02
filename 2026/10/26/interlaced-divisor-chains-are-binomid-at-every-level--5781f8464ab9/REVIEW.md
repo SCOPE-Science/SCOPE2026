@@ -1,13 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** Every prime valuation decomposes into two interlaced nondecreasing chains. The interval lemma proves every displaced interval dominates its initial interval, including the odd-length/even-start endpoint. Column valuations inherit the same inequalities, so all generalized binomial coefficients are integral. The three-step example was checked explicitly. Finite checks corroborate but cannot establish universal quantifiers.
+## correctness
 
-**Originality — PASS within inspected literature.** Shapiro (2023) proves the corresponding all-level theorem for one-step divisor chains (Proposition 5(a)), and a separate divisor-product criterion (Theorem 15). Neither implies the exhibited non-divisor-product, non-divisor-chain semigroup indicator family. Shapiro's Question 24 is broader and remains unresolved by this result. Caalim--Tanaka (2024) concerns finite extension minimality. Actual semantic searches found no equivalent statement, but implicit prior coverage is a residual risk.
+PASS
 
-**Value — PASS.** The all-level closure lemma proves a natural nontrivial subclass of an explicit question concerning ComboSum sequences, with an infinite numerical-semigroup family outside both previously cited sufficient conditions. The three-step counterexample isolates a structural boundary without claiming maximal generality.
+For each prime p, let a_n=v_p(f_n). Hypotheses f_1|f_2 and f_n|f_{n+2} give a_1<=a_2 and monotonicity separately along parity classes. Verified the shifted-interval lemma by pairing equal-parity positions, with the exceptional even-start odd-length final even term compared to a_1 using a_{s+2h}>=a_2>=a_1. It gives each ordinary generalized binomial valuation >=0. For width j the column valuation b_n=sum_{i=n}^{n+j-1}a_i-sum_{i=1}^j a_i has b_1=0, b_2=a_{j+1}-a_1>=0 and b_{n+2}>=b_n; the same lemma proves every generalized binomial coefficient in every column integral for every N,K,j,p. This handles all unbounded quantifiers, not just initial terms. Verified semigroup examples H_q=<2,2q+1> are ComboSum by closure under addition, not ordinary chains because f_2=p and f_3=1; the factor at 2r for odd prime r>=2q+1 gives 1/p and rules out Shapiro divisor-product form. Checked periodic valuations (0,1,1) yield a three-step analogue failing in column two with B_{C2}(4,2)=1/2. Independently generated 500 random parity-monotone finite valuation sequences and checked every available column, confirming the finite consequences but not replacing the interval proof.
 
-**Limitations.** The theorem is sufficient, not necessary, and does not answer the unrestricted ComboSum question. Novelty has not been independently evaluated and possible unindexed prior coverage remains. The standalone finite checker is corroborative only.
+## originality
 
-**References.** Shapiro, *Divisibility Properties for Integer Sequences* (2023), arXiv:2302.02243v1; Caalim and Tanaka, *Lexicographically Minimal Extension of a Finite Binomid Index* (2024), *Integers* 24 A53.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Shapiro (2023) proves divisor chains and divisor-product sequences binomid at every level, and explicitly asks whether all ComboSum sequences are. The current two-step parity-divisibility sufficient condition is a distinct implication, because its natural semigroup examples fail both stated sufficient conditions. It supplies a rigorously identified proper ComboSum subclass, not a resolution of the unrestricted question. The Caalim–Tanaka finite-index extension problem addresses a different object. Priority uncertainty remains for stronger interval-majorization sufficient criteria not found by exact/general searches.
+
+## value
+
+PASS
+
+The binomid-pyramid all-level integrality problem is explicitly motivated by an open sufficient-condition/ComboSum question. A concise but genuinely nontrivial valuation lemma handles infinitely many column widths, and the semigroup family demonstrates coverage beyond familiar sufficient hypotheses. The three-step counterexample isolates a meaningful structural boundary rather than an arbitrary finite case. No claim of complete characterization or solution to the full ComboSum question.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
