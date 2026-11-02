@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T20:12:18Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-complete-second-moment-inverse-theorem-for-random-simplex-vert--73de6671ab49/RESULT.md",
+        "2026/10/25/a-complete-second-moment-inverse-theorem-for-random-simplex-vert--73de6671ab49/verify.py (Git blob 6af09124056011d428c85c487e337217c1bd68eb)",
+        "independent_checks.json simplex entry"
+      ],
+      "rationale": "Uniform barycentric coordinates lambda are Dirichlet(1,...,1) with C=(mI-J)/[m²(m+1)] positive definite, m=d+1. Setting v0=0 and edge Gram G yields Y_i=G_ii-2(G lambda)_i, hence S=4GCG. The unique SPD square root of C^1/2 S C^1/2 recovers G=1/2 C^-1/2 (C^1/2 S C^1/2)^1/2 C^-1/2 for every d>=1. Each SPD S yields a unique SPD Gram and thus an isometry class of labelled simplices. det C=[m^(d+1)(m+1)^d]^-1 and det G=(d!Vol)^2 give the displayed volume formula. Independently checked symbolic exact identities for d=1,2,3; all-dimensional proof is SPD algebra, not finite tests.",
+      "residual_risks": [
+        "Uniform sampling and known labelling are essential; singular covariances and empirical covariance perturbations are outside scope."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Li–Qiu gives planar one-vertex radial moments; does not cover arbitrary d or second-order *joint squared differences*.",
+          "Meckes–Meckes concerns normal approximation for linear projections of regular simplices."
+        ],
+        "reasoning": "Neither implies the all-d labelled SPD surjectivity/injective inversion theorem.",
+        "searches": [
+          "Li Qiu 2016 Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles",
+          "Meckes Meckes central limit random simplex 2005"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1155/2016/8371750",
+        "https://arxiv.org/abs/math/0505618",
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-complete-second-moment-inverse-theorem-for-random-simplex-vert--73de6671ab49/RESULT.md"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "SPD equation S=4GCG is solved by a unique positive-definite square root.",
+          "Any SPD Gram is an edge matrix of a labelled nondegenerate simplex, hence any SPD covariance occurs."
+        ],
+        "reasoning": "Known SPD square roots guarantee the inversion *after* the observation identity; inspected prior sources do not establish that random distance differences generate S=4GCG for arbitrary simplices, so coverage by broader prior theorem is not demonstrated.",
+        "searches": [
+          "distance geometry Gram reconstruction Cayley Menger",
+          "Dirichlet simplex covariance SPD algebraic Riccati square root"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Classical multidimensional scaling reconstructs a Euclidean simplex given pairwise distances, not the covariance of a uniformly sampled point’s d squared-distance differences.",
+          "Li–Qiu 2016 computes scalar distance moments from a triangle vertex, not the full vector cross covariance and inversion."
+        ],
+        "reasoning": "The covariance identity is a nontrivial translation from observation model to known Gram mathematics; no direct equivalence with edge-known input has been found.",
+        "searches": [
+          "Resultary_Search search: uniform random point in simplex covariance squared distances to vertices inverse Gram matrix reconstruct simplex",
+          "inverse simplex geometry covariance of squared distance differences",
+          "Dirichlet barycentric coordinate covariance and Gram matrix inverse"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact shape recovery formula from the stipulated covariance was returned in the checked published mathematical finding list."
+        ],
+        "reasoning": "This is a bijection theorem for all d, not a fixed-index table; standard moment identities do not by themselves give a previously recorded exact database value.",
+        "searches": [
+          "Resultary_Search search: uniform random point in simplex covariance squared distances to vertices inverse Gram matrix reconstruct simplex",
+          "covariance Gram matrix random simplex d squared differences complete moment invariant"
+        ]
+      },
+      "rationale": "Although the matrix square-root algebra is standard, the exact observed-data-to-shape bijection, namely S=Cov(||X-v_i||²-||X-v0||²) for a uniform simplex probe, is not implied by the inspected radial-moment sources, nor by Gram reconstruction from already known edge lengths. A claim of new positive-definite square-root theory would be false; originality lies in recognizing and completely solving this natural inverse observation model.",
+      "residual_risks": [
+        "Algebraic identity S=4GCG and SPD matrix roots are classical; novelty is specifically the distance-observation inverse problem.",
+        "Unindexed earlier statistical shape-recovery literature may contain this same observable; no exhaustive historical priority guarantee.",
+        "No empirical noise or unknown-label reconstruction stability is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Distance to a single vertex in triangles; not joint squared-distance differences to all vertices nor general d.",
+          "evidence": [
+            "2016 paper derives individual radial distance moments, distinct observations."
+          ],
+          "identifier_or_url": "https://doi.org/10.1155/2016/8371750",
+          "material_read": "Accessible full article HTML, including analytic moment formulas and conclusion.",
+          "method": "Full-text primary HTML reading.",
+          "title": "Moments of Distance from a Vertex to a Uniformly Distributed Random Point within Arbitrary Triangles",
+          "trigger": "Potential same random-simplex moments."
+        },
+        {
+          "assessment": "Regular-simplex linear projection CLT does not imply inverse metric reconstruction of arbitrary simplex.",
+          "evidence": [
+            "Regular simplex and projection normal approximation, not covariance inversion."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/math/0505618",
+          "material_read": "Title, abstract and scope/method statements; not full document independently reinspected.",
+          "method": "Primary preprint abstract/section-level comparison.",
+          "title": "The central limit problem for random vectors with symmetries",
+          "trigger": "Potential random simplex projection equivalence."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/blob/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/a-complete-second-moment-inverse-theorem-for-random-simplex-vert--73de6671ab49/RESULT.md",
+        "https://doi.org/10.1155/2016/8371750",
+        "https://arxiv.org/abs/math/0505618"
+      ],
+      "rationale": "The joint covariance of natural vertex-distance difference observables is a complete shape-and-scale parameter, allowing all edges and volume to be recovered from a single uniform interior probe distribution in every dimension. That explicit global bijection has genuine metric inverse-problem interest beyond an isolated arithmetic calculation.",
+      "residual_risks": [
+        "Underlying SPD square-root uniqueness and Dirichlet moment formulas are classical; contribution is the full inverse observation model."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "No noise conditioning/stability, unlabeled recovery or degenerate boundary inversion.",
+    "Algebraic identity S=4GCG and SPD matrix roots are classical; novelty is specifically the distance-observation inverse problem.",
+    "Unindexed earlier statistical shape-recovery literature may contain this same observable; no exhaustive historical priority guarantee.",
+    "No empirical noise or unknown-label reconstruction stability is established."
+  ],
+  "schema_version": 1
+}
