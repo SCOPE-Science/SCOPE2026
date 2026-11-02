@@ -1,0 +1,133 @@
+{
+  "correctness": {
+    "rationale": "The rank-one resolvent identity and signed eigenbasis update hold for every positive step. Conditioning yields the exact mean, zero cross moment, and two-dimensional positive moment matrix; Cayley–Hamilton gives the closed finite-N variance. For \\(h=T/N\\), the fast-direction random error is \\(O(h)\\) in \\(L^2\\), the slow-direction linearized independent Rademacher array has variance tending to \\(V>0\\), its replacement error is \\(O(h^{3/2})\\) in \\(L^2\\), and Lindeberg–Slutsky yield a one-direction Gaussian limit. Its second moment tends to the same explicit nonzero coefficient, proving rate sharpness. The packaged checker exhausts sign histories for multiple rational parameter choices and confirms the coefficient numerically.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The original and journal versions prove general strong-rate upper estimates, not a nonzero leading coefficient or distribution.",
+        "ArXiv:2010.15679 addresses splitting stochastic Manakov dynamics rather than random deterministic-operator selection."
+      ],
+      "reasoning": "Upper bounds of order one-half do not entail lower bounds, Gaussianity, a spectral direction, or exact finite time covariance. The stochastic-equation splitting model is not a stronger theorem on the present noise mechanism.",
+      "searches": [
+        "https://arxiv.org/html/2210.05375v1 Section 5 stability and convergence in expectation",
+        "https://link.springer.com/article/10.1007/s00211-024-01396-w strong rate order one half",
+        "random time splitting method central limit theorem linear evolution equations 2023"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2210.05375v1",
+      "https://link.springer.com/article/10.1007/s00211-024-01396-w",
+      "https://arxiv.org/abs/2010.15679",
+      "https://arxiv.org/abs/2309.16339"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Eisenmann–Stillfjord: convergence order at least one-half for randomized operator splitting.",
+        "Berg–Cohen–Dujardin: rate-one-half splitting of the stochastic Manakov equation.",
+        "Dareiotis–Gerencsér–Lê: central limit theorem for Euler–Maruyama approximations of elliptic SDEs."
+      ],
+      "reasoning": "Neither the rate-only strong bounds nor central limits for equations with intrinsic Brownian noise imply an exact rational two-mode second-moment matrix and its nontrivial Gaussian coefficient for independent Bernoulli operator selection; the needed algebra and the Lindeberg replacement argument are newly supplied here.",
+      "searches": [
+        "randomized implicit Euler operator splitting central limit fluctuations asymptotic covariance strong error stochastic partition",
+        "Eisenmann Stillfjord randomized operator splitting exact moments rank-one projection central limit",
+        "\"randomized operator splitting\" \"central limit\" \"Euler\" accuracy covariance",
+        "random time splitting method central limit theorem linear evolution equations 2023",
+        "randomized backward Euler stochastic operator approximation weak limit Gaussian fluctuation",
+        "randomized splitting linear ODE random Lie Trotter central limit theorem error matrix products strong convergence 2021",
+        "randomized resolvent product of two nonorthogonal orthogonal projections Bernoulli central limit mean-square error exact formula"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Independent fair Bernoulli resolvent products are equivalent to the signed two-by-two recurrence in the proof.",
+        "Original arXiv:2210.05375v1 defines independent selection with unbiased component scaling; it does not display this exact spectral law."
+      ],
+      "reasoning": "A generic matrix-product central limit theorem can provide an abstract fluctuation principle after verifying assumptions, but the explicit finite-N slow variance and mode localization require analyzing this special pair. No exact matching formula was identified.",
+      "searches": [
+        "randomized resolvent product of two nonorthogonal orthogonal projections Bernoulli central limit mean-square error exact formula",
+        "two noncommuting rank one projectors randomized implicit Euler splitting 2x2 exact second moment covariance normal central limit sharp half order constant",
+        "Eisenmann Stillfjord random operator splitting sharp Gaussian fluctuation slow eigenvector fast eigenmode"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No listed table or published finding in searched results supplied these moment eigenvalues or the function V(c,T).",
+        "The closest retrieved numerical-analysis records addressed other operators or rates, not an equal-probability two-projection implicit Euler time-stepping law."
+      ],
+      "reasoning": "A database search alone cannot establish uniqueness, but no identical exact entry was found. The full closest source text was also inspected for equivalent statements.",
+      "searches": [
+        "Eisenmann Stillfjord randomized splitting operator exact variance central limit Rademacher eigenmode transfer",
+        "randomized implicit Euler operator splitting rank one projection matrices central limit error Gaussian weak mode variance 1-cos angle",
+        "randomized operator splitting exact finite step second moments strong error asymptotic variance noncommuting rank one damping"
+      ]
+    },
+    "rationale": "The closest primary source proves broad strong error upper bounds without the exact two-projector moment eigenvalue identity, slow-direction Gaussian distribution, or nonzero sharp coefficient. Searches tested equivalent random-matrix and stochastic-integrator formulations; no published theorem found covering all of this specialized claim. Standard projector algebra and Lindeberg theory are acknowledged as background. Specialized random-product literature remains a priority risk.",
+    "residual_risks": [
+      "An unlocated article on products of random near-identity resolvents may contain an equivalent specialized exact formula.",
+      "Only abstracts, not full texts, were accessible or inspected for the less closely matching SDE-splitting and Euler–Maruyama comparisons.",
+      "No independent publication-priority or mathematical audit has occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The random operator equals a sampling-probability-scaled component as in the present construction; the general upper bound is not the same as an exact finite-step covariance or an explicitly nondegenerate fluctuation limit",
+        "evidence": [
+          "arXiv v1 posted 11 October 2022",
+          "Section 3.2 scales sampled components by inclusion probability",
+          "Section 5 treats stability and convergence in expectation without a Gaussian error law"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2210.05375v1",
+        "material_read": "Original public full HTML sections 1–6, including the sampled-operator definition in Section 3.2 and the strong-rate theorem in Section 5",
+        "method": "Read the full accessible text and compared update equations and the error statements",
+        "title": "A randomized operator splitting scheme inspired by stochastic optimization methods (original v1)",
+        "trigger": "Exact scheme and convergence order are closest in algorithm and scaling"
+      },
+      {
+        "assessment": "The 2024 version remains a general strong-rate analysis and does not state the explicit two-projector Gaussian variance or finite-time spectral formula",
+        "evidence": [
+          "Numerische Mathematik 156 (2024), 435–461",
+          "Abstract guarantees order at least one-half"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s00211-024-01396-w",
+        "material_read": "Open-access full journal HTML, including formal framework and main error estimates",
+        "method": "Read the full accessible version and compared the mathematically asserted implications",
+        "title": "A randomized operator splitting scheme inspired by stochastic optimization methods (journal version)",
+        "trigger": "Check whether final publication adds a covering theorem"
+      },
+      {
+        "assessment": "Stochastic Manakov dynamics with random dispersion and Lie–Trotter splitting, not random selection of two resolvent components for a deterministic linear ODE. Abstract does not imply this special covariance.",
+        "evidence": [
+          "arXiv abstract describes stochastic Manakov equation, strong one-half order and numerical experiments"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.15679",
+        "material_read": "ArXiv abstract and public bibliographic description; not the full text",
+        "method": "Compared the stated equation class, randomness, and estimates",
+        "title": "Lie–Trotter Splitting for the Nonlinear Stochastic Manakov System",
+        "trigger": "Strong one-half order under random dynamics and a splitting algorithm"
+      },
+      {
+        "assessment": "Studies Euler–Maruyama for genuinely Brownian-driven SDEs with irregular drift, whereas this model solves a deterministic ODE with stepwise random operator sampling. No direct statement specialized to Bernoulli projectors.",
+        "evidence": [
+          "The abstract explicitly assumes elliptic Brownian diffusion and Euler–Maruyama approximation"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2309.16339",
+        "material_read": "ArXiv abstract and theorem description; not the full text",
+        "method": "Compared the noise origin and scaling of the asserted central limit theorem",
+        "title": "A central limit theorem for the Euler method for SDEs with irregular drifts",
+        "trigger": "Check nearby weak-limit literature on numerical discretization errors"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "c695b344-1eb3-49ef-af26-74f5c909695b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact finite-step damping/noise covariance and sharp nonzero continuous-time variance are natural quantitative error invariants for the source randomized integrator, not a contrived parameter cutoff. The explicit fast-to-slow mode transfer explains anisotropy of splitting error, yields a one-dimensional confidence diagnostic, and demonstrates that the general half-order guarantee cannot be improved for noncommuting linear components without extra conditions.",
+    "status": "PASS"
+  }
+}
