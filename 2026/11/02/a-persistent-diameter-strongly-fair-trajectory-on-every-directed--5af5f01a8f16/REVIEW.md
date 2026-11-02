@@ -1,0 +1,11 @@
+# Scientific review
+
+**Correctness — PASS.** An explicit ideal grow/shrink pair shifts a single unit-valued vertex around every oriented cycle of order at least three. Non-target zero and unit anchors exist in every ideal block, and the block approximation errors form a convergent geometric series below \(1/8\). Exact contraction shows the two-agent boundary. The accompanying rational-arithmetic checker replays each single action for four cycle orders. These finite tests check implementation, not the infinite mathematical quantifier.
+
+**Originality — PASS, with residual literature risk.** The closest inspected primary paper, Aranda et al., *Fairness and Consensus in an Asynchronous Opinion Model for Social Networks*, Proposition 9 and Construction 10, gives a three-agent counterexample with four directed arcs and alternately updated central vertex. That statement does not imply that non-consensus is possible on every simple oriented cycle with indegree exactly one, nor does it give the present all-time diameter bound. Its stronger \(m\)-bounded-fairness theorem is not contradicted. Targeted searches for deterministic fair directed cycles and fixed-weight matrix products, and comparison against accessible related mathematical findings, did not reveal equivalent or dominating coverage. A later expanded journal treatment and older general matrix-product results carry residual priority risk; the former was accessible only by abstract, while the latter's exhaustive implications were not established.
+
+**Value — PASS.** A minimal three-edge counterexample separates scheduling failure from multiple in-neighbors, a plausible structural explanation for the source's four-edge construction. The all-cycle classification and uniform quantitative gap identify a natural sparse topology on which simple strong fairness remains insufficient for consensus. The exact two-vertex contrast proves that both vertex count and directed edge count are sharp. This is a structural qualitative theorem rather than an arbitrary parameter substitution.
+
+**Scientific limitations.** The schedule is adversarial and generally not bounded fair; positive-probability random non-consensus and universally slow mixing are not shown. No comprehensive bibliographic priority proof is possible from finite searches.
+
+Self-review: passed. Independent audit: not yet performed.

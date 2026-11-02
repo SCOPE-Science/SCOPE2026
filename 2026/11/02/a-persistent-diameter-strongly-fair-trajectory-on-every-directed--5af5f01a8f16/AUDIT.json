@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For n≥3 ideal grow/shrink copy maps rotate a lone 1 exactly, and every ideal block has untouched 0 and 1 anchors. Finite weighted activation block approximates its copy map by (1-p)^N. Geometric errors sum to 1/8, while anchors are never updated within the block, yielding diameter >3/4 at every single update. For n=2 every action contracts diameter by ≤q<1; nested extrema converge to consensus. Rational checker tests exact indexing and intermediate steps; the proof, not finite enumeration, handles the universal domain.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Touri–Nedić arXiv:1001.1890 treats particular random chains and consensus/flow criteria, not the explicit adversarial deterministic edge word.",
+        "Chatterjee–Seneta 1977 studies general repeated averaging but its full theorem implications could not be conclusively checked.",
+        "Aranda et al. Theorem 18 implies convergence for stronger m-bounded fairness, not strong fairness."
+      ],
+      "reasoning": "General stochastic matrix product theorems can subsume existence or convergence facts only when matching hypotheses and schedules; none of the materially inspected statements establishes this every-cycle, arbitrary-weight, every-update separation. Unread broad matrix-product sources remain explicit residual risk, not asserted absent.",
+      "searches": [
+        "Web: On Ergodicity Infinite Flow and Consensus random models Touri Nedic",
+        "Web: Towards Consensus Some Convergence Theorems on Repeated Averaging Chatterjee Seneta",
+        "published-finding corpus: asynchronous opinion directed simple cycle C_n strongly fair schedule no consensus one in-neighbor"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2312.12251, mathematical model, strong fairness, construction, higher-fairness theorem",
+      "CONCUR 2024 DOI:10.4230/LIPIcs.CONCUR.2024.7, relevant pages 6–11",
+      "Touri–Nedić arXiv:1001.1890 abstract/scope",
+      "Chatterjee–Seneta (1977) available bibliographic/abstract scope",
+      "published-finding corpus semantic overlap results, multiple explicit queries"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Earlier source shows existential strong-fair nonconsensus for four arcs; its two extremes are never both required to be transferred around one directional ring.",
+        "Source higher-fairness convergence theorem does not apply to arbitrarily unbounded repeated-edge blocks.",
+        "New theorem includes all directed cycles and all-time explicit 3/4 diameter; n=2 convergence is unconditional."
+      ],
+      "reasoning": "A counterexample on one graph does not imply a counterexample on every directed ring. The new construction isolates a different mechanism, rotates binary anchors, and establishes the sharp graph threshold. Stronger fairness assumptions are deliberately excluded.",
+      "searches": [
+        "arXiv:2312.12251v1/v3 full technical report, Proposition 3.2/Construction 3.3",
+        "CONCUR 2024 DOI:10.4230/LIPIcs.CONCUR.2024.7, Proposition 9/Construction 10",
+        "published-finding corpus: fairness consensus strongly connected three edge directed cycle no consensus"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Aranda et al. 2024 Construction 10, pp. 7–8 uses four arcs and central dual influence; the 3-arc oriented ring is not exhibited there.",
+        "The closest indexed result on finite-time switching of a bounded-confidence graph uses a different state-dependent interaction model."
+      ],
+      "reasoning": "Weak edge fairness is common to the earlier counterexample, but its bidirected path cannot be reduced to a one-in-neighbor directed cycle by merely removing an edge: the missing reverse influence is essential to its two stationary extremes. The rotated singleton construction supplies a new implication not derived in the inspected primary proof.",
+      "searches": [
+        "published-finding corpus: three agent three directed edge cycle strongly fair asynchronous DeGroot no consensus rotating extrema arbitrarily increasing blocks",
+        "published-finding corpus: Fairness and Consensus in an Asynchronous Opinion Model for Social Networks Aranda Betancourt Díaz Valencia directed cycle indegree one strongly fair nonconvergence growing blocks",
+        "Web: strongly fair directed cycle averaging nonconsensus",
+        "Web: cyclic asynchronous opinion no consensus unbounded intervals"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching directed-cycle strongly-fair certificate or threshold appeared in returned published-finding corpus titles/summaries.",
+        "No identical every-oriented-cycle classification appears among the inspected indexed findings; this is not evidence of exhaustive uniqueness."
+      ],
+      "reasoning": "The assertion is a universal constructive theorem over arbitrary real weights, not a tabulated finite invariant. Recorded database queries are an overlap screen, not proof of uniqueness or originality.",
+      "searches": [
+        "published-finding corpus: minimum number agents edges nonconvergent strongly fair asynchronous influence graph opinion transition system",
+        "published-finding corpus: weak fairness directed ring consensus failure 3 agent cyclic asynchronous averaging gossip"
+      ]
+    },
+    "rationale": "The originating strongly fair nonconsensus construction has a three-agent four-arc bidirected path with central competition. It does not entail counterexamples for every one-in-neighbor oriented ring with an exact 3/4 gap at all update times; directed three-cycle cuts one arc and changes the mechanism to traveling singleton anchors. The source higher-fairness result is inapplicable; targeted published-finding corpus and literature searches found no equivalent claim, subject to acknowledged older generalized matrix-product and inaccessible later source uncertainty.",
+    "residual_risks": [
+      "Priority risk from general stochastic matrix product/consensus papers whose full text or exact theorem hypotheses could not be exhaustively inspected.",
+      "A later 2026 expanded treatment of this model was accessible only by abstract; its full text may contain an equivalent ring example.",
+      "Finite similarity searches  cannot certify uniqueness or exhaustive prior art."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Its three-agent witness has four arcs and two influences into middle vertex; distinct from all oriented cycles with one incoming arc each",
+        "evidence": [
+          "arXiv:2312.12251, submission 2023-12-19",
+          "Corresponding journal/conference Construction 10 pp. 7–8"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2312.12251",
+        "material_read": "Definitions, original strong-fairness constructions, bounded-fairness results and related portions of full online technical report",
+        "method": "Read publicly available full HTML plus source version history",
+        "title": "Fairness and Consensus in an Asynchronous Opinion Model for Social Networks (Technical Report)",
+        "trigger": "Exact parent asynchronous edge update, source model and strong-fairness counterexample"
+      },
+      {
+        "assessment": "Proposition 9 existence on 4-arc three-agent graph; Theorem 18 stronger fairness consensus; no every-directed-ring theorem located in inspected sections",
+        "evidence": [
+          "CONCUR 2024 pp. 7–8 Construction 10",
+          "p. 11 Theorem 18"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.CONCUR.2024.7",
+        "material_read": "Paper sections 3.1–3.4 and 4, including full proof construction discussion and graphical counterexample",
+        "method": "PDF text and visual page inspection",
+        "title": "Fairness and Consensus in an Asynchronous Opinion Model for Social Networks (CONCUR 2024)",
+        "trigger": "Published version to test equivalent or stronger result"
+      },
+      {
+        "assessment": "Results concern random models subject to assumptions, not materially established as covering this deterministic construction",
+        "evidence": [
+          "arXiv:1001.1890 abstract"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1001.1890",
+        "material_read": "Abstract, scope and available summary only",
+        "method": "Bibliographic and abstract reading",
+        "title": "On Ergodicity, Infinite Flow and Consensus in Random Models",
+        "trigger": "Potential stronger results about stochastic products and consensus"
+      },
+      {
+        "assessment": "Full-text theorem comparison unresolved; explicit residual priority risk",
+        "evidence": [
+          "Journal of Applied Probability 14 (1977), 89–97"
+        ],
+        "identifier_or_url": "Chatterjee and Seneta, Journal of Applied Probability 14 (1977), 89–97",
+        "material_read": "Bibliographic and abstract-level information only",
+        "method": "Search result and bibliographic comparison",
+        "title": "Towards Consensus: Some Convergence Theorems on Repeated Averaging",
+        "trigger": "Older broad matrix-product convergence coverage"
+      },
+      {
+        "assessment": "Full text not available in inspected routes; no determination that all-cycle theorem is covered",
+        "evidence": [
+          "2026 journal bibliographic abstract"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.jlamp.2026.101140",
+        "material_read": "Accessible abstract and citation only",
+        "method": "Bibliographic search and accessible abstract",
+        "title": "Later expanded journal treatment of asynchronous opinion consensus",
+        "trigger": "Same authors later treatment with potentially broader counterexamples"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5af5f01a-8f16-4a9f-bae6-c376e28402b1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The result locates sharp minimal vertex and arc counts for adversarial strong-fairness nonconsensus on strongly connected simple directed networks and demonstrates that multiple in-neighbors are not necessary. It classifies every oriented ring of arbitrary size and arbitrary interior fixed edge weights, with an all-time quantitative diameter bound, which is a meaningful natural graph-family boundary motivated by the parent four-arc witness.",
+    "status": "PASS"
+  }
+}
