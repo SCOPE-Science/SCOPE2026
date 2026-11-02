@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For selected-edge bit \(v=1\), the perfect edge-domination condition is vacuous; when \(v=0\), exactly one neighboring edge must be selected. The four-state matrix implements precisely that rule on every degree-two edge. The root constraints in the lollipop transfer sum correctly include the three neighbors of each root-incident cycle edge and of the initial pendant edge. The identities \(M^4=M^3+M\) and \(M^3h=M^2h+h\) give independent recurrences in cycle and tail lengths. The nine initial counts and positive cycle-count differences are explicitly verified, so two inductions prove the strict comparison for all allowed parameters. Exact stand-alone brute enumeration checks all cases with at most 15 vertices, alongside independent recurrences on a 28-by-30 parameter grid. Finite checks do not replace the symbolic argument.
+PASS
 
-## Originality — PASS, with historical-priority risk
+Every nonselected edge must have precisely one selected neighboring edge, while a selected edge is unrestricted. This produces the four-state pair transfer M and terminal vector h. Direct exact arithmetic verifies M⁴=M³+M and M³h=M²h+h. The transfer formula correctly accounts for each of the three edges at the trivalent root, including triangle c=3. It yields commuting recurrences F(c,t)=F(c−1,t)+F(c−3,t) for c>=6 and F(c,t)=F(c,t−1)+F(c,t−3) for t>=4, with initial rows (3,3,6),(4,5,8),(6,9,12). The cycle trace tr(M^{c+t}) obeys the same recursion and the 3x3 differences are strictly positive; double induction proves strict comparison everywhere. Separately written edge-subset brute force c+t<=13 matches every parameter, and exact arithmetic checks recurrence and inequality on c,t<10. Neither bounded check is the all-parameter proof.
 
-Grippo–Lin–Moyano–Vera (arXiv:2607.03894v1) already prove the cycle recurrence, provide a generic generalized-series-parallel counting algorithm, and explicitly state their connected-cycle extremal Conjecture 5.1. The inspected sections containing these results did not give a lollipop-specific two-parameter rational series or the strict inequality for every cycle-plus-one-path graph. The 2025 predecessor concerns algorithms in \(P_6\)-free graphs, not the unlimited-cycle family. Targeted literature queries, equivalence checks, and related-result searches found no result whose statement implies the new theorem; these searches do not certify priority. See the structured literature comparisons for inspected portions and residual risks.
+## originality
 
-## Value — PASS
+PASS
 
-The established connected-graph inequality is a live extremal conjecture. This proof verifies it strictly for a natural two-parameter infinite connected-unicyclic class, while simultaneously giving the complete counting generating function and a transparent positive-difference certificate. It is a motivated graph-family theorem, not a bounded computation or a cosmetic restatement of the generic algorithm.
+Grippo–Lin–Moyano–Vera's July 2026 full 30-page primary preprint was directly inspected: Conjecture 5.1 is the connected-graph cycle bound, Theorem 5.2 is its cycle recurrence, and sections 3–4 give other extremal classes and generic generalized-series-parallel counting algorithms. It does not state a lollipop bivariate closed form or its strict cycle comparison; a procedure to count one given graph is not itself a theorem comparing all (c,t). Their 2025 predecessor covers different algorithmic restrictions. No directly covering published mathematical record was found under equivalent names (unicyclic cycle-with-tail, tadpole graph).
 
-## Limitations
+## value
 
-No assertion is made for arbitrary unicyclic or connected graphs, nor of the earliest historical appearance of all equivalences. The code checks only finite instances.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strictly proves a concrete infinite two-parameter connected-unicyclic subclass of an explicit open extremal conjecture, and classifies all counts through an exact rational generating function. The parameter ranges include arbitrarily long cycles and tails, so not an arbitrary tiny finite slice. It does not settle the conjecture for general connected graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

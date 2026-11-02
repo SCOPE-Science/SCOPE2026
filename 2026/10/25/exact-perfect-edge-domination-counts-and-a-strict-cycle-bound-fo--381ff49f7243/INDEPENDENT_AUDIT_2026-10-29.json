@@ -1,0 +1,109 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T19:15:30.174383Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Every nonselected edge must have precisely one selected neighboring edge, while a selected edge is unrestricted. This produces the four-state pair transfer M and terminal vector h. Direct exact arithmetic verifies M⁴=M³+M and M³h=M²h+h. The transfer formula correctly accounts for each of the three edges at the trivalent root, including triangle c=3. It yields commuting recurrences F(c,t)=F(c−1,t)+F(c−3,t) for c>=6 and F(c,t)=F(c,t−1)+F(c,t−3) for t>=4, with initial rows (3,3,6),(4,5,8),(6,9,12). The cycle trace tr(M^{c+t}) obeys the same recursion and the 3x3 differences are strictly positive; double induction proves strict comparison everywhere. Separately written edge-subset brute force c+t<=13 matches every parameter, and exact arithmetic checks recurrence and inequality on c,t<10. Neither bounded check is the all-parameter proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "The broad conjecture is stated but remains open as of July 2026 in the actual preprint; Theorem 5.2 proves the cycle sequence recurrence.",
+          "Section 4 gives generic counting algorithms for generalized series-parallel graphs; algorithm applicable to a fixed lollipop is not an explicit strict extremal theorem for all c,t."
+        ],
+        "reasoning": "An already-proved conjecture would dominate this class, but main source only conjectures it, and other known class bounds are for trees/forests/chordal, not arbitrary lollipops.",
+        "searches": [
+          "perfect edge dominating sets lollipop graphs counting rational bivariate generating function strict cycle extremal conjecture",
+          "Grippo Lin Moyano Vera 2026 Theorem 5.2 Conjecture 5.1 generalized series parallel"
+        ]
+      },
+      "checked_sources": [
+        "Grippo–Lin–Moyano–Vera arXiv:2607.03894v1, full 30-page primary PDF, esp. pp27-28",
+        "Grippo–Lin–Vera arXiv:2509.04598 (abstract/scope)",
+        "Lu–Ko–Tang 2002 DOI:10.1016/S0166-218X(01)00198-6 (foundational)",
+        "Resultary search: perfect edge dominating sets lollipop graphs counting rational bivariate generating function strict cycle extremal conjecture"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full 30-page PDF (arXiv:2607.03894v1) p27 Conjecture 5.1: n-vertex connected graphs have at most PED(C_n). p28 Theorem 5.2 proves only cycle recurrence.",
+          "Our proof produces strictly positive two-dimensional difference initial data propagated by the recurrence, not found in source."
+        ],
+        "reasoning": "The conjectured inequality cannot be cited as an existing theorem. General algorithmic countability does not imply strict comparison without new case-specific inequalities; this record resolves a natural subclass only.",
+        "searches": [
+          "perfect edge dominating sets lollipop graphs counting rational bivariate generating function strict cycle extremal conjecture",
+          "Grippo 2026 Conjecture 5.1 cycles maximal all connected graphs proof"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Direct primary full-text review of arXiv:2607.03894v1 shows cycle-only recurrence, no lollipop-specific 2-variable rational generating series.",
+          "Resultary closest lollipop hit SCOPE-dominant-edge-metric-bases-of-lollipop-graphs concerns metric resolving vertex covers, not PED sets."
+        ],
+        "reasoning": "Alternative names lollipop/tadpole/cycle-tailed unicyclic graph and definition of perfect edge domination were compared; metrics and generic PED algorithms are not equivalent to exact two-parameter enumeration.",
+        "searches": [
+          "perfect edge dominating sets lollipop graphs counting rational bivariate generating function strict cycle extremal conjecture",
+          "perfect edge dominating sets tadpole graph cycle with pendant path generating function"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Primary paper provides explicit cycle counts and a linear recurrence, but no 3x3 lollipop seed matrix or closed bivariate table.",
+          "Independent brute graphs with c+t<=13 agree with all nine seeds and full transfer recursion."
+        ],
+        "reasoning": "Existing one-parameter cycle/PED tables are properly credited. No exact bivariate lollipop table identified; empty search alone is not proof of newness.",
+        "searches": [
+          "perfect edge dominating sets lollipop graphs counting rational bivariate generating function strict cycle extremal conjecture",
+          "PED counts lollipop graphs c t table OEIS Padovan cycle"
+        ]
+      },
+      "rationale": "Grippo–Lin–Moyano–Vera's July 2026 full 30-page primary preprint was directly inspected: Conjecture 5.1 is the connected-graph cycle bound, Theorem 5.2 is its cycle recurrence, and sections 3–4 give other extremal classes and generic generalized-series-parallel counting algorithms. It does not state a lollipop bivariate closed form or its strict cycle comparison; a procedure to count one given graph is not itself a theorem comparing all (c,t). Their 2025 predecessor covers different algorithmic restrictions. No directly covering published mathematical record was found under equivalent names (unicyclic cycle-with-tail, tadpole graph).",
+      "residual_risks": [
+        "A different title under tadpole/unicyclic PED-set counting could contain an equivalent pre-existing generating function.",
+        "The published 2026 generic counting algorithm is strong methodological antecedent, but does not itself assert the strict all-lollipop inequality.",
+        "No conclusion for arbitrary unicyclic graphs or all connected graphs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_LOLLIPOP",
+          "evidence": "Connected-cycle bound remains Conjecture 5.1; cycle recurrence is Theorem 5.2. No stated closed-form lollipop family count or strict subclass theorem.",
+          "identifier_or_url": "https://pdfs.assets.alphaxiv.org/2607.03894v1.pdf",
+          "material_read": "Primary 30-page full PDF: introduction, graph counting sections, section 5, full p27-28 proof of Theorem 5.2 and conjecture; p27-28 screenshots cross-checked",
+          "method": "lawfully mirrored open-access arXiv v1 complete PDF, textual and page-image reading",
+          "title": "Counting perfect edge dominating sets: extremal results and linear-time algorithms",
+          "trigger": "The statement explicitly resolves a subclass of its Conjecture 5.1"
+        },
+        {
+          "assessment": "DISTINCT_GRAPH_CLASS",
+          "evidence": "A restricted induced-path-free algorithm does not cover arbitrary lollipops with long tails/cycles.",
+          "identifier_or_url": "https://arxiv.org/abs/2509.04598",
+          "material_read": "Abstract and published theorem/scope description; full primary PDF not inspected",
+          "method": "bibliographic and abstract comparison",
+          "title": "Perfect Edge Domination in P6-free Graphs and in Graphs Without Efficient Edge Dominating Sets",
+          "trigger": "Possible preceding PED counting work"
+        },
+        {
+          "assessment": "FOUNDATIONAL_NOT_ENUMERATIVE",
+          "evidence": "Defines problem but does not by itself yield the bivariate lollipop count.",
+          "identifier_or_url": "https://doi.org/10.1016/S0166-218X(01)00198-6",
+          "material_read": "Bibliographic definition and scope reproduced by 2026 paper references, not full original",
+          "method": "source comparison from 2026 bibliography",
+          "title": "Perfect edge domination and efficient edge domination in graphs",
+          "trigger": "Foundational PED definitions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Strictly proves a concrete infinite two-parameter connected-unicyclic subclass of an explicit open extremal conjecture, and classifies all counts through an exact rational generating function. The parameter ranges include arbitrarily long cycles and tails, so not an arbitrary tiny finite slice. It does not settle the conjecture for general connected graphs.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Lollipop graphs only, c>=3 and t>=1.",
+    "PED permits adjacent selected edges; confusing with efficient edge domination changes counts.",
+    "Finite brute checks are not the proof of global inequalities."
+  ],
+  "schema_version": 1
+}

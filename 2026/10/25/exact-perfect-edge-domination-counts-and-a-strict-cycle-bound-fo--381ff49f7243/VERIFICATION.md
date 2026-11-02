@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification and proof boundaries
+# Independent mathematical audit
 
-The supplied `verify.py` is Python 3 standard-library only; running `python3 verify.py` emits the checked text in `verification_output.txt`. It constructs the four-state constraint matrix from the selected/unselected edge rule, verifies all 16 entries of \(M^4=M^3+M\), verifies the four entries of \(M^3h=M^2h+h\), and reconstructs all nine base counts.
+## correctness
 
-The independent brute-force branch enumerates every edge subset of every lollipop with \(c\ge3\), \(t\ge1\), and \(c+t\le15\); it also directly enumerates PED-sets of cycles on 3 through 15 vertices. The grid \(3\le c\le30\), \(1\le t\le30\) checks the two recurrences and their strict comparison numerically. These are finite tests only.
+PASS
 
-The infinite proof is the transfer decomposition at the unique degree-three cycle vertex, the exact polynomial identities, and the strict positivity of the nine seed differences propagated through both recurrences. No independence or external certification is claimed.
+Every nonselected edge must have precisely one selected neighboring edge, while a selected edge is unrestricted. This produces the four-state pair transfer M and terminal vector h. Direct exact arithmetic verifies M⁴=M³+M and M³h=M²h+h. The transfer formula correctly accounts for each of the three edges at the trivalent root, including triangle c=3. It yields commuting recurrences F(c,t)=F(c−1,t)+F(c−3,t) for c>=6 and F(c,t)=F(c,t−1)+F(c,t−3) for t>=4, with initial rows (3,3,6),(4,5,8),(6,9,12). The cycle trace tr(M^{c+t}) obeys the same recursion and the 3x3 differences are strictly positive; double induction proves strict comparison everywhere. Separately written edge-subset brute force c+t<=13 matches every parameter, and exact arithmetic checks recurrence and inequality on c,t<10. Neither bounded check is the all-parameter proof.
+
+## originality
+
+PASS
+
+Grippo–Lin–Moyano–Vera's July 2026 full 30-page primary preprint was directly inspected: Conjecture 5.1 is the connected-graph cycle bound, Theorem 5.2 is its cycle recurrence, and sections 3–4 give other extremal classes and generic generalized-series-parallel counting algorithms. It does not state a lollipop bivariate closed form or its strict cycle comparison; a procedure to count one given graph is not itself a theorem comparing all (c,t). Their 2025 predecessor covers different algorithmic restrictions. No directly covering published mathematical record was found under equivalent names (unicyclic cycle-with-tail, tadpole graph).
+
+## value
+
+PASS
+
+Strictly proves a concrete infinite two-parameter connected-unicyclic subclass of an explicit open extremal conjecture, and classifies all counts through an exact rational generating function. The parameter ranges include arbitrarily long cycles and tails, so not an arbitrary tiny finite slice. It does not settle the conjecture for general connected graphs.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
