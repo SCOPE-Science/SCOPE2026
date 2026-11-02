@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "The proof reconstructs code signatures as selected-edge incidence unions, derives disjoint P3 components from exactly one selected neighbor, proves at most one unused original vertex by domination and signature collision, derives the forced orientation with one unused vertex, and proves all surviving packings have distinct nonempty signatures. It counts spanning P3 factors and the two unmatched boundary families exactly. An independent direct-adjacency verifier exhaustively enumerated 1,501,038 subsets over 17 boards; all counts match. Finite tests are corroborative, not substitutes for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Seo–Slater 2017, Theorem 3.3: a sufficient local condition assumes girth at least five; the rook graphs in scope have girth three except R_{2,2}, which has girth four.",
+        "Cappelle et al. 2021/2022, Theorems 2.2 and 3.5: necessary local condition for arbitrary graphs and classification of P4-tidy graphs. They can cover some small cases but not the general two-parameter family."
+      ],
+      "reasoning": "Neither broad theorem subsumes the all-code rook classification. The necessary condition in general graphs is not a sufficient code identifier in graphs with four-cycles, and the P4-tidy family does not cover arbitrary rook graph dimensions. The already-covered tiny cases are not independently presented as new results.",
+      "searches": [
+        "\"open-independent, open-locating-dominating sets\" \"Cartesian\"",
+        "\"open independent locating dominating\" \"line graph\" bipartite",
+        "\"OLD_oind\" \"triangular graph\" \"line graph\""
+      ]
+    },
+    "checked_sources": [
+      "https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+      "https://arxiv.org/html/2103.07972v4",
+      "https://dmtcs.episciences.org/en/articles/8440"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Seo–Slater 2017, Section 3: a selected code induces disjoint K2 components, and the girth-at-least-five theorem.",
+        "Cappelle et al. 2021/2022, Theorem 2.2: nonselected vertices must have at least two selected neighbors.",
+        "New proof identifies precise selected edge components as P3 paths in K_{m,n}, proves at most one missing original vertex, classifies orientations, and counts all codes."
+      ],
+      "reasoning": "Known induced-K2 and at-least-two-neighbor conditions are necessary but by themselves do not imply pairwise distinct signatures on the many four-cycles of a rook graph. The proof supplies a new sufficient structural characterization and gives exact counting. Neither inspected theorem yields the full formula as a corollary.",
+      "searches": [
+        "\"open-independent open-locating\" \"K_n\"",
+        "\"open independent locating\" \"rook\" graph",
+        "rook graph K_m square K_n open-independent open-locating-dominating code exact enumeration existence partition into P3 induced paired domination"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The identity R_{m,n}=L(K_{m,n}) sends an open-independent code to a disjoint union of selected two-edge paths in K_{m,n}, with an additional open-signature identification condition.",
+        "Seo–Slater 2017, Section 3, defines open-independent OLD codes and proves a high-girth criterion.",
+        "Cappelle et al., arXiv:2103.07972, Section 2, states a necessary selected-neighbor count condition but not a general sufficiency criterion."
+      ],
+      "reasoning": "The edge-incidence formulation, line-graph formulation, path-factor formulation and open-independent OLD wording were treated as possible equivalents. The inspected primary statements neither determine whether an arbitrary rectangular rook graph has a code nor count every code; the two-edge-path criterion plus missing-vertex boundary is not stated in those works.",
+      "searches": [
+        "\"rook graph\" \"open-independent\" \"locating\"",
+        "\"open-independent\" \"line graph\" \"complete graph\"",
+        "line graph of complete bipartite graph K_{m,n} identifying open code induced matching OLD OIND tilings",
+        "rook graph open-independent locating dominating codes are disjoint pairs of attacking rooks corresponding to disjoint three-vertex paths partitioning bipartition"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 2017 paper tabulates density statements for infinite hexagonal, square and triangular grids and path/tree existence, not the rectangular rook code counts.",
+        "The inspected 2021/2022 paper studies other families and contains no all-board rook formula in its stated results."
+      ],
+      "reasoning": "Specific count and divisibility searches revealed no known table containing the full two-dimensional sequence. A potentially unindexed tabulation remains a residual priority risk.",
+      "searches": [
+        "rectangular rook graph OLD OIND codes n=2m+1 number n! / 2^m",
+        "For rectangular rook graphs K_m Cartesian K_n, an open independent open locating dominating set exists iff m+n divisible 3 with m≤2n and n≤2m or one side 2 times other plus 1; number m!n!/(2^(a+b)a!b!)",
+        "\"open-independent\" \"locating\" \"line graph\" complete"
+      ]
+    },
+    "rationale": "The classification concerns all open-independent open-locating-dominating sets of rectangular rook graphs, not just a minimum size. Seo–Slater (2017) establishes the definition and high-girth criterion, inapplicable to these graphs (triangles or a four-cycle); Cappelle et al. (arXiv:2103.07972, §§1–4) treats necessary conditions and other graph classes but not the bipartite two-edge-path covering and exact enumeration. Search results for exact synonyms and edge-code/path-factor reductions identified no dominating formula. The absence of indexed matches is not proof of uniqueness; differently termed prior work remains a risk.",
+    "residual_risks": [
+      "An unindexed or differently formulated result on distinguishing edge sets of complete bipartite graphs or P3-factors may cover some or all of the characterization.",
+      "Full-text source comparisons are limited to the relevant inspected primary papers and do not establish absolute publication priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the all-dimension rectangular rook characterization and enumeration; supplies definitions, high-girth theorem, and other-family results.",
+        "evidence": [
+          "Page 182–183 defines induced K2 structure.",
+          "Theorem 3.3 explicitly assumes girth at least five.",
+          "Sections 3–4 treat paths, trees, infinite grids, not rook K_m square K_n."
+        ],
+        "identifier_or_url": "https://www.ejgta.org/index.php/ejgta/article/download/210/pdf_47",
+        "material_read": "Sections 2–4, especially pages 182–189 on open-independent OLD structure, Theorem 3.3 and path/tree and infinite-grid applications.",
+        "method": "Examined lawful journal full-text PDF, its extracted theorem text, and page imagery.",
+        "title": "Open-independent, open-locating-dominating sets",
+        "trigger": "Foundational definition and plausible classification of open-independent OLD codes."
+      },
+      {
+        "assessment": "NOT_COVERING the two-parameter rook family: a necessary condition and different class characterizations are provided.",
+        "evidence": [
+          "Section 2, Theorem 2.2 gives necessary degree conditions.",
+          "Section 3, Theorems 3.4–3.5 cover P4-tidy graphs.",
+          "Section 4 treats complementary prisms of cographs."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2103.07972v4",
+        "material_read": "Introduction, Definitions, Theorem 2.2, Sections 3 and 4 on P4-tidy graphs and complementary prisms; article full-text structure and PDF pages 1–4 and 8–14.",
+        "method": "Examined lawful open full-text HTML and journal PDF excerpts with page imagery.",
+        "title": "Open-independent, open-locating-dominating sets: structural aspects of some classes of graphs",
+        "trigger": "Later high-relevance primary study of existence and general necessary conditions."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "19eb63d0-a182-4533-933b-9114241a7de0",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite two-parameter line-graph family receives a complete existence and every-code classification, closed labeled enumerator, and a unique cardinality polynomial. Arithmetic obstructions for square boards and sharp one-unused-vertex exceptional ratios are structural and previously not implied by the inspected source theorems. This serves the original fault-location motivation for open-independent OLD codes rather than an artificial parameter evaluation.",
+    "status": "PASS"
+  }
+}
