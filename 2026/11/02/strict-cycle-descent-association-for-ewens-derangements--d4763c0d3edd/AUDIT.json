@@ -1,0 +1,154 @@
+{
+  "correctness": {
+    "rationale": "An adjacent-label conjugation involution proves the previously known conditional descent expectation. Marking a two-cycle gives the exact covariance factorization. The positive-coefficient derangement recurrence produces a mixture distribution and an inductively valid stochastic sandwich, with strictness from the one-long-cycle event. An analogous two-marking argument establishes the opposite unconditioned sign. All boundary cases and quantifiers are covered analytically. The standalone exact-rational checker performs 3,295 assertions, including exhaustive enumeration through n=8 and distributional checks through n=35; no finite range is mistaken for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gessel–Reutenauer (1993), as described in Campion Loth et al. (2023) §1: generating functions for joint descent-set and conjugacy-class distributions.",
+        "Eriksen–Freij–Wästlund (2008), §§2 and 7: derangement descent-set enumerators and correlation of being a derangement with descent events; no Ewens cycle-count function appears.",
+        "Da Silva–Jamshidpey–Tavaré (2020), §§2 and Appendix A: Ewens cycle distributions, factorial moments, and ordered-cycle-length monotonicity; no descent statistic is analyzed."
+      ],
+      "reasoning": "Broader joint generating functions encode the joint law and can in principle recover the covariance at each fixed n. They do not by themselves provide the claimed stochastic-order proof or an all-n strict positivity assertion, so no inspected result has been shown to imply the complete sign theorem directly. The original 1993 full text was not inspected and remains a qualified coverage risk.",
+      "searches": [
+        "arxiv:2301.00898",
+        "arxiv:0811.1925",
+        "arxiv:2006.04840"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/math/0606277",
+      "https://arxiv.org/pdf/0811.1925",
+      "https://arxiv.org/html/2006.04840v1",
+      "https://arxiv.org/abs/2301.00898",
+      "Gessel–Reutenauer (1993) as cited in Campion Loth et al. (2023)",
+      "Fulman (1998) as cited and reproduced in Campion Loth et al. (2023)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "From the prior Fulman mean, derangement Cov(f(K),D)=Cov(f(K),C2)/n, with no sign inferred without additional structure.",
+        "From da Silva–Jamshidpey–Tavaré factorial moments, marking a fixed two-cycle gives the weighted size-biased law of 1+\\(K_{n-2}\\); no comparison to \\(K_n\\) is asserted there.",
+        "The proved two-component recurrence establishes \\(K_{n-1}\\) <=st \\(K_n\\) <=st 1+\\(K_{n-2}\\), closing the missing implication and showing strictness for increasing f."
+      ],
+      "reasoning": "The new theorem is not the old conditional first-moment formula; it is the universal positive association after fixed-point deletion together with a monotone-transform strengthening. Every cited existing ingredient is identified. A specialized extraction from earlier joint enumerators may anticipate it, but no decisive exact implication was found in inspected sources.",
+      "searches": [
+        "Fulman 1998 descents cycles conjugacy classes formula expectation two cycles exact",
+        "arxiv:2301.00898",
+        "arxiv:2006.04840",
+        "arxiv:0811.1925"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Campion Loth et al. (2023), Cor. 4.10: E[des|cycle type]=(n-1)/2 + (\\(a_2\\)-binomial(\\(a_1\\),2))/n.",
+        "The exact new theorem is equivalently Cov(f(K),C2)>0 in the fixed-point-free law, with a positive two-cycle-marking factor."
+      ],
+      "reasoning": "The equivalent two-cycle covariance is not a new definition or a mere restatement of Fulman: its universal strict sign requires the stochastic comparison of \\(K_n\\) and 1+\\(K_{n-2}\\), which is proved separately.",
+      "searches": [
+        "strict positive covariance number of descents and cycles in random derangements Ewens theta conditioning on no fixed points",
+        "cycle-count increasing transforms positive correlation with descent number for Ewens fixed-point-free permutations",
+        "conditional conjugacy class descent mean equals (n-1)/2 plus two-cycle count/n and nonconstant cycle dependence",
+        "arxiv:2301.00898"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bóna (2006) polynomial counts derangements according to their number of cycles; it does not include descents.",
+        "Da Silva–Jamshidpey–Tavaré (2020), formula (9), counts derangements by cycle count but not jointly by ordinary descents.",
+        "Eriksen–Freij–Wästlund (2008), Theorem 2.1, counts derangements with descents in specified blocks, without a cycle-weight parameter."
+      ],
+      "reasoning": "These tables supply marginal enumerations but not the monotone mixed moment. Finite enumeration in verify.py is a check of the result, not a claim that a new table is itself significant.",
+      "searches": [
+        "arxiv:2006.04840",
+        "arxiv:math/0606277",
+        "arxiv:0811.1925"
+      ]
+    },
+    "rationale": "A direct comparison with full accessible primary sources finds that Fulman (1998) supplies the class-conditional first moment, Bóna (2006) the derangement cycle-count polynomials, Eriksen–Freij–Wästlund (2008) descent-set enumeration under conditioning, and da Silva–Jamshidpey–Tavaré (2020) Ewens derangement cycle marginals and cycle-length monotonicity. None of the inspected source statements gives the all-theta all-size increasing-transform cycle-count/ordinary-descent covariance sign or the sandwich. A general generating function of Gessel–Reutenauer (1993) provides broader information about joint distributions and thus poses a real unresolved historical-priority risk, but its cited theorem alone does not state or prove an all-size positivity inequality.",
+    "residual_risks": [
+      "The 1993 Gessel–Reutenauer original joint-generating-function paper was not available for full-text comparison; a hidden specialization could anticipate the sign statement.",
+      "Fulman (1998) original full text was not inspected, although the used conditional-mean formula is explicitly acknowledged as old.",
+      "A mathematically equivalent sign result in specialized later derangement–descent literature not returned by the searches remains possible."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Counts cycles and proves root/congruence properties but has no cycle-count/ordinary-descent covariance statement",
+        "evidence": [
+          "Bóna (2006), introductory aim and section 2, relation of derangement cycle polynomials to Stirling numbers"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0606277",
+        "material_read": "Abstract, introduction and cycle-polynomial section including inclusion–exclusion formula",
+        "method": "Read accessible full-text HTML with relevant formulas",
+        "title": "On a Balanced Property of Derangements",
+        "trigger": "Archived derangement cycle-count polynomial and verified first-public date"
+      },
+      {
+        "assessment": "Covers conditioning on the derangement event and descent-set enumerations, not dependence on the Ewens-weighted number of cycles after that conditioning",
+        "evidence": [
+          "Eriksen–Freij–Wästlund (2008), Theorem 2.1 counts descending-block derangements; Section 7 treats the event of being a derangement versus specified descents"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.1925",
+        "material_read": "Seventeen-page preprint including introduction, prescribed-block generating function in section 2, positive-correlation comparison in section 7, and Euler tables in section 8",
+        "method": "Inspected searchable primary PDF text and rendered primary pages including the abstract and generating-function theorem",
+        "title": "Enumeration of Derangements with Descents in Prescribed Positions",
+        "trigger": "Same sample space and local descent statistic; plausible broader coverage"
+      },
+      {
+        "assessment": "Establishes the probability law, cycle count marginals and ordered-cycle-size monotonicity; Appendix A does not treat ordinary descents or this stochastic sandwich across sample sizes",
+        "evidence": [
+          "da Silva–Jamshidpey–Tavaré (2020), equations (6), (9), (12) and Appendix A Theorems 2–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2006.04840v1",
+        "material_read": "Introduction, all section 2 distributions and moments, Feller coupling discussion, section 5, and Appendix A monotonicity comparisons",
+        "method": "Read public full-text HTML, inspected displayed cycle-count factorial moments and Appendix A precise monotonicity claims",
+        "title": "Random Derangements and the Ewens Sampling Formula",
+        "trigger": "Direct prior Ewens derangement cycle-count distribution and possible monotonicity implications"
+      },
+      {
+        "assessment": "Provides the precise conditional descent mean for fixed cycle type; does not supply the derangement Ewens all-size covariance-sign ordering",
+        "evidence": [
+          "Campion Loth et al. (2023), Corollary 4.10: (n^2-n+2 \\(a_2\\)-\\(a_1\\)^2+\\(a_1\\))/(2n); Introduction cites Gessel–Reutenauer joint enumerators"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.00898",
+        "material_read": "Introduction, first-moment weighted inversion section, Corollary 4.10 and context of Gessel–Reutenauer and Fulman",
+        "method": "Read public full-text HTML of primary article with explicit displayed first-moment formula",
+        "title": "Permutation Statistics in Conjugacy Classes of the Symmetric Group",
+        "trigger": "Known conjugacy-class mean and possible stronger mixed-statistic formula"
+      },
+      {
+        "assessment": "A genuine broader enumerative prior. Direct coverage of the all-parameter sign inequality by a specialized corollary remains unresolved",
+        "evidence": [
+          "Campion Loth et al. (2023), introduction on Gessel–Reutenauer (1993) cycle-structure and descent-set generating functions"
+        ],
+        "identifier_or_url": "Gessel–Reutenauer, Journal of Combinatorial Theory Series A (1993)",
+        "material_read": "Original text not accessible in this assessment; precise published theorem scope reported in Campion Loth et al. (2023) introduction, Theorems 5.3, 5.5, 6.1",
+        "method": "Compared later primary research discussion; did not assert a full-text inspection",
+        "title": "Counting Permutations with Given Cycle Structure and Descent Set",
+        "trigger": "Earlier stronger joint cycle-structure/descent-set enumerator with potential implication"
+      },
+      {
+        "assessment": "The conditional first-moment identity is firmly prior art. It alone does not specify the stochastic comparison or strict mixed-covariance sign",
+        "evidence": [
+          "Campion Loth et al. (2023), Corollary 4.10, explicitly credited to Fulman (1998)"
+        ],
+        "identifier_or_url": "Fulman, Journal of Combinatorial Theory Series A (1998)",
+        "material_read": "Original full text not inspected; Theorem 2 is stated and attributed as prior in the full 2023 Campion Loth et al. article",
+        "method": "Verified prior attribution and formula through the complete accessible later article; independently reconstructed formula in RESULT.md",
+        "title": "The Distribution of Descents in Fixed Conjugacy Classes of the Symmetric Groups",
+        "trigger": "Original known first-moment theorem potentially coinciding with a piece of the claim"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4763c0d-3edd-4e1e-9a83-cee5a5c9eb39",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact sign reversal between uniform permutations and fixed-point-free permutations is a natural dependence question, not an arbitrary parameter slice. The all-theta and arbitrary strictly increasing function scope significantly strengthens a single covariance value. A transparent stochastic sandwich explains the mechanism at all sizes and supplies a reusable structural ordering; no downstream theorem or paper-sized classification is claimed.",
+    "status": "PASS"
+  }
+}
