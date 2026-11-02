@@ -1,0 +1,132 @@
+{
+  "correctness": {
+    "rationale": "For every zero count j opposite a vertex, a fixed one requires threshold at most j, a fixed zero requires threshold at least j+2, and threshold j+1 forbids both. This exactly yields the two-count equations and one configuration per feasible pair. Distinct feasible pairs are coordinatewise separated by at least two because an action switch requires a threshold between the lower zero count plus two and the higher count. The sharp construction uses two vertices at each even threshold 2,4,...,2r on each side; its only fixed zero-count pairs are (2t,2(r-t)), 0<=t<=r. All-threshold-one has no equilibrium. Code performed 19432 threshold-vector direct comparisons against 1111428 raw binary profiles, and 1010 construction checks. Finite checks are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arxiv:2301.02889v5 Theorem 4.2 proves hardness on arbitrary bipartite graphs without a biclique-specific exact maximum; Appendix Theorem 4.16 is for complete graphs, not bicliques.",
+        "doi:10.1016/j.jcss.2014.04.025 considers maximum fixed points in AND–OR–NOT Boolean networks and supplies a broad graph-theoretic bound, not the queried exact heterogeneous closed-neighborhood biclique spectrum in its accessible description.",
+        "doi:10.3390/g15060041 uses a homogeneous pure-coordination threshold-protocol game rather than the inverted threshold update."
+      ],
+      "reasoning": "General NP/#P hardness does not give the sharp linear special-family upper bound, and general exponential fixed-point upper bounds do not imply it either. A complete-graph result has a different neighborhood pattern. The separate coordination protocol does not imply anti-coordination fixed-state conditions.",
+      "searches": [
+        "inverted threshold dynamical systems maximum number fixed points complete bipartite",
+        "maximum number Nash equilibria self essential anti coordination complete bipartite thresholds",
+        "\"Qiu\" \"Marathe\" \"complete bipartite\" fixed points thresholds"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.02889v5",
+      "doi:10.3390/g15060041",
+      "doi:10.1016/j.jcss.2014.04.025",
+      "arxiv:1108.2974",
+      "arxiv:2506.00046",
+      "arxiv:2109.12692",
+      "doi:10.1093/nsr/nwaf403"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arxiv:2301.02889v5 establishes the model, general hardness and a homogeneous K3,3 example. From the new theorem, that example falls within the bound 1+floor(3/2)=2, whereas the example does not imply the sharp bound for arbitrary sizes or heterogeneous thresholds.",
+        "doi:10.3390/g15060041 Theorem 3 concerns reachability and end behavior of a different homogeneous coordination rule on K_{m,p}; there is no direct implication between its adoption thresholds and the forbidden self-essential anti-threshold gap.",
+        "Xia, McAvoy and Su (2025), DOI 10.1093/nsr/nwaf403, published RESULTS Model, number-of-equilibria, and robustness sections: open-neighbor pairwise game payoffs, strategy-retaining tie rule, main-text common behavioral threshold; online supplement §S4 considers a biclique with a single threshold per part, reporting a polarization reversal under an added edge, not an arbitrary vertex-specific closed-neighborhood inverted-threshold multiplicity spectrum."
+      ],
+      "reasoning": "The present statement entails the known K3,3 count bound but is not a direct corollary of the cited hardness theorem, special example, or common-threshold coordination analysis. Possible undiscovered stronger fixed-point results remain a scientific precedence risk. The 2025 biclique appendix uses two community-level thresholds under an open-neighbor best-response rule with tie persistence; its typically two equilibria cannot imply an exact bound for all heterogeneous self-essential maps.",
+      "searches": [
+        "Networked Anti-Coordination Games Meet Graphical Dynamical Systems Qiu 2023 self essential fixed point counts",
+        "\"threshold\" \"complete bipartite\" \"anti-coordination\" equilibria number",
+        "\"Behavioral alignment in social networks\" \"self\" \"anti-coordination\" threshold arxiv"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2301.02889v5 Section 3 defines self-essential (closed-neighborhood) inverted thresholds; Section 4 and Appendix Lemma 4.4 include K3,3 with two fixed points.",
+        "arxiv:1108.2974 describes bi-threshold Boolean networks and attractor structure, but the accessible abstract does not identify the precise complete-bipartite equilibrium spectrum."
+      ],
+      "reasoning": "A potential equivalence would have to retain self-inclusion, vertex-specific integer thresholds, labeled fixed-point count and all part sizes. A neighbor-only threshold or potential-game result is not equivalent because the forbidden value tau=j+1 depends on whether the vertex itself is currently zero. No matching equivalence was identified in material accessed.",
+      "searches": [
+        "self essential inverted threshold anti coordination fixed points complete bipartite graph heterogeneous vertex thresholds sharp maximum number equilibria floor min side size divided by two",
+        "\"self-essential\" \"complete bipartite\" fixed points anti-coordination",
+        "boolean networks complete bipartite inverted threshold maximal fixed points counts"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arxiv:2301.02889v5 Appendix Lemma 4.4 lists exactly two fixed points for K3,3 with uniform threshold 3, a proper special case of the general spectrum.",
+        "arxiv:2301.02889v5 Section 6.2 provides experimental equilibrium-count histograms on random graphs, not a table of exact biclique spectra."
+      ],
+      "reasoning": "The source example is a single threshold assignment and its numerical tables are not an exhaustive maximum or exact spectrum for every a,b. No exact public table or database entry covering equation (2) was found; search absence alone is not proof of priority.",
+      "searches": [
+        "\"inverted threshold\" \"complete bipartite\" number fixed points",
+        "\"self essential\" \"complete bipartite\" \"number\" fixed points",
+        "thresholds on complete bipartite anti-coordination fixed point spectra"
+      ]
+    },
+    "rationale": "Full accessible primary work arXiv:2301.02889v5 defines the same closed-neighborhood inverted-threshold system and establishes general bipartite NP/#P hardness, a single homogeneous K3,3 two-fixed-point example, and a complete-graph algorithm. It does not state a general heterogeneous complete-bipartite exact fixed-point test or sharp complete integer multiplicity spectrum. The separate complete-bipartite threshold-protocol paper is a homogeneous coordination adoption game, not this self-essential anti-coordination map. Other inspected general Boolean-network results and the 2025 full journal article with its open-neighbor best-response rule, common main-text threshold and appendix biclique examples did not yield covering implications; full-text priority uncertainties are documented.",
+    "residual_risks": [
+      "A specialist Boolean-network result might provide an equivalent or stronger bound with different terminology.",
+      "The full older bi-threshold source arxiv:1108.2974 and the 2025 behavioral-alignment supplementary Section S4 could not be inspected comprehensively; the latter is about a different two-threshold game by its primary published description.",
+      "The 2024 coordination-game source was compared via substantial original-source excerpts, not a complete page retrieval.",
+      "No independent external literature-priority review or validation has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The exact K3,3 example does not cover arbitrary a,b or heterogeneous thresholds; the general bipartite hardness and complete-graph theorem are not dominating statements.",
+        "evidence": "arxiv:2301.02889v5, 2024-03-29; Sections 3, 4.1, 4.3 and Appendix Lemma 4.4, Theorem 4.16",
+        "identifier_or_url": "https://arxiv.org/html/2301.02889",
+        "material_read": "Full open-access HTML: abstract, model and definitions in Section 3, equilibrium complexity and special classes in Section 4, experiments in Section 6.2, and the Appendix K3,3 Lemma 4.4 and complete-graph algorithm",
+        "method": "Read primary HTML and located complete-bipartite, complete-graph, counting and hardness passages",
+        "title": "Networked Anti-Coordination Games Meet Graphical Dynamical Systems: Equilibria and Convergence",
+        "trigger": "Direct match for self-essential inverted-threshold game and primary motivating source"
+      },
+      {
+        "assessment": "Its homogeneous adoption coordination threshold and end behavior do not have the self-essential inverted-threshold equilibrium semantics.",
+        "evidence": "Fedrigo, Games 15 (2024), 41, DOI 10.3390/g15060041",
+        "identifier_or_url": "https://doi.org/10.3390/g15060041",
+        "material_read": "Primary-source indexed full-text excerpts covering abstract, Section 2 payoff coordination definition, Theorems 2 and 3, and conclusions; direct full-page retrieval was rate-limited",
+        "method": "Read original-source text available in search extract; compared payoff/update definition and goals",
+        "title": "End Behavior of the Threshold Protocol Game on Complete and Bipartite Graphs",
+        "trigger": "Complete-bipartite threshold game with possible apparently related classifications"
+      },
+      {
+        "assessment": "The accessible statement gives a global bound for different local-function classes, not this biclique inverted-threshold exact spectrum.",
+        "evidence": "Aracena, Richard and Salinas, JCSS 80 (2014), 1175–1190",
+        "identifier_or_url": "https://doi.org/10.1016/j.jcss.2014.04.025",
+        "material_read": "Primary publisher abstract, main-result summary and explicit graph-class scope; full article not inspected",
+        "method": "Read publisher description and compared stated general bounds",
+        "title": "Maximum number of fixed points in AND–OR–NOT networks",
+        "trigger": "Potential broader fixed-point maximum bound for Boolean network families"
+      },
+      {
+        "assessment": "No matching biclique fixed-point spectrum in inspected material; uninspected full text is a priority risk.",
+        "evidence": "Kuhlman et al., arxiv:1108.2974 (2011)",
+        "identifier_or_url": "https://arxiv.org/abs/1108.2974",
+        "material_read": "Open abstract and scope only; primary full text was not accessible through HTML alternatives",
+        "method": "Compared abstract claims on cycles and threshold differences to fixed-point multiplicities",
+        "title": "Bifurcations in Boolean Networks",
+        "trigger": "Older general bi-threshold dynamics could contain a stronger special-case theorem"
+      },
+      {
+        "assessment": "Its local game compares open-neighborhood payoffs, retains incumbent on a tie, and primarily uses a common threshold; appendix S4 uses one threshold per part, not arbitrary vertex-specific closed-neighborhood SE inversion. No implication of the new sharp arbitrary-threshold biclique spectrum. Supplement text remains uninspected priority risk.",
+        "evidence": "Xia, McAvoy and Su, National Science Review 12(11) (2025), nwaf403, DOI 10.1093/nsr/nwaf403; original Results Model and Discussion; article discusses Section S4 complete biclique two-threshold perturbation.",
+        "identifier_or_url": "https://doi.org/10.1093/nsr/nwaf403",
+        "material_read": "Publisher-indexed article original Results sections: Model and best-response equations, Number of equilibrium states, Robustness and Discussion; supplement S4 summarized in the article. Direct full-page retrieval was blocked and supplementary PDF body was not inspected.",
+        "method": "Read primary published sections returned by indexed text searches, including explicit best-response payoff formula and author description of the complete-bipartite appendix.",
+        "title": "Behavioral alignment in social networks",
+        "trigger": "Later anti-coordination paper discusses numbers of equilibria and a complete-bipartite special example"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a13b31ca-2af7-41bf-94e1-2fff36364937",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "General bipartite self-essential anti-coordination equilibrium existence and counting are NP/#P-hard, but the natural dense two-community family admits an exact linear-size count criterion, sharp maximum multiplicity growing as the smaller part size, and a complete classification of all achievable equilibrium counts from 0 through the maximum. Balanced even graphs attain the maximum with no constant local rules, so the result is not merely an artifact of degenerate thresholds. It establishes an exact multistability boundary for a meaningful class of network games, not a renamed known example or minor numerical improvement.",
+    "status": "PASS"
+  }
+}
