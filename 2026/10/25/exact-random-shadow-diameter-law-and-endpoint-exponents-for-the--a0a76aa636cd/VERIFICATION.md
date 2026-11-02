@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Reproduction and verification limits
+# Independent mathematical audit
 
-The proof's critical identities can be checked independently by projecting all six vertex pairs of the explicit unit-edge tetrahedron. The standard-library script `verify_tetra_projection_diameter.py` checks 30,000 random directions, compares five CDF values with numerical spherical-chamber quadrature, confirms the extremizing normal, and checks convergence to both endpoint coefficients. Run with `python3 verify_tetra_projection_diameter.py`.
+## correctness
 
-The run reported `DIRECT_SIX_EDGE_PROJECTION_AGREEMENT_OK 30000`, five `NUMERICAL_CDF_AGREEMENT_OK` lines, `BOTH_SHARP_ENDPOINT_ASYMPTOTICS_OK`, `EXACT_MINIMIZING_DIRECTION_AND_SUPPORT_OK`, and `ALL_RANDOM_TETRAHEDRON_SHADOW_DIAMETER_CHECKS_OK`.
+PASS
 
-The universal assertion uses the six-edge identity, chamber geometry and Taylor estimates in `RESULT.md`. Finite experiments cannot establish the theorem, strict global support claims, asymptotic constants, or historical novelty. Independent audit is not performed.
+The convex projected diameter is attained by projected original vertices, so one maximizes six projected unit edge lengths. Those edges have directions (0,1,±1)/sqrt2 and permutations. Thus D/ell=sqrt(1-(min(x-y,y-z))²/2) for sorted absolute normal coordinates x>=y>=z. The bound 1=x²+y²+z² >= 5m² gives m<=1/sqrt5 with equality only at signed permutations of (2,1,0)/sqrt5. A signed/permutation fundamental spherical chamber has normalized area density 12/pi in (z,phi); imposing x-y>=r and y-z>=r yields the stated elementary angular integral up to z*=sqrt((1-2r²)/3)-r. Six great-circle small bands give upper tail 6sqrt2 sqrt(eps); uniform bivariate Taylor expansion of the shrinking chamber gives lower tail 150sqrt5/pi delta². Independent projected-vertex comparisons matched coordinate-gap formula for 2000 random directions. The unbounded exact CDF and endpoint limits follow from analytic geometry, not Monte Carlo.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS for random PLANAR SHADOW diameter rather than tetrahedral line-caliper width, planar projected area/perimeter, or silhouette vertex count. Finch’s relevant primary texts analyze those distinct observables, and a complete Resultary tetrahedron shadow-area record covers conditional area moments, not the maximum projected edge. A separate published octahedral central-section diameter concerns another body and operation. No materially inspected prior primary source gives the tetrahedral diameter CDF plus both endpoint constants. Residual risk includes unindexed shadow-diameter/stochastic-geometry sources and the more recent general random-diameters work with incomplete access.
+
+## value
+
+PASS
+
+Euclidean diameter is a basic geometric functional of an orthogonal shadow; its complete law and exact minimizers distinguish a discrete 12-plane minimum set from a great-circle maximum set, generating different quadratic and square-root endpoint exponents. This is a natural full geometric-probability distribution, with independently meaningful sharp endpoint behavior, rather than a generic numerical moment.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
