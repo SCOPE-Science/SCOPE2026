@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-Run the included `verify.py` with Python 3. Its exact-integer search returns `VERIFY_OK: 10 power, 6 shifted-power, 6 negative-root cases`. The tested families have one simple dominant root and independent base: \(a_n=2^n\) in base \(10\), \(a_n=3^n+1\) in base \(2\), and \(a_n=(-2)^n\) in base \(10\). The tests independently check the appended-digit inequality, step index ordering, and positive block length for the first known witnesses; finite experiments do not establish infinite claims.
+## correctness
 
-The analytical verification of the theorem has four parts: (1) the Binet error ratio is uniform in the index increment; (2) every step gives an exponentially small nonzero logarithmic form, which Baker–Wüstholz bounds below polynomially in its integer coefficients; (3) the irrational rotation \(\log_b r\) has polynomial discrepancy for all shifted index blocks by Erdős–Turán; (4) a visit to an interval of length \(\asymp r^{-m}\) at an exponentially large even-adjusted index produces an actual signed digit block because the residual characteristic-root contribution becomes less than one third of a unit.
+PASS
 
-Boundaries: \(m\) must be sufficiently large, the dominant root may be negative but must be simple and unique in modulus, the base must be multiplicatively independent of its absolute value, and the theorem specifies exponential **order** only. No independent audit is asserted.
+For unique simple real dominant root alpha with |alpha|=r>1, Binet error is O((qr)^m) and ratio |a_{m+k}|/(r^k|a_m|)=1+O(q^m), uniformly in k. Every valid append has ratio to b^t|a_m|=1+O(r^{-m}), forcing nonzero |k log r-t log b|<<max(q,r^-1)^m. Baker-Wustholz lower bounds this by a fixed inverse power of t, giving t>=exp(cm). With h=1 or 2 for positive/negative alpha, Baker separation ||j h log_b r||>>j^-D yields uniform Erdos-Turan discrepancy O(Q^{D/(D+1)}). An interval of logarithmic length delta~r^{-m} is hit at Q<=j<2Q with Q~delta^{-(D+1)}, so t<=exp(Cm). That large k makes the normalized subdominant Binet error smaller than 1/3; an interior (1/3,2/3) target interval yields an actual integer 0<d<b^t. Even k ensures signs match for negative alpha. Independent exact integer searches reproduced source-index first witnesses in 10 powers-of-two, 6 shifted-powers and 6 negative-root cases, not the asymptotics.
+
+## originality
+
+PASS
+
+The 2026 origin paper proves qualitative impossibility for uniformly bounded digit lengths and qualitative unlimited-step existence, not in its available statements a two-sided source-index-dependent exponential bound on least outgoing digit length. Kominers 2025 full primary article bounds walk length for fixed cap N and gives index thresholds for Fibonacci/Lucas, not these broad minimal-step asymptotics. The most relevant origin article full text was inaccessible despite arXiv/lawful OA attempts and an authorized institutional attempt returning vpn_disconnected; this is an explicit residual risk, not a scientific failure.
+
+## value
+
+PASS
+
+For the exact digit-appending recurrence model, least outgoing block length at a starting index is a natural unresolved quantitative invariant. Establishing its exponential order for a broad unique-dominant-root class turns a qualitative infinite-walk theorem into explicit uniform source-index scale. Necessity and sufficiency use distinct Diophantine mechanisms.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
