@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "For every diameter 7..16, the exhaustive loops iterate exactly the six distinct interior points from 1..L-1, test gcd with L, compute all 70 distinct-index four-sums. A separate coefficient-support DP over prod(1+t z^a) gives identical outputs in every case. All counts are finite and bounded: at L16, 5005 total, 4998 primitive, min 25, exactly three asserted minimizers. The 7..15 minima match a direct interval construction. The checker was executed successfully from its package source. No infinite or probabilistic inference is used.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.25073v1 Theorem 1.8: sharp diameter-dependent bound has hypothesis k>=9; the explicit k=8 exception is only an existence witness",
+        "arXiv:2505.07415 Theorem 1.7(3): 4-fold equality case requires k>=12 with size 4k-14, not k=8 with size 25; Theorem 1.14 requires k>=16"
+      ],
+      "reasoning": "These stronger-looking classifications are inapplicable by hypothesis or cardinality. They do not identify all equality cases at k=8, h=4, L=16. Published articles about unrestricted/signed sumsets likewise do not directly imply the specified restricted four-sum census.",
+      "searches": [
+        "A sharp lower bound for h-fold restricted sumsets of integers Wang threshold k>=9 k8 h4 L16 equality spectra",
+        "Extended inverse theorems for restricted sumset in integers Mohan Pandey arxiv",
+        "Mohan Pandey restricted 4-fold sumset 4k-14 characterization"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.25073v1 (full relevant original theorem, counterexample, and conditional lemmas)",
+      "arXiv:2505.07415 (relevant original PDF theorem hypotheses and proof)",
+      "doi:10.4134/BKMS.b230631 (abstract and theorem attribution)",
+      "Public research-record searches for exact sets, restricted fourfold sums and parameter aliases",
+      "OEIS-indexed targeted search"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2610.25073v1 Theorem 1.8 formally predicts 26 for k=8 and L=16, but the author shows one counterexample of 25: the theorem cannot imply the present equality classification",
+        "arXiv:2505.07415 strong inverse results impose k>=12, k>=13, k>=16, or h>=5; each excludes the k=8, h=4 case",
+        "A published-record search produced entries about eight-term zero-sum residues modulo 16, a different problem not reducible to four distinct integer sums"
+      ],
+      "reasoning": "The former existence example is strictly weaker than establishing an optimal lower bound of 25 and classifying exactly three extremizers. A finite exhaustive proof adds the missing universal and uniqueness implications within the precise bounded domain.",
+      "searches": [
+        "sharp finite exact number theory classification integer sequences modular sums October 2026",
+        "A sharp lower bound for h-fold restricted sumsets of integers Wang threshold k>=9 k8 h4 L16 equality spectra",
+        "restricted sumsets inverse theorem equality case 8 terms h4 16"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2610.25073v1, introduction after Theorem 1.8: one specific set [0,3] union [13,16] with cardinality 25; no equality classification",
+        "arXiv:2505.07415, Theorems 1.7 and 1.9-1.15: restricted fourfold results require larger k and study sizes near absolute minimum"
+      ],
+      "reasoning": "Translation and dilation invariance is removed by normalizing endpoints and gcd; reflection is checked explicitly. A title or isolated witness matching 25 does not imply uniqueness or the full equality spectrum. No searched exact statement lists all three sets.",
+      "searches": [
+        "For 8 integers A subset [0,16] endpoints 0 and 16, exactly 3 extremizers of four-fold restricted sumset of size 25: 0,1,2,3,13,14,15,16; 0,1,5,6,10,11,15,16; 0,3,6,7,9,10,13,16",
+        "\"eight-element\" \"four-fold restricted\" \"25\"",
+        "\"4^∧\" \"eight\" \"25\" \"16\" additive"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Search results did not contain an exact table for the minimum or all three extremizers at parameters (8,4,16); unrelated sequence and indexing hits are not evidence of coverage"
+      ],
+      "reasoning": "No matching specialized tabulation was identified. Failure of search is not proof of novelty, so implicit tables or unindexed finite computations remain a residual risk.",
+      "searches": [
+        "site:oeis.org \"restricted fourfold\" eight",
+        "site:oeis.org \"restricted sums\" eight diameter",
+        "\"0 1 5 6 10 11 15 16\" \"restricted\" sumsets"
+      ]
+    },
+    "rationale": "The source arXiv:2610.25073v1 explicitly exhibits only the first eight-element counterexample at diameter sixteen, but does not provide the minimum as a proved optimal value at that diameter nor the complete three-set equality classification. Its main theorem assumes at least nine elements. Prior extended inverse work addresses different cardinality or much larger set-size ranges. The complete first-failure equality spectrum was not found in the checked published record set. Potential implicit/unindexed prior characterization is acknowledged.",
+    "residual_risks": [
+      "An unindexed finite equality census or an implicit older general inverse theorem could already determine the same three sets. The 2024 journal paper was not inspected in its entirety. These are priority risks, not proof defects.",
+      "The result is finite and deliberately bounded; do not extrapolate beyond diameter 16."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides bound for k>=9 and one k=8 witness at L=16; no exact equality census at those parameters",
+        "evidence": [
+          "Theorem 1.8 k>=9; introductory witness [0,3] union [13,16] with |4^A|=25; Section 6 Lemma 6.44 is conditional and not an enumeration of sharp k8 L16 cases"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.25073v1",
+        "material_read": "Introduction, Theorem 1.8 with all parameter hypotheses and sharpness construction; section 6 structural arguments including Lemma 6.44 and its proof; article find searches for exact equality shapes",
+        "method": "Open-access arXiv HTML, theorem/lemma examination and targeted full-text searches",
+        "title": "A sharp lower bound for h-fold restricted sumsets of integers",
+        "trigger": "Identical objects and the exact first sharpness counterexample"
+      },
+      {
+        "assessment": "The fourfold characterizations cover much larger k or cardinalities near the absolute minimum; none implies the k8 diameter16 equality list",
+        "evidence": [
+          "Theorem 1.7(3) has k>=12 and |4^A|=4k-14; Theorem 1.14 has k>=16, whereas the finding has k=8 and |4^A|=25"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2505.07415",
+        "material_read": "Full introductory theorem statements, problem definitions, especially Theorems 1.7 and 1.9-1.15, and proof hypotheses; visual PDF page 3 reviewed",
+        "method": "Open-access arXiv PDF extracted text and page image",
+        "title": "Extended inverse results for restricted h-fold sumset in integers",
+        "trigger": "Highly relevant prior general inverse classifications of restricted h-fold sumsets"
+      },
+      {
+        "assessment": "Classifies 4-fold cardinality 4k-14 for k>=12; no available evidence of exact k8 L16 coverage",
+        "evidence": [
+          "Published abstract states inverse cases near small cardinality; the later source attributes k>=12, |4^A|=4k-14 to this paper"
+        ],
+        "identifier_or_url": "https://doi.org/10.4134/BKMS.b230631",
+        "material_read": "Published abstract and theorem as quoted in later arXiv:2505.07415 Theorem 1.7",
+        "method": "Publisher/repository abstract, and accurate verbatim hypothesis restatement in the later OA paper",
+        "title": "Extended inverse theorems for restricted sumset in integers",
+        "trigger": "Historical small restricted sumset inverse theorems possibly dominating the census"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "bde7d1d6-b7dd-41b2-84a0-e372e96565dd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is the precise first diameter at which the known k>=9 sharp restricted-four-sumset inequality fails for k=8, not an arbitrarily selected slice. The original paper has one sharpness witness; determining the exact minimum and all equality configurations proves its exception has three distinct normalized structural types, refining the boundary of the recent theorem. The complete inverse classification is mathematically meaningful even though finite and without a general extension.",
+    "status": "PASS"
+  }
+}
