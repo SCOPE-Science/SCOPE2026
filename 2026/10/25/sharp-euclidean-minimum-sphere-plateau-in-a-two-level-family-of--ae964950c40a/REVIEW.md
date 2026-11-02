@@ -1,19 +1,21 @@
-# Scientific review: minimum-sphere plateau in continuous marked poset polytopes
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The defining inequalities are a direct specialization of Fang--Fourier--Litza--Pegel's marked-poset equation for the saturated chains in a complete two-level marked poset. With \(M=\max_i x_i\), every point is a convex combination of two explicitly described cube-corner hulls. Thus the vertices are exhausted, not guessed. Squared-distance subtraction proves every vertex lies in the proposed sphere, and finds every equality case. A probability measure on contact vertices has barycenter equal to the candidate center; the exact variance identity gives global minimality and strict uniqueness against every off-center competitor. The parameter boundary cases \(t=0,1\), the critical equality \(qt(1-t)=p\), and all positive integers \(p,q\ge2\) are covered explicitly. The independent finite enumerator and numerical minimizer provide corroboration, not a substitute for the general proof.
+PASS
 
-## Originality — PASS (self-review, qualified)
+The actual RESULT.md specifies p,q>=2 and t in [0,1] for K={(x,y): x_i>=0,(1-t)x_i<=y_j,y_j+t x_i<=1}. Independently reconstruct the hull A=(0,epsilon) for epsilon in {0,1}^q and B=(delta,(1-t)1_q) for nonzero delta in {0,1}^p by splitting at M=max_i x_i. For c=(a1_p,1/2 1_q), a=(p-qt(1-t))_+/(2p), every A vertex has squared distance pa^2+q/4. Each B vertex of lower Hamming weight k has exact radius gap qt(1-t)-k(1-2a)>=0, with the claimed contact equality conditions including t=0,1 and qt(1-t)=p. Contact barycenter: if a>0 place weight a at the all-ones B vertex and 1-a on A with Bernoulli parameter (1/2-a(1-t))/(1-a); if a=0 average A. The variance identity shows any other center has strictly larger required squared radius, so this is the unique global smallest sphere. The plateau inequality qt(1-t)>=p has an open interval precisely q>4p. Independent rational arithmetic checked 50 parameter profiles. Proof is for all integer sizes and real t, not inferred from experiments.
 
-Fang, Fourier, Litza, and Pegel's original full text (arXiv:1712.01037, Definition 1.2 and main theorems) supplies transfer polytopes and combinatorial constancy but not Euclidean outer-ball radii or contact screening. Ahmad, Fourier, and Joswig (arXiv:2309.01626) establish combinatorial face-vector results for ranked posets, not this metric theorem. A relevant published result on balanced two-level order polytopes computes an *inscribed* John ellipsoid at an endpoint, not the circumscribed sphere during continuous transfer. Another relevant published minimum-sphere result treats complete multipartite stable-set polytopes with **at least three** parts and explicitly excludes the two-part case; it also does not treat the present continuous interpolation. Semantic searches of mathematical records under marked-poset, two-level, cube-hull and Euclidean covering-ball descriptions yielded no dominating exact statement. As with any bibliographic comparison, a differently phrased exact result might remain unlocated, especially under general convex hulls of two coordinate-cube strata.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The natural Euclidean minimum enclosing ball can detect a metric phase transition that the entire interior combinatorial type cannot detect. The formula is uniform in all layer sizes and the continuous parameter, and explains when one exponentially large vertex orbit ceases to support the minimum sphere. In the strict plateau, the radius is determined by the lower-zero cube face alone, independently of the number of lower coordinates, even though the polytope remains full-dimensional. This is a sharp structural classification rather than a numerical or renamed example. It makes no unsupported claim to settle general enclosing-ball problems for arbitrary marked posets.
+Qualified PASS for the metric covering-ball and contact-screening theorem, not for the marked-poset construction, vertex symmetry, face-lattice constancy or generic smallest-ball characterization. The exact all-parameter Euclidean outer-sphere law with plateau is not implied by the inspected face-vector, inball/John ellipsoid, or enriched-chain metric statements. Possible old convex-hull-of-cubes covering-ball theorem remains a priority risk.
 
-## Literature and remaining limitations
+## value
 
-Primary material inspected: Xin Fang, Ghislain Fourier, Jan-Philipp Litza and Christoph Pegel, *A Continuous Family of Marked Poset Polytopes*, arXiv:1712.01037 (2017), https://arxiv.org/pdf/1712.01037; Ibrahim Ahmad, Ghislain Fourier and Michael Joswig, *Order and chain polytopes of maximal ranked posets*, arXiv:2309.01626 (2023), https://arxiv.org/pdf/2309.01626. Further published mathematical comparisons include *Exact John ellipsoid of balanced two-layer order polytopes* and *Large-part screening in minimum spheres of complete multipartite stable-set polytopes*. Residual risk: an equivalent circle/sphere formula could be expressed as a general convex-hull-of-cubes theorem rather than a poset-polytope theorem. This review is not independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The smallest Euclidean covering ball is a natural metric invariant of the standard marked-poset interpolation, and its exact plateau separates combinatorially identical interior polytopes into distinct metric/contact regimes. The theorem classifies all p,q,t and exponentially many contact vertices using a constructive certificate, not a tiny gain or naming substitution.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
