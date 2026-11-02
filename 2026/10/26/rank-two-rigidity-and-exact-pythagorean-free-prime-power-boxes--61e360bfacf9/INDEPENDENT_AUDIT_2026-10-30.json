@@ -1,0 +1,134 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T17:57:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For u²+v²=w², dividing by gcd(u,v) keeps integer w (valuation argument) and yields coprime legs with support in {p,q}. Primitive opposite parities force 2 in the prime set. If odd leg were 1, a²+1 lies between squares; otherwise odd leg q^b and even 2^a. Factoring (w−2^a)(w+2^a)=q^(2b) with odd coprime factors implies smaller factor 1 and hence (q^b−1)(q^b+1)=2^(a+1). Consecutive powers of two 2 apart are 2 and4, so q^b=3,a=2. Thus only primitive (3,4), all box obstruction edges are scaled by 2^i3^j and move exponent coordinates by (+2,−1). Each line a+2b=t forms a path of length L_t, giving independent size ∑ceil(L_t/2) and all optimizer choices ∏_{even positive L_t}(L_t/2+1). Computing odd L_t counts for R=S=n yields the claimed mod-four quasi-polynomial and density 1/2; other prime supports have no edges and F=RS. Independently enumerated exact Pythagorean pair graphs for all 10 prime supports from {2,3,5,7,11}, rectangle sizes 1≤R,S≤6 (360 comparisons) and brute independence for cells ≤16; every checked graph matched. Universal theorem uses proof, not finite testing.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xiao 2610.11965 bounds f(N) above when support consists of first N primes and each exponent is bounded by N.",
+          "Companion 2610.20311 gives an asymptotic lower bound in the same growing-support regime."
+        ],
+        "reasoning": "Those inequalities are not exact for rank two with arbitrary prime support and rectangular R,S, and do not imply path optimizer multiplicities; the present theorem does not improve growing-rank estimates.",
+        "searches": [
+          "Rongzhong Xiao arXiv:2610.11965v1 Theorem 1.1",
+          "Rongzhong Xiao arXiv:2610.20311v1 main theorem",
+          "fixed-rank-two Pythagorean box extremal"
+        ]
+      },
+      "checked_sources": [
+        "GitHub source RESULT.md/verify.py at frozen commit",
+        "arXiv:2610.11965v1 and lawful full HTML mirror",
+        "arXiv:2610.20311v1 main abstract",
+        "Resultary 2026/9/20/SCOPE-primitive-cubic-sum-squares-prime-power-gaps--6ef1b6f8c78c",
+        "Resultary 2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690",
+        "Independent exhaustive rectangle graphs 10 supports, R,S up to 6"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Xiao formulas involve N (the growing prime-support parameter) tends to infinity, whereas rank two has fixed 2 coordinates; no parameter choice yields all R,S.",
+          "The cubic-sum record concerns x²+y²=z³ and a different prime-power gap rather than square hypotenuse."
+        ],
+        "reasoning": "Neither result supplies an exact pair obstruction graph on a two-dimensional exponent lattice or counts all maximum independent sets.",
+        "searches": [
+          "arXiv:2610.11965 Theorem 1.1 high-dimensional upper bound",
+          "arXiv:2610.20311 quantitative lower bound",
+          "Resultary 2026/9/20/SCOPE-primitive-cubic-sum-squares-prime-power-gaps--6ef1b6f8c78c"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Any primitive two-supported pair is (3,4), hence graph edges are translations (a,b)↔(a+2,b−1).",
+          "Resultary square-perimeter record enumerates a different restriction on Pythagorean triangles, not independent sets in rectangular boxes."
+        ],
+        "reasoning": "Graph formulation is an exact consequence of the proved primitive restriction, but earlier searched number-theory aliases did not state the full path decomposition or optimized count.",
+        "searches": [
+          "Resultary: Pythagorean pairs prime power box two distinct primes 3 4 path independent sets",
+          "fixed prime support Pythagorean leg ratios smooth numbers",
+          "Resultary 2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related square-perimeter, prime-power gap, and other Diophantine identities, not the rectangular independence table.",
+          "Independent all-pair sample graphs agree with formula but are not preexisting outside tables."
+        ],
+        "reasoning": "A finite table is relevant only if it exactly contains the all-cutoff quasi-polynomial or equivalent path formula; no such earlier table was found in the bounded sources. Absence alone is not proof.",
+        "searches": [
+          "Resultary: smooth Pythagorean legs two prime box path graph maximum independent",
+          "Pythagorean prime power boxes fixed two primes mod four quasi polynomial",
+          "arXiv:2610.11965 two-dimensional case"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for the complete two-prime obstruction graph, arbitrary rectangular exponent cutoffs and all maximum independent sets. The recent Xiao prime-power-box papers study increasing number of prime coordinates and an asymptotic admissible-set bound; their statements cannot be specialized to exact fixed rank two counts. Primitive (3,4,5) arithmetic is classical and not presented as novel.",
+      "residual_risks": [
+        "The Xiao upper-bound primary is 125 pages: relevant HTML main theorem, introduction and proof outline were inspected, not every lemma.",
+        "Companion 19-page paper full text was inaccessible; abstract defines a different growing-support scope, but no whole-paper noncoverage assertion.",
+        "Unindexed two-prime smooth-Pythagorean path or OEIS-type table could precede the formula; primitive 3:4 rigidity itself is classical."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem treats growing-rank supports and quantitative asymptotic upper bound, not fixed rank two exact rectangle or optimizer count.",
+          "evidence": [
+            "Section 1.2 defines Φ_N with N first primes and exponents below N; main theorem gives f(N) ≪ N^N(loglogN)^(−1/1296)."
+          ],
+          "identifier_or_url": "arXiv:2610.11965v1; https://www.paperpeel.com/paper/2610.11965",
+          "material_read": "Read primary-text HTML mirror introduction §§1.1–1.3, the stated main theorem, §2 proof outline, and accessible portions of later analytic sections; equations in mirror partially garbled, so comparison rests on clear scope and theorem.",
+          "method": "Lawful open full-text HTML mirror with targeted section reading",
+          "title": "Pythagorean pairs in boxes of prime powers",
+          "trigger": "identical pair-free extremal functional in prime-power boxes"
+        },
+        {
+          "assessment": "Asymptotic lower bound with number of prime coordinates N increasing, not all fixed two-prime rectangular cases.",
+          "evidence": [
+            "Abstract states f(N) ≫ N^(N−1) logloglog N in Φ_N."
+          ],
+          "identifier_or_url": "arXiv:2610.20311v1; https://arxiv.org/abs/2610.20311",
+          "material_read": "Read primary abstract and displayed main theorem; full 19-page source could not be obtained in this run.",
+          "method": "Official arXiv abstract with scope comparison",
+          "title": "Quantitative lower bound for Pythagorean pairs in boxes of prime powers",
+          "trigger": "companion strong potential coverage of same extremal object"
+        },
+        {
+          "assessment": "Constrained square perimeter is a different Diophantine pair problem.",
+          "evidence": [
+            "Resultary indexed statement concerns square-perimeter triangle counting and support."
+          ],
+          "identifier_or_url": "Resultary:2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690",
+          "material_read": "Read ranked scientific abstract only; not a primary full-text noncoverage claim.",
+          "method": "Published record semantic result",
+          "title": "Fixed prime support in square-perimeter primitive Pythagorean triangles",
+          "trigger": "semantically relevant primitive fixed-prime support"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact complete classification of an especially natural low-rank slice of the current prime-power-box extremal problem, including the exceptional prime support, graph structure, sharp sizes, and optimizer multiplicities. The mod-four quasi-polynomial and rectangular formula make the finite arithmetic invariant reusable even though the result does not solve higher rank.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "GitHub source RESULT.md/verify.py at frozen commit",
+    "arXiv:2610.11965v1 and lawful full HTML mirror",
+    "arXiv:2610.20311v1 main abstract",
+    "Resultary 2026/9/20/SCOPE-primitive-cubic-sum-squares-prime-power-gaps--6ef1b6f8c78c",
+    "Resultary 2026/9/21/SCOPE-pythagorean-square-perimeter-fixed-prime-support--1c78d6da7690",
+    "Independent exhaustive rectangle graphs 10 supports, R,S up to 6"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Reviewed frozen assigned tree, source proof, critical verification artifacts and relevant literature; best-of-knowledge originality, not a priority guarantee.",
+    "The finite independent checks corroborate but never replace proofs for infinite parameter ranges.",
+    "Publication is withheld pending complete confidentiality-neutral replacements of public administrative metadata."
+  ],
+  "residual_risks": [
+    "The Xiao upper-bound primary is 125 pages: relevant HTML main theorem, introduction and proof outline were inspected, not every lemma.",
+    "Companion 19-page paper full text was inaccessible; abstract defines a different growing-support scope, but no whole-paper noncoverage assertion.",
+    "Unindexed two-prime smooth-Pythagorean path or OEIS-type table could precede the formula; primitive 3:4 rigidity itself is classical."
+  ],
+  "schema_version": 1
+}
