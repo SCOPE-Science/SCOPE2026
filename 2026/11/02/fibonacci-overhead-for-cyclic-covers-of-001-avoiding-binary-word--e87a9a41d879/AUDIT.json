@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "At each admissible (n-1)-bit vertex the exact required imbalance is indicator(prefix 01) minus indicator(suffix 00). The F_{n-1} positive vertices contain no 00, whereas every negative vertex ends 00; source-to-sink paths necessarily use at least n-2 edges, and lexically paired overlap-one paths attain that bound. Appending zero to reach 0^{n-1}, then its added path to the no-00 core, proves connectedness of the balanced augmented graph and Euler-tour existence. The Fibonacci count of finite 001-avoiders is F_{n+3}-1. This is a complete symbolic proof for all n>=3, supplemented by reproducible checks for n<=18.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bernardini et al. give general algorithms and bounds for shortest exact-factor-set strings and discuss directed Chinese postman (2022, pp. 1–5).",
+        "Moreno–Matamala study lexicographically minimal exact-once cycles for irreducible subshifts (2007, Theorems 1, 3 and 10)."
+      ],
+      "reasoning": "Generic postman algorithms could calculate a fixed finite instance but do not supply the all-order Fibonacci lower bound or its uniformly tight construction. The earlier forbidden-subshift theorems exclude transient allowed factors such as 1000, so they do not dominate the claimed statement.",
+      "searches": [
+        "doi:10.4230/LIPIcs.CPM.2022.16",
+        "doi:10.1007/978-3-540-30559-0_14",
+        "shortest cyclic universal word set of pattern avoiding binary strings forbidden 001 2000"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/0711.1695",
+      "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.CPM.2022.16",
+      "https://doi.org/10.1007/978-3-540-30559-0_14",
+      "https://www.mdpi.com/2227-7390/8/5/778"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "A circular cover of all finite 001-avoiders must visit the all-zero loop and the no-00 component; the required-edge graph has F_{n-1} positive and negative imbalances, so an exact-once Euler tour of that required graph does not exist.",
+        "The supplied proof derives source–sink distance n-2 uniformly and an explicit matching construction, neither appearing in the inspected primary results."
+      ],
+      "reasoning": "The required extra windows can be forbidden, making the proposed optimization different from a constrained de Bruijn sequence staying inside the language. Earlier general Euler-tour algorithms alone do not imply the closed formula, and related published word-cover laws for other avoided patterns do not imply it by reversal or complement.",
+      "searches": [
+        "doi:10.4230/LIPIcs.CPM.2022.16",
+        "arxiv:0711.1695v1",
+        "doi:10.1007/978-3-540-30559-0_14"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2007 Moreno–Matamala paper defines its language by infinite periodic admissibility (Section 2.1, pp. 2–3), not by all finite substring-avoiding words.",
+        "The 2022 CPM paper requires exact equality of the factor set (Section 1), while the proposed cyclic cover allows extra factors."
+      ],
+      "reasoning": "Under reversal and complementation the excluded three-bit pattern 001 has orbit {001,100,110,011}, distinct from constant patterns 000/111 and alternating patterns 010/101. Periodic-word Euler circuits and exact-factor-set strings do not express this all-finite-factor superset-cover optimum.",
+      "searches": [
+        "arxiv:0711.1695v1",
+        "doi:10.4230/LIPIcs.CPM.2022.16",
+        "\"001\" \"shortest\" \"de Bruijn\" \"Fibonacci\" cover"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted bibliographic and sequence searches revealed no matching indexed table of the claimed cyclic cover optima.",
+        "The 2007 source contains general restricted-de-Bruijn definitions and algorithms rather than this shortest-cover number sequence."
+      ],
+      "reasoning": "A missing indexed table is not proof of novelty. The known finite-factor and cyclic-cover distinction is checked against original definitions; possible unindexed tables remain a stated priority risk.",
+      "searches": [
+        "OEIS \"8, 16, 29, 53, 94, 166, 290\" binary words",
+        "\"Fibonacci\" \"001\" \"shortest cyclic\" all strings",
+        "arxiv:0711.1695v1"
+      ]
+    },
+    "rationale": "No inspected published proof or retrieved exact finding implies the all-n shortest circular superset-cover formula. Moreno–Matamala’s periodic extendibility, Bernardini et al.’s exact factor equality, and prior finite 000-avoidance cover tables concern different targets. Specific priority risks are noted.",
+    "residual_risks": [
+      "The earlier 2004 conference paper exists, but its calendar-specific first-public date and full material were not verified; the 2007 openly dated preprint is the anchored source version.",
+      "Historical exact tables or small-parameter results may be unindexed.",
+      "The 2020 exact-once universal-cycle paper was abstract-only because the full page was unavailable; its stated range does not imply this all-order formula."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: exact-once periodic language and lexicographic minimization, not all finite 001-avoidance with arbitrary extra cyclic factors",
+        "evidence": [
+          "Definition requires periodic repetition admissible, §2.1; irreducible SFT has Eulerian de Bruijn graph, §2.1; main theorem characterizes lexicographically minimal Eulerian walk, §3."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0711.1695",
+        "material_read": "Full preprint text, especially introduction, Sections 2 and 3, definitions on pages 2–3 and Theorems 1, 3, 10",
+        "method": "Examined primary PDF text and inspected page image",
+        "title": "Minimum de Bruijn Sequence in a Language with Forbidden Substrings",
+        "trigger": "Closest historic forbidden-substring universal-cycle paper"
+      },
+      {
+        "assessment": "NOT_COVERING: solves exact prescribed factor-set problem and generic directed walks, not the explicit all-n superset-cover formula",
+        "evidence": [
+          "The problem requires Substr_k(X)=S in the Introduction and Section 5; Theorem 12 reduces directed Chinese Postman to the equivalent-string problem, while Theorems 1–4 and Sections 4–5 address general algorithms and combinatorial bounds, not the special all-order 001-avoiding superset-cover formula."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol223-cpm2022/LIPIcs.CPM.2022.16/LIPIcs.CPM.2022.16.pdf",
+        "material_read": "Primary PDF: abstract, initial definitions and theorems, Sections 3–5 on postman reductions, combinatorial bounds, flow algorithms, and references",
+        "method": "Examined primary PDF text and inspected title/abstract page image",
+        "title": "On Strings Having the Same Length-k Substrings",
+        "trigger": "Most plausible general shortest substring-cover/postman domination"
+      },
+      {
+        "assessment": "UNRESOLVED_LOW_RISK: stated exact-once universal cycles after removing up to two words or small n, not arbitrary repetitions and all n",
+        "evidence": [
+          "Abstract states up to two removed words and n<=4 binary probability cases; full mathematical text not inspected."
+        ],
+        "identifier_or_url": "https://www.mdpi.com/2227-7390/8/5/778",
+        "material_read": "Only bibliographic abstract; full page unavailable during inspection",
+        "method": "Read abstract-level metadata; full-text access unsuccessful",
+        "title": "Lower Bounds, and Exact Enumeration in Particular Cases, for the Probability of Existence of a Universal Cycle or a Universal Word for a Set of Words",
+        "trigger": "Universal-cycle result for sets formed by deleting words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e87a9a41-d879-4ca1-958f-670ced453656",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The all-order exact natural shortest-cover invariant is stronger than a finite table or one construction. A uniform forbidden-pattern imbalance generates a provably unavoidable (n-2)F_{n-1} overhead, asymptotically linear relative to the Fibonacci-sized target family. This gives a reusable structural obstruction and benchmark for de Bruijn and sequence-assembly problems, without an arbitrary parameter slice.",
+    "status": "PASS"
+  }
+}
