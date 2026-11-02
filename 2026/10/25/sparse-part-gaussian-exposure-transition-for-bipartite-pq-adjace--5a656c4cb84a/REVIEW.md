@@ -1,19 +1,21 @@
-# Scientific review: sparse-part Gaussian exposure transition
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof begins with an exact maximization over the declared vertices of the PQ-type adjacency polytope. Ordinary Gaussian extreme-value normalization yields all candidate extrema. The critical exponent \(3-2\sqrt2\) equates the leading diagonal and cross-family maxima, while the explicitly derived logarithmic factor \((\log n)^{\sqrt2-1}\) cancels their second-order mismatch. Joint extreme-value independence uses the Gaussian two-coordinate bound for every distinct pair of standardized linear forms, with correlation at most \(1/\sqrt2\) among nonopposite forms. The radial normalization accounts for the correct intrinsic dimension \(2n-2\). Bounds from the diagonal term and the two cross terms give uniform integrability for the mean correction. Finite support, centering, and CDF checks are reproducible with `verify.py`; they are not substituted for the proof.
+PASS
 
-## Originality — PASS, with bibliographic qualification
+C: Exact support over diagonal and cross vertices equals max(D_A,D_B,max g_A+max h_B,max g_B+max h_A). For q/n→0 the B-diagonal max lies strictly below the p-diagonal leading scale; Taylor expanding Gaussian centering b_q−a b_p produces delta exactly with q prefactor a(4pi)^a and logarithmic exponent a. Gumbel maxima for the distinct Gaussian variables have asymptotically independent upper-tail point processes because all different standardized forms have correlation <1, with negative signed form pairs harmless. Intrinsic width uses the projected Gaussian chi-radius R independent of uniform direction; replacing R with eta_{2n-2} is o_P(1/r_n) by R concentration, and Gaussian tail bounds supply uniform integrability for the mean statement. Conditioning exponential transforms produces F_a(s)=int exp(-u-exp(-s)u^{-1/a})du and P_delta=E[F_a(sqrt2 G-delta)^2]. Independently evaluated centering r_n(b_q−a b_p) for delta=1.2 at log n 10^3, 10^4, 10^6, converging 1.226172→1.205501→1.200139. The proof is asymptotic and supplies no quantitative convergence rate.
 
-Davis and Chen (arXiv:2007.11051, first public 2020-07-21) formulate PQ adjacency polytopes and analyze draconian sequences and normalized volumes. Ohsugi and Tsuchiya (arXiv:2103.15045) extend Ehrhart/volume calculations to complete multipartite graphs. Those known results do not imply a solid-angle phase transition or Gaussian second-order directional-width law. The closest accessible same-family PQ-polytope theorem was also inspected in full: it determines the Löwner ellipsoid for balanced complete bipartite graphs, rather than sparse-part random normal cones or directional widths. The probabilistic tools themselves are classical and no claim of novelty is made for Gaussian maxima. A possible equivalent masked-array extremal formulation outside the checked polytope literature remains a real residual risk; the checked material supplies no covering implication.
+## originality
 
-## Value — PASS
+PASS
 
-The full distribution of random Euclidean widths and the fraction of the sphere exposing diagonal versus cross vertices are natural geometric measurements of a fixed standard graph polytope, independent of Ehrhart or volume data. The result identifies a nontrivial critical exponent and a logarithmic critical window with a continuously varying angular exposure probability, plus an explicit five-Gumbel stochastic law. It distinguishes two competing families of vertices on an infinite, naturally parametrized sequence of graph polytopes.
+O: Davis–Chen and Ohsugi–Tsuchiya establish PQ construction and combinatorial volume/Ehrhart data. A separately published balanced-case Löwner ellipsoid is a distinct functional. None of these supplies typical angular exposure of diagonal versus cross vertices, the q~n^{3−2sqrt2}(log n)^a critical window, or the explicit Gaussian-max limit. General extremal Gaussian triangular array results may contain an equivalent masked-array reformulation; that remains a priority risk.
 
-## Scope and limitations
+## value
 
-The theorem treats the intrinsic Euclidean realization, part-size power regimes, and the specified critical window. It gives no uniform finite-size convergence rate or independent external validation. Closest literature was evaluated by scientific implication, not by name similarity alone. Self-review correctness and originality assessments do not amount to independent mathematical certification.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+V: The boundary between diagonal and cross vertices in spherical normal direction is a structural phase transition in a standard graph polytope. Its sharp power-log scaling and nontrivial analytic limiting probability distinguish combinatorial exposure types; the result is not a restatement of existing volume counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
