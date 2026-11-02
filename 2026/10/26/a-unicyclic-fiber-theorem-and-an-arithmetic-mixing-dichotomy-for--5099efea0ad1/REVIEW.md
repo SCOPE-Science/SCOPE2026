@@ -1,11 +1,21 @@
-# Scientific review: rational-angle Feres transition fibers
+# Independent mathematical audit
 
-**Correctness (PASS).** The positive-support edges follow directly from the original four affine maps and their piecewise probabilities on open cells. The residue-path argument uses only the coprimality of the reduced rational angle. Removing the \(2m\) leaves produces a connected 2-regular graph, forcing a cycle of length \(n-2m\); its parity determines the exact Markov period. Detailed balance follows from explicitly stated sine identities, and finite-state Markov theory gives both convergence regimes. The standalone checker independently matches the original branch probabilities in 2,024 finite parameter/offset cases, with exact integer topology tests and appropriately labeled approximate trigonometric tests. Boundary angles and continuum dynamics are excluded, so the theorem does not depend on unverified switching conventions.
+## correctness
 
-**Originality (PASS, best available evidence).** Pinto-de-Carvalho and Vales (2020/2022) prove finite rational fibers and their irreducibility, using a dihedral-group argument, but do not determine the universal positive-support graph topology or all Markov periods. Vales (2022), Section 3, gives the \(\pi/8\) two-periodic and \(\pi/7\) aperiodic examples, but does not promote this observed distinction to arbitrary relatively prime \((m,n)\). The exact graph and stationary two-phase limits are nontrivial consequences of the branch-specific positivity, not merely of dihedral finiteness. Feres (2007) establishes the model and general reversibility, not this denominator-parity classification. Targeted mathematical literature and indexed-claim searches and recoverable earlier claims contained no statement that implies the theorem. Absence from these sources does not establish global novelty: an unknown broader Markov-chain treatment remains a priority risk.
+PASS
 
-**Mathematical value (PASS).** Whether a finite rational-angle billiard fiber is mixing or has persistent two-time alternation is the natural unanswered question left by the specific \(\pi/7\) and \(\pi/8\) examples. The universal arithmetic criterion for every reduced numerator, together with the exact unicyclic support and stationary weights, resolves the whole rational interior-fiber classification. The pendant-leaf and cycle length data specify useful combinatorial structure for subsequent spectral-gap and hitting-time analysis. The result has substantive scope beyond a routine application of the Markov convergence theorem, because the substantial part is establishing the graph for all parameters.
+From the actual RESULT.md branch map and positivity intervals, derive the three index-edge sets: shifts {j,j+2m} (0<=j<n-2m), low reflections {j,4m-1-j} (m<=j<2m), and upper reflections {j,2n-4m-1-j} (n-3m<=j<n-2m). They give exactly n undirected edges on n states. Shift residue paths mod 2m are joined by involutions a(r)=-1-r and b(r)=2n-1-r; b∘a translates by 2n, transitive within each parity class since gcd(m,n)=1, while a swaps parity classes. The connected graph has precisely 2m leaves that meet degree-three vertices; removing leaves leaves one (n-2m)-cycle. Detailed balance sin(x_i)P_ij=sin(x_j)P_ji follows by checking the branch sine identities. The finite irreducible Markov chain period is odd/even parity of n. Verified independently by rebuilding integer edge graph and all four original branches for 228 parameter/offset cases, checking stochasticity, balance and sine normalization; that bounded check does not replace the all-parameter proof. Nongrid strict boundary and full phase-space billiard excluded.
 
-**Closest literature and scientific limitations.** See Feres (2007), Pinto-de-Carvalho–Vales, arXiv:2005.01892, Sections 3 and 5, and Vales, arXiv:2212.00872, Section 3. The newer paper's global rational/nonrational mixing distinction concerns a different state space and does not subsume the fiber limit theorem. Grid-boundary angles, position-space billiards, and uniform-in-parameter mixing rates are outside the claim. No independent historical-priority review has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Feres established the random billiard model and reversible angular laws. Vales and Pinto-de-Carvalho (arXiv:2005.01892, Section 5 Proposition 5.4) establish finite rational fibers and irreducible Markov shifts, not the general graph type/period calculation. Vales (arXiv:2212.00872, Section 3) explicitly exhibits pi/7 aperiodic and pi/8 period-two examples and considers continuum mixing, not all reduced fractions. Those examples do not logically imply a universal denominator-parity theorem or explicit n-2m core and 2m leaves. No covering Resultary hit found; an earlier general dihedral graph computation remains possible.
+
+## value
+
+PASS
+
+The arithmetic dichotomy decides precisely when a rational-angle fiber approaches one distribution or alternates forever, a natural mixing/stability question after the two earlier examples; the explicit unicyclic graph and stationary law are useful for future spectral, hitting-time, and rate calculations. Not just routine Markov convergence because the support topology for every reduced parameter is the substantive theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
