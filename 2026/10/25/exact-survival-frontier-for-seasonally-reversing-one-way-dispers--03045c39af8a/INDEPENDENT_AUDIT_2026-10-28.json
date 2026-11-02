@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T01:51:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "2026/10/25/exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a/RESULT.md Git blob 692f90cbc7fcf47c5dc26ef6d27ba25354c2d7be",
+        "2026/10/25/exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a/VERIFICATION.md",
+        "/mnt/data/scope_worker03_independent_checks_20261028.json"
+      ],
+      "rationale": "For 0<a<b,m,T>0, A1=[[a,m],[0,-b-m]] and A2=[[-b-m,0],[m,a]], with A2=P A1 P. Write E=exp(A1 T/2)=[[u,m(u-v)/K],[0,v]], K=a+b+m. The period M=(PE)^2 has Perron multiplier mu_+^2 where mu_+=(q+sqrt(q^2+4uv))/2, and yields Lambda=(a-b-m)/2+(2/T)asinh((m/K)sinh(KT/4)). This is the exact common exponent for nonzero nonnegative initial states. For h=m/K, F(s)=asinh(h sinh s) satisfies F(0)=0 and F''(s)>0, hence F(s)/s strictly increases: Lambda(T downarrow0)=(a-b)/2<0, Lambda(T upward infinity)=a>0. The m derivative is positive by sinh(s)/s>1 and squared numerator comparison, so the unique zero Tc(m) is smooth and decreases. At Tc, (m/K) sinh(KTc/4)=sinh((b+m-a)Tc/4). Expanding the ratio for m downarrow0 gives (m/K)exp(aTc/2)->1. With x=KTc/4 and m upward infinity, the limiting sign is 2ax cosh x-(a+b)sinh x and uniqueness follows monotonicity x coth x; mTc->4x*. Independent direct 2x2 matrix exponential comparisons on 48 parameter tuples matched within 6.6e-14 and give numerical corroboration only, not infinite-parameter proof.",
+      "residual_risks": [
+        "Source proof requires equal half seasons, exchange of both growth rates and one-way direction, positive m and 0<a<b. The limit is deterministic long-time linear growth, not finite-population survival."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Benaim et al. 2025 revision §3.1.2, Proposition 22 and eq.(37) prove existence/limiting growth and a numerically drawn critical threshold in a broader switched model; their critical curve endpoint asymptotics are explicitly left open.",
+          "Liu and Wang (online 2025-12-23) discuss principal-eigenvalue monotonicity/level sets for asymmetric migration, with unknown complete theorem coverage."
+        ],
+        "reasoning": "Broader dynamical framework includes this two-season subfamily; accessible results do not imply the exact finite-time formula plus both zero-frontier asymptotics. The inaccessible later article might have stronger coverage, retained as risk.",
+        "searches": [
+          "two patch seasonal reversing migration reducible matrices exact Floquet growth exponent persistence frontier asymptotics critical dispersal Benaim Lobry Sari Strickler",
+          "Benaim Lobry Sari Strickler dispersal-induced growth 2407.07553 Proposition 22",
+          "Liu Wang time periodic asymmetric migration abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2407.07553 (specific relevant full sections read)",
+        "https://arxiv.org/abs/2311.04706 (broader persistence context)",
+        "https://doi.org/10.1007/s00285-025-02325-7 (abstract; NOT full text)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior proposition supplies limiting growth regimes, not the logarithmic low-m or 1/m high-m Tc constants.",
+          "Our equality criterion uses equality of positive Floquet root to one, and both singular scalings use the exact formula."
+        ],
+        "reasoning": "Qualitative persistence or existence of a critical curve cannot logically imply the quantified, unique monotone frontier or the two asymptotic coefficients.",
+        "searches": [
+          "arXiv:2407.07553v2 Proposition 22 Eq.37",
+          "doi:10.1007/s00285-025-02325-7"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The general reducible two-season model includes directed migration and differential seasonal rates, with distinct parameter conventions.",
+          "Specializing the original model to exchanged growth rates and directions yields the specific product (PE)^2, not merely a rename of the generic finite-dimensional system."
+        ],
+        "reasoning": "The statement may be viewed as a Floquet/Perron special case, but the closed monotonicity and exact endpoint laws require the symmetry reduction; no accessible prior exact equivalent was found.",
+        "searches": [
+          "two patch seasonal reversing migration reducible matrices exact Floquet growth exponent persistence frontier asymptotics critical dispersal Benaim Lobry Sari Strickler",
+          "arXiv:2407.07553 section 3.1.2 eq.37",
+          "doi:10.1007/s00285-025-02325-7"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "11 Resultary semantic hits mainly unrelated epidemic or harvest examples; no exact two-sink symmetric seasonal formula.",
+          "Exact model source critical identity and direct 48-case check are not a prior published table."
+        ],
+        "reasoning": "Database silence is not a novelty proof; no indexed exact table that would imply the entire analytic family appeared.",
+        "searches": [
+          "two patch seasonal reversing migration reducible matrices exact Floquet growth exponent persistence frontier asymptotics critical dispersal Benaim Lobry Sari Strickler",
+          "Resultary seasonal dispersal two patch persistence Floquet search"
+        ]
+      },
+      "rationale": "The exact symmetric-in-season two-habitat finite-parameter Floquet exponent and both sharp critical asymptotics were not found already established. This is narrower than established qualitative dispersal-induced growth; strongly relevant Liu/Wang theorem text remains unavailable and presents priority risk.",
+      "residual_risks": [
+        "Liu/Wang 2026 full theorems unavailable; venue abstract alone cannot rule out a special corollary.",
+        "Model is linear deterministic and restricted to perfect seasonal direction/rate reversal."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers qualitative growth/decay and endpoint growth-rate limits, but not the sharp Tc(m) laws for symmetric switched-direction rates.",
+          "evidence": "Proposition 22, equation (37), §3.1.2 and accompanying remark",
+          "identifier_or_url": "https://arxiv.org/abs/2407.07553",
+          "material_read": "2025 version 2 full text, §3.1.2, Proposition 22, Equation (37), surrounding discussion of threshold and its open endpoint limits",
+          "method": "arXiv HTML/full-text reading",
+          "title": "Dispersal-induced growth or decay in a time-periodic environment. The case of reducible migration matrices",
+          "trigger": "Exactly broader two-season directed-migration model"
+        },
+        {
+          "assessment": "Plausible overlap; NOT assessed as whole-document noncovering.",
+          "evidence": "Published online 2025-12-23, Journal of Mathematical Biology 92 (2026), institutional job 45905467322503619bac414da9456078",
+          "identifier_or_url": "https://doi.org/10.1007/s00285-025-02325-7",
+          "material_read": "Publisher abstract and accessible opening material; full theorem pages inaccessible",
+          "method": "Lawful OA/arXiv search, abstract reading; authorized institutional access returned vpn_disconnected",
+          "title": "Dispersal-induced growth in time-periodic two-patch environments with asymmetric migration",
+          "trigger": "Direct 2026 title and potentially dominating monotonicity/critical-level-set comparison"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "2026/10/25/exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a/RESULT.md",
+        "https://arxiv.org/abs/2407.07553 (specific relevant full sections read)",
+        "https://arxiv.org/abs/2311.04706 (broader persistence context)"
+      ],
+      "rationale": "Strict two-parameter monotonicity and the complete one-dimensional survival threshold determine when seasonality rescues two individual sinks and quantify two singular timing scales. Such exact persistence boundaries are natural for switched positive systems and nontrivial beyond the known qualitative model; both endpoint constants are useful for subsequent asymptotic comparison, independent of claimed broad modeling generality.",
+      "residual_risks": [
+        "Scientific value concerns the precise stated invariant and scope, not a generalization beyond its explicit hypotheses."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/exact-survival-frontier-for-seasonally-reversing-one-way-dispers--03045c39af8a",
+    "https://arxiv.org/abs/2407.07553 (specific relevant full sections read)",
+    "https://arxiv.org/abs/2311.04706 (broader persistence context)",
+    "https://doi.org/10.1007/s00285-025-02325-7 (abstract; NOT full text)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Source proof requires equal half seasons, exchange of both growth rates and one-way direction, positive m and 0<a<b. The limit is deterministic long-time linear growth, not finite-population survival.",
+    "Preexisting public AUDIT.json and METADATA.json contain scope_run_id operational provenance. Complete confidentiality-neutral replacement scientific/metadata bytes were not supplied and semantically verified in this execution; publication withheld. The minimal server-generated status plan cannot itself certify removal from unchanged source public metadata.",
+    "Independent bounded checks do not imply unbounded mathematical claims or formal certification."
+  ],
+  "residual_risks": [
+    "Liu/Wang 2026 full theorems unavailable; venue abstract alone cannot rule out a special corollary.",
+    "Model is linear deterministic and restricted to perfect seasonal direction/rate reversal.",
+    "Source proof requires equal half seasons, exchange of both growth rates and one-way direction, positive m and 0<a<b. The limit is deterministic long-time linear growth, not finite-population survival."
+  ],
+  "schema_version": 1
+}

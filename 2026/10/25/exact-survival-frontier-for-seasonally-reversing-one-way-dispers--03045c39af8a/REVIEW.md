@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For the stated two-season linear system, the phase propagators are triangular and exchanged by the habitat-swap permutation. Squaring their product yields a strictly positive monodromy matrix, whose exact Perron root gives the stated hyperbolic-inverse-sine growth formula. The proof includes explicit positive formulas for both derivatives, a genuine globally unique cutoff, and matching endpoint derivations. A separate matrix-exponential computation reproduces the formula for 128 finite parameter combinations, checks strict inequalities in those combinations, and checks the algebraic special case. Finite numerical tests are not substituted for the six analytic proof steps.
+PASS
 
-## Originality — PASS (subject to stated publication-priority risk)
+For 0<a<b,m,T>0, A1=[[a,m],[0,-b-m]] and A2=[[-b-m,0],[m,a]], with A2=P A1 P. Write E=exp(A1 T/2)=[[u,m(u-v)/K],[0,v]], K=a+b+m. The period M=(PE)^2 has Perron multiplier mu_+^2 where mu_+=(q+sqrt(q^2+4uv))/2, and yields Lambda=(a-b-m)/2+(2/T)asinh((m/K)sinh(KT/4)). This is the exact common exponent for nonzero nonnegative initial states. For h=m/K, F(s)=asinh(h sinh s) satisfies F(0)=0 and F''(s)>0, hence F(s)/s strictly increases: Lambda(T downarrow0)=(a-b)/2<0, Lambda(T upward infinity)=a>0. The m derivative is positive by sinh(s)/s>1 and squared numerator comparison, so the unique zero Tc(m) is smooth and decreases. At Tc, (m/K) sinh(KTc/4)=sinh((b+m-a)Tc/4). Expanding the ratio for m downarrow0 gives (m/K)exp(aTc/2)->1. With x=KTc/4 and m upward infinity, the limiting sign is 2ax cosh x-(a+b)sinh x and uniqueness follows monotonicity x coth x; mTc->4x*. Independent direct 2x2 matrix exponential comparisons on 48 parameter tuples matched within 6.6e-14 and give numerical corroboration only, not infinite-parameter proof.
 
-Benaïm et al., `arXiv:2407.07553v2`, Section 3.1.2, equation (37), Proposition 22 and Figure 4 are the closest comparison. The model here is a symmetric-in-season subfamily of their general one-way-to-favorable dispersal model. Their proposition gives separate limiting growth values and numerical critical-curve illustrations but not the exact all-parameter growth formula, strict joint monotonicity, or the requested critical-curve endpoint constants; the latter are explicitly left open in their discussion. `arXiv:2311.04706v1` supplies the motivating ecological DIG framework. Published research-record queries for seasonal switching, Floquet cutoffs, directed dispersal, hyperbolic-inverse-sine formulas, and threshold asymptotics did not identify coverage, but this is not proof of absolute publication priority. The highly relevant Liu–Wang paper (DOI `10.1007/s00285-025-02325-7`) has been examined through abstract and opening-page preview only: its general level-set and monotonicity claims remain a residual unverified full-text comparison, and are not misrepresented as absent.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The problem of understanding the migration–season-duration survival frontier is posed directly by the motivating 2024 analysis. Instead of a numerical threshold plot or isolated singular limits, the result supplies a unique globally ordered frontier and explicit low/high migration asymptotics in a natural exact-model slice. These quantify when two individually sinking populations can collectively grow by tracking seasonal favorable habitat. The result is deliberately limited to equal seasons, two patches, swapped growth rates, and zero reverse travel within a season; no stochastic-persistence or general asymmetry claims are made.
+The exact symmetric-in-season two-habitat finite-parameter Floquet exponent and both sharp critical asymptotics were not found already established. This is narrower than established qualitative dispersal-induced growth; strongly relevant Liu/Wang theorem text remains unavailable and presents priority risk.
 
-## Limits of verification
+## value
 
-The analytical result was checked for its hypotheses, positivity conditions, root uniqueness, boundary regimes, and finite computational corroboration. Independent scientific validation has not occurred. Later inaccessible relevant publication text and search incompleteness limit absolute originality assurance.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Strict two-parameter monotonicity and the complete one-dimensional survival threshold determine when seasonality rescues two individual sinks and quantify two singular timing scales. Such exact persistence boundaries are natural for switched positive systems and nontrivial beyond the known qualitative model; both endpoint constants are useful for subsequent asymptotic comparison, independent of claimed broad modeling generality.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
