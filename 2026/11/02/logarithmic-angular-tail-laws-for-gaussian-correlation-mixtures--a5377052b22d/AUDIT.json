@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The displayed Plackett derivative is the bivariate-normal density, integrated via Tonelli against the correlation survival function. Mills quantile expansions yield each fixed-angular endpoint factor. An explicit bound proportional to t^(a-1/2) exp(-t/4) uniformly controls the full moving integration range, completing dominated convergence. Gamma and differentiated inverse-Gaussian integrals provide exact constants, with finite numerical quadrature and a derivative check reproducing 100 assertions. No unsupported inference from finite experiments is made.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Manner–Segers Proposition 4 covers any random correlation with upper endpoint one but proves only a subpower decay bound, not an exact coefficient.",
+        "Fixed-correlation results (Fung–Seneta, 2011) consider correlation fixed strictly below one, whereas the main mass of the mixture lies at distance of order 1/log(1/u) from one."
+      ],
+      "reasoning": "Broader near-perfect-correlation limit theory could provide a pointwise integrand approximation; to imply this theorem it would additionally require a uniform integrable endpoint comparison and integration against an arbitrary regularly varying correlation-tail measure. No inspected broader source explicitly supplies that complete implication.",
+      "searches": [
+        "Gaussian correlation mixtures exact tail expansion regular variation correlation distribution at one inverse log powers bivariate copula",
+        "near asymptotic dependence Gaussian copula random correlation density near perfect dependence tail order function Hüsler Reiss mixture",
+        "Husler Reiss Gaussian triangular correlation angular limit random mixing beta upper endpoint"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2604.05985v1",
+      "https://arxiv.org/html/0912.3516v1",
+      "https://doi.org/10.1016/j.spl.2011.06.003",
+      "https://arxiv.org/html/2610.35325v1"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Manner–Segers proves C(u,u)/u tends to zero more slowly than every positive power of u when correlation support has upper endpoint one.",
+        "Koike–Hofert–Tsunekawa, Theorem 1 assumes a nonzero first-order tail copula and obtains path-maximality and an optimizer.",
+        "Fung–Seneta available abstract treats a fixed Gaussian correlation, with full text not inspected."
+      ],
+      "reasoning": "Our theorem implies the Manner–Segers qualitative classification in the specified regularly varying endpoint subfamily, but that qualitative statement does not imply the exact Gamma coefficient or Bessel/elementary angular law. Koike’s theorem is inapplicable because the first-order tail copula of our class is zero. Fixed-correlation estimates alone do not immediately imply the evaluated random-correlation integration.",
+      "searches": [
+        "arxiv:0912.3516v1 Section 3.2 Proposition 4 residual tail dependence index",
+        "arxiv:2604.05985v1 Theorem 1 non-degenerate tail copula",
+        "The bivariate normal copula function is regularly varying Fung Seneta 2011"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Manner–Segers arXiv:0912.3516v1, Section 3.2 defines the Ledford–Tawn exponent and Proposition 4 gives it as one.",
+        "Koike–Hofert–Tsunekawa arXiv:2604.05985v1 defines first-order tail-copula functions and explicitly requires nondegeneracy in its Theorem 1."
+      ],
+      "reasoning": "The new claim is equivalent to a precise slowly varying factor C(u,u)/u ~ c K_a(log(1/u))^(-a) together with every finite angular ratio. A residual exponent of one or zero classical first-order tail copula fixes neither the slowly varying rate nor its angular function.",
+      "searches": [
+        "\"Gaussian copula\" \"correlation mixture\" \"slowly varying\" \"logarithm\" exact tails",
+        "\"mixture of Gaussian copulas\" \"tail order function\" nonproduct",
+        "random Gaussian copula rho uniform zero tail dependence C(u,v) asymptotic min(u,v) times one plus logarithm ratio over log 1/u"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The comparison sources provide symbolic theorems on dependence indices and fixed-correlation asymptotics, rather than a table of the endpoint-power angular constants.",
+        "The explicit a=1 formula is derived from a closed Gaussian integral, not imported from any numerical database."
+      ],
+      "reasoning": "No inspected table or database entry encodes the sharp diagonal Gamma factor and all off-diagonal angular values. Searches are not treated as proof of absence.",
+      "searches": [
+        "\"correlation mixtures\" \"1/log\" \"copula\" Gaussian",
+        "Gaussian copula stochastic correlations second-order tail copula logarithmic angular function asymptotic",
+        "random Gaussian copula rho uniform zero tail dependence C(u,v) asymptotic min(u,v) times one plus logarithm ratio over log 1/u"
+      ]
+    },
+    "rationale": "The directly read same mathematical model Manner–Segers Section 3.2 establishes near asymptotic dependence and residual exponent one, but not a logarithmic power constant or off-diagonal angular function. The directly read 2026 Koike–Hofert–Tsunekawa main theorem explicitly assumes the opposite (nondegenerate first-order tail-copula) regime. Searches and result comparisons did not yield the specific universal endpoint-power and elementary angular limit; broad preexisting Gaussian-near-comonotonic integration theory remains a genuine residual risk, not asserted absent.",
+    "residual_risks": [
+      "Unindexed Gaussian correlation-mixture endpoint expansions or general Huesler–Reiss mixtures may imply the same Bessel profile.",
+      "The full Fung–Seneta article and some related fixed-correlation tail literature were not accessible; the abstract alone is not negative-coverage evidence.",
+      "Historical priority has not undergone independent external review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Uses non-degenerate first-order tail copula, inapplicable to the zero first-order tail copulas addressed here",
+        "evidence": [
+          "First public posting April 7, 2026; primary listed MSC 60E05",
+          "Theorem 1 begins with non-degenerate tail copula and yields first-order path-based results"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2604.05985v1",
+        "material_read": "Abstract, introduction, definitions, Section 3.1 Theorem 1 and its hypotheses, stated applications and related context",
+        "method": "Accessible arXiv full-text HTML, relevant passages read directly",
+        "title": "Tail copula representation of path-based maximal tail dependence",
+        "trigger": "Recent primary-60E05 source on angular and maximal tail dependence"
+      },
+      {
+        "assessment": "Covers zero tail coefficient and residual index one but not exact logarithmic correction nor off-diagonal law",
+        "evidence": [
+          "Section 3.2 equations (3.1)–(3.4) define the same construction",
+          "Proposition 4 establishes subpower decay and eta=1"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/0912.3516v1",
+        "material_read": "Full accessible relevant Section 3.2, Proposition 4 and its accompanying discussion; associated proof passages",
+        "method": "Accessible arXiv original full-text HTML; substantive same-object statements compared",
+        "title": "Tails of correlation mixtures of elliptical copulas",
+        "trigger": "Same conditional Gaussian random-correlation construction and near-tail dependence"
+      },
+      {
+        "assessment": "Fixed correlation rather than random correlations approaching one; a potential ingredient, not decisive same claim",
+        "evidence": [
+          "The abstract studies the decay of the bivariate normal copula and regular variation"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.spl.2011.06.003",
+        "material_read": "Abstract and bibliographic publication record; full text inaccessible in this review",
+        "method": "Publisher bibliographic/accessible abstract and open searches",
+        "title": "The bivariate normal copula function is regularly varying",
+        "trigger": "Potential dominating fixed-Gaussian-correlation asymptotics"
+      },
+      {
+        "assessment": "General intermediate-tail frameworks rather than the exact Gaussian correlation mixture coefficient; posted after the frozen-week cutoff so not used as the dated primary source",
+        "evidence": [
+          "First posted October 26, 2026",
+          "General tail-order and tail-function formulations were contrasted with the explicit Bessel/elementary profile"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.35325v1",
+        "material_read": "Accessible abstract, main definitions and relevant examples and discussion",
+        "method": "Accessible arXiv HTML, selected pertinent sections",
+        "title": "Comparing and measuring intermediate tail dependence",
+        "trigger": "Related intermediate tail dependence formulation and possible non-product tail law"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "a5377052-b22d-4684-a112-36474fa70874",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For near-asymptotically dependent Gaussian correlation mixtures, the known vanishing first-order tail coefficient and residual exponent one fail to determine practical two-threshold joint risk. The theorem gives a universal endpoint-power classification, exact diagonal Gamma factor, and an explicit non-product off-diagonal logarithmic law (uniform mixing). These are intrinsic and analytically motivated invariants of a natural same-object probability model, not arbitrary substitutions or known-table recomputation.",
+    "status": "PASS"
+  }
+}
