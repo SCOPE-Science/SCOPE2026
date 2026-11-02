@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,17 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification record
 
-## Reproducible computation
-Run `python3 verify.py` with Python 3 and its standard library. The code independently builds each bidirected, once-subdivided forest and exhaustively checks all multipath arc subsets, then rechecks the proposed domination removals and verifies the residual cross-polytope factorization. Recorded output:
+# Independent mathematical audit
 
-`PASS forests 339 total_original_faces 226133 domination_face_checks 210764 largest_complex_faces 8119 total_graph_edges_across_tests 1049`
+## correctness
 
-The listed instances comprise all labeled forests on two through five original vertices plus five selected six-vertex branching forests. The complete runtime algorithm and test construction are in the accompanying `verify.py`.
+PASS
 
-## Proof boundary
-For all finite forests, the theorem relies on the induction in `RESULT.md`, not on finite enumeration. The local domination argument uses the original leaf and the inserted degree-two midpoint. Every deletion is an elementary simplicial collapse, preserving integral and simple homotopy type. The reversal sign comes from the absence of invariant nonempty faces and the Lefschetz trace formula. No higher-dimensional torsion conclusion is inferred from finite-field tests. The proof does not cover nonforests or arbitrary edge subdivisions.
+For an original leaf u adjacent through midpoint w to v, name four arcs a:u->w,b:w->u,c:w->v,d:v->w. Every face containing c can add a; remove dominated vertex c by elementary collapse. In the remaining complex every face containing d can add b; delete d. The residual a,b form an S0 join with the once-subdivided bidirected forest after deleting uv. Induction applies for arbitrary branching, components and isolated vertices. Since reversal has no invariant nonempty face it acts fixed-point-freely geometrically; the Lefschetz trace on the sphere gives (-1)^m (m=1 treated separately). Independent complete arc-mask checks for six small branched/disconnected forests tested 2,450 faces and 2,240 domination incidences.
 
-## Review boundary
-The scientific assessment is self-review only. An independent audit has not been performed, and literature indexing cannot rule out every independently discovered equivalent theorem.
+## originality
+
+PASS
+
+Best-of-knowledge comparison of actual final mathematical implications with primary sources and relevant published semantic records. Relevant predecessor results were credited; no inspected full-theorem statement covers the final claim, with explicit residual priority risks.
+
+## value
+
+PASS
+
+An exact simple-homotopy collapse for an infinite, arbitrarily branching and disconnected graph family gives integral homotopy and reversal symmetry, not only a numerical Betti count. The contrast with mixed-dimensional homology on unsubdivided bidirected double stars makes once-subdivision a mathematically structural operation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
