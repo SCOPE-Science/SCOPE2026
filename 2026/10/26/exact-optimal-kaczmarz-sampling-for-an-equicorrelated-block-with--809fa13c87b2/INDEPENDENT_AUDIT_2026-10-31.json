@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T05:48:36Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf",
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/math/0702226",
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ],
+      "rationale": "The squared-error projection identity reduces this exact one-step objective to lambda_min(G^(1/2) diag(p) G^(1/2)). Symmetrization over the repeated m rows is valid by eigenvalue concavity, but the proof also eliminates asymmetric co-optimizers using bottom eigenvectors. The m-1 contrast modes have eigenvalue (1-alpha)q; the common-mode/exceptional 2x2 block has explicit smaller eigenvalue. The quadratic determinant identity det(M(r)-L0 I)=-(a-beta^2)(r-r0)^2 proves its sharp bound. The crossing r_c and maximizer r0 yield the threshold m(alpha-beta^2)=(1-alpha)beta and both displayed branches, including beta=0, the nonsingular endpoint exclusion and uniform iff beta=alpha. Fresh independent spectral calculations tested 72 feasible parameter cases and 75 asymmetric competitors per case; all matched the analytical optimum. These computations do not prove universal uniqueness: the eigenvector argument does.",
+      "residual_risks": [
+        "No claim for singular beta=sqrt(a), nonsquare systems, adaptive sampling, or exact asymptotic mean-square contraction. Matrix conditioning can be severe near the excluded singular edge."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf (general row-probability SDP)",
+          "Agaskar–Wang–Lu (GlobalSIP 2014) exact MSE sampling optimizes a higher-dimensional long-time operator"
+        ],
+        "reasoning": "The broad SDP includes this finite-dimensional family as input but does not report a dominating explicit closed-form specialization. Conversely, higher-dimensional exact-long-time MSE objectives are different from the one-step worst-direction eigenvalue; hence no direct theorem implication of the present phase boundary or uniqueness was identified.",
+        "searches": [
+          "Resultary semantic search (2026-10-31): randomized Kaczmarz optimal row probabilities equicorrelated Gram one exceptional row exact closed form 2 bottleneck phase transition",
+          "web: On the Randomized Kaczmarz Algorithm 2014 exact MSE analysis optimal sampling"
+        ]
+      },
+      "checked_sources": [
+        "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf",
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/math/0702226",
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Strohmer–Vershynin general norm-proportional convergence bounds",
+          "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf Sec II"
+        ],
+        "reasoning": "Because all rows here have unit norm, their standard sampling is uniform. That is optimal under the new law only at beta=alpha. The general convergence theorem bounds performance for uniform sampling but does not imply the unique optimal nonuniform design or the threshold.",
+        "searches": [
+          "Resultary semantic search (2026-10-31): randomized Kaczmarz optimal row probabilities equicorrelated Gram one exceptional row exact closed form 2 bottleneck phase transition",
+          "web: Strohmer Vershynin norm-proportional Kaczmarz conditional expected decrease"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf (Sec II optimized RKA SDP)",
+          "Resultary nearest result concerns two-row cyclic Kaczmarz finite-horizon overrelaxation, not this independent row-law optimization"
+        ],
+        "reasoning": "A permutation-equivariant E-optimal information-matrix design is the equivalent statistical formulation; Dai et al. establish general optimization numerically, but the exact closed two-coherence branches and uniqueness of all optimizers are not supplied by that formulation without this reduction and proof.",
+        "searches": [
+          "Resultary semantic search (2026-10-31): randomized Kaczmarz optimal row probabilities equicorrelated Gram one exceptional row exact closed form 2 bottleneck phase transition",
+          "web: exact random row Kaczmarz optimal sampling probabilities equicorrelated Gram"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed source found listing beta_c=[sqrt((1-alpha)^2+4m^2 alpha)-(1-alpha)]/(2m) for this Gram model",
+          "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf"
+        ],
+        "reasoning": "No exact parameter table or prior formula in the inspected primary optimization paper was found. Absence from an index is not a proof of novelty; the conclusion is limited to a best-of-knowledge search.",
+        "searches": [
+          "Resultary semantic search (2026-10-31): randomized Kaczmarz optimal row probabilities equicorrelated Gram one exceptional row exact closed form 2 bottleneck phase transition",
+          "web: Kaczmarz one exceptional row exact phase transition beta_c"
+        ]
+      },
+      "rationale": "Qualified originality concerns the explicit all-m phase diagram and uniqueness within the one-exception equicorrelated Gram family, not the general Kaczmarz projection bound or convex SDP, which are prior work.",
+      "residual_risks": [
+        "Possible unindexed optimal experimental-design formula for rank-one perturbations or equicorrelation may yield an equivalent expression; no global priority certificate.",
+        "Full specialized literature on E-optimal approximate design not exhaustively inspected."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_GENERAL_METHOD_NOT_EXACT_SPECIALIZATION",
+          "evidence": "Section II derives general optimization over row probabilities but gives no one-defect equicorrelated closed phase law.",
+          "identifier_or_url": "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf",
+          "material_read": "Sections I–IV covering row normalization, the constrained eigenvalue/SDP optimization and numerical examples",
+          "method": "Full accessible conference-paper text and its mathematical equations; PDF page screenshot requested (viewer timed out)",
+          "title": "On the Randomized Kaczmarz Algorithm",
+          "trigger": "Same optimization objective, normalized-row sampling and SDP"
+        },
+        {
+          "assessment": "DIFFERENT_OBJECTIVE",
+          "evidence": "Optimizing the long-run mean-square operator does not imply optimal one-step worst-direction eigenvalue.",
+          "identifier_or_url": "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content",
+          "material_read": "Title, abstract and stated long-time mean-square spectral objective; complete mathematical sections not independently compared line by line",
+          "method": "Accessible paper metadata and relevant available text",
+          "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+          "trigger": "Same method name, distinct optimization horizon"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://dihana.cps.unizar.es/proceedings/ICASSP/2014/papers/p5703-dai.pdf",
+        "https://arxiv.org/abs/1402.2863",
+        "https://arxiv.org/abs/math/0702226",
+        "https://dash.harvard.edu/server/api/core/bitstreams/7312037d-8b4a-6bd4-e053-0100007fdf3b/content"
+      ],
+      "rationale": "A natural rank-one perturbation of an equicorrelated measurement family admits a nontrivial exact sampling-law phase transition and proves when uniform sampling becomes suboptimal, sharpening an established SDP into a usable uniquely optimal formula. This is an independently useful optimal-design statement, not a generic rephrasing of the Kaczmarz bound.",
+      "residual_risks": [
+        "The optimized one-step worst-case rate need not coincide with actual average multi-step error exponent or runtime."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the positive definite unit-row equicorrelated block plus one exceptional row (m>=2, 0<alpha<1, 0<=beta<sqrt(alpha+(1-alpha)/m)), the unique globally optimal independent Kaczmarz sampling distribution has the given two-branch q,r closed form, transition beta_c and optimum min-eigenvalue; uniform sampling is optimal iff beta=alpha. Objective is the sharp worst-direction single-step expected squared-error decrease, not the long-time MSE exponent.",
+  "limitations": [
+    "Sharp uniform-in-error one-step contraction only, not an exact long-time exponent.",
+    "Nonsingular square unit-row Gram family only; beta=sqrt(a) excluded.",
+    "Publication withheld because public metadata retains operational run identifiers; no completely guarded sanitized changes staged."
+  ],
+  "schema_version": 1
+}

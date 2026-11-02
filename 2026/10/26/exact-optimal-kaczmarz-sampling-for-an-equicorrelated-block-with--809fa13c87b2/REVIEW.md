@@ -1,19 +1,21 @@
-# Review of the equicorrelated-block Kaczmarz sampling theorem
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The normalized-row Gram matrix is positive definite on the stated open parameter domain. The proof reduces unrestricted row probabilities by concavity and permutation averaging, decomposes the weighted Gram spectrum into repeated-row contrasts and a two-dimensional coupled block, proves a global upper bound for the latter by an exact determinant square, identifies the crossover algebraically, and establishes uniqueness for arbitrary asymmetric laws by a bottom-eigenvector kernel argument. The `verify.py` calculation was executed from the actual package source and agrees with the claim. Finite tests are supplementary, not a proof.
+PASS
 
-## Originality
+The squared-error projection identity reduces this exact one-step objective to lambda_min(G^(1/2) diag(p) G^(1/2)). Symmetrization over the repeated m rows is valid by eigenvalue concavity, but the proof also eliminates asymmetric co-optimizers using bottom eigenvectors. The m-1 contrast modes have eigenvalue (1-alpha)q; the common-mode/exceptional 2x2 block has explicit smaller eigenvalue. The quadratic determinant identity det(M(r)-L0 I)=-(a-beta^2)(r-r0)^2 proves its sharp bound. The crossing r_c and maximizer r0 yield the threshold m(alpha-beta^2)=(1-alpha)beta and both displayed branches, including beta=0, the nonsingular endpoint exclusion and uniform iff beta=alpha. Fresh independent spectral calculations tested 72 feasible parameter cases and 75 asymmetric competitors per case; all matched the analytical optimum. These computations do not prove universal uniqueness: the eigenvector argument does.
 
-PASS on the inspected evidence, with residual specialized-literature risk. Strohmer–Vershynin give the norm-proportional method and its bound; Dai–Soltanalian–Pelckmans give the general SDP but no explicit two-coherence family solution or active-eigenmode threshold; Agaskar–Wang–Lu optimize a distinct long-time exponent; Gower–Richtárik give a general projection-method framework. A published inverse-positive coordinate-sampling result has a hypothesis not satisfied by the positive equicorrelation block. A related pooled-row star geometry has a different Gram matrix. No inspected source states a theorem implying the complete branch formulas and arbitrary-law uniqueness; the generic SDP itself does not evaluate them.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. Repeated correlated measurements and a single exceptional measurement form a natural two-coherence row model for projection-based linear solvers. The exact design yields a nontrivial parameter transition, explicitly identifies which spectral mode is rate-limiting, and quantifies improvements over uniform sampling (about 35% in the sharp one-step gain for a ten-row repeated block with a specified admissible coherence). The theorem covers every block size and every feasible positive correlation pair, not an arbitrary finite slice.
+Qualified originality concerns the explicit all-m phase diagram and uniqueness within the one-exception equicorrelated Gram family, not the general Kaczmarz projection bound or convex SDP, which are prior work.
 
-## Remaining limitations
+## value
 
-The optimized quantity is the one-step worst-direction squared-error decrease, not the exact infinite-time mean-square exponent, and the correlation family is structured. Special-case overlap outside the retrieved literature cannot be excluded. Independent mathematical audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A natural rank-one perturbation of an equicorrelated measurement family admits a nontrivial exact sampling-law phase transition and proves when uniform sampling becomes suboptimal, sharpening an established SDP into a usable uniquely optimal formula. This is an independently useful optimal-design statement, not a generic rephrasing of the Kaczmarz bound.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
