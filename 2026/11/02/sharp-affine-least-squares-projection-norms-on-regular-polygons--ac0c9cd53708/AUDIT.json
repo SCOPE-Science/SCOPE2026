@@ -1,0 +1,124 @@
+{
+  "correctness": {
+    "rationale": "Using normalized area, the Gram matrix on 1, x_1, x_2 is diag(1,s,s) with s=(2+cos(2pi/n))/12. Strict opposite signs of two vertex kernel rows occur on a common positive-measure set, forcing strict convexity on all nonvertex convex combinations. The cap area B and first moment M are obtained by explicit shoelace identities; the norm is 1-2(B+M/s)/A. The missing-layer polar expansion and parameter variation produce 5*pi*sqrt(15)/12. Independent piecewise-polynomial triangle integrations corroborate 78 values (n=3..80) to <1.4e-15; numerical tests cannot prove the infinite assertion.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hangelbroek et al. arXiv:1005.2424 Theorem 5.1 and Corollary 5.3 control kernel approximation projectors under localization hypotheses, not these explicit finite-dimensional kernels.",
+        "Beirão da Veiga and Mora 2011 equation (M5) concerns an H2-to-L2 affine approximation inequality, not the sharp L-infinity projection constant."
+      ],
+      "reasoning": "Neither a general uniform projector bound nor a polynomial approximation error estimate determines the sharp polygon-specific absolute row integral or its n^-2 defect coefficient.",
+      "searches": [
+        "published record semantic query: orthogonal polynomial projector convex polygons reproducing kernels endpoint L infinity norms",
+        "web: \"orthogonal projection\" \"linear polynomials\" \"polygon\" sup-norm"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1005.2424",
+      "arxiv:0802.0316",
+      "doi:10.1137/0147022",
+      "doi:10.1007/s00211-010-0358-8",
+      "2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Xu arXiv:0802.0316 sections 2-5 work with periodic trigonometric expansions, Abel and Cesaro summability, not algebraic affine least-squares projection.",
+        "Previously published simplex result covers n=3 but a simplex has only three sides; the disk result is a limit domain and does not determine the finite-order coefficient."
+      ],
+      "reasoning": "A formula for a triangle, a square, or the disk does not imply the exact formula for every regular polygon of order n>=5. Nor does boundedness of Fourier means imply endpoint norm of a different algebraic projection. A separate shape-variation argument is needed to determine the positive leading coefficient.",
+      "searches": [
+        "published record semantic query: regular polygon affine L2 projector norm convergence to disk n squared 5 pi sqrt(15) 12",
+        "published record semantic query: n square convergence of Lebesgue norm orthogonal affine projector regular polygons disk 5 pi root 15 / 12",
+        "web: \"Fourier Series and Approximation on Hexagonal and Triangular Domains\" pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:1005.2424 sections 4 and 5 give bounds for kernel-translate least-squares spaces, not polynomial affine projection over regular n-gons.",
+        "Dunkl 1987 accessible abstract names orthogonal polynomial expansions, without an endpoint norm formula."
+      ],
+      "reasoning": "Identical terms such as Lebesgue constant, projection norm, positivity loss, and least-squares instability were compared. The object/measure/claim triple differs in the accessible full texts; unavailable Dunkl details remain a risk.",
+      "searches": [
+        "published record semantic query: Lebesgue constant orthogonal least squares projection onto linear polynomials over a regular n-gon polygon area measure vertex integral",
+        "web: \"regular polygon\" \"orthogonal projection\" \"Lebesgue constant\" affine"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Closest accessible published record 2026/10/4/SCOPE-exact-positivity-defect-and-max-norm-of-the-affine-least-squares--99c2b9dd9b34 treats simplices, hence the n=3 special case.",
+        "Dunkl 1987 publisher abstract indicates a table of degree-up-to-six orthogonal expansions only; the full table was not inspected."
+      ],
+      "reasoning": "A known simplex constant accounts for the triangular special value, and prior cube/disk calculations account for other baselines; no checked exact table supplied the regular n-gon family or the geometric quadratic coefficient. The inaccessible Dunkl appendix cannot be asserted not to contain a hexagon-specific subresult.",
+      "searches": [
+        "published record semantic query: affine projection regular polygon sharp positivity defect 361/180 hexagon 233/108 square",
+        "web: \"Orthogonal Polynomials on the Hexagon\" \"Dunkl\" filetype:pdf",
+        "web: \"regular n-gon\" \"L2 projector\" norm"
+      ]
+    },
+    "rationale": "The fully inspected general L-infinity L2 projector paper treats localized kernel translates; the inspected polygonal affine approximation paper gives standard approximation bounds; the inspected hexagonal Fourier paper treats trigonometric operators. The accessible abstract for Dunkl (1987) concerns polynomial bases and low-degree expansions, not an explicit endpoint norm, but the full text was unavailable. Triangle/square/disk special cases are previously covered; the complete regular n-gon formula and sharp n^-2 coefficient were not implied by the checked literature.",
+    "residual_risks": [
+      "Dunkl (1987) whole article and appendix not accessible; a hexagon-specific equivalent formula might be there.",
+      "An equivalent all-order formula may exist in unindexed polygonal least-squares literature.",
+      "Asymptotic proof relies on first-order shape differentiation for a continuous but nonsmooth-in-a-line absolute-value integrand; its justification is supplied in the finding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Not covering the exact polygonal affine formula; develops stability estimates for spaces of kernel translates under localization hypotheses.",
+        "evidence": [
+          "Abstract/introduction and Sections 4-5 of arXiv:1005.2424 (2010-05-13)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1005.2424",
+        "material_read": "Full publicly rendered text, especially introduction, Sections 4 and 5, Proposition 4.1, Theorem 5.1 and Corollary 5.3.",
+        "method": "Direct open of arXiv full-text rendering and section inspection.",
+        "title": "Kernel Approximation on Manifolds II: The L-infinity norm of the L2-projector",
+        "trigger": "Same norm type and projection framework; oldest primary source anchoring this direction."
+      },
+      {
+        "assessment": "Different trigonometric Fourier projector and approximation regime; not an algebraic affine L2 projector constant.",
+        "evidence": [
+          "arXiv:0802.0316 full-text Sections 2-5 (first public 2008-02-04)."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0802.0316",
+        "material_read": "Accessible full text Sections 2 through 5, with focus on hexagon Fourier expansions, Abel/Cesaro summability and approximation.",
+        "method": "Direct arXiv full-text rendering and section comparison.",
+        "title": "Fourier series and approximation on hexagonal and triangular domains",
+        "trigger": "Polygon/hexagon geometry with projection-norm-related approximation."
+      },
+      {
+        "assessment": "Potentially relevant, but full-text coverage unresolved; abstract discusses basis construction and expansion tables, without an explicit norm statement.",
+        "evidence": [
+          "SIAM J. Appl. Math. 47 (1987), 343-351; accessible abstract and description."
+        ],
+        "identifier_or_url": "https://doi.org/10.1137/0147022",
+        "material_read": "Publisher abstract, bibliographic information, and description of appendix; full paper and appendix unavailable.",
+        "method": "Publisher abstract and open-access/preprint searches; whole-document inspection was not possible.",
+        "title": "Orthogonal Polynomials on the Hexagon",
+        "trigger": "Same solid hexagonal domain and algebraic polynomial orthogonality, including degree one."
+      },
+      {
+        "assessment": "No exact L-infinity operator norm at the examined local approximation statement; uses error and stability inequalities in a different discretization problem.",
+        "evidence": [
+          "Beirão da Veiga and Mora, Numer. Math. 117 (2011), Section 3, inequality (M5)."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00211-010-0358-8",
+        "material_read": "Public full-text PDF title and introduction, Section 3 mesh assumptions and inequality (M5) on page 6.",
+        "method": "Read online PDF page images and text at the local affine approximation statement.",
+        "title": "A mimetic discretization of the Reissner–Mindlin plate bending problem",
+        "trigger": "Polygonal finite-element context and local L2 affine approximation inequality."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ac0c9cd5-3708-407d-9d43-1659f1f378b5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The induced L-infinity norm of an orthogonal affine least-squares projector controls endpoint stability, near-best uniform approximation and the precise positivity defect. The complete family of regular n-gons is the canonical convex polygonal approximation to the disk. Exact full-order norms, vertex rigidity, and the nonzero quadratic geometry-defect coefficient are motivated, reusable quantities, not an arbitrary finite table or a simple restatement of the disk constant.",
+    "status": "PASS"
+  }
+}
