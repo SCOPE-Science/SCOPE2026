@@ -1,0 +1,114 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T21:56:59Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For every three-one circular binary word with cyclic zero gaps (a,b,c), a rotation beginning at a marker has form 1 0^R 1 0^T 1 0^L; examining all proper border starts at either later marker shows it is unbordered iff L>R. A rotation beginning at the first zero after a marker is the reversal counterpart and is unbordered iff R>L; all other start positions share the same first/last zero and have a one-symbol border. Thus each unequal adjacent gap contributes exactly one unbordered rotation, and equal gaps contribute none. If gaps not all equal the word is primitive (its proper power exponent would be three, forcing equal gaps), hence U=1_{a!=b}+1_{b!=c}+1_{c!=a} is a count of DISTINCT conjugates, with possible values 0,2,3. For m zeros there are B=binom(m+2,2) ordered triples; all-equal δ=1_{3|m}, two-equal necklaces P-δ with P=floor(m/2)+1, and all-distinct (B-3P+2δ)/3. Orbit-size weighting yields E U=3(1-P/B) for uniform linear words. Independent direct border checks on every three-one linear word for m=0..15 confirmed necklace distribution and expected counts, including periodic case m=0; proof is for all m. The four-marker counterexample explicitly limits scope.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General binary word border correlation and unconstrained random binary unbordered-conjugate expectation",
+          "Harju–Nowotka is a plausible stronger source but was inaccessible; Clokie et al derive unrestricted mean, which does not logically determine fixed-content conditional distribution. The available 2015 two-conjugate classification does not enumerate three-conjugate words."
+        ],
+        "reasoning": "Harju–Nowotka is a plausible stronger source but was inaccessible; Clokie et al derive unrestricted mean, which does not logically determine fixed-content conditional distribution. The available 2015 two-conjugate classification does not enumerate three-conjugate words.",
+        "searches": [
+          "Resultary semantic query: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution",
+          "Primary source comparison: https://arxiv.org/pdf/1504.02222"
+        ]
+      },
+      "checked_sources": [
+        "Holub–Müller, Fully bordered words, arXiv:1504.02222, theorem on exactly two unbordered conjugates (full primary PDF inspected)",
+        "Clokie–Gabric–Shallit, Circularly squarefree words and unbordered conjugates: a new approach, arXiv:1904.08187, Theorem 14 (full primary PDF inspected)",
+        "Harju–Nowotka, Border correlation of binary words, JCTA 108 (2004), DOI:10.1016/j.jcta.2004.07.009 (abstract only)",
+        "Resultary semantic search: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Compare exactly-two unbordered words theorem and unrestricted random-mean theorem",
+          "Neither a characterization of exactly-two cases nor the mean over all 2^n words determines exact U=3 for fixed weight three or marker-local starting positions. Three-one border lemma and cyclic orbit accounting provide genuinely additional restrictions."
+        ],
+        "reasoning": "Neither a characterization of exactly-two cases nor the mean over all 2^n words determines exact U=3 for fixed weight three or marker-local starting positions. Three-one border lemma and cyclic orbit accounting provide genuinely additional restrictions.",
+        "searches": [
+          "Resultary semantic query: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution",
+          "Primary source comparison: https://arxiv.org/pdf/1504.02222"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Border correlation trace of conjugacy class; fully bordered pairs; primitive necklace gap configurations",
+          "Holub–Müller describe the exact-two class, which overlaps U=2 but does not on its own give the U=3 class and local start positions. The sparse three-gap formula is an explicit additional characterization; a stronger general border theorem could still cover it."
+        ],
+        "reasoning": "Holub–Müller describe the exact-two class, which overlaps U=2 but does not on its own give the U=3 class and local start positions. The sparse three-gap formula is an explicit additional characterization; a stronger general border theorem could still cover it.",
+        "searches": [
+          "Resultary semantic query: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution",
+          "Primary source comparison: https://arxiv.org/pdf/1504.02222"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Search fixed-weight-three circular binary necklaces by number of unbordered rotations",
+          "Direct complete counts C0=δ, C2=P-δ, C3=(B-3P+2δ)/3 verified by independent enumeration through m=15. No matching prior exact conditional table found in checked Resultary entries; inaccessible 2004 article may have one."
+        ],
+        "reasoning": "Direct complete counts C0=δ, C2=P-δ, C3=(B-3P+2δ)/3 verified by independent enumeration through m=15. No matching prior exact conditional table found in checked Resultary entries; inaccessible 2004 article may have one.",
+        "searches": [
+          "Resultary semantic query: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution",
+          "Primary source comparison: https://arxiv.org/pdf/1504.02222"
+        ]
+      },
+      "rationale": "Holub–Müller's primary 2015 paper classifies words with exactly two unbordered conjugates by fully bordered pairs; it does not in the inspected theorem specify the three-one gap-local position law nor the full exact distribution including three unbordered conjugates. Clokie–Gabric–Shallit's 2019 paper analyzes unrestricted random binary words, unlike fixed three-one content. Harju–Nowotka's 2004 paper is highly relevant ('Border correlation of binary words') but full text was inaccessible; any embedded three-marker specialization is a genuine priority risk, not presumed absent.",
+      "residual_risks": [
+        "Foundational Harju–Nowotka 2004 full article was inaccessible; it may implicitly contain exact three-marker border-correlation facts.",
+        "Some necklace enumerations are elementary once the local law is established; the novelty and value rest on the complete local border characterization plus distribution, not standalone stars-and-bars."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers the exactly-two case in general words, not the complete three-marker local starting-position law or three-count distribution in inspected statements",
+          "evidence": "Theorem 2 about two unbordered conjugates",
+          "identifier_or_url": "https://arxiv.org/pdf/1504.02222",
+          "material_read": "Theorem 2 and its fully bordered pair characterization, primary PDF",
+          "method": "Lawful OA full PDF, relevant theorem/proof inspected",
+          "title": "Fully bordered words",
+          "trigger": "Directly classifies the number of unbordered conjugates in binary words"
+        },
+        {
+          "assessment": "Unrestricted random binary mean does not determine fixed weight-three conditional law",
+          "evidence": "Theorem 14 on unrestricted expectation",
+          "identifier_or_url": "https://arxiv.org/pdf/1904.08187",
+          "material_read": "Theorem 14 and discussion of average random binary words",
+          "method": "Full lawful OA primary PDF, relevant portions inspected",
+          "title": "Circularly squarefree words and unbordered conjugates: a new approach",
+          "trigger": "Unrestricted unbordered conjugate count and expectation"
+        },
+        {
+          "assessment": "Plausible hidden theorem could cover sparse three-marker law, explicitly residual risk",
+          "evidence": "2004 JCTA article title/abstract on border correlation",
+          "identifier_or_url": "https://doi.org/10.1016/j.jcta.2004.07.009",
+          "material_read": "Abstract/bibliographic description only",
+          "method": "Publisher abstract; full primary text not obtained",
+          "title": "Border correlation of binary words",
+          "trigger": "Highly relevant exact subject and earlier foundational article"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Unbordered rotations are a standard border-correlation invariant. The special natural sparse fixed-content family has a complete local classification, a sharp bounded spectrum despite arbitrarily long words, exact necklace generating function and probability law. This is a motivated exact classification rather than an arbitrary list of a few lengths.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Holub–Müller, Fully bordered words, arXiv:1504.02222, theorem on exactly two unbordered conjugates (full primary PDF inspected)",
+    "Clokie–Gabric–Shallit, Circularly squarefree words and unbordered conjugates: a new approach, arXiv:1904.08187, Theorem 14 (full primary PDF inspected)",
+    "Harju–Nowotka, Border correlation of binary words, JCTA 108 (2004), DOI:10.1016/j.jcta.2004.07.009 (abstract only)",
+    "Resultary semantic search: binary circular word exactly three ones unbordered conjugates gap lengths necklace distribution"
+  ],
+  "disposition": "passed",
+  "limitations": "Only binary circular words with exactly three ones; U counts distinct rotations. Four-one words can fail the local gap rule; no generalization claimed.",
+  "residual_risks": [
+    "Foundational Harju–Nowotka 2004 full article was inaccessible; it may implicitly contain exact three-marker border-correlation facts.",
+    "Some necklace enumerations are elementary once the local law is established; the novelty and value rest on the complete local border characterization plus distribution, not standalone stars-and-bars."
+  ],
+  "schema_version": 1
+}

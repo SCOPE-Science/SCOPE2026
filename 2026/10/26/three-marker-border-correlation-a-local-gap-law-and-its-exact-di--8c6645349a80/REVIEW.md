@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The key marker-start lemma rules out borders beginning at either later marker; its reversal handles zero-run starts. Every remaining rotation has equal first and last letters. Imprimitivity is exhausted by the case of three equal gaps. The three-case necklace distribution and fixed-composition expectation follow from exact orbit counting. The standalone brute-force checker passed all \(5456\) three-gap tests (\(0\le m\le30\)), independent necklace distributions through \(m=16\), algebraic orbit counts through \(m=30\), and the explicit four-marker counterexample. The infinite result is supported by the written proof, not finite extrapolation.
+## correctness
 
-**Originality — PASS, with priority qualification.** Holub–Müller (2015) provides a general characterization of two-unbordered-conjugate words, so the existence of two such conjugates is not claimed as new. Its inspected results do not state the three-marker boundary-by-boundary rule, the complete classification including three unbordered conjugates, or the exact sparse-composition distribution. Clokie–Gabric–Shallit (2019) provides an unrestricted random-word expectation that cannot determine the fixed-weight-three law. Harju–Nowotka (2004) provides the general border-correlation framework, but its full text could not be inspected, leaving substantive historical-priority risk. Record searches and comparisons are documented in `AUDIT.json`.
+PASS
 
-**Value — PASS.** This is a complete, natural sparse-content classification of the border-correlation trace, not merely a low-length computation. The proof identifies each unbordered rotation locally, giving a sharp universal bound of three, exact necklace enumeration, and a typical-case contrast with unrestricted random binary words. The explicit four-marker counterexample shows the sharp structural scope.
+For every three-one circular binary word with cyclic zero gaps (a,b,c), a rotation beginning at a marker has form 1 0^R 1 0^T 1 0^L; examining all proper border starts at either later marker shows it is unbordered iff L>R. A rotation beginning at the first zero after a marker is the reversal counterpart and is unbordered iff R>L; all other start positions share the same first/last zero and have a one-symbol border. Thus each unequal adjacent gap contributes exactly one unbordered rotation, and equal gaps contribute none. If gaps not all equal the word is primitive (its proper power exponent would be three, forcing equal gaps), hence U=1_{a!=b}+1_{b!=c}+1_{c!=a} is a count of DISTINCT conjugates, with possible values 0,2,3. For m zeros there are B=binom(m+2,2) ordered triples; all-equal δ=1_{3|m}, two-equal necklaces P-δ with P=floor(m/2)+1, and all-distinct (B-3P+2δ)/3. Orbit-size weighting yields E U=3(1-P/B) for uniform linear words. Independent direct border checks on every three-one linear word for m=0..15 confirmed necklace distribution and expected counts, including periodic case m=0; proof is for all m. The four-marker counterexample explicitly limits scope.
 
-**Limits.** This does not determine the four-marker or general-content distribution; an equivalent earlier specialization may have appeared in inaccessible literature. Self-review does not constitute independent certification.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Holub–Müller's primary 2015 paper classifies words with exactly two unbordered conjugates by fully bordered pairs; it does not in the inspected theorem specify the three-one gap-local position law nor the full exact distribution including three unbordered conjugates. Clokie–Gabric–Shallit's 2019 paper analyzes unrestricted random binary words, unlike fixed three-one content. Harju–Nowotka's 2004 paper is highly relevant ('Border correlation of binary words') but full text was inaccessible; any embedded three-marker specialization is a genuine priority risk, not presumed absent.
+
+## value
+
+PASS
+
+Unbordered rotations are a standard border-correlation invariant. The special natural sparse fixed-content family has a complete local classification, a sharp bounded spectrum despite arbitrarily long words, exact necklace generating function and probability law. This is a motivated exact classification rather than an arbitrary list of a few lengths.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
