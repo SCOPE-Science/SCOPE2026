@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. The argument first shows that forward modal closure preserves consecutive color runs, and then separates any earlier run from every later run by a nested modal color formula; this establishes the generated algebra exactly, without treating exhaustive finite checks as a proof. Taking atoms of an arbitrary stable Boolean subalgebra as generators yields the complete consecutive-block classification. The count of color change patterns gives the full fiber law, and conditional coloring proves exact independent Bernoulli boundary indicators and the Poisson scaling. The packed checker independently checks term-closure partitions and every set partition of small chains.
+## correctness
 
-## Originality
-PASS within inspected evidence, with priority qualification. Agnew's June 2026 paper gives general tuned-partition and local finiteness theory but not the complete finite-chain subalgebra lattice or tuple multiplicities. Existing single-generator examples and general closure-algebra work, including Blok 1977, limit any priority claim for the rank-one observation. Distinctly compared older records concern different frames or general local-finiteness criteria rather than this exact distribution. The full Blok text was inaccessible; an equivalent historical classification cannot be ruled out. The novelty assessment concerns the combined subalgebra-fiber and random-generation laws, not their elementary counting method in isolation.
+PASS
 
-## Value
-PASS. The exact fiber distribution is a natural invariant of the modal-algebra generation problem; it answers how many and which tuples realize every possible generated subalgebra. The Boolean subalgebra-lattice identification gives a full structural classification, and the Poisson window quantifies the separation between optimal one-element generation and typical logarithmic-size random generation. These solve a precise quantitative gap prompted by the current investigation of transitive complex modal algebras. The scope is a deliberately clean finite-chain family, not a claim of general transitive-frame behavior.
+The forward reflexive diamond of any nonempty subset is the initial segment ending at its rightmost world. A tuple of k generator subsets assigns each world a k-bit color. Terms preserve unions of maximal consecutive constant-color runs. Nested color tests separated by future diamond distinguish any earlier run from each later run: adjacent tested colors differ so each test needs a distinct successive run. Hence the generated Boolean algebra has exactly those run atoms. Taking the atoms of any diamond-stable subalgebra as initial generators proves all subalgebra atoms are consecutive intervals and the lattice is Boolean on n-1 cut positions. Color words with exactly r runs count as m*C(n-1,r-1)*(m-1)^(r-1), m=2^k; independent adjacent equality indicators lead to Z~Bin(n-1,1/m), full-generation probability (1-1/m)^(n-1), and the stated Poisson window. Single alternating generator achieves full generation for n>=2; n=1 needs zero. Independent direct Boolean term closure verified 1,431 generator color words with n<=5,k<=2, and checked all 278 set partitions through n=6 against the interval criterion.
 
-## Limitations
-Uniform random valuations, a reflexive directed chain and a finite full powerset are essential. The historical coverage inquiry is incomplete for Blok's original full text; no independent scientific assessment has been performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Agnew 2026 gives broader qualitative local finiteness and tuned partition theory for complex K4 algebras but not the exact finite reflexive chain cut-lattice, all labeled generator-fiber counts, or random-generation threshold. The classical one-generator observation is not claimed novel. Blok 1977 full closure-algebra treatment is a serious historical priority risk: only its indexed material was accessible, with authorized retrieval blocked by a disconnected VPN.
+
+## value
+
+PASS
+
+The complete lattice classification and exact multiplicity of every generated algebra are natural exact invariants of modal generation; the binomial and Poisson laws rigorously quantify a real gap between one carefully chosen generator and typical random generators. The complete finite-chain classification is motivated by general transitive-frame local-finiteness work and need not claim broader frame coverage.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
