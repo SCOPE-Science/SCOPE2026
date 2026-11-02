@@ -1,0 +1,105 @@
+{
+  "correctness": {
+    "rationale": "The stationary empty-to-empty transition probability is independently derived; exact ordered time integration yields the moment product. Beta Taylor estimates ensure the infinite product is positive and convergent, and the classical one-sided Laplace–Stieltjes Karamata theorem supplies the endpoint constant. A standalone exact-rational/simulation checker was actually executed and passed 126 assertions; the proof rather than finite runs justifies infinite claims.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2025 revised Galganov–Ilienko Proposition 4.2 provides stronger process information, but its section 4 results do not evaluate the discounted occupation upper-endpoint probability.",
+        "Generic queueing theory may derive occupation transforms; this is explicitly a residual priority risk."
+      ],
+      "reasoning": "Stronger convergence theorems imply existence of the limit law and are not described as uncovered. No located stronger theorem was shown to imply the explicit infinite product and sharp endpoint coefficient as a stated specialization; standard Tauberian theory is used as a proof ingredient, not misrepresented as original.",
+      "searches": [
+        "discrete Chinese restaurant process Ewens derangement time occupation fraction converges in distribution exponential weighted M M infinity stationary queue variance e^-2theta (e^theta-1-theta)/theta",
+        "Sharp endpoint rare event asymptotics for time averaged derangement frequency in the Ewens Chinese restaurant growth process: probability that fraction exceeds 1-epsilon is asymptotic to constant epsilon to theta",
+        "Moment product of exponentially discounted empty-state occupation of stationary immigration death M/M/infinity queue: E[Y^r]=e^-theta product over k of k int_0^1 u^{k-1}e^-theta(1-u) du",
+        "\"M/M/infinity\" \"exponentially weighted\" \"occupation\" \"moments\"",
+        "\"immigration death\" \"discounted occupation\" \"moments\" \"distribution\""
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2209.12781v1",
+      "arxiv:2502.05578v2",
+      "Gnedin–Stark Adv. Appl. Math. 149 (2023) 102549 bibliographic record",
+      "Galganov–Ilienko Stoch. Proc. Appl. 192 (2026) 104793 bibliographic record"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Gnedin–Stark Theorem 6 and Galganov–Ilienko Proposition 4.2 imply weak occupation convergence and hence bounded polynomial moment convergence without evaluating moments.",
+        "A prior finite-dimensional covariance result determines specific second moments but does not establish the full r-dependent product or tail exponent and sharp coefficient.",
+        "Current result proves a new large-r moment asymptotic and invokes Karamata to identify near-one regular variation."
+      ],
+      "reasoning": "No novelty is assigned to stationary queue identification, the weak law of the time-averaged state indicator, or elementary mean recovery. The claimed all-order product and nontrivial endpoint asymptotic are not directly given by prior statements without the ordered-zero-time computation and large-moment Tauberian argument.",
+      "searches": [
+        "derangement time average Chinese restaurant growth exact finite-size covariance limiting occupation law",
+        "Ewens Chinese restaurant fixed point empirical occupation fraction limiting law all positive integer moments tail regular variation",
+        "A covariance sign transition for empirical fixed-point states in Ewens restaurant growth",
+        "Ewens restaurant derangement occupation exponential discount infinite product high moment endpoint tail power theta"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Gnedin–Stark arXiv:2209.12781 full sections 3, 5, 10: small-cycle limit and path properties, not high-moment product or sharp occupation endpoint probability.",
+        "Galganov–Ilienko arXiv:2502.05578v2 section 4.2, Proposition 4.2: Poisson representation and functional convergence of singleton counts, no exponentially weighted empty-time endpoint asymptotic.",
+        "Previously accessible occupation-law calculation yields the same weak limit variable and two-state covariance, but not the full moment product or upper tail."
+      ],
+      "reasoning": "Time change, reversibility, stationary M/M/infinity queue, and Ewens restaurant growth are equivalent descriptions of the weak occupation variable; all were explicitly compared. The claimed theorem is the new moment evaluation and sharp near-one tail, not the already implied limit distribution.",
+      "searches": [
+        "derangement time average Chinese restaurant growth exact finite-size covariance limiting occupation law",
+        "Moment product of exponentially discounted empty-state occupation of stationary immigration death M/M/infinity queue: E[Y^r]=e^-theta product over k of k int_0^1 u^{k-1}e^-theta(1-u) du",
+        "Ewens Chinese restaurant fixed point empirical occupation fraction limiting law all positive integer moments tail regular variation",
+        "Ewens restaurant derangement occupation exponential discount infinite product high moment endpoint tail power theta"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Actual mathematical-record searches surfaced an unrelated two-state sliding-count obstruction and an unrelated analytic product-kernel endpoint law; neither concerns the Ewens restaurant occupation variable.",
+        "No database record or classical table directly specifying the present Ewens derangement upper tail was located."
+      ],
+      "reasoning": "Searches for queue discounted occupation, all-order moments, restaurant derangement and endpoint power do not identify an exact database entry. Nonidentification cannot establish priority.",
+      "searches": [
+        "Sharp endpoint rare event asymptotics for time averaged derangement frequency in the Ewens Chinese restaurant growth process: probability that fraction exceeds 1-epsilon is asymptotic to constant epsilon to theta",
+        "Moment product of exponentially discounted empty-state occupation of stationary immigration death M/M/infinity queue: E[Y^r]=e^-theta product over k of k int_0^1 u^{k-1}e^-theta(1-u) du",
+        "Ewens restaurant derangement occupation exponential discount infinite product high moment endpoint tail power theta"
+      ]
+    },
+    "rationale": "Novelty is restricted to an exact all-order moment product and sharp right-endpoint upper-tail law with explicit convergent-product prefactor; prior weak occupation law, queue representation, and known pair covariance are explicitly excluded from novelty. Two highly relevant full primary works were inspected in their lawful HTML versions, actual research-record and literature searches were compared, and residual uncertainty about older queue occupation theory is acknowledged.",
+    "residual_risks": [
+      "A model-equivalent formula may appear in older specialized infinite-server queue occupation-time literature not identified by the focused searches.",
+      "The weak occupation limit and the two-state covariance calculations are covered by earlier work and are not claimed as original.",
+      "No quantitative finite-n joint endpoint asymptotic or independent verification is supplied."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "COVERS the process convergence and background occupation limit; DOES NOT STATE the high-moment product or endpoint asymptotic in inspected material",
+        "evidence": "Gnedin–Stark, arXiv:2209.12781v1, Theorem 1 and Theorem 6; sections 3 and 10.",
+        "identifier_or_url": "https://arxiv.org/abs/2209.12781",
+        "material_read": "Sections 2–5, 10, including Theorem 1 and Theorem 6; exact singleton chain, occupation discussion, functional limit and queue comparison",
+        "method": "Read full accessible arXiv HTML with theorem/equation context",
+        "title": "Random Permutations and Queues",
+        "trigger": "Direct motivating earlier asymptotic path-law paper"
+      },
+      {
+        "assessment": "COVERS stronger singleton-process convergence; neither the moments of the discounted empty-state occupation nor the near-one tail are stated in the inspected paper",
+        "evidence": "Galganov–Ilienko, arXiv:2502.05578v2, Theorem 2.1 and Proposition 4.2.",
+        "identifier_or_url": "https://arxiv.org/html/2502.05578v2",
+        "material_read": "Introduction; Theorem 2.1; Section 4.2 (complete Proposition 4.2 and proof) and Section 4.3, with checks of the remaining section headings and main statements",
+        "method": "Opened complete author-posted arXiv HTML and inspected sections and text searches for occupation, derangement and moments",
+        "title": "Scaling limit for small blocks in the Chinese restaurant process",
+        "trigger": "Strongest identified later singleton functional and Poisson limit"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "df5c8c99-8442-4993-a84b-7ae10c54e6ea",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp rare-event probability of almost-always derangement across the growth history is a natural tail of a studied occupation statistic; its exponent theta and exact nonzero prefactor give distributional information unavailable from weak convergence alone and not obtainable by merely recomputing a second moment. The full moment product is a reproducible law-level characterization.",
+    "status": "PASS"
+  }
+}
