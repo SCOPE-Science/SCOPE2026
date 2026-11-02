@@ -1,0 +1,140 @@
+{
+  "correctness": {
+    "rationale": "Reconstructed the greedy-suffix recurrence \\(E_j\\)=\\(E_{j+1}\\)+\\(O_j\\) and \\(O_j\\)=\\(O_{j+1}\\) (equal) or \\(E_{j+2}\\) (unequal), with E_{m+1}=2 and (E_m,O_m)=(3,1). Every change from an equal to unequal orientation boundary strictly increases \\(E_1\\). A single equal boundary after j causes the exact loss \\(F_jF_{m-j}\\); Fibonacci addition gives minimum \\(F_{m-2}\\) uniquely at j=2 or m-2 for \\(m\\ge 5\\). Every lower-universality word has at most \\(F_{m+2}\\), below the runner-up. Independent greedy-suffix DP and block recurrences checked all orientation words for m=2..11; exact global exhaustive enumeration checked all binary words of lengths 10,12,14,16,18. Direct subsequence enumeration checked tiny instances. All passed. The proof, not the finite experiments, establishes universal quantifiers.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fleischmann et al., arXiv:2202.07981, section 4 gives a general recursive calculation of missing subsequences in a specified word, not a sharp optimization across length-2m words.",
+        "The published Fibonacci-extremal result establishes a global upper bound and examples attaining it, but does not classify words immediately below the bound."
+      ],
+      "reasoning": "A generic algorithm computing the number for a supplied word does not imply the infinite-length optimized second value without an additional strict local-repair argument and Fibonacci product minimization. The fixed-index maximum is a proper bound but not a dominating answer to runner-up optimization.",
+      "searches": [
+        "published-finding corpus: Classification of runner-up extremizers for shortest absent subsequences among minimal length k-universal binary words; Fibonacci deficit",
+        "arXiv:2202.07981v1 section 4, Proposition 6",
+        "published-finding corpus: Exact state complexity of shuffle powers of words with repeated distinct blocks, deterministic finite automata"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1310.1278v1/v5",
+      "doi:10.4230/LIPIcs.ICDT.2015.230",
+      "arxiv:2108.13968v6",
+      "arxiv:2202.07981v1",
+      "published-finding corpus record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Karandikar–Kufleitner–Schnoebelen count equivalence classes of Simon congruence, not first strict SAS deficits.",
+        "Hofman–Martens study regular-language separability by short subsequences.",
+        "Kosche et al. and the close 2026 record imply the upper bound \\(F_{m+3}\\), but not the claimed gap \\(F_{m-2}\\) or the exact four near-extremizers.",
+        "Fleischmann et al. explicitly focus on characterizations and counting with fixed missing-count parameters, without a near-max rank theorem for all even word lengths."
+      ],
+      "reasoning": "The known maximum is strictly weaker: infinitely many candidate counts below it remain possible until the new defect-product lemma and strict monotonicity are applied. Neither a specialization of the prior maximum nor the trivial computation of one finite instance supplies the asserted universal second-largest value and complete equality cases.",
+      "searches": [
+        "2013 arxiv:1310.1278 full text Sections 1–4 and appendix",
+        "2015 Hofman–Martens ICDT abstract/description",
+        "2021 arxiv:2108.13968 full text Section 3 and Proposition 3.21",
+        "2022 arxiv:2202.07981 full text Section 4",
+        "2026 public Fibonacci extremals RESULT.md full proof"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "published-finding corpus closest record 2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28 states the absolute even-length maximum \\(F_{m+3}\\) but not the second distinct value.",
+        "Kosche et al., arXiv:2108.13968v6, Proposition 3.21 proves fixed-universality extremality without a runner-up classification."
+      ],
+      "reasoning": "A change of terminology to nearly-universal words or missing scattered subwords describes the same count, so both aliases were compared. None of the inspected statements is equivalent to the exact first strict Fibonacci gap and four equality words.",
+      "searches": [
+        "published-finding corpus: Second largest number of shortest absent subsequences among binary length 2m words, near-extremal Fibonacci stability, one defect in alternating arches",
+        "Web: second largest shortest absent subsequences binary length 2m fibonacci extremal",
+        "arXiv:2108.13968v6 sections 3.1–3.2, Proposition 3.21"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus search hits included the Fibonacci maximum, near-universality distribution, and unrelated finite string-attractor tables; no matching second-place table or formula was found.",
+        "Independent exhaustive counts for lengths 10–18 yield second values 19,31,50,81,131 with four words each, and are not being treated as an existing public table."
+      ],
+      "reasoning": "No located exact table determines the all-length second distinct maximum. Searches are not completeness guarantees, and residual unindexed-table risk remains.",
+      "searches": [
+        "published-finding corpus: Minimal binary 1-universal arches 01 10 product transfer matrix shortest absent subsequences near-maximum second-largest",
+        "Web: m nearly universal words shortest absent subsequences count second extremal alternating arches"
+      ]
+    },
+    "rationale": "Direct inspection of the close 2026 Fibonacci-extremal proof establishes only the maximum \\(F_{m+3}\\), and does not state the second value, the gap \\(F_{m-2}\\), or the exact four runner-up words. The 2021 primary paper develops fixed-index extremality but not a strict second optimum. The 2022 nearly-universal paper gives a count recursion without an all-length stability optimization. An explicit defect-product calculation and exact near-equality analysis are nontrivial further conclusions. Residual historical synonym and unseen-source risk is acknowledged.",
+    "residual_risks": [
+      "The 2015 separability conference PDF was not read in full; its accessible abstract describes a different question.",
+      "An earlier unnamed stability theorem or a result implied by additional uninspected appendices may exist; lack of a search hit cannot prove novelty.",
+      "The close 2026 maximum formula and transfer recursion are established prior work and are not claimed as new."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: bounds on the number of Simon-congruence classes, not count rankings among individual length-restricted binary words.",
+        "evidence": [
+          "Theorem 1.2 bounds the logarithm of the index of Simon congruence as a function of alphabet size and level."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1310.1278v5",
+        "material_read": "Introduction, Theorem 1.2, definitions in Section 2, lower and upper-bound statements in Sections 3–4",
+        "method": "Open full arXiv HTML and inspect theorem statements and scopes",
+        "title": "On the index of Simon’s congruence for piecewise testability",
+        "trigger": "Earliest archived literature on equality of short scattered-subword sets; alias and historical priority"
+      },
+      {
+        "assessment": "BACKGROUND_ONLY: language separation versus absent-subsequence extrema; full-PDF coverage not claimed.",
+        "evidence": [
+          "The abstract describes complexity of regular-language separability by subsequences of bounded length."
+        ],
+        "identifier_or_url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICDT.2015.230",
+        "material_read": "Open-access publisher metadata, abstract, keywords, stated problem and research scope; primary PDF was not fully inspected",
+        "method": "Inspect publisher page abstract and description",
+        "title": "Separability by Short Subsequences and Subwords",
+        "trigger": "Early relevant study of short scattered subwords"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING: fixed universality extremum is known; a strict second maximum for all binary length-2m words and its four words are not stated.",
+        "evidence": [
+          "Theorem 3.5 describes SAS via arches; Proposition 3.21 maximizes SAS at a given universality index."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2108.13968v6",
+        "material_read": "Introduction, Definitions 2.1–2.4, Theorem 3.1, Theorem 3.5, Proposition 3.21 and surrounding discussion",
+        "method": "Inspect open-access full HTML primary text including close propositions",
+        "title": "Absent Subsequences in Words",
+        "trigger": "Primary foundation for SAS, arch decomposition, and fixed-universality extremality"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING: computes missing counts for fixed words, does not optimize second-largest count or classify equality cases for all even lengths.",
+        "evidence": [
+          "Section 4 Proposition 6 expresses missing-subsequence count via a recursive quantity; conclusion states generic class characterizations for arbitrary missing multiplicities remain incomplete."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.07981",
+        "material_read": "Full arXiv rendered primary text introduction, Section 4, Propositions 5–6 and conclusion",
+        "method": "Inspect full text and targeted section 4 search for Fibonacci and alternation",
+        "title": "m-Nearly k-Universal Words -- Investigating Simon Congruence",
+        "trigger": "Equivalent terminology and general missing-count recursion"
+      },
+      {
+        "assessment": "CLOSE_BUT_NOT_COVERING: establishes maximum \\(F_{m+3}\\) at even length, with extremal examples, but not the second-largest value or the complete runner-up equality classification.",
+        "evidence": [
+          "Finding: M_{2m}=\\(F_{m+3}\\). Limitations: explicit extremizers are supplied but classification of all extremizing words is not established. The proof includes transfer matrices but no exact single-defect gap minimization."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-fibonacci-extremals-for-shortest-absent-subsequences-of-binary-w--1a6556f14d28/RESULT.md",
+        "material_read": "Complete RESULT.md, including Finding, Proof, Relationship to prior work, Limitations and References",
+        "method": "Read published repository RESULT.md using public repository content reader",
+        "title": "Fibonacci extremals for shortest absent subsequences of binary words",
+        "trigger": "Most direct published match: maximum over binary fixed-length words"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "4f2b4f64-b8d9-4a92-9f48-dd40f4caecf4",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp first gap and full four-word equality class quantify stability of a natural known Fibonacci maximum in subsequence omission. They give an exact all-parameter obstruction to any near-optimal absent-count target, and a structural diagnosis of where the first costly departure from alternating arches can occur. This is not a routine substitution into the known maximum: strict repair monotonicity, defect transfer and the Fibonacci product minimization are necessary.",
+    "status": "PASS"
+  }
+}
