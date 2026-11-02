@@ -1,0 +1,105 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T09:44:29Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For P_m with uniform index, E[Z_m]=1+(2/m)sum_{d=1}^{m-1}(m-d)2^-d from ordered seed-target distances. Values m=1..4 are 1,3/2,11/6,33/16. Externally infected households are size-biased m q_m/E[M], giving R*=beta sum q_m m H_m / E[M]. Both q have E[M]=2 and E[M^2]=5 and hence variance1. Substitution gives 13 beta/8 and 77 beta/48, with exact strict opposite sides for the nonempty given beta interval and 403/400 versus 2387/2400 at 31/50. Independently computed all with Fraction. Requires independent bond edges, path contact topology, uniform arrival individual and early-phase branching; no empirical epidemic assertion.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Dönges et al. arXiv:2301.04355, 2024 SIAM J Applied Mathematics, use size-only attack-rate modeling rather than path graph reachability.",
+          "Barlow, Adams, Penington arXiv:2401.04627 model within-household complete mixing."
+        ],
+        "reasoning": "In affine H_m models E[M H_M]/E[M] depends only on first two moments; a nonlinear path reachability H_m violates that premise. Neither exact published assumption implies the submitted numerical reversal.",
+        "searches": [
+          "Dönges Götz Krüger SIR Model for Households first two moments attack rate 2023 2024",
+          "household epidemic path graph within household size distributions same first second moments different reproduction thresholds"
+        ]
+      },
+      "checked_sources": [
+        "Assigned RESULT.md and REVIEW.md",
+        "Danon and Lacasa, PMC8165589, 2021 full text",
+        "Dönges et al. arXiv:2301.04355",
+        "Barlow et al. arXiv:2401.04627",
+        "Resultary 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical large-population household branching yields size-biased arrival and R* identity.",
+          "The two q laws have equal first two moments but sum q_m m H_m equal 13/4 and 77/24."
+        ],
+        "reasoning": "The general framework permits calculating this example once q,H are chosen; it does not itself state that moment-matched laws can straddle the supercritical boundary in this path model. A very short specialization is mathematically correct and provides a motivated qualitative counterexample, though priority risk remains.",
+        "searches": [
+          "household branching early stage size bias household size moment invariant path contact graph",
+          "household epidemic path graph within household size distributions same first second moments different reproduction thresholds"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "R*=beta E[M H_M]/E[M] is the size-biased household branching mean, with H_M infected-cluster size.",
+          "Danon and Lacasa, Household bubbles and COVID-19 transmission: insights from percolation theory (2021), give a general household reproduction identity in a clique-based household model."
+        ],
+        "reasoning": "Expressed through edge-percolation cluster reachability and size-biased household invasion; the general reproduction template is old. The statement newly asserts a specific moment-matched path percolation threshold flip.",
+        "searches": [
+          "household epidemic path graph within household size distributions same first second moments different reproduction thresholds",
+          "household epidemic size biased household reproduction number same mean variance different contact network threshold percolation"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact rational pair, 13/8 versus 77/48, was checked algebraically.",
+          "Related Resultary hit 2026/10/4/SCOPE-a-sharp-quadratic-frontier-for-reproduction-number-rank-reversal--3913071c0743 concerns R_* versus R_I ranking rather than different household-size laws at fixed R_* metric."
+        ],
+        "reasoning": "No relevant exact database/table found containing the pair; a separate R_* versus R_I ranking cannot imply this same-index size-moment counterexample.",
+        "searches": [
+          "moment-identical household sizes q1=1/2 q3=1/2 q1=1/3 q2=1/2 q4=1/6 reproduction threshold",
+          "Resultary household epidemic path graph within household size distributions same first second moments different reproduction thresholds"
+        ]
+      },
+      "rationale": "A general household reproduction formula based on size-biased entry and within-household epidemic size is classical, and is not claimed new. Dönges et al. derive a first-two-moment identity under their size-only attack-rate law, while Barlow et al. use full household mixing. The present exact moment-matched path-contact threshold witness is not the known affine case; no exact prior witness found. Novelty best-of-knowledge is confined to this explicit model boundary, not the general R* formula.",
+      "residual_risks": [
+        "The example is narrowly specified and algebraically short; its value rests on the qualitative threshold reversal, not an asserted general epidemic discovery.",
+        "Different classical household branching model might already contain equivalent moment-matched exact witnesses; unindexed coverage possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes background general household reproduction calculation under different household-contact assumptions, not this exact path moment-matched pair",
+          "evidence": [
+            "Article gives household reproduction as an average over household epidemic size; treats clique household interactions."
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8165589/",
+          "material_read": "Open-access paper text sections discussing percolation, household composition, reproductive threshold and model assumptions",
+          "method": "PubMed Central full-text HTML inspection",
+          "title": "Household bubbles and COVID-19 transmission: insights from percolation theory",
+          "trigger": "Closest general household percolation reproduction law"
+        },
+        {
+          "assessment": "Attack-rate hypothesis makes H_m affine, so moments suffice there; distinct path mechanism",
+          "evidence": [
+            "arXiv:2301.04355; 2024 SIAM J Appl Math, size-only attack rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.04355",
+          "material_read": "Accessible abstract and the specific size-only expected infection expression in the frozen source comparison; complete primary text was not read this execution",
+          "method": "Public abstract and assigned mathematical comparison",
+          "title": "SIR-Model for Households",
+          "trigger": "Potential dominating first-two-moment theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The pair shows a qualitative reversal of the invasion decision for an open beta interval despite identical commonly reported household-size mean and variance. Explicit path topology demonstrates precisely when size-only aggregation can be misleading; this is motivated epidemiological-model identifiability rather than claiming a new threshold theory or significance of a tiny numerical gain.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under path-household bond transmission p=1/2, size laws qA=(1/2 at 1,1/2 at 3) and qB=(1/3 at 1,1/2 at 2,1/6 at 4) have both mean2 and variance1 yet R*_A=13 beta/8 and R*_B=77 beta/48; for every beta in (8/13,48/77), the first is supercritical and second subcritical in the specified large-population branching approximation.",
+  "limitations": [
+    "The example is narrowly specified and algebraically short; its value rests on the qualitative threshold reversal, not an asserted general epidemic discovery.",
+    "Different classical household branching model might already contain equivalent moment-matched exact witnesses; unindexed coverage possible.",
+    "No GitHub write or server-side certification has occurred. Finite checks do not prove unbounded assertions."
+  ],
+  "schema_version": 1
+}

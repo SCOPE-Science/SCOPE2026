@@ -1,19 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-The proof sums exact path-reachability probabilities and evaluates finite rational sums. The size-biased household law gives \(\mathcal R_*=\beta\sum_m q_m mH_m/\mathbb E[M]\). Both distributions have mean \(2\) and second moment \(5\); their reproduction numbers are \(13\beta/8\) and \(77\beta/48\), so they lie on opposite sides of one throughout \(\beta\in(8/13,48/77)\). At \(\beta=31/50\), the exact values are \(403/400\) and \(2387/2400\). The claim is limited to the stated path-household branching model.
+PASS
 
-## Originality
+For P_m with uniform index, E[Z_m]=1+(2/m)sum_{d=1}^{m-1}(m-d)2^-d from ordered seed-target distances. Values m=1..4 are 1,3/2,11/6,33/16. Externally infected households are size-biased m q_m/E[M], giving R*=beta sum q_m m H_m / E[M]. Both q have E[M]=2 and E[M^2]=5 and hence variance1. Substitution gives 13 beta/8 and 77 beta/48, with exact strict opposite sides for the nonempty given beta interval and 403/400 versus 2387/2400 at 31/50. Independently computed all with Fraction. Requires independent bond edges, path contact topology, uniform arrival individual and early-phase branching; no empirical epidemic assertion.
 
-The closest inspected household-size formula uses a size-independent attack rate and therefore gives an affine expected household size; another inspected model uses complete mixing within each household. Neither of those displayed formulas implies the exact path-contact witness. Searches also returned a household-epidemic ranking result comparing \(R_*\) with a different reproduction number, but its available summary does not establish this moment-matched threshold comparison. Broader household-network literature remains a residual overlap risk.
+## originality
 
-## Value
+PASS
 
-The example is a compact exact counterexample to using only the first two household-size moments to classify invasion when within-household topology affects transmission. Its value is the qualitative threshold flip over a nonempty interval of external-infection means, not the small numerical difference at one chosen point by itself. It identifies a model boundary and does not claim the same conclusion for size-only attack-rate models.
+A general household reproduction formula based on size-biased entry and within-household epidemic size is classical, and is not claimed new. Dönges et al. derive a first-two-moment identity under their size-only attack-rate law, while Barlow et al. use full household mixing. The present exact moment-matched path-contact threshold witness is not the known affine case; no exact prior witness found. Novelty best-of-knowledge is confined to this explicit model boundary, not the general R* formula.
 
-## Closest literature and limitations
+## value
 
-Dönges et al. (2023 preprint; 2024 journal publication) derive a moment formula under a size-independent attack-rate assumption. Barlow, Adams, and Penington (2024 preprint) model complete-mixing household contacts with a Markovian within-household process. Ball, Sirl, and Trapman (2008 preprint; 2009 publication) analyze household branching processes and assume equal household sizes for their main exposition. The exact witness here uses path contact graphs and independent edge transmission.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The pair shows a qualitative reversal of the invasion decision for an open beta interval despite identical commonly reported household-size mean and variance. Explicit path topology demonstrates precisely when size-only aggregation can be misleading; this is motivated epidemiological-model identifiability rather than claiming a new threshold theory or significance of a tiny numerical gain.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
