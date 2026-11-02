@@ -1,0 +1,150 @@
+{
+  "correctness": {
+    "rationale": "Algorithm 2 permits the exact local unconstrained line search because all positive barycentric weights make alpha=0 a strictly interior feasible step. The derivative is I-n_i n_i^T H/(n_i^T H n_i). Conjugating by H^{1/2} makes each a rank-one orthogonal projector; direct product gives the exact operator norm, trace, zero determinant and square identity. Nonparallel rays forbid multiple orthogonal vertex pairs. All three geometric cases follow exhaustively; analyticity gives the one-/two-sweep quadratic estimates. The H-metric Thales-circle locus is a direct quadratic identity and a disk convexity argument. A standalone verifier runs 1840 exact symbolic/rational assertions, including genuine clipped feasible steps and Taylor coefficients. Finite tests are not used to certify the universal statements.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Mazumder and Wang, arXiv:2303.07642, Theorem 3.2: global linear rate for the strongly convex polytope case, insufficient to imply any quadratic local rate or order separation.",
+        "Pedregosa et al., https://arxiv.org/abs/1806.05123 : away-step/backtracking FW schemes obtain linear rates, but use an oracle-chosen direction rather than a fixed permutation of the prescribed vertex rays.",
+        "Beck, Pauwels and Sabach, https://arxiv.org/abs/1502.03716 : cyclic block conditional gradient on block-separable composite constraints, with global sublinear results."
+      ],
+      "reasoning": "A general linear upper bound does not imply a quadratic local bound; an away-step Frank-Wolfe oracle update or cyclic separable block step does not determine the three-ray derivative for this specific algorithm. A stronger theorem for arbitrary cyclic products of *fixed* projectors could imply the algebraic identity but would still need an independent proof that the nonlinear feasible PolyCDwA linearizes to this product. No such directly dominating application was observed in the inspected source statements.",
+      "searches": [
+        "PolyCDwA Mazumder Wang 2303.07642 local spectral rate product angles finite superlinear",
+        "Frank Wolfe away-step cyclic vertex projections superlinear convergence at interior acute triangle",
+        "web: cyclic Frank Wolfe away steps local superlinear convergence simplex quadratic exact line search",
+        "web: \"polyhedral coordinate descent with away steps\" \"superlinear\" exact line search"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2303.07642v2",
+      "https://arxiv.org/abs/2303.07642",
+      "https://arxiv.org/abs/2010.11825",
+      "https://arxiv.org/abs/1502.03716",
+      "https://arxiv.org/abs/1806.05123",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+      "https://github.com/Resultary/2026/tree/main/2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995",
+      "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-a-two-step-q-linear-law-and-a-sharp-one-step-normal-threshold-fo--b42f645d9312"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mazumder and Wang, arXiv:2303.07642v2, Algorithm 2 equations (3.1)-(3.4) and Theorem 3.2 provide exact update feasibility and global linear convergence only.",
+        "published-finding corpus two-row Kaczmarz finite-horizon record states a norm and crossover for a different linear two-row projection process, not the analytic map depending on the current iterate and on three triangle vertices.",
+        "Klopfenstein et al. identify local rates for separable nonsmooth composite proximal updates, not PolyCDwA."
+      ],
+      "reasoning": "The precise source premises of positive-definite quadratics and feasible vertex-directed away steps permit the present elementary differentiation, but the existing theorems do not state or logically entail the sharp classification merely by specialization: generic global R-linear convergence is consistent with both local linear and quadratic behavior. The algebraic projector identity is acknowledged as known; the specialization to the actual nonlinear constrained sweep, metric-circle locations, and opposite scheduling outcomes must be derived.",
+      "searches": [
+        "cyclic vertex descent exact line search local convergence product orthogonal projections quadratic convergence right angle",
+        "PolyCDwA Mazumder Wang 2303.07642 local spectral rate product angles finite superlinear",
+        "Thales circle interior minimizer cyclic away-step Frank-Wolfe two-sweep quadratic",
+        "2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "2026/9/20/SCOPE-inverse-positive-optimal-coordinate-sampling--82c9d23eb995"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Mazumder and Wang, https://arxiv.org/html/2303.07642v2 , Algorithm 2 and Theorem 3.2: exact feasible line searches and a general linear upper bound; no explicit Jacobian, nilpotency, or metric-Thales locus in those inspected statements.",
+        "Klopfenstein et al., https://arxiv.org/abs/2010.11825 , Sec. 1 and local-rate framework: separable prox-linear coordinate updates, different from a vertex-dependent away-step line search.",
+        "published-finding corpus record 2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1: summary treats finite-sweep Euclidean norms for two-row cyclic Kaczmarz, not an interior-target nonlinear vertex-directed three-step PolyCDwA sweep."
+      ],
+      "reasoning": "The sweep derivative is a product of three rank-one H-orthogonal projectors. Geometric right angles turn this product into either a zero map or a nonzero square-zero map depending on order. Neither the cyclic-Kaczmarz source nor separable coordinate descent directly identifies a nonlinear, feasible PolyCDwA sweep with these exact order-dependent derivatives. General projector algebra supplies proof ingredients, but not an explicitly identified exact source assertion encompassing the candidate classification.",
+      "searches": [
+        "PolyCD PolyCDwA exact line search triangle simplex cyclic vertices superlinear quadratic convergence orthogonal rays optimal target nilpotent Jacobian",
+        "cyclic vertex descent exact line search local convergence product orthogonal projections quadratic convergence right angle",
+        "exact Jacobian of PolyCDwA sweep on quadratic triangle target inside simplex adjacent orthogonal vertex vectors",
+        "cyclic vertex line search orthogonal affine geometry nilpotent local rate one sweep two sweeps",
+        "web: \"PolyCDwA\" \"quadratic convergence\" triangle vertex"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Published published-finding corpus semantic search on PolyCDwA, exact vertex directions, nilpotent Jacobians and metric Thales circles returned low-similarity records, not a database or table of exact nonlinear sweep spectra.",
+        "The source arXiv:2303.07642 treats convergence theorems and numerical benchmarks rather than a table of all triangle geometry/order cases."
+      ],
+      "reasoning": "The result is a universal geometric classification over continuously varying target points and SPD metrics rather than a finite enumerated table. The searched records and source sections did not provide an exact database entry subsuming the circle locus and three-case distinction; lack of a hit is not itself proof of priority.",
+      "searches": [
+        "PolyCD PolyCDwA exact line search triangle simplex cyclic vertices superlinear quadratic convergence orthogonal rays optimal target nilpotent Jacobian",
+        "Thales circle interior minimizer cyclic away-step Frank-Wolfe two-sweep quadratic",
+        "web: \"PolyCDwA\" \"quadratic convergence\" triangle vertex"
+      ]
+    },
+    "rationale": "The inspected source of the precise algorithm gives a uniform global linear rate and not an exact local three-projector spectrum, triangle metric-circle characterization or the distinction between consecutive and separated orthogonal vertex pairs. Searched semantically against published research records and full/parsed primary literature; closest records cover differing algorithms or convergence criteria. The projector-product identity is classical and explicitly not claimed new. The novelty claim is the exact nonlinear PolyCDwA local classification under an interior fixed target. Priority remains qualified by specialized literature not identified in this search.",
+    "residual_risks": [
+      "The complete specialized literature on exact nonlinear vertex-descent local rates and general cyclic projection-product nilpotency may contain a stronger theorem not captured by this search.",
+      "Related published-finding corpus records were compared using their accessible summaries rather than all repository full texts; no conclusion about the whole unseen records is asserted.",
+      "This same mathematical model literature comparison is not an independent publication-priority certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Provides the method and a global linear bound, but none of the new exact local circle, nilpotency, and sweep-order statements were identified in its inspected theorem, algorithm and proof material.",
+        "evidence": [
+          "Algorithm 2 (3.1)-(3.4) permits alpha in [-lambda_i/(1-lambda_i),1] and exact line search.",
+          "Theorem 3.2 (3.9)-(3.10) is a general global linear bound parametrized by facial distance and smoothness constants."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2303.07642v2",
+        "material_read": "Abstract, introduction, Algorithm 2 lines 135-162, Theorem 3.2 lines 179-197, and proof/technical-results sections of the available full HTML manuscript.",
+        "method": "arXiv HTML full-text reading and section/keyword comparison with the new exact local theorem; the first public posting verified separately at https://arxiv.org/abs/2303.07642.",
+        "title": "A Cyclic Coordinate Descent Method for Convex Optimization on Polytopes",
+        "trigger": "Direct source for the algorithm, exact feasible line-search intervals, and strongest plausible prior claim."
+      },
+      {
+        "assessment": "Separable prox-linear coordinate descent uses different subproblems and does not directly cover the PolyCDwA vertex-ray line search on a triangle.",
+        "evidence": [
+          "Objective is f(x)+sum_j g_j(x_j), with cyclic prox-linear individual-coordinate updates.",
+          "Local rates are in terms of that coordinate model, not the three vertex projections of Algorithm 2."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2010.11825",
+        "material_read": "Parsed publicly available full paper introduction, hypotheses of the composite coordinate model, and descriptions of local rates and identification.",
+        "method": "arXiv machine-readable full text and model/algorithm comparison.",
+        "title": "Model identification and local linear convergence of coordinate descent",
+        "trigger": "Possible prior local convergence and Jacobian theory for cyclic coordinate descent."
+      },
+      {
+        "assessment": "Cyclic block updates on a composite block-separable model differ from fixed cyclic vertex-directed away steps on a nonseparable simplex/triangle.",
+        "evidence": [
+          "Paper establishes a global sublinear rate for the cyclic block generalized conditional-gradient method."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1502.03716",
+        "material_read": "Parsed manuscript abstract, introductory discussion, block-separable objective and conditional-gradient update scope, with global rate statements.",
+        "method": "arXiv accessible full text and statement-level comparison.",
+        "title": "The Cyclic Block Conditional Gradient Method for Convex Optimization Problems",
+        "trigger": "Closest potentially stronger cyclic conditional-gradient algorithm."
+      },
+      {
+        "assessment": "Oracle-driven away-step FW is not the fixed cyclic vertex-ray PolyCDwA method, and the cited rate theorem does not classify one- and two-sweep nilpotency in the triangle setting.",
+        "evidence": [
+          "Paper treats away-step and pairwise FW with backtracking and (global) linear convergence rates."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1806.05123",
+        "material_read": "Accessible parsed abstract, introduction and method comparison including backtracking away-step formulation and its linear-rate claims.",
+        "method": "arXiv parsed full-text inspection focused on update direction and rate guarantees.",
+        "title": "Linearly Convergent Frank-Wolfe with Backtracking Line-Search",
+        "trigger": "Strong potential coverage from away-step Frank-Wolfe local behavior."
+      },
+      {
+        "assessment": "Summary covers linear two-row Kaczmarz overrelaxation and finite-horizon error, not the nonlinear PolyCDwA triangle map; summary-only access limits completeness.",
+        "evidence": [
+          "Record summary discusses a defective double-root relaxation choice, not an orthogonal vertex pair and its PolyCDwA sweep placement."
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-finite-horizon-cost-of-asymptotically-optimal-two-row-kacz--d549f7251aa1",
+        "material_read": "published-finding corpus returned title and abstract/summary only; repository full text not inspected.",
+        "method": "Published mathematical record semantic result with explicit object and parameter comparison.",
+        "title": "Exact finite-horizon cost of asymptotically optimal two-row Kaczmarz overrelaxation",
+        "trigger": "Highest related semantic database record for products of projections and finite-horizon effects."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6f62c799-f22d-4a43-bc11-6d6705cd39fd",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The source PolyCDwA has a proven global linear bound. This classification identifies an exact natural subfamily with dramatically stronger local rate, distinguishes whether one or two sweeps must be grouped despite the same zero linearized spectral radius, and produces a complete geometric locus for when it occurs in arbitrary SPD triangles. The strict interior target and metric-circle geometry motivate the precise invariant; the away-step versus forward-only example identifies a mechanism relevant to vertex-based optimization algorithms. It is a nongeneric, local classification, not a generic convergence speedup or a routine finite table.",
+    "status": "PASS"
+  }
+}
