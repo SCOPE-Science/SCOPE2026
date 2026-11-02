@@ -1,0 +1,128 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T00:48:18.290188Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Actual snapshot RESULT.md Git blob b2d7294b52cca36282808318767d54ac0a823e41, renewal argument §§1–5",
+        "Actual snapshot verify.py Git blob 217e448ba8a0dd2bda7ab0a290ff0130554606f2, read fully",
+        "Independent freshly run finite-mask sum and geometric central-moment calculations, 10 exact-mean comparisons plus 4 variance-constant parameter comparisons"
+      ],
+      "rationale": "For retained vertices in cyclic order, area=½Σ_j sin(K_j θ) and the missing area score f_n(k)=½(k sin θ−sin kθ), valid including one/two survivors; the zero-survivor event is handled separately and decays as q^n. A chord of index length k<n is a boundary edge exactly when both endpoints survive and k−1 interior vertices are deleted, probability p²q^(k−1). This gives the exact finite geometric series for EA_n. Taylor f_n(k)=θ³(k³−k)/12+O(θ^5(k^5+k)) with geometric gap tails makes the L² remainder O(n⁻⁴), negligible at n⁻⁵ᐟ². For geometric iid K, E K=1/p, g(K)=K³−K, a=E g(K)/E K=6q/p²; standard centered renewal-reward stopped-sum CLT and uniformly bounded wrap correction yield Var(S_n)/n→p E(g(K)−aK)^2=36q(1+q)(1+5q+q²)/p^5. Multiplying by (2π)^6/144 produces stated V_p; Slutsky gives the Gaussian law. Independent direct enumeration of retained subsets for n=4,5,6,7,9 and p=1/3,1/2 (10 configurations of parameter pairs) exactly corroborated finite mean; independent geometric-moment summations for p=.25,.4,.5,.75 agreed with V_p. Fixed p is essential, finite tests only corroborate analytical CLT.",
+      "residual_risks": [
+        "The proof invokes standard renewal-reward CLT and a bounded L² boundary correction; tails are geometric at fixed p and make this justified, but no quantitative normal approximation or p→0 bound is shown.",
+        "Full high-n Monte Carlo portion of source checker was inspected but not executed in this independent run."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Pardon 2010/11: CLTs for uniform/Poisson points inside convex domains; the sampled population and scale differ.",
+          "Koroleva–Nikitin 2013: U-max statistics of continuous random polygons, not independent site deletion.",
+          "Pérez-Lantero 2014: finite stochastic pointset area/perimeter distribution algorithms."
+        ],
+        "reasoning": "None of these published stronger statements supplies the exact fixed-vertex Bernoulli gap-reward law for all n and p; standard renewal-reward CLT is a method, not an already evaluated geometric theorem.",
+        "searches": [
+          "https://arxiv.org/abs/1003.4209",
+          "https://arxiv.org/abs/1412.5153",
+          "https://arxiv.org/abs/1301.1360",
+          "Bernoulli thinning regular polygon convex hull area central limit theorem variance renewal geometric gaps"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1003.4209",
+        "https://arxiv.org/abs/1412.5153",
+        "https://arxiv.org/abs/1301.1360",
+        "Resultary semantic query: Bernoulli thinning regular polygon convex hull area central limit theorem variance renewal geometric gaps"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Area algorithms for arbitrary stochastic points could in principle compute each finite-n mean after processing all subsets, but they neither yield a renewal CLT nor its polynomial variance coefficient.",
+          "Interior random-hull CLTs have different point-location fluctuations and do not specialize by setting a boundary vertex set."
+        ],
+        "reasoning": "Known general stochastic input model is not a statement-level covering theorem for this explicit fixed-p asymptotic. The regenerative derivation of the precise n^(5/2) scaling and variance constant is required.",
+        "searches": [
+          "https://arxiv.org/abs/1003.4209",
+          "https://arxiv.org/abs/1412.5153",
+          "https://arxiv.org/abs/1301.1360",
+          "Bernoulli thinning regular polygon convex hull area central limit theorem variance renewal geometric gaps"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "This is Bernoulli site percolation on the cyclic vertex index set; its area deficit is a regenerative sum over geometric gaps.",
+          "General stochastic-point formulations in Pérez-Lantero contain this random-input setup but do not directly provide its analytic limit coefficients."
+        ],
+        "reasoning": "General stochastic convex hull distributions encompass the model as a data class, but an algorithm to compute exact small-n probabilities does not imply the claimed global asymptotic variance law or normalization.",
+        "searches": [
+          "Bernoulli thinning regular polygon convex hull area central limit theorem variance renewal geometric gaps",
+          "https://arxiv.org/abs/1412.5153"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic hits concerned randomly inscribed perimeter/Hausdorff and fixed-order triangle area, not a table for the independent-thinning area variance.",
+          "Source exact expectation is a finite geometric-series closed form, not a restatement of a known tabulated area for one n."
+        ],
+        "reasoning": "No matching exact n,p mean or V_p found in actual searches; absence is not proof of novelty.",
+        "searches": [
+          "Bernoulli thinning regular polygon convex hull area central limit theorem variance renewal geometric gaps"
+        ]
+      },
+      "rationale": "Pardon proves CLTs for Poisson/interior i.i.d. random planar points in expanding convex settings, not Bernoulli occupancy of deterministic equally spaced boundary points. Koroleva–Nikitin studies random fixed-order polygons with continuous sampled locations on a circle; different counting/scaling. Pérez-Lantero studies the distribution/algorithmic complexity for finite sets of independent stochastic points, but its general algorithms do not provide this closed regular-vertex finite mean, sharp n^5 variance constant, or renewal CLT. Resultary semantic search returned no matching Bernoulli cyclic-gap theorem. The special model and explicit asymptotics are independently meaningful.",
+      "residual_risks": [
+        "An unindexed renewal-reward treatment of Bernoulli-thinned convex polygons may reproduce the same asymptotic coefficients.",
+        "General stochastic finite-point distribution work may contain specialized regular-grid examples not indexed by present search terminology."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Different sampling model and asymptotic geometric regime from deterministic cyclic vertices with Bernoulli retention.",
+          "evidence": "Random locations in a convex body versus random occupancy at fixed polygon vertices.",
+          "identifier_or_url": "https://arxiv.org/abs/1003.4209",
+          "material_read": "Complete accessible arXiv manuscript, abstract, model assumptions and substantive CLT statements for interior/Poisson sampling.",
+          "method": "Full PDF text read with page inspection.",
+          "title": "Central limit theorems for random polygons in an arbitrary convex set",
+          "trigger": "Potential stronger general convex-hull CLT"
+        },
+        {
+          "assessment": "General algorithms and hardness/approximation results; no derived explicit regular-polygon variance CLT in inspected text.",
+          "evidence": "Studies stochastic existence of a finite prescribed pointset; computational distribution problem, not renewal asymptotic.",
+          "identifier_or_url": "https://arxiv.org/abs/1412.5153",
+          "material_read": "Complete accessible arXiv paper, definitions, algorithmic statements and bounds for area/perimeter distributions.",
+          "method": "Full primary PDF text read with page inspection.",
+          "title": "Area and Perimeter of the Convex Hull of Stochastic Points",
+          "trigger": "Arbitrary discrete independent point-set model includes the present data distribution"
+        },
+        {
+          "assessment": "Continuous angular random points and fixed-order random polygon statistics, not fixed-mesh Bernoulli thinning.",
+          "evidence": "Model description in abstract.",
+          "identifier_or_url": "https://arxiv.org/abs/1301.1360",
+          "material_read": "Published abstract and bibliographic metadata, not a full-paper noncoverage claim.",
+          "method": "ArXiv metadata/summary comparison.",
+          "title": "U-max-statistics and limit theorems for perimeters and areas of random polygons",
+          "trigger": "Close perimeter/area statistics on circle"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/1003.4209",
+        "https://arxiv.org/abs/1412.5153"
+      ],
+      "rationale": "The theorem exactly identifies the n^(-5/2) Gaussian fluctuation scale, a closed variance coefficient and the full finite-n mean for an infinite, natural random-geometry model. These are useful as baseline asymptotic estimates for random vertex deletion, and neither standard renewal CLT alone nor finite computation supplies the geometric constant without the nontrivial cyclic-gap reduction.",
+      "residual_risks": [
+        "Only fixed p∈(0,1); no sparse occupancy p=p_n asymptotic, no full finite-n area law."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Fixed p∈(0,1), independently Bernoulli-retained vertices of a regular n-gon on the unit circle have the exact stated mean area, mean deficit 4π³q/(p²n²)−4π⁵q(1+q)²/(p⁴n⁴)+O(n⁻⁶), and n^(5/2)(A_n−EA_n) converges to N(0,V_p) with n^5 Var(A_n)→V_p=16π⁶q(1+q)(1+5q+q²)/p^5.",
+  "limitations": [
+    "Sampling fixed n regular polygon vertices with fixed p, not continuous or interior random points or p_n→0/1.",
+    "Finite numerical corroboration not used to assert the CLT; renewal theorem proof is unrestricted at fixed p."
+  ],
+  "schema_version": 1
+}
