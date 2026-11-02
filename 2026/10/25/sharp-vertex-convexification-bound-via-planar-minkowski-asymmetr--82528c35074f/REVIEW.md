@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The lower bound follows from the nonoverlap of exposed edge portions for a dilation factor below one. The upper bound is established by an explicit vertex-indexed homothetic covering of the entire polygon: the boundary is covered because \(2s/(1+s)\ge1\), and the center belongs to every covering set, permitting radial filling. Regular-polygon equality follows from rotation averaging of the convex Minkowski-center feasibility set and an exact central nonmembership obstruction for every smaller factor. All hypotheses, normalizations, and parity cases are covered. The classical bound \(s(P)\le2\) is standard; the new comparison itself does not depend on its proof.
+PASS
 
-## Originality — PASS, with residual literature risk
+For every compact full-dimensional planar convex polygon, exposing one edge of (1+lambda)P shows that the two endpoint copies leave a gap when lambda<1. Center P at a Minkowski center, -P subset sP. The sets (v+sP)/(1+s) contain the center; their respective portions of each edge have fraction s/(s+1)>=1/2, so they cover all boundary edges. Convexity and radial segments from the center fill all of P, proving c_V<=s<=2. For the centered regular even n-gon s=1; for odd n, s=sec(pi/n), and the origin is not in V+lambda P below that value, proving sharpness. Full domain, affine invariance and n=3 case are accounted for. This is an infinite geometric argument, not an enumeration.
 
-Meyer's 2026 paper addresses finite convexification existence and exposed-set covering tests; the inspected main statements and relevant planar discussion did not provide the claimed asymmetry parameter comparison or odd regular-polygon values. Artstein-Avidan, Falah and Slomka (2024) use the equivalent parameter \(\theta=1/(1+c_V)\) and already cover centrally symmetric planar polygons as a special case, but the reviewed statements and examples do not dominate the shape-sensitive comparison or the odd polygon calculation. Searches for equivalent formulations, broader covering results, and exact indices retrieved related but distinct results. One published record on regular-polygon asymmetry shares the numerical secant constant for a different invariant; this numeric coincidence alone does not imply the vertex threshold. Relevant unindexed literature or an implicit corollary remain possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The sharp affine-invariant inequality links the finite Minkowski convexification of a discrete extreme-point set to a classical invariant of its full convex hull. It refines the dimension-only vertex-generation bound and completely evaluates a natural infinite family where the optimal threshold has a nontrivial odd/even transition. The geometric covering argument and origin nonmembership certificate explain why the sharp value is forced; no arbitrary numerical slice or speculative application is needed.
+Best-of-knowledge originality qualified by material actually accessed. The tested implications are stricter than dimension-only bounds and finiteness, but possible uninspected stronger theorem is explicitly not ruled out. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
 
-## Remaining limitations
+## value
 
-No statement about higher-dimensional polytopes, classification of all equality polygons, or independent validation is made. The related 2024 theory leaves an identifiable risk of an implicit known derivation; complete bibliographic exhaustiveness is not asserted.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The vertex-convexification threshold for a natural full-dimensional polygon is a shape-specific nonconvex Minkowski-sum problem; asymmetry gives a strong, geometrically interpretable interpolation between the trivial edge obstruction and the planar universal bound. Exact values on every regular polygon expose parity and a precise O(n^-2) gap, independently useful beyond existence of eventual convexification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

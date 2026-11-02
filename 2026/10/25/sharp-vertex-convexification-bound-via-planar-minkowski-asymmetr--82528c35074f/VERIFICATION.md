@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The scientific argument is self-contained except for the standard planar bound on Minkowski asymmetry. It can be checked by: (1) exposing an edge and parameterizing its two extreme translated edge intervals; (2) setting \(r=s/(1+s)\), checking \(0\in H_v\) from \(-v/s\in P\), and showing two length-\(r\) subsegments cover every edge; (3) using segments from the origin to the boundary for interior coverage; (4) checking convexity and rotation-invariance of Minkowski-center feasibility sets; and (5) taking radial intersections with an opposite edge of a regular odd polygon to obtain \(\cos(\pi/n)\). No external computational certificate or numerical experiment is needed.
+## correctness
 
-Limits: the inequality uses two-dimensional edge geometry and does not imply a higher-dimensional facet covering theorem. Literature searches cannot certify absolute priority. Independent mathematical audit has not been performed.
+PASS
+
+For every compact full-dimensional planar convex polygon, exposing one edge of (1+lambda)P shows that the two endpoint copies leave a gap when lambda<1. Center P at a Minkowski center, -P subset sP. The sets (v+sP)/(1+s) contain the center; their respective portions of each edge have fraction s/(s+1)>=1/2, so they cover all boundary edges. Convexity and radial segments from the center fill all of P, proving c_V<=s<=2. For the centered regular even n-gon s=1; for odd n, s=sec(pi/n), and the origin is not in V+lambda P below that value, proving sharpness. Full domain, affine invariance and n=3 case are accounted for. This is an infinite geometric argument, not an enumeration.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality qualified by material actually accessed. The tested implications are stricter than dimension-only bounds and finiteness, but possible uninspected stronger theorem is explicitly not ruled out. Relevant literature not wholly indexed or accessible; see source_inspections and residual_risks.
+
+## value
+
+PASS
+
+The vertex-convexification threshold for a natural full-dimensional polygon is a shape-specific nonconvex Minkowski-sum problem; asymmetry gives a strong, geometrically interpretable interpolation between the trivial edge obstruction and the planar universal bound. Exact values on every regular polygon expose parity and a precise O(n^-2) gap, independently useful beyond existence of eventual convexification.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
