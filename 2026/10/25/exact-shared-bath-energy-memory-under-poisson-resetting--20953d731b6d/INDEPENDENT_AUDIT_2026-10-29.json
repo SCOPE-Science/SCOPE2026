@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:07:00Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: From the actual RESULT.md (Git blob 5f240788a14bb48d5c59f246357fc8ea18bc509f), the generator L f=omega^2 sum_i partial_ii f+Lambda^2 partial_omegaomega f+r[f(0)-f] yields E omega^2=2Lambda^2/r, E omega^4=24Lambda^4/r^2, E X_i^2=4Lambda^2/r^2, E X_i^2 omega^2=56Lambda^4/r^3, E X_i^2 X_j^2=224Lambda^4/r^4 (i != j), and E X_i^4=672Lambda^4/r^4. Centered h=omega^2-2Lambda^2/r and g_j=X_j^2-4Lambda^2/r^2 satisfy Lh=-rh, Lg_j=2h-rg_j; hence P_s g_j=e^-rs(g_j+2s h), yielding exactly the displayed covariance. Summing d^2 entries and integrating 2 int_0^infty Cov_Q(s) ds gives 32Lambda^4 d(19d+28)/r^5; dividing by (4d Lambda^2/r^2)^2 gives 2(19+28/d)/r. Regenerative stationarity and all polynomial moments are valid due to exponential cycle age. Independently rederived covariance and normalization across d=1,2,5,10 using private exact arithmetic (independent_extra.py: RESET_BATH_OK); checker.py and saved output were not treated as proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Santra–Basu–Sabhapandit 2022 stationary density calculations, but no time-lagged energy covariance theorem",
+          "Mesquita–Majumdar–Sabhapandit 2025 Section 3 equal-time covariances without reset"
+        ],
+        "reasoning": "The physical stochastic processes share notation but not the requisite stationary lagged observable. General reset-renewal formalism provides method, not a located evaluated result covering the full assertion.",
+        "searches": [
+          "arXiv:2205.00549v1 common resetting Brownian diffusivity full text",
+          "arXiv:2506.20859v2 shared stochastic bath correlations full text",
+          "Resultary semantic shared reset Brownian environment"
+        ]
+      },
+      "checked_sources": [
+        "Git original tree 5ae4d576e9bf38fbac5c3b8103cf26545821a54d: RESULT.md, checker.py, VERIFICATION.md, AUDIT.json, REVIEW.md, METADATA.json",
+        "Santra, Basu and Sabhapandit 2022 arXiv:2205.00549",
+        "Mesquita, Majumdar and Sabhapandit 2025 arXiv:2506.20859",
+        "Resultary query shared-bath stationary squared energy",
+        "Independent exact semigroup/Green–Kubo calculation"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A one-time marginal or covariance at s=0 does not determine P_s acting on energy",
+          "Unreset time-inhomogeneous squared-coordinate correlations do not imply the reset-stationary e^-rs semigroup"
+        ],
+        "reasoning": "The claimed two-time function and integrated long-time variance require stationary generator and conditional evolution beyond cited results; the published process model is known, evaluated formula not shown.",
+        "searches": [
+          "Santra arXiv:2205.00549 one-time stationary resetting",
+          "Mesquita arXiv:2506.20859 equal-time squared correlations"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Santra et al arXiv:2205.00549v1 defines common-bath resetting",
+          "Mesquita et al arXiv:2506.20859v2 analyzes unreset correlated squared positions"
+        ],
+        "reasoning": "Aliases stationary energy autocovariance, squared radial-displacement autocovariance and integrated variance considered; only stationary jointly reset model has the displayed time lag and cross-coordinate quantifiers; no equivalent formula identified.",
+        "searches": [
+          "Resultary: stationary reset diffusing diffusivity shared Brownian bath squared position energy temporal covariance autocorrelation Green Kubo",
+          "web: diffusing diffusivity resetting quadratic displacement correlation two time time average"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary returned related but distinct stochastic-process results; none identical",
+          "No exact coefficient 38/r in inspected primary sources"
+        ],
+        "reasoning": "No canonical exact table of all d and s known; exact coefficient is an analytic invariant rather than a precomputed finite table. Search absence does not prove priority.",
+        "searches": [
+          "Resultary semantic energy covariance resetting diffusing diffusivity",
+          "search polynomial-generator diffusing-diffusivity energy lag covariance"
+        ]
+      },
+      "rationale": "PASS, qualified: The direct antecedent establishes the common-resetting diffusing-diffusivity model and one-time stationary distributions, not this stationary two-time squared-coordinate kernel or evaluated Green–Kubo coefficient. The 2025 gas model computes equal-time squared-coordinate correlation without resetting and in a nonstationary regime. Neither supplies the all-lag stationary result by its stated theorem; general regenerative/renewal identities could conceivably yield the formula after further calculation.",
+      "residual_risks": [
+        "An unlocated general Markov-renewal or stationary resetting result may specialize to the same evaluated formula.",
+        "Only common simultaneous reset of diffusivity and all coordinates; sequential limit time then dimension, not joint scaling; squared position is not kinetic energy."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers model and one-time reset distributions, not identified full stationary squared-coordinate lag kernel",
+          "evidence": "Primary arXiv PDF 2022; p2 screenshot ",
+          "identifier_or_url": "arXiv:2205.00549v1",
+          "material_read": "Full accessible original paper PDF and introduction/model/reset/stationary-law sections; inspected text for covariance/autocorrelation claims",
+          "method": "Read full-text PDF searchable passages and page image",
+          "title": "Effect of stochastic resetting on Brownian motion with stochastic diffusion coefficient",
+          "trigger": "Exact same joint-reset process"
+        },
+        {
+          "assessment": "No Poisson reset; nonstationary and equal-time rather than claimed stationary lagged covariance",
+          "evidence": "Primary 2025 PDF, screenshot ",
+          "identifier_or_url": "arXiv:2506.20859v2",
+          "material_read": "Accessible primary PDF, Section 3 around page 7 with equal-time squared-coordinate correlations; introduction and model",
+          "method": "Read extracted full text and page image",
+          "title": "Dynamically emergent correlations in a Brownian gas with diffusing diffusivity",
+          "trigger": "Same shared Brownian bath and squared positions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Squared spatial spread is a natural physical observable in a common fluctuating diffusivity environment; the exact stationary lag kernel quantifies persistent rank-one correlation. The non-vanishing 38/r normalized time-average error at large dimension, versus 94/(rd) with independent baths, is a meaningful quantitative breakdown of self-averaging, not a normalization-only exercise.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Git original tree 5ae4d576e9bf38fbac5c3b8103cf26545821a54d: RESULT.md, checker.py, VERIFICATION.md, AUDIT.json, REVIEW.md, METADATA.json",
+    "Santra, Basu and Sabhapandit 2022 arXiv:2205.00549",
+    "Mesquita, Majumdar and Sabhapandit 2025 arXiv:2506.20859",
+    "Resultary query shared-bath stationary squared energy",
+    "Independent exact semigroup/Green–Kubo calculation"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only common simultaneous reset of diffusivity and all coordinates; sequential limit time then dimension, not joint scaling; squared position is not kinetic energy."
+  ],
+  "residual_risks": [
+    "An unlocated general Markov-renewal or stationary resetting result may specialize to the same evaluated formula.",
+    "Only common simultaneous reset of diffusivity and all coordinates; sequential limit time then dimension, not joint scaling; squared position is not kinetic energy."
+  ],
+  "schema_version": 1
+}

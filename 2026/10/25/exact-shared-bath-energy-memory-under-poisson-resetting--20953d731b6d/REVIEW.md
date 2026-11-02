@@ -1,15 +1,21 @@
-# Review of exact shared-bath energy memory
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The complete Poisson-reset process is well posed, and its unique regenerative stationary law possesses the required fourth moments. Polynomial generator identities determine the exact stationary cross-moments. The centered pair of observables has an exact Jordan-block semigroup, yielding the full lag covariance; integrating the exponentially decaying kernel rigorously yields the Green–Kubo coefficient. These identities are reproduced by the included executable with symbolic stationarity checks, an independent Brownian-functional moment route and 15 numerical quadrature comparisons. The dimension limit is deliberately taken after the long-time variance coefficient.
+## correctness
 
-## Originality
-**PASS, subject to scholarly priority uncertainty.** The closest directly examined primary article is Santra–Basu–Sabhapandit (arXiv:2205.00549v1), which derives the specific common-diffusivity/common-reset process and stationary one-time position laws, but not its time-lagged energy covariance or long-time energy-measurement variance. Mesquita–Majumdar–Sabhapandit (arXiv:2506.20859v2) evaluates equal-time squared-coordinate correlations in the unreset, nonstationary shared-bath model; the presence of a joint reset and the lagged stationary functional are materially different. Other general Markov-renewal results can simplify the derivation but were not found to furnish the evaluated coefficients. Primary literature was searched by source, aliases, parameters and implications; no equivalent claim was recovered. The possibility of an unlocated general specialization remains a residual risk and no priority certification is claimed.
+PASS
 
-## Scientific value
-**PASS.** The normalized total squared position is a natural energy/spatial-spread observable for a particle with shared stochastic temperature. Its temporal-average error remains order one in dimension despite independently driven coordinates, in direct contrast to averaging independent baths and reset histories. The exact \(38/r\) limit and positive rank-one bath contribution quantify an experimentally interpretable failure of spatial self-averaging, beyond a one-time covariance calculation or simple normalization exercise.
+PASS: From the actual RESULT.md (Git blob 5f240788a14bb48d5c59f246357fc8ea18bc509f), the generator L f=omega^2 sum_i partial_ii f+Lambda^2 partial_omegaomega f+r[f(0)-f] yields E omega^2=2Lambda^2/r, E omega^4=24Lambda^4/r^2, E X_i^2=4Lambda^2/r^2, E X_i^2 omega^2=56Lambda^4/r^3, E X_i^2 X_j^2=224Lambda^4/r^4 (i != j), and E X_i^4=672Lambda^4/r^4. Centered h=omega^2-2Lambda^2/r and g_j=X_j^2-4Lambda^2/r^2 satisfy Lh=-rh, Lg_j=2h-rg_j; hence P_s g_j=e^-rs(g_j+2s h), yielding exactly the displayed covariance. Summing d^2 entries and integrating 2 int_0^infty Cov_Q(s) ds gives 32Lambda^4 d(19d+28)/r^5; dividing by (4d Lambda^2/r^2)^2 gives 2(19+28/d)/r. Regenerative stationarity and all polynomial moments are valid due to exponential cycle age. Independently rederived covariance and normalization across d=1,2,5,10 using private exact arithmetic (independent_extra.py: RESET_BATH_OK); checker.py and saved output were not treated as proof.
 
-## Limitations
-This theorem assumes fully coordinated resets of the positions and diffusivity, a squared-Brownian environment, stationary initialization, positive rate and amplitude, and the sequential limit of large time before large dimension. The proposed observable is the squared radial displacement, not a thermodynamic kinetic energy with separately modeled momenta. Full prior-art exhaustiveness and independent validation have not been established.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: The direct antecedent establishes the common-resetting diffusing-diffusivity model and one-time stationary distributions, not this stationary two-time squared-coordinate kernel or evaluated Green–Kubo coefficient. The 2025 gas model computes equal-time squared-coordinate correlation without resetting and in a nonstationary regime. Neither supplies the all-lag stationary result by its stated theorem; general regenerative/renewal identities could conceivably yield the formula after further calculation.
+
+## value
+
+PASS
+
+PASS: Squared spatial spread is a natural physical observable in a common fluctuating diffusivity environment; the exact stationary lag kernel quantifies persistent rank-one correlation. The non-vanishing 38/r normalized time-average error at large dimension, versus 94/(rd) with independent baths, is a meaningful quantitative breakdown of self-averaging, not a normalization-only exercise.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
