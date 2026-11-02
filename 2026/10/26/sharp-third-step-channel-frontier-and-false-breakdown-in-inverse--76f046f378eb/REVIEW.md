@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The exact candidate identity follows by applying the matrix to the normalized inverse residual; it needs neither symmetry nor spectral arguments. Dividing the two orthogonalization residuals by their *different* candidate norms yields the positive-denominator formula and the exact sign test \(2\alpha m_1\gtreqless1\). The rational example has a nonzero third-direction determinant and \(\kappa_2(A)=5/2\), so its mixed-channel zero residual is not space exhaustion. The two strict comparison witnesses and the linear near-breakdown coefficient follow from exact rational calculations. The included executable checker reconstructs these identities and checks 3,600 separately formed random projections; experiments are supporting checks, not universal proof.
+## correctness
 
-**Originality — PASS, with residual bibliographic risk.** The closest known source is Lund–Schweitzer (2026), whose Algorithms 1–2 and Lemma 16 contain the underlying **unnormalized** recurrence relation. That algebraic relation is not claimed to be new. Their definite-matrix Theorem 8 does not imply the all-real-matrix normalized third-step frontier; their indefinite examples give numerical reversals rather than the exact phase law, a dimension-minimal full-rank false-breakdown witness, or its near-breakdown rate. Exact literature and mathematical research search queries were compared to these mathematical implications. Historic extended-Krylov manuscripts could contain related counterexamples or implied special cases; full texts were not available and this remains a material but not decisive bibliographic risk.
+PASS
 
-**Value — PASS.** The matrix-vector action channel is an implementation choice for computing extended Krylov bases. Premature orthogonalization breakdown despite a growing exact approximation space is a structural boundary, and the complete normalized sign frontier gives a cheap scalar diagnosis of when the *third step* is vulnerable. The arbitrary relative near-breakdown with bounded matrix condition number explains why matrix conditioning alone cannot safeguard the mixed-channel recurrence. The result is not a global stability guarantee, and no finite-precision behavior is proved.
+From beta v2=A^{-1}v-alpha v, applying A gives beta A v2=v-alpha A v. Q kills v, hence the exact residual identity QAv2=-(alpha/beta)QAv for arbitrary invertible real A with beta>0 and QAv nonzero; symmetry is nowhere needed. Norming the respective candidates yields gamma_3=|alpha|sqrt(m2)/sqrt(1-2alpha m1+alpha² m2), whose positive denominator is beta||A v2||. Therefore gamma_3²-1=(2alpha m1-1)/(1-2alpha m1+alpha² m2) gives exact all-three comparisons, including gamma=0 at alpha=0. Independently checked rational A=diag(-6/5,2,3), v=(1,1,1)/sqrt3: alpha=0,beta²=19/54,det[b,A^-1b,Ab]=28/15,||QAv||²=1568/4275, cond(A)=5/2. The nonzero determinant certifies space nonexhaustion; n=3 is minimal for a possible third independent direction. Starting b=(1,1,2) and (1,2,2) give alpha m1=16/45,47/81; analytic differentiation at the perturbed A_t yields gamma/|t|->95/(108sqrt3). Fresh exact SymPy verifies the witness and both sign regimes. Earlier finite experiments from assigned code do not substitute for the elementary all-matrix algebra.
 
-Closest literature: Lund–Schweitzer (2026), arXiv:2610.21603v1, full accessible HTML; Druskin–Knizhnerman (1998), DOI:10.1137/S0895479895292400, abstract; Knizhnerman–Simoncini (2010), DOI:10.1002/nla.652, abstract.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified: the residual proportionality is elementary and already present in the main 2026 source recurrence, so is explicitly credited. The assessed new result is the exact normalized all-real-matrix third-step ordering, full-rank minimal 3×3 false breakdown and bounded-condition-number near-breakdown slope. Earlier full texts of classic extended Krylov papers were not obtained.
+
+## value
+
+PASS
+
+Different operator channels are standard implementation choices. A recurrence that breaks at the minimal third vector even when the exact extended Krylov space continues to grow is an algorithmically meaningful pathology. Its existence with spectral condition 5/2 and a sharp all-real-matrix comparison frontier has diagnostic value beyond simply rewriting an existing recurrence; it precisely limits the definite-matrix stability intuition.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

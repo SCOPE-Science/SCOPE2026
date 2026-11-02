@@ -1,0 +1,132 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:58:52.520197Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "The local relative residual ratio is not a bound on whole-method finite-precision loss of orthogonality or final matrix-function error; lookahead/switching could avoid algorithmic breakdown."
+      ],
+      "rationale": "From beta v2=A^{-1}v-alpha v, applying A gives beta A v2=v-alpha A v. Q kills v, hence the exact residual identity QAv2=-(alpha/beta)QAv for arbitrary invertible real A with beta>0 and QAv nonzero; symmetry is nowhere needed. Norming the respective candidates yields gamma_3=|alpha|sqrt(m2)/sqrt(1-2alpha m1+alpha² m2), whose positive denominator is beta||A v2||. Therefore gamma_3²-1=(2alpha m1-1)/(1-2alpha m1+alpha² m2) gives exact all-three comparisons, including gamma=0 at alpha=0. Independently checked rational A=diag(-6/5,2,3), v=(1,1,1)/sqrt3: alpha=0,beta²=19/54,det[b,A^-1b,Ab]=28/15,||QAv||²=1568/4275, cond(A)=5/2. The nonzero determinant certifies space nonexhaustion; n=3 is minimal for a possible third independent direction. Starting b=(1,1,2) and (1,2,2) give alpha m1=16/45,47/81; analytic differentiation at the perturbed A_t yields gamma/|t|->95/(108sqrt3). Fresh exact SymPy verifies the witness and both sign regimes. Earlier finite experiments from assigned code do not substitute for the elementary all-matrix algebra.",
+      "scope": [
+        "Real invertible A of size n>=3, unit start v, beta>0, QAv≠0, exact arithmetic third-vector behavior; arbitrary symmetry class."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Lund–Schweitzer Theorem 8 proves gamma_k>1 for symmetric positive definite A under no breakdown.",
+          "Its Example 10 presents an 8×8 indefinite numerical reversal; Appendix Lemma16 contains the underlying coefficient relation."
+        ],
+        "reasoning": "The SPD theorem is restricted to definite matrices and excludes the alpha=0 breakdown, while the numerical indefinite example does not give a necessary-and-sufficient third-step threshold or a three-dimensional example with bounded conditioning. Older source full text remains a risk.",
+        "searches": [
+          "Lund Schweitzer 2026 Theorem 8 SPD no breakdown",
+          "Lund Schweitzer 2026 Example 10 indefinite numerical comparison",
+          "Druskin Knizhnerman 1998 extended Krylov",
+          "Knizhnerman Simoncini 2010 extended Krylov"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.21603v1 HTML §2.2, §3 Theorem8 Example10, Appendix A Lemma16",
+        "DOI:10.1137/S0895479895292400 abstract",
+        "DOI:10.1002/nla.652 abstract",
+        "Resultary EKSM and matrix-method semantic query",
+        "Frozen numerical/symbolic verification source and independently computed exact witness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Theorem 8 SPD positive gamma relation cannot force alpha=0 because SPD alpha>0 and alpha m1>=1.",
+          "The exact 3×3 example has alpha=0 while det[b,A^-1b,Ab]=28/15!=0 and condition number 5/2."
+        ],
+        "reasoning": "The known recurrence algebra plus routine normalization supplies the identity, but identifying exact false breakdown in an existing implementation despite full-rank next direction, determining the sign frontier, minimality and perturbation law is a motivated structural boundary. Unlocated earlier examples remain possible.",
+        "searches": [
+          "arXiv:2610.21603v1 Theorem 8 Example 10 Lemma 16",
+          "false breakdown inverse Rayleigh quotient zero EKS dimensional growth"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lund–Schweitzer Appendix A Lemma 16 supplies unnormalized mixed/split recurrence coefficient relations (the symmetric-case antecedent).",
+          "The exact first-step candidate relation follows instantly from beta v2=A^-1v-alpha v; its normalized consequence requires different ||Av|| and ||Av2|| denominators."
+        ],
+        "reasoning": "Neither the algebraic recurrence alone nor the SPD no-breakdown ordering states the exact normalized scalar threshold for general invertible A. We do not count the proportionality identity itself as an original contribution.",
+        "searches": [
+          "Lund Schweitzer arXiv:2610.21603v1 algorithms 1 2 recurrence Lemma16",
+          "mixed split Krylov orthogonalization ratio rho third inverse Rayleigh zero"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Published-finding semantic query yielded unrelated Kaczmarz and optimization records, not a matching EKSM third-step table.",
+          "The primary 2026 numerical Example 10 records local data for its particular 8×8 matrix, not the universal threshold table."
+        ],
+        "reasoning": "The result is an analytic classification rather than a claimed unprecedented numerical table. Search failure alone does not establish historical originality.",
+        "searches": [
+          "Resultary extended Krylov inverse leading mixed split third-step alpha zero false breakdown",
+          "Lund Schweitzer exact rho3 formula 2alpha m1=1"
+        ]
+      },
+      "rationale": "PASS, qualified: the residual proportionality is elementary and already present in the main 2026 source recurrence, so is explicitly credited. The assessed new result is the exact normalized all-real-matrix third-step ordering, full-rank minimal 3×3 false breakdown and bounded-condition-number near-breakdown slope. Earlier full texts of classic extended Krylov papers were not obtained.",
+      "residual_risks": [
+        "The 2026 Lemma16 is a close antecedent: the basic unnormalized identity is not novel; some may regard normalization as immediate, so the substantive contribution depends on the sharp motivated pathology and complete threshold.",
+        "Older extended Krylov sources not read in full could state spurious inverse-Rayleigh breakdown or the same scalar comparison.",
+        "The local ratio need not predict actual finite-precision accumulated orthogonality or matrix-function error."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "The paper covers definite comparison and indefinite numerics and the residual recurrence; the all-matrix normalized third-step classification and exact false breakdown are separately assessed",
+          "evidence": [
+            "Algorithm 1 third candidate Av2, Algorithm 2 split candidate Av; Theorem 8 assumes SPD and no breakdown; Example 10 8×8 numerics; Lemma 16 is an antecedent relation."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2610.21603v1",
+          "material_read": "Full accessible HTML, Section 2.2 Algorithms 1–2, Section 3 Theorem 8, Example 10, Appendix A Lemma 16 and its first-cycle coefficient equations",
+          "method": "direct reading of primary full-text arXiv HTML",
+          "title": "On the stability of basis construction in extended Krylov subspace methods, Kathryn Lund and Marcel Schweitzer (2026)",
+          "trigger": "same named algorithms, same third-step residual indicator and closest algebraic antecedent"
+        },
+        {
+          "assessment": "Historical priority not ruled out",
+          "evidence": [
+            "Introduces extended Krylov subspace approximations; no third-step classification visible in abstract."
+          ],
+          "identifier_or_url": "https://doi.org/10.1137/S0895479895292400",
+          "material_read": "Publisher abstract and bibliography only",
+          "method": "journal landing page / abstract",
+          "title": "Extended Krylov Subspaces: Approximation of the Matrix Square Root and Related Functions, Druskin–Knizhnerman (1998)",
+          "trigger": "foundational extended Krylov algorithm"
+        },
+        {
+          "assessment": "Historical priority not ruled out",
+          "evidence": [
+            "Studies extended Krylov approximants but full details uninspected."
+          ],
+          "identifier_or_url": "https://doi.org/10.1002/nla.652",
+          "material_read": "Publisher abstract and bibliography only",
+          "method": "journal landing page / abstract",
+          "title": "A new investigation of the extended Krylov subspace method for matrix function evaluations, Knizhnerman–Simoncini (2010)",
+          "trigger": "related established basis construction and stability"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Different operator channels are standard implementation choices. A recurrence that breaks at the minimal third vector even when the exact extended Krylov space continues to grow is an algorithmically meaningful pathology. Its existence with spectral condition 5/2 and a sharp all-real-matrix comparison frontier has diagnostic value beyond simply rewriting an existing recurrence; it precisely limits the definite-matrix stability intuition.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.21603v1 HTML §2.2, §3 Theorem8 Example10, Appendix A Lemma16",
+    "DOI:10.1137/S0895479895292400 abstract",
+    "DOI:10.1002/nla.652 abstract",
+    "Resultary EKSM and matrix-method semantic query",
+    "Frozen numerical/symbolic verification source and independently computed exact witness"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The local relative residual ratio is not a bound on whole-method finite-precision loss of orthogonality or final matrix-function error; lookahead/switching could avoid algorithmic breakdown.",
+    "The 2026 Lemma16 is a close antecedent: the basic unnormalized identity is not novel; some may regard normalization as immediate, so the substantive contribution depends on the sharp motivated pathology and complete threshold.",
+    "Older extended Krylov sources not read in full could state spurious inverse-Rayleigh breakdown or the same scalar comparison.",
+    "The local ratio need not predict actual finite-precision accumulated orthogonality or matrix-function error."
+  ],
+  "schema_version": 1
+}
