@@ -1,19 +1,21 @@
-# Scientific review: finite-population mixed nonlinear public goods
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact conditional benefit difference follows from a one-marked-player coupling of the two focal strategy populations: including the marked co-player cancels the focal cooperator's extra public-benefit increment, while excluding that player yields the geometric marginal benefit. The two-marked-player coupling proves the nonnegative discrete second-difference identity for every permitted population count, group size, and strictly positive geometric multiplier. Discrete convexity bounds strict sign changes by two. The displayed four-person values are exact rational identities. The independent enumeration of all co-player subsets over small parameter ranges matches the derived expressions. The proof does not infer an infinite theorem from numerical tests.
+PASS
 
-## Originality — PASS, subject to historical priority risk
+A cooperator focal and defector focal differ by swapping the status of a distinguished possible co-player. Excluding that individual from the sample, probability (N-ell)/(N-1), yields an additional marginal geometric benefit (b/ell) δ^Q for hypergeometric Q; inclusion yields identical public benefit. This proves exact finite-N hypergeometric Δ(j), including ell=N zero marginal benefit. For H_{M,K,s}(δ), toggling two marked players gives Δ²H=(δ-1)²[s(s-1)/(M(M-1))] H_{M-2,K,s-2}(δ). All factors nonnegative, strictly so for nontrivial size ell>=3 with δ≠1. A discretely convex sequence cannot have separated strictly negative entries, so its nonzero sign changes are at most two, of form +,-,+. With N=4, exact coefficients 5/18,53/240,11/40 and b/c=4 give Δ/c=(1/9,-7/60,1/10), proving minimal sharpness. Independent exact-rational enumeration of all focal co-player subsets at N=4 matched these three values. The finite proof assumes only N>=4 and admissible sample sizes; larger N does not rely on finite verification.
 
-The motivating 2026 paper studies single group sizes and infinite well-mixed two/three-size mixtures; it does not provide the finite hypergeometric curvature identity, unrestricted size-specific multiplier classification, or sharp four-person reversal. Peña (2012) develops group-size diversity in the infinite-population setting, while Peña–Lehmann–Nöldeke (2014) supplies general gain-sign principles that are expressly acknowledged as earlier theory. Duong–Durbac–Han (2023) proves the finite hypergeometric correction for a linear benefit, not the geometric mixed-size second-difference identity. Exact-statement and alternative-terminology literature searches and mathematical-record comparisons did not locate an implication-equivalent result. The novelty conclusion is provisional: a directly specialized older result may exist outside the inspected materials.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Finite populations can behave differently from infinite well-mixed approximations because a focal player's action changes the pool of remaining possible co-players. The exact correction and curvature formula resolve whether arbitrarily heterogeneous nonlinear group sizes can create arbitrarily many alternating regimes of expected payoff advantage: they cannot, and the maximal two-regime reversal occurs with the minimum possible four-person population. This is a model-wide structural restriction with a sharp biological/economic selection example, not an isolated arbitrary numerical case. No claim is made about generalized public-benefit functions, realized-payoff updating, or fixation probabilities.
+Prior Bernstein gain-sign theory (Peña, Lehmann & Nöldeke 2013/2014) covers general infinite well-mixed multiplayer matrix games and explains why convexity controls sign variation; Peña (2012) handles group-size diversity with infinite-population/binomial limits. The 2026 Llabrés et al. model treats geometric nonlinear benefits and some size mixtures, but not the exact all-size finite-without-replacement hypergeometric curvature identity and smallest four-person reversal in inspected material. The novelty is the finite sampling identity and sharp small-N construction, not the general variation-diminishing principle. Qualified priority risk remains for finite-population extensions of these papers.
 
-## Closest literature and limitations
+## value
 
-Relevant antecedents are Llabrés et al., arXiv:2604.07228v1 (2026); Peña, DOI:10.1111/j.1558-5646.2011.01504.x (2012); Peña–Lehmann–Nöldeke, arXiv:1310.0498 (2014); and Duong–Durbac–Han, DOI:10.1007/s00285-023-02011-6 (2023). These provide the common nonlinear benefit, group-size heterogeneity, generic gain-sign machinery, and the linear finite-population correction, respectively. Any broader preexisting finite-sampling geometric-specialization theorem could affect priority.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An all-N convexity theorem with group-size-dependent nonlinear geometric benefits is a meaningful structural restriction on otherwise complicated finite-population payoff profiles. Its sharp four-person witness identifies the minimal coexistence of opposing selection directions, and the exact sampling identity is useful in finite-population evolutionary dynamics. The result separates the finite without-replacement regime from known infinite-population Bernstein theory and makes no unsupported fixation or spatial claims.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
