@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Verification of the rectangular nilpotent-product law
+# Independent mathematical audit
 
-The standalone `verify_rectangular_npp.py` enumerates all matrices and matrix pairs over the prime fields of orders \(2,3,5\) in all fifteen indicated size choices: all \(1\times1\), \(1\times2\), \(2\times1\), \(2\times2\) dimensions over those fields, plus \((m,n)=(2,3),(3,2),(3,3)\) over \(\mathbb F_2\). It computes products entry by entry and determines nilpotence by successive powers up to the matrix dimension. For each fixed left matrix it independently calculates rank via Gaussian elimination and compares the number of successful right matrices with \(q^{mn-r}\). It checks the aggregate exact count and the separate nilpotent-matrix census; successful execution prints `VERIFY_OK`.
+## correctness
 
-Reproduction command: `python3 verify_rectangular_npp.py` using only the Python standard library. The program treats its modulus as prime; the theorem extends to all prime-power fields by the noncomputational finite-field proof. These enumerations are not an exhaustive test of all field orders or dimensions. No external independent audit has been performed.
+PASS
+
+Complete RESULT.md proof was reconstructed: image U=im A has dimension r, B -> AB surjects onto Hom(F_q^m,U), with uniform fibers q^{m(n-r)}. Writing domain U plus complement, AB block [[C,D],[0,0]], its nilpotence iff uniform C in M_r(F_q) is nilpotent. The classical exact count q^{r^2-r}, proved again using Fitting decomposition and telescoping C_k factors, yields conditional q^{-r}, including r=0. Averaging by the left kernel |ker A^T|=q^{m-r}, with each nonzero y annihilating all n columns at probability q^{-n}, gives the exact rectangular formula. Artin–Wedderburn and componentwise nilpotence give the semisimple product and matrix/extension-field collision. Independent literal enumeration of all pairs in small prime-field rectangular cases confirmed every conditional rank fiber and aggregate probability. Distinguishes matrices over extension fields from naive integers modulo q.
+
+## originality
+
+PASS
+
+The 2019 single-matrix nilpotence count and direct-product multiplicativity are classical/known and are not novelty. A very recent 2026 Sarma–Subedi preprint studies nilpotent-product probabilities and includes triangular and scalar-diagonal subalgebras. Its accessible abstract/description does not show the uniform rectangular fixed-rank law or full-matrix semisimple formula; its full body was inaccessible. This is a genuine priority risk, not established noncoverage. Best-of-knowledge accepts the fixed-rank rectangular law and explicit semisimple collision conditional on future primary verification; no inaccessible source is automatically treated as a negative proof.
+
+## value
+
+PASS
+
+Nilpotent-product probability is a motivated invariant in finite-ring statistics. The exact rectangular conditional law for arbitrary aspect ratio and field is a reusable ingredient and exhibits unexpected simple symmetry. The semisimple formula reveals that matrix algebras and extension fields cannot be distinguished by this single statistic, a precise limitation on ring recognition. This goes beyond restating the single-operator nilpotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

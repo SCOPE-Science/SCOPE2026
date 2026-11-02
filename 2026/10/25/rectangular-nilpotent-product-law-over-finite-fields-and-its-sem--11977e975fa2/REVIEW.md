@@ -1,19 +1,21 @@
-# Scientific review: rectangular nilpotent-product law
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-For a fixed rank-\(r\) left factor, the product is uniform among endomorphisms whose image lies in the factor's image. Relative to an image-complement splitting, nilpotence is equivalent to nilpotence of a uniform \(r\)-square block. An independent Fitting-decomposition induction establishes the needed count \(q^{r^2-r}\). The left-kernel double count then gives the claimed exact probability without approximation. The finite verifier independently checks fixed-factor counts and aggregate numbers. The semisimple conclusion follows from the established finite simple-ring decomposition and componentwise nilpotence.
+PASS
 
-## Originality — PASS with residual uncertainty
+Complete RESULT.md proof was reconstructed: image U=im A has dimension r, B -> AB surjects onto Hom(F_q^m,U), with uniform fibers q^{m(n-r)}. Writing domain U plus complement, AB block [[C,D],[0,0]], its nilpotence iff uniform C in M_r(F_q) is nilpotent. The classical exact count q^{r^2-r}, proved again using Fitting decomposition and telescoping C_k factors, yields conditional q^{-r}, including r=0. Averaging by the left kernel |ker A^T|=q^{m-r}, with each nonzero y annihilating all n columns at probability q^{-n}, gives the exact rectangular formula. Artin–Wedderburn and componentwise nilpotence give the semisimple product and matrix/extension-field collision. Independent literal enumeration of all pairs in small prime-field rectangular cases confirmed every conditional rank fiber and aggregate probability. Distinguishes matrices over extension fields from naive integers modulo q.
 
-Targeted searches for the nilpotent probability of matrix products, rectangular matrices, and full matrix rings were compared by scope and implication. Sarma–Subedi (2026, arXiv:2610.07892v1) treats nilpotent-product probability of finite rings and explicitly computes triangular and scalar-diagonal subrings, not a uniform full-matrix-pair product law; its Proposition 2.2 already supplies general direct-product multiplicativity and is credited. Leinster (arXiv:1912.12562) treats the count of individual nilpotent operators, not products of independently chosen matrices. The closest identified matrix-factorization records impose idempotence, involutivity or other restrictions on factors rather than two unconstrained independent factors. An implicit equivalence in older random-matrix-product literature remains a genuine risk; absence from searches is not a uniqueness proof.
+## originality
 
-## Value — PASS
+PASS
 
-The motivating probability was recently defined and computed for natural commutative and triangular classes, leaving a structurally important noncommutative comparison. The result supplies one closed two-parameter formula, a stronger rank-conditional fiber statement, and a complete evaluation for all finite semisimple unital rings. The equality with the field of extension degree \(d\) shows a non-obvious collision of this algebraic statistic across nonisomorphic commutative and noncommutative rings. These features give a natural substantive invariant calculation rather than an arbitrarily selected finite sample.
+The 2019 single-matrix nilpotence count and direct-product multiplicativity are classical/known and are not novelty. A very recent 2026 Sarma–Subedi preprint studies nilpotent-product probabilities and includes triangular and scalar-diagonal subalgebras. Its accessible abstract/description does not show the uniform rectangular fixed-rank law or full-matrix semisimple formula; its full body was inaccessible. This is a genuine priority risk, not established noncoverage. Best-of-knowledge accepts the fixed-rank rectangular law and explicit semisimple collision conditional on future primary verification; no inaccessible source is automatically treated as a negative proof.
 
-## Boundaries
+## value
 
-Only semisimple finite rings receive a complete classification here; arbitrary radical extensions are outside scope. Finite enumerations cannot establish the universal assertion, which rests on the supplied proof. Existing unindexed equivalences cannot be ruled out categorically.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Nilpotent-product probability is a motivated invariant in finite-ring statistics. The exact rectangular conditional law for arbitrary aspect ratio and field is a reusable ingredient and exhibits unexpected simple symmetry. The semisimple formula reveals that matrix algebras and extension fields cannot be distinguished by this single statistic, a precise limitation on ring recognition. This goes beyond restating the single-operator nilpotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
