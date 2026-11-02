@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-**PASS.** The explicit theorem is verified with uniform Gaussian exponential bounds after capping, Jensen control of the state-dependent normalizer, an exactly zero-mean normalized increment, a weighted local Milstein expansion and a standard discrete martingale error recursion. The bound \(a(x)\le4/27\) and identity \(x(f^2+a)=gg'\) are algebraic. Exact Brownian Gaussian integration establishes the uncapped comparison threshold. Finite numerical checks are only auxiliary.
+## correctness
 
-## Originality
-**PASS with residual risk.** Full source sections describing equation (26), the positivity theorem, strong order and small-step moment bounds were examined; that scheme has neither clipping of the Gaussian quadratic tail nor the conditional-expectation normalizer. The source's bounded-domain companion and the earlier log-truncated Euler method have different update rules. Similarity searches do not identify an equivalent exact conditional normalization that simultaneously establishes the four asserted properties; earlier analysis of the *uncapped* moment obstruction is acknowledged and not relabeled. Originality is not proven by absence of a search hit, and undiscovered normalized exponential constructions remain a risk.
+PASS
 
-## Value
-**PASS.** The original all-step positivity is compatible with loss of finite numerical moments on coarse meshes and a small but nonzero conditional-mean drift even for driftless exact solutions. Both effects matter for martingale-valued diffusion simulation and moment-sensitive Monte Carlo. A single constructive scheme avoids both while retaining strong first order, with a complete finite-time proof; this is more than a diagnostic normalization calculation.
+For dX=g(X)dB with g=x²/(1+x), f=x/(1+x), a=x²/(1+x)^3, cap C(z)=min(z²,1), Q=exp(fz+(a/2)(C-h)-(f²/2)h), and M_h(x)=E Q(x,sqrt(h)Z)>0. The multiplier Q/M is strictly positive and has conditional mean one. Since |f|≤1 and 0≤a≤4/27, capped exponential tails admit Gaussian moments of every fixed q at every finite h; a Jensen lower bound on M_h(x) uniform in x gives moment induction and genuine martingale, not merely local. At small h the Gaussian tail |z|>1 has exponentially small contribution; Taylor gives a centered Milstein expansion xQ/M=x+gz+(gg'/2)(z²-h)+xρ with Eρ=0, E|ρ|²=O(h³) uniformly. Direct symbolic algebra confirmed x(f²+a)=gg'. Bounded f,a derivatives and Lipschitz g,gg' plus solution moment bounds yield centered Itô–Taylor local error O(h³) in conditional mean-square and global strong order one by discrete Gronwall. The uncapped quadratic Gaussian at x=2 has infinite q-moment for h≥27/(4q); this is a known comparison. Finite quadrature supports but does not certify the stochastic convergence.
 
-## Scope and outstanding limitations
-This is a statement about exact Gaussian normalization on a specific scalar equation. Numerical quadrature normally loses the exact-martingale identity. It does not assert exact sampling of the SDE or strong order on arbitrary large time grids. Related martingale-preserving numerical methods may exist under different terminology.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Bréhier–Cohen (2026) establish positivity and strong order one for the uncapped exponential integrator under small-step moment restrictions. The inspected abstracts and the audited manuscript's explicit formula comparison distinguish the proposed capped z² tail and exact conditional-moment normalization that together give unconditional all-coarse-step moments and true martingality for a specific nonlinear scalar diffusion. Earlier logarithmically truncated Euler and bounded-domain methods preserve different properties and use different formulas; no same four-property single scheme located in Resultary or accessible primary abstracts. Best-of-knowledge PASS with significant uninspected-full-text risk.
+
+## value
+
+PASS
+
+The method resolves a concrete conflict between positivity, exact mean preservation, coarse-step moment existence, and first-order strong accuracy for a motivated nonlinear positive martingale; the exact normalizer caveat is explicit and the scheme is mathematically nontrivial beyond a single routine Euler step.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
