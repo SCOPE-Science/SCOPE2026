@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-Every geometric fixed point has equal barycentric coefficients on each coordinate-transposition orbit. This gives a genuine PL homeomorphism to the orbit-union complex. Direct Hamming-distance comparison yields two copies of the lower-dimensional scale-two Rips complex joined by one edge per lower-dimensional binary word, plus mutually nonadjacent cone vertices. Each cone link deformation-retracts to a two-vertex multigraph with \(m+1\) parallel edges. Its \(m\) independent attaching loops represent the nearest-neighbor edge-difference relations in the free group of the bridge edges. Because the two lower-dimensional Rips complexes are simply connected, attaching cones splits them off and leaves a two-dimensional complex with \(m2^m\) two-cells and \(2^m-1\) eliminable one-cells. Tree-wise cancellation proves the precise integral two-sphere wedge; the previously proved Adamaszek--Adams equivalence supplies the three-sphere terms. The program gives exact independent small-parameter checks, with no claim that they prove the infinite case.
+PASS
 
-## Originality — PASS, with residual priority risk
+The actual orbit-union complex K_m is homeomorphic to the genuine geometric fixed set: an invariant face contributes one orbit-barycenter vertex for each whole orbit in its support, and fixed barycentric weights give the inverse. Direct maximum-Hamming-distance casework shows the orbit graph consists of two VR(Q_m;2) copies joined by 2^m matching A/B bridges, and independent C_z cone vertices, each with link two contractible m-simplices plus m+1 bridge edges, hence m circles. These links attach along difference loops x_w x_z^{-1}. As the lower-cube complexes are simply connected (the published wedge-of-3-spheres theorem, with small m simplices), maps of graph links are determined by these words. Homotopy cofiber reduction and spanning-tree cancellation eliminate the 2^m-1 bridge generators integrally, leaving m 2^m-(2^m-1) 2-spheres and the two existing 3-sphere wedges. Checked small m=1..4 by separately constructing Hamming orbit unions and mod-two boundaries; finite tests do not prove integral homotopy but agree on ranks. No theorem for arbitrary permutations/other radii.
 
-The closest 2026 full-text source (Galetto--Montaño--Wellner, arXiv:2606.20784, introduction, scale-two Theorem 5.4 and discussion) classifies ambient *rational homology representations*. That information does not determine the homotopy type of the fixed-point space. Bendersky--Elia--Grbić, arXiv:2605.00705, studies ambient connectivity and cohomology and does not give a fixed-space splitting. Adamaszek--Adams (arXiv:2103.01040) supplies only the needed ambient scale-two homotopy classification; Feng (arXiv:2305.07084) concerns ambient scale three. A single-coordinate **flip** acts freely on cube vertices, whereas a coordinate transposition has \(2^{n-1}\) fixed cube vertices and a different orbit complex. Published mathematical-record searches using aliases, implication-level questions and the exact proposed sphere ranks returned related ambient/equivariant work but no equivalent fixed-space classification. These searches cannot prove absolute novelty, and indexing gaps remain possible.
+## originality
 
-## Value — PASS
+PASS
 
-Coordinate swaps are elementary generators of the hyperoctahedral symmetry group that motivates the current study of hypercube Rips homology. Their *geometric* fixed loci measure topological behavior not accessible from the ambient representation character alone. The theorem determines all integral homotopy groups up to equivalence for a natural infinite fixed-space family, gives exact exponential \(S^2\) ranks, and reveals mixed-degree homotopy for all \(n\ge5\). It is a structural classification supported by an explicit reusable orbit/attachment model, not an arbitrary numeric slice.
+Best-of-knowledge PASS: the relevant ambient homotopy theorem supplies c_m but not geometric fixed points. The 2026 hyperoctahedral representation theorem gives rational ambient character, which can determine a Lefschetz number but not the integral fixed-space homotopy type; the 2026 Cambridge paper studies ambient connectivity and Tor/cohomology. Neither the latter nor the scale-three paper states the orbit barycenter/cone-link theorem. A coordinate flip has a different orbit structure. Exact and alias Resultary/web queries yielded no dominating geometric transposition-fixed homotopy theorem; this absence alone is not novelty proof. Full text of the representation paper was unavailable in this run, a material priority risk.
 
-## Closest literature and limitations
+## value
 
-The ambient three-sphere counts are already known. No claim is made for other scales, general coordinate permutations, homotopy quotients, or full equivariant homotopy type. Finite checks corroborate but do not establish the general theorem. Independent priority and proof assessment remain desirable.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+A coordinate transposition is an elementary natural hypercube symmetry. The complete all-n integral geometric fixed-space homotopy classification distinguishes exponentially many S^2 summands from the ambient scale-two Rips space, with genuinely mixed S^2/S^3 wedges starting n=5. Its explicit orbit model and integral attaching-word reduction are structural, reusable mathematical information, not a numerical sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
