@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The closure is the intersection of all nonempty grid boxes containing the selected points. Pair-interval saturation gives this closure because it generates coordinatewise meet and join and then the interval between their global extrema. Every nonclosed pair is a pseudo-intent; an alleged larger pseudo-intent is closed under all pair intervals and hence cannot be nonclosed. The per-pair lower bound proves global optimality of the number of implications. The support lemma bounds essential seeds for any target by the grid dimension, balanced binary merging attains the upper round bound, and the unit-vector seeds attain the matching lower bound. Exhaustive small-grid tests independently corroborate the proof, without being used as a substitute for it.
+PASS
 
-## Originality — PASS (qualified)
+PASS: For grid X=product of chains of lengths q_i>=2, pair-interval closure generates the coordinatewise extrema box by meet/join. Every nonclosed pair is a recursive pseudo-intent; larger pseudo-intents are impossible because all constituent pair boxes must be contained. Every valid basis needs one distinct first-firing premise per nonclosed pair; counting nonclosed pairs as all unordered pairs less Cartesian adjacent edges gives the global minimum rule count. For target point z an inclusion-minimal support has <=d seeds for d>=2, each essential seed uniquely charged to a coordinate. Balanced two-block interval merging gives ceil(log2 d) synchronous rounds, and binary unit vectors force that many rounds. d=1 cases checked separately. Direct independent enumeration of 5 small grids, including 256 initial sets for the three-cube, matched every closure and depth. No finite test was treated as all-grid proof.
 
-Relevant comparisons include Baixeries–Napoli 2024 (general minimal versus direct implication bases and algorithms), Buzmakov et al. 2022 (general empirical comparison of concise dependency representations), Bichoupan 2022 (complexity of optimizing bases), and related previously recorded work on two-coordinate Hamming Horn rules. These do not establish the exact discrete coordinate-box pseudo-intents and globally minimum implication count together with the exact optimal worst-case parallel round count for the displayed basis. Mathematical coverage was compared at the level of hypotheses and implications rather than title keywords. Residual risk: an unindexed equivalence in discrete convexity or FCA literature may exist; this review does not establish priority against all literature.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-A natural, fully parametrized formal context has an explicitly solvable minimal-basis problem and a sharp, dimension-dependent sequential bottleneck. The result separates minimizing number of implications from one-round direct derivation and provides a structural support lemma explaining why the depth grows logarithmically; it is not a numerical recomputation or a trivial specialization of a general basis theorem.
+PASS (qualified): DG canonical bases, pseudo-intents and general minimum-versus-direct basis theory are prior. The inspected Baixeries–Napoli article studies general basis selection/implementation; it does not supply the all-chain box pseudo-intent classification, globally minimum rule number, or sharp factor-dimension parallel-round formula. An equivalent result under box-convexity or FCA terminology remains possible.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+PASS: Cartesian box closure is a canonical finite convexity/formal-context example. Explicit global optimum of a basis-cardinality objective paired with a distinct, sharp logarithmic synchronous inference depth supplies a structural benchmark. The small-support lemma and sharp unit-vector construction are mathematically motivated, not merely a tabulated count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

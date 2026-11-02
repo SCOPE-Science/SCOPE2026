@@ -1,0 +1,129 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T10:13:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Reconstructed all four stationary Bloch coefficient equations from the invariant Pauli-string subspace and solved for u,v,s,t with positive denominator. YI, ZI, XY, XZ anticommute pairwise, yielding doubled spectrum (1±k)/4 and 1−k²=Ω1²(r²+Ω2²)/Δ>0. Faithful stationarity plus Lindblad carré-du-champ forces fixed adjoint observables to commute with both first-qubit reset matrix units, hence I⊗C; nonzero J and Ω2 force C scalar, proving uniqueness in the entire 4x4 state space. Spectral projectors of B=(sY+tZ)/m give a positive product-state decomposition, so separability and zero discord measuring the second spin; the nonparallel first-spin Bloch and X correlation axes exclude a first-side rank-one dephasing and give positive first-side discord. Independent full 16x16 generator computations for two nondegenerate parameter sets found rank 15 and verified stationary formula/spectrum. Analytic proof covers all real nonzero J, Ω1, Ω2, r>0.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Rose et al. study full-state resets and general spectral shifts; Dakić–Vedral–Brukner provide general algebraic criterion for zero discord.",
+          "Both admit applications as tools but neither gives this solved selective-erasure driven Ising steady state or the two directional discord conclusions."
+        ],
+        "reasoning": "General quantum Markov/discord structural theorems do not automatically compute u,v,s,t, uniqueness and strict spin-side asymmetry.",
+        "searches": [
+          "one qubit partial reset transverse Ising coupled pair stationary separable discord directional one sided local erasure Markov Lindblad",
+          "arXiv:1806.01298",
+          "arXiv:1004.0190"
+        ]
+      },
+      "checked_sources": [
+        "assigned RESULT.md blob 0d2d0fff11059e7bd9b0f06f46d394b782966cca",
+        "assigned one_sided_reset_verify.py blob 68478619676d882ff0e64ad4309f18012b2a3a65",
+        "arXiv:2307.07485",
+        "arXiv:1004.0190",
+        "arXiv:1806.01298",
+        "Resultary Ising reset semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior global-reset entanglement result concerns different generator.",
+          "Dakić et al. characterize invariance under local dephasing but do not establish that the specific selective-reset fixed point has perpendicular nonzero local/correlation axes."
+        ],
+        "reasoning": "The claimed full-rank stationary formula and conditional discord directions require new generator-specific algebra, not a bare corollary of inspected source statements.",
+        "searches": [
+          "arXiv:2307.07485",
+          "arXiv:1004.0190",
+          "arXiv:1806.01298"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The selective generator r(|down><down|⊗Tr_1 rho−rho) preserves the second marginal at every reset.",
+          "Global reset instead replaces the entire two-spin state with a fixed product state and can create steady entanglement."
+        ],
+        "reasoning": "These are not equivalent superoperators even when Hamiltonians match; comparison used actual reset-channel definitions.",
+        "searches": [
+          "one qubit partial reset transverse Ising coupled pair stationary separable discord directional one sided local erasure Markov Lindblad",
+          "one sided spin reset local dissipative Ising dimer discord separable",
+          "arXiv:2307.07485"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary matches included a different dephasing Ising entropy example and an Ising depolarization correlation threshold, not the same reset channel."
+        ],
+        "reasoning": "A full 4x4 analytic stationary state is not an exact database or numerical-table reuse; null exact search matches are not proof of novelty.",
+        "searches": [
+          "one qubit partial reset transverse Ising coupled pair stationary separable discord directional one sided local erasure Markov Lindblad",
+          "Resultary semantic one-sided reset Ising discord"
+        ]
+      },
+      "rationale": "PASS (qualified): A Poisson global reset of both interacting spins (Kulkarni–Majumdar 2023) is a distinct channel from the selective marginal-preserving first-spin reset. General Markov quantum-reset theory and the known one-sided quantum-discord commutator criterion supply tools but do not evaluate this local Ising generator and directional stationary discord. The closely related global-reset paper was inaccessible in full and a previously published local-reset fixed point remains possible.",
+      "residual_risks": [
+        "Full original 2023 interacting-Ising joint-reset paper not accessible through authorized sources; cannot exclude an appendix on local resets.",
+        "Unindexed selective-erasure master-equation article could derive an equivalent fixed point.",
+        "No claim about singular parameter limits, transients, other Hamiltonians, or experimental reset errors."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SUPPORTING_GENERAL_CRITERION",
+          "evidence": [
+            "Local rank-one dephasing characterization applies to tested rho but does not solve its Ising selective-reset steady state."
+          ],
+          "identifier_or_url": "arXiv:1004.0190",
+          "material_read": "Full open-access PDF, definition, commutator/geometric discord algebraic criteria and examples",
+          "method": "Inspected arXiv PDF including displayed equations",
+          "title": "Necessary and sufficient condition for non-zero quantum discord",
+          "trigger": "Primary mathematical criterion for nonzero one-sided discord"
+        },
+        {
+          "assessment": "PLAUSIBLE_CLOSEST_SOURCE_ACCESS_RISK",
+          "evidence": [
+            "Global resetting both spins to a product state can produce entanglement, unlike first-qubit-only marginal-preserving erasure. Full body not certified noncovering."
+          ],
+          "identifier_or_url": "arXiv:2307.07485",
+          "material_read": "Abstract and bibliographic contents; attempted open-access full PDF and journal full text unavailable",
+          "method": "Read primary abstract; full text inaccessible",
+          "title": "Generating Entanglement by Quantum Resetting",
+          "trigger": "Same interacting driven Ising pair with different reset"
+        },
+        {
+          "assessment": "GENERAL_BACKGROUND",
+          "evidence": [
+            "Reset to a specific global configuration leads to shifted spectral modes; different from partial trace reset term."
+          ],
+          "identifier_or_url": "arXiv:1806.01298",
+          "material_read": "Primary abstract and described reset generator; full paper not independently read",
+          "method": "Abstract and related source comparison",
+          "title": "Spectral properties of simple classical and quantum reset processes",
+          "trigger": "Broad quantum resetting spectral theory"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: It identifies an exact, all-parameter physical boundary: erasing just one driven Ising spin precludes stationary entanglement while preserving strictly asymmetric discord and positive mutual information. Full-rank uniqueness and an explicit separable decomposition make this stronger than a matrix positivity check.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "assigned RESULT.md blob 0d2d0fff11059e7bd9b0f06f46d394b782966cca",
+    "assigned one_sided_reset_verify.py blob 68478619676d882ff0e64ad4309f18012b2a3a65",
+    "arXiv:2307.07485",
+    "arXiv:1004.0190",
+    "arXiv:1806.01298",
+    "Resultary Ising reset semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Full original 2023 interacting-Ising joint-reset paper not accessible through authorized sources; cannot exclude an appendix on local resets.",
+    "Unindexed selective-erasure master-equation article could derive an equivalent fixed point.",
+    "No claim about singular parameter limits, transients, other Hamiltonians, or experimental reset errors.",
+    "Publication is withheld pending public metadata sanitization; this is an operational limitation, not a scientific FAIL.",
+    "No Lean or expert attestation claimed; no GitHub changes or dispatcher closeouts."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification and reproducibility
+# Independent mathematical audit
 
-Run `python3 verify_cyclic_histories.py` with Python 3 and no third-party modules.
+## correctness
 
-Actual checks executed:
+PASS
 
-- Exhaustive scan of all \(n!\) perfect matchings for \(2\le n\le7\), confirming that exactly the cyclic shifts are stable.
-- Exhaustive reachability graph search under all single-agent entry/exit events, permitting repeated events, for \(3\le n\le6\) without a temporary participant. The only full terminal outcomes were the two extreme shifts. The visited state counts were 71, 293, 1,195, and 4,827 respectively.
-- Full augmented entry/exit state searches for \(3\le n\le5\), containing 140, 585, and 2,401 states respectively; the interior shift was reachable.
-- Explicit one-temporary-person construction replayed for every integer \(3\le n\le50\), with stability checked after each event.
+Strict cyclic n-by-n preferences yield exactly all n shift matchings by a minimum displacement and blocking-pair argument. Removing any one terminal man uniquely forces restriction mu_0; removing any woman uniquely forces mu_(n-1). Every return to full market via one terminal entry therefore produces only these two extremes, even after repeated exits. Explicit preference-preserving temporary man t inserted before m_0 in w_0 preferences and women, t, men, exit history reaches mu_1; zero extras impossible. Independent brute-force stable matching and one-deleted submarket census n=3,4,5, plus every-step stable auxiliary history n=3..50. The proof, not finite checks, establishes all n.
 
-The program reported `PASS: 10886 enumerated states, stable-set counts and constructive steps; n=3..50 histories`.
+## originality
 
-These finite checks independently stress-test implementation and boundary cases; the infinite-size statement is proved analytically in RESULT.md. No independent external audit has been performed.
+PASS
+
+Statement-level search and implication audit, not a novelty proof from a failed search. Static rotation-lattice stable matchings differ from dynamic reachability states. Yang earlier allows temporary agents broadly and proves a 3x3 reachability obstruction, but a general existence theorem does not imply optimal one-person count for this family. Cheng entry-only obstruction cannot establish no reachability after arbitrarily many exits; unique one-deleted submarket proof supplies the stronger dynamical obstruction; earlier work is explicitly credited. Best-of-knowledge originality survives with the stated residual risk.
+
+## value
+
+PASS
+
+Historical accessibility of stable outcomes under population changes is a substantive combinatorial issue. This explicit all-n family has n stable states but exact terminal-only reachable fraction 2/n and a sharp one-auxiliary-agent rescue; repeated exits and strict proposal-chain dynamics make the obstruction nontrivial.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

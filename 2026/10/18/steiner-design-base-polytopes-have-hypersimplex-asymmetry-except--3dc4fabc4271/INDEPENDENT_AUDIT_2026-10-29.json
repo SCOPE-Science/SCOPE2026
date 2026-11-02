@@ -1,0 +1,184 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T03:04:38Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md (complete proof), SLOGAN.txt; fetched exact Git blobs at immutable assigned commit",
+        "Edmonds matroid rank-inequality theorem as stated in Hanely et al. arXiv:2201.12442v3 Section 2.3",
+        "Independent verifier: independent_checks.py and independent_checks_output.txt; exact rank check for Fano 7x7 incidence matrix",
+        "Full seven-entry record tree independently reconstructed to f6f17ac91f5e3306bdb0779283f0fb44788b5159"
+      ],
+      "rationale": "For each existing nontrivial S(2,k,n), pair counting gives r(k-1)=n-1, bk=nr and r>=k, so n>=k(k-1)+1>2k and n>=7. The complement of each k-point block has >k points, hence a noncollinear basis triple and zero minimum of x(B); a basis with two points in the block and one outside gives maximum 2. Coordinate minima/maxima are 0,1. The rank-three matroid basis-exchange proof is valid, and Edmonds rank inequalities reduce the complete polytope to x(E)=3, 0<=x_i<=1, x(B)<=2. For reflected inclusion y=((s+1)c-x)/s, coordinate extrema force 1/(s+1)<=c_i<=s/(s+1). Block maximum y(B) from min x(B)=0 forces c(B)<=2s/(s+1). The lower c(B)>=2/(s+1) in the source is redundant but valid, following from the coordinate lower bounds because k>=3; it is not an independent necessary block-facet constraint. Summing coordinate and block constraints over the regular design yields four lower bounds (n-3)/3, 3/(n-3), 3k/(2n-3k), (2n-3k)/(3k). At the uniform center c=3*1/n all constraints hold for s equal to their maximum, so optimization over arbitrary centers is exact. For k=3, n=7 gives 9/5, and n>=9 gives (n-3)/3; for k>=4, n>=3k+1 implies (n-3)(2n-3k)>=9k. Thus the only exception is Fano. Non-Fano optimality saturates all coordinate lower bounds, forcing c_i=3/n; Fano optimality saturates all seven block upper bounds and A^T A=2I+J is invertible, again forcing c=3*1/n. Independent exact tests checked PG(2,2), AG(2,3), PG(2,3) with 28,72,234 bases and rational reflected containment, as well as 39,200 pairs (n,k) in a finite parameter box for the bound comparison. These finite checks are corroboration only; universal claim follows from algebra and matroid polytope characterization.",
+      "residual_risks": [
+        "The lower block-sum bound is redundant; the source proof speaks as if it came from the block inequality, but the equivalence remains correct because coordinate nonnegativity entails it.",
+        "Finite checks validate three designs, not all Steiner designs; no design existence inferred from parameter feasibility.",
+        "No claim about arbitrary rank-three matroids, metric ellipsoids, or non-Steiner paving matroids."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "den Hertog–Pauphilet–Soali, Operations Research 72 (2024), 2135–2152, Proposition 4: general Minkowski-center LP with per-facet support minima, not a symbolic solution for Steiner-design matroids.",
+          "Resultary 2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983, RESULT.md: complete formula for rank TWO matroid base polytopes, not rank three.",
+          "Resultary 2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022, RESULT.md: theorem for full-dimensional polymatroid INDEPENDENCE polytope; explicitly excludes the base-face x(E)=f(E).",
+          "Resultary 2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f, RESULT.md: graphic matroid bases of K_n, not design matroids.",
+          "Hanely et al. arXiv:2201.12442v3 Sections 5,7,8 concern Ehrhart and volume; Ferroni–Schröter arXiv:2310.05487v2 Theorem 2.5 concerns face counts."
+        ],
+        "reasoning": "The published general LP can be specialized to the current polytope but still requires the explicit design-specific rank inequalities, sharp support extrema, and averaging to solve analytically. Neither rank-two base result nor general independence-polytope formula applies to this rank-three base slice; taking a face does not preserve asymmetry. Published Ehrhart/face and graphic cases do not imply the Fano exception or uniqueness without new reasoning. Residual risk of another broader matroid-base symmetry theorem remains.",
+        "searches": [
+          "Web search: matroid base polytope Minkowski asymmetry measure symmetry flat rank subset optimal center",
+          "Web search: Minkowski asymmetry 0/1 polytopes matroid base polytopes formula",
+          "Web search: \"Minkowski asymmetry\" \"matroid base\" polytope",
+          "Resultary semantic query: Minkowski asymmetry and centers of matroid base polytopes, rank three paving matroids from Steiner 2 designs, Fano exceptional symmetry",
+          "Resultary semantic query: general formula for Minkowski measure of symmetry of a matroid base polytope and hypersimplex, determined by flat densities rank inequalities",
+          "Web search: asymmetry of base polytopes submodular function matroid \"Minkowski\" density exact"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2201.12442v3 full relevant HTML: Sections 2.3 and 8",
+        "arXiv:2310.05487v2 full relevant HTML: Theorem 2.5, Example 2.9, Corollary 2.10",
+        "DOI:10.1287/opre.2023.2448 OA PDF: Proposition 4 and Lemma 1 with two screenshot pages",
+        "Published Resultary: rank-two matroid base asymmetry; polymatroid independence polytope Minkowski centers; K_n spanning-tree base centers",
+        "Web searches for general matroid base-polytope Minkowski asymmetry and Fano 9/5; three Resultary semantic searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Edmonds matroid-base rank inequalities, quoted as Eq. (1) in Hanely et al. Section 2.3, imply the HALFSPACE description, not alone the specific extremal reflected-containment factor.",
+          "den Hertog–Pauphilet–Soali Proposition 4 recovers the linear optimization over all facets; the design incidence equation bk=nr and the explicit support maxima/minima solve the optimization in this family.",
+          "Hanely et al. Proposition 8.4 proves equality of Ehrhart polynomials for same design parameters; equality of Ehrhart series does not imply a Minkowski-center formula.",
+          "Ferroni–Schröter Theorem 2.5 proves an f-polynomial formula for split matroids; a numerical f-vector cannot determine a reflected-containment inequality without additional geometry."
+        ],
+        "reasoning": "The current theorem requires the four exact sharp inequalities from unit coordinates and block caps, universal coordinate/block incidence averaging, and Fano incidence matrix invertibility. General LP/halfspace frameworks are known input techniques, but the inspected stronger theorem statements do not explicitly or automatically supply the evaluated all-design classification and unique centers. No false claim that the underlying optimization method or matroid-description theorem is new.",
+        "searches": [
+          "Web search: matroid base polytope Minkowski asymmetry measure symmetry flat rank subset optimal center",
+          "Web search: \"Minkowski asymmetry\" \"matroid base\" polytope",
+          "Resultary semantic query: Minkowski asymmetry and centers of matroid base polytopes, rank three paving matroids from Steiner 2 designs, Fano exceptional symmetry",
+          "Resultary semantic query: general formula for Minkowski measure of symmetry of a matroid base polytope and hypersimplex, determined by flat densities rank inequalities"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Minkowski asymmetry, Minkowski measure of symmetry and optimal reflected homothety refer to the same intrinsic convex-body invariant (den Hertog–Pauphilet–Soali 2023, Proposition 4; source primary PDF p.8).",
+          "Hanely et al., arXiv:2201.12442v3, Section 8 Propositions 8.3–8.4 and Example 8.5: Ehrhart and volume of the exact Steiner-design matroid base polytopes, not reflection dilation.",
+          "Ferroni–Schröter, arXiv:2310.05487v2, Theorem 2.5 and Example 2.9: face vector of split matroid bases, including PG(2,3), not Minkowski center."
+        ],
+        "reasoning": "Checked the equivalent reflection-inclusion and Minkowski-center optimization formulations, including a general robust LP. The published primary works covering precisely the Steiner matroid base polytopes give other invariants. The general LP gives a procedure for any polytope but does not present the specific closed Fano-exception formula or rigidity of centers. No matching evaluated all-design formula found; absence from search alone is not priority proof.",
+        "searches": [
+          "Web search: Steiner system matroid base polytope Minkowski asymmetry Fano plane 9/5",
+          "Web search: \"Minkowski asymmetry\" \"matroid base\" polytope",
+          "Web search: \"measure of symmetry\" \"matroid base polytope\"",
+          "Web search: \"Steiner\" \"Minkowski center\" matroid",
+          "Resultary semantic query: Minkowski asymmetry and centers of matroid base polytopes, rank three paving matroids from Steiner 2 designs, Fano exceptional symmetry",
+          "Resultary semantic query: Steiner system S(2,k,n) matroid base polytope reflection dilation optimal center Fano plane 9/5"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Hanely et al., arXiv:2201.12442v3, Example 8.5 gives the Fano Ehrhart polynomial and Example 8.7 gives normalized volume 232; neither is the asymmetry 9/5.",
+          "Ferroni–Schröter, arXiv:2310.05487v2, Example 2.9 gives a complete PG(2,3) face vector; does not state asymmetry 10/3.",
+          "Resultary semantic search returned rank-two/independence-polytope and unrelated Minkowski-center classifications, not an exact Steiner rank-three base-asymmetry table."
+        ],
+        "reasoning": "Previously published exact data concern different invariants (Ehrhart, normalized volumes, f-vectors) or different polytope families. The current explicit asymmetry values are not a known table lookup in inspected sources. A missing index hit is not conclusive novelty evidence.",
+        "searches": [
+          "Web search: Steiner system matroid base polytope Minkowski asymmetry Fano plane 9/5",
+          "Resultary semantic query: Minkowski asymmetry and centers of matroid base polytopes, rank three paving matroids from Steiner 2 designs, Fano exceptional symmetry",
+          "Resultary semantic query: Steiner system S(2,k,n) matroid base polytope reflection dilation optimal center Fano plane 9/5",
+          "Web search: Steiner matroid polytope \"measure of symmetry\""
+        ]
+      },
+      "rationale": "Best-of-knowledge distinct from general matroid-base Minkowski-center LP, rank-two base-polytope formula, polymatroid independence-polytope density theorem and same-object Steiner-design Ehrhart/face-volume results. The new content is closed exact reflection-dilation factor for all existing nontrivial S(2,k,n), unique uniform center, and sharp Fano exception. Source-level comparison is about implication, not titles or numerical coincidences. Priority not absolute; possible unindexed general base-polytope theorem remains.",
+      "residual_risks": [
+        "Possible existing general explicit theorem for matroid base polytopes under a different name (robust-center, symmetry index, submodular base polyhedron) that specializes to this formula; targeted sources did not reveal one.",
+        "The general robust LP of den Hertog et al. computes a center for each fixed polytope; the argument for symbolic design-wide optimization is elementary once specialized, which limits how much separate novelty is asserted.",
+        "Some bibliographic searches can miss results; no claim of absolute historical priority."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides design matroid definitions, Ehrhart formulas and normalized volume, not Minkowski asymmetry/unique center.",
+          "evidence": "Section 8 lines 824–903, Prop. 8.3–8.4 and Ex. 8.5/8.7: the Fano volume is 232; Section 2.3 lines 142–155: rank inequalities.",
+          "identifier_or_url": "arXiv:2201.12442v3; https://arxiv.org/html/2201.12442v3",
+          "material_read": "Full HTML of Section 8 (Definitions 8.1–8.2, Propositions 8.3–8.4, Examples 8.5, 8.7), introductory coverage, Section 2.3 rank-inequality theorem and Section 7 main volume formula; searched the HTML for Minkowski terminology.",
+          "method": "Read actual arXiv full-text HTML and compare displayed theorem statements; not merely abstract/snippet.",
+          "title": "Ehrhart Theory of Paving and Panhandle Matroids",
+          "trigger": "Defines the exact Steiner-system rank-three paving matroids, including projective planes and Fano."
+        },
+        {
+          "assessment": "Face-enumeration theorem is distinct, not a dominating Minkowski-center classification.",
+          "evidence": "Theorem 2.5 at lines 179–195; PG(2,3) Example 2.9 at lines 238–254; sparse paving Corollary 2.10 lines 255–279.",
+          "identifier_or_url": "arXiv:2310.05487v2; https://arxiv.org/html/2310.05487v2",
+          "material_read": "Full HTML main Theorem 2.5 and its proof, Example 2.9, Corollary 2.10 and introductory description; searched complete HTML page for Minkowski.",
+          "method": "Read arXiv full text HTML and compare the exact f-polynomial and asymmetry questions.",
+          "title": "Face enumeration for split matroid polytopes",
+          "trigger": "Exact matroid family, including projective plane PG(2,3) in Example 2.9 and rank-three paving in Theorem 2.5."
+        },
+        {
+          "assessment": "Gives general exact linear-programming approach and per-facet extrema; no Steiner-specific evaluated factor, Fano exception, or unique optimal center statement.",
+          "evidence": "Proposition 4: maximize lambda with Aw=(1+lambda)b and Cw-lambda delta<=d, where delta_i=min_y C_i y; displayed on p.8. Proposition 4 is an algorithmic framework, not explicit evaluated design classification.",
+          "identifier_or_url": "DOI:10.1287/opre.2023.2448; https://optimization-online.org/wp-content/uploads/2022/01/Minkowski_Final-1.pdf",
+          "material_read": "Primary full-text PDF pp. 8–9, Section 2.3 and Proposition 4, its proof, and the start of Section 2.4/Lemma 1; screenshots of both pages.",
+          "method": "Read primary PDF text and viewed page images (0-index PDF pages 7 and 8).",
+          "title": "Minkowski Centers via Robust Optimization: Computation and Applications",
+          "trigger": "Potential general convex-polytope Minkowski-center theorem with broader coverage."
+        },
+        {
+          "assessment": "Rank two only; current rank-three Steiner-design result is not covered.",
+          "evidence": "Finding: s=max{max_j m_j,(n-2)/2,2/(p-2)} for rank-two matroids with >=3 parallel classes; separate product case p=2.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-minkowski-asymmetry-and-all-centers-of-rank-two-matroid-base-pol--a659b650d983",
+          "material_read": "Complete published RESULT.md, including rank-two formula, full center locus and proof.",
+          "method": "Read full GitHub source through authorized repository access.",
+          "title": "Minkowski asymmetry and all centers of rank-two matroid base polytopes",
+          "trigger": "Same invariant and polytope type; possible dominating family theorem."
+        },
+        {
+          "assessment": "Applies to full-dimensional independence polytopes and not base polytopes x(E)=3; its fractional-arboricity formula cannot be transferred to this face.",
+          "evidence": "Assumptions: P_f={x>=0:x(S)<=f(S)} with no total-rank equality; limitations explicitly exclude its base-face x(E)=f(E).",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022; https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-density-tight-sets-classify-minkowski-centers-of-polymatroid-ind--61dfa226b022",
+          "material_read": "Complete published RESULT.md including proof, specialization, and explicit exclusion of fixed-rank base polytopes.",
+          "method": "Read full GitHub source through authorized repository access.",
+          "title": "Density-tight sets classify Minkowski centers of polymatroid independence polytopes",
+          "trigger": "Potential broader general-matroid Minkowski-asymmetry theorem."
+        },
+        {
+          "assessment": "Graphic bases of complete graphs have a different support set; no implication for Steiner-design rank three.",
+          "evidence": "Stated s(P(K_n spanning trees))=n-1 with center polytope from weighted degrees and exceptional six-vertex cut.",
+          "identifier_or_url": "Resultary 2026/10/11/SCOPE-minkowski-centers-of-complete-graph-spanning-tree-polytopes-and--dd8588f15b8f",
+          "material_read": "Complete published RESULT.md and comparison to independence polytopes.",
+          "method": "Read full authorized GitHub source.",
+          "title": "Minkowski centers of complete-graph spanning-tree polytopes and the exceptional six-vertex cut",
+          "trigger": "Same invariant for another rank-varying matroid base-polytope family."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Actual assigned RESULT.md and design incidence proof",
+        "Hanely et al. arXiv:2201.12442v3, Section 8: naturality of rank-three design matroids",
+        "Ferroni–Schröter arXiv:2310.05487v2: significance of matroid-polytope face invariants",
+        "den Hertog et al. DOI:10.1287/opre.2023.2448: natural role of Minkowski centers"
+      ],
+      "rationale": "The rank-three base polytopes of Steiner systems are a natural, broad design-theoretic class including projective and affine planes and nonisomorphic Steiner triple systems. Their affine-invariant reflection asymmetry and minimizing-center locus are intrinsic geometric invariants not determined by the published Ehrhart/face-vector data. This exact all-design classification shows a stable hypersimplex benchmark despite loss of permutation automorphism symmetry and isolates the seven-point Fano plane as a genuine exceptional boundary. Rigidity of the uniform center is nontrivial when automorphisms need not be transitive. The exact factor and unique center are useful standalone geometry, not merely a known-table value or one-off finite computation.",
+      "residual_risks": [
+        "No classification of generic rank-three matroids or quantitative stability under design perturbations is supplied or required.",
+        "The four-bound optimization is short after known Edmonds inequalities and symmetry incidence counting; the substantive mathematical point is its uniform exact classification and Fano anomaly."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Assigned RESULT.md, SLOGAN.txt, REVIEW.md, AUDIT.json, METADATA.json, VERIFICATION.md, verify.py, with Git blob SHA guards",
+    "Hanely et al., arXiv:2201.12442v3, full-text HTML relevant Sections 2.3 and 8",
+    "Ferroni and Schröter, arXiv:2310.05487v2, full-text HTML relevant Theorem 2.5 and Example 2.9",
+    "den Hertog, Pauphilet, Soali, DOI:10.1287/opre.2023.2448, lawful OA PDF relevant Proposition 4",
+    "Published Resultary records dated 2026-10-11 on rank-two base, independence polytopes, complete-graph spanning tree base"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Scientific priority is best-of-knowledge, not global exhaustive search or formal independence certificate.",
+    "Finite verification is bounded.",
+    "Source text contains historical unperformed independent attestation, retained for accurate source provenance while server update is pending."
+  ],
+  "schema_version": 1
+}

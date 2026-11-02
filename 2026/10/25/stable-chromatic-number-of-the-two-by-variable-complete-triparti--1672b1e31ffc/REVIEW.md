@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The proof defines the stability and graph assumptions, constructs an acyclic orientation whose maximum reachable set has size \(m+3\), and gives a fully quantified two-part lower-bound amplification. Its induction uses a neighbor at each earlier level, properness, and an unavoidable directed envy two-cycle. The base \(K_{2,2,2}\) obstruction is verified by complete enumeration of the \(96\) named-palette proper colorings, including explicit witnesses for its four non-two-cycle cases. The previously published triangular-prism obstruction provides an independent route to the same seed. The induction proves the infinite theorem; finite tests for larger parameters are corroboration only.
+## correctness
 
-**Originality — PASS, with stated risk.** The 2026 foundational paper proves the reachability method, subgraph monotonicity, and the triangular-prism obstruction; those components, and the resulting \(m=2\) case, are credited. The indexed prior research record proves the single \(K_{2,3,3}\) case (and implies its one-sided enlargements), not the all-\(m\ge4\) formula. The new contribution is the two-part amplification lemma and the sharp infinite two-parameter classification. The full prior record was inaccessible and terminology-based duplication cannot be excluded.
+PASS
 
-**Value — PASS.** This is an exact classification throughout a natural family with unbounded part sizes and a sharp general upper bound. The lifting principle explains why finite preference-cycle obstructions propagate linearly under paired part growth; this behavior is not supplied by the general Grundy lower bound and is mathematically more substantial than another isolated small example.
+The part-directed acyclic orientation gives maximum reachable-set size m+3. A two-part augmentation lemma shows adding q vertices to each of two parts forces q additional palette colors: level-i rankings forbid every level-i vertex color <i by an envy 2-cycle, and forbid the core colors <=q. An explicit K222 seed profile exhausts all 96 proper 4-color assignments, 92 with envy 2-cycles and four with 3-cycles. Independent pure Python enumeration recovered exactly these numbers and exceptional color vectors, so the seed holds; induction and subgraph monotonicity yield all m,n.
 
-**Sources and limits.** Koana–Oh–Yoneda, arXiv:2609.00569v1, §§2–3 and Appendix A; October 4, 2026 published \(K_{2,3,3}\) research record. No independent audit is asserted, no full-text noncoverage claim is made for the inaccessible record, and the result does not cover arbitrary complete multipartite part sizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Koana–Oh–Yoneda defines this exact invariant, proves reachability upper bound, subgraph monotonicity and a prism obstruction implying K222>=5; published K233=6 is prior. Neither identified statement gives the two-part amplification to all m>=4. Relevant full Koana paper could not be retrieved (OA attempt and Oxford VPN disconnected), leaving a nonzero priority risk but no strong identified coverage.
+
+## value
+
+PASS
+
+An exact infinite-family preference-stable coloring threshold for complete tripartite graphs is a natural combinatorial invariant. A general lower-bound amplification lemma provides structurally reusable content beyond isolated small examples; its value is not based on 96-case enumeration alone.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

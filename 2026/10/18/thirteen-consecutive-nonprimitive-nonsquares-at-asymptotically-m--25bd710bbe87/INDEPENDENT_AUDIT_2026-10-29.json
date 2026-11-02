@@ -1,0 +1,207 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:08:06Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md and SLOGAN.txt at immutable Git commit; actual complete seven-file tree SHA matched.",
+        "Independent exact modular exponentiation, p primality, finite odd-degree tests and ell=3,5,7 Euler product checks, see independent_checks.py/output.",
+        "Analytical group-order and Euler-product argument reconstructed; no extrapolation from finite check results."
+      ],
+      "rationale": "At p=65537 (prime by exact trial division), every a=46256,...,46268 has a^16384 in {256,65281} and its square equals -1 mod p; thus a^32768=-1 and a has exact order 2^16=p-1, since the ambient prime-field multiplicative group is of order 2^16. Odd-degree M_m=(p^m-1)/(p-1) is odd; therefore the same a has order p-1<q-1, so nonprimitive, and a^((q-1)/2)=(-1)^M_m=-1, so nonsquare. For odd prime degrees ell, the odd repunit M_ell has only prime divisors r with ord_r(p)=ell and thus r≡1 mod ell; factoring q-1=2^16 M_ell gives theta=1/2∏(1-1/r). Since their count s<ell logp/log(ell+1), 0<1/2-theta<ell logp/[2(ell+1)log(ell+1)]→0. For ANY odd finite field theta≤1/2 and equality eliminates all NSNP elements; hence sharp unattained supremum 1/2 for each 3≤k≤13. Boundaries: m is any odd integer≥3 for the block; ell ranges only odd rational primes for convergence; characteristic p>13 ensures distinct additive constants; m=1 not included.",
+      "residual_risks": [
+        "The analytic bound is crude for small ell, but the asymptotic conclusion is valid as ell grows.",
+        "The theorem does not determine max possible consecutive NSNP length in all finite fields, nor the distribution of such blocks, nor a rate along all odd composite degrees.",
+        "No Lean formalization or outside expert attestation, which is not needed for this independently reconstructed argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zhou-Wu Corollary 2.3: q>(k-1)^2(2r)^(2k) with odd r|q-1 and char≥k suffices for k NSNP, but does not guarantee this q-dependent condition for all odd 65537^m.",
+          "Zhou-Wu theta<4/15 and theta<8/35 hypotheses fail asymptotically for theta→1/2.",
+          "The primitive-element general existence theorem concerns primitive elements in the ambient field, not their failure of ambient primitivity in extension fields."
+        ],
+        "reasoning": "Considered general character-sum sufficient results, primitive-root run theorems and subfield-lifting equivalences. Even the general k-tuple criterion does not show a specific fixed interval persists for all odd m or give its sharp 1/2 high-density supremum. A hypothetical stronger general lifting theorem could cover the reasoning, and remains a documented priority risk.",
+        "searches": [
+          "thirteen consecutive primitive roots modulo the Fermat prime 65537 and nonsquare nonprimitive odd extension fields primitive density approaches one half",
+          "runs of consecutive primitive elements finite fields exact length 13 upper primitive density",
+          "arXiv:2607.17267 Theorem 2.2 / Corollary 2.3",
+          "arXiv:1410.6210 Theorem 2",
+          "GitHub SCOPE2026 code query: primitive density"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2607.17267 (Zhou and Wu, Consecutive non-square non-primitive tuples in finite fields)",
+        "arXiv:2604.21429 (Cohen, Consecutive non-square non-primitive pairs in a finite field; updated version Oct 25 2026)",
+        "arXiv:1410.6210 (Cohen, Oliveira e Silva, Trudgian, On consecutive primitive elements in a finite field)",
+        "arXiv:2402.10737 (Cohen, Triples and quadruples of consecutive squares or non-squares in a finite field)",
+        "OEIS A136806 (complete table of primitive roots modulo 65537)",
+        "OEIS A002308 (longest nonresidue run sequence; limited to quadratic character, not NSNP)",
+        "Three actual Resultary semantic queries, 17/17/16 returned findings, none relevant enough to read as a covering theorem",
+        "Three GitHub SCOPE2026 repository code searches (non-square non-primitive, primitive density, 65537), no results, indexing limitations apply"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Cohen pair thresholds do not imply any length-13 tuple, and its theta≤1/3 sufficient assumptions do not imply theta approaching 1/2.",
+          "Zhou-Wu general sufficient k-run Corollary 2.3 is conditional on r dividing q-1 and a large-q numerical inequality; its applicability to the stated field family uniformly in m is not established by that theorem alone.",
+          "The preexisting OEIS table, combined with elementary known subfield facts, makes the proof potentially a short consequence of known facts, but this exact combined high-density result was not located in inspected prior literature."
+        ],
+        "reasoning": "An implication comparison goes beyond matching formulas or titles: a small-theta guarantee and a known prime-field primitive-root list do not each by themselves supply the field family plus theta→1/2. Combining the table with standard finite-field order and Euler estimates is possible, but not identified as an already-stated classification; priority remains conditional on possible earlier combined lifting arguments.",
+        "searches": [
+          "arXiv:2607.17267 full theorem and corollary comparison",
+          "arXiv:2604.21429 complete pair theorem comparison",
+          "arXiv:1410.6210 full primitive run theorem",
+          "OEIS A136806 table",
+          "Resultary consecutive non-square non-primitive elements finite fields density threshold arbitrary length prime subfield lifting 65537"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "An NSNP element is a nonsquare with multiplicative order smaller than q-1; its fraction among field elements is 1/2-phi(q-1)/(q-1).",
+          "The 13 prime-subfield elements have order 65536 in F_(65537^m), while being nonsquares for odd m.",
+          "Zhou-Wu defines the same NSNP predicate but proves universal sufficient inequalities rather than this high-theta family."
+        ],
+        "reasoning": "Compared primitive roots in the Fermat prime, their nonprimitive lifting to odd-degree extensions, primitive-density maximization, and long consecutive nonsquare blocks. The tuple is not newly tabulated; extension persistence and the sharp density boundary are not directly the same as primitive-root list or low-theta sufficient guarantee.",
+        "searches": [
+          "thirteen consecutive primitive roots modulo the Fermat prime 65537 and nonsquare nonprimitive odd extension fields primitive density approaches one half",
+          "consecutive non-square non-primitive elements finite fields density threshold arbitrary length prime subfield lifting 65537",
+          "GitHub SCOPE2026 code query: non-square non-primitive",
+          "OEIS A136806",
+          "arXiv:2607.17267 §1 and §2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A136806 already enumerates the entire set of 32768 primitive roots modulo 65537, hence includes the finite range 46256..46268.",
+          "An independent exhaustive scan of all 1≤a≤65536 found maximum ordinary consecutive primitive-root run length 13 and four starts: 19269,26975,38550,46256; this is a check of known finite data, not new science.",
+          "Zhou-Wu Appendix A concerns exception tables for their existence criteria rather than the sequence of field orders 65537^ell with a fixed 13-run."
+        ],
+        "reasoning": "The prime-field witness is an extraction from pre-existing finite residue data, so its mere computation is NOT claimed as original. The joint theorem additionally requires order persistence in odd extensions and a nontrivial asymptotic Euler-product argument, neither stated by the table.",
+        "searches": [
+          "OEIS A136806: primitive roots modulo 65537",
+          "OEIS A002308: longest runs of quadratic nonresidues",
+          "runs of consecutive primitive elements finite fields exact length 13 upper primitive density",
+          "arXiv:2607.17267 Appendix A"
+        ]
+      },
+      "rationale": "Best-of-knowledge: prior work gives general sufficient NSNP criteria and low-density thresholds, and OEIS already tabulates the exact 65537 primitive roots. The audited mathematical contribution is the paired high-density infinite-field construction plus sharp unattained density supremum for 3≤k≤13; that implication was not identified in the fully inspected primary statements or indexed published results. The existence of the known finite table is credited and no uniqueness/absolute priority is asserted.",
+      "residual_risks": [
+        "A published or folklore subfield-lifting plus maximal-density argument might already state essentially the same result under different terminology.",
+        "A136806 tabulates the finite primitive-root interval; that portion is prior known data, and any valuation of novelty must rest on the infinite extension/limiting-density combination.",
+        "No literature search is exhaustive; negative semantic/code-search results cannot certify novelty. The latest full papers inspected may have further implications overlooked in this comparison.",
+        "No independently formalized proof or external expert priority attestation is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Not identified as covering fixed 65537^m odd-extension construction or sharp high-density supremum. Crucial nuance: Corollary 2.3 does establish a sufficient k-tuple condition q>(k-1)^2(2r)^(2k) for an odd prime r|q-1 and char q≥k; r depends on q, and the condition is not shown to hold for all odd degrees in the submitted family. Small-theta Theorems 1.1-1.2 do not apply as theta tends to 1/2.",
+          "evidence": [
+            "Theorem 1.1: theta<4/15 guarantees triples, Theorem 1.2: theta<8/35 guarantees quadruples (with stated cases).",
+            "Corollary 2.3: if q>(k-1)^2(2r)^(2k), with specified odd prime r|q-1 and characteristic≥k, then a k-term NSNP block exists; no fixed 65537 13-term interval or theta→1/2 family stated.",
+            "Appendix A catalogs finite exceptional fields under specific sufficient hypotheses."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2607.17267",
+          "material_read": "Full accessible arXiv HTML article: introduction and Theorems 1.1-1.2; Section 2 Theorem 2.2, Corollary 2.3 general large-q sufficient criterion; proof context and Appendix A finite exceptions.",
+          "method": "Read primary full-text HTML with theorem-by-theorem mathematical implication comparison, supplement PDF metadata.",
+          "title": "Consecutive non-square non-primitive tuples in finite fields",
+          "trigger": "Same NSNP object and general existence criteria for runs of length k; potential broad domination of the claim."
+        },
+        {
+          "assessment": "Pair results establish existence and thresholds around theta≤1/3 subject to qualifications, not a 13-term block nor theta tending 1/2.",
+          "evidence": [
+            "Theorem 1.1 concerns pairs under theta<1/3 plus boundary cases; Theorem 1.2 refines the pair problem.",
+            "Under theta=1/2, all nonsquares are primitive; 13 consecutive nonprimitive nonsquares require a strict deficit."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2604.21429",
+          "material_read": "Accessible full 13-page primary PDF, abstract/introduction, Theorems 1.1-1.2 and their hypotheses, later proof and finite-field tables.",
+          "method": "Full-text PDF reading and visual first-page inspection; compare precise quantitative antecedents and consequent.",
+          "title": "Consecutive non-square non-primitive pairs in a finite field",
+          "trigger": "Most direct NSNP foundational paper and possible theorem/corollary encompassing high-density fields."
+        },
+        {
+          "assessment": "General existence of consecutive primitive elements in sufficiently large prime powers does not identify this concrete 13-term interval modulo 65537 nor imply it remains nonprimitive in extensions where theta approaches one-half.",
+          "evidence": [
+            "Their main theorem guarantees n consecutive primitive elements above effective lower bounds; no fixed p=65537 13-term witness or extension-density extremal formula identified.",
+            "Being primitive in F_65537 is consistent with being nonprimitive in F_(65537^m) for m>1."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1410.6210",
+          "material_read": "Accessible full 10-page primary PDF: definitions, general sufficient q>q0(n) theorem, computational tables, proof and concluding remarks.",
+          "method": "Read PDF full text and visually inspect the opening page; compare finite-field primitivity with ambient-extension nonprimitivity.",
+          "title": "On consecutive primitive elements in a finite field",
+          "trigger": "Same finite modular primitive-root run, possible universal run-length theorem or an exact listing of length 13."
+        },
+        {
+          "assessment": "Counts square/nonsquare status for lengths three and four, not 13 elements with simultaneous nonprimitivity nor an extremal density family.",
+          "evidence": [
+            "Results are about quadratic character patterns; nonprimitivity requires additional multiplicative order restrictions.",
+            "Theorem lengths at most four do not establish a specified 13-consecutive-element block."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2402.10737",
+          "material_read": "Accessible complete 12-page primary PDF: abstract/introduction, main theorems, triple and quadruple character-sum calculations.",
+          "method": "Full-text PDF with first-page screenshot; distinguish quadratic-character conditions from multiplicative primitivity.",
+          "title": "Triples and quadruples of consecutive squares or non-squares in a finite field",
+          "trigger": "Potentially stronger exact enumeration of consecutive nonsquare strings that might imply NSNP cases."
+        },
+        {
+          "assessment": "The finite certificate is already implicit in a published complete primitive-root table and cannot be claimed as a new standalone table entry. However, the OEIS page does not state the odd-extension NSNP lift or sharp primitive-density supremum.",
+          "evidence": [
+            "A136806 enumerates all 32768 primitive roots mod 65537; the constructed 13 values belong to that set.",
+            "Finite-table coverage is not equivalent to the simultaneous infinite extension and theta-limit result."
+          ],
+          "identifier_or_url": "https://oeis.org/A136806",
+          "material_read": "Public OEIS sequence page and full b-file list documenting the primitive roots of 65537.",
+          "method": "Read sequence definition and supplied complete table/list, compare range 46256..46268 to independently computed primitive residues.",
+          "title": "Primitive roots modulo 65537",
+          "trigger": "Exact database/table check: finite primitive-root interval may be known as a subsequence."
+        },
+        {
+          "assessment": "No returned result directly addressed 65537 primitive-root runs, nonprimitive odd-extension persistence or the theta=1/2 supremum. Index silence is not evidence of universal novelty.",
+          "evidence": [
+            "Queries: thirteen consecutive primitive roots modulo the Fermat prime 65537 and nonsquare nonprimitive odd extension fields primitive density approaches one half",
+            "consecutive non-square non-primitive elements finite fields density threshold arbitrary length prime subfield lifting 65537",
+            "runs of consecutive primitive elements finite fields exact length 13 upper primitive density"
+          ],
+          "identifier_or_url": "Resultary semantic searches; query IDs recorded in four originality fields",
+          "material_read": "Ranked titles, summaries, scores and links for three actual semantic searches (17,17,16 hits), not full text of unrelated hits.",
+          "method": "Semantic search of available published mathematics; inspected returned records for same-object and stronger-coverage candidates.",
+          "title": "Resultary published mathematical findings index",
+          "trigger": "Check adjacent published SCOPE results, alternate titles and stronger finite-field theorems."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "RESULT.md final statement with quantified extremum over all odd prime powers.",
+        "OEIS A136806 prime-root table and independent exhaustive max-length-13 verification.",
+        "Zhou-Wu and Cohen NSNP density-existence context and primary-paper comparisons."
+      ],
+      "rationale": "The invariant theta_q and NSNP run-existence threshold are natural in finite-field multiplicative combinatorics. The theorem supplies a sharp but unattained HIGH-density extremum for 11 block lengths 3 through 13, showing a vanishing ambient fraction of NSNPs can retain a fixed run of 13; it clarifies the conceptual distinction between universal low-density guarantees and extremal high-density counterexamples. The finite witness is already available in an established primitive-root table, so the contribution is the uniform odd-extension persistence and sharp infinite-family density boundary, not a new primality table, novel algorithm or generic textbook lemma. The independently checked maximum length 13 in this PARTICULAR prime field motivates the natural cutoff; no maximality across all fields is asserted. This is an exact self-contained extremal result, not a claim to solve general longest-run growth.",
+      "residual_risks": [
+        "The finite base witness and lifting technique are elementary/known ingredients; the value judgment depends on the distinct extremal synthesis, not independent novelty of each component.",
+        "No bound on maximal NSNP run length across arbitrary fields and no claim of optimized density convergence rate."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2607.17267 (Zhou and Wu, Consecutive non-square non-primitive tuples in finite fields)",
+    "arXiv:2604.21429 (Cohen, Consecutive non-square non-primitive pairs in a finite field; updated version Oct 25 2026)",
+    "arXiv:1410.6210 (Cohen, Oliveira e Silva, Trudgian, On consecutive primitive elements in a finite field)",
+    "arXiv:2402.10737 (Cohen, Triples and quadruples of consecutive squares or non-squares in a finite field)",
+    "OEIS A136806 (complete table of primitive roots modulo 65537)",
+    "OEIS A002308 (longest nonresidue run sequence; limited to quadratic character, not NSNP)",
+    "Three actual Resultary semantic queries, 17/17/16 returned findings, none relevant enough to read as a covering theorem",
+    "Three GitHub SCOPE2026 repository code searches (non-square non-primitive, primitive density, 65537), no results, indexing limitations apply",
+    "Entire seven-file assigned Git source snapshot including exact repository RESULT.md and verify.py"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Finite-field witness is already implicit in OEIS A136806 and not newly discovered primitive-root data.",
+    "Scientific priority remains qualified by possible general subfield-lifting results combining known data.",
+    "No global maximal-length claim and no density-limit assertion for all odd extension degrees.",
+    "Publication change-set ready but not applied. External Lean/expert-verification channels untouched."
+  ],
+  "schema_version": 1
+}

@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,14 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Run `python3 verify.py` with Python 3.9 or later; the checker uses only the standard library.
+# Independent mathematical audit
 
-The checker directly tests the exterior multiplication map over \(\mathbb F_3\) on representatives with centralizer dimensions \(48,57,58,60,63,64\), and on forty deterministic random odd elements. It independently exhausts the \(2^{20}\) possible \(3\)-vectors over \(\mathbb F_2\) solely to check the dimension-independent incidence trichotomy \(k\in\{0,1,3\}\) and its Gaussian counts at \(q=2\). It also checks exact row totals and the rational commuting-probability formula for \(q=3,5,7\).
+## correctness
 
-Expected successful output:
+PASS
 
-`ALL_EXTERIOR_SIX_CENTRALIZER_CHECKS_PASSED [992496, 54684, 0, 1395, 0, 0, 1] [('nonzero degree one', 48), ('zero wedge-annihilator trivector', 57), ('one-dimensional wedge-annihilator', 58), ('decomposable trivector', 60), ('pure nonzero five-form', 63), ('zero odd part', 64)]`
+Even summand of dimension 32 is central and odd commutator is twice wedge product. A nonzero degree-one part yields wedge kernel dimension 16 by homogeneous equations. Otherwise nonzero trivectors yield odd kernel 25+k(alpha), where k(alpha) in {0,1,3}; incidence of annihilating lines and decomposable 3-spaces yields D0,D1,D3. Pure fifth degree yields 31, zero gives 32. Direct independent SymPy simplification verifies row total q^64 and exactly the stated commuting-probability rational function, evaluated exactly at q=3,5,7.
 
-The finite characteristic-two computation is not a commutativity test: in characteristic two the entire exterior algebra is commutative, so the theorem explicitly excludes it. Finite computations cannot prove the all-odd-field claim. The proof is the five-step reduction and incidence enumeration in `RESULT.md`.
+## originality
+
+PASS
+
+Maximal commutative-subalgebra dimension, six-dimensional trivector orbit classification and general ring-commuting theory predate this result; the submitted new output is the elementwise dimension distribution and exact commuting probability in all odd q. The checked works do not state this joint distribution.
+
+## value
+
+PASS
+
+An element-centralizer dimension distribution and commuting probability are intrinsic algebra invariants of a canonical finite family. The six-value spectrum and precise arithmetic frequencies enable comparisons beyond maximal commutative-subalgebra dimension; the invariant is motivated, not an arbitrary slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

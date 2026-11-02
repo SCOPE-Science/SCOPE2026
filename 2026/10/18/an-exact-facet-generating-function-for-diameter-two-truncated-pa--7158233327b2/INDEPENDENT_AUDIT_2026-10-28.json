@@ -1,0 +1,216 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:58:32.610580Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/an-exact-facet-generating-function-for-diameter-two-truncated-pa--7158233327b2/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/an-exact-facet-generating-function-for-diameter-two-truncated-pa--7158233327b2/REVIEW.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/cbd61aab71e4f01d305014a9520f769db8108742/2026/10/18/an-exact-facet-generating-function-for-diameter-two-truncated-pa--7158233327b2/verify_capped_path.py",
+        "/mnt/data/scope_worker_08_20261028T2154_work/independent_checks.py",
+        "/mnt/data/scope_worker_08_20261028T2154_work/independent_checks_output.txt",
+        "SymPy independent symbolic factor/residue evaluation; original 7 Git blobs all read at the designated commit"
+      ],
+      "rationale": "The dual Lipschitz polytope has dimension n-1; a feasible f is extreme exactly when its saturated-edge incidence vectors span rank n-1, equivalent to a connected tight graph. Every such graph has edge height differences 1 or 2, hence integer heights after normalization, and range 1 or 2 by diameter. Range-one words require all n-1 adjacent pairs to alternate, giving exactly two. Range-two words contain both 0 and 2, never adjacent; all 0-to-2 pairs give a connected tight complete bipartite core. Each height-one vertex must attach via an adjacent extremal symbol, equivalently interior 1-runs of length <=2 and endpoint runs <=1; this is both necessary and sufficient. Unique maximal colored 0/2 blocks, internal 1-runs marked z+z^2 and optional endpoint 1s give the all-color GF (1+z)^2 2R/(1-2RS) with R=z/(1-z); subtract two monochrome classes (1+z)^2 2R/(1-RS). The difference simplifies to the stated rational H and adds 2z^2/(1-z). A(z)=1-z-2z²-2z³ has a unique smallest-modulus simple zero rho>0 by positivity and aperiodicity, with B(rho)=rho²+rho³>0. Therefore F_n~C rho^-n with lambda=1/rho and C=-2rho^3(1+rho)^3/(rho A’(rho)B(rho)). Boundary n=2,3 and polarity are explicitly accounted for.",
+      "residual_risks": [
+        "Exhaustive finite enumeration n=2..10 checks implementation and base cases only; it does not by itself prove the all-n theorem.",
+        "No formal Lean proof or independent external expert attestation is claimed; this review reconstructs a conventional mathematical proof."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gordon-Petrov Theorem 1 requires a generic metric. Here d(1,3)=d(1,2)+d(2,3)=2, so strict triangle inequalities fail.",
+          "Delucchi-Hoessly exact f-vector result is stated for tree-like metrics. Capped-path four-point sums are 2,4,3, not two equal largest sums.",
+          "Bredies et al. Theorem 2.2 is a broad extremality criterion, not a formula; Alexander et al. abstract addresses volume product/isometry rather than cap-two counts.",
+          "The graph-metric L0 and L1 families listed by Çelik et al. do not contain the capped path with complete length-two nonadjacent pairs."
+        ],
+        "reasoning": "The strongest inspected exact-count families do not satisfy the cap-two path hypotheses. Broader structural criteria can support the new proof, but do not yield the claimed rational series without a separate nontrivial language classification.",
+        "searches": [
+          "Gordon-Petrov 2017 generic f-vectors full primary publisher HTML",
+          "Delucchi-Hoessly 2020 tree-like metric f-vectors university repository abstract",
+          "Bredies et al. 2024 extreme Lipschitz maps full primary publisher HTML",
+          "Alexander et al. 2020 finite metric geometry preprint abstract",
+          "Çelik et al. Wasserstein distance to independence models Section 4 search excerpt"
+        ]
+      },
+      "checked_sources": [
+        "Gordon–Petrov (2017), Combinatorics of the Lipschitz Polytope, https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/17-63/index.html",
+        "Bredies–Chirinos Rodriguez–Naldi (2024), Theorem 2.2, https://link.springer.com/article/10.1007/s00013-024-01978-y",
+        "Delucchi–Hoessly (2020), tree-like scope, https://susi.usi.ch/global/documents/308717",
+        "Alexander–Fradelizi–García-Lirola–Zvavitch (2020), preprint abstract https://www.alphaxiv.org/abs/1911.10642",
+        "Çelik et al. (2020), Section 4 excerpt, https://doi.org/10.1016/j.jsc.2020.10.005",
+        "Resultary/2026: 3bd6d7048744, 5c07b142df09, e855a74da4ce full RESULT.md documents",
+        "Three actual Resultary semantic queries, multiple targeted web searches including exact coefficients"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The matching theorem assumes all shortened distance-one edges are disjoint; the path has overlapping adjacent short edges.",
+          "Complete multipartite or bipartite metrics require a complete cross-part distance-one graph. For n>=4, the distance-one graph P_n is neither.",
+          "General tight-graph rank criterion alone does not specify allowed 0/1/2 word patterns or evaluate the rational series.",
+          "Tree-like and generic metric theorems are ruled out by explicit four-point and tight-triangle witnesses."
+        ],
+        "reasoning": "The conclusion is not a corollary of broader special-family formulas or an unnamed parameter re-labeling; the core–pendant connected-tight-word decomposition and restricted-language counting are additional content. The known small n and tight-graph lemma are credited.",
+        "searches": [
+          "Read complete Resultary matching-shortened-pairs RESULT.md",
+          "Read complete Resultary multipartite interpolation RESULT.md",
+          "Read complete Resultary complete-bipartite snowflake RESULT.md",
+          "Gordon-Petrov Lemma 1 and Theorem 1; Bredies et al. Theorem 2.2",
+          "Resultary search: facet generating function of Lipschitz polytopes for special finite metrics tree matching multipartite graph path cap"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Facet(B_{F(M)})=vertices(B_{Lip_0(M)}) by polarity, and extremality is equivalent to connected tight-edge graph (Gordon-Petrov Lemma 1; Bredies et al. Theorem 2.2).",
+          "For this metric, connected graphs force an integral 0/1/2 height word; the submitted extremal-word condition is a special-case classification beyond the general criterion.",
+          "No equivalent cap-two all-n formula appeared among the Resultary top hits or targeted indexed sources."
+        ],
+        "reasoning": "Equivalent polar dual vertex counts, saturated-edge connectivity, integer-height word languages and KR facets were compared as identical mathematical questions; the cited general theorems describe vertices implicitly but do not state the all-n rational series.",
+        "searches": [
+          "Resultary semantic query: number of facets vertices of Lipschitz-free unit ball Lipschitz polytope for truncated path metric d(i,j)=min(|i-j|,2) all n exact rational generating function",
+          "Resultary semantic query: diameter two path graph truncated path integer Lipschitz potentials connected tight graph words enumeration 2 4 12 32 84 216",
+          "Web search: Lipschitz polytope graph metrics path diameter two vertices faces",
+          "Gordon-Petrov publisher Theorem 1 and Lemma 1",
+          "Bredies-Chirinos Rodriguez-Naldi Theorem 2.2"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No indexed exact coefficient table or equal generating function was returned in the actual targeted searches; this is not proof of absence.",
+          "Published disjoint shortened pairs have count 3^k(2^(n-k)-2), a different metric family; multipartite exact endpoint formulas differ.",
+          "Independent direct tight-edge enumeration reproduces n=2..10 counts 2,4,12,32,84,216,536,1304,3124."
+        ],
+        "reasoning": "A matching database count, sequence alias or all-n rational form would dominate novelty even under different terminology. The actual queries were negative for that formula; none of the examined exact tables has the same objects. Residual unindexed-table risk is retained.",
+        "searches": [
+          "Web search exact terms: \"2, 4, 12, 32, 84, 216, 536, 1304\"",
+          "Web search exact terms: \"12, 32, 84, 216, 536, 1304, 3124\"",
+          "Web search: \"1-z-2z^2-2z^3\" \"Lipschitz\"",
+          "Resultary semantic queries with full formula and first coefficients",
+          "Published Resultary matching, multipartite and bipartite exact facet theorems"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the all-length cap-two path facet generating function and exponential growth base, not for the general tight-edge criterion. Direct full-text comparisons locate no dominating result: generic, tree-like, complete bipartite/multipartite and disjoint-short-pair theorems have rigorously different hypotheses. Unindexed exact formulas and fuller inspection of broad sources remain explicit priority risks.",
+      "residual_risks": [
+        "The absence of a database or web match cannot exclude differently named, older, unindexed enumerations.",
+        "The broader 2019/2020 Alexander et al. paper and the Delucchi–Hoessly paper were not inspected in full during THIS run, so negative claims about their entire documents are withheld; the latter explicit tree-like hypotheses do not cover this nontree family.",
+        "The Çelik et al. section was available only in an excerpt, not enough for a whole-paper noncoverage claim.",
+        "A general polytope/automatic-language result may allow derivation of the same generating function, but no directly covering theorem was found in the material read."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 1 is for generic metrics and Lemma 1 gives the saturated-graph dimension. The capped path has tight triangle equalities, so is nongeneric; no all-n cap-two word count was found in inspected sections.",
+          "evidence": [
+            "Theorem 1 genericity hypothesis; Lemma 1 dimension n-c; Theorem 3 admissibility; https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/17-63/index.html"
+          ],
+          "identifier_or_url": "https://armj.math.stonybrook.edu/html-articles/Files-2015-2024/17-63/index.html",
+          "material_read": "Publisher HTML introduction, Section 2 Lemma 1 and Theorem 3, Section 3 generic-metric enumeration, later theorem and references; examined mathematical statements and proof portions.",
+          "method": "publisher-hosted open-access HTML close reading",
+          "title": "Combinatorics of the Lipschitz Polytope",
+          "trigger": "Strong general face-count formula and admissible tight graphs"
+        },
+        {
+          "assessment": "Theorem 2.2 equates extremality with tight paths from the basepoint, equivalent to tight-edge connectivity. It does not state the cap-two path word classification, series or asymptotic; it remains an essential credited tool.",
+          "evidence": [
+            "Theorem 2.2 (ext Lip_0^1 = E), Lemma 2.1; https://link.springer.com/article/10.1007/s00013-024-01978-y"
+          ],
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s00013-024-01978-y",
+          "material_read": "Open-access publisher HTML introduction and Section 2, Lemma 2.1, Theorem 2.2 and proof, Section 2.3 and references.",
+          "method": "primary open-access full-article HTML; theorem and proof close reading",
+          "title": "On extreme points and representer theorems for the Lipschitz unit ball on finite metric spaces",
+          "trigger": "Possible dominating extremal-function characterization"
+        },
+        {
+          "assessment": "Its reported exact face-number scope is tree-like metrics. The cap-two path fails the four-point tree-metric test for n>=4: the three sums on points 1,2,3,4 are 2,4,3, with unique maximum 4.",
+          "evidence": [
+            "Abstract explicitly restricted to tree-like metrics; four-point sums calculated from submitted metric"
+          ],
+          "identifier_or_url": "https://susi.usi.ch/global/documents/308717",
+          "material_read": "University-hosted bibliographic record and abstract specifying tree-like metrics; full theorem pages were not retrieved in this run.",
+          "method": "primary institutional repository abstract/record",
+          "title": "Fundamental polytopes of metric trees via parallel connections of matroids",
+          "trigger": "Possible exact all-f-vector formula for metric spaces"
+        },
+        {
+          "assessment": "The abstract does not assert a cap-two enumerative formula; whole-document noncoverage is NOT established by this access alone.",
+          "evidence": [
+            "https://www.alphaxiv.org/abs/1911.10642; stated abstract scope"
+          ],
+          "identifier_or_url": "https://www.alphaxiv.org/abs/1911.10642",
+          "material_read": "Public abstract only, including ℓ1/ℓ∞ sums, Hanner polytopes, isometric metric spaces and volume products; full text not inspected in this run.",
+          "method": "open scholarly preprint abstract",
+          "title": "Geometry and volume product of finite dimensional Lipschitz-free spaces",
+          "trigger": "Broad structural or isometric theorem possibly implying the claim"
+        },
+        {
+          "assessment": "The identified families are equilateral and Cartesian graph metrics; the capped path is neither an unweighted path graph metric nor those product metrics. A complete exclusion from this entire source is not claimed.",
+          "evidence": [
+            "Section 4 named three metric families; https://doi.org/10.1016/j.jsc.2020.10.005"
+          ],
+          "identifier_or_url": "https://doi.org/10.1016/j.jsc.2020.10.005",
+          "material_read": "Search-accessible excerpt of Section 4 identifying discrete, L0 and L1/product graph metrics; full article not read.",
+          "method": "indexed publisher Section 4 excerpt",
+          "title": "Wasserstein Distance to Independence Models",
+          "trigger": "Graph-metric and independence-model Lipschitz polytope enumerations"
+        },
+        {
+          "assessment": "Requires k disjoint pairs of short edges and all other distances 1; for n>=4 capped-path distance-1 graph is the overlapping adjacent-edge path. Its 3^k(2^(n-k)-2) law does not cover the claim.",
+          "evidence": [
+            "Resultary/2026, RESULT.md theorem assumptions and proof; claimed disjoint-pair hypothesis"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-facet-enumeration-for-equilateral-metrics-with-independently-sho--3bd6d7048744",
+          "material_read": "Complete immutable published RESULT.md: theorem, assumptions, extremal-state proof, prior and limitations sections.",
+          "method": "read-only GitHub primary-result file fetch",
+          "title": "Facet enumeration for equilateral metrics with independently shortened pairs",
+          "trigger": "Closest published special finite-metric facet enumeration"
+        },
+        {
+          "assessment": "Requires k>=3 multipartite classes, uniform cross-part distance 1 and intra-part distance t. The cap-two path has distance-one graph P_n (not complete multipartite for n>=4), so no specialization yields its all-n formula.",
+          "evidence": [
+            "Resultary/2026, complete-multipartite RESULT.md assumptions and theorem"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-facet-jumps-for-interpolated-complete-multipartite-lipschi--5c07b142df09",
+          "material_read": "Complete published RESULT.md, including theorem, disjoint vertex type proof, t endpoints and limitations.",
+          "method": "read-only GitHub primary-result file fetch",
+          "title": "Sharp facet jumps for interpolated complete-multipartite Lipschitz-free balls",
+          "trigger": "Published exact special-metric facets with two distance values"
+        },
+        {
+          "assessment": "Requires a two-part complete bipartite cross-short-edge graph; P_n is not complete bipartite for n>=4. Small n=3 incidental cases do not cover an all-n theorem.",
+          "evidence": [
+            "Resultary/2026 snowflaked-complete-bipartite RESULT.md theorem and proof"
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-sharp-facet-count-transitions-for-snowflaked-complete-bipartite--e855a74da4ce",
+          "material_read": "Complete published RESULT.md, including endpoints and proof of the 1<t<2 law.",
+          "method": "read-only GitHub primary-result file fetch",
+          "title": "Sharp facet-count transitions for snowflaked complete bipartite metrics",
+          "trigger": "Another close two-distance face count"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The all-n RESULT.md theorem and proof",
+        "Gordon–Petrov general Lipschitz-polytope framework",
+        "Delucchi–Hoessly tree-metric f-vectors and four-point scope",
+        "Exact GF and asymptotic residue independently verified"
+      ],
+      "rationale": "The exact number of facets of a Lipschitz-free unit ball is a natural Banach/polyhedral invariant, and the integer-cap-two path is the first simple nontree truncation of the ordinary path metric (already n=4 fails the four-point test). The word-classification proof exposes a structural mechanism for the new extremal patterns, yields a complete exact all-length invariant rather than a tiny numerical sample, and proves the growth base changes from 2 (ordinary path) to 2.269530842...; the result is motivated and potentially reusable for weighted/truncated metric-polytope calculations. Its value does not depend on novelty searches or code reproducibility alone.",
+      "residual_risks": [
+        "No extension to arbitrary truncation levels, higher face numbers or weighted paths is established.",
+        "The quantitative importance of this family to other applications is not claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Originality is a qualified best-of-knowledge comparison; full text of all potentially relevant broad papers was not available in this execution.",
+    "Direct n=2..10 enumeration is a finite implementation check, not an infinite proof.",
+    "Only real finite metric spaces with integer cap two are covered; no arbitrary cap or all-face-vector statement.",
+    "The staged privacy-only replacements require later atomic import and revalidation; nothing was published from this audit.",
+    "The assigned Git record tree SHA was recomputed from GitHub API object entries, not from independently stored local byte-for-byte copies of all original Git blobs."
+  ],
+  "schema_version": 1
+}

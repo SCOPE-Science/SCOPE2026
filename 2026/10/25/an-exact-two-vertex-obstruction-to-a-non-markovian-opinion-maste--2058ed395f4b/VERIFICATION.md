@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Execute `python verify.py` with Python 3.9 or newer from this package. The checker uses exact integer/fraction arithmetic to establish an explicit polynomial antiderivative for the positive discrepancy integral and its exact series coefficient, and checks a separate first-event probability partition for both heterogeneous and homogeneous example probabilities. The mathematical proof supplies the stochastic first-ring argument and the renewal-density formula for the entire interval. No random sampling is used, and no infinite conclusion is inferred from finite tests.
+## correctness
 
-The original article's stochastic interpretation and the exact integral identity have been checked against the accessible primary PDF, pages 2626–2628. The demonstration is a counterexample to asserted *exact marginal closure*, not a criticism of the renewal integral equation as a separately defined deterministic dynamical system.
+PASS
+
+The first ring on the single edge causes permanent consensus. The indicator of no first ring has expectation S1(t)S2(t), giving true difference (a−b)S1S2. For uniform waits [0,2], the renewal density on (0,2) is e^{u/2}/2; direct substitution into source Eq.(2.9) at t=2 yields −(a−b)(11−4e) instead of zero. The integral 11−4e=∫_0^1 v(1−v)^2e^v dv>0. Correctness concerns the claimed stochastic-expectation identity, not independently defined Volterra solutions.
+
+## originality
+
+PASS
+
+The original 2023 paper claims an exact ensemble master equation. Its derivation assumes an unconditional neighbor marginal at renewal events; the two-vertex direct first-event calculation supplies an explicit independent-clock counterexample. Standard warnings about closure do not compute this residual. A preexisting erratum or independent discovery of the same discrepancy is possible and not ruled out.
+
+## value
+
+PASS
+
+An exact two-vertex counterexample to an asserted exact non-Markovian stochastic-mean master equation is a substantive normalization/closure obstruction, even though only a minimal network is needed; it isolates state–event dependence without numerical extrapolation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

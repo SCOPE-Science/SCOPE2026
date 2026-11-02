@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-Every idempotent is uniquely a predecessor projection, since the image of an idempotent is its fixed set. For two projections, commutation at a point is equivalent to either equal last fixed points or membership of the smaller last fixed point in the other fixed set. This is equivalent to exclusion of two different exclusive-fixed-point colors from each interval between consecutive shared fixed points. The three-state automaton implements exactly this condition, and its transfer matrix and fixed-set restrictions follow by direct inspection. Its symmetric invariant subspace gives the stated recurrence and quadratic-root closed form; dividing by all \(4^{n-1}\) ordered idempotent pairs gives the density. Boundary \(n=1,2\) and all singleton shared-fixed-point cases are covered. An independent composition checker verifies every pair for \(1\le n\le10\); these finite calculations are corroboration, not a proof of the general result.
+## correctness
 
-## Originality — PASS within investigated coverage
-Pantazi and Spircu explicitly give the classical Catalan monoid's idempotent classification and count, which the result credits. Sapir and Volkov (arXiv:2211.12952v1, primary MSC2020 20M07) analyze finite-basis questions, distinguish Catalan monoids from injective partial-transformation monoids with commuting idempotents, and give no count of partially commuting idempotent pairs. Existing enumerations of commuting idempotents in unrestricted full-transformation monoids count a substantially larger class by rank and do not imply the Catalan subfamily's fixed-set-sensitive counts. The exact numerical sequence and recurrence are already recorded as OEIS A007070 and are **not new as an integer sequence**. That entry has many distinct interpretations, but its documented interpretations do not give the present Catalan-idempotent compatibility theorem or fixed-set centralizer formula. The closest relevant scholarly-index hits were examined by their stated claims; none asserts this Catalan-monoid structural theorem. Searches are evidence of checked coverage, not historical uniqueness, and an equivalent enumeration in older or differently indexed semigroup work remains possible.
+PASS
 
-## Value — PASS
-Commutation of idempotents controls semilattice behavior in finite semigroups and is not universal for the classical Catalan monoid, unlike the i-Catalan monoid. The result precisely locates every obstruction, determines the count for every chain size, identifies exponentially rare commutation among random idempotents, and supplies a concrete individual-idempotent commuting profile. These are natural structural and quantitative questions for the full family, not arbitrary samples or renamed textbook counts.
+For each positive n, order-preserving regressive idempotents are precisely predecessor projections to S containing 1. Direct evaluation of e_S e_T and e_T e_S at last fixed points establishes the if-and-only-if absence of mixed exclusive colors in every gap between common fixed points. A three-state automaton with 0/A/B gap colors and reset on common point gives M=[[2,1,1],[1,2,0],[1,0,2]], a_1=1,a_2=4,a_n=4a_(n-1)-2a_(n-2), rational generating function 1/(1-4z+2z^2), closed form and probability a_n/4^(n-1). Conditioning each position on fixed S gives the displayed 3x3 M0/M1 individual idempotent centralizer product. Independent direct composition/gap/transfer enumeration covered 21,845 ordered pairs for n=1..8; this is finite corroboration, not the all-n proof.
 
-## Closest prior work and limitations
-The 2016/2017 Pantazi–Spircu work supplies the idempotent parametrization and total idempotent count; neither is claimed as new. OEIS A007070 supplies the abstract recurrence and sequence; these too are explicitly prior. The 2022 Sapir–Volkov work provides finite-basis and distinction-of-monoids context; it does not imply the presented enumeration. Directly comparable idempotent-transformation records without order restrictions are not substitute counts. The chief residual risk is an undiscovered enumeration in semigroup enumeration literature. No result about arbitrary commuting transformations, all-element centralizers, or independence of publication priority is claimed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Existing OEIS A007070 explicitly contains the exact recurrence and numerical sequence; no novelty is asserted for its unqualified enumeration. Pantazi–Spircu discuss the idempotent structure of classical Catalan monoids and selected commuting relations, while Sapir–Volkov address finite-basis properties and different commuting-idempotent monoid varieties. Neither inspected primary result gives this global exclusive-color gap iff criterion and the centralizer size conditioned on every fixed set. Searched Resultary records do not show direct theorem implication. Historical coverage of a differently formulated predecessor-projection commutation lemma remains possible.
+
+## value
+
+PASS
+
+The characterization is a structural semigroup criterion that answers which actual idempotents commute, not merely a restatement of a known number sequence. The fixed-idempotent transfer produces exact centralizer sizes for all 2^(n-1) idempotents with a uniform algorithm and supplies a natural commutation probability; those object-resolved invariants are useful even though the aggregate recurrence is known.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

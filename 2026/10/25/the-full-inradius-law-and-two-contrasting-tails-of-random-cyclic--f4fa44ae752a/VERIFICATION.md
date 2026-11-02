@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,28 +19,24 @@
 }
 ---
 
-# Verification of exact random cyclic-triangle inradius law
+# Independent mathematical audit
 
-## Analytic checks
+## correctness
 
-The normalized half-angle simplex density is \(8/\pi^2\), the simplex coordinate area is \(\pi^2/8\), and the half-angle inradius product is \(4\sin X\sin Y\sin Z\). The Jacobian-one angle-difference transformation yields the displayed survival integral. Near three simplex corners the log-singular hyperbolic sublevel area gives \(6/\pi^2\). Near the unique equilateral maximum the Hessian ellipse gives \(8/(\pi\sqrt3)\). No finite experiment is substituted for those arguments.
+PASS
 
-## Reproduction
+Cyclic arc spacings are Dirichlet(1,1,1), so ordered triangle half-angles X,Y,Z have constant coordinate density 8/pi^2 on X+Y+Z=pi/2 and R=4sin Xsin Ysin Z. At fixed X=x the difference coordinate has unit Jacobian and the admissible interval yields the arccos integral with exact roots. Three corner neighborhoods give each area t/4 log(1/t) plus O(t); other edge bands are O(t). The equilateral maximum Hessian is 2(u^2+uv+v^2), and the ellipse area gives the upper-tail coefficient. Independent quadrature at 5 thresholds agrees with a two-dimensional grid survival at t=1/4 (0.406006 vs 0.405971), and near-maximum ratio 1.470259 vs exact 1.470210. These numerical checks do not replace asymptotic proofs.
 
-Run `python inradius_law_check.py` under Python 3 with `numpy`, `scipy`, and `mpmath` available. The checker was executed using the embedded source, not an earlier unrelated program. The following are actual success tokens from that execution:
+## originality
 
-```text
-DIRECT_CARTESIAN_AND_DIRICHLET_ANGLE_IDENTITY_OK 360000
-FIVE_INDEPENDENT_CDF_CHECKS_OK
-KNOWN_INRADIUS_MOMENTS_REPRODUCED_OK
-CDF_INTEGRATED_MOMENTS_OK
-SHARP_EQUILATERAL_ENDPOINT_COEFFICIENT_OK
-LOGARITHMIC_THIN_ENDPOINT_COEFFICIENT_TREND_OK
-ALL_CYCLIC_INRADIUS_LAW_CHECKS_OK
-```
+PASS
 
-At thresholds \(0.05,0.1,0.2,0.3,0.4\), analytical CDF values were \(0.164930053728\), \(0.289469233743\), \(0.500063271454\), \(0.682648234206\), and \(0.847672428678\), each agreeing with independent Cartesian sampling within the stated error tolerance. Numerically integrating the full survival function reproduces the **previously published** mean \(12/\pi^2-1\) and second moment \(5/2-24/\pi^2\).
+Kórus computes the first two moments for precisely this random cyclic triangle but those do not entail its distribution; Labelle uses fixed-perimeter uniform side lengths, a different probability model, and Finch gives sampling context not the full inradius CDF. Equivalence to incenter-circumcenter distance via Euler formula considered.
 
-## Limits
+## value
 
-The CDF numerical evaluation and the endpoint coefficient trend tests are finite independent consistency checks. They do not prove the full distribution or the two asymptotic equivalents. Those claims rest on the analytic geometry and integration in `RESULT.md`. No independent mathematical audit was performed.
+PASS
+
+A complete exact distribution with logarithmic near-degeneracy and linear equilateral-endpoint tails is a natural stochastic-geometry invariant and identifies distinct local geometric mechanisms; known first two moments cannot supply either tail.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

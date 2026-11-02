@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Reproducibility
+# Independent mathematical audit
 
-Run `python3 verify.py` with Python 3 and no third-party dependencies. The script independently enumerates all directed Hamiltonian paths on \([n]\) for \(3\le n\le9\), tests the cyclic-descent orientation criterion, counts every ordered terminal/initial endpoint pair, and confirms \(\varphi(n-1)\) realizations for each neighboring pair. It then builds explicit cyclic-shift constructions for all allowable endpoint pairs through \(n=35\). Expected final line: `VERIFY_OK`.
+## correctness
 
-The finite tests do not establish the theorem beyond their tested bounds; the general argument is the permutation-sign obstruction, explicit cycle construction, reflection and contraction proof in `RESULT.md`. The 2000 paper listed as a literature risk was not inspected in full text. No independent audit or validation has been performed.
+PASS
+
+PASS: An injective rank n−1 nilpotent partial map is one directed Hamiltonian chain. Orientation preservation means the increasing domain and image lists correspond by a cyclic index shift t. Rotate terminal omitted domain a to n−1; extend by mapping a to missing image b to get π_t=π_0 (0 1 … n−2)^t with π_0=(b b+1 … n−1). For even n, parity forces b even, equivalent to odd circular separation d. Explicit t=1 orbit forms an n-cycle whenever b has parity n, and a reflection fills the remaining offsets for odd n; sign restriction is therefore sufficient and necessary. At adjacent endpoints, contracting the prescribed arrow yields an (n−1)-point cyclic translation by t+1, single cycle iff gcd(t+1,n−1)=1, giving φ(n−1) per neighbor. Independently enumerated all n! directed Hamiltonian paths for 3≤n≤7, confirming attainable pairs and exact neighboring fibres. The all-n result relies on the permutation proof.
+
+## originality
+
+PASS
+
+PASS (qualified): Standard oriented partial injection semigroup structure, endomorphisms, and restricted-range variants are published. In inspected originals these do not give the maximal-nilpotent-chain ordered-endpoint parity and neighboring totient fibres. A narrow submonoid of restrictions of global rotations has only coprime offsets, not this all-odd-offset classification. A 2000 monoid paper on exactly the original object was inaccessible in full and remains a specific priority risk.
+
+## value
+
+PASS
+
+PASS: Prescribing omitted source/target points is the natural boundary invariant for maximal nilpotent chains; the sharp even/odd obstruction and φ(n−1) adjacent-fibre classification reveal nontrivial structure that differs from whole-set rotations, including allowed nonprimitive separations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

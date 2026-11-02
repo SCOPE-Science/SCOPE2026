@@ -1,0 +1,162 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T21:03:20.004393Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof and conventions at Git blob 18f535c5cc6f1a04f3a81c7d6d2afa62b993048a",
+        "Assigned verify_rank_ages.py Git blob 4e5158976858120c17386fee86d1ad12ed30aedf (read only; independently reimplemented its mathematical tests)",
+        "Szabó–Vető, arxiv:1510.01152v2, PDF pp.2–3 and Theorem 4 p.6",
+        "Standard Hoeffding lemma and Ville maximal exponential-supermartingale inequality; direct derivation from independent bounded B_i"
+      ],
+      "rationale": "For each strict active record index r, its first physical success time T_r is the unique corresponding strict lazy record time. At T_r, A_{T_r}=r and |A_t-qt|≤D, so each completed active gap and its physical gap obey |qL−ℓ|≤2D; the same applies to the final censored pair with t=n. Re-normalizing physical lengths by n and active lengths by m contributes at most D/(qn) to the 2D/(qn) discrepancy. Sorting matched nonnegative lengths is nonexpansive in sup norm. When the active horizon changes from m to h, all old completed intervals persist; the first new completed interval extends the old censored interval by at most |m−h|, and further new intervals have length at most |m−h|. Sorting and normalization give ||Q_m−Q_h||∞≤2|m−h|/h. Since |m−h|≤D+1, the claimed pathwise bound follows, including m=1 and zero-length censored intervals. For Bernoulli clock increments, the maximal two-sided Hoeffding–Ville inequality P(D>x)≤2 exp(−2x²/n) integrates to E D≤√(πn/2). On m=0 use the trivial distance bound 1 with probability (1−q)^n; all parameters and expectation constants check. Szabó–Vető Theorem 4 exactly covers censored ages of the active symmetric continuous walk, so coordinatewise PD convergence follows by vanishing coupled discrepancy. The independent exact-rational checker passes 118014 finite checks; those do not prove the all-n claim, whose proof is deterministic plus a standard concentration theorem.",
+      "residual_risks": [
+        "The finite-sample comparison is an upper bound with no matching lower bound or sharpness claim.",
+        "The coupling rate is O_q(n^{-1/2}) only for fixed q>0; h=0 is intentionally excluded and q→0 is not uniform.",
+        "The cited PD theorem establishes coordinatewise/vague convergence, not a total-variation or Wasserstein rate to PD."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arxiv:2312.14885v3 equations (3), (7), (9), (15)–(22) provide renewal-transform laws of record number and last/next record epochs",
+          "PMC10562453 Main results assume non-Markovian scale-invariant dynamics and study single record age tails",
+          "arxiv:2103.14062v2 conclusion explicitly asks for lazy record-age statistics as additional observables"
+        ],
+        "reasoning": "Although the 2024 renewal calculus covers broader finite-dimensional time distributions, its inspected statements and transforms do not give a pathwise bounded transport of the entire decreasing age composition to a deterministic effective horizon. Non-Markovian age scaling concerns a distinct class. Stronger coverage by an unlocated general time-change theorem remains a specific historical risk.",
+        "searches": [
+          "arxiv:2312.14885 Full Record Statistics of 1d Random Walks §§II–IV n-time renewal transforms",
+          "arxiv:2305.09642 Record ages of non-Markovian scale-invariant random walks",
+          "Web query: lazy random walk record ages Poisson Dirichlet 2025 2026"
+        ]
+      },
+      "checked_sources": [
+        "Szabó and Vető, Ages of Records in Random Walks (2016), arXiv:1510.01152v2, equations (3) and (31), Lemma 3 and Theorem 4; https://arxiv.org/pdf/1510.01152",
+        "Majumdar, Mounaix and Schehr, Universal record statistics for random walks and Lévy flights with a nonzero staying probability (2021), arXiv:2103.14062v2, model and pp. 26–27 conclusion; https://arxiv.org/pdf/2103.14062",
+        "Régnier, Dolgushev and Bénichou, Full Record Statistics of 1d Random Walks (2024), arXiv:2312.14885v3, pp. 1–6 and Appendix B extracts; https://arxiv.org/pdf/2312.14885",
+        "Régnier, Dolgushev and Bénichou, Record ages of non-Markovian scale-invariant random walks (2023), Nat Commun 14:6288, PMC10562453, introduction and main results; https://pmc.ncbi.nlm.nih.gov/articles/PMC10562453/",
+        "Resultary semantic search: Bernoulli clock pathwise coupling sup norm ranked record ages lazy random walk effective horizon Poisson Dirichlet; record age Poisson Dirichlet distribution lazy walks holding geometric waiting time; renewal partition ranked interval lengths comparison random time changes finite horizon Wasserstein",
+        "Web literature queries: lazy random walk record ages Poisson Dirichlet 2025 2026; geometric waiting times record ages renewal partition ranked coupling concentration time change; ranked interval lengths deterministic time change empirical quantile interval supnorm renewal process Bernoulli thinning"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Szabó–Vető Theorem 4 gives only the no-holding limiting ranked distribution, not finite random-clock comparison",
+          "Majumdar–Mounaix–Schehr pp.26–27 ask for record ages under holding; main theorems are for counts and correlations",
+          "Régnier–Dolgushev–Bénichou arxiv:2312.14885 equations (20)–(22) concern n-time record-count/epoch laws"
+        ],
+        "reasoning": "The prior PD limit plus lazy count statistics does not logically imply a finite-n all-ranks pathwise transport estimate; the deterministic matched-gap argument and maximal Bernoulli clock concentration supply that bridge. The qualitative lazy PD limit is then a corollary, not separately a claimed discovery. The 2024 transform framework could allow derivations of some distributions but does not by its stated results supply this explicit bound.",
+        "searches": [
+          "arxiv:1510.01152v2 Theorem 4 censored record ages PD(1/2,0)",
+          "arxiv:2103.14062v2 record ages conclusion nonzero staying probability",
+          "arxiv:2312.14885v3 multiple-time record count and event time transforms",
+          "Web query: ranked renewal interval lengths Bernoulli geometric time change coupling Poisson Dirichlet random walks concentration"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:1510.01152v2 Theorem 4: ranked active ages in censored case converge to PD(1/2,0)",
+          "arxiv:2103.14062v2 §§I, V: Bernoulli holding described by a stay probability and record-number/correlation statistics",
+          "Resultary nearby matches: stationary renewal age/residual power correlations and heterogeneous exponential record indicators"
+        ],
+        "reasoning": "Equivalent language includes renewal composition ranked lengths, geometric-pause stretching of record intervals, and Bernoulli time-change of random-walk ladder epochs. The active PD limit does not bound lazy-versus-active finite-horizon sup norm. Renewal age-residual correlations and heterogeneous independent record indicators concern different functionals; no equivalent all-ranks coupling was located.",
+        "searches": [
+          "Resultary query: Bernoulli clock pathwise coupling sup norm ranked record ages lazy random walk effective horizon Poisson Dirichlet",
+          "Web query: geometric waiting times record ages renewal partition ranked coupling concentration time change",
+          "Web query: ranked interval lengths deterministic time change empirical quantile interval supnorm renewal process Bernoulli thinning"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary published: Sharp power-correlation range for stationary renewal age and residual life, 2026/9/20/SCOPE-sharp-power-correlation-stationary-renewal-age-residual--23381feacbe8",
+          "Resultary published: Finite-prefix independence classification for heterogeneous exponential records, 2026/10/4/SCOPE-finite-prefix-independence-classification-for-heterogeneous-expo--c2d274b9c3b5",
+          "Resultary published: Sharp unequal-power correlation range for stationary renewal age and residual life, 2026/10/4/SCOPE-sharp-unequal-power-correlation-range-for-stationary-renewal-age--ef4feb831e3e"
+        ],
+        "reasoning": "These are plausible record/renewal database neighbors but concern moment correlations or heterogeneous-record indicators, not the ranked partition of lazy random-walk record intervals; there is no natural finite exact table of the claimed all-n inequality. Failure to retrieve an equivalent item is not proof of novelty.",
+        "searches": [
+          "Resultary query: record age Poisson Dirichlet distribution lazy walks holding geometric waiting time",
+          "Resultary query: renewal partition ranked interval lengths comparison random time changes finite horizon Wasserstein",
+          "Resultary query: record age last passage time rank all ranks time-change principle quantitative random permutations partitions record process"
+        ]
+      },
+      "rationale": "The novel candidate is the explicit, pathwise, simultaneous all-ranks inequality for the censored renewal composition after independent Bernoulli pauses, with a deterministic effective-horizon finite-sample O_q(n^{-1/2}) Wasserstein comparison. The non-lazy PD(1/2,0) theorem itself is Szabó–Vető (2016), not original. Majumdar–Mounaix–Schehr (2021) directly studies the lazy random-walk record model and explicitly poses record ages as further work; its count/correlation formulas do not entail this pathwise estimate. Régnier–Dolgushev–Bénichou (2024) treats general multitime record-count/epoch renewal transforms, not this coupled ranked-age metric in inspected sections. Published record-related database hits concerned different statistics. Best-of-knowledge originality survives, with the possibility of an unindexed general time-change coupling under a different name.",
+      "residual_risks": [
+        "An older generic deterministic stability estimate for ranked renewal compositions under random monotone clocks might imply these constants without being indexed under record ages; absent a located theorem novelty is qualified, not certified.",
+        "The 2024 multi-time renewal formalism is broader for joint record-count/epoch observables; the audit inspected relevant formulas and text searches, not every derivation on every page. An undocumented corollary could warrant further comparison.",
+        "Classical strong approximation and renewal thinning literature may contain related quantitative random-clock bounds; no exhaustive review of such literature or unpublished work was possible."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "COVERS the censored-active PD(1/2,0) input exactly, not Bernoulli clock matching or the finite all-ranks inequality",
+          "evidence": [
+            "definition (3) uses (τ1,…,τm−1,A_n)",
+            "Theorem 4, equation (31), states joint/vague convergence of ranked ages to PD(1/2,0)"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/1510.01152",
+          "material_read": "PDF pages 1–3 definitions (3)–(5), page 6 Lemma 3 and Theorem 4, relevant surrounding introduction and proof discussion",
+          "method": "Read searchable arXiv PDF and inspect visual page 6 (zero-indexed 5)",
+          "title": "Ages of records in random walks",
+          "trigger": "Exact active-walk PD limit and final-record convention potentially dominate the claim"
+        },
+        {
+          "assessment": "NOT_COVERING the claimed ranked-age coupling in inspected results; article explicitly identifies held-walk age statistics as a further research question",
+          "evidence": [
+            "abstract and section I describe stay probability p and record-number statistics",
+            "conclusion p.27 suggests extending age statistics to nonzero p"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2103.14062",
+          "material_read": "PDF abstract, model and main-result overview, portions of the count/correlation sections, Summary and Conclusion pp. 25–27",
+          "method": "Read arXiv text and inspect visual conclusion page 27 (zero-indexed 26)",
+          "title": "Universal record statistics for random walks and Lévy flights with a nonzero staying probability",
+          "trigger": "Same Bernoulli-holding random-walk model; possibility of stronger published lazy record-age result"
+        },
+        {
+          "assessment": "Its checked formulas concern count/epoch observables and not the explicit finite all-ranks clock coupling; no whole-document negative is inferred beyond inspected material",
+          "evidence": [
+            "equations (7)–(10) provide last/next record-time transforms",
+            "equations (15)–(22) give multiple-time count/epoch transforms",
+            "full-text finds did not locate Bernoulli, holding or longest"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2312.14885",
+          "material_read": "Abstract and introduction pp. 1–2; discrete renewal transforms pp. 2–4; multitime count and record-epoch formulas pp. 4–6; Appendix B portions and whole-PDF keyword searches for holding, Bernoulli, longest, PD",
+          "method": "Read arXiv PDF text, inspect visual first page (zero-indexed 0) and formulas in extracted sections",
+          "title": "Full Record Statistics of 1d Random Walks",
+          "trigger": "Broad multitime renewal theorem might already imply the candidate"
+        },
+        {
+          "assessment": "Addresses aged records of scale-invariant non-Markovian processes, rather than iid active jumps plus independent Bernoulli holding or all-ranks finite transport",
+          "evidence": [
+            "Main results specifies non-Markovian scale-invariant walks and age-tail scaling",
+            "introduction contrasts standard iid-jump random walks with memory effects"
+          ],
+          "identifier_or_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10562453/",
+          "material_read": "Accessible full-text HTML abstract, introduction and Main results description and model assumptions",
+          "method": "Read open PMC primary article, focus on scope and theorem assumptions",
+          "title": "Record ages of non-Markovian scale-invariant random walks",
+          "trigger": "Broader 2023 framework for record-age statistics"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Majumdar–Mounaix–Schehr (2021), arxiv:2103.14062, conclusion explicitly proposing lazy record ages",
+        "Szabó–Vető (2016), arxiv:1510.01152, ranked censored-age PD theorem",
+        "Régnier–Dolgushev–Bénichou (2024), arxiv:2312.14885, broader renewal count/epoch framework"
+      ],
+      "rationale": "Record ages under nonzero staying probability were explicitly left for future study in the 2021 lazy-walk paper. Simultaneous normalized ranked ages are a natural infinite-dimensional observable of the renewal record process, and a deterministic finite-horizon comparison is useful when transferring non-lazy record-age laws and evaluating finite lazy-record samples. The estimate cleanly separates a quantitative clock perturbation from the already-known non-lazy PD limit, and it holds for arbitrary active paths, not only the random-walk corollary. Although the bounding lemmas are elementary and not claimed optimal, their precise coupled full-ranking conclusion addresses a motivated gap rather than a merely renamed computation.",
+      "residual_risks": [
+        "The all-ranks bound may be nonoptimal and is based on standard concentration; no optimality or difficult deeper limit theorem is claimed.",
+        "A previously published general renewal time-change lemma could reduce novelty and value; this remains a concrete best-of-knowledge risk."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Independent finite tests cover n≤9 and the listed q values; they are corroboration, not a universal proof.",
+    "The original record tree and blobs are verified via read-only GitHub traversal, but full object hashes were not locally recomputed from raw bytes.",
+    "No publication occurs because public METADATA.json/AUDIT.json contain operational provenance and full neutral replacements were not verified for release."
+  ],
+  "schema_version": 1
+}

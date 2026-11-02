@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The proof first analyzes coordinatewise products of distinct images in the one-dimensional kernel of the target structure matrix. A kernel vector with support at least three forces disjoint column supports. A two-coordinate kernel forces one unique false-twin pair; orthogonality plus equality of twin squares and comparison at a neighboring vertex forces the remaining two-by-two block to be monomial. Coefficient matching then yields degree regularity or bipartite biregularity, while explicit real diagonal scalings provide the converse. The nullity-two star supplies nonmonomial automorphisms and makes the kernel threshold meaningful. The finite verifier checks graph-theoretic test cases but is not used to infer the universal conclusion.
+## correctness
 
-## Originality — PASS (bounded)
-The recent survey [1] poses the general singular-graph question. The initial nonsingular classification [2] does not imply the corank-one case; the 2024 paper [3] gives example families rather than the all-corank-one theorem; the 2025 paper [4] treats graph-algebra automorphisms and already includes the 2LI (twin-free) rigidity mechanism. The new proof's essential addition is the uniform exceptional twin-pair argument. Bounded published-record, primary-paper, and prior-claim comparisons have not identified a stronger or equivalent complete corank-one statement. Residual priority risk remains for an unindexed equivalent theorem.
+PASS
 
-## Value — PASS
-The natural conjecture compares two canonical evolution algebras associated to a graph. The rank-one defect is the first singular case not covered by the nonsingular theorem. The result settles the entire infinite corank-one graph class, identifies why a unique false-twin dependence does not permit exotic isomorphisms, and shows that the rigidity mechanism changes at nullity two. This is a structural extension, not merely an isolated finite graph computation.
+For connected simple graph over R with adjacency A of nullity 1, an isomorphism P from graph evolution algebra A to random-walk evolution algebra D^(−1)A has p_i∘p_j in kernel of (D^(−1)A)^T=D ker A for every i≠j. A generator z of ker A cannot be singleton supported. If |supp z|>=3, overlapping columns would confine all rows on supp z to rank <=2, contradicting invertible P; hence monomial. If |supp z|=2, binary nonzero adjacency rows force one unique false-twin pair, and pairwise orthogonality forces at most one 2x2 block. The twin rows image square equality and a common neighbor square imply the block has equal row/column sums, and real orthogonality then forces diagonal or swapped scalar form. Monomial coefficient comparison proves underlying permutation is graph automorphism; neighbor scalings are constant on even-walk classes, forcing regular or bipartite biregular degrees. Explicit positive diagonal scalings prove both converses. In K1,3 adjacency nullity 2, real rotations of the three-leaf subspace fixing its sum give nonmonomial automorphisms, making threshold sharp. Independent exact graph rank/twin/kernel census checked 439 connected graphs of sizes 3..5 including 259 twin cases. Uniform proof uses linear algebra, not census.
 
-## Scientific limitations and sources
-References [1]–[4] are listed in RESULT.md. The theorem does not settle arbitrary singular graphs or make a global priority claim. The finite enumeration does not replace the proof.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Cadavid–Rodiño Montoya–Rodríguez (arXiv:1710.10516) settle nonsingular graphs and conjecture singular; 2024 Cadavid et al study individual singular families; 2025 Rodiño et al show 2LI/twin-free monomial criteria, which covers only the twin-free ingredient. October 2026 survey lists singular graph/RW isomorphism as open. Neither inspected primary theorem classifies all corank-one connected simple graphs including the unique false-twin pair, and the rank-2x2 block argument is a genuine additional reduction. Historical possibility of unindexed corank-one coverage remains.
+
+## value
+
+PASS
+
+This gives a sharp rank-defect-one extension of an explicit unresolved singular-graph isomorphism problem, with a rigidity classification of every isomorphism and an exact higher-nullity counterexample. The unique false-twin support case is a natural algebraic boundary and requires argument beyond the standard 2LI condition; result is useful independent of the whole higher-nullity conjecture.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

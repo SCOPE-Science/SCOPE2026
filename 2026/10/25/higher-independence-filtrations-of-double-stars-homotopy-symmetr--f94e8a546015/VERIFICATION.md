@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` in the directory containing this document; no nonstandard Python libraries are required. The supplied `verify_output.txt` records the completed result.
+## correctness
 
-The verifier independently generates each labeled double-star graph from its edges, enumerates all induced vertex subsets and tests their largest connected component, constructs the associated simplicial complexes, and obtains reduced mod-two Betti numbers by augmented boundary ranks using exact binary arithmetic. It tests all \(1\le a,b\le3\) and all \(1\le r\le a+b+2\). It also enumerates every center-preserving automorphism in these ranges and every permitted center exchange, independently evaluates its signed invariant-face Lefschetz sum, and compares it against the predicted exterior-power cycle-character coefficient.
+PASS
 
-Recorded output: `VERIFY_OK configs=54 nonempty_faces=4174 signed_lefschetz_checks=892`.
+The face decomposition by zero, one or two chosen centers is exact: full leaf simplex plus cones u*X_r,v*Y_r,uv*Z_r, with Z_r=sk_{r-3} Delta(L). Because A and B are both nonempty the three-term core is contractible, its quotient is the twofold suspension of the skeleton (r=2 gives a circle), and simplex-skeleton Morse matching gives binomial(N-1,r-2) spheres of dimension r-1. The relative chain complex on faces containing both centers identifies integral top cycles with wedge^{r-2}(ker[Z^L -> Z]) and introduces minus under center interchange. Field homology occurs in a different degree at every consecutive r, so all positive-degree bars die at r+1. Checked r=1 and r>=N+2 endpoints. Reimplemented induced-component face tests and reduced F2 ranks independently for all 54 cases a,b<=3, r<=a+b+2; all matched. Finite checks corroborate but do not prove the all-parameter theorem.
 
-These are exhaustive checks only **within the declared finite ranges**. They do not by themselves prove the infinite parameter theorem, integral torsion-freeness, or the integral lattice structure. Those conclusions follow from the simplicial decomposition, cofibration argument, and integral relative-chain proof in `RESULT.md`. No machine verification of every infinite case and no independent audit are claimed.
+## originality
+
+PASS
+
+Best-of-knowledge originality applies to the complete double-star integral equivariant and persistence classification, not qualitative vertex-decomposability of trees or the 4-vertex path boundary case.
+
+## value
+
+PASS
+
+Double stars form a minimal nontrivial two-center branch family; an exact entire higher-independence filtration, distribution-independent homotopy ranks, and integral automorphism modules distinguish structural information absent from qualitative shellability. These are natural invariant computations, useful as a benchmark for tree filtrations.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

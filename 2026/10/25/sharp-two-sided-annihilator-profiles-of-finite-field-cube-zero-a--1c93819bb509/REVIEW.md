@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The algebra model really has cube-zero maximal ideal, square equal to the image of its multiplication tensor, and two-sided annihilator equal to the target summand plus the common left/right radical (and only in the commutative family is this the usual socle). Fixing a radical subspace forces factorization through the quotient tensor space. Counting surjections to an image subspace and applying the subspace-lattice Möbius function gives the exact two-parameter census. Pairwise inclusion probabilities for radical lines give an explicit Bonferroni remainder, and the higher-radical and nonsurjectivity bounds justify the sharp constants and conditional unique-line law. Prime-field enumeration of all coefficients across ten independently specified cases agrees with every predicted count; finite computation is corroborative rather than a proof of the infinite assertions.
+PASS
 
-## Originality
+For a fixed d-space U in the common left/right radical, bilinear B factors through (V/U)⊗(V/U) or Sym²(V/U), of input dimension N(r-d). For fixed t-space image W0 the surjective tensor count H_q(N(r-d),t) follows linear-map rank, and subspace-lattice Möbius inversion over j-dimensional enlargements of U yields [r d]_q[s t]_q sum_j (-1)^j q^{binom(j,2)}[r-d j]_q H_q(N(r-d-j),t). Radical-line count X has EX=[r 1]_q q^{-s c1}, second factorial moment bounded by C([r 1]_q,2)q^{-s c2}, c1=r,c2=2r-1 in symmetric; c1=2r-1,c2=4r-4 general. For fixed q,s (s>=2 symmetric, s>=1 general), Bonferroni leads to advertised sharp constants, and two-space union bound concentrates D=1 given D>0. Failure of full image has probability <=[s 1]_q q^{-N(r)}, negligible compared with rare excess so conditioning T=s preserves laws. Independent q=2,r=s=2 enumeration of all 256 general and 64 symmetric tensor maps matched all (D,T) strata. The general family is two-sided radical, not usual one-sided socle; s=1 symmetric rare law deliberately excluded.
 
-PASS within examined coverage, with an explicit remaining priority risk. Blackburn–McLean (arXiv:2107.13215, initial submission 2021-07-28) count isomorphism classes of finite rings asymptotically, not labeled tensor square-image and two-sided-annihilator profiles. Bahturin–Olshanskii (arXiv:2406.15631, 2024-06-21), including its finite-field generic-ideals section, concerns generic quotient ideals and their automorphisms; it does not state this conditional fixed-Hilbert-function probability and leading constant. Calderón–Fernández Ouaridi–Kaygorodov (arXiv:1806.07009, introductory theorem and §2 examined) classify huge-radical bilinear pairs over algebraically closed fields up to equivalence, but do not count all finite-field tensor profiles or prove the large-source rare-event constants. Schmidt's scalar symmetric-form rank theory is a prior special boundary, not coverage of vector-valued commutative tensors with at least two output coordinates or two-sided general tensors. Published narrow short-local-algebra classifications found in indexed searches do not have matching dimensions/quantifiers. Classical lattice Möbius inversion and surjection counts are credited, not presented as new mechanisms. A broad historic tensor-census theorem could subsume the formula implicitly; exhaustive uniqueness is not claimed.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The dimension of the two-sided annihilator relative to the square is a natural invariant of a finite local algebra; for commutative algebras it is precisely socle excess, measuring annihilating direct-summand defects. The theorem gives the *complete* joint finite distribution of that invariant and square-image dimension, not a handpicked small case. It also separates sharply the commutative and general associative families at fixed square-layer size, establishes the exact rare-event constants after conditioning on prescribed Hilbert function, and classifies the dominant exceptional structural mechanism as one annihilating line. It is suited to refined finite local-algebra enumeration and typical-versus-exceptional ring structure. No claim is made about uniform isomorphism classes or growing output dimensions.
+Statement- and implication-level primary-source and mathematical-index comparisons found no directly covering result in the material actually inspected; related ingredients and covered special cases are credited. Best-of-knowledge originality is qualified by the explicit residual risks; a negative search result is not novelty proof.
 
-## Closest literature and limitations
+## value
 
-The relevant full-text material examined comprised Blackburn–McLean's ring-enumeration paper (Sections 2 and 4) and Bahturin–Olshanskii's finite-field generic-algebra discussion (Sections 8.2–8.3). Calderón–Fernández Ouaridi–Kaygorodov was read through its introduction, main theorem, and foundational reduction lemma; Schmidt's symmetric-form paper was checked at title/abstract scope, with no assertion of full-text exclusion. A nearby two-generator short-local-algebra classification was only indexed by summary because its published record could not be opened; it is not claimed to be completely excluded. The calculations exhaust only ten small prime-field cases. The theorem covers all finite fields by proof; independent audit has not been performed.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Two-sided annihilator excess and square-layer image dimension are intrinsic, natural invariants of split cube-zero local algebras; complete labeled joint finite counts and distinct commutative/noncommutative sharp rare-event constants show how typical algebras differ from one-line annihilator exceptions, including prescribed Hilbert-function conditioning. This goes beyond a tiny classification or renaming of scalar bilinear rank.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

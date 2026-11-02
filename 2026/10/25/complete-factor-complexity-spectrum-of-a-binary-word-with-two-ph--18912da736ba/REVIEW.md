@@ -1,11 +1,21 @@
-# Scientific review of the two-defect factor-complexity theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** The word has exactly two `00` blocks and three alternating segments of lengths \(A,B,C\). Every distinct factor contains zero, one, or two of those blocks. The zero-block factors have exactly \(q_T(\ell)\) possibilities, the one-block factors form the union of two rectangles indexed by uniquely readable extension lengths, and the two-block factors form a third rectangle with fixed internal separation. The resulting inclusion–exclusion identity, valid for every positive parameter triple and every allowed length, is proved directly. Running the standalone verifier checked all \(729\) triples with \(1\le a,b,c\le9\) at every length and checked the summed total.
+## correctness
 
-**Originality — PASS with residual risk.** The inspected 2017 primary treatment of linguistic complexity via string attractors gives upper bounds in terms of covering positions, not an exact two-defect length spectrum. The 2022 reconstruction paper treats a different observation/inversion problem, not exact factor enumeration. Targeted searches for contiguous-factor complexity, periodic words with two insertions/phase defects, and lattice-diagonal overlap terms disclosed no identical or stronger covering statement. Such searches are not proof of novelty; unindexed equivalent results remain a substantive risk.
+PASS
 
-**Value — PASS.** Fixed-length factor counts are natural measures of text repetitiveness. A single insertion is a local exception to a periodic word, but two exceptions interact: the overlap \(\min(A,B)\min(B,C)\) must be subtracted to avoid double-counting whole families of repeated factors. The theorem resolves the entire length spectrum, not just a total, and shows exactly how the separation \(B\) changes the profile. This is a meaningful complete classification for the first nontrivial interacting two-defect family; it does not assert an unsupported broader application.
+For W=(01)^a0(01)^b0(01)^c (a,b,c>=1), partition its distinct contiguous factors by the number 0,1,2 of the marked 00 defects. No-defect factors are alternating from the maximum-length run T=max(A,B,C), contributing q_T(l). Single-defect factors are bijective with offset pairs in rectangles A×B and B×C, except identical factors in their intersection min(A,B)×min(B,C), giving diagonal H terms by inclusion-exclusion. Two-defect factors have fixed interdefect corridor length B+2 and extension rectangle A×C. This proves every-length formula and summed total 2T-1+AB+BC-min(A,B)min(B,C)+AC. Direct independent enumeration verified all lengths for all 343 triples 1<=a,b,c<=7. Finite checks only corroborate exact counting bijections.
 
-**Residual limitations.** Arbitrary defect symbols/locations, other alphabets, and three or more defects are unclassified. A tangential article on infinite quasiperiodic-word complexity was accessible only at abstract level and no full-text negative assertion is made about it. Independent scientific checking has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The exact full all-length complexity for this three-parameter two-defect word is not implied by general factor complexity bounds from Prezza or unrelated finite-string reconstruction theorems. Resultary published word-spectrum/multispectrum records concern different equivalence-class or inverse-string observables. No matching full two-defect spectrum was found. Primary Prezza full-text access was incomplete, so only the accessible abstract and theorem metadata are used for a bounded comparison; no claim that its whole document was exhaustively excluded.
+
+## value
+
+PASS
+
+The word is a motivated finite perturbation of a periodic word with exactly two phase defects; factor complexity is a standard complete discrete invariant. The precise overlap subtraction is not recovered by adding two single-defect contributions and records interaction between the defects. A three-parameter all-length exact spectrum and total answer may serve repetitive-string enumeration/attractor benchmarks rather than an arbitrary tiny-instance count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

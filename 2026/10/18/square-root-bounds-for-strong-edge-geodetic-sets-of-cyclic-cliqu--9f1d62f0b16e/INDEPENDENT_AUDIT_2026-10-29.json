@@ -1,0 +1,182 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:06:58Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md proof and definitions; SLOGAN.txt",
+        "Assigned verify.py and verify_output.txt (inspected but not executed as authority)",
+        "Independent checks: scope_worker_08_20261029T0154_work/independent_checks.py, result counts 268 general, 39 square, 338345 interval",
+        "Recomputed 8-entry record-directory Git tree SHA 5ab900465c1bd7eba0094c4bb447d34f3fa669c8, matched assigned tree; original eight blobs recorded in source_integrity.json"
+      ],
+      "rationale": "For G=C_n square K_m, Cartesian shortest-path distance is d_C(x,y)+1_{p != q}, hence every p-to-q geodesic contains exactly one p-to-q clique/rung edge; n such edges need a_p*a_q>=n distinct selected endpoint pairs for each p<q. The product over all layer pairs plus AM--GM gives |S|>=m sqrt(n). For the upper bound k=ceil sqrt(n), s=min(n,2k+6), the full-vertex case s=n is immediate. For s<n take s distinct anchors T={floor(i*n/s)}, 0<=i<s, in every layer. An L-consecutive-residue interval has at least floor(sL/n) anchors, so the i-th predecessor and j-th successor of each target r lie within ceil(i*n/s) and ceil(j*n/s). Setting h=s/2-2=k+1 gives d_left+d_right <= h*n/s+2 <= n/2 for positive i+j<=h; oriented anchor choices yield h(h-1)=k(k+1)>=n *distinct ordered coordinate pairs* whose shortest cycle arc passes through each target rung. Greedy injection handles all n target rungs per fixed unordered layer pair; pair sets across layer pairs are disjoint. Consecutive anchors have gaps <=ceil(n/s)<=n/2 and cover all rim edges with unused, unique same-layer endpoint pairs. For n=k^2,k>=3, equally spaced k anchors in every layer suffice: the ordered anchor pair (i,d), 0<=i,d<k, is assigned the rung ik for d=0; ik+d for 1<=d<=floor(k/2); and ((i-1) mod k)*k+d for larger d. Each rung in each gap has unique offset, yielding bijection onto k^2 rungs; chosen directed arcs are shortest and same-layer consecutive-anchor paths cover all cycle edges without duplicate unordered endpoints for k>=3. Thus |S|=mk, matching lower bound for all m>=2. Independent implementation tested 268 general parameter pairs (n up to 300), 39 square cases (k up to 15), and 338345 cyclic interval instances, checking all vertex endpoints, exact graph distance, no duplicate unordered endpoint pairs, and edge coverage. The infinite theorem rests on the symbolic argument, not these finite tests.",
+      "residual_risks": [
+        "Independent finite checks use bounded cases and are not an exhaustive verification of arbitrary n,m.",
+        "No claim on exact nonsquare value, general optimal leading constant, m=1, or n<3."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+          "Xavier--Mathew--Theresal--Varghese (2020), DOI 10.26713/cma.v11i3.1385, product-graph results and comparison/correction in Klavzar--Zmazek 2024",
+          "Manuel--Klavzar--Xavier--Arokiaraj--Thomas (2017), DOI 10.1515/math-2017-0101, definitions, general bounds, constructions; §§3--8",
+          "Klavzar--Zmazek (2024) exact formula is for P_n square K_m; its proof specifically exploits a linear path coordinate, not a cycle."
+        ],
+        "reasoning": "A universal Cartesian product theorem with upper bound O(m sqrt(n)) and valid shortest-path assignments would dominate the claim, but none was identified in the primary theorems read. General capacity/cut bounds yield only lower bounds. Exact P_n square K_m values are not upper bounds for C_n square K_m under edge-geodesic-set monotonicity, since path shortest routes can cease to be geodesic after cycle closure.",
+        "searches": [
+          "Klavzar Zmazek strong edge geodetic P_n square K_m Theorem 3.5 2024",
+          "strong edge geodetic cylindrical graph C_n Cartesian K_m square root bounds",
+          "strong edge geodetic C_n Cartesian K_m generic Cartesian product bounds",
+          "Resultary: strong edge-geodetic number of Cartesian product C_n square K_m cyclic clique product prism graphs, square-root upper and lower bounds",
+          "Resultary: strong edge geodetic grid P_n Cartesian K_m Klavzar Zmazek strong edge paths and cycles"
+        ]
+      },
+      "checked_sources": [
+        "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+        "Zmazek (2021), arXiv:2101.09259, Theorems 1.1--1.3 (P_n square P_2,P_3,P_4)",
+        "Xavier--Mathew--Theresal--Varghese (2020), DOI 10.26713/cma.v11i3.1385, product-graph results and comparison/correction in Klavzar--Zmazek 2024",
+        "Manuel--Klavzar--Xavier--Arokiaraj--Thomas (2017), DOI 10.1515/math-2017-0101, definitions, general bounds, constructions; §§3--8",
+        "Gajavalli--Greeni (2024), DOI 10.3934/math.2024991 (journal abstract/bibliography only)",
+        "Resultary published record: 2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445 (different complete-multipartite graph family)",
+        "Resultary published record: 2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578 (number of paths, not vertex endpoint-set invariant)",
+        "Resultary published record: 2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5 (strong upper *vertex* geodetic invariant)",
+        "Resultary published record: 2026/9/19/SCOPE-multiset-dimension-cylinders-six-times-height--fb793a108374 (multiset dimension of cylindrical grids, not strong edge-geodetic)",
+        "Resultary published record: 2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75 (Čech nerve homotopy, different invariant)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+          "Zmazek (2021), arXiv:2101.09259, Theorems 1.1--1.3 (P_n square P_2,P_3,P_4)",
+          "Xavier--Mathew--Theresal--Varghese (2020), DOI 10.26713/cma.v11i3.1385, product-graph results and comparison/correction in Klavzar--Zmazek 2024",
+          "For n=k^2 the known path--clique minimum mk numerically matches the new cycle--clique equality, but the earlier optimal paths need not remain geodesic after wrapping, and the explicit cyclic ordered-pair->rung bijection is not contained in that path construction."
+        ],
+        "reasoning": "The universal rung-count necessary condition a_p a_q>=n is present in the related literature, but supplies no cyclic sufficiency or bound of order m sqrt(n). The path--clique exact theorem cannot be applied by changing the graph, and the published complete multipartite and grid results concern different domains. The claimed balanced cyclic greedy matching and square-order geodesic assignment are substantive new implications compared with the read prior statements.",
+        "searches": [
+          "Klavzar Zmazek strong edge geodetic P_n square K_m Theorem 3.5 2024",
+          "strong edge geodetic problem on grids Zmazek 2021 arxiv 2101.09259",
+          "strong edge geodetic C_(k^2) Cartesian K_m square cycle exact k m",
+          "Resultary: strong edge geodetic number exact C_(k^2) Cartesian K_m using ordered anchor pairs and geodesic edge covering",
+          "Resultary: strong edge geodetic grid P_n Cartesian K_m Klavzar Zmazek strong edge paths and cycles"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+          "Zmazek (2021), arXiv:2101.09259, Theorems 1.1--1.3 (P_n square P_2,P_3,P_4)",
+          "Resultary published comparison: strong upper geodetic vs strong EDGE geodetic are different optimization problems; plain edge-geodesic cover counts paths, not the chosen endpoints."
+        ],
+        "reasoning": "The at-most-one-geodesic-per-selected-unordered-pair rule distinguishes the claimed invariant from ordinary edge-isometric-path covers, strong VERTEX geodetic, strong UPPER geodetic, and metric/dimension invariants. Permuting Cartesian factors retains C_n and K_m, but does not transform a path into a cycle.",
+        "searches": [
+          "\"strong edge geodetic\" \"cycle\" \"complete graph\" Cartesian product C_n K_m",
+          "\"strong edge geodetic\" \"prism\" graph cycle clique Cartesian",
+          "strong edge geodetic cylindrical graph C_n Cartesian K_m square root bounds",
+          "Resultary: strong edge-geodetic number of Cartesian product C_n square K_m cyclic clique product prism graphs, square-root upper and lower bounds",
+          "Resultary: geodesic edge coverage of cylinder cycle clique products C_n square K_m edge geodetic number"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+          "Resultary published records on complete multipartite sg_e, edge geodesic path covers, cylinder multiset dimension, Čech complexes and strong-upper-geodetic invariants do not encode sg_e(C_n square K_m)."
+        ],
+        "reasoning": "A finite table for short prisms cannot establish uniform two-unbounded-parameter bounds or the exact infinite square subsequence. The strongest same-number exact known table is P_(k²) square K_m, different graph family. No exact cyclic product formula was found; non-detection does not establish novelty.",
+        "searches": [
+          "strong edge geodetic number exact prism graph C_n box K_2 classification",
+          "strong edge geodetic C_(k^2) Cartesian K_m square cycle exact k m",
+          "Resultary: strong edge geodetic number exact C_(k^2) Cartesian K_m using ordered anchor pairs and geodesic edge covering",
+          "Resultary: geodesic edge coverage of cylinder cycle clique products C_n square K_m edge geodetic number"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality survives direct statement-level comparison with the exact path--clique result (Klavzar--Zmazek 2024, Thm 3.5), path-grid work, earlier product results, and targeted published-record semantic searches. Matching square-order values do not make the cyclic result a corollary: closing the path introduces shorter reverse arcs and invalidates path routes, and the cyclic rung bijection is independent. No inspected stronger theorem or exact cycle-clique table implies the all-parameter O(m sqrt(n)) bound or square-cycle attainability. Search misses are not proof of historical uniqueness.",
+      "residual_risks": [
+        "An equivalent formula or stronger universal product inequality may exist in unindexed, older, non-English or unpublished literature.",
+        "The lexicographic-product article was not read in full, though its product and observable are materially different.",
+        "The claim does not determine exact nonsquare values or a sharp optimal leading constant; these are not asserted.",
+        "Matching numerical square-cycle and square-path optima raise a substantive priority-comparison question, resolved for the inspected theorem by the distinct geodesic assignments but not exhausting all historical works."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Thm 3.5 establishes sg_e(P_n square K_m) for m>=3, including mk for n=k^2, but not C_n square K_m. Closing the path changes the shortest-path structure. The submitted cyclic gap/rung bijection is an independent proof of cycle attainability, not supplied by this prior result.",
+          "evidence": "Theorem 3.5 begins explicitly with sg_e(P_n square K_m); its proof uses monotone path order and unique path-factor geodesics; Corollary 3.6 is for P_(k^2), not C_(k^2).",
+          "identifier_or_url": "https://link.springer.com/article/10.1007/s41980-023-00849-6",
+          "material_read": "Open-access full HTML article including introduction, §§2--3, full statement and proof of Theorem 3.5, Corollary 3.6 and references.",
+          "method": "Direct full-text reading of journal primary source; the complete proof of path-product cases was compared against cycle geodesics.",
+          "title": "Strong Edge Geodetic Problem on Complete Multipartite Graphs and Some Extremal Graphs for the Problem",
+          "trigger": "Same strong edge-geodetic invariant, exact theorem for the closely related Cartesian path--clique product and the same square-order numerical expression."
+        },
+        {
+          "assessment": "Calculations concern P_n square P_j for j=2,3,4 and bounds for P_n square P_m, not C_n square K_m. No general principle immediately transfers shortest-path assignments to a cycle.",
+          "evidence": "Theorems 1.1--1.3 identify path-by-path grids; a cycle factor is absent.",
+          "identifier_or_url": "https://arxiv.org/abs/2101.09259",
+          "material_read": "Open-access complete preprint text: definitions, Theorems 1.1--1.3, grid constructive arguments and general-path-product estimates.",
+          "method": "Full preprint text inspected through lawful open version; theorem-family mathematical comparison.",
+          "title": "Strong edge geodetic problem on grids",
+          "trigger": "Same edge-covering geodesic invariant with Cartesian products and constructive square-root-type bounds."
+        },
+        {
+          "assessment": "No inspected theorem gives the uniform m sqrt(n) cyclic clique estimate or exact cyclic square subsequence. A path/clique special case in the 2020 paper is explicitly corrected in the 2024 paper.",
+          "evidence": "Klavzar--Zmazek 2024 introduction and §3 explicitly correct a claimed P_2 square K_m value from Xavier et al. 2020, and supply exact P_n square K_m formulas.",
+          "identifier_or_url": "https://doi.org/10.26713/cma.v11i3.1385",
+          "material_read": "Lawfully available full primary 11-page article text, product-graph results, examples, and cited comparisons.",
+          "method": "Inspected original mathematical statement and its product family through accessible full-text mirror; cross-checked 2024 correction.",
+          "title": "Some Results on Strong Edge Geodetic Problem in Graphs",
+          "trigger": "Earlier general product-graph results and possible stronger Cartesian coverage."
+        },
+        {
+          "assessment": "Foundational invariant and general inequalities, but no stated O(m sqrt(n)) two-parameter construction for C_n square K_m, nor square-cycle rung assignment.",
+          "evidence": "Sections 4--6 address general path/cut estimates and other graph families; no theorem covers the cycle-by-clique claim.",
+          "identifier_or_url": "https://doi.org/10.1515/math-2017-0101",
+          "material_read": "Complete accessible original 2017 article text through lawful full-text mirror, §3 complexity, §4 general shortest-path covers, §5 structural necessary conditions, §6 cut and examples, conclusion.",
+          "method": "Read original full text and compare its graph families, general bounds, and constructions with the cyclic clique product.",
+          "title": "Strong edge geodetic problem in networks",
+          "trigger": "Original definition and broad results capable of implying an edge-geodesic bound."
+        },
+        {
+          "assessment": "Lexicographic graph product and differing strong-geodetic setting; neither is the Cartesian strong EDGE-geodetic claim. Full article interior was not read.",
+          "evidence": "The publication title and abstract specify lexicographic products.",
+          "identifier_or_url": "https://doi.org/10.3934/math.2024991",
+          "material_read": "Journal primary public abstract, metadata and bibliography only; not full article.",
+          "method": "Primary article landing page inspected for definition of graph product and invariant.",
+          "title": "On strong geodeticity in the lexicographic product of graphs",
+          "trigger": "Similar graph-product wording and possible broader product results."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+        "Zmazek (2021), arXiv:2101.09259, Theorems 1.1--1.3 (P_n square P_2,P_3,P_4)",
+        "Assigned RESULT.md: uniform anchor construction, optimal square-cycle subfamily and explicit limitations"
+      ],
+      "rationale": "The parameterized strong edge-geodetic set of cyclic clique cylinders is a naturally motivated edge-covering graph invariant; the cycle closure removes the linear shortest-path structure used in the known exact P_n square K_m theorem. Uniform two-parameter upper and lower bounds matching in order Theta(m sqrt n), a constructive approximation factor approaching two independent of clique size, and an exact infinite square-cycle subfamily with an explicit geodesic rung bijection are substantial and independently useful. The construction is not a routine substitution or isolated finite table; it handles every m>=2 and all n>=3, although it leaves nonsquare exact values and optimal leading constant open.",
+      "residual_risks": [
+        "Sharp leading constant and exact nonsquare parameter values remain unknown; the main result claims only the proper order and infinite exact subsequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Klavzar--Zmazek (2024), Bull. Iranian Math. Soc. 50:13, DOI 10.1007/s41980-023-00849-6, Theorem 3.5 (P_n square K_m, exact) and Corollary 3.6 (square path order)",
+    "Zmazek (2021), arXiv:2101.09259, Theorems 1.1--1.3 (P_n square P_2,P_3,P_4)",
+    "Xavier--Mathew--Theresal--Varghese (2020), DOI 10.26713/cma.v11i3.1385, product-graph results and comparison/correction in Klavzar--Zmazek 2024",
+    "Manuel--Klavzar--Xavier--Arokiaraj--Thomas (2017), DOI 10.1515/math-2017-0101, definitions, general bounds, constructions; §§3--8",
+    "Gajavalli--Greeni (2024), DOI 10.3934/math.2024991 (journal abstract/bibliography only)",
+    "Resultary published record: 2026/10/4/SCOPE-all-strong-edge-geodetic-sets-of-complete-multipartite-graphs--f5f338e07445 (different complete-multipartite graph family)",
+    "Resultary published record: 2026/10/4/SCOPE-edge-geodesic-cover-and-partition-numbers-of-complete-multiparti--ed7c74654578 (number of paths, not vertex endpoint-set invariant)",
+    "Resultary published record: 2026/9/30/SCOPE-strong-upper-geodetic-number-of-complete-bipartite-graphs--19a81b4f67a5 (strong upper *vertex* geodetic invariant)",
+    "Resultary published record: 2026/9/19/SCOPE-multiset-dimension-cylinders-six-times-height--fb793a108374 (multiset dimension of cylindrical grids, not strong edge-geodetic)",
+    "Resultary published record: 2026/10/11/SCOPE-clique-fiber-ech-nerves-over-graphs-of-girth-at-least-five--bcf5b8b96c75 (Čech nerve homotopy, different invariant)",
+    "Assigned actual Git RESULT.md, SLOGAN.txt, AUDIT.json, METADATA.json, REVIEW.md, VERIFICATION.md, verify.py, verify_output.txt at frozen commit",
+    "Independent checker script, tested 268 general and 39 square parameter pairs and 338345 cyclic intervals"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Review relies on read and reconstructed argument, not a formal Lean proof or expert attestation.",
+    "Historical priority not certain outside searched/indexed and read primary material.",
+    "General exact nonsquare numbers and sharp leading constant unproved."
+  ],
+  "schema_version": 1
+}

@@ -14,6 +14,6 @@ The result gives a complete exact affine-invariant classification for natural ra
 
 ## Limits
 
-The theorem applies only to actual nontrivial Steiner \(2\)-designs with block size at least three. General rank-three matroids and other convex-geometric invariants are not classified. Mathematical correctness and novelty have only been reviewed in the same-model channel; independent audit is pending.
+The theorem applies only to actual nontrivial Steiner \(2\)-designs with block size at least three. General rank-three matroids and other convex-geometric invariants are not classified. At the original source snapshot, no independent assessment had yet been recorded.
 
-Self-review: passed. Independent audit: not yet performed.
+Original self-review: passed. The independent mathematical assessment is recorded separately.

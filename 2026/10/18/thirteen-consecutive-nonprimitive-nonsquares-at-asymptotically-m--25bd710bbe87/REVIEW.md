@@ -1,12 +1,21 @@
-# Scientific review: thirteen consecutive NSNP elements at the sharp high-density boundary
+# Independent mathematical audit
 
-**Correctness — PASS.** The Fermat prime has group order 2^16. Thirteen explicitly listed modular 16384-th powers are plus/minus 256, whose squares are -1; hence all thirteen residues have exact order 65536. For every odd extension degree the multiplicative order stays 65536 (so nonprimitive) while Euler nonsquare exponent is multiplied by an odd repunit (so nonsquare). For odd prime degree ell every odd prime factor r of the repunit has ord_r(65537)=ell, hence r>=ell+1; bounding their count by the log of the repunit shows theta approaches 1/2 at the stated explicit rate. All primitives in an odd finite field are nonsquares, so half is a strict ceiling when NSNPs exist. Finite modular arithmetic is reproduced with integer code; no finite sampling stands in for the infinite steps.
+## correctness
 
-**Originality — PASS, with stated residual literature risks.** The same-object Zhou-Wu preprint establishes low-density sufficient bounds and character-sum conditions for short tuples but not explicit 13-runs at densities tending to 1/2. Cohen handles pair thresholds; an earlier result only handles adjacent pairs at a<=4 and one odd prime factor, neither of which implies this 13-run and limit. Searches of indexed mathematical findings and primary literature found no covering high-density theorem; explicit residual literature risks are recorded, and absence of a hit alone is not treated as novelty proof.
+PASS
 
-**Value — PASS.** For the exact finite-field NSNP existence problem, the result determines the sharp but unattained upper primitive-density supremum simultaneously for all tuple lengths 3 through 13. It constructs infinitely many fields whose NSNP population has vanishing relative density while an explicit thirteen-term consecutive run persists, demonstrating that universal low-density threshold conditions cannot be interpreted as a clustering barrier. The natural thirteen-term run is certified over a fixed Fermat prime and persists at every odd extension degree, rather than an arbitrary isolated small-parameter computation.
+At p=65537 (prime by exact trial division), every a=46256,...,46268 has a^16384 in {256,65281} and its square equals -1 mod p; thus a^32768=-1 and a has exact order 2^16=p-1, since the ambient prime-field multiplicative group is of order 2^16. Odd-degree M_m=(p^m-1)/(p-1) is odd; therefore the same a has order p-1<q-1, so nonprimitive, and a^((q-1)/2)=(-1)^M_m=-1, so nonsquare. For odd prime degrees ell, the odd repunit M_ell has only prime divisors r with ord_r(p)=ell and thus r≡1 mod ell; factoring q-1=2^16 M_ell gives theta=1/2∏(1-1/r). Since their count s<ell logp/log(ell+1), 0<1/2-theta<ell logp/[2(ell+1)log(ell+1)]→0. For ANY odd finite field theta≤1/2 and equality eliminates all NSNP elements; hence sharp unattained supremum 1/2 for each 3≤k≤13. Boundaries: m is any odd integer≥3 for the block; ell ranges only odd rational primes for convergence; characteristic p>13 ensures distinct additive constants; m=1 not included.
 
-## Closest results and limitations
-Zhou and Wu (arXiv:2607.17267v2) prove low-primitive-density universal existence thresholds for three and four NSNP elements. Cohen (arXiv:2604.21429v1) proves pair thresholds. Neither result yields the explicit thirteen-element high-density construction. A formerly established adjacent-pair result for a dyadic group order with one odd prime cofactor does not imply this theorem in group-order dyadic stratum sixteen. Related consecutive-primitive-root work may contain an equivalent finite modular interval; a previous implicit prime-subfield-lifting argument remains possible. The present statement is existence and limiting density, not maximum length, exact density of blocks, or an optimized convergence rate. All claims are self-reviewed and have not been independently audited.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: prior work gives general sufficient NSNP criteria and low-density thresholds, and OEIS already tabulates the exact 65537 primitive roots. The audited mathematical contribution is the paired high-density infinite-field construction plus sharp unattained density supremum for 3≤k≤13; that implication was not identified in the fully inspected primary statements or indexed published results. The existence of the known finite table is credited and no uniqueness/absolute priority is asserted.
+
+## value
+
+PASS
+
+The invariant theta_q and NSNP run-existence threshold are natural in finite-field multiplicative combinatorics. The theorem supplies a sharp but unattained HIGH-density extremum for 11 block lengths 3 through 13, showing a vanishing ambient fraction of NSNPs can retain a fixed run of 13; it clarifies the conceptual distinction between universal low-density guarantees and extremal high-density counterexamples. The finite witness is already available in an established primitive-root table, so the contribution is the uniform odd-extension persistence and sharp infinite-family density boundary, not a new primality table, novel algorithm or generic textbook lemma. The independently checked maximum length 13 in this PARTICULAR prime field motivates the natural cutoff; no maximality across all fields is asserted. This is an exact self-contained extremal result, not a claim to solve general longest-run growth.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
