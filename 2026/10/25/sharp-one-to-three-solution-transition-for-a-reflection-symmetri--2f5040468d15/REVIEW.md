@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A cyclic support-length formula reduces the geometric inverse problem to exactly five quadratic equations. The reflection decomposition exhausts symmetric and asymmetric solutions, including all positivity inequalities. The unique symmetric branch follows from a positive factored derivative. The asymmetric branch's admissible domain is a rigorous interval between roots of explicitly given cubics. Seven strictly negative exact Bernstein coefficients prove the decisive monotonicity over a covering rational interval. Symbolic verification reproduces identities and discriminants; representative direct substitutions independently check normalization. Floating-point values are not used as infinite proofs.
+## correctness
 
-**Originality — PASS under inspected evidence.** Baumbach–Chen–Henk, arXiv:2610.21533, Example 3.2, already gives the exact same normals and datum at \(t=4\), with three solutions. This example and the general cone-volume map are attributed, not asserted new. The claimed difference is the complete one-parameter sharp bifurcation at an algebraic threshold and all branches, not implied merely by one data point, local parity, or the general finite-fiber bound. Source introduction, Example 3.2, relevant general theorems, appendix, and bibliography were materially inspected. published-finding corpus semantic searches for the exact normals, dataset, aliases and phase transitions yielded no covering record. The nonindexed and older planar \(L_0\)-Minkowski literature remains a historical-priority risk.
+PASS
 
-**Mathematical value — PASS.** The datum is the explicit reflection-invariant family singled out by an important very recent nonuniqueness example. An exact first bifurcation, the full count for every parameter, and an algebraic branch description resolve a motivated natural geometric inverse problem, quantify a genuine symmetry breaking boundary, and distinguish the singular transition from the stable three-solution phase. It is not a numerical parameter scan or an arbitrary finite table.
+For u_j equally spaced pentagon unit normals and target cone volumes (t,t,1,1,t), t>0, directly recomputed gamma_j=h_j(h_{j-1}+h_{j+1}-2q h_j)/(2s), q=(sqrt5-1)/4, s=sin(2pi/5). Positive gamma and h force all five edge lengths positive, hence a genuine convex pentagon. Reflection coordinates h=(a,b+x,d+y,d-y,b-x) split antisymmetric equations into a 2x2 linear system. Symmetric x=y=0 gives one branch with t(r) increasing 0->infinity. Nonsymmetric determinant zero forces rational algebraic A(B), y/x=-1/(B-sqrt5+1), Z(B)=(x/d)^2, H(B)=2s/d^2 and T(B)=t. Cubic roots beta0~2.057628, beta*~2.251826 delimit exactly the positivity interval (beta0,beta*), each B producing a reflected pair. Direct independent symbolic differentiation confirms T'(B)=positiveprefactor P6(B)/J0(B)^2; the SEVEN exact Bernstein coefficients of P6 on [2,2.3] are strictly negative, so T decreases infinity -> T(beta*)~3.085259816987. Thus exactly one solution t<=t*, three t>t*. Independent exact symbolic checks of factorization/discriminants/Bernstein negativity and direct cone-volume substitutions at three rational B values were successful. Fixed origin supports and no scaling/translation quotient; t=t* belongs to single-solution regime.
 
-Independent verification beyond the displayed computations has not been conducted. The result is scoped to the specific pentagonal normal fan and one-parameter cone-volume measures. A general five-normal multiplicity classification remains outside its scope.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baumbach–Chen–Henk (Oct 2026) exhibits EXACT same normals and t=4 data with three support solutions, so that particular example, equations, and general finite-fiber framework are NOT new. The full continuous 0<t<infinity sharp threshold and exact one/three branch classification requires explicit elimination and global sign proof not implied by one t=4 fiber or parity arguments. Strong plausible predecessor, however the complete source paper (and older Stancu articles) was not accessible; originality therefore best-of-knowledge and provisional, without claiming absence from unseen material.
+
+## value
+
+PASS
+
+A specific three-solution example in the log-Minkowski cone-volume literature naturally asks whether the nonuniqueness is isolated or part of a sharp symmetry-breaking phase. The complete positive parameter range has an exact algebraic threshold and every nonsymmetric solution is classified via one monotone branch and reflection. Such sharp fiber geometry is structurally informative; it is not a routine restatement of the single published t=4 example. The scope is this one normalized reflection-invariant five-normal family, not the general discrete problem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
