@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T06:01:09.057319Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen 2026/10/26/uniqueness-and-deterministic-selection-of-nonconsensus-in-a-soci--89ae241bbdaa/RESULT.md blob c446ef822489365b69435acc2a6ecfb9274da2d9",
+        "Independently implemented checks recorded in independent_checks"
+      ],
+      "rationale": "Any nontrivial fixed point has all coordinates strictly in (0,1), by connectivity and positivity. Odds o(s)=s/(1-s) is strictly convex, so an interior fixed point yields u=o(x)<=Gamma W u and complement yields Gamma^-1W analogue; Perron equality would force neighbor-value equality and via odd cycles a constant fixed point impossible if Gamma!=I. Conversely if both radii >1, small positive Perron eigenvectors give monotone strict lower/upper sub- and supersolutions, whose iterates converge. For uniqueness, maximize odds ratio R>1 between two alleged interior fixed points; strict concavity of T_R(s)=Rs/(1+(R-1)s) and equality at an optimizing coordinate force all neighbors to be maximizers with equal values; graph connectivity and odd cycle force constant equilibrium, contradiction. Bracketing gives auxiliary iteration from any interior state. Tang et al Theorems 3 and 4 give almost-sure approach to equilibrium set and endpoint repulsion/convergence; bounded urn increments convert finite-set approach to convergence, yielding unique x*. Independent exact rational triangle equilibrium (3/4,1/4,1/2) and both positive Perron subeigenvector certificates checked. No claim of new stochastic approximation theorem.",
+      "residual_risks": [
+        "Finite connected undirected nonbipartite graph only; excludes all-neutral biases and different response kernels, and requires compatible strictly positive urn counts.",
+        "Published Tang et al stochastic theorems are used as premises, not independently reproved; no convergence rate claimed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Theorem 3 proves almost-sure approach to the equilibrium SET; Theorem 4 excludes endpoint limiting states when Perron Jacobian radius>1 and gives endpoint convergence when<=1.",
+          "The author paper explicitly notes possibility of multiple or connected interior equilibria; later estimator paper focuses parameter inference; general nonlinear PF concerns distinct maps/hypotheses."
+        ],
+        "reasoning": "Published endpoint and set-convergence results are inputs; without independently proving uniqueness they do not imply a unique nonrandom interior limit.",
+        "searches": [
+          "Tang et al Stochastic Opinion Dynamics... arXiv:2308.09275 Theorems 3 and 4",
+          "Tang et al Estimating True Beliefs... arXiv:2310.17171",
+          "Lins 2022 nonlinear Perron Frobenius iteration arXiv:2207.14098"
+        ]
+      },
+      "checked_sources": [
+        "Tang et al arXiv:2308.09275 full author PDF Theorems3/4 and open uniqueness discussion",
+        "Tang et al arXiv:2310.17171 abstract/related statements",
+        "Lins arXiv:2207.14098 general nonlinear PF context",
+        "Resultary semantic search on social-pressure urn uniqueness"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Approach to a possibly disconnected equilibrium set plus no endpoint convergence DOES NOT determine a single interior equilibrium; original authors state this gap explicitly.",
+          "New strict-odds concavity uniqueness closes the implication gap and thus makes convergence deterministic, under model-specific hypotheses."
+        ],
+        "reasoning": "The identified claimed advance is genuine beyond the precise prior stochastic theorem; no novel claim is made for already-known endpoint criteria.",
+        "searches": [
+          "Tang et al Theorem 3, Theorem 4, paragraph after Theorem 3",
+          "Tang et al Estimating True Beliefs 2023",
+          "Lins nonlinear PF 2022"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fixed-point equation is conjugate under odds o(x)=x/(1-x) to a positive nonlinear monotone averaging map; maximizing relative odds and strict Jensen equality force uniqueness.",
+          "Tang et al original PDF after Theorem 3 explicitly: it is unclear whether interior equilibria are unique or isolated."
+        ],
+        "reasoning": "Generic fixed-point or strongly monotone convergence results may yield some cases but must imply uniqueness for THIS rational map/graph class to cover the target; none found in inspected primary results.",
+        "searches": [
+          "Resultary: social pressure Polya urn arbitrary nonbipartite network uniqueness interior equilibrium strict Perron consensus stochastic deterministic limit",
+          "Tang Adler Ajorlou Jadbabaie arXiv:2308.09275 uniqueness isolated equilibrium",
+          "Lins Convergence of Iterates in Nonlinear Perron–Frobenius Theory arXiv:2207.14098"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary close hits concern unrelated social networks and stochastic maps; no tabulated parameter-family uniqueness classification found."
+        ],
+        "reasoning": "Exact database check is relatively inapplicable to an all-network analytic uniqueness theorem, yet a named literature/index search for the theorem was performed and found no matching published table.",
+        "searches": [
+          "Resultary social-pressure Polya uniqueness arbitrary nonbipartite networks",
+          "Tang Adler Ajorlou Jadbabaie model gamma W r0 r1 uniqueness",
+          "web stochastic opinion dynamics non-consensus unique equilibrium"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality is confined to uniqueness of interior equilibrium on arbitrary connected nonbipartite undirected weighted graphs and deterministic stochastic selection. The original model paper explicitly states interior isolation/uniqueness remains unclear, while its endpoint spectral tests and convergence-to-equilibria already exist and are NOT claimed novel. The follow-up inference paper and general nonlinear Perron theories were compared at implication level.",
+      "residual_risks": [
+        "A very broad nonlinear Perron–Frobenius uniqueness theorem may already imply this conclusion under a recognized transform; no such implication was established by inspected material.",
+        "Stochastic selection relies on Tang et al Theorems3/4 and strictly positive compatible urn initialization; these were used as published results, not reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE_PARTIAL_COVERAGE: endpoint and set convergence prior, but uniqueness/open question explicitly not resolved.",
+          "evidence": [
+            "After Theorem 3 it says unclear if nonendpoint equilibrium points are unique or isolated; Theorem 4 states Perron endpoint criterion."
+          ],
+          "identifier_or_url": "https://web.mit.edu/jstang/www/papers/opinion_dynamics_convergence_jour_preprint.pdf",
+          "material_read": "Complete author-hosted full PDF accessible and inspected: model §II, Theorem 3 printed around p.6, discussion of nonunique equilibria, Theorem 4 around pp.11–13, Conclusion; first-page PDF screenshot previously inspected.",
+          "method": "Author open-access full PDF, targeted text and screenshots",
+          "title": "Stochastic Opinion Dynamics under Social Pressure in Arbitrary Networks",
+          "trigger": "Exact original model, Theorems 3/4 and stated open uniqueness question"
+        },
+        {
+          "assessment": "RELATED_NO_DECISIVE_COVERAGE: focuses true-belief estimator and rates, not a cited all-network equilibrium uniqueness theorem; full-text uninspected remainder retained as residual risk.",
+          "evidence": [
+            "Abstract asserts estimator converges to beliefs even under consensus; discusses convergence rate."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2310.17171",
+          "material_read": "Read arXiv full abstract and stated inference theorems/descriptions; did not verify all full-text appendices.",
+          "method": "Open arXiv abstract and targeted theorem search",
+          "title": "Estimating True Beliefs in Opinion Dynamics with Social Pressure",
+          "trigger": "Same authors and model, potential subsequent resolution"
+        },
+        {
+          "assessment": "POSSIBLE_GENERAL_TOOL: cannot rule out alternate derivation using stronger general monotone theory.",
+          "evidence": [
+            "Different structural hypotheses; no located statement giving exact strict double-Perron criterion for social-pressure F."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2207.14098",
+          "material_read": "Public abstract/general theorem context located, no exact specialization with graph-specific strict odds-ratio equality verified.",
+          "method": "Primary arXiv abstract and literature search",
+          "title": "Convergence of Iterates in Nonlinear Perron–Frobenius Theory",
+          "trigger": "Potential abstract dominating theorem via positive homogeneous/nonhomogeneous maps"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Frozen RESULT.md and hypotheses, independently evaluated mathematical object and exact invariant"
+      ],
+      "rationale": "The motivating network model explicitly left open whether general nonconsensus equilibria are unique; strict odds/Jensen propagation resolves that gap and upgrades set-valued almost-sure attraction to deterministic asymptotic selection. Gives a constructive fixed-point algorithm and exact double-Perron regime; not a routine numerical example.",
+      "residual_risks": [
+        "Finite connected undirected nonbipartite graph only; excludes all-neutral biases and different response kernels, and requires compatible strictly positive urn counts.",
+        "Published Tang et al stochastic theorems are used as premises, not independently reproved; no convergence rate claimed."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Finite connected undirected nonbipartite graph only; excludes all-neutral biases and different response kernels, and requires compatible strictly positive urn counts.",
+    "Published Tang et al stochastic theorems are used as premises, not independently reproved; no convergence rate claimed."
+  ],
+  "schema_version": 1
+}
