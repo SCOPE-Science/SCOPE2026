@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-The included source files are self-contained except for the explicitly optional SymPy algebraic-chart check. Compile the three C programs with a standard C11 compiler, generate the five projective-substitution matrices with the Python standard library, and execute them as described in `RESULT.md`.
+## correctness
 
-The primary program exhausts exactly 2441406 scalar-normalized cubic equations and writes the 186000 maximizing coefficient indices to `maximizers.bin`. The flag-restriction program has an independently computed same-domain histogram. Their histograms agree in every cell. The orbit program consumes only that freshly generated maximizing set and the five independently regenerated substitution matrices, finds two disjoint 93000-element orbits and confirms that each generator maps every maximizing equation to another maximum. The group generation and order are explained in the proof.
+PASS
 
-The representative check verifies all three projective affine gradient charts in characteristic five via exact Gröbner bases, plus independent rational-point and tangent incidence counts for each representative. The two representatives have exactly 10 and 8 rational points, respectively, each covering 29 of the 31 ambient points. A symbolic derivative contradiction in the proof is independent of the Gröbner library.
+There are 31 rational points/lines of PG(2,5), 10 homogeneous cubic monomials, (5^10−1)/(5−1)=2,441,406 scalar-normalized equations. A rational smooth curve point has a unique nonzero gradient whose orthogonal 6-point rational line is its tangent; union masks yield coverage. Independently programmed an exact GF(5) C enumerator for ALL normalized equations, recovered complete 32-bin source histogram, maximum 29 and 186,000 winners, with 93,000 each at rational point counts 8 and 10. Independently generated five polynomial substitution matrices and enumerated all 186,000 maximizing forms under GL3 generator action; exactly TWO PGL3 orbits each 93,000. |PGL3(F5)|=372,000 gives stabilizer four. Read actual source independently implemented gradient and flag enumerators and their polynomial code: both finite methods exhaust same domain; projective representative checks and partial derivative contradictions over algebraic closure prove geometric smoothness for each representative. Verification is finite exhaustive of exactly the claimed fixed field; none asserts other fields.
 
-The outputs to compare are in `EXPECTED_OUTPUT.txt`. These computations are finite and exhaustive within the stated cubic coefficient space. They do not prove an analogous theorem in other fields. The check is an internal reproducibility review, not independent external auditing.
+## originality
+
+PASS
+
+Prior Asgarli–Ghioca tangent-filling theory and earlier F5 no-filling obstruction rule out coverage 31 but do not establish the sharp coverage maximum 29 or the exact two-orbit equality classification in the inspected full primary theorem. Coolsaet complete (k,3)-arc classification is related finite incidence classification but no mathematical implication to this tangent coverage was established; its full content was not read, preserving priority risk. Best-of-knowledge PASS.
+
+## value
+
+PASS
+
+This is a complete fixed-field extremal classification for a natural tangent-filling question: strictly stronger than merely showing cubics are non-filling, with two different elliptic smooth extremal orbits and sharp two-point coverage deficit. Natural exact finite invariant even without extension to all prime powers.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
