@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,13 +19,24 @@
 }
 ---
 
-# Verification evidence and reproduction
+# Independent mathematical audit
 
-All files below are embedded complete alongside this document. Work in a directory containing these source files and data.
+## correctness
 
-1. `g++ -O3 -std=c++17 -Wall -Wextra verify.cpp -o verify7` then `./verify7`; compare its output to `verification_output.txt`. Expected 2,097,152 labelled cases, 1,866,256 connected, 49 maximum, 455 labelled maximizers in two exactly checked permutation orbits.
-2. `g++ -O3 -std=c++17 -Wall -Wextra verify8.cpp -o verify8` then `./verify8 atlas7_masks.txt`; compare with `verification8_output.txt`. Expected 1,044 base classes, 133,632 extensions, 119,980 connected, maximum 74 and nine maximizing extension records, each isomorphic to one of two explicit witnesses.
-3. Install the pinned requirements in `requirements.txt` and run `python verify_atlas.py` to independently count all shortest paths in 853 connected seven-vertex Atlas classes. Compare with `atlas_output.txt`; exactly two attain 49.
-4. With the same NetworkX version, run `python generate_atlas7.py`, then compare its generated `atlas7_masks.txt` byte-for-byte with the bundled input. The file has 1,044 distinct integers encoding all seven-vertex graphs from the standard Atlas.
+PASS
 
-The published completeness of the seven-vertex Graph Atlas is mathematical input to the eight-vertex census. Its 1,044 source masks and generation procedure are supplied. All count arithmetic is integer-exact. Finite exhaustive enumeration is an adequate proof only of the stated seven/eight-vertex finite results; it does not establish any upper bound beyond eight vertices. The second library-based test independently corroborates seven, but not every eight-vertex execution path. No independent mathematical audit has been performed.
+Exact breadth-first shortest-path counting includes one length-zero path per vertex and counts each unordered pair once. Independent C++17 exhausts all 2^21 seven-vertex labeled graphs: 1,866,256 connected, max49, 455 labeled maximizers split 35 12-edge plus 420 11-edge. Standard seven-vertex Graph Atlas has 1,044 isomorphism representatives; extending all by each of 128 eighth-vertex neighborhoods covers every 8-vertex graph. Independently recomputed 133,632 extensions, 119,980 connected, max74, nine maximizing extension records (four 14-edge, five 15-edge). Reviewed witness orbit argument of verify8.cpp and matching deletion counts. These are genuinely finite exhaustive bounds, not extrapolation; classification depends on correctness/completeness of the independently generated graph-atlas input.
+
+## originality
+
+PASS
+
+The global 7/8 maxima and equality classes are not a corollary of the earlier bipartite matching-deletion witness formula; the previous diameter-two upper bound cannot cover the eight-vertex diameter-three maximizers. Knor et al. 2026 supply global bounds and smaller-order statements, while Problem 14 and 15 leave unrestricted/bipartite extremizers broadly open. Exhaustive certificate yields new precise boundary at n=8, with residual risk of an older independent small-order census.
+
+## value
+
+PASS
+
+First two finite orders beyond the previously published unrestricted extremal classification are a natural, small but meaningful complete classification, proving the first loss of balanced-biclique global optimality at eight vertices. Witness values alone are prior, but unrestricted bound and uniqueness provide the new content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

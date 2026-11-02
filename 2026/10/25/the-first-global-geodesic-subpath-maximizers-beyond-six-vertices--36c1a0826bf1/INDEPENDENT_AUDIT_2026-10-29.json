@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T20:16:23.512283Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Exact breadth-first shortest-path counting includes one length-zero path per vertex and counts each unordered pair once. Independent C++17 exhausts all 2^21 seven-vertex labeled graphs: 1,866,256 connected, max49, 455 labeled maximizers split 35 12-edge plus 420 11-edge. Standard seven-vertex Graph Atlas has 1,044 isomorphism representatives; extending all by each of 128 eighth-vertex neighborhoods covers every 8-vertex graph. Independently recomputed 133,632 extensions, 119,980 connected, max74, nine maximizing extension records (four 14-edge, five 15-edge). Reviewed witness orbit argument of verify8.cpp and matching deletion counts. These are genuinely finite exhaustive bounds, not extrapolation; classification depends on correctness/completeness of the independently generated graph-atlas input.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Knor et al., 2026 Open Access §§2,4, Problem 14/15",
+          "Resultary 2026/9/17 diameter-two geodesic-subpath extremum."
+        ],
+        "reasoning": "The 2026 founding article Theorem2 is a loose general n upper bound and its problems remain open; the diameter-two result gives at most 72 at eight, excluding the actual n8 maximizers which have diameter 3.",
+        "searches": [
+          "geodesic subpath number global maximum connected graphs 7 8 vertices exact maximizers 49 74 K3,4 K4,4 matching deletion",
+          "Knor Sedlar Skrekovski Zhang Counting Geodesic Paths in Graphs 2026 small graph n=7 n=8",
+          "Resultary geodesic subpath number global maximum seven eight vertices"
+        ]
+      },
+      "checked_sources": [
+        "Knor Sedlar Skrekovski Zhang Counting Geodesic Paths in Graphs 2026 small graph n=7 n=8",
+        "Resultary geodesic subpath number global maximum seven eight vertices",
+        "geodesic subpath number global maximum connected graphs 7 8 vertices exact maximizers 49 74 K3,4 K4,4 matching deletion",
+        "https://doi.org/10.1007/s00009-026-03159-3",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Resultary 2026/10/4 geodesic matching-deletion claim",
+          "Independently checked maximum 74 among 133632 eight-vertex extensions."
+        ],
+        "reasoning": "Matching-deletion formula yields equal witness values 49/74, not a universal upper bound among all graphs; unrestricted global optimum does not follow without exhaustion.",
+        "searches": [
+          "geodesic subpath number global maximum connected graphs 7 8 vertices exact maximizers 49 74 K3,4 K4,4 matching deletion",
+          "Knor Sedlar Skrekovski Zhang Counting Geodesic Paths in Graphs 2026 small graph n=7 n=8",
+          "Resultary geodesic subpath number global maximum seven eight vertices"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Knor et al. 2026 Definition gpn(G)=sum unordered pair geodesics+n.",
+          "Resultary geodesic-matching-deletion record uses same invariant but a restricted family."
+        ],
+        "reasoning": "Equivalent formulation is total count of shortest paths incl. singletons, NOT the total number of all subpaths. Knor et al. define precisely this gpn normalization; the earlier subpath-number paper is a different invariant.",
+        "searches": [
+          "geodesic subpath number global maximum connected graphs 7 8 vertices exact maximizers 49 74 K3,4 K4,4 matching deletion",
+          "Knor Sedlar Skrekovski Zhang Counting Geodesic Paths in Graphs 2026 small graph n=7 n=8",
+          "Resultary geodesic subpath number global maximum seven eight vertices"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Read–Wilson Atlas of Graphs 1998; NetworkX graph_atlas_g",
+          "Direct 7/8 exhaustive count totals above."
+        ],
+        "reasoning": "Published Graph Atlas classifies all 1044 seven-vertex types, but is a graph catalogue and has no gpn extremal table. Independently analyzed each extension; a published exact gpn table for n7/8 was not identified.",
+        "searches": [
+          "geodesic subpath number global maximum connected graphs 7 8 vertices exact maximizers 49 74 K3,4 K4,4 matching deletion",
+          "Knor Sedlar Skrekovski Zhang Counting Geodesic Paths in Graphs 2026 small graph n=7 n=8",
+          "Resultary geodesic subpath number global maximum seven eight vertices"
+        ]
+      },
+      "rationale": "The global 7/8 maxima and equality classes are not a corollary of the earlier bipartite matching-deletion witness formula; the previous diameter-two upper bound cannot cover the eight-vertex diameter-three maximizers. Knor et al. 2026 supply global bounds and smaller-order statements, while Problem 14 and 15 leave unrestricted/bipartite extremizers broadly open. Exhaustive certificate yields new precise boundary at n=8, with residual risk of an older independent small-order census.",
+      "residual_risks": [
+        "A prior uncatalogued brute-force eight-vertex gpn census could reproduce both exact maxima.",
+        "The independent exhaustive computation relies on correctness of standard Read–Wilson seven-vertex graph atlas; no independent proof of atlas completeness."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Does not give exact unrestricted maxima and equality classification at n7 or n8; general upper bound and open extremal questions remain.",
+          "evidence": [
+            "Definition gpn(G)=n+sum sigma and Problems 14/15; 2026-08-01 journal publication."
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00009-026-03159-3",
+          "material_read": "Full open Springer article: defining sum with zero paths, extremal theorem sections, §§4 concluding Problems 14 and 15",
+          "method": "read open-access article HTML, compared exact statements and graph classes",
+          "title": "Counting Geodesic Paths in Graphs",
+          "trigger": "Defines same invariant and broad extremal problem"
+        },
+        {
+          "assessment": "Covers candidate values, not all connected graphs or global equality classes.",
+          "evidence": [
+            "Change t(ab-2a-2b+3-t) for fixed K(a,b)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-geodesic-subpath-numbers-of-bicliques-with-a-deleted-matching--525c4067322f",
+          "material_read": "Semantic record title, formal stated matching-deletion formula and fixed-bipartition optimization; full source not fetched",
+          "method": "Resultary published record summary; implication checked algebraically",
+          "title": "Geodesic subpath numbers of bicliques with a deleted matching",
+          "trigger": "Same parameter and candidate witness construction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "First two finite orders beyond the previously published unrestricted extremal classification are a natural, small but meaningful complete classification, proving the first loss of balanced-biclique global optimality at eight vertices. Witness values alone are prior, but unrestricted bound and uniqueness provide the new content.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Claims only graph orders seven and eight; no all-order extremal inequality.",
+    "Eight-vertex result assumes published Atlas has all 1,044 seven-vertex isomorphism types; generated masks are a necessary explicit dependency.",
+    "Independent test duplicated exhaustive BFS counts, but not a second independent isomorphism orbit program."
+  ],
+  "schema_version": 1
+}

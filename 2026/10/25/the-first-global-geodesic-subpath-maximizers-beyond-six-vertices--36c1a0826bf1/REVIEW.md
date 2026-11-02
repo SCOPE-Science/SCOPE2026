@@ -1,15 +1,21 @@
-# Review: Global geodesic-subpath extrema at seven and eight vertices
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The definition counts shortest paths once per unordered vertex pair, including one singleton path per vertex. The seven-vertex upper bound enumerates every \(2^{21}\) labelled simple graph with an exact integer breadth-first path counter and rejects disconnected cases; maximizer masks equal the full permutation orbits of \(K_{3,4}\) and its one-edge deletion. An independently implemented Graph Atlas test confirms its two classes. The eight-vertex upper bound combines all 1,044 seven-vertex Atlas representatives with all 128 eighth-vertex neighbourhoods, covering every eight-vertex class. Every attaining extension is explicitly in the permutation orbit of one of two matching-deleted \(K_{4,4}\) graphs. Verification output and source code are embedded. The Graph Atlas completeness theorem and dataset are an essential stated premise.
+PASS
 
-## Originality — PASS, with residual priority risk
+Exact breadth-first shortest-path counting includes one length-zero path per vertex and counts each unordered pair once. Independent C++17 exhausts all 2^21 seven-vertex labeled graphs: 1,866,256 connected, max49, 455 labeled maximizers split 35 12-edge plus 420 11-edge. Standard seven-vertex Graph Atlas has 1,044 isomorphism representatives; extending all by each of 128 eighth-vertex neighborhoods covers every 8-vertex graph. Independently recomputed 133,632 extensions, 119,980 connected, max74, nine maximizing extension records (four 14-edge, five 15-edge). Reviewed witness orbit argument of verify8.cpp and matching deletion counts. These are genuinely finite exhaustive bounds, not extrapolation; classification depends on correctness/completeness of the independently generated graph-atlas input.
 
-The 2026 founding paper gives small-order global extrema only through six vertices. An earlier exact matching-deletion formula yields the four witness graph values, but does not imply their optimality or completeness over all connected graphs. A materially inspected diameter-two upper-bound theorem does not cover the diameter-three eight-vertex maximizers. Searches for total numbers of shortest paths, the exact proposed values, and related graph family descriptions did not reveal an exact prior unrestricted seven/eight theorem. A separately indexed path-blowup improvement was not fully read, and an uncatalogued earlier census remains possible.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The exact first two new orders beyond the founding paper determine both maximum counts and every maximizer. The first loss of balanced-biclique global optimality occurs at eight vertices: \(K_{4,4}\) yields 72 while its one- and two-matching-edge deletions attain 74. This is a concrete boundary for the broader open extremal problem, not a mere recomputation of the known formulas inside a fixed graph family. No asymptotic or arbitrary-order theorem is asserted.
+The global 7/8 maxima and equality classes are not a corollary of the earlier bipartite matching-deletion witness formula; the previous diameter-two upper bound cannot cover the eight-vertex diameter-three maximizers. Knor et al. 2026 supply global bounds and smaller-order statements, while Problem 14 and 15 leave unrestricted/bipartite extremizers broadly open. Exhaustive certificate yields new precise boundary at n=8, with residual risk of an older independent small-order census.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+First two finite orders beyond the previously published unrestricted extremal classification are a natural, small but meaningful complete classification, proving the first loss of balanced-biclique global optimality at eight vertices. Witness values alone are prior, but unrestricted bound and uniqueness provide the new content.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
