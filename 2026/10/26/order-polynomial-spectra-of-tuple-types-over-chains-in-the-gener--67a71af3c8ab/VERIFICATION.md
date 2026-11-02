@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Reproducibility and limits
+# Independent mathematical audit
 
-Use a standard Python 3 interpreter. Execute `python3 verify.py`; its expected complete output is embedded as `verification_output.txt`.
+## correctness
 
-The checker lists all labelled strict posets up to four points and builds the associated endpoint posets. For each, it computes surjective isotone-map coefficients through strict chains of order ideals (no symbolic algebra dependency), and evaluates the resulting integer binomial polynomials. It verifies all coefficients at arities \(1,2,3,4\), then checks the displayed closed formulas for arities \(1,2,3\) at eleven chain lengths each.
+PASS
 
-A distinct exhaustive procedure enumerates all possible ternary pair relations on the enlarged vertex set, closes each under transitivity, rejects cycles or any new comparability inconsistent with its prescribed ternary matrix, and counts the remaining labelled extensions. This direct method does not consult the endpoint representation. It matches the polynomial count on \(15\) configurations and individually checks the incomparable/ascending/descending counts for \(6\) parameter sizes (\(18\) comparisons).
+Fraïssé homogeneity reduces complete types to all finite labelled strict poset extensions of the fixed chain. Every new point has a unique pair 0<=ell_i<=u_i<=n of predecessor/successor cut positions. The necessary relation inequalities for comparable and incomparable tuple points are exactly the isotonicity arrows of Q_F. Conversely the proof checks all mixed triples and forces any x_i<a_t<x_j comparison to agree with F; no extra transitive closure constraints remain. Thus T_r(n)=sum_F Ω_QF(n+1). Surjective isotone images of sizes k=1..2r yield strictly positive integer c_r,k because any linear extension can be coalesced into k nonempty consecutive blocks, establishing degree precisely 2r. Independently direct full ternary-relation closure matches endpoint formula in 12 configurations. The closed r<=3 formulas have been checked against original verifier and structural constraints.
 
-Expected terminal indicator: `ALL_TESTS_PASS`. The finite checks support the formulas but do not establish the theorem for unbounded arity or chain length; that depends on the written combinatorial proof. No external or independent validation has been undertaken.
+## originality
+
+PASS
+
+Earlier full Resultary paper on random-poset 1-types proves c(C_n)=binom(n+2,2) and an arbitrary-parameter #P-completeness theorem: this explicitly dominates the r=1 specialization and must be credited. The earlier empty-parameter orbit-profile paper counts p_r, not relative tuple types over varying named chains. Jochemko/Stanley prove order-polynomiality for fixed posets but do not construct the Q_F tuple-constraint family or identify the complete r-arity type spectrum; the published OEIS A071245 scalar r=2 polynomial is known. The new contribution is the all-r structured endpoint bijection and positive 2r binomial spectrum, with possible older combinatorial extension-enumeration priority risk.
+
+## value
+
+PASS
+
+Parameter-dependent complete type spectra are natural invariants of the countable generic poset. The explicit arity-uniform endpoint representation, sharp degree 2r, strict positivity of all binomial-coefficient layers, and limiting 1/4:1/4:1/2 relation split are useful structural facts, not merely a finite sequence lookup. This contrasts polynomial growth over chain parameters with established exponential growth over antichains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

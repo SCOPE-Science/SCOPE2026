@@ -1,11 +1,21 @@
-# Scientific review: chain-parameter tuple-type spectra
+# Independent mathematical audit
 
-**Correctness — PASS.** The finite-extension characterization follows from the universality and homogeneity of the generic poset. Every new point has a unique pair of chain cuts, and the full relations among the new points give precisely the endpoint-poset inequalities. The proof checks closure constraints in both directions, then applies the surjective-image expansion of the order polynomial. Because each endpoint poset has \(2r\) elements and a linear extension, its degree is exactly \(2r\). Direct relation-matrix enumeration independently matches the formulas in fifteen bounded configurations, including all orientations of arity two; this is corroboration, not the infinite proof.
+## correctness
 
-**Originality — PASS, qualified.** The classical order-polynomial theorem is prior work. The core claim concerns the new uniform assignment from each labelled \(r\)-element poset to a \(2r\)-endpoint constraint poset representing all parameter-chain extensions. The closest indexed random-poset result counts only one-types over arbitrary finite parameters; another counts two-types over antichain parameters; a third concerns orbits without a fixed parameter chain. None of these statements subsumes the chain-relative all-arity spectrum. OEIS A071245 already contains the shifted scalar quartic at arity two, which is explicitly credited as a pre-existing numerical formula, not independently novel. Literature-index gaps and unavailable full text of some indexed findings remain priority risks.
+PASS
 
-**Mathematical value — PASS.** A finite model-theoretic orbit-enumeration problem for an infinite homogeneous structure is transformed into canonical finite order-polynomial data. This gives exact fixed-arity polynomial growth and positive binomial coefficients for arbitrary arity, contrasted with exponential growth over antichain parameter families, together with the explicit two- and three-point formulas and asymptotic orientation frequencies. The contribution is the uniform structural bijection, not a recomputation of a table.
+Fraïssé homogeneity reduces complete types to all finite labelled strict poset extensions of the fixed chain. Every new point has a unique pair 0<=ell_i<=u_i<=n of predecessor/successor cut positions. The necessary relation inequalities for comparable and incomparable tuple points are exactly the isotonicity arrows of Q_F. Conversely the proof checks all mixed triples and forces any x_i<a_t<x_j comparison to agree with F; no extra transitive closure constraints remain. Thus T_r(n)=sum_F Ω_QF(n+1). Surjective isotone images of sizes k=1..2r yield strictly positive integer c_r,k because any linear extension can be coalesced into k nonempty consecutive blocks, establishing degree precisely 2r. Independently direct full ternary-relation closure matches endpoint formula in 12 configurations. The closed r<=3 formulas have been checked against original verifier and structural constraints.
 
-**Closest literature and limits.** Hubička (2010) and Pach et al. (2011) establish the relevant homogeneous-poset setting; Stanley (1970/1972) and Jochemko (2013) establish underlying order-polynomial technology. Previously indexed finite-parameter type-counting and antichain results do not present this chain endpoint construction. Exact bibliographic priority is not independently certified, and only finite instances of the proof are computationally tested.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Earlier full Resultary paper on random-poset 1-types proves c(C_n)=binom(n+2,2) and an arbitrary-parameter #P-completeness theorem: this explicitly dominates the r=1 specialization and must be credited. The earlier empty-parameter orbit-profile paper counts p_r, not relative tuple types over varying named chains. Jochemko/Stanley prove order-polynomiality for fixed posets but do not construct the Q_F tuple-constraint family or identify the complete r-arity type spectrum; the published OEIS A071245 scalar r=2 polynomial is known. The new contribution is the all-r structured endpoint bijection and positive 2r binomial spectrum, with possible older combinatorial extension-enumeration priority risk.
+
+## value
+
+PASS
+
+Parameter-dependent complete type spectra are natural invariants of the countable generic poset. The explicit arity-uniform endpoint representation, sharp degree 2r, strict positivity of all binomial-coefficient layers, and limiting 1/4:1/4:1/2 relation split are useful structural facts, not merely a finite sequence lookup. This contrasts polynomial growth over chain parameters with established exponential growth over antichains.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
