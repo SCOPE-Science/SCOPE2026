@@ -1,0 +1,159 @@
+{
+  "correctness": {
+    "rationale": "The n>=6 classification uses the connected occupied-column projection to prove at most two consecutive empty columns; separate empty counts 0,1,2 prove minimum n and exhaust A/B/C. The transition table is a complete occupancy-boundary case analysis of every one-for-one exchange, and its degrees plus constructed paths prove all invariants. Two independently represented standard-library checkers exhaustively verified n=6..11 by subset/edge enumeration and the exact template-neighbor table for n=6..38. Those finite checks support but do not replace the all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Suzuki–Mouawad–Nishimura (2014), arxiv:1401.5714v1, uses additions and deletions of ordinary dominating sets up to a size bound.",
+        "Lokshtanov–Mouawad–Panolan–Siebertz (2020), DOI 10.4230/LIPIcs.IPEC.2020.24, explicitly uses token addition/removal and establishes complexity dichotomies, not a fixed-optimum prism exchange structure."
+      ],
+      "reasoning": "General reconfiguration complexity results do not imply enumerative and local-degree invariants for this special graph. Allowing intermediate cardinality changes is different from one simultaneous one-for-one exchange with all states minimum.",
+      "searches": [
+        "connected dominating sets in cylindrical ladder circular ladder prism graph C_n square K_2: exactly 2n^2+2 minimum connected dominating sets of size n; one-vertex exchange graph connected degree 4,5,6,2n",
+        "connected dominating sets circular ladder exchange graph degree polynomial 2nt^(2n) +4nt^6+4nt^5+2n(n-4)t^4",
+        "arxiv:1401.5714v1 reconfiguration dominating sets",
+        "doi:10.4230/LIPIcs.IPEC.2020.24"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1010.2296v1",
+      "arxiv:1401.5714v1",
+      "doi:10.4230/LIPIcs.IPEC.2015.307",
+      "doi:10.4230/LIPIcs.IPEC.2020.24",
+      "doi:10.1155/ijmm/1411005",
+      "OEIS:A287430 (different crossed prism and nonminimum predicate)",
+      "Mark Schurch, Domination Parameters of Prisms of Graphs, MSc thesis (2005), sections 2.3 and 3.5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Chandran et al. (2010) give rainbow-connection inequalities using the connected-domination number, not optimum-set enumeration.",
+        "Golovach et al. (2015) bound and enumerate inclusion-minimal connected dominating sets by graph class, not exact minimum-size circular-ladder backbones or their swap graph.",
+        "Lokshtanov et al. (2020) address general connected-domination reconfiguration algorithms under additions/deletions."
+      ],
+      "reasoning": "The proposed new conjunction of explicit A/B/C optimal-set classification, exact count, seven-case swap adjacency, degree polynomial, connectedness and whole-rail distance is not a corollary of those inequalities, general bounds or complexity results.",
+      "searches": [
+        "arxiv:1010.2296v1 rainbow connection and connected dominating sets",
+        "doi:10.4230/LIPIcs.IPEC.2015.307 minimal connected dominating sets bounded chordality",
+        "doi:10.4230/LIPIcs.IPEC.2020.24 connected dominating set reconfiguration",
+        "C_n square K_2 optimum connected dominating sets single token jumping connectivity and degree distributions"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The complete-rail and column-template configurations are minimum connected dominating sets, equivalently internal-vertex cores of spanning trees with maximum leaf count.",
+        "Golovach–Heggernes–Kratsch (2015), DOI 10.4230/LIPIcs.IPEC.2015.307, discusses general minimal connected dominating set enumeration rather than this exact optimum census."
+      ],
+      "reasoning": "The maximum-leaf-spanning-tree formulation concerns corresponding optimal backbones but does not by itself enumerate A/B/C patterns or the allowed vertex swaps. Searches by both names found no equation or transition graph implying the claim.",
+      "searches": [
+        "connected domination prism graph C_n cartesian K2 minimum connected dominating sets connected domination reconfiguration token jumping",
+        "minimum connected domination prism graph 2n squared connected domination reconfiguration vertex swap gamma c",
+        "maximum leaf spanning trees of prism graphs enumeration 2n^2 plus 2 configurations"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A287430 enumerates all connected dominating sets in a *crossed* prism, not minimum connected dominating sets on the ordinary prism.",
+        "The 2026 Exact Dominion of the Prism Graph paper counts minimum ordinary dominating sets, a different parameter and cardinality."
+      ],
+      "reasoning": "Neither the exact OEIS graph/parameter nor the ordinary-domination paper gives the full set of minimum connected solutions, their exchange relation, or the listed degree distribution. Failure to find an exact table is not a proof of uniqueness.",
+      "searches": [
+        "count connected dominating sets prism graph n 2n²+2",
+        "connected dominating sets circular ladder exchange graph degree polynomial 2nt^(2n) +4nt^6+4nt^5+2n(n-4)t^4",
+        "OEIS connected dominating sets crossed prism graph A287430",
+        "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words"
+      ]
+    },
+    "rationale": "The precise infinite A/B/C classification, full fixed-cardinality vertex-exchange table and degree polynomial were compared by claim implication, not word match, with original literature on connected domination, minimal-set enumeration, ordinary domination reconfiguration and connected-domination TAR reconfiguration. These results do not imply the asserted graph invariants. Residual synonyms/max-leaf spanning tree sources could still conceal equivalent coverage; no exhaustive global priority claim is made.",
+    "residual_risks": [
+      "Unindexed exact enumeration under maximum-leaf spanning tree / circular-prism terminology may duplicate one or more conclusions.",
+      "The result is self-reviewed and has no independent mathematical or historical audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: general prism bounds and criteria for doublers/fixers; no A/B/C optimum connected set census or exact exchange graph on C_n square K_2",
+        "evidence": [
+          "Mark Schurch, MSc thesis (2005), sections 2.3 and 3.5",
+          "Proposition 55 addresses connected domination number equality for prism K_2 square G"
+        ],
+        "identifier_or_url": "https://dspace.library.uvic.ca/bitstream/1828/825/1/schurch_2005.pdf",
+        "material_read": "90-page thesis PDF abstract, full table of contents, and connected-domination chapters 2.3 and 3.5, especially 2.3.2 and Proposition 55",
+        "method": "University repository lawful PDF text and rendered pages 44 and 77",
+        "title": "Domination Parameters of Prisms of Graphs",
+        "trigger": "Direct archival work on the connected-domination parameter of graph prisms"
+      },
+      {
+        "assessment": "NOT_COVERING: derives rainbow connection bounds from connected domination, no circular-ladder optimum exchange classification",
+        "evidence": [
+          "arxiv:1010.2296v1, 2010-10-12",
+          "Section 1 and definitions in PDF"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1010.2296",
+        "material_read": "Original arXiv version introduction, definition and summary of theorem statements, 14-page PDF text",
+        "method": "Open-access PDF text and rendered first-page inspection",
+        "title": "Rainbow Connection Number and Connected Dominating Sets",
+        "trigger": "Earliest day-verified archival connected-domination reference and MSC context"
+      },
+      {
+        "assessment": "NOT_COVERING: all intermediate sizes up to k and one insertion/deletion, no fixed-size connected dominating set prism exchange enumeration",
+        "evidence": [
+          "arxiv:1401.5714v1, 2014-01-22",
+          "Sections 1-2, formal definition of D_k(G)"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1401.5714",
+        "material_read": "Twelve-page arXiv PDF introduction, definition of k-dominating graph, theorem overview",
+        "method": "Open-access PDF text and rendered first-page inspection",
+        "title": "Reconfiguration of Dominating Sets",
+        "trigger": "Closest older ordinary-domination reconfiguration literature"
+      },
+      {
+        "assessment": "NOT_COVERING: general inclusion-minimal solution counts/algorithms on bounded-chordality graph classes, no exact prism optimum swap graph",
+        "evidence": [
+          "IPEC 2015 DOI 10.4230/LIPIcs.IPEC.2015.307",
+          "PDF Introduction and preliminaries"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2015.307",
+        "material_read": "Twelve-page full conference PDF, title, abstract, introduction, classification/table and preliminaries, including enumeration statements and notation",
+        "method": "Publisher lawful open-access PDF text and first-page rendering",
+        "title": "Enumerating Minimal Connected Dominating Sets in Graphs of Bounded Chordality",
+        "trigger": "Same constrained domination predicate and enumeration theme"
+      },
+      {
+        "assessment": "NOT_COVERING: studies TAR complexity and planarity; connected optimum one-swap prism geometry is not the addressed theorem",
+        "evidence": [
+          "IPEC 2020 DOI 10.4230/LIPIcs.IPEC.2020.24",
+          "Page 2 states token addition/removal rule explicitly"
+        ],
+        "identifier_or_url": "https://doi.org/10.4230/LIPIcs.IPEC.2020.24",
+        "material_read": "Full 15-page lawful open-access conference PDF, introduction through model and main theorem statements, definition of the TAR move",
+        "method": "Publisher PDF textual reading and rendered first-page inspection",
+        "title": "On the Parameterized Complexity of Reconfiguration of Connected Dominating Sets",
+        "trigger": "Exactly same connected domination constraint and reconfiguration keywords"
+      },
+      {
+        "assessment": "NOT_COVERING: ordinary domination without connectedness; its minimum-cardinality sets and counts are distinct from connected minimum backbones",
+        "evidence": [
+          "International Journal of Mathematics and Mathematical Sciences, 2026",
+          "Article defines dominion as count of minimum ordinary dominating sets"
+        ],
+        "identifier_or_url": "https://doi.org/10.1155/ijmm/1411005",
+        "material_read": "Open HTML abstract, introduction and cyclic-word minimum-dominating-set enumeration results",
+        "method": "Open full HTML article and comparison of the set predicate and formulas",
+        "title": "Exact Dominion of the Prism Graph: Enumeration by Congruence Class via Cyclic Words",
+        "trigger": "Potential exact prism graph enumeration with same columns"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "162308b5-e17c-4cc4-b0d3-50977bdf3013",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact optimal-set landscape and one-swap mobility of minimum connected backbones is a natural nontrivial problem even after their minimum size is known. This resolves all optima for an infinite cubic family, proves connectivity via explicit legal routes, distinguishes two growing-degree hubs from bounded-degree bulk, gives a precise degree/edge enumerator, and proves an exact distance n between structurally opposite optimum solutions. These properties are not implied by a routine domination-number calculation.",
+    "status": "PASS"
+  }
+}
