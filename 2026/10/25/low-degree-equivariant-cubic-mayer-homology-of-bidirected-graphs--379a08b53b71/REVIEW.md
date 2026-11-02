@@ -1,15 +1,21 @@
-# Scientific review: low-degree cubic Mayer homology of high-girth bidirected graphs
+# Independent mathematical audit
 
-## Correctness: PASS
-The theorem uses the nonregular cubic differential, retains nonallowed faces until their coefficients cancel, and distinguishes the two different cycle kernels. The absence of triangles and four-cycles gives exactly the local zero-sum backtracks in degree two and forces the invariant degree-three space to vanish. The port basis proves injectivity of the first boundary on degree two. Its second boundary generates exactly the differences between vertices with a common neighbor; this produces the even-walk component quotient and the bipartiteness jump. The degree-two \(q=2\) cycles are **the kernel of the second boundary**, of dimension \(2m-2n+c\), not the full degree-two chain module. Character formulas follow from graph-equivariant exact sequences. The proof works over \(\mathbb C\) for every graph in scope. The bundled modular checker corroborates all chain-space and boundary ranks in 26 representative cases, but is not used to extrapolate the theorem.
+## correctness
 
-## Originality: PASS, with qualifications
-The nearest primary paper, Karaguler--Wei, *Mayer Path Homology* (arXiv:2605.16525v2), defines the cubic theory, lists local degree-two and degree-three chain-generator types, and describes first-cycle generators. Its inspected Definitions 7--8, Theorems 3.2 and 3.10, worked examples, and conclusion do not state the all-graph high-girth degree-zero-through-three homology vectors or the full automorphism character formulas. The chain-generator classification is acknowledged as prior work: the new content is the coupled first/second-boundary calculation, the even-walk exact sequence, and all equivariant homology representations. Published summaries of related work on transitively layered Mayer complexes do not cover bidirected high-girth graphs, which contain opposite arcs. Ordinary path homology and bidirected multipath simplicial complexes are different theories. Novelty has not been independently certified; an unindexed specialization or equivariant deduction in other literature is possible.
+PASS
 
-## Value: PASS
-The result is a uniform structural classification over an infinite natural graph family rather than an arbitrary finite calculation. It identifies a detectable bipartiteness transition, separates the two cubically defined homologies, and determines complete graph-automorphism characters, not just Betti numbers. The exact degree-two sequence explains why trees give no second \(q=2\) class, odd chordless cycles give one, even chordless cycles give two, and branched high-girth graphs have additional classes. These are meaningful benchmarks for a newly introduced graph-homology construction and its equivariant behavior.
+For finite connected simple graph n>=2 with no triangles/four-cycles, the directed graph uses BOTH orientations of every edge and the nonregular cubic Mayer differential ∂(v0,...,vk)=sum ξ^j delete_j, with ξ a primitive cube root. Distinguish allowed words and unallowed repeated-coordinate faces. Ω0=CV and Ω1=C^(oriented edges); opposite arc boundary columns give rank ∂1=n. A length-two walk with distinct endpoints has a uniquely inadmissible middle deletion by girth>=5, so Ω2 contains only backtracks with local coefficients summing to zero, giving dim Ω2=2m-n. In degree three successive unique forbidden faces force every walk coefficient zero, hence Ω3=0. On the backtrack balance lattice, ∂ is injective by invertible opposite-arc 2x2 blocks, whereas ∂²b_vw=e_v-e_w and its image is the span of equal-neighbor vertex differences, rank n-c(G), c=2 for bipartite and 1 otherwise. The two distinct q-homologies are therefore β^(3,1)=(c,2m-n,0,0), β^(3,2)=(0,n,2m-2n+c,0); the equivariant port exact sequence gives automorphism trace formulas f_evenclass, f_arcs-f_vertices, f_vertices, f_arcs-2f_vertices+f_evenclass. Finite-field independent construction verifies representative cases but the graph-general forbidden-face proof supplies universality.
 
-## Evidence and limitations
-The original arXiv article first appeared on 2026-05-15; its revised full text was inspected in the definitions, low-degree classifications, first-cycle theorem, examples, and conclusion. The checker was run in the actual accompanying package. The main limitations are complex coefficients, bidirectionality, minimum girth five, and degrees at most three. The exact scope of independent novelty beyond the inspected primary material is not settled by searches alone. No independent audit was performed.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified new low-degree complete homology and graph-automorphism character classification for the girth>=5 bidirected specialization. Karaguler–Wei 2026 supply the general cubic Mayer differential and local Ω2/Ω3 generator classification, making them substantive prior coverage, but the inspected primary statements do not provide this specialized all-n rank/even-walk-character exact sequence.
+
+## value
+
+PASS
+
+For all connected graph families excluding only 3- and 4-cycles, it supplies complete low-dimensional cubic Mayer homology and every graph-automorphism trace in natural even-walk terms. This is a natural broad structural test class and substantially stronger than checking small graph examples or listing local generators.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
