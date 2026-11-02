@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T02:02:08Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For f(x)=λx²/2 and nonzero consecutive differences, local curvature estimate L_k=λ. The exact normalized state recursion is T(p,q)=(q,min{q√(2/3+q/p),C(q)}), C(q)=q/√(2q²−1) on q>1/√2. The involution C(C(z))=z yields 1/a²+1/b²=2. Necessarily, on a nonconstant 2-cycle the high-to-low transition uses the cap, while low-to-high demands r³−2r/3−1≤0 with r=a/b>1; strict monotonicity proves unique r*=1.2193375673647233 and all cycles 1<r≤r*. Starting θ0=1/3: s0=a gives s1=b, and s0=b gives s1=b,s2=a, all at exact branch conditions. Since each s is nonunit the iterates never terminate early and x^{k+2}=(1-a)(1-b)x^k with absolute factor <1. Interior strict branch inequalities make T²(p,q)=(C(q),q) locally, derivative eigenvalues 0,1. Independent symbolic reciprocals and 99 ratio samples checked 15,840 scalar recurrence values; the proof of the continuum is analytic.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Original Lemma 5 states the reciprocal-square equality whenever cap branch is active, but its convergence theorems do not classify every period-2 phase orbit or local collapsed map."
+        ],
+        "reasoning": "Known equality is a strong precursor, not a theorem implying r* and an open interval of exact cycles without the missing branch analysis.",
+        "searches": [
+          "Malitsky–Mishchenko arXiv:2308.02261v2 complete paper Algorithm 2 and Lemma 5",
+          "Latafat et al. arXiv:2301.04431 cycling §4.3"
+        ]
+      },
+      "checked_sources": [
+        "Frozen Git RESULT.md and verify.py, analytic cap phase recurrence and start-up comparisons.",
+        "Independent SymPy and 99 sampled phase states, 15,840 successive normalized recurrence values with r*=1.2193375673647233.",
+        "Malitsky–Mishchenko arXiv:2308.02261v2 full PDF Algorithm 2 / Lemma 5 and Resultary related algorithm record."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The source cap identity 1/α_{k-1}²+1/α_k²=2L_k² is explicitly earlier; the growth-branch inequality r³−2r/3−1≤0 and neutral transverse dynamics are not consequences of that identity alone."
+        ],
+        "reasoning": "The additional classification requires and supplies a separate exact branch selection proof, rather than renaming a source theorem.",
+        "searches": [
+          "arXiv:2308.02261 PDF Algorithm 2 Lemma 5",
+          "arXiv:2301.04431v4",
+          "PMLR 119 malitsky20a"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Published plastic-constant example uses distinct B-adaPGα normalization; Malitsky–Mishchenko cap involution itself is prior work."
+        ],
+        "reasoning": "A qualitative 2-cycle for a different adaptive rule does not imply the sharp continuum and cubic frontier for this Algorithm 2.",
+        "searches": [
+          "Resultary: Malitsky Mishchenko adaptive gradient descent Algorithm 2 scalar quadratic period two stepsize cycles cap fixed point",
+          "Resultary: plastic-constant exact stepsize two-cycle for quadratic-kernel B-adaPGα"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No exact prior database of the cubic cutoff was found; Resultary contains other algorithms with 2-cycle results."
+        ],
+        "reasoning": "The full orbit classification is not a known numerical table; unsuccessful search alone is not novelty proof.",
+        "searches": [
+          "Resultary: Malitsky Mishchenko period two stepsizes on scalar quadratic",
+          "search: adaptive gradient descent sharp cubic cutoff alternating 1.219337567"
+        ]
+      },
+      "rationale": "Malitsky–Mishchenko Algorithm 2 and Lemma 5 already provide the cap recursion and inverse-square relation, which are credited. The bounded one-parameter classification of every positive prime-2 orbit, sharp cubic ratio boundary, ordinary-initiation intervals and exact transverse collapse are additional deductions not stated in inspected original full text. A previous published Resultary plastic-constant 2-cycle concerns a different quadratic-kernel B-adaPGα algorithm and cannot imply this recursion.",
+      "residual_risks": [
+        "The original Algorithm 2 plus Lemma 5 make the extension relatively direct; a differently named earlier periodic-orbit lemma may subsume it.",
+        "The classification concerns exactly period two and scalar strongly convex quadratic, not other periods, noise or higher-dimensional Hessians."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Algorithm recurrence/identity prior, but no inspected all-period-two classification",
+          "evidence": "Algorithm 2 growth min cap; Lemma 5 1/α_{k-1}²+1/α_k²=2L_k².",
+          "identifier_or_url": "https://arxiv.org/pdf/2308.02261",
+          "material_read": "Full 23-page arXiv v2 source inspected, especially Algorithm 2 pp 7–8, Lemma 5 p 9 and surrounding convergence analysis",
+          "method": "arXiv full-text PDF and screenshot pages 6 and 8",
+          "title": "Adaptive proximal gradient method for convex optimization",
+          "trigger": "Identical source Algorithm 2 and inverse-square Lemma 5"
+        },
+        {
+          "assessment": "Different update and cap; does not directly imply cubic cutoff",
+          "evidence": "The inspected research record distinguishes §4.3 adaptive rule.",
+          "identifier_or_url": "https://arxiv.org/abs/2301.04431",
+          "material_read": "Referenced section/abstract context, not claimed entire full text",
+          "method": "Literature search and source citation",
+          "title": "Adaptive proximal algorithms for convex optimization under local Lipschitz continuity of the gradient",
+          "trigger": "Reports cyclic stepsizes as motivation"
+        },
+        {
+          "assessment": "Related behavior but different algorithm",
+          "evidence": "B-adaPGα plastic constant, not Malitsky–Mishchenko Algorithm 2.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-plastic-constant-exact-stepsize-two-cycle-for-quadratic-kernel-b--e7d7ac1b509b",
+          "material_read": "Published title and summary only",
+          "method": "Resultary semantic retrieval",
+          "title": "Plastic-constant exact stepsize two-cycle for quadratic-kernel B-adaPGα",
+          "trigger": "Closest published Resultary 2-cycle model"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "A precise nonconvergent algorithmic internal state coexisting with geometric convergence of optimization iterates, occurring on open initial stepsize intervals rather than a lone pathological witness. The sharp stable family and local absorption provide useful dynamical classification for a widely cited adaptive algorithm, despite reliance on its known cap identity.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen Git RESULT.md and verify.py, analytic cap phase recurrence and start-up comparisons.",
+    "Independent SymPy and 99 sampled phase states, 15,840 successive normalized recurrence values with r*=1.2193375673647233.",
+    "Malitsky–Mishchenko arXiv:2308.02261v2 full PDF Algorithm 2 / Lemma 5 and Resultary related algorithm record."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Exact real scalar quadratic λ>0 and θ0=1/3; nontrivial input x0≠0; no finite-precision behavior; local transverse statement excludes the tie r=r*."
+  ],
+  "residual_risks": [
+    "The original Algorithm 2 plus Lemma 5 make the extension relatively direct; a differently named earlier periodic-orbit lemma may subsume it.",
+    "The classification concerns exactly period two and scalar strongly convex quadratic, not other periods, noise or higher-dimensional Hessians."
+  ],
+  "schema_version": 1
+}
