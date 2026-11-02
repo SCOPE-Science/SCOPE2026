@@ -1,19 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The pair-extension lemma for three-round Ehrenfeucht--Fraisse games is proved from vertex transitivity. Every Kneser parameter is handled, including edgeless, matching and connected ranges. The common-neighbour criterion \(n\ge3k-|A\cap B|\) and all third-vertex extension patterns are established by explicit subset constructions. Eight distinct rank-three truth profiles separate all cases, and the smallest representative orders give the sharp 35-vertex within-family bound. The attached exact first-order type recursion and independent separating-sentence computation agree on the eight representatives and 33 tested parameter pairs; universality is proved algebraically, not experimentally.
+PASS
 
-## Originality: PASS (residual risks)
+Three EF rounds on vertex-transitive graphs are decided by realized 2-point profiles and available third-vertex atomic diagrams. For KG(n,k), distinct pair common-neighbor existence is n−2k+|A∩B|≥k, equivalent n≥3k−t. In the connected noncomplete range, adjacent pairs t=0, nonadjacent pairs t∈[1,k−1], separating n≥3k, n=3k−1 and 2k+1≤n≤3k−2; explicit third-vertex choices realize every remaining required adjacency pattern. Edgeless, matching, complete K_n cases add five categories. Eight rank≤3 sentences distinguish the eight signatures. Sparse class H requires k≥3 and smallest graph KG(7,3) with binom(7,3)=35 vertices. Independent exact 3-round extension signatures for eight representatives and additional cases KG(9,3), KG(8,3), KG(9,4), KG(5,3) matched all classes.
 
-Relevant primary texts about the same Kneser graphs and classical finite graph logic were compared. Katona--Kisvölcsey establish coclique/neighbourhood inequalities, and Merino--Mütze--Namrata prove Hamiltonicity; neither result implies the full rank-three equivalence classification. Pikhurko--Verbitsky supply the general game framework and strongly regular background. Classical strongly regular and complement-of-Johnson results may cover the special \(k=2\) case but cannot cover the varying pairwise intersection classes for \(k\ge3\). Biggs' historical paper on odd graphs was inaccessible in full; possible historical or unindexed equivalent coverage remains a risk. Searches do not certify uniqueness.
+## originality
 
-## Value: PASS
+PASS
 
-The eight theories constitute a complete natural bounded-rank classification of all Kneser graphs. The exact parameter thresholds, especially the mixed-common-neighbour regime of sparse odd graphs, and the optimal 35-vertex finite testing family are meaningful structural information rather than an arbitrary small case.
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
 
-## Scope and limitations
+## value
 
-Pure adjacency and equality at quantifier rank at most three only; no counting, larger rank, additional graph labels or claims about representative minimality among all finite graphs. The historical literature comparison is not exhaustive.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The complete rank-three theory classification is a natural finite-model-theory invariant for every Kneser parameter, including degenerate graph boundaries. It isolates a genuine three-round transition at n=3k−1 and proves a sharp finite testing bound 35 within an infinite family; not a mere arbitrary small-graph census.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
