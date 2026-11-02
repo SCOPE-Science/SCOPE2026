@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** A directed-forest representation gives all faces with no omitted assignments; the bundled executable verifies the \(6125\) faces, \(2724\) matching pairs, \(25176\) nonempty Hasse incidences, and absence of directed cycles, certifying the one-vertex-plus-\(675\)-top-cells Morse reduction. The signed trace formula is checked across all \(48\) automorphisms, with class consistency, ten-irreducible character orthogonality, and exhaustive reconstruction. The proof distinguishes non-equivariant collapse from equivariant chain actions.
+## correctness
 
-**Originality — PASS on available comparative evidence.** The closest published same-object record already proves the \(675\)-sphere wedge and identical face counts, so neither is new. Its full RESULT.md was read: no automorphism character is determined there. Celoria–Yerolemou's complete primary article introduces rooted forests and filtration rather than this complete representation; Yerolemou–Nanda develop equivariant Morse machinery without this concrete class character. The published octahedral matching-complex character is a different simplicial object. Actual multi-alias database searches found no covering equivariant octahedral *Morse* character. An unindexed equivalent, or a representation hidden in further specialist literature, remains possible.
+PASS
 
-**Value — PASS.** The octahedral graph is a canonical highly symmetric minimal example, and its homology dimension alone says nothing about fixed subspaces or parity under central inversion. The computed complete ten-component rational representation, including \(11\) invariant dimensions and the \(325/350\) inversion split, is a motivated exact invariant at the first known nontrivial same-graph homotopy calculation and provides a reproducible benchmark for equivariant discrete Morse complexes. This is a natural finite exact representation classification, not an arbitrary numerical slice or a claim of a family theorem.
+Directed-forest model is exact for incidence matchings of octahedral graph K_{2,2,2}. Independently enumerated 5^6 partial parent choices, discarded every cyclic case, recovered face vector (1,24,228,1072,2496,2304). Rebuilt pivot matching, checked 2724 pairs and the directed Hasse graph of 25176 incidences by topological sort: exactly one critical vertex and 675 critical four-cells. Independently recomputed signed Lefschetz traces of all 48 signed-permutation automorphisms, yielding ten class traces (-25,1,-1,-5,1,-9,675,-15,-3,3) in the specified class order. Average is 11 fixed dimensions, inversion trace -25 gives eigenspaces 325 and 350. The wreath-product irrep induction formula used to recover multiplicities was separately checked against the small symmetric-group character tables and the full character, not inferred from the nonequivariant rank.
 
-**Scope and risk.** Only rational representations of the \(48\)-element graph-automorphism group are classified. The computer enumeration is exhaustive for this finite graph; it does not prove a general formula for \(K_{2,2,\ldots}\), and the literature check does not constitute an absolute novelty certificate. Primary full texts were inspected and sources compared at the statement level.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The known octahedral ordinary Morse-complex wedge of 675 four-spheres is prior work, explicitly excluded from the novelty claim. The added exact rational B3-character and ten bipartition multiplicities are not supplied by the inspected graph-Morse and equivariant-Morse methods; ordinary octahedral matching complex has different simplices and representation.
+
+## value
+
+PASS
+
+The group action on the actual 675-dimensional homology, including the 11 symmetry-fixed classes and the opposite-inversion split 325/350, is a natural topological invariant not fixed by the published wedge count. All ten rational irreducible multiplicities give a complete group-theoretic classification of this canonical finite complex.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
