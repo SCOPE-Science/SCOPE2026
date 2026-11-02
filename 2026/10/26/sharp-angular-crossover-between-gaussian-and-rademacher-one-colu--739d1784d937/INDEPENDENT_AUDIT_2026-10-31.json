@@ -1,0 +1,118 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T10:52:11Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For a>b>0, q>=0 and rotated A, the one-column projected squared Frobenius residual is b²+(a²-b²)β²(1-t)/(α²t+β²(1-t)) with α=a^(2q+1), β=b^(2q+1), t leading eigenbasis squared direction. Uniform Gaussian angle integrates to b²+(a²-b²)β/(α+β). The two independent-sign projective directions have t=(1±sin2θ)/2, averaging to the claimed rational Bq(T). Direct differentiation in T gives positive numerator 2α²β²DS over positive squared denominator. Equating risks gives Tc=(1+r²)/(1+r)², strictly 1/2<Tc<1. The resonant π/4 sign vector annihilates the leading eigendirection half the time, giving Bq=(a²+b²)/2 at every q. The angular half-width δq=½arcsin(√(2r)/(1+r)) obeys δq~(b/a)^(q+1/2)/√2; off-resonance Bq→b². Independent rational matrix multiplication and enumeration verified 48 exact instances, finite checks not universal proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Epperly–Webber 2026 Theorems 3.2–3.3 require rotation-invariant embeddings for upper bounds and compare worst input; sign not rotation invariant",
+          "Saibaba–Międlar 2023 oversampled high-probability formulas"
+        ],
+        "reasoning": "These bounds neither specialize to sharp sign-vs-Gaussian mean risk for a fixed 2x2 orientation nor dominate the explicit finite-depth formula; sign sketches lie outside rotation-invariant hypotheses.",
+        "searches": [
+          "randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+          "general minimax low-rank sketch error and sub-Gaussian high probability guarantees"
+        ]
+      },
+      "checked_sources": [
+        "Resultary semantic randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+        "Saibaba–Międlar arXiv:2308.05814v1 HTML",
+        "Epperly–Webber arXiv:2605.19096v1 HTML §3 and Figure2",
+        "Halko–Martinsson–Tropp arXiv:0909.4061"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "arXiv:2308.05814v1 §3 and proof/appendix, high-probability bounds",
+          "arXiv:2605.19096v1 Theorems 3.2–3.3 and Figure 2"
+        ],
+        "reasoning": "The phase diagram is derived by exact two-direction averaging, not via the prior oversampling bounds. The sharp minimax result identifies a worst-case risk over input matrices but not this model-specific equality location between distributions.",
+        "searches": [
+          "randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+          "source paper randomized SVD Algorithm 1 vs exact finite-depth one-vector risks"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saibaba–Międlar arXiv:2308.05814v1 Algorithm 1, Theorem 5",
+          "Epperly–Webber arXiv:2605.19096v1 §3.2 Figure 2 note sign embeddings at small ell"
+        ],
+        "reasoning": "Qualitative sign annihilation is old; the exact expected squared risk and crossing orientation at every q are new compared with these statements.",
+        "searches": [
+          "randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+          "isotropic sign sketch, two-projective-direction Rademacher start, planar SPD randomized SVD subspace iteration"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary query randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+          "Resultary exact sign/sketch resonance query",
+          "Epperly–Webber Figure 2 sign-based small-l observations"
+        ],
+        "reasoning": "No exact phase boundary or closed one-column planar table located; prior numerical observations of sign failure do not imply formula for all orientations and powers.",
+        "searches": [
+          "randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+          "T_c=(1+r²)/(1+r)², δq shrink and π/4 resonance persistence"
+        ]
+      },
+      "rationale": "Saibaba–Międlar 2023 gives non-Gaussian sub-Gaussian randomized SVD bounds with oversampling, not the exact one-column planar expected-risk crossover. Epperly–Webber 2026 already points out sign-sketch failures at small embedding dimensions and proves rotation-invariant minimax upper bounds; such qualitative failure is prior, but its inspected theory/experiments do not give this exact orientation/power-dependent equality curve. The quantitative closed form and asymptotic boundary layer are assessed as new with residual elementary-special-case risk.",
+      "residual_risks": [
+        "Exact two-dimensional sign-sketch computation may be buried in numerical linear algebra prior work.",
+        "No claim for higher-dimensional, oversampled, floating-point or spectral-norm performance."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "not covering angular expected risk",
+          "evidence": "algorithm and high-probability sub-Gaussian bounds, no 2x2 finite-q rational crossover",
+          "identifier_or_url": "https://arxiv.org/html/2308.05814v1",
+          "material_read": "abstract, §§2.2,3.2, Theorem 5, representative proof and appendices",
+          "method": "web actual arXiv HTML read",
+          "title": "Randomized low-rank approximations beyond Gaussian random matrices",
+          "trigger": "same numerical primitive and sign-sketch class"
+        },
+        {
+          "assessment": "prior minimax theory and qualitative sign weakness, not exact target equality",
+          "evidence": "upper bound conditioned on rotation-invariant embedding and bounds require dimension conditions; sign-based exceptions noted empirically",
+          "identifier_or_url": "https://arxiv.org/html/2605.19096v1",
+          "material_read": "§3.1 Theorems 3.2–3.3; §3.2 experiments/Figure 2; §3.3 and method definitions",
+          "method": "web actual arXiv full HTML read relevant sections",
+          "title": "Sharp analysis of sketched least squares and randomized low-rank approximation",
+          "trigger": "direct sharper risk/minimax theorem and sign failures"
+        },
+        {
+          "assessment": "standard background",
+          "evidence": "not an exact one-column Rademacher orientation formula",
+          "identifier_or_url": "https://arxiv.org/abs/0909.4061",
+          "material_read": "abstract and relevant Gaussian-sketch framework",
+          "method": "arXiv abstract and introductory framework",
+          "title": "Finding structure with randomness: Probabilistic algorithms for constructing approximate matrix decompositions",
+          "trigger": "standard randomized SVD and its power iteration"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "At the smallest sketch budget, independent signs and isotropic Gaussians are both covariance-isotropic yet neither uniformly dominates; the sharp angular phase boundary and persistent resonance quantify a natural design issue, and show the power-depth limit is nonuniform. The exact small-dimensional classification is motivated by the numerical primitive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Resultary semantic randomized low rank Rademacher Gaussian one column 2x2 rotated SPD subspace iteration orientation exact Frobenius expected error",
+    "Saibaba–Międlar arXiv:2308.05814v1 HTML",
+    "Epperly–Webber arXiv:2605.19096v1 HTML §3 and Figure2",
+    "Halko–Martinsson–Tropp arXiv:0909.4061"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only 2×2 SPD, one column, squared Frobenius error, fixed q, exact arithmetic.",
+    "Nonuniformity is pointwise outside T=1, not uniform in rotations."
+  ],
+  "residual_risks": [
+    "Exact two-dimensional sign-sketch computation may be buried in numerical linear algebra prior work.",
+    "No claim for higher-dimensional, oversampled, floating-point or spectral-norm performance."
+  ],
+  "schema_version": 1
+}

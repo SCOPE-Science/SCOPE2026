@@ -1,13 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Claim reviewed:** The exact orientation-dependent expected squared Frobenius risk comparison between one-column Rademacher and Gaussian randomized subspace iteration on \(2\times2\) rotated SPD matrices, for every finite nonnegative integer power depth.
+## correctness
 
-**Correctness — PASS.** The projection-trace identity gives a rational function of the squared leading direction. The Gaussian expected value follows from the exact angular integral, and the Rademacher expected value follows from enumerating its two projective sign directions. The denominator is bounded below by \(4\alpha^2\beta^2>0\), so endpoint manipulations and the derivative sign are valid. Algebraic comparison yields a unique threshold strictly inside \((0,1)\). The resonance, off-resonance limit, and angular-width asymptotic are direct consequences with no probabilistic limiting exchange. The `verify.py` exact-rational enumeration passed 123 checks (including three supplementary angular quadratures). It is not used as an infinite proof.
+PASS
 
-**Originality — PASS (best knowledge, with residual risk).** The source paper Saibaba–Międlar (arXiv:2308.05814v1), examined through its introduction, Algorithm 1, Theorem 5 and its appendices, analyzes high-probability performance for independent sub-Gaussian sketches and adequate column sampling, rather than the exact mean-square one-column angular distribution. Epperly–Webber (arXiv:2605.19096), examined through §§3.1–3.3, already reports discrete-sketch annihilation; that qualitative observation is credited, and its general minimax bound does not give the finite-depth crossover, entire distribution-specific mean risk, or boundary-layer formula. The inspected research literature and mathematically related earlier results revealed no dominating result for the same matrix family and two sketch laws. Literature search incompleteness remains a risk: an elementary special-case calculation may exist outside the sources inspected.
+For a>b>0, q>=0 and rotated A, the one-column projected squared Frobenius residual is b²+(a²-b²)β²(1-t)/(α²t+β²(1-t)) with α=a^(2q+1), β=b^(2q+1), t leading eigenbasis squared direction. Uniform Gaussian angle integrates to b²+(a²-b²)β/(α+β). The two independent-sign projective directions have t=(1±sin2θ)/2, averaging to the claimed rational Bq(T). Direct differentiation in T gives positive numerator 2α²β²DS over positive squared denominator. Equating risks gives Tc=(1+r²)/(1+r)², strictly 1/2<Tc<1. The resonant π/4 sign vector annihilates the leading eigendirection half the time, giving Bq=(a²+b²)/2 at every q. The angular half-width δq=½arcsin(√(2r)/(1+r)) obeys δq~(b/a)^(q+1/2)/√2; off-resonance Bq→b². Independent rational matrix multiplication and enumeration verified 48 exact instances, finite checks not universal proof.
 
-**Value — PASS.** Comparing Gaussian and sign sketches is a practical choice in randomized numerical linear algebra, particularly at minimal sampling budget. The sharp angle threshold and its all-depth narrowing quantify exactly when cheap isotropic sign probes improve or harm the result; the persistent resonance pinpoints why power iteration cannot universally repair an atom of zero leading-eigenspace overlap. The complete phase diagram is intrinsically meaningful even though it is planar and does not claim a higher-dimensional theorem.
+## originality
 
-**Closest literature and limitations.** The 2023 source provides the numerical primitive and broadly applicable non-Gaussian risk bounds, while the 2026 study supplies qualitative evidence of discrete-sampling annihilation. The theorem concerns one-column exact-arithmetic squared Frobenius error for SPD \(2\times2\) matrices only. It is not an oversampled or spectral-norm guarantee. There is no independent audit.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Saibaba–Międlar 2023 gives non-Gaussian sub-Gaussian randomized SVD bounds with oversampling, not the exact one-column planar expected-risk crossover. Epperly–Webber 2026 already points out sign-sketch failures at small embedding dimensions and proves rotation-invariant minimax upper bounds; such qualitative failure is prior, but its inspected theory/experiments do not give this exact orientation/power-dependent equality curve. The quantitative closed form and asymptotic boundary layer are assessed as new with residual elementary-special-case risk.
+
+## value
+
+PASS
+
+At the smallest sketch budget, independent signs and isotropic Gaussians are both covariance-isotropic yet neither uniformly dominates; the sharp angular phase boundary and persistent resonance quantify a natural design issue, and show the power-depth limit is nonuniform. The exact small-dimensional classification is motivated by the numerical primitive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
