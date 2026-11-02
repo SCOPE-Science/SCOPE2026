@@ -1,0 +1,102 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:02:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For any permutation sigma, equivariance of each unordered-input-pair orbit forces a choice in Fix(sigma^ell), giving exact probability n^{-binom(n,2)} product over edge orbits of |Fix(sigma^ell)|. A transposition fixes binom(n-2,2)+1 pairs and pairs up 2(n-2) other inputs into n-2 orbits, yielding p_n=n^{-(n-2)}(1-2/n)^{binom(n-2,2)+1}. A permutation with support k>=3 has edge-orbit compression D>=k(2n-k-2)/4; splitting k<=n/2 and k>n/2 gives the displayed explicit B_n=o(p_n/n²). Two distinct transposition automorphisms have a product moving >=3 labels, so outside tail event the entire group is either trivial or unique C2; this yields Pr(E_n)=binom(n,2)p_n(1+o(1)) and first Burnside correction. Expansion of the exact p_n gives e^4/2 e^{-n} n^{4-n}. Independent complete enumeration of all 27 n=3 and 4096 n=4 operation tables found 9 and 400 nontrivial, 6 and 336 unique-C2 respectively, and 7 and 192 unlabeled classes; these finite checks support but do not replace the all-n orbit bound.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bergman–Szendrei prove the qualitative Pr(nontrivial automorphism)->0 under broader random algebra assumptions. Tureček gives general isomorphism-class Burnside orbit enumeration. Neither inspected statement gives the precise asymptotic event probability or typical C2 structure for this commutative-idempotent distribution."
+        ],
+        "reasoning": "A general enumeration formula can in principle be specialized into a sum of automorphism counts; however expectation of nonidentity automorphism count alone does NOT imply Pr(E_n) or the conditional group distribution without controlling multiple automorphisms.",
+        "searches": [
+          "Bergman–Szendrei arxiv:1901.06316 Lemma5.4; Tureček arxiv:2305.00269 Thm4/10; Cardó arxiv:2312.02863 abstract"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/1901.06316",
+        "https://arxiv.org/abs/2305.00269",
+        "https://arxiv.org/abs/2312.02863",
+        "Resultary semantic search on this exact mathematical subject and aliases (search data reported in each named originality check)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A zero-one asymmetry theorem implies Pr(E_n)=o(1) but cannot force e^4/2 e^{-n}n^{4-n}. Burnside gives expectation of automorphisms, not chance there is one; the support-k suppression and multi-transposition exclusion are necessary."
+        ],
+        "reasoning": "The submitted first-order event statistic and group structure do not trivially follow from published count formulas without the new quantitative orbit support estimate.",
+        "searches": [
+          "Bergman–Szendrei Lemma5.4 qualitative asymmetry; Burnside lemma; Tureček Theorems 4 and 10"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "A commutative idempotent magma is also called a commutative idempotent groupoid; operations on unordered off-diagonal pairs are independently uniform, unlike random quasigroups/semilattices."
+        ],
+        "reasoning": "The probability statement is about labelled random operation tables, not the fraction of isomorphism classes with nontrivial stabilizer; those two statistics are related through but not identical to Burnside.",
+        "searches": [
+          "Resultary: commutative idempotent groupoid transposition automorphism rare probability; web: random quasigroups idempotent commutative symmetry rigidity groupoid probability"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS finite classes include order 3/4 counts; independent n3=7 and n4=192 match. The exact small counts are acknowledged, and the new asymptotic rarity and conditional automorphism law are not a table recomputation."
+        ],
+        "reasoning": "Known finite tables do not automatically provide an all-n asymptotic constant or a tail bound controlling group structure.",
+        "searches": [
+          "OEIS A030257, A030259; Tureček Counting Finite Magmas; Resultary rare symmetry commutative idempotent"
+        ]
+      },
+      "rationale": "Bergman–Szendrei Lemma 5.4 proves qualitative almost-sure asymmetry of random idempotent linear conditions; Tureček provides Burnside formulas for general finite magmas; OEIS A030257/A030259 list finite unlabeled commutative-idempotent isomorphism counts. None of the inspected relevant statements gives the exact leading labelled nonrigidity probability, the e^4/2 constant, or conditional unique transposition group. Cardó 2023 qualitative groupoid asymmetry has only its accessible abstract inspected; full text remains material priority risk. The Burnside correction is a consequence, not a wholly new enumeration theory.",
+      "residual_risks": [
+        "Cardó (2023) full text was not read; its qualitative rigidity discussion may imply a stronger special asymptotic with an unrecognized formulation.",
+        "The leading Burnside correction is already accessible from general cycle-index formula when paired with rare-tail estimates, and is not independently claimed as a new Burnside method.",
+        "Finite table enumeration stops at order four; tail asymptotics rely on the general support-deficit inequality."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes broad qualitative almost-sure rigidity but no matching sharp commutative-idempotent event constant",
+          "evidence": "Lemma 5.4",
+          "identifier_or_url": "https://arxiv.org/abs/1901.06316",
+          "material_read": "Accessible primary PDF: section 5 and Lemma 5.4, with displayed random automorphism bounds; relevant page rendered",
+          "method": "read relevant lemma and primary PDF page",
+          "title": "Random Models of Idempotent Linear Maltsev Conditions. I. Idemprimality",
+          "trigger": "Same idempotent random algebra theme and qualitative asymmetry"
+        },
+        {
+          "assessment": "General orbit enumeration of finite magmas, not the conditioned labelled rare-symmetry law",
+          "evidence": "Theorem 4 and general Burnside framework",
+          "identifier_or_url": "https://arxiv.org/abs/2305.00269",
+          "material_read": "Accessible primary PDF, introductory enumeration and Theorem 4/10 context; first pages rendered",
+          "method": "read relevant enumeration theorem and introductory PDF",
+          "title": "Counting Finite Magmas",
+          "trigger": "Potential exact Burnside formulas implying rarity"
+        },
+        {
+          "assessment": "Historical-priority comparison unresolved; no whole-document noncoverage claimed",
+          "evidence": "Abstract mentions qualitative asymmetry",
+          "identifier_or_url": "https://arxiv.org/abs/2312.02863",
+          "material_read": "Abstract/bibliographic record only, not the full primary text",
+          "method": "abstract-only",
+          "title": "A look at the Kolmogorov complexity of finite groupoids and algebras",
+          "trigger": "Potential general random groupoid almost-rigidity"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The event of rare symmetry has mathematical content beyond ordinary unlabeled Burnside census. The sharp asymptotic probability, leading constant and almost-sure complete automorphism group conditional on failure of rigidity refine classical zero-one rigidity results for a natural universal algebra model.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Cardó (2023) full text was not read; its qualitative rigidity discussion may imply a stronger special asymptotic with an unrecognized formulation.",
+    "The leading Burnside correction is already accessible from general cycle-index formula when paired with rare-tail estimates, and is not independently claimed as a new Burnside method.",
+    "Finite table enumeration stops at order four; tail asymptotics rely on the general support-deficit inequality.",
+    "Original public-file operational provenance remains; scientific acceptance is not publication authorization. No GitHub writes or dispatcher closeout occurred."
+  ],
+  "schema_version": 1
+}
