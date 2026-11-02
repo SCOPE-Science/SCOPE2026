@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T13:04:20.818584Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For iid Bernoulli(p), n>=3, r mod3, the exact residue mass A_r(n)=[1+2Re(omega^{-r}(q+p omega)^n)]/3 is strictly positive. Conditioning gives C=p^2(A_{r-2}(n-2)A_r(n)-A_{r-1}(n-1)^2)/A_r(n)^2. Direct root-of-unity algebra cancels nonconjugate Fourier square, producing the submitted formula 3p²q²rho^{n-2}(2cos phi-rho^{n-2})/[1+2rho^n cos(n theta-2pi r/3)]². The denominator tends to one and rho<1; rational angles with denominator >=4 have both cosine signs per period, irrational angles equidistribute; for irrational theta/(2pi) the normalized empirical law is arcsine with sign densities 1/2. p→theta strictly monotone. For p=1/2, rho=1/2, theta=pi/3 yields strict six-periodic sign pattern from n=3. Independently checked fair n=3..26 all residues and 144 exact nonfair fraction/cyclotomic comparisons at 4 biases, n=3..14.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General symmetric Bernoulli convex-order/correlation bounds include possible laws, not this explicit mod-three conditional family with sharp formula and oscillation."
+        ],
+        "reasoning": "Broader class of distributions without a signed formula does not cover every claimed asymptotic and period.",
+        "searches": [
+          "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine",
+          "https://arxiv.org/html/2309.17346v3",
+          "https://doi.org/10.1007/s42519-021-00231-x"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/html/2012.03103v1",
+        "https://arxiv.org/html/2309.17346v3",
+        "https://doi.org/10.1007/s42519-021-00231-x",
+        "2026/10/4/SCOPE-exact-threshold-for-modular-freedom-under-pairwise-independent-f--b3e76a9c5e42",
+        "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Classical roots-of-unity and Weyl equidistribution are used and not claimed novel; cited fixed-sum and negative-dependence studies lack the particular covariance Fourier cancellation and all-p infinite sign argument."
+        ],
+        "reasoning": "The special identity and derived distribution need additional computation, rather than being a quoted corollary.",
+        "searches": [
+          "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine",
+          "https://arxiv.org/html/2012.03103v1",
+          "https://arxiv.org/html/2309.17346v3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Conditioning on K mod3=r is a mixture of fixed-total hypergeometric slices; the residue-filter Fourier expression combines all slices with binomial weights and retains n-dependent phase."
+        ],
+        "reasoning": "Single fixed-total negative dependence statements do not imply mixture covariance signs.",
+        "searches": [
+          "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine",
+          "https://arxiv.org/html/2012.03103v1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary related modular freedom concerns constructing pairwise independent fair-bit distributions with arbitrary residue law, the reverse of creating pair dependence from iid bits by conditioning on one residue."
+        ],
+        "reasoning": "No exact covariance table/known closed expression covering the current family was identified.",
+        "searches": [
+          "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine",
+          "2026/10/4/SCOPE-exact-threshold-for-modular-freedom-under-pairwise-independent-f--b3e76a9c5e42"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for exact modulo-3 pair-covariance oscillation and arcsine law. Fixed-total Bernoulli sampling, convex-order dependence and an earlier modular-freedom theorem under retained pairwise independence do not address dependence created by conditioning iid bits on a congruence class.",
+      "residual_risks": [
+        "An exact root-of-unity conditional covariance law may appear in older modularly conditioned probability literature under different language.",
+        "Arcsine limit requires irrational angular rotation; exceptional rational biases are not claimed arcsine."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Fixed exact total instead of total modulo3; does not directly imply new sign oscillation",
+          "evidence": "Conditional law on K=k rather than union K mod3",
+          "identifier_or_url": "https://arxiv.org/html/2012.03103v1",
+          "material_read": "Full accessible HTML, model assumptions, fixed sum and sampling-chain convergence statements",
+          "method": "Primary full-text HTML",
+          "title": "A simple Markov chain for independent Bernoulli variables conditioned on their sum",
+          "trigger": "Same iid Bernoulli conditioning but different event"
+        },
+        {
+          "assessment": "Qualitative/optimization results do not determine oscillatory signed covariance under cyclic conditioning",
+          "evidence": "Symmetric Bernoulli convex-order and copula framework",
+          "identifier_or_url": "https://arxiv.org/html/2309.17346v3",
+          "material_read": "Full accessible HTML, introduction, definitions and extremal negative-dependence results",
+          "method": "Primary full-text HTML",
+          "title": "Symmetric Bernoulli distributions and minimal dependence copulas",
+          "trigger": "Potential general dependence ordering or correlation formulas"
+        },
+        {
+          "assessment": "Cannot infer whole-document noncoverage from abstract alone",
+          "evidence": "Different feasible Bernoulli marginal region; limited access adds priority risk",
+          "identifier_or_url": "https://doi.org/10.1007/s42519-021-00231-x",
+          "material_read": "Bibliographic abstract/metadata, not entire paper",
+          "method": "Publisher page abstract",
+          "title": "Computational and Analytical Bounds for Multivariate Bernoulli Distributions",
+          "trigger": "Possible general covariance bounds"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Identifies a natural and counterintuitive conditional-dependence phenomenon: exponential covariance decay with persistent alternating signs for every p, strict fair six-cycle and generic arcsine frequency law. Exact finite identity and asymptotic distribution are mathematically useful beyond a trivial sign test.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/html/2012.03103v1",
+    "https://arxiv.org/html/2309.17346v3",
+    "https://doi.org/10.1007/s42519-021-00231-x",
+    "2026/10/4/SCOPE-exact-threshold-for-modular-freedom-under-pairwise-independent-f--b3e76a9c5e42",
+    "Resultary semantic query: Bernoulli iid conditioned sum modulo three covariance sign oscillations root unity filter arcsine"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "An exact root-of-unity conditional covariance law may appear in older modularly conditioned probability literature under different language.",
+    "Arcsine limit requires irrational angular rotation; exceptional rational biases are not claimed arcsine."
+  ],
+  "schema_version": 1
+}

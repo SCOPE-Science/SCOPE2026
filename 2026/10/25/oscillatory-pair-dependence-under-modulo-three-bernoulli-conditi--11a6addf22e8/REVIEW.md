@@ -1,15 +1,21 @@
-# Scientific review: oscillatory dependence under modulo-three conditioning
+# Independent mathematical audit
 
-## Correctness: PASS
-For \(n\ge3\), each conditioned residue event is nonempty. The proof starts from the exact root-of-unity representation of all three Bernoulli residue probabilities, computes both conditional moments, and verifies the crucial quadratic Fourier cancellation with \(\operatorname{Re}(\omega z^2)-|z|^2=-3(1-p)^2/2\). It then proves the finite identity and the error estimate uniformly over residues. Rational-angle phases give finite cyclic sign changes, irrational angles give dense sign changes and an arcsine empirical distribution. At fair bias the finite correction cannot change any cosine sign. A separate exact-rational implementation checked 588 triples; the universal claims rest on the algebraic proof and the standard equidistribution theorem.
+## correctness
 
-## Originality: PASS, with residual priority uncertainty
-The central comparisons are to Heng–Jacob–Ju (2020, arXiv:2012.03103), whose conditioning fixes the *exact sum* and whose main theorem concerns a sampler's mixing time; Fontana–Semeraro (2022, DOI 10.1007/s42519-021-00231-x), whose general Fréchet-class correlation bounds do not classify this particular conditioned family; and Mutti–Semeraro (2023, arXiv:2309.17346), whose symmetric-Bernoulli minimal-risk/correlational results do not supply the modulus-three sign sequence. A separate published result on modular freedom for pairwise-independent fair bits was inspected in full; its problem fixes pair independence and optimizes attainable residue laws, unlike iid samples conditioned on one residue. Search variants included conditioned binary words, Hamming-weight residues, root-of-unity filters, pair covariance, and oscillatory dependence. None of the inspected sources yielded the same or a dominating statement. Generic moment representations alone do not imply the precise six-cycle and almost-everywhere arcsine law without additional analysis. Equivalent work under coding-theory or modular-conditioning terminology may exist and remains a priority risk; no exhaustive uniqueness claim is made.
+PASS
 
-## Value: PASS
-Conditioning a Bernoulli vector on a fixed total is naturally negatively pair-correlated, whereas the coarser requirement that the total lie in one congruence class creates an infinite alternation of both signs. This is a structural boundary between exact-sum and modular constraints, not a mere recalculation of an unconditional moment. The exact formula works for every sample size, every bias, and every residue. The universal sign-reversal theorem, the strict six-cycle at fair bias, and the normalized arcsine law quantify a genuinely different dimension-dependent dependence effect for weight-constrained binary sampling.
+For iid Bernoulli(p), n>=3, r mod3, the exact residue mass A_r(n)=[1+2Re(omega^{-r}(q+p omega)^n)]/3 is strictly positive. Conditioning gives C=p^2(A_{r-2}(n-2)A_r(n)-A_{r-1}(n-1)^2)/A_r(n)^2. Direct root-of-unity algebra cancels nonconjugate Fourier square, producing the submitted formula 3p²q²rho^{n-2}(2cos phi-rho^{n-2})/[1+2rho^n cos(n theta-2pi r/3)]². The denominator tends to one and rho<1; rational angles with denominator >=4 have both cosine signs per period, irrational angles equidistribute; for irrational theta/(2pi) the normalized empirical law is arcsine with sign densities 1/2. p→theta strictly monotone. For p=1/2, rho=1/2, theta=pi/3 yields strict six-periodic sign pattern from n=3. Independently checked fair n=3..26 all residues and 144 exact nonfair fraction/cyclotomic comparisons at 4 biases, n=3..14.
 
-## Limitations and closest literature
-The tested computations are finite checks, not substitutes for the general proof. The result does not classify all higher-order dependence or give an arcsine law at rational frequencies. The literature comparison is substantial but not an independent historical-priority audit; unindexed congruence-restricted binary-code literature is a remaining risk. Source-specific coverage comparisons are recorded in `AUDIT.json`.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS for exact modulo-3 pair-covariance oscillation and arcsine law. Fixed-total Bernoulli sampling, convex-order dependence and an earlier modular-freedom theorem under retained pairwise independence do not address dependence created by conditioning iid bits on a congruence class.
+
+## value
+
+PASS
+
+Identifies a natural and counterintuitive conditional-dependence phenomenon: exponential covariance decay with persistent alternating signs for every p, strict fair six-cycle and generic arcsine frequency law. Exact finite identity and asymptotic distribution are mathematically useful beyond a trivial sign test.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
