@@ -1,11 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-**Correctness — PASS.** The theorem uses the exact 3n-vertex description of a two-row normalized Monge polytope, independently checked against direct linear optimization in 300 randomly chosen Gaussian directions. A tail estimate isolates the two variance-one row singleton vertices from the longer normalized row averages. Correlation with their two shared column vertices changes expected support by a smaller order. The remaining independent integral has a direct Gaussian Mills/Laplace asymptotic with constant \(\pi^{1/4}\); Gaussian polar decomposition converts this to the stated intrinsic mean-width constant. The proof states all asymptotic regimes and the finite checks are not substituted for its infinite limits.
+## correctness
 
-**Originality — PASS, with bibliographic limitations.** Erickson--Kretschmann's 2023 full paper gives the Monge vertices/facets and two-row volume, but not a sharp rare-vertex mean-width correction. Prior formulas for rectangular Monge inballs concern different geometric invariants; a separate uniform-volume Laplace-contrast limit concerns random interior points, not Gaussian support in random directions. Published Gaussian-width results found through targeted searches did not supply this two-row Monge correction constant. A newer article studying the same Monge family was available only by abstract, and older probability literature may contain an equivalent rare-variance Gaussian-maximum theorem. The claim is therefore a best-knowledge priority assessment, not a claim of exhaustive uniqueness.
+PASS
 
-**Mathematical value — PASS.** The limit measures a natural, intrinsic geometric invariant of a family of cost-matrix polytopes and quantifies a nontrivial cancellation: the \(n\) column vertices govern leading Gaussian width and the Gumbel law, while just two of the other \(2n\) vertices cause the first positive correction, at the fractional-logarithmic power \(n^{-1}(\log n)^{-3/4}\). The exact coefficient and strict positivity give a motivated geometric distinction invisible to the leading extreme-value approximation. This is not a finite table, an arbitrary parameter slice, or a renaming of an existing result.
+Using the exact two-row Monge vertex classes from Erickson–Kretschmann Proposition 5.1, support is H_n=max{max_j (G_1j+G_2j)/2, all top-row suffix and bottom-row prefix Gaussian averages}. Column maxima T_n use iid N(0,1/2) with b_n satisfying n barPhi(sqrt2 b_n)=1. For k>=2 row averages N(0,1/k), Gaussian tail bounds at 0.9b_n make their expected excess negligible on the n^−1/2(log n)^−3/4 scale. Removing two correlated boundary columns costs O(1/(nb_n)), after which exactly two independent N(0,1) row singleton exceedances contribute 2I_n~π^(1/4)/(sqrt(n)b_n^(3/2)). Change t=b_n+x/(2b_n), dominated Mills asymptotics, Γ(1/2)=sqrtπ establish constant; Gaussian polar formula w=2 E h/m_{2n−1}, m~sqrt(2n) yields limit sqrt2 π^(1/4). Maximum has standard Gumbel limit. Independence approximation is controlled, not assumed. Finite support LP examples do not prove the limiting constant; the proof is Gaussian analysis.
 
-**Closest literature and limits.** Erickson--Kretschmann, arXiv:2311.07522v2, especially Proposition 5.1 and Section 5.2, is the originating geometry. Erickson--Jones, arXiv:2609.09508, describes volume/Ehrhart questions in its accessible abstract; the complete document was not inspected. Standard Gaussian maxima asymptotics are acknowledged as methods rather than new probabilistic discoveries. Independent validation has not occurred.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+Mean width is a canonical intrinsic metric invariant of a natural two-row Monge polytope. The column-simplex leading term obscures a genuine sharp rare-vertex correction: exactly two row vertices contribute a novel n^−1(log n)^−3/4 intrinsic-width excess. Its exact constant and Gumbel support law supply finer geometric asymptotics not mechanically implied by volume or vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

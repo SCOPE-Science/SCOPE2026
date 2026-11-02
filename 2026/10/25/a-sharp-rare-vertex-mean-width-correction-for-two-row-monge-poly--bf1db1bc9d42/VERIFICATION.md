@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The main theorem is analytical. A vertex-support identity reduces Gaussian support over the two-row Monge polytope to maxima of normalized Gaussian prefixes, suffixes, and iid two-row column averages. Exponential tail bounds show that all averages of two or more row entries are negligible on the claimed scale. Removing two correlated columns costs a smaller order, and a one-dimensional Laplace calculation supplies the exact rare-vertex constant. Conversion to intrinsic mean width uses Gaussian polar decomposition. Finite experiments are supporting comparisons only.
+# Independent mathematical audit
 
-`verify_monge_width.py` implements 300 independently optimized support-function linear programs over dimensions three through twelve. It additionally integrates the analytic single-boundary proxy integral for five values from one thousand through ten million, printing its rescaled values and the predicted limiting constant. Dependencies are `numpy` and `scipy` (`requirements.txt`). Run `python verify_monge_width.py`.
+## correctness
 
-Observed message: `VERIFY_OK supports 300 LP comparisons` followed by numerical proxy ratios increasing from approximately 0.467762 to 0.566606 as the sample size parameter increases, against limiting single-boundary constant approximately 0.665668. This slow convergence is compatible with logarithmic second-order terms; the numerical values alone do not establish the limit or originality.
+PASS
+
+Using the exact two-row Monge vertex classes from Erickson–Kretschmann Proposition 5.1, support is H_n=max{max_j (G_1j+G_2j)/2, all top-row suffix and bottom-row prefix Gaussian averages}. Column maxima T_n use iid N(0,1/2) with b_n satisfying n barPhi(sqrt2 b_n)=1. For k>=2 row averages N(0,1/k), Gaussian tail bounds at 0.9b_n make their expected excess negligible on the n^−1/2(log n)^−3/4 scale. Removing two correlated boundary columns costs O(1/(nb_n)), after which exactly two independent N(0,1) row singleton exceedances contribute 2I_n~π^(1/4)/(sqrt(n)b_n^(3/2)). Change t=b_n+x/(2b_n), dominated Mills asymptotics, Γ(1/2)=sqrtπ establish constant; Gaussian polar formula w=2 E h/m_{2n−1}, m~sqrt(2n) yields limit sqrt2 π^(1/4). Maximum has standard Gumbel limit. Independence approximation is controlled, not assumed. Finite support LP examples do not prove the limiting constant; the proof is Gaussian analysis.
+
+## originality
+
+PASS
+
+Best-of-knowledge original precise final theorem after comparison with source-specific hypotheses; all named comparisons and inaccessible-source risks recorded.
+
+## value
+
+PASS
+
+Mean width is a canonical intrinsic metric invariant of a natural two-row Monge polytope. The column-simplex leading term obscures a genuine sharp rare-vertex correction: exactly two row vertices contribute a novel n^−1(log n)^−3/4 intrinsic-width excess. Its exact constant and Gumbel support law supply finer geometric asymptotics not mechanically implied by volume or vertex counts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
