@@ -1,0 +1,15 @@
+# Scientific review
+
+## Correctness — PASS
+The cited Rampersad–Wiebe run-length identity matches the exact integer sum of separately reduced binomial-product parities. Positivity follows from the run-length factors. For an \(r\)-bit padded binary input plus one trailing zero, the unique token decomposition gives the exact identity \(r+1-4\nu_2(T(n))=\sum\delta\). Direct inequalities show all token deficits are nonnegative, with exactly two zero-deficit tokens and three positive deficits below four. This proves the sharp spectrum, word classification, and coefficient extraction. Fixed-deficit rationality follows from the finite positive-deficit truncation and geometric expansion; no unbounded enumeration is relied on. The included checker independently passes all stated finite tests. Boundary indices \(n=0,r=0\) and coefficient conventions were checked.
+
+## Originality — PASS within inspected evidence
+Rampersad–Wiebe (2023/2024), Theorem 14, gives the underlying run-length transform and later average-value formulas; it does not state or imply without a separate optimization the exact valuation maximum, full maximizing language, four residue-class counts, or universal fixed-deficit rationality. Kropf–Wagner (2017) gives general quasimultiplicative structure and central-limit results, not this exact arithmetic edge law. Targeted published-repository, number-theory record, parity-sum, run-length, and OEIS searches identified no equivalent claim or stronger statement containing all the conclusions. Mathematical-record near hits about Thue–Morse valuations and binary subsequence Fibonacci extrema concern distinct functions; an OEIS lattice-path triangle has a different bivariate denominator and no established identity with this parity sum. This is not a proof of global priority; implicit earlier digital optimization results remain a residual risk.
+
+## Value — PASS
+The source parity-sum sequence is a natural, nontrivial binomial/digital arithmetic statistic. The complete optimum and its full attaining set turn its run-length representation into a sharp uniform divisibility threshold for every dyadic interval, while the Fibonacci edge count and all fixed-deficit rational recurrences specify the exceptional highly divisible inputs exactly. This is a meaningful global classification across infinitely many lengths and is not just a finite computation, isolated small gain, or unrelated numerical invariant. It is self-contained once the cited run-length theorem is taken as a proved premise.
+
+## Limits and closest literature
+The source transform identity is credited rather than claimed. No claim is made for odd primes, non-dyadic intervals, or higher-dimensional extensions. Closest inspected sources are Rampersad–Wiebe (arXiv:2309.04012; *Integers* 24 (2024), A73, Theorem 14 and Section 6) and Kropf–Wagner (2017, Section 2 and Section 5). The arXiv preprint's 2023 posting metadata was verified; the accessible journal theorem was checked in full. General hidden specializations and unpublished prior notes cannot be excluded by searches alone.
+
+Self-review: passed. Independent audit: not yet performed.
