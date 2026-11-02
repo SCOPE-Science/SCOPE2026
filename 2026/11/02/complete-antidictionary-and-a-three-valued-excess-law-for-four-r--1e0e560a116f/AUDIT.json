@@ -1,0 +1,122 @@
+{
+  "correctness": {
+    "rationale": "For arbitrary positive run lengths, classify factors by 0–3 transition patterns and use the iff criterion that a missing factor has both longest proper prefix and suffix present. Exhaustive run-type analysis yields ten disjoint types with exact inequalities. Their lengths give the polynomial; summing conditional types in the nine comparisons gives offsets 1,2,4. The actual verifier checks all 4096 quadruples with inputs in 1..8 and 120 larger inputs; 45328 MAWs match exactly. Computation corroborates rather than substitutes for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Akagi et al. 2022 gives general RLE string algorithm and five-category classification, encompassing the four-run inputs computationally.",
+        "Akagi et al. 2021 sliding-window paper treats update bounds and combinatorics, not a closed four-run spectrum."
+      ],
+      "reasoning": "Distinguish an algorithm that enumerates individual outputs from the new symbolic all-parameter ten-family classification, complete polynomial and trichotomy: the generic method covers algorithmic input domain, but does not explicitly state or logically simplify to the special closed form without an additional argument. The risk of an already-explicit specialization is retained.",
+      "searches": [
+        "Minimal absent words on run-length encoded strings Akagi Okabe Mieno 2022 theorem length profile",
+        "arXiv:2202.13591 full text Sections 2,3,5",
+        "arXiv:2105.08496 sliding-window minimal absent words"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2202.13591",
+      "arXiv:2105.08496",
+      "arXiv:1909.02804",
+      "2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925",
+      "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+      "own finding 41aa7a29-dd06-4062-a8fe-a3f7a3d9aebb",
+      "own finding 3a571b3b-ae66-40a9-b39b-37820d90148a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "General 2022 minimal absent RLE enumeration permits evaluation for fixed parameter tuples but supplies no direct identity for \\(M(W)-(b+c)\\) over all parameter regions.",
+        "2019 window-maintenance results concern changes when endpoints slide, with no four-run parameter formula."
+      ],
+      "reasoning": "A generic algorithm does not by itself logically establish the specific symbolic trichotomy or length-profile coefficients as an already stated mathematical result. The explicit proof requires an additional reduction to nine sign regions. The classified minimal-unique and scattered-subsequence objects are nonidentical, and their counts cannot dominate the zero-occurrence factor classification.",
+      "searches": [
+        "Minimal absent words on run-length encoded strings Akagi Okabe Mieno 2022 theorem length profile",
+        "Minimal unique factor four-run binary word versus minimal absent factors",
+        "arXiv:2202.13591 published theorem and lemmas",
+        "arXiv:1909.02804 minimal unique substring and MAW sliding windows"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The 2022 RLE minimal-absent-word work organizes arbitrary words into five algorithmic types; its displayed claims are data-structure and output-sensitive bounds rather than the binary four-run closed formula.",
+        "The earlier four-run minimal-unique-factor claim (ID 41aa7a29-dd06-4062-a8fe-a3f7a3d9aebb) counts once-occurring factors, not absent factors."
+      ],
+      "reasoning": "Antidictionary/minimal-absent-factor/MAW are the same notion here, so comparisons used all names; occurrence-zero with all proper factors present is not implied by once-occurrence minimal uniqueness. The known general algorithm could compute every instance, but it does not directly assert this exact family classification or length-polynomial identity.",
+      "searches": [
+        "complete classification minimal absent contiguous factors binary four-run words 0^a1^b0^c1^d",
+        "Four-run binary word exact minimal absent word antidictionary spectrum 0^a1^b0^c1^d",
+        "antidictionary four run binary word b+c minimal absent factor count",
+        "arXiv:2202.13591 Sections 2–3,5"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus nearest retrieved string-attractor census and binary two-composition reconstruction address different invariants.",
+        "The accessible own earlier four-run minimal-unique-factor result 41aa7a29-dd06-4062-a8fe-a3f7a3d9aebb concerns distinct once-occurring factors.",
+        "The accessible own cyclic distinct-run-power absent-factor result 3a571b3b-ae66-40a9-b39b-37820d90148a concerns three or more distinct run letters and repetitions, not binary four runs."
+      ],
+      "reasoning": "Query results and checked accessible claims did not locate a table or closed formula equivalent to the new four-run MAW length polynomial. Search limitations and the distinct literature of antidictionaries mean the lack of a hit is not proof of novelty.",
+      "searches": [
+        "complete classification minimal absent contiguous factors binary four-run words 0^a1^b0^c1^d",
+        "Four-run binary word exact minimal absent word antidictionary spectrum 0^a1^b0^c1^d",
+        "antidictionary four run binary word b+c minimal absent factor count",
+        "run-length encoded four run exact minimal absent words classification length generating polynomial",
+        "2026/10/4/SCOPE-exact-binary-r-2-length-limited-composition-reconstruction--a98561a7f27e",
+        "2026/10/4/SCOPE-complete-length-12-binary-string-attractor-census-28-size-four-w--7d9ddd4b7925"
+      ]
+    },
+    "rationale": "Compared the exact symbolic all-parameter statement against the much broader algorithmic 2022 RLE source, 2021/2019 MAW window work, published records, and accessible previous four-run MUS and cyclic-power MAW claims; no inspected source states the same exact ten-family/factor-length result or implies the explicit 1,2,4 trichotomy without new specialization. Remaining risk is a specialized formula elsewhere; search cannot prove uniqueness.",
+    "residual_risks": [
+      "The 2022 general algorithm computes four-run MAWs; an uninspected appendix or other specialist text might explicitly derive an equivalent four-run closed form.",
+      "Search indexes and access to historical prior research records are incomplete; inaccessible history is not treated as checked."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General method encompasses all inputs but inspected assertions do not state the exact four-run closed-word families, polynomial or count trichotomy. Residual chance of an implicit special-case proof acknowledged.",
+        "evidence": [
+          "arXiv:2202.13591, Akagi et al. (2022), Sections 2–3, 5; five-category run-boundary analysis and output-sensitive enumeration"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2202.13591",
+        "material_read": "Introduction, definitions and central statement of five types; sections 2–3 and 5 including structural and algorithmic lemmas",
+        "method": "Open-access full-text reading of arXiv manuscript through web-accessible text",
+        "title": "Minimal Absent Words on Run-Length Encoded Strings",
+        "trigger": "Same invariant for arbitrary run-length encoded strings; highest-coverage primary comparison"
+      },
+      {
+        "assessment": "Sliding-window upper/lower changes, not a fixed four-run parametric full antidictionary formula.",
+        "evidence": [
+          "arXiv:2105.08496, Akagi et al. (2021), definitions and window-change results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2105.08496",
+        "material_read": "Introduction, principal theorem statements, section on changes of MAWs as the window slides",
+        "method": "ArXiv open-access source reading",
+        "title": "Combinatorics of Minimal Absent Words for a Sliding Window",
+        "trigger": "MAW structural comparisons and complexity for windows"
+      },
+      {
+        "assessment": "No matching explicit four-run MAW length spectrum in inspected statements; object distinction established.",
+        "evidence": [
+          "arXiv:1909.02804, Mieno et al. (2019), introductory definitions and theorem statements"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1909.02804",
+        "material_read": "Introduction, distinct definition of MUS and MAW, algorithmic theorem statements",
+        "method": "ArXiv open-access source reading",
+        "title": "Minimal Unique Substrings and Minimal Absent Words in a Sliding Window",
+        "trigger": "Potential overlap across minimal unique and absent substrings"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "1e0e560a-116f-4820-a457-a3fb3d3a9a5e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite class of binary run-length-encoded strings has an exact full antidictionary, coefficientwise length spectrum and sharp three-valued excess law excluding three. This concrete family-wide result is a useful benchmark for RLE antidictionary methods and is not a finite-slice recomputation or general algorithm renamed.",
+    "status": "PASS"
+  }
+}
