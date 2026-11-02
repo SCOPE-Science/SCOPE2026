@@ -1,0 +1,110 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:49:32Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Orthogonal right residuals have rank1 norm r and rank2 norm tau=sqrt((r²+1)/2)<r; Frobenius improves too. Exact surrogate right singular vectors give P1=diag(r,1,1), P2=diag(r²,1,1)+(tau-1)vv^T. A P1^-1 has condition r. For P2 the nontrivial squared singular eigenvalues solve z²-Tz+D=0 with T=(r²+3)/2, D=2r²/(r²+1); 1-T+D=-(r²-1)²/[2(r²+1)]<0 proves lambda_-<1<lambda_+. Identity T²-D(r+1/r)²=(r²-1)²/4>0 gives kappa2>r; T~r²/2, D->2 gives kappa2~r²/(2sqrt2). Independent symbolic Gram identities and ten matrix-SVD parameter checks agree. The claim is not a CUR sampler output or a solver iteration theorem.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Huh bound requires regularization mu>0 and ||E||<mu",
+          "Kahl/Rittich studies symmetric deflated CG",
+          "Kahl–Rittich full university PDF Theorem3.6 bounds the deflated A(I-pi_A(S)) rather than the spectral right P construction; section6 recognizes inexact-deflation harm."
+        ],
+        "reasoning": "Neither inspected stronger theorem dominates this unregularized, mixed-right-projection family; broader deflation analogy is only contextual.",
+        "searches": [
+          "Huh et al Theorem4.1",
+          "Kahl Rittich approximate deflation",
+          "Resultary preconditioner and ACA examples"
+        ]
+      },
+      "checked_sources": [
+        "SCOPE2026 RESULT.md, check.py, REVIEW.md and metadata for record4",
+        "Huh–Cartis–Nakatsukasa arxiv:2604.05065v1 full accessible HTML",
+        "Kahl-Rittich arxiv:1209.1963 abstract",
+        "Resultary semantic search query4",
+        "Kahl–Rittich 2012 lawful university PDF, sections 1, 3, 6; screenshot attempt timed out"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Eq3.2 defines P but does not assert rank monotonicity",
+          "Theorem4.1 inapplicable at mu=0; §7.2.1 notes problems for LSQR due spectral gap, not necessarily cond worsening with improving errors",
+          "Older Kahl–Rittich section6 already warns qualitatively of worse condition from approximate deflation; quantified A_r under nested W1,W2 is not presented there."
+        ],
+        "reasoning": "A new explicit family and strict algebraic inequality are required; qualitative prior caution alone does not imply exact unbounded kappa ratio.",
+        "searches": [
+          "arxiv:2604.05065v1 §3.1, §4.1, §7.2.1",
+          "Resultary: nested low rank spectral preconditioner approximation error worse condition number rank increasing"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same right spectral P under mu=0",
+          "Alternative Gram eigenvalue characterization via T,D verified independently"
+        ],
+        "reasoning": "The exact quantitative counterexample is compared in equivalent right-preconditioned, Gram and singular-value presentations.",
+        "searches": [
+          "Resultary: nested low rank spectral preconditioner approximation error worse condition number rank increasing",
+          "Huh Cartis Nakatsukasa §3.1 spectral preconditioner",
+          "Gram eigenvalue rank counterexample"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary closest 2026/9/19/SCOPE-deflation-history-weighted-mass-aca--f46330fd3a80 concerns approximation-pivot history",
+          "2026/10/4/SCOPE-exact-stale-basis-singular-value-collapse-in-soap--91a933b03a1c concerns optimizer basis"
+        ],
+        "reasoning": "These entries do not provide same A_r,P1,P2 condition formula; absence not a novelty certificate.",
+        "searches": [
+          "Resultary: nested low rank spectral preconditioner approximation error worse condition number rank increasing"
+        ]
+      },
+      "rationale": "The Huh–Cartis–Nakatsukasa April 2026 paper already defines the spectral right preconditioner and warns of over-preconditioning and damaged spectral separation. Its explicit Theorem4.1 requires mu>0 and error norm below mu; neither hypothesis applies to this mu=0 family. The present construction is a sharp quantified counterexample in nested right projections, not the pre-existing conditional bound or CUR algorithm. Kahl–Rittich deflation concerns another operator. Residual risk: analogous inexact spectral-preconditioner perturbation examples under other terminology. The independently inspected Kahl–Rittich full PDF explicitly notes inexact deflation can worsen condition number, so qualitative deterioration is not claimed novel; its Theorem 3.6 and section 6 use a different operator and do not give this exact all-r error-improving family.",
+      "residual_risks": [
+        "A general inexact singular-subspace preconditioning counterexample in earlier unindexed literature could subsume this family.",
+        "A model CUR sampler may never produce the projection surrogates; no actual CUR algorithm performance is claimed.",
+        "Exact trailing targets externally known and no regularization; other strategies could perform differently."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes preconditioner and qualitative rank-selection hazards, but Theorem4.1 needs mu>0; no identical nested projection all-r quantified family appears.",
+          "evidence": [
+            "Eq3.2 is formula applied here; Theorem4.1 mu>0 and ||E||<mu; §7.2.1 explains over-preconditioning spectral gap."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2604.05065v1",
+          "material_read": "full available arxiv HTML with §3.1 Eq3.2, §4.1 Theorem4.1 and assumptions, §7.2.1 over-preconditioning and Appendix discussion",
+          "method": "read accessible original HTML and compare stated results, equations, hypotheses and scope",
+          "title": "Adaptive LSQR Preconditioning from One Small Sketch",
+          "trigger": "Same exact spectral preconditioner formula"
+        },
+        {
+          "assessment": "Theorem3.6 controls effective condition number of A(I-pi_A(S)) through weak approximation and A-invariance; the paper also explicitly notes inexact deflation may worsen condition number. It does not establish strict unbounded penalty for the specified unregularized spectral right-preconditioner P1/P2.",
+          "evidence": [
+            "Theorem 3.6 effective kappa <= K/(1-gamma) for deflated matrix A(I-pi_A(S)); section6 discusses possible condition-number deterioration from approximate deflation."
+          ],
+          "identifier_or_url": "https://www.imacm.uni-wuppertal.de/fileadmin/imacm/preprints/2012/imacm_12_19.pdf",
+          "material_read": "full lawful university-hosted PDF parsed text; sections 1, 3 including Theorem 3.6, and discussion of approximate deflation in section 6; webpage screenshots were attempted but timed out",
+          "method": "read extracted complete relevant sections and verify theorem hypotheses; screenshots attempted twice but unavailable",
+          "title": "Analysis of the Deflated Conjugate Gradient Method Based on Symmetric Multigrid Theory",
+          "trigger": "General approximate subspace spectral conditioning prior"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Rank-adaptive spectral preconditioning is often driven by improved surrogate error; this infinite-parameter SPD construction rigorously separates that signal from conditioning, with an unbounded quantitative penalty. The finite matrix size is motivated as a minimal counterexample, not an arbitrary unmotivated slice; no claim about real CUR sampling or Krylov iteration count.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For SPD A_r=diag(r^2,r,1) r>1 and nested right projections W1=e1e1^T, W2=W1+vv^T, v=(e2+e3)/sqrt2, spectral preconditioners with target trailing singular levels show strictly decreasing spectral/Frobenius error but increasing kappa_2; ratio diverges asymptotic r/(2sqrt2).",
+  "limitations": [
+    "Real symmetric SPD dimension3, target s1=r s2=1, nested orthogonal right projections not necessarily CUR, condition-number observation only.",
+    "A general inexact singular-subspace preconditioning counterexample in earlier unindexed literature could subsume this family.",
+    "A model CUR sampler may never produce the projection surrogates; no actual CUR algorithm performance is claimed.",
+    "Exact trailing targets externally known and no regularization; other strategies could perform differently."
+  ],
+  "schema_version": 1
+}
