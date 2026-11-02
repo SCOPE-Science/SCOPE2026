@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "Exact independent-pair Markovization, product-Lyapunov criterion, quadratic root sign analysis, L² variance recursion with strictly positive innovation term, entire reset-curve geometric run-length conditional Gaussian variance and rigorous geometric-series p-moment criterion. Complete proof in RESULT.md. The standalone finite verifier prints VERIFY_OK with 15397 checks; finite checks alone are not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Hodgkinson & Mahoney 2021 gives broader qualitative multiplicative-noise tail results for stochastic optimization including stochastic-gradient MCMC; its §3 contains general ergodicity and power-law criteria.",
+        "Gürbüzbalaban–Şimşekli–Zhu 2021 Section 3 and references invoke random-affine and Kesten theory for SGD."
+      ],
+      "reasoning": "These broad results imply negative-log-contractivity implies an invariant solution, so that premise is not novel. They do not supply the specific exact SGLM disconnected intervals and reset Gaussian mixture, and their exact-tail law with a nonarithmetic log condition cannot be directly applied to coefficients {0,-R}.",
+      "searches": [
+        "stochastic gradient Leimkuhler Matthews random Hessian stationary second moment mean square instability and almost sure Lyapunov exponent",
+        "\"Multiplicative noise and heavy tails in stochastic optimization\" Hodgkinson Mahoney full text theorem",
+        "SGD Langevin heavy tails due to multiplicative noise on quadratic sampled curvature without finite variance invariant measure"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:2610.24781v1",
+      "PMLR:139:hodgkinson21a",
+      "PMLR:139:gurbuzbalaban21a"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Ye et al. Theorem 3 requires h≤h0≤1 and Assumption 3 requires uniformly bounded gradient-estimation variance; our example has variance λ²q²z² and hλ=5.",
+        "Gürbüzbalaban et al. Sec.3 generic Kesten-style criteria require different regression parameters; they do not give a coefficient-zero lattice reset mixture.",
+        "Hodgkinson–Mahoney generic random recurrence results do not express the method-specific parameters or mixture normalization."
+      ],
+      "reasoning": "The prior SGLM bias/MSE theorem is inapplicable to the new state-dependent variance, so the result is neither contradicted by nor implied by its quantitative estimate. Classical affine contraction gives general existence but not the explicit phase diagram and entire reset-curve moment law. Claims are confined to these exact conclusions.",
+      "searches": [
+        "Stochastic Gradient Leimkuhler Matthews Integrator with Second Order Discretization Error 2026 arxiv",
+        "The Heavy-Tail Phenomenon in SGD PMLR 2021 Section 3",
+        "Multiplicative Noise and Heavy Tails in Stochastic Optimization PMLR 2021 Section 3"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Ye et al. arXiv:2610.24781v1, Section 3.2: the Markov-shifted recurrence is established but no two-point coefficient contractivity diagram appears in inspected source.",
+        "Hodgkinson & Mahoney PMLR 139: Sections 2-4 model generic random affine iterations and their tail behavior; do not describe the reuse-noise SGLM reset-curve distribution."
+      ],
+      "reasoning": "Generic random affine form is equivalent as a framework and is credited, but obtaining two SGLM windows and the normalized stationary mixture needs solving the actual coefficient quadratic and recycling-dependent Gaussian innovation. They are not located as already stated equivalents.",
+      "searches": [
+        "Leimkuhler Matthews stochastic gradient LM correlated Gaussian recycling random curvature resetting heavy tailed stationary exact geometric Gaussian scale mixture sharp moment exponent",
+        "\"Leimkuhler Matthews\" \"heavy tails\" random gradient",
+        "random affine recursion coefficient zero or large -8 gaussian innovations geometric run-length stationary Gaussian mixture log2 log8 finite moments"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Mathematical-record searches retrieved the existing mean-square stability frontiers for two-client Loopless SVRG and two-component PAGE, and random-curvature OSGM feedback, with different update dynamics.",
+        "No exact SGLM reset-curve entry was found in the consulted searchable index and accessible published mathematical claims; exhaustive priority is not asserted."
+      ],
+      "reasoning": "The returned studies concern different optimizers or generic tail methods. Parameter matches alone are not identified as statement implications; no known table covers the complete explicit mixture and its p-moment series.",
+      "searches": [
+        "SGLM two point convex quadratic sampled Hessians almost sure reentrant stability disconnected stepsize windows finite variance",
+        "random affine recursion coefficient zero or large -8 gaussian innovations geometric run-length stationary Gaussian mixture log2 log8 finite moments",
+        "\"Leimkuhler Matthews\" \"moment\" \"quadratic\" \"random\""
+      ]
+    },
+    "rationale": "Direct full-text comparisons identify general stochastic-affine multiplicative-noise mechanisms as known, but not the exact two-disconnected-window SGLM contraction criterion nor the whole reset-curve stationary Gaussian mixture and parameter-dependent p-moment cutoff with inherited Gaussian reuse. Recent SGLM theorem assumes uniform-in-state variance and small h, which the random-curvature oracle violates. This is a best-knowledge statement, not proof of historical uniqueness.",
+    "residual_risks": [
+      "Generic random-affine theory may subsume the exact construction as an unremarked specialization; exhaustive historical priority not established.",
+      "Only selected relevant primary full-text passages and searched records were inspected; specialized older Gaussian scale-mixture literature may contain this lattice-reset law.",
+      "The original 2026 SGLM MSE analysis does not apply to unbounded-in-state stochastic gradient variance; this finding does not challenge that theorem."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The Markov transformation and recurrence are prior work. Exact two-point discontinuous contraction windows and reset Gaussian-mixture moments are absent from inspected corresponding claims; uniform gradient-noise variance condition excludes this oracle.",
+        "evidence": [
+          "arXiv:2610.24781v1 lines 109-120 (SGLM); 274-309 (Assumption 3 and Markov shift); 509-536 (Theorem 3 and restricted small-step claim)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24781v1",
+        "material_read": "Full HTML source headings and relevant Sections 1, 3.1, 3.2, 5.2, 6.1 and Theorem 3 plus related-work table; including equations and uniform-variance Assumption 3",
+        "method": "primary arXiv full-text HTML reading and equation-by-equation comparison",
+        "title": "Stochastic Gradient Leimkuhler–Matthews Integrator with Second Order Discretization Error",
+        "trigger": "same SGLM method and most plausible recent direct coverage"
+      },
+      {
+        "assessment": "Classical heavy-tail and contractive-affine machinery are known; no Leimkuhler–Matthews Gaussian recycling or exact reset-curve mixture or disconnected SGLM window is reported in inspected relevant sections.",
+        "evidence": [
+          "PMLR139 Hodgkinson–Mahoney 2021, Section 3, random affine recurrence and contraction hypotheses; stochastic-gradient MCMC discussion in Section 6."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/hodgkinson21a/hodgkinson21a.pdf",
+        "material_read": "Primary PDF introduction, Sections 2-4 with general recurrence/ergodicity hypotheses, stochastic-gradient MCMC discussion; visually inspected page 4",
+        "method": "full-text searchable PDF and page-image examination",
+        "title": "Multiplicative Noise and Heavy Tails in Stochastic Optimization",
+        "trigger": "plausible broader coverage via random affine recursion and heavy tails"
+      },
+      {
+        "assessment": "Qualitative heavy tails, random affine contractions, and moment divergences are known; precise tail theorem assumes non-arithmetic log multiplier and does not directly cover coefficient-zero geometric reset lattice; no SGLM formula located.",
+        "evidence": [
+          "PMLR139 Gürbüzbalaban–Şimşekli–Zhu 2021, Section 3, especially Theorem 1 and (3.3)."
+        ],
+        "identifier_or_url": "https://proceedings.mlr.press/v139/gurbuzbalaban21a/gurbuzbalaban21a.pdf",
+        "material_read": "Primary PDF abstract, introduction, technical background and Section 3 random affine representation, Theorem 1, visual inspection page 4",
+        "method": "primary published PDF full-text and page-image inspection",
+        "title": "The Heavy-Tail Phenomenon in SGD",
+        "trigger": "classical exact tail-index work on random-curvature SGD"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6d28f776-ac98-44f7-83fd-dad87beaf4d3",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a newly studied Gaussian-reusing sampler, the exact disconnected almost-sure contractive windows, coexistence of a stationary law with divergent variance, and an entire natural curve of reset stepsizes with closed Gaussian mixture and sharp moment exponent answer substantive method reliability/ergodicity questions. Both randomly sampled potentials are strictly convex, and no arbitrary finite-only slice or unsupported downstream claim is required.",
+    "status": "PASS"
+  }
+}
