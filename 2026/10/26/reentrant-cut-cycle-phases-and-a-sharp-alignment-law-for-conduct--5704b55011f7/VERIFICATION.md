@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,14 +19,24 @@
 }
 ---
 
-# Reproducible verification
+# Independent mathematical audit
 
-Run `python3 check_split_graph.py` with a standard Python 3 interpreter; no external packages are required. The script builds each electrical graph from its edges and inverts a grounded weighted Laplacian over `fractions.Fraction`. Every cut- and cycle-projection column is reconstructed directly from its source potential, and both absolute column sums are compared with the theorem's formulas.
+## correctness
 
-The actual successful run reported:
+PASS
 
-`WEIGHTED_SPLIT_ENDPOINT_EXACT_OK graphs=120 columns=3280 boundary_spotchecks=2`
+Decomposing the weighted Laplacian into A-zero-sum, B-zero-sum, and between-part contrast eigenspaces gives exact pseudoinverse potentials for either edge-source orbit. Sign-controlled normalized currents yield C_A,C_B and Z_A,Z_B, with complement identity 1+C−2Q_ee. Their differences after positive factor m(mx²+n) reduce to F_C and F_Z. Coefficient signs prove single positive cut/cycle root for m≥4; evaluating F_C−F_Z=2m(x²−(m+n−1)/m) at ξ=sqrt((m+n−1)/m) gives order reversal and unique common root m=2n+1. Concave low-m quadratics establish B–A–B cycle reentrance or the exceptional (2,2) switch. Independent symbolic identities succeeded for all 49 pairs (2≤m,n≤8), and direct grounded-Laplacian inversion reconstructed every edge column on four sample weighted graphs including the tie/boundary cases.
 
-The main loop covers clique orders from 2 through 7, independent-set orders from 2 through 6, and conductance square roots 1/3, 1, 6/5 and 2. Two additional rational tests include the low-order cases. A separate symbolic simplification checked the displayed comparisons between column differences and their two threshold polynomials, and the phase-alignment identity was checked by substituting its explicit positive square root. The analytical proof establishes the unrestricted theorem independently of finite verification.
+## originality
 
-The checker does not enumerate all real conductances, prove noncoverage by prior work, establish independent validation, or address nonorthogonal projections.
+PASS
+
+The fully read Dilworth–Kutzarova–Ostrovskii work on cycle spaces treats Hamming graphs, tori and unweighted symmetric projections, not arbitrary two-conductance complete split-graph edge-source norms. Li–Sun 2020 discusses spectral characterization of bidegreed split graphs (abstract), not known to contain transfer-current l1 column maxima; its full text remained inaccessible after OA searches and authorized Oxford VPN disconnected. The actual exact alignment and reentrance are not automatic from Laplacian eigenvalues. Related general Kirchhoff pseudoinverse theory is background, not this complete parameter phase classification.
+
+## value
+
+PASS
+
+This gives two sharp complementary operator invariants on a standard nonedge-transitive graph family for every positive conductance, including a surprising arithmetic simultaneous-switch locus and low-clique reentrance. The phenomena distinguish geometric cut and cycle amplification without claiming a paper-sized general theory.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
