@@ -1,0 +1,120 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T17:14:41.895355Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md Git blob 548f1df560126fda4044cd07eabae7089f5b9fcd",
+        "Assigned verify.py Git blob c41017d65d1260797e9c14c3e51abfc22e117d46",
+        "Private independent_checks_private.py exhaustive Dyck words n=1..10",
+        "Classical first-return decomposition and Catalan asymptotics"
+      ],
+      "rationale": "For any x complement(x), the number of maximal letter-runs is 2 mod 4 or 3 mod 4 according to parity of the run count in x. The displayed candidates have exactly four runs with both interior runs singleton; they admit neither two-run antisquares of order>=2 nor three-run ones with middle run length>=2. For uniqueness, the canonical Dyck decomposition w=0u1v allows strong induction since avoiding contiguous forbidden factors is hereditary. Exhaustive cases according to semilengths a=|u|/2 and b=|v|/2 exclude every pair but those yielding the displayed candidate: forbidden explicit words 0011, 010101, 0110, 1100 and the family 0^a 10 1^a 01 or 01 G_b appear at relevant seams. Catalan count gives exactly 1/C_n. Independently generated all C_n Dyck words at n=1..10 and enumerated every factor/order>=2, finding precisely the stated sole word at each n. The all-n induction, not this finite check, proves the theorem.",
+      "residual_risks": [
+        "Only linear contiguous factors in binary Dyck words; one-letter 01 and 10 antisquares expressly allowed."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Baranwal et al classify minimal bad factors and show unrestricted good-word language has exponential growth, but do not in inspected text classify good Dyck intersection.",
+          "Mol et al analyze pattern-avoidance phenomena in Dyck words involving different repetition restrictions."
+        ],
+        "reasoning": "A characterization of unrestricted good words and all Dyck words does not automatically give the one-per-semilength intersection count without applying first-return structural constraints.",
+        "searches": [
+          "Baranwal et al 2023 Antisquares and Critical Exponents Theorem 11 Lemma 15 Theorem 19",
+          "Mol Rampersad Shallit Dyck Words, Pattern Avoidance and Automatic Sequences 2025"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2209.09223 original antisquares and forbidden families",
+        "arXiv:2301.06145 Dyck pattern avoidance",
+        "Resultary targeted Dyck antisquare searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The forbidden family 0^a 10 1^a 01 is established input, but its application to every first-return Dyck branch is the required classification proof.",
+          "Exponential good-word growth does not imply the Dyck intersection cardinality."
+        ],
+        "reasoning": "Prior results provide necessary tools, but no inspected result logically entails exactly one survivor without the all-case Dyck induction.",
+        "searches": [
+          "Baranwal et al 2022 Lemma 15 obstruction family",
+          "Baranwal et al Theorem 19 exponential unrestricted good words",
+          "Mol et al 2023 first-return methodology"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Good words here mean forbidding x complement(x) only for half-length >=2; this differs from square-free, reverse-complement square-free, or abelian-square-free restrictions.",
+          "The Dyck language is the balanced prefix-positive Catalan language, so the claim is an exact language intersection."
+        ],
+        "reasoning": "No alternative definition is silently equated to the claim; order-one antisquares remain permitted.",
+        "searches": [
+          "Resultary: Dyck words binary antisquares avoid order at least two unique word per length",
+          "Baranwal et al arXiv:2209.09223 good binary words antisquares",
+          "Mol Rampersad Shallit arXiv:2301.06145 Dyck pattern avoidance"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The Resultary similarity search found nearby binary-word spectra and automata but no exact all-length Dyck antisquare survivor table.",
+          "Baranwal Theorem 11 concerns minimal antisquare obstructions rather than this language count."
+        ],
+        "reasoning": "One survivor per length is not inferred novel solely from search; published Dyck/antisquare intersection tables remain a legitimate risk.",
+        "searches": [
+          "Resultary antisquare rigidity Dyck language unique 0^(n-1)10 1^(n-1)",
+          "Baranwal antisquares Dyck Catalan words enumeration",
+          "Mol Rampersad Shallit Dyck words antisquare"
+        ]
+      },
+      "rationale": "Baranwal--Currie--Mol--Ochem--Rampersad--Shallit already classify many minimal forbidden antisquares and supply the longer obstruction family used in the induction. Mol--Rampersad--Shallit study other avoidant Dyck languages and first-return constructions. No inspected older theorem states the complete intersection of good binary words and Dyck words is a singleton at every semilength; this is the surviving exact classification. Simplicity of its proof raises ordinary potential prior-deduction risk but does not itself make it known.",
+      "residual_risks": [
+        "The elementary consequence of the known minimal antisquare list could already appear in an unindexed combinatorics note or textbook exercise under different terminology.",
+        "No statement is made about cyclic Dyck words, higher alphabets or order-one antisquare-free words."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Original obstruction families credited; does not state the inspected exact Dyck intersection",
+          "evidence": [
+            "Theorem 11 forbidden antisquares; Lemma 15 long obstruction; Theorem 19 unrestricted growth"
+          ],
+          "identifier_or_url": "arXiv:2209.09223; Discrete Mathematics & Theoretical Computer Science 25:2 (2023)",
+          "material_read": "Accessible primary PDF including antisquare definitions, Theorem 11, Lemma 15, and Theorem 19",
+          "method": "arXiv full PDF mathematical sections and theorem inspection",
+          "title": "Antisquares and Critical Exponents",
+          "trigger": "Same definition of good binary word and exact obstruction family"
+        },
+        {
+          "assessment": "Other repetition and pattern-avoidance regimes, not the same antisquare length>=2 classification",
+          "evidence": [
+            "Dyck first-return and different pattern classes"
+          ],
+          "identifier_or_url": "arXiv:2301.06145; Communications in Mathematics (2025)",
+          "material_read": "Accessible primary PDF introduction and principal avoidance/first-return statements",
+          "method": "arXiv full PDF relevant sections inspected",
+          "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+          "trigger": "Same Dyck ambient language, possible coverage through other pattern restrictions"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Minimal antisquare classification in Baranwal et al",
+        "Catalan Dyck first-return decomposition and all-length obstruction proof"
+      ],
+      "rationale": "The precise interaction of two well-motivated languages, balanced Catalan paths and forbidden binary complement squares, collapses an exponentially large Catalan class to exactly one explicitly described word of each semilength. This exact all-length structural classification is more informative than small checks and supplies a reusable strong restriction for Dyck pattern-avoidance constructions. It need not imply a deeper theorem to qualify.",
+      "residual_risks": [
+        "The unique survivor and OGF are elementary once the structural induction is found; no claim of broad consequences or generalization."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Linear binary Dyck words only; contiguous antisquares order>=2 forbidden, order-one permitted.",
+    "Counting formula 1/C_n directly follows from one-per-n classification; not independently novel."
+  ],
+  "schema_version": 1
+}

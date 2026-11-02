@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The all-length induction uses the uniquely determined first-return Dyck decomposition, hereditary avoidance for component factors, and exhaustive symbolic cases for the two component semilengths. Each excluded case exhibits a contiguous antisquare of order at least two; all remaining candidates are proved good by a run-count argument. The Catalan asymptotic is a separate standard consequence. The included independent implementation exhaustively rechecks 290,511 Dyck words through semilength twelve; finite checking is supplementary, not an infinite proof.
+## correctness
 
-## Originality — PASS
-The closest work is Baranwal et al., *Antisquares and Critical Exponents* (arXiv:2209.09223), whose Theorem 11 classifies minimal antisquares for all binary words and whose Theorem 19 counts unrestricted good words asymptotically. The new statement is the explicit intersection with all Dyck words, a structurally stronger rigidity statement not present in that source. The same source already proves a long forbidden antisquare family used in the argument; this family is not claimed as new. Mol et al., *Dyck Words, Pattern Avoidance, and Automatic Sequences* (arXiv:2301.06145), concerns different avoidance predicates. No statement with the same Dyck domain and all-order exclusion was identified in searched published records . Residual risk: a differently named or unindexed equivalent result might exist; literature non-detection is not proof of uniqueness.
+PASS
 
-## Mathematical value — PASS
-A natural intersection of Catalan/Dyck structure with a recognized pattern-avoidance class collapses from Catalan-many words to a single, explicitly determined path at every semilength. The theorem is an all-size classification with sharp nesting height, not a one-off small enumeration, and it sharply contrasts the exponential growth of unrestricted good words. The exact object and its motivation precede the calculation; no unrelated stronger claim is made.
+For any x complement(x), the number of maximal letter-runs is 2 mod 4 or 3 mod 4 according to parity of the run count in x. The displayed candidates have exactly four runs with both interior runs singleton; they admit neither two-run antisquares of order>=2 nor three-run ones with middle run length>=2. For uniqueness, the canonical Dyck decomposition w=0u1v allows strong induction since avoiding contiguous forbidden factors is hereditary. Exhaustive cases according to semilengths a=|u|/2 and b=|v|/2 exclude every pair but those yielding the displayed candidate: forbidden explicit words 0011, 010101, 0110, 1100 and the family 0^a 10 1^a 01 or 01 G_b appear at relevant seams. Catalan count gives exactly 1/C_n. Independently generated all C_n Dyck words at n=1..10 and enumerated every factor/order>=2, finding precisely the stated sole word at each n. The all-n induction, not this finite check, proves the theorem.
 
-## Limits and closest literature
-The theorem concerns linear binary Dyck words and bitwise-complement antisquares of order at least two. It does not classify circular words or other antipowers, and it allows the unavoidable order-one factors. The published unrestricted antisquare classification is acknowledged, and independent mathematical verification remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Baranwal--Currie--Mol--Ochem--Rampersad--Shallit already classify many minimal forbidden antisquares and supply the longer obstruction family used in the induction. Mol--Rampersad--Shallit study other avoidant Dyck languages and first-return constructions. No inspected older theorem states the complete intersection of good binary words and Dyck words is a singleton at every semilength; this is the surviving exact classification. Simplicity of its proof raises ordinary potential prior-deduction risk but does not itself make it known.
+
+## value
+
+PASS
+
+The precise interaction of two well-motivated languages, balanced Catalan paths and forbidden binary complement squares, collapses an exponentially large Catalan class to exactly one explicitly described word of each semilength. This exact all-length structural classification is more informative than small checks and supplies a reusable strong restriction for Dyck pattern-avoidance constructions. It need not imply a deeper theorem to qualify.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
