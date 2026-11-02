@@ -1,0 +1,115 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T09:49:09Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The CRT transforms Z_(3p) into Z3×Fp. The lower witness is all three first-coordinate classes times I=[0,(p+2)/3-1], with p+2 elements; any restricted triple with first residue 1 uses two distinct elements from a single class and one from the next, yielding second sum in [1,p-2] and missing (1,0),(1,p-1). For arbitrary size p+3, let fiber sizes a0+a1+a2=p+3. If all three nonzero, one from each gives all residue-0 targets by Cauchy–Davenport, and for residues 1,2 a strict cyclic fiber-size inequality (sum not divisible by 3) guarantees 2ai+aj-4>=p; Dias da Silva–Hamidoune restricted pairs plus Cauchy–Davenport fill the target class. If exactly one empty fiber, remaining ai+aj=p+3 forces both >=3; mixed restricted pairs cover the two nonzero residues, while the larger fiber M>=(p+3)/2 has 3M-8>=p, so restricted triples cover residue 0. No numerical extrapolation is used. As an independent boundary check all 352716 ten-subsets of Z21 were exhaustively confirmed covering; explicit p+2 lower witnesses tested for p=7,13,19,31. This does not prove other prime residue classes.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Bajnok Section 7 gives lower bounds and exact prime/even cases; n=3p is odd composite.",
+          "Chen–Huang provide density bounds for odd groups but do not imply chi_hat(Z_(3p),3)<=p+3 in this domain.",
+          "The 2023 abstract concerns Kneser-type lower bounds for restricted sumsets, not an explicit 3-critical-number classification; full paper not inspected."
+        ],
+        "reasoning": "A stronger density theorem would need a threshold <=(p+3)/(3p), whereas the inspected general odd-group bounds do not reach it; no decisive full-text coverage was found.",
+        "searches": [
+          "Resultary: restricted three-critical number cyclic group Z_3p p congruent 1 mod 3 p+3",
+          "arXiv:1412.4058v1 Section 7",
+          "arXiv:2602.10402v1 Theorems A and B",
+          "Huicochea 2023 DOI:10.1137/22M1476150 abstract only"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1412.4058v1 full text Section 7",
+        "arXiv:2602.10402v1 full text Theorems A/B",
+        "Huicochea SIAM 2023 abstract only",
+        "Resultary restricted 3-critical family search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The lower bound p+3 alone is only half of a critical-number equality.",
+          "The upper argument uses a nontrivial strict fiber-size comparison and the prime-field restricted h=2,3 bounds."
+        ],
+        "reasoning": "Previously known hypotheses do not deliver all-residue coverage at cardinality p+3 without the new CRT fiber proof. The exact arithmetic range is infinite and includes primes beyond the verified small table.",
+        "searches": [
+          "arXiv:1412.4058v1 Proposition 15",
+          "arXiv:2602.10402v1 Theorem B",
+          "Resultary: restricted three-critical number cyclic group Z_3p p congruent 1 mod 3 p+3"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The h-hat-critical number is the universal threshold for all restricted three-term sums in Z_(3p), equivalent to saturation in CRT fibers Z3×Fp.",
+          "The p+3 expression is already Bajnok’s conjectural value, not a prior proved universal theorem."
+        ],
+        "reasoning": "Identical constants in a conjectured formula are not coverage. The assessment asks whether the all-prime upper bound had been proved; in inspected papers it had not.",
+        "searches": [
+          "Resultary: restricted three-critical number cyclic group Z_3p p congruent 1 mod 3 p+3",
+          "arXiv:1412.4058v1 Section 7 Proposition 15 and following conjecture",
+          "arXiv:2602.10402v1 Introduction/Theorem B"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Bajnok’s recorded small-n verification includes n=21 and 39 but is explicitly finite, not an infinite proof.",
+          "Resultary searches for the exact subgroup family returned no matching published all-prime table."
+        ],
+        "reasoning": "Small-prime tables cannot establish universal equality for infinitely many primes; negative search is not proof of global priority.",
+        "searches": [
+          "Resultary: restricted three-critical number cyclic group Z_3p p congruent 1 mod 3 p+3",
+          "arXiv:1412.4058v1 Section 7 finite checked n<=50",
+          "Resultary: restricted three-critical number cyclic group Z_3p p congruent 1 mod 3 p+3"
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS for proving the infinite odd-composite subfamily of Bajnok’s proposed restricted three-critical formula. Bajnok 2014 Section 7 Proposition 15 proves the relevant lower bound and states the exact general formula as a conjecture; his cited verification through n<=50 covers early instances, not this infinite family. Chen–Huang 2026 offers broader odd-group density bounds, strictly weaker than the exact p+3 threshold for p>=13. The sole new mathematical assertion is sharp upper coverage for all p=1 mod3 using a three-fiber argument.",
+      "residual_risks": [
+        "Huicochea 2023 full text not inspected; an unexpected corollary could simplify this threshold.",
+        "A more recent or unindexed proof of Bajnok’s n=3p case may exist despite bounded searches.",
+        "The p=7 and p=13 instances were already within previously cited finite verification; originality concerns the infinite proof."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "PRIOR_LOWER_BOUND_AND_CONJECTURE: no infinite n=3p upper bound stated",
+          "evidence": "Section 7 lines 682–780 and Proposition 15 items 1-2",
+          "identifier_or_url": "https://arxiv.org/html/1412.4058v1",
+          "material_read": "Full HTML, especially Sections 5-7, Proposition 15 and conjectured exact values",
+          "method": "Read primary full text and mathematical inequalities",
+          "title": "The h-critical number of finite abelian groups",
+          "trigger": "Exact same invariant and proposed formula"
+        },
+        {
+          "assessment": "PRIOR_WEAKER_ODD_BOUNDS: not an exact p+3 all-prime theorem",
+          "evidence": "Introduction, Theorem B and Section 3.2",
+          "identifier_or_url": "https://arxiv.org/html/2602.10402v1",
+          "material_read": "Full HTML including Theorems A,B and Section 3.2",
+          "method": "Read primary theorem and proof portions",
+          "title": "Critical Numbers for Restricted Sumsets: Rigidity and Collapse in Finite Abelian Groups",
+          "trigger": "Potential dominating modern finite-group critical theorem"
+        },
+        {
+          "assessment": "ACCESS_LIMIT: do not make whole-document noncoverage statement",
+          "evidence": "Abstract concerns restricted two-set/Kneser-type sum bound rather than exact three-critical threshold",
+          "identifier_or_url": "https://doi.org/10.1137/22M1476150",
+          "material_read": "Accessible abstract and bibliographic scope only, not complete article",
+          "method": "Abstract/source-index comparison",
+          "title": "A Kneser-Type Theorem for Restricted Sumsets",
+          "trigger": "Potential alternative restricted-sum machinery"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "This resolves a natural infinite odd-composite subfamily of a published exact-value conjecture with a sharp obstruction at p+2 and matching universal coverage at p+3. The CRT three-fiber mechanism is a reusable additive-combinatorial argument; the result is stronger than general odd-order density estimates and is not merely repeating a small-prime calculation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Prime p>=7 with p≡1 (mod 3) only; no claim for arbitrary odd composite cyclic orders.",
+    "Exhaustive p=7 and finite witness checks are corroboration; the infinite proof uses Cauchy–Davenport and Dias da Silva–Hamidoune.",
+    "The fully uninspected related 2023 restricted-sum article remains a priority risk."
+  ],
+  "schema_version": 1
+}
