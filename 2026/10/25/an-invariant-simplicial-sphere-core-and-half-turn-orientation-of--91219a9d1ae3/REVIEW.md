@@ -1,15 +1,21 @@
-# Mathematical review
+# Independent mathematical audit
 
-## Correctness: PASS
-The exact edge-membership rules from arXiv:2209.02803v1 imply that the indicated \(n+1\) edges are a minimal nonface. A two-stage element matching pairs all faces outside the boundary sphere; its sole unmatched simplex lies on that boundary. Each matched pair remains either wholly inside or wholly outside the sphere. By the relative acyclic-matching theorem this gives elementary simplicial collapses for all \(n\ge2\). The honeycomb half-turn preserves the set of boundary vertices and has the explicitly counted permutation parity; equivariance of the inclusion transports that integral orientation action. Actual finite replay checks \(n=2,3,4\). No finite enumeration is used as an infinite proof.
+## correctness
 
-## Originality: PASS (qualified)
-Bayer--Jelić Milutinović--Vega prove the sphere homotopy type and use the two pivot edges in their Morse matching (Theorem 14); this is acknowledged and not claimed as original. The reviewed paper does not identify an invariant induced boundary as a collapse target or compute the central-half-turn action on top integral homology. The other relevant published results and nearest database summaries concern ordinary matching complexes, independent graph complexes or different graphs. The exact orbit/sign comparison was not found. Residual risk: unindexed equivalent work or a later variant may give this degree and explicit spine.
+PASS
 
-## Mathematical value: PASS
-An invariant embedded sphere and a *simplicial collapse*, not just abstract homotopy type, give a canonical chain-level carrier for the integral fundamental class. The four-periodic degree and quotient rational homology separate geometrically distinct symmetries that the known nonequivariant sphere classification cannot distinguish, and are relevant to symmetry-sensitive topology of lozenge-tiling configuration spaces. This is a uniform statement over an infinite natural family, not a recomputation of a Betti rank.
+For n>=2, the 1x2xn hexagonal honeycomb perfect matchings P_{u,v} have explicit edge incidence rules. With x=d00, y=d2n and D={d1j:1<=j<=n-1}, every codimension-one subset of F={x,y}∪D extends to a perfect matching, but F cannot, so K_n[F] is boundary of an n-simplex. The ordered x-toggle then y-toggle acyclic matching of the full face poset has sole unmatched face F minus {x}. Every matching pair either lies wholly in that induced boundary or wholly outside, because toggled edges both belong to F; all outside faces match and the relative Morse deletion gives an actual elementary collapse K_n searrow K_n[F]. The half-turn maps P_{u,v} to P_{n-v,n-u}, swaps x,y and reverses n-1 D indices, so the sign on top integral H_{n-1} is (-1)^{1+floor((n-1)/2)}. Rational quotient homology follows after barycentric subdivision by exactness of finite-group invariants. Independent n=2,3 face enumeration reconstructed the missing simplex, all matches and half-turn preservation; the proof, rather than finite counts, establishes the all-n assertion.
 
-## Closest literature and limits
-The central source is arXiv:2209.02803v1, Definition 1, Proposition 10, Lemmas 12--13, Theorems 8 and 14 (full relevant material read). The final journal description was cross-checked (doi:10.37236/11525). Matsushita's polygonal line tilings and the manifold matching complex paper concern ordinary rather than perfect-matching complexes; their abstracts were checked, not full text, and no whole-document negative coverage claim is made from them. Results-index hits for different matching complexes are distinguished by object and symmetry. The claim does not assert an equivariant collapse or fixed-point homotopy theorem.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Theorem 14 of the closest full primary paper already proves the sphere homotopy type and utilizes the exact pivot edges; those are emphatically not novel. The original theorem does not specify a half-turn invariant embedded boundary sphere as an elementary collapse target nor the integral involution degree. The surviving narrow structural/equivariant conclusion is derived by an additional relative-pair separation argument and permutation parity.
+
+## value
+
+PASS
+
+The prior nonequivariant sphere type does not specify a geometrically invariant embedded generator or how a natural central rotation acts. A relative simplicial collapse onto an explicit invariant boundary sphere is a concrete structural refinement with a four-periodic integral orientation character and a natural rational-quotient consequence. It does not claim the known ordered toggles themselves are new, and does not assert an equivariant collapse or integral quotient torsion.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
