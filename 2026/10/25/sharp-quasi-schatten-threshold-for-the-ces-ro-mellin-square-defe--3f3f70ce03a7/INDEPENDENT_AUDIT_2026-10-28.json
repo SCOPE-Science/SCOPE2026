@@ -1,0 +1,112 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T14:57:39Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Multiplying the Cesàro matrix C gives (C²)_{nk}=(H_n-H_{k-1})/n for k≤n, whereas W2_{nk}=log(n/k)/n; telescoping yields D_{nk}=1/n²+(1/n) sum_{ell=k}^{n-1} a_ell with a_ell=1/ell-log(1+1/ell)∈(0,1/(2ell²)]. The operator identity D=Q+sum_{ell≥1} a_ell u_ell⊗v_ell*, Q=diag(n^-2), u_ell=sum_{n>ell}e_n/n, v_ell=sum_{k≤ell}e_k, is trace-norm convergent because norm(u_ell)norm(v_ell)≤1 and sum a_ell<∞. For 1/2<p≤1, the p-quasi triangle inequality yields ||D||_Sp^p≤(1+2^-p)ζ(2p); for p>1 trace class implies membership. Conversely finite N compressions are triangular with eigenvalues exactly n^-2, so eigenvalue–singular-value log-majorization valid for ALL p>0 forces sum_{n≤N}n^-2p≤||D||_Sp^p whenever D∈Sp; divergence for p≤1/2 proves necessity and the stated lower bound. Trace-class compression convergence gives Fredholm determinant Π(1-z/n²)=sin(pi sqrt(z))/(pi sqrt(z)), hence simple nonzero eigenvalues. Independent finite matrix identities/triangular eigenvalues, SVD lower inequalities for N=8,16,32,64 and p=.4,.55,.75,1 checked. This does not claim pointwise singular-value asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Earlier Resultary theorem gives Δ_p,q∈S1 and trace ζ(s), implying new membership for p≥1 only, not 0<p<1; Bellavita generic defect in S2 weaker."
+        ],
+        "reasoning": "Neither prior trace class nor the related Rhaly results implies quasi-Schatten p>1/2 and no-membership at p≤1/2 for exactly this D.",
+        "searches": [
+          "Resultary 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+          "arxiv:2609.09453",
+          "arxiv:2503.21930"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob c6369d401521d9cf8640f0677554919dc17be37c",
+        "https://arxiv.org/abs/2609.09453",
+        "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-spectral-decay-of-the-classical-ces-ro-self-commutator--1d9ae52b1d38"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Trace-class membership ∑s_n<∞ does not entail ∑s_n^p<∞ for p<1; triangular eigenvalue majorization supplies new lower bound, while rank-one decomposition supplies matching upper."
+        ],
+        "reasoning": "The present theorem is strictly stronger in the quasi-ideal regime and separate from known zeta trace. Fredholm determinant follows from novel or standard trace-class diagonal argument, but is not sole novelty.",
+        "searches": [
+          "Resultary/2026 2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683 RESULT.md",
+          "arxiv:2609.09453v1"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Same D is Δ_1,1 of the discrete Mellin convolution semigroup; alternatively lower triangular harmonic-logarithmic matrix with 1/n² diagonal."
+        ],
+        "reasoning": "Equivalent operator-level trace class is known, but exact Sp threshold for p in (0,1) is not stated in inspected source. More general triangular Rhaly ideals are a plausible alias risk.",
+        "searches": [
+          "Resultary: Cesàro discrete Mellin operator C squared W2 Schatten threshold compact defect",
+          "arxiv:2609.09453v1",
+          "Rhaly matrices Schatten"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Indexed distinct self-commutator has Sp threshold 1/3, but is different matrix; exact D square trace class in Resultary earlier theorem."
+        ],
+        "reasoning": "The nearest exact table gives only D trace and S1, not cutoff, and is explicitly credited; no direct matching exact p=1/2 spectrum source surfaced.",
+        "searches": [
+          "Resultary semantic search: Cesaro C squared W2 Schatten threshold",
+          "Resultary cubic Cesàro self-commutator exact cutoff"
+        ]
+      },
+      "rationale": "PASS, qualified: Bellavita–Stylogiannis 2026 introduced the sampled Mellin algebra and gave generic Hilbert–Schmidt multiplicativity defects while discussing Schatten refinements. The 2026-09-19 Resultary theorem fully read establishes trace class and ζ(2) trace for the exact operator D and all integer convolution semigroup defects; consequently the present claim is not new for p≥1 or its trace, which it explicitly credits. The exact quasi-Schatten threshold p=1/2, sharp two-sided quasi norm bounds, and determinant simplification were not found in the inspected earlier primary work. The related Cesàro self-commutator p>1/3 concerns C*C-CC*, not C²-W2. Residual exact triangular-operator quasi-ideal literature could give an equivalent cutoff.",
+      "residual_risks": [
+        "Older operator-theoretic quasi-Schatten estimates for triangular harmonic/log correction matrices may imply the same cutoff under another name.",
+        "No claim to a pointwise asymptotic singular-value constant; known trace-class and zeta-trace pieces are prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Gives sampled Mellin algebra, Hilbert–Schmidt generic defect, identifies Schatten refinement as a question; not p=1/2 sharp cutoff for D",
+          "evidence": "Theorem 4.8 and stated Schatten improvement direction.",
+          "identifier_or_url": "https://arxiv.org/abs/2609.09453",
+          "material_read": "Available full manuscript/HTML sections defining Mellin sampling and main Hilbert–Schmidt defect theorem; inspected Schatten discussion",
+          "method": "Read relevant primary full-text theorem and discussion",
+          "title": "A discrete Mellin calculus in the Toeplitz algebra",
+          "trigger": "Same operator architecture and possible broad coverage"
+        },
+        {
+          "assessment": "Proves D∈S1 and Tr D=ζ(2), not quasi-Schatten threshold below p=1",
+          "evidence": "Same harmonic/log D entries; source explicitly disclaims any quasi-Schatten criterion for p<1.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+          "material_read": "Full primary RESULT.md from GitHub blob e480c393ff8dee43ff584d21bbb6d67fd7392f8c, proof and limitations",
+          "method": "Read whole primary mathematical record",
+          "title": "Trace-class Mellin semigroup defects and zeta traces for Cesàro powers",
+          "trigger": "Exact same D, dominant prior coverage"
+        },
+        {
+          "assessment": "Operator C*C-CC* and threshold p>1/3 are different from C²-W2 with threshold 1/2",
+          "evidence": "Explicit matrix C*C-CC* vs non-selfadjoint lower triangular Mellin defect.",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-spectral-decay-of-the-classical-ces-ro-self-commutator--1d9ae52b1d38",
+          "material_read": "Full primary RESULT.md from GitHub blob c16ceb81bc6610e676b1618d94cbbd2a8b4d48ae",
+          "method": "Read theorem, matrix definition, min–max proof and limits",
+          "title": "Cubic spectral decay of the classical Cesàro self-commutator",
+          "trigger": "Potential related spectral cutoff in same Cesàro setting"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: The critical quasi-Schatten exponent is a natural singular-value regularity invariant of a canonical lattice-versus-Mellin product defect, and extends earlier trace-class classification into a genuinely finer, nonlocally convex ideal scale. The 1/2 cutoff is sharp for the complete positive-exponent range and has a substantive finite-compression obstruction; it is not just a restatement of the known trace. No unsupported individual singular-value asymptotic is asserted.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Frozen RESULT.md blob c6369d401521d9cf8640f0677554919dc17be37c",
+    "https://arxiv.org/abs/2609.09453",
+    "https://github.com/Resultary/2026/tree/main/2026/9/19/SCOPE-zeta-trace-cesaro-mellin-defects--b8e60639c683",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-cubic-spectral-decay-of-the-classical-ces-ro-self-commutator--1d9ae52b1d38"
+  ],
+  "disposition": "passed",
+  "limitations": "Actual frozen package C/O/V assessed; finite computations not infinite proofs. Source-level scientific originality is best-of-knowledge, not independent universal priority certification. Public metadata privacy controls prevent import.",
+  "residual_risks": [
+    "Older operator-theoretic quasi-Schatten estimates for triangular harmonic/log correction matrices may imply the same cutoff under another name.",
+    "No claim to a pointwise asymptotic singular-value constant; known trace-class and zeta-trace pieces are prior work."
+  ],
+  "schema_version": 1
+}
