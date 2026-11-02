@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof enumerates all states by hub action. The nonresonant case reduces exactly to maximal independent sets of a cycle with a hub compatibility filter. The r=2 case reduces to two GF(2) three-periodic linear constraints and a separate hub filter. The formula, unique equilibrium boundary, Perrin growth and all exceptional cases have complete proofs. A separate executable checker compared 425,952 full binary profiles over 99 wheel parameter cases and found no discrepancy; finite checks are corroborative, not used as infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Gilboa--Nisan 2022 §1 surveys pattern-wise complexity and singles out 0-or-2 as an open problem at that date.",
+        "Gilboa 2023 Theorem 1 covers nonmonotone finite patterns by an NP-completeness result.",
+        "Klimm--Stahlberg 2023 Theorem 5.11 covers 0-or-r patterns by an NP-completeness result."
+      ],
+      "reasoning": "General complexity results do not specify the number or uniqueness of equilibrium profiles on wheels, and therefore do not dominate the quantitative claim. The new theorem makes no broader arbitrary-graph hardness or existence assertion.",
+      "searches": [
+        "\"nonmonotone\" \"wheel\" \"public goods\" Nash",
+        "\"wheel\" \"picky pattern\" equilibria",
+        "https://arxiv.org/abs/2207.04238",
+        "https://arxiv.org/abs/2301.11580",
+        "https://arxiv.org/abs/2301.11849"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2301.11849",
+      "https://arxiv.org/abs/2207.04238",
+      "https://arxiv.org/abs/2301.11580",
+      "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html",
+      "https://mathscinet.ams.org/mathscinet/msc/msc2020.html?s=91-10"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Klimm--Stahlberg establishes an NP-complete decision problem for fixed picky response patterns.",
+        "Gilboa establishes NP-completeness for finite nonmonotone patterns.",
+        "Bisdorff--Marichal count maximal independent sets up to symmetries and identify their Perrin total; they do not model the central hub as a strategic player."
+      ],
+      "reasoning": "Neither hardness nor the maximal-independent-set count logically entails the wheel equilibrium spectrum: the r=2 case uses a distinct GF(2) rule, and for r>=3 some rim maximal independent sets are rejected by the hub. The unique-equilibrium pair (m,r)=(7,3) further requires all-size comparison.",
+      "searches": [
+        "\"wheel graphs\" \"binary public goods game\" \"equilibria\"",
+        "\"wheel\" \"picky pattern\" equilibria",
+        "https://arxiv.org/abs/2301.11849",
+        "https://arxiv.org/abs/2301.11580",
+        "https://arxiv.org/abs/2207.04238",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Klimm--Stahlberg §2 defines a homogeneous graph best-response game; §5.5 proves NP-completeness for 0-or-r patterns on arbitrary graphs.",
+        "Gilboa §3 proves hardness specifically for the 0-or-2 response; no result about the entire wheel equilibrium spectrum was identified by reading and targeted full-text searches."
+      ],
+      "reasoning": "The wheel game is a specialization of the cited response patterns, but a decision-hardness statement over arbitrary graphs does not imply the exact number for any wheel. A search for the equivalent wordings 0-or-2, picky, and two-level responses gave no matching exact wheel classification.",
+      "searches": [
+        "\"wheel graphs\" \"binary public goods game\" \"equilibria\"",
+        "\"wheel\" \"picky pattern\" equilibria",
+        "\"wheel graph\" \"best response\" \"exactly two\" \"zero\" equilibria",
+        "https://arxiv.org/abs/2301.11849",
+        "https://arxiv.org/abs/2301.11580"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Bisdorff--Marichal, Journal of Integer Sequences 11 (2008), openly acknowledges that the labeled maximal-independent-set count of C_m is a Perrin number.",
+        "The classical cycle result is the term P_m in the presented r>=3 wheel formula, not E(m,r); the hub filters out independent sets of size r and adds active-hub profiles."
+      ],
+      "reasoning": "A known exact Perrin sequence covers a proper component of the count, but it does not imply the exceptional r=2 periodic spectrum or the hub-dependent subtraction without the additional game analysis. No exact published wheel equilibrium table was identified.",
+      "searches": [
+        "number maximal independent sets cycle n of size k n/k binomial k n-2k formula",
+        "maximal independent sets cycles Perrin number formula number maximal independent sets C_n",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html"
+      ]
+    },
+    "rationale": "The three open-access primary public-goods papers address general pattern-wise complexity and hardness reductions rather than exact wheel counts. The classical independent-set cycle count is explicitly subtracted in the new hub-dependent compatibility formula; its recurrence is not claimed new. Comparing full mathematical statements with accessible earlier claims disclosed no antecedent of the two-regime wheel count, the unique eight-vertex case or their conjunction. Residual priority uncertainty is stated.",
+    "residual_risks": [
+      "No search can certify absolute publication priority; specialist papers using nonstandard terminology might contain an equivalent wheel count.",
+      "The journal HTML landing page for the 2008 Perrin enumeration was inspected, but not that article’s full downloadable mathematical text; the classical part is explicitly conceded."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Defines identical local strict response, establishes general complexity but no wheel spectrum in inspected text",
+        "evidence": "Theorem 5.11 is an NP-completeness reduction for response 10^k10*; the paper distinguishes existence-complexity from counts.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.11849",
+        "material_read": "Open-access full text, §§1--2 and 5.1--5.5, including Definition 2.2 and Theorem 5.11; targeted search for wheel graph",
+        "method": "Full-text HTML reading with targeted term and theorem lookup",
+        "title": "Complexity of equilibria in binary public goods games on undirected graphs",
+        "trigger": "Original source defining picky 0-or-r response and showing its general hardness"
+      },
+      {
+        "assessment": "General complexity framework rather than exact family enumeration",
+        "evidence": "Open Problem 2 explicitly identifies the 0-or-2 response and asks for its general decision complexity.",
+        "identifier_or_url": "https://arxiv.org/abs/2207.04238",
+        "material_read": "Open-access full text, introduction, model, result table and discussion of open problem 2; targeted search for wheels",
+        "method": "Full-text HTML reading and targeted lookup",
+        "title": "Complexity of Public Goods Games on Graphs",
+        "trigger": "Earlier study of best-response patterns and 0-or-2 open problem"
+      },
+      {
+        "assessment": "Broader decision complexity does not furnish or dominate the exact wheel count",
+        "evidence": "Main theorem proves NP-completeness for all finite nonmonotone best-response patterns.",
+        "identifier_or_url": "https://arxiv.org/abs/2301.11580",
+        "material_read": "Open-access full text, introduction and §3 hardness of 0-or-2, including reduction gadget definitions and main result; targeted search for wheels",
+        "method": "Full-text HTML reading and targeted lookup",
+        "title": "A Characterization of Complexity in Public Goods Games",
+        "trigger": "Potentially stronger finite-pattern classification"
+      },
+      {
+        "assessment": "Perrin count openly acknowledged, not presented as new; full-text priority residual is confined to cycle-independent-set enumeration",
+        "evidence": "Abstract states that the total maximal-independent-set number of C_n is the nth Perrin number.",
+        "identifier_or_url": "https://cs.uwaterloo.ca/journals/JIS/VOL11/Marichal/marichal.html",
+        "material_read": "Journal HTML article page, abstract and full-version description; not its complete PDF or TeX",
+        "method": "Published journal abstract and bibliography inspection",
+        "title": "Counting Non-Isomorphic Maximal Independent Sets of the n-Cycle Graph",
+        "trigger": "Direct classical component of the cyclic rim count"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "b1c5caed-74ae-4dbd-b80b-855116acc5ef",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural infinite graph family admits a complete closed equilibrium classification for a standard nonmonotone response pattern with general computational hardness. The classification exposes a sharp bounded-versus-exponential multiplicity change across consecutive desired-neighbor thresholds, plus the unique instance with precisely one equilibrium. These are motivated strategic graph phenomena and not equivalent to the already-known Perrin count of maximal independent sets of the rim.",
+    "status": "PASS"
+  }
+}
