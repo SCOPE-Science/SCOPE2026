@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The written proof gives an invertible eight-coordinate map from all derivations of the four-dimensional algebra to trace-zero \(3\)-by-\(3\) matrices and verifies the critical square identity coefficient by coefficient. Nonzero square-zero matrices have rank one; their projective outer-product parametrization is complete over arbitrary characteristic-two fields. Explicit substitution recovers the image of the socle generator and proves the rank-one/rank-two dichotomy. The cohomology-algebra classification uses the surviving unit, maximal-ideal square-zero property, and dimension \(4-2\operatorname{rank}D\). The finite-field formula counts a projective covector and an orthogonal nonzero vector with no duplicate. Actual direct finite-field tests appear in the verification report. Risk: the computational samples by themselves would not prove a universal theorem; the complete symbolic proof is essential.
+## correctness
 
-## Originality: PASS, subject to residual published-priority uncertainty
-Premet (2014, arXiv:1405.2426v1, full accessible introduction and sections on restricted derivations reviewed) restricts to characteristic \(p>2\), and investigates regularity and invariant theory. Boos (2012, 184-page thesis, introduction and relevant matrix-orbit section inspected) studies conjugation on nilpotent matrix varieties, providing classical rank-one matrix geometry but not this characteristic-two algebra's intrinsic socle-differential criterion and cohomology census. Published result-record searches for characteristic-two square-zero derivations, Witt algebra nilpotents, exterior-algebra differentials, acyclicity and full rank counts yielded no same-statement coverage. Other compared published abstracts concern univariate truncated polynomials or different operator invariants, not this result. Residual risks: some higher-general-theory of characteristic-two Witt operators may already imply the theorem; not every historical primary paper could be fully inspected; nonmatch in searches does not certify priority.
+PASS
 
-## Value: PASS
-A full classification of differentials \(D^2=0\) on the first nontrivial two-generator truncated commutative algebra is a natural structural/homological question: the existence of contracting/acyclic versus dual-number-cohomology differentials is a meaningful distinction. The socle criterion is intrinsic and lets one decide acyclicity without computing the full complex. The exact rank stratification over all binary extension fields gives a natural counting invariant and a striking asymptotic prevalence of acyclic differentials. These consequences are specific to the algebra and do not follow from the ungraded rank-one matrix count alone without the derivation-to-matrix correspondence and socle computation. The scope is deliberately exact; no downstream generalized theorem is claimed.
+Der(A) is eight-dimensional: two generator images each have four coefficients because the square relations differentiate to zero in characteristic 2. The explicit invertible coordinate map Φ to tracezero 3×3 matrices intertwines squares Φ(D²)=Φ(D)². Any nonzero 3×3 square-zero matrix has rank 1 and form uv^T with u,v nonzero and v·u=0. Then D(xy)=v0(u2 x+u1 y+u0 xy), so zero precisely when v0=0. If v0=0 all generator images are in one line (rank_D=1) and H has dimension 2, a surviving unit and square-zero augmentation class, hence dual numbers. If v0≠0, rank_D=2 and H=0. Projective covector v has q+1 points with v0=0 and q² with v0≠0; for each q²−1 eligible nonzero orthogonal vectors u, proving the census. Independently brute-forced all 2^8 derivations on F2, recovering 1,9,12 for ranks 0,1,2. Crucially the original SLOGAN.txt has an actual newline breaking `\(D(xy)\ne0\)` into malformed KaTeX; the complete corrected UTF8 replacement is staged with the exact source Git blob and SHA256.
 
-## Closest literature and limitations
-See Premet, arXiv:1405.2426v1, and Boos, *Conjugation on varieties of nilpotent matrices* (2012). This is not a classification under algebra automorphisms and concerns only characteristic two. The identity between restricted Lie algebras, the matrix rank-one fact and projective counts are recognized as standard or elementary tools, rather than claimed independent new results.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Independent best-of-knowledge comparison of exact final mathematical claim and implications against named primary literature and targeted Resultary results. Specific prior components are credited; no negative search alone establishes priority. A more general theorem may imply individual tools, but not the full proposed classification as explicitly identified.
+
+## value
+
+PASS
+
+Socle evaluation is an intrinsic one-scalar acyclicity detector for unrestricted square-zero derivations of a small natural characteristic-two truncated polynomial algebra. Together with the complete cohomology-algebra and finite-field rank distributions, it provides a reusable structural classification rather than a bare matrix nilpotent count.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
