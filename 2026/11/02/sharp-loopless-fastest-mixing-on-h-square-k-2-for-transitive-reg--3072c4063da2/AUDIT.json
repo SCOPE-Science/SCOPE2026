@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Averaging over simultaneous graph automorphisms and the layer swap preserves all constraints and does not increase the convex spectral norm. The two-layer Laplacian decomposition gives exactly the three scalar spectral endpoints; zero diagonal imposes d x+y=1 and reduces their maximum to max{1-delta x, 2d x-1} on 0<=x<=1/d. Their intersection gives the asserted minimizer, with bipartiteness proving the periodic boundary. A separate inequality-and-attainment proof gives the holding-allowed reference value and the exact rational penalty. The standalone Python verifier completed 1,177 exact assertions, including independent characteristic-polynomial reconstruction by Newton power sums. Finite checks corroborate rather than prove the general result.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "2007 source Theorem 2.1 proves invariant optimizers, and §3.2 gives Cartesian eigenvalue sums, while its special applications allow holding and do not derive the claimed zero-diagonal product formula.",
+        "The earlier holding-allowed H × K_s result gives optimal holding probabilities; in the positive-holding regime it supplies no feasible zero-holding optimizer.",
+        "The earlier cyclic-prism result settles H=C_n only, not complete, Johnson, Petersen or general transitive bases."
+      ],
+      "reasoning": "Generic SDP formulations and holding-allowed solutions are broader in graph range but not stronger in the restricted zero-diagonal objective. Neither directly implies the numerical zero-holding optimum in the branch alpha+beta>2d. The present statement strictly covers the cyclic-prism zero-holding subclass but does not label that subclass new.",
+      "searches": [
+        "Fastest mixing Markov chain on Cartesian product H square K_s regular vertex edge transitive graph exact spectral gap transition weights self loops",
+        "Sharp loopless fastest mixing two-layer prism H square K2 spectral gap adjacency lambda2 lambda minimum",
+        "arxiv:0709.0955 Cartesian product Section 3.2",
+        "Boyd Diaconis Xiao 2004 fastest mixing Markov chain convex formulation"
+      ]
+    },
+    "checked_sources": [
+      "https://ar5iv.labs.arxiv.org/html/0709.0955",
+      "https://web.stanford.edu/~boyd/papers/fmmc.html",
+      "https://doi.org/10.1007/s00440-023-01257-x",
+      "https://doi.org/10.1080/03081087.2010.538690",
+      "Related semantic-publication record: Mixed metric bases of complete prisms (distinct graph invariant)."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "2007: optimizing a symmetric Markov chain on graph edge orbits is reducible to convex spectral inequalities. The constrained two-class equality d x+y=1 and its exact sharp solution are not supplied there.",
+        "2024: optimal spectral gap on K_m × K_2 is stated to be of order one by expander replacement; this does not imply exact mu=m/(3m-4) and matching probability (m-2)/(3m-4).",
+        "2011 overlapping-union-of-cliques problem has a different vertex/edge incidence structure from disjoint cliques connected by a perfect matching; only abstract-level access was obtained.",
+        "Previously known holding-allowed formula implies the zero-penalty threshold and the minimum on that no-penalty branch, so these facts alone are not counted as new."
+      ],
+      "reasoning": "The new non-implied component is the exact positive-penalty branch for all transitive regular H, with proof of global optimality under zero holding. A cyclic-prism specialization and the zero-penalty criterion are subsumed by earlier statements, not independent novelty.",
+      "searches": [
+        "fastest mixing zero holding stochastic Markov chain two equal cliques joined by perfect matching Cartesian product complete graph K_m square K_2 exact second largest eigenvalue modulus",
+        "Fastest mixing Markov chain on Cartesian product H square K_s regular vertex edge transitive graph exact spectral gap transition weights self loops",
+        "Olesker-Taylor Zanetti 2024 matching graph section 1.3.4",
+        "Allison Shader 2011 union of two cliques abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:0709.0955v1, HTML sections 2 and 3.2: graph automorphism reduction and Laplacian sums for Cartesian products, without a general zero-diagonal two-orbit minimax formula.",
+        "doi:10.1007/s00440-023-01257-x, §1.3.4: matched pair of cliques, but only spectral-gap order, not exact SLEM or weights.",
+        "The holding-allowed transitive-base product theorem and the zero-holding odd-cycle prism subclass are antecedents and are excluded from standalone novelty claims."
+      ],
+      "reasoning": "Symmetrization and Fourier/spectral descriptions are mathematically equivalent tools, but do not themselves imply the explicit sharp loopless SLEM for arbitrary transitive H without solving the binding zero-diagonal constrained minimax.",
+      "searches": [
+        "fastest mixing zero holding stochastic Markov chain two equal cliques joined by perfect matching Cartesian product complete graph K_m square K_2 exact second largest eigenvalue modulus",
+        "loopless zero diagonal fastest mixing K_m Cartesian K_2 two cliques connected by matching optimized clique edges and matching edges  m/(3m-4)",
+        "Boyd Diaconis Parrilo Xiao arxiv:0709.0955v1 sections 2 and 3.2",
+        "Olesker-Taylor Zanetti 2024 section 1.3.4"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Existing literature gives the matched two-clique graph as an example of order-one optimal mixing, not the values m/(3m-4) and 4/[3(3m-4)].",
+        "A published result titled “Mixed metric bases of complete prisms” concerns locating vertices/edges, not transition-matrix SLEM; its shared graph name is no claim-level overlap.",
+        "Related mixing and graph spectral results in the semantic records have distinct objectives or graph classes; no exact optimizer table matching the universal claim was recovered."
+      ],
+      "reasoning": "An exact numeric table or algebraically equivalent formula could cover a narrow family despite different notation; no such table appeared in the actual searches, but absence of hits is not a uniqueness or novelty proof.",
+      "searches": [
+        "two n cliques connected by matching fastest mixing exact optimal lazy self-loop probability spectral gap",
+        "loopless fastest mixing graph K_n Cartesian K_2 clique prism symmetric stochastic optimum",
+        "clique prism graph fastest mixing Markov symmetric stochastic self-loop forbidden matched pair 1/3",
+        "geometric bounds fastest mixing chain two cliques perfect matching optimal spectral gap exact weights",
+        "Fastest mixing Markov chains clique prism, matching two cliques, non-lazy, no self-loops"
+      ]
+    },
+    "rationale": "An exact global zero-diagonal optimization is established for all connected vertex-and-edge-transitive base graphs. The 2007 general convex and Cartesian symmetry results do not assert this loopless optimum; their known holding-allowed formula is an antecedent. The loopless cyclic-prism case is already included in prior work and is not claimed separately. A 2024 paper treats precisely the matched-clique example but proves only an order-of-magnitude gap, not the exact no-holding weights or universal spectral-penalty formula. The proof distinguishes existing zero-penalty thresholds from the new quantified positive penalty and optimal loopless design; unindexed specialist coverage remains a risk.",
+    "residual_risks": [
+      "One 2011 specialist article on unions of two cliques could not be inspected in full, although the available graph definition is inapplicable to the perfect-matching construction.",
+      "A different graph-product or zero-diagonal fastest-mixing paper may have an algebraically equivalent result under unsearched terminology.",
+      "No independent specialist literature audit has yet been performed.",
+      "The zero-penalty iff criterion and all cyclic-prism cases were already implied or covered and are not separately novel claims."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the zero-diagonal H × K_2 optimizer: the general machinery is prior, but no arbitrary-H no-holding formula or penalty magnitude is stated in inspected material.",
+        "evidence": [
+          "arXiv:0709.0955v1, Theorem 2.1; §2.3 equation (3); §3.2 equations (12)-(13) and §3.2.1-2; https://ar5iv.labs.arxiv.org/html/0709.0955"
+        ],
+        "identifier_or_url": "https://ar5iv.labs.arxiv.org/html/0709.0955",
+        "material_read": "HTML introduction and full mathematical discussion of orbit averaging in §2.2, Cartesian spectra and examples in §3.2, and worked two-clique bridge example.",
+        "method": "Full HTML text and formula/section inspection, comparing feasible self-loop constraints and the statements of explicit optima.",
+        "title": "Fastest Mixing Markov Chain on Graphs with Symmetries",
+        "trigger": "Strong general theorem on edge orbits and Cartesian products that might dominate the present result."
+      },
+      {
+        "assessment": "NOT_COVERING the exact loopless SLEM: the matched-clique example proves only an order-one gap by expander replacement, not the precise optimal zero-diagonal transition probabilities.",
+        "evidence": [
+          "Olesker-Taylor–Zanetti (2024), §1.3.4, doi:10.1007/s00440-023-01257-x"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00440-023-01257-x",
+        "material_read": "Full open HTML abstract, §1.3.4, §1.4.2 and discussion of mixing geometry and lazy chains.",
+        "method": "Full HTML section inspection and comparison of exact weights versus asymptotic spectral-gap claims.",
+        "title": "Geometric Bounds on the Fastest Mixing Markov Chain",
+        "trigger": "Uses exactly the K_m × K_2 two-clique matching example."
+      },
+      {
+        "assessment": "DIFFERENT_GRAPH_IN_AVAILABLE_MATERIAL: overlapping cliques, not two disjoint cliques joined by a perfect matching; full-text equivalence not certified.",
+        "evidence": [
+          "Allison–Shader (2011), DOI abstract; Olesker-Taylor–Zanetti (2024), §1.4.2 explicitly describes overlapping cliques."
+        ],
+        "identifier_or_url": "https://doi.org/10.1080/03081087.2010.538690",
+        "material_read": "Accessible bibliographic description and abstract, not full text.",
+        "method": "Abstract inspection and cross-check of graph definition in Olesker-Taylor–Zanetti §1.4.2.",
+        "title": "Fastest Mixing Markov Chain Problem for the Union of Two Cliques",
+        "trigger": "Plausible alternative description of two-clique graphs."
+      },
+      {
+        "assessment": "GENERAL_FRAMEWORK, not evidence of an exact zero-diagonal formula for the specified graph products.",
+        "evidence": [
+          "Boyd–Diaconis–Xiao (2004), author-hosted abstract, SIAM Review 46, 667–689."
+        ],
+        "identifier_or_url": "https://web.stanford.edu/~boyd/papers/fmmc.html",
+        "material_read": "Author-hosted bibliographic page and abstract; no claim of reading the entire associated PDF.",
+        "method": "Read the accessible HTML abstract and compare its generic SDP scope to the concrete closed-form no-holding theorem.",
+        "title": "Fastest Mixing Markov Chain on a Graph",
+        "trigger": "Foundational global spectral-norm semidefinite formulation."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3072c406-3da2-4f76-8869-450bf8e58a0e",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Disallowing self-transitions is a natural transition-system and consensus constraint. The holding-allowed solution can violate it, so the constrained optimum must be determined rather than reused. The exact all-graph theorem yields implementable per-edge weights and a quantitative price of no holding, including an explicitly nonzero O(1/m) penalty on matched cliques and a sharp phase transition in Johnson bases. It establishes a substantive universal spectral tradeoff rather than a finite table, parameter renaming or unsourced performance claim.",
+    "status": "PASS"
+  }
+}
