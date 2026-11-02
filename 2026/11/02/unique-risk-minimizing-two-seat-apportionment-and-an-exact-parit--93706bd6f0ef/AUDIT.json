@@ -1,0 +1,121 @@
+{
+  "correctness": {
+    "rationale": "The inversion identity sigma({a,b})=2n-a-b-1 follows by counting unselected higher indices; fixed marginals imply expected sigma=n-2 and reduce variance to E[(a+b-(n+1))^2]. For even n, only opposite pairs have zero cost and each vertex has a unique partner. For odd n, the central vertex has inclusion probability 2/n and all incident pair costs are >=1, giving a sharp LP-dual bound. Equality supports only outer mirror edges and a central triangle; marginal equations force all probabilities, proving uniqueness. Uniformity under all relabelings forces the uniform pair distribution and its sample-without-replacement variance (n+1)(n-2)/6. Exact-rational checker tested n=3..100 and independent SciPy/HiGHS LP found the stated optima n=3..18; analytical proof, not the computations, covers all n. The arbitrary tie convention is explicitly assumed.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2610.24217v1 Proposition 4.4 proves polynomial-time optimization of variance for arbitrary single-floor residues, a genuinely more general algorithm; Sections 2.2-2.3 define the objective and Section 3.1 proves fixed expected envy.",
+        "arXiv:2405.03687 abstract discusses quota and correlation monotonicity, not explicit envy variance."
+      ],
+      "reasoning": "The prior general-purpose LP necessarily computes each fixed instance but does not state a symbolic optimum for every n with two uniform residues, characterize the unique optimal support, or quantify the anonymity tradeoff. The new theorem supplies these structural exact statements. This is a domain-specific refinement of the prior algorithm, not a new general optimization method. The qualified risk of a broader hidden theorem is explicitly recorded.",
+      "searches": [
+        "arxiv:2610.24217v1 Section 4.3 Proposition 4.4",
+        "Exact counting of winning committees, fair representation, online allocation, or stable matching in small structured markets, with polynomial algorithms and exact sharp bounds",
+        "apportionment single-floor equal residues expected envy fixed but variance minimize distribution pair matching",
+        "randomized apportionment envy variance equal residues 2 seats La Commare Tucker-Foltz Verdugo"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2610.24217v1",
+      "https://arxiv.org/abs/2405.03687",
+      "https://doi.org/10.1007/978-3-642-04898-2_130"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Theorem 3.2 already implies the common expected envy n-2; this part is acknowledged as prior, not claimed novel.",
+        "Proposition 4.4 supplies an efficient LP solver. The new proof gives a pointwise dual lower bound and complementary-slackness support equalities, yielding unique optimizer and closed-form value for all n.",
+        "Tillé balanced-sampling abstract/preview defines exact covariate balance but no odd-size rank-sum variance formula is visible."
+      ],
+      "reasoning": "The proposed scientific advance is not the known invariance of mean envy or generic solvability. A solver can compute values individually, but its stated guarantee does not entail a published uniform closed-form uniqueness or anonymity law without additional mathematical derivation. The previous results on other quota strata have no hypothesis implying this exact family.",
+      "searches": [
+        "arxiv:2610.24217v1 Theorem 3.2; Proposition 4.4",
+        "Minimum-variance balanced sampling of two distinct items from n uniformly with uniform inclusion probabilities and target sum n+1, even odd parity exact variance 2/n",
+        "equal marginal two-point subset rank-sum dispersion antipodal matching optimal even odd"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "La Commare et al., arXiv:2610.24217v1, Section 2.3: objective is total inversion envy variance of a fixed-cardinality selection; Tillé, DOI:10.1007/978-3-642-04898-2_130, accessible preview: balanced sampling targets fixed weighted totals.",
+        "Own proof transforms inversion variance exactly into a rank-sum squared-deviation problem and gives a central-index dual certificate."
+      ],
+      "reasoning": "Equivalent language is balanced fixed-size sampling with equal inclusion probabilities and a linear rank-sum auxiliary variable; matching and triangle supports are fractional-perfect-matching patterns. Searches did not recover the exact all-population lower bound, uniqueness and law under this objective. General balancing concepts cannot by themselves establish the odd-parity sharp bound, and a hidden equivalent statistical result remains a risk.",
+      "searches": [
+        "Uniform residues 2/n single lower quota randomized apportionment with two residual seats, minimum variance of number of envious ordered pairs parity even zero odd 2/n, anti-podal pairs and central triangle",
+        "Minimum-variance balanced sampling of two distinct items from n uniformly with uniform inclusion probabilities and target sum n+1, even odd parity exact variance 2/n",
+        "two-seat equal-residue apportionment minimum envy variance unique opposite pairs odd central triangle parity zero 2/n",
+        "equal marginal two-point subset rank-sum dispersion antipodal matching optimal even odd",
+        "balanced sampling two labels equal inclusion probability two-element sample variance sum odd even mirror pairing unique",
+        "\"minimum variance\" \"sample sum\" \"odd\" \"even\" \"sampling\" two units",
+        "\"balanced sampling\" \"odd\" \"triangle\" \"pair\" opposite"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected main arXiv HTML text provides Equation (3.1) for expected envy and a general LP, but not the n-parity optimum, unique lottery or exact anonymous variance; no specific exhaustive table for this parametric family was found in its results.",
+        "Adjacent published results on deterministic quota methods or on distinct floor blocks concern different mathematical objects or optimization criteria; these results cannot supply a variance-minimizing law for a single equal-quota block."
+      ],
+      "reasoning": "No matching table or exact family formula was recovered from the actual searches. An absent hit is not proof of originality; most importantly, the odd-case all-n structural uniqueness is proved analytically rather than inferred from a finite table.",
+      "searches": [
+        "Uniform residues 2/n single lower quota randomized apportionment with two residual seats, minimum variance of number of envious ordered pairs parity even zero odd 2/n, anti-podal pairs and central triangle",
+        "Exact envy count variance minimizing lottery for single-floor apportionment two seats equal residues",
+        "two-seat equal-residue apportionment minimum envy variance unique opposite pairs odd central triangle parity zero 2/n",
+        "apportionment single-floor equal residues expected envy fixed but variance minimize distribution pair matching",
+        "apportionment single-floor equal residues expected envy fixed but variance minimize distribution pair matching"
+      ]
+    },
+    "rationale": "Primary full text (La Commare et al. arXiv:2610.24217v1) proves rule-independent expectation and polynomial-time variance optimization via LP, but does not state or prove the explicit even-odd optimum, unique full distribution, or sharp anonymous cost for all population sizes. Related published mathematical statements were compared by implications, including structural results for distinct lower-quota strata. Earlier results on zero-envy multi-floor strata do not imply the stated single-floor risk-optimal law. Novelty is qualified by incomplete access to broad balanced-sampling treatments and potential unindexed equivalences.",
+    "residual_risks": [
+      "The earlier general LP subsumes per-instance *computability*, though it does not state the explicit symbolic unique parametric classification; a pre-existing derivation may be unindexed.",
+      "Balanced sampling and the earlier correlated-rounding paper were only partly accessible; no claim of full-document noncoverage is made.",
+      "The fixed label tie convention is a legitimate formal definition from the primary source, but a different treatment of equal quotas would change the statistic and mathematical relevance."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Covers rule-independent mean and polynomial-time variance minimization, not the all-n explicit two-seat unique law or anonymity price; direct relevant prior art, not a disconnected snippet.",
+        "evidence": [
+          "2026-10-16 arXiv v1 metadata; HTML lines 126–164 (model and envy), 193–219 (mean), 356–417 (LP and Proposition 4.4)."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.24217v1",
+        "material_read": "Full HTML text of the main claims and definitions, Sections 1.2–1.3, 2.1–2.3, 3.1–3.2, 4.3 including Proposition 4.4, and concluding scope.",
+        "method": "Read arXiv v1 HTML at https://arxiv.org/html/2610.24217v1 and searched within the text for parity/odd/unique and variance.",
+        "title": "Envy-Free Randomized Apportionment",
+        "trigger": "Same apportionment model, same envy variance objective, potential dominating published theorem"
+      },
+      {
+        "assessment": "Defines fixed-total balancing under assigned inclusion probabilities. No assertion of noncoverage of the inaccessible full text; a possible prior equivalent theorem remains a residual risk.",
+        "evidence": [
+          "Tillé, accessible preview, definition of balanced samples and inclusion probabilities; remaining material inaccessible."
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/978-3-642-04898-2_130",
+        "material_read": "Accessible introduction/definition and bibliography only; remainder behind subscription.",
+        "method": "Read public Springer HTML preview of encyclopedia entry.",
+        "title": "Balanced Sampling",
+        "trigger": "Equivalent formulation as equal-probability balanced sampling of two labels"
+      },
+      {
+        "assessment": "Abstract describes correlation monotonicity and ex-ante quota, not the fixed-order envy variance problem. Residual risk preserved because full text was not inspected.",
+        "evidence": [
+          "arXiv:2405.03687 abstract, first posted 2024-05-06."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2405.03687",
+        "material_read": "arXiv abstract, public description and publication record only; full HTML fetch unsuccessful.",
+        "method": "Read arXiv abstract and public institutional record; did not claim full-document exclusion.",
+        "title": "Monotone Randomized Apportionment",
+        "trigger": "General earlier work on two-point inclusion correlations and Sampford quota lotteries"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "93706bd6-f0ef-4c7f-8711-c8f7b172cc4a",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The 2026 apportionment work explicitly motivates minimizing total envy variance when expectation cannot be changed. Two residual seats are the smallest genuinely pair-dependent randomization, and equal residues are extremal for unavoidable expected envy, so this is a natural structural subfamily rather than a tuned numerical slice. The unique all-n optimal law and exact parity obstruction give an explicit O(n)-description instead of only a generic LP, with a precise large anonymity-versus-risk cost: anonymous variance (n+1)(n-2)/6 versus optimal 0 or 2/n. This measures a real tension between equal-party symmetry and minimizing variability under the paper’s fixed index-tie convention; the convention dependence is disclosed.",
+    "status": "PASS"
+  }
+}
