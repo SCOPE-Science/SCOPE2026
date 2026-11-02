@@ -1,0 +1,131 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T10:04:51Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Reviewed pinned RESULT.md proof, SLOGAN.txt, REVIEW.md, VERIFICATION.md and verification source code",
+        "Fresh independently written numerical/exact corroboration: {\"cases\": 75, \"max_abs_error\": 3.774758283725532e-15}"
+      ],
+      "rationale": "The unnormalized Laplacian has four orthogonal invariant components with eigenvalues 0, b on A-zero-sum, a on B-zero-sum and a+b on part contrast. The signed heat-distribution difference for an A vertex x and B vertex y has positive mass at x and other B vertices and negative at y and other A vertices for t>0. Transport on graph metric has cheap cross-part cost1, costly same-part cost2; the excess imbalance forces cost2 |s_x-d_y|, giving W1=E+2 max{(a-1)(U-E)/a,(b-1)(V-E)/b}; for a>=b its first branch wins. The explicit fixed potential f(x)=2, f(other A)=0, f(all B)=1 is 1-Lipschitz and realizes this cost for all t, establishing exact dual and operator norm. Differentiating gives derivative sign [-2m(M-1)+(M-2)(M+m)e^{-Mt}]/M, with initial threshold M-m-2, a unique root only if M-m>2, and explicit t*, peak; K1,1 direct case exp(-2t). Independent original heat eigensystem plus Kantorovich dual LP for 75 graph/time combinations agrees to 3.8e-15. Tests finite, all-time result analytic.",
+      "residual_risks": [
+        "Only unnormalized finite unweighted complete bipartite graphs; no claim for normalized random walks."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General curvature exponential bounds are inequalities often not sharp at positive times."
+        ],
+        "reasoning": "They do not dominate an equality and location/size of the global overshoot; exact spectral and mass-transport structure is needed.",
+        "searches": [
+          "Resultary semantic search: complete bipartite graph heat semigroup Lipschitz operator norm Wasserstein exact transient amplification",
+          "arXiv:1712.00875 Theorem 3.8",
+          "Resultary complete bipartite graph heat semigroup Lipschitz query"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1712.00875 full primary PDF Thm2.6 Thm3.8",
+        "arXiv:1202.0420",
+        "arXiv:math/0701886",
+        "Resultary complete bipartite Lipschitz-free transportation metric hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Curvature controls the t=0 derivative and certain global estimates, not the precise finite-time transport plan or common saturating potential."
+        ],
+        "reasoning": "The sharp answer uses an independent four-eigenspace calculation and an explicit W1 primal/dual equality; these are not direct substitutions into the broad bound.",
+        "searches": [
+          "Resultary semantic search: complete bipartite graph heat semigroup Lipschitz operator norm Wasserstein exact transient amplification",
+          "arXiv:1712.00875 Thm2.6 Thm3.8",
+          "arXiv:1202.0420 Thm9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The Kantorovich duality and curvature bound are prior; transient sign is linked to curvature M-m-2."
+        ],
+        "reasoning": "The new full-time exact 2-exponential profile and fixed norming potential are not statements of general curvature theory.",
+        "searches": [
+          "Resultary semantic search: complete bipartite graph heat semigroup Lipschitz operator norm Wasserstein exact transient amplification",
+          "arXiv:1712.00875 Theorems 2.6,3.8",
+          "arXiv:1202.0420 Theorem 9"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching tabulated all-time norm Lambda(t), exact t* or peak was identified; related Lipschitz-free geometric distortion papers concern different operators."
+        ],
+        "reasoning": "Absence of an exact table from inspected sources is only bounded novelty evidence.",
+        "searches": [
+          "Resultary semantic search: complete bipartite graph heat semigroup Lipschitz operator norm Wasserstein exact transient amplification",
+          "Resultary complete bipartite heat semigroup semantic search",
+          "arXiv:1712.00875"
+        ]
+      },
+      "rationale": "Best-of-knowledge comparison after fresh Resultary searches, focused primary-source proof inspection and explicit implication checks. A related method, family or parameter alone does not establish identity/coverage; historical risk remains noted.",
+      "residual_risks": [
+        "An earlier exact semigroup Wasserstein-distance evaluation on strongly regular/bipartite graphs may be published under transport/coupling rather than graph-Lipschitz nomenclature.",
+        "Only unnormalized finite unweighted complete bipartite graphs; no claim for normalized random walks."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "IMPLIES_LOCAL_DERIVATIVE_NOT_ALL_TIME_IDENTITY",
+          "evidence": "Curvature calculation may establish initial derivative M-m-2, but the general exponential estimate does not entail a full two-exponential norm equality with peak and optimizer.",
+          "identifier_or_url": "arXiv:1712.00875; https://arxiv.org/abs/1712.00875",
+          "material_read": "Primary full PDF: curvature formulas Theorem 2.6, heat Lipschitz estimate Theorem 3.8 and proof",
+          "method": "Lawful public primary text or bibliographic material inspected to the specific extent described in material_read; no full-document noncoverage inferred from abstracts alone",
+          "title": "Ollivier Ricci curvature for general graph Laplacians: Heat equation, Laplacian comparison, non-explosion and diameter bounds",
+          "trigger": "Closest general Lipschitz semigroup and curvature theorem"
+        },
+        {
+          "assessment": "GENERAL_BOUND_NOT_SHARP_FORMULA",
+          "evidence": "A curvature lower bound yields a one-exponential estimate and misses the non-monotone exact finite graph expression.",
+          "identifier_or_url": "arXiv:1202.0420; https://arxiv.org/abs/1202.0420",
+          "material_read": "Theorem 9 and definitions on W1 contraction for continuous-time Markov semigroups",
+          "method": "Lawful public primary text or bibliographic material inspected to the specific extent described in material_read; no full-document noncoverage inferred from abstracts alone",
+          "title": "Coarse Ricci curvature for continuous-time Markov processes",
+          "trigger": "General continuous-time W1 curvature and heat estimates"
+        },
+        {
+          "assessment": "FOUNDATION_NOT_SPECIFIC_APPLICATION",
+          "evidence": "Framework covers the correct duality but not this exact unnormalized continuous-time K_{a,b} full-time extremum.",
+          "identifier_or_url": "arXiv:math/0701886; https://arxiv.org/abs/math/0701886",
+          "material_read": "Definition and key curvature relation to Markov transition kernels",
+          "method": "Lawful public primary text or bibliographic material inspected to the specific extent described in material_read; no full-document noncoverage inferred from abstracts alone",
+          "title": "Ricci curvature of Markov chains on metric spaces",
+          "trigger": "Origin of W1/Lipschitz curvature framework"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "The submitted exact mathematical invariant and all-range structural proof in pinned RESULT.md",
+        "Primary comparison evidence arXiv:1712.00875 full primary PDF Thm2.6 Thm3.8, arXiv:1202.0420"
+      ],
+      "rationale": "The graph heat semigroup is supremum-contractive yet can transiently increase spatial Lipschitz slopes. The exact all-time phase diagram, nontrivial threshold in part imbalance, universal fixed norming potential, and sharp peak tending 2 give meaningful stability information missing from infinitesimal graph curvature alone.",
+      "residual_risks": [
+        "Scope-specific result; not a claim of a general-graph/general-system theorem."
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:1712.00875 full primary PDF Thm2.6 Thm3.8",
+    "arXiv:1202.0420",
+    "arXiv:math/0701886",
+    "Resultary complete bipartite Lipschitz-free transportation metric hits"
+  ],
+  "disposition": "passed",
+  "final_claim": "For all finite unit-edge K_{a,b}, positive integer parts and unnormalized graph Laplacian, the shortest-path graph-Lipschitz seminorm of e^{-tL} is Lambda(t)=(2-2/M)e^{-mt}-(1-2/M)e^{-(M+m)t}, M=max(a,b), m=min. One fixed Lipschitz function attains it for every t. It overshoots 1 iff M-m>2; unique positive maximizer t*=(1/M)log[(M-2)(M+m)/(2m(M-1))], and sharp peak formula with limit2 at fixed m, M->infinity.",
+  "limitations": [
+    "An earlier exact semigroup Wasserstein-distance evaluation on strongly regular/bipartite graphs may be published under transport/coupling rather than graph-Lipschitz nomenclature.",
+    "Only unnormalized finite unweighted complete bipartite graphs; no claim for normalized random walks.",
+    "Standalone code checks are finite evidence only, not unlimited-parameter proofs.",
+    "All 5 parent Git tree SHAs reconstructed independently from exact child blob SHA values and verified equal assigned trees.",
+    "Full public metadata replacements were not prepared; publication withheld, independent audit disposition not yet imported."
+  ],
+  "schema_version": 1
+}
