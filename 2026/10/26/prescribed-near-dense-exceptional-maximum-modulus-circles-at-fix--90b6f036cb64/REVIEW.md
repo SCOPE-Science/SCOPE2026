@@ -1,15 +1,21 @@
-# Scientific review: prescribed exceptional maximum-modulus circles
+# Independent mathematical audit
 
-## Correctness — PASS
-The reciprocal-series domination proves convergence of the canonical product and the subexponential growth of the auxiliary majorant. The key pointwise inequality gives a strict deficit off each of the \(n\) preimages of \(w=s_j\), uniformly over all prescribed circles with one fixed perturbation amplitude. It proves exact maximizers, not merely approximate peaks. The Taylor-gap and order/type claims follow from the explicit expansion and matching growth bounds. The near-power radius count follows from a specified reciprocal-summable sequence. The proof does not rely on finite experiments.
+## correctness
 
-## Originality — PASS, subject to historical priority risk
-Li's 2026 theorem establishes local finiteness of the exceptional circles for first-gap-one functions, not their infinite prescribed placement or quantitative near-power count. The 2026 finite-order Erdős answer by Pardo-Simón and Sixsmith already yields unbounded maximum-point counts, so mere infinitude is **not** new; their stated one-point interpolation theorem places points on pairwise distinct radii and only supplies finite order under geometric separation. Their 2020 polynomial paper prescribes finitely many discontinuities/singletons via related square factors, not infinitely many circles each with exactly \(n\) maxima and controlled order/type. Comparison searches of aliases and stronger coverage identified no equivalent result. A specialized historical canonical-product construction could still be relevant.
+PASS
 
-## Value — PASS
-An infinite prescribed-family theorem resolves a meaningful distinction between local finiteness and radial sparsity. It gives exact first-gap-one multiplicity and robust growth control, and shows exceptional radii can have at least a near-power counting function despite being locally finite. It neither claims the condition necessary nor the density optimal.
+Inspected every analytic estimate: reciprocal summability ensures compact-uniform convergence of G(w)=prod_j(1-w/s_j)^2 and log H(T)=o(T) for H(T)=prod_j(1+T/s_j) by dominated convergence. For |w|=s_j, the exp(w) maximum angular loss has a quadratic lower bound in |w-s_j|; the double zero of G provides an upper perturbation proportional to the same square. Because B_j=R_j(2/s_j+4)e^(-s_j)H(s_j)^2 tends to zero, a single positive epsilon makes all off-root inequalities strict. On w=s_j the perturbation vanishes, giving exactly n maxima; f'(0)=epsilon, upper e^(r^n)+o(e^(r^n)) and lower values at R_j give exact order n/type 1. The s_j=(j+1)(log(j+2))^2 sequence is reciprocal-summable and yields the claimed near-power lower count. All quantifiers are analytic and no finite truncation is used as proof.
 
-## Limitations
-No guarantee of no additional exceptional circles, no Eremenko–Lyubich class control, and no independent audit or historical-priority certification. The conclusion and its scope are the same in the result, slogan, and structured metadata.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The closest earlier works prescribe maximum-modulus discontinuity radii for an entire function or individual maximum points at different radii, often with geometric separation to retain finite order. These are not equivalent to exactly n simultaneous global maxima at every arbitrarily dense reciprocal-summable prescribed radius, with first Taylor exponent one, exact order and type and near-power exceptional count. Li proves generic two-point bound outside a locally finite exceptional set but no upper density on that set. The double-zero perturbation idea has antecedents, which are credited. This is best-of-knowledge originality, not priority certainty.
+
+## value
+
+PASS
+
+There is a substantive tension between the generic maximum-count bound set by the first Taylor gap and unrestricted exceptional-radius accumulation toward infinity. The theorem shows near-power frequency of n-fold exact global maximizing sets with complete growth control and no geometric separation, a motivated sharp qualitative strengthening of prior exceptional-circle existence.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
