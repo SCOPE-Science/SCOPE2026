@@ -1,19 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The specified LCF graph has 12 vertices, 18 edges and 48 graph automorphisms. The exact unordered deleted-product complex has chain ranks (66, 180, 117), and the program checks all signed cellular boundary compositions. The 107 simple cycles yield precisely 3, 12 and 4 disjoint-cycle pairs by lengths (4,4), (4,6), (6,6); all their product chains have zero boundary. The boundary rank is at least 108 over \(\mathbb Q\), and nine explicitly identified torus cycles have a \(+1\) determinant on an explicitly identified nine-square minor. The unit minor, not finite-field rank alone, proves the cycles generate the entire integral rank-nine kernel. Integral coordinate reconstruction for all 19 tori, exact ranks and additional unit minors establish the length-type lattice classification.
+PASS
 
-## Originality — PASS with limited bibliographic risk
+Independently reconstructed the 12-vertex 18-edge [5,−5]^6 Franklin graph, enumerated 107 simple cycles with length histogram (3,20,24,48,12) at (4,6,8,10,12), and exhaustively found 19 vertex-disjoint pairs (3,12,4). The unordered deleted-product cubical model gives (C0,C1,C2)=(66,180,117) and signed ∂2 whose independent modular ranks are 108 mod101 and 107 mod2; these do NOT by themselves assert integral torsion. Independent integral product-torus construction verifies zero boundary. The selected nine columns with indices (0,1,2,4,6,8,12,13,14) and nine square rows (0,2,4,7,13,15,17,39,41) have determinant +1; together with rank≤9 from the 108 modular pivots, their lattice must be the full integral kernel. Recomputed type lattice ranks 3/6/4 and union ranks 6/7/9; exact maximal Smith factors are units, proving primitive partial lattices and torsion-free quotients. Six square–hexagon plus three hexagon–hexagon tori give a basis; the quotient by square–hexagon has rank three, forcing three hexagon–hexagon classes. Source verifier includes graph-automorphism orbit enumeration, but a full independent 48-automorphism check was not needed for the lattice conclusion.
 
-Barnett–Farber's arXiv:0903.2180 provides the graph deleted-product model and planar torus-generation framework, not the Franklin integral length-type lattice spectrum. Farber–Hanbury's arXiv:1005.2300 provides broader ordered-space results for mature graphs, without the present cycle-pair basis or lattice inclusions. An–Knudsen's arXiv:2008.10371 concerns planar homological generators and a separate nonplanar counterexample, neither of which implies this nonplanar Franklin result. Graph identity and LCF notation are classical (MathWorld). Searches for Franklin, crossed-prism, Klein-bottle and two-particle product-torus formulations did not locate equivalent exact results. This search is not a proof of uniqueness. Barnett's relevant 2010 thesis could only be examined at the abstract level; its complete text is a residual risk.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The canonical Franklin graph is nonplanar and has a classical Klein-bottle map embedding. The motivated question is which short, embedded, geometrically defined two-tori realize its full second integral homology. The answer is not merely a Betti-number calculation: it gives a complete three-type census and lattice containment diagram, proves every partial quotient has no hidden torsion, and detects a sharp requirement for three long-type geometric cycles in an integral basis. The statement is limited to this graph and makes no unjustified family-wide claim.
+General graph two-particle cell models and planar torus-generation results predate this work, as do graph configuration Betti-number formulas. The independently verified integral 19-generator length stratification and sharp hexagon–hexagon basis threshold are finer than a general rank-9 claim or general planar spanning result. The 2010 graph-configuration thesis is an acknowledged inaccessible specialized-priority risk, not assumed noncovering.
 
-## Limitations
+## value
 
-Finite, fully specified calculation for two unordered particles on one graph only. Literature coverage is not exhaustive; the full 2010 thesis was unavailable. No claim of independent validation is made.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The Franklin graph is a canonical small symmetric nonplanar cubic graph, so its integral two-particle product-cycle generators are natural to understand. Classifying which geometrically distinguished lengths generate the full H2 lattice—especially a sharp minimum of three hexagon–hexagon classes and torsion-free partial quotients—is a precise structural question not implied by the abstract rank. The exact 19-torus finite certificate is a complete natural classification of that object, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

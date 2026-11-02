@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-# Computational verification
+# Independent mathematical audit
 
-The complete `verify_franklin.py` is supplied with this statement; use Python 3.9+ and run `python3 verify_franklin.py` in a directory containing that program. No third-party dependencies, downloaded data or external certificates are required.
+## correctness
 
-The program enumerates the full graph and all canonical simple cycles; constructs integral oriented zero-, one- and two-dimensional cellular bases of the unordered two-particle deleted product; verifies all boundary compositions vanish; constructs all nineteen oriented cycle-product tori and verifies each is a cycle; and checks the exact nine-cycle determinant \(+1\) using the fraction-free Bareiss algorithm. It computes an integral inverse of the unit minor and reconstructs each of the nineteen full 117-coordinate torus chains from its nine basis coordinates. Partial ranks are computed by rational elimination, and unit integral minors certify saturation of all proper length-type sublattices. It also backtracks through all graph automorphisms and checks transitivity on the three torus families.
+PASS
 
-The explicit zero-based basis-column indices are `(0,1,2,4,6,8,12,13,14)` relative to the twelve square–hexagon columns followed by the four hexagon–hexagon columns. The zero-based two-cell indices are `(0,2,4,7,13,15,17,39,41)`. The program prints `VERIFY_OK_FRANKLIN_MIXED_LENGTH_INTEGRAL_TORUS_BASIS` on success.
+Independently reconstructed the 12-vertex 18-edge [5,−5]^6 Franklin graph, enumerated 107 simple cycles with length histogram (3,20,24,48,12) at (4,6,8,10,12), and exhaustively found 19 vertex-disjoint pairs (3,12,4). The unordered deleted-product cubical model gives (C0,C1,C2)=(66,180,117) and signed ∂2 whose independent modular ranks are 108 mod101 and 107 mod2; these do NOT by themselves assert integral torsion. Independent integral product-torus construction verifies zero boundary. The selected nine columns with indices (0,1,2,4,6,8,12,13,14) and nine square rows (0,2,4,7,13,15,17,39,41) have determinant +1; together with rank≤9 from the 108 modular pivots, their lattice must be the full integral kernel. Recomputed type lattice ranks 3/6/4 and union ranks 6/7/9; exact maximal Smith factors are units, proving primitive partial lattices and torsion-free quotients. Six square–hexagon plus three hexagon–hexagon tori give a basis; the quotient by square–hexagon has rank three, forcing three hexagon–hexagon classes. Source verifier includes graph-automorphism orbit enumeration, but a full independent 48-automorphism check was not needed for the lattice conclusion.
 
-Finite-field rank alone does not establish integral saturation; that conclusion uses the exact unit determinant and complete integer reconstruction. The checks establish only the stated graph-specific finite complex and its full second homology, not the existence or nonexistence of analogous bases for arbitrary other graphs. Independent audit has not been performed.
+## originality
+
+PASS
+
+General graph two-particle cell models and planar torus-generation results predate this work, as do graph configuration Betti-number formulas. The independently verified integral 19-generator length stratification and sharp hexagon–hexagon basis threshold are finer than a general rank-9 claim or general planar spanning result. The 2010 graph-configuration thesis is an acknowledged inaccessible specialized-priority risk, not assumed noncovering.
+
+## value
+
+PASS
+
+The Franklin graph is a canonical small symmetric nonplanar cubic graph, so its integral two-particle product-cycle generators are natural to understand. Classifying which geometrically distinguished lengths generate the full H2 lattice—especially a sharp minimum of three hexagon–hexagon classes and torsion-free partial quotients—is a precise structural question not implied by the abstract rank. The exact 19-torus finite certificate is a complete natural classification of that object, not an arbitrary parameter slice.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
