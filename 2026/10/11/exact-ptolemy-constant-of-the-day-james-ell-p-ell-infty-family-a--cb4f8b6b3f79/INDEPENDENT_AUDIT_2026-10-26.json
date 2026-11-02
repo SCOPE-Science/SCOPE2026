@@ -1,0 +1,211 @@
+{
+  "audit_date_utc": "2026-10-26",
+  "audited_at_utc": "2026-10-26T16:46:13Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Actual RESULT.md and VERIFICATION.md, reconstruct both sign-sector ratios and derivative of R_infty, including r=0,1 and s=0,1 boundaries.",
+        "Elementary lp/l2 inequalities imply 2(1+tau r^2)/(1+r^2)>=1+tau for tau<1, while 4tau(1+tau r^2)/(1+r^2)<=4tau.",
+        "The extremal triple is pairwise distinct/nonzero for tau in (1/2,1); all norm evaluations use correct quadrants.",
+        "SymPy differentiation/algebra and finite p=2.0001,3,4,16,100 arithmetic checks supported formulas; no finite test used as proof."
+      ],
+      "limitations": [
+        "Real scalar field and dimension exactly two; p strictly >2 and finite.",
+        "No assertion for 1<=p<2, at the exact p=infinity endpoint or general ell_p-ell_q.",
+        "No formal Lean or expert certification claimed."
+      ],
+      "rationale": "For tau=2^{-2/p} in (1/2,1), reconstructed all-sector Hilbert comparison H_tau^2=(x+y)^2+tau(x-y)^2. On xy>=0, two-coordinate lp/l2 inequalities give 1+tau<=H_tau^2/Np^2<=4tau; on xy<=0, exact rational ratio 4(s^2+tau)/(1+s)^2 has derivative 8(s-tau)/(1+s)^3 and bounds m=4tau/(1+tau), M=4tau. Hilbert Ptolemy yields C_Pt<=M/m=1+tau. For x=(-tau,-tau), y=(1,-1), z=x+y, direct quadrant-appropriate norms are sqrt(tau),1,1+tau,1+tau,1,sqrt(tau), giving exact ratio 1+tau. This is an infinite proof for all real p>2.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Zuo 2012 Theorems 2.2/2.3 require an extremum at midpoint t=1/2 in an absolute normalized model.",
+          "For this family the critical transformed ratio is |a|/|b|=2^{-1/p}, corresponding t=1/(1+2^{-1/p}) !=1/2 for p>2; transformed norm is not invariant under a,b exchange.",
+          "The published symmetric-class Resultary theorem explicitly assumes coordinate-permutation symmetry and midpoint extremality; both fail.",
+          "Zuo 2018 actual full paper examples/section theorems concern special coordinate-symmetric/midpoint settings, with no all-p Day--James exact value located.",
+          "Zuo 2015 reconsideration could include a broader off-midpoint statement: only abstract and metadata accessible, authorized Oxford full PDF retrieval status no_pdf."
+        ],
+        "reasoning": "Compared hypotheses and implications, not just theorem titles; accessible general exact theorems do not subsume the off-midpoint family. Unreadable 2015 is a named residual risk and does not alone mandate a failure.",
+        "searches": [
+          "Ptolemy constant absolute normalized norm Day James p infinity James constant identity",
+          "Ptolemy constant of Day James spaces generalized Day-James plane p infinity p>2",
+          "doi:10.1186/1029-242X-2012-107",
+          "doi:10.12386/A2015sxxb0033",
+          "doi:10.7153/mia-2018-21-64",
+          "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md"
+        ]
+      },
+      "checked_sources": [
+        "doi:10.1155/JIA/2006/26265",
+        "doi:10.1186/1029-242X-2012-107",
+        "doi:10.12386/A2015sxxb0033",
+        "doi:10.7153/mia-2018-21-64",
+        "Resultary/2026:2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99/RESULT.md",
+        "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+        "Resultary/2026:2026/10/4/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-2-ell-infty-plane--8c642a19a7b4",
+        "Resultary/2026:2026/10/11/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-p-ell-infty-family-a--cb4f8b6b3f79 (index of assigned result; excluded as independent priority evidence)"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "An exact Hilbert/Banach--Mazur sandwich M/m=1+tau implies only C_Pt<=1+tau by the Hilbert Ptolemy inequality.",
+          "The new sharpness triple x=(-tau,-tau), y=(1,-1), z=x+y has Ptolemy ratio exactly 1+tau; this lower bound is not a consequence of BM distance alone.",
+          "The James constant identity alone does not determine Ptolemy constants; its numerical relation here is a corollary after proving C_Pt.",
+          "The p=2 published special case does not imply a continuum of p>2 exact Ptolemy values."
+        ],
+        "reasoning": "The same-family Euclidean distortion result is potentially mechanistically close, so only the extra Ptolemy equality and extremizer are assessed as originality. Established midpoint/symmetry implications do not apply to this norm. A more general unknown theorem equating Ptolemy and BM^2 in this off-midpoint class remains a bibliographic risk.",
+        "searches": [
+          "exact Ptolemy constant Day-James norm ell_p ell_infinity 1+2^{-2/p} asymmetric quadrant plane",
+          "Resultary/2026:2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99/RESULT.md",
+          "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+          "Resultary/2026:2026/10/4/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-2-ell-infty-plane--8c642a19a7b4",
+          "doi:10.1155/JIA/2006/26265",
+          "doi:10.1186/1029-242X-2012-107"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The norm is Day--James ell_p-ell_infty by quadrant; under coordinates a=2^{1/p-1}(x+y), b=(x-y)/2 it becomes an absolute normalized norm.",
+          "Nilsrakoo--Saejung 2006 Corollary 3.8 proves J(X_p)=1+2^{-1/p}, a different invariant.",
+          "Resultary exact Banach--Mazur record for the SAME p>2 family proves d_BM^2=1+2^{-2/p}, but exact Ptolemy equality does not formally follow from a norm-comparison upper bound alone.",
+          "The indexed duplicate of this very finding was excluded as independent priority."
+        ],
+        "reasoning": "Tracked Day--James notation, rotated absolute-normalized coordinates, geometric/metric Ptolemy definitions and exact formula searches. The separate Euclidean distortion result is an especially close but logically non-covering statement unless an additional sharp Ptolemy equality theorem or triple is supplied; no such implication was found for this family.",
+        "searches": [
+          "exact Ptolemy constant Day-James norm ell_p ell_infinity 1+2^{-2/p} asymmetric quadrant plane",
+          "Ptolemy constant absolute normalized norm Day James p infinity James constant identity",
+          "Ptolemy constant of Day James spaces generalized Day-James plane p infinity p>2",
+          "doi:10.1155/JIA/2006/26265",
+          "doi:10.1186/1029-242X-2012-107",
+          "Resultary/2026:2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99/RESULT.md",
+          "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary includes an exact p=2 endpoint C_Pt=3/2 (not within p>2) and an identical indexed copy of the submitted finding; the latter is excluded from independent priority evidence.",
+          "No independently indexed all-p>2 Ptolemy value/table was located in three targeted Resultary searches; the indexed BM^2=1+2^{-2/p} is explicitly a DIFFERENT table/invariant."
+        ],
+        "reasoning": "Direct title, family aliases and exact-expression searches assessed potential tables; non-detection is a limited coverage observation, not proof of novelty.",
+        "searches": [
+          "exact Ptolemy constant Day-James norm ell_p ell_infinity 1+2^{-2/p} asymmetric quadrant plane",
+          "Ptolemy constant absolute normalized norm Day James p infinity James constant identity",
+          "Ptolemy constant of Day James spaces generalized Day-James plane p infinity p>2",
+          "Resultary/2026:2026/10/4/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-2-ell-infty-plane--8c642a19a7b4",
+          "Resultary/2026:2026/10/11/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-p-ell-infty-family-a--cb4f8b6b3f79 (index of assigned result; excluded as independent priority evidence)"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the quantified exact Ptolemy invariant, not for the numerical expression considered alone. The already published same-family Euclidean Banach-Mazur squared-distance theorem gives the SAME value 1+2^{-2/p} as an upper bound for the Ptolemy constant via the Hilbert comparison; it does not prove equality of the two distinct invariants. The submitted work supplies a concrete sharp Ptolemy triple for every p>2. The symmetric midpoint general Ptolemy equality theorem does not apply to this off-midpoint nonsymmetric absolute-normalized form; the earlier p=2 result covers only an excluded endpoint. The plausible 2015 strengthening remained unreadable; no novelty proof is claimed from search failure.",
+      "residual_risks": [
+        "2015 Zuo reconsideration full text unavailable, so an applicable broader result may be missed.",
+        "An older generalized theorem for off-midpoint absolute normalized planes could imply C_Pt=d_BM^2 for this family.",
+        "The exact same-family BM^2 computation is a strong close precursor; novelty is limited to the sharp distinct Ptolemy invariant, not the numerical value or Hilbert ellipse.",
+        "Three searches cannot exclude differently titled historical formula or unindexed table."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "SAME_OBJECT_DIFFERENT_INVARIANT",
+          "evidence": "The text computes J(ell_p-ell_infty)=1+2^{-1/p}; no Ptolemy result follows solely from this equation.",
+          "identifier_or_url": "doi:10.1155/JIA/2006/26265",
+          "material_read": "Lawful open full text, normalized norm definition and Corollary 3.8 p-infinity specialization",
+          "method": "Publisher open-access HTML full-text reading",
+          "title": "The James constant of normalized norms on R2",
+          "trigger": "Classical Day--James family and claimed exact J invariant"
+        },
+        {
+          "assessment": "MIDPOINT_HYPOTHESIS_NOT_SATISFIED",
+          "evidence": "Its sharp comparison needs t=1/2, whereas transformed p>2 family has off-midpoint maximizer.",
+          "identifier_or_url": "doi:10.1186/1029-242X-2012-107",
+          "material_read": "Lawful publisher full-text introduction, Theorems 2.2,2.3, ratios and examples",
+          "method": "Open-access HTML full-text inspection",
+          "title": "The Ptolemy constant of absolute normalized norms on R2",
+          "trigger": "Potential general theorem encompassing rotated/normalized Day--James model"
+        },
+        {
+          "assessment": "ACCESS_LIMITED_PLAUSIBLE_BROADER_COVERAGE_RISK",
+          "evidence": "The abstract advertises further sufficient conditions; without actual main theorems coverage is not classified as absent.",
+          "identifier_or_url": "doi:10.12386/A2015sxxb0033",
+          "material_read": "Official journal bibliographic record and abstract description only; full-text PDF was unavailable",
+          "method": "Preprint and lawful open-access attempts followed by authorized Oxford paper retrieval; returned no_pdf, no access bypass",
+          "title": "A Reconsideration on the Ptolemy Constant of Absolute Normalized Norms",
+          "trigger": "Possible later stronger general theorem removing midpoint hypothesis"
+        },
+        {
+          "assessment": "RELATED_METHODS_AND_EXAMPLES_NO_FAMILY_COVERAGE",
+          "evidence": "Full paper develops absolute normalized norm comparison cases, none gives the quantified off-midpoint Day--James ell_p-ell_infty p>2 equality.",
+          "identifier_or_url": "doi:10.7153/mia-2018-21-64",
+          "material_read": "Twelve-page full primary PDF; theorems and Examples 1--4, including rendered screenshots of pages 950--952",
+          "method": "Lawful primary-PDF text and page-image inspection",
+          "title": "On the Ptolemy constant of some concrete Banach spaces",
+          "trigger": "Later direct exact Ptolemy formulas"
+        },
+        {
+          "assessment": "EXACT_NUMERIC_OVERLAP_DIFFERENT_INVARIANT_AND_ONLY_UPPER_BOUND",
+          "evidence": "Its norm comparison proves M/m=1+tau and thus C_Pt<=1+tau, but does not assert C_Pt equality or exhibit the Ptolemy lower-bound triple.",
+          "identifier_or_url": "Resultary/2026:2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99/RESULT.md",
+          "material_read": "Full primary posted RESULT.md including proof of d_BM^2=1+tau and Hilbert-form comparisons",
+          "method": "GitHub read-only primary full-file fetch",
+          "title": "Exact Euclidean distance of the Day--James ell_p-ell_infty planes above the Hilbert exponent",
+          "trigger": "Same family and exactly matching numerical formula"
+        },
+        {
+          "assessment": "GENERAL_THEOREM_HYPOTHESES_FAIL_FOR_TARGET",
+          "evidence": "Requires coordinate-exchange symmetry and midpoint maximum; the normalized Day--James family with p>2 has neither.",
+          "identifier_or_url": "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+          "material_read": "Full posted primary RESULT.md, hypotheses and proof",
+          "method": "GitHub read-only primary full-file fetch",
+          "title": "Ptolemy constants equal squared Euclidean Banach--Mazur distortion for a symmetric absolute plane class",
+          "trigger": "Potential general theorem that may turn same-family BM computation into Ptolemy equality"
+        },
+        {
+          "assessment": "EXCLUDED_ENDPOINT_SPECIAL_CASE",
+          "evidence": "p=2 gives 3/2 but does not imply all 2<p<infinity.",
+          "identifier_or_url": "Resultary/2026:2026/10/4/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-2-ell-infty-plane--8c642a19a7b4",
+          "material_read": "Resultary record title and full scientific abstract/summary; primary full text not requested",
+          "method": "Resultary search result read",
+          "title": "Exact Ptolemy constant of the Day--James ell_2-ell_infty plane",
+          "trigger": "Same object at boundary p=2"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Published 2006 James constant computes another natural invariant; prior exact p=2 endpoint is not a p>2 classification.",
+        "Previously published Euclidean distortion gives a sharp global upper bound but does not by itself decide Ptolemy equality; a new sharp configuration is essential.",
+        "Full range 2<p<infinity with limiting values C_Pt ->3/2 at p downarrow 2 and ->2 at p to infinity."
+      ],
+      "limitations": [
+        "The result does not resolve the p<2 range, general Day--James planes, or arbitrary normed spaces.",
+        "The link to BM^2 is close to previous work; the incremental contribution is exact Ptolemy sharpness."
+      ],
+      "rationale": "The Ptolemy constant is a natural four-point invariant of the classical Day--James family. The claim provides an exact value for a full continuous regime 2<p<infinity (not just a finite sample), a uniform sharp three-point construction and an exact relation with a separately known James constant. Although the very same numerical value was previously obtained for squared Euclidean Banach--Mazur distance, the Ptolemy lower-bound equality is a distinct, non-implied geometric fact and may be needed to compare metric four-point distortion across this norm family. Value is narrow/modest but substantive.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "doi:10.1155/JIA/2006/26265",
+    "doi:10.1186/1029-242X-2012-107",
+    "doi:10.12386/A2015sxxb0033",
+    "doi:10.7153/mia-2018-21-64",
+    "Resultary/2026:2026/10/11/SCOPE-exact-euclidean-distance-of-the-day-james-ell-p-ell-infty-planes--b7b28f0a9f99/RESULT.md",
+    "Resultary/2026:2026/10/11/SCOPE-ptolemy-constants-equal-squared-euclidean-banach-mazur-distortio--66766780aaed/RESULT.md",
+    "Resultary/2026:2026/10/4/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-2-ell-infty-plane--8c642a19a7b4",
+    "Resultary/2026:2026/10/11/SCOPE-exact-ptolemy-constant-of-the-day-james-ell-p-ell-infty-family-a--cb4f8b6b3f79 (index of assigned result; excluded as independent priority evidence)"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Real scalar field and dimension exactly two; p strictly >2 and finite.",
+    "No assertion for 1<=p<2, at the exact p=infinity endpoint or general ell_p-ell_q.",
+    "No formal Lean or expert certification claimed.",
+    "The result does not resolve the p<2 range, general Day--James planes, or arbitrary normed spaces.",
+    "The link to BM^2 is close to previous work; the incremental contribution is exact Ptolemy sharpness."
+  ],
+  "residual_risks": [
+    "2015 Zuo reconsideration full text unavailable, so an applicable broader result may be missed.",
+    "An older generalized theorem for off-midpoint absolute normalized planes could imply C_Pt=d_BM^2 for this family.",
+    "The exact same-family BM^2 computation is a strong close precursor; novelty is limited to the sharp distinct Ptolemy invariant, not the numerical value or Hilbert ellipse.",
+    "Three searches cannot exclude differently titled historical formula or unindexed table."
+  ],
+  "schema_version": 1
+}

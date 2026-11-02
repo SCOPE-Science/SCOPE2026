@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,48 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-Let
-\[
-\tau=2^{-2/p},\qquad
-H_\tau(x,y)^2=(x+y)^2+\tau(x-y)^2.
-\]
-For \(2<p<\infty\), one has \(1/2<\tau<1\).
+# Independent mathematical audit
 
-On \(xy\ge0\),
-\[
-1+\tau\le\frac{H_\tau^2}{\|\cdot\|_{X_p}^2}\le4\tau.
-\]
-On \(xy\le0\), with \(s=|x+y|/|x-y|\),
-\[
-\frac{H_\tau^2}{\|\cdot\|_{X_p}^2}
-=
-\frac{4(s^2+\tau)}{(1+s)^2},
-\]
-whose derivative is \(8(s-\tau)/(1+s)^3\). Hence its minimum is \(4\tau/(1+\tau)\) and its maximum is \(4\tau\).
+## correctness
 
-Thus
-\[
-\sqrt{\frac{4\tau}{1+\tau}}\,\|w\|_{X_p}
-\le H_\tau(w)\le
-\sqrt{4\tau}\,\|w\|_{X_p},
-\]
-so Hilbert Ptolemy gives \(C_{\mathrm{Pt}}(X_p)\le1+\tau\).
+PASS
 
-For
-\[
-x=(-\tau,-\tau),\qquad
-y=(1,-1),\qquad
-z=(1-\tau,-1-\tau),
-\]
-the six required norms are
-\[
-\|x\|=\sqrt\tau,\quad
-\|y\|=1,\quad
-\|z\|=1+\tau,\quad
-\|x-y\|=1+\tau,\quad
-\|x-z\|=1,\quad
-\|z-y\|=\sqrt\tau.
-\]
-Therefore the Ptolemy ratio is \(1+\tau\), proving equality. No finite enumeration is used. The unresolved scope is \(1\le p<2\), the infinite endpoint as part of the theorem, and general Day--James \(\ell_p-\ell_q\) families.
+For tau=2^{-2/p} in (1/2,1), reconstructed all-sector Hilbert comparison H_tau^2=(x+y)^2+tau(x-y)^2. On xy>=0, two-coordinate lp/l2 inequalities give 1+tau<=H_tau^2/Np^2<=4tau; on xy<=0, exact rational ratio 4(s^2+tau)/(1+s)^2 has derivative 8(s-tau)/(1+s)^3 and bounds m=4tau/(1+tau), M=4tau. Hilbert Ptolemy yields C_Pt<=M/m=1+tau. For x=(-tau,-tau), y=(1,-1), z=x+y, direct quadrant-appropriate norms are sqrt(tau),1,1+tau,1+tau,1,sqrt(tau), giving exact ratio 1+tau. This is an infinite proof for all real p>2.
+
+## originality
+
+PASS
+
+Best-of-knowledge originality for the quantified exact Ptolemy invariant, not for the numerical expression considered alone. The already published same-family Euclidean Banach-Mazur squared-distance theorem gives the SAME value 1+2^{-2/p} as an upper bound for the Ptolemy constant via the Hilbert comparison; it does not prove equality of the two distinct invariants. The submitted work supplies a concrete sharp Ptolemy triple for every p>2. The symmetric midpoint general Ptolemy equality theorem does not apply to this off-midpoint nonsymmetric absolute-normalized form; the earlier p=2 result covers only an excluded endpoint. The plausible 2015 strengthening remained unreadable; no novelty proof is claimed from search failure.
+
+## value
+
+PASS
+
+The Ptolemy constant is a natural four-point invariant of the classical Day--James family. The claim provides an exact value for a full continuous regime 2<p<infinity (not just a finite sample), a uniform sharp three-point construction and an exact relation with a separately known James constant. Although the very same numerical value was previously obtained for squared Euclidean Banach--Mazur distance, the Ptolemy lower-bound equality is a distinct, non-implied geometric fact and may be needed to compare metric four-point distortion across this norm family. Value is narrow/modest but substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

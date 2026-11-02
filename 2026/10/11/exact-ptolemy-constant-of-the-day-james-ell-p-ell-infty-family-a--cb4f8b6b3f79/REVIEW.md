@@ -1,23 +1,21 @@
-# Same-model review
+# Independent mathematical audit
 
-## Correctness
-PASS. For \(\tau=2^{-2/p}\), the Hilbert comparison
-\[
-H_\tau(x,y)^2=(x+y)^2+\tau(x-y)^2
-\]
-is optimized on both exhaustive sign sectors. The same-sign sector is controlled globally by the sharp two-coordinate \(\ell_p/\ell_2\) inequalities. The opposite-sign sector reduces to \(4(s^2+\tau)/(1+s)^2\), with exact minimum \(4\tau/(1+\tau)\) and maximum \(4\tau\). Hilbert Ptolemy gives the upper bound \(1+\tau\), and the explicit triple \((-\tau,-\tau),(1,-1),(1-\tau,-1-\tau)\) attains it.
+## correctness
 
-## Originality
-PASS, with an explicit access residual. The 2006 source gives the James constant of the same family, not its Ptolemy constant. The 2012 exactness theorem has a midpoint hypothesis that fails after normalization: the sharp comparison occurs at \(t=1/(1+2^{-1/p})\ne1/2\). Direct searches located only an isolated \(p=2\) Ptolemy endpoint rather than the quantified \(p>2\) formula. The 2015 reconsideration remains a bibliographic risk because a readable full text was not obtained.
+PASS
 
-## Value
-PASS. The theorem determines a standard four-point invariant for every member of a classical one-parameter family above the Hilbert exponent and produces
-\[
-C_{\mathrm{Pt}}(X_p)=1+\bigl(J(X_p)-1\bigr)^2.
-\]
-The continuum-wide formula and uniform extremizing triple make it a structural parameter result rather than an isolated recomputation.
+For tau=2^{-2/p} in (1/2,1), reconstructed all-sector Hilbert comparison H_tau^2=(x+y)^2+tau(x-y)^2. On xy>=0, two-coordinate lp/l2 inequalities give 1+tau<=H_tau^2/Np^2<=4tau; on xy<=0, exact rational ratio 4(s^2+tau)/(1+s)^2 has derivative 8(s-tau)/(1+s)^3 and bounds m=4tau/(1+tau), M=4tau. Hilbert Ptolemy yields C_Pt<=M/m=1+tau. For x=(-tau,-tau), y=(1,-1), z=x+y, direct quadrant-appropriate norms are sqrt(tau),1,1+tau,1+tau,1,sqrt(tau), giving exact ratio 1+tau. This is an infinite proof for all real p>2.
 
-## Closest literature and limitations
-Nilsrakoo--Saejung (2006) is closest for the same family's James constant. Zuo (2012) is the closest fully inspected general Ptolemy theorem but does not cover the off-midpoint extremum. Zuo (2015) is access-limited and remains a residual risk; Zuo (2018) supplies later comparison methods without the located family formula. The claim is restricted to real \(2<p<\infty\).
+## originality
 
-Same-model review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge originality for the quantified exact Ptolemy invariant, not for the numerical expression considered alone. The already published same-family Euclidean Banach-Mazur squared-distance theorem gives the SAME value 1+2^{-2/p} as an upper bound for the Ptolemy constant via the Hilbert comparison; it does not prove equality of the two distinct invariants. The submitted work supplies a concrete sharp Ptolemy triple for every p>2. The symmetric midpoint general Ptolemy equality theorem does not apply to this off-midpoint nonsymmetric absolute-normalized form; the earlier p=2 result covers only an excluded endpoint. The plausible 2015 strengthening remained unreadable; no novelty proof is claimed from search failure.
+
+## value
+
+PASS
+
+The Ptolemy constant is a natural four-point invariant of the classical Day--James family. The claim provides an exact value for a full continuous regime 2<p<infinity (not just a finite sample), a uniform sharp three-point construction and an exact relation with a separately known James constant. Although the very same numerical value was previously obtained for squared Euclidean Banach--Mazur distance, the Ptolemy lower-bound equality is a distinct, non-implied geometric fact and may be needed to compare metric four-point distortion across this norm family. Value is narrow/modest but substantive.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
