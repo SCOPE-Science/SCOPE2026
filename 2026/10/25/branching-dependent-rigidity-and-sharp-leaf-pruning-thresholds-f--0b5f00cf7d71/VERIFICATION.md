@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The complete proof appears in `RESULT.md`, using an exact three-state root boundary decomposition, an algebraic three-phase induction and an exact local exchange bijection.
+## correctness
 
-Run `python3 verify.py` using Python 3 standard library. Actual run returned:
+PASS
 
-```text
-VERIFY_OK full_dp_cases= 25 stable_leaf_prunings= 75 sharp_one_group_prunings= 25 brute_minimality_and_counts= 18 brute_optimum_set_classifications= 9
-```
+Independently reconstructed three rooted boundary states A/B/C, base cases h=1,2,3 and period-three cost/count induction. The full-level sets have the predicted size and by exact optimum counts exhaust minimizers. A bottom support vertex with >=2 pendant children is forced into every minimum set; pruning preserves the internal domination constraints. With one surviving child at one bottom parent, the original optimum-to-pruned optimum mapping is exactly 2-to-1 (including h=1). An independent brute-force tree enumerator checked 6 (d,h) regimes, their explicit optimal sets, representative simultaneous prunings, and each single-group sharp case. These finite checks do not establish arbitrary heights.
 
-The code constructs labelled tree adjacencies, deletes terminal leaves, independently computes optimum sizes and counts from bottom-up rooted subtrees, and enumerates candidate subsets below and at optimum cardinality for the small cases, with nine explicit all-optimum-set classifications. Programmatic checks are finite, not proofs for unbounded branching or height. The stated infinite theorem is justified by its recurrence induction and bijection.
+## originality
 
-The 2026 binary special case and general-tree algorithm were taken from the original source. Neither an independent audit nor external formal certification has been performed.
+PASS
+
+The exact higher-degree branching census and simultaneous terminal pruning law are not implications of the binary-tree period-three theorem. The common three-state algorithm gives a method but not the proved all-parameter expressions or the sharp all-pattern family identity. The local support exchange fact is elementary prior knowledge, not claimed new. Best-of-knowledge priority only.
+
+## value
+
+PASS
+
+Minimum optimal-set counts measure placement rigidity in a canonical two-parameter tree family. The sharp change from retaining two pendant leaves to retaining one gives a meaningful, explicit resilience threshold; it is not merely the classical binary case or generic dynamic programming.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
