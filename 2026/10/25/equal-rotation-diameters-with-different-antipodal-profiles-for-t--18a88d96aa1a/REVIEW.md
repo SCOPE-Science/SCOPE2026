@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. Every elimination tree is enumerated by its unique root and recursive induced-component decomposition. Every tubing flip is produced by replacing one tube while retaining the same other six tubes. The entire edge set is independently reconstructed by parent-child rotations and compared statewise. All-source breadth-first search independently agrees with symmetry-weighted distances. The packaged executable verifies the exact state totals, edge totals, automorphism groups, eccentricity distributions, and all twenty distance-bin counts; the two pair-count totals also match their respective binomial coefficients.
+PASS
 
-## Originality
+The recursive root/component decomposition enumerates each rooted elimination tree exactly once. The seven proper descendant tubes characterize maximal tubings, while deleting one tube leaves a ridge with two completions; their pair constitutes exactly one allowed single flip. A separate parent–child rotation interpretation agrees with these moves in the source. For each graph the independent C++ audit built induced-component elimination trees, tubes, ridge-pair adjacency, tested all 8!=40,320 candidate label permutations to get full automorphism groups, enumerated every orbit, and ran breadth-first search from each orbit representative across all states. It reconstructed Q3 16,752 states, 58,632 edges, 48 base automorphisms, 355 state-orbits (343×48+12×24), and M8 17,568 states, 61,488 edges, 16 automorphisms, 1,098 state-orbits; eccentricity distributions Q3 {17:1368,18:8280,19:6336,20:768}, M8 {17:976,18:5536,19:10800,20:256}, and all twenty pair distances matched the frozen theorem. Orbit multiplicity and division of ordered pair counts by two ensure entire distance distributions, not samples; connected BFS reaches all states. This is a genuinely exhaustive finite proof of the two specified graphs, not numerical extrapolation to other graphs.
 
-PASS with residual risk. The inspected original general treatment [1] defines the relevant graphs, provides monotone/general diameter bounds, and discusses Hamiltonicity, but not the exact radius, diameter, eccentricity or pair-distance distributions for the cube and Wagner inputs. Later complexity results [2,3] neither state nor imply the two finite metric enumerations. The closest public exact eccentricity record [4] treats a balanced complete bipartite base graph rather than either cubic graph. Both named graphs and the full numeric claim were searched under tubing, elimination-tree, rotation-distance and graph-associahedron terminology. No covering statement or table was found in checked sources. Unindexed computations or inaccessible material remain possible.
+## originality
 
-## Value
+PASS
 
-PASS. The graph associahedron is a natural reconfiguration system, and shortest rotations are its fundamental metric. Two canonical eight-vertex cubic examples have identical radius and diameter but different, completely determined antipodal and distance profiles. In particular, all sixteen symmetry orbits of diameter-eccentric states persist in both systems, while their total populations differ by a factor of three. This gives complete finite benchmarks for comparing graph-structured rotations, not merely an isolated numerical bound.
+Identifying the rotation graph with the one-skeleton of a graph associahedron permits direct comparison with general diameter bounds, hardness and FPT distance-computation results. None of the inspected graph-associahedron primary theorems supplies both exact Q3/M8 eccentricity histograms or all-pair distance distributions. A relevant published finite record determines the metric of K4,4 (29,616 states, diameter 22) rather than Q3 or M8; equal vertex count does not imply a metric reduction. The exact two-graph comparison appears original to best of knowledge, while an unindexed small graph-associahedron metric census remains a priority risk.
 
-## Scope and references
+## value
 
-The conclusions concern only the two specified labeled eight-vertex base graphs and the single-rotation metric. No infinite-family extension is established. Originality is assessed against accessible literature and research records, not guaranteed universally. Sources: [1] Manneville–Pilaud, arXiv:1409.8114; [2] Ito et al., arXiv:2304.14782; [3] Cunha et al., arXiv:2504.18338; [4] published balanced-\(K_{4,4}\) graph-associahedron eccentricity record.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Q3 and M8 are canonical contrasting connected cubic graphs of order eight. Their rotation graphs attain the same radius/diameter yet sharply different antipodal multiplicities and complete distance distributions. This isolates a natural limitation of diameter alone as a descriptor of graph-associahedron geometry, provides reproducible complete finite metric data, and supplies test cases for more general rotation-distance algorithms and heuristics. A finite census can be valuable on these canonical inputs without a general theorem.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
