@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The generating function coefficient identity is exact. The half-integral binomial coefficients are \(3\)-integral by an integer Catalan-number identity, so all terms with power \((-3)^j\) for \(j\ge k\) vanish modulo \(3^k\). For \(1\le j<k\), Kummer's carry formula and explicit base-\(3\) digit analysis establish the needed lower bound on \(\nu_3(C_{3^k-j-2})\). The remaining term is evaluated by an exact Catalan–central-binomial identity and Lucas's theorem. Thus the congruence and exact valuation hold for every \(k\ge2\); finite recurrence calculations are only corroboration.
+PASS
 
-## Originality — PASS, with residual literature risk
+For N=3^k, k≥2, the exact generating function gives M_(N−3)=−(1/2)[x^(N−1)]sqrt((1+x)(1−3x)). The binomial identity binom(1/2,t)=(-1)^(t−1)2C_(t−1)/4^t makes all j≥k terms 3-adically zero. For 1≤j<k, setting s=N−j−2, Kummer carry formula gives ν3(C_s)=carries_3(s+s)−ν3(s+1)≥k−j. This is established by explicit ternary digits at j=1,2,3 and for j≥4 by selecting r with 3^(r−1)<j+2≤3^r, obtaining at least k−r carries and ν3(j+1)≤r−1, with 2r≤j. Thus only j=0 remains. The exact Catalan identity C_(N−2)=N binom(2N,N)/[4(2N−1)(2N−3)], Lucas binom(2N,N)≡2 mod3, and 3/(2N−3)≡−1 mod3 yield C_(N−2)/4^(N−1) ≡−3^(k−1) mod3^k. The coefficient is exactly nonzero mod3^k, so ν3(M_(3^k−3))=k−1. Boundary k=2 works; no claim about all indices or 3-regularity. Independent private integer recurrence checked k=2..7 (n=6,24,78,240,726,2184), with residues 6,18,54,162,486,1458; independent ternary carry inequality checked 66 instances through k=12. Such finite tests corroborate the unrestricted proof, not replace it.
 
-The closest direct source, Rowland–Yassawi Open Question 3.15, asks for unboundedness of these very valuations. Their paper does not supply this prime-power congruence. Krattenthaler–Müller's fixed-modulus Motzkin formulas do not directly imply the simultaneous variable-modulus valuations, and Kohen's prime-modulus symmetry also does not cover the claim. The available database and public literature searches found no exact or stronger implication, but cannot exclude an unindexed later proof.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The result resolves the unboundedness part of an explicitly published number-theoretic question, with an exact valuation on the natural ternary-radix subsequence \(3^k-3\). The proof exhibits a structural relation between Motzkin coefficients, Catalan carry counts and a surviving central-binomial term. The separate regularity question remains open in this work.
+Best-of-knowledge originality: direct published 2015 Motzkin unboundedness question and three closely matching full primary texts were compared by implication and hypotheses. Fixed-modulus algorithms, prime-only symmetry and generalized-Motzkin b≠±1 results do not assert/immediately imply this all-k congruence; no exact table or indexed duplicate identified. Explicitly preserve unindexed-later-work and reducibility risks.
 
-## Closest literature and limitations
+## value
 
-Rowland and Yassawi, *J. Théor. Nombres Bordeaux* 27 (2015), Section 3.3, Question 3.15. Krattenthaler and Müller, arXiv:1308.2856, Section 7; Kohen, *Integers* 26 (2026), A22; OEIS A393215. Literature searches do not prove global novelty. No independent mathematical audit has been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The ordinary Motzkin sequence is a canonical combinatorial/arithmetic object. The exact nonzero residue and growing valuation on natural ternary indices 3^k−3 resolves the unboundedness half of a named published open question, not merely a finite check or routine renamed example. The precise valuation k−1 is useful for prime-power congruences and distinguishes the unanswered regularity question; the proof adds a concrete structural Catalan carry mechanism.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

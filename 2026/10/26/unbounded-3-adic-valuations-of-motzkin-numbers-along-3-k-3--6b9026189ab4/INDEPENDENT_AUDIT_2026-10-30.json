@@ -1,0 +1,165 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:09:24Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen source RESULT.md, proof equations (1)–(7), Git blob 881e6d62bed216b3e13f6928f5d976a988047abd",
+        "Standalone verifier verify_motzkin.py, Git blob be6056f54023f050880d1c7a1f7297c0577d3e79",
+        "Independent exact integer recurrence and independent ternary-carry bound calculation 2026-10-30 UTC"
+      ],
+      "rationale": "For N=3^k, k≥2, the exact generating function gives M_(N−3)=−(1/2)[x^(N−1)]sqrt((1+x)(1−3x)). The binomial identity binom(1/2,t)=(-1)^(t−1)2C_(t−1)/4^t makes all j≥k terms 3-adically zero. For 1≤j<k, setting s=N−j−2, Kummer carry formula gives ν3(C_s)=carries_3(s+s)−ν3(s+1)≥k−j. This is established by explicit ternary digits at j=1,2,3 and for j≥4 by selecting r with 3^(r−1)<j+2≤3^r, obtaining at least k−r carries and ν3(j+1)≤r−1, with 2r≤j. Thus only j=0 remains. The exact Catalan identity C_(N−2)=N binom(2N,N)/[4(2N−1)(2N−3)], Lucas binom(2N,N)≡2 mod3, and 3/(2N−3)≡−1 mod3 yield C_(N−2)/4^(N−1) ≡−3^(k−1) mod3^k. The coefficient is exactly nonzero mod3^k, so ν3(M_(3^k−3))=k−1. Boundary k=2 works; no claim about all indices or 3-regularity. Independent private integer recurrence checked k=2..7 (n=6,24,78,240,726,2184), with residues 6,18,54,162,486,1458; independent ternary carry inequality checked 66 instances through k=12. Such finite tests corroborate the unrestricted proof, not replace it.",
+      "residual_risks": [
+        "The unboundedness proof is exact on n=3^k−3, not a formula for arbitrary n or a proof of 3-regularity.",
+        "The Kummer/Lucas normalization is crucial; finite calculations are not unrestricted formal certification."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Krattenthaler–Müller Section 7 determines residues by a constructive method for each fixed 3-power modulus; no inspected all-k exact growing-modulus congruence at 3^k−3.",
+          "Kohen Theorem 5 is modulo a prime p>3, not modulo 3^k for k≥2.",
+          "Mikić generalized-Motzkin theorem concerns weighted M_n(a,b) subject to b≠0,±1, whereas ordinary Motzkin numbers correspond to a=b=1 and violate the stated hypothesis."
+        ],
+        "reasoning": "General automatic-congruence machinery is relevant but its theorem statements do not subsume the exact simultaneous index and modulus assertion. The newer generalized divisibility theorem must not be substituted at b=1 outside its hypothesis; neither prime-only symmetry nor fixed-modulus algorithms state the target.",
+        "searches": [
+          "Krattenthaler–Müller arXiv:1308.2856 §7 Theorem 19 fixed mod 3^(3^alpha) Motzkin",
+          "Kohen arXiv:2411.03681 Theorem 5 prime-modulus Motzkin symmetry",
+          "Jovan Mikić arXiv:2311.14623 Theorem 9 generalized Motzkin valuations hypotheses gcd(a,b)=1, b not ±1"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:1310.8635 §3.3 question 3.15 (complete HTML inspected)",
+        "arXiv:1308.2856 §7 Theorem 19 (complete HTML inspected)",
+        "arXiv:2411.03681 Theorem 5 (complete HTML inspected)",
+        "arXiv:2311.14623 Theorem 9 (complete HTML inspected)",
+        "OEIS A393215 definition",
+        "Resultary two Motzkin search queries 2026-10-30, top eight inspected for each",
+        "Frozen source RESULT.md / REVIEW.md / AUDIT.json / verify_motzkin.py at supplied Git tree"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The exact valuation k−1 implies the previously open unboundedness statement as k→∞, but the converse is strictly weaker.",
+          "A method for computing M_n mod 3^r at each fixed r does not by itself state the claimed uniform formula for n=3^r−3.",
+          "Generalized-Motzkin valuation theorem excludes the ordinary case b=1; prime-modulus results cannot be evaluated at p=3^k."
+        ],
+        "reasoning": "The target is a genuine strengthening of a published unboundedness question, not an immediate corollary of the specific inspected older theorems. Residual risk remains that an unindexed later derivation uses the older general tools to obtain precisely this congruence.",
+        "searches": [
+          "Rowland–Yassawi arXiv:1310.8635 Open Question 3.15",
+          "Krattenthaler–Müller arXiv:1308.2856 §7 and Theorem 19",
+          "Kohen arXiv:2411.03681 prime p theorem",
+          "Mikić arXiv:2311.14623 Theorem 9"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Rowland–Yassawi (2015) Open Question 3.15 explicitly asks if nu_3(M_n) is unbounded; target proves the much sharper M_(3^k−3) ≡ −3^(k−1) (mod 3^k).",
+          "Resultary exact-subsequence semantic search returned arithmetic and other unrelated records rather than a Motzkin congruence (e.g. ID 2026/10/4/SCOPE-exact-small-prime-valuations-in-the-proposed-deficiency-one-cons--b1c9c7629241)."
+        ],
+        "reasoning": "Natural equivalent formulations are exact nonzero residue mod 3^k on 3^k−3, and exact valuations k−1 on that subsequence. Rowland–Yassawi asks only the consequence of unboundedness and supplies no equivalent subsequence formula. Inaccurate to treat a generic fixed-modulus automaton as this varying-k identity.",
+        "searches": [
+          "\"Motzkin numbers\" \"3-adic valuations\" \"unbounded\"",
+          "\"Motzkin\" \"3^k-3\" congruence",
+          "\"Motzkin numbers M_(3^k-3) exact 3-adic valuation k-1 all k and unboundedness\" Resultary indexed finding search 2026-10-30",
+          "Rowland–Yassawi, Automatic congruences for diagonals of rational functions, arXiv:1310.8635 §3.3"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "OEIS A393215 lists odd composite m satisfying M_(m−3) ≡ (−3)^((m−3)/2) (mod m), a different residue condition; it is not a table asserting ν_3(M_(3^k−3))=k−1.",
+          "Resultary small-prime and Domb-congruence related ranked findings had different sequences and did not supply a matching database of Motzkin valuations."
+        ],
+        "reasoning": "Neither the inspected database entry nor indexed scientific-claim results give an exact table or closed formula for these variable-index Motzkin valuations. Absence of a search match alone is not proof of historical novelty.",
+        "searches": [
+          "OEIS A393215 Motzkin composite m congruence M_(m−3)",
+          "OEIS Motzkin M_(3^k−3) v_3 k−1",
+          "Resultary \"Motzkin sequence residue mod powers of three Catalan carry Kummer 3-adic\" 2026-10-30"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality: direct published 2015 Motzkin unboundedness question and three closely matching full primary texts were compared by implication and hypotheses. Fixed-modulus algorithms, prime-only symmetry and generalized-Motzkin b≠±1 results do not assert/immediately imply this all-k congruence; no exact table or indexed duplicate identified. Explicitly preserve unindexed-later-work and reducibility risks.",
+      "residual_risks": [
+        "A later nonindexed solution of Rowland–Yassawi Question 3.15 may include the same explicit subsequence congruence.",
+        "Algorithmic fixed-modulus descriptions could permit a further nontrivial derivation of this formula; theorem statements inspected do not provide it.",
+        "Database and semantic searches are not exhaustive mathematical priority certification."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING exact subsequence formula; question predates asserted resolution.",
+          "evidence": [
+            "§3.3, Open Question 3.15: asks if 3-adic valuations of Motzkin numbers are unbounded and if the sequence is 3-regular."
+          ],
+          "identifier_or_url": "arXiv:1310.8635; doi:10.5802/jtnb.901; https://arxiv.org/abs/1310.8635",
+          "material_read": "Accessible complete primary arXiv HTML; abstract, Motzkin §3.2, valuations §3.3 including question and nearby theorem inspected.",
+          "method": "Compared printed quantifiers (unboundedness vs exact residue) and equations.",
+          "title": "Automatic congruences for diagonals of rational functions",
+          "trigger": "Precisely the same Motzkin 3-adic sequence and explicitly named Open Question 3.15."
+        },
+        {
+          "assessment": "DOES_NOT_IMMEDIATELY_IMPLY uniform formula; residual possibility of algorithmic specialization.",
+          "evidence": [
+            "§7 Theorem 19 and its modulus 3^(3^alpha) construction; no all-k M_(3^k−3) exact valuation displayed."
+          ],
+          "identifier_or_url": "arXiv:1308.2856; https://arxiv.org/abs/1308.2856",
+          "material_read": "Full available HTML, §7 Motzkin specializations and Theorem 19 plus fixed-modulus method read.",
+          "method": "Compared fixed modulus parameter in source with index and modulus both varying with k in target.",
+          "title": "A method for determining the mod-3^k behaviour of recursive sequences",
+          "trigger": "Potential stronger prime-power congruence technology on exactly the Motzkin sequence."
+        },
+        {
+          "assessment": "NOT_COVERING; nontransferable substitution p=3^k for k>1.",
+          "evidence": [
+            "Theorem 5, p prime, modular symmetry."
+          ],
+          "identifier_or_url": "arXiv:2411.03681; https://arxiv.org/abs/2411.03681",
+          "material_read": "Accessible full arXiv HTML, main Theorem 5 and prime-modulus hypotheses read.",
+          "method": "Checked that p is a prime >3 and congruences are mod p, not mod prime powers.",
+          "title": "Density and symmetry in the generalized Motzkin numbers modulo p",
+          "trigger": "Recent Motzkin congruence involving indices near the prime."
+        },
+        {
+          "assessment": "INAPPLICABLE to ordinary Motzkin numbers under stated b≠0,±1 hypothesis.",
+          "evidence": [
+            "Theorem 9 requires b≠0,±1, while ordinary M_n corresponds to b=1."
+          ],
+          "identifier_or_url": "arXiv:2311.14623; https://arxiv.org/abs/2311.14623",
+          "material_read": "Full available arXiv HTML; generalized Motzkin definition and Theorem 9 including the arithmetic assumptions inspected.",
+          "method": "Specialized the weighted M_n(a,b) definition at a=b=1 and checked source excludes b=1.",
+          "title": "On new divisibility properties of generalized central trinomial coefficients and Legendre polynomials",
+          "trigger": "Plausible later broad generalized-Motzkin divisibility theorem."
+        },
+        {
+          "assessment": "NOT_COVERING; right-hand side and statement differ from exact −3^(k−1) mod 3^k.",
+          "evidence": [
+            "OEIS A393215 definition: M_(m−3) ≡ (−3)^((m−3)/2) (mod m) for odd composite m."
+          ],
+          "identifier_or_url": "https://oeis.org/A393215",
+          "material_read": "Sequence definition and congruence condition examined.",
+          "method": "Compared modulus, exponent on −3, and membership condition.",
+          "title": "OEIS A393215: odd composite Motzkin congruence",
+          "trigger": "Database alias potentially encoding exactly the residue at m=3^k."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Rowland–Yassawi (2015), Open Question 3.15",
+        "Actual generated-series and carry proof in frozen RESULT.md",
+        "Independent exact recurrence/carry corroboration"
+      ],
+      "rationale": "The ordinary Motzkin sequence is a canonical combinatorial/arithmetic object. The exact nonzero residue and growing valuation on natural ternary indices 3^k−3 resolves the unboundedness half of a named published open question, not merely a finite check or routine renamed example. The precise valuation k−1 is useful for prime-power congruences and distinguishes the unanswered regularity question; the proof adds a concrete structural Catalan carry mechanism.",
+      "residual_risks": [
+        "It settles only unboundedness, not 3-regularity or the general valuation sequence."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Scientific PASS is an evidence-based mathematical judgment, not external publication/attestation, historical novelty guarantee, or formal verification.",
+    "All public-facing package files were semantically examined; private operational identifiers and inherited first-publication source dates in METADATA.json/AUDIT.json block publication.",
+    "Original frozen code and source scientific files remain unchanged; finite computations are corroboration only."
+  ],
+  "schema_version": 1
+}
