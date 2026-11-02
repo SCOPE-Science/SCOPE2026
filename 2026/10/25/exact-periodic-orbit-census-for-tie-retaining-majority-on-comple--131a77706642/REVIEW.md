@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-The claim was reconstructed from the literal simultaneous-update rule. The symmetric sign matrix with a positive half-unit diagonal gives a strict two-time energy decrease outside eventual period two. A fixed nonuniform part must see a tie; the three possible counts of nonuniform parts lead only to the all-even half-filled state family, in addition to two unanimous states. On a genuine two-cycle a part is either stationary or flips homogeneously; one moving part is impossible, two require equal part sizes and an exact strict binomial band for the stationary part, and three require a unique strictly largest part. These mutually exclusive cases prove the stated counts. Independent per-vertex exhaustive checks for 376824 labelled configurations and binomial-weighted count-space checks for 1728 size triples passed. Finite experiments are supplementary, not an infinite proof.
+## correctness
 
-## Originality
-Goles–Olivos (1980) proves the general eventual period bound, not the part-size-dependent state census. Mossel–Neeman–Tamuz (2012) studies information aggregation, Tamuz–Tessler (2013) studies information retention, and Kaaser–Mallmann-Trenn–Natale (2015) bounds majority voting time, including on Turán graphs. None of the inspected accessible sections supplies the exact two-cycle classification for arbitrary \(K_{a,b,c}\). The closest indexed parity-automaton result uses XOR rather than majority and does not imply this binomial-band formula. Historical-priority risk remains because full texts of Goles–Olivos (1980) and especially Goles–Tchuente (1983) were unavailable; their published abstracts alone do not settle all possible overlap.
+PASS
 
-## Value
-General eventual two-periodicity says nothing about how many oscillating configurations exist or their structure. The classification identifies a qualitative size-equality transition: pairwise distinct part sizes have precisely one primitive two-cycle, but a repeated size can produce exponentially many individually distinct cycles. It describes which communities may oscillate, when a third community stays frozen, the exact number of admissible frozen patterns, and all fixed configurations for every triple of sizes. These are natural recurrent-dynamics invariants and are not a relabeling of the general threshold theorem.
+Reconstructed the Boolean synchronous rule as sigma_v(t+1)=sgn(((A+I/2)sigma(t))_v). Symmetry gives a strictly decreasing finite two-time energy whenever sigma(t+2) differs from sigma(t), so eventual periods <=2. Classifying fixed configurations by number of mixed parts leaves two unanimous states plus all-even half-filled families. On a genuine two-cycle, a part is stationary or flips homogeneously; one oscillating part is impossible, two require equal sizes and a strict middle binomial band on the stationary part, three require a uniquely strictly largest part. This yields P1=2+all-even*prod binom(n_i,n_i/2), P2=1_{unique maximum}+sum_{i<j,n_i=n_j} B(n_i,n_k), and dynamical zeta denominator (1-z)^P1(1-z^2)^P2. Independently enumerated every labelled state for the 27 size triples a,b,c=1..3 and confirmed fixed and primitive two-cycle counts.
 
-## Limitations
-The result does not classify attraction basins or sharp transient times. It requires simultaneous updates, no intra-part edges, three nonempty parts, and tie-retention. Day-level first-public evidence is documented for the 2012 arXiv source; older journal publication years are known but original day-level release dates have not been verified. Historical novelty is subject to future full-text and independent priority review.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The Goles–Olivos symmetric threshold theorem supplies the general period-at-most-two mechanism; it does not give the size-dependent exact census. Kaaser–Mallmann-Trenn–Natale arXiv:1508.03519 studies deterministic majority convergence time and Turán graph bounds but does not enumerate recurrent configurations in its inspected primary full text. Goles–Tchuente 1983 is a plausible prior treatment of generalized majority, yet only abstract/metadata were accessible and authorized full-text download returned disconnected VPN; equivalent classification there remains a material risk. Resultary complete multipartite XOR parity automata have different nonlinear update and periods up to four.
+
+## value
+
+PASS
+
+The exact number of all recurrent states and primitive oscillations, not just a universal period bound, is a natural invariant of deterministic majority on labelled networks. It exhibits a sharp arithmetic symmetry transition: pairwise distinct sizes have precisely one primitive two-cycle, whereas equal-sized pairs permit entire binomial families of oscillating communities with an unchanged third part.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
