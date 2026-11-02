@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,12 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of signed-star reachable-colouring theorem
 
-The included `verify.py` requires only Python 3 standard-library modules. Run it alongside this document with `python3 verify.py`. It starts with an all-unburned signed star and independently enumerates every admissible synchronous spread-then-ignition continuation, with signs on the centre-to-leaf edges and \(\pm1\) burned colours. States are deduplicated only after explicit simulation; the proof formulas are evaluated separately.
+# Independent mathematical audit
 
-The successful evaluation covered each of the \(2^n\) signings for every \(1\le n\le7\), totaling \(254\) signed stars. For each signing, the program compared all reachable configurations literally against the one-reversed-leaf classification, compared complete yellow-count distributions with the claimed generating polynomial, and checked the plurality number. It separately computed the Hamming covering radius of the all-positive reachable code by enumerating all target words, and compared the minimum plurality over all signings with the radius identity.
+## correctness
 
-The respective covering radii for \(n=1,2,3,4,5,6,7\) were \(1,1,1,1,2,2,3\), and the minimum pluralities over all signings were \(1,2,3,4,4,5,5\). The verifier concluded `VERIFY_OK` without discrepancies.
+PASS
 
-**Limit:** The program is an exhaustive check over those finite orders, not a proof for unrestricted \(n\). The general result is established by the centre/leaf first-ignition dichotomy and the exact target-word Hamming-distance maximization in `RESULT.md`. No independent external review has been carried out.
+If center is ignited first, all leaves spread in the next round with color a*s_i, giving exactly the canonical coloring. If a leaf ignites first, the center spreads in round 2 with a=s_i*b, while every other leaf still lacks a burned neighbor at that round start; the optional ignition can choose at most one second leaf with arbitrary color. In round 3 all remaining leaves are forced canonical. For n>=2 each desired flipped leaf is reachable by first igniting a different leaf. Hence center color and flipped index uniquely encode 2(n+1) colorings. Counting yellow leaves gives z^(p+1)(1+p/z+qz)+z^q(1+q/z+pz), and maximize exponents for Y. For positive signing a target disagreeing with its center on k leaves is distance max(k-1,0) from same-center code, or 1+max(n-k-1,0) from opposite-center code; maximizing minimum over k gives max(1,floor((n-1)/2)). Switching on trees transports signed processes and converts worst-signing plurality to n+1-covering_radius. n=1 has only two configurations. Independent simulator exhausted all 2^n signings for n=1..7, comparing literal reachable sets and counts. This finite check corroborates the complete first-ignition dichotomy.
+
+## originality
+
+PASS
+
+Full text of the directly relevant founding signed-burning paper distinguishes the previously studied paths and general switching theorem from the new explicit star-specific reachability and yellow-count classification.
+
+## value
+
+PASS
+
+Signed stars are the first branching tree family beyond the signed paths analyzed in the motivating primary paper. The result classifies every final coloring for every signing, computes its full distinct-color weight enumerator and covering radius, and identifies a sharp worst-signing plurality—natural coding and dynamic invariants across all n, rather than a routine n=3 sample.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

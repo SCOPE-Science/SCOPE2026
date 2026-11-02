@@ -1,0 +1,127 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T15:48:29Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Git RESULT.md blob 7868edb9b5c5fff13bcfd72b5fe512d5009bf6d1",
+        "Fallat et al Burning Signed Graphs Definition 2.1; Proposition 2.9",
+        "independent_checks.py direct spread-then-ignite simulation"
+      ],
+      "rationale": "If center is ignited first, all leaves spread in the next round with color a*s_i, giving exactly the canonical coloring. If a leaf ignites first, the center spreads in round 2 with a=s_i*b, while every other leaf still lacks a burned neighbor at that round start; the optional ignition can choose at most one second leaf with arbitrary color. In round 3 all remaining leaves are forced canonical. For n>=2 each desired flipped leaf is reachable by first igniting a different leaf. Hence center color and flipped index uniquely encode 2(n+1) colorings. Counting yellow leaves gives z^(p+1)(1+p/z+qz)+z^q(1+q/z+pz), and maximize exponents for Y. For positive signing a target disagreeing with its center on k leaves is distance max(k-1,0) from same-center code, or 1+max(n-k-1,0) from opposite-center code; maximizing minimum over k gives max(1,floor((n-1)/2)). Switching on trees transports signed processes and converts worst-signing plurality to n+1-covering_radius. n=1 has only two configurations. Independent simulator exhausted all 2^n signings for n=1..7, comparing literal reachable sets and counts. This finite check corroborates the complete first-ignition dichotomy.",
+      "residual_risks": [
+        "Exact state ordering spreading before ignition is essential; no claim for arbitrary trees, different burning variants, or histories counted with multiplicity."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ordinary graph-burning surveys optimize burning-time, not signed immutable final-color configurations.",
+          "Two-player burning game changes ignition control; neither includes the signed reachability code being classified."
+        ],
+        "reasoning": "Standard unsigned/star burning time does not logically imply signed final color distribution or signed plurality. Published signed-burning work supplies a generic identity but the necessary code radius must be computed separately.",
+        "searches": [
+          "signed graph burning star reachable colourings plurality number covering radius",
+          "graph burning unsigned star burning number",
+          "two player burning game signed star colors"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.02506",
+        "DOI:10.55016/ojs/cdm.v16i1.71194",
+        "arXiv:2409.11328",
+        "Resultary semantic search signed graph burning star reachable colorings"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "General switching-equivalence says min plurality = order minus code covering radius, without determining the code of the positive star.",
+          "Path formulas have different branching topology and cannot be applied to the star with center degree n>=3."
+        ],
+        "reasoning": "Once the complete star code is independently found, the final worst-signing formula follows from the known switching theorem; only that consequence is not separately new.",
+        "searches": [
+          "arXiv:2610.02506 Proposition 2.9 Remark 2.10 switching covering-radius relationship",
+          "arXiv:2610.02506 Section 3 path exact results",
+          "signed graph burning star reachable colourings plurality number covering radius"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Fallat et al arXiv:2610.02506 Definition 2.1 fixes this exact process, Proposition 2.9 gives general switching/covering identity and Section 3 handles signed paths.",
+          "No explicit all-signed-star reachable-set characterization or weight-enumerator theorem in fully inspected primary text."
+        ],
+        "reasoning": "The star theorem requires a new case split for the center/leaf burn order; the general definitions and the covering-radius correspondence do not alone establish the first-branching-tree reachable-code shape.",
+        "searches": [
+          "signed graph burning star reachable colourings plurality number covering radius",
+          "Fallat Gupta Khodamoradi Zilles Burning Signed Graphs 2026 reachable colorings plurality star",
+          "signed tree star burning covering code"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary semantic query yielded cover-free, ordinary burning and chromatic records, no direct signed-star reachable-color table.",
+          "The independent finite values 254 signings across n<=7 are not themselves the theorem; the proof gives all n and full polynomial."
+        ],
+        "reasoning": "The assessed fact is an infinite labeled signed-star classification, not a named graph scalar in an existing table; search absence is not proof of novelty.",
+        "searches": [
+          "signed graph burning star reachable colourings plurality number covering radius",
+          "Resultary signed burning plurality star code",
+          "signed graph burning reachable-color enumerator star"
+        ]
+      },
+      "rationale": "Full text of the directly relevant founding signed-burning paper distinguishes the previously studied paths and general switching theorem from the new explicit star-specific reachability and yellow-count classification.",
+      "residual_risks": [
+        "A signed-star exact classification could have appeared in an unindexed earlier result or appendix; database nonmatching is not affirmative priority proof.",
+        "General switching correspondence and definition are explicitly prior work."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "FOUNDATION_NOT_FULL_COVERAGE",
+          "evidence": "General switching relation and signed paths appear; the signed star complete reachable-code and polynomial are not stated in inspected manuscript.",
+          "identifier_or_url": "arXiv:2610.02506",
+          "material_read": "Full lawfully accessible HTML manuscript including Definition 2.1, Proposition 2.9, Sections 3 and 5 and research directions",
+          "method": "Full HTML text with theorem/section inspection",
+          "title": "Burning Signed Graphs",
+          "trigger": "Same exact model, parameters and motivating open signed-tree families"
+        },
+        {
+          "assessment": "DIFFERENT_PARAMETER",
+          "evidence": "Time to burn a graph is not an enumerator of final signed colors.",
+          "identifier_or_url": "DOI:10.55016/ojs/cdm.v16i1.71194",
+          "material_read": "Indexed abstract and paper scope, not material review of entire document",
+          "method": "Publisher indexed abstract",
+          "title": "A survey of graph burning",
+          "trigger": "Potential stronger star graph-burning result"
+        },
+        {
+          "assessment": "DIFFERENT_MODEL",
+          "evidence": "Two-player control differs from the specified one-player, signed spread-before-ignition process.",
+          "identifier_or_url": "arXiv:2409.11328",
+          "material_read": "Indexed abstract/model description",
+          "method": "ArXiv abstract",
+          "title": "Burning game",
+          "trigger": "Adversarial or two-player variant possible alias"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Fallat et al arXiv:2610.02506 Section 5 signed-tree research directions",
+        "Git RESULT.md full star classification"
+      ],
+      "rationale": "Signed stars are the first branching tree family beyond the signed paths analyzed in the motivating primary paper. The result classifies every final coloring for every signing, computes its full distinct-color weight enumerator and covering radius, and identifies a sharp worst-signing plurality—natural coding and dynamic invariants across all n, rather than a routine n=3 sample.",
+      "residual_risks": [
+        "Does not extend to nonstars, multiple ignition variants, or a classification of process histories."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "Under synchronous spreading before optional ignition in the two-colour signed-burning process, the full reachable final-colour code for every signed star is exactly a center-dictated spoke pattern with at most one flipped leaf (n>=2), yielding size 2(n+1), exact yellow-weight enumerator, plurality, covering radius for the positive star and worst-signing plurality; n=1 is separately handled.",
+  "limitations": [
+    "One-player two-color synchronous spreading-before-ignition process with immutable burned colors.",
+    "n=1 separately special; codebooks count final configurations not burning sequences."
+  ],
+  "schema_version": 1
+}
