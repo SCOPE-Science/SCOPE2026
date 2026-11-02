@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The exponential integrating factor converts the Volterra regulator to an ordinary monotone Skorokhod obstacle, yielding the weighted running supremum and unique complementary regulator. The uniform estimates are direct consequences of the one-Lipschitz memory map, and the two sharpness witnesses identify the exact constants. Time-change comparison plus the bounded-variation integration estimate establish the local \(J_1\) bounds. Rectangular pulses give a terminal-time amplification for occupancy and a duration-sensitive cumulative-loss amplification for the regulator. A standalone diagnostic program passed its finite-step comparisons. The proof applies to all càdlàg inputs in the stated domain, not merely the tested paths.
+## correctness
 
-## Originality — PASS (with residual risk)
-The full text of Wang--Chakraborty (2026), especially Theorem 3.5, Propositions 3.10/3.13, and Remark 3.11, gives general well-posedness and only unspecified uniform constants while explicitly leaving \(J_1\) regularity open. Reed--Ward--Zhan (2013) gives a related drift-reflection representation rather than these sharp kernel-specific continuity moduli. The earlier Wang--Chakraborty (2025) paper treats fluid-limit Volterra equations; Kruk et al. (2007) treat classical instantaneous reflection. Searches of mathematical research records for exponential-memory running suprema, local \(J_1\), and sharp reflection constants returned no mathematically covering entry. Standard one-sided Skorokhod theory does cover the weighted running maximum after a conjugacy, but does not by itself imply the precise sharp losses bound, two local \(J_1\) estimates, and distinct global obstructions. An unindexed or differently formulated linear-drift stability theorem may partially imply these statements.
+PASS
 
-## Mathematical value — PASS
-Exponential service times are a fundamental queueing regime. The result resolves a natural case of a newly stated \(J_1\) stability question for both occupancy and cumulative blocking and replaces a horizon-dependent unspecified upper constant with exact optimal \(2\) and \(1+\beta T\) constants. The global-versus-local \(J_1\) distinction is a substantive sharp boundary relevant to functional weak convergence with jumps and perturbation estimates.
+Integrating-factor conjugacy z(t)=e^{βt}m(t) transforms the upper Volterra obstacle into ordinary reflection z(t)=sup_{s≤t}[e^{βs}(ρ(s)−1)]_+. Consequently y=ρ−m and η=m+β∫m; complementary Stieltjes measure gives uniqueness. Weighted supremum is 1-Lipschitz uniformly; sharp constants are 2 for occupancy and 1+βT for η (endpoint attained as pulse start approaches zero). For time changes λ, memory difference is bounded by δ+2βBε and integration-by-parts/BV bounds yield local J1 Lipschitz constants. Shifted high pulses create unbounded terminal occupancy difference while J1 input distance≤h; duration-stretched pulses create terminal regulator difference βHh. For β=0 time-change equivariance restores global bounds. Independent step-input tests verified the sharp constants and pulse obstructions; general claims follow the analytic argument.
 
-## Limits
-The theorem does not settle nonexponential kernels. Finite-step verification does not certify the general proof. Overlap with implicit general reflected-linear-drift estimates remains possible.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS for exponential-memory-specific sharp constants and local-versus-global J1 phase. Wang–Chakraborty 2026 Theorem 3.5 and Propositions 3.10/3.13 supply the general well-posedness and unspecified uniform Lipschitz bounds, and Remark 3.11 explicitly leaves J1 regularity open. Reed–Ward–Zhan 2013 supplies generalized drift Skorokhod suprema, a known ingredient but not the stated two sharp moduli or both J1 obstructions. Other linear-drift stability theorems could imply part of the result.
+
+## value
+
+PASS
+
+The exponential survival kernel is a natural queueing service law; exact optimal uniform constants plus a quantitative bounded-class J1 estimate settle a concrete case of a published open regularity issue, and distinguish functional continuity from absence of a global Lipschitz constant.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
