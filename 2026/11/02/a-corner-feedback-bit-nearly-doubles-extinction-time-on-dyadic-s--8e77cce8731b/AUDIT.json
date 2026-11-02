@@ -1,0 +1,138 @@
+{
+  "correctness": {
+    "evidence": "RESULT.md proof, corner_grid_verify.py, verification_output.txt",
+    "rationale": "Explicit Frobenius and primitive-vector decomposition yields N=J_L^(L-2)+J_1. Diagonal-walk coordinate involution proves vanishing positive return moments; resolvent identity and independent corner Krylov vectors yield rank B^t formulas for all t. The rank sequence uniquely determines B=J_1(1)+J_(2L-1)(0)+J_L(0)^(L-4)+J_1(0). The nilpotent block and invertible fixed component give exact first-entry counts and sharp extremal probability. Standalone verifier checked independent matrix ranks at L=4,8,16,32 and exhaustive L=4 3x3 state transitions.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Barua–Ramakrishnan (1996) Theorem 4.4 covers dyadic unperturbed null-boundary kernel ranks, not inhomogeneous one-site feedback.",
+        "Choudhury et al. arxiv:0804.2346 full PDF studies two-dimensional update images, not this exact Jordan partition."
+      ],
+      "reasoning": "General tensor-sum Jordan literature addresses N, while a local perturbation B is not a Kronecker sum; its rank formula is not a direct corollary.",
+      "searches": [
+        "Nilpotent linear cellular automata on square grids with null boundary conditions transient length power two minus one",
+        "Cartesian square finite graph GF(2) adjacency rank one diagonal loop feedback Jordan blocks nilpotent index double transient grid P_(2^a-1) product",
+        "linear binary cellular automaton open square grid corner self loop defect transient time doubles 2^(a+1)-1 Jordan partitions"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:1609.09572",
+      "arxiv:0804.2346",
+      "doi:10.1016/0304-3975(95)00091-7",
+      "doi:10.1016/j.ins.2003.09.024",
+      "doi:10.1080/03081080701395640",
+      "published-finding corpus 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Barua–Ramakrishnan doi:10.1016/0304-3975(95)00091-7 has unperturbed open grid results.",
+        "Chang–Akın arxiv:1609.09572 algorithms for homogeneous multidimensional cellular automata.",
+        "On Jordan bases for tensor product and Kronecker sum doi:10.1080/03081080701395640 abstract treats N, not B."
+      ],
+      "reasoning": "Prior homogeneous results determine the baseline N but do not specify the corner perturbation B, whose maximal Jordan length grows from L to 2L-1; new rank-one argument is necessary.",
+      "searches": [
+        "Two-dimensional additive cellular automata on finite rectangular grids open boundary GF(2) adjacency matrix transient Jordan blocks nilpotent path sizes power of two minus one",
+        "Cartesian square finite graph GF(2) adjacency rank one diagonal loop feedback Jordan blocks nilpotent index double transient grid P_(2^a-1) product",
+        "rank one perturbation of nilpotent Kronecker sum characteristic two one-site feedback corner graph"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Chang–Akın arxiv:1609.09572 full HTML: homogeneous block Toeplitz tensor-sum rule; not a rank-one single site update.",
+        "published-finding corpus 2026/10/11/SCOPE-a-mod-four-orbit-census-for-parity-automata-on-distance-two-bool--f288ef2fe8b4: distance-two Boolean cubes, not open square grids."
+      ],
+      "reasoning": "Equivalent boundary-defect/self-loop and Jordan first-entry aliases yielded no implication-equivalent public statement; no assertion that failed search proves uniqueness.",
+      "searches": [
+        "Two-dimensional additive cellular automata on finite rectangular grids open boundary GF(2) adjacency matrix transient Jordan blocks nilpotent path sizes power of two minus one",
+        "Jordan decomposition of Kronecker sum nilpotent Jordan blocks in characteristic 2 Green ring path graph adjacency two dimensional cellular automata"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "published-finding corpus returned related 2D parity rules but no one-corner square grid feedback at all dyadic dimensions.",
+        "Own ledger dedup search found hypercube one-site feedback, Rule90 ring defect, and toroidal uniform-grid, all with different local topology or boundary."
+      ],
+      "reasoning": "No identified whole-family table lists rank sequence or transition shell counts; absence of indexed table is not proof of absolute novelty.",
+      "searches": [
+        "linear binary cellular automaton open square grid corner self loop defect transient time doubles 2^(a+1)-1 Jordan partitions",
+        "square path grid P_(2^a-1) Jordan decomposition GF2 adjacency one loop fixed point nilpotent Jordan"
+      ]
+    },
+    "rationale": "The distinct object is a single corner feedback defect on a dyadic open square grid, not uniform null-boundary nearest-neighbor or all-site self-feedback. Inspected primary statements and published-finding corpus findings do not imply its inhomogeneous Jordan partition or first-entry law. One inaccessible 2004 source remains a risk.",
+    "residual_risks": [
+      "Dihidar–Choudhury 2004 full text unavailable, so a hidden old defect result could overlap.",
+      "Unindexed or unpublished prior equivalents remain possible.",
+      "No independent audit."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "BASELINE_COVERED_DEFECT_NOT_COVERED",
+        "evidence": [
+          "Theorems for uniform adjacency and all-site plus-self maps; rank-one single-corner feedback and its nilpotent filtration not stated."
+        ],
+        "identifier_or_url": "doi:10.1016/0304-3975(95)00091-7",
+        "material_read": "Full text HTML sections 3–5 including Theorem 4.4 and dyadic grid nullity",
+        "method": "Read full HTML and compare operators and theorem hypotheses",
+        "title": "σ-Game, σ+-Game and Two-Dimensional Additive Cellular Automata",
+        "trigger": "Directly treats binary null-boundary dyadic grids"
+      },
+      {
+        "assessment": "RELATED_NOT_IMPLYING",
+        "evidence": [
+          "General rule-image constructions but no fixed single-corner self-feedback Jordan distribution."
+        ],
+        "identifier_or_url": "arxiv:0804.2346",
+        "material_read": "Full 17-page PDF sections on rule matrices and images",
+        "method": "Read extracted PDF and visually inspect selected pages",
+        "title": "Two Dimensional Cellular Automata Linear Rules",
+        "trigger": "2D linear finite cellular automata with open boundaries"
+      },
+      {
+        "assessment": "HOMOGENEOUS_ONLY",
+        "evidence": [
+          "Global tensor-sum and homogeneous linear operator methods; not local site defect."
+        ],
+        "identifier_or_url": "arxiv:1609.09572",
+        "material_read": "Full HTML article including sections 3–5 and matrix algorithms",
+        "method": "Read full HTML mathematical derivations",
+        "title": "Reversibility Problem of Multidimensional Finite Cellular Automata",
+        "trigger": "Potential full-coverage theorem for finite multidimensional linear dynamics"
+      },
+      {
+        "assessment": "INACCESSIBLE_RESIDUAL_RISK",
+        "evidence": [
+          "Abstract lacks a precise implication to all-size rank-one corner Jordan count; not marked NOT_COVERING."
+        ],
+        "identifier_or_url": "doi:10.1016/j.ins.2003.09.024",
+        "material_read": "Abstract only; complete full text unavailable",
+        "method": "Open-access and arXiv searches unsuccessful; institutional retrieval returned access unavailable",
+        "title": "Matrix algebraic formulae concerning some exceptional rules of two-dimensional cellular automata",
+        "trigger": "Plausible older exceptional 2D rules and feedback"
+      },
+      {
+        "assessment": "UNPERTURBED_COMPARISON_ONLY",
+        "evidence": [
+          "Tensor/Kronecker sums are unperturbed N; B adds rank-one corner update."
+        ],
+        "identifier_or_url": "doi:10.1080/03081080701395640",
+        "material_read": "Abstract only",
+        "method": "Read abstract and assess mathematical operator domains",
+        "title": "On Jordan bases for the tensor product and Kronecker sum",
+        "trigger": "Could dominate unperturbed tensor Jordan calculation"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8e77cce8-731b-402d-9ab5-e77a981a9279",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Natural dyadic open-grid family admits exact all-height rank-one defect response: one corner feedback bit turns universal extinction into two fixed attractors, increases worst-case entry from L to 2L-1, and makes precisely half of all initial states terminal-time states. Full Jordan classification and transition census are structurally informative beyond an unperturbed routine computation.",
+    "status": "PASS"
+  }
+}
