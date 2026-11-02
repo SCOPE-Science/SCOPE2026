@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T02:01:53Z",
+  "axes": {
+    "correctness": {
+      "rationale": "At the equilateral family the softmax weights are p=e^(3β/2)/(e^(3β/2)+2) on self and q=1/(e^(3β/2)+2) on neighbors. Radial pre-normalized factor 1-hK>0, K=1-3q. Direct differentiating tangential softmax gives δt_i=q(2+3β)/4 Σ_{j != i}(δ_i-δ_j); shape derivative L=1+3q(3β-2)/4 and neutral rotation eigenvalue 1. The double transverse multiplier λ=(1-hL)/(1-hK) satisfies |λ|<1 iff h S(β)<2, S=K+L=2+9(β-2)/[4(e^(3β/2)+2)]. S has one maximum because its derivative sign is 2+(4-3β/2)e^(3β/2), with exactly one zero >2. This proves the unique sharp h_c and two flip-neutral β boundaries for h_c<h<1, without asserting nonlinear bifurcation at λ=-1. Twelve direct finite-difference perturbations of the full 3-token normalized map agree with the double eigenvalue at six β values and two h values.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Altafini 2026 abstract concerns consensus aligned with principal positive dominant value eigenvector; scalar negative value lies outside those hypotheses.",
+          "Gao et al 2026 abstract covers negative values and polygon flip instability; model differences reduce at linear level through a β-dependent effective step."
+        ],
+        "reasoning": "No accessible exact theorem was found claiming two changes of transverse stability at a fixed residual step for full three-token attention. The masked polygon theory is a significant related mechanism and may imply a corollary after reduction.",
+        "searches": [
+          "web: Asymptotic Analysis of Discrete-Time Self-Attention Dynamics Altafini arXiv 2610.13518",
+          "web: Nonequilibrium Phases of Repulsive Self-Attention Gao Yang Chen arXiv 2609.28448",
+          "Resultary: three-token equilateral repulsive self attention full softmax transverse stability sharpness reentrance"
+        ]
+      },
+      "checked_sources": [
+        "Altafini, Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers, arXiv:2610.13518v1 (2026-10-09)",
+        "Gao, Yang, Chen, Nonequilibrium Phases of Repulsive Self-Attention, arXiv:2609.28448v1 (2026-09-23)",
+        "Resultary query three-token equilateral repulsive self attention full softmax transverse stability sharpness reentrance"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "A regular-polygon flip mechanism is already prior in the negative-value literature.",
+          "At the equilateral state, including self attention leads to variable effective γ(h,β), and this can transport some masked linear spectrum, but the fixed-h nonmonotone sharpness law and exact maximizing β require a further calculus optimization."
+        ],
+        "reasoning": "Prior qualitative flip cannot be claimed novel; only the exact unmasked fixed-step reentrance and critical parameter optimization are assessed. A full comparative proof from Gao et al is unavailable, so a stronger implication remains a clear residual risk.",
+        "searches": [
+          "arXiv:2609.28448 full-paper access attempt",
+          "arXiv:2610.13518 full-paper access attempt",
+          "web: Nonequilibrium Phases of Repulsive Self-Attention three token polygon flip"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Both models have unit circle tokens, repulsive V=-I, and equilateral regular polygons; Gao’s abstract reports a flip transition as an attention parameter varies.",
+          "Full model here includes a positive self-edge and has self-weight p=e^(3β/2)/(e^(3β/2)+2), while the candidate masked model excludes it."
+        ],
+        "reasoning": "For local equilateral shape modes one can rewrite the full pre-normalized update as a masked update with γ_eff=h(1-p)/(1-hp); this is β-dependent and warns of partial equivalence. Establishing exact all-β reentrance still needs the unique maximum of S(β); the full prior paper was inaccessible.",
+        "searches": [
+          "Resultary: three-token equilateral repulsive self attention full softmax transverse stability sharpness reentrance",
+          "web: repulsive self-attention full softmax three tokens equilateral stability negative value diagonal self interaction sharpness",
+          "arXiv:2609.28448 abstract and bibliographic record"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No matching exact table of the full-attention h_c≈0.986914010353021 and two β thresholds in the retrieved index; source checker gives values 2.1156 and 4.0988 at h=0.995."
+        ],
+        "reasoning": "A failed database search is not affirmative priority evidence, and an uninspected appendix of Gao et al may contain an equivalent finite-token formula.",
+        "searches": [
+          "Resultary: three-token equilateral repulsive self attention full softmax transverse stability sharpness reentrance",
+          "web: three token full softmax equilateral repulsive self attention beta two flip roots threshold"
+        ]
+      },
+      "rationale": "This is a sharp transverse Jacobian and reentrant sharpness classification for full (unmasked) repulsive softmax on a regular triangle. Altafini’s 2026 positive-dominant-value hypotheses exclude V=-I; Gao–Yang–Chen 2026 treats negative values and regular polygons but apparently uses diagonal-masked attention in the relevant model. A first-order reduction of full attention to masked attention with β-dependent effective residual step is possible at equilateral states, and could make part of this a corollary of an exact masked polygon multiplier theorem. Its primary full text could not be inspected, so the priority judgment is qualified rather than claiming a definitive separation. The additional unique-maximum/return-stability threshold is not stated in accessible material.",
+      "residual_risks": [
+        "Gao–Yang–Chen full primary paper not accessible. A local masked-to-full parameter transformation is possible; potential derivation from its appendices is a material originality risk.",
+        "Altafini full primary paper not accessible; both institutional requests returned vpn_disconnected, no bypass attempted.",
+        "The shape multiplier=-1 boundaries are only linearly neutral; no nonlinear period-doubling or global attraction conclusion."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Already contains the regular-polygon flip mechanism. Does not establish the exact full-attention two-root reentrance from accessible material; priority risk remains.",
+          "evidence": [
+            "First posted 2026-09-23; abstract explicitly says negative value V=-I and polygon flip; 54-page paper not read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2609.28448",
+          "material_read": "ArXiv abstract, source date and public paper metadata; PDF and arXiv HTML inaccessible, institutional source reports vpn_disconnected.",
+          "method": "Statement/model comparison plus mathematical masked-to-full local parameter reduction; no claim to have inspected the 54-page main text/appendices.",
+          "title": "Nonequilibrium Phases of Repulsive Self-Attention: Chaos, Attention Condensation, and Emergent Locality",
+          "trigger": "Highest-priority same repulsive value, circle token and regular-polygon comparison"
+        },
+        {
+          "assessment": "Its advertised positive-eigenvector consensus regime does not by itself imply the V=-I result.",
+          "evidence": [
+            "First posted 2026-10-09; complete theorem assumptions not independently read."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2610.13518",
+          "material_read": "ArXiv abstract and public bibliographic metadata only; PDF and arXiv HTML inaccessible, institutional source reports vpn_disconnected.",
+          "method": "Compared advertised value-eigenspectrum and equilibrium scope to negative scalar value and equilateral fixed family.",
+          "title": "Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers",
+          "trigger": "Plausible general discrete-time full self-attention stability theorem"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "An exact stability diagram for the first nontrivial regular triangle in normalized repulsive attention resolves which fixed step lengths admit instability at intermediate attention sharpness but recovery at high sharpness. The two-root transition and critical step distinguish self-attention scaling regimes. It is a mathematically motivated local stability boundary rather than an arbitrary three-point finite experiment; no nonlinear flip claims are used.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Altafini, Asymptotic Analysis of Discrete-Time Self-Attention Dynamics in Transformers, arXiv:2610.13518v1 (2026-10-09)",
+    "Gao, Yang, Chen, Nonequilibrium Phases of Repulsive Self-Attention, arXiv:2609.28448v1 (2026-09-23)",
+    "Resultary query three-token equilateral repulsive self attention full softmax transverse stability sharpness reentrance"
+  ],
+  "disposition": "passed",
+  "limitations": "Potential masked-to-full reduction from the closely related uninspected 54-page source; O qualified. No nonlinear or global dynamics at the neutral flip boundary established.",
+  "schema_version": 1
+}
