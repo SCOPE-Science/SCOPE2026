@@ -1,0 +1,124 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T18:18:09.517519Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Assigned RESULT.md git blob e57f6165821616d6282ed33b84c86d4c5c9cd2d9",
+        "Assigned verifier source git blob b3834167bc4e38d9713c5d76f376c1b9ab47e4c5",
+        "Independent Python bounded validation source /mnt/data/scope05_independent_checks_20261027T1814.py"
+      ],
+      "rationale": "The 3 constant necklaces and 8 triple necklaces partition all 27 three-mers into eleven disjoint directed cycles; thus a minimum hitting set needs at least eleven vertices and every equality candidate is exactly one transversal of these classes. This reduces the entire finite problem to 3^8=6561 candidates. An independent Python implementation enumerated all transversals, tested residual DAGs via Kahn topological elimination, computed longest paths, independently enumerated 3 two-cycles and 18 four-cycles, verified the exact 5436/1041/84 rejection/acceptance partition, and split 84 acyclic masks 60/24; it separately reconstructed all seven symmetry orbits of size 12. The character-length translation is exact: h residual vertices correspond to an avoiding word of length h+2, next length h+3 forced. Exhaustiveness rests on necklace partition, not truncation.",
+      "residual_risks": [
+        "Finite checks are only corroboration; proof relies on stated unrestricted symbolic/collapsing argument."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Marçais et al. 2024 full HTML treats alphabet sigma=2 and sigma=4 in text/Tables 1–2 and defines remaining-path window problem; no sigma=3,k=3 counts found there.",
+          "The source graph itself has exactly 11 disjoint necklace cycles, so lower-bound and exhaustive 6561-candidate classification are complete for this fixed parameter."
+        ],
+        "reasoning": "The closest published general results do not by themselves imply the exact added structural invariant, for the explicit mathematical reasons in the originality rationale. Any full-text access gap remains recorded as a risk.",
+        "searches": [
+          "web: Marçais DeBlasio Kingsford minimum decycling sets sequence sketching ternary k=3 tables",
+          "Journal of Computational Biology 2024 Tables 1,2 and Sections 4.3–5",
+          "Resultary: exact ternary length-three universal hitting set decycling orbit"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1089/cmb.2024.0544; arXiv:2311.03592",
+        "arXiv:2001.06550",
+        "Resultary: ternary de Bruijn order 3 minimum decycling sets 84 shortest path kmer universal hitting",
+        "web: Marçais DeBlasio Kingsford minimum decycling sets sequence sketching ternary k=3 tables",
+        "Journal of Computational Biology 2024 Tables 1,2 and Sections 4.3–5",
+        "Resultary: exact ternary length-three universal hitting set decycling orbit"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Marçais et al. 2024 full HTML treats alphabet sigma=2 and sigma=4 in text/Tables 1–2 and defines remaining-path window problem; no sigma=3,k=3 counts found there.",
+          "The source graph itself has exactly 11 disjoint necklace cycles, so lower-bound and exhaustive 6561-candidate classification are complete for this fixed parameter.",
+          "The independent 6561-test reproduces 84 MDS, 60/24 latency split, and seven size-12 symmetry orbits."
+        ],
+        "reasoning": "The theorem includes imported prior ingredients explicitly but claims an additional natural invariant. Only that non-implied remainder is assigned originality; special cases previously known are not recertified as new.",
+        "searches": [
+          "Journal of Computational Biology 2024 Tables 1,2 and Sections 4.3–5",
+          "Resultary: exact ternary length-three universal hitting set decycling orbit"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Marçais et al. 2024 full HTML treats alphabet sigma=2 and sigma=4 in text/Tables 1–2 and defines remaining-path window problem; no sigma=3,k=3 counts found there.",
+          "The source graph itself has exactly 11 disjoint necklace cycles, so lower-bound and exhaustive 6561-candidate classification are complete for this fixed parameter."
+        ],
+        "reasoning": "The alternate statement and graph/arithmetic aliases were compared at the level of the same objects, domains, and invariants. Prior basic definitions and known special cases are credited; a search miss is not a novelty proof. Marçais, DeBlasio and Kingsford give the general de Bruijn MDS and window-guarantee framework and tables emphasizing binary and four-letter alphabets; their published full HTML Tables 1–2 do not list the requested ternary sigma=3,k=3 census, latency classes, or the exact 21-short-cycle criterion. Published Resultary searches for ternary order-three MDS did not identify the same complete values. Overlap in unindexed code/supplementary computations remains possible, but the exact three-mer classification is not mechanically implied by the previous general algorithms.",
+        "searches": [
+          "Resultary: ternary de Bruijn order 3 minimum decycling sets 84 shortest path kmer universal hitting",
+          "web: Marçais DeBlasio Kingsford minimum decycling sets sequence sketching ternary k=3 tables"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The source graph itself has exactly 11 disjoint necklace cycles, so lower-bound and exhaustive 6561-candidate classification are complete for this fixed parameter.",
+          "The independent 6561-test reproduces 84 MDS, 60/24 latency split, and seven size-12 symmetry orbits."
+        ],
+        "reasoning": "Results of the actual Resultary query and named primary source were compared for an exact same-object formula/table. No identical covering table was identified; this absence is not a proof of historical priority.",
+        "searches": [
+          "Resultary: ternary de Bruijn order 3 minimum decycling sets 84 shortest path kmer universal hitting",
+          "Resultary: exact ternary length-three universal hitting set decycling orbit"
+        ]
+      },
+      "rationale": "Marçais, DeBlasio and Kingsford give the general de Bruijn MDS and window-guarantee framework and tables emphasizing binary and four-letter alphabets; their published full HTML Tables 1–2 do not list the requested ternary sigma=3,k=3 census, latency classes, or the exact 21-short-cycle criterion. Published Resultary searches for ternary order-three MDS did not identify the same complete values. Overlap in unindexed code/supplementary computations remains possible, but the exact three-mer classification is not mechanically implied by the previous general algorithms.",
+      "residual_risks": [
+        "Unindexed implementation supplements to the 2024 work could already compute sigma=3,k=3 exact distributions.",
+        "No assertion is made for arbitrary alphabet size, larger k, or globally optimal context-dependent sketching beyond MDSs."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes foundational MDS/window algorithm and binary/four-letter experiments, but inspected tables do not contain exact ternary 3-mer census.",
+          "evidence": [
+            "Table 1 binary, Table 2 sigma=2 or 4; preliminary text considers binary/DNA alphabets; web , "
+          ],
+          "identifier_or_url": "DOI:10.1089/cmb.2024.0544; arXiv:2311.03592",
+          "material_read": "Primary open-access HTML full article; introduction, preliminaries, Section 4.3, Table 1, Table 2, Section 5 and conclusion",
+          "method": "web full HTML page , finds /2",
+          "title": "Sketching Methods with Small Window Guarantee Using Minimum Decycling Sets",
+          "trigger": "Direct prior on minimum decycling sets, remaining-path optimization and full-space exploration"
+        },
+        {
+          "assessment": "Unresolved possible exact small-case comparison; treated as priority risk and not described as full-text noncoverage.",
+          "evidence": [
+            "Source reference explicitly concerns small universal hitting sets and short remaining path length"
+          ],
+          "identifier_or_url": "arXiv:2001.06550",
+          "material_read": "Citation and scope as identified in assigned source; complete primary full text not accessed this run",
+          "method": "bibliographic comparison from assigned reference only",
+          "title": "Lower density selection schemes via small universal hitting sets with short remaining path length",
+          "trigger": "Potential stronger guarantee/remaining-path reduction"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Resultary: ternary de Bruijn order 3 minimum decycling sets 84 shortest path kmer universal hitting",
+        "web: Marçais DeBlasio Kingsford minimum decycling sets sequence sketching ternary k=3 tables"
+      ],
+      "rationale": "For sequence-sketch design, the precise minimum footprint (eleven patterns) and optimal guaranteed coverage length (nine letters) are natural competing invariants. A full 84-element census, latency split, seven symmetry classes, and compact 21-cycle obstruction supply concrete reusable classification rather than an arbitrary small example.",
+      "residual_risks": [
+        "Unindexed implementation supplements to the 2024 work could already compute sigma=3,k=3 exact distributions.",
+        "No assertion is made for arbitrary alphabet size, larger k, or globally optimal context-dependent sketching beyond MDSs."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Unindexed implementation supplements to the 2024 work could already compute sigma=3,k=3 exact distributions.",
+    "No assertion is made for arbitrary alphabet size, larger k, or globally optimal context-dependent sketching beyond MDSs.",
+    "The scientific conclusion is conditional on cited predecessor theorems and is not an independent external attestation.",
+    "Preserve all existing formal and expert verification fields unchanged."
+  ],
+  "schema_version": 1
+}
