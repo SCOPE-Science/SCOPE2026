@@ -1,0 +1,195 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T13:04:27.434405Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Independent Python/SciPy quadrature versus Parseval/stationary-lobe formula for (n,q)=(2,1),(2,2),(3,1),(4,2),(5,3),(8,2),(11,1),(16,3),(24,4),(30,2), maximum absolute discrepancy <= 1.83e-10.",
+        "Independent high-power check for n in {2,3,4,5,10,30,100}, q in {20,60,150}; ratio to sqrt(q(n^2-1)/(3*pi)) approximately 1.0005 to 1.0063, and decreases toward 1 as q grows.",
+        "Independent bracketing of fixed-q sinc stationary-root series with 1500 computed positive roots: C1 in [0.38018711407,0.38023010178], C2 approx 0.479967081438, C3 approx 0.5788729620455. The coarse q=1 lower bound reflects the unadded positive tail.",
+        "Separately verified original frozen Git directory tree SHA and original AUDIT/METADATA Git blob SHAs from exact source bytes. Numerical computations corroborate only finite cases, not any universal quantified theorem.",
+        "Frozen source RESULT.md blob 44a4705104cfe310649058dcad114fd2b8c6e6cb; independent read of definitions, normalization, exact extrema and both limit proofs.",
+        "Verified finite special cases L_{2,q}=4^q/(pi*binom(2q,q)), L_{3,1}=10/(3*pi), and finite test pairs."
+      ],
+      "limitations": "Uses first-derivative Lipschitz seminorm for convolutions on T of powers of the standard Fejer kernel with n>=2,q>=1; not a universal bound for all Jackson/positive kernels. Explicit numerical checks prove only evaluated finite cases.",
+      "rationale": "For all integer n>=2 and q>=1, convolution differentiation and a sign input attain exactly the normalized total variation of the powered Fejer kernel. Strict logarithmic concavity in each complete noncentral nodal lobe yields a unique stationary maximum satisfying n*cot(nu)=cot(u), with explicit peak M_{n,k}; central/side and odd-terminal variations give the exact finite numerator. Parseval gives Z=n^{-q} sum_j c_j^2. For fixed q, t=2u/n rescaling gives the sinc^{2q} integral, stationary roots tan r=r and summable k^{-2q} lobe envelope. For high q, write H_n=F_n/n and expand log H_n(t)=-(n^2-1)t^2/12+O(n^4 t^4) uniformly near zero, yielding a uniform Laplace mass sqrt(12*pi/[q(n^2-1)]). A uniform <1 gap off the center plus the tail envelope makes all other lobes O(4^{-q}) in total variation; the resulting norm is sqrt(q(n^2-1)/(3*pi)) uniformly n>=2. Boundary cases n=2, odd n and q=1 included; real and complex L∞ sign attainment are both valid. The independent numerical tests are supporting checks only; no finite test establishes a quantified limit.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Runovski–Schmeisser 2010 Theorem 4, https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt, supplies Lp convergence for generalized Jackson kernels and an admissible p-range; no derivative total-variation sharp constant follows from that statement.",
+          "de Klerk–Hess–Laurent, https://arxiv.org/abs/1603.03329, Jackson-type polynomial kernel estimates for Lasserre bounds, with different operators and performance measures.",
+          "Greiner 1999, Richard Greiner (1999), Generalized Jackson kernels in approximation theory (abstract and bibliographic listing; full text inaccessible); abstract is about generalized kernels, error and moments, but complete result statements not accessible."
+        ],
+        "reasoning": "General convergence and approximation-order bounds for exactly these or similar powered kernels do not determine the precise L∞→Lip worst-case norm, its finite lobe maxima, or its q–n uniform constant. Broader-coverage risk from Greiner is recorded rather than falsely refuted.",
+        "searches": [
+          "Jackson kernel power Fejer kernel gaussian limit uniform degree power Fourier smoothing",
+          "Greiner \"Generalized Jackson kernels\" 1999 approximation theory power Fejer kernels",
+          "Richard Greiner Generalized Jackson kernels approximation theory 1999 arxiv free pdf",
+          "Jackson polynomial kernel convergence rates Lasserre hierarchies Fejer powers"
+        ]
+      },
+      "checked_sources": [
+        "https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt",
+        "https://arxiv.org/abs/0903.3845",
+        "https://arxiv.org/abs/1603.03329",
+        "Richard Greiner (1999), Generalized Jackson kernels in approximation theory (abstract and bibliographic listing; full text inaccessible)",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d",
+        "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+        "Resultary semantic search 2026-10-29 for powered Fejer sharp Lipschitz and sidelobe norm (33 hits)",
+        "Targeted web queries sharp Lipschitz norm L infinity convolution power Fejer Jackson kernel total variation derivative extrema; Fejer kernel L1 norm of derivative total variation sinc maxima tan x=x exact constant; Jackson kernel power Fejer kernel gaussian limit uniform degree power Fourier smoothing; Greiner \"Generalized Jackson kernels\" 1999 approximation theory power Fejer kernels; 0.380230087468653 0.479967081437 Fejer kernel exact Lipschitz norm"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Laugesen https://arxiv.org/abs/0903.3845, baseline Fejer and sinc identities insufficient by themselves to derive the detailed sharp norm and uniformity.",
+          "Runovski–Schmeisser https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt, §5 Eq.(45) same normalized Fejer power but its Theorem 4 gives a convergence result, not the asserted norm.",
+          "de Klerk et al. https://arxiv.org/abs/1603.03329, positivity/moment/rate bounds do not imply ∫|K′|/∫K or concentration constants.",
+          "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9 determines ℓ2 difference norms for optimally chosen discrete three-point kernels, not worst-case L∞ slopes for powers of Fejer."
+        ],
+        "reasoning": "One cannot infer the asserted exact sharp derivative norm from an approximation rate or from the fact that the kernel is a positive approximation identity. Nor do the selected published discrete/signed operator-norm results imply the same theorem after parameter renaming. The proof adds true lobe-variation analysis, exact normalization and two independent limit regimes; priority risk remains where older primary content could not be checked.",
+        "searches": [
+          "sharp Lipschitz norm L infinity convolution power Fejer Jackson kernel total variation derivative extrema",
+          "Jackson kernel power Fejer kernel gaussian limit uniform degree power Fourier smoothing",
+          "Greiner \"Generalized Jackson kernels\" 1999 approximation theory power Fejer kernels",
+          "Sharp L infinity to Lipschitz smoothing norm of powers of Fejer kernels (normalized generalized Jackson kernels), L1 norm derivative total variation, sinc side lobe extrema, simultaneous high power and degree Gaussian norm"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Runovski–Schmeisser 2010 §5 Eq.(45), https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt, explicitly constructs normalized powers of the Fejer kernel, confirming object equivalence but not the sharp L∞ to Lip operator norm in its Theorem 4.",
+          "Laugesen, https://arxiv.org/abs/0903.3845, Fejer Fourier kernel formula and rescaled sinc background (standard).",
+          "Published Resultary https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d, exact norm for a *conjugate* finite-cyclic Hilbert/Cesaro Fourier multiplier, not the positive continuous circle kernel."
+        ],
+        "reasoning": "The sharp L∞→Lip norm is equivalent by sign duality to normalized L1 variation of the kernel derivative; this abstract duality is not original. The concrete stationary-lobe total variation and all-degree quantitative laws are additional specific calculations. An earlier paper defining precisely the same generalized Jackson kernels was read and compared at statement level, not rejected for having a different title.",
+        "searches": [
+          "sharp Lipschitz norm L infinity convolution power Fejer Jackson kernel total variation derivative extrema",
+          "Fejer kernel L1 norm of derivative total variation sinc maxima tan x=x exact constant",
+          "Sharp L infinity to Lipschitz smoothing norm of powers of Fejer kernels (normalized generalized Jackson kernels), L1 norm derivative total variation, sinc side lobe extrema, simultaneous high power and degree Gaussian norm",
+          "Runovski Schmeisser 2010 generalized Jackson kernels Fejer powers Lp convergence"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Sinc extrema tan r=r and integrals of powers of sinc are classical and are not asserted new. No retrieved numerical table simultaneously recorded the exact two-parameter L_{n,q} sharp norm and uniform Gaussian limit.",
+          "Relevant Resultary exact-norm https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d addresses a discrete conjugate Fejer transform, not these constants."
+        ],
+        "reasoning": "Searched distinctive constants, exact variation, root-sums and the entire parameterized claim. A search miss is only limited evidence; a table or implicit formula elsewhere remains possible.",
+        "searches": [
+          "0.380230087468653 0.479967081437 Fejer kernel exact Lipschitz norm",
+          "Fejer kernel L1 norm of derivative total variation sinc maxima tan x=x exact constant",
+          "exact total variation of Fejer kernel derivative integral constants sinc extrema root tan x=x",
+          "Resultary semantic query Sharp L infinity to Lipschitz smoothing norm of powers of Fejer kernels (normalized generalized Jackson kernels), L1 norm derivative total variation, sinc side lobe extrema, simultaneous high power and degree Gaussian norm"
+        ]
+      },
+      "rationale": "Best-of-knowledge originality for the three-part exact sharp rough-input Fejer-power norm result: the family of generalized Jackson kernels is explicitly known (Runovski–Schmeisser §5), and sign-duality itself is elementary; inspected primary papers instead prove Fejer approximation/periodization, polynomial convergence and Lp convergence, without a formula for the total-variation norm, the sinc-sidelobe root series or uniform high-power/frequency Gaussian limit. Published related exact-norm records concern different operators. Inaccessible Greiner 1999 full text is named, not declared noncovering; an equivalent sharp-variation result remains possible.",
+      "residual_risks": [
+        "Greiner 1999 full paper could contain equivalent or stronger sharp variation/asymptotic formula, but its full text was inaccessible, including a failed authorized institutional access attempt.",
+        "Earlier Jackson-kernel literature may express derivative variation constants under strong Bernstein, variation-diminishing or approximation stability terminology.",
+        "No database/text-search absence proves historical novelty; full originality remains best-of-knowledge."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Defines the same powered kernel family, a significant object-level overlap. Its displayed statements concern Lp convergence and do not give the sharp L∞ to Lipschitz derivative-variation formula or joint high-power Gaussian constant.",
+          "evidence": [
+            "§5 Eq.(45) identifies the same normalized Fejer-kernel powers.",
+            "Theorem 4 gives the Lp convergence range 1/(2q)<p<=infinity; no stated L∞→Lip endpoint norm."
+          ],
+          "identifier_or_url": "https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt",
+          "material_read": "Full accessible primary paper, particularly section 5 page 123 formula (45) for generalized Jackson kernels and Theorem 4 on Lp convergence; inspected page image as well as text.",
+          "method": "Open-access PDF, extracted content, and page screenshot inspection",
+          "title": "On convergence of families of linear polynomial operators generated by matrices of multipliers",
+          "trigger": "Published work explicitly treating the SAME generalized Jackson kernels as powers of Fejer kernels"
+        },
+        {
+          "assessment": "Establishes standard kernel and scaling, not the specialized powered sharp rough-input slope coefficient.",
+          "evidence": [
+            "Chapter 2 Example 2.3 Fejer kernel identities.",
+            "Chapter 15 Example 15.4 real-line sinc kernel context."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/0903.3845",
+          "material_read": "Open-access full-text HTML relevant Fejer convolution and real-line sinc-kernel examples/periodization passages.",
+          "method": "arXiv open-access full text and section reading",
+          "title": "Harmonic Analysis Lecture Notes",
+          "trigger": "Exact Fejer kernel normalization and sinc scaling are classical premises"
+        },
+        {
+          "assessment": "Different Jackson polynomial construction and approximation-rate output; no sharp normalized derivative L1 variation or uniform q,n Gaussian law in the inspected relevant statements.",
+          "evidence": [
+            "§2.2 Jackson kernel material and §3 univariate polynomial approximation estimates."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1603.03329",
+          "material_read": "arXiv HTML full text, Jackson-kernel construction and univariate convergence/rate sections.",
+          "method": "Open-access arXiv full text and relevant theorem comparison",
+          "title": "Improved convergence rates for Lasserre-type hierarchies of upper bounds for box-constrained polynomial optimization",
+          "trigger": "Positive Jackson kernels with rate/moment estimates might dominate claim"
+        },
+        {
+          "assessment": "UNRESOLVED PRIORITY RISK; no whole-document noncoverage conclusion is drawn from an abstract. Inaccessibility alone does not make the scientifically distinct claim false or covered.",
+          "evidence": [
+            "Abstract emphasizes generalized Jackson kernels, approximation and moment results, plausibly relevant to exact high-power asymptotics."
+          ],
+          "identifier_or_url": "Richard Greiner (1999), Generalized Jackson kernels in approximation theory (abstract and bibliographic listing; full text inaccessible)",
+          "material_read": "Bibliographic metadata and abstract only; primary full text not obtained after arXiv and lawful OA checks; authorized institutional retrieval returned worker unavailable/request invalid.",
+          "method": "Abstract/bibliographic and bounded access checks, no full-text inspection",
+          "title": "Generalized Jackson kernels in approximation theory",
+          "trigger": "Earlier 1999 title plausibly covers precisely the same generalized kernel family"
+        },
+        {
+          "assessment": "Discrete signed Hilbert multiplier on Z_{2n}; cotangent sum and logarithmic norm; not a domination of continuous positive powered Fejer rough-input Lipschitz norm.",
+          "evidence": [
+            "Theorem gives n^{-1} sum cotangent and ~ (2/pi)log n, unlike positive Fejer-power derivative scaling ~n sqrt(q)."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d",
+          "material_read": "Actual published RESULT.md theorem, hypotheses, proof, limitations and references via GitHub.",
+          "method": "Primary published mathematical result file, direct reading",
+          "title": "Exact endpoint norm of the Nyquist-sampled conjugate Fejer transform",
+          "trigger": "High-ranking published result on sharp Fejer-related endpoint operator norms"
+        },
+        {
+          "assessment": "Discrete ℓ2 multiplier minimization over support-three kernels, not the specified positive continuous circle convolution nor L∞→Lipschitz norm.",
+          "evidence": [
+            "Theorem minimizes 2^k max_{0<=t<=1} t^{k/2}|1-bt|; different domain, norm and optimization."
+          ],
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+          "material_read": "Actual published RESULT.md theorem, full minimax proof, assumptions and prior-work comparison via GitHub.",
+          "method": "Primary published mathematical result file, direct reading",
+          "title": "All-order sharp three-point smoothest averages",
+          "trigger": "High-ranking published result on sharp smoothing derivative/difference norms"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "evidence": [
+        "Operator norm is exactly attained by a bounded measurable sign input, explaining why the constant measures worst-case rough-data amplification.",
+        "Prior identical generalized Jackson family in Runovski–Schmeisser §5 makes the new endpoint-stability observable natural.",
+        "Two-parameter formula works for all degrees and high powers uniformly, including n=2; not inferred from finite tests."
+      ],
+      "rationale": "Sharp rough-input L∞→Lipschitz amplification is a natural quantitative stability invariant of positive smoothing on the circle, distinct from ordinary Fejer approximation rates. The finite all-(n,q) extrema formula, fixed-power sinc side-lobe limiting constants, and rigorously uniform two-parameter high-power Gaussian law provide a reusable complete classification of this family, not an arbitrary small-slice computation. The same kernels were previously studied for Lp convergence, making the extra sharp endpoint result mathematically motivated.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "https://www.mathnet.ru/php/getFT.phtml?jrnid=emj&option_lang=rus&paperid=31&what=fullt",
+    "https://arxiv.org/abs/0903.3845",
+    "https://arxiv.org/abs/1603.03329",
+    "Richard Greiner (1999), Generalized Jackson kernels in approximation theory (abstract and bibliographic listing; full text inaccessible)",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-exact-endpoint-norm-of-the-nyquist-sampled-conjugate-fej-r-trans--8110ee2a687d",
+    "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-all-order-sharp-three-point-smoothest-averages--97ecaa4cd5e9",
+    "Resultary semantic search 2026-10-29 for powered Fejer sharp Lipschitz and sidelobe norm (33 hits)",
+    "Targeted web queries sharp Lipschitz norm L infinity convolution power Fejer Jackson kernel total variation derivative extrema; Fejer kernel L1 norm of derivative total variation sinc maxima tan x=x exact constant; Jackson kernel power Fejer kernel gaussian limit uniform degree power Fourier smoothing; Greiner \"Generalized Jackson kernels\" 1999 approximation theory power Fejer kernels; 0.380230087468653 0.479967081437 Fejer kernel exact Lipschitz norm"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Rough inputs in L∞ and first-order spatial Lipschitz seminorm on circle; no claim for all positive kernels.",
+    "Several primary sources compared, yet the inaccessible 1999 generalized Jackson full text remains a significant historical-priority risk; Oxford authorized worker returned unavailable/request invalid.",
+    "Scientific numerical checks finite; infinite claims rest on reconstructed analytic arguments, not numerical extrapolation."
+  ],
+  "residual_risks": [
+    "Greiner 1999 full paper could contain equivalent or stronger sharp variation/asymptotic formula, but its full text was inaccessible, including a failed authorized institutional access attempt.",
+    "Earlier Jackson-kernel literature may express derivative variation constants under strong Bernstein, variation-diminishing or approximation stability terminology.",
+    "No database/text-search absence proves historical novelty; full originality remains best-of-knowledge."
+  ],
+  "schema_version": 1
+}
