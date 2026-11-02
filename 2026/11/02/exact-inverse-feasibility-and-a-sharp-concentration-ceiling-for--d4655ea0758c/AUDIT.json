@@ -1,0 +1,158 @@
+{
+  "correctness": {
+    "rationale": "Identified exact donor supplies and receiver demands from the resolvent; max-flow/min-cut gives necessary and sufficient all-subset inequalities; positivity makes reverse Q well-defined; matrix 1-norm gives uniqueness. Complete-graph cuts reduce to the exact box and a bidirectional star attains each upper face. Exact-rational checks total 1528 case-level tests; finitary experiments are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Berend (2020), §5.3 has examples where sparse topology prevents desired scores but does not give full characterization.",
+        "Gölz et al. (2018), §2 uses voters as terminal sinks and gives splittable/confluent load optimization.",
+        "Garcia and Romance (2021) is about ordinal rank realization with changing unweighted graph support.",
+        "Utke and Schmidt-Kraepelin (2023), §3 has designated casting sinks and a random-walk branching rule.",
+        "Alouf-Heffetz et al. (2024), §3, controls election outcomes via arc redirection without a fixed-retention weight-profile characterization."
+      ],
+      "reasoning": "No inspected stronger theorem on weighted trust graphs forces (1)–(3). A forward generalization of fractional delegation does not alone imply an inverse attainability theorem, while the PageRank self-loop-inclusive construction does not entail the loopless half-vote ceiling.",
+      "searches": [
+        "\"inverse PageRank target achievable distribution characterization max flow min cut arbitrary directed graph edge weights\"",
+        "arxiv:2111.01473",
+        "arxiv:1808.01906",
+        "arxiv:2307.01174",
+        "arxiv:2403.07558"
+      ]
+    },
+    "checked_sources": [
+      "Bersetche arXiv:2209.14128 (full text)",
+      "Berend EPJ Data Science 2020 DOI 10.1140/epjds/s13688-020-00240-z (full text)",
+      "Gölz et al. arXiv:1808.01906v1 (full text)",
+      "Garcia and Romance arXiv:2111.01473 (full text)",
+      "Utke and Schmidt-Kraepelin arXiv:2307.01174 (full text)",
+      "MSC2020 91B12 (Voting theory)",
+      "Alouf-Heffetz et al. arXiv:2403.07558 (full text)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bersetche establishes the forward form and conservation, not inverse cut iff.",
+        "Berend gives a trivial full-network construction if self-loops are included but has no sharp loopless inverse box.",
+        "Gölz and Utke assume a designated casting subset rather than fixed positive self-retention at all nodes."
+      ],
+      "reasoning": "The present claim requires exact joint flow-supply and receiver-demand marginals with all positive retention fractions, plus the complete no-loop reduction to singleton cuts and a matching star protocol. None of the inspected stated theorems implies that conclusion without additional argument.",
+      "searches": [
+        "arxiv:2209.14128 §§3–4",
+        "Berend (2020), §5.3",
+        "arxiv:1808.01906 §§2,5",
+        "arxiv:2307.01174 §§2–3",
+        "\"sharp maximum weight fractional delegation with positive self-retention no self-delegation\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bersetche (2022), §3 defines the forward resolvent; Berend (2020), §5.3 discusses only particular target feasibility obstructions.",
+        "The transport argument requires fixed positive per-node retention and excludes direct self-delegation as a forwarding arc."
+      ],
+      "reasoning": "The inverse target condition can be restated as a transportation feasibility problem with receiver marginals w_i/tau_i-1 and sender marginals (1-tau_j)w_j/tau_j. This restatement may be useful in other Markov formulations, but the inspected primary statements do not present its all-cut equivalence for this voting model.",
+      "searches": [
+        "\"inverse PageRank feasibility conditions support graph prescribed stationary distribution teleport transportation Hall inequalities\"",
+        "\"fractional liquid democracy prescribed voting power vector graph delegation realization feasible target\"",
+        "arxiv:2209.14128",
+        "doi:10.1140/epjds/s13688-020-00240-z"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Berend (2020) reports approximating target scores empirically and some feasibility examples, not an exhaustive trust-network table.",
+        "The claimed result holds for every finite directed graph and all retention values, not a particular finite tabulation."
+      ],
+      "reasoning": "The structural cut test is a complete parameterized characterization; it is not supplied by a known numerical catalogue found in the inspected sources. Search absence is not a proof of absolute novelty.",
+      "searches": [
+        "\"fractional liquid democracy voting power exact attainable polytope inverse allocation without self delegates\"",
+        "\"prescribed PageRank stationary distribution directed graph restricted support exact transportation feasibility cut inequalities reset vector\""
+      ]
+    },
+    "rationale": "Closest full accessible primary texts were compared by equivalent Markov/flow formulations and actual theorem implications. The new claim is an exact fixed-retention inverse target classification and sharp loopless half-vote barrier; prior work supplies forward weights, partial inverse PageRank design, or different casting models. Priority uncertainty remains.",
+    "residual_risks": [
+      "An uncaptured specialist paper may already derive the same fixed-restart trust-graph transportation criterion via inverse PageRank, especially under different names.",
+      "No independent external expert or formal proof audit has been conducted.",
+      "The no-majority corollary requires all retention fractions equal and forwarding forbids direct self-delegation."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Forward resolvent, self-retention and conservation are established; no theorem classifies all prescribed targets by trust-network cuts.",
+        "evidence": [
+          "arXiv:2209.14128 §§3.2–3.6 (Theorems 3.1–3.4 and formula (3.14)); §4 (equilibrium analysis)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2209.14128",
+        "material_read": "Full accessible OA text: introduction, formal framework §§2–3 including Theorems 3.1–3.4 and formula (3.14), equilibrium §4 and references",
+        "method": "Compared exact matrix definitions, retention assumptions and claimed theorems",
+        "title": "Generalizing Liquid Democracy to multi-agent delegation: A Voting Power Measure and Equilibrium Analysis",
+        "trigger": "Closest established fractional delegation and forward voting-weight measure"
+      },
+      {
+        "assessment": "§5.3 gives a sufficient complete-graph construction allowing self-loops and select necessary sparse-graph obstructions, not the all-subset necessary-and-sufficient transport criterion.",
+        "evidence": [
+          "Berend (2020), §5.3: complete graph feasibility, single-outedge necessary test and infeasible sparse example"
+        ],
+        "identifier_or_url": "https://doi.org/10.1140/epjds/s13688-020-00240-z",
+        "material_read": "Full openly accessible article HTML, especially §§4–5.4 and §5.3 on general solvability",
+        "method": "Compared restart, edge-weight constraints, self-loops and claimed feasibility results",
+        "title": "Efficient algorithm to compute Markov transitional probabilities for a desired PageRank",
+        "trigger": "Exact inverse-PageRank analogue on prescribed support"
+      },
+      {
+        "assessment": "Optimizes load among designated terminal casting voters with full delegations; no every-vertex retention inverse weight polytope or half-vote ceiling.",
+        "evidence": [
+          "Gölz et al. (2018), §2.1–2.2, §5, Appendix D"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1808.01906v1",
+        "material_read": "Entire accessible OA HTML, particularly §§1–2, §5 and Appendix D",
+        "method": "Compared voters-as-sinks and confluent/splittable flow to per-visit mandatory retention",
+        "title": "The Fluid Mechanics of Liquid Democracy",
+        "trigger": "Exact delegation weight concentration and network flow modeling"
+      },
+      {
+        "assessment": "Constructs unweighted graphs with prescribed ordinal centrality rankings, not every realizable score vector for a fixed trust graph.",
+        "evidence": [
+          "Garcia and Romance (2021), introduction §§1–2 and inverse ranking results §§3–4"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2111.01473",
+        "material_read": "Full accessible OA article, introduction, stated inverse ranking problem, directed and undirected constructions",
+        "method": "Compared exact numeric target on fixed weighted trust arcs against unweighted graph rank realization",
+        "title": "Controlling centrality: The Inverse ranking problem for spectral centralities of complex networks",
+        "trigger": "Potential stronger inverse centrality coverage"
+      },
+      {
+        "assessment": "Its fractional rules map delegators to designated casting vertices, unlike every-vertex retained-vote targets, so the result does not state the present fixed-trust inverse criterion.",
+        "evidence": [
+          "Utke and Schmidt-Kraepelin (2023), §§1–3, main contributions and related-work discussion"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2307.01174",
+        "material_read": "Full accessible OA text; introduction, definitions §§2–3, main theorem statements, comparison with fractional multi-proxy delegation",
+        "method": "Compared distinguished casting sinks and randomized branchings to universal fixed self-retention",
+        "title": "Anonymous and Copy-Robust Delegations for Liquid Democracy",
+        "trigger": "Fractional delegation random-walk equivalence and possibility of broader coverage"
+      },
+      {
+        "assessment": "The goal is to control winner outcomes under graph changes, with combinatorial active/passive voters, rather than constructing edge fractions for prescribed retained vote weights.",
+        "evidence": [
+          "Alouf-Heffetz et al. (2024), §§1–3 and hardness/computational results"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2403.07558",
+        "material_read": "Full accessible OA text, especially introduction, §§2–3, formal control model and main complexity theorems",
+        "method": "Compared manipulation by redirecting graph arcs and approval ballots to inverse quantitative cast-weight targets with fixed arcs",
+        "title": "Controlling Delegations in Liquid Democracy",
+        "trigger": "A plausible broader delegation-control theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d4655ea0-758c-49da-b0b9-5d8c4dbd7cd1",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For all finite trust graphs it determines the exact attainable polytope of cast ballot mass, gives a constructive polynomial-time feasibility/witness algorithm, and a sharp universal nonmajority bound on loopless complete networks under uniform retained voting. These address meaningful target control and concentration rather than arbitrary parameter choices or mere recomputation.",
+    "status": "PASS"
+  }
+}
