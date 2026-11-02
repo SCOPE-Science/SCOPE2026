@@ -1,0 +1,118 @@
+{
+  "correctness": {
+    "rationale": "A direct Fréchet–Hoeffding lower-bound integral proves the local all-copula minimum. Exact rational moments give 1/2880, 1/360, 1/180. Uniform C^2 interpolation and cellwise independence yield the sharp 1/11520, 1/1440, 1/720 limits; quadratic f gives equality for all meshes. The package verifier independently checks exact polynomial identities, not the universal proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Kunsch proves general probabilistic integration rates, not exact paired-copula constants.",
+        "Owen proves folding improvements for randomized digital nets, a different joint sampling class."
+      ],
+      "reasoning": "A faster or broader QMC rate does not imply the exact lower bound for independently paired uniform-marginal samples after affine interpolation. The present optimality claim is expressly restricted so QMC cross-cell constructions are not excluded.",
+      "searches": [
+        "\"local antithetic\" \"piecewise linear\" \"Monte Carlo\"",
+        "\"folding\" \"control variates\" \"quadratic\" \"stratified\"",
+        "arxiv:2309.09059 Sections 2,4"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/html/2309.09059v2",
+      "https://arxiv.org/pdf/0811.0528",
+      "https://doi.org/10.1016/j.cam.2016.12.032",
+      "https://eprints.soton.ac.uk/336779/",
+      "https://arxiv.org/abs/0811.0528"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fréchet–Hoeffding plus the exact quadratic distribution implies the local optimizer, once the new residual setup is specified.",
+        "Neither inspected algorithm theorem includes the all-\\(C^2\\) \\(m^5\\)-variance limit and matched-cost comparisons."
+      ],
+      "reasoning": "General rearrangement theory supplies a critical proof step; it does not by itself identify this SCV model, its residual expansion or sharp universal constants. A direct equivalent source is not established from accessible material.",
+      "searches": [
+        "arxiv:2309.09059v2 equation (19) and Theorem 2.1",
+        "arxiv:0811.0528 Definition 10 and Theorem 4",
+        "doi:10.1016/j.cam.2016.12.032 abstract"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Owen gives the same half-cell coordinate reflection in dyadic form.",
+        "Bivariate countermonotone coupling is classical."
+      ],
+      "reasoning": "The map and rearrangement lemma are explicitly prior work. The proposed statement additionally specifies interpolation residuals, matched two-point sampling, independence across cells, universal sharp leading constants and the all-copula lower bound; that exact claim was not located in inspected passages.",
+      "searches": [
+        "\"quadratic residual\" \"antithetic\" \"Monte Carlo\" \"interpolation\"",
+        "\"optimal antithetic\" \"nonmonotone\" \"quantile\"",
+        "arxiv:0811.0528 Section 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No exact constant \\(1/11520\\) for this residual estimator appeared in the inspected primary sections or retrieved indexed results.",
+        "The constants are independently derived from the quadratic residual distribution."
+      ],
+      "reasoning": "No matching fixed table or benchmark was found; search nonappearance is weak evidence, not proof of novelty. A specialized uncatalogued table remains a priority risk.",
+      "searches": [
+        "\"antithetic\" \"U(1-U)\" sampling variance",
+        "\"quadratic\" \"antithetic\" \"stratified\" \"control variates\" \"optimal\""
+      ]
+    },
+    "rationale": "The local reflection and countermonotone principle are credited to established work. The checked sources do not state the exact sharp within-cell copula variance law for affine residual SCV across all C^2 integrands. Publication priority is qualified, especially for specialized antithetic variance constants.",
+    "residual_risks": [
+      "The 2017 countermonotonicity article full text could not be retrieved; only its general abstract claim was used.",
+      "Owen already introduced the actual half-cell reflection; novelty is only the SCV-specific sharp variance theorem.",
+      "Unknown specialized antithetic or numerical integration work might already derive the constants.",
+      "Independent publication-priority audit has not been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes independent residual sampling and broad probabilistic rates, but not an optimal dependent pair, exact variance constants or a copula minimization.",
+        "evidence": [
+          "Equation (19) explicitly uses independent uniform residual samples.",
+          "Section 4 compares CV, CV+MoM and SCV in dimension two, not within-cell copula optimizers."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2309.09059v2",
+        "material_read": "Sections 2 and 4, including Algorithm (19), Theorem 2.1 and experiments (28)–(30); abstract and submission history.",
+        "method": "Primary arXiv full-text HTML, directly read.",
+        "title": "Linear Monte Carlo quadrature with optimal confidence intervals",
+        "trigger": "Same polynomial-interpolation stratified control variates with two residual evaluations in one-dimensional degree-one specialization."
+      },
+      {
+        "assessment": "The half-cell reflection map is pre-existing (one-dimensional base-two level-one reflection), so the transformation is NOT novel. The inspected QMC net theorems do not establish the paired affine-interpolation residual optimality constant against all cellwise copulas.",
+        "evidence": [
+          "The reflection formula is \\(R_\\kappa(x)=2c_{\\kappa,\tau}-x\\).",
+          "The asymptotic rate is for folded randomized nets, not the exact optimal variance of the stated residual estimator."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/0811.0528",
+        "material_read": "Introduction, pp. 1–2; reflection definitions and constructions, pp. 10–12; box-folding variance and conclusions, pp. 20–24.",
+        "method": "Primary arXiv PDF text and visual inspection of pp. 2 and 11.",
+        "title": "Local antithetic sampling with scrambled nets",
+        "trigger": "Local dyadic half-cell reflection may already contain the proposed coordinate transformation."
+      },
+      {
+        "assessment": "The general countermonotone principle is known and credited; the excerpt does not establish the specialized SCV variance constants. Full text not read.",
+        "evidence": [
+          "Countermonotonic bivariate copula is the lower Fréchet–Hoeffding bound.",
+          "Its general minimization property is used as a proof ingredient, not treated as a new theorem."
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.cam.2016.12.032",
+        "material_read": "Abstract and introductory excerpt describing Fréchet–Hoeffding bivariate lower bound and variance minimization.",
+        "method": "Public bibliographic abstract/excerpt; full text access failed.",
+        "title": "Multivariate countermonotonicity and the minimal copulas",
+        "trigger": "Classical bivariate coupling minimization might directly imply the pairing lemma."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "cc73f187-77b4-48bc-bb28-14df1548e1e6",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact optimality and factor-eight/factor-sixteen savings for a natural two-sample, affine-control-variate quadrature design are informative for uncertainty budgets at fixed sampling cost; a universal C^2 sharp law is stronger than an isolated low-dimensional calculation. The claim neither pretends to invent dyadic folding nor assert a new convergence exponent.",
+    "status": "PASS"
+  }
+}
