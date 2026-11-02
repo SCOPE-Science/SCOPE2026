@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,16 +19,24 @@
 }
 ---
 
-# Reproducibility and limitations
+# Independent mathematical audit
 
-Run `python3 verify.py` using the companion script in this package. The script requires only Python's standard library. It checks rational matrix identities for the four-state bit-shift example, exact mixing at two homogeneous steps, positivity of the perturbed kernels, and both orders of alternation through twenty time steps at seven rational values of \(\varepsilon\). It also enumerates feasible three-state rational kernels with denominator up to six and checks that their centered matrices are strict Euclidean contractions.
+## correctness
 
-An actual run returned:
+PASS
 
-```
-EXACT_FOUR_STATE_ALGEBRA_PASS 280 switching cases
-THREE_STATE_FINITE_GRID_PASS 14 feasible rational kernels (denominator at most 6)
-VERIFY_OK
-```
+From row-stochastic P^2=J and PJ=J it follows JP=J, so P is doubly stochastic. A deterministic row leads to a uniform row at its target but that contradicts the target column sum, including the self-loop case. Thus all rows have support at least 2; in n<=3 every pair overlaps, giving Dobrushin delta(P)<1. Compactness of the exact-square kernel set yields a uniform max rho_n<1; successive Dobrushin contractions cover every arbitrary switching sequence, law and time. For n=4 forward/reverse two-bit shifts P,Q=P^T satisfy P^2=Q^2=J, but PQ is a nonuniform idempotent preserving a bit. Blending with J by epsilon preserves exact squares; (P_e Q_e)^m=J+(1-e)^(2m)(PQ-J) and corresponding odd products. Rows are supported equally on two states, giving exactly TV=(1-e)^t/2 and maximal relative error=(1-e)^t, including endpoints and both phases. Independent 120 rational checks reproduce these formulas; all-real proof is analytic.
 
-The grid check is **not** an exhaustive proof over real entries or arbitrary time. The proof of the all-real lower-dimensional contraction is the support-overlap and compactness argument, independent of the grid. The all-time four-state identities follow from the displayed algebraic induction. Scientific priority remains subject to external review; no independent audit has been conducted.
+## originality
+
+PASS
+
+Qualified PASS: general SIA/scrambling and square-zero centered operator products are known, but no inspected earlier theorem derives the sharp n=3/n=4 exact-square stochastic threshold plus the closed positive-perturbation rate. Reversibility-based dynamic mixing results are inapplicable to the nonreversible witness. Earlier stochastic-product theory gives tools, not the specific boundary and exact profile.
+
+## value
+
+PASS
+
+Exact static mixing in two steps is a very strong and natural hypothesis. The theorem sharply determines the smallest dimension where arbitrary switching can defeat it and supplies explicit positive kernels with arbitrarily slow switched convergence, distinguishing homogeneous and inhomogeneous mixing. The complete all-time/epsilon quantitative boundary is substantive, not just a generic nilpotent example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
