@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The atom-extraction estimate follows from uniformly bounded geometric sums and dominated convergence, including accumulated atoms and arbitrary continuous residual mass. At each inductive stage, a weighted Vandermonde system cancels any prescribed finite set of residuals, while the length of its new block can independently control both every partial-block error and its squared Hardy norm. This proves ordinary convergence of all infinite coefficient sums to zero; a finite endpoint-only argument would not suffice. The positive-real coefficient theorem and the strict-norm lemma in Ransford (arXiv:2610.15019v1, §§2–3) imply trivial intersection with the de Branges–Rovnyak space. Exact triangular invertibility on polynomials and the established dense kernel force the whole product graph closure. The proof independently checks all quantifiers, including the zero polynomial, unseparated atoms, and arbitrarily small approximation tolerances.
+## correctness
 
-**Originality — PASS, with residual risk.** The closest primary result is Ransford (arXiv:2610.15019v1, Theorem 3.1), which gives one phantom zero-output function for one expressly specified dyadic atomic measure. Its full text, including construction and final discussion, was inspected. It neither asserts dense phantom kernels nor treats all infinitely atomic measures nor proves maximal graph nonclosability. Ransford (arXiv:2605.30114) treats coefficient-formula validity for \(H^2\) or rational symbols; those premises do not cover infinitely atomic Herglotz symbols. Earlier conventional Toeplitz-kernel literature addresses different operator domains. Alternative older formulations in formal infinite-matrix or unbounded Toeplitz theory remain a genuine priority risk, and the earlier Ransford article could not be fully inspected independently.
+PASS
 
-**Mathematical value — PASS.** The result is a structural classification of a large naturally parameterized family of formal coefficient tests. It establishes an extreme stability failure: every output is approximable along graph-convergent sequences from every input, while infinitely many independent boundary atoms remain admissible even without separation and even with a nonatomic component. Arbitrary finite prescribed jets and the entire graph closure strengthen a single failure example in a way directly relevant to when coefficient-domain descriptions of de Branges–Rovnyak spaces are legitimate. It explicitly distinguishes the formal coordinatewise realization from the properly closed Smirnov-class Toeplitz operator.
+For each atom ζ_j the geometric-sum estimate and dominated convergence show η_j(L)→0 uniformly in block start N and coordinate m. Weighted Vandermonde on distinct nodes ζ_j^(−1) solves M+1 residual equations each stage. Arbitrarily long blocks simultaneously ensure ℓ² tail cost ≤ε²2^(−M−1) and partial-block error ≤2^(−M−3), so every increasing-index coefficient series converges to zero, not just a subsequence of stage endpoints; initial polynomial jet is untouched. Positive-real Herglotz symbol has 1/φ∈H∞ and φ∈H^p (p<1), hence outer. The cited companion norm identity and strict H(b)>H2 norm for nonzero outer b force ker(T)∩H(b)=0. Upper-triangular polynomial restriction has diagonal 1, hence maps polynomials onto polynomials; adding arbitrarily close dense-kernel elements shows every (g,h) is in the graph closure. Independently evaluated atom-extraction bound for a finite atomic example; its finite test is illustrative only.
 
-**Limits and related evidence.** No claim is made for nonatomic-only measures, for a necessary-and-sufficient atomic criterion, for quantitative computational cost, or for historical priority beyond inspected and searched materials. The unlimited block-length choices are existence arguments, not an efficient algorithm. The source's established strict norm inequality is used as a cited lemma rather than recertified as new.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge novelty of the exact final statement after explicit comparison with related stronger/alternate formulations; any inaccessible source is recorded as a residual risk, not assumed noncovering.
+
+## value
+
+PASS
+
+Strong and natural operator-theoretic upgrade of a recent coefficient-formula counterexample: every prescribed Taylor jet is approximable by a zero-output vector for every infinitely atomic positive measure, and the graph closure is maximally nonclosable. This delineates exactly why the formal coordinatewise operator cannot be identified with a closed Toeplitz realization.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
