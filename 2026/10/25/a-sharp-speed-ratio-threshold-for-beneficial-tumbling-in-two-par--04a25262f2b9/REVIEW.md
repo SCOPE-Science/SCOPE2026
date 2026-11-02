@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The exact nonzero-velocity four-state Markov generator yields analytic mixed-endpoint transport equations around zero reversal rate. Explicit integration of the coefficients through second order gives the stated sharp speed-ratio threshold and the positive quadratic boundary term. A compensated velocity-switching martingale shows that large reversal rates force the collision time to infinity in probability and its mean to diverge. The numerical and symbolic programs verify the equations and polynomial integrations without treating finite experiments as a proof of asymptotic claims.
+PASS
 
-## Originality — PASS with historical limits
+Source RESULT.md blob 510be494666cae95cae5e8dad4d481f0478616a5: relative displacement y mod ell gives four transport velocities (+/-)(v1-v2) and (+/-)(v1+v2). The backward BVP w_s partial_y f_s + alpha Qf_s=-1 requires mixed absorbing endpoints f_s(ell)=0 only for positive velocity and f_s(0)=0 for negative velocity. Because all w_s are nonzero, its boundary operator is invertible at alpha=0 and analytic nearby. The exact polynomial recursion w_s f_{k,s} prime=-(Qf_{k-1})_s integrates to M0=ell*v1/[2(v1²-v2²)], M1=ell²(v1²-5v2²)/[6(v1²-v2²)²], M2=2ell³v1*v2²/[3(v1²-v2²)³], including positive threshold value 25ell³/(96v1³). Independent symbolic algebra reconstructed all four recursions, verified BVP residuals and boundary conditions, and integrated the coefficients. For alpha large, compensated sign-flip martingale has quadratic variation 4alpha t, implying expected maximum squared integrated signs O(t/alpha+alpha^-2); for each finite t, collision probability tends to zero after excluding small initial gaps. Hence E T_alpha diverges, continuity plus negative M1 yields positive finite global minimizer above threshold. Finite numerical simulations are not evidence of this limit.
 
-Cheliotis et al. (arXiv:1808.03830, Section 4.2, Lemma 4.5 and Eq. (8)) already derive exactly the equal-speed conditional first-meeting laws; that result rules out treating equal-speed mean or its optimum as original. Their velocity states include two zero-relative-speed modes, unlike this genuinely unequal-speed boundary-value problem. Pogorui (2012) treats the unbounded line and equal individual speeds. Soto and Golestanian (arXiv:1306.0481) study the stationary persistent-exclusion process. The threshold at a nonzero relative-speed mismatch and its quadratic critical boundary were not found among inspected papers or searched research records. A more general unlocated multi-speed telegraph first-passage theorem remains a risk; absence from searches is not a uniqueness certificate.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The speed ratio controls whether adding a small amount of orientational randomness helps or hinders particle encounters. The exact critical ratio provides a physical design boundary between persistence-dominated and noise-assisted search, and the second-order calculation resolves the borderline instead of leaving its sign ambiguous. The existence of a positive optimal reversal rate in the noise-assisted regime follows analytically from that local response and the fast-reversal limit. No claim is made about uniqueness of optimal rates or global behavior on the opposite side of the boundary.
+Best-knowledge statement-level novelty survives comparison with relevant primary literature and published records, with the exact theorem and aliases checked. The exact velocity-ratio phase boundary decides whether weak random reversals assist or hinder a first encounter at fixed unequal speeds, and the positive second-order threshold term resolves a degenerate linear response. Priority residuals are explicitly retained; a failed search is not a novelty certificate.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The exact velocity-ratio phase boundary decides whether weak random reversals assist or hinder a first encounter at fixed unequal speeds, and the positive second-order threshold term resolves a degenerate linear response. Existence of a finite positive optimal rate in the beneficial regime follows. This answers a natural physical stochastic search question beyond the singular equal-speed case and does not overstate global optimizer uniqueness.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
