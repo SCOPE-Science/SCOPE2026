@@ -1,0 +1,111 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:52:05Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The number of distinct adjacent-two-deletion descendants is 1+∑_{i=1}^{n−2}1_{x_i≠x_{i+2}}, because outputs y_i=y_j imply period two of the intervening source substring and equal-output blocks are contiguous. The binary difference map δ_i=x_i⊕x_{i+1}, δ_n=x_n is invertible, and the last bit selects a unique lift from syndrome modulo n to modulo 2n. The weighted transition enumerator F_n(q,z) is expressed through the 2×2 transfer product J D_i(q). For a root q of order d|n/2, d even, nonconstant cyclic rotation orbits cancel and constant orbits give tr P_d=0; det P_d=−(1−z²)^d implies P_d²=(1−z²)^d I and F_n(q,z)=2K. For primitive order n, reversal/complement pairs contributions with opposite q^{n/2} signs, giving F_n(q,z)=0. q=1 gives F_n=2G. Fourier inversion yields the claimed four-exceptional versus remaining 2n−4 syndrome classes. Independent exact enumeration of all words n=4,8,16 and separate DP at n=32 matched every coefficient, covering examples but not replacing the all-powers-of-two Fourier proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Xie–Sun–Ge 2026 full primary text, Section VI Theorem VI.1 and Remark VI.2: exact 2-burst covering/correction and total incidence |S_a|=2^(n−2) for every syndrome.",
+          "Babu et al 2025 discuss DVT class cardinalities and generating functions, not confirmed full transition spectrum from material read.",
+          "Nguyen–Cai–Siegel 2024 is a broader differential VT construction and encoding framework, not a checked burst-ball-spectrum theorem."
+        ],
+        "reasoning": "Perfectness gives W_a'(1) and sizes; scalar totals and code cardinalities cannot imply all coefficients of the two polynomials. The potential stronger transfer-matrix literature has not been ruled out conclusively.",
+        "searches": [
+          "Xie Sun Ge New bounds for covering codes under insertions or deletions arXiv:2606.15379 theorem VI.1",
+          "Babu Krishnamoorthy Roth Siegel On Differential Varshamov-Tenengolts Codes 2025",
+          "Nguyen Cai Siegel Differential VT codes IEEE TIT 2024"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2606.15379 (14-page full text; Theorem VI.1, Remark VI.2)",
+        "Babu et al 2025 DVT paper (bibliography/summary, full body not read)",
+        "Nguyen et al IEEE TIT 2024 (bibliographic comparison)",
+        "Resultary 2026/10/4/...exact-variance-of-binary-two-deletion-sphere-size",
+        "Resultary 2026/10/4/...ternary-parity-lifted-two-burst-covering"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Full text Theorem VI.1 counts each code class total distinct output incidence 2^(n−2), but not how those counts split among codewords.",
+          "DVT class-size formulas constrain W_a(1) only; these two moments do not determine the polynomial without the Fourier transfer computation."
+        ],
+        "reasoning": "The complete spectrum is not a formal corollary of known perfectness/cardinality statements; transfer character analysis supplies the added all-power-of-two information.",
+        "searches": [
+          "Xie Sun Ge New bounds for covering codes under insertions or deletions arXiv:2606.15379 theorem VI.1",
+          "Babu Krishnamoorthy Roth Siegel On Differential Varshamov-Tenengolts Codes 2025"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to the syndrome-conditional distribution of 1 plus the number of adjacent transitions in the first n−1 binary differential bits.",
+          "Resultary 2026/10/4/SCOPE-exact-variance-of-binary-two-deletion-sphere-size--6c9fe70986cc concerns all two positions rather than a consecutive burst and unconditional variance."
+        ],
+        "reasoning": "Checked equivalence under the difference bijection, cyclic transfer product and character sums; published arbitrary two-deletion distributions are different channels, not coefficientwise DVT conditional spectrum.",
+        "searches": [
+          "differential Varshamov Tenengolts adjacent two deletion sphere size distribution syndrome powers of two Fourier [Resultary_Search]",
+          "Xie Sun Ge New bounds for covering codes under insertions or deletions arXiv:2606.15379 theorem VI.1"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Code classes each have exact coefficientwise enumerators; at n=8 exceptional polynomial z+3z³+8z⁴+3z⁵+z⁷ and ordinary polynomial 2z²+4z³+4z⁴+4z⁵+2z⁶.",
+          "Resultary 2026/10/4/SCOPE-exact-syndrome-sizes-for-ternary-parity-lifted-two-burst-coverin--c224daa8ff6c concerns ternary code cardinalities rather than binary conditional sphere spectra."
+        ],
+        "reasoning": "An exact database of this same invariant would cover the claim; no such table or general all-n formula was found, and n=4/8/16 were independently recomputed rather than copied.",
+        "searches": [
+          "differential Varshamov Tenengolts adjacent two deletion sphere size distribution syndrome powers of two Fourier [Resultary_Search]"
+        ]
+      },
+      "rationale": "Xie–Sun–Ge 2026 Theorem VI.1 proves binary differential VT codes correct and cover two-burst deletions, hence the total |image| per syndrome is 2^(n−2); it does not give the individual codeword burst-deletion-ball-size distribution polynomial in the materially read primary full text. Earlier DVT size results do not logically determine this coefficientwise refinement. The new finite-parameter classification is original on checked evidence, with risk of implicit old transfer-matrix enumerators.",
+      "residual_risks": [
+        "An earlier coding-theory transfer-matrix or per-class deletion-ball weight enumerator may be mathematically equivalent, even absent direct matching title.",
+        "Babu 2025 and Nguyen 2024 full text were not independently inspected; their stronger generating functions could imply the result.",
+        "Only binary alphabet, exactly consecutive-two deletion, blocklength power-of-two; no decoder improvement claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "GLOBAL_INCIDENCE_ONLY",
+          "evidence": "Theorem VI.1 shows each DVT_a code is 2-burst perfect and total distinct-output coverage count 2^(n−2), no enumerator coefficient distribution appears in read Section VI.",
+          "identifier_or_url": "https://arxiv.org/abs/2606.15379",
+          "material_read": "Lawfully obtained complete 14-page primary text; materially read Introduction, Section VI pp.11–13, Theorem VI.1, Remark VI.2, conclusions and references",
+          "method": "Authorized primary PDF extracted text after open arXiv and OA access attempts failed",
+          "title": "New bounds for covering codes under insertions or deletions",
+          "trigger": "Exactly same binary two-burst differential VT code and perfectness theorem"
+        },
+        {
+          "assessment": "UNREAD_FULL_BODY_RESIDUAL_RISK",
+          "evidence": "A class-cardinality generating function is not necessarily the conditional two-burst output-size polynomial; possible hidden coverage cannot be excluded.",
+          "identifier_or_url": "https://cmrr-star.ucsd.edu/static/pubs/On_Differential_VT_Codes.pdf",
+          "material_read": "Bibliographic description/known cardinality scope; full paper not directly inspected",
+          "method": "Source-metadata comparison only",
+          "title": "On Differential Varshamov–Tenengolts Codes",
+          "trigger": "Potential stronger DVT cardinality and enumerator theorem"
+        },
+        {
+          "assessment": "BACKGROUND_ONLY_ACCESS_LIMITED",
+          "evidence": "Provides foundational differential-code construction, not shown to give the claimed all-power-of-two burst spectrum.",
+          "identifier_or_url": "https://doi.org/10.1109/TIT.2024.3417894",
+          "material_read": "Bibliographic summary, no independently read full text",
+          "method": "Model/statement comparison",
+          "title": "A New Version of q-Ary Varshamov–Tenengolts Codes With More Efficient Encoders",
+          "trigger": "Original DVT definition and encoding properties"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The precise number of distinct outputs per codeword is a canonical invariant of the perfect two-burst deletion code, relevant to variable sphere geometry and decoding/covering heterogeneity. It refines the recently established global count into a full sharp two-class syndrome-conditional distribution for every power of two, not an arbitrary finite recomputation.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n=2^r≥4, the number of distinct adjacent-two-deletion outputs per word in each binary differential VT class has only two exact enumerator polynomials: [2G+(n−2)K]/n for four syndrome classes and [2G−2K]/n for the others, G=z(1+z)^(n−2), K=z(1−z)^(n/2)(1+z)^(n/2−2).",
+  "limitations": [
+    "No extension beyond n powers of two or to non-binary alphabets and no performance claim.",
+    "Four exceptional syndrome classes comprise a≡0 or n/2 modulo n, not a different code convention."
+  ],
+  "schema_version": 1
+}
