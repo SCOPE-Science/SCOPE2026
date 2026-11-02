@@ -1,0 +1,125 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T05:50:50Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "Frozen RESULT.md (blob f0a933294ddb871b0b8623b711e0faa076196198), steps 1-5",
+        "Frozen verify.py (blob 878cc3ec066a3e80581341a1e2199c9b545ab26a), independent_checks.py Mathieu and renewal quadrature",
+        "arxiv:2602.21134 (Patel-Shee), moment comparison"
+      ],
+      "rationale": "Reconstructed reset-free velocity convolution with (1-exp(-(t-s)/tau)), exact Gaussian variance 2Dg_tau(t), uniform finite-time angular correction <=v_0*tau and -3tau/2<=g_tau(t)-t<=0. These give positive two-sided multiplicative comparison of excursion MGFs with overdamped Feynman-Kac growth e^{t(Dk^2+Lambda(k))}. Positivity-improving angular semigroup has positive principal eigenfunction coefficient for deterministic and uniform heading, so exponential Poisson age mixture has MGF domain Psi(k)<r, with divergence exactly at equality. Lambda even, convex, nonnegative, and Psi strictly increasing for positive k yields unique root. A tilted exponential concentration at k_star and integrating ages t~x/Psi'(k_star) supplies both log-tail lower bounds; Markov supplies upper bounds. Perturbative Lambda(k)=v_0^2 k^2/(2D_r)+O(k^4), Lambda<=v_0|k|, and exact exponential-age integration give both k_star endpoints and 4D/(tau^2 r^3). Our independent 37-mode Fourier matrices recover two roots and exact thermal renewal identities at six (r,tau) points. Finite matrix checks are not the infinite proof.",
+      "residual_risks": [
+        "No pointwise density prefactor or radial-displacement law established.",
+        "Fixed positive finite inertia; no double-limit tau/r uniformity, D=0, or partial resetting.",
+        "Discrete Fourier truncations confirm finite cases only; cannot certify the infinite-dimensional principal eigenvalue."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Feynman-Kac positive principal eigenvalue theory on the circle",
+          "Franke-Sokolov 2026 DOI:10.1103/qyl8-6q9h (passive underdamped resetting)"
+        ],
+        "reasoning": "The general spectral/renewal construction supplies analytic machinery, and v_0=0 is covered by passive work, but positive propulsion adds a nontrivial angular eigenvalue and explicit tau-invariance at all rates.",
+        "searches": [
+          "\"underdamped Brownian resetting exponential tails\"",
+          "arxiv:2602.21134"
+        ]
+      },
+      "checked_sources": [
+        "arxiv:2602.21134",
+        "arxiv:2008.03294",
+        "DOI:10.1103/qyl8-6q9h",
+        "Resultary semantic query active Brownian motion with inertia and complete stochastic resetting stationary displacement exponential tails Mathieu tilted generator exponential moments"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Patel-Shee arxiv:2602.21134v2, stationary cumulants",
+          "Kumar-Sadekar-Basu 2020 overdamped active resetting",
+          "Franke-Sokolov 2026 passive underdamped"
+        ],
+        "reasoning": "Neither finitely many cumulants nor the passive/overdamped special cases imply the sharp full active-inertial MGF endpoint and two-sided tail result. Classical tilted-generator results could be combined to reproduce it; conceptual antecedence is acknowledged.",
+        "searches": [
+          "active Brownian motion with inertia and complete stochastic resetting stationary displacement exponential tails Mathieu tilted generator exponential moments",
+          "arxiv:2602.21134",
+          "arxiv:2008.03294"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "arxiv:2602.21134 (same full-reset inertial active Brownian model; stationary moments through fourth order, no cited all-rate Mathieu tail theorem)",
+          "Kumar-Sadekar-Basu 2020, arxiv:2008.03294, overdamped active dynamics"
+        ],
+        "reasoning": "The tilted eigenvalue is applied to a genuinely inertial full-reset model, but finite-memory correction leaves the same exponent; stationary moments are not logically equivalent to full MGF-domain and logarithmic-tail laws.",
+        "searches": [
+          "active Brownian motion with inertia and complete stochastic resetting stationary displacement exponential tails Mathieu tilted generator exponential moments",
+          "\"active Brownian resetting\" \"Mathieu\" \"stationary tail\""
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No relevant exact Mathieu tail-rate table in the inspected active-resetting primary work or Resultary top matches"
+        ],
+        "reasoning": "This is a continuum all-rate transcendental root and limiting tail law rather than a finite catalog; comparing the same stochastic model and all-rate tail implication is the relevant test.",
+        "searches": [
+          "active Brownian motion with inertia and complete stochastic resetting stationary displacement exponential tails Mathieu tilted generator exponential moments",
+          "Resultary semantic search, top 12"
+        ]
+      },
+      "rationale": "The inertia-independent principal-Mathieu all-rate active far-tail root is beyond the fourth-order stationary moment and high-rate r^-3 variance results for this same resetting model. Passive underdamped and overdamped active resetting precedents are distinct hypotheses; abstract Feynman-Kac/renewal principles underlie rather than automatically provide a checked specialized formula. No exact dominating result surfaced in targeted Resultary/literature searches. Priority remains qualified because some prior active resetting full technical results were not exhaustively inspected.",
+      "residual_risks": [
+        "A general earlier renewal/tilted-generator theorem might imply the precise active case when specialized.",
+        "Overdamped active resetting primary source was not comprehensively inspected in full."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Self-review, PARTIAL PRIOR COVERAGE: mean-squared displacement/high-rate variance already known; no all-rate principal Mathieu log-tail equivalence found in inspected results.",
+          "evidence": "arxiv:2602.21134v2; source document and moment results",
+          "identifier_or_url": "https://arxiv.org/html/2602.21134",
+          "material_read": "Full accessible HTML primary scientific discussion including model, moment formulas and strong-reset asymptotics",
+          "method": "Primary HTML reading and mathematical comparison",
+          "title": "Controlling inertial active Brownian motion via stochastic resetting",
+          "trigger": "Exact same full-reset inertial model and variance asymptotic"
+        },
+        {
+          "assessment": "OVERDAMPED active model and limiting regimes; full text not relied on for whole-paper noncoverage.",
+          "evidence": "Kumar-Sadekar-Basu, Physical Review E 102 (2020)",
+          "identifier_or_url": "https://arxiv.org/abs/2008.03294",
+          "material_read": "Accessible bibliographic summary and primary abstract, not a comprehensive full-text reading",
+          "method": "Bibliographic abstract inspection",
+          "title": "Active Brownian motion in two dimensions under stochastic resetting",
+          "trigger": "Active reset tail precedent"
+        },
+        {
+          "assessment": "Passive setting covers v_0=0 only, not positive self-propulsion; residual stronger-coverage risk.",
+          "evidence": "Franke-Sokolov 2026 DOI",
+          "identifier_or_url": "https://doi.org/10.1103/qyl8-6q9h",
+          "material_read": "Accessible abstract and cited scope; full proof not inspected",
+          "method": "Primary bibliographic comparison",
+          "title": "Resetting of underdamped Brownian motion",
+          "trigger": "Passive underdamped exponential-tail precedent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "Active particle resetting model and moments: arxiv:2602.21134",
+        "Frozen RESULT.md all-rate spectral and variance proof"
+      ],
+      "rationale": "Exact far-tail localization versus r^-3 core-width is a motivated distinction for interpreting rare active-particle excursions. The principal Mathieu root characterizes all positive reset rates, not only a numerical special value; its independence of finite inertia is a nontrivial stable structural property. The result is limited to complete Poisson resetting and coordinate logarithmic tails.",
+      "residual_risks": [
+        "No density prefactor, multidimensional radial tail or partial-resetting extension."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For D,D_r,v_0,tau,r>0 with complete position-velocity resets and fixed or refreshed-uniform heading, stationary coordinate moments exist precisely for |k|<k_star, defined by D k_star^2+lambda_max(D_r d_theta^2+k_star v_0 cos(theta))=r; log-tail rates on both sides are -k_star for every tau>0. High-rate variance is 4D/(tau^2 r^3)+O(r^-4) and tail-scale/width ratio is asymptotic tau*r/2.",
+  "limitations": [
+    "Positive D,D_r,v0,tau,r and full resets only; only logarithmic coordinate tails, not prefactors."
+  ],
+  "schema_version": 1
+}
