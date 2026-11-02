@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The finite checker `verify.py` separately calculates the maximum signed-antichain support by brute-force enumeration and by bottom-up dynamic programming on small complete rooted trees. It uses 158 independently drawn Gaussian direction inputs across four branching/height cases; it also tests the half-normal exponential moment constants and prints Monte Carlo diagnostics for small heights.
+# Independent mathematical audit
 
-The infinite-height proof depends on the Gaussian support identity, the expectation recursion, leaf domination, an explicit exponential-integrability bound, Gaussian Poincare concentration, and Gaussian radial normalization. No experimental threshold or sample mean is treated as an exact asymptotic or a proof of originality.
+## correctness
 
-The recursively defined constant has the analytic upper bound on its uncomputed tail stated in RESULT.md. The internal geometric statement assumes fixed branching degree. No external independent audit or formal certification was performed.
+PASS
+
+Support maximization splits exactly into selecting root versus optimal subtrees. The positive increment e_(b,r)=E(W-sum child Y)_+ obeys e_(b,r)<=M rho^(b^r) by lower bounding every child optimum with its leaf antichain and exponential Markov. Series telescoping, branching coupling and strict r=1 increment yield all constants/rates. Gaussian radial factorization gives exact spherical mean width, Poincare bound Var(Y)<=b^h gives concentration, and per-node probability plus a union bound proves localization. Independent exhaustive antichain optimization matched support DP in 100 test instances; not a universal proof.
+
+## originality
+
+PASS
+
+Enriched chain polytopes were defined by Ohsugi–Tsuchiya and weighted antichain recursions are classical; a published exact radius theorem gives height/width radii. Neither this enumeration nor radii imply the stochastic Gaussian width limit, strict branching hierarchy, and geometric depth localization. Potential equivalent max-plus branching process priority remains.
+
+## value
+
+PASS
+
+Mean width and random support localization are intrinsic metric/normal-fan statistics for natural exponentially large poset polytopes. The explicit superexponential finite-depth error and strict b-dependence form a nontrivial sharp asymptotic description beyond deterministic inradius or antichain counting.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
