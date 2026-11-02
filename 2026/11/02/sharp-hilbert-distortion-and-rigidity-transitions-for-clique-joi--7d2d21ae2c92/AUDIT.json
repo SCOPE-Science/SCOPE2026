@@ -1,0 +1,114 @@
+{
+  "correctness": {
+    "rationale": "The universal Hilbert quadrilateral identity on all rook rectangles implies U+V>=4 and D^2>=2. The exact Hilbert centroid identity and cross-edge bound imply D^2(2MN+M-N)>=4N(M-1)+MN(1-1/h). Orthogonal centered regular simplices attain the maximum lower bound for every integer m,n>=2,h>=1. Equality analysis establishes all optimal configurations at and above the threshold; an orthogonal translation proves nonrigidity below it. CHECKER.py independently evaluates 154006 exact rational labelled-pair constraints across 224 finite cases, confirming but not replacing the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The Cioabă et al. theorems explicitly assume distance regularity and the searched text has no join-graph specialization.",
+        "Vallentin addresses Hamming graphs, Johnson graphs, and strongly regular graphs, not the nonregular complete join."
+      ],
+      "reasoning": "These broader spectral metric-embedding principles are applicable as background or to the induced rook submetric, but the published results inspected do not quantify the joined clique cross-pair constraint or its optimizer equality cases.",
+      "searches": [
+        "web: \"graph join least Euclidean distortion 2-distance graphs\"",
+        "web: \"Hilbert distortion of graph cone Cartesian product complete graphs\"",
+        "Cioabă–Gupta–Ihringer–Kurihara arXiv:2109.09708, full-text query join and examined §2 and §5",
+        "Vallentin arXiv:math/0509716, full-text query join and examined §4.1"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2109.09708",
+      "https://arxiv.org/abs/math/0509716",
+      "https://doi.org/10.1016/j.laa.2018.08.024",
+      "Published mathematical-record semantic search results on graph-metric distortion and rook-graph joins; no directly covering statement found."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The induced rook metric supplies only the bound c2>=sqrt(2).",
+        "The new lower bound uses the hub-clique variance (h-1)/(2h), which is absent when studying the core alone.",
+        "In the strict phase the second bound is stronger, and equality forces different simplex side lengths when m≠n."
+      ],
+      "reasoning": "The new formula and rigidity distinctions do not follow merely from the known distortion of the core Hamming graph or the distance eigenvalues of a graph join. A different general exact SDP result could imply it, but none was identified in the actual searches.",
+      "searches": [
+        "Vallentin arXiv:math/0509716 §4.1 (Hamming distortion)",
+        "Cioabă et al. arXiv:2109.09708 §1, §2, §5 (distance-regular embeddings)",
+        "Cardoso–Díaz–Rojo DOI:10.1016/j.laa.2018.08.024 (H-join distance spectra)",
+        "published-record search: \"Euclidean distortion of Hamming graph with multiple universal vertices\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The core Hamming graph H(2,q) is distance-regular with least Hilbert distortion sqrt(2), as established by Vallentin.",
+        "A nontrivial universal-clique join has hub degree greater than core degree by (m-1)(n-1), and so is not distance-regular.",
+        "The full formula adds an h-dependent cross-centroid term and asymmetric optimizer rigidity absent from the core calculation."
+      ],
+      "reasoning": "Neither the ordinary Hamming eigenembedding, its permutations, nor a distance-regular duality directly reproduces the added clique constraints and the phase/range of optimizers.",
+      "searches": [
+        "web: \"Euclidean distortion rook graph joined clique Hamming K_q square K_q K_r join shortest path metric\"",
+        "web: \"Hilbert embedding distortion join of complete graph and Hamming graph rook lattice\"",
+        "web: \"Euclidean embedding cone Hamming graph distortion\"",
+        "arXiv:2109.09708 Introduction and §5; arXiv:math/0509716 §4.1"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Targeted title/abstract and published-record searches returned distance-regular Hamming results, graph complex invariants, and Banach–Mazur distortions of transportation spaces, but no exact table for the current graph metric.",
+        "The join distance-spectrum study reports graph-distance-matrix spectral invariants rather than a c2 table."
+      ],
+      "reasoning": "No matching numerical table, parameter formula, or stronger graph-metric classification was located. Negative search alone is not proof of historical uniqueness.",
+      "searches": [
+        "web: \"metric Euclidean distortion universal vertices join graph rook Hamming paper\"",
+        "web: \"Hilbert embedding optimal distortion join complete graph rook lattice\"",
+        "published-record semantic search: \"Exact Euclidean Hilbert distortion clique join rook graph K_h vee (K_q square K_q)\"",
+        "published-record semantic search: \"Rook Hamming graph universal clique Euclidean distortion threshold\""
+      ]
+    },
+    "rationale": "The cited primary papers treat distance-regular graph Euclidean distortion, where the rook graph alone has squared distortion 2, while the joined graph has unequal hub/core degrees and an additional sharp cross-centroid obstruction. A graph-join spectral paper treats distance-matrix eigenvalues rather than least bi-Lipschitz Hilbert distortion. Searches of alternative names and published mathematical records found no direct statement or stronger implication of the joint three-parameter value and complete binding-phase optimizer classification; older unlocated equivalent results remain a genuine priority risk.",
+    "residual_risks": [
+      "Equivalent earlier results might exist under graph-join, Euclidean distance-matrix, SDP or association-scheme terminology.",
+      "The graph-join distance-spectrum paper was inspected through its public abstract/opening text rather than its entire publisher PDF, but its stated result concerns different invariants.",
+      "No independent novelty or mathematical audit was performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state an exact join-with-clique metric distortion or its optimizer geometry. The assumptions and examples are distance-regular.",
+        "evidence": "arXiv:2109.09708, pp.2 and 13–14, discussion of Vallentin Hamming and Johnson results; no join occurrence on PDF text search.",
+        "identifier_or_url": "https://arxiv.org/pdf/2109.09708",
+        "material_read": "PDF introduction pp.1–2, the optimal embedding development §2, Hamming case table in §5 pp.13–14, text search for join/Cartesian; PDF page images inspected.",
+        "method": "Lawful open arXiv full-text PDF text inspection with page-image cross-check.",
+        "title": "The least Euclidean distortion constant of a distance-regular graph",
+        "trigger": "Closest modern exact Hilbert-distortion treatment of Hamming and other distance-regular graphs; verified initial public posting 2021-09-20."
+      },
+      {
+        "assessment": "Computes sqrt(2) for two-coordinate Hamming cores but does not treat their complete-clique joins.",
+        "evidence": "arXiv:math/0509716, §4.1 and definition of distance-regular graph in §2.",
+        "identifier_or_url": "https://arxiv.org/pdf/math/0509716",
+        "material_read": "PDF introduction pp.1–2 and Hamming theorem/proof §4.1 pp.7–8, text search for join; page images inspected.",
+        "method": "Lawful open arXiv PDF text inspection with page-image cross-check.",
+        "title": "Optimal distortion embeddings of distance regular graphs into Euclidean spaces",
+        "trigger": "Foundational exact Hamming and strongly regular graph metric embedding results, a potentially dominating statement."
+      },
+      {
+        "assessment": "Scope is distance, distance-Laplacian, and signless-distance-Laplacian eigenvalues, not optimum metric-to-Hilbert bi-Lipschitz distortion; the lack of full PDF is a residual access risk.",
+        "evidence": "Linear Algebra Appl. 559 (2018) 34–53, abstract and first section: spectral rather than minimum-distortion conclusions.",
+        "identifier_or_url": "https://doi.org/10.1016/j.laa.2018.08.024",
+        "material_read": "Publisher abstract, introduction and publicly rendered extended opening text describing the H-join and distance-matrix results; complete publisher PDF was not inspected.",
+        "method": "Public search-indexed publisher HTML text and bibliographic inspection.",
+        "title": "Distance matrices on the H-join of graphs: A general result and applications",
+        "trigger": "Closest title explicitly addressing arbitrary graph joins and distance-based spectral information."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "7d2d21ae-2c92-455c-bee2-c210990ef819",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact three-parameter formula and condition (h-1)/(2h)>1/m+1/n identify when adjoining a universal clique genuinely changes the Euclidean distortion of a two-dimensional Hamming metric. The phase comes from competing four-point and two-population variance obstructions. Binding optima are uniquely determined in the asymmetric case, but display a full interval of inequivalent simplex scales in the balanced case; the limit sqrt(5/2) supplies a sharp family-level extremum. This is a structural classification of a natural family, not a single unmotivated computation.",
+    "status": "PASS"
+  }
+}
