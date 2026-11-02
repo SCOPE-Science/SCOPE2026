@@ -1,0 +1,137 @@
+{
+  "correctness": {
+    "rationale": "Unrestricted proof: the no-valley triple axiom blocks explicitly specified labels on any two nonnested or endpoint-sharing intervals. Nested pairs are shattered by processing outer pair endpoints worst-to-best; an extension lemma inserts unselected endpoints while preserving chosen comparisons. One unique rainbow matching arises from each 2d-subset of the axis. An adaptive endpoint-comparison tree of depth n−1 meets the information bound from 2^(n−1) concepts. Standard-library verifier exhaustively checks all shuffled supports and exact Littlestone recursions through n=9 (recorded output). No finite extrapolation is used for the unrestricted theorem.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Peters et al. 2020, arxiv:2007.06549, studies recognizing and optimizing single-peaked profiles on general trees; no asserted fixed-path VC or Littlestone all-support classification.",
+        "Dey and Misra 2016, arxiv:1604.04403, analyze elicitation bounds for tree axes."
+      ],
+      "reasoning": "Generalizing the axis from a path to a tree is a broader *object class*, but published elicitation/recognition complexity statements do not entail the sharp coordinate-wise shattering support polynomial for the restricted fixed path class. No stronger theorem with this conclusion was identified in inspected material.",
+      "searches": [
+        "published-finding corpus: partial orders linear extensions comparison shattering VC dimension Littlestone dimension entropy obstruction",
+        "web: single-peaked preferences shattering extremal set system VC dimension sample compression",
+        "web: single-peaked linear orders pairwise comparisons VC dimension Catalan shattering polynomial"
+      ]
+    },
+    "checked_sources": [
+      "Conitzer (2009), doi:10.1613/jair.2606, full PDF Sections 2.2, 3.1 (Theorem 1, independent nested-pair construction), 3.2",
+      "Fitzsimmons and Lackner (2019), arxiv:1907.00752, full author PDF Introduction, Results Section 1.1, fixed-axis consistency, Section 7",
+      "Peters, Yu, Chan and Elkind (2020), arxiv:2007.06549, full arXiv PDF Introduction and structural-results sections",
+      "Dey and Misra (2016), arxiv:1604.04403, full arXiv PDF of tree-based preference elicitation",
+      "Chase, Freitag and Reyzin (2023), arxiv:2310.04812, full PDF general Littlestone and query learning results",
+      "Mészáros and Rónyai (2012), arxiv:1211.0732, published full-text statement and extremal set-system theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Conitzer 2009, Theorem 1 and following information lower bound, constructs freely variable disjoint pair comparisons nested on an axis; this covers selected sufficiency examples and the order-of-growth VC lower bound.",
+        "Mészáros and Rónyai 2012, arxiv:1211.0732, prove generic properties and classifications of shattering-extremal set systems in low dimensions, but not for the fixed-axis preference class.",
+        "Chase, Freitag and Reyzin 2023, arxiv:2310.04812, give general dimension tools not an evaluation for this concept family."
+      ],
+      "reasoning": "The new contribution is not the existence of freely variable nested pairs (already in Conitzer); it is the necessary exclusion of every other pair configuration, exact per-degree counting and shattering-extremality, plus exact fixed-axis adaptive dimension. None follows from general bounds alone. Historical unidentified equivalent structural claims remain a risk.",
+      "searches": [
+        "published-finding corpus: single-peaked preferences pairwise comparison complete VC shattering supports nested intervals",
+        "published-finding corpus: single peaked domain maximal shattering Sauer extremal VC comparison queries",
+        "web: VC dimension single peaked rankings pairwise comparison"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Conitzer 2009, Section 3.1, shows a specific family of independent nested pair comparisons for a linear query lower bound; our necessity/classification is not that particular construction.",
+        "Fitzsimmons and Lackner 2019, Section 1.1 and fixed-axis extension results, asks satisfiability of incomplete comparisons, not which entire support hypergraph is shattered."
+      ],
+      "reasoning": "Known-axis no-valley preference constraints are equivalent to sequential endpoint deletion. General consistency feasibility for a specific partial order does not logically imply every assignment to a query set can be extended; the new iff characterization requires the pair-obstruction and constructive matching theorem. Conitzer supplies a lower-bound witness but not the all-support converse.",
+      "searches": [
+        "published-finding corpus: single peaked preference rankings pairwise comparison queries VC dimension Littlestone dimension shattering axis",
+        "published-finding corpus: Single-peaked preferences on fixed axis: comparison queries VC-shattered if and only if nested disjoint rainbow pairs (noncrossing matching with all intervals nested). Shattering polynomial sum binomial(n,2d) z^d and VC dimension floor(n/2).",
+        "web: VC dimension single peaked preferences rankings comparisons VC dimension shattered comparisons"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No consulted research record gave the formula sum_{d} binom(n,2d) z^d for comparison supports of fixed-axis single-peaked rankings.",
+        "Exact checker exhausts all supports n=1..9 and checks the all-order formula in that finite range, but that is new computation, not external priority evidence."
+      ],
+      "reasoning": "No exact table or existing database matching the complete support complex was encountered. This is a bounded search result, not proof of absence of such tables.",
+      "searches": [
+        "published-finding corpus: Single peaked rankings of m alternatives with known axis, preference comparison concept class Littlestone dimension m-1, exact shattering supports chain of strictly nested disjoint intervals.",
+        "published-finding corpus: VC shattered supports of single-peaked votes on line, every two pairwise comparisons shattered iff strictly nested intervals, count binomial n choose 2d",
+        "published-finding corpus: single-peaked rankings fixed axis comparison VC dimension shattering-extremal rainbow matchings"
+      ]
+    },
+    "rationale": "The known special lower-bound construction of independent nested comparisons from Conitzer (2009) is explicitly treated as prior. The new structural necessity/classification, exact support polynomial and extremal identity, and exact Littlestone value were not covered by the primary papers inspected or recoverable own claims. Actual mathematical implication comparisons were made to fixed-axis ballot extension, tree-axis elicitation, and general shattering theory. Residual historical-priority risk remains.",
+    "residual_risks": [
+      "Potential older or differently phrased characterization of the full shattered-comparison complex in social-choice or concept-class extremality literature was not exhaustively ruled out.",
+      "No independent scientific or formal audit has been carried out; correctness is a same mathematical model proof reconstruction with finite verification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "CONTAINS a nested-pair sufficiency lower-bound construction, but not the complete support iff or polynomial. Do not claim the known construction as new.",
+        "evidence": "Section 3.1, text following Theorem 1: any orientation of selected interleaved nested pairs yields a single-peaked vote; Theorem 1 upper bounds elicitation queries.",
+        "identifier_or_url": "doi:10.1613/jair.2606; https://www.cs.cmu.edu/~conitzer/singlepeakedJAIR.pdf",
+        "material_read": "PDF Sections 2.2, 3.1 (Theorem 1 and p.170 lower-bound example), 3.2 and lemmas on elicitation",
+        "method": "Full primary PDF opened, relevant definitions, proofs and query lower-bound construction read in source",
+        "title": "Eliciting Single-Peaked Preferences Using Comparison Queries",
+        "trigger": "Same fixed-axis ranking class and pairwise comparison-query task"
+      },
+      {
+        "assessment": "NOT_COVERING the global Boolean support shattering iff/count; studies deciding existence of compatible completions or unknown-axis recognition.",
+        "evidence": "Section 1.1 states fixed-axis Partial Order Single-peaked Consistency polynomial; Section 7 discusses recognition and extensions.",
+        "identifier_or_url": "arxiv:1907.00752; https://martin.lackner.xyz/publications/incompletesp-jair.pdf",
+        "material_read": "Full PDF Introduction, Section 1.1 Results, fixed-axis consistency statements, Section 7 conclusions; occurrences of no-valley and comparisons",
+        "method": "Full primary paper opened and key formal/algorithmic result sections inspected",
+        "title": "Incomplete Preferences in Single-Peaked Electorates",
+        "trigger": "Directly treats partial comparison information and extending votes on fixed given axis"
+      },
+      {
+        "assessment": "NOT_COVERING this fixed-axis pair-query shattering polynomial; focuses on structural recognition and multiwinner optimization.",
+        "evidence": "arXiv abstract states tree-axis representation and winner determination; no support-shattering formula among main results.",
+        "identifier_or_url": "arxiv:2007.06549; https://arxiv.org/pdf/2007.06549",
+        "material_read": "Full PDF abstract, problem formulation, structural approach and optimization conclusions",
+        "method": "Open arXiv primary full text and read main contribution descriptions and relevant sections",
+        "title": "Preferences Single-Peaked on a Tree: Multiwinner Elections and Structural Results",
+        "trigger": "General tree-axis single-peakedness might imply the path special case"
+      },
+      {
+        "assessment": "Related query complexity, not the precise complete set of VC-shattered comparison supports on paths.",
+        "evidence": "Source studies tree-structured axis constraints and elicitation query bounds.",
+        "identifier_or_url": "arxiv:1604.04403",
+        "material_read": "Full arXiv PDF abstract and relevant tree-elicitation theorems",
+        "method": "Open lawful arXiv full text and inspect result descriptions",
+        "title": "Elicitation for Preferences Single Peaked on Trees",
+        "trigger": "Generalizes Conitzer elicitation queries beyond path axes"
+      },
+      {
+        "assessment": "Gives general query-learning relations, not an exact n−1 evaluation on the fixed-axis single-peaked class.",
+        "evidence": "Scope of applications is generic learning/compression theory, not single-peaked rankings.",
+        "identifier_or_url": "arxiv:2310.04812",
+        "material_read": "Full arXiv PDF abstract and main dimension application statements",
+        "method": "Open primary arXiv PDF and inspect theorem scopes",
+        "title": "Applications of Littlestone dimension to query learning and to compression",
+        "trigger": "Potential dominating general Littlestone theorem"
+      },
+      {
+        "assessment": "Provides the general notion and theory, not the special rainbow-support classification for this family.",
+        "evidence": "Introduction defines s-extremality by equality; main results characterize VC dimension 1 and small dimensions abstractly.",
+        "identifier_or_url": "arxiv:1211.0732; doi:10.1155/2013/126214",
+        "material_read": "Published full-text introduction and propositions about shattering-extremal systems and bounded-VC cases",
+        "method": "Read primary published full HTML text, including definition and representative theorems",
+        "title": "Shattering-Extremal Set Systems of Small VC-Dimension",
+        "trigger": "The claim that number of shattered supports equals number of concepts may follow from generic extremal theory"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "acb809ab-9428-49ad-b226-2fca48005b89",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "For a fundamental restricted ranking domain, the theorem identifies every feasible independently variable set of comparison coordinates, yielding the entire support complex and degree enumerator rather than merely a dimension lower bound. The shattering-extremal equality gives a nontrivial structural identity, while n−1 versus floor(n/2) supplies a sharp adaptive/static separation. These invariants inform query-learning and sparse comparison measurement with known axes.",
+    "status": "PASS"
+  }
+}

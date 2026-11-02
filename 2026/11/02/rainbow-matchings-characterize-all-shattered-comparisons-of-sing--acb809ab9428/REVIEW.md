@@ -1,0 +1,11 @@
+# Scientific review: fixed-axis single-peaked comparison shattering
+
+**Correctness — PASS.** The fixed-axis no-valley axiom supplies explicit forbidden two-query assignments in every nonnested configuration, while a constructive endpoint-deletion and extension lemma realizes all labels on nested supports. The support enumerator follows from the unique outer-inner matching of any even subset; an explicit adaptive endpoint-query tree attains the counting bound \(n-1\). The included exhaustive checker recomputes all shattered supports and adaptive dimensions for \(n\le9\); the proof covers every positive integer \(n\).
+
+**Originality — PASS (accessible-source comparison).** Conitzer (2009), Section 3.1, already constructs particular freely adjustable nested comparisons and proves linear elicitation complexity; this known lower-bound construction is excluded from the new contribution. Fitzsimmons–Lackner (2019), Sections 1.1 and 7, gives recognition/extension algorithms for incomplete ballots on a fixed axis but not an all-support structural classification. Peters–Yu–Chan–Elkind (2020) treats tree single-peakedness and multiwinner elections, not full pair-support enumeration. General extremal shattering theory (Mészáros–Rónyai, 2012) and Littlestone theory (Chase–Freitag–Reyzin, 2023) do not imply the specific explicit rainbow-support theorem without additional work. Research-record searches and accessible earlier statements did not exhibit a dominating result. The search does not establish global historical uniqueness; older social-choice work remains a residual priority risk.
+
+**Mathematical value — PASS.** Beyond a single bound, this completely classifies the combinatorial complexes of consistently independently variable comparison bits for a common restricted preference domain. The all-degree generating polynomial, extremal equality between number of supports and concepts, and exact VC versus online learning gap explain the shared structural geometry and are useful for compression/elicitation studies.
+
+**Scientific limits.** The theorem fixes one known axis and strict votes; the historical-priority comparison is not exhaustive. Finite verification does not replace the unrestricted mathematical proof. Independent validation has not been performed.
+
+Self-review: passed. Independent audit: not yet performed.
