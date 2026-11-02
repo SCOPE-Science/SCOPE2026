@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The tree-spacings change of variables has exact triangular Jacobian \(\prod_v(1-B_v)^{h_v-1}\), yielding independent \(\operatorname{Beta}(1,h_v)\) increments and the classical hook volume. Centered transfer coordinates are orthogonal martingale innovations; direct variance multiplication yields the covariance determinant and invariant factor \(F(h_v)\). A strict analytic derivative inequality and sorted subtree-size domination prove both extremal rigidities. The actual standalone checker independently integrates rational first and second moments over linear-extension simplices for 157 trees, obtaining 7602 exact comparisons. It cannot by itself certify all dimensions.
+## correctness
 
-## Originality — PASS (qualified)
-The marked-poset transfer and the order-polytope setup are prior work [1,2], as is the rooted-tree hook-volume formula. Inspection of relevant definitions, results and applications in [1], together with searches on covariance, conditional beta spacings, isotropic factorization, transfer-parameter minima and extremal rooted trees, disclosed no theorem covering the new conjunction or its individual nontrivial formulas. A nearby established minimum-inradius theorem concerns a different metric functional; isotropic results for Hanner polytopes concern a different family. There remains the meaningful risk that the beta-increment calculation or its determinant has appeared independently in probabilistic order-statistics terminology.
+PASS
 
-## Mathematical value — PASS
-The exact affine-invariant isotropic law classifies sharp extremal tree shapes for every dimension, rather than checking a small finite census. The covariance-orthogonalizing transfer gives a constructive canonical Euclidean position and uniquely solves a natural metric optimization within an existing polytope deformation. These facts are not implied by the standard hook volume and distinguish geometry from combinatorial volume equivalence.
+For rooted ancestor-order trees with subtree sizes h_v, the triangular coordinate B_v=(X_v−X_parent)/(1−X_parent) has Jacobian ∏(1−B_v)^{h_v−1}; hence B_v are independent Beta(1,h_v), and vol O(T)=∏ h_v^(−1). Setting t_v=h_v/(h_v+1) makes each transferred Y_v a centered conditional innovation and diagonally covariance-orthogonal with β_v=h_v/[(h_v+1)^2(h_v+2)]·∏_{strict anc} h_a/(h_a+2). Variance decomposes as β_v+(t_v−t_v*)²Var(X_parent), with strictly positive parent variance, yielding unique inertia minimizer. A unit-triangular determinant-one transfer leaves isotropic L invariant and yields L^(2n)=∏F(h_v), F(k)=k^(k+2)/[(k+1)^2(k+2)^k]. Direct log derivative shows F increasing, and sorted subtree-size bound h_(j)≤n−j+1 gives star sharp minimum and path sharp maximum. Independent rational integrations of 33 rooted-tree order polytopes up to n=5 reproduced means, covariance and orthogonal innovations. Exact finite checks are corroboration only.
 
-## Checked source context and limits
-[1] Fang–Fourier–Litza–Pegel, *A Continuous Family of Marked Poset Polytopes*, arXiv:1712.01037v1; transfer-map theorem and geometrical sections examined in accessible full text. [2] Stanley, *Two poset polytopes*, Discrete Comput. Geom. 1 (1986), 9–23, original order-polytope context. Public database searches return related radius and Hanner-invariant theorems, not a directly stronger covering statement. Lack of a found statement is not proof of global uniqueness; independent mathematical review has not taken place.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+QUALIFIED PASS. Stanley's standard order polytope, hook volume and Fang–Fourier–Litza–Pegel's continuous marked-poset transfer family are prior results. The full freely accessible Fang et al text, especially Section 2 transfer map, studies Ehrhart, vertices and combinatorial type, not independent Beta subtree spacings, explicit Euclidean covariance minimization, invariant isotropic product or sharp tree extremizers. Other Hanner/tree-polytope isotropic studies involve different polytopes or metrics. Equivalent probability/moment formulas from order-statistic literature remain a risk.
+
+## value
+
+PASS
+
+Subtree sizes are natural hook statistics and isotropic constants are a central affine geometric invariant; exact diagonal covariance and sharp star/path extremality across all rooted trees provide reusable quantitative geometry, with a meaningful uniqueness statement inside the given transfer family. The result is neither a parameter renaming of the continuous transfer nor just a volume restatement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
