@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T05:45:26Z",
+  "axes": {
+    "correctness": {
+      "checked_sources": [
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-phase-controlled-two-step-mass-fluctuations-in-stochastic--10c6d65c5fd4/RESULT.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-phase-controlled-two-step-mass-fluctuations-in-stochastic--10c6d65c5fd4/VERIFICATION.md",
+        "https://github.com/SCOPE-Science/SCOPE2026/tree/6d72467f12de6d5dbde32d9e5fdf796d2ee820b5/2026/10/25/sharp-phase-controlled-two-step-mass-fluctuations-in-stochastic--10c6d65c5fd4/verification/mass_variance.py"
+      ],
+      "rationale": "The source recurrence with two independent real N(0,1) increments reduces exactly to |Z2|²/v=G1²+G2²+2G1G2 cos(θ+βG1²). Conditioning on G2 shows zero cross covariance and gives normalized variance 4+4 E[G1²cos²(θ+βG1²)]. The standard differentiated Gaussian transform E[G²e^(itG²)]=(1-2it)^(-3/2) gives the closed cosine, modulus, and equality phases for all real θ and β>=0. For zero θ, t=atan(4β) and F(t)=cos^(3/2)t cos(3t/2) has derivative -(3/2)cos^(1/2)t sin(5t/2), with unique minimum at t=2π/5. Complex isotropic kicks with equal mean squared amplitude have variance 4v² from law of total variance, a distinctly different noise covariance, so no false model equivalence. Independent Gaussian quadrature checked four β and three θ values; the universal formula is an algebraic identity independent of finite numerical diagnostics.",
+      "residual_risks": [
+        "Exactly two steps, scalar cubic phase, real iid rank-one Gaussian kicks and fixed positive h,σ, nonnegative κ; the isotropic case deliberately changes noise covariance. Not a PDE or long-time convergence result."
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Existing source results treat strong convergence and expected mass/energy/momentum rather than a complete small-time two-step rank-one variance.",
+          "Novel statement fixes scalar Z0=0 and compares real rank-one against circular isotropic noise."
+        ],
+        "reasoning": "General stochastic numerical analysis can contain this scheme but does not logically supply the specific sharp variance formula/equality classification.",
+        "searches": [
+          "arXiv:1601.06623 Anton Cohen exponential integrator trace formulas",
+          "arXiv:2007.02354 full article Section 3"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/abs/2007.02354",
+        "https://arxiv.org/abs/1601.06623",
+        "Resultary: two step stochastic cubic Schrodinger Lie Trotter mass variance real rank one Gaussian noise nonlinear phase",
+        "arXiv:2007.02354 Bréhier Cohen Proposition 6",
+        "arXiv:1601.06623 Anton Cohen exponential integrator trace formulas",
+        "arXiv:2007.02354 full article Section 3",
+        "Resultary published two step stochastic Schrodinger splitting mass variance",
+        "Gaussian nonlinear phase chirp variance scalar NLS",
+        "Brehier Cohen 2007.02354 Proposition 6 and equation 8",
+        "Anton Cohen 1601.06623 expected mass and energy traces"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Published mean-mass trace relation is E M2=2v; it is invariant under phase and noise-angle distributions at matched power.",
+          "The variance requires E[G1²cos²(θ+βG1²)], not determined by the mean trace and evaluated by a new two-step analysis."
+        ],
+        "reasoning": "Known scalar Gaussian calculus enables the derivation, but no inspected cited statement explicitly implies or presents the full sharp phase/strength optimization.",
+        "searches": [
+          "Brehier Cohen 2007.02354 Proposition 6 and equation 8",
+          "Anton Cohen 1601.06623 expected mass and energy traces"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Bréhier–Cohen proves E mass trace formula and analyzes splitting for additive-noise NLS, not an exact scalar fourth moment over two updates.",
+          "This RESULT.md evaluates Var(|Z2|²) with a nonlinear Gaussian chirp and gives precise phase optimizers."
+        ],
+        "reasoning": "Equal expected squared norm for two schemes does not imply equality of fourth moments or phase stability, so the prior mean theorem does not dominate this result.",
+        "searches": [
+          "Resultary: two step stochastic cubic Schrodinger Lie Trotter mass variance real rank one Gaussian noise nonlinear phase",
+          "arXiv:2007.02354 Bréhier Cohen Proposition 6"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Semantic search found related stationary variance and Langevin noise results, no precise β-dependent cosine envelope.",
+          "No cited exact data table gives β*=tan(2π/5)/4 or the 6±2(1+16β²)^(-3/4) range."
+        ],
+        "reasoning": "This is only a bounded search, not a guarantee that elementary probability literature lacks the transform.",
+        "searches": [
+          "Resultary published two step stochastic Schrodinger splitting mass variance",
+          "Gaussian nonlinear phase chirp variance scalar NLS"
+        ]
+      },
+      "rationale": "The splitting architecture and expected-mass trace formula belong to Bréhier–Cohen (2020/2023), and Anton–Cohen considers first moment/energy trace formulas for related exponential schemes. Neither inspected statement supplies the explicit phase-dependent fourth moment of this two-kick scalar real-noise recurrence; the underlying Gaussian characteristic function and conditional variance are classical and explicitly excluded from novelty. Resultary search found no exact specialized two-step variance envelope. Best-of-knowledge originality PASS for the assembled sharp variance equality profile, with substantial residual priority risk given its elementary Gaussian expectation and the intentionally narrow scalar/two-step scope.",
+      "residual_risks": [
+        "The exact two-kick computation is elementary enough to have appeared as an illustrative Gaussian-chirp calculation in unindexed prior material; first moment literature not exhaustive.",
+        "No claim to improve strong convergence, noise-independent mass conservation, PDE theory, more than two steps, or equality of Gaussian forcing models."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "KNOWN SCHEME + EXPECTATION: does not itself supply the inspected specialized two-step variance/equality profile.",
+          "evidence": [
+            "Bréhier–Cohen (2023 journal), Section 3.1 equation (8), Proposition 6 expected mass; no phase-resolved variance claim in inspected sections."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2007.02354",
+          "material_read": "Accessible full primary HTML material: scheme architecture, Section 3 mass conservation and Proposition 6 expected-mass trace law, with main convergence results.",
+          "method": "Original article mathematical reading and comparison of moment order and covariance.",
+          "title": "Analysis of a splitting scheme for a class of nonlinear stochastic Schrödinger equations",
+          "trigger": "Same numerical splitting, additive noise and mass trace."
+        },
+        {
+          "assessment": "Related stochastic integrator trace law, no identified scalar two-step β-dependent variance envelope in material read.",
+          "evidence": [
+            "Anton–Cohen (2016), Sections 3–4 listed as expected-value trace formulas."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1601.06623",
+          "material_read": "Accessible abstract and model/trace-formula descriptions for expected mass, energy and momentum; full paper not reread end-to-end this execution.",
+          "method": "Primary indexed result comparison; no whole-document novelty assertion.",
+          "title": "Exponential integrators for stochastic Schrödinger equations driven by Ito noise",
+          "trigger": "Earlier stochastic exponential splitting and higher moment possibility."
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "checked_sources": [
+        "https://arxiv.org/abs/2007.02354",
+        "https://arxiv.org/abs/1601.06623"
+      ],
+      "rationale": "The exact finite-step variance separates noise geometry and linear/nonlinear phases despite an identical expected-mass trace law. This natural minimal two-step stochastic numerical benchmark identifies a phase-controlled envelope, a strict real-vs-isotropic variance gap and a unique nonmonotone zero-phase optimum; a motivated quantified diagnostic rather than a gratuitous tiny experiment, without making a PDE or long-time claim.",
+      "residual_risks": [
+        "The exact two-kick computation is elementary enough to have appeared as an illustrative Gaussian-chirp calculation in unindexed prior material; first moment literature not exhaustive."
+      ],
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For the exact scalar cubic stochastic Schrödinger Lie–Trotter recurrence with real rank-one additive Gaussian kicks, Z0=0, v=σ²h>0, θ=ωh and β=κhv>=0, E|Z2|²=2v and Var(|Z2|²)/v²=6+2(1+16β²)^(-3/4)cos(2θ+(3/2)atan(4β)). The sharp phase extrema are 6±2(1+16β²)^(-3/4); for β>0 the real-kick minimum exceeds the isotropic complex-kick variance 4. At θ=0 the unique nonlinear minimum occurs at β=tan(2π/5)/4.",
+  "limitations": "Exactly two steps, scalar cubic phase, real iid rank-one Gaussian kicks and fixed positive h,σ, nonnegative κ; the isotropic case deliberately changes noise covariance. Not a PDE or long-time convergence result.",
+  "schema_version": 1
+}

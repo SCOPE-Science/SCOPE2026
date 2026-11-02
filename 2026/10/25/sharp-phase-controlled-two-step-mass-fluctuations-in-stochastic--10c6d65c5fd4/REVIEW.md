@@ -1,15 +1,21 @@
-# Scientific assessment
+# Independent mathematical audit
 
-## Correctness — PASS
-The precise discrete recurrence, the independent real Gaussian noise convention, and all admissible parameter ranges are stated in the proof. Direct elimination of two split steps gives the pathwise quadratic interference identity. Conditioning on the second Gaussian removes all odd terms; the Gaussian quadratic characteristic-function derivative gives an exact closed variance formula. Taking extrema of a single cosine proves the sharp range, equality phases, and strict positive-nonlinearity gap. The derivative identity for \(\cos^{3/2}t\cos(3t/2)\) has exactly one interior zero and establishes both global uniqueness and monotonicity. For circular complex kicks, a conditional covariance calculation proves the comparison without confusing its covariance with the rank-one real noise. The packaged standard-library verifier passed 633 assertions; finite tests are support, not infinite proof.
+## correctness
 
-## Originality — PASS, subject to publication-priority risk
-The closest motivating work [1] introduces the additive-noise nonlinear Schrödinger splitting scheme and proves an expected-mass trace formula (Proposition 6). The earlier work [2] develops expected mass, energy, and momentum trace formulas for stochastic exponential integrators. Their stated mean identities do not determine phase-dependent fourth moments of a two-kick amplitude, and their inspected statements do not supply the two-step rank-one variance envelope or the zero-phase phase-chirp extremum. Comparisons include arXiv full-text sections, source-specific phrase searches, and a semantic mathematical-record check. No covering statement was found, which is not proof of universal novelty. Gaussian quadratic characteristic identities and generic variance calculations are classical, and close specialized papers not identified by available searches remain a realistic residual risk.
+PASS
 
-## Value — PASS
-The example sharply separates *correct expected mass* from the statistical spread of numerical mass under additive noise, a central property of structure-preserving stochastic Schrödinger methods. Its phase envelope supplies an exact benchmark for varying the unitary linear phase, a quantitative irreducible variance gap under real rank-one kicks, and a counterintuitive unique variance-minimizing nonlinear strength when the linear phase is fixed. Those statements distinguish stochastic forcing geometries of equal power; they are more informative than a routine re-expression of the mean trace formula. Its narrow scope (two exact scalar steps) is intentional, and no dimension-independent or long-time error theorem is claimed.
+The source recurrence with two independent real N(0,1) increments reduces exactly to |Z2|²/v=G1²+G2²+2G1G2 cos(θ+βG1²). Conditioning on G2 shows zero cross covariance and gives normalized variance 4+4 E[G1²cos²(θ+βG1²)]. The standard differentiated Gaussian transform E[G²e^(itG²)]=(1-2it)^(-3/2) gives the closed cosine, modulus, and equality phases for all real θ and β>=0. For zero θ, t=atan(4β) and F(t)=cos^(3/2)t cos(3t/2) has derivative -(3/2)cos^(1/2)t sin(5t/2), with unique minimum at t=2π/5. Complex isotropic kicks with equal mean squared amplitude have variance 4v² from law of total variance, a distinctly different noise covariance, so no false model equivalence. Independent Gaussian quadrature checked four β and three θ values; the universal formula is an algebraic identity independent of finite numerical diagnostics.
 
-## Sources and remaining risks
-[1] Bréhier–Cohen, arXiv:2007.02354 (2020), full available HTML, especially Section 3 and Proposition 6. [2] Anton–Cohen, arXiv:1601.06623 (2016), full available HTML, especially Sections 3 and 4. Main risk: an equivalent explicit two-step Gaussian-chirp computation in unindexed literature or elsewhere. The source method is established prior work; no novelty is asserted for the splitting design, the elementary Gaussian transform, or expected-mass conservation.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The splitting architecture and expected-mass trace formula belong to Bréhier–Cohen (2020/2023), and Anton–Cohen considers first moment/energy trace formulas for related exponential schemes. Neither inspected statement supplies the explicit phase-dependent fourth moment of this two-kick scalar real-noise recurrence; the underlying Gaussian characteristic function and conditional variance are classical and explicitly excluded from novelty. Resultary search found no exact specialized two-step variance envelope. Best-of-knowledge originality PASS for the assembled sharp variance equality profile, with substantial residual priority risk given its elementary Gaussian expectation and the intentionally narrow scalar/two-step scope.
+
+## value
+
+PASS
+
+The exact finite-step variance separates noise geometry and linear/nonlinear phases despite an identical expected-mass trace law. This natural minimal two-step stochastic numerical benchmark identifies a phase-controlled envelope, a strict real-vs-isotropic variance gap and a unique nonmonotone zero-phase optimum; a motivated quantified diagnostic rather than a gratuitous tiny experiment, without making a PDE or long-time claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
