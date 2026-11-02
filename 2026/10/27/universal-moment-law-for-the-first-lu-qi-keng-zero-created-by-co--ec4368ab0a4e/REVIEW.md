@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
-The rotation-invariant probability measure diagonalizes the Bergman monomial norms exactly, giving \(\mathcal K_{\kappa,\nu}(t)=\sum_{n\ge0}(n+1)t^n/[1+\kappa(n+1)m_n]\). The point-mass part is \((1-t)^{-2}-\kappa/(1+\kappa)\). Uniform analytic remainder and parameter-derivative bounds follow from \(m_n\le\rho^{2n}\), for \(\kappa\in[0,M]\). Its limiting denominator-cleared polynomial has exactly one crossing at \((\kappa,t)=(1/3,-1)\), with simple real root and slope \(9/4\). Rouché arguments near the crossing and on the remaining compact parameter sets exclude any additional zero in the scalar unit disk and establish uniqueness of the sharp transition. Expanding the absolutely convergent negative-boundary remainder and solving its scalar implicit equation yields the displayed \(m_1,m_2\) coefficients, symbolically checked. The limits apply to every radial probability supported inside sufficiently small radius, not merely to numerical examples.
+## correctness
 
-## Originality: PASS (with residual priority risk)
-Zeytuncu (arXiv:1009.2806v1, 2010), Section 2, constructs a specific zero-producing radial step weight and describes other variants, but it gives no uniform concentration threshold, single-zero census, or moment expansion. The rank-one point-mass reference kernel is already known and explicitly excluded from the originality claim. Boas (2000), Sections 6–7, surveys Lu Qi-Keng weighted-kernel zero phenomena for substantially different parameters. Perälä (arXiv:1703.05976v1), Section 3, constructs radial weights with finite and arbitrarily many zeros, not this universal short-support transition. Closest subsequently published radial Euclidean boundary-distance weights, smooth power-deficit weights, and first-order jet Gram kernels have been compared from complete publicly available result texts; their weights and kernels differ and do not imply the moment-controlled transition. An unindexed older kernel-perturbation theorem might subsume this result; record searches alone cannot certify priority.
+PASS
 
-## Mathematical value: PASS
-The exact zero/no-zero threshold for all positive radial concentration profiles, including singular rings and smooth bumps, resolves a natural stability question for a canonical reproducing kernel. Its universal leading critical mass \(1/3\), profile-dependent fourth-order moment correction, and one-simple-zero classification identify the structurally sharp birth of off-diagonal zeros. This is not merely a reparameterization of the existing example at one fixed step height. The result is local in concentration scale and does not claim a classification for arbitrary large parameters or all weights.
+The normalized diagonal monomial norm follows exactly from planar area plus a positive radial probability measure: π^{-1}||z^n||²=1/(n+1)+κm_n, m_n=E|z|^{2n}. Therefore πK(t)=∑(n+1)t^n/[1+κ(n+1)m_n]. Subtracting (1−t)^{-2} and treating n=0 separately yields the rank-one limit G=(1−t)^2πK=1−[κ/(1+κ)](1−t)^2+O_M(ρ²), uniformly for |t|≤1+η with first t and κ derivatives: m_n≤ρ^{2n} bounds the remaining series. For κ>0 the reference zeros are 1±sqrt((1+κ)/κ); the negative root crosses t=−1 at κ=1/3, is simple and has dt/dκ=9/4. Choose disjoint neighborhoods of the crossing and the compact remaining κ ranges; holomorphic Rouché/implicit-function control gives a unique real negative zero above the unique crossing, no interior zeros below it, and no other scalar zero for fixed M>1/3 and sufficiently small ρ. The boundary equation at t=−1 equals 1/4−κ/(1+κ)+4κm1−8κ²m1²−9κm2+O_M(ρ^6); solving gives κc=1/3+(64/27)m1+(4736/243)m1²−(16/3)m2+O_M(ρ^6). For uniform disk, m1=ρ²/2,m2=ρ^4/3 gives 32/27 and 752/243. The theorem is only for positive radial measures, κ∈[0,M] fixed finite and ρ sufficiently small: numerical contour checks neither prove global zero absence nor control unbounded M.
 
-## Computational verification and limitations
-The independent-to-the-proof computational spot checks compare exact symbolic coefficients, radial moments, and the first negative zeros for three example profiles at three small radii. They are not proofs of the infinite quantifiers. Historical comparisons are limited by possible unindexed relevant literature, and the scientific review is not an external mathematical audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Focused primary-text comparisons confirm that Zeytuncu constructs a particular radial step-weight zero, Perälä constructs weights with prescribed finite zero counts, and Boas surveys different boundary-weight transitions. The point-mass limit and its one-third threshold alone are prior elementary rank-one algebra and not the original contribution. Complete published Resultary proof texts for Euclidean boundary-distance and radial power-deficit weights were read: neither family includes arbitrary positive mass concentrated at the center. No inspected stronger statement implies the uniform short-support all-profile threshold plus its precise second/fourth-moment law. An unindexed general perturbation result remains plausible, so this is a qualified best-of-knowledge PASS, not absolute historical certification.
+
+## value
+
+PASS
+
+A sharp zero/no-zero boundary of reproducing kernels under localized positive mass is a natural stability invariant of weighted Bergman spaces, not an arbitrary perturbation. Classifying every radial profile, including singular circles, proving exact one-simple-negative-root behavior, and computing the first two universal moment corrections to the onset resolves a worthwhile analytic question beyond a known one-off counterexample or the trivial point-mass limit. A future researcher studying Lu Qi-Keng zeros and singular radial perturbations could use this exact controlled threshold; the theorem does not claim arbitrary weights/nonradial distributions.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
