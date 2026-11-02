@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "The proof gives a bijection of the cycles with the single-orbit members of all 65,536 sixteen-bit feedback tables; an independent Euler-tour generation produces the same 2,048 distinct canonical strings. Each of the 65,536 rooted strings is parsed by both an explicit dictionary set and a trie with identical results. The complete integer histograms are asserted and the verified package checker was actually executed successfully, with no sampling or infinite extrapolation.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Cohn–Helfgott 1997 Theorem 1 compares the large concatenation of truncated de Bruijn words and its reversal, asymptotically; its words and quantifiers are different.",
+        "Ziv–Lempel 1978 Theorems 1–2 give compression bounds for all finite inputs, but not sharp phrase-count distributions under rooted order-five cycles."
+      ],
+      "reasoning": "General upper/lower compression asymptotics do not entail these exact 32-bit finite multiplicities or identify rotation-invariant cycles. No stronger covering all-order theorem was located among inspected sources.",
+      "searches": [
+        "Lempel Ziv complexity of de Bruijn sequences LZ78 parsing number phrases binary",
+        "LZ76 LZ78 parsing de Bruijn sequence compressibility exhaustive small orders",
+        "dictionary parse de Bruijn order 5 exact min max rotation LZ78"
+      ]
+    },
+    "checked_sources": [
+      "https://doi.org/10.1109/SEQUEN.1997.666926",
+      "https://www.philippe-fournier-viger.com/spmf/lz78.pdf",
+      "https://arxiv.org/pdf/1301.2495",
+      "https://arxiv.org/abs/1409.1323",
+      "Published mathematical research records on compression, string attractors, and subsequence universality"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cohn–Helfgott Theorem 1 addresses asymptotic phrase-count separation of length approximately 4^n concatenations against reversals, not phrase counts of 2^n-bit cycles.",
+        "Dutta et al. 2013 establishes a competitive random-access version relative to LZ78 and defines the trie, not finite de Bruijn phrase frequencies.",
+        "Ziv 2014 gives finite-state asymptotic optimality of LZ78/LRU, not word-class-specific exact parsing histograms."
+      ],
+      "reasoning": "The cited prior conclusions remain consistent with any possible allocation of the six cycle types and therefore cannot imply the claimed frequency table. Counts require new exhaustive finite reasoning.",
+      "searches": [
+        "Cohn Helfgott Asymmetry in Ziv Lempel 78 parsing de Bruijn 1997 Theorem 1",
+        "arxiv:1301.2495 LZ78 parsing trie",
+        "arxiv:1409.1323 constrained dictionary"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Cohn–Helfgott 1997, §2, uses LZ78 parsing of telescoped de Bruijn truncations; none of its enumerated objects is the family of single rooted order-five de Bruijn cycles.",
+        "Dutta et al., arXiv:1301.2495, §2, defines the trie LZ78 parser but has no de Bruijn-family classification."
+      ],
+      "reasoning": "The same LZ78 phrase count can be described through shortest-new-prefix dictionaries or longest existing dictionary-trie path plus one bit; both equivalent formulations were specifically tested. No inspected equivalent published finite result has all 65,536 rooted words or the six per-cycle minimum–maximum classes.",
+      "searches": [
+        "complete distribution LZ78 incremental parsing number of phrases binary de Bruijn sequences order 5 over all cyclic rotations",
+        "root-dependent Lempel Ziv 1978 phrase counts de Bruijn necklaces order five rotation sensitivity exhaustive census",
+        "de Bruijn LZ78 parsing all cyclic rotations phrase count spectrum"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The closest retrieved published mathematical records included a binary subsequence-universality distribution and a de Bruijn string-attractor census, neither of which tabulates LZ78 phrases.",
+        "Full author-uploaded Cohn–Helfgott text concerns telescoping, not a 2,048-row cyclic LZ78 table."
+      ],
+      "reasoning": "Published records and exact-number searches did not expose a matching table; this absence does not establish that no offline, unindexed, or unpublished table exists.",
+      "searches": [
+        "Ziv Lempel 78 parse length eleven twelve thirteen fourteen binary de Bruijn 32 bits",
+        "complete distribution LZ78 incremental parsing number of phrases binary de Bruijn sequences order 5 over all cyclic rotations",
+        "de Bruijn sequences Lempel-Ziv number of phrases complete census"
+      ]
+    },
+    "rationale": "The closest full-text de Bruijn/LZ78 comparison, Cohn–Helfgott (1997), concerns concatenations of successive truncations and asymptotic forward/reversal separation; this neither states nor implies the order-five single-cycle joint rotation spectrum. Original Ziv–Lempel concerns the algorithm and asymptotic compressibility. Dutta et al. (2013) concerns random-access encoding and does not address de Bruijn words. Targeted mathematical-record and literature searches found no matching table, but historical priority remains uncertain.",
+    "residual_risks": [
+      "Unindexed older compression studies or unpublished de Bruijn/LZ78 tabulations may coincide with the counts.",
+      "End-of-input phrase conventions vary; the exact convention is explicitly part of this theorem.",
+      "Independent mathematical audit has not been conducted."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING for this exact distribution: different constructed input family and only asymptotic forward/reverse ratios.",
+        "evidence": [
+          "Theorem 1 uses concatenations of successively truncated de Bruijn strings and their reversals, not individual cyclic rotations.",
+          "Discussion concerns asymptotic upper estimates for concatenation parsing."
+        ],
+        "identifier_or_url": "https://doi.org/10.1109/SEQUEN.1997.666926",
+        "material_read": "Author-uploaded accessible manuscript: Introduction, §2 definitions and Theorem 1 including proof of concatenated truncation bound, and §4 Discussion.",
+        "method": "Read full-text sections and compared objects, word lengths, quantifiers and conclusion with exact rooted 32-letter cycle census.",
+        "title": "Asymmetry in Ziv/Lempel 78 Parsing",
+        "trigger": "Directly studies LZ78 phrase counts on sequences built from de Bruijn words"
+      },
+      {
+        "assessment": "General algorithm and coding bounds, not the order-five de Bruijn finite census.",
+        "evidence": [
+          "Theorems 1 and 2 on page 532 discuss compression ratios for arbitrary finite inputs and encoders."
+        ],
+        "identifier_or_url": "https://www.philippe-fournier-viger.com/spmf/lz78.pdf",
+        "material_read": "Original IEEE article: title/abstract, statement and discussion of results, and compression theorem page 532.",
+        "method": "Inspected scanned original PDF including actual page image; checked scope of theorems.",
+        "title": "Compression of Individual Sequences via Variable-Rate Coding",
+        "trigger": "Original definition and finite-state analysis of incremental LZ parsing"
+      },
+      {
+        "assessment": "Parser foundation and random-access adaptation; no de Bruijn cycle classification.",
+        "evidence": [
+          "§2 defines each codeword as a prior dictionary phrase plus one symbol.",
+          "Primary theorems concern time/space for random access to compressed data."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1301.2495",
+        "material_read": "Original arXiv PDF pp.1–6, especially §2 pp.5–6 (parser and trie), and in-document search for de Bruijn.",
+        "method": "Inspected original text and scanned page 5 image; compared output theorem with fixed cyclic family; search found no de Bruijn occurrence.",
+        "title": "A simple online competitive adaptation of Lempel-Ziv compression with efficient random access support",
+        "trigger": "Exact LZ78 trie algorithm and a primary archived source with dated public version"
+      },
+      {
+        "assessment": "No implication for the asserted finite spectrum; general asymptotic dictionary result.",
+        "evidence": [
+          "The introduction specifies asymptotic finite-state compressibility and constrained dictionary LZ78, not rooted de Bruijn necklaces."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1409.1323",
+        "material_read": "ArXiv full HTML Introduction/Summary and description of LRU-dictionary modification.",
+        "method": "Compared described result with exact finite phrase counts under rotation.",
+        "title": "A Constrained-Dictionary version of LZ78 asymptotically achieves the Finite-State Compressibility for any Individual Sequence with a Distortion measure",
+        "trigger": "Potential stronger arbitrary-string LZ78 theorem"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "80a175d8-f1ba-4738-8f1d-845e2be0c75b",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The natural and fully classified family of all 2,048 binary order-five de Bruijn cycles has invariant short-factor frequencies yet varies in incremental LZ78 parse complexity with starting position and cyclic ordering. The exact 65,536-root distribution and all six possible per-cycle min/max types, including thirty rotation-invariant cycles, give a nontrivial finite benchmark of dictionary parsing on maximally diverse cyclic strings. The natural family/invariant motivates this finite cutoff independently of future larger-order theorems.",
+    "status": "PASS"
+  }
+}
