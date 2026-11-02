@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,7 +19,24 @@
 }
 ---
 
-# Verification
-The cyclic Fourier diagonalization establishes the spectrum of the unnormalized difference energy on mean-zero vectors. The scalar optimization is exact for all \(N\ge3\) because every maximizing resolvent profile realizes equality and no unlisted function can improve the Cauchy–Schwarz bound. Periodization of the infinite-line Green kernel and subtraction of the zero Fourier mode prove the hyperbolic resolvent formula. The analysis uses compact-uniform power series only after showing that all global maximizers lie in a positive compact spectral scaling interval; thus the asymptotic expansion is not an unsupported local candidate.
+# Independent mathematical audit
 
-Running `python verify_cycle_sobolev.py` with Python 3 standard library produced `all checks passed`. It compared Fourier and closed resolvents, directly reconstructed Green columns and norm quotients for sizes \(3,4,5,6,7,9,12,20,30,50,80\), and tested asymptotic residual sizes up to \(100000\). These checks are finite numerical evidence only; the infinite statements are justified in the proof. No Lean certification, independent audit, or external formal validation was performed.
+## correctness
+
+PASS
+
+The cycle Laplacian eigenvalues are 4sin^2(pi k/N) on the mean-zero subspace. Cauchy–Schwarz for L+tI yields the diagonal Green upper bound; at a scalar stationary maximum the resolvent column has E(u)/||u||²=t, so the mixed-product upper bound is attained with exactly the asserted equality class. Periodizing the infinite-line resolvent and subtracting the zero mode gives g_N=coth(Ny)/sqrt(t(t+4))-1/(Nt), y=asinh(sqrt(t)/2). The inequality coth x<1+1/x plus tanh y<=y establishes C_N<1. The proof localizes all global maxima to t=sN^-2/3 with s in a fixed positive compact interval, then uniform derivative expansions and F(s)=s/8+2/sqrt(s) with F"(4)=3/64 give unique t_N and the stated coefficients. Independent optimization of the independently coded Fourier/Green formulas at N=3,5,8,20,100,1000,10000 confirms sharpness, including C_3=2/(3sqrt(3)) at t=3. The numerical checks do not establish uniform asymptotics.
+
+## originality
+
+PASS
+
+PASS, qualified. Nagai et al. 2008 give the homogeneous gradient constant on the same mean-zero finite cycle, Yamagishi et al. 2012 prove fixed mass-parameter additive Green inequalities, and Ilyin–Laptev–Zelik 2014/15 prove the infinite Z multiplicative constant 1. None of their inspected results explicitly optimizes the finite mean-zero mixed product or derives its N^-2/3 three-term defect. The 2009 Nagai–Kametaka–Watanabe discrete Sobolev article could contain a dominating equivalent formula but full text was inaccessible even using authorized access; this is a material priority risk, not automatic failure.
+
+## value
+
+PASS
+
+The finite mean-zero mixed embedding norm is an intrinsic sharp stability constant for periodic discrete gradients. The nonintegral 2/3 correction and three explicit coefficients explain zero-mode removal against lattice dispersion and locate exact Green extremizers; neither a textbook bound nor an arbitrary small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

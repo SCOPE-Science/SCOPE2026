@@ -1,0 +1,121 @@
+{
+  "audit_date_utc": "2026-10-31",
+  "audited_at_utc": "2026-10-31T03:01:14.101034Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cycle Laplacian eigenvalues are 4sin^2(pi k/N) on the mean-zero subspace. Cauchy–Schwarz for L+tI yields the diagonal Green upper bound; at a scalar stationary maximum the resolvent column has E(u)/||u||²=t, so the mixed-product upper bound is attained with exactly the asserted equality class. Periodizing the infinite-line resolvent and subtracting the zero mode gives g_N=coth(Ny)/sqrt(t(t+4))-1/(Nt), y=asinh(sqrt(t)/2). The inequality coth x<1+1/x plus tanh y<=y establishes C_N<1. The proof localizes all global maxima to t=sN^-2/3 with s in a fixed positive compact interval, then uniform derivative expansions and F(s)=s/8+2/sqrt(s) with F\"(4)=3/64 give unique t_N and the stated coefficients. Independent optimization of the independently coded Fourier/Green formulas at N=3,5,8,20,100,1000,10000 confirms sharpness, including C_3=2/(3sqrt(3)) at t=3. The numerical checks do not establish uniform asymptotics.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ilyin–Laptev–Zelik Section 1 proves sharp constant 1 on l²(Z), which has no mean-zero periodic constraint.",
+          "The directly related Nagai et al. 2009 paper is known from DOI and abstract only; arXiv/OA attempts failed, then authorized Oxford source reported disconnected VPN."
+        ],
+        "reasoning": "The infinite-line bound gives an upper envelope, not the strict finite-cycle correction. The 2009 full text is a genuine unresolved stronger-coverage risk, but no accessible affirmative coverage evidence was found.",
+        "searches": [
+          "Ilyin Laptev Zelik Sharp interpolation inequalities for discrete operators and applications arxiv:1407.0675 [web]",
+          "Nagai Kametaka Watanabe 2009 best constant discrete Sobolev [web]",
+          "sharp discrete cyclic Sobolev interpolation mean zero nearest neighbor maximum norm N^-2/3 finite size correction periodic Green function [Resultary semantic search]"
+        ]
+      },
+      "checked_sources": [
+        "https://doi.org/10.1619/fesi.51.307",
+        "https://www.sci.kumamoto-u.ac.jp/~kjm/BKI/kjmpdf/KJM-25/v25-1-yamagishi.pdf",
+        "https://arxiv.org/html/1407.0675v1",
+        "https://doi.org/10.1088/1751-8113/42/45/454014",
+        "Resultary search qR2 and targeted finite-cycle searches"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The standard Cauchy–Schwarz resolvent equality construction is prior general technique; it underlies the leading exact finite N representation.",
+          "The present N^-2/3 exponent balances a t/8 dispersion loss against 2/(N sqrt(t)) zero-mode subtraction, and its next coefficients require explicit optimization."
+        ],
+        "reasoning": "A prior parameterized Green kernel makes C_N mechanically expressible as a maximization but does not logically provide the uniquely optimized three-term finite-size asymptotics; those are the assessed contribution.",
+        "searches": [
+          "Yamagishi et al. (2012) Theorems 1.1, 1.2",
+          "Ilyin Laptev Zelik 2014 Section 2 discrete sharp interpolation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Yamagishi et al. 2012 Theorems 1.1–1.3 give the sharp additive-energy Green constant for each fixed q, not an optimized geometric mean of two energies.",
+          "The current variational formula optimizes 2sqrt(t)g_N(t) over t after enforcing the extremal energy/norm ratio."
+        ],
+        "reasoning": "The mass parameter Green function is a shared ingredient but its fixed-q additive norm does not state the coupled mixed-product best constant, optimizing spectral scale, or fractional asymptotics.",
+        "searches": [
+          "sharp discrete cyclic Sobolev interpolation mean zero nearest neighbor maximum norm N^-2/3 finite size correction periodic Green function [Resultary semantic search]",
+          "sharp discrete cyclic Sobolev interpolation mean zero nearest neighbor maximum norm N^-2/3 finite size correction periodic Green function [web]"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Nagai et al. 2008 Theorem 1.1 supplies (N²-1)/(12N) for the pure-gradient bound, an invariant growing with N rather than C_N<1.",
+          "The current result is a full variational formula and asymptotic series, not a selection of numerical constants from a discrete Sobolev table."
+        ],
+        "reasoning": "A precomputed additive Green table would need an additional global optimization and singular scaling analysis to imply the three-term mixed constant; no equivalent exact finite-size sequence was identified.",
+        "searches": [
+          "mean zero cyclic interpolation finite size N^-2/3 constant [web]",
+          "sharp discrete cyclic Sobolev interpolation mean zero nearest neighbor maximum norm N^-2/3 finite size correction periodic Green function [Resultary semantic search]"
+        ]
+      },
+      "rationale": "PASS, qualified. Nagai et al. 2008 give the homogeneous gradient constant on the same mean-zero finite cycle, Yamagishi et al. 2012 prove fixed mass-parameter additive Green inequalities, and Ilyin–Laptev–Zelik 2014/15 prove the infinite Z multiplicative constant 1. None of their inspected results explicitly optimizes the finite mean-zero mixed product or derives its N^-2/3 three-term defect. The 2009 Nagai–Kametaka–Watanabe discrete Sobolev article could contain a dominating equivalent formula but full text was inaccessible even using authorized access; this is a material priority risk, not automatic failure.",
+      "residual_risks": [
+        "Nagai–Kametaka–Watanabe (2009) full text remained unavailable after arXiv/OA then authorized institutional attempt (VPN disconnected). It might include an optimized multiplicative finite-size formula.",
+        "The general resolvent optimization is inherited from existing discrete Sobolev theory; novelty is claimed only for this finite-cycle sharp optimization and the asymptotic defect.",
+        "No explicit smallest N for eventual uniqueness is established."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers pure homogeneous Dirichlet-energy best constant; not the proposed geometric-mean constant",
+          "evidence": "Theorem 1.1 expresses C=(N²-1)/(12N) for evaluation versus energy alone, not a constant tending to one.",
+          "identifier_or_url": "https://doi.org/10.1619/fesi.51.307",
+          "material_read": "Full 2008 primary PDF text; introduction and Theorem 1.1 including the finite cyclic pure-gradient constant; visually examined theorem page",
+          "method": "Read text and mandatory PDF-page screenshot",
+          "title": "Discrete Bernoulli Polynomials and the Best Constant of the Discrete Sobolev Inequality",
+          "trigger": "same mean-zero finite cycle and sharp embedding inequality"
+        },
+        {
+          "assessment": "Establishes additive E+q||u||² sharp constants for fixed q, not the claimed optimized multiplicative finite-size defect",
+          "evidence": "Theorem 1.2 gives (1/N)sum_{k>=1}(4sin²(pi k/N)+q)^-1 for q<=0 on the mean-zero subspace; Theorem 1.1 fixed q>0.",
+          "identifier_or_url": "https://www.sci.kumamoto-u.ac.jp/~kjm/BKI/kjmpdf/KJM-25/v25-1-yamagishi.pdf",
+          "material_read": "Full accessible 15-page primary PDF; abstract, Theorems 1.1–1.3 and introductory Fourier/eigenvalue construction; visually examined PDF p.2",
+          "method": "Read extracted PDF mathematical text and screenshot of theorem page",
+          "title": "The Best Constant of Discrete Sobolev Inequality Corresponding to a Bending Problem of a String",
+          "trigger": "same discrete cycle Laplacian and mass-parameter Green matrix"
+        },
+        {
+          "assessment": "Sharp constant 1 for u on Z and general resolvent method, but no finite mean-zero N-cycle defect in inspected theorem",
+          "evidence": "Equation (1.1) gives sup |u(n)|²<=||u|| ||Du|| on Z; Section 1 explicitly treats lattice Z^d and distinguishes periodic continuous space.",
+          "identifier_or_url": "https://arxiv.org/html/1407.0675v1",
+          "material_read": "Full arXiv HTML; Sections 1,2 and applications, statements including equation (1.1), (1.3) at theta=1/2",
+          "method": "Read full accessible mathematical HTML and principal results",
+          "title": "Sharp interpolation inequalities for discrete operators and applications",
+          "trigger": "directly same discrete mixed norm at infinite-volume limit"
+        },
+        {
+          "assessment": "Potential covering theorem cannot be ruled out; NOT assessed as noncovering in absence of full text",
+          "evidence": "DOI and abstract identify general discrete Sobolev constants; no claim about its uninspected sections or appendices.",
+          "identifier_or_url": "https://doi.org/10.1088/1751-8113/42/45/454014",
+          "material_read": "Publisher metadata and abstract only; arXiv/preprint and lawful OA full text attempts unsuccessful; authorized institution source returned vpn_disconnected",
+          "method": "Read publisher abstract; attempted authorized institutional retrieval without bypass",
+          "title": "The best constant of discrete Sobolev inequality",
+          "trigger": "directly plausible discrete Sobolev article could contain stronger finite norm constants"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The finite mean-zero mixed embedding norm is an intrinsic sharp stability constant for periodic discrete gradients. The nonintegral 2/3 correction and three explicit coefficients explain zero-mode removal against lattice dispersion and locate exact Green extremizers; neither a textbook bound nor an arbitrary small numerical improvement.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Nearest-neighbor unweighted cycles, unnormalized norms, and mean-zero data only.",
+    "Maximizer uniqueness established only eventually, not at every N>=3.",
+    "The 2009 Nagai et al. full primary text remained inaccessible; no definitive historical-priority claim.",
+    "Public publication operations were withheld pending confidentiality-safe, guarded metadata changes; this is a transport/privacy status, not scientific rejection."
+  ],
+  "schema_version": 1
+}

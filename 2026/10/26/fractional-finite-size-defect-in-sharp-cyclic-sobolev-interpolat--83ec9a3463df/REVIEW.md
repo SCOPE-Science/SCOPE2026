@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The Fourier-spectrum/Cauchy–Schwarz argument yields an upper bound for every mean-zero complex or real sequence. At every interior maximum of the scalar Green functional, stationarity guarantees that a resolvent column has precisely the energy/norm ratio needed to attain the product bound. Periodization of the one-dimensional massive Green kernel proves the coth identity. A two-sided localization proof puts all optimizing parameters at scale \(N^{-2/3}\); compact-uniform differentiation establishes eventual uniqueness and the coefficients through \(N^{-2}\). The supplied script independently evaluates the spectral sum and the spatial norm quotient for small cycles and checks large-cycle asymptotic residuals. No computational sample is treated as proof for unbounded \(N\).
+## correctness
 
-## Originality — PASS, with residual risk
-The nearest directly covering object appears in Nagai et al. (2008), where the exact homogeneous-energy inequality on the same mean-zero cyclic space is determined; its sharp constant grows like \(N\), and it does not evaluate the mixed product constant. Yamagishi et al. (2012) give mass-parameter additive-energy Green constants on cycles, which inform the resolvent method but not the optimized product constant or its fractional finite-size expansion. Ilyin–Laptev–Zelik (arXiv:1407.0675) prove the sharp infinite-lattice multiplicative bound, not the periodic mean-zero finite-size defect. The only potentially close 2009 article on general discrete Sobolev constants was located but could not be read in full, and could contain a stronger implicit formula. Targeted published-finding corpus and literature searches found no statement of the \(\frac32N^{-2/3}\) correction or the next two terms. Absence of a search hit does not prove uniqueness in the literature.
+PASS
 
-## Mathematical value — PASS
-The sharp norm is a natural stability invariant for finite periodic nearest-neighbor differences; the mean constraint is necessary to avoid constant-function obstructions. The contrast between the finite sharp constant and the infinite-lattice value is not an arbitrary numerical increment: the asymptotic exponent \(2/3\), leading coefficient \(3/2\), and localization of equality profiles on length scale \(N^{1/3}\) quantify the interaction between the periodic zero-mode removal and the lattice dispersion. The exact three-term correction and attainment identify where a naive infinite-volume inequality loses sharpness. The method applies to all sizes and both real and complex data, while nonperiodic or weighted analogues are not claimed.
+The cycle Laplacian eigenvalues are 4sin^2(pi k/N) on the mean-zero subspace. Cauchy–Schwarz for L+tI yields the diagonal Green upper bound; at a scalar stationary maximum the resolvent column has E(u)/||u||²=t, so the mixed-product upper bound is attained with exactly the asserted equality class. Periodizing the infinite-line resolvent and subtracting the zero mode gives g_N=coth(Ny)/sqrt(t(t+4))-1/(Nt), y=asinh(sqrt(t)/2). The inequality coth x<1+1/x plus tanh y<=y establishes C_N<1. The proof localizes all global maxima to t=sN^-2/3 with s in a fixed positive compact interval, then uniform derivative expansions and F(s)=s/8+2/sqrt(s) with F"(4)=3/64 give unique t_N and the stated coefficients. Independent optimization of the independently coded Fourier/Green formulas at N=3,5,8,20,100,1000,10000 confirms sharpness, including C_3=2/(3sqrt(3)) at t=3. The numerical checks do not establish uniform asymptotics.
 
-## Sources and risks
-The full primary material inspected includes Nagai et al., *Funkcialaj Ekvacioj* 51 (2008), 307–327, Theorems 1.1 and 2.1; Yamagishi et al., *Kumamoto Journal of Mathematics* 25 (2012), 1–15, Theorems 1.1–1.3 and the Green-construction sections; and Ilyin, Laptev and Zelik, *Bulletin of Mathematical Sciences* 5 (2015), §§1, 2, 5–6, originally public as arXiv:1407.0675v1 in 2014. The potential coverage in Nagai–Kametaka–Watanabe, *J. Phys. A* 42 (2009), 454014, remains unresolved because only its abstract was accessible. A future full-text comparison or unindexed treatment could modify the originality judgment, although the three-term asymptotic is absent from the accessible statements. The eventual uniqueness threshold is not numerically optimized or claimed for all small sizes.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+PASS, qualified. Nagai et al. 2008 give the homogeneous gradient constant on the same mean-zero finite cycle, Yamagishi et al. 2012 prove fixed mass-parameter additive Green inequalities, and Ilyin–Laptev–Zelik 2014/15 prove the infinite Z multiplicative constant 1. None of their inspected results explicitly optimizes the finite mean-zero mixed product or derives its N^-2/3 three-term defect. The 2009 Nagai–Kametaka–Watanabe discrete Sobolev article could contain a dominating equivalent formula but full text was inaccessible even using authorized access; this is a material priority risk, not automatic failure.
+
+## value
+
+PASS
+
+The finite mean-zero mixed embedding norm is an intrinsic sharp stability constant for periodic discrete gradients. The nonintegral 2/3 correction and three explicit coefficients explain zero-mode removal against lattice dispersion and locate exact Green extremizers; neither a textbook bound nor an arbitrary small numerical improvement.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
