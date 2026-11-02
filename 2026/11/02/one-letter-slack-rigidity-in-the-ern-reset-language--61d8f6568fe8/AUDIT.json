@@ -1,0 +1,129 @@
+{
+  "correctness": {
+    "rationale": "For every n>=2, inverse preimages of a and b give an interval-growth process. At least n−1 productive inverse b steps and n−1 inverse rotations between successive productive steps force length >=(n−1)^2. Equality gives the unique word W. With one extra letter, either one a is added at the leading boundary, yielding aW, or one b acts identically at a unique position in an existing a-run, yielding the explicit t!=j insertion family. All boundary cases, distinctness and the two already-reset trailing extensions are proved. Finite independent subset dynamic programming and explicit candidate simulation check every n=2..11 and return VERIFY_OK; the computations are not the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "The 2013 DOI article analyzes algorithms for shortest reset words, including the Černý family, but does not state an all-length generating function or coefficient for first-reset words at L+1 in the inspected material.",
+        "published-finding corpus 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3 proves lambda_n(s)=3s-2 for s<=ceil(n/2), an extremal length, not the L+1 coefficient."
+      ],
+      "reasoning": "General algorithms can compute the proposed quantity on fixed n by exhaustive counting, but this does not imply a closed all-n formula or classify exactly which words realize it. The cited partial-rank theorem neither covers full synchronization nor determines its multiplicities.",
+      "searches": [
+        "published-finding corpus: Černý automaton fixed length reset words generating function rank spectrum",
+        "published-finding corpus: Černý automaton number of shortest reset words all n exact formula multiplicity",
+        "Full primary DOI:10.1007/s10878-013-9682-0, shortest reset word enumeration and subset search"
+      ]
+    },
+    "checked_sources": [
+      "Kisielewicz, Kowalski, Szykuła (2013 online), DOI:10.1007/s10878-013-9682-0",
+      "Stoner (2014), https://studylib.net/doc/10483209/on-the-minimal-reset-words-of-synchronizing-automata",
+      "Public record 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3, RESULT.md",
+      "Public record 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f, RESULT.md",
+      "Related work on coordinatewise-optimal pair synchronization in Černý automata: compare full-set and two-state quantifiers."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Rank-deficiency record supplies lambda_n(s)=3s-2 only for s<=ceil(n/2), not count of full-reset words at length L+1.",
+        "Avoiding-threshold record supplies max over target k-sets of minimum avoidance length kn, not enumeration of reset words with one-letter slack.",
+        "Related result “Coordinatewise-optimal pair synchronization in Černý automata” concerns individual pairs and their shortest merging words, not simultaneous synchronization of Q with one extra letter."
+      ],
+      "reasoning": "We compared mathematical implications, not titles. A length threshold, fixed-set avoidance maximum, or two-state merger-optimality is insufficient to deduce either the square-plus-one multiplicity or exact insertion positions of prefix-first full synchronization. The new proof independently closes that gap.",
+      "searches": [
+        "Full published record: 2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3/RESULT.md",
+        "Full published record: 2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f/RESULT.md",
+        "published-finding corpus: Černý automata second shortest reset words insertions and complete classification"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Kisielewicz–Kowalski–Szykuła DOI:10.1007/s10878-013-9682-0 studies shortest reset computation, but the examined full online article does not enumerate prefix-first reset words at optimum plus one.",
+        "Stoner (2014), https://studylib.net/doc/10483209/on-the-minimal-reset-words-of-synchronizing-automata: inspected abstract, sections concerning minimal reset length and cyclic-merger family. No claimed near-optimal word-count formula found."
+      ],
+      "reasoning": "Checked synonym families for reset words, first synchronization, second-shortest, near-minimum, insertions, and fixed word length. The object is a language coefficient at one unit above a sharp threshold; none of the located source statements is equivalent.",
+      "searches": [
+        "published-finding corpus: Černý automata second shortest reset words insertions and complete classification",
+        "published-finding corpus: proper reset words Černý family shortest one extra letter enumerator",
+        "Web: count of almost shortest reset words Cerny automata enumerating",
+        "Web: Černý automaton \"(n-2)^2+1\" reset words"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No relevant exact automata enumeration table identified in these searches; numerical occurrence of the same integer sequence elsewhere would not establish the language-theoretic classification.",
+        "The exact checker independently reproduced n=2..11 and is not used as historical evidence."
+      ],
+      "reasoning": "The parameter is the coefficient of the prefix-first reset language in each n-state Černý family. No source table for this exact two-parameter family was located; an absence of results is not considered proof of novelty.",
+      "searches": [
+        "Web: OEIS Cerny automata number of reset words second shortest",
+        "Web: Cerny automaton reset words length (n-1)^2+1 number",
+        "published-finding corpus: near-minimal synchronizing words Černý reset length one longer classification"
+      ]
+    },
+    "rationale": "Claim concerns all distinct prefix-first synchronizing words of exact length (n−1)^2+1, not the known minimum reset threshold or intermediate-rank extremal lengths. Full available primary texts on the same standard Černý automaton and two closely relevant published mathematical claims were compared by their statements and implications; no matching all-n count/classification was found. This remains best-knowledge priority rather than a global uniqueness certificate.",
+    "residual_risks": [
+      "Older 1964 Černý original paper was not available for a full-text priority comparison; its standard shortest threshold is known, but an unindexed higher-coefficient enumeration cannot be categorically excluded.",
+      "The inspected 2014 manuscript was available as rendered HTML; any supplementary material not present in that accessible rendition remains unchecked.",
+      "Bibliographic indexing and semantic search cannot establish global uniqueness; no independent priority audit has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected statements give algorithms for shortest reset words, not this specific next-length coefficient or insertion classification.",
+        "evidence": [
+          "DOI:10.1007/s10878-013-9682-0",
+          "First online publication date 2013-11-17"
+        ],
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10878-013-9682-0",
+        "material_read": "Full HTML accessible; abstract, introduction, algorithmic definitions, relevant Černý automaton subsection and statements on shortest-word algorithms, with targeted searches for second-shortest and word counts.",
+        "method": "Read primary HTML and search matching concept/parameter; compare explicit claims to n-uniform L+1 prefix-first enumeration.",
+        "title": "Computing the shortest reset words of synchronizing automata",
+        "trigger": "Primary full article treats shortest reset language and the Černý family."
+      },
+      {
+        "assessment": "Provides reset-length arguments and broader families, not exact all-n L+1 first-reset enumeration.",
+        "evidence": [
+          "Manuscript dated 2014-07-30"
+        ],
+        "identifier_or_url": "https://studylib.net/doc/10483209/on-the-minimal-reset-words-of-synchronizing-automata",
+        "material_read": "Full available HTML manuscript; abstract, introduction and sections through the main cyclic-merger minimal-length arguments.",
+        "method": "Examine hypotheses, the automata and objectives, and ask if its minimal-length results imply near-optimal word multiplicity.",
+        "title": "On the Minimal Reset Words of Synchronizing Automata",
+        "trigger": "2014 manuscript on cyclic permutation plus merging transitions closely resembles the studied automaton."
+      },
+      {
+        "assessment": "Concerns first half of intermediate rank deficiency and supplies no count of L+1 reset words.",
+        "evidence": [
+          "Theorem lambda_n(s)=3s−2 for 1<=s<=ceil(n/2)"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/4/SCOPE-exact-early-deficiency-profile-of-the-ern-automata--766d362d36d3",
+        "material_read": "Complete RESULT.md including theorem, proof, verification, literature comparisons.",
+        "method": "Direct GitHub source read and statement/implication comparison.",
+        "title": "Exact early deficiency profile of the Černý automata",
+        "trigger": "Published statement for the same labeled automaton."
+      },
+      {
+        "assessment": "Maximum length kn over avoided k-sets; no implication for exact multiplicity of all full-Q reset words at L+1.",
+        "evidence": [
+          "Theorem at_k(C_n)=kn and unique hardest avoided set"
+        ],
+        "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/9/17/SCOPE-cerny-k-avoiding-thresholds--5cdbaf373a0f",
+        "material_read": "Complete RESULT.md, including theorem and proof.",
+        "method": "Direct GitHub source read and compare universal/maximal quantifiers.",
+        "title": "Exact k-avoiding thresholds of the Černý automata",
+        "trigger": "Published statement about inverse preimage reachability for the same automaton."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "61d8f656-8fe8-467e-a2f4-d2fab53774ff",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The Černý automata are the canonical extremal family for synchronization. The first coefficient immediately beyond their sharp quadratic reset threshold quantitatively measures near-optimal synchronizing-word rigidity. An exact all-n count and complete insertion classification explain which modifications preserve first-time synchronization, a structural language problem not settled by a minimum-length value or a small finite table. It does not claim new bounds on the general Černý conjecture.",
+    "status": "PASS"
+  }
+}
