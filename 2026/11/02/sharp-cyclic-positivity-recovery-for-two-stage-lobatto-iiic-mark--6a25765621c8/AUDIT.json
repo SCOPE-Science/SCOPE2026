@@ -1,0 +1,131 @@
+{
+  "correctness": {
+    "rationale": "An explicit complex-pole cyclic inverse formula is algebraically derived for every integer n>=2 and all h>0. Its coefficient signs are classified for n*theta<=pi, pi<n*theta<2pi, and all n*theta>=2pi by a rigorous k=ceil(3pi/(2theta)) sine witness and rho^n<=exp(-2pi), with h=0 and the unique boundary-zero coefficient separately handled. The two-stage stability function is independently derived from the Butcher tableau. The code included here passed 25,420 exact-rational or trigonometric consistency assertions; these checks supplement the analytic all-n proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bharali--Holtz arXiv:math/0511325 treats entire functions on all nonnegative circulant inputs, not this rational function on generators P-I.",
+        "Baum 2011 presentation has general implicit Runge--Kutta positivity, not a directed-cycle interval.",
+        "Related Lobatto IIIC absorbing-chain calculations use a terminal boundary; directed-cycle Radau IIA calculations involve a different rational function."
+      ],
+      "reasoning": "General SSP and absolute-monotonicity coverage can certify a small-step sufficient region when applicable but not a sharp large-step recovery interval specific to a cyclic generator. Replacing the absorbing terminal state by a return edge changes inverse coefficients through modular aliasing, so the existing absorbing result does not dominate this claim.",
+      "searches": [
+        "two-stage Lobatto IIIC directed cycle continuous time Markov chain positivity cutoff cot pi/n",
+        "Lobatto IIIC cyclic generator nonnegative transition matrix positive time step",
+        "Markov matrix positivity of rational Runge Kutta integrators on birth death chains"
+      ]
+    },
+    "checked_sources": [
+      "Lóczi--Ketcheson, arXiv:1303.6651: general rational absolute monotonicity and SSP numerical positivity",
+      "Bharali--Holtz, arXiv:math/0511325: entire functions preserving circulant nonnegative matrices",
+      "Baum 2011 Lobatto IIIC positivity slides: general monotonicity criteria",
+      "Published mathematical finding 2026/9/20/SCOPE-eight-state-pade-markov-positivity-barrier--4aad2a3f58ab: [2/2] Padé different stability map",
+      "Published mathematical finding 2026/10/4/SCOPE-two-state-immunity-and-three-state-sharpness-for-endpoint-positi--46bf11cc19c7: SSP-SDIRK2 different stability map"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Lóczi--Ketcheson derive general rational absolute monotonicity principles without topology-specific necessity of a large-step threshold.",
+        "Bharali--Holtz prove results about entire functions preserving all nonnegative circulant matrices, not rational shifted-generator resolvents.",
+        "Related Lobatto IIIC absorbing-chain calculations have a terminal absorbing endpoint; cyclic Radau IIA results involve a different stability function."
+      ],
+      "reasoning": "The shared use of complex poles and sign preservation is insufficient for implication. The cyclic aliasing summation produces a different sign condition n*theta<=pi, and the late-phase inequality is separately proved; neither follows from the absorbing-chain formula by substituting graph size, nor from Radau IIA output.",
+      "searches": [
+        "large timestep positivity recovery on pure-birth absorbing chain versus directed cycle Lobatto IIIC",
+        "Lobatto IIIC numerical scheme cyclic Markov generator positivity n ring cycles",
+        "two-stage Lobatto IIIC directed cycle continuous time Markov chain positivity cutoff cot pi/n"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Geometric partial fractions express the exact coefficients in (1) and reveal the critical phase n*theta=pi.",
+        "Lóczi--Ketcheson arXiv:1303.6651 concerns absolute monotonicity radii; no all-cycle cotangent equivalence located in its inspected numerical preservation material."
+      ],
+      "reasoning": "The statement can be reformulated as the entrywise positivity of a specific quadratic cyclic-polynomial inverse, or the nonnegativity of its discrete Fourier inverse; those formulations were searched. Known abstract Fourier criteria are not the same as an evaluated all-n threshold.",
+      "searches": [
+        "unmodified Lobatto IIIC two-stage implicit runge kutta end step directed cyclic Markov chain full positivity threshold cot(pi/n)-1",
+        "directed cyclic shift generator 1/(1-z+z^2/2) exact Markov stochastic positive steps ring n",
+        "Lobatto IIIC numerical scheme cyclic Markov generator positivity n ring cycles",
+        "R(z)=1/(1-z+z^2/2) ring positivity horizon exact"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "No matching evaluated cotangent table was identified in semantic research-index searches or targeted public web phrase queries.",
+        "The closest indexed published statements concerned [2/2] Padé pure-birth barriers and SSP-SDIRK2 two/three-state positivity, not this cyclic Lobatto IIIC map."
+      ],
+      "reasoning": "An inaccessible or undiscovered numerical table could in principle contain a special case; no searched known table supplies the all-n formula. Absence from search results is not itself a mathematical uniqueness proof.",
+      "searches": [
+        "unmodified Lobatto IIIC two-stage implicit runge kutta end step directed cyclic Markov chain full positivity threshold cot(pi/n)-1",
+        "directed cyclic shift generator 1/(1-z+z^2/2) exact Markov stochastic positive steps ring n",
+        "Lobatto IIIC positivity circulant stochastic matrices directed graph"
+      ]
+    },
+    "rationale": "The exact unmodified Lobatto IIIC cotangent cutoff on directed cycles, plus its all-displacement inverse kernel and late-phase sign obstruction, is not stated in the relevant primary material examined. Broad absolute-monotonicity criteria do not imply the necessary and sufficient topology-dependent large-step threshold. Entire-function preservation of all nonnegative circulants does not encompass the rational map on a shifted permutation. The earlier absorbing-chain and Radau IIA calculations differ in boundary conditions or numerical map. Specialist overlap remains a disclosed risk.",
+    "residual_risks": [
+      "A specialist paper on inverse cyclic quadratic polynomials may contain an equivalent evaluated positivity threshold; the relevant historical tridiagonal full text was inaccessible.",
+      "Semantic-result searches and targeted reading are not exhaustive originality certification.",
+      "An independently conducted mathematical and bibliographic audit has not occurred."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "General numerical positivity framework; no evaluated sharp cyclic Lobatto IIIC recovery theorem found in inspected material.",
+        "evidence": [
+          "First public arXiv date 2013-03-26, primary MSC 65L06.",
+          "Study concerns maximal radii of absolute monotonicity for classes of rational stability functions."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/1303.6651",
+        "material_read": "ArXiv full text: introduction, definitions, main positivity framework, and relevant rational-method sections; published PDF introduction and section 2 checked including page images.",
+        "method": "Read the accessible original preprint/full PDF text and targeted comparisons for Lobatto, directed cycles, Markov and circulant.",
+        "title": "Rational functions with maximal radius of absolute monotonicity",
+        "trigger": "Primary MSC 65L06 foundational paper on positivity-preserving rational Runge--Kutta maps"
+      },
+      {
+        "assessment": "Entire functions preserving nonnegative matrices uniformly; rational R on Metzler shifted permutation and sharp fixed-family h threshold not subsumed.",
+        "evidence": [
+          "Original arXiv public date 2005-11-13.",
+          "Main problem imposes entire function and all circulant entrywise-nonnegative matrices as inputs."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/math/0511325",
+        "material_read": "Full public textual preprint including Section 6 (circulant nonnegative matrices); separate PDF text readable.",
+        "method": "Read relevant theorem and compare the class of matrix inputs/functions and quantifiers; PDF page-image attempt was inaccessible, recorded as a material-format limitation.",
+        "title": "Functions preserving nonnegativity of matrices",
+        "trigger": "Potential stronger circulant-matrix positivity framework"
+      },
+      {
+        "assessment": "General stage/method positivity results; not the directed-cycle all-length exact cotangent theorem.",
+        "evidence": [
+          "The public lecture material addresses Lobatto IIIC and other implicit Runge--Kutta methods."
+        ],
+        "identifier_or_url": "https://www3.math.tu-berlin.de/multiphysics/Publications/Talks/110923_ILAS_Braunschweig_Baum.pdf",
+        "material_read": "Public slides including Lobatto IIIC numerical positivity examples and theoretical context, pages 17 and 19 examined as images.",
+        "method": "Read presentation sections and compare the numerical-map/generator and step-size hypotheses.",
+        "title": "Positivity preserving discretizations of Differential-Algebraic Equations",
+        "trigger": "Presentation explicitly involving Lobatto IIIC positivity criteria"
+      },
+      {
+        "assessment": "Possible background overlap in cyclic inversion; exact step-sign criterion unverified; retained as residual risk.",
+        "evidence": [
+          "Identified as historical treatment of cyclic tridiagonal inversion; current kernel has offsets 0, +1 and +2."
+        ],
+        "identifier_or_url": "https://www.impan.pl/en/publishing-house/journals-and-series/applicationes-mathematicae/all/20/1/105970/the-inversion-of-cyclic-tridiagonal-matrices",
+        "material_read": "Bibliographic index and title only; full PDF could not be accessed.",
+        "method": "Inspected accessible bibliographic entry and compared claimed matrix structure; no full-text exclusion inferred.",
+        "title": "The inversion of cyclic tridiagonal matrices",
+        "trigger": "Potential general inverse formula for circulant/cyclic sparse matrices"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "6a257656-21c8-4712-a863-90268504be1f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "This is a natural complete classification of stochastic endpoint feasibility for the standard two-stage Lobatto IIIC method on all unit-rate directed cycles, not a one-off numerical sample. The sharp n=4/5 transition and exact h>=cot(pi/n)-1 recovery interval distinguish cyclic from absorbing generators and provide a usable positivity decision without numerical matrix inversions. The explicit inverse kernel is a structural mathematical explanation. No general-purpose norm contractivity or large-step accuracy claim is made.",
+    "status": "PASS"
+  }
+}
