@@ -1,0 +1,119 @@
+{
+  "correctness": {
+    "rationale": "Each orthogonal projection after an exceptional first row multiplies squared error by k exactly when the projected line switches. RR has one switch conditional on starting exceptionally, and IID has generating polynomial G_m=(1,0)T_m(k)^(m-1)(1,1)^T. The difference has a strict unique root because G_m-k is strictly convex, starts positive and has positive derivative at one for at least three rows. Exact zero- and one-switch coefficients imply the root asymptotic; isolated rare exceptions imply the Poisson risk-ratio limit. Exact-rational projection enumeration verifies up to six rows and the pairwise distinct-row witness; finite verification is not the infinite proof. The m=2 boundary and k endpoints are expressly separated.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2606.32005, Section 1.1 and Theorem 1: rates for averaged SGD iterates, with eta no larger than 1/(6 L_hat)",
+        "arXiv:2410.01140, Section 3: linear convergence and upper bounds for RRK rather than pointwise sample-path ordering"
+      ],
+      "reasoning": "The general SGD rate comparison does not dominate the present full-projection full projection-step method in the precise finite-time solution-error norm. Neither convergence bound compares RR and IID for the same chosen initial vector and every repeated-row multiplicity. The distinction is claim-level, not merely title-level.",
+      "searches": [
+        "can randomized reshuffling Kaczmarz worse than with replacement expected Euclidean error",
+        "random reshuffling SGD worse than independent sampling examples finite time quadratic identical duplicate rows",
+        "arXiv:2606.32005, theorem on convex SGD convergence guarantees"
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2401.02842",
+      "https://arxiv.org/html/2410.01140",
+      "https://arxiv.org/abs/2606.32005",
+      "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Agaskar, Wang and Lu, GlobalSIP 2014: an exact IID random-Kaczmarz MSE framework (abstract checked only)",
+        "arXiv:2410.01140, Section 3.3: bounds on convergence rates and example row products",
+        "A related two-row relaxed two-update result, which lacks any multiplicity the at-least-three-row transition and Poisson switch limit."
+      ],
+      "reasoning": "Generic IID moment recurrences can reproduce the IID term after specializing, and basic projection geometry gives the per-word factor. Neither alone yields the RR law plus its strict root classification and multiplicity asymptotic. The published convergence-rate results are compatible with isolated fixed-direction reversals and do not entail the present precise claim.",
+      "searches": [
+        "random reshuffling Kaczmarz per epoch expected squared solution error repeated equations full column rank",
+        "Randomized Kaczmarz algorithms exact MSE analysis optimal sampling probabilities 2014",
+        "arXiv:2410.01140 randomized reshuffling convergence proof comparison to IID"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2401.02842, Sections 3 and 5: survey and experiments on without-replacement Kaczmarz",
+        "arXiv:2410.01140, Sections 3.1 and 3.3: RRK convergence bounds and an explicit three-row example",
+        "The exact claim concerns the sign of a two-state switch-generating polynomial relative to the squared row-angle cosine."
+      ],
+      "reasoning": "Checked the synonyms without-replacement, random permutation, random reshuffling, redundant rows, repeated constraints, and switch-count polynomial. The cited papers have related projection mechanisms, but their statements do not assert or imply a single angular reversal threshold for every multiplicity. A hidden equivalent under another terminology is possible.",
+      "searches": [
+        "Kaczmarz repeated rows reshuffling expected squared error",
+        "Kaczmarz with replacement without replacement worse finite time squared error",
+        "Kaczmarz repeated duplicate equations random permutation convergence"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "arXiv:2410.01140, Example 3.8, tabulates norms for six row orders of an unrelated 3x2 matrix, not IID-vs-permutation mean-squared fixed-direction differences",
+        "arXiv:2401.02842, Section 5, reports algorithm comparisons on sampled datasets, not exact redundant-row risk thresholds"
+      ],
+      "reasoning": "The closest inspected tables contain numerical convergence examples or empirical performance, whereas the current theorem gives an all-m polynomial, the unique exact threshold and a limiting formula. No matching exact source table was located; this absence is not definitive proof of novelty.",
+      "searches": [
+        "Kaczmarz random reshuffling three rows two duplicate constraints can be worse after one epoch exact counterexample",
+        "with replacement versus without replacement Kaczmarz three row deterministic matrix comparison mean squared errors",
+        "Kaczmarz repeated rows reshuffling expected squared error"
+      ]
+    },
+    "rationale": "The reviewed survey and RRK paper compare empirical performance or convergence bounds, not the exact one-epoch, fixed-initial-direction RR-vs-IID risk law for all-but-one repeated rows. General IID exact-MSE work does not give the RR permutation word law, unique angular thresholds or superexponential multiplicity transition. The 2026 broad SGD paper gives averaged-iterate rate guarantees at substantially smaller steps, not strict pointwise endpoint risk dominance for full Kaczmarz projections. The related two-row and stationary scalar comparisons do not imply this at least three rows theorem. Novelty is a best-knowledge scientific judgment, with explicit specialized-literature priority risk.",
+    "residual_risks": [
+      "An older specialized finite-epoch comparison of redundant Kaczmarz rows may already state a switch-count formula or equivalent threshold.",
+      "The 2014 exact-MSE paper was available at abstract level for this comparison; its full text was not inspected.",
+      "Related abstract-level search results do not justify broad negative whole-document claims; independent priority review is outstanding."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the fixed-start exact multirow threshold; supports method motivation and sampling scheme",
+        "evidence": "Section 5 compares SRKWOR against RK on dense and coherent datasets, principally iteration counts and execution time.",
+        "identifier_or_url": "https://arxiv.org/abs/2401.02842",
+        "material_read": "Full-text Introduction, Sections 3.5 and 5.5.2 including method definitions and comparative conclusions",
+        "method": "Accessible arXiv rendered text",
+        "title": "Survey of a Class of Iterative Row-Action Methods: The Kaczmarz Method",
+        "trigger": "Published comparison of Kaczmarz row-sampling policies"
+      },
+      {
+        "assessment": "NOT_COVERING exact risk-reversal boundaries for all-but-one repeated rows; proves convergence bounds",
+        "evidence": "Example 3.8 computes operator norms of six distinct order products and contrasts an RK upper bound, not exact fixed-direction RR/IID expectations.",
+        "identifier_or_url": "https://arxiv.org/html/2410.01140",
+        "material_read": "Introduction, Section 3 convergence results and Section 3.3 comparison including Examples 3.8 and 3.9",
+        "method": "Accessible arXiv full HTML",
+        "title": "A simple linear convergence analysis of the randomized reshuffling Kaczmarz method",
+        "trigger": "Same RRK and one-epoch row products, with a 3x2 illustrative matrix"
+      },
+      {
+        "assessment": "INAPPLICABLE as pointwise dominance: its guarantees compare rates for averaged SGD under stepsize at most one-sixth the reciprocal smoothness constant",
+        "evidence": "Theorem 1 concerns the averaged iterate and guaranteed bounds, not equality of one-epoch MSE from the special initial vector at full projection step.",
+        "identifier_or_url": "https://arxiv.org/abs/2606.32005",
+        "material_read": "Full-text Introduction, scope of contribution, assumptions and main theorem statement in Section 3.1",
+        "method": "Accessible arXiv rendered text",
+        "title": "Random Reshuffling Dominates Stochastic Gradient Descent",
+        "trigger": "Potentially stronger 2026 theorem that sounds like universal reshuffling dominance"
+      },
+      {
+        "assessment": "Plausible background for IID moment recurrences; full-document comparison unresolved",
+        "evidence": "Abstract states exact MSE and sampling-probability optimization for randomized Kaczmarz, without specifying a comparison against permutation-based selection.",
+        "identifier_or_url": "https://dash.harvard.edu/entities/publication/73120379-2750-6bd4-e053-0100007fdf3b",
+        "material_read": "Repository metadata and abstract only",
+        "method": "Institutional repository abstract; full text not claimed read",
+        "title": "Randomized Kaczmarz algorithms: Exact MSE analysis and optimal sampling probabilities",
+        "trigger": "A plausible earlier exact finite-time IID MSE analysis"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "f1e5ffc6-3f15-40e8-916a-7b6bc50e9084",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Random reshuffling is frequently preferred for Kaczmarz because it forces row coverage. The theorem identifies an exact finite-epoch initial-error regime in which coverage is worse, at every redundant-row multiplicity at least three rows, with a unique cosine-squared threshold, an asymptotically superexponentially tiny boundary, and a limiting excess error ratio reaching e. This is a motivated structural classification of a natural measurement-redundancy mechanism, rather than an isolated arbitrary numerical sign check; the all-distinct rational witness establishes robustness while the stated limits avoid unwarranted generalization.",
+    "status": "PASS"
+  }
+}
