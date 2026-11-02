@@ -1,0 +1,108 @@
+{
+  "correctness": {
+    "rationale": "For every integer \\(r\\ge3\\), symmetry averaging reduces the unrestricted Dirac-commutator minimization to a single parameter. The antipodal skew block has norm \\(\\sqrt{r-1}\\). For the adjacent orbit, the exact 5-dimensional active subspace splits into a 3-by-2 block \\(C_r(a)\\); its explicitly computed Gram matrix yields the stated maximum eigenvalue \\(F_r(a)\\). Full-column-rank derivative gives strong convexity and unique minimizer in (-1/2,0), and a diagonal Gram bound proves strict class separation. Uniform large-r expansion of the larger eigenvalue, differentiation, and binomial series establish the two gap coefficients. The packaged checker passed 219 tests; finite checks are not used as the proof for all r.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Theorem 3.10 of arxiv:2409.04146 explicitly requires a symmetric tridiagonal Dirac matrix and concerns a path; the cross-polytope adjacency matrix has many triangles for \\(r\\ge3\\).",
+        "arxiv:2105.09056 Theorems 1–4 provide geodesic bounds and graph pruning, with exact formulas for certain chains and triangles; none entails the sharp Gram minimum or \\(r^{-3/2}\\) gap."
+      ],
+      "reasoning": "General boundedness, pruning, and path optimization results do not imply the two exact pair-orbit classes. A universal matrix variational formulation is not the same as an evaluated exact norm reduction with uniqueness and asymptotics.",
+      "searches": [
+        "Exact finite metric from adjacency commutator for strongly regular complete multipartite graphs with pairwise vertex distances",
+        "Connes spectral distance complete multipartite graphs adjacency Dirac finite graph",
+        "arxiv:2409.04146 Theorem 3.10 and §4 paths",
+        "arxiv:2105.09056 Theorems 1–4 and Proposition 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2409.04146v1 (2024-09-06), path-graph Dirac distance theorem and general formulation",
+      "arxiv:2105.09056v1 (2021-05-19), general bounds/pruning and path formulas",
+      "Published mathematical-result semantic search for graph adjacency commutator distance, cocktail-party, octahedral and multipartite aliases"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The complete-bipartite exact formula includes \\(K_{2,2}\\) but no \\(K_{2,2,2}\\) or larger multipartite member.",
+        "The path and triangle formulas of arxiv:2105.09056 and arxiv:2409.04146 concern subgraphs and do not preserve the commutator norm upon adding all the cross-part edges.",
+        "The new theorem derives the five-dimensional compression and \\(3\times2\\) Gram block specifically for the matching-deleted complete graph family."
+      ],
+      "reasoning": "The previous bipartite result is a special r=2 boundary outside the stated r>=3 claim, rather than a theorem dominating it. Other graph-family computations (friendship and book) have different adjacency patterns. General spectral inequalities have no matching upper/lower certificates for the new exact constants.",
+      "searches": [
+        "Graph Dirac commutator singular norm distance for complete bipartite and book and friendship graphs",
+        "arxiv:2409.04146 Corollary 4.2 path graphs",
+        "arxiv:2105.09056 triangle graph and edge pruning",
+        "Connes adjacency Dirac spectral metric on cocktail party graphs K_2,2,...,2 complete graph missing perfect matching: exact neighboring versus antipodal distances asymptotic"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2409.04146 §2 establishes the general adjacency-Dirac commutator metric and uses Birkhoff–James norm methods, while Theorem 3.10 treats tridiagonal path matrices.",
+        "arxiv:2105.09056 §2 explains the same operator-norm metric and gives general inequalities.",
+        "Searches for cocktail-party, octahedral, cross-polytope and complete-multipartite terminology did not return an exact instance of the two-class result."
+      ],
+      "reasoning": "The new metric is the finite Connes distance associated with a complete graph minus a perfect matching, also called the cocktail-party/cross-polytope graph. A path-graph formula is not an equivalent formulation for this dense nonbipartite family. Search absence alone does not prove novelty; the explicit implications of the closest texts were compared.",
+      "searches": [
+        "Connes adjacency Dirac spectral metric on cocktail party graphs K_2,2,...,2 complete graph missing perfect matching: exact neighboring versus antipodal distances asymptotic",
+        "\"cocktail party graph\" \"Connes distance\" spectral Dirac",
+        "\"Connes distance\" \"cross polytope\" graph",
+        "\"noncommutative distances\" \"K_{2,2,2}\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The indexed arXiv primary full-text material inspected has path graphs and general bounds, not a cocktail-party distance table.",
+        "The search results about ordinary graph distance spectra or other graph Dirac constructions do not use the adjacency commutator seminorm of this theorem."
+      ],
+      "reasoning": "An ordinary shortest-path distance or distance-matrix eigenvalue table is not the noncommutative metric defined by the commutator operator norm. No exact database or table with both pair types and this asymptotic expansion was located; that negative evidence is not a completeness certificate.",
+      "searches": [
+        "Sharp Connes distance for octahedral graph and cross-polytope one-skeleton spectral metric operator norm commutators",
+        "\"octahedron\" \"Connes distance\" graph adjacency matrix",
+        "\"spectral distance\" \"octahedral graph\" adjacency",
+        "Connes distance complete multipartite graphs exact table"
+      ]
+    },
+    "rationale": "Primary full-text comparisons identify the 2024 path-graph theorem and 2021 general graph-distance estimates as the closest sources, neither of which states or implies the two-class distances for K_{2,...,2}, r>=3, with their sharp gap. The prior exact complete-bipartite calculation applies at the excluded r=2 boundary. Searches addressed cocktail-party, octahedral, complete-multipartite, and cross-polytope aliases; a broader equivalent operator-norm formulation remains a stated risk.",
+    "residual_risks": [
+      "Other norm-optimization terminology may encode an equivalent result outside the searched records.",
+      "Not all published mathematical material was inspected; the negative literature search is not an independent novelty certification.",
+      "A recent 2026 discussion of edge-deletion effects on finite graph spectral distance was accessible by abstract but its full text was not available for a comprehensive comparison; the abstract concerns a different question."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING: the evaluated family and finite-dimensional block are paths with tridiagonal adjacency, not complete matching-deleted graphs of order at least six.",
+        "evidence": [
+          "arxiv:2409.04146 pp.1–5 for problem/technique, Theorem 3.10 p.11, §4 pp.20–23 for path cases."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2409.04146",
+        "material_read": "Full-text PDF introduction, section 2 graph formulation and Birkhoff–James norm theorem, Theorem 3.10 for paths, and section 4 concrete path cases.",
+        "method": "Read indexed full-text PDF passages and inspected the page-2 rendering.",
+        "title": "Noncommutative Distances on Graphs: An Explicit Approach via Birkhoff-James Orthogonality",
+        "trigger": "Most relevant motivating study for adjacency-based graph distances; first public posting on 2024-09-06."
+      },
+      {
+        "assessment": "NOT_COVERING: geodesic bounds, decompositions and special chains/triangles do not give the cross-polytope Gram eigenvalue and sharp gap.",
+        "evidence": [
+          "arxiv:2105.09056 §§1–3, Theorems 1–4, Proposition 3; selected later propositions on chains."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2105.09056",
+        "material_read": "Full-text PDF introduction, section 2 definitions/general results, section 3 discussion of subgraphs and paths, and selected later path-extremality statements.",
+        "method": "Read indexed public full-text PDF passages and inspected the page-2 rendering.",
+        "title": "Estimating noncommutative distances on graphs",
+        "trigger": "Foundational general graph bounds, pruning and special examples plausibly subsuming graph distances."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "0ca556ee-be1a-439b-924e-254b1fc29d4d",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The cocktail-party graph is the canonical cross-polytope one-skeleton and has exactly two vertex-pair orbits. A complete spectral-metric classification for the full dimension family is a natural invariant, not an arbitrary finite slice. The exact optimizer, strict class separation, and two-term asymptotic gap \\(1/(8r^{3/2})+1/(128r^{5/2})\\) quantify a structural collapse of graph-geodesic lengths 1 versus 2 under the adjacency-Dirac metric; this does not follow from general upper/lower estimates.",
+    "status": "PASS"
+  }
+}
