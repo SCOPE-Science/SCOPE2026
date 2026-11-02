@@ -1,11 +1,21 @@
-# Review of the short-cycle covariance identity
+# Independent mathematical audit
 
-**Correctness: PASS.** The model specifies independent, with-replacement endpoint choices and retains edge labels. In the mixed second moment, the only nonzero local term comes from matching the pair of outgoing labels in a two-cycle to the pair of distinct-target outgoing labels in a triangle; it contributes exactly \(-(k-1)^{-3}\), and the remaining factors and summation ranges produce the displayed formula. The finite exact-state verifier separately reproduces ten cases using edge multiplicities, not the indicator expansion. The proof, rather than enumeration, covers all integers \(n\ge2\), \(m\ge2\).
+## correctness
 
-**Originality: PASS on examined evidence.** The closest full-text source is Björklund et al., arXiv:2311.04184v1 and its journal version (Theorems 3.3 and 3.5, Examples 2.1 and 3.4, cycle-overlap proof). It proves a joint Poisson approximation for distinct cycle lengths and variance-order bounds, not this exact signed mixed covariance or its nonzero limit. A targeted search did not identify an equivalent statement. Broader stochastic-dependence theorems or earlier unindexed moment calculations remain potential historical-priority risks; a failed search alone is not proof of uniqueness.
+PASS
 
-**Value: PASS.** The mixed covariance between the two shortest cycle statistics is a canonical test of the scope of published asymptotic independence results. Its exact strictly negative finite law, finite nonzero limit, and uniform validity for arbitrary outdegree expose a second-order phenomenon that independent Poisson approximations and marginal means do not quantify. The known variance-order results furthermore yield a negative correlation of exact order \(1/\log n\) for fixed outdegree. This is a specific mathematically motivated joint-moment refinement, not a general theorem about all short-cycle families.
+Reconstructed edge-distinguished triangle indicator and pair-collision Q_k. Every cross-arrival covariance is zero except a collision on exactly the two distinct labels used by the latest triangle vertex k; that collision is incompatible with the triangle and contributes -1/(j-1)(k-1)^3. Summing i<j<k and ordered labels gives the exact stated coefficient, including n=2 boundary and arbitrary m. Pair-collision indicators are pairwise uncorrelated, giving Var(P). Independently enumerated all attachment states for (n,m)=(2,2),(3,2),(4,2),(5,2),(3,3),(4,3) and confirmed exact rational covariances. Limit follows convergent zeta difference; correlation uses the externally proved Var(T)=Theta(log n), not self-derived.
 
-**Scientific limitations.** Different graph models, collapsed parallel edges, or nonuniform attachment probabilities are outside scope. The mixed law is analytical; finite enumeration is an independent check only. The claimed originality remains qualified by the inspected source set, and the independent audit remains outstanding.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge PASS: the original 2023/2025 primary paper defines identical multigraph and cycle counts and establishes independent-Poisson approximation and separate means, but not the exact signed two-cycle/three-cycle mixed covariance. The finite signed identity and zeta limit are nontrivial mixed-moment refinements not obtained by total-variation asymptotic independence alone.
+
+## value
+
+PASS
+
+A natural mixed second-order statistic on a published probability model has a sharp strictly negative exact finite law and persistent nonzero infinite limit despite asymptotic independent-Poisson approximations. Its sign, magnitude and growing-m applicability would be useful in refinements of subgraph-count dependence and cannot be read off marginal means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

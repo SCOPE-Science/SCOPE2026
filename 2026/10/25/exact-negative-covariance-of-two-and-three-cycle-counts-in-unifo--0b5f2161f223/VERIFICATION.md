@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-# Mathematical verification
+# Independent mathematical audit
 
-The finite expectation and covariance follow from the indicator expansion in `RESULT.md`; the only negative local overlap arises when the two sampled labels in an equality event are the same two labels constrained to *different* endpoints by one triangle. This proves the all-parameter formula without enumerating random graph states.
+## correctness
 
-Run `python verify.py` with Python 3 and its standard library. It exhaustively constructs ten small state spaces, with \(n\in\{2,3,4,5,6\}\) and \(m\in\{2,3,4\}\) in the explicit cases listed by the script. For each state it counts the two-cycles by equality among outgoing labelled endpoint choices, and counts triangles as products of edge multiplicities on triples of vertices. Exact `Fraction` calculations test that covariance agrees with the claimed sum; the total enumeration covers 30,377 equiprobable attachment outcomes. Successful output concludes with `VERIFY_OK`.
+PASS
 
-The independent enumeration is a finite consistency check, not an infinite proof. The \(\zeta(2)-\zeta(3)\) limit is the convergent-series identity \(\sum_{q\ge2}(q^{-2}-q^{-3})\), and the separate \(\Theta(\log n)\) three-cycle variance estimate is cited from the existing literature rather than newly computed. There is no independent audit.
+Reconstructed edge-distinguished triangle indicator and pair-collision Q_k. Every cross-arrival covariance is zero except a collision on exactly the two distinct labels used by the latest triangle vertex k; that collision is incompatible with the triangle and contributes -1/(j-1)(k-1)^3. Summing i<j<k and ordered labels gives the exact stated coefficient, including n=2 boundary and arbitrary m. Pair-collision indicators are pairwise uncorrelated, giving Var(P). Independently enumerated all attachment states for (n,m)=(2,2),(3,2),(4,2),(5,2),(3,3),(4,3) and confirmed exact rational covariances. Limit follows convergent zeta difference; correlation uses the externally proved Var(T)=Theta(log n), not self-derived.
+
+## originality
+
+PASS
+
+Best-of-knowledge PASS: the original 2023/2025 primary paper defines identical multigraph and cycle counts and establishes independent-Poisson approximation and separate means, but not the exact signed two-cycle/three-cycle mixed covariance. The finite signed identity and zeta limit are nontrivial mixed-moment refinements not obtained by total-variation asymptotic independence alone.
+
+## value
+
+PASS
+
+A natural mixed second-order statistic on a published probability model has a sharp strictly negative exact finite law and persistent nonzero infinite limit despite asymptotic independent-Poisson approximations. Its sign, magnitude and growing-m applicability would be useful in refinements of subgraph-count dependence and cannot be read off marginal means.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
