@@ -1,0 +1,130 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T04:56:27Z",
+  "axes": {
+    "correctness": {
+      "limitations": [
+        "Continuous two-sample common-distribution null and both correctly normalized sample sizes; no ties.",
+        "Finite first-onset bound is checked exhaustively only through n=14; the infinite obstruction follows from a separate symbolic count, not enumeration."
+      ],
+      "rationale": "For a uniformly selected fixed-composition two-sample sign word, H_t=bi_t-aj_t and K=max_t|H_t|=abD. Adjacent conditional R-tail comparisons reduce exactly to integer cross products of counts; enumerating all 49 unordered splits at a+b<=14 and all attainable heights exhausts all real thresholds. Independent direct subset enumeration gives no failure through 13 and only (5,9) at 14, with (R=3,K>=36) 4/12 and (R=4,K>=36) 22/64. Independently reconstructing the analytic 3-/4-run word decomposition at b=2a-1 gives four successful three-run words among 3(a-1) and 2(3a-4) successful four-run words among 4(a-1)^2, yielding (a-4)/(6(a-1)^2)>0 for every a>=5. Label reversal and boundary run counts were covered; the finite census is not an inductive infinite proof.",
+      "status": "PASS",
+      "verification": "Independently authored standard-library subset enumeration and exact integer-tail comparisons for 49 splits, plus 25 analytic-family parameters; read source verify_ks_runs.py and RESULT.md but did not rely on original checker output."
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Saran–Sen title is explicitly joint KS, so potentially supplies stronger formulae; only its metadata/citations were available.",
+          "The read Saran (1995) article emphasizes crossings, visits and run joint counts for all sizes."
+        ],
+        "reasoning": "A complete joint-count recurrence is capable of reproducing individual probabilities but does not automatically establish or state a sharp universal conditional stochastic-order transition; the inaccessible highly relevant 1978 result prevents categorical noncoverage.",
+        "searches": [
+          "Resultary: two-sample Kolmogorov Smirnov statistic conditional distribution given number of runs stochastic ordering counterexample minimal sample size",
+          "Saran–Sen 1978 Metron 36:65–78",
+          "Krattenthaler–Mohanty lattice-path overview"
+        ]
+      },
+      "checked_sources": [
+        "RESULT.md at frozen Git blob 8c9a9c5a8ac5a9714e9167aa1f2b5b29acbe88b2",
+        "verify_ks_runs.py at frozen Git blob 2df541f4b9e7be8c1e39420521100df4c97e68f0",
+        "J. Saran, Journal of Statistical Planning and Inference 47 (1995), 257–275, DOI:10.1016/0378-3758(94)00138-L",
+        "S. Vellore (1972), Studia Sci. Math. Hung. 7:155–165 (bibliographic information only)",
+        "Saran–Sen (1978), Metron 36:65–78 (bibliographic information only)",
+        "Resultary published record 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The published general joint statistics can imply individual tail probabilities after specialized extraction; they do not visibly imply a monotone chain or its first failure.",
+          "The analytic family yields P4-P3=(a-4)/[6(a-1)^2], a sign law rather than a single numerical entry."
+        ],
+        "reasoning": "The asserted logical addition is a universal small-size ordering, a unique minimum-violation size pair, and unbounded counterexamples, not a claim that preceding authors could not enumerate the same probabilities.",
+        "searches": [
+          "Resultary: two-sample Kolmogorov Smirnov statistic conditional distribution given number of runs stochastic ordering counterexample minimal sample size",
+          "Resultary: KS runs stochastic order conditional Kolmogorov Smirnov unbalanced 14 5 9",
+          "Saran 1995 main statements"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Saran (1995) derives joint rank-crossings, visits, sojourns and run distributions for arbitrary unequal samples; its studied event definitions do not state conditional adjacent-stratum stochastic dominance.",
+          "Vellore (1972) is cited by the inspected historical paper for one-sided KS/runs in equal samples."
+        ],
+        "reasoning": "Equivalent formulations searched include lattice-path barriers, conditional random permutation KS maxima and Wald–Wolfowitz run strata. Accessible statements describe joint laws but not the all-threshold monotone ordering through 13, its minimal (5,9) reversal, or the parameterized 3/4-run sign reversal.",
+        "searches": [
+          "Resultary: two-sample Kolmogorov Smirnov statistic conditional distribution given number of runs stochastic ordering counterexample minimal sample size",
+          "Saran 1995 DOI:10.1016/0378-3758(94)00138-L",
+          "Vellore 1972 title search"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary finding concerns covariances of adjacent and disjoint run transitions conditional on fixed symbol counts, not the two-sample KS maximum distribution.",
+          "Direct exhaustive 49-size-pair census comes from the claimed current package and an independently authored reproduction, not a pre-existing table."
+        ],
+        "reasoning": "Searches for an exact (5,9) at 14 conditional KS/runs probability table returned no matching specialized published record; absence is a residual search limitation, not a novelty certificate.",
+        "searches": [
+          "Resultary: KS runs stochastic order conditional Kolmogorov Smirnov unbalanced 14 5 9",
+          "Resultary published:2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+        ]
+      },
+      "rationale": "Best-of-knowledge novelty concerns sharp first failure and entire unbounded conditional stochastic-order reversal, not classical joint KS/run distributions or finite enumeration as a method.",
+      "residual_risks": [
+        "Original priority remains qualified: complete Saran–Sen (1978) and Vellore (1972) joint-KS/runs articles were inaccessible; a broader joint-distribution theorem might contain an equivalent comparison or yield it as a simple corollary.",
+        "Finite first-onset claim is exhaustive only through total size fourteen; no global monotonicity theorem beyond that range."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "A direct joint-law predecessor but does not state the all-threshold conditional monotone comparison or n=14 first failure in the inspected statements.",
+          "evidence": "Main text explains 1972 one-sided equal-sample treatment and Saran unequal-sample joint distributions.",
+          "identifier_or_url": "DOI:10.1016/0378-3758(94)00138-L",
+          "material_read": "Accessible full article body (introduction and derivation sections on crossings, visits, sojourns, run counts); matched definitions and cited earlier equal-size KS/runs work.",
+          "method": "Lawfully available public full-text research archive HTML read, with theorem/section comparison",
+          "title": "Joint distributions based on the number of runs and some other two-sample rank order statistics for arbitrary sample sizes",
+          "trigger": "Same two-sample runs and KS joint-law context; primary overlap"
+        },
+        {
+          "assessment": "CANNOT conclude the full paper is noncovering; retained as high-priority risk.",
+          "evidence": "A paper on exact joint KS/runs laws could potentially imply the displayed special conditional probabilities.",
+          "identifier_or_url": "Saran and Sen, Metron 36 (1978), 65–78",
+          "material_read": "Bibliographic title, citation details and quoted prior-work context only; full text unavailable.",
+          "method": "Open-access/preprint attempts and authorized institutional request (worker error)",
+          "title": "On the distributions of Kolmogorov-Smirnov statistics, sojourns, intersections and runs",
+          "trigger": "Title directly matches both statistics and conditioning variable"
+        },
+        {
+          "assessment": "Coverage of equal-sample, one-sided setting reported by Saran (1995); cannot exclude additional formulas in unavailable full text.",
+          "evidence": "Saran 1995 introduction cites this paper and describes equal-sample specialization.",
+          "identifier_or_url": "S. Vellore, Studia Scientiarum Mathematicarum Hungarica 7 (1972), 155–165",
+          "material_read": "Bibliographic record and citations in later full text, not the original full paper.",
+          "method": "Public index/bibliographic search; full text inaccessible",
+          "title": "Joint distributions of Kolmogorov-Smirnov statistics and runs",
+          "trigger": "Earliest direct joint-statistic overlap"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The conditional relationship between two classical distribution-free tests is a natural mathematical question; a sharp first sample-size threshold and a sign-reversed unbounded parameter family expose a genuine boundary of stochastic-order intuition. The exact 1/96 gap is meaningful as the first counterexample, not an arbitrary number.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "RESULT.md at frozen Git blob 8c9a9c5a8ac5a9714e9167aa1f2b5b29acbe88b2",
+    "verify_ks_runs.py at frozen Git blob 2df541f4b9e7be8c1e39420521100df4c97e68f0",
+    "J. Saran, Journal of Statistical Planning and Inference 47 (1995), 257–275, DOI:10.1016/0378-3758(94)00138-L",
+    "S. Vellore (1972), Studia Sci. Math. Hung. 7:155–165 (bibliographic information only)",
+    "Saran–Sen (1978), Metron 36:65–78 (bibliographic information only)",
+    "Resultary published record 2026/10/4/SCOPE-exact-dependence-phases-of-fixed-composition-run-transitions--c6b28ad6d93d"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "The result holds for two-sided normalized two-sample KS under fixed composition and null exchangeability; not one-sided KS or alternatives.",
+    "No claim is made that increasing runs always decreases KS for all n>14.",
+    "Completeness of the n<=14 enumeration rests on exhaustive finite proof with independent direct and DP algorithms."
+  ],
+  "residual_risks": [
+    "Original priority remains qualified: complete Saran–Sen (1978) and Vellore (1972) joint-KS/runs articles were inaccessible; a broader joint-distribution theorem might contain an equivalent comparison or yield it as a simple corollary.",
+    "Finite first-onset claim is exhaustive only through total size fourteen; no global monotonicity theorem beyond that range."
+  ],
+  "schema_version": 1
+}
