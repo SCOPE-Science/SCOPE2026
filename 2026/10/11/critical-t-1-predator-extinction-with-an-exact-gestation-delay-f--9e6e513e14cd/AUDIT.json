@@ -1,21 +1,28 @@
 {
   "correctness": {
-    "rationale": "For all fixed finite nonnegative delays, positivity and scalar logistic bounds give global bounded nonnegative solutions. Strict beta<d comparison gives exponential lower-chain collapse. At beta=d the exact P=y+d integral[y] derivative has two negative terms; its first term implies square-integrable y and thus y→0 by uniform continuity, while z→0 exponentially by delayed comparison. The explicit prey-growth margin r>b+alpha/m yields x→X>0. The rigorous normalized-translation/entire-delay Fourier argument makes y/P→1/(1+d tau1), and reciprocal P differentiation yields t y→X(1+d tau1)/(d m). An exact rational ODE example beta>d is attracting with positive predator. The provided CHECK.py reproduces the nonlinear identity and Jacobian algebra; finite diagnostics are not used as proof. Scope and boundary cases, including tau1=0, are addressed.",
+    "rationale": "For arbitrary fixed finite nonnegative lags and positive current populations, logistic and forced linear comparisons give positivity/global boundedness. For beta<d, y'≤beta*y(t-tau1)-d*y and beta<d give exponential comparison, then z decays exponentially. At beta=d, P=y+d∫_(t-tau1)^t y satisfies the exact dissipation P'=-d*m*y(t-tau1)^2/(x(t-tau1)+m*y(t-tau1))-theta*y*z/(v+p*y+q*z)≤0. The bounded denominator yields ∫y²<∞, and bounded derivative yields y→0, hence z exponential. Under r>b+alpha/m, lower logistic comparison bounds x away from zero and gives x→X=(r-b)/a. Writing h=-P', y'=d(y_del-y)-h, positivity bounds y_del≤e^(D*tau1)y≤e^(D*tau1)P, so h≤C(P²+zP). Q=1/P satisfies Q'≤C+C*z*Q; z integrable gives Q=O(t), yielding P≥c/(1+t), slow variation under bounded translations, and z/P→0. Normalized translates y(t_n+s)/P(t_n) converge subsequentially to bounded entire solutions Y'=d(Y(s-tau1)-Y), Y+d∫Y=1. Fourier symbol i*xi+d(1-e^(-i*xi*tau1)) has only real zero xi=0; bounded entire Y is constant 1/(1+d*tau1). Hence -P'/P²→d*m/[X*(1+d*tau1)²], and t*y→X*(1+d*tau1)/(d*m), including tau1=0. Independent exact SymPy algebra verified the dissipation, quadratic delay normal coefficient, and rational beta>d stable-equilibrium Jacobian (trace -11/8, determinant 17/16, remaining eigenvalue -1/2). Computation does not replace the global analytic argument.",
     "status": "PASS"
   },
-  "independent": false,
-  "independent_audit_status": "not_performed",
+  "independent_audit_status": "passed",
+  "independent_validation": true,
+  "limitations": [
+    "Exact tail requires r>b+alpha/m; extinction alone does not.",
+    "The model assumes fixed finite gestation delays, strictly positive present populations, and constant coefficients.",
+    "Result extends no claim to all beta>d or stochastic/space-dependent settings.",
+    "An inaccessible plausible related article remains a documented best-of-knowledge originality risk."
+  ],
   "originality": {
     "broader_coverage": {
       "evidence": [
-        "Tian–Xu (2011), doi:10.15388/NA.16.2.14109, equation (3) and Theorem 4 concern a nondelayed Holling-II stage-structured predator-prey system, not (1).",
-        "Shao–Kong (2022), doi:10.3390/math10183378, treats a two-species delayed Beddington–DeAngelis response and global coexistence questions rather than a three-level predator-extinction boundary.",
-        "Shao (2022), doi:10.1016/j.matcom.2022.04.013, is another two-species Holling-II delayed coexistence study; its full text was unavailable and this limitation remains a risk."
+        "Tian–Xu (2011), equation (3) and Theorem 4 (primary complete PDF), concern a distinct nondelayed stage-structured predator–prey ODE with a strict global extinction condition.",
+        "The fully read Kong–Shao maturation-survival SCOPE result proves a strict threshold R_mat<1 for a different Crowley–Martin model with immature/mature predator states; it makes no equality t^-1 claim.",
+        "Shao–Kong (2022), DOI 10.3390/math10183378, describes a two-species delayed Beddington–DeAngelis model; its accessible abstract does not give the claimed three-species critical law, but full text was not read.",
+        "Shao (2022), DOI 10.1016/j.matcom.2022.04.013, describes different two-species Holling-II coexistence; full text unavailable and not declared noncovering."
       ],
-      "reasoning": "Global convergence or extinction in the other models does not imply the present threshold result by identifying names or suppressing the third species: the nonlinear recruitment denominators, delay placement and model variables differ, and none of their inspected statements determines the source-specific coefficient (r-b)(1+d tau1)/(a d m). Absence of full access to the 2022 study is reported, not treated as affirmative noncoverage.",
+      "reasoning": "Results for distinct stage-structured ODEs, two-species fear models, or different delayed functional responses are not logically stronger versions of this exact three-species nonlinear delayed recruitment equation. Their thresholds do not specialize by substituting parameters to beta=d with an exact positive tail constant. The unavailable full papers remain named residual risks rather than negative whole-document conclusions.",
       "searches": [
-        "\"delay differential equation x'=a(x(t-tau)-x(t)) - b x(t-tau)^2 asymptotic 1/t\"",
-        "\"global stability delayed predator prey fear Holling type II Shao 2022 threshold equality\"",
+        "Resultary semantic search: three species fear ratio dependent response two gestation delays model Wang Shao Chai 2023 nonhyperbolic critical stability",
+        "Resultary: 2026/10/11/SCOPE-a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa",
         "doi:10.15388/NA.16.2.14109",
         "doi:10.3390/math10183378",
         "doi:10.1016/j.matcom.2022.04.013"
@@ -25,108 +32,129 @@
       "doi:10.3934/math.2023378",
       "doi:10.15388/NA.16.2.14109",
       "doi:10.3390/math10183378",
-      "doi:10.1016/j.matcom.2022.04.013"
+      "doi:10.1016/j.matcom.2022.04.013",
+      "2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+      "2026/10/11/a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301/RESULT.md"
     ],
     "claim_vs_prior_implication": {
       "evidence": [
-        "Wang–Shao–Chai, Theorem 5.2, states a strict local criterion; at equality its characteristic equation has a zero root and therefore does not yield asymptotic stability by a Hurwitz argument.",
-        "Tian–Xu global predator extinction is for an un-delayed stage-structured Holling model and cannot be specialized to the exact nonzero-delay recruitment law.",
-        "The present new content is an exact nonincreasing nonlinear delay mass, global attraction at criticality, a fully justified universal t*y limit, and an explicit sharpness counterexample above the conversion threshold."
+        "A strict local beta<d spectral theorem does not imply beta=d nonlinear stability: its linearized boundary has a neutral characteristic root.",
+        "Tian–Xu's nondelayed stage-structured result has no nonzero recruitment delay and no original model equations, so it cannot force the beta=d coefficient (r-b)(1+d*tau1)/(a*d*m).",
+        "The same mathematical model positive periodic-cycle necessary mean barrier is conditional on a positive cycle and does not address extinction for all initial histories."
       ],
-      "reasoning": "Neither the same-paper local stability statement nor a stronger-sounding global theorem for nonidentical equations entails the equality-case result. In particular the strict subcritical inequality beta<d omits beta=d, where characteristic-root neutrality destroys the local exponential conclusion. The counterexample is a check of the parameter-uniform scope, not an unproved universal necessity statement.",
+      "reasoning": "The new claim includes a nonstandard equality endpoint, a global basin assertion, and a full exact law, all outside the inspected prior conclusions. The sharp beta>d positive equilibrium uses source-known existence conditions; novelty is not claimed for equilibrium existence or generic delay comparison itself. No broad conclusion for arbitrary beta>d or time-variable delays is inferred.",
       "searches": [
-        "doi:10.3934/math.2023378",
-        "doi:10.15388/NA.16.2.14109",
-        "doi:10.3390/math10183378",
-        "\"global stability delayed predator prey fear Holling type II Shao 2022 threshold equality\""
+        "2023 Wang–Shao–Chai doi:10.3934/math.2023378 Theorem 5.2 and Appendix (A.1)",
+        "doi:10.15388/NA.16.2.14109 Theorem 4",
+        "Resultary 2026/10/11/SCOPE-a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301"
       ]
     },
     "equivalent_formulations": {
       "evidence": [
-        "In doi:10.3934/math.2023378, model (2.1) has delayed intermediate recruitment and the exact beta<d local axial criterion is in Theorem 5.2; its Appendix equation (A.1) has a zero characteristic root at beta=d.",
-        "The global equality-case mass identity and the limit constant in the present Theorem (A) are not established in the inspected source discussion and appendix."
+        "The 2023 primary paper treats exactly the same three-population two-delay equations; Theorem 5.2 gives a strict beta<d local stability condition at the predator-free axial equilibrium.",
+        "At beta=d, Appendix equation (A.1) has a zero characteristic root, which does not imply nonlinear global convergence or a t^-1 tail.",
+        "Published Resultary exact-title and exact-formula match is the same record under assessment, so is not independent priority evidence."
       ],
-      "reasoning": "The exact equality-case theorem is not a restatement of local stability or a renaming of the characteristic equation: a neutral eigenvalue alone neither implies global extinction for every positive history nor determines a lag-dependent nonlinear tail. Generic scalar critical delay equations supply analogous local models but not a direct implication for the nonlinear, three-species, coupled and possibly delayed food chain.",
+      "reasoning": "The audited statement is global for all positive present states and fixed finite delays at the neutral beta=d threshold and additionally computes a uniform positive t*y limit. Those quantifiers, the exact nonlinear Lyapunov–Krasovskii dissipation, and the delay-dependent coefficient cannot be obtained by renaming the 2023 local linearized theorem. The generic scalar critical DDE normal form motivates but does not itself prove the nonlinear three-species global limit.",
       "searches": [
-        "\"Wang\" \"Shao\" \"Chai\" \"beta=d\" \"global\" food chain gestation",
-        "\"math.2023378\" predator global extinction critical gestation asymptotic delay",
-        "ratio dependent predator prey gestation critical transcritical delay polynomial decay t inverse",
-        "doi:10.3934/math.2023378"
+        "Resultary semantic search: critical predator extinction beta=d ratio-dependent food chain fear effect gestation delay t^{-1} law coefficient (1+d tau)/(d m)",
+        "Resultary semantic search: delayed predator-prey gestation critical nonlinear threshold Lyapunov functional y+d integral(y) global extinction",
+        "Wang–Shao–Chai 2023 doi:10.3934/math.2023378: exact model (2.1), Theorem 5.2, Appendix (A.1)"
       ]
     },
     "exact_database_or_table": {
       "evidence": [
-        "The primary article presents no exact critical-decay table in the read model analysis, equilibrium sections, local stability theorem, Hopf discussion, or appendix.",
-        "Searches for exact model DOI combined with rate terminology and gestation-delay factors did not identify an exact listed invariant or tabulated critical prefactor."
+        "The closest published paper supplies static equilibria, local spectral stability, and Hopf conditions, not a tabulated or proved full-positive-history critical t*y asymptotic constant.",
+        "The fully read separate SCOPE same mathematical model positive periodic-cycle barrier concerns a period-average top-predator weighted invariant M3>ve/(eta-pe), not extinction tails.",
+        "The matching Resultary critical-gestation t^-1 finding is identical to the record being checked, excluded from independent novelty evidence."
       ],
-      "reasoning": "This theorem is a trajectory-level asymptotic assertion quantified over every positive-history solution, not a fixed parameter table or equilibrium enumeration. A failed table search alone is not taken to prove novelty; the comparison to the closest source proof and statements supplies the substantive evidence.",
+      "reasoning": "A uniform infinite-time asymptotic for every positive-history trajectory is not a finite database entry or an automatic equilibrium table specialization. Absence from tables is not used as proof of historical novelty; the comparison to exact source statements, quantifiers and implications is decisive to the limited best-of-knowledge assessment.",
       "searches": [
-        "\"10.3934/math.2023378\" \"decay rate\" critical \"gestation\"",
-        "\"Wang Shao Chai\" \"gestation\" \"beta=d\" \"t^-1\" asymptotic",
-        "\"math.2023378\" predator global extinction critical gestation asymptotic delay",
-        "doi:10.3934/math.2023378"
+        "Resultary semantic search: delay differential equation y'=d(y(t-tau)-y(t))-a y(t-tau)^2 long time 1/t asymptotic",
+        "doi:10.3934/math.2023378: equilibria, stability theorem and Appendix (A.1)",
+        "Resultary: 2026/10/11/SCOPE-a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301"
       ]
     },
-    "rationale": "Same-source complete article model, Theorem 5.2 and Appendix (A.1) were compared to the new global equality-case claim, not titles alone. The old paper handles strict local beta<d and a neutral beta=d eigenvalue, but does not establish global critical predator extinction or the universal delayed t^-1 constant. The inspected full-text alternatives treat structurally distinct ODE or two-species delay models. Scope is strictly bounded, with an abstract-only relevant source openly acknowledged as residual risk. Negative semantic matches are not treated as mathematical uniqueness proof.",
+    "rationale": "Closest full primary source Wang–Shao–Chai 2023 has the identical equations, but its strict local criterion beta<d and neutral characteristic root at beta=d do not imply global equality extinction or the uniform t^-1 coefficient. Fresh Resultary searches, direct reading of two related published SCOPE results, and full primary Tian–Xu 2011 comparison found no stronger theorem that mathematically covers the same claim. The exact Resultary match is the assessed record and is excluded as independent priority evidence. Some plausible two-species full texts remain inaccessible; they are documented as risks rather than automatic rejection. The mathematical novelty conclusion is best-of-knowledge, not historical priority certification.",
     "residual_risks": [
-      "The full text of doi:10.1016/j.matcom.2022.04.013 could not be read; only its abstract allowed structural comparison, so any unadvertised related extension remains possible.",
-      "Coverage by a different unindexed theorem or a stronger unpublished equivalence cannot be excluded by searches. The literature comparison supports scoped originality, not an absolute uniqueness certificate.",
-      "The normalized entire-delay argument uses standard distributional Fourier support and boundedness; a specialist may wish to independently formalize this step before relying on the exact asymptotic beyond same-model review."
+      "Unindexed or differently named critical scalar DDE or three-species model theorem may contain an equivalent result; semantic nonmatches are not novelty proof.",
+      "The 2022 Shao full article DOI 10.1016/j.matcom.2022.04.013 was inaccessible through lawful routes and Oxford reported vpn_disconnected; no whole-paper noncoverage is asserted.",
+      "The 2022 Shao–Kong full text was not read due access/rate limitation; only accessible abstract/model triage used, leaving possible unadvertised extension.",
+      "The boundary proof uses a bounded-entire scalar-delay Fourier-support Liouville lemma and slow variation of the Lyapunov mass; mathematical verification reconstructed this step but no formal mechanized proof or external attestation is asserted."
     ],
     "source_inspections": [
       {
-        "assessment": "Closest source. Contains strict local axial stability beta<d and an equality zero root; does not present the global threshold Lyapunov mass or exact critical long-time prefactor.",
+        "assessment": "Does not establish global beta=d extinction or the exact positive t^-1 coefficient; establishes strict local beta<d stability and at equality has a zero spectral root, requiring nonlinear work.",
         "evidence": [
-          "model (2.1); Theorem 5.2; Appendix (A.1); https://doi.org/10.3934/math.2023378"
+          "Y. Wang, Y. Shao, C. Chai, AIMS Mathematics 8 (2023), 7535–7559, DOI 10.3934/math.2023378; equation (2.1), Theorem 5.2, Appendix (A.1)."
         ],
         "identifier_or_url": "doi:10.3934/math.2023378",
-        "material_read": "Lawful open-access article PDF, 25 pages: model equation (2.1), mathematical preliminaries, equilibria, stability Theorem 5.2, Hopf analysis, Appendix (A.1).",
-        "method": "Primary full-text reading and equation-to-equation/implication comparison",
+        "material_read": "Full 25-page lawful OA article PDF, especially equation (2.1), equilibria, Theorem 5.2, Appendix (A.1) and local stability and Hopf sections; verified rendered pages containing main equations/theorem/appendix.",
+        "method": "Primary PDF complete text and rendered-page mathematical implication comparison",
         "title": "Dynamics of a predator-prey model with fear effects and gestation delays",
-        "trigger": "Exact same three-species equations and parameter beta=d; highest-risk dominance comparison"
+        "trigger": "Exact same three-level equations, beta=d parameter, and potential same-paper coverage"
       },
       {
-        "assessment": "Not covering: different no-gestation stage-structured ODE and distinct thresholds; does not imply the exact lag-sensitive critical constant.",
+        "assessment": "Different nondelayed stage-structured system; its global result does not imply the audited delayed equality endpoint.",
         "evidence": [
-          "equation (3); Theorem 4; https://doi.org/10.15388/NA.16.2.14109"
+          "X. Tian, R. Xu, Nonlinear Analysis: Modelling and Control 16 (2011), 242–253, equation (3), Theorem 4."
         ],
         "identifier_or_url": "doi:10.15388/NA.16.2.14109",
-        "material_read": "Full open PDF, equation (3) on page 1 of article and global predator-extinction Theorem 4 on article page 249, with related model context.",
-        "method": "Primary PDF theorem, hypotheses, and ODE/delay-model comparison",
+        "material_read": "Full open 12-page primary PDF, equation (3), full statement and proof context of Theorem 4 near article page 249; rendered article pages checked.",
+        "method": "Full primary-text comparison of model variables, equations, strict conditions, and theorem",
         "title": "Global dynamics of a predator-prey system with Holling type II functional response",
-        "trigger": "Possible earlier global predator extinction theorem with stronger coverage"
+        "trigger": "Plausible broader global predator-extinction result"
       },
       {
-        "assessment": "Not covering the three-species model, the critical intermediate-predator extinction threshold, or the source-specific t^-1 amplitude.",
+        "assessment": "Describes different two-species model and global coexistence/stochastic context; uninspected full text is a residual risk, not formally ruled out.",
         "evidence": [
-          "https://doi.org/10.3390/math10183378; two-species Beddington–DeAngelis model and coexistence results"
+          "Y. Shao, W. Kong, Mathematics 10 (2022), 3378; DOI 10.3390/math10183378."
         ],
         "identifier_or_url": "doi:10.3390/math10183378",
-        "material_read": "Open journal HTML full text: model and stability section on global coexistence, assumptions and functional response.",
-        "method": "Primary full-text structural and conclusion comparison",
+        "material_read": "Published abstract, accessible indexed article descriptions and model structure only; open full journal page rate-limited, so complete text not claimed read.",
+        "method": "Abstract-level triage only",
         "title": "A Predator–Prey Model with Beddington–DeAngelis Functional Response and Multiple Delays in Deterministic and Stochastic Environments",
-        "trigger": "Delayed fear model, same author lineage and possible global stability overlap"
+        "trigger": "Same author and delayed-fear functional-response literature with possibly stronger coverage"
       },
       {
-        "assessment": "Residual risk: its described two-species Holling-II coexistence framework differs from the present three-species ratio-dependent delay system, but unpublished/full-text connections cannot be excluded.",
+        "assessment": "Accessible abstract concerns a different two-species Holling-II coexistence framework, but uninspected text could contain connections; explicit residual risk.",
         "evidence": [
-          "https://doi.org/10.1016/j.matcom.2022.04.013; accessible abstract describes global coexistence"
+          "Y. Shao, Mathematics and Computers in Simulation 200 (2022), 65–77; DOI 10.1016/j.matcom.2022.04.013."
         ],
         "identifier_or_url": "doi:10.1016/j.matcom.2022.04.013",
-        "material_read": "Published abstract and metadata only; no material full text was available for this comparison.",
-        "method": "Abstract-level model and topic triage; explicitly not claimed as whole-document noncoverage",
+        "material_read": "Published abstract and metadata; paper's complete text not obtained through arXiv/open-access attempts or authorized institutional access, which returned VPN disconnected.",
+        "method": "Abstract/model triage; no claim about full-document noncoverage",
         "title": "Global stability of a delayed predator–prey system with fear and Holling-type II functional response in deterministic and stochastic environments",
-        "trigger": "Plausible related global delayed stability literature with a broader title"
+        "trigger": "Potential broad global delayed predator–prey theorem by overlapping author"
+      },
+      {
+        "assessment": "Different Kong–Shao three-state maturation model and strict reproduction threshold; does not cover the neutral equality tail of the Wang–Shao–Chai food chain.",
+        "evidence": [
+          "Theorem assumes Crowley–Martin maturation model and R_mat<1, not beta=d; result asserts asymptotic extinction but no sharp t^-1 law."
+        ],
+        "identifier_or_url": "2026/10/11/a-delay-independent-global-predator-extinction-threshold-from-ma--0cad419195aa/RESULT.md",
+        "material_read": "Complete frozen primary mathematical result file, model, theorem, proof, strict threshold, and limitations.",
+        "method": "Git-tree complete file statement-and-implication comparison",
+        "title": "A delay-independent global predator-extinction threshold from maturation survival",
+        "trigger": "High semantic rank for delayed global predator extinction with Lyapunov–Krasovskii cancellation"
+      },
+      {
+        "assessment": "Shows necessary constraints M3>ve/(eta-pe) for assumed strictly positive periodic cycles; does not imply absence of predators under beta<=d or critical t*y asymptotics.",
+        "evidence": [
+          "Positive-cycle weighted mean barrier theorem, fixed period; conditional result and no basin statement."
+        ],
+        "identifier_or_url": "2026/10/11/a-delay-independent-top-predator-weighted-invasion-barrier-for-p--b7e5d9601301/RESULT.md",
+        "material_read": "Complete frozen primary mathematical result file: statement, full Jensen/period integral proof, hypotheses, references and limitations.",
+        "method": "Complete theorem-versus-theorem comparison",
+        "title": "A delay-independent top-predator-weighted invasion barrier for positive cycles",
+        "trigger": "Same exact 2023 three-species model and exact parameter surface possibility"
       }
     ],
     "status": "PASS"
   },
-  "review_type": "same_model_review",
-  "same_model_review_status": "passed",
-  "schema_version": 1,
-  "scope_run_id": "9e6e513e-14cd-4573-a300-ab6188e84741",
+  "previously_published_pending_reaudit": false,
   "value": {
-    "rationale": "A neutral characteristic root at the source local beta=d threshold leaves global extinction and its rate unresolved. The exact nonnegative delay-mass dissipation reveals a global mechanism, proves the equality endpoint with arbitrary fixed lags, and yields a quantifiable, non-obvious first-order dependence of the critical tail amplitude on the gestation delay. The sharpness example confirms this as an optimal parameter-uniform extinction boundary. This is a mathematically motivated model-specific critical dynamics theorem, not a routine table recomputation or finite approximation; no claims are made about stochastic delays, spatial coupling, or all supercritical parameter choices.",
+    "rationale": "The beta=d surface is a natural nonhyperbolic spectral threshold in a published three-species delay model; strict local stability fails to determine nonlinear global extinction or relaxation. The theorem supplies a structurally new nonnegative lag-compensated mass, closes the endpoint globally for all positive histories and finite fixed delays, obtains an exact positive leading amplitude depending linearly on gestation time, and exhibits an attracting positive-predator equilibrium for beta>d showing sharpness of the parameter-uniform extinction bound. These are motivated analytical dynamics facts with interpretable boundary behavior, not just a standard norm estimate, finite simulation or known equilibrium table. It does not claim stochastic/spatial/time-varying delay cases or classify all beta>d.",
     "status": "PASS"
   }
 }

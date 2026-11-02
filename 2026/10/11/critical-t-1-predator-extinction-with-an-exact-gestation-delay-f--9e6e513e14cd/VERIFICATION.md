@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-25.md",
+      "INDEPENDENT_AUDIT_2026-10-25.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,16 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification of the critical extinction theorem
 
-The complete equations and exact hypotheses appear in `RESULT.md`. Scientific verification performed:
+# Independent mathematical audit
 
-1. Reconstructed the nonnegative solution bounds without assuming the source's boundedness proof: prey logistic upper comparison, intermediate predator forced linear upper bound, top predator forced linear upper bound.
-2. Directly differentiated the critical mass \(P(t)=y(t)+d\int_{t-\tau_1}^t y(s)\,ds\) and checked the exact dissipation identity (3). It yields integrability of the squared delayed intermediate predator and, together with bounded derivatives, critical extinction.
-3. Checked the strict subcritical delayed exponential comparison and subsequent top-predator comparison for each finite nonnegative delay.
-4. Verified that \(r>b+\alpha/m\) produces an eventual positive prey lower bound, then prey convergence to \(X=(r-b)/a\).
-5. Checked the asymptotic proof beyond a formal expansion: \(y(t-\tau_1)\le e^{D\tau_1}y(t)\); slow variation of \(P\); polynomial lower bound for \(P\); compactness of normalized translated trajectories; the bounded-entire linear-delay Liouville argument; and the positive coefficient in \((1/P)'\).
-6. Ran `python CHECK.py` against its embedded file to verify the exact algebraic identity, formal quadratic delay coefficient, and rational sharpness example. The program returned `CHECK_OK exact energy identity, quadratic coefficient, and sharpness example`.
-7. As an additional finite diagnostic only, explicit Euler with step \(0.02\), constant histories \((x,y,z)=(3,0.5,0.2)\), parameters \((r,b,a,\alpha,k,m,d,\beta,\theta,v,p,q,\eta,e)=(4,1,1,0.5,0.3,1,2,2,0.5,1,1,1,1,1)\), and delays \((\tau_1,\tau_2)=(1.3,0.7)\), produced \(t y(t)\approx5.33747\) at \(t=2000\), approaching the proved value \(5.4\). This computation is not an infinite-time proof and no error bound is claimed for Euler.
+## correctness
 
-The proof uses only ordinary scalar comparison, continuous dependence and boundedness for retarded equations, Barbalat's lemma, compactness, and a Fourier-support argument for the scalar linear limit. The asymptotic conclusion assumes finite fixed delays and a positive prey growth margin; it makes no assertion about stochastic systems or other delay types. Independent audit has not been performed.
+PASS
+
+For arbitrary fixed finite nonnegative lags and positive current populations, logistic and forced linear comparisons give positivity/global boundedness. For beta<d, y'≤beta*y(t-tau1)-d*y and beta<d give exponential comparison, then z decays exponentially. At beta=d, P=y+d∫_(t-tau1)^t y satisfies the exact dissipation P'=-d*m*y(t-tau1)^2/(x(t-tau1)+m*y(t-tau1))-theta*y*z/(v+p*y+q*z)≤0. The bounded denominator yields ∫y²<∞, and bounded derivative yields y→0, hence z exponential. Under r>b+alpha/m, lower logistic comparison bounds x away from zero and gives x→X=(r-b)/a. Writing h=-P', y'=d(y_del-y)-h, positivity bounds y_del≤e^(D*tau1)y≤e^(D*tau1)P, so h≤C(P²+zP). Q=1/P satisfies Q'≤C+C*z*Q; z integrable gives Q=O(t), yielding P≥c/(1+t), slow variation under bounded translations, and z/P→0. Normalized translates y(t_n+s)/P(t_n) converge subsequentially to bounded entire solutions Y'=d(Y(s-tau1)-Y), Y+d∫Y=1. Fourier symbol i*xi+d(1-e^(-i*xi*tau1)) has only real zero xi=0; bounded entire Y is constant 1/(1+d*tau1). Hence -P'/P²→d*m/[X*(1+d*tau1)²], and t*y→X*(1+d*tau1)/(d*m), including tau1=0. Independent exact SymPy algebra verified the dissipation, quadratic delay normal coefficient, and rational beta>d stable-equilibrium Jacobian (trace -11/8, determinant 17/16, remaining eigenvalue -1/2). Computation does not replace the global analytic argument.
+
+## originality
+
+PASS
+
+Closest full primary source Wang–Shao–Chai 2023 has the identical equations, but its strict local criterion beta<d and neutral characteristic root at beta=d do not imply global equality extinction or the uniform t^-1 coefficient. Fresh Resultary searches, direct reading of two related published SCOPE results, and full primary Tian–Xu 2011 comparison found no stronger theorem that mathematically covers the same claim. The exact Resultary match is the assessed record and is excluded as independent priority evidence. Some plausible two-species full texts remain inaccessible; they are documented as risks rather than automatic rejection. The mathematical novelty conclusion is best-of-knowledge, not historical priority certification.
+
+## value
+
+PASS
+
+The beta=d surface is a natural nonhyperbolic spectral threshold in a published three-species delay model; strict local stability fails to determine nonlinear global extinction or relaxation. The theorem supplies a structurally new nonnegative lag-compensated mass, closes the endpoint globally for all positive histories and finite fixed delays, obtains an exact positive leading amplitude depending linearly on gestation time, and exhibits an attracting positive-predator equilibrium for beta>d showing sharpness of the parameter-uniform extinction bound. These are motivated analytical dynamics facts with interpretable boundary behavior, not just a standard norm estimate, finite simulation or known equilibrium table. It does not claim stochastic/spatial/time-varying delay cases or classify all beta>d.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
