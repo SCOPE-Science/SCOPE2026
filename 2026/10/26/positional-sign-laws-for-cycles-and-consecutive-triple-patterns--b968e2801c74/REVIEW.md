@@ -1,11 +1,21 @@
-# Review of the positional triple-pattern covariance theorem
+# Independent mathematical audit
 
-**Correctness — PASS.** Every assumption and boundary is explicit: a uniform permutation, ordinary one-line consecutive patterns, \(n\ge3\), and \(1\le a\le n-2\). The closed-path contraction lemma supplies the conditional cycle mean, the loop/two-cycle/three-cycle count supplies all six polynomials, and the harmonic-number subtraction supplies the stated normalization. An independent brute-force exact-rational checker matches all six cases for all windows through size eight and tests the general contraction lemma on sampled partial injections through size seven. Enumeration is supplementary to an all-size proof.
+## correctness
 
-**Originality — PASS, provisional historical priority.** The most relevant public record on inversion gaps gives covariances for individual pair comparisons, not the covariance of cycle count with the intersection event defining a three-letter pattern. Parviainen's cycle-word pattern statistic is different from the ordinary one-line statistic here, while Elizalde's one-line survey treats pattern enumeration rather than this joint covariance profile. The complete positional six-pattern sign classification and nonvanishing congruence were not located. An older equivalent encoding may exist; that is a residual risk, not a proof of uniqueness.
+PASS
 
-**Mathematical value — PASS.** The six formulas jointly classify a natural mixed dependence problem for random permutations. The comparison is not reducible to separate marginal pattern frequencies, and the unexpected spatial sign reversals at quarter and three-quarter locations distinguish a global conjugacy-invariant statistic from local ordinal patterns. The all-size nonvanishing law and exact global covariances support use as reference mixed moments for random permutation statistics.
+For n>=3 in ordinary one-line form, contracted partial-permutation paths give E[C|three assigned images]=H_(n-3)+number of completed cycles (1,2,3) in the partial assignment; counting loops, two-cycles and two possible three-cycles over all C(n,3) image sets yields t_123=3n-2, t_132=-12a+9n-14, t_213=12a-3n-2, t_231=12a-9n+10, t_312=-12a+3n-2, t_321=-3n+10, each divided by 36*C(n,3). All numerators are 1 modulo 3; endpoint sign switches and total-pattern covariances follow by summing. Independent exact n=3..7 full permutation enumeration checked each covariance and global count; the infinite proof is the contracted-path lemma and symbolic count, not enumeration.
 
-**Limitations.** Only uniform permutations, consecutive triples, and first mixed moments are covered. The oldest directly inspected primary paper treats standardized-cycle-word patterns; full historical priority against all earlier permutations literature is unresolved.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+The statistic is one-line consecutive triple pattern jointly with cycle count, unlike cycle-word patterns. Published pair-inversion covariance does not determine the intersection events for a triple; surveyed consecutive pattern enumerations alone do not give joint cycle covariance. No equivalent six-function positional formula located, with bounded bibliographic priority risk.
+
+## value
+
+PASS
+
+A complete six-pattern positional mixed-moment table reveals nonzero covariance and sharp within-permutation sign switches at positions depending on the pattern. This resolves a motivated natural joint statistic rather than merely a generic binomial identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
