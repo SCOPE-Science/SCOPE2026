@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "For each coupon, rate-one Poissonization turns age>L into marked long-gap absence intervals. A bounded time interval contains at most one start per coupon, with probability lambda|I|/n and independent Exp(1) overshoot, yielding a marked Poisson superposition and stationary immigration-death limit. Global Poisson-clock fluctuations on O(n log n) events are o(n^-1/3); near-threshold geometric gaps have expected count O(n^-1/3 log n), allowing a J1 transfer to fixed-draw windows. Zero visits have positive holding intervals, so first hitting times converge. The stationary resolvent convolution gives the claimed Laplace transform. Actual verify.py passed 186 finite-identity/consistency assertions; these are not substitutes for the infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "arXiv:2604.26298v1 Theorem 3.1 and Section 8.3 address flux and threshold but leave the critical stationary process distribution unstated.",
+        "arXiv:2605.14206v1 Theorem 4.10 handles clumsy updates with a distinct loss mechanism.",
+        "Classical Poisson superposition and M/M/infinity queue machinery may yield alternative proofs."
+      ],
+      "reasoning": "Neither inspected coupon theorem has assumptions implying a result for deterministic expiration: refresh hazards occur at random selected-label updates, whereas here an age cutoff creates correlated expiration events. The coupling and marked gaps establish the missing implication.",
+      "searches": [
+        "Long 2604.26298 critical windows scan statistic stationary passage time missing coupon birth death",
+        "expiring coupon collector critical-window fluctuation Markov Poisson missing types zero hitting time",
+        "critical window expiring coupon collector missing coupons process Poisson birth death Markov functional limit"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2604.26298v1",
+      "arxiv:2605.14206v1",
+      "arxiv:2605.14511v1",
+      "Targeted query comparisons of stationary missing coupon process, marked long gaps, queue limits and critical expiring collector."
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "arXiv:2604.26298v1 Section 8.3 supplies only the one-time Poisson coupon occupancy and flux at order 1/n.",
+        "arXiv:2605.14206v1 Lemma 4.9 gives the matching stationary immigration-death hitting transform for different underlying dynamics.",
+        "arXiv:2605.14511v1 Section 1 explicitly distinguishes expiring, clumsy, careless, and resetting mechanisms."
+      ],
+      "reasoning": "Convergence of a single occupancy marginal and entry flux alone does not imply Markov functional convergence or first-passage convergence. Known queue formulas settle the limit object but not convergence of this deterministic-expiration model. The new claim is the full pathwise transfer, with its first-completion consequence.",
+      "searches": [
+        "critical window expiring coupon collector deterministic sliding-window missing-types functional convergence immigration death process stationary first return zero",
+        "Long 2604.26298 critical windows scan statistic stationary passage time missing coupon birth death",
+        "The Expiring Coupon Collector Sliding-Window Surjection Flux and Rare-Entry Laws 2026",
+        "The clumsy coupon collector’s problem birth-death 2026"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arXiv:2605.14206v1 Lemma 4.9 identifies the identical immigration-death zero-hitting transform for the clumsy model.",
+        "arXiv:2604.26298v1 Section 8.3 describes critical one-time occupancy and stationary flux, not a path limit."
+      ],
+      "reasoning": "The zero-hitting transform considered in isolation is previously known and is not the new claim. A deterministic-expiration sliding-window process is not an independently refreshed clumsy-coupon process. The Markov path law needs marked-long-gap and de-Poissonization arguments absent from the compared papers.",
+      "searches": [
+        "critical window expiring coupon collector deterministic sliding-window missing-types functional convergence immigration death process stationary first return zero",
+        "moving window coupon collector n log n expiring labels gap starts marked Poisson M/M infinite server process",
+        "coupon collector sliding windows birth death process limit Poisson equilibrium absence count"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Relevant mathematical research matches on independent-loss collectors, renewal age laws, and stationary-entry flux are distinct in model or parameter; no matching tabulated deterministic-expiration path law was found."
+      ],
+      "reasoning": "This is a functional limit claim rather than a small exact database constant. Search absence is not a proof of priority, and no exhaustive literature census is asserted.",
+      "searches": [
+        "sliding window coupon collector critical window stationary number missing processes immigration death Poisson M/M/infinity time n hitting zero",
+        "Poisson long gaps missing coupons renewal immigration death occupancy process",
+        "critical window expiring coupon collector missing-types point process stationary completion"
+      ]
+    },
+    "rationale": "The central new object is the full critical-window stationary missing-coupon process under deterministic sliding expiration, not the queue transform by itself. Long arXiv:2604.26298v1 gives only critical marginal/flux, and Attrill–Garoni arXiv:2605.14206v1 gives the same queue law for independently refreshed clumsy coupons. Specific process-model implications were compared rather than similar titles alone. Priority is best knowledge, not independently certified.",
+    "residual_risks": [
+      "A broader Poisson superposition, scan-statistical or infinite-server queue theorem might subsume the marked-gap convergence as an application.",
+      "Additional older deterministic sliding-window coverage may exist beyond searched accessible literature.",
+      "Queue zero-hitting formula is known from clumsy-coupon literature and is not separately novel."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Critical occupancy mass and flux, no stationary functional immigration-death limit or first-zero transform for that model stated in material examined.",
+        "evidence": [
+          "arXiv:2604.26298v1 Sections 3, 4, 8.3, 9."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2604.26298",
+        "material_read": "HTML introduction, exact stationary-flux proof, rare-entry theorem, Sections 8.3 and 9 and appendix topic map.",
+        "method": "Direct full-text HTML section inspection and theorem-implication comparison.",
+        "title": "The Expiring Coupon Collector: Sliding-Window Surjection Flux and Rare-Entry Laws",
+        "trigger": "Identical expiring fixed-length window and critical logarithmic scale."
+      },
+      {
+        "assessment": "Same limiting queue and first-zero transform already known; this independent-loss model is not deterministic sliding expiration. Those queue identities are not claimed as new.",
+        "evidence": [
+          "arXiv:2605.14206v1 Lemma 4.9, Theorem 4.10."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.14206",
+        "material_read": "HTML model definition, Section 4 Lemma 4.9 and Theorem 4.10, Section 5 introduction.",
+        "method": "Direct primary full-text comparison of stochastic mechanism, limiting generator, Laplace transform and input conditions.",
+        "title": "The clumsy coupon collector’s problem",
+        "trigger": "Critical birth-death limit with potentially same first-zero law."
+      },
+      {
+        "assessment": "Models are independent reset/loss mechanisms. It cites the expiring source, but cited sections do not provide this functional limit. The uninspected appendices remain residual coverage risk.",
+        "evidence": [
+          "arXiv:2605.14511v1 Section 1.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.14511",
+        "material_read": "HTML abstract, introduction, Section 1.1 model table and statements of main results; not an exhaustive reading of appendices.",
+        "method": "Primary full-text selective reading and model comparison.",
+        "title": "Clumsy and Careless: Stationary-Entry Flux in Non-monotone Coupon Collectors",
+        "trigger": "Nearby coupon-loss entry-flux theorem referencing the expiring model."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "2d571651-65cb-463c-8d39-04dd03c8afae",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "At the natural critical window, Long’s stationary mass/flux does not specify time correlations or first stationary completion. The theorem identifies the entire dynamical scaling limit, decay correlations, and the exact nonexponential stationary first-completion distribution. It also makes the cross-model universality to the clumsy coupon queue mathematically explicit, with a proof that handles deterministic expiration rather than random independent refresh.",
+    "status": "PASS"
+  }
+}
