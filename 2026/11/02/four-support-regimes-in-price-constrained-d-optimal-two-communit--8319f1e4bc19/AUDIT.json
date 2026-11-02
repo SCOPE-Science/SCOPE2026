@@ -1,0 +1,116 @@
+{
+  "correctness": {
+    "rationale": "An unrestricted connected-edge determinant maximizer exists on the compact budget simplex. Reduced Laplacian is injective in complete-graph edge weights; strict concavity of log determinant therefore establishes full-edge uniqueness before imposing symmetry. The exact Laplacian eigenvalues are pa+qc with multiplicity p-1, qb+pc with multiplicity q-1, and (p+q)c once. Weighted Matrix–Tree gives c(pa+qc)^(p-1)(qb+pc)^(q-1). Homogeneity fixes multiplier (N-1)/B, and exact KKT per-expenditure return calculations establish all four mutually exclusive and exhaustive support cases including boundaries. A direct full-edge verifier passed 1,225 matrix determinant tests, 1,225 KKT/budget tests, 1,800 unrestricted feasible comparisons, and 30 full-space constrained optimizations. Finite tests are corroboration, not proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Khosoussi et al., arXiv:1604.01116, Sections 4.4 and 5.1: log-determinant convex relaxations for edge selection and partition-matroid edge budgets.",
+        "Harman et al., arXiv:1402.7263, Sections 3.1–3.2: heuristic and numerical methods for exact designs under resource constraints."
+      ],
+      "reasoning": "The more general MAXDET framework encompasses fixed parameter instances algorithmically but neither source states an unrestricted closed optimizer with the four exact linear price-support regions or two-stage unequal-group transition. A generic optimization formulation does not logically entail the explicit analytical statement without a further spectral and KKT derivation.",
+      "searches": [
+        "\"optimal\" \"edge weights\" \"number of spanning trees\" price budget",
+        "exact D optimal log determinant spanning tree conductance design unequal prices series parallel graphs two terminal",
+        "D optimality two community stochastic block graph logarithm determinant optimal within block between block weights nonnegative cost support"
+      ]
+    },
+    "checked_sources": [
+      "arXiv:1604.01116, full primary PDF text available, relevant core sections inspected plus whole-text targeted term checks",
+      "arXiv:1111.3768, primary PDF, selective D-optimality and spanning-tree sections inspected",
+      "arXiv:1402.7263v2, primary accessible HTML, introduction and Sections 3.1–3.2 inspected",
+      "Semantic research-record queries for exact phase diagram, broader logdet coverage, and equivalent group-price formulations",
+      "Published literature search for group-price determinant network design, D-optimal pairwise designs, and block-symmetric tree enumerators"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Bailey–Cameron (arXiv:1111.3768): establishes determinant–spanning-tree equivalence and fixed block-design optimization.",
+        "Harman–Bachratá–Filová (arXiv:1402.7263): derives graph correspondence and computational constrained design methods, not the continuous exact cost phase diagram.",
+        "Khosoussi et al. (arXiv:1604.01116): studies selectable edges and convex relaxations with coefficients constrained to the unit interval, not the present unrestricted unbounded conductance variables."
+      ],
+      "reasoning": "Prior D-optimality criteria and Matrix–Tree formulas provide tools used in the derivation, but do not directly imply the four-case allocation or the sharp staggered price thresholds for arbitrary part sizes. Other graph-family support formulas (cactus, two-route networks) do not cover complete graphs with overlapping cycles. The exact new claim is narrower than arbitrary edgewise-cost MAXDET, yet stronger than the stated existing structural formulas because it resolves this natural complete subfamily analytically.",
+      "searches": [
+        "Complete graph with two prescribed vertex groups, positive within group edge prices and unit cross group price, unique D-optimal conductances, four support regimes, exact linear threshold",
+        "Two-stage support collapse for unequal groups as within-group edge price increases, spanning-tree logdet optimal network design",
+        "Maximizing the Weighted Number of Spanning Trees Near-t-Optimal Graphs convex relaxation cost budget"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Bailey and Cameron, arXiv:1111.3768, Sections 3.2 and 5.1: D-optimal block designs are related to spanning-tree counts through the Laplacian determinant.",
+        "Harman, Bachratá and Filová, arXiv:1402.7263, Section 3.1: pairwise block designs admit a graph representation and the determinant objective."
+      ],
+      "reasoning": "Tree-count maximization, log-grounded-Laplacian D-optimality, and continuous pairwise-measurement information design are equivalent objectives after suitable normalization. The compared primary formulations impose fixed block counts, combinatorial selection, or general constraints, and do not provide the price-specific support classification for the complete graph with two grouped price classes and cross-class unit price.",
+      "searches": [
+        "\"D-optimal\" \"two groups\" \"pairwise comparisons\" cost",
+        "weighted Laplacian log determinant K_p join K_q three conductance classes exact support boundary and budget",
+        "complete graph planted partition edge conductance prices optimal weighted spanning tree maximizing log determinant deletion internal edges"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "General formulas for spanning-tree counts of complete multipartite graphs and related block-symmetric Laplacians were encountered, but they fix conductances or graph structures rather than optimizing two internal prices.",
+        "arXiv:1604.01116 concerns edge selection and its relaxations, not a published table of the four continuous price regions."
+      ],
+      "reasoning": "The claim is an infinite-parameter closed optimization classification, not an entry in a finite graph invariant database. Exact spectral factorization alone does not specify which conductance classes vanish after global optimization. No inspected source supplied the same case table.",
+      "searches": [
+        "\"spanning trees\" \"p a + q c\" \"q b + p c\"",
+        "weighted spanning tree D-optimal design two-cluster complete graph three edge cost classes support exact classification",
+        "\"weighted spanning trees\" \"two communities\" \"within\" \"between\""
+      ]
+    },
+    "rationale": "The contribution is the complete exact three-price support-region partition for unrestricted continuous conductance allocation on all two-community complete graphs. Existing cited work proves Matrix–Tree equivalence or supplies general numerical convex-design methods, rather than stating this all-size four-case classifier and the unequal-size two-stage support loss. Actual research-record semantic queries and targeted full primary-text comparisons identified no dominating theorem. This is a qualified priority assessment; generic convex solvability and unsuccessful searching alone are not evidence of novelty.",
+    "residual_risks": [
+      "A specialized earlier continuous D-optimal two-population design may already encode these four price regions under different terminology; general web and semantic research queries cannot exclude this.",
+      "General Kiefer-style approximate-design theory and graph optimality equivalence are earlier, so the claimed contribution is explicitly the solved structured price family rather than D-optimality itself.",
+      "All priority assessments are literature-search judgments, not independent or exhaustive originality certification."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "The inspected core results formulate edge selection and general convex relaxations. Targeted full-text term searches found no price-class or bipartite allocation discussion; no explicit matching phase classification was identified in the material reviewed.",
+        "evidence": [
+          "arXiv:1604.01116, Equation (21), convex programs (P1)–(P5), Theorem 2.2 and Section 5.1."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1604.01116",
+        "material_read": "Abstract and complete contents, weighted Matrix–Tree definitions in Section 2.2, effective-resistance discussion in Section 3, convex programs and derivation in Section 4.4, partition constraints in Section 5.1, and searches of the full extracted text for price, cost, bipartite, community and continuous.",
+        "method": "Original primary PDF with searchable full text; relevant equations and selected sections inspected, with front page and Section 4 material rendered visually.",
+        "title": "Maximizing the Weighted Number of Spanning Trees: Near-t-Optimal Graphs",
+        "trigger": "Focal original paper proposing log-determinant connectivity design and its convex relaxation."
+      },
+      {
+        "assessment": "The reviewed D-optimality and spanning-tree sections concern combinatorial block-design criteria, not an explicit class-constant price support diagram. The remaining source may contain other related theory.",
+        "evidence": [
+          "arXiv:1111.3768, Section 5.1 Theorems 3 and 4, Section 3.2 definitions."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/1111.3768",
+        "material_read": "Primary PDF introduction/contents, D-optimality criterion in Section 3.2, and weighted spanning-tree interpretation in Section 5.1 with comparison to A-optimality.",
+        "method": "Original PDF accessed and selectively inspected via extracted text and rendered title page.",
+        "title": "Using graphs to find the best block designs",
+        "trigger": "Plausible earlier D-optimality and spanning-tree result that could subsume a class-price design."
+      },
+      {
+        "assessment": "The reviewed sections discuss integer design heuristics and resource constraints rather than the present exact unrestricted cost-price phase diagram.",
+        "evidence": [
+          "arXiv:1402.7263v2, Section 3.1 equations for pairwise design graph model and Section 3.2 cost-constrained example."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1402.7263v2",
+        "material_read": "Accessible complete article HTML, introduction and Sections 3.1 and 3.2 including the paired-treatment graph model and resource-cost constraints.",
+        "method": "Primary full-text HTML accessible; introduction and model/constraint sections read and compared.",
+        "title": "Heuristic construction of exact experimental designs under multiple resource constraints",
+        "trigger": "Closest related optimization framework involving D-optimal pairwise block designs and resource constraints."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8319f1e4-bc19-4bb6-99b3-0bf915183d9f",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Two-community networks with different internal edge prices are a natural and nondegenerate D-optimal design family. The exact all-parameter allocation determines when each internal class should disappear, replacing generic numerical MAXDET solves with sharp linear support boundaries. The unequal-group same-price path produces two distinct structural changes, while balanced groups collapse simultaneously. It is a complete classification for infinite families and motivated network design choices, not an arbitrary finite table or minor numeric gain.",
+    "status": "PASS"
+  }
+}
