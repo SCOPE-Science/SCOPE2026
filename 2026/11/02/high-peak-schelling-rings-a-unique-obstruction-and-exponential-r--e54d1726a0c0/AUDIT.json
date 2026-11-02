@@ -1,0 +1,141 @@
+{
+  "correctness": {
+    "rationale": "For any peak above 1/2 the three feasible fractions have exact ranks (1,2,0) for zero, one, or two same-colored neighbors. Swapping nonadjacent opposite colors maps k to 2-k and improves both exactly at two monochromatic run interiors; swapping adjacent opposite colors maps k to 1-k and improves both exactly at two isolated vertices. This proves the complete forbidden-pattern criterion. Explicit constructions establish existence except b=r=3; a cyclic-run case split proves that exception. Transfer-trace inclusion-exclusion counts labeled cyclic words, and primitive Perron–Frobenius with exact integer characteristic polynomials proves asymptotic rarity. A standalone direct oracle checked all 65502 mixed words and 3014652 opposite-color pairs for 3<=n<=15; exact characteristic checks passed. Finite verification does not substitute for the all-size proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Bilò et al. 2020 studies monotone payoffs, not p(2/3)>p(1/3)>p(1).",
+        "Friedrich et al. 2023 allows vacancies and individual jumps, a mathematically different move rule.",
+        "Theorem 1 of Bilò et al. 2022 needs peak <=1/2; Theorem 2 supplies exactly one counterexample with peak >1/2."
+      ],
+      "reasoning": "Broader graph models either have a different payoff ordering or different legal deviations; published high-peak statements inspected do not prove all remaining balanced/unbalanced cycle splits and their exact enumeration.",
+      "searches": [
+        "Schelling segregation diversity preferences ring graph exact stable configuration counting",
+        "two-type swap games on path and cycles Nash equilibrium classification",
+        "arxiv:2204.12599 ring cycle 6 nodes b=r=3 peak Lambda greater than half swap equilibrium",
+        "arxiv:2005.02752",
+        "arxiv:2302.12107",
+        "\"Schelling games ring strictly beneficial swaps exact stable allocations cycle peak 2/3\""
+      ]
+    },
+    "checked_sources": [
+      "https://arxiv.org/abs/2204.12599",
+      "https://arxiv.org/pdf/2204.12599",
+      "https://ijcai.org/proceedings/2022/12",
+      "https://arxiv.org/abs/2005.02752",
+      "https://arxiv.org/abs/2302.12107",
+      "https://link.springer.com/article/10.1007/s10458-022-09573-7"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Known Theorem 2 proves only nonexistence for (n,b,r)=(6,3,3).",
+        "The lower-peak cyclic treatment gives identical positive utility to isolated and boundary vertices; under the present high peak these are strictly ordered.",
+        "The claimed union-of-languages spectrum and Perron growth rate require an additional derivation; they are not just restated C6."
+      ],
+      "reasoning": "The previously established specific obstruction is logically implied by the new classification, but the reverse implication fails. The known lower-peak potential and welfare statements do not imply high-peak adjacent-isolated exchange restrictions or the Perron count.",
+      "searches": [
+        "arxiv:2204.12599v2 Theorem 2",
+        "single-peaked Schelling swap games cycles ring peak greater than one half stable configurations complete classification exact number of equilibria",
+        "count swap equilibria cyclic binary configurations 0101 1010 forbidden and one color no triple run"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "A favorable nonadjacent swap requires opposite-color run interiors (both 000 and 111); a favorable adjacent swap is precisely cyclic 0101. Both differ from standard monotone ring swap conditions.",
+        "The initiating paper explicitly supplies the C6 example but not a complete if-and-only-if language or generating count.",
+        "No equivalent semantic-index record with the identical deviations and payoffs was returned in searched results."
+      ],
+      "reasoning": "Checked both ring-agent game language and equivalent forbidden-pattern/transfer-matrix language; the exact positive-complement claim does not follow from its known six-cycle counterexample, nor from related voting/coloring/hedonic records.",
+      "searches": [
+        "swap Schelling games on cycles with single-peaked utility, stable assignments and efficiency thresholds",
+        "single-peaked Schelling swap games cycles ring peak greater than one half stable configurations complete classification exact number of equilibria",
+        "cycle graph two-type swap Schelling preference isolated versus paired color run length; four-alternation forbidden 0101 equilibrium",
+        "count swap equilibria cyclic binary configurations 0101 1010 forbidden and one color no triple run",
+        "\"single peaked swap Schelling games ring cycle equilibrium enumeration binary forbidden substring count stable configurations high peak\"",
+        "arxiv:2204.12599v2"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The exact transfer formula yields E(6,3)=0, E(7,3)=7, E(8,4)=20; the direct exhaustive oracle checks these and all distributions through n=15.",
+        "No identified existing table was found with both the same high-peak payoff and all-size labeled ring spectrum.",
+        "A published cycle PoA table in monotone games addresses different utility ranking."
+      ],
+      "reasoning": "Searched for direct formulas, binary-word language and finite cycle tables, then compared found sources by which games and parameters they actually cover. An undiscovered table remains a priority risk.",
+      "searches": [
+        "for every population split on ring single peaked preference Lambda > 1/2 equilibrium exists except three versus three",
+        "Schelling game prefer one same neighbor cycle exact equilibrium existence",
+        "Schelling swap segregation nonmonotone peak utility (1/3) (2/3) cyclic graph color placements ring equilibrium existence count",
+        "\"single peaked swap Schelling games ring cycle equilibrium enumeration binary forbidden substring count stable configurations high peak\"",
+        "\"Schelling games ring strictly beneficial swaps exact stable allocations cycle peak 2/3\""
+      ]
+    },
+    "rationale": "The high-peak parent paper proves only the nonexistence example C6,b=r=3 (Theorem 2), while the present result proves the all-size positive complement, a necessary-and-sufficient forbidden-factor language, exact labeled counts and exponentially small random prevalence. All relevant parent model, ring theorem and concluding discussion were read. Distinct related models (monotone swap, vacancy jump, low-peak tied-utility rings) do not imply this exact high-peak statement. Semantic mathematical-record queries and web primary-paper searches found no equivalent, although absent matches do not establish priority.",
+    "residual_risks": [
+      "No specialist can guarantee publication priority from searches alone; an equivalent all-size ring enumeration may appear under alternative phrasing or in a database not located.",
+      "Semantic mathematical-record search returns a ranked subset, so absence of a near-identical hit is not a proof of originality."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Contains precisely the (6,3,3) nonexistence obstruction but not the claimed universal positive complement, local iff characterization, transfer enumeration or exponential stable-coloring density",
+        "evidence": [
+          "Theorem 2: for any peak >1/2 there exists a 2-regular ring without swap equilibrium; constructive proof C6 with b=r=3.",
+          "Theorem 1 requires peak <=1/2 and cannot imply high-peak all-cycle existence.",
+          "Conclusion addresses unresolved existence general graphs and welfare, not enumerations."
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2204.12599",
+        "material_read": "Full accessible arXiv PDF; examined abstract/model and assumptions, equilibrium and utility lemmas, Theorems 1-3 including entire Theorem 2 proof on page 6, ring-specific welfare proofs, and conclusion",
+        "method": "ArXiv openly accessible PDF with in-document textual inspection and rendered-page inspection, plus published IJCAI proceedings listing",
+        "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games",
+        "trigger": "Self-review, graph class, high-peak parameter, and exact six-cycle nonexistence example"
+      },
+      {
+        "assessment": "Uses monotone homophilic utility rather than nonmonotone high-peak fraction; cycle welfare bound does not imply the current binary forbidden-pattern equilibrium criterion",
+        "evidence": [
+          "The earlier model prefers higher own-type neighborhood fractions.",
+          "Published cycle Theorem 12 concerns price of anarchy for its monotone game."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2005.02752",
+        "material_read": "ArXiv publicly accessible abstract and introduction/model; linked full-text cycle-welfare statement checked in published Springer text",
+        "method": "ArXiv HTML plus open online published section 3.3 on paths and cycles",
+        "title": "Topological Influence and Locality in Swap Schelling Games",
+        "trigger": "Earlier same swap operation with cycle-specific equilibrium welfare results"
+      },
+      {
+        "assessment": "Includes vacancies and unilateral jumps, not fully occupied bilateral swaps; no implication for the claimed swap equilibrium counts",
+        "evidence": [
+          "Abstract explicitly identifies vacant nodes and jumping behavior."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2302.12107",
+        "material_read": "ArXiv abstract and introduction including deviation model",
+        "method": "Opened lawful arXiv HTML, compared abstract and deviation definitions",
+        "title": "Single-Peaked Jump Schelling Games",
+        "trigger": "Same single-peaked utility and cycle topology"
+      },
+      {
+        "assessment": "Corroborates paper identity; separate proceedings copy not a distinct priority result",
+        "evidence": [
+          "Proceedings main track pages 81-87, same four authors and paper title."
+        ],
+        "identifier_or_url": "https://ijcai.org/proceedings/2022/12",
+        "material_read": "Conference title, authors, venue, abstract and article link",
+        "method": "Reviewed official IJCAI proceedings landing page",
+        "title": "Tolerance is Necessary for Stability: Single-Peaked Swap Schelling Games, IJCAI proceedings",
+        "trigger": "Conference version of the exact primary paper"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "e54d1726-a0c0-491f-9e9e-54db4b24e74c",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Determining if the known six-cycle failure is isolated is a natural structural question for a degree-two game family. The theorem closes existence for all color compositions on cycles and derives the complete equilibrium spectrum, then reveals that nonempty equilibrium sets can occupy exponentially small fractions of random colorings. The exact transfer-root rate is a motivated model statistic and not an arbitrary slice or recomputation of a known table.",
+    "status": "PASS"
+  }
+}
