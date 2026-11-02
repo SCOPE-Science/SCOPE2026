@@ -1,0 +1,147 @@
+{
+  "correctness": {
+    "rationale": "A direct determinant recurrence yields J^N(U_N+igU_(N-1)); each eigenvalue lies strictly in the lower half-plane. For even N the purely imaginary spectrum is exactly the level sets of cosh((N+1)u)/sinh(Nu), whose strictly convex logarithm has one nondegenerate minimum; its double characteristic root is defective by one-dimensional irreducible-Jacobi eigenspaces. For odd N the pole equation is a strictly increasing hyperbolic ratio. The strict even-length threshold ordering and asymptotic (log(4N)+1)/(2N) follow from pointwise N-monotonicity and an exact exponential minimizer equation. The actual packaged standalone checker passed 495 supplementary numerical comparisons. No claim is made off axis.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Downing–Saroka (2021), Communications Physics 4:254, describes gain into the first and loss from the last oscillator: https://www.nature.com/articles/s42005-021-00757-3",
+        "Riberi (2026), arxiv:2605.08056, solves a semi-infinite boundary-absorbing quantum walk and its localized mode.",
+        "Rudner–Levitov (2008), arxiv:0807.2048, treats decay on an entire sublattice and a winding-number transition."
+      ],
+      "reasoning": "For N>=3, no uniform imaginary shift converts the diagonal (0,...,0,-ig) into balanced gain/loss only at two endpoints: removing all interior diagonal entries forces zero shift, leaving no gain at the first endpoint. The two-site exceptional point is acknowledged as covered by a shifted gain/loss dimer. Infinite-line and sublattice results do not specify finite parity and its logarithmic correction.",
+      "searches": [
+        "\"Exceptional points in oligomer chains\" \"Downing\" \"Saroka\" arxiv",
+        "\"single lossy end\" \"exceptional point\" \"chain\" 2024",
+        "\"single lossy end\" \"exceptional point\" \"chain\" 2024",
+        "non-Hermitian tight binding chain one lossy end exceptional point critical loss rate Chebyshev arbitrary length"
+      ]
+    },
+    "checked_sources": [
+      "Mülken et al. 2007, arxiv:0705.3700 (available full-text HTML excerpts)",
+      "Rudner and Levitov 2008, arxiv:0807.2048 (abstract)",
+      "Downing and Saroka 2021, arxiv:2112.04305; Nature HTML main-text excerpts",
+      "Parris 1989, doi:10.1103/PhysRevB.40.4928 (abstract; full text inaccessible)",
+      "Riberi 2026, arxiv:2605.08056 (abstract; full text inaccessible)"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Mülken et al. (2007), arxiv:0705.3700, provide a general absorbing-walk framework and discuss two-end finite-chain survival and decay-time regimes, not a one-end exact imaginary-axis pole count.",
+        "Parris (1989), Phys Rev B 40:4928, abstract addresses random trap ensembles and stretched-exponential averaged survival, not a deterministic single terminal trap threshold.",
+        "Downing–Saroka (2021) includes arbitrary chain length and parity but explicitly imposes balanced end gain and loss.",
+        "Riberi (2026) addresses a semi-infinite chain, a different limit; its complete proof text was not inspected."
+      ],
+      "reasoning": "The earliest finite trapping sources motivate non-Hermitian survival spectra but do not yield the stated single-terminal threshold as a direct corollary of their reported decay laws. The finite mean-absorption functional established in related work does not determine exceptional-point locations. The two-site PT dimer is intentionally not presented as a separately new case.",
+      "searches": [
+        "finite chain with single imaginary boundary potential exceptional points even odd length passive loss critical gamma",
+        "\"Survival Probabilities in Coherent Exciton Transfer with Trapping\" arxiv 2007 pdf",
+        "\"One-dimensional quantum transport in the presence of traps\" Parris pdf full text arxiv",
+        "\"One-dimensional quantum transport in the presence of traps\" Parris open access repository pdf"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The proposed finite-path secular equation is U_N(z/(2J))+ig U_(N-1)(z/(2J))=0 and an exceptional point is its double root.",
+        "The inspected 2021 oligomer analysis uses balanced gain at the first endpoint and loss at the last endpoint; its secular matrix is different for all lengths at least three (arxiv:2112.04305).",
+        "Published-result hits on quantum paths included unrelated Hermitian mixing and quantum-graph resonances, without a same-statement passive terminal sink spectrum."
+      ],
+      "reasoning": "Searched the Chebyshev alias, single imaginary boundary defect, end sink, quantum capture, and finite-chain EP terminology. Characteristic-polynomial equivalence would count as overlap, but no inspected source supplied the same equation-to-pole trichotomy. Absence of hits is not proof of historical priority.",
+      "searches": [
+        "terminal single sink non-Hermitian finite quantum path exceptional point coalescence purely imaginary spectrum parity length",
+        "finite path Hamiltonian imaginary potential at one end unique purely imaginary exceptional point even chain asymptotic log length critical loss",
+        "\"U_N\" \"U_{N-1}\" \"exceptional\" imaginary loss chain",
+        "finite chain with single imaginary boundary potential exceptional points even odd length passive loss critical gamma",
+        "single lossy endpoint quantum tight binding chain parity dependent exceptional point even odd length Chebyshev"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Semantic-search matches concerned an asymmetric Robin interval zero resonance, uniform mixing on a Hermitian eight-vertex path, and high-energy bands in a periodic quantum graph; none has the same non-Hermitian single-terminal operator.",
+        "Exact integrated mean-capture-time identities for this finite path, although useful for transport observables, do not determine imaginary-axis spectral multiplicities.",
+        "No external exact eigenvalue table for the passive terminal-loss path was identified by the actual targeted queries."
+      ],
+      "reasoning": "The integrated mean-absorption-time functional is smooth at a defective finite-matrix eigenvalue and cannot by itself yield the imaginary-axis exceptional-point classification. The literature comparisons include equivalent secular-polynomial formulations and alternative endpoint models. Semantic search has imperfect recall, so historical priority remains provisional.",
+      "searches": [
+        "terminal single sink non-Hermitian finite quantum path exceptional point coalescence purely imaginary spectrum parity length",
+        "single lossy endpoint quantum tight binding chain parity dependent exceptional point even odd length Chebyshev",
+        "\"U_N\" \"U_{N-1}\" \"exceptional\" imaginary loss chain",
+        "single lossy endpoint quantum tight binding chain parity dependent exceptional point even odd length Chebyshev"
+      ]
+    },
+    "rationale": "Targeted searches and inspected source material did not uncover the exact one-terminal finite-path parity trichotomy with its nondegenerate exceptional point and sharp logarithmic finite-size correction. Prior balanced-gain/loss oligomer results are not a stronger statement for the passive one-terminal matrix when the chain has at least three sites. Confidence is provisional, not an independence or absolute novelty certificate.",
+    "residual_risks": [
+      "Complete 1989 Parris trapping article could not be inspected; its ensemble model is different by abstract.",
+      "Complete 2026 Riberi semi-infinite absorbing-walk paper could not be inspected; its finite-chain numerical approximations might mention related thresholds.",
+      "Published-results semantic search may miss a differently named exact passive single-defect spectral calculation; historical priority needs independent review."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Background covering finite-chain coherent trapping; does not state the single-terminal imaginary-axis EP/parity/asymptotic theorem in the examined material.",
+        "evidence": [
+          "Author-posted text discusses two end traps for linear chain (M=2) and survival decay, not exceptional-point thresholds."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0705.3700",
+        "material_read": "Author-posted full-text HTML extraction: trapping operator, general model, survival expansion, two-end chain example and conclusions; arXiv record first-submission date.",
+        "method": "Scientific text and equations inspected in openly accessible HTML transcription, including model discussion and chain example.",
+        "title": "Survival Probabilities in Coherent Exciton Transfer with Trapping",
+        "trigger": "Same finite-chain quantum trapping formulation; archive-date focal source"
+      },
+      {
+        "assessment": "It proves arbitrary-length EP theory under balanced gain at one end and loss at the other, not the purely passive single-terminal model for N>=3.",
+        "evidence": [
+          "Main model explicitly has gain at first endpoint and equivalent loss at last; finite-size asymptotics are inverse-linear in their coupling ratio, not the passive one-end logarithmic correction."
+        ],
+        "identifier_or_url": "https://www.nature.com/articles/s42005-021-00757-3",
+        "material_read": "Openly indexed article HTML introduction, gain/loss model description, arbitrary-length parity analysis and conclusions.",
+        "method": "Read searchable article main-text portions identifying the gain/loss arrangement, parity conclusions and asymptotic formulas.",
+        "title": "Exceptional points in oligomer chains",
+        "trigger": "Strong possible broader arbitrary-length exceptional-point theorem"
+      },
+      {
+        "assessment": "Model loses particles on one full sublattice; does not provide evidence of the single finite terminal absorber claim.",
+        "evidence": [
+          "Decay whenever walker visits one of two sublattices; result is a winding-number transport transition."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/0807.2048",
+        "material_read": "arXiv abstract and journal abstract only.",
+        "method": "Read abstracts and model descriptors.",
+        "title": "Topological Transition in a Non-Hermitian Quantum Walk",
+        "trigger": "Early non-Hermitian bipartite lattice with decay"
+      },
+      {
+        "assessment": "Studies randomly located absorbing impurities and ensemble survival; complete text was not available to exclude all overlap.",
+        "evidence": [
+          "The published abstract specifies random trap concentration and stretched-exponential ensemble decay rather than a single boundary sink."
+        ],
+        "identifier_or_url": "https://doi.org/10.1103/PhysRevB.40.4928",
+        "material_read": "Full abstract and repository bibliographic record; the complete article was unavailable through attempted open and authorized access routes.",
+        "method": "Read abstracts and bibliographic details; sought openly posted and authorized full text without obtaining complete article.",
+        "title": "One-dimensional quantum transport in the presence of traps",
+        "trigger": "Potential early chain trapping priority"
+      },
+      {
+        "assessment": "Semi-infinite boundary-mode transition is closely related but cannot by itself assert the finite even-odd threshold. Residual historical-priority risk remains.",
+        "evidence": [
+          "Abstract explicitly says semi-infinite line, localized boundary mode and large-loss Zeno suppression."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2605.08056",
+        "material_read": "arXiv preprint abstract and accompanying repository description, not complete paper.",
+        "method": "Read public abstracts; attempted full arXiv HTML retrieval, unavailable.",
+        "title": "Boundary-localized non-Hermitian mode in an absorbing quantum walk",
+        "trigger": "Directly relevant semi-infinite single boundary sink"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "46769811-5010-453f-b7f6-279c2124d730",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The single passive boundary sink is a natural idealized exciton capture or monitored quantum-walk boundary condition. A genuine parity-selected coalescence of damped modes is structurally meaningful, as is the unique sink-strength threshold; the exact (log N)/N shift quantifies finite-size onset compared with semi-infinite localization. These are not normalization/type checks or merely a table of small cases, and do not follow from the smooth integrated mean-capture time formula.",
+    "status": "PASS"
+  }
+}
