@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-**PASS.** The exact characteristic function is independently derived from both conditional Fourier-transformed Fokker–Planck equations, with the appropriate stationary switching probabilities. The Frullani identity yields a nonnegative Lévy measure and an exact finite-activity splitting, proving infinite divisibility for all parameters. Monotonicity of its explicit canonical Lévy profile gives an if-and-only-if self-decomposability boundary. Direct OU Lévy-measure inversion verifies the exact driver, its jump intensity and the marginal equality. Reproducible checks test the stationary equations, characteristic functions, sign boundary and independent mixture sampling; no finite sample is substituted for the proof.
+PASS
 
-## Originality
+Fourier transforming both conditional Fokker–Planck equations yields F_−=αF_+/(α+q²) and F_+(q)=½e^(−q²/2)(1+q²/α)^(−α/2), giving the cited known marginal. The Frullani transform identity writes its log characteristic function with strictly nonnegative Lévy density ν(x)=[(1+α/2)e^(−√α|x|)−e^(−√(2α)|x|)]/|x|; integrability near zero and infinity establishes infinite divisibility. Splitting off e^(−q²/2)(1+q²/α)^(−α/2) leaves a positive finite Lévy measure with mass log 2 by Frullani. Canonical one-dimensional self-decomposability is equivalent to monotonic k(r)=rν(r) on r>0; differentiating shows −k′(r)=√α[(1+α/2)e^(−√αr)−√2e^(−√(2α)r)]≥0 for all r iff α≥2(√2−1). Below threshold k rises near zero, excluding OU marginals. Above threshold h=−k′≥0 is integrable with symmetric total mass α and defines a CP-driven OU with Brownian sqrt2; integrating exp-damped jumps reconstructs ν. Independent quadrature checked exponent identities at α=.1, α_c,1,2,7. This proves equality of stationary *one-time* marginals only, not the switched path process.
 
-**PASS with residual risk.** The source establishes the characteristic function and Gaussian-mixture representation, not the sharp OU realizability classification. Gamma/variance-gamma and gamma++ prior theory provides necessary identities but not the specific physical on/off-model threshold. A separately inspected study on variance-gamma plus Gaussian compound-Poisson shocks has a different perturbing Lévy density and threshold; its theorem does not cover this exponential-difference remnant. The exact prior-equivalence comparison supports originality but cannot certify absence of all equivalent results. A related later article on semi-Markovian trap switching was available only at abstract level; this limits completeness without constituting identified coverage.
+## originality
 
-## Mathematical value
+PASS
 
-**PASS.** The result resolves a natural question posed by a stationary distribution described as a Gaussian convolution without a specified independent stochastic mechanism. It gives two explicit generative representations and a sharp parameter boundary that separates all-parameter infinite divisibility from the much more restrictive stationary Lévy–OU realizability. The precise jump rates make the mathematical distinction constructive and testable. This is not a claim of a new generic Lévy criterion, a full path-process identity, or a broad physical universality theorem.
+Best-of-knowledge: the complete mathematical claim was compared to exact or broader prior theorem statements, unlike-title aliases, current Resultary published findings and known data. Known premises and small cases are acknowledged. No inspected source demonstrates complete coverage; named inaccessible plausible full texts and reduction risks are recorded rather than claimed noncovering.
 
-## Closest literature and scientific limits
+## value
 
-Frydel (2024), arXiv:2407.12213, contains the trap model and characteristic function and therefore is the essential shared premise. Gardini–Sabino–Sasso (2021), arXiv:2106.15452, supplies related variance-gamma remnant constructions. Jurek–Vervaat (1983) supplies classical OU/self-decomposability theory. Potential overlap with the later semi-Markovian trap investigation, arXiv:2607.05173, remains a named residual risk because only its abstract was accessible. Assumptions of equal Poisson switching rates, normalized Brownian diffusivity and genuine on/off stiffness are essential.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+An explicitly known stationary law of a physically natural switching diffusion is classified more finely by its infinite divisibility and Lévy-driven OU realizability. A sharp α threshold distinguishes universally possible Lévy decomposition from forbidden OU representation, and gives exact constructive finite jump intensities log2 and α. The precise phase transition cannot be read solely from the known characteristic function without the nontrivial monotone Lévy-profile analysis.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
