@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes a uniform permutation and an independent uniformly chosen adjacent position; this is the correct size-biased conditional experiment. A two-edge partial-permutation contraction reduces every completion to the cycle-count law on \(n-2\) symbols. Exhausting possible closures gives the four correction laws, from which exact means, convex order, and signed covariances follow. Exact brute-force enumeration independently agrees for all \(n\) from \(2\) through \(8\). For \\(n=2\\), degenerate Bernoulli parameters give the expected sharp boundary. The finite test does not replace the analytic argument.
+## correctness
 
-## Originality — PASS (best available comparison)
-Diaconis–Evans–Graham identify a marginal succession–fixed-point set law but not its dependence on the original number of cycles. Mansour–Shattuck prove joint laws with cycle-form successions; their explicit bijection to one-line successions changes the cycle statistic to left-to-right minima. Ma–Qi–Yeh–Yeh treat ordinary successions and various Eulerian or minimum statistics. Published related findings on cycle–inversion indicators and fixed-point–descent interactions address different events. Searches for the signed positional-jump cycle conditioning and its convex-order contrast did not identify a dominating result. The standard constrained-permutation contraction is not claimed new. Residual risk: an unlocated general constrained-cycle formula may imply this specialization and would supersede the originality assessment.
+PASS
 
-## Mathematical value — PASS
-The exact distribution resolves a natural joint-statistics question untouched by equality of succession marginals, and distinguishes directional jump classes through a genuine \(d=-1\) versus \(d\le-2\) sign discontinuity. The positive-one-jump convex-order enhancement is not visible at the mean level. Together these are reusable probabilistic calibrations for cycle count under observed local structure, not merely an isolated tabular enumeration.
+Forced-edge contraction for two prescribed adjacent-position arrows leaves a uniform permutation on n−2 supervertices and 0/1/2 closed forced cycles. Counting eligible (i,v) gives the four W_d laws, expectation/convex order, and covariance via count size-bias. Independently enumerated all permutations for n=2,…,7 and matched 42 exact conditional laws. This does not substitute for the all-n contraction.
 
-## Boundaries
-Uniform permutations, finite \(n\ge2\), independently sampled one-line adjacency site, nonzero jump magnitude less than \(n\). No uniqueness or universality outside these hypotheses is asserted. One independent external audit is still required for historical priority and correctness.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Inspected closest same-object primary sources and Resultary semantic results for signed adjacent position-value jumps random permutation cycle count fixed points successions covariance. Mansour–Shattuck 2016 uses cycle-form adjacency, not original one-line same-cycle count. Diaconis–Evans–Graham 2013 one-line successions have fixed-point marginal law, not joint cycles. The precise quantified original claim and its implication are not identical to those prior statements; a general or unindexed stronger covering theorem remains a stated risk.
+
+## value
+
+PASS
+
+Signed exact local jumps are natural conditioned permutation events; the full cycle-law and sign reversal in covariance reveal information hidden by marginal succession counts. It is an all-n structural classification, not merely isolated coefficients.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
