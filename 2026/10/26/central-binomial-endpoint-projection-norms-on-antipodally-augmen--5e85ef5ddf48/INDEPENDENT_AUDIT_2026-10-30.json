@@ -1,0 +1,108 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T21:06:30Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: The folded cube is a quotient Cayley graph F2^(n+1)/<all-ones> with generating set the n+1 coordinate cosets; translations and all generator permutations prove edge transitivity, including formerly distinguished antipodal edges. Even Walsh character subsets index Laplacian eigenvalues 2|S|, so an edge source-sink solution is expressible as finite character sum. Reciprocal integral yields U_j=∫_(1/2)^1[z^(n−j)(1−z)^j−z^j(1−z)^(n−j)]dz, strictly decreasing in j and antisymmetric U_(n−j)=−U_j. Thus all cube-edge drops sum exactly n/2, antipodal drops sum B_(2k−1)=B_(2k)=1−4^(−k)binom(2k,k) by binomial-majority integration by parts. These are full cut-column absolute sums. Effective resistance diagonal is (2^n−1)/[(n+1)2^(n−1)]=2(1−2^(−n))/(n+1) by rank(Q)=2^n−1 and edge transitivity; |I−Q| column sum equals |Q| column sum +1−2q. Independently built full graph incidence/Laplacian and pseudoinverse for n=3,4,5,6, checking all edge columns and both closed forms, plus read exact rational package checker. The proof establishes every integer n≥5; tests are finite corroboration.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General electric-network pseudoinverse framework covers how to compute Q for any finite graph but does not evaluate these all-n absolute sums.",
+          "Ordinary-hypercube and torus special-family formulas in Dilworth et al. do not include the all-generator folded quotient."
+        ],
+        "reasoning": "Abstract formula Q=D^T L^+ D alone does not automatically dominate the closed central-binomial folded formula; it merely gives a starting calculation.",
+        "searches": [
+          "folded hypercube antipodal edges cut cycle projections l1 norm central binomial",
+          "arXiv:2305.12582 Sections 1 and 2.6–2.7",
+          "arXiv:2110.04154 Section 5"
+        ]
+      },
+      "checked_sources": [
+        "actual assigned RESULT.md 7b68e920c6a8596ee8fc1106c29850e5b0cc1fc9 and verify_folded_cube.py ca9c40ffb778ce6ac2fef2edc2c169d05b7043ca",
+        "https://arxiv.org/pdf/2305.12582, Theorem 45 and Corollary 60",
+        "https://arxiv.org/abs/2110.04154"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Ordinary cube norm (n+1)/2 differs by positive (1/2−c_k) from folded Q; a literal substitution of n or n+1 does not recover the correction.",
+          "Folded Cayley generator symmetry implies every edge column agrees, but spectral Green kernel and absolute-current beta integrals are still required."
+        ],
+        "reasoning": "The statement is a new concrete specialization to a different natural Cayley graph, not a corollary of the exact ordinary-cube projection formula.",
+        "searches": [
+          "arXiv:2305.12582 Theorem 45/Corollary 60",
+          "arXiv:2110.04154 folded hypercube symmetry"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Theorem 45 gives orthogonal cut projection norm (n+1)/2 for the ordinary n-cube; Corollary 60 gives corresponding ordinary cycle projection.",
+          "The folded cube F_n contains a new generator/edge orbit and has (n+1)2^(n−1) edges, so the edge coordinate operator is not the old Q_n with a different dimension parameter."
+        ],
+        "reasoning": "A graph automorphism description helps prove folded-edge transitivity but cannot itself specify Euclidean current-column norms. No equivalent known formula found in inspected articles.",
+        "searches": [
+          "folded hypercube antipodal edges cut cycle projections l1 norm central binomial",
+          "Dilworth–Kutzarova–Ostrovskii arXiv:2305.12582 Theorem 45 and Corollary 60",
+          "arXiv:2110.04154 folded hypercube automorphisms"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The nearest Resultary cube claims concern unrelated Walsh projections and random sections; no same folded projection constant was returned.",
+          "Small folded-cube examples and standard graph projection tables do not imply uniform all-dimensional identity."
+        ],
+        "reasoning": "Not a known-table recomputation; the proof derives a symbolic n-formula from an all-n Laplacian spectral sum.",
+        "searches": [
+          "folded hypercube antipodal edges cut cycle projections l1 norm central binomial",
+          "Resultary semantic search: folded hypercube antipodal edges cut cycle projections l1 norm central binomial",
+          "SCOPE-Science/SCOPE2026 search: antipodally augmented hypercube",
+          "arXiv:2305.12582 Theorem 45"
+        ]
+      },
+      "rationale": "PASS: A graph automorphism description helps prove folded-edge transitivity but cannot itself specify Euclidean current-column norms. No equivalent known formula found in inspected articles. Abstract formula Q=D^T L^+ D alone does not automatically dominate the closed central-binomial folded formula; it merely gives a starting calculation. Not a known-table recomputation; the proof derives a symbolic n-formula from an all-n Laplacian spectral sum. The statement is a new concrete specialization to a different natural Cayley graph, not a corollary of the exact ordinary-cube projection formula.",
+      "residual_risks": [
+        "Other literature on projective cut-cycle norms of folded hypercubes could use alternate Cayley or network terminology; targeted search is not exhaustive.",
+        "No minimum arbitrary nonorthogonal projection constant, weighted graph or intermediate lp norm is claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Establishes exactly ordinary cube cut norm (n+1)/2, not folded augmented cube; the proof uses a different edge set",
+          "evidence": [
+            "Theorem 45 states norm (n+1)/2 for ordinary Hamming cube; Corollary 60 its cycle projection."
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2305.12582",
+          "material_read": "Entire 35-page primary PDF searched, Section 2.7 Theorem 45 proof and Corollary 60 on page 31 read; PDF page screenshot inspected",
+          "method": "full lawful primary PDF text and rendered page",
+          "title": "Cycle Spaces: Invariant Projections and Applications to Transportation Cost",
+          "trigger": "Closest exact endpoint norms for hypercube cut-cycle projections"
+        },
+        {
+          "assessment": "Automorphism study supports graph symmetry background; it does not provide a calculation of cut/cycle projection endpoint norms in the abstract",
+          "evidence": [
+            "The paper studies symmetry parameters of folded and related hypercubes rather than edge-space projection norms."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2110.04154",
+          "material_read": "Abstract and known section 5 automorphism-group description; full text not reread during current execution",
+          "method": "arXiv abstract with targeted source comparison",
+          "title": "Symmetry Parameters of Various Hypercube Families",
+          "trigger": "Folded graph automorphisms and potential edge orbit claims"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: This solves the exact natural endpoint projection norms of a canonical graph family obtained by adding the antipodal matching, not a recomputation for the original cube. Edge-transitivity and a binomial-majority law produce a new central-binomial correction with odd/even pairing and precise excess over ordinary-cube norm, useful for graph cycle-space and transportation-cost projection estimates.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "final_claim": "For n≥5, the canonical orthogonal cut and complementary cycle projections on the antipodally augmented binary n-cube F_n have l1→l1 and l∞→l∞ norms respectively n/2+1−c_k and n/2+2−c_k−4(1−2^(−n))/(n+1), where k=ceil(n/2), c_k=4^(−k)*binom(2k,k). Each edge column attains the norm; the cut norm exceeds the ordinary cube by 1/2−c_k.",
+  "limitations": [
+    "Simple unweighted real graph, n≥5, canonical orthogonal cut/cycle projection only.",
+    "Lower dimensions control finite checker but do not expand the asserted n≥5 theorem.",
+    "Other literature on projective cut-cycle norms of folded hypercubes could use alternate Cayley or network terminology; targeted search is not exhaustive.",
+    "No minimum arbitrary nonorthogonal projection constant, weighted graph or intermediate lp norm is claimed."
+  ],
+  "schema_version": 1
+}
