@@ -1,11 +1,21 @@
-# Review: exact three-point dihedral product--quotient discrepancy
+# Independent mathematical audit
 
-**Correctness — PASS.** Every product/quotient component was written explicitly in cyclic coordinates. The only nontrivial arithmetic split is whether a nonzero difference has order two and whether twice a rotation exponent can take a given residue. Both are classified by parity; the resulting count formula was checked independently by exhaustive brute force over all triples for every \(3\le n\le36\). The proof counts all \(n\ge3\), so finite experiments are corroboration and not an infinite certificate.
+## correctness
 
-**Originality — PASS, subject to unindexed-literature risk.** The closest dihedral prior paper, Ascoli and collaborators (2022, Appendix A), proves three-element product-dominance over quotient-dominance and discusses four rotation/reflection types. That sign-level result does not state the complete four-valued discrepancy law, and the group-wide moment results in Amit and collaborators (2026) do not give this exact all-order three-subset classification. Dicyclic enumeration addresses a different group. Finite published tabulations can contain particular specializations. No stronger complete distribution was identified in the inspected material; an unindexed classification remains possible.
+PASS
 
-**Mathematical value — PASS.** The invariant is the natural cardinality difference of the two basic binary operations on a subset; distinguishing \(\Delta=1\) from \(\Delta=3\) reveals a previously unrecorded full structural spectrum, with complete parity and torsion corrections and a six-to-one asymptotic dominance ratio. This is a complete classification rather than a small isolated calculation.
+Separate the 4 coset compositions of a triple, represent elements as (a,ε) with (a,ε)(b,δ)=(a+(-1)^ε b,ε+δ). For all reflections, inverses agree and Δ=0. For rotations, Δ=0 iff the cyclic exponent triple is a three-term progression, otherwise −1; counting centers and steps gives B=n(n−gcd(n,2))/2−(2n/3)1_(3|n). In mixed cases, direct rotation/reflection components become four-point affine sets whose collision patterns depend on d and t=2a, with separate involution d=n/2 when n even; odd n has t bijective, even n t is twice an even residue. The per-d vectors derived by these cases sum to the exact displayed table and binom(2n,3). Dominant positive mixed sets are n³+O(n²) while all-rotation negative and all-reflection balanced each contribute n³/6+O(n²), yielding limits. Independent raw group multiplication enumerated ALL three-subsets for n=3..21, agreeing in every j and Δ bin. These finite checks corroborate the algebraic all-n proof.
 
-**Limits.** Only ordinary dihedral groups and three-point subsets; no general-size or noncyclic-kernel result. The finite checker is independent arithmetic corroboration, not a proof of the all-order statement. Originality is a literature assessment, not a uniqueness or independent certification claim.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Ascoli et al (2022), Appendix A, already analyze three-point generalized dihedral sum/product dominance and count aggregate product-dominant subsets in a mixed composition. Their comparison must not be claimed as new. The present theorem refines the aggregate dominance into four exact discrepancy values and counts for every coset type and n mod 4, including balanced and quotient-dominant strata. Amit et al (Oct 2026) prove dihedral product dominance using general probability methods but do not supply this particular fixed-size four-valued table in the inspected stated theorem. The refinement requires additional explicit overlap arithmetic.
+
+## value
+
+PASS
+
+A complete exact distribution for the smallest nontrivial subset cardinality of a natural nonabelian group family is a motivated invariant. The four discrepancy types, congruence-dependent counts and limiting proportions sharpen aggregate dominance questions; the exact table can serve as a benchmark for larger-size group-set studies.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
