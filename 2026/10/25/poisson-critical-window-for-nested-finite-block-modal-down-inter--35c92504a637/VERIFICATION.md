@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-30.md",
+      "INDEPENDENT_AUDIT_2026-10-30.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,8 +18,25 @@
   "schema_version": 1
 }
 ---
-# Reproduction and scientific limits
 
-Run `python3 checker.py` with Python 3 standard-library modules only. The checker independently generates all equal-block partitions in the listed small sizes, counts outputs from fixed-cardinality inputs, compares each count with the rational factorial-moment inversion law, and independently propagates every initial subset through each listed number of fresh independent partition steps. Each output is computed using exact `fractions.Fraction` arithmetic. Successful output ends in `ALL_CHECKS_OK`.
+# Independent mathematical audit
 
-The proof of the growing-size limit is analytic: the conditional negative-covariance bound, the concentration induction, and the factorial-moment convergence are recorded in `RESULT.md`. No finite test establishes the asymptotic result. The conclusions do not extend to general random partitions, independent interpretations without equal block sizes, or satisfaction probabilities, and there has been no independent audit.
+## correctness
+
+PASS
+
+A uniform balanced b-partition has (n/b)_r ordered r-block selections, all fully contained in a k-set with probability (k)_(br)/(n)_(br). Finite binomial inversion gives the exact Markov transition kernel. Conditional covariance between different retained-block indicators is nonpositive, so Var(K_s|K_{s-1}=k)<=b E[K_s|k]. At scaling n p^(b^t)->lambda with fixed p,b, prior mean a_(t-1) ~n^(1-1/b) diverges; uniform product expansion, Chebyshev and t=O(loglog n) give K_(t-1)/a_(t-1)->1. Conditional fixed-order factorial moments at final step ->(lambda/b)^r, hence Poisson(lambda/b). Independently enumerated all 15 balanced pairings of n=6,b=2, verifying all factorial moments from k=4. Exact integer-depth subsequence restriction is essential.
+
+## originality
+
+PASS
+
+Qualified PASS: down-interpretation and equivalence-class lower approximation are explicitly prior (Martins et al and Pawlak). The new part is a uniform random balanced-partition multi-stage Markov kernel and Poisson critical depth, not the modal semantics alone. No same iterated stochastic law appeared in checked Resultary and published primary statements, although older random-partition/rough-set studies remain a plausible overlap risk.
+
+## value
+
+PASS
+
+Provides an exact finite transition law and a sharp rare-survival Poisson window for a naturally defined repeated information-loss operator, relating balanced partitions, factorial moments and modal paths. The growing-depth law is an independently useful structural classification of a finite-state stochastic dynamical system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

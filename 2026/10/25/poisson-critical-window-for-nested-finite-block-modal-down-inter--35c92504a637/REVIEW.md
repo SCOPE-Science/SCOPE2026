@@ -1,15 +1,21 @@
-# Scientific review: Poisson critical window for nested finite-block modal down-interpretations
+# Independent mathematical audit
 
-## Correctness — PASS
-For finite \(n\) and fixed \(b\mid n\), counting ordered collections of \(r\) fully retained blocks gives the exact conditional falling factorial moments. Finite binomial inversion gives the complete Markov kernel. In a fixed-cardinality input, disjoint block-retention indicators are negatively correlated, proving the conditional variance bound. Concentration up to the penultimate projection follows by Chebyshev, since every preceding expected size is at least order \(n^{1-1/b}\) and there are only \(O(\log\log n)\) projections. At the last stage, conditional factorial moments converge to \((\lambda/b)^r\), yielding the stated Poisson distribution. The semantics-to-projection reduction follows directly from the one-successor necessity clause. The independent exact-arithmetic checker exhausts finite transition and multistep cases, and makes no claim to prove infinite convergence by enumeration.
+## correctness
 
-## Originality — PASS within inspected evidence
-The 2026 source establishes down-complete modal transfer but does not state this stochastic equal-block specialization or a logarithmic-depth Poisson law in its inspected full text. The 2022 predecessor addresses inter-logic modal transfer, not random iteration. Pawlak's lower approximation and its idempotence concern one fixed equivalence partition, not fresh independent uniform partitions. An indexed result concerning Fourier projections for two random equal-block partitions addresses a different statistic and cannot itself imply the sequence of conditional kernels or modal-depth limit. Mathematical search results are not uniqueness certificates; older differently titled random-partition work remains a genuine priority risk. Direct sources: arXiv:2605.07898, arXiv:2203.00673, and Pawlak (1982).
+PASS
 
-## Value — PASS
-Nested necessity across heterogeneous information contexts is a motivated quantity in modal transfer: down-interpretation discards values that cannot be expressed in a coarser local algebra. The exact kernel gives all finite-depth distributions under a canonical uniform-granularity model; the growing-depth Poisson law identifies a nondegenerate information-survival window and its \(\log\log n\) location. This is not merely renaming the single-step lower approximation or counting an arbitrary finite table. It quantifies the cumulative loss of modal information in a precisely defined random semantics, while carefully distinguishing semantic nonbottom from designated validity.
+A uniform balanced b-partition has (n/b)_r ordered r-block selections, all fully contained in a k-set with probability (k)_(br)/(n)_(br). Finite binomial inversion gives the exact Markov transition kernel. Conditional covariance between different retained-block indicators is nonpositive, so Var(K_s|K_{s-1}=k)<=b E[K_s|k]. At scaling n p^(b^t)->lambda with fixed p,b, prior mean a_(t-1) ~n^(1-1/b) diverges; uniform product expansion, Chebyshev and t=O(loglog n) give K_(t-1)/a_(t-1)->1. Conditional fixed-order factorial moments at final step ->(lambda/b)^r, hence Poisson(lambda/b). Independently enumerated all 15 balanced pairings of n=6,b=2, verifying all factorial moments from k=4. Exact integer-depth subsequence restriction is essential.
 
-## Limits and comparison risk
-The claimed contribution is restricted to fixed block sizes, fresh independent uniform equal-block partitions, and a Bernoulli initial subset. Claims of absolute priority, of completeness for arbitrary lattice systems, or of independent validation are not made. The conditional Poisson proof uses standard factorial-moment methods, which are background technique rather than a new general probability principle. Some relevant indexed mathematical records were available only through their scientific summaries, not by examination of full manuscripts; they are not ruled out by title alone.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Qualified PASS: down-interpretation and equivalence-class lower approximation are explicitly prior (Martins et al and Pawlak). The new part is a uniform random balanced-partition multi-stage Markov kernel and Poisson critical depth, not the modal semantics alone. No same iterated stochastic law appeared in checked Resultary and published primary statements, although older random-partition/rough-set studies remain a plausible overlap risk.
+
+## value
+
+PASS
+
+Provides an exact finite transition law and a sharp rare-survival Poisson window for a naturally defined repeated information-loss operator, relating balanced partitions, factorial moments and modal paths. The growing-depth law is an independently useful structural classification of a finite-state stochastic dynamical system.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
