@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
-The statement fixes the bipartition and missing cross-edge, avoiding any ambiguity about transitive closure. Direct classification of one-point extensions proves the established absolute-count identity; deletion/insertion of one graph edge yields the exact signed sensitivity. Both extremal bounds and their equality cases follow from elementary independent-set bounds, including the two-vertex degeneracy. The near-universal pair gadget realizes every bipartite graph with an exact +2 shift, and proves #P membership for the promised shifted response. The actual bundled verifier independently constructs one-point extensions by closure and checks 1,290 bipartite graphs, 5,025 edge additions, and 35 hardness gadgets. Computational tests are not used as proof of an infinite statement.
+## correctness
 
-## Originality — PASS (qualified)
-The closest previous result is an unrestricted exact height-two type-count identity (the formula used in Proof step 1), not the new local signed sensitivity theorem, sharp equality classifications, or the one-change promised counting problem. prior-record searches targeting equivalent local perturbations, height-two one-types, single-edge counts, and aliases returned no exact sensitivity theorem. Ge–Štefankovič's accessible full text discusses #BIS and a different graph polynomial, not poset one-types. Pretzel's poset insertion-position dimension article was accessible only at abstract level, and its specialized coverage remains a real priority risk. The existing count identity and classical #BIS hardness are not claimed as new; originality resides in the local extremal/complexity assertion.
+PASS
 
-## Mathematical value — PASS
-Sensitivity to adding a single order constraint is a natural structural and algorithmic question for finite-parameter model-theoretic types. The theorem sharply quantifies a surprising failure of monotonicity (an exponential positive change under a stricter parameter order), identifies *all* extremizers on both sides, and shows local one-edge response already realizes the complete exact bipartite independent-set counting problem. This is a distinct stability-and-perturbation invariant rather than a recomputation of an absolute count or a tiny instance.
+The known ideal/filter one-point extension profile gives t(G)=2i(G)+i(bar G)-2^|A|-2^|B|. Inserting ab destroys precisely i(G[R]) independent sets of G and removing ab from bar G creates i(bar G[S]); substitution yields the signed Delta formula. Since R and S partition n-2 vertices, independent-set extremal bounds give exact inequalities 1-2^(n-1)<=Delta<=2^(n-2)-2 and their unique graph equality cases. The promised-edge construction realizes an arbitrary bipartite graph H as bar G[S], so D=Delta+2=i(H), a #P-complete exact counting function. Independent exhaustive n<=5 graph tests reconstructed the identities and located the incorrect original slogan claim: for n=4, attainable deltas are only {-7,-5,-2,1,2}, not every integer in [-7,2]. The supplied complete replacement SLOGAN removes this false interval-filling assertion; RESULT.md and proof are preserved unchanged.
 
-## Limitations and closest sources
-Relevant established ingredients: full height-two type count in previous exact height-two theorem, bipartite exact counting hardness in Provan–Ball (1983), Ge–Štefankovič (arXiv:0911.4732), and insertion-position theory in Pretzel (1980). Pretzel full text could not be inspected; only its publicly available abstract was considered. Unindexed earlier sharp perturbation results remain possible. No claim about approximate counting, arbitrary posets, or independently validated originality is made.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. The absolute t(G) formula plus standard independent-set edge recurrences mathematically imply Delta, so formula-level novelty is limited; the sharp two-sided extremizers and one-comparability #P-realization are the independently useful combined additional conclusions. Priority qualified accordingly.
+
+## value
+
+PASS
+
+One comparability can sharply increase or decrease random-poset one-type count; specifying the exact asymmetry and extremizers is a motivated sensitivity question. Local #P-completeness under a near-universal promise is a meaningful strength over general type-counting hardness. Correcting the public slogan removes an unsupported gap-free-spectrum claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

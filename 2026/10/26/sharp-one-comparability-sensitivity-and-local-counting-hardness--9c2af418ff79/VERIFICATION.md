@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,10 +19,24 @@
 }
 ---
 
-## Checks performed
-A standalone standard-library checker `verify.py` independently enumerates all labelled one-point extensions via transitive closure rather than relying on the ideal/filter formula. It compares this direct count to independent-set enumerations for every fixed-partition bipartite graph of total size two through six. For every missing cross-edge it checks the exact type-count change, both sharp bounds, and both necessary-and-sufficient equality characterizations. It also constructs the near-universal-pair reduction gadget for each bipartite graph with part sizes at most two, and for reproducible additional samples with larger sides.
+# Independent mathematical audit
 
-The package records 1,290 full graph instances, 5,025 missing-edge perturbations, and 35 reduction gadgets. All tests passed, yielding `ALL_TESTS_PASS`. Byte-for-byte reproducibility is achieved by running `python verify.py` and comparing stdout to `verification_output.txt`.
+## correctness
 
-## Proof limits
-Exhaustive verification stops at six vertices for the extremal theorem and uses only small exhaustive/sampled inputs for the complexity gadget. The all-size statements follow from the displayed identities and induction-free extremal argument in RESULT.md, not from finite enumeration. The external published #BIS completeness theorem supplies the hardness premise. The independent scientific audit channel remains unperformed.
+PASS
+
+The known ideal/filter one-point extension profile gives t(G)=2i(G)+i(bar G)-2^|A|-2^|B|. Inserting ab destroys precisely i(G[R]) independent sets of G and removing ab from bar G creates i(bar G[S]); substitution yields the signed Delta formula. Since R and S partition n-2 vertices, independent-set extremal bounds give exact inequalities 1-2^(n-1)<=Delta<=2^(n-2)-2 and their unique graph equality cases. The promised-edge construction realizes an arbitrary bipartite graph H as bar G[S], so D=Delta+2=i(H), a #P-complete exact counting function. Independent exhaustive n<=5 graph tests reconstructed the identities and located the incorrect original slogan claim: for n=4, attainable deltas are only {-7,-5,-2,1,2}, not every integer in [-7,2]. The supplied complete replacement SLOGAN removes this false interval-filling assertion; RESULT.md and proof are preserved unchanged.
+
+## originality
+
+PASS
+
+Best-of-knowledge, source-specific originality qualified by documented prior coverage and residual priority risks. Existing stronger antecedents and their mathematical implications have been compared, and restricted source access is not treated automatically as either originality proof or failure. The absolute t(G) formula plus standard independent-set edge recurrences mathematically imply Delta, so formula-level novelty is limited; the sharp two-sided extremizers and one-comparability #P-realization are the independently useful combined additional conclusions. Priority qualified accordingly.
+
+## value
+
+PASS
+
+One comparability can sharply increase or decrease random-poset one-type count; specifying the exact asymmetry and extremizers is a motivated sensitivity question. Local #P-completeness under a near-universal promise is a meaningful strength over general type-counting hardness. Correcting the public slogan removes an unsupported gap-free-spectrum claim.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
