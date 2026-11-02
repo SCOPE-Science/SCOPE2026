@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
+## correctness
 
-PASS. The path-length bound forces all annealed displacements through step \(4r\) to vanish when the lower odd centered site moments vanish. At step \(4r+1\), the only path histories sensitive to the next odd moment are the exactly alternating two-step excursions. Their binomial expansion has a single surviving term \(2m_{2r+1}\mathbb E[(Y_1+Y_2)^{2r}]\). Geometric regeneration then transfers the first nonzero static displacement to the velocity expansion. Compact moment determinacy and Solomon's static speed criterion complete the equivalence. Exact-rational checks confirm the first two possible nonzero orders, but the proof is analytical.
+PASS
 
-## Originality
+For p>0 the independent geometric block renewal/reward law gives v(p)=p²Σ_{n≥1}a_n(1-p)^{n-1}, a_n=E(Z_n), |a_n|≤n. In a nearest-neighbor walk of length ≤4r, each site is departed at most 2r times; mean-balanced laws with vanishing odd centered moments up to 2r−1 agree with their reflected laws on all such path weights. Reflection reverses displacement, giving a_1=...=a_{4r}=0. At time 4r+1 the sole possible degree-(2r+1) dependence on the site law requires exactly 2r returns to the starting site, each a two-step excursion to ±1. The terminal drift factor yields T=E[2Y_0(C+Y_0D)^{2r}], with C=(1-ω_1+ω_{−1})/2 and D=1-ω_1−ω_{−1}. Antisymmetric odd D powers cancel because the two outer-site laws have equal moments through order 2r; lower odd moments of Y_0 vanish. The sole surviving term is 2 m_{2r+1} E[(Y_1+Y_2)^{2r}], strictly nonzero. Uniform ellipticity and Jensen plus Solomon speed criterion give v(0)=0, while Eω=1/2 gives v(1)=0. Moment determinacy on a compact interval shows that non-reflection-invariance entails a first nonzero odd moment; monotonicity with equal endpoints forces v identically zero and hence reflection symmetry. Independently re-enumerated all ±1 paths through steps five and nine using exact rationals; confirmed zero lower a_n and coefficients 9/2048 and 306144/30517578125 for skewness and fifth-moment cases. Finite tests supplement the all-rank proof.
 
-PASS, with residual risk. Martin and Nagel give the full analytic regeneration series and low-order derivatives, including a second derivative that vanishes under mean balance, but do not identify the complete reflection-symmetry criterion or the all-order first-odd-moment identity. Their general series is a close antecedent and makes individual coefficients computable; the new mathematical content is the positive all-rank triangular coefficient and the resulting iff classification. Classical Solomon and deterministic-cooling results establish separate ingredients, not this classification. Broader literature could contain an implicit equivalent statement.
+## originality
 
-## Mathematical value
+PASS
 
-PASS. The theorem completely classifies when refresh can create directional ballistic transport despite zero local mean bias and zero speed in both the static and fully refreshed limits. It identifies precisely which first asymmetry moment controls the onset, its sharp exponent, and a positive coefficient. The nonmonotone regime is not an arbitrary parameter slice: mean balance is the degenerate case of the known first and second full-refresh speed derivatives.
+Martin and Nagel, arXiv:2610.11919 (Oct 8 2026), introduce the identical complete geometric-refresh model; their Theorem 2.1 proves speed continuity, smoothness and first low-order derivative consequences, plus nonmonotone examples with nonzero one-step mean. Their proof §3.1 supplies exactly the renewal power series, a necessary antecedent. But the inspected published main theorems and proof do not identify the first nonzero odd site moment at order 4r, do not show the exact universal positive even-moment factor, or classify every mean-balanced law by reflection symmetry. Classical Solomon and cooling results provide different inputs. The all-order triangular identity and iff classification survive as new best-of-knowledge structure; an implicit all-derivatives consequence of the regeneration series remains a residual priority risk.
 
-## Closest literature and limitations
+## value
 
-The nearest paper is Martin and Nagel, arXiv:2610.11919v1 (2026), especially their speed series (3.1) and Theorem 2.1. Avena et al., arXiv:1803.03295, and Solomon (1975) cover static-speed and different-regeneration facts. Independence, uniform ellipticity, complete refresh, and mean balance are essential to the proof as written. The interior sign far from complete refresh and possible alternative equivalent results remain open risks.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The theorem completely characterizes a striking stochastic phenomenon: directional ballistic motion emerges under partial refresh despite zero mean local bias and zero velocities at both extreme refresh rates. It supplies an exact nonmonotonicity classification and a sharp hierarchy tying the first observable speed term to the first odd central moment of the site law. This is useful for models of temporal environmental disorder and is not a routine moment expansion at one chosen law.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

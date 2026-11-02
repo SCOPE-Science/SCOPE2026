@@ -1,0 +1,122 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:04:14Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For p>0 the independent geometric block renewal/reward law gives v(p)=p²Σ_{n≥1}a_n(1-p)^{n-1}, a_n=E(Z_n), |a_n|≤n. In a nearest-neighbor walk of length ≤4r, each site is departed at most 2r times; mean-balanced laws with vanishing odd centered moments up to 2r−1 agree with their reflected laws on all such path weights. Reflection reverses displacement, giving a_1=...=a_{4r}=0. At time 4r+1 the sole possible degree-(2r+1) dependence on the site law requires exactly 2r returns to the starting site, each a two-step excursion to ±1. The terminal drift factor yields T=E[2Y_0(C+Y_0D)^{2r}], with C=(1-ω_1+ω_{−1})/2 and D=1-ω_1−ω_{−1}. Antisymmetric odd D powers cancel because the two outer-site laws have equal moments through order 2r; lower odd moments of Y_0 vanish. The sole surviving term is 2 m_{2r+1} E[(Y_1+Y_2)^{2r}], strictly nonzero. Uniform ellipticity and Jensen plus Solomon speed criterion give v(0)=0, while Eω=1/2 gives v(1)=0. Moment determinacy on a compact interval shows that non-reflection-invariance entails a first nonzero odd moment; monotonicity with equal endpoints forces v identically zero and hence reflection symmetry. Independently re-enumerated all ±1 paths through steps five and nine using exact rationals; confirmed zero lower a_n and coefficients 9/2048 and 306144/30517578125 for skewness and fifth-moment cases. Finite tests supplement the all-rank proof.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Martin–Nagel theorem establishes differentiability and biased mean-step local velocity extremum at p=1, not the complete mean-balanced classification.",
+          "Avena–Chino–da Costa–den Hollander 2018 uses increasing deterministic cooling intervals rather than i.i.d. geometric complete refresh; Solomon governs p=0 static walk."
+        ],
+        "reasoning": "The broader regeneration theorem supplies the analytic representation but neither states nor trivially implies the strict first-odd-moment coefficient. Cooling models change a different time law and cannot dominate the geometric-refresh theorem.",
+        "searches": [
+          "arXiv:2610.11919 full main results, proof section 3.1",
+          "arXiv:1803.03295 cooling random environment static speed",
+          "Solomon 1975 random environment velocity criterion"
+        ]
+      },
+      "checked_sources": [
+        "arXiv:2610.11919 (full indexed main theorem, examples and proof §3.1)",
+        "arXiv:1803.03295 (abstract/metadata, different cooling regime)",
+        "Solomon (1975) classical static-speed criterion",
+        "Resultary semantic search for geometric-refresh odd moments and monotone velocity"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "The primary source p=1 derivative sign statement requires E[Z1]≠0, excluded by Eω=1/2. The prior second derivative vanishes in the mean-balanced subclass.",
+          "Our first possible nonzero coefficient occurs at (1-p)^{4r} with r≥1; source only provides formal derivatives without this all-order moment factorization."
+        ],
+        "reasoning": "The source does not imply nonzero speed from mean-balance asymmetry by its quoted theorems. This proof obtains the missing strict all-rank coefficient from the exceptional excursion family, not a direct substitution into an already-known formula.",
+        "searches": [
+          "Martin–Nagel Theorem 2.1 statements 1–3",
+          "Martin–Nagel Section 3.1 (3.1) speed series",
+          "Solomon static RWRE reciprocal ratio speed"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Martin–Nagel Theorem 2.1 is for exactly the same regeneration law and its speed function v(p).",
+          "Its published series v(p)=p²Σa_n(1-p)^{n−1} is shared, but the new expression resolves a_n at the first odd-moment-sensitive order for every r."
+        ],
+        "reasoning": "The results were compared after identifying geometric blocks and the same probability parameter; mere renaming of variables was excluded as novelty. The all-r moment-to-velocity identity and symmetry iff remain distinct from the source derivative formulas.",
+        "searches": [
+          "geometric random environment refresh velocity symmetric mean balanced moment",
+          "Martin Nagel 2026 random walk regenerating environment Theorem 2.1 velocity derivative",
+          "random environment odd centered moments p refresh velocity zero mean"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Source examples use biased site means, e.g. P(ω=1/10)=α and P(ω=3/5)=1−α with α=0.19; source Figure 1 does not give a classification for all mean-balanced laws.",
+          "The two exact checked finite law coefficients 9/2048 and 306144/30517578125 are examples of the general all-rank formula, not independent novelty claims."
+        ],
+        "reasoning": "No covering exact table of all mean-balanced laws exists in the inspected source; an exact moment table for finitely many laws would not by itself imply the universal iff classification.",
+        "searches": [
+          "geometric random environment refresh velocity symmetric mean balanced moment",
+          "random walk zero drift skewness fourth order coefficient 4E Y2 E Y3",
+          "Martin Nagel Table/Figure 1 nonmonotone example"
+        ]
+      },
+      "rationale": "Martin and Nagel, arXiv:2610.11919 (Oct 8 2026), introduce the identical complete geometric-refresh model; their Theorem 2.1 proves speed continuity, smoothness and first low-order derivative consequences, plus nonmonotone examples with nonzero one-step mean. Their proof §3.1 supplies exactly the renewal power series, a necessary antecedent. But the inspected published main theorems and proof do not identify the first nonzero odd site moment at order 4r, do not show the exact universal positive even-moment factor, or classify every mean-balanced law by reflection symmetry. Classical Solomon and cooling results provide different inputs. The all-order triangular identity and iff classification survive as new best-of-knowledge structure; an implicit all-derivatives consequence of the regeneration series remains a residual priority risk.",
+      "residual_risks": [
+        "A general derivative expansion in Martin–Nagel could make this classification an implicit corollary, even though the inspected theorems do not state or simplify the positive all-rank coefficient.",
+        "Only local p↑1 asymptotic is proved; no sign or number of interior extrema across all p."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "ANTECEDENT_NOT_COVERING all-rank odd-moment and monotone-speed classification",
+          "evidence": "Theorem 2.1 establishes continuous analytic v(p), a formula for derivatives and a biased-mean local extremum; §3.1 power series matches v(p)=p²Σa_n(1−p)^{n−1}; Figure 1 nonmonotone example has Eω≠1/2.",
+          "identifier_or_url": "https://arxiv.org/abs/2610.11919",
+          "material_read": "Full arXiv indexed article relevant introduction, Theorem 2.1, §§2–3.1, derivative proof and examples; text of Theorem 2.4 also read",
+          "method": "Read indexed HTML scientific full text; compared identical regeneration parameter and mean-bias assumptions",
+          "title": "Random walk in a regenerating random environment",
+          "trigger": "Identical i.i.d. geometric full-refresh random walk and closest result"
+        },
+        {
+          "assessment": "INAPPLICABLE_TIME_LAW; no whole-paper exclusion claimed",
+          "evidence": "The abstract explicitly assumes deterministic growing resampling increments, unlike fixed geometric waiting times.",
+          "identifier_or_url": "https://arxiv.org/abs/1803.03295",
+          "material_read": "Full available abstract and arXiv metadata; no complete 33-page article read",
+          "method": "Compared deterministic cooling block regime and limit theorems against geometric iid regeneration",
+          "title": "Random walk in cooling random environment: ergodic limits and concentration inequalities",
+          "trigger": "General time-resampled random environment could dominate"
+        },
+        {
+          "assessment": "COVERS_STATIC_ENDPOINT_ONLY; not refreshed-speed hierarchy",
+          "evidence": "At mean-balanced bounded ω, E[(1−ω)/ω]≥1 and E[ω/(1−ω)]≥1, so static velocity is zero by Solomon criterion.",
+          "identifier_or_url": "Solomon, Annals of Probability 3 (1975), 1–31",
+          "material_read": "Classical speed criterion as accurately restated and applied in inspected research proof and modern regeneration primary paper; original 1975 full text not retrieved",
+          "method": "Checked reciprocal-ratio sufficient criterion using Jensen at Eω=1/2",
+          "title": "Random walks in a random environment",
+          "trigger": "Static endpoint speed is needed in proof"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The theorem completely characterizes a striking stochastic phenomenon: directional ballistic motion emerges under partial refresh despite zero mean local bias and zero velocities at both extreme refresh rates. It supplies an exact nonmonotonicity classification and a sharp hierarchy tying the first observable speed term to the first odd central moment of the site law. This is useful for models of temporal environmental disorder and is not a routine moment expansion at one chosen law.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "arXiv:2610.11919 (full indexed main theorem, examples and proof §3.1)",
+    "arXiv:1803.03295 (abstract/metadata, different cooling regime)",
+    "Solomon (1975) classical static-speed criterion",
+    "Resultary semantic search for geometric-refresh odd moments and monotone velocity"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniformly elliptic iid sites on Z, mean site probability exactly 1/2, nearest-neighbor walk, independent complete geometric refresh.",
+    "Not a statement about nongeometric waiting times, partial refresh, spatial dependence, or mean-biased laws.",
+    "The two exact finite enumerations are not a universal-in-r certificate."
+  ],
+  "residual_risks": [
+    "A general derivative expansion in Martin–Nagel could make this classification an implicit corollary, even though the inspected theorems do not state or simplify the positive all-rank coefficient.",
+    "Only local p↑1 asymptotic is proved; no sign or number of interior extrema across all p."
+  ],
+  "schema_version": 1
+}
