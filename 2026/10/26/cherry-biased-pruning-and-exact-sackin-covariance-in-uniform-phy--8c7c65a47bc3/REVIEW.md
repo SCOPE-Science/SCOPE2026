@@ -1,19 +1,21 @@
-# Scientific review: cherry-biased pruning and PDA Sackin covariance
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The proof is finite combinatorial for each tree size and then asymptotic by a standard central-binomial estimate. The key bijection contracts a specified pair of sibling leaves into a uniquely labeled surrogate leaf, with the exact depth change \(d+2\). Its size-biased counting prefactor is \(n(n-1)/(2(2n-3))\), including the boundary cases \(n=2,3\). The mean Sackin formula follows from an explicit Catalan generating-function recurrence, and the covariance sign follows from a strict rational ratio inequality for all \(n\ge3\). Exact finite checks compare two enumeration conventions and all distributions in the sample ranges, but are not substituted for the proof.
+PASS
 
-## Originality — PASS, with residual historical-priority risk
+A specified unordered pair of labels is a cherry in (2n-5)!! of (2n-3)!! PDA trees; contraction bijectively produces a uniformly sampled (n-1)-leaf tree with a marked surrogate leaf. Re-expansion changes S by d+2, so counting all binom(n,2) marked pairs gives the equality for every test function without falsely asserting D independent of S. Randomizing child orientation gives uniform Catalan full binary plane shapes; weighted recursion B=2TB+2xTT' gives mean Sackin n(q_n-1). The f(s)=s identity and E[D|tree]=S/(n-1) yield the exact covariance; the ratio a_(n+1)/a_n=1+(n-2)/(n(2n-1)) proves zero boundaries and strict negativity. Stirling central-binomial asymptotic gives coefficient -sqrt(pi)/8. Independently enumerated all Catalan plane trees n=2..9 and compared the full size-biased distribution and moments; those cases corroborate the all-size bijection.
 
-The closest statements are Mir–Rosselló's marginal PDA Sackin expectation (arXiv:1201.3884), McKenzie–Steel's marginal cherry laws (Mathematical Biosciences 164, 2000), Wu–Choi's *cherry/pitchfork* joint laws (arXiv:1508.03139), and Janson's fringe-count results (arXiv:1312.1211). The inspected relevant parts give neither the marked-cherry size-biased Sackin distribution nor the exact mixed cherry/Sackin covariance. In particular, the latter is not a cherry/pitchfork specialization, and the former includes a global path-length functional outside the local-fringe limit-law statements. General pruning ideas could conceivably have appeared elsewhere; searches do not establish global priority.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-Cherries and Sackin's index measure complementary, widely used local and global features of phylogenetic balance under a standard sampling null model. Their exact cross-moment was not supplied by the separately known marginal means. The distributional transfer works for every test function, and its special case determines the sign for **every** admissible size, both exact zero boundaries and the natural \(n^{3/2}\) mixed-covariance scale. This is a concrete structural relation useful for assessing dependence between established summary statistics rather than a manufactured parameter slice. No joint limit theorem or test-performance benefit is claimed.
+Independent comparison of statements, standard reductions, stronger sources and exact parameter tables. Accessible evidence does not decisively cover this final claim; limitations and material unread sources remain recorded without inferring novelty from search silence.
 
-## Sources and remaining risks
+## value
 
-Primary comparisons: arXiv:1201.3884 (Sackin mean), arXiv:1508.03139 (cherry/pitchfork joint law), arXiv:1312.1211 (conditioned-tree fringe functionals), McKenzie–Steel (2000), and Blum–François–Janson (2006). Rogers (1996) was available through its abstract, which concerns correlations among Colless, Rogers's imbalance, and Sackin indices, not cherries. The older literature may contain an uncatalogued equivalent identity; the full Rogers text was not inspected. The statement applies to PDA rooted binary leaf-labeled trees only.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Cherries measure local branching and Sackin global path length, widely used complementary phylogenetic balance statistics under the PDA null model. The identity transfers an entire size-biased distribution and yields a nonobvious all-size sign and sharp scaling that neither marginal mean determines, a natural dependency calculation.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
