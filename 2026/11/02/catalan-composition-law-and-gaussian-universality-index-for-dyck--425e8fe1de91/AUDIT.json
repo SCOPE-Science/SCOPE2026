@@ -1,0 +1,136 @@
+{
+  "correctness": {
+    "rationale": "The greedy arch decomposition is bijective on Dyck paths with the forced closing suffix. It gives \\(n-k\\) equal to total upward arch increments. A unique formal arch-height recurrence is solved by a geometric-height ansatz and quadratic, yielding \\(C(z(1-z)/(1-x))\\). Substitution and binomial extraction prove all coefficients. The dominant root \\(\\rho(u)\\) is simple and uniquely smallest near \\(u=1\\), and square-root transfer/quasi-powers yields slope \\(2/3\\), variance slope \\(4/27\\), and a CLT. The standalone script directly checked 290512 Dyck words and independent bounded-defect transfer cells; finite tests are supplementary, not infinite proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "A prior Dyck fixed-defect finite-matrix theorem already covers separate rational slices, including defects 0–3. It does not state a global algebraic composition or a typical-index limit.",
+        "Adamson et al., arXiv:2311.10658, enumerate subsequence-universality for regular languages; all Dyck words form a nonregular language.",
+        "Adamson, arXiv:2304.04583, addresses unrestricted subsequence-universal words, not the Dyck-restricted bivariate distribution.",
+        "A published binary-word universality distribution counts every binary word, which does not imply the distribution restricted to balanced nonnegative paths."
+      ],
+      "reasoning": "Existing fixed-defect rationality is a real overlapping result and is not counted as new. Neither the coefficient-wise finite matrices, unrestricted words, regular-language algorithms, nor Dyck factors from a specific automatic sequence directly imply the claimed global closed form and Gaussian slope constants.",
+      "searches": [
+        "Rational Dyck arch-deficit series exact near-universality strata fixed defect transfer matrices",
+        "arxiv:2311.10658",
+        "arxiv:2304.04583",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2301.06145",
+      "arxiv:2304.11932",
+      "arxiv:2304.04583",
+      "arxiv:2311.10658",
+      "Flajolet and Sedgewick, Analytic Combinatorics (2009), square-root transfer/quasi-powers background"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Greedy arches imply the index, but their generic factorization alone does not yield the Dyck-constrained counting solution.",
+        "Prior fixed-defect rationality gives a finite computation for each fixed defect but does not include a uniform algebraic evaluation or the typical-index asymptotics.",
+        "The new proof derives the height recursion, solves its kernel quadratic, then applies a nondegenerate singularity at \\(\\rho(u)\\) and quasi-powers."
+      ],
+      "reasoning": "The precise new combined theorem is stronger in uniform evaluability and asymptotics than the located fixed-defect result; its fixed-defect specializations are already covered. No prior statement inspected directly contains or logically implies both a closed global Dyck generating function and Gaussian index limit.",
+      "searches": [
+        "Rational Dyck arch-deficit series exact near-universality strata fixed defect transfer matrices",
+        "Dyck balanced parenthesis words distribution of subsequence universality index arch count",
+        "2026/10/4/SCOPE-closed-form-law-for-binary-subsequence-universality--e77c4e8d9f37",
+        "arxiv:2304.11932"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The present arch-defect substitution is algebraically equivalent to the semilength-index composition under z=tu,x=t.",
+        "Schnoebelen–Veron, arXiv:2304.11932, define greedy arches for individual words but do not give the stated Dyck joint generating function.",
+        "Mol–Rampersad–Shallit, arXiv:2301.06145, count Dyck factors of Thue–Morse instead of all Dyck words indexed by scattered-subsequence universality."
+      ],
+      "reasoning": "Two parameterizations of the same claim were both searched. No inspected primary result gives a generating function equal to \\(C(z(1-z)/(1-x))\\) for all defects, or an equivalent asymptotic law. An unpublished/general lattice-path identity might still imply the expression.",
+      "searches": [
+        "Dyck subsequence universality index joint generating function Catalan composition z times one minus z divided one minus x",
+        "Dyck balanced parenthesis words distribution of subsequence universality index arch count",
+        "Dyck word arch factorization semilength index Catalan generating polynomial",
+        "arxiv:2304.11932",
+        "arxiv:2301.06145"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The known defect-zero, defect-one and defect-two Dyck coefficient sequences coincide with coefficients of the new algebraic formula, as required; these known small cases are excluded from any novelty assertion.",
+        "No retrieved exact table or indexed formula states the complete two-variable Catalan substitution and central limit with slopes \\(2/3\\) and \\(4/27\\)."
+      ],
+      "reasoning": "Finite tables for individual defects are not a proof of the global algebraic identity or Gaussian limit. The small-defect examples are check cases, not separate findings.",
+      "searches": [
+        "Dyck subsequence universality index joint generating function Catalan composition z times one minus z divided one minus x",
+        "Rational Dyck arch-deficit series exact near-universality strata fixed defect transfer matrices",
+        "Dyck words with universality index n minus two exact enumeration near alternating",
+        "2026/10/11/SCOPE-sharp-logarithmic-finite-core-entropy-deficit-for-primitive-dyck--cc17d7fdec34"
+      ]
+    },
+    "rationale": "Arch factorization is established; the located prior fixed-defect Dyck work evaluates each defect through rational finite matrices and explicitly handles small defects, but does not give a single closed algebraic evaluation across all defects or a Gaussian limit for a linearly growing index. The four inspected primary sources treat individual-word arches, unrestricted/regular-language universality, or Dyck factors of an automatic word. A new all-defect Catalan substitution and nondegenerate quasi-powers analysis are proved. Unindexed equivalent lattice-path enumerators remain a genuine risk.",
+    "residual_risks": [
+      "A latent/general lattice-path enumeration identity could already imply the global Catalan substitution.",
+      "Prior fixed-defect formulas already cover every fixed defect algorithmically, so only uniform closed evaluation and typical-index limit are claimed as new.",
+      "No independent review or exhaustive unpublished-literature search."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Arch framework, not a bivariate Dyck enumeration or CLT",
+        "evidence": [
+          "The arch factorization theorem is source for the wordwise universality interpretation.",
+          "No Dyck-specific joint enumeration appeared in inspected passages."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.11932",
+        "material_read": "Abstract, sections defining greedy arch factorization and relation to subword universality, and searched article text for Dyck/Catalan",
+        "method": "Inspected accessible arXiv full-text/PDF with definition and relevant section comparisons",
+        "title": "On Arch Factorization and Subword Universality for Words and Compressed Words",
+        "trigger": "Defines exact greedy-arch universality statistic"
+      },
+      {
+        "assessment": "No Dyck-language all-index enumeration established",
+        "evidence": [
+          "Counts unconditioned subsequence-universal word families, not the Catalan restriction."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2304.04583",
+        "material_read": "Abstract, counting/ranking setup, and relevant paper text searched for Dyck words",
+        "method": "Inspected accessible arXiv paper PDF and word-level formulas",
+        "title": "Ranking and Unranking k-subsequence universal words",
+        "trigger": "Potential dominating unrestricted counting methods"
+      },
+      {
+        "assessment": "Different object family (factors of one automatic word) and invariant",
+        "evidence": [
+          "arXiv submitted 2023-01-15 17:20:56 UTC; studies Dyck factors appearing in binary automatic sequences, not the universe of Dyck words by scattered-subsequence universality."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2301.06145",
+        "material_read": "Abstract, main results on Dyck factors of Thue–Morse and related counting",
+        "method": "Inspected arXiv PDF and v1 submission metadata; primary source comparison",
+        "title": "Dyck Words, Pattern Avoidance, and Automatic Sequences",
+        "trigger": "Same Dyck objects; earliest dated thematic guide"
+      },
+      {
+        "assessment": "Regular-language condition does not include the full Dyck language",
+        "evidence": [
+          "Dyck language is context-free and nonregular; paper does not give Catalan composition or Gaussian law."
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2311.10658",
+        "material_read": "Abstract and statements on regular-language universality",
+        "method": "Inspected accessible arXiv PDF and the regular-language hypothesis",
+        "title": "k-Universality of Regular Languages",
+        "trigger": "Possible general language-enumeration coverage"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "425e8fe1-de91-41d5-aa79-44f8b3370023",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The global Catalan composition gives a complete uniform exact law for a natural subsequence-complexity invariant on all Dyck words, instead of a defect-by-defect matrix. It extracts exact coefficients for arbitrary semilength/index and establishes the previously absent typical-index Gaussian regime, with explicit nontrivial constants \\(2/3\\) and \\(4/27\\). This supplies a structural and probabilistic classification, not a routine small-table increment.",
+    "status": "PASS"
+  }
+}
