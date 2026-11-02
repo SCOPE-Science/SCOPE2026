@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-31.md",
+      "INDEPENDENT_AUDIT_2026-10-31.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,23 +19,24 @@
 }
 ---
 
-# Verification instructions
+# Independent mathematical audit
 
-Using Python 3.9 or later, execute `python3 rook_forest_verify.py` in a directory containing the standalone checker. No additional packages, web services, or other files are required. A successful run terminates with `VERIFY_OK`.
+## correctness
 
-The checker reconstructs rook adjacency from cell indices and tests all induced vertex subsets at \(n=2,3,4\); it separately enumerates all Hamilton paths of \(K_{n,n}\) at \(n=2,3,4,5\) as pairs of permutations. From edge sets, it tests every possible one-edge deletion and every absent edge insertion against the complete set of Hamilton paths. This independently generates exchange adjacencies and evaluates connected components, degrees and triangles. It compares an unrelated reversal implementation for small parameters.
+PASS
 
-The expected output is:
+For n≥2, a chosen rook-vertex set induces a forest exactly when its K_{n,n} edge set is a linear forest: a degree-three vertex would give a line-graph triangle and any K_{n,n} cycle would survive. At size 2n−1, a linear spanning tree is an alternating Hamiltonian path, uniquely described by a pair of permutations, giving (n!)². Cutting a path edge and joining opposite-component endpoints gives 1 replacement at even cuts and both odd boundary cuts, and 3 at the n−2 interior odd cuts: degree 4n−5. Two neighbors of P are adjacent exactly when they share removed or added edges, giving 3(n−2)+binom(2n−1,2)=2n²−5 triangles through P. Legal prefix reversals and a final suffix-three reversal generate all row and column permutations, hence connectivity. Independent direct edge-set enumeration recovered graphs for n=2,3,4 with vertices 4,36,576, degrees 3,7,11, edges 6,126,3168 and triangles 4,156,5184; this is bounded corroboration, not proof of all n.
 
-```text
-ROOK_INDEPENDENT_OK n=2 max_forest=3 maximizing_subsets=4
-ROOK_INDEPENDENT_OK n=3 max_forest=5 maximizing_subsets=36
-ROOK_INDEPENDENT_OK n=4 max_forest=7 maximizing_subsets=576
-GRAPH_OK n=2 vertices=4 degree=3 edges=6 triangles=4 connected=1
-GRAPH_OK n=3 vertices=36 degree=7 edges=126 triangles=156 connected=1
-GRAPH_OK n=4 vertices=576 degree=11 edges=3168 triangles=5184 connected=1
-GRAPH_OK n=5 vertices=14400 degree=15 edges=108000 triangles=216000 connected=1
-VERIFY_OK
-```
+## originality
 
-These are exhaustive finite computations at the displayed parameters only. The universal conclusions follow from the symbolic proof. Independent mathematical audit has not been performed. Literature access limitations are disclosed in the review.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+The natural maximum induced-forest/feedback-vertex-set solution space of a balanced rook graph is not described by its scalar optimum alone. Showing all optima connected by size-preserving one-cell exchanges, with exact universal degree and triangles, supplies a structural reconfiguration invariant and benchmark; it is not a routine computation of only a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

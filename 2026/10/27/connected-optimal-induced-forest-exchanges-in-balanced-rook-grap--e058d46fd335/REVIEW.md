@@ -1,15 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-## Correctness — PASS
-The line-graph identification reduces the induced-forest constraint to the explicitly proved linear-forest characterization. Equality in the forest edge bound forces a spanning path. Every possible optimum exchange is obtained by splitting a path and reconnecting endpoints; all four combinatorial endpoint choices are considered, including the boundary cases. The resulting deleted-edge and inserted-edge multiplicities give the vertex degree and exact triangle count. The constructive group argument generates all independent row and column permutations from explicitly valid one-edge moves. The separate checker exhaustively reconstructs rook-graph forest optima through order four and computes the full exchange graphs through order five. No unproved infinite extrapolation is used.
+## correctness
 
-## Originality — PASS, with a stated residual risk
-Literature searches used the equivalent terms minimum feedback vertex set, maximum induced forest, complete-bipartite Hamilton path, backbite, Pósa rotation and edge-exchange graph. Chappell–Pelsmajer's [1] full PDF was inspected at its introductory and theorem sections and searched for the exact graph family and path formulation; its stated results are general treewidth/degree extremal bounds, not this optimum-exchange geometry. Bell's [2] accessible publisher abstract concerns eigenvalue minus two star complements, not edge-exchange triangles. Kazazi's [3] accessible abstract gives sufficient conditions for backbite connectivity that exclude balanced complete bipartite graphs; the exact formula for triangles under arbitrary one-edge path replacement is not asserted there. published-finding corpus record searches found related rook graph homology and complete-bipartite path questions but no matching statement. The complete primary text of [2] and [3] was not accessible, so prior coverage of a subresult is possible; in particular, global novelty is not certified.
+PASS
 
-## Value — PASS
-The maximum induced-forest number alone does not determine whether optimal solutions can be changed locally. This theorem proves universal optimum-preserving accessibility and the full regular degree and triangle count for a two-parameter-size family of symmetric line graphs. The triangle formula distinguishes local three-way exchanges from mere connectivity and gives an exact benchmark for solution-space exploration, with no restriction to finitely checked boards.
+For n≥2, a chosen rook-vertex set induces a forest exactly when its K_{n,n} edge set is a linear forest: a degree-three vertex would give a line-graph triangle and any K_{n,n} cycle would survive. At size 2n−1, a linear spanning tree is an alternating Hamiltonian path, uniquely described by a pair of permutations, giving (n!)². Cutting a path edge and joining opposite-component endpoints gives 1 replacement at even cuts and both odd boundary cuts, and 3 at the n−2 interior odd cuts: degree 4n−5. Two neighbors of P are adjacent exactly when they share removed or added edges, giving 3(n−2)+binom(2n−1,2)=2n²−5 triangles through P. Legal prefix reversals and a final suffix-three reversal generate all row and column permutations, hence connectivity. Independent direct edge-set enumeration recovered graphs for n=2,3,4 with vertices 4,36,576, degrees 3,7,11, edges 6,126,3168 and triangles 4,156,5184; this is bounded corroboration, not proof of all n.
 
-## Scope and cautions
-The assertion is confined to the balanced square family and one-for-one swaps; no diameter bound, larger rectangle classification or independent validation is claimed. The literature survey cannot rule out unindexed equivalent work or inaccessible complete papers.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge original versus closest accessible statements, with real Resultary and primary-source comparisons; failed search is not novelty proof and uninspected plausible literature is recorded, not declared noncovering.
+
+## value
+
+PASS
+
+The natural maximum induced-forest/feedback-vertex-set solution space of a balanced rook graph is not described by its scalar optimum alone. Showing all optima connected by size-preserving one-cell exchanges, with exact universal degree and triangles, supplies a structural reconfiguration invariant and benchmark; it is not a routine computation of only a tiny example.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
