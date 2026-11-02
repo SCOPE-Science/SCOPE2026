@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The binary best-response condition is exactly adjacent edge disagreements unequal or both equal the player type. Reachability of at least 3 of 4 cumulative-XOR states proves feasibility of each fixed-endpoint C/R chain. Splitting at pins covers all nonempty pinned cycles, including coincident endpoints for a single pin. One-pin alternating cycles yield weakly decreasing transformed-bit words, and cyclic XOR closure selects the stated parity class; the fixed action ensures unique lift. Exhaustive separate direct-payoff checks through n=8 (all C/R/S0/S1), one-pin counts to n=16, and a three-action counterexample agree. Finite tests are not substituted for proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Pei et al. 2026 Theorem 4 explicitly imposes m>=3, with R-C-R obstruction",
+        "Cao et al. 2026 Theorem 2 conditions (i)-(iii) are sufficient rather than necessary and fail on many pinned alternating rings"
+      ],
+      "reasoning": "The m>=3 theorem covers a different action space and can rule out pinned equilibria, not imply two-action restoration. General sufficient conditions do not cover configurations with alternating strategic types away from a single pin.",
+      "searches": [
+        "\"CRS\" \"stubborn\" \"ring\" \"two strategies\" equilibrium",
+        "arxiv:2607.10997 section 4.2",
+        "arxiv:2607.05932 section 3"
+      ]
+    },
+    "checked_sources": [
+      "arxiv:2607.05932",
+      "arxiv:2607.10997",
+      "doi:10.1016/j.tcs.2014.05.009",
+      "doi:10.1007/s00182-019-00665-5"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Cao and Yang 2014 covers only conformists and rebels, no action-pinned vertices; its no-PNE alternating 4k+2 family is background",
+        "2019 paper models conformists and rebels only, with no stubborn endpoints",
+        "2026 2607.10997 explicit m>=3 precondition excludes two actions; counterexample ternary ring R-C-R-S0 has zero equilibria",
+        "2026 2607.05932 Theorem 2 three sufficient criteria are not a full pinned-cycle characterization"
+      ],
+      "reasoning": "The new assertions quantify over all C/R assignments and any nonempty arbitrary pinned set in binary cycles and count equilibria for the one-pin alternating family. These are not special cases of cited prior claims; the older binary cycle result is needed only to identify the previously impossible family. No implication from a stronger accessed theorem was found.",
+      "searches": [
+        "On rings with pinned stubborn players arbitrary conformist rebel sequence always admits binary strategy equilibrium",
+        "Cao and Yang 2014 Theorem 4 full ring proof",
+        "Cao et al. 2019 Theorems 3-4 on line/ring dynamics",
+        "arxiv:2607.10997 Theorem 4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "arxiv:2607.05932: two-action CRS definition and general sufficient criteria (Theorem 2), without pinning-cycle equivalence",
+        "Cao and Yang 2014 Theorem 4: unpinned binary cycle classification"
+      ],
+      "reasoning": "Pinned cycle feasibility is equivalent to arbitrary prescribed binary endpoint actions being feasible on every C/R chain, proved via parity-state reachability; old unpinned existence and generic CRS sufficient conditions neither state nor entail the universal prescribed-endpoint condition.",
+      "searches": [
+        "Every binary conformist rebel stubborn network game on a cycle with one stubborn vertex has pure Nash equilibrium even with arbitrary fixed opinions",
+        "\"stubborn\" \"cycle\" \"conformist\" \"rebel\" equilibrium",
+        "arxiv:2607.05932 sections 2.2 and 3"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "2014 ring theorem contains only an existence classification of unpinned game, no pinned equilibrium-count table",
+        "Standalone enumeration of all pinned alternating phases through n=16 agrees with new closed formula"
+      ],
+      "reasoning": "Direct exact computation here verifies the new count at finite sizes; the arbitrary-even-length formula follows from a bijection to monotone binary words and an XOR parity restriction. No matching known table was found in checked material.",
+      "searches": [
+        "Critical conformist-rebel alternating cycle no equilibrium 4k+2 with one pinned committed node restores pure Nash equilibria",
+        "Binary versus 3 strategy conformist rebel stubborn ring equilibrium one stubborn agent"
+      ]
+    },
+    "rationale": "Closest primary full texts cover unpinned binary cycles (Cao and Yang 2014), unpinned two-type dynamics (Cao et al. 2019), sufficient binary CRS conditions (Cao et al. 2026), and multiaction ring structure explicitly restricted to m>=3 (Pei et al. 2026). None of their inspected statements implies universal two-action pinned-cycle existence plus exact pinning multiplicities. Unindexed equivalent results remain possible.",
+    "residual_risks": [
+      "An unindexed earlier characterization of fixed-boundary binary fashion games could imply this result despite absent matching cited statements.",
+      "A broader weighted or graphical-games result not found by semantic searches may contain the pinned-cycle lemma.",
+      "Literature checks cannot certify global novelty; no independent external audit has been done."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Precisely classifies no-stubborn binary C/R rings, not prescribed fixed-action ring equilibrium restoration or counts",
+        "evidence": [
+          "Theorem 4 on page 176: unpinned no equilibrium iff types alternate and n/2 odd"
+        ],
+        "identifier_or_url": "https://doi.org/10.1016/j.tcs.2014.05.009",
+        "material_read": "Full accessible article, especially Sections 4.1-4.2, Theorems 3-4 and their proofs, verified against journal page 176 screenshot",
+        "method": "Read PDF text and inspect image of printed theorem page",
+        "title": "The fashion game: Network extension of Matching Pennies",
+        "trigger": "Direct classical binary ring equilibrium classification"
+      },
+      {
+        "assessment": "Study of the C/R two-type game and simultaneous dynamics, without stubborn pinned actions",
+        "evidence": [
+          "Section 4.2 Theorem 4, abstract and discussion refer to conformists and rebels, not CRS pinning"
+        ],
+        "identifier_or_url": "https://doi.org/10.1007/s00182-019-00665-5",
+        "material_read": "Author-hosted full text Section 4.2 and Theorem 4 plus summary and related definitions",
+        "method": "Read freely exposed author text at https://www.researchgate.net/publication/331658681_Dynamic_matching_pennies_on_networks",
+        "title": "Dynamic matching pennies on networks",
+        "trigger": "Closest ring and dynamic matching pennies extension"
+      },
+      {
+        "assessment": "Defines the present binary CRS model, but provides three sufficient PNE criteria without universal cycles containing a pinned vertex",
+        "evidence": [
+          "Section 2.2 defines conformist, rebel, stubborn; Theorem 2 gives (i) no CR edges, (ii) C support, (iii) rebel bipartition support"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.05932",
+        "material_read": "Full HTML with particular attention to §§1.2, 2.2, 3 and Theorem 2, alongside introduction and cited related work",
+        "method": "Read authors’ arXiv HTML full text",
+        "title": "Network games with heterogeneous players",
+        "trigger": "Most directly applicable new two-action three-type CRS theory"
+      },
+      {
+        "assessment": "Ring theorem explicitly assumes three or more actions; no theorem giving the binary pinned-cycle restoration and count",
+        "evidence": [
+          "Section 4.2 excludes m=2 and requires every conformist have C or S neighbor for m>=3"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2607.10997",
+        "material_read": "Full author-accessible HTML, especially Section 4.2, Theorem 4 and its proof, and discussion of m=2 versus m>=3",
+        "method": "Read arXiv HTML and accessible full author-posted text",
+        "title": "Network games with three types of players",
+        "trigger": "Closest complete ring characterization with stubborn players"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "d1f4e977-e38f-4761-97d5-0323760da008",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "One fixed-action vertex resolves the established binary alternating-cycle no-PNE obstruction for all conformist/rebel arrangements, even where generic sufficient conditions fail. The exact multiplicity n/2 on previously frustrated cycle lengths quantitatively distinguishes restoration from existence alone. The rigorous two-action versus three-action boundary is useful for the recent CRS network-game literature and is not an arbitrary finite instance.",
+    "status": "PASS"
+  }
+}
