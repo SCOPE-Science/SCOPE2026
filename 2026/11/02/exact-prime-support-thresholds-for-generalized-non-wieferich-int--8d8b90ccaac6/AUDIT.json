@@ -1,0 +1,126 @@
+{
+  "correctness": {
+    "rationale": "The proof starts from the exact odd-prime LTE identity and proves the prime-power order formula. Chinese remaindering gives ord_n as the lcm; for each p its p-adic valuation is max(M_p, max(0,a_p-h_p)). A second LTE step yields v_p(b^L-1)=max(t_p,a_p), so the quotient valuation and both if-and-only-if conclusions hold for every odd n coprime to b. The assumptions p odd, p not dividing the base, finite support, n>1, and k>=1 are explicit. The package verifier independently tests 3422 direct cases and 549 support-exponent cases, but those finite checks are not a substitute for the proof.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Siegel arXiv:2610.28685v1, Theorem 1.5 and Lemmas 2.1, 2.2, 2.4, 2.5: asymptotics, squarefree sufficient/necessary information, and nonsquarefree counts.",
+        "Franco–Pomerance, Math. Comp. 64 (1995), pp. 1333–1336, Theorems 4–5: density and a one-prime sufficient obstruction."
+      ],
+      "reasoning": "Both earlier papers treat base two and do not claim exact necessary-and-sufficient conditions for arbitrary prime exponents, while the derived all-base threshold gives that stronger local structural answer. Asymptotic counting statements do not imply a unique minimal support vector or the exact first good power. Standard order lifting is nevertheless a plausible implicit derivation and remains a priority risk.",
+      "searches": [
+        "\"An Asymptotic for Non-Wieferich Numbers\" Siegel cyclic numbers prime powers characterization 2026",
+        "Franco Pomerance 1995 \"On a conjecture of Crandall concerning the qx+1 problem\" pdf",
+        "\"non-Wieferich integers\" prime powers criterion all powers multiplicative order"
+      ]
+    },
+    "checked_sources": [
+      "Siegel (2026), arXiv:2610.28685v1, full HTML",
+      "Franco and Pomerance (1995), Math. Comp. 64, full four-page PDF",
+      "OEIS A182297",
+      "OEIS A237292"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Franco–Pomerance shows that p||n and p|ord_n(2) forces Wieferichness.",
+        "Siegel Lemma 2.1 gives a sufficient squarefree condition based on p not dividing q-1; Lemma 2.2 forbids squarefree Wieferich-prime factors.",
+        "The exact new formula permits nonsquarefree cases such as 63 on support {3,7} and gives their full exponent orthant."
+      ],
+      "reasoning": "For squarefree exponent a_p=1 the threshold specializes to conditions h_p=1 and p not dividing any ord_q(b), which are not simply equivalent to the source paper’s stronger sufficient condition excluding p|q-1. Prior one-way obstructions/sufficient hypotheses cannot imply the full iff for all exponents; the proof supplies the missing CRT/LTE calculation. This is a priority assessment rather than an absolute statement of novelty.",
+      "searches": [
+        "\"non-Wieferich\" \"power\" integers order mod n",
+        "\"Wieferich numbers\" \"prime support\" exponents",
+        "\"Siegel An Asymptotic for Non-Wieferich Numbers 2610.28685 prime support full classification\""
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "OEIS A237292 states the general order-ratio identity but does not list t_p=h_p+max_{q in P}v_p(ord_q(b)) or a complete prime-support membership criterion.",
+        "OEIS A182297 defines the same base-two number family and lists initial Wieferich integers."
+      ],
+      "reasoning": "For n odd, the known ratio ord_(n²)(2)/ord_n(2) is an exact alternative way to encode gcd(n,(2^L-1)/n), but is only a pointwise identity. It does not by itself quantify the dependence on all prime exponents or the precise base-general threshold; the new result computes these from cross-prime order valuations.",
+      "searches": [
+        "\"Wieferich numbers\" \"prime support\" exponents",
+        "\"non-Wieferich numbers\" \"prime power\" \"multiplicative order\" characterizations",
+        "OEIS A237292 order ratio ord(n^2)/ord(n)"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "OEIS A182297: explicit enumeration of 21, 39, 55, ... as order-based Wieferich numbers.",
+        "OEIS A237292: order quotient formula for all odd n and a table, not an all-prime-support exponent-vector classification."
+      ],
+      "reasoning": "A sequence table certifies individual values and gives an order-ratio identity; neither constitutes an explicit formula for the cutoff t_p or the power height K_b(n). No full natural-support threshold table was found. The possibility of an unindexed one remains.",
+      "searches": [
+        "site:oeis.org/A182297 Wieferich numbers definition order of 2 n prime exponent",
+        "site:oeis.org/A237292 ord_{n²}(2)/ord_n(2) formula",
+        "\"Wieferich\" \"every odd\" \"power\" \"not\""
+      ]
+    },
+    "rationale": "The 1995 Franco–Pomerance full four-page article gives the definition and a sufficient obstruction; the 2026 Siegel full paper gives asymptotics, a squarefree sufficient criterion, a squarefree Wieferich-factor obstruction, and a nonsquarefree counting bound. Neither gives exact cross-prime exponent thresholds or a first-power formula. The OEIS A182297 listing and A237292 order-ratio identity represent actual exact membership data/alternative expressions but do not determine the full prime-support orthant. The result is a natural explicit characterization, with substantial residual risk of an uncatalogued derivation from known LTE.",
+    "residual_risks": [
+      "Order lifting and CRT are classical; an explicit earlier criterion using the same ingredients could exist without prominent indexing.",
+      "The order-ratio database identity is an alternative full pointwise characterization; its combination with standard lifting makes priority sensitive to what counts as previously implicit.",
+      "No independent mathematical originality assessment has been performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Does not state a complete fixed-support exponent vector threshold or exact power height.",
+        "evidence": [
+          "Definition 1.1, Lemmas 2.1/2.2 on squarefree integers, Lemma 2.4 on nonsquarefree counts; Theorems 1.5/1.7 on asymptotic comparisons."
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2610.28685v1",
+        "material_read": "Full accessible HTML: definitions, main theorem, Lemmas 2.1–2.8, proofs and references.",
+        "method": "Section-by-section HTML textual inspection.",
+        "title": "An Asymptotic for Non-Wieferich Numbers",
+        "trigger": "Same non-Wieferich objects and very recent asymptotic source."
+      },
+      {
+        "assessment": "Proves density and one-prime sufficient obstruction, not the exact all-support valuation law.",
+        "evidence": [
+          "Definition 2 (p.1333), Theorem 4 and proof (pp.1334–1335), remarks and Theorem 5 (p.1335)."
+        ],
+        "identifier_or_url": "https://math.dartmouth.edu/~carlp/PDF/paper101.pdf",
+        "material_read": "All four pages 1333–1336, including Theorems 4–5 and remarks.",
+        "method": "Page-image inspection of authorized full PDF.",
+        "title": "On a Conjecture of Crandall Concerning the qx+1 Problem",
+        "trigger": "Original definition and strongest published initial results."
+      },
+      {
+        "assessment": "No threshold vector, unique least support integer, or exact power height.",
+        "evidence": [
+          "The OEIS entry lists 21 and 39 and defines the sequence through gcd and multiplicative order."
+        ],
+        "identifier_or_url": "https://oeis.org/A182297",
+        "material_read": "Definition, initial terms, comments, formulas, programs, linked references.",
+        "method": "Textual page inspection.",
+        "title": "OEIS A182297",
+        "trigger": "Exact table for the order-based Wieferich condition."
+      },
+      {
+        "assessment": "Encodes membership as an order-ratio identity but does not provide cross-prime threshold t_p.",
+        "evidence": [
+          "Entry states a(n)=ord_(2n+1)^2(2)/ord_(2n+1)(2) and relation to A182297."
+        ],
+        "identifier_or_url": "https://oeis.org/A237292",
+        "material_read": "Definition, known identities, comments, examples and programs.",
+        "method": "Textual page inspection.",
+        "title": "OEIS A237292",
+        "trigger": "Plausible exact stronger characterization through orders mod n and n-squared."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "8d8b90cc-aac6-4dfa-b745-af0554bdaebe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The exact threshold provides a complete classification for every natural fixed prime support, including prime-power factors and cross-prime interactions, and gives the unique least support representative as well as exact first non-Wieferich power for every odd integer. Such qualitative all-support structural information is absent from the motivating asymptotic comparison and squarefree sufficient tests, and is useful for identifying/excluding arbitrary exponent patterns. Technical proof simplicity does not by itself make the natural complete classification a routine rephrasing. It is not claimed to settle global asymptotic distribution.",
+    "status": "PASS"
+  }
+}
