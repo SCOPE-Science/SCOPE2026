@@ -1,0 +1,127 @@
+{
+  "correctness": {
+    "rationale": "The six-bit truth table has exactly 15 possible four-output words, excluding `1100`. The five-bit truth table for Rule 184 after reflected Rule 226 has precisely four mismatch windows 01100, 11000, 11001, 11100, each and collectively equivalent to occurrence of `1100` on a ring. Thus necessity and sufficiency hold at every size, including short rings. Unborderedness makes length-four occurrences nonoverlapping; cyclic-block spacing yields the exact inclusion–exclusion with fixed weight. A four-state prefix-suffix automaton gives trace(A(u)^n), determinant 1-(1+u)z+u^2z^4, and resulting generating function, recurrence and asymptotics. Replayed standalone standard-library verifier returns VERIFY_OK; finite checks cover all length-1..13 rings and matrix inclusion-exclusion agreement through length 18. The proof supplies all-length quantifiers independent of finite experiments.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Fukś (1997), arxiv:comp-gas/9703001v1, pp. 1–3; explicit Rule-184 transition table, multistep preimages of `00`, and density classification, not periodic one-step image",
+        "Boccara–Fukś (1997/1998), arxiv:adap-org/9712003, Sections 2 and 4.1; conservation classification and reflection symmetry of Rules 184/226, not a right inverse on the one-step image",
+        "Kůrka (2009), doi:10.1007/978-0-387-30440-3_556, Rule-184 example; signal/limiting subshifts rather than one-step finite-ring image or fixed-weight counts",
+        "The generic finite-automaton/regular-language method counts forbidden-word sets once a forbidden description is established but does not derive this concrete Rule-184 image and right inverse."
+      ],
+      "reasoning": "Checked whether established CA-image theory, traffic conservation, long-time attractors, or regular-language enumerators imply the claim. All are materially broader frameworks but do not identify the complete one-step image, prove the Rule-226 section, or supply these exact fixed-occupancy counts without a substantive specialization. This leaves some possibility of unindexed specialist coverage.",
+      "searches": [
+        "Surjectivity of traffic CA on 1100-free shifts number of reachable binary periodic configurations",
+        "\"rule 184\" image subshift 1100 0011",
+        "Rule 184 periodic image shift of finite type"
+      ]
+    },
+    "checked_sources": [
+      {
+        "comparison": "different time-depth/block preimage and density-classification question",
+        "id": "arxiv:comp-gas/9703001v1"
+      },
+      {
+        "comparison": "establishes reflection and conservation, not the section/image theorem",
+        "id": "arxiv:adap-org/9712003"
+      },
+      {
+        "comparison": "limiting and signal dynamics rather than one-step ring images",
+        "id": "doi:10.1007/978-0-387-30440-3_556"
+      },
+      {
+        "comparison": "closest records discussed other cellular automata; no identical theorem located",
+        "id": "research-record semantic results (actual three queries documented)"
+      }
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Fukś (1997), arxiv:comp-gas/9703001v1, pp. 1–3; explicit Rule-184 transition table, multistep preimages of `00`, and density classification, not periodic one-step image",
+        "Boccara–Fukś (1997/1998), arxiv:adap-org/9712003, Sections 2 and 4.1; conservation classification and reflection symmetry of Rules 184/226, not a right inverse on the one-step image",
+        "Kůrka (2009), doi:10.1007/978-0-387-30440-3_556, Rule-184 example; signal/limiting subshifts rather than one-step finite-ring image or fixed-weight counts"
+      ],
+      "reasoning": "The first paper treats an m-step preimage count for block `00` and a stationary-density conclusion; one block at arbitrary time does not characterize all possible full outputs at time one. The second characterizes number-conserving local rules, including 184/226, but reflection is not a right inverse by itself and gives no image or count. The third concerns topological/signal and limiting dynamics, rather than exact finite periodic one-step images. The present statement is not logically implied by the inspected propositions without additional arguments. No stronger identical claim was found.",
+      "searches": [
+        "arxiv:comp-gas/9703001v1 Sections II–III",
+        "arxiv:adap-org/9712003v2 Sections 2,4.1",
+        "doi:10.1007/978-0-387-30440-3_556 Rule 184 example"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Fukś (1997), arxiv:comp-gas/9703001v1, pp. 1–3; explicit Rule-184 transition table, multistep preimages of `00`, and density classification, not periodic one-step image",
+        "Boccara–Fukś (1997/1998), arxiv:adap-org/9712003, Sections 2 and 4.1; conservation classification and reflection symmetry of Rules 184/226, not a right inverse on the one-step image",
+        "Rule 226 is the reflected traffic rule; the new local composition identity is strictly stronger than that symmetry."
+      ],
+      "reasoning": "Compared the same object under traffic CA, Wolfram Rule 184, Garden-of-Eden language, reflected Rule 226, periodic preimage, and cyclic forbidden-factor formulations. Reflected-rule equivalence does not entail the pointwise predecessor selector; conservation does not specify which words occur. No inspected corresponding equivalence covers the exact theorem.",
+      "searches": [
+        "Rule 184 elementary cellular automaton exact one-step image finite cyclic configurations avoiding 1100, Tribonacci Lucas enumeration, rule 226 right inverse",
+        "Traffic cellular automaton 184 Garden of Eden iff contains substring 1100 on ring; transfer matrix generating function",
+        "\"rule 184\" \"1100\" \"image\" cellular automaton",
+        "\"rule 184\" \"rule 226\" \"inverse\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The accessible research record hits centered on Rule 115 finite-support periods, five-neighbor bijectivity, and other unrelated automata, not a Rule-184 image count.",
+        "A direct keyword and recurrence search did not identify a published length-by-length Rule-184 image table."
+      ],
+      "reasoning": "Searched the exact forbidden word, Rule numbers, transfer/recurrence aliases, and short initial count terms. No matching table was obtained; a negative search is weak evidence and is not used as a proof of originality.",
+      "searches": [
+        "Rule 184 elementary cellular automaton exact one-step image finite cyclic configurations avoiding 1100, Tribonacci Lucas enumeration, rule 226 right inverse",
+        "Traffic cellular automaton 184 Garden of Eden iff contains substring 1100 on ring; transfer matrix generating function",
+        "Surjectivity of traffic CA on 1100-free shifts number of reachable binary periodic configurations",
+        "\"rule 184\" \"Tribonacci\" \"reachable\"",
+        "\"rule 184\" \"1100\" \"predecessor\""
+      ]
+    },
+    "rationale": "Primary inspection confirmed that Fukś (1997) computes preimages of `00` and time-asymptotic density behavior, while Boccara–Fukś classifies number-conserving rules and states that Rule 226 is the reflection of Rule 184. Neither examined primary text gives the exact cyclic one-step image language, the equivalence F∘G=identity on that image, or the fixed-weight reachable-state enumeration. The generalized fact that CA images are sofic or finite-type in special cases is insufficient by itself to give this four-letter obstruction and explicit section. Searches of research records and accessible earlier claims found no equivalent or dominating statement. Historical priority remains provisional.",
+    "residual_risks": [
+      "Historical priority is not established by negative searches, and older cellular-automata image-language tables may contain this special case under different names.",
+      "A specialist work on Rule-184 Garden-of-Eden patterns or sections might cover the one-step image without using the exact search phrase.",
+      "The generic one-forbidden-word inclusion–exclusion and transfer-matrix methods are standard; independent novelty must concern their application to the explicit Rule-184 reachability/section theorem, not the counting algorithm alone."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Classical traffic dynamics and multistep block-preimage calculations; no complete cyclic one-step image or Rule-226 inverse / fixed-weight image count",
+        "evidence": "Section II (transition table; `00` preimages), Section III and Proposition 2 (long-time regimes)",
+        "identifier_or_url": "https://arxiv.org/pdf/comp-gas/9703001",
+        "material_read": "Complete five-page primary PDF including local rule table, Proposition 1 on preimages of `00`, Proposition 2 on eventual patterns, and final density classification",
+        "method": "Open-access PDF reading and page-image inspection",
+        "title": "Solution of the Density Classification Problem with Two Cellular Automata Rules",
+        "trigger": "Foundational Rule-184 preimage and conservation paper, earliest dated source"
+      },
+      {
+        "assessment": "Establishes Rule-184 conservation and Rule-226 reflection, neither statement characterizes the one-step image or proves F∘G is identity there",
+        "evidence": "Sections 2, 4.1; explicit statement that Rules 184 and 226 are the nontrivial 3-input number-conserving rules",
+        "identifier_or_url": "https://arxiv.org/pdf/adap-org/9712003",
+        "material_read": "Fourteen-page open preprint, especially Sections 1–4; Section 4.1 identifies the reflected counterpart and Section 2 defines conservation on cycles",
+        "method": "Open-access full-text reading; checked original page images of title and Section 4.1",
+        "title": "Cellular Automaton Rules Conserving the Number of Active Sites",
+        "trigger": "Exact two Rule numbers 184 and 226, potential dominating theorem"
+      },
+      {
+        "assessment": "Limiting/signal subshift and topological dynamics, not a detailed finite periodic one-step image enumeration",
+        "evidence": "Examples on Rule 184; distinct from image F(X) at one finite step",
+        "identifier_or_url": "https://doi.org/10.1007/978-0-387-30440-3_556",
+        "material_read": "Accessible full-text HTML reproduction (not verified as author-hosted), sections on images/attractors and Example 12 on Rule 184; publisher DOI as canonical identifier",
+        "method": "HTML full-text inspection, and comparison of dynamics objects",
+        "title": "Topological Dynamics of Cellular Automata",
+        "trigger": "Rule-184 signal subshifts and CA image theory might dominate finite periodic results"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "5a87e303-8c99-4697-8fa3-43b7583b06d5",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The classical traffic-automaton inverse problem for a prescribed complete circular post-update state at fixed particle density is natural in finite dynamical systems and traffic modeling. A four-bit local obstruction provides a sharp existence criterion, reflected Rule 226 constructs a predecessor locally in one step, and density-refined exact state counts quantify the accessible phase space at each ring size. These structural all-length results are substantively stronger than routine enumeration and do not rely on a chosen artificial finite slice.",
+    "status": "PASS"
+  }
+}
