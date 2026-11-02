@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness: PASS
+## correctness
 
-The necessity direction is an exhaustive exact-arithmetic search justified by a strict rational upper bound on every branch; no unexplained finite root cutoff is used. The sufficiency direction decomposes seven cases into binomid Pascal columns and treats the exceptional quintic by an all-moduli floor-carry lemma. At the unique negative carry for modulus four the modulus-two carry provides an exact offset, so all prime valuations of every generalized coefficient are nonnegative. The bundled verifier reproduces all 1,323 finite candidates and eight survivors, with additional residue and coefficient checks. The enumeration and proof have been reconstructed, including zero shifts, zero-index coefficients, arbitrary positive indices, and the exceptional boundary.
+PASS
 
-## Originality: PASS relative to inspected sources
+For every sorted quintuple of nonnegative integers and every n>=1, 0<=k<=n, reconstructs the three necessary B_f(2,1), B_f(3,1), B_f(4,2) tests, the exhaustive monotonic-rational prefix bound for the first test, and exact five-shift enumeration of 927939 prefix calls, 1323 first-test tuples, and eight survivors. For seven cases the nonincreasing multiplicities decompose into binomid Pascal-column factors. For the exceptional n^3(n+1)(n+3), the all-modulus floor-carry lemma has unique negative E_4(1,1)=-1, canceled at p=2,j=1 by E_2(1,1)=1; for all m>=6 the three zero shifts dominate both possible negative contributions, and m<=5 is handled explicitly. Legendre valuations then prove integrality of every B_f(n,k), not just checked rows. Independently recomputed the exhaustive enumeration and finite m<=100 checks, plus 8-tuples for n<=50; finite experiments corroborate the bound/lemma but are not the infinite proof.
 
-Shapiro's arXiv:2302.02243v1 provides the definitions, Pascal-column theorem and degree-two classification, but not the five-root quintic classification or the exceptional non-Pascal-column product. Caalim–Tanaka arXiv:2505.20018v1 provides a general valuation framework without the concrete classification or finite three-test recognition. Exact-shift, alias, stronger-result, sequence-table and published-finding corpus searches located no equivalent or dominating theorem; failure to locate one does not prove global novelty. Previously recorded classifications of lower degrees or unrelated binomid recurrences do not imply this degree-five exception. Risk: unindexed or differently named equivalent literature.
+## originality
 
-## Value: PASS
+PASS
 
-The result classifies an infinite five-parameter natural integer-root subclass of the polynomial binomid problem, supplies an exact finite recognition criterion, and exhibits a structural departure from simple products of Pascal columns in degree five. The exceptional family needs a genuine local compensation mechanism rather than a routine substitution or a small improvement of earlier lists. The restricted domain and non-independent status are disclosed.
+Best-of-knowledge originality for the COMPLETE five-shift quintic classification and exact three-test recognition. Shapiro establishes binomid Pascal-column examples and degree-at-most-two polynomial classification; these cover seven individual sufficient examples, but neither classify all five shifts nor supply the nonmonotone exceptional quintic. General binomid-index and prime-valuation theory from Caalim–Tanaka gives an equivalent test language but no proved automatic eight-tuple specialization. Actual Resultary/publication, primary-paper and sequence-table comparisons revealed no prior implication of the full theorem. Priority remains qualified: an unindexed equivalent polynomial/lattice-factorial-ratio theorem could exist; failed searches are not novelty proofs.
 
-Self-review: passed. Independent audit: not yet performed.
+## value
+
+PASS
+
+The binomidness problem for positive integer-root polynomial factors is a naturally motivated extension of classical Pascal columns; a complete degree-five integer-shift classification replaces five freely varying shift parameters by exactly eight realizable multisets. Three fixed low-index integrality tests unexpectedly recognize all cases, and the one non-Pascal product reveals a genuine two-adic carry-compensation mechanism absent from monotone root multiplicities. This is a structural counterexample to the naive Pascal-product-only conjecture, and a useful exact test case for subsequent classifications; no claim for arbitrary quintic coefficients, higher iterates or noninteger shifts.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
