@@ -1,0 +1,15 @@
+# Scientific review: two-site capture on the truncated icosahedron
+
+## Correctness (C): PASS
+The claim is restricted to the 60-vertex unweighted truncated-icosahedral graph, coherent hopping \(J>0\), two distinct positive-rate absorbers, and asymptotic one-particle absorption. The loss law follows by a complete invariant-subspace argument, including exclusion of non-decaying eigenmodes in the bright space. A degree-15 annihilating polynomial is checked exactly on all basis vectors. The 120 explicit symmetry permutations partition all 1770 pairs into 23 orbits, and each representative rank is computed over \(\mathbb Q\). Direct geometry checks establish the stated placement rule. No finite-time or disordered conclusion is drawn. Residual correctness risk is implementation error in the finite checker, addressed by reproducible code, a visible certificate, and independent analytical upper bounds.
+
+## Originality (O): PASS on inspected evidence, historically provisional
+The closest conceptual results are the general quantum-hitting and dark-space mechanisms of Varbanov--Krovi--Brun (2008) and Le--Donati--Severini--Caruso (2017), and the general strong-cospectrality characterization of Coutinho (2016). Bougroura--Aissaoui--Chancellor--Kendon (2016) study the **same fullerene graph** but a coined discrete-time walk, while Dhamapurkar--Dahlsten (2023) analyze closed fullerene walks and thermalization. None of the inspected material states the exact four-level pair-rank distribution or implies it without additional graph-specific calculation. Prior-known inversion symmetry and cyclic-space principles are explicitly excluded from the novelty claim. Historical priority remains provisional because a differently indexed calculation could exist.
+
+## Value (V): PASS
+The graph is the molecularly motivated 60-site fullerene network. A complete placement rule, rather than a single computed number, distinguishes a fully redundant second sink from generic near-doubling of the capture fraction and two intermediate special families. The sharp maximum \(29/60\) and exact multiplicities provide design and benchmark data for coherent transport on finite molecular graphs. The result is a natural complete classification, not merely the reapplication of the general formula to an arbitrarily selected initial state.
+
+## Limitations and source comparisons
+The 2008 work uses Poissonian measurement to define hitting time, so its dynamical protocol differs from constant non-Hermitian sinks. The 2016 fullerene study uses a discrete-time coined walk; its plotted arrival curves do not give this finite exact rank table. Coutinho's walk-module and strong-cospectrality lemmas provide vocabulary and implications but do not instantiate the 23 fullerene placement classes. The 2017 dark-space article provides the general mechanism and different biological-network applications. The 2023 fullerene study has no local absorbing terms. Unindexed equivalent computations remain a historical-priority risk.
+
+Self-review: passed. Independent audit: not yet performed.
