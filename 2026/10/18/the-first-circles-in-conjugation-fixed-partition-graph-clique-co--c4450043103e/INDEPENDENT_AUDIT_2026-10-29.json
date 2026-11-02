@@ -1,0 +1,175 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T01:48:00.954196Z",
+  "axes": {
+    "correctness": {
+      "rationale": "All-size PL fixed-point orbit model follows from uniqueness of barycentric coordinates of a simplicial involution: on each support simplex, tau-invariance is equality of weights along 1- and 2-element conjugation orbits, and a set of orbit barycenters spans a simplex precisely when each orbit is internally a clique and all cross-pairs are adjacent; this is exactly Cl(H_n). If two conjugate distinct Ferrers diagrams differ by one transfer, their n−1 common cells form a self-conjugate diagram and the added cells are transposed off-diagonal addable corners; converse is immediate. For all 22 sizes, the actual certificate.json blob SHA c03b41d... was independently parsed and checked: partition sets up to p(22)=1002; adjacency independently characterized by Ferrers-intersection cardinality n−1; all admissible orbits/compatibility cliques rebuilt; all 414 faces, all 160 ordered actual free-face pairs uniquely certified at the exact deletion step; residual graph vertices/edges, components, cycle ranks and separate mod-2 boundary ranks matched all 22 rows. At n=18 and 20 the core is one isolated point plus an 8-vertex graph with beta1=1; at n=22 it is one point plus a 15-vertex beta1=2 graph; all other n≤22 have only contractible components. Actual elementary collapses preserve integral homotopy, not just mod-two ranks. Published K_n≃wedge S² ensures reduced rational homology concentrated in degree 2; simplicial Lefschetz identifies 1+tr(tau|H2) with chi(F_n). Thus chi(F_22)=0 gives trace −1; smaller n give chi=1 or 2 and nonnegative traces. The all-size orbit model is proved but no finite certificate extrapolates to n>22.",
+      "residual_risks": [
+        "The independent checker used Ferrers overlap to generate adjacency; this equivalence follows from one-box transfer but is a normalization to retain.",
+        "Finite certificates end at n=22; no global homotopy stabilization is asserted."
+      ],
+      "sources": [
+        "Assigned RESULT.md, certificate.json and verify.py, with exact source blob identities",
+        "Independent direct certificate replay from actual package: 22 cases, 414 faces, 160 free pairs",
+        "Lyudogovskiy arXiv:2603.14370 Theorem 7.4; arXiv:2603.22546 Proposition 2.1"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "arXiv:2603.14370 Theorem 7.4 establishes K_n ≃ wedge^{chi(K_n)-1} S² for all n; no conjugation-fixed homotopy theorem was located in the full HTML.",
+          "arXiv:2606.20773 derives ordinary nerve/anchor-poset reductions; Open Problem 8.4 asks about conjugation symmetry in those models.",
+          "Ordinary topological equivalence is not an equivariant equivalence and does not determine fixed-point sets or the group action on H_2."
+        ],
+        "reasoning": "The stronger all-n nonequivariant results supply a premise for the Lefschetz reduction, but not the new required fixed-space Euler characteristic; their coverage does not dominate the assessed equivariant finite census.",
+        "searches": [
+          "arxiv:2603.14370 Theorem 7.4 and Corollary 7.5",
+          "arxiv:2606.20773 Section 5 and Open Problem 8.4",
+          "equivariant homotopy fixed point orbit complex flag complex graphs involution Lefschetz character",
+          "site:arxiv.org Fedor B. Lyudogovskiy equivariant partition 2026"
+        ]
+      },
+      "checked_sources": [
+        "Lyudogovskiy arXiv:2603.14370, full HTML Theorem 7.4 and proof",
+        "Lyudogovskiy arXiv:2603.22546, full HTML Proposition 2.1 and Theorem 5.1",
+        "Lyudogovskiy arXiv:2603.26656, full HTML Section 5 ordinary numerical topology",
+        "Lyudogovskiy arXiv:2606.20773, arXiv text-rendered manuscript Sections 2/5/6/7/8",
+        "Resultary semantic results for three targeted mathematical queries; no same-object coverage among retrieved hits",
+        "GitHub code search Resultary/2026: conjugation partition graph, Lyudogovskiy, fixed-point partition graph; no relevant match",
+        "OEIS and broader literature search for fixed-point clique complex, character, n=18 and n=22"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Known graph conjugation automorphism enables the action, but does not determine the fixed-vertex/orbit complex homotopy.",
+          "Known ambient K_n sphere-wedge theorem plus finite-order simplicial Lefschetz gives tr(tau|H2)=chi(F_n)-1, but no known source supplies chi(F_n).",
+          "The new 22-case integral collapse table provides the missing chi(F_n), with first H1 at 18 and first negative trace at 22."
+        ],
+        "reasoning": "Prior premises imply the character formula as a method, not its sharp input or first-occurrence numerical conclusions; no checked source logically implies the full assessed statement.",
+        "searches": [
+          "arxiv:2603.14370 Theorem 7.4",
+          "arxiv:2603.22546 Theorem 5.1",
+          "arxiv:2603.26656 Section 5",
+          "arxiv:2606.20773 Open Problem 8.4",
+          "GitHub code search in Resultary/2026: conjugation partition graph; Lyudogovskiy"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Lyudogovskiy arXiv:2603.22546 Proposition 2.1 makes conjugation a graph automorphism and Theorem 5.1 gives the edgeless self-conjugate vertex axis and graph spines.",
+          "That fixed-vertex axis differs from |Cl(G_n)|^tau, where barycenters of conjugate edges also lie. The finite orbit-compatibility complex records these missing cells.",
+          "The general fixed-point-orbit flag construction is a standard simplicial-involution principle and is not claimed in isolation as original."
+        ],
+        "reasoning": "Neither axis of fixed vertices nor fixed simplices only equals the geometric fixed space; no checked equivalent formulation provides the finite homotopy classification or trace.",
+        "searches": [
+          "partition graph clique complex conjugation involution fixed vertices transposed Ferrers diagram axial morphology",
+          "\"partition graph\" \"conjugation\" \"geometric\" \"homotopy\"",
+          "arxiv:2603.22546 Proposition 2.1; Theorem 5.1",
+          "Resultary: geometric fixed point topology conjugation Ferrers integer partition graph clique complex homology trace first circles 18 22"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "arXiv:2603.26656 Section 5 lists ordinary Euler numbers at n=18 as 311 and n=22 as 1294; these are chi(K_n), not chi(|K_n|^tau).",
+          "OEIS/A241151 and ordinary partition graph degree sequences address different graph statistics, not integral H1 of the fixed realization.",
+          "Searches did not yield any exact published fixed-space homotopy/trace table; absence of hits is not priority proof."
+        ],
+        "reasoning": "Ordinary c_r(n) or chi(K_n) cannot give the signed conjugation trace without additional fixed-simplices information, so matching n values do not constitute exact-table coverage.",
+        "searches": [
+          "arxiv:2603.26656 Section 5 Table of chi(K_n) and b_n through n=25",
+          "site:oeis.org \"partition graph\" \"fixed\" \"Euler\"",
+          "site:oeis.org \"conjugation\" \"clique complex\" \"partition\"",
+          "\"partition graph\" \"fixed\" \"Lefschetz\" \"conjugation\" \"18\""
+        ]
+      },
+      "rationale": "Best-of-knowledge PASS after statement-level comparison of same-object primary sources, Resultary semantic searches, published repository code searches and database/table searches. The barycentric fixed-orbit construction itself is standard; the novel candidate is its Ferrers-specific paired-corner instantiation together with the exhaustively certified sharp integral fixed-space homotopy through n=22 and negative rational conjugation character at n=22. A general nonequivariant sphere wedge theorem or ordinary clique-count table does not imply the involution character.",
+      "residual_risks": [
+        "The general barycentric orbit-complex construction is standard; not counted as independently significant novelty.",
+        "An unindexed or very recent exact fixed-space homotopy table or equivalent equivariant theorem could exist.",
+        "arXiv:2606.20773 direct HTML endpoint was inaccessible; arXiv text-rendered manuscript contained the inspected relevant sections, not a checked PDF copy.",
+        "Finite certificate has no claim beyond n=22, and priority search is not exhaustive."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Theorem 7.4 proves only ordinary K_n ≃ wedge of 2-spheres, not the fixed-space census or homology representation.",
+          "evidence": [
+            "arXiv HTML Theorem 7.4 at lines 1652–1667; Corollary 7.5 at 1671–1676; full text has no conjugation match."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.14370v1",
+          "material_read": "HTML table of contents, definitions, Sections 5–8, Theorem 7.4, Corollary 7.5, searches for conjugation/equivariance",
+          "method": "Read primary full HTML theorem and methods; checked implication from nonequivariant to equivariant fixed spaces",
+          "title": "The homotopy type of the clique complex of the partition graph",
+          "trigger": "Same graph and ambient clique complex; possible dominating theorem"
+        },
+        {
+          "assessment": "Proposition 2.1 establishes conjugation automorphism; Theorem 5.1 treats the edgeless graph axis/spine, not midpoint-enhanced fixed-space homotopy.",
+          "evidence": [
+            "Proposition 2.1 at lines 123–129; Theorem 5.1 at lines 600–630."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.22546v1",
+          "material_read": "HTML Sections 2–6, Proposition 2.1, Theorem 5.1, computational tables and outlook",
+          "method": "Primary theorem-level comparison of graph fixed vertices versus geometric realization fixed points",
+          "title": "Axial Morphology of the Partition Graph: Self-Conjugate Axis, Spine, and Concentration",
+          "trigger": "Same involution and exact self-conjugate vertex axis"
+        },
+        {
+          "assessment": "Ordinary clique-count and Euler data do not include conjugation-fixed homotopy or signed character.",
+          "evidence": [
+            "Section 5.1 lines 598–636 gives chi(K_18)=311 and chi(K_22)=1294, not chi(F_n)=1 and 0."
+          ],
+          "identifier_or_url": "https://arxiv.org/html/2603.26656v1",
+          "material_read": "HTML definitions, Section 5 counts, numerical table and stated range",
+          "method": "Checked exact table object chi(K_n) against the assessed chi(F_n) and H1(F_n)",
+          "title": "Numerical topology of the clique complex of the partition graph: Euler characteristic, clique counts, and sequence data",
+          "trigger": "Potential exact table with matching parameter n≤22"
+        },
+        {
+          "assessment": "Its Section 8.4 explicitly leaves conjugation-equivariant nerve/axis signatures for future work and does not state the finite fixed-point table.",
+          "evidence": [
+            "Section 5 background good-cover and poset reduction at lines 382–431, 561–579; Section 7 ordinary rank at 654–696; Open Problem 8.4 and future refinements at 719–757."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2606.20773",
+          "material_read": "arXiv text-rendered manuscript sections 2, 5, 6, 7 and 8, including theorem/poset reduction and Open Problem 8.4; direct /html endpoint failed",
+          "method": "Read available manuscript text, compared scope of nerve and low-dimensional poset against geometric fixed-space theorem",
+          "title": "Local Complexity, Overlap Control, and Global Simplicity in Partition Graphs: A Conceptual Synthesis",
+          "trigger": "Broad latest synthesis and explicit equivariant modeling question"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Conjugation is the canonical internal involution of the integer-partition transfer graph, so its geometric fixed realization and rational action on H2 are motivated invariants. Earlier graph-level axis results omit fixed barycenters, while the ambient nonequivariant 2-sphere wedge misses the fixed one-dimensional topology entirely. The exact all-size orbit model and full 1≤n≤22 integral-collapse classification determine sharp qualitative first transitions: an S1 component at n=18 and a negative homology-character trace at n=22. These are meaningful exact finite cutoff results and a natural partial answer to a prior published equivariant-modeling direction; they do not claim an unproved general recurrence or a stronger all-size classification.",
+      "residual_risks": [
+        "Future n≥23 fixed homotopy remains open; an exact table does not by itself furnish an infinite recurrence."
+      ],
+      "sources": [
+        "arXiv:2606.20773 Open Problem 8.4",
+        "Assigned RESULT.md and independently replayed 22-case certificate"
+      ],
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Lyudogovskiy arXiv:2603.14370, full HTML Theorem 7.4 and proof",
+    "Lyudogovskiy arXiv:2603.22546, full HTML Proposition 2.1 and Theorem 5.1",
+    "Lyudogovskiy arXiv:2603.26656, full HTML Section 5 ordinary numerical topology",
+    "Lyudogovskiy arXiv:2606.20773, arXiv text-rendered manuscript Sections 2/5/6/7/8",
+    "Resultary semantic results for three targeted mathematical queries; no same-object coverage among retrieved hits",
+    "GitHub code search Resultary/2026: conjugation partition graph, Lyudogovskiy, fixed-point partition graph; no relevant match",
+    "OEIS and broader literature search for fixed-point clique complex, character, n=18 and n=22"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "All-size fixed orbit model; integral homotopy classification restricted to n=1..22.",
+    "First H1 and negative trace are first-occurrence statements only in assessed certified interval.",
+    "No formal Lean or human expert attestation; preserve those external verification channels unmodified.",
+    "Publication plan staged only; no GitHub write or downstream import is claimed."
+  ],
+  "residual_risks": [
+    "The general barycentric orbit-complex construction is standard; not counted as independently significant novelty.",
+    "An unindexed or very recent exact fixed-space homotopy table or equivalent equivariant theorem could exist.",
+    "arXiv:2606.20773 direct HTML endpoint was inaccessible; arXiv text-rendered manuscript contained the inspected relevant sections, not a checked PDF copy.",
+    "Finite certificate has no claim beyond n=22, and priority search is not exhaustive."
+  ],
+  "schema_version": 1
+}
