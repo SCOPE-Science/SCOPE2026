@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,20 +19,24 @@
 }
 ---
 
-# Verification of exact Bernoulli-image dependence phases
+# Independent mathematical audit
 
-The bundled `verify.py` recomputes every one of the 256 Wolfram rule truth tables. For each rule it enumerates input words of lengths three, four, and five to compute symbolic joint probability polynomials for output words of lengths one, two, and three. It computes the exact monic gcd for each endpoint conditioning family, checks that the only possible common interior root is \(1/2\), and confirms the exact 32/56 one-dependence counts. It independently calculates both lag-two mean-difference polynomials and all seven exceptional bias values, with the 42/104/48/56/46 census stated in the theorem.
+## correctness
 
-Running `python verify.py` with Python 3.10+ and SymPy installed regenerates `classification.csv`. This exact symbolic procedure returned:
+PASS
 
-```text
-VERIFY_OK: 256 rules; one-dependent for every 0<p<1 exactly 32 rules;
-at p=1/2 exactly 56 rules; no other exceptional one-dependence bias;
-pairwise lag-2 independence generic 42, 7 exceptional biases;
-independent 9-bit exact enumeration confirms 56/32/32/32 at 1/2,1/3,1/4,2/3;
-classification CSV regenerated: 256 rows.
-```
+For centered radius-one output Y_i=f(X_(i-1),X_i,X_(i+1)) with iid Bernoulli p, output past i<=0 and future i>=2 share exactly input X_1. Conditional on X_1 they are independent; the covariance of any past/future cylinder events is p(1-p) times their conditional-law contrasts. For 0<p<1 true one-dependence is therefore equivalent to at least one entire side being independent of X_1, a stronger test than lag-two covariance. The four-state weighted transducer has reachable row and column spans of dimension ≤4, so conditional shielding for output words of lengths 0..3 extends to all words. Independent rational-polynomial GCD enumeration for all 256 rule truth tables checked exactly 32 all-bias one-dependent rules, 56 at p=1/2, with only fair p as an extra interior parameter. Independent symbolic pairwise polynomial analysis found exactly 42 generic lag-two-independent rules and the seven exceptional biases/counts, and seven-input enumeration confirmed Rule22 p=1/3 block gap 32/6561. Additional interleaved separated index-set tests on all 56 fair candidates showed no omitted dependence. All bias assertions rely on exact symbolic polynomial identities, not finitely chosen numeric sample biases.
 
-A separate direct enumeration of seven independent input bits for Rule 22 at \(p=1/3\) returned \(\Pr(A)=\Pr(B)=29/81\), \(\Pr(A\cap B)=97/729\), and covariance \(32/6561\). The mathematical argument in `RESULT.md` supplies the four-state stabilization lemma needed to pass from finitely many word tests to all half-line cylinder events. The script checks the finite calculations, not historical priority and not a statement about two or more temporal updates.
+## originality
 
-Independent audit has not been performed.
+PASS
+
+Existing cellular-automata Bernoulli literature establishes invariance/preservation of uniform Bernoulli under particular surjective or algebraic/permutative rules, which gives known iid special cases but not the 256-rule all-bias one-step one-dependence census. Kari–Taati analyze Gibbs invariance and temporal randomization and Borriello–Walker transfer-entropy classes; these observables are not equivalent to conditional shielding of separated spatial output half-lines. The 32/56 phase classification, seven special pairwise biases, and explicit Rule22 false-negative were not identified in inspected primary results. However, an older CA dependence table or transducer-based classification could subsume the result; this risk persists.
+
+## value
+
+PASS
+
+One-dependence of a one-step factor of iid is a canonical probabilistic property, not reducible to pairwise correlation tests. An exhaustive exact classification across a standard finite 256-rule family identifies a unique exceptional fairness phase and striking seven different algebraic pairwise resonances; the Rule22 block witness sharply explains how pairwise independence can conceal true sigma-field dependence. The result is a motivated complete classification, not a statement about temporal iteration or general finite-range factors.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
