@@ -1,0 +1,11 @@
+# Mathematical review
+
+**Correctness (C): PASS.** The precise scattered-subsequence definitions and binary alphabet are explicit. A shortest-absence dynamic recurrence follows by greedy matching of the first letter, and a deterministic three-difference-state transfer across each of four concrete sixteen-symbol blocks gives twelve finite checkable table entries. The table proves the arbitrary-block exponent identity. The Rudin–Shapiro bit recurrence proves the canonical block coding, and a paired parity sum proves the all-rank index formula. The included checker directly verifies table entries, all block concatenations of up to four blocks, and ten power-of-two prefixes, but these finite tests are not substituted for induction.
+
+**Originality (O): PASS under documented priority uncertainty.** The closest checked specific-sequence paper is Currie et al. (arXiv:1301.4972, Section 8), which studies lexicographic extremal infinite Rudin–Shapiro words; Schaeffer–Shallit (arXiv:1508.02074) studies contiguous factor properties. The closest general subsequence papers are Kosche et al. (arXiv:2108.13968), on shortest absent subsequences and algorithms, and Adamson et al. (arXiv:2407.18599), on extremal counts under fixed universality. Neither inspected source provides this exact binary four-block transfer or these dyadic Rudin–Shapiro counts. General algorithms imply finite computability, not the claimed all-rank closed form. Search coverage is not exhaustive; unlocated prior equivalents remain possible.
+
+**Value (V): PASS.** The precise index and doubly-exponential-in-rank shortest-absence cardinality, with a parity correction, give nontrivial closed invariants for a classical automatic sequence. The stronger arbitrary-concatenation identity isolates a natural morphism-aligned sixteen-letter block class and explains the power-of-two count rather than merely tabulating values. This identifies structure that generic finite algorithms do not display.
+
+**Limits:** Rank \(k\ge4\) and literal four-block concatenations only; shortest absent scattered words only. No independent mathematical audit or exhaustive historical-priority certification.
+
+Self-review: passed. Independent audit: not yet performed.
