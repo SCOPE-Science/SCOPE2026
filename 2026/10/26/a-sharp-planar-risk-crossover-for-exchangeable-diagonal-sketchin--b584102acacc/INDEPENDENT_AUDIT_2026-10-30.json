@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T19:59:50.940744Z",
+  "axes": {
+    "correctness": {
+      "rationale": "For 2x2 SPD A=[a c;c b] with independently sampled Rademacher signs, the leave-one-out projector on Aw yields signed residual vector f_s=-s(ab-c^2)(b+sc,a+sc)/[(a+sc)^2+(b+sc)^2]. Enumerating all held-out sign outcomes gives RX=((ab-c^2)^2(a^2+b^2+c^2))/[(a^2+b^2)^2-8abc^2+4c^4], versus four-probe BKS risk c^2/2. The cubic H_sigma(z) has H_sigma(0)>0, H_sigma(1)<0 for sigma>2 and H_sigma prime strictly negative since H_sigma double-prime>0 and derivative at 1<0; sigma=2 yields positive H=2(1-z)^2(2-z). High-dimensional non-domination: A=I_n makes BKS exact and XDiag can err when probes coincide, whereas A=vv^T+epsilon I with superincreasing coordinates makes leave-one-out projection converge to rank-one exact while BKS variance remains positive. Independent exact rational sign enumerations matched both risks in four SPD examples.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "XTrace framework and diagonal-estimation variance bounds; General leave-one-out estimates and empirical qualitative improvements do not provide the explicit planar rational risk or unique correlation threshold."
+        ],
+        "reasoning": "General leave-one-out estimates and empirical qualitative improvements do not provide the explicit planar rational risk or unique correlation threshold.",
+        "searches": [
+          "XDiag exchangeable leave one out diagonal estimator versus Rademacher Hutchinson Bekas four matvec exact variance positive definite 2 by 2",
+          "Resultary semantic search for XTrace framework and diagonal-estimation variance bounds"
+        ]
+      },
+      "checked_sources": [
+        "Actual RESULT.md tree blob 1399fdf728a76d819b65ed0896c8a84002559b4c",
+        "Epperly–Tropp–Webber arXiv:2301.07825 sections 2.4,4.4",
+        "Resultary 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Epperly–Tropp–Webber Section 2.4 projector construction and Section 4.4 experiments; Those results supply the algorithms; direct nontrivial two-sign enumeration plus cubic monotonicity and rank-one continuity is needed for the new comparison."
+        ],
+        "reasoning": "Those results supply the algorithms; direct nontrivial two-sign enumeration plus cubic monotonicity and rank-one continuity is needed for the new comparison.",
+        "searches": [
+          "XDiag exchangeable leave one out diagonal estimator versus Rademacher Hutchinson Bekas four matvec exact variance positive definite 2 by 2",
+          "Resultary semantic search for Epperly–Tropp–Webber Section 2.4 projector construction and Section 4.4 experiments"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Two-probe exchangeable leave-one-out projector vs four-probe Rademacher diagonal estimator; The conceptual projector definition is identical to the XDiag residual construction in XTrace; treating equal-matvec cost correctly requires two forward/adjoint products for XDiag, not four independent projection probes."
+        ],
+        "reasoning": "The conceptual projector definition is identical to the XDiag residual construction in XTrace; treating equal-matvec cost correctly requires two forward/adjoint products for XDiag, not four independent projection probes.",
+        "searches": [
+          "XDiag exchangeable leave one out diagonal estimator versus Rademacher Hutchinson Bekas four matvec exact variance positive definite 2 by 2",
+          "Resultary semantic search for Two-probe exchangeable leave-one-out projector vs four-probe Rademacher diagonal estimator"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Resultary AdaHessian exact off-diagonal curvature leakage; general stochastic diagonal benchmarking; AdaHessian is a second-moment estimator in optimization and its inflation table is not the XDiag-vs-BKS risk polynomial."
+        ],
+        "reasoning": "AdaHessian is a second-moment estimator in optimization and its inflation table is not the XDiag-vs-BKS risk polynomial.",
+        "searches": [
+          "XDiag exchangeable leave one out diagonal estimator versus Rademacher Hutchinson Bekas four matvec exact variance positive definite 2 by 2",
+          "Resultary semantic search for Resultary AdaHessian exact off-diagonal curvature leakage; general stochastic diagonal benchmarking"
+        ]
+      },
+      "rationale": "XDiag and BKS estimators, projection and variance motivations come from Epperly, Tropp & Webber and earlier Bekas estimators. Inspected XTrace primary paper (sections 2.4, 4.4) defines leave-one-out XDiag and shows empirical performance but does not derive this 2D all-SPD equal-four-matvec crossover or high-dimensional arbitrarily separated risks. Related Resultary AdaHessian result concerns a different optimizer and stochastic Hessian diagonal RMS. The 2025 dissertation Chapter XVI was additionally inspected: Sections 16.1–16.3 derive the estimators and Sections 16.4–16.5 compare errors in synthetic/application tests; its inspected chapter does not state an exact all-SPD 2x2 risk crossing. Unsearched older specializations remain a risk.",
+      "residual_risks": [
+        "No matching exact formula located in focused full Chapter XVI of Epperly 2025 dissertation; another older or later variance table may still include it.",
+        "QR implementation behavior under identical probes is outside the mathematical estimator definition."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers estimator and experiments but no specific risk crossing in sections inspected",
+          "evidence": [
+            "Original XDiag leave-one-out construction and comparisons with classical BKS."
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/2301.07825",
+          "material_read": "Read ar5iv full-text sections 2.4 and 4.4; inspected arXiv PDF page image and equations",
+          "method": "Full public ar5iv HTML plus PDF page rendering",
+          "title": "XTrace: Making the Most of Every Sample in Stochastic Trace Estimation",
+          "trigger": "Introduces the same XDiag estimator"
+        },
+        {
+          "assessment": "Defines XDiag and BKS and reports qualitative numerical comparisons, but no explicit 2x2 universal rational squared-risk crossover in inspected chapter",
+          "evidence": [
+            "Chapter XVI 16.2 provides the leave-one-out formula; 16.4–16.5 reports numerical max-relative and l2 errors on large examples."
+          ],
+          "identifier_or_url": "https://tropp.caltech.edu/dissertations/Epp25-Making-Most.pdf",
+          "material_read": "Read full Chapter XVI relevant sections 16.1–16.5, especially XDiag formula (16.5), Remark 16.2 and synthetic risk/error comparisons (Figures 16.1–16.3)",
+          "method": "Caltech full 460-page public dissertation PDF, focused chapter inspection and rendered pages 256 and 259",
+          "title": "Make the Most of What You Have: Resource-Efficient Randomized Algorithms for Matrix Computations",
+          "trigger": "Potential exact risk calculations in Chapter 16"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "Exact risk reversal gives a decision boundary for a natural established estimator comparison under matched matrix-vector budget and clarifies that general variance superiority cannot be expected. The two-dimensional case is a mathematically exact diagnostic, not a recommendation over direct coordinate probing.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual RESULT.md tree blob 1399fdf728a76d819b65ed0896c8a84002559b4c",
+    "Epperly–Tropp–Webber arXiv:2301.07825 sections 2.4,4.4",
+    "Resultary 2026/10/4/SCOPE-exact-off-diagonal-curvature-leakage-in-adahessian-s-hessian-rms--22bdee1af96c"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Conceptual two-probe XDiag is defined even when probes coincide; QR software may behave differently.",
+    "In two dimensions, two direct coordinate probes would give exact diagonal, so the risk comparison is not an optimal algorithm design in that dimension.",
+    "High-dimensional assertions show non-domination, not a general exact risk surface."
+  ],
+  "residual_risks": [
+    "No matching exact formula located in focused full Chapter XVI of Epperly 2025 dissertation; another older or later variance table may still include it.",
+    "QR implementation behavior under identical probes is outside the mathematical estimator definition."
+  ],
+  "schema_version": 1
+}

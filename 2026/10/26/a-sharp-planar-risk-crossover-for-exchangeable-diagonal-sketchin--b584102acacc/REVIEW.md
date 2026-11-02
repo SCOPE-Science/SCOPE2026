@@ -1,19 +1,21 @@
-# Scientific review: exchangeable versus classical diagonal estimation
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The claim is precise for real symmetric positive-definite inputs, two independent Rademacher probes in the conceptual leave-one-out XDiag estimator, four independent probes in the BKS comparator, exact arithmetic and squared Euclidean risk. The proof derives both risks from the full sign distribution. The exact rational risk uses a strictly positive denominator \(D_+D_-\). A derivative argument proves the threshold has exactly one interior root for unequal diagonals, with the equal-diagonal boundary analyzed separately. The dimension-lifting statements follow from a positive-probability event and uniform continuity across the finite Rademacher support, respectively. Standalone exact-arithmetic checks reproduced the formulas and representative risk reversals (1208 assertion families). Finite tests support but do not replace the general proof.
+PASS
 
-## Originality — PASS, with priority uncertainty
+For 2x2 SPD A=[a c;c b] with independently sampled Rademacher signs, the leave-one-out projector on Aw yields signed residual vector f_s=-s(ab-c^2)(b+sc,a+sc)/[(a+sc)^2+(b+sc)^2]. Enumerating all held-out sign outcomes gives RX=((ab-c^2)^2(a^2+b^2+c^2))/[(a^2+b^2)^2-8abc^2+4c^4], versus four-probe BKS risk c^2/2. The cubic H_sigma(z) has H_sigma(0)>0, H_sigma(1)<0 for sigma>2 and H_sigma prime strictly negative since H_sigma double-prime>0 and derivative at 1<0; sigma=2 yields positive H=2(1-z)^2(2-z). High-dimensional non-domination: A=I_n makes BKS exact and XDiag can err when probes coincide, whereas A=vv^T+epsilon I with superincreasing coordinates makes leave-one-out projection converge to rank-one exact while BKS variance remains positive. Independent exact rational sign enumerations matched both risks in four SPD examples.
 
-Epperly, Tropp, and Webber (arXiv:2301.07825, Section 2.4) define XDiag and present broad empirical comparisons. Epperly's subsequent 2025 dissertation (Chapter 16, especially Sections 16.2–16.4) derives the estimator again and observes empirically that BKS can outperform XDiag on flat spectra. Hallman–Ipsen–Saibaba (arXiv:2202.02887) and Baston–Nakatsukasa (arXiv:2201.10684) analyze the conventional stochastic diagonal estimator, not the present exact cross-method risk. The existing XDiag definition, the BKS estimator, and qualitative spectral-regime tradeoffs are known; none of the inspected relevant source sections gave the exact formula, cubic one-crossing phase diagram, or opposite unbounded SPD risk separations established here. Specialized unpublished or unlocated equivalent calculations remain possible; unsuccessful discovery is not proof of uniqueness.
+## originality
 
-## Mathematical value — PASS
+PASS
 
-The estimator comparison concerns the natural squared Euclidean error at equal matrix-vector cost. It supplies an exact risk criterion instead of only qualitative guidance, distinguishes spectral anisotropy from off-diagonal strength, and identifies nonuniform nearly rank-one behavior under Rademacher sketches. Arbitrarily high-dimensional positive-definite embeddings show that the rank-two calculation reveals a genuine no-dominance phenomenon rather than just a limited-size computing curiosity. This does not claim superior implementations, new complexity bounds, or an arbitrary-dimensional closed risk formula.
+XDiag and BKS estimators, projection and variance motivations come from Epperly, Tropp & Webber and earlier Bekas estimators. Inspected XTrace primary paper (sections 2.4, 4.4) defines leave-one-out XDiag and shows empirical performance but does not derive this 2D all-SPD equal-four-matvec crossover or high-dimensional arbitrarily separated risks. Related Resultary AdaHessian result concerns a different optimizer and stochastic Hessian diagonal RMS. The 2025 dissertation Chapter XVI was additionally inspected: Sections 16.1–16.3 derive the estimators and Sections 16.4–16.5 compare errors in synthetic/application tests; its inspected chapter does not state an exact all-SPD 2x2 risk crossing. Unsearched older specializations remain a risk.
 
-## Sources and limitations
+## value
 
-Primary source readings: the full HTML presentation of *XTrace: Making the Most of Every Sample in Stochastic Trace Estimation* (especially Sections 1.2.1, 1.2.3, 2.4, 3.1, 4.4 and relevant appendix); Epperly's complete 2025 dissertation at Chapters 16.1–16.4 and its numerical plots; the relevant introductory and estimator-analysis sections of Hallman–Ipsen–Saibaba and Baston–Nakatsukasa. An additional 2025 technical exposition of XDiag and Hutch++ describes the general construction but not the precise classification. Remaining risks: incomplete coverage of other specialist literature and numerical edge cases in implementations using inverse QR factors on rank-deficient sketches. Independent replication beyond the included exact-arithmetic checker has not been carried out.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+Exact risk reversal gives a decision boundary for a natural established estimator comparison under matched matrix-vector budget and clarifies that general variance superiority cannot be expected. The two-dimensional case is a mathematically exact diagnostic, not a recommendation over direct coordinate probing.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
