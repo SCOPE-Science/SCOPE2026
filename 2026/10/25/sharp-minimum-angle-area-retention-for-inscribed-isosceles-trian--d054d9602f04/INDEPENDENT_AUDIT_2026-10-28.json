@@ -1,0 +1,96 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T04:02:01.731225Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The cited maximum-embedded-isosceles classification permits precisely three area ratios a/b, b and 1/(1+b^2-a^2) in longest-side-normalized host 0<a<=b<=1. For smallest host angle >=theta, law of cosines gives a^2>=1+b^2-2b cos(theta); at fixed b the a-dependent candidates strictly increase, so a is forced to the boundary a0. Feasibility gives b>=C=1/(2cos theta). The remaining objective max{b,C/b,a0/b} has one increasing term and two decreasing terms and hence a unique crossing. The first crossing b0=sqrt(C) is active exactly below u_*^4+u_*^3=1; above it the quartic b^4-b^2+2b cos theta-1=0 determines b. Endpoint theta=pi/3 is equilateral, and the theta->0 infimum 1/sqrt2 is unattained. The one-sided derivatives at theta_*=41.8316186926594 degrees are 0.36661930354211 and 0.53284165224654, a strict corner. Independent scalar minimizations of the three candidates for eight angles, theta=1..60 degrees, matched the formula within 5e-8. The infinite theorem follows from monotonic crossing, not the finite checks.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Ambrus et al. are stronger for the pointwise inner-embedding problem but have no new angular minimax quantifier; the roundness result is tan(min angle/2), not normalized embedded-isosceles area."
+        ],
+        "reasoning": "The stronger geometric embedding theorem is an acknowledged input, not a substitute for analyzing the new constrained worst-host minimax; the roundness theorem does not imply the two-branch F(theta).",
+        "searches": [
+          "arXiv:2205.11637 full Theorems 1.2, 2.4 and Section 3",
+          "Resultary: exact triangle roundness sharp fatness calibration SCOPE-exact-triangle-roundness-sharp-fatness--f4944b61f2db"
+        ]
+      },
+      "checked_sources": [
+        "Frozen RESULT.md blob 7c159efdd0eabccdcb35c6d7e173508abce7c33a, CHECK.py blob 013ea74e0bdc2965f88200c5eb8da0d9fa56e218",
+        "arXiv:2205.11637v1 full primary manuscript at Theorem 1.2, Corollary 2.4, Section 3",
+        "Independent bounded scalar minimax and one-sided derivative recomputation",
+        "Resultary geometric-angle and inscribed-isosceles queries"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Earlier embedding theorem proves M(T)=three-candidate maximum; enclosing-container theorem optimizes outer, not inner, containment."
+        ],
+        "reasoning": "First publication supplies a necessary classification, and the submitted minimax derivation supplies the additional theta-dependent infimum with uniqueness, switch, corner. The enclosure problem has reverse set inclusion and cannot imply this profile.",
+        "searches": [
+          "Ambrus et al. arXiv:2205.11637 Sections 2.1,3",
+          "Kiss–Pach–Somlai Minimum area isosceles containers (2020)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "The three candidate maximal inscribed triangle areas for fixed host are a/b, b, 1/(1+b^2-a^2); angle quality adds a^2>=1+b^2-2b cos theta."
+        ],
+        "reasoning": "Maximum inscribed-isosceles area equals the maximum over three boundary configurations; the new claim then minimizes that same object over all host triangles meeting an angular constraint. No equivalence with previously identified roundness/fatness invariants was found.",
+        "searches": [
+          "Resultary: inscribed isosceles triangle minimum host angle sharp area retention",
+          "arXiv:2205.11637 (Theorem 1.2(ii), Corollary 2.4)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "A searched Resultary finding supplies triangle roundness/angle-fatness conversion but no F(theta) table, phase angle, or minimizer; no exact table was identified."
+        ],
+        "reasoning": "A catalogued pointwise table of the same three candidate shapes would not by itself yield the all-theta sharp constrained envelope, unless it included the minimax or a dominating formula. No such table located; no assertion of exhaustive negative search.",
+        "searches": [
+          "Resultary: angular isosceles triangle guarantee extrema",
+          "Web: sharp maximum inscribed isosceles triangle minimum-angle inequality and table"
+        ]
+      },
+      "rationale": "Best-of-knowledge original as the constrained sharp minimax profile, unique equality host, and phase transition. Ambrus–Csikós–Kiss–Pach–Somlai (2022/2023) prove the prerequisite pointwise classification of optimal embedded isosceles triangles and its three candidates, but do not themselves solve the family of outer optimizations under minimum host angle. The source’s actual Theorem 1.2(ii), Corollary 2.4, and area section were compared, not just titles.",
+      "residual_risks": [
+        "An older angular retention inequality may have been described without the same optimization language.",
+        "The 2020 enclosing-triangle primary article was not read fully; its opposite containment problem should not be conflated with this claim.",
+        "The bound relies on the published global maximum-embedded-isosceles theorem; that prior theorem is not independently reproved."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Covers all fixed-host maximum inscribed-isosceles shapes; no inspected angular minimum-of-hosts theorem.",
+          "evidence": "Theorem 1.2(ii), Corollary 2.4, Section 2.1, Section 3; publication 2022/2023.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.11637",
+          "material_read": "Full accessible arXiv manuscript text inspected at Theorem 1.2(ii), geometric case definitions in Section 2.1, Corollary 2.4 and Section 3 proof, including the three special area candidates.",
+          "method": "Primary open full text/theorem and construction comparison",
+          "title": "Optimal embedded and enclosing isosceles triangles",
+          "trigger": "Exact same embedded-isosceles area object"
+        },
+        {
+          "assessment": "Not direct angular inscribed-area coverage; residual risk in uninspected details.",
+          "evidence": "Ambrus et al. introduction and references.",
+          "identifier_or_url": "2020 Journal of Information Processing 28:759-765 (Kiss–Pach–Somlai)",
+          "material_read": "Reference and its enclosing (not embedded) problem statement inspected through the original Ambrus paper; full 2020 primary paper not read.",
+          "method": "Secondary-paper reference and precise statement comparison",
+          "title": "Minimum area isosceles containers",
+          "trigger": "Same triangle family but reversed containment"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The minimum angle of a host triangle is a canonical mesh-shape/quality parameter. The theorem gives an exact worst-case guaranteed area retention and the unique worst host shape, including a nontrivial active-configuration switch. Its infinitely many threshold values are not a routine table and the phase corner matters for geometric optimization.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Euclidean positive-area host triangles; minimum angle theta in (0,pi/3]; inner triangle may be equilateral and may rotate/translate.",
+    "The endpoint 1/sqrt2 is an infimum at degenerate host limit, not an attained positive-area optimizer.",
+    "Does not treat convex polygons or equilateral-only embeddings."
+  ],
+  "schema_version": 1
+}
