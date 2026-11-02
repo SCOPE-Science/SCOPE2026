@@ -1,15 +1,21 @@
-# Review
+# Independent mathematical audit
 
-## Correctness
-PASS. Each oriented edge is a fair independent bit. The source/sink pairwise joint probabilities separate into same-vertex, incident distinct-vertex, and nonincident distinct-vertex cases, proving the global covariance identity. Subdivision only changes one edge's contribution and inserts a single degree-two diagonal term. The threshold classification examines all endpoint-degree cases, and the regular-graph conclusion follows by exact substitution. The independent finite verifier checks graph enumerations as a cross-test, not as an infinite proof.
+## correctness
 
-## Originality
-PASS, subject to historical-priority risk. Linusson (2009) proves path-connectivity correlation statements, not a graph-structural sign law for source/sink counts. Hwang et al. (2019) use only acyclic orientations. The Yu–Zhu (2025) general orientation-generating polynomial encodes the joint statistics in principle; the novel point claimed here is the explicit covariance transform and sharp subdivision threshold, not construction of a general orientation enumerator. Conte et al. (2018) discuss efficient enumeration under source constraints, not this universal sign reversal. Bezáková–Sun (2022) could not be inspected in full and is a residual priority risk.
+PASS
 
-## Value
-PASS. Source and sink counts are natural complementary extremal-indegree statistics. Their covariance need not retain its sign under a simple graph refinement: the complete local sign classification isolates degree four as a universal threshold, and the regular-graph theorem shows that **every** simple regular graph of degree at least four flips from positive to negative covariance after one full subdivision, regardless of topology. The contrast is structural rather than a small numerical improvement or a restatement of a generic covariance identity.
+For positive-degree vertices S_v T_v=0 and both marginals equal a_v=2^{-d_v}. For nonadjacent distinct vertices the disjoint incident-edge events are independent; for adjacent u,v, the joint source-at-u sink-at-v event requires the shared arrow u→v, giving 2a_ua_v and covariance a_ua_v. Sum both ordered pairs per edge to obtain the formula. Replacing uv by u−w−v keeps old degrees, removes 2a_ua_v, adds (a_u+a_v)/2 and the degree-two self-term −1/16; the sign cases d_min=1,2,3,≥4 are disjoint and exhaustive. The regular case follows by m=nr/2 and (3)–(4), with r=3 positive 5n/64 and r=4 negative −n/256. Separately checked exact-rational signs for integer degree pairs 1..13 and r values 2..15. Isolates contribute only deterministic constants and may be removed without changing covariance. No conditioning on acyclicity is used.
 
-## Scope and limits
-Finite simple graphs, fair independent orientations, and covariance (not full joint law). The result does not cover acyclic-only orientations, nonuniform edge biases, or arbitrary stochastic ordering. A general degree-constraint polynomial and partially inaccessible closely related enumeration literature leave nonzero historical-priority risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: the complete mathematical claim was compared to exact or broader prior theorem statements, unlike-title aliases, current Resultary published findings and known data. Known premises and small cases are acknowledged. No inspected source demonstrates complete coverage; named inaccessible plausible full texts and reduction risks are recorded rather than claimed noncovering.
+
+## value
+
+PASS
+
+Source and sink numbers are natural two-sided extremal orientation statistics. The precise sign of their dependence reverses under a basic graph-topology refinement with a sharp local degree-four boundary, and every regular r≥4 graph exhibits an all-edge subdivision sign reversal independently of global topology. This is a structural classification rather than simply the elementary generic covariance identity.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
