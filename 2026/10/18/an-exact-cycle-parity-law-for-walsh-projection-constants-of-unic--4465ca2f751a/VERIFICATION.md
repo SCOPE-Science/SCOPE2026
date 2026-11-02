@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-28.md",
+      "INDEPENDENT_AUDIT_2026-10-28.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,17 +19,24 @@
 }
 ---
 
-# Verification
+# Independent mathematical audit
 
-The analytic proof defines the exact graph class and the canonical real absolute projection constant. Its critical independently reconstructed steps are: (i) Haar-averaging of projections on the finite sign group; (ii) coordinate Hahn–Banach extensions to arbitrary superspaces; (iii) exact classification of edge-sign fibres by the unique graph cycle relation; (iv) the explicit two-sign absolute-value identity, including both even and odd ambient edge counts; (v) conditional elementary-symmetric polynomials on the central or near-central sign slice; and (vi) fixed-degree central-binomial asymptotics.
+## correctness
 
-Running the included `verify.py` with standard Python 3 and no external dependencies yields:
+PASS
 
-```
-UNICYCLE_WALSH_PROJECTION_EXACT_OK 292
-SIX_EDGE_CYCLE_LENGTHS ['7/4', '15/8', '9/4']
-```
+For every finite simple real unicyclic G including disconnected forests, Fourier projection is minimax after averaging all sign translations; coordinate Hahn–Banach extends the upper bound to all isometric superspaces, proving absolute equality lambda=E|sum edge-characters|. The edge homomorphism has exactly the unique circuit relation and uniform fibres, giving conditional density 1+prod_cycle. Global sign reversal annihilates odd-k correction. For even k=2s, two-sign averaging localizes the absolute value discrete second difference to central/near-central slices; exact elementary-symmetric even coefficients give (-1)^(s-1)binom(floor((m-2)/2),s-1)/binom(m-2,2s-2). Multiplying central binomial probability yields displayed exact correction, nonvanishing sign and Stirling fixed-even-k decay. No reliance on finite enumeration for all-size claim.
 
-The 292 exact-rational checks comprise parity-constrained sign enumerations at \(3\le m\le13\), direct vertex-spin checks for several finite unicyclic graph shapes, and the predicted sign law. They are finite corroboration, **not** the proof of the theorem for all graphs.
+## originality
 
-The canonical general projection-kernel representation is previously known (Defant and collaborators, arXiv:2302.00233v1). The present all-graph theorem's additional content is the exact unicyclic parity evaluation. No independent scientific validation has been performed. Additional literature under parity-conditioned Ising moment or Krawtchouk nomenclature could affect novelty assessment.
+PASS
+
+Best-of-knowledge: general Walsh support theorem covers only the integral representation; published same-parity endpoint theorem concerns a higher even moment, while graph chaos and complete second-layer findings concern different moments/spectra. No located full-text source states or directly supplies the all-m,k cycle parity binomial correction. Equivalent Krawtchouk/Ising finite-sum identities remain a priority risk, not falsely excluded.
+
+## value
+
+PASS
+
+The real edge-Walsh projection constant is a natural Banach invariant for a graph-parametrized family. Classifying every one-cycle graph using only edge count m and circuit length k, with all forest attachments invisible, a mod-four alternating exact correction, explicit 6-edge values and a sharp fixed-cycle decay, provides a usable structural benchmark beyond a generic Walsh expectation formula. The central-slice calculation is motivated by the unique cycle relation, not an arbitrary finite slice or preexisting table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

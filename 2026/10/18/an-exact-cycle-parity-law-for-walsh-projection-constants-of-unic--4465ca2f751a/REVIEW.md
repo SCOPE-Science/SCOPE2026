@@ -1,11 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-**Correctness — PASS.** The domain is the real finite Walsh space supported on edges of an arbitrary finite simple unicyclic graph, including disconnected forest components. Averaging any projection over sign translations proves optimality of the canonical character projection. Coordinatewise Hahn–Banach extensions transfer the result to the absolute projection constant. The graph edge-sign homomorphism has exactly one parity constraint, and two-sign integration followed by an exact symmetric-polynomial coefficient gives the stated binomial correction. All quantifiers and parity boundaries hold for \(3\le k\le m\); the proof is valid for arbitrary finite \(m\), not just computational sizes. Standalone exact rational enumeration reproduced all 292 stated verification checks.
+## correctness
 
-**Originality — PASS (with literature risk).** The most relevant published theorem by Defant and collaborators supplies the general Walsh-kernel representation; that general method is expressly excluded from the new contribution. The new all-unicyclic explicit evaluation, nonzero alternating even-cycle correction, forest-attachment invariance and fixed-cycle asymptotic do not follow as ready-made cases of that general integral without a separate calculation. Available published related graph-chaos work concerns fourth or high even moments, different from the first absolute moment. Broad spectral-layer formulas and Hamming Lipschitz-free coordinate shadows govern different spectra or spaces. Closest full scientific statements and their implication differences were checked, rather than relying on title matching. Equivalent Ising/Krawtchouk or parity-constrained finite-sum evaluations not indexed in reviewed materials remain possible.
+PASS
 
-**Mathematical value — PASS.** The naturally defined absolute projection constant of an entire graph-parametrized real Banach-space family is classified by just two graph invariants; even-cycle length changes the constant above or below the independent-edge reference in a sharp mod-four law while tree shape disappears completely. At six edges, cycle lengths four, five and six yield distinct exact values \(7/4,15/8,9/4\), and the exact fixed-cycle asymptotic quantifies how circuit dependence decays. This answers a motivated exact invariant beyond a routine application of the general kernel identity.
+For every finite simple real unicyclic G including disconnected forests, Fourier projection is minimax after averaging all sign translations; coordinate Hahn–Banach extends the upper bound to all isometric superspaces, proving absolute equality lambda=E|sum edge-characters|. The edge homomorphism has exactly the unique circuit relation and uniform fibres, giving conditional density 1+prod_cycle. Global sign reversal annihilates odd-k correction. For even k=2s, two-sign averaging localizes the absolute value discrete second difference to central/near-central slices; exact elementary-symmetric even coefficients give (-1)^(s-1)binom(floor((m-2)/2),s-1)/binom(m-2,2s-2). Multiplying central binomial probability yields displayed exact correction, nonvanishing sign and Stirling fixed-even-k decay. No reliance on finite enumeration for all-size claim.
 
-**Closest literature and limitations.** Defant et al., arXiv:2302.00233v1, Theorem 3.1, give the absolute Walsh projection kernel; their arXiv:2208.06467, Section 8.1, gives the earlier general framework. Bhattacharya et al., arXiv:2203.02850, study graph quadratic chaos by other functionals. The argument does not cover multiple independent cycles, complex-scalar minimal projections, or weighted coefficients. Unindexed equivalent results remain a bibliographic risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge: general Walsh support theorem covers only the integral representation; published same-parity endpoint theorem concerns a higher even moment, while graph chaos and complete second-layer findings concern different moments/spectra. No located full-text source states or directly supplies the all-m,k cycle parity binomial correction. Equivalent Krawtchouk/Ising finite-sum identities remain a priority risk, not falsely excluded.
+
+## value
+
+PASS
+
+The real edge-Walsh projection constant is a natural Banach invariant for a graph-parametrized family. Classifying every one-cycle graph using only edge count m and circuit length k, with all forest attachments invisible, a mod-four alternating exact correction, explicit 6-edge values and a sharp fixed-cycle decay, provides a usable structural benchmark beyond a generic Walsh expectation formula. The central-slice calculation is motivated by the unique cycle relation, not an arbitrary finite slice or preexisting table entry.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
