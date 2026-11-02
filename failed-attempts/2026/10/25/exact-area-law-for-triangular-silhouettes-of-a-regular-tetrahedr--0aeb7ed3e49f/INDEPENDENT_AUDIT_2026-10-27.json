@@ -1,0 +1,101 @@
+{
+  "audit_date_utc": "2026-10-27",
+  "audited_at_utc": "2026-10-27T10:55:14.529328Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The tetrahedron with vertices (1,1,1),(1,-1,-1),(-1,1,-1),(-1,-1,1) has edge length 2sqrt2 and shadow area B(u)=sum_v|v·u|=max(4 max_i|u_i|,2sum_i|u_i|). Exactly triangular projected silhouettes satisfy sum_i|u_i|>2max_i|u_i|. The spherical normal locus consists of eight symmetry copies of a triangle; integrating the cap centered at (1,1,1)/sqrt3 and subtracting three nonoverlapping spherical side segments gives the proposed marked area tail on (2sqrt2,2sqrt3) and cap transition s*=4sqrt(2/3). Tangency yields a (s*-s)^(3/2) defect. Independently differentiated the source elementary marked tail at six s values, reproducing the density 6/(pi sqrt3)Theta_Sigma(s/8) already printed by Abas (2026); geometry and normalization agree. This finite derivative check supports, not alone proves, the continuous expression.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Abas Theorem5.4 decomposes the ENTIRE brightness density into known F_max and F_Sigma terms and gives an exact aperture for each. A Resultary note also supplies conditional first two moments."
+        ],
+        "reasoning": "The explicitly split full density is a broader representation of the full marked law, mathematically dominating the submitted single marked CDF.",
+        "searches": [
+          "Omri Abas 2026 arXiv:2609.26202 full §5 and Appendix B",
+          "Resultary 2026-10-11 area-weighted silhouette probabilities of arbitrary tetrahedra"
+        ]
+      },
+      "checked_sources": [
+        "https://arxiv.org/pdf/2609.26202",
+        "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+        "regular tetrahedron projection silhouette triangle joint conditional area distribution"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "For s in [2sqrt2,2sqrt3], Pr(B_audit>s,N=3) = integral_{s/8}^{sqrt3/4} [48/(pi sqrt3) Theta_Sigma(t)]dt; differentiating confirms equivalence. At lower s, mass is p3; at upper s, zero."
+        ],
+        "reasoning": "The prior primary math directly implies every branch of the claimed marked law, plus its square-root density cusp, irrespective of title or use of CDF wording.",
+        "searches": [
+          "Omri Abas arXiv:2609.26202 pp30–33 full primary, Eq.(16)-(18)",
+          "Original frozen RESULT.md Eq.(1)-(3)"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Original paper F_Sigma means x<=y+z, exactly N=3; source area unit edge, audited area edge 2sqrt2, so B_audit=8 B_source; derivative of audited CDF is 6/(pi sqrt3) Theta_Sigma(s/8)."
+        ],
+        "reasoning": "The two representations are mathematically equivalent through area rescaling and survival/density integration, despite different use of the word silhouette.",
+        "searches": [
+          "Resultary semantic query: regular tetrahedron projection silhouette triangle joint conditional area distribution",
+          "Omri Abas arXiv:2609.26202 complete primary PDF §5 Fig.2 Eq.(16)-(17)"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The exact piecewise Theta_Sigma aperture table has support tau0=1/(2sqrt2), tau1=1/sqrt6, tau2=sqrt3/4. Multiply by 8 for the submitted triangle-area support and transition."
+        ],
+        "reasoning": "The exact marked density/table is already present in 2026 preprint, so novelty cannot be inferred from an absent exact CDF formatting.",
+        "searches": [
+          "Omri Abas §5.3 Lemma5.3 Eq.(16); §5.4 Eq.(17)",
+          "Resultary query: regular tetrahedron projection silhouette triangle joint conditional area distribution"
+        ]
+      },
+      "rationale": "FAIL due decisive full-primary-text coverage, not inaccessible literature. Omri Abas, Random Width and Brightness (arXiv:2609.26202, Aug 2026), §5.2 Fig.2 identifies TWO tetrahedral brightness chamber families F_max and F_Sigma split by x=y+z, with F_Sigma exactly the triangular-silhouette normal cone. Lemma 5.3, Eq.(16) gives the COMPLETE angular-aperture Theta_Sigma(t) piecewise on [tau0,tau2], and §5.4 Eq.(17) explicitly supplies its separate probability-density contribution f_{B_T,F_Sigma}(t)=48/(pi sqrt3)Theta_Sigma(t) for unit-edge tetrahedra, not merely the unmarked total density. The submitted tetrahedron edge=2sqrt2 scales area by 8; therefore the complete submitted marked law is precisely the upper-tail integral of (1/8)f_{B_T,F_Sigma}(s/8)=6/(pi sqrt3)Theta_Sigma(s/8). The support breakpoints scale to 2sqrt2, 4sqrt(2/3), 2sqrt3, exactly those submitted; the cusp follows from the explicit existing aperture. Thus the claimed conditional distribution, even if not printed as integrated elementary CDF, is a direct deterministic integration of an already exact separated marked density. This prior covering implication decisively fails originality; an earlier source abstract had been misread as giving unmarked only.",
+      "residual_risks": [
+        "No material remaining originality uncertainty: the primary Abas exact F_Sigma density is decisive even if the submitted integrated elementary expression is not written identically.",
+        "The prior density is for unit-edge normalization; the factor 8 squared-length area rescaling must be retained to avoid a false comparison."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "DECISIVE covering result: decomposed F_Sigma brightness marked density is the submitted conditional-area density under B->8B",
+          "evidence": "PDF p30 Fig.2 F_Sigma condition x<y+z, p31 Eq.(16) Theta_Sigma, p32 Eq.(17) factor 48/(pi sqrt3); arXiv:2609.26202",
+          "identifier_or_url": "https://arxiv.org/pdf/2609.26202",
+          "material_read": "Full relevant primary mathematical sections §5.1–5.4 pp28–33, Fig.2, Lemma5.2, Lemma5.3, Eq.(16), Eq.(17), Theorem5.4 and Appendix B primitive information",
+          "method": "Open-access full PDF text plus direct screenshots of PDF pp30–32",
+          "title": "Random Width and Brightness: Polyhedral Density Theory, Reconstruction, and Gaussian Identifiability",
+          "trigger": "Same exact regular tetrahedral brightness with separate silhouette chamber geometry"
+        },
+        {
+          "assessment": "Only first two conditional moments; independently weaker than the Abas exact marked density",
+          "evidence": "2026-10-11 Resultary finding",
+          "identifier_or_url": "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66",
+          "material_read": "Published-result abstract retrieved in semantic search",
+          "method": "Resultary semantic record comparison",
+          "title": "Area-weighted silhouette probabilities of arbitrary tetrahedra",
+          "trigger": "Earlier exact tetrahedral conditional moments"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "rationale": "FAIL under the independent-contribution standard. Conditional tetrahedral brightness is naturally interesting, and the formula is correct, but its complete marked density and branch change already appear in prior §5 and Eq.(16)–(17); the new statement consists of an elementary one-variable antiderivative with the same support and cusp, with no new independent structural classification or unknown invariant. The prior paper even provides density antiderivatives in Appendix B. Reexpressing the same law as a CDF and adding numerical checks is useful exposition, not a new mathematical fact.",
+      "status": "FAIL"
+    }
+  },
+  "checked_sources": [
+    "https://arxiv.org/pdf/2609.26202",
+    "https://github.com/Resultary/2026/tree/main/2026/10/11/SCOPE-area-weighted-silhouette-probabilities-of-arbitrary-tetrahedra--ddfd7f3eeb66"
+  ],
+  "disposition": "failed",
+  "limitations": [
+    "Independent checks do not substitute for the infinite proof or complete literature priority; precise scopes and residual risks listed on each axis.",
+    "All root Git blobs and nested script identities reproduced the assigned source tree; main RESULT.md sha matched frozen for each, but complete current-main tree was not reconstituted, hence publication is withheld."
+  ],
+  "residual_risks": [
+    "No material remaining originality uncertainty: the primary Abas exact F_Sigma density is decisive even if the submitted integrated elementary expression is not written identically.",
+    "The prior density is for unit-edge normalization; the factor 8 squared-length area rescaling must be retained to avoid a false comparison."
+  ],
+  "schema_version": 1
+}
