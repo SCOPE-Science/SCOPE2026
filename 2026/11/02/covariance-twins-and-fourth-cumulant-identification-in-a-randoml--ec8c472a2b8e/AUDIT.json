@@ -1,0 +1,128 @@
+{
+  "correctness": {
+    "rationale": "The finite-state generator and stationary second- and fourth-order moment systems give exact formulas. Cayley–Hamilton proves the all-lag two-exponential covariance and its three invariants; origin derivatives give the unordered pair of physical rates, and the fourth cumulant strictly distinguishes the two assignments except on the self-dual line. An independently assembled SymPy/NumPy/SciPy checker passed algebraic identities and 1,300 deterministic comparisons. The analytical proof covers every positive q,k,D and all nonnegative lag; numerical tests are corroboration only.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang et al. arXiv:1412.7952 §3.3 explicitly develops covariance propagation with matrix exponentials for a multi-state Markov-modulated OU class; the forward model here is a specialization.",
+        "Frydel 2026 arXiv:2607.05173 generalizes residence-time statistics and steady-state moments; its inspected structure contains no stationary lag-covariance inverse classification."
+      ],
+      "reasoning": "The broad 2014 forward formula subsumes the matrix propagation step, but neither the searched discussion nor the 2026 broader waiting-time analysis asserts that the inverse covariance fibers have exactly two members interchanged by the stiffness/switching involution, or that a fourth cumulant separates every nontrivial fiber. Prior formulas provide ingredients, not the evaluated identifiability theorem; a possible implicit broader identifiability theorem remains a residual risk.",
+      "searches": [
+        "Markov-modulated Ornstein-Uhlenbeck processes covariance section 3.3 arxiv:1412.7952",
+        "Markov modulated Ornstein Uhlenbeck telegraph stiffness stationary covariance inverse spectrum parameter identifiability",
+        "semi-Markovian switching fluctuating harmonic trap arxiv:2607.05173 covariance autocorrelation identifiability"
+      ]
+    },
+    "checked_sources": [
+      "Santra--Das--Nath, arXiv:2104.00609 (2021), original physical model and transient moments",
+      "Frydel, arXiv:2407.12213 (2024), stationary even-moment recurrence through fourth order",
+      "Huang et al., arXiv:1412.7952 (2014), broad Markov-modulated OU forward covariance",
+      "Frydel, arXiv:2607.05173 (2026), later semi-Markovian spatial-moment theory"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 2021 source establishes the physical model, stationary variance and one-time transient relaxation; those do not by themselves classify all stationary two-lag covariances.",
+        "The 2024 stationary fourth-moment identity is a prior corollary of its own recurrence; it is used solely as the discriminator once the new covariance fibers have been found.",
+        "The 2014 general covariance matrix formula specializes to the necessary forward expression, but a separate inverse computation using four origin derivatives recovers the exact fibers."
+      ],
+      "reasoning": "The assessed central claim is the inverse-fiber theorem, not the forward covariance or previously known fourth moment. A generic covariance representation plus an even-moment recurrence supplies data from which this theorem can be derived, but no inspected earlier statement identifies this two-to-one involution and rules out other same-covariance parameter triples. Treat wider unlocated identifiability results as priority risk, not as disproved.",
+      "searches": [
+        "Brownian motion under intermittent harmonic potentials arxiv 2104.00609 covariance",
+        "Statistical mechanics passive Brownian particles fluctuating harmonic trap arxiv 2407.12213 two-time",
+        "Markov-modulated Ornstein-Uhlenbeck processes arxiv 1412.7952 Section 3.3 covariance",
+        "Semi-Markovian switching fluctuating trap arxiv 2607.05173 moments"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Santra--Das--Nath 2021 treats same on/off Poisson trap and computes transient/stationary variance; its source sections inspected do not report the stationary two-lag inverse fiber.",
+        "Frydel 2024 treats the same symmetric trap and obtains spatial stationary moments through fourth order; those moments alone are not a complete all-lag covariance inverse classification."
+      ],
+      "reasoning": "The evaluated equivalence is a two-to-one map from a full position covariance curve to unordered kinetic rates, not a reparameterization of the stationary variance nor a claim that two positional joint laws coincide. The published second and fourth spatial moments are credited as prior.",
+      "searches": [
+        "intermittent harmonic trap telegraph on off stiffness symmetric rate exact position covariance indistinguishable swapping switching rate trap strength duality inverse spectroscopy kurtosis",
+        "fluctuating harmonic trap autocorrelation two state exact identifiability",
+        "on off trap two time covariance swapping parameters gamma mu duality",
+        "arxiv:2104.00609 §§2–4, arxiv:2407.12213 §II and Appendix B"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Frydel 2024 equations (6)–(9) explicitly table even stationary moments, including the fourth; those are not new.",
+        "Targeted research-record searches did not return an exact covariance-twin classification, notwithstanding nearby findings on unrelated reversible-chain and switching-system observational aliasing."
+      ],
+      "reasoning": "Existing moments are a covered component. No inspected exact database/table reports the full position covariance equivalence fibers or the uniqueness of their separation in the physical trap, and the result does not re-label the published moment values as a new invariant.",
+      "searches": [
+        "two-point covariance duality telegraph switched harmonic trap map (k,gamma) -> (2 gamma,k/2) different fourth cumulant",
+        "stationary on-off Ornstein Uhlenbeck covariance same for distinct stiffness switching rates fourth moment distinguish",
+        "arxiv:2407.12213 equations (6)–(9) and Appendix B"
+      ]
+    },
+    "rationale": "Santra et al. 2021 establishes the model, Frydel 2024 provides stationary second/fourth moments, and Huang et al. 2014 supplies general forward covariance. Those are acknowledged as prior. The evaluated new claim is the complete inverse covariance-fiber classification under the nontrivial physical-rate involution and its precise fourth-order separation, not any forward formula or stationary moment table. Actual primary literature/mathematical research record searches did not identify this inverse theorem; residual risk of broader implicit identifiability coverage remains.",
+    "residual_risks": [
+      "General Markov-modulated OU covariance formulas already encompass the forward dynamics; a published inverse-identifiability corollary not found in inspected sections could cover the result.",
+      "Stationary fourth moment is known; only its use to separate the newly established covariance fibers is claimed new.",
+      "Searches cannot certify global publication novelty; independent literature-priority audit is not performed."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Stationary variance and transient variance are prior; no covariance-fiber inverse theorem in inspected sections",
+        "evidence": [
+          "arXiv:2104.00609 pp. 3–5; model equations (2)–(4); variance D(2/k+1/q) under its notation"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2104.00609",
+        "material_read": "Model §2, results summary, §3 moment/variance formulation, original PDF pages 1–5 and content search for autocorrelation/fourth moment",
+        "method": "Full-length open arXiv PDF; read primary model/equation sections and inspect rendered page",
+        "title": "Brownian motion under intermittent harmonic potentials",
+        "trigger": "Exact same Poisson-switched on/off harmonic model and experimental calibration motivation"
+      },
+      {
+        "assessment": "Explicit stationary fourth moment is prior and not new; no full stationary temporal covariance inversion identified",
+        "evidence": [
+          "arXiv:2407.12213 Eq. (6)–(9), Appendix B; dimensionless fourth moment"
+        ],
+        "identifier_or_url": "https://arxiv.org/pdf/2407.12213",
+        "material_read": "Section II model and equations (6)–(9), Appendix B moment recurrence, abstract/introduction, original 12-page PDF and screenshot of first page",
+        "method": "Open-access arXiv PDF with direct inspection and searched moment/relation sections",
+        "title": "Statistical mechanics of passive Brownian particles in a fluctuating harmonic trap",
+        "trigger": "Exact symmetric-switching model with stationary moment recurrence, potentially preempting fourth cumulant"
+      },
+      {
+        "assessment": "Forward covariance machinery encompasses the present matrix method, but inspected paper does not classify exact inverse covariance fibers of the on/off trap",
+        "evidence": [
+          "arXiv:1412.7952 §3.3, covariance propagation by matrix exponential"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/1412.7952v1",
+        "material_read": "Introduction and §3.3 Covariances including the displayed block matrix ODE",
+        "method": "Open primary full-text HTML and inspect the general covariance formula and discussion",
+        "title": "Markov-modulated Ornstein-Uhlenbeck processes",
+        "trigger": "Broader operator covariance representation might dominate claim"
+      },
+      {
+        "assessment": "General waiting-time extension and stationary spatial moments; no exact inverse all-lag covariance identification located",
+        "evidence": [
+          "arXiv:2607.05173 §§III–V and introduction"
+        ],
+        "identifier_or_url": "https://arxiv.org/html/2607.05173v1",
+        "material_read": "Abstract, introduction, stationary moment and reset-limit passages, section contents and searches for covariance/autocorrelation/identifiability",
+        "method": "Accessible arXiv full-text HTML with targeted section reading and within-document matching",
+        "title": "Semi-Markovian switching in a fluctuating harmonic trap: An age-structured formulation",
+        "trigger": "Later general treatment of same physical system and potentially stronger observables"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "ec8c472a-2b8e-45a6-921b-7a373c697810",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "A natural physical inverse-calibration question has a sharp answer: even complete all-frequency two-point position data cannot distinguish two distinct switching/trap rates, and the ambiguity is exactly twofold. A single higher-order marginal diagnostic resolves the model without claiming a new fourth-moment formula. Exact nonidentifiability and its minimal diagnostic are structurally meaningful for fluctuating optical-trap spectroscopy; no finite-sample stability is claimed.",
+    "status": "PASS"
+  }
+}
