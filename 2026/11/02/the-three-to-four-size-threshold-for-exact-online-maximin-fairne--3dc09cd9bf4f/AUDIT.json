@@ -1,0 +1,110 @@
+{
+  "correctness": {
+    "rationale": "For every two-type prefix, the parity-compatible unit-count split exactly minimizes load discrepancy; the proof handles parity-perfect partitions and insufficient small goods separately. For r=2,3, a small arrival preserves the split without transfers and a large arrival uses at most one unit-good transfer, with an explicit itemwise upgrade injection. The five-good history of four units then one item r>=4 requires changing a 2-good bundle to a singleton, violating the injection cardinality constraint. A standalone enumerator checked 458752 positive-case prefixes and the obstruction for r=4..30; infinite validity rests on the algebraic induction, not the finite counts.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Huang--Teh, arXiv:2610.16943v1, Theorem B.2 (accessible full text), proves the general two-agent 2/3-MMS factor for item-level upgrades, not exact MMS on the restricted domain.",
+        "The same paper Theorem 4.1 / Appendix C.2 attains exact two-agent MMS only with bundle-level upgrades; its Appendix B.11 uses arbitrarily fine small item sizes to show a general item-level upper bound.",
+        "Amanatidis--Lolos--Markakis--Turmel, arXiv:2505.22174v1, study two-valued online allocation with irrevocable assignments and establish a weaker per-step factor."
+      ],
+      "reasoning": "The 2/3 general item-level guarantee does not imply exact MMS at any fixed denomination ratio; exact bundle-level MMS does not imply itemwise injections. An impossibility with unrestricted item-size ratios does not imply impossibility at the smallest ratio 4. The no-recourse model is logically more restrictive in reassignment but cannot establish the positive recourse scheme.",
+      "searches": [
+        "Online Fair Division with Upgrade Recourse Huang Teh exact MMS for two agents identical values two denominations",
+        "\"Online Fair Division with Upgrade Recourse\" \"two-valued\"",
+        "\"Online Fair Division for Personalized 2-Value Instances\" theorem MMS"
+      ]
+    },
+    "checked_sources": [
+      "Huang--Teh, arXiv:2610.16943v1 (accessible full-text HTML)",
+      "Amanatidis--Lolos--Markakis--Turmel, arXiv:2505.22174v1 (abstract and review)",
+      "Targeted published web searches for two-size machine covering, itemwise upgrades and exact online MMS",
+      "Published mathematical research records searched with the exact ratio cutoff, equivalent injective-machine language and aliases",
+      "Accessible related two-size static allocations and online fairness claims, compared by implication"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "Huang--Teh Appendix B.4 gives a 2/3 approximation using a fixed picking sequence; Appendix B.11 gives a multi-item lower-bound construction requiring many arbitrarily small items.",
+        "In the present theorem the fixed word (1,1,1,1,r) cannot be realized prefixwise at exact MMS for integer r>=4, while the constructed 1/r algorithm succeeds for r in {2,3}.",
+        "Amanatidis et al. require irrevocability: their transition set is different, so the stated impossibility ratios cannot force failure under the proposed itemwise recourse."
+      ],
+      "reasoning": "Neither the general lower bound nor the existing bundle-level upper result dominates both sides of the new if-and-only-if claim. Different assumptions on recourse and item magnitudes prevent implication. Literature searches are incomplete, so originality remains subject to independent validation.",
+      "searches": [
+        "Online Fair Division with Upgrade Recourse Theorem B.2 Appendix B.11 two agents item-level exact maximin",
+        "\"Online Fair Division for Personalized 2-Value Instances\" irrevocable maximin share",
+        "\"two job sizes\" \"machine covering\" online recourse non-decreasing cardinality exact"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "The natural reduction is two-machine maximin covering with a stepwise injection from old to new items for each machine. This is stricter than monotone total machine loads.",
+        "Huang and Teh, arXiv:2610.16943v1, Section 2.2 explicitly distinguishes item-level from bundle-level upgrades.",
+        "Searches returned general recourse scheduling and fair-division papers but no exact denomination cutoff for this injection constraint."
+      ],
+      "reasoning": "Matching identical load targets in a static two-machine partition is not equivalent to realizing those partitions along every prefix with separate item injections. No retrieved equivalent dynamic statement supplied the ratio-3 positive algorithm or the ratio-4 obstruction.",
+      "searches": [
+        "online machine covering insert job size 4 after four jobs size 1 monotone injective replacement two machines",
+        "monotone reassignment itemwise dominated machine covering two identical machines two job sizes exact min load adversarial arrivals",
+        "\"item-level upgrades\" \"exact MMS\" identical two values",
+        "\"machine covering\" \"two sizes\" \"no job reassignment\" exact online upgrading"
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "Huang--Teh Table 1 records general two-agent item-level factor 2/3 and bundle-level factor 1, without a 1-versus-r exact threshold.",
+        "Published mathematical research-record searches returned unrelated stable-matching and allocation records, not the present prefixwise two-size injection theorem.",
+        "Accessible prior claims about two-size static fair allocation and unit/double online envy objectives were compared; neither supplies the present recourse dynamics."
+      ],
+      "reasoning": "A static allocation formula or a finite test listing cannot certify the existence of a single online updating scheme. No inspected table or record enumerates the claimed sharp 3-to-4 boundary.",
+      "searches": [
+        "item-level upgrade recourse exact two-agent maximin share identical two-denomination positive values 1 2 3 ratio 4 failure",
+        "two identical agents upgrade recourse exact MMS EFX binary item sizes sharp 3-to-4 boundary",
+        "online fair division item-level upgrade recourse two agents identical two-valued goods exact maximin share values 1 2 3 4 sharp threshold",
+        "\"item-level\" \"maximin share\" \"two values\" recourse"
+      ]
+    },
+    "rationale": "The exact prefixwise itemwise-upgrade classification for two agents and identical two-denomination utilities is not implied by the inspected general 2/3 itemwise result, the existing two-agent exact bundle-level result, or the two-valued irrevocable allocation work. The sharp ratio-4 fixed obstruction and matching positive update scheme are distinct from static partition results. Targeted searches of mathematical records and published literature revealed no dominating formulation; residual unindexed-priority risk remains.",
+    "residual_risks": [
+      "Unindexed older online scheduling or monotone replacement literature might state an equivalent small-denomination theorem.",
+      "Full original text for arXiv:2505.22174v1 was unavailable; distinction of irrevocability was verified from its abstract but not all appendices were read.",
+      "Published research-record semantic search is not exhaustive and negative results are not proofs of priority."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "NOT_COVERING the precise restricted-domain two-denomination 3-to-4 classification. General 2/3 itemwise results and exact bundle-level results have different conclusions or assumptions.",
+        "evidence": [
+          "arXiv:2610.16943v1, Table 1; Sections 2.2, 3.2, 4.1; Appendices B.4, B.11, C.2"
+        ],
+        "identifier_or_url": "https://www.paperpeel.com/paper/2610.16943",
+        "material_read": "Accessible full-text HTML: Introduction, Sections 2.1-2.3, 3.1-3.2, 4.1, Appendix B.4 and Appendix B.11, including definitions, statements and proofs.",
+        "method": "Read the accessible full-text HTML and inspected the theorem and appendix ranges directly.",
+        "title": "Online Fair Division with Upgrade Recourse",
+        "trigger": "Defines the exact itemwise recourse model and establishes general two-agent upper and lower MMS factors."
+      },
+      {
+        "assessment": "Distinct irreversible-allocation model, so its statements cannot supply the proposed constructive recourse algorithm. Full-manuscript omission retained as residual priority risk.",
+        "evidence": [
+          "arXiv:2505.22174v1 abstract (2025-05-28), specifically irrevocable assignments and best deterministic factor 1/(2n-1)"
+        ],
+        "identifier_or_url": "https://arxiv.org/abs/2505.22174",
+        "material_read": "Primary arXiv abstract and publicly available extended secondary descriptions; full paper was not retrievable in this session.",
+        "method": "Read abstract and detailed accessible summary; attempted direct arXiv HTML.",
+        "title": "Online Fair Division for Personalized 2-Value Instances",
+        "trigger": "Potentially stronger theorem on restricted two-valued utilities."
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "3dc09cd9-bf4f-4e60-827a-c6ba6bd76c97",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "Standardized resource sizes are a natural restriction in dynamic fair allocation and two-machine load covering. The theorem resolves exact MMS feasibility under the substantive itemwise nonworsening restriction at each arrival, with a simple sharp 3-versus-4 integer ratio and a deterministic constant-time update requiring at most one relocation. Its five-good obstruction isolates the resource-size reason for incompatibility, rather than merely repeating the general constant-factor guarantee.",
+    "status": "PASS"
+  }
+}
