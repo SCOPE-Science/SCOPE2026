@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-29.md",
+      "INDEPENDENT_AUDIT_2026-10-29.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,12 +19,24 @@
 }
 ---
 
-## Computational reproducibility
+# Independent mathematical audit
 
-Run `python check.py` from the directory containing this file. The checker uses only Python standard-library modules. For dimensions \(1\le d\le9\) and every two-marker separation \(1\le t\le d\), it constructs the entire binary cube and refines all its vertex colours synchronously. At every round it compares the partition with independently computed capped Hamming-distance pairs, and at stabilization checks the prescribed round and the orbit-class multiplicities. A second calculation constructs a weighted orbit quotient from all available single-coordinate flips and checks every \(1\le d\le40\) and \(1\le t\le d\). The run in `check_output.txt` reports 45 full-cube and 820 weighted-quotient configurations, with `ALL_PASS`.
+## correctness
 
-The weighted quotient uses the known coordinate-count symmetry of the cube and is therefore not a completely independent proof of the orbit statement. The complete full-cube implementation does not use that quotient. Neither finite test proves the theorem in arbitrary dimension. The proof in `RESULT.md` treats all dimensions directly.
+PASS
 
-## Scope and review status
+PASS: Distinctly colored markers a,b∈Q_d at distance t give orbit coordinates (i,j), 0≤i≤t,0≤j≤d-t, with distances p=i+j,q=t-i+j. Reconstructed induction: initial colors are F_1=(min(p,1),min(q,1)); count of neighbors at a marked distance R-1 reveals any new truncation at R+1, while known Hamming neighbor multiplicities i,t-i,j,d-t-j prevent further splits. Thus after r rounds colors are F_{r+1} exactly. The full distance pair is a complete orbit invariant for pointwise stabilizer S_t×S_{d-t}; cell size binom(t,i)binom(d-t,j). Sharp noninjectivity/injectivity thresholds yield d-1 for adjacent, d-2 for 2≤t<d and floor((d-1)/2) for antipodal, with d=1,2 boundary checks. Independently implemented direct synchronous vertex refinement of Q_d for every 1≤d≤6, 1≤t≤d (21 configurations), checking every intermediate partition and stopping depth; matches the theorem. Finite checks do not prove unrestricted d, for which the counting induction does.
 
-All mathematical assertions have been subjected to the accompanying self-review correctness, originality, and value review. An independent mathematical audit has not been performed. No separate external formal certification is asserted.
+## originality
+
+PASS
+
+PASS (qualified): the binary two-distinct-marker clipped-distance refinement filtration and separation-dependent exact first stable rounds are not implied by the inspected general 1-WL and perfect Hamming coloring works, or by different-marker/alphabet analogues; an unindexed general distance-regular marked-pair theorem could cover it.
+
+## value
+
+PASS
+
+PASS: Exact number of synchronous 1-WL iterations after individualizing two vertices is a natural graph-algorithm complexity statistic, with marker distance causing a sharp three-regime speedup. Complete roundwise filtration and orbit census illuminate 1-WL sensitivity to initial colors; not merely a numerical run on one cube.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

@@ -1,0 +1,113 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T22:55:56Z",
+  "axes": {
+    "correctness": {
+      "rationale": "PASS: Distinctly colored markers a,b∈Q_d at distance t give orbit coordinates (i,j), 0≤i≤t,0≤j≤d-t, with distances p=i+j,q=t-i+j. Reconstructed induction: initial colors are F_1=(min(p,1),min(q,1)); count of neighbors at a marked distance R-1 reveals any new truncation at R+1, while known Hamming neighbor multiplicities i,t-i,j,d-t-j prevent further splits. Thus after r rounds colors are F_{r+1} exactly. The full distance pair is a complete orbit invariant for pointwise stabilizer S_t×S_{d-t}; cell size binom(t,i)binom(d-t,j). Sharp noninjectivity/injectivity thresholds yield d-1 for adjacent, d-2 for 2≤t<d and floor((d-1)/2) for antipodal, with d=1,2 boundary checks. Independently implemented direct synchronous vertex refinement of Q_d for every 1≤d≤6, 1≤t≤d (21 configurations), checking every intermediate partition and stopping depth; matches the theorem. Finite checks do not prove unrestricted d, for which the counting induction does.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "General color refinement yields stable equitable partitions but no universally sharp d,t first stable rounds.",
+          "Related one-root and higher-alphabet marked Hamming results concern different initial partitions or q-ary parameters."
+        ],
+        "reasoning": "Without a theorem forcing roundwise two-distance truncation, an equitable partition result alone does not imply the filtration; a broader exact distance-regular theorem remains a plausible risk.",
+        "searches": [
+          "Resultary: two marked vertices Boolean hypercube color refinement distance truncation stabilization depth orbits",
+          "Grohe et al. arXiv:1307.5697",
+          "Kersting et al. DOI:10.1609/aaai.v28i1.8992"
+        ]
+      },
+      "checked_sources": [
+        "Actual complete eight-entry Git tree 8642ee3001c26a5e1010884379ebd843e6369558; RESULT.md and check.py read.",
+        "Fresh direct synchronous full-cube checks through d=6, 21 marker configurations; saved check_output.txt not used as proof.",
+        "Resultary matched Boolean cube/equitable hits without exact two-marker profile."
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Established 1-WL and equitable partition definitions do not specify initialization with exactly two distinct marker colors.",
+          "Perfect two-colorings of Hamming graphs do not classify the three initial colors and successive multi-set refinements for all marker distances."
+        ],
+        "reasoning": "The explicit F_R induction and saturation collision test are additional mathematical assertions not seen in inspected prior statements.",
+        "searches": [
+          "arxiv:1307.5697",
+          "arxiv:1911.13151",
+          "Resultary two-marker exact depth alias query"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Equivalent to exact equitable refinement of the two-root distance grid [0,t]×[0,d-t] with four weighted coordinate transitions.",
+          "The two marked 1-WL colors are not the same as unmarked perfect 2-coloring or one-root distance partitions."
+        ],
+        "reasoning": "The reduction to a weighted Hamming orbit quotient is explicit; none of the checked abstracts and theorem descriptions states the exact binary two-marker time profile.",
+        "searches": [
+          "Resultary: two marked vertices Boolean hypercube color refinement distance truncation stabilization depth orbits",
+          "Grohe et al. arXiv:1307.5697",
+          "Bespalov et al. arXiv:1911.13151"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "No returned Resultary record matched the two-marker depth table as a function of both d and t.",
+          "Direct independent checks produced full first stable rounds in all 21 small cases."
+        ],
+        "reasoning": "This is an infinite formula, not a known tabular small-cube invariant; indexed search gaps alone do not establish novelty.",
+        "searches": [
+          "Resultary: two marked vertices Boolean hypercube color refinement distance truncation stabilization depth orbits",
+          "Resultary ranked Boolean cube and equitable-partition hits"
+        ]
+      },
+      "rationale": "PASS (qualified): the binary two-distinct-marker clipped-distance refinement filtration and separation-dependent exact first stable rounds are not implied by the inspected general 1-WL and perfect Hamming coloring works, or by different-marker/alphabet analogues; an unindexed general distance-regular marked-pair theorem could cover it.",
+      "residual_risks": [
+        "Unindexed stronger theorem on color refinement of marked distance-regular graphs may imply the result.",
+        "The statement relies on two differently colored markers in binary cubes; no extension to q>2 or arbitrary markers."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Foundational algorithmic 1-WL, not observed exact marked-hypercube round law",
+          "evidence": [
+            "The article was not searched exhaustively for every special cube appendix."
+          ],
+          "identifier_or_url": "arxiv:1307.5697",
+          "material_read": "Abstract plus bibliographic definition and scope; full text not used to rule out specialized coverage",
+          "method": "Open-access indexed abstract and cross-reference",
+          "title": "Dimension Reduction via Colour Refinement",
+          "trigger": "General one-dimensional refinement and equitable closure"
+        },
+        {
+          "assessment": "Studies perfect two-colorings, not identified a bound matching the three-color two-individualization filtration",
+          "evidence": [
+            "Hidden corollary or different combinatorial terminology possible."
+          ],
+          "identifier_or_url": "arxiv:1911.13151",
+          "material_read": "Abstract and reported Hamming graph structural scope; full primary text not materially inspected",
+          "method": "Open-access metadata/abstract inspection",
+          "title": "Perfect 2-colorings of Hamming graphs",
+          "trigger": "Plausible stronger Hamming equitable-partition coverage"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "PASS: Exact number of synchronous 1-WL iterations after individualizing two vertices is a natural graph-algorithm complexity statistic, with marker distance causing a sharp three-regime speedup. Complete roundwise filtration and orbit census illuminate 1-WL sensitivity to initial colors; not merely a numerical run on one cube.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Actual complete eight-entry Git tree 8642ee3001c26a5e1010884379ebd843e6369558; RESULT.md and check.py read.",
+    "Fresh direct synchronous full-cube checks through d=6, 21 marker configurations; saved check_output.txt not used as proof.",
+    "Resultary matched Boolean cube/equitable hits without exact two-marker profile."
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Only binary simple hypercubes with two distinct marker colors and retained old color at each update.",
+    "Full-graph bounded experiment validates 21 instances, not all d."
+  ],
+  "residual_risks": [
+    "Unindexed stronger theorem on color refinement of marked distance-regular graphs may imply the result.",
+    "The statement relies on two differently colored markers in binary cubes; no extension to q>2 or arbitrary markers."
+  ],
+  "schema_version": 1
+}
