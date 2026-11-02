@@ -1,15 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness
-PASS. The proof reduces the three-grounded-vertex trace to an exact two-by-two Green-matrix formula using the three product-Laplacian projectors. Six coordinate-equality orbits exhaust three distinct vertices when both factors have at least three vertices; for two rows only three orbits remain. Exact positive-denominator polynomial certificates prove strict optimality for all unequal factor sizes, supplemented by 37 exact independent inversions. The checked statement excludes square rook graphs.
+## correctness
 
-## Originality
-PASS, subject to possible unindexed stronger literature. Fitch and Leonard (2014/2016) give joint centrality for arbitrary leader sets and optimize cycles and paths; Patterson, Yi and Zhang (2017) give general resistance-based formulas and optimize other families. Existing stronger three-leader strongly regular coverage includes square rook graphs, which are outside the claim. An earlier two-leader Hamming result and rook-graph two-edge-failure results use different objective domains and do not imply this three-leader classification for unequal factors. Searches by rook, line-graph, product, joint-centrality and grounded-trace aliases did not uncover a broader theorem that determines all the strict optimizer classes.
+PASS
 
-## Value
-PASS. The complete infinite-family optimum, exact rational minimum and exact optimizer counts characterize three-leader placement on a canonical heterogeneous product network. At two rows the best triple must reuse a row, but starting at three rows all optimum placements become pairwise nonattacking; this is an exact structural boundary, not a small numerical gain.
+For unweighted K_m□K_n, 2≤m<n, exactly three distinct noise-free leaders, objective tr(L_{V\S,V\S}^{−1}), the three Cartesian spectral projectors yield L+, (L+)² and the exact 2×2 Green-matrix Schur complement for any triple. Equality-pattern partitions classify exactly six orbits for m≥3 and three for m=2. Five nonmatching-minus-matching rational differences have positive denominators and positive-coefficient numerators under m=3+x,n=4+x+y (coefficients 30,26,30,18,15); the two-row differences are positive for n≥3. Hence winners exactly three nonattacking rooks for 3≤m<n, count 6 C(m,3) C(n,3), and three distinct second-coordinates split 2+1 for m=2<n, count 6C(n,3), with rational minima displayed in pinned result. Independently inverted grounded Laplacians for every three-leader set on six small strictly rectangular graphs and obtained identical winner sets/counts. The proof supplies the all-m,n positive-polynomial certificate; grid alone would not.
 
-## Limits
-Only unit conductances, strictly unequal factor sizes, and exactly three noise-free leaders are established. The polynomial identities can be checked with the included standalone program, but its finite direct tests alone are not proof. Specialized unindexed literature remains a possible originality risk.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Joint-centrality formula and general leader-placement optimization are known; the inspected primary Fitch-Leonard theorem locations are paths/cycles and Patterson-Yi-Zhang resistance-based methods do not supply this strictly rectangular rook-graph sharp optimizer/count formula. Square rook cases intentionally excluded as formerly treated.
+
+## value
+
+PASS
+
+Gives full structural optimal leader placements, closed exact network-coherence minima, multiplicities and a genuine two-row boundary across an infinite natural graph product family; useful design theorem, not just a plug-in small case.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
