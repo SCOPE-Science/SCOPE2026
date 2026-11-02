@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -15,18 +18,25 @@
   "schema_version": 1
 }
 ---
-# Verification
 
-The proof applies to every integer \(k\geq1\) and uses a homotopy-pushout induction. Its critical checks are: (1) the exact first-rung versus first-horizontal-pair dichotomy; (2) the equality of intersections with the perfect-matching complex of the last \(n-2\) columns; (3) the same intersection diagram for blockwise perfect matchings; (4) a uniform equivariant deformation retraction of each two-edge component to its barycenter; and (5) the orientation sign of reversing join factors. Only an ordinary homotopy equivalence is claimed for the inclusion.
+# Independent mathematical audit
 
-The standalone `checker.py` enumerates perfect matchings, all their simplicial subfaces, and the blockwise subcomplex, and recomputes oriented augmented-chain Lefschetz sums for identity, row swap, reversal, and their product. Results:
+## correctness
 
-| Column count | Nonempty faces | Blockwise tiling facets | Row swap on top homology | Reversal on top homology |
-|---:|---:|---:|---:|---:|
-| 2 | 6 | 2 | +1 | +1 |
-| 4 | 60 | 4 | +1 | -1 |
-| 6 | 546 | 8 | +1 | -1 |
-| 8 | 4920 | 16 | +1 | +1 |
-| 10 | 44286 | 32 | +1 | +1 |
+PASS
 
-Direct mod-two boundary reductions separately verify precisely one reduced Betti number in the expected degree at widths 2, 4, 6 and 8. The program terminates with `VERIFY_OK`. These finite computations do not prove any all-width statement or an integral homology classification on their own. The structural proof establishes those claims independently. No independent audit has been performed.
+For every k>=1, domino tilings of P2 square P_{2k} begin with the first rung or the first horizontal pair, giving X_n=U_n cup V_n with two nonempty cones and exact intersection X_{n-2}. The blockwise subcomplex Y_k=*_{j=1}^k (Delta(A_j) disjoint union Delta(B_j)) has the same two-cone decomposition and an intersection Y_{k-1}->X_{2k-2}. From the exact k=1 base, the CW gluing lemma inductively shows the inclusion Y_k->X_{2k} is an ordinary homotopy equivalence. Each pair of edge-simplices deforms equivariantly to its two component barycenters; their join is an invariant S^{k-1}. Row swap fixes component labels and reverses internal edge order only, leaving each barycenter fixed, hence acts +1 on top homology; column reversal permutes k join factors in reverse order, degree (-1)^{k(k-1)/2}. Rational coinvariants under the Klein four action yield the quotient condition k=0,1 mod4. Independent enumeration from the tiling recursion for 2,4,6 columns and oriented simplicial Lefschetz signs matches all four involutions; finite cases do not replace the gluing induction.
+
+## originality
+
+PASS
+
+The natural even ladder perfect-matching complex already has a known abstract S^{k-1} homotopy type. The full integral Klein-four representation is not determined by that classification, and the new blockwise inclusion supplies the involution action. Nearest indexed character computations are for ordinary matching, cut, independence or Möbius complexes, not this exact path-ladder perfect-matching functor.
+
+## value
+
+PASS
+
+The sphere homotopy type for all even-width ladders is known. The new motivated information is an explicitly preserved homology-carrying geometric sphere and full natural row/column Klein-four integral character for every k, which determines a nontrivial periodic quotient rational invariant. This is a symmetry refinement with real geometric content rather than restating the Betti number.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
