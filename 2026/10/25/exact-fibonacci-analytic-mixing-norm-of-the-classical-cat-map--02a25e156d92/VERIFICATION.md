@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-27.md",
+      "INDEPENDENT_AUDIT_2026-10-27.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-# Direct verification and limits
+# Independent mathematical audit
 
-The embedded `verify.py` is self-contained standard-library Python using exact integers. It checks the matrix-power Fibonacci identities implicitly by integer multiplication and independently enumerates the \(\ell_1\)-bounded search domain. Every minimizer must lie in the tested domain at finite horizon, since \(|k|_1+|A^n k|_1\ge |k|_1\), and the exhibited candidate already has value \(F_{n+3}\). Thus the check is finite-horizon exhaustive rather than heuristic.
+## correctness
 
-Actual execution: `VERIFY_OK exhaustive_n=0..12 exact_integer_pairs= 1207324 minimizers_per_n=4 candidate_iterations=0..120`. The verifier confirms the four candidate frequencies and the exact minimum at all thirteen integer times, then checks candidate identities through time 120. Only the analytical sign-case argument establishes the universal result for arbitrary nonnegative time. An uninspected historical equivalence remains possible. Independent audit was not performed.
+PASS
+
+Fourier characters are permuted injectively by A^n; the map between opposite analytic Fourier weights is a weighted permutation, so the operator norm is theta^{min_{k!=0}(|k|_1+|A^n k|_1)}. Unimodular recentering A^r produces positive Fibonacci matrices; explicit sign-case bounds prove F_{n+3} and exactly the four listed Fourier minimizers for each even and odd n, including 0 and 1. Independent exact-integer exhaustive lattice-diamond computation for n=0..10 reproduced the claimed F_{n+3} minimum and four modes every time; beyond that the sign-case proof, not finite tests, carries the quantifier. The norm applies only to specified theta weights and mean-zero observables.
+
+## originality
+
+PASS
+
+Shchetka gives asymptotic analytic Fourier escape for a different toral matrix, and cat-map period/mixing works give related Fibonacci identities, but the exact all-iterate weighted Hilbert norm and all four optimizer frequencies were not identified in inspected sources. Earlier analytic mixing literature remains a historical risk.
+
+## value
+
+PASS
+
+Sharp finite-time analytic correlation benchmark for the canonical symmetric cat automorphism; complete extremizers and Fibonacci exponents distinguish it from rate-only bounds and discrete torus-period results.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
