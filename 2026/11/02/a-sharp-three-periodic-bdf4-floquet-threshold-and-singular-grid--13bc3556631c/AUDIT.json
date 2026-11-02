@@ -1,0 +1,123 @@
+{
+  "correctness": {
+    "rationale": "A direct interpolation derivation gives a three-dimensional companion recurrence. Its exact rational characteristic cubic yields four necessary-and-sufficient Schur-Jury tests; coefficient-positivity certificates prove three universally and one reduces to a degree-seven polynomial with one positive root. The neutral endpoint is simple. Nine independently computed singular expansion terms give the limiting quadratic and the exact s=2 threshold. The packaged checker reconstructed all critical identities from actual source code, not old logs.",
+    "status": "PASS"
+  },
+  "independent": false,
+  "independent_audit_status": "not_performed",
+  "originality": {
+    "broader_coverage": {
+      "evidence": [
+        "Skeel–Jackson 1983 DOI 10.1137/0720056 abstract describes bounds for Nordsieck step-size modification, a different formula than genuine variable-coefficient BDF4.",
+        "Söderlind–Fekete–Faragó 2018 DOI 10.1007/s10543-018-0716-y assumes smooth mesh changes with adjacent ratios 1+O(1/N).",
+        "Calvo–Grande–Grigorieff 1990 DOI 10.1007/BF01386395 states existence of bounds for variable-order BDF step ratios in its abstract."
+      ],
+      "reasoning": "The present constant high-contrast, period-three pattern lies outside the smooth-mesh hypotheses of 2018 and outside general globally small-ratio sufficient regimes. Nordsieck and genuine variable-coefficient formulas must not be conflated. The Calvo 1990 full text is inaccessible and could contain stronger periodic analysis; that possibility is disclosed, without asserting not-covered based only on its abstract.",
+      "searches": [
+        "\"On the zero stability of the variable order variable stepsize BDF\" filetype:pdf Calvo Grande Grigorieff",
+        "\"On the Stability of Variable-Stepsize Nordsieck BDF Methods\" pdf Calvo Lisbona Montijano",
+        "BDF4 zero stability 3 periodic variable step lengths Floquet polynomial instability",
+        "On the zero-stability of multistep methods on smooth nonuniform grids BDF4"
+      ]
+    },
+    "checked_sources": [
+      "https://www.researchgate.net/publication/278992956_Construction_of_variable-stepsize_multistep_formulas",
+      "https://www.researchgate.net/publication/226854075_On_the_zero_stability_of_the_variable_order_variable_stepsize_BDF-Formulas",
+      "https://doi.org/10.1137/0720056",
+      "https://link.springer.com/article/10.1007/s10543-018-0716-y"
+    ],
+    "claim_vs_prior_implication": {
+      "evidence": [
+        "The 1986 construction specifies coefficient adaptation but does not give necessary-and-sufficient three-periodic monodromy stability.",
+        "The 2018 theorem controls asymptotically smooth mesh deformations and hence does not imply stability on any fixed (1,R,3) pattern with R>59.",
+        "The 1990 abstract gives mesh-ratio bounds; such bounds alone cannot determine the exact first crossing at R=R*."
+      ],
+      "reasoning": "The new claim contains a necessary-and-sufficient finite crossing along a nontrivial ray and a sharp singular two-parameter regime. These are not algebraic corollaries of construction or of smooth-grid sufficient conditions. Specific older full papers remain uninspected and may contain broader results; originality is provisional under that documented risk.",
+      "searches": [
+        "\"Construction of Variable-Stepsize Multistep Formulas\" Skeel 1986",
+        "\"On the zero stability of the variable order variable stepsize BDF-formulas\" Calvo Grande Grigorieff",
+        "\"The Stability of Variable-Stepsize Nordsieck Methods\" Skeel Jackson 1983",
+        "On the zero-stability of multistep methods on smooth nonuniform grids BDF4"
+      ]
+    },
+    "equivalent_formulations": {
+      "evidence": [
+        "Skeel 1986 DOI 10.1090/S0025-5718-1986-0856699-X defines actual variable-coefficient formulas but no Floquet period-three threshold in examined text.",
+        "Calvo 1990 DOI 10.1007/BF01386395 abstract concerns bounds for adjacent mesh ratios for orders 3–5, not an exact periodic matrix spectrum."
+      ],
+      "reasoning": "The equivalences searched include extraneous characteristic roots, periodic zero stability, Floquet/monodromy spectrum, and Schur–Jury polynomial criteria. General ratio bounds are sufficient conditions and do not, without a stronger theorem, give an iff condition along the family (1,R,3). No equivalent exact condition was identified in accessible material; the full Calvo 1990 paper could not be excluded decisively.",
+      "searches": [
+        "BDF4 alternating step sizes period three zero stability counterexample periodic grid three steps",
+        "variable step BDF4 three-periodic grid unstable Floquet multiplier",
+        "\"BDF4\" \"1,R,3\" Floquet Schur condition",
+        "\"BDF4\" \"three-periodic\" \"59.783654\""
+      ]
+    },
+    "exact_database_or_table": {
+      "evidence": [
+        "The inspected 1986 full paper discusses construction/representation and compares stability conceptually, without a period-three threshold table.",
+        "The 1990 paper abstract gives general bounds, but its potentially relevant tables were not accessible."
+      ],
+      "reasoning": "Exact database and table checks sought the degree-seven threshold, its 59.78365454 approximation, the (1,R,3) family, and the singular s=2 transition. None was observed in material actually read. The missing full 1990 table is an explicit residual risk, not certified absent.",
+      "searches": [
+        "BDF4 three periodic Schur Jury threshold R 59.7836545407",
+        "\"BDF4\" \"1,R,3\" Floquet Schur condition",
+        "variable-step BDF4 numerical integration zero-stability and periodic step sequences",
+        "On the zero stability of the variable order variable stepsize BDF formulas bounds table"
+      ]
+    },
+    "rationale": "The inspected primary full text of Skeel (1986) gives the variable-coefficient construction rather than a period-three Floquet classification. The fully accessible 2018 smooth-grid theorem does not apply to a fixed high-contrast grid. Published 1990 step-ratio bounds and 1983 Nordsieck results are plausible predecessors, but no inspected scientific statement implies the exact degree-seven one-parameter cutoff and the analytic two-parameter singular frontier. Two priority risks remain owing to inaccessible full texts; absence from search alone is not taken as evidence of originality.",
+    "residual_risks": [
+      "Calvo–Grande–Grigorieff (1990) full text/tables inaccessible despite attempts; a stronger same-method specialized periodic statement may exist.",
+      "Skeel–Jackson (1983) full text inaccessible; it concerns Nordsieck, but any tables with analogous periodic stability boundaries were not verified.",
+      "Unindexed or differently titled specialist finite-period BDF4 results could imply the exact threshold."
+    ],
+    "source_inspections": [
+      {
+        "assessment": "Establishes the method family; no exact three-periodic BDF4 cutoff found in the text read",
+        "evidence": "DOI 10.1090/S0025-5718-1986-0856699-X; full transcription includes the section describing variable-coefficient BDF as a natural construction",
+        "identifier_or_url": "https://www.researchgate.net/publication/278992956_Construction_of_variable-stepsize_multistep_formulas",
+        "material_read": "Full accessible text of 1986 paper including Sections on variable-step construction and the concluding stability discussion",
+        "method": "Read the accessible author-uploaded full-text transcription and checked terms and sections",
+        "title": "Construction of Variable-Stepsize Multistep Formulas",
+        "trigger": "Primary foundation defining genuine variable-coefficient BDF rather than fixed-coefficient adaptation"
+      },
+      {
+        "assessment": "No full-document noncoverage judgment; potential specialist comparison remains",
+        "evidence": "1990 abstract states step-ratio bounds for any combination of variable-order BDF3-5; author-upload metadata 2015-01-30",
+        "identifier_or_url": "https://doi.org/10.1007/BF01386395",
+        "material_read": "Abstract and bibliographic/upload metadata only; author-posted PDF access failed",
+        "method": "Checked academic catalogue and author-hosted full-text access, with an additional authorized full-text retrieval attempt unsuccessful",
+        "title": "On the zero stability of the variable order variable stepsize BDF-formulas",
+        "trigger": "Highly plausible earlier general stability theorem for orders 3,4,5"
+      },
+      {
+        "assessment": "Studies a distinct Nordsieck implementation; unknown full-text extent of period-three calculations",
+        "evidence": "1983 abstract supplies bounds depending on step-size change frequency",
+        "identifier_or_url": "https://doi.org/10.1137/0720056",
+        "material_read": "Abstract and referenced tables description only; full text unavailable",
+        "method": "Inspected publisher abstract and bibliographic references",
+        "title": "The Stability of Variable-Stepsize Nordsieck Methods",
+        "trigger": "Early frequency-of-change result that could contain periodic calculations"
+      },
+      {
+        "assessment": "Its asymptotically smooth mesh assumptions do not imply stability for fixed high-contrast three-periodic patterns",
+        "evidence": "2018 paper requires adjacent ratios 1+O(N^{-1}) for its smoothly deformed grid conclusion",
+        "identifier_or_url": "https://link.springer.com/article/10.1007/s10543-018-0716-y",
+        "material_read": "Open-access full HTML, especially abstract, Section 3 BDF4 discussion, Theorem 3.2 and smooth-grid hypotheses",
+        "method": "Read primary full-text HTML and checked the BDF4 discussion and theorem hypotheses",
+        "title": "On the zero-stability of multistep methods on smooth nonuniform grids",
+        "trigger": "Accessible broader multistep stability theorem potentially covering variable BDF4"
+      }
+    ],
+    "status": "PASS"
+  },
+  "review_type": "self_review",
+  "schema_version": 1,
+  "scope_run_id": "13bc3556-631c-4900-8114-05b3d63529fe",
+  "self_review_status": "passed",
+  "value": {
+    "rationale": "The sharp finite stability/nonstability cutoff supplies a complete natural grid-family classification; the slice s=3 is the first positive integer above the analytic singular boundary s=2. The broader large-contrast threshold explains the transition structurally, rather than presenting a single arbitrary unstable numerical example. This distinguishes damped, neutral, and divergent recurrence modes while retaining precise limitations to homogeneous periodic BDF4.",
+    "status": "PASS"
+  }
+}
