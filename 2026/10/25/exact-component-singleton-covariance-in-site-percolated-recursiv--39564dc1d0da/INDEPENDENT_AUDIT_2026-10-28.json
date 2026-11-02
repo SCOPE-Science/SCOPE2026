@@ -1,0 +1,126 @@
+{
+  "audit_date_utc": "2026-10-28",
+  "audited_at_utc": "2026-10-28T11:56:04Z",
+  "axes": {
+    "correctness": {
+      "rationale": "Conditional on retained vertex count M, component count K, singleton count I, the four cases for a newly attached and independently retained vertex have probabilities q, p(1-M/n), pI/n, p(M-I)/n. This yields i_(n+1)=(1-p/n)i_n+pq and i_n=a*n+b*h_n; the forest identity E[K]=np-(n-1)p^2 and Bernoulli score Cov(M,I)=pq*d(E I)/dp supply the missing cross terms. Expansion of Delta K Delta I=Delta K gives the displayed linear covariance recurrence. Multiplying by 1/h_n and summing yields C_n=c*n-2p^2q+h_n*[pq(1+2p)-c+p^2q((b-bprime)s_n+b/2(s_n^2-t_n))]. Gamma/harmonic estimates imply the O_p(n^-p log^2 n) correction and positivity of c follows from (1-p)+p^2(3+5p+2p^2)>0. Independent enumeration exactly summed all recursive-tree parent choices and retention subsets through n=6 at p=1/4,1/2,3/4 (18 cases), matching the rational formula; this is a check, not a proof for general n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Gu–Yuan laws of large numbers and cluster sizes do not specify exact second cross moments.",
+          "Kalay–Ben-Naim uses removal of prescribed number of vertices, whereas sampling here is Bernoulli iid; Janson treats total component counts, not their covariance with singleton counts."
+        ],
+        "reasoning": "One cannot deduce the displayed covariance merely from a marginal LLN or total count fluctuation theorem, although a detailed full Markov kernel makes the problem mathematically accessible.",
+        "searches": [
+          "arxiv:2408.12515 Eq (1.5), Theorems 1 and 2, proof sections",
+          "Kalay Ben-Naim arxiv:1409.7106 fragmentation of random trees",
+          "Janson Uncovering a graph (2025)"
+        ]
+      },
+      "checked_sources": [
+        "Gu–Yuan arxiv:2408.12515 full primary PDF",
+        "Kalay–Ben-Naim arxiv:1409.7106",
+        "Janson 2025 doi:10.1007/s00440-025-01401-9",
+        "Resultary recursive tree covariance semantic search"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Gu–Yuan stochastic process law implicitly determines any statistic in principle, but their stated main theorems concern cluster profile LLN/scales rather than exact cross covariance.",
+          "A marginal variance of K and mean of I cannot determine their cross covariance; fixed-removal model moments differ from iid p."
+        ],
+        "reasoning": "The presented explicit c and finite-size correction are additional computable outputs not established verbatim or as an immediate displayed corollary of inspected prior results, although source transition law is fundamental prior coverage.",
+        "searches": [
+          "Gu Yuan (2024/2026) Eq1.5 full Markov transition",
+          "Janson (2025) total components fluctuations",
+          "Kalay and Ben-Naim (2014) fragmentation"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Gu–Yuan Eq1.5 gives Markov dynamics for component-size counts; K=sum components and I=number of size-one components, so the two observables are its natural projections.",
+          "The paper provides first-order proportions and giant-cluster assertions but does not explicitly give this finite-size mixed covariance."
+        ],
+        "reasoning": "The model is the same as Gu–Yuan, a substantive coverage acknowledged; a transition generator permits derivation in principle but is not itself the named closed all-n rational/harmonic formula. Earlier equivalent moments remain possible.",
+        "searches": [
+          "Gu Yuan arxiv:2408.12515 cluster size profile random recursive tree site percolation",
+          "Resultary query: recursive tree Bernoulli site percolation covariance number of components isolated singleton components",
+          "Janson Uncovering a graph recursive tree component counts singleton 2025"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Closest Resultary root-degree/leaf and percolation component-triangle covariance findings have different observables or percolation type.",
+          "No explicit finite n-by-p table containing Cov(K,I) appears in inspected Gu–Yuan theorem and moment sections."
+        ],
+        "reasoning": "The finite exact rational formula is computed from the dynamics, not copied from a known table; absence of search matches does not establish global novelty.",
+        "searches": [
+          "Resultary: recursive tree Bernoulli site percolation exact covariance number of components and isolated singleton components",
+          "arxiv:2408.12515 relevant moment formula search"
+        ]
+      },
+      "rationale": "Gu–Yuan arxiv:2408.12515 studies precisely independent site percolation of uniform random recursive trees and provides the cluster-size Markov transition generator, so the underlying process is known and the mixed covariance is computable in principle from prior dynamics. Its actual 24-page paper, including Eq (1.5), Theorems 1–2 and proof sections, does not state the compact exact cross covariance or positive coefficient c. Kalay–Ben-Naim treats fixed-number fragmentation and Janson fluctuations of total component counts, neither explicit singleton–total cross moment. An unindexed earlier extraction from the known generator remains a priority risk; no assertion of an entirely novel Markov model.",
+      "residual_risks": [
+        "Earlier use of Gu–Yuan full transition kernel may have computed this same mixed covariance under different terminology.",
+        "No all-n positivity statement for finite sizes; theorem only proves eventual positivity and positive linear coefficient."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Provides underlying model and transitions but no explicit exact Cov(total components,singletons) formula or linear c in inspected full text",
+          "evidence": [
+            "Eq1.5 cluster-size Markov transitions; Theorems 1 and 2 first-order results; no \"covariance\" text hit"
+          ],
+          "identifier_or_url": "https://arxiv.org/pdf/2408.12515",
+          "material_read": "Complete accessible 24-page arXiv PDF: introduction, model, Eq1.5 Markov cluster generator, Theorems 1–2, LLN and moment-estimate sections, references",
+          "method": "Read searchable primary full text including rendered PDF page, searched exact covariance terms and compared equations and hypotheses",
+          "title": "Size distribution of clusters in site-percolation on random recursive tree",
+          "trigger": "Identical random recursive tree and Bernoulli independent site percolation"
+        },
+        {
+          "assessment": "Not an explicit all-size Bernoulli singleton/total covariance identity",
+          "evidence": [
+            "Fixed-count fragmentation model and expected cluster statistics"
+          ],
+          "identifier_or_url": "https://arxiv.org/abs/1409.7106",
+          "material_read": "Accessible primary article abstract and model definitions describing prescribed-removal fragmentation",
+          "method": "Compared independent Bernoulli percolation vs fixed-number deletion and target observables",
+          "title": "Fragmentation of Random Trees",
+          "trigger": "Nearby random recursive-tree fragmentation statistics"
+        },
+        {
+          "assessment": "No direct implication to exact Cov(K,I) established from inspected results",
+          "evidence": [
+            "Total component-count fluctuations on graph uncovering process"
+          ],
+          "identifier_or_url": "https://doi.org/10.1007/s00440-025-01401-9",
+          "material_read": "Accessible article abstract and named main component-count fluctuations plus recursive-tree example, not entire proof text",
+          "method": "Compared marginal total components to requested joint singleton covariance",
+          "title": "Uncovering a graph",
+          "trigger": "Potentially broader component-count fluctuation results"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The number of retained connected components and the count of singleton components are natural, distinct measures of fragmentation. Their exact covariance for every n and p, with a nontrivial strictly positive linear asymptotic coefficient and explicit finite-size harmonic correction, quantifies clustering beyond known first moments or marginal laws. No arbitrary statistic slice: both observables are canonical and a future researcher can use this mixed moment directly. Does not establish joint CLT or finite-n sign for every size.",
+      "status": "PASS"
+    }
+  },
+  "checked_sources": [
+    "Gu–Yuan arxiv:2408.12515 full primary PDF",
+    "Kalay–Ben-Naim arxiv:1409.7106",
+    "Janson 2025 doi:10.1007/s00440-025-01401-9",
+    "Resultary recursive tree covariance semantic search"
+  ],
+  "disposition": "passed",
+  "limitations": [
+    "Uniform random recursive trees, iid Bernoulli vertex retention p strictly 0<p<1, n≥1.",
+    "No fixed-count retention conditioning, joint central limit theorem or all finite-n sign classification."
+  ],
+  "residual_risks": [
+    "Earlier use of Gu–Yuan full transition kernel may have computed this same mixed covariance under different terminology.",
+    "No all-n positivity statement for finite sizes; theorem only proves eventual positivity and positive linear coefficient."
+  ],
+  "schema_version": 1
+}

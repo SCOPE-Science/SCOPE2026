@@ -1,19 +1,21 @@
-# Scientific review
+# Independent mathematical audit
 
-## Correctness — PASS
+## correctness
 
-The finite tree/retention model is explicit. Conditional growth of the retained vertex, total-component, and singleton-component counts gives a complete four-case transition distribution; this directly yields the covariance recurrence. The identities for the first moments and the two auxiliary cross-covariances follow, respectively, from forest edge counting, Bernoulli score differentiation, and the uniform attachment rule. Solving the resulting first-order recurrence by the product factor \(h_n\) proves the all-\(n\) formula. The gamma ratio, shifted harmonic bounds, and a manifestly positive polynomial establish the asymptotic coefficient for every fixed \(0<p<1\). An independent exact-rational checker exhaustively enumerates trees and site outcomes through seven vertices at three retention probabilities and verifies the recurrence at further sample sizes. Such finite computation supports but does not establish the general identity.
+PASS
 
-## Originality — PASS (with residual priority risk)
+Conditional on retained vertex count M, component count K, singleton count I, the four cases for a newly attached and independently retained vertex have probabilities q, p(1-M/n), pI/n, p(M-I)/n. This yields i_(n+1)=(1-p/n)i_n+pq and i_n=a*n+b*h_n; the forest identity E[K]=np-(n-1)p^2 and Bernoulli score Cov(M,I)=pq*d(E I)/dp supply the missing cross terms. Expansion of Delta K Delta I=Delta K gives the displayed linear covariance recurrence. Multiplying by 1/h_n and summing yields C_n=c*n-2p^2q+h_n*[pq(1+2p)-c+p^2q((b-bprime)s_n+b/2(s_n^2-t_n))]. Gamma/harmonic estimates imply the O_p(n^-p log^2 n) correction and positivity of c follows from (1-p)+p^2(3+5p+2p^2)>0. Independent enumeration exactly summed all recursive-tree parent choices and retention subsets through n=6 at p=1/4,1/2,3/4 (18 cases), matching the rational formula; this is a check, not a proof for general n.
 
-The full preprint by Gu and Yuan, arXiv:2408.12515, was inspected, including its Markov transition equation (1.5), law of large numbers, cluster scaling statements, and proof sections. That prior transition mechanism completely defines the model and is not new. Neither its stated main results nor the examined argument gives the explicit mixed covariance \(\operatorname{Cov}(K_n,I_n)\) or its linear coefficient. Kalay–Ben-Naim, arXiv:1409.7106, concerns mean fragment-size laws under fixed-number removal, not this finite independent-retention cross moment. Janson's *Uncovering a graph* studies total-component fluctuations, but no singleton–total cross covariance is identified there. Searches of related terms and mathematical-result records identified no stronger or equivalent theorem. The underlying published transition law in principle permits the new formula to be derived, so a prior unindexed or implicit derivation remains a historical-priority risk.
+## originality
 
-## Value — PASS
+PASS
 
-Both observables are natural cluster statistics: total retained components describe macroscopic fragmentation, while singleton components record the smallest fragments. Their dependence is not captured by the separately known first-order cluster proportions or by a total-component fluctuation theorem. The exact finite-sample mixed second moment and positive explicit linear asymptotic coefficient quantify this relationship for every fixed retention parameter, and the shifted-harmonic correction resolves finite-size behavior without simulation. No joint central limit theorem is asserted.
+Gu–Yuan arxiv:2408.12515 studies precisely independent site percolation of uniform random recursive trees and provides the cluster-size Markov transition generator, so the underlying process is known and the mixed covariance is computable in principle from prior dynamics. Its actual 24-page paper, including Eq (1.5), Theorems 1–2 and proof sections, does not state the compact exact cross covariance or positive coefficient c. Kalay–Ben-Naim treats fixed-number fragmentation and Janson fluctuations of total component counts, neither explicit singleton–total cross moment. An unindexed earlier extraction from the known generator remains a priority risk; no assertion of an entirely novel Markov model.
 
-## Limits
+## value
 
-The argument is specific to independently retained vertices on uniform random recursive trees, and it proves eventual rather than all-size covariance positivity. A same-paper transition kernel determines all finite distributions abstractly, but does not itself state this closed form. Historical priority is uncertain beyond the inspected sources; independent mathematical validation is outstanding.
+PASS
 
-Self-review: passed. Independent audit: not yet performed.
+The number of retained connected components and the count of singleton components are natural, distinct measures of fragmentation. Their exact covariance for every n and p, with a nontrivial strictly positive linear asymptotic coefficient and explicit finite-size harmonic correction, quantifies clustering beyond known first moments or marginal laws. No arbitrary statistic slice: both observables are canonical and a future researcher can use this mixed moment directly. Does not establish joint CLT or finite-n sign for every size.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
