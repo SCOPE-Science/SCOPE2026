@@ -5,8 +5,11 @@
     "status": "not_performed"
   },
   "independent_audit": {
-    "evidence": null,
-    "status": "not_performed"
+    "status": "passed",
+    "evidence": [
+      "INDEPENDENT_AUDIT_2026-10-26.md",
+      "INDEPENDENT_AUDIT_2026-10-26.json"
+    ]
   },
   "lean_verification": {
     "evidence": null,
@@ -16,8 +19,24 @@
 }
 ---
 
-The package's `artifacts/verify.py` reconstructs the complete face set for the six labeled graph vertices and calculates all chain boundaries in the lexicographically ordered graph-edge basis. Its exact integer elimination has only unit pivots and certifies boundary ranks \((14,91,364,821,711,180)\); the nonzero reduced rational Betti numbers are \(115\) in degree four and \(24\) in degree five. The code checks \(\partial^2=0\), equivariance of the oriented chain action on a transposition and a six-cycle generating \(S_6\), and the eleven-class character calculation.
+# Independent mathematical audit
 
-The coefficient-extraction computation of the degree-five kernel character, subtraction of the injective degree-six chain module, the equivariant Euler identity in degree four, and the Murnaghan–Nakayama multiplicity calculations all use exact integers. Specht character orthogonality and integral nonnegative multiplicities are checked. Run `python3 artifacts/verify.py`; expect `D63_S6_CHARACTER_VERIFY_OK` at the end.
+## correctness
 
-This verifies a finite rational representation theorem only. It does not establish any claim about integral \(\mathbb Z[S_6]\)-lattices, modular representations, larger graphs, or global novelty. Independent audit is not performed.
+PASS
+
+For D_(6,3), an edge set has domination >=3 iff no pair of closed neighborhoods covers all six labeled vertices; direct enumeration of 2^15 edge masks gives exactly 4502 faces of dimensions 0..6, counts 15,105,455,1185,1647,915,180. Independently recomputed mod-two full boundary ranks 14,91,364,821,711,180 and separate exact integer unit-pivot elimination for differential degrees 5 and 6 (ranks711 and180, ker d5 dimension204). A freely normalized kernel basis gives all eleven signed conjugacy-class traces, verifying H4 dim115 and H5 dim24 and table; Specht inner products/character theory give asserted irreducible multiplicities with correct dimensions. This exhaustive finite argument covers the one stated graph only; no n-uniform inference.
+
+## originality
+
+PASS
+
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
+
+## value
+
+PASS
+
+D_(6,3) is explicitly posed as an exceptional mixed-dimensional graph domination complex in original literature. The complete S6 characters in two adjacent homological degrees sharpen a prior exact wedge decomposition in a canonical example, with nontrivial irreducible content and invariant-vanishing consequences; no paper-size or unbounded-family theorem needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.

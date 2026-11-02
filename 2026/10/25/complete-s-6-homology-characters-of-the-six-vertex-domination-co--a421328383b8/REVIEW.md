@@ -1,11 +1,21 @@
-# Self-review
+# Independent mathematical audit
 
-**Correctness — PASS.** The complete face census and exact integral chain elimination certify the two reduced rational homology degrees without assuming the previously published wedge result. The elimination uses only unit pivots; the kernel-coordinate character trace, injective top boundary and reduced Euler–Poincaré identity yield every conjugacy-class trace. Independent mathematical identities for signed chain maps, boundary squares, and irreducible character orthogonality are all checked in `artifacts/verify.py`. The claim is specifically rational and concerns one finite complex.
+## correctness
 
-**Originality — PASS on inspected evidence.** The founding paper by González and Hoekstra-Mendoza computes related nonequivariant complexes and explicitly highlights the Euler characteristic of \(D_{6,3}\). A subsequent exact same-object calculation establishes its mixed-dimensional wedge of \(115\) and \(24\) spheres, not the label-permutation characters. A published uniform Specht classification concerns \(D_{n,n-2}\), a different domination threshold with degree-two homology. Searches for equivalents, broader implications, tables, and parameter reductions found no covering rational \(S_6\)-module calculation. A differently indexed equivalent result remains possible.
+PASS
 
-**Value — PASS.** The first mixed-dimensional domination complex is mathematically motivated by the original source's question. Its full rational symmetry modules distinguish label permutations that are invisible in ordinary homotopy and homology ranks. The multiplicity-three \(S^{(3,2,1)}\) summand in degree four and the lack of invariant vectors in either degree are nontrivial structural conclusions, rather than a small numerical extension.
+For D_(6,3), an edge set has domination >=3 iff no pair of closed neighborhoods covers all six labeled vertices; direct enumeration of 2^15 edge masks gives exactly 4502 faces of dimensions 0..6, counts 15,105,455,1185,1647,915,180. Independently recomputed mod-two full boundary ranks 14,91,364,821,711,180 and separate exact integer unit-pivot elimination for differential degrees 5 and 6 (ranks711 and180, ker d5 dimension204). A freely normalized kernel basis gives all eleven signed conjugacy-class traces, verifying H4 dim115 and H5 dim24 and table; Specht inner products/character theory give asserted irreducible multiplicities with correct dimensions. This exhaustive finite argument covers the one stated graph only; no n-uniform inference.
 
-**Closest sources and limitations.** The original paper is arXiv:1901.07130 (first public 2019-01-22; primary 55P15). The exact nonequivariant source and the different-threshold Specht source are cited and compared in `RESULT.md` and `AUDIT.json`. The calculation does not establish an integral representation-lattice or any classification for the larger filtration family. The reproducibility code is an exact finite proof certificate, not an independent audit.
+## originality
 
-Self-review: passed. Independent audit: not yet performed.
+PASS
+
+Best-of-knowledge distinction from named prior results, comparing the precise final claim, hypothesis domain and representations rather than keywords; checks below and risks explicitly limit global priority claims.
+
+## value
+
+PASS
+
+D_(6,3) is explicitly posed as an exceptional mixed-dimensional graph domination complex in original literature. The complete S6 characters in two adjacent homological degrees sharpen a prior exact wedge decomposition in a canonical example, with nontrivial irreducible content and invariant-vanishing consequences; no paper-size or unbounded-family theorem needed.
+
+The dated certificate retains the supplied scientific assessment, sources and limitations.
