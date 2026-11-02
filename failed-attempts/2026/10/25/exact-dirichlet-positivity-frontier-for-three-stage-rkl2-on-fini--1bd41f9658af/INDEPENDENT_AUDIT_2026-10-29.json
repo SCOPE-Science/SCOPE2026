@@ -1,0 +1,106 @@
+{
+  "audit_date_utc": "2026-10-29",
+  "audited_at_utc": "2026-10-29T04:16:49Z",
+  "axes": {
+    "correctness": {
+      "evidence": [
+        "Assigned RESULT.md and source blob b3044b792be87531503584e287720e017d4432c4",
+        "Independent exact bounded matrix checks: RKL2_EXACT_MATRIX_PASS 77",
+        "Critical roots (15-sqrt(30))/13 and (15-sqrt(15))/14; boundary-adjacent entry sign"
+      ],
+      "rationale": "Rebuilt R(c)=I+cM+(c^2/2)M^2+(c^3/15)M^3. For N>=3 the boundary first off-diagonal is c(15-30c+14c^2)/15; for N=2 it is c(15-30c+13c^2)/15. Every other distance and diagonal entry is nonnegative through the corresponding smaller root; p_b is negative above that root up to 5/4. The companion independent integer-matrix checker checked 77 finite entries/cases; proof of all N follows from tridiagonal band geometry, not sampling.",
+      "residual_risks": [
+        "No assertions for other stages, nonuniform/multidimensional grids or stronger notions of monotonicity"
+      ],
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Tan–Aslam–Bertozzi addresses periodic/Neumann conditions; Dawes includes Dirichlet matrices and explicit stage-three sign boundary."
+        ],
+        "reasoning": "The broader Dirichlet analysis of Dawes implies the main N>=3 cutoff; the boundaryless/Neumann theorem is different and does not by itself imply it.",
+        "searches": [
+          "Tan Aslam Bertozzi arXiv:2507.17062 Theorem 7(b)",
+          "Dawes 2021 §6.1.3",
+          "Three-stage RKL2 stability polynomial finite Dirichlet path heat equation monotonicity positivity sharp CFL 0.794786 0.732521"
+        ]
+      },
+      "checked_sources": [
+        "DOI:10.1016/j.compfluid.2020.104762",
+        "arXiv:2507.17062",
+        "https://szaghi.github.io/llm-wiki/bundles/ode-integration/sources/dawes-2021"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Prior: d_e^*=(15-sqrt(15))/35 for s=3; current: c^*=(15-sqrt(15))/14, with c=(5/2)d_e."
+        ],
+        "reasoning": "The main theorem is a direct algebraic rescaling of published stage-three Dirichlet positivity. A tiny N=2 exception is not a repaired, separately assessed final claim, so original is rejected rather than laundered by a disclaimer.",
+        "searches": [
+          "DOI:10.1016/j.compfluid.2020.104762",
+          "https://szaghi.github.io/llm-wiki/bundles/ode-integration/sources/dawes-2021"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Dawes reader records stage-three RKL2 threshold d_e=(15-sqrt(15))/35 and its positive-matrix Dirichlet interpretation. For s=3 the RKL2 forward-Euler scale h_e=(2/5)h, so c=(5/2)d_e=(15-sqrt(15))/14 exactly."
+        ],
+        "reasoning": "The numerical/radical identity plus matched one-step RKL2 polynomial and Dirichlet stencil makes the dominant claimed positive-orthant threshold already published under an alternative timestep normalization.",
+        "searches": [
+          "Three-stage RKL2 stability polynomial finite Dirichlet path heat equation monotonicity positivity sharp CFL 0.794786 0.732521",
+          "Dawes 2021 DOI:10.1016/j.compfluid.2020.104762 §6.1.3",
+          "https://szaghi.github.io/llm-wiki/bundles/ode-integration/sources/dawes-2021"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "Dawes source-reading digest lists the exact algebraic cutoff rather than only a plotted qualitative nonmonotonicity zone."
+        ],
+        "reasoning": "This is exact prior algebraic coverage, not merely failure to find a matching numerical table; the N=2 truncated-endpoint subcase is not documented as a separate prior table.",
+        "searches": [
+          "Three-stage RKL2 stability polynomial finite Dirichlet path heat equation monotonicity positivity sharp CFL 0.794786 0.732521",
+          "Dawes 2021 printed coefficient/root for RKL2 3-stage"
+        ]
+      },
+      "rationale": "The leading all-N>=3 positivity threshold is an explicitly covered corollary of Dawes (2021) Dirichlet RKL2 stage-three boundary threshold, after converting the Euler substep diffusion number. A detailed independently published source-reading record cites the same radical at 3-stage RKL2; original paper was not obtained directly, so uncertainty in its exact boundary model is recorded. The isolated N=2 finite truncation remains different, but cannot establish originality of the original all-N>=3 main claim.",
+      "residual_risks": [
+        "Direct reading of Dawes version of record blocked by authorized retrieval vpn_disconnected; detailed secondary reading record could mischaracterize endpoint closure, although exact coefficient identity supports equivalence.",
+        "Two-node degenerate special case not separately shown pre-existing, but cannot save broad covered original."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "Strong evidence of exact prior coverage; primary 23-page full text not personally read",
+          "evidence": "https://szaghi.github.io/llm-wiki/bundles/ode-integration/sources/dawes-2021 lines 79-103; Oxford institutional retrieval blocked vpn_disconnected",
+          "identifier_or_url": "DOI:10.1016/j.compfluid.2020.104762",
+          "material_read": "Publisher bibliographic abstract and detailed attributed source-reading digest, especially cited §6.1.3, Eq.(19), appendix; original PDF inaccessible",
+          "method": "Secondary source review with explicit formula, crosschecked algebraically against reconstructed stability polynomial",
+          "title": "Some properties of the Runge-Kutta-Legendre super-time-stepping explicit methods",
+          "trigger": "Same method/stage, boundary model and positivity notion"
+        },
+        {
+          "assessment": "Different periodic/Neumann/boundaryless hypotheses; not the decisive covering result",
+          "evidence": "Assigned RESULT.md relationship-to-prior-work section",
+          "identifier_or_url": "arXiv:2507.17062",
+          "material_read": "Accessible paper description and scope in assigned RESULT.md and internet index; not its complete derivations",
+          "method": "Abstract-level comparison only",
+          "title": "Explicit Monotone Stable Super-Time-Stepping Methods for Finite Time Singularities",
+          "trigger": "Three-stage RKL positivity and bulk stability interval"
+        }
+      ],
+      "status": "FAIL"
+    },
+    "value": {
+      "evidence": [
+        "Dawes 2021 stage-three exact Dirichlet threshold",
+        "Simple 2x2 matrix-multiplication exception"
+      ],
+      "rationale": "Dirichlet endpoint positivity is a motivated numerical property, but the all-N>=3 sharp frontier is an existing stage-three formula in the older primary literature and its simple N=2 finite-endpoint variant does not constitute sufficient new structural or mathematical value for the original claimed finding. This is not a judgment that the old result itself is unimportant.",
+      "residual_risks": [
+        "May have limited independent pedagogic utility as a normalization check, but novelty/value of the original finding do not survive strong coverage."
+      ],
+      "status": "FAIL"
+    }
+  },
+  "disposition": "failed",
+  "schema_version": 1
+}
