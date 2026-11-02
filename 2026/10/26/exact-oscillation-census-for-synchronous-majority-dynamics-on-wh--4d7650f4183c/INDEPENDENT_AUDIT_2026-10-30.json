@@ -1,0 +1,107 @@
+{
+  "audit_date_utc": "2026-10-30",
+  "audited_at_utc": "2026-10-30T09:14:00.338994Z",
+  "axes": {
+    "correctness": {
+      "rationale": "The symmetric adjacency matrix with one added hub self-weight when n is even gives strictly nonzero odd local fields, and the integer Lyapunov -s(t+1)^T W s(t) decreases strictly unless s(t+2)=s(t); hence eventual period at most two. With constant hub 0, the rim follows AND then AND; the identity A(A(x))_i=x_(i-2)x_i x_(i+2) forces constant values along each step-two cycle, and hub majority leaves precisely the two unanimous fixed states and two fixed-hub genuine two-cycle orbits when n even (accounting also for complements). With flipping hub, the rim returns iff no isolated 1 along each step-two cycle, with exact strict inequalities 2a>n and 2b<n. Cyclic runs of 1 length >=2, separated by zero-runs, have coefficient (ell/r) C(a-r-1,r-1) C(ell-a-1,r-1); the n odd/even G_n/G_(n/2)^2 polynomial counts labeled states without rotation quotient. Every orbit has one hub-zero state, so B_n counts orbits, not twice the number. For n>=96 the injective concatenations of 110 and 1100 on the step-two cycles give at least 2^(n/12) flipping cycles. Independent direct update enumeration for n=4..13 and independent run count agreed exactly; finite tests do not prove all n.",
+      "status": "PASS"
+    },
+    "originality": {
+      "broader_coverage": {
+        "evidence": [
+          "Resultary top hit uses parity automata, with period four possible; present update is spin-majority with period at most two."
+        ],
+        "reasoning": "Neither general symmetric threshold convergence nor related parity orbit-count theorems state the wheel-specific exact labeled cycle census.",
+        "searches": [
+          "synchronous majority dynamics wheel graph exact two cycles oscillation count [Resultary semantic, 10]",
+          "Resultary 2026/10/11/SCOPE-sharp-period-four-census-for-complete-multipartite-parity-automa--acea41c73be7"
+        ]
+      },
+      "checked_sources": [
+        "Turau arxiv:2202.01580 full paper",
+        "Zehmakan arxiv:2302.06760 full paper",
+        "Nakar--Ron arxiv:2205.08972 full paper",
+        "Resultary q2 parity-automata hits"
+      ],
+      "claim_vs_prior_implication": {
+        "evidence": [
+          "Tree arguments cannot directly cover a rim cycle with universal hub. Cycle-only threshold results lack the changing hub coupling; standard period-two Lyapunov explains duration, not number of attractors."
+        ],
+        "reasoning": "The complete finding is neither directly implied by classical period-two theorem nor by the inspected graph-specific formulas.",
+        "searches": [
+          "Turau 2022 2202.01580",
+          "Zehmakan 2023 2302.06760",
+          "Nakar Ron 2022 2205.08972"
+        ]
+      },
+      "equivalent_formulations": {
+        "evidence": [
+          "Turau studies two-cycles on trees; Zehmakan studies majority stabilization and cycles; Nakar--Ron study one-dimensional local self-inclusive majority automata."
+        ],
+        "reasoning": "Although all are equivalent only at the broad synchronous-threshold paradigm, their graph neighborhoods differ and do not yield the wheel hub-flip constraints or count.",
+        "searches": [
+          "synchronous majority dynamics wheel graph exact two cycles oscillation count [Resultary semantic, 10]",
+          "Turau arxiv:2202.01580",
+          "Zehmakan arxiv:2302.06760",
+          "Nakar Ron arxiv:2205.08972"
+        ]
+      },
+      "exact_database_or_table": {
+        "evidence": [
+          "The displayed G_l enumerates binary step-two no-isolated-one words with two sufficient strict hub inequalities; the checked earlier papers provide no matching wheel table."
+        ],
+        "reasoning": "No searched finite table establishes all n or the binomial generating series; searches cannot prove absence.",
+        "searches": [
+          "synchronous majority dynamics wheel graph exact two cycles oscillation count [Resultary semantic, 10]",
+          "wheel majority dynamics attracting two cycles count labeled states"
+        ]
+      },
+      "rationale": "Classical symmetric threshold-network period-at-most-two and majority dynamics on trees/cycles are prior. The wheel with universal hub is neither a tree nor a local-radius cycle automaton, and prior accessible full articles do not give this exact hub-flip generating polynomial or exponential count. Resultary parity-automata studies use XOR, not majority. Equivalent wheel threshold-network calculations remain possible.",
+      "residual_risks": [
+        "A wheel majority cycle census may be buried in earlier symmetric-threshold-network literature.",
+        "No attraction basin sizes or asymptotic exponential growth constant claimed."
+      ],
+      "source_inspections": [
+        {
+          "assessment": "NOT_COVERING_WHEEL",
+          "evidence": "Tree restriction excludes wheels with a rim cycle.",
+          "identifier_or_url": "https://arxiv.org/abs/2202.01580",
+          "material_read": "Full accessible paper with graph scope and results",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Fixed Points and 2-Cycles of Synchronous Dynamic Coloring Processes on Trees",
+          "trigger": "Prior structural two-cycle classification"
+        },
+        {
+          "assessment": "NOT_COVERING_WHEEL_CENSUS",
+          "evidence": "No wheel universal hub and no G_l hub-flipping orbit formula.",
+          "identifier_or_url": "https://arxiv.org/abs/2302.06760",
+          "material_read": "Full accessible paper, emphasis on cycles and random dynamics",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "Random Majority Opinion Diffusion: Stabilization Time, Absorbing States, and Influential Nodes",
+          "trigger": "Potential stronger majority configurations count"
+        },
+        {
+          "assessment": "DIFFERENT_NEIGHBORHOOD_RULE",
+          "evidence": "Local self-inclusive cycle automaton not equivalent to open-neighbor wheel with one global hub.",
+          "identifier_or_url": "https://arxiv.org/abs/2205.08972",
+          "material_read": "Full accessible paper on radius-local self-inclusive one-dimensional automata",
+          "method": "Read actual primary full text from lawful public PDF, with page screenshot inspection of the PDF; compared its methods, theorem hypotheses and conclusion with the reviewed claim.",
+          "title": "The Structure of Configurations in One-Dimensional Majority Cellular Automata",
+          "trigger": "Possibility that a circle-majority theorem is equivalent"
+        }
+      ],
+      "status": "PASS"
+    },
+    "value": {
+      "rationale": "The coexistence of exactly two fixed points with exponentially many distinct two-cycle attractors is a substantial structural distinction for synchronous consensus/majority models. The explicit finite generating polynomial gives exact labeled counts for every graph size and rigorously distinguishes reversing-hub from fixed-hub oscillators; none is mere code enumeration.",
+      "status": "PASS"
+    }
+  },
+  "disposition": "passed",
+  "limitations": [
+    "Only undirected unweighted wheel and deterministic synchronous open-neighbor majority with tie retention.",
+    "B_n is number of orbits, not basin probability; exponential bound is not sharp growth constant.",
+    "Unknown prior wheel calculations under threshold-network synonyms remain possible."
+  ],
+  "schema_version": 1
+}
